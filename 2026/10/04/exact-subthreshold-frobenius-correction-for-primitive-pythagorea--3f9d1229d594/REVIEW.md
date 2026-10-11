@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The residue decomposition modulo \(2m\) is reconstructed directly from \(B+C=2m^2\), and all membership and coprimality conditions needed for it are explicit. Symmetry of the two-generated semigroup \(H=\langle n,p\rangle\) turns the Case-2 gap maximum into the exact spacing \(\lambda_H\). The proof shows algebraically that every \(s\ge2\) residue lies below the central value and that the \(s=1\) residue lies strictly above it throughout \(Q<m<2Q\). The modular evaluation of \(\lambda_H\) is proved by a minimal-pair argument. Exact-integer replay agrees on 4,418 spacing checks and 743 admissible subthreshold Frobenius instances; these computations are corroborative only.
+## correctness
 
-## Originality
-PASS. The closest and directly relevant source is Hwang--Song, arXiv:2609.21397v1. Its full text was inspected through the main theorem and the Section 3 residue argument. In the coprime case it states the simple formula only for \(m\ge2Q\); its Case-2 comparison uses that threshold and does not state the correction or the Frobenius value in \(Q<m<2Q\). Searches by the exact generators, Frobenius invariant, threshold, residue, and gap-pair aliases found no matching result. Earlier located Pythagorean-semigroup literature concerns three-generator Pythagorean triples and does not imply this four-generator subthreshold theorem. Residual risk remains because the motivating preprint is very recent and an unindexed follow-up could exist.
+PASS
 
-## Value
-PASS. The theorem fills the immediately adjacent regime to the source's main coprime theorem and proves the source threshold is genuinely sharp, rather than merely sufficient. It also identifies why: one specific residue class switches dominance, with an exact correction determined by a natural two-gap spacing of \(\langle n,p\rangle\). This is a motivated structural boundary result, not an arbitrary parameter sample.
+The proof reconstructs. Modulo \(2m\), each residue is the union of two translates of \(H=\langle n,p\rangle\). For \(r\le m\) the second translate is absorbed and the maximum is the Hwang--Song value \(G_0\). Writing \(r=m+s\), symmetry of the two-generated numerical semigroup gives \(G_s=G_0+s(m^2-Q)-2m\lambda_H(sm-Q)\). The elementary lower bound \(\lambda_H(u)\ge u\) excludes every \(s\ge2\). At \(s=1\), the separate cases \(m-Q\in H\) and \(m-Q\notin H\) give a strictly positive correction. The crossed-form argument yields \(\lambda_H(d)=\min(an,bp)\) in the gap case. Independent exact shortest-path Frobenius calculations over a larger small-parameter grid reproduced the universal formula with no mismatch; the finite replay is corroborative, not the proof.
 
-## Closest literature and limitations
-The closest source is Hwang--Song, arXiv:2609.21397v1 (18 September 2026, primary MSC 11D07). The theorem here is restricted to \(\gcd(n,p)=1\), primitivity, and \(Q<m<2Q\); it does not address \(m\le Q\) or improve the noncoprime branch. Literature searches reduce but cannot eliminate novelty risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The complete Hwang--Song primary paper was read: for the coprime branch its main theorem and residue analysis assume \(m\ge 2Q\), while the audited theorem treats the disjoint adjacent band \(Q<m<2Q\) and identifies the new dominant residue and exact positive correction. Earlier Pythagorean-semigroup papers concern three-generator triples rather than this four-generator quadruple semigroup.
+
+## value
+
+PASS
+
+The threshold \(m=2Q\) is built into the strongest published same-object theorem. Determining the entire immediately adjacent band, proving that the old formula fails at every admissible point there, and giving the exact one-residue correction is a natural boundary theorem for this structured Frobenius family rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

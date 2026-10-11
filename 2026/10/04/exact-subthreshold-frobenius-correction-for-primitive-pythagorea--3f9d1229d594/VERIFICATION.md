@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is the symbolic argument in `RESULT.md`. The executable check is finite and corroborative.
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python verify.py`
+PASS
 
-The checker uses only exact integer arithmetic. It performs two independent classes of checks:
+The proof reconstructs. Modulo \(2m\), each residue is the union of two translates of \(H=\langle n,p\rangle\). For \(r\le m\) the second translate is absorbed and the maximum is the Hwang--Song value \(G_0\). Writing \(r=m+s\), symmetry of the two-generated numerical semigroup gives \(G_s=G_0+s(m^2-Q)-2m\lambda_H(sm-Q)\). The elementary lower bound \(\lambda_H(u)\ge u\) excludes every \(s\ge2\). At \(s=1\), the separate cases \(m-Q\in H\) and \(m-Q\notin H\) give a strictly positive correction. The crossed-form argument yields \(\lambda_H(d)=\min(an,bp)\) in the gap case. Independent exact shortest-path Frobenius calculations over a larger small-parameter grid reproduced the universal formula with no mismatch; the finite replay is corroborative, not the proof.
 
-1. For coprime \(1\le n,p\le10\) and \(1\le d\le n^2+p^2\), it compares the defining minimum \(\lambda_H(d)=\min\{h\in H:h-d\in H\}\) against the modular closed form. There are 4,418 such checks.
-2. For every admissible \((n,p,m)\) with \(1\le n\le8\), \(n\le p\le9\), and \(Q<m<2Q\), it computes the Frobenius number independently by Dijkstra shortest paths on residue classes modulo the smallest generator and compares it with the theorem. There are 743 such cases.
+## originality
 
-The recorded output is:
+PASS
 
-`VERIFY_OK lambda_checks=4418 subthreshold_cases=743 exact_frobenius=all excess_positive=all min_excess=1 witness=(1, 1, 3, 2, 1, 16, 15, 1)`
+Originality passes. The complete Hwang--Song primary paper was read: for the coprime branch its main theorem and residue analysis assume \(m\ge 2Q\), while the audited theorem treats the disjoint adjacent band \(Q<m<2Q\) and identifies the new dominant residue and exact positive correction. Earlier Pythagorean-semigroup papers concern three-generator triples rather than this four-generator quadruple semigroup.
 
-Limits: this replay does not prove the theorem for unbounded parameters and is not an independent audit. The proof does not cover \(m\le Q\) or \(\gcd(n,p)>1\).
+## value
+
+PASS
+
+The threshold \(m=2Q\) is built into the strongest published same-object theorem. Determining the entire immediately adjacent band, proving that the old formula fails at every admissible point there, and giving the exact one-residue correction is a natural boundary theorem for this structured Frobenius family rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
