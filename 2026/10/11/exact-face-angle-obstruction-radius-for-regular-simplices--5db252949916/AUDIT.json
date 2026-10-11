@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For the centered regular-simplex Gram matrix, face-direction spaces intersect nontrivially exactly when their vertex sets share at least two vertices. Disjoint face-direction spaces are orthogonal. If two faces share exactly one vertex and have dimensions r and s, the Gram blocks are I+J and the cross block is all ones, so the largest normalized inner product is sqrt(r/(r+1))*sqrt(s/(s+1)). The source's trivial-intersection condition gives r+s<=n; strict monotonicity forces r+s=n and balancing gives r=floor(n/2), s=ceil(n/2). Substitution into the source's exact formula for M yields the displayed radius. An exact checker independently enumerates all face pairs through dimension 12.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard simplex geometry gives special dihedral-angle formulas but does not dominate the all-face optimization used here.",
+        "The source's general polytope theorem is broader in objects but weaker in explicitness: it leaves c unevaluated.",
+        "No located broader principal-angle theorem was specialized in the literature to imply the exact maximum and equality type claimed here."
+      ],
+      "reasoning": "The general theorem supplies the framework and consequence, while the new claim solves its finite geometric optimization exactly for the canonical regular simplex. A broader theorem would cover this only if it explicitly controlled the largest principal cosine among all simplex face-direction pairs with trivial intersection; no such covering statement was found.",
+      "searches": [
+        "\"regular simplex\" \"angle between two faces\" arbitrary dimensions",
+        "\"regular simplex\" affine hulls faces angle",
+        "principal angles subspaces regular simplex faces",
+        "Proposition 4.3 convex polytope far point local maximizer regular simplex explicit c"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.07252v1",
+      "Journal of Convex Analysis full text of A Generalization of a Classical Geometric Extremum Problem",
+      "Published-finding index searches for regular-simplex face-subspace angles and Proposition 4.3 specializations",
+      "Targeted literature searches for principal angles, Friedrichs angles, affine-hull face angles, and arbitrary face pairs of a regular simplex",
+      "Current and immediately preceding owned geometry ledgers for source and claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.3 proves existence of a bounded exceptional region for every polytope and explicitly defines c and M.",
+        "The source gives no regular-simplex computation of c and no equality classification for the maximizing pair of face spaces.",
+        "The new proof uses regular-simplex affine independence and Gram blocks to evaluate the source's maximum exactly."
+      ],
+      "reasoning": "The source implies the final far-observer conclusion once c is known, but it does not imply the closed-form value of c without solving a separate all-face angular optimization. That computation and its equality geometry are the new content; the explicit M_n is then a nontrivial source consequence.",
+      "searches": [
+        "arXiv 2506.07252 Proposition 4.3 c M U regular simplex",
+        "A Generalization of a Classical Geometric Extremum Problem regular simplex",
+        "regular simplex exposed face direction subspaces maximal cosine principal angle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper defines the maximum over exposed-face direction spaces but gives no regular-simplex evaluation.",
+        "Located regular-simplex angle references and search results concern facet dihedral angles or other functionals, not the maximum over all trivially intersecting face-direction spaces.",
+        "No located result states the balanced shared-vertex equality classification."
+      ],
+      "reasoning": "An equivalent formulation must optimize over every admissible pair of face-direction spaces, not merely compute the angle between facets or a single fixed pair of faces. The searched formulations did not provide that optimization or the source-specific radius consequence.",
+      "searches": [
+        "regular simplex exposed face direction subspaces maximal cosine principal angle",
+        "regular simplex face affine hull angle disjoint faces shared vertex principal angle",
+        "regular simplex face subspace Friedrichs angle sqrt rs over r+1 s+1",
+        "\"regular simplex\" \"principal angle\" face subspaces",
+        "\"simplex\" \"Friedrichs angle\" faces"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked published-finding index returned nearby regular-simplex results on sections, reflections, facet-distance coordinates, and hyperbolic thickness, but none with this angular constant or radius.",
+        "The current and immediately preceding research ledgers contain no source identifier arXiv:2506.07252 and no equivalent face-angle optimization claim."
+      ],
+      "reasoning": "Neither the indexed published findings nor the checked owned records contain the source-specific constant, the formula sqrt(rs/((r+1)(s+1))), or the balanced shared-vertex extremizer classification.",
+      "searches": [
+        "regular simplex exposed face direction subspaces maximal cosine principal angle",
+        "regular simplex face affine hull angle disjoint faces shared vertex principal angle",
+        "regular simplex face subspace Friedrichs angle sqrt rs over r+1 s+1",
+        "Proposition 4.3 convex polytope far point local maximizer regular simplex explicit c"
+      ]
+    },
+    "rationale": "The primary paper leaves its angular constant as an abstract maximum over finitely many exposed-face direction pairs and does not evaluate it for regular simplices. Searches for arbitrary regular-simplex face-subspace angles, principal/Friedrichs-angle formulations, and the source-specific proposition found no statement giving this maximum, its balanced equality case, or the resulting explicit radius.",
+    "residual_risks": [
+      "Classical simplex-angle literature may encode the same face-subspace cosine under older principal-angle or Friedrichs-angle terminology not surfaced by the targeted searches.",
+      "The explicit radius M_n is sufficient because it is inherited from the source's proof; it is not claimed to be globally minimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: the theorem defines c abstractly for a general polytope but does not evaluate it for regular simplices or classify maximizing face pairs.",
+        "evidence": "The source sets c to a finite maximum over pairs of exposed-face direction spaces with trivial intersection, and sets M=(1+1/sqrt(1-c^2))/2. No regular-simplex specialization appears in the inspected section.",
+        "identifier_or_url": "arXiv:2506.07252v1; Journal of Convex Analysis full text",
+        "material_read": "The convex-polytope section containing Proposition 4.3, Lemma 4.4, the definition of the family of face-direction subspaces, the definitions of c, M and U, and the proof connecting those constants to the far-observer conclusion.",
+        "method": "Primary full-text inspection, including rendered-page inspection of the proposition and constant definitions.",
+        "title": "A Generalization of a Classical Geometric Extremum Problem",
+        "trigger": "Primary recent source containing Proposition 4.3 and the abstract angular obstruction constant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5db25294-9916-495a-8659-bfc420166ba9",
+  "value": {
+    "rationale": "The source's far-observer theorem is quantitative only after a finite but potentially nontrivial angular optimization over all exposed-face direction pairs. For the canonical regular simplex, the new result turns that implicit obstruction into a closed all-dimensional formula and classifies exactly which face pairs control it. This supplies a natural explicit cutoff and a structural benchmark for the general theorem rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
