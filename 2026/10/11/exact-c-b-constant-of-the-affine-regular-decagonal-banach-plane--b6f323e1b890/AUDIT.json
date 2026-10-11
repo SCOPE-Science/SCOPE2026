@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The support-functional criterion exhausts Birkhoff pairs on a polygon: an interior facet point has a unique norming facet and hence a unique kernel direction, while at a vertex the convex segment of adjacent norming facets sweeps one opposite-perpendicular facet. For the regular decagon this reduces, after dihedral symmetry and swapping the symmetric objective, to x=(1,t), |t|<=tan(pi/10), and y=(0,sec(pi/10)). The directions of x+y and x-y stay in the two claimed normal sectors, so their norms are affine in t. Their squared difference simplifies to a positive multiple of t, forcing the maximum to the vertex endpoint. Exact substitution gives ||x+y||=(1+sqrt(5))/2 and ||x-y||=sqrt(5)-1, hence C_B=(5sqrt(5)-9)/8.",
+    "risks": [
+      "The reduction uses the support-functional characterization of Birkhoff orthogonality; it is stated explicitly and the polygonal incidence is checked in the bundled script.",
+      "The exact theorem is for the decagon only; no extrapolation to all regular Radon polygons is used."
+    ],
+    "sources": [
+      "doi:10.1007/s10013-024-00696-w for the exact definition of C_B and its Birkhoff-orthogonality setting",
+      "RESULT.md",
+      "verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Du--Li prove only the universal bound 0<=C_B<=3/4 and characterize the upper endpoint among Radon planes by the affine-regular hexagon.",
+        "Mizuguchi proves A2<=3/2 on Radon planes and characterizes equality by the affine-regular hexagon, but does not determine C_B for nonhexagonal Radon planes.",
+        "The closest public decagon record concerns Banach--Mazur distance and has no implication to the Birkhoff cosine quotient."
+      ],
+      "reasoning": "The source inequalities are not equalities for a regular decagon and do not imply the displayed radical. No broader inspected theorem specializes to the exact decagonal C_B value.",
+      "searches": [
+        "C_B affine regular decagon Radon plane",
+        "D(X) C_B regular decagon Radon",
+        "C_B(X) regular decagonal Banach plane Du Li"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s10013-024-00696-w",
+      "doi:10.1007/s00605-021-01540-w",
+      "2026/10/4/SCOPE-banach-mazur-distance-from-the-parallelogram-to-the-regular-deca--762b51c74443",
+      "2026/10/4/SCOPE-exact-t-g-constant-of-the-regular-octagonal-banach-plane--3b6f71e2e4f4",
+      "2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Du--Li Theorem 3.12 characterizes C_B=3/4 in Radon planes by the affine-regular hexagon; it does not give nonextremal values.",
+        "Mizuguchi Theorem 3.1 gives A2<=3/2 and Theorem 5.1 characterizes equality by the affine-regular hexagon; C_B is not defined there.",
+        "The public regular-decagon Banach--Mazur result optimizes affine containment rather than Birkhoff-orthogonal pairs."
+      ],
+      "reasoning": "The accepted claim requires a new exact optimization within the decagonal Birkhoff incidence relation. The strongest relevant prior theorems provide only global Radon bounds or different invariants, so the radical does not follow as a corollary.",
+      "searches": [
+        "doi:10.1007/s10013-024-00696-w C_B Radon affine regular hexagon",
+        "doi:10.1007/s00605-021-01540-w A2 Radon plane affine regular hexagon",
+        "D(X) C_B regular decagon Radon",
+        "2026/10/4/SCOPE-banach-mazur-distance-from-the-parallelogram-to-the-regular-deca--762b51c74443"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Du--Li define C_B as the supremum of cos ang_i(x,y) over unit Birkhoff-orthogonal pairs, so the cosine-of-i-angle wording is an exact alias.",
+        "The inspected Du--Li paper has no regular-decagon value or affine-regular-decagon example.",
+        "No published-finding corpus hit under either notation states the radical (5sqrt(5)-9)/8."
+      ],
+      "reasoning": "The check used both the symbol C_B and the defining cosine-angle interpretation, preventing a notation-only miss. A covering result would have to determine the same supremum on the same affine-isometry class.",
+      "searches": [
+        "C_B(X) regular decagonal Banach plane Du Li",
+        "CB regular decagon Birkhoff isosceles cosine constant",
+        "cos i-angle Birkhoff regular decagon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-radical search returned no matching C_B record.",
+        "No published-finding corpus result reports C_B for a regular or affine-regular decagon.",
+        "The closest same-object record is the Banach--Mazur distance result 2026/10/4/SCOPE-banach-mazur-distance-from-the-parallelogram-to-the-regular-deca--762b51c74443."
+      ],
+      "reasoning": "The exact numerical expression, invariant symbol, and geometric aliases were all queried. Negative index evidence is combined with full-text source inspection and statement-level implication comparison.",
+      "searches": [
+        "(5 sqrt5 - 9)/8 C_B Banach",
+        "C_B affine regular decagon Radon plane",
+        "cos i-angle Birkhoff regular decagon"
+      ]
+    },
+    "rationale": "The defining Du--Li full text was inspected through the definition of C_B, its general bounds, its relations with D(X) and A2(X), and its Radon-plane extremal theorem. It contains no decagonal computation. The full Mizuguchi Radon-plane paper was inspected through its A2 bound and equality characterization; it studies a different objective and contains no C_B invariant, which postdates it. published-finding corpus searches covered the exact invariant name, cosine/i-angle alias, Radon terminology, affine-regular decagon, the exact radical, and the related D(X) formulation. No covering statement was located.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "An equivalent decagonal computation may exist under the cosine-of-i-angle terminology or another affine normalization not captured by the checked searches.",
+      "The result does not settle a general formula for the regular (4n+2)-gonal Radon family."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: it defines the exact invariant and characterizes the Radon upper endpoint by the affine-regular hexagon, but gives no regular-decagon value.",
+        "evidence": "Published online 14 June 2024; Mathematics Subject Classification 46B20. Theorem 3.12 concerns the affine-regular hexagonal equality case C_B=3/4.",
+        "identifier_or_url": "doi:10.1007/s10013-024-00696-w",
+        "material_read": "Full 17-page publisher text: title/MSC/publication page; Definition and motivation of C_B; Propositions 3.1, 3.3, 3.4 and 3.5; Examples 3.6 and 3.7; Radon-plane Definition 3.11; Theorem 3.12; the later S_1 and C_1 sections; references.",
+        "method": "Full publisher PDF text inspection.",
+        "title": "Some Geometric Constants Related to the Sine Function and Cosine Function in Banach Spaces",
+        "trigger": "Defining primary source for C_B and its strongest Radon-plane theorem."
+      },
+      {
+        "assessment": "CLOSE_BACKGROUND_NOT_COVERING: it bounds A2 and C_NJ in Radon planes and characterizes the affine-regular hexagon at equality, but it predates and does not define C_B and gives no exact decagonal Birkhoff-cosine value.",
+        "evidence": "Published online 3 March 2021; primary MSC 46B20. Theorem 3.1 states A2<=3/2 and Theorem 5.1 identifies the affine-regular-hexagon equality case.",
+        "identifier_or_url": "doi:10.1007/s00605-021-01540-w",
+        "material_read": "Full 16-page publisher text: Radon-plane preliminaries; A2 definition; Theorem 3.1; von Neumann--Jordan estimate; equality analysis; Theorems 5.1 and 5.2.",
+        "method": "Full publisher PDF text inspection.",
+        "title": "The von Neumann–Jordan and another constants in Radon planes",
+        "trigger": "Closest primary Radon-plane source behind the A2 comparison used in the C_B paper."
+      }
+    ],
+    "sources": [
+      "doi:10.1007/s10013-024-00696-w",
+      "doi:10.1007/s00605-021-01540-w"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b6f323e1-b890-451f-b598-9f88dc610bbe",
+  "value": {
+    "rationale": "C_B was introduced specifically to quantify the gap between Birkhoff and isosceles orthogonality and to measure a cosine in Birkhoff-right triangles. The defining paper identifies only the Radon extremizer, the affine-regular hexagon. The affine-regular decagon is the next canonical regular Radon polygon, so its exact nonextremal value gives a natural benchmark showing how far the new invariant has already moved toward the Hilbert value 0. The proof is not merely a table lookup: it identifies the complete Birkhoff incidence reduction and turns the continuous optimization into a sharp one-parameter affine law.",
+    "risks": [
+      "The contribution is a canonical exact benchmark rather than a classification of all regular Radon polygons."
+    ],
+    "sources": [
+      "doi:10.1007/s10013-024-00696-w",
+      "doi:10.1007/s00605-021-01540-w",
+      "RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
