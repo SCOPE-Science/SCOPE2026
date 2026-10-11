@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:55:21.430130Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at tree 14842176d399f0f98f66f460b83f996e53c2cfd7",
+        "Guo--Xiao 2026 primary preprint",
+        "Zalcman 1973 primary article"
+      ],
+      "rationale": "The distributional calculation is correct. Pairing the circular defect with a test function and translating the test function gives an inner kernel \\(-2\\pi i r^2\\bar\\partial\\varphi+O(r^3)\\) uniformly on a fixed compact set, so \\((2\\pi i r^2)^{-1}J_r f\\to\\bar\\partial f\\) in distributions for every \\(f\\in L^1_{\\mathrm{loc}}\\). The assumed local \\(L^1\\)-center little-oh decay then forces \\(\\bar\\partial f=0\\), and standard mollification yields a holomorphic representative. The example \\(f(z)=\\bar z\\) gives exactly \\(2\\pi i r^2\\), confirming the scale.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo--Xiao covers arbitrary continuous data pointwise in the center.",
+          "Zalcman treats arbitrary compactly supported mean-value measures and weak constant-coefficient equations, including low-regularity formulations."
+        ],
+        "reasoning": "Together with convolution smoothing, these broader results dominate the audited conclusion; the change of topology does not create a new mathematical obstruction.",
+        "searches": [
+          "Guo--Xiao complete main theorem/proof",
+          "Zalcman 1973 generalized mean-value/PDE theorem"
+        ]
+      },
+      "checked_sources": [
+        "Guo--Xiao primary preprint",
+        "Zalcman 1973 primary article",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Convolution changes the local L1-center bound into a uniform pointwise \\(o(r^2)\\) bound for each smooth mollification.",
+          "Holomorphy of all mollifications passes to the L1-local limit distributionally.",
+          "Zalcman's necessity proof already extracts the leading differential operator by Taylor expanding test functions against scaled measures."
+        ],
+        "reasoning": "No new nonstandard lemma is required: standard convolution and weak convergence mechanically yield both the holomorphy conclusion and the distributional operator interpretation.",
+        "searches": [
+          "convolve the audited hypothesis with a standard mollifier and apply Guo--Xiao Theorem 1.1",
+          "specialize Zalcman's weak mean-value Taylor expansion to the oriented circle measure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returns the audited finding as the exact match.",
+          "Guo--Xiao proves the continuous pointwise \\(o(r^2)\\) criterion.",
+          "Zalcman explicitly formulates weak PDE consequences of scaled mean-value measures and discusses pointwise asymptotic mean-value conditions, including a holomorphy criterion attributed to Arsove."
+        ],
+        "reasoning": "The audited L1-center theorem is obtained from the prior pointwise theorem by standard mollification, while its distributional formulation is the expected weak limit of the same circle measure.",
+        "searches": [
+          "Resultary query: averaged infinitesimal circular Morera locally integrable L1 centers distributional dbar small circles",
+          "Guo--Xiao arXiv:2608.04540 Theorem 1.1",
+          "Zalcman DOI 10.1007/BF02764713, Theorem 2 and final asymptotic remarks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older database record used the exact L1-center wording."
+        ],
+        "reasoning": "Exact wording is not dispositive because the theorem is a routine corollary of stronger/adjacent prior results.",
+        "searches": [
+          "Resultary exact semantic search for the averaged L1 formulation"
+        ]
+      },
+      "rationale": "The final claim is implication-covered by prior primary results plus routine mollification/distribution theory. Guo--Xiao Theorem 1.1 already proves the pointwise continuous \\(o(r^2)\\) circular Morera theorem. If \\(f\\in L^1_{\\mathrm{loc}}\\) satisfies the audited local \\(L^1\\)-center hypothesis and \\(f_\\varepsilon=f*\\rho_\\varepsilon\\), then on every smaller compact set \\(J_r f_\\varepsilon=(J_r f)*\\rho_\\varepsilon\\) and \\(\\sup|J_r f_\\varepsilon|\\le\\|\\rho_\\varepsilon\\|_\\infty\\|J_r f\\|_1=o(r^2)\\). Guo--Xiao therefore makes every mollification holomorphic, and \\(f_\\varepsilon\\to f\\) in \\(L^1_{\\mathrm{loc}}\\) gives the claimed holomorphic representative. Moreover, Zalcman's 1973 Theorem 2 proves the general test-function/Taylor mechanism connecting scaled mean-value measures with weak constant-coefficient PDEs for low-regularity data, so the more precise distributional kernel limit is also a standard specialization of prior machinery rather than an independent new theorem.",
+      "residual_risks": [
+        "A later exact L1-center statement may exist, but direct implication coverage is already decisive.",
+        "An institutional retrieval request for an additional Zalcman bibliography page was safety-blocked; no retry or bypass was attempted, and that page was not needed for the implication comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_IMPLICATION_COVERAGE",
+          "evidence": "The pointwise continuous theorem, after standard mollification of the audited L1 data, implies the audited holomorphy conclusion.",
+          "identifier_or_url": "arXiv:2608.04540",
+          "material_read": "Primary text pages 1–5 of the six-page preprint, including Theorem 1.1 and its complete proof; direct arXiv/OA full-text retrieval had failed, so authorized institutional retrieval was used.",
+          "method": "authorized full-text access after OA failure",
+          "title": "An Infinitesimal Circular Morera Theorem",
+          "trigger": "Same circle integral, same \\(r^2\\) scale and same holomorphy conclusion."
+        },
+        {
+          "assessment": "BROADER_METHOD_COVERAGE",
+          "evidence": "Theorem 2 identifies weak constant-coefficient PDEs from mean-value measures by the same test-function Taylor mechanism; the final remarks explicitly discuss scaled asymptotic conditions and a holomorphy criterion.",
+          "identifier_or_url": "DOI 10.1007/BF02764713",
+          "material_read": "Primary article material including abstract/introduction, Theorem 2 and its weak-solution proof mechanism, and page 12 asymptotic remarks.",
+          "method": "authorized institutional full-text access after OA search",
+          "title": "Mean values and differential equations",
+          "trigger": "Classical general mean-value/PDE framework and possible low-regularity/asymptotic coverage."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Guo--Xiao Theorem 1.1",
+        "Zalcman weak mean-value framework"
+      ],
+      "rationale": "The L1-center formulation is natural and the proof is correct, but once the recent pointwise theorem and classical weak mean-value machinery are accounted for, the result follows by standard mollification and a first-order distributional Taylor expansion. Under the stated value bar, this is a routine functional-analytic corollary rather than a separately motivated mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "A later exact L1-center statement may exist, but direct implication coverage is already decisive.",
+    "An institutional retrieval request for an additional Zalcman bibliography page was safety-blocked; no retry or bypass was attempted, and that page was not needed for the implication comparison."
+  ],
+  "schema_version": 1
+}
