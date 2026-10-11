@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-The verification is analytic.
+# Independent mathematical audit
 
-The source normalization gives
-\[
-K_\delta(r)=\frac1{2\pi}\int_0^\infty h_\delta(\rho)J_0(r\rho)\rho\,d\rho
-=\frac1{2\pi\delta r}\int_{1-\delta/2}^{1+\delta/2}\rho J_1(r\rho)\,d\rho.
-\]
-For \(1\le r\le\varepsilon/\delta\), this differs from \(J_1(r)/(2\pi r)\) by \(O(\varepsilon r^{-3/2})\). For \(r\ge\varepsilon/\delta\), oscillatory averaging gives \(O(\delta^{-1}r^{-5/2})\), whose \(L^{4/3}(\mathbb R^2)\) contribution is bounded independently of \(\delta\) for fixed \(\varepsilon\).
+## correctness
 
-Thus the logarithmic coefficient is exactly the one from the unit-disc kernel. The standard asymptotic
-\[
-\frac{J_1(r)}{2\pi r}
-=\frac1{\sqrt2\,\pi^{3/2}}r^{-3/2}\cos\!\left(r-\frac{3\pi}4\right)+O(r^{-5/2})
-\]
-and the periodic mean
-\[
-\frac1\pi\int_0^\pi|\cos t|^{4/3}\,dt
-=\frac1\pi\,\mathrm B\!\left(\frac12,\frac76\right)
-\]
-produce the stated constant.
+PASS
 
-No finite computation or numerical sampling is used to establish the limit. The decimal approximation in RESULT.md is descriptive only.
+Radial inversion with the stated Fourier normalization gives \(K_\delta(r)=(2\pi\delta r)^{-1}\int_{1-\delta/2}^{1+\delta/2}\rho J_1(r\rho)\,d\rho\). On \(1\le r\le\varepsilon/\delta\), the transition average differs from the disc kernel \(K_0(r)=J_1(r)/(2\pi r)\) by \(O(\varepsilon r^{-3/2})\). Beyond that scale, one integration by parts in the oscillatory average gives \(O(\delta^{-1}r^{-5/2})\), whose \(L^{4/3}\) tail contributes only \(O_\varepsilon(1)\). The replacement error on the logarithmic core is \(O(\varepsilon\log(1/\delta))+O_\varepsilon(1)\). Finally \(J_1(r)=\sqrt{2/(\pi r)}\cos(r-3\pi/4)+O(r^{-3/2})\), so the radial integral reduces to the periodic mean of \(|\cos|^{4/3}\). Independently recomputing the constants gives \(2\pi(2^{-2/3}\pi^{-2})\cdot \pi^{-1}\mathrm B(1/2,7/6)=2^{1/3}\pi^{-2}\mathrm B(1/2,7/6)\), exactly as claimed.
+
+## originality
+
+PASS
+
+Carbery and Seeger's primary paper uses exactly the same trapezoidal multiplier and Fourier convention. It states that the endpoint kernel norm is comparable to \((\log(1/\delta))^{3/4}\) and explicitly defines its symbol 'approximately' as two-sided comparability; the paper's main exact-sharp result concerns the larger multiplier norm. A full-document search of the primary PDF for the kernel, asymptotic language, Beta functions and Bessel references found no stated leading coefficient for the kernel norm. The audited theorem requires isolating the transition scale and averaging the oscillatory Bessel leading term to obtain a limit rather than comparability. Current Resultary search returned the assigned coefficient as the exact same-object hit and no stronger prior formula.
+
+## value
+
+PASS
+
+The primary paper itself singles out the endpoint kernel scale because it separates from the operator-norm scale. Determining the actual normalized limit for its canonical rough mollifier converts an order statement into a sharp benchmark and identifies the oscillatory angular-average constant. The exact coefficient is narrow but naturally motivated by the sharp endpoint analysis and is not a recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

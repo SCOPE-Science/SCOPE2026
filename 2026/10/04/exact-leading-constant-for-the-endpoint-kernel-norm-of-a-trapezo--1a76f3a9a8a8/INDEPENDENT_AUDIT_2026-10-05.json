@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:11:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e5dc4aeb2fae35c2a5265d2182640a1866cf31aa",
+        "Carbery--Seeger, arXiv:2609.32919 primary PDF from the author's site",
+        "independent coefficient recomputation from the stated Bessel asymptotic"
+      ],
+      "rationale": "Radial inversion with the stated Fourier normalization gives \\(K_\\delta(r)=(2\\pi\\delta r)^{-1}\\int_{1-\\delta/2}^{1+\\delta/2}\\rho J_1(r\\rho)\\,d\\rho\\). On \\(1\\le r\\le\\varepsilon/\\delta\\), the transition average differs from the disc kernel \\(K_0(r)=J_1(r)/(2\\pi r)\\) by \\(O(\\varepsilon r^{-3/2})\\). Beyond that scale, one integration by parts in the oscillatory average gives \\(O(\\delta^{-1}r^{-5/2})\\), whose \\(L^{4/3}\\) tail contributes only \\(O_\\varepsilon(1)\\). The replacement error on the logarithmic core is \\(O(\\varepsilon\\log(1/\\delta))+O_\\varepsilon(1)\\). Finally \\(J_1(r)=\\sqrt{2/(\\pi r)}\\cos(r-3\\pi/4)+O(r^{-3/2})\\), so the radial integral reduces to the periodic mean of \\(|\\cos|^{4/3}\\). Independently recomputing the constants gives \\(2\\pi(2^{-2/3}\\pi^{-2})\\cdot \\pi^{-1}\\mathrm B(1/2,7/6)=2^{1/3}\\pi^{-2}\\mathrm B(1/2,7/6)\\), exactly as claimed.",
+      "residual_risks": [
+        "The endpoint estimate is for the specific trapezoidal profile, not arbitrary radial mollifiers.",
+        "The theorem concerns the convolution-kernel norm, not the larger endpoint multiplier norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating paper supplies the precise multiplier and logarithmic order.",
+          "Classical Bessel references supply asymptotic expansions but do not state this mollifier-specific endpoint integral limit."
+        ],
+        "reasoning": "The coefficient requires combining the exact transition profile with classical oscillatory asymptotics.",
+        "searches": [
+          "Carbery--Seeger, Mollified disc multipliers, arXiv:2609.32919",
+          "classical Bessel asymptotics in Stein--Weiss and Watson as cited by the primary paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.32919",
+        "author-hosted primary PDF on Andreas Seeger's publication page",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Comparability alone leaves the normalized ratio free to oscillate or converge to another constant.",
+          "The transition error and far-tail estimates are required to justify that the sharp-disc oscillatory mean controls the complete logarithmic mass."
+        ],
+        "reasoning": "The exact limit does not follow by a purely formal renaming of the source estimate.",
+        "searches": [
+          "two-sided kernel-norm comparability versus exact logarithmic limit",
+          "classical \\(J_1\\) asymptotic versus transition-controlled replacement of \\(K_\\delta\\) by \\(K_0\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper states only \\(\\|K_\\delta\\|_{4/3}\\asymp(\\log(1/\\delta))^{3/4}\\).",
+          "Its notation section explicitly defines the comparison symbol as two-sided inequalities rather than asymptotic equality.",
+          "No Beta-function coefficient is stated in the searched primary PDF."
+        ],
+        "reasoning": "The exact-limit formulation is strictly sharper than the source's comparability statement.",
+        "searches": [
+          "Resultary query: trapezoidal disc mollifier endpoint kernel \\(L^{4/3}\\) exact leading constant logarithm Bessel Carbery Seeger",
+          "Carbery--Seeger arXiv:2609.32919 / author-hosted primary PDF, introduction and endpoint-kernel remark",
+          "primary-PDF searches for kernel, asymptotic, Beta and Bessel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact coefficient was retrieved."
+        ],
+        "reasoning": "Search absence is secondary to the direct primary-source comparison.",
+        "searches": [
+          "Resultary current search for the exact Beta-function coefficient",
+          "current web search for the mollified-disc kernel endpoint coefficient"
+        ]
+      },
+      "rationale": "Carbery and Seeger's primary paper uses exactly the same trapezoidal multiplier and Fourier convention. It states that the endpoint kernel norm is comparable to \\((\\log(1/\\delta))^{3/4}\\) and explicitly defines its symbol 'approximately' as two-sided comparability; the paper's main exact-sharp result concerns the larger multiplier norm. A full-document search of the primary PDF for the kernel, asymptotic language, Beta functions and Bessel references found no stated leading coefficient for the kernel norm. The audited theorem requires isolating the transition scale and averaging the oscillatory Bessel leading term to obtain a limit rather than comparability. Current Resultary search returned the assigned coefficient as the exact same-object hit and no stronger prior formula.",
+      "residual_risks": [
+        "The leading coefficient may be derivable as a standard exercise from classical asymptotics, but no prior statement was located.",
+        "Older disc-multiplier literature may use a different mollifier normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COMPARABILITY_ONLY",
+          "evidence": "The source records the \\(L^{4/3}\\) kernel norm only up to two-sided constants, while its exact theorem addresses the larger multiplier norm.",
+          "identifier_or_url": "arXiv:2609.32919",
+          "material_read": "author-hosted 16-page primary PDF was searched across the whole document; pages 2 and 4 containing the trapezoidal formula, kernel-norm comparability, notation and endpoint contrast were read and visually inspected",
+          "method": "primary full-text targeted inspection with PDF page verification",
+          "title": "Mollified disc multipliers",
+          "trigger": "exact motivating paper and same trapezoidal profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Carbery--Seeger 2026",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The primary paper itself singles out the endpoint kernel scale because it separates from the operator-norm scale. Determining the actual normalized limit for its canonical rough mollifier converts an order statement into a sharp benchmark and identifies the oscillatory angular-average constant. The exact coefficient is narrow but naturally motivated by the sharp endpoint analysis and is not a recomputation of a known table.",
+      "residual_risks": [
+        "The scientific value is benchmark-level rather than a new multiplier theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The endpoint estimate is for the specific trapezoidal profile, not arbitrary radial mollifiers.",
+    "The theorem concerns the convolution-kernel norm, not the larger endpoint multiplier norm.",
+    "The leading coefficient may be derivable as a standard exercise from classical asymptotics, but no prior statement was located.",
+    "Older disc-multiplier literature may use a different mollifier normalization.",
+    "The scientific value is benchmark-level rather than a new multiplier theorem."
+  ]
+}

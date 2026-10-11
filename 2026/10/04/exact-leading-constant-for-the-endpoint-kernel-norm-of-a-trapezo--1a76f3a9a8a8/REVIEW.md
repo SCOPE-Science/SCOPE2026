@@ -1,17 +1,21 @@
-# Review of Exact leading constant for the endpoint kernel norm of a trapezoidal disc mollifier
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Radial inversion under the source Fourier convention gives \(K_\delta(r)=(2\pi)^{-1}\int h_\delta(\rho)J_0(r\rho)\rho\,d\rho\). Integration by parts against \(d(\rho J_1(r\rho))/d\rho=r\rho J_0(r\rho)\) gives the exact averaged-Bessel formula. On \(1\le r\le\varepsilon/\delta\), the average differs from the disc kernel by \(O(\varepsilon r^{-3/2})\); for \(r\ge\varepsilon/\delta\), oscillatory averaging gives \(O(\delta^{-1}r^{-5/2})\), whose \(4/3\)-power radial integral is \(O_\varepsilon(1)\). Hence only the universal disc-kernel tail contributes to the logarithmic coefficient. The Bessel expansion and the logarithmic mean of the periodic function \(|\cos|^{4/3}\) produce the stated beta-function constant. The quantifiers and boundary ranges are explicit, and no finite experiment is used as an infinite proof.
+PASS
 
-## Originality
+Radial inversion with the stated Fourier normalization gives \(K_\delta(r)=(2\pi\delta r)^{-1}\int_{1-\delta/2}^{1+\delta/2}\rho J_1(r\rho)\,d\rho\). On \(1\le r\le\varepsilon/\delta\), the transition average differs from the disc kernel \(K_0(r)=J_1(r)/(2\pi r)\) by \(O(\varepsilon r^{-3/2})\). Beyond that scale, one integration by parts in the oscillatory average gives \(O(\delta^{-1}r^{-5/2})\), whose \(L^{4/3}\) tail contributes only \(O_\varepsilon(1)\). The replacement error on the logarithmic core is \(O(\varepsilon\log(1/\delta))+O_\varepsilon(1)\). Finally \(J_1(r)=\sqrt{2/(\pi r)}\cos(r-3\pi/4)+O(r^{-3/2})\), so the radial integral reduces to the periodic mean of \(|\cos|^{4/3}\). Independently recomputing the constants gives \(2\pi(2^{-2/3}\pi^{-2})\cdot \pi^{-1}\mathrm B(1/2,7/6)=2^{1/3}\pi^{-2}\mathrm B(1/2,7/6)\), exactly as claimed.
 
-PASS. The closest source is the full primary preprint arXiv:2609.32919v1. It treats exactly the same mollified disc multiplier and explicitly states only \(\|K_\delta\|_{4/3}\asymp(\log(1/\delta))^{3/4}\), while its main theorem establishes the larger endpoint multiplier norm of order \(\log(1/\delta)\). Inspection of the introduction, endpoint-kernel remark, lower-bound section, concluding remarks, and references found no exact kernel coefficient. published-finding corpus searches for the exact \(L^{4/3}\) asymptotic, the trapezoidal profile, the Bessel formulation, and the arXiv identifier returned no covering statement. Classical Bessel references cover the asymptotic ingredient but not this mollified-disc limit.
+## originality
 
-Residual risk remains that the exact coefficient could have appeared under older notation in uncatalogued disc-multiplier literature. No such statement was found in the direct searches or the source's comparison literature.
+PASS
 
-## Value
+Carbery and Seeger's primary paper uses exactly the same trapezoidal multiplier and Fourier convention. It states that the endpoint kernel norm is comparable to \((\log(1/\delta))^{3/4}\) and explicitly defines its symbol 'approximately' as two-sided comparability; the paper's main exact-sharp result concerns the larger multiplier norm. A full-document search of the primary PDF for the kernel, asymptotic language, Beta functions and Bessel references found no stated leading coefficient for the kernel norm. The audited theorem requires isolating the transition scale and averaging the oscillatory Bessel leading term to obtain a limit rather than comparability. Current Resultary search returned the assigned coefficient as the exact same-object hit and no stronger prior formula.
 
-PASS. The motivating paper makes the endpoint kernel norm a specific benchmark: it contrasts the kernel scale \((\log(1/\delta))^{3/4}\) with the genuinely larger multiplier scale \(\log(1/\delta)\). The exact coefficient therefore quantifies the canonical kernel contribution in that endpoint separation and supplies a reproducible normalization benchmark for future lower-bound and regularization comparisons. This is a natural exact invariant attached to the paper's concrete trapezoidal model, not an arbitrary parameter slice.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper itself singles out the endpoint kernel scale because it separates from the operator-norm scale. Determining the actual normalized limit for its canonical rough mollifier converts an order statement into a sharp benchmark and identifies the oscillatory angular-average constant. The exact coefficient is narrow but naturally motivated by the sharp endpoint analysis and is not a recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
