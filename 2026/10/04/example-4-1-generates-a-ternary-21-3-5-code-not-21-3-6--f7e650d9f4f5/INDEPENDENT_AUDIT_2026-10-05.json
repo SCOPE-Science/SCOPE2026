@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:43:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob aa09e5751607cc2bf2fed3d877317fa42e053794",
+        "assigned artifacts/verify.py blob f8fea7fee421f520b2c7502f6b724b3f27474623",
+        "independent exact F3 factor, multiplier, and 27-codeword replay",
+        "Yang--Gao--Mi, A new minimum distance bound of generalized quasi-twisted codes, DOI:10.3934/amc.2026034"
+      ],
+      "rationale": "The six printed factors multiply to the two stated constacyclic moduli over \\(\\mathbb F_3\\). For the explicit multiplier \\(h(x)=1+2x^2=(x+1)(1+2x)\\), the first block of \\(h(f_2f_3,f_5f_6)\\) vanishes modulo \\(x^{11}-2\\), while the second reduces to \\((2,0,1,0,2,0,1,0,2,0)\\), a word of weight five. Thus the published distance six is impossible. Fresh independent enumeration of all \\(3^3=27\\) row combinations reproduced the complete distribution \\(A_0=1,A_5=4,A_{10}=4,A_{11}=2,A_{16}=8,A_{21}=8\\), proving the exact minimum. The normalized projective column multiplicities are \\(11,5,5\\), giving generalized weights \\((5,10,21)\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper asserts the opposite finite parameter.",
+          "The older general enumerator framework is background and was not found to single out or correct this 2026 example."
+        ],
+        "reasoning": "No checked stronger result had already identified the discrepancy in this named example.",
+        "searches": [
+          "Yang--Gao--Mi full Example 4.1",
+          "Chauhan--Sharma, Hamming weight enumerators of multi-twisted codes with at most two non-zero constituents, Finite Fields Appl. 76 (2021)"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/amc.2026034",
+        "Chauhan--Sharma 2021",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's claimed bound/output points in the opposite direction and therefore does not imply the correction.",
+          "The explicit multiplier is a new witness against the printed sharpness assertion."
+        ],
+        "reasoning": "The scientifically material conclusion is a correction of an asserted computation, not a routine corollary of the source.",
+        "searches": [
+          "DOI:10.3934/amc.2026034 Example 4.1",
+          "general GQT minimum-distance-bound literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source explicitly claims \\([21,3,6]\\) for the displayed generator.",
+          "No correction or erratum was found, while the audited multiplier gives a direct contradictory codeword."
+        ],
+        "reasoning": "Minimum distance five, existence of a weight-five word in the printed code, and falsity of the example's distance-six parameter report are equivalent decisive formulations.",
+        "searches": [
+          "Resultary query: Yang Gao Mi generalized quasi-twisted Example 4.1 21 3 6 correction weight 5 ternary",
+          "web searches for Example 4.1 [21,3,5], [21,3,6], and DOI:10.3934/amc.2026034 correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact correction table or published finding with \\([21,3,5]\\) was located."
+        ],
+        "reasoning": "A code database containing this exact generator and corrected distance would cover the finite result; no such hit was found.",
+        "searches": [
+          "Resultary exact example/parameter search",
+          "publisher/correction searches for the DOI and parameter pair"
+        ]
+      },
+      "rationale": "The full source example prints the same factors and generator, states that the new bound gives six, and reports a Magma result \\([21,3,6]\\). The explicit weight-five word contradicts that published finite claim. Searches of the publisher record, correction/erratum terms, the exact example, and Resultary did not locate an earlier correction. General weight-enumerator theory for multi-twisted codes may imply the enumerator after specialization, but it does not remove the novelty of identifying the concrete published distance error.",
+      "residual_risks": [
+        "A correction may exist outside the indexed publisher and search routes, but none was found as of this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_CLAIM_CONTRADICTED_BY_EXPLICIT_CODEWORD",
+          "evidence": "The audited multiplier produces a weight-five codeword in exactly the code whose source example reports minimum distance six.",
+          "identifier_or_url": "DOI:10.3934/amc.2026034",
+          "material_read": "Full primary article copy, including the printed six factors, generator, the stated new lower bound of six, and the reported Magma parameters \\([21,3,6]\\).",
+          "method": "Full-text inspection through a lawful full-text copy after the publisher/institution routes did not yield a verified PDF.",
+          "title": "A new minimum distance bound of generalized quasi-twisted codes",
+          "trigger": "Exact paper and Example 4.1 being corrected."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yang--Gao--Mi 2026",
+        "multi-twisted enumerator literature"
+      ],
+      "rationale": "The paper uses this example to advertise sharpness of a new GQT distance bound. A concrete counterword and complete exact code census materially correct that benchmark while carefully avoiding the stronger unsupported claim that the general theorem itself is false. This is a motivated finite correction, not a random code-table recomputation.",
+      "residual_risks": [
+        "The correction's broader consequence for the new bound remains to be diagnosed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The ternary two-block GQT code specified in Yang--Gao--Mi Example 4.1 has exact parameters \\([21,3,5]_3\\), not \\([21,3,6]_3\\); its weight enumerator is \\(1+4z^5+4z^{10}+2z^{11}+8z^{16}+8z^{21}\\), and its generalized Hamming weights are \\((5,10,21)\\).",
+  "limitations": [
+    "Only the concrete generator printed in Example 4.1 is corrected.",
+    "This record does not by itself decide whether the paper's general minimum-distance theorem is false or whether the example misapplies it.",
+    "Examples 4.2 and 4.3 are outside scope."
+  ],
+  "schema_version": 1
+}

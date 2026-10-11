@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The six factors printed in Example 4.1 reproduce \(x^{11}-2\) and \(x^{10}-2\). The multiplier \(h(x)=1+2x^2=(x+1)(1+2x)\) kills the first generator component and gives the second-block word \(2+x^2+2x^4+x^6+2x^8\), of weight \(5\). The three module shifts have rank \(3\), and exhaustive enumeration of all \(27\) words gives \(1+4z^5+4z^{10}+2z^{11}+8z^{16}+8z^{21}\), proving the exact distance is \(5\). Projective column multiplicities \(11,5,5\) give generalized weights \((5,10,21)\).
+PASS
 
-## Originality
+The six printed factors multiply to the two stated constacyclic moduli over \(\mathbb F_3\). For the explicit multiplier \(h(x)=1+2x^2=(x+1)(1+2x)\), the first block of \(h(f_2f_3,f_5f_6)\) vanishes modulo \(x^{11}-2\), while the second reduces to \((2,0,1,0,2,0,1,0,2,0)\), a word of weight five. Thus the published distance six is impossible. Fresh independent enumeration of all \(3^3=27\) row combinations reproduced the complete distribution \(A_0=1,A_5=4,A_{10}=4,A_{11}=2,A_{16}=8,A_{21}=8\), proving the exact minimum. The normalized projective column multiplicities are \(11,5,5\), giving generalized weights \((5,10,21)\).
 
-PASS. The primary 2026 source states the same code as \([21,3,6]\), reports a new lower bound of \(6\), and calls the example sharp. Exact searches for the article, Example 4.1, the generator factors, the published parameters, and the corrected parameters found no published correction. Earlier general multi-twisted enumerator theory is a residual coverage risk for the finite enumerator, but no searched source specializes it to this example or flags the distance discrepancy.
+## originality
 
-## Value
+PASS
 
-PASS. The affected example is used as a sharpness demonstration for a newly proposed minimum-distance bound. Correcting its distance from \(6\) to \(5\) materially changes that demonstration. The exact weight enumerator and generalized hierarchy provide compact replacement data while carefully avoiding any unsupported claim that the general theorem itself is false.
+The full source example prints the same factors and generator, states that the new bound gives six, and reports a Magma result \([21,3,6]\). The explicit weight-five word contradicts that published finite claim. Searches of the publisher record, correction/erratum terms, the exact example, and Resultary did not locate an earlier correction. General weight-enumerator theory for multi-twisted codes may imply the enumerator after specialization, but it does not remove the novelty of identifying the concrete published distance error.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The paper uses this example to advertise sharpness of a new GQT distance bound. A concrete counterword and complete exact code census materially correct that benchmark while carefully avoiding the stronger unsupported claim that the general theorem itself is false. This is a motivated finite correction, not a random code-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
