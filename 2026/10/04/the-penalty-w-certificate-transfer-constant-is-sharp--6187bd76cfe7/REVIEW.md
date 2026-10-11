@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the affine problem, the linearization models equal the original functions. The certificate ball is exactly \( [0,2\iota] \), so both base and transferred model residuals reduce to minimizing an affine function on a compact interval. The resulting base residual is \(\rho/2\), and the transferred residual is \(\widetilde\rho-\rho/2\). The feasibility inequalities are checked explicitly, and the transferred residual is the active lower bound on the tolerance.
+## correctness
 
-## Originality
-PASS. The primary source proves the transfer upper bound but the inspected Definition 3, Proposition 4.3, its proof discussion, and surrounding remarks do not state a sharpness example. The earlier unconstrained APEX certificate has no penalty-transfer parameter. Targeted published-finding corpus and web searches did not identify a stronger or equivalent statement. The current ledger contains no Penalty W-certificate claim.
+PASS
 
-## Value
-PASS. Proposition 4.3 is the mechanism that permits certificate reuse when the penalty estimate grows. Showing exact attainability isolates which constant loss is structurally unavoidable in the certificate itself, so any uniform improvement must use additional assumptions rather than only a tighter proof of the published argument.
+For the affine example, the separated penalty model is exact. On the radius interval centered at the reference point, the base penalty model has slope \(\gamma/2\), so its normalized Wolfe residual is exactly \(\gamma/2\); the feasibility inequality also holds with equality. Replacing \(\gamma\) by \(\tilde\gamma>\gamma\) changes the slope and exact residual to \(\tilde\gamma-\gamma/2\). The feasibility lower requirement is only \(\tilde\gamma/2\), so the Wolfe residual is the active minimum tolerance. Substituting \(\nu=\gamma/2\) into Proposition 4.3 gives exactly the same value. The package verifier checks these identities over exact rational test cases, and I independently reconstructed the algebra from Definition 3 and the proposition statement.
 
-## Closest literature and limitations
-Closest sources are arXiv:2609.03251v1, which supplies the certificate and transfer theorem, and arXiv:2601.14680, which supplies the unconstrained normalized Wolfe framework. The result does not claim a complexity lower bound, and later versions or later literature could independently record the same equality example.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete relevant portion of Lin--Zhang's primary preprint was inspected through authorized PDF access after open full-text retrieval failed. Definition 3 gives the two certificate inequalities, Proposition 4.3 states the transfer tolerance \(\nu+2\nu(\tilde\gamma-\gamma)/\gamma\), and its detailed proof gives an upper bound by model monotonicity and feasibility. The surrounding remarks motivate the transfer but do not claim sharpness or give an equality example. Exact searches found no follow-up sharpness result.
+
+## value
+
+PASS
+
+Proposition 4.3 is the mechanism that preserves certificates while the algorithm changes its penalty estimate. Showing its deterioration coefficient is genuinely unavoidable establishes that the parameter-update analysis cannot be uniformly improved by tightening that step alone. The one-dimensional affine example is simple because it is an extremal sharpness certificate, not because the constant is unmotivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
