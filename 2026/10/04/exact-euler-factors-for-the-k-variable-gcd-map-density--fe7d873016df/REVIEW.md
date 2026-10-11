@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces each prime obstruction to an exact valuation identity, counts the primitive residue layer by additive characters, sums the positive common-valuation layers geometrically, and then passes from finite-prime CRT densities to the infinite Euler product with an explicit large-prime tail. The convergence estimate \(1-c_{k,p}=O_k(p^{-2})\) gives a positive product. Exact finite checks reproduce the local identities, but are treated only as corroboration.
+## correctness
 
-## Originality
-PASS. The closest primary source proves the pair case and explicitly defines the same \(k\)-variable quotient, but does not give a density theorem for it. The generalized Euler-function literature counts a related all-unit residue problem and therefore omits the common-gcd valuation layers. A separate recent higher-order gcd-sum family varies an exponent rather than the number of variables. Statement, alias, parameter, and own-ledger comparisons found no stronger result implying the displayed factor. Residual risk remains from unindexed literature or an abstract theorem not located in these searches.
+PASS
 
-## Value
-PASS. This is the direct higher-dimensional continuation of the motivating source's object. The new finite-field term records a genuine obstruction that appears for primitive tuples in dimension at least three, and the theorem gives a uniform exact factor for every fixed dimension while recovering the known pair density.
+The valuation identity follows directly from factoring out the common minimum \(p\)-valuation. On the primitive layer, goodness is the union of nonzero coordinate sum and the all-nonzero zero-sum configurations; the latter count is the standard additive-character value \(((p-1)^k+(p-1)(-1)^k)/p\). Common-divisibility layers contribute \((p-1)/(p(p^k-1))\). CRT gives the finite-prime product, while the large-prime obstruction is bounded by \(\sum_{p>Y}p^{-k}\) plus a union bound of order \(1/Y\) for primitive tuples. Thus the cutoff can be removed. The local bad mass is \(O_k(p^{-2})\), giving a positive convergent Euler product. Fresh counts for \(k=2,3,4\) and \(p=2,3,5\) reproduced the character count and local factors.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary Fan--Tóth abstract establishes the two-variable density and indicates related higher-variable questions; the exact \(k\)-variable local factor was not found in Resultary or other indexed material. The complete primary body could not be obtained through the available open routes, and the single authorized institutional fallback was unavailable, so no whole-document noncoverage claim is made. Best-of-knowledge originality passes with that explicit residual access risk because no stronger implication was identified.
+
+## value
+
+PASS
+
+The theorem answers the natural fixed-dimension extension of an explicit recent gcd-density problem. The higher-variable primitive layer introduces a genuinely new finite-field obstruction absent from the pair case, and the exact Euler factor is the natural invariant needed for any further distributional or quantitative study.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
