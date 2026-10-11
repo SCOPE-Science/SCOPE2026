@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof was checked at the level of definitions and quantifiers. For total disconnectedness, an arbitrary connected subset is projected coordinate by coordinate; no claim is made that unions or iterates of totally disconnected fibers remain totally disconnected. For absence of isolated points, the perturbation is made after an arbitrarily long common prefix and the tail is continued using only the nonemptiness of the values.
+# Independent mathematical audit
 
-The primary source was inspected at its orbit-set definition, Theorem 3.11, Theorem 3.16, and Question 3.18. Theorem 3.16 already contains the tail-perturbation argument and uses finiteness only in its final total-disconnectedness step. Replacing that step by the connected-projection induction yields the stated generalization.
+## correctness
 
-The date, classification, and wording of the primary source were verified from arXiv:2507.12272v1. Related 2024 generalized-inverse-limit literature was checked to distinguish the objects and hypotheses. No computational experiment is needed for the proof. Independent audit was not performed.
+PASS
+
+For a connected subset \(C\) of the orbit space, the first coordinate is fixed. If the \(n\)-th projection is the singleton \(\{a_n\}\), then the next projection is a connected subset of the totally disconnected fiber \(F(a_n)\), hence again a singleton. Induction makes every coordinate constant, so \(C\) is a point. Nondegeneracy independently removes isolated orbits: in any basic product neighborhood, keep a sufficiently long prefix, choose a different allowed next point in the nondegenerate fiber, and extend recursively. Upper semicontinuity with compact values gives a closed graph and hence a closed orbit set in compact metrizable \(X^{\mathbb N}\). Thus the nonempty orbit set is compact, metrizable, perfect and totally disconnected, which characterizes the Cantor set. This also pinpoints why finiteness in the source's Theorem 3.16 is unnecessary.
+
+## originality
+
+PASS
+
+The full primary source states the finite-nondegenerate-fiber Cantor theorem and immediately asks as Question 3.18 whether nondegenerate totally disconnected fibers suffice. The audited coordinate-projection induction supplies exactly the missing total-disconnectedness step while the source's tail perturbation supplies perfectness. Resultary search returned the assigned solution as the direct same-question hit and no earlier answer. Generalized inverse-limit papers concern the opposite bonding relation and different global hypotheses, so they do not mechanically answer this fixed-initial-point forward-orbit question.
+
+## value
+
+PASS
+
+The theorem answers an explicit open question by isolating the separate roles of compactness, total disconnectedness and nondegeneracy. The proof removes the finite-fiber restriction in a natural orbit-space theorem and gives a clean structural criterion useful in set-valued dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
