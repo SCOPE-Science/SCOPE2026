@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim was checked directly against the definitions and the full proof of Proposition 6.13 in arXiv:2609.18061v2.
+# Independent mathematical audit
 
-The lower bound is source-backed: for the witness \(B_n=[a^{2n+2}]\), the paper proves that no \(n\)-chain from \(L\) reaches \(B_n\). The case \(n=0\) also follows directly because \(P(a,a)=0\), so \(L\cap[a^2]\) is empty.
+## correctness
 
-The upper bound was reconstructed step by step. A positive legal cylinder beginning with \(ab\) lies in \(L\cap a^2L\): after applying \(a^{-2}\), its initial pair is \(a^{-1}b\), another positive transition in the source matrix. Nonsingularity preserves positivity of its translates, giving every consecutive overlap in
-\[
-L,\ a^2L,\ a^4L,\ldots,\ a^{2n+2}L.
-\]
-A positive legal cylinder beginning with \(b\), translated by \(a^{2n+2}\), lies in the final overlap with \(B_n\). Hence the displayed chain has exactly \(n+1\) links.
+PASS
 
-No numerical experiment or finite enumeration is used. The proof does not establish exact depths for other cylinders or other transition matrices. The originality comparison included the full source, predecessor work on weak double ergodicity, and targeted searches for equivalent exact-chain statements; absolute priority outside the inspected literature remains a residual risk.
+The primary source independently proves the lower bound: no n-chain from L reaches B_n, even with merely nonempty intersections. For the upper bound, a positive legal cylinder beginning ab lies in L and in a^2L because applying a^{-2} changes its initial pair to a^{-1}b, also a positive transition in the source matrix. The nonsingularized action preserves positivity under translation, so every consecutive pair a^{2j}L and a^{2j+2}L has positive overlap. Finally a positive legal cylinder beginning b, translated by a^{2n+2}, lies in both a^{2n+2}L and B_n. Thus an (n+1)-chain exists and the lower bound is sharp.
+
+## originality
+
+PASS
+
+The primary source proves the sharp lower obstruction needed here: for B_n=[a^{2n+2}], L does not n-chain to B_n, even if positive-measure overlaps are weakened to nonempty overlaps. It does not state that an (n+1)-chain exists or identify the minimizing translate path. The audited result adds that complementary construction and therefore computes the exact depth of the source's canonical witnesses. Resultary returned the assigned finding as the exact match and no independent prior exact-depth statement.
+
+## value
+
+PASS
+
+The B_n are the source's canonical witnesses for failure of bounded chaining, so their exact minimal depth is a natural quantitative invariant of the counterexample. Showing linear sharpness distinguishes mere unboundedness from the precise rate at which the obstruction grows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
