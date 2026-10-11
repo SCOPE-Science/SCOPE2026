@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The Plücker degree formula is the standard rectangular hook-length expression. Symmetry follows by transposing the rectangle. The central-growth ratio cancels exactly to \(\prod_{j=1}^h(m+j)/(k+j)\), with every factor greater than one. For the cutoff, the exact ratio \(Q_n=D_{n,3}/D_{n,2}^2\) is increasing from \(n=5\) onward because its successive-ratio excess has numerator \(11(n-5)^3+94(n-5)^2+199(n-5)+56\). Since \(Q_{11}<1<Q_{12}\), every \(n\ge12\) fails at \(k=2\); exact integer checks close \(2\le n\le11\).
+# Independent mathematical audit
 
-## Originality
-PASS. The inspected primary source gives the rectangular-tableau/Grassmannian-degree identification but does not compare the degree sequence across \(k\). Targeted searches for fixed-\(n\) Plücker-degree log-concavity, Grassmannian degree sequences, and rectangular-tableau log-concavity located no statement of the \(11/12\) cutoff and no broader theorem that visibly implies it. The main residual risk is terminology drift into specialized tableau literature.
+## correctness
 
-## Value
-PASS. Plücker degree is a fundamental enumerative invariant of Grassmannians. The result separates two natural global shape properties of this canonical family: unimodality survives in every dimension, whereas the stronger log-concavity property fails at an exact and unexpectedly small threshold. The failure is structural, not a one-off computation, because the same edge inequality fails for every larger \(n\).
+PASS
 
-## Closest literature and limitations
-Cools–Draisma–Payne–Robeva explicitly identify the rectangular hook-length count with the Plücker degree; that is the closest inspected source for the exact numerical invariant. The theorem here begins where that pointwise formula stops: it compares ranks at fixed \(n\). No claim is made for other embeddings or other degree notions.
+The hook-length degree formula was reconstructed from the primary Grassmannian/tableau formula. Symmetry is immediate. The ratio \(D_{n,k+1}/D_{n,k}=\prod_{j=1}^{h}(m+j)/(k+j)\), with \(h=n-2k-1>0\) and \(m=k(n-k)\), is strictly greater than one before the center. For the first curvature inequality, \(Q_n=D_{n,3}/D_{n,2}^2=2(n-2)(n-1)!(3n-9)!/(2n-4)!^2\), with \(Q_{11}=437/442<1\), \(Q_{12}=3795/2584>1\), and \(Q_{n+1}/Q_n-1\) has positive numerator \(11(n-5)^3+94(n-5)^2+199(n-5)+56\) for \(n\ge5\). Exact enumeration of the finite side \(2\le n\le11\) completes the iff. The repository verifier reproduces these identities and finite checks; it is corroborative, not the infinite proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The checked primary source identifies the Plücker degree with the rectangular hook-length count but contains no cross-\(k\) log-concavity theorem. Resultary and literature searches found no theorem giving the sharp \(n=11/12\) transition; nearby work concerns other log-concavity questions for tableaux or determinantal degrees.
+
+## value
+
+PASS
+
+Plücker degree is a canonical projective invariant, and the theorem gives a complete sharp curvature classification with a clean permanent edge obstruction from \(n=12\) onward. This is a natural exact invariant of a classical family, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:05:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hook-length degree formula was reconstructed from the primary Grassmannian/tableau formula. Symmetry is immediate. The ratio \\(D_{n,k+1}/D_{n,k}=\\prod_{j=1}^{h}(m+j)/(k+j)\\), with \\(h=n-2k-1>0\\) and \\(m=k(n-k)\\), is strictly greater than one before the center. For the first curvature inequality, \\(Q_n=D_{n,3}/D_{n,2}^2=2(n-2)(n-1)!(3n-9)!/(2n-4)!^2\\), with \\(Q_{11}=437/442<1\\), \\(Q_{12}=3795/2584>1\\), and \\(Q_{n+1}/Q_n-1\\) has positive numerator \\(11(n-5)^3+94(n-5)^2+199(n-5)+56\\) for \\(n\\ge5\\). Exact enumeration of the finite side \\(2\\le n\\le11\\) completes the iff. The repository verifier reproduces these identities and finite checks; it is corroborative, not the infinite proof.",
+      "risk": "The finite half uses exact enumeration only after the infinite monotonicity reduction has isolated the required finite range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper supplies the degree formula only.",
+          "Related SCOPE determinantal curvature theorems concern different varieties and parameters."
+        ],
+        "reasoning": "No checked broader theorem implies this exact family-wide log-concavity cutoff.",
+        "searches": [
+          "Cools et al. arXiv:1001.2774 full text",
+          "Resultary Grassmannian/determinantal degree-curvature searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1001.2774",
+        "Resultary semantic corpus",
+        "targeted rectangular-SYT and Grassmannian-degree searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work gives \\(D_{n,k}\\) explicitly but does not compare \\(D_{n,k}^2\\) to \\(D_{n,k-1}D_{n,k+1}\\) across all \\(n,k\\)."
+        ],
+        "reasoning": "The submitted ratio analysis is an additional nontrivial implication from the classical formula.",
+        "searches": [
+          "arXiv:1001.2774 lines giving hook-length/Grassmannian degree",
+          "targeted log-concavity literature searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cools--Draisma--Payne--Robeva give the rectangular hook-length/Grassmannian degree identity; no fixed-perimeter curvature cutoff is stated.",
+          "No equivalent sharp \\(n\\)-cutoff was located under the rectangular-tableau formulation."
+        ],
+        "reasoning": "The degree sequence is the rectangular SYT sequence with complementary side lengths, so that alias was explicitly checked.",
+        "searches": [
+          "Resultary: Plucker Grassmannian degree log-concavity cutoff rectangular tableaux",
+          "web: rectangular standard Young tableaux log concave fixed perimeter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact small values are formula-generated; no table asserting the all-\\(n\\) phase boundary was found."
+        ],
+        "reasoning": "The infinite failure from \\(n=12\\) onward requires the monotone edge-ratio proof, not a finite database.",
+        "searches": [
+          "Resultary exact-search corpus",
+          "hook-length degree tables/formulas"
+        ]
+      },
+      "rationale": "The checked primary source identifies the Plücker degree with the rectangular hook-length count but contains no cross-\\(k\\) log-concavity theorem. Resultary and literature searches found no theorem giving the sharp \\(n=11/12\\) transition; nearby work concerns other log-concavity questions for tableaux or determinantal degrees.",
+      "residual_risks": [
+        "A specialized representation-theory paper may encode the same fixed-perimeter rectangular-dimension inequality under different notation; none was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING",
+          "evidence": "The paper states the hook-length count and Plücker-degree interpretation, but no cross-k log-concavity cutoff.",
+          "identifier_or_url": "arXiv:1001.2774",
+          "material_read": "Full PDF, especially the enumerative formula and its hook-length/Grassmannian interpretation on page 3.",
+          "method": "lawful arXiv full text",
+          "title": "A Tropical Proof of the Brill-Noether Theorem",
+          "trigger": "Primary source explicitly identifying the rectangular hook-length count with a Plücker Grassmannian degree."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Plücker degree is a canonical projective invariant, and the theorem gives a complete sharp curvature classification with a clean permanent edge obstruction from \\(n=12\\) onward. This is a natural exact invariant of a classical family, not an arbitrary finite slice.",
+      "risk": "The proof is elementary once the hook-length formula is available, so the contribution is focused rather than methodologically broad.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed \\(n\\), the Plücker degrees \\(D_{n,k}=\\deg\\operatorname{Gr}(k,\\mathbb C^n)\\) rise strictly toward the center, and the sequence in \\(k\\) is log-concave exactly for \\(n\\le 11\\); for every \\(n\\ge12\\) log-concavity already fails at \\(k=2\\).",
+  "limitations": [
+    "No claim is made about log-concavity in other Grassmannian parameters or other homogeneous varieties."
+  ],
+  "schema_version": 1
+}
