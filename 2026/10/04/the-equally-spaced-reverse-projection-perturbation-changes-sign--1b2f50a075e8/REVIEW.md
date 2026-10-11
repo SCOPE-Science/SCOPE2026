@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The section-density computation is the dimension-\(n\) version of the lead paper's Lemma 4.3 and gives \(\Gamma_n=(D(a_\varepsilon)/D(a_0))I_n\). For the centered arithmetic progression, \(D(b)=2\sum b_j^2\), while the normalized-simplex second moment gives \(D(b)/D(a_0)=n\mathbb E L_n^2\). Differentiation gives \(I_n'(0+)=-n\mathbb E|L_n|\). The ordered-gap parametrization identifies the two needed moments with those of a sum of \(n-1\) centered independent uniforms. The exact absolute-moment formula has been integrated from the truncated-power density, checked in exact arithmetic through \(d=12\), and Cauchy--Schwarz proves positivity uniformly for \(d\ge13\).
+## correctness
 
-## Originality
-PASS. The lead paper proves the positive direct first variation only in dimension nine and then obtains higher-dimensional counterexamples by a separate zero-coordinate lifting argument. It does not classify the same direct equally spaced perturbation in every dimension or show that the first variation is negative in dimensions below nine. Targeted searches for the direct perturbation, its Irwin--Hall reformulation, and the dimension-nine sign threshold found no covering statement. The closest published simplex-section result concerns a different minimal-section stability problem.
+PASS
 
-## Value
-PASS. The dimensions \(4\) through \(8\) are explicitly left unresolved by the lead paper. Showing that the most natural direct generalization of its nine-dimensional construction has the wrong first-order sign in every one of those dimensions explains the appearance of dimension nine and rules out this canonical local mechanism there. The result is a complete classification of a motivated deformation, not an arbitrary numerical slice.
+The package derives the same normalized section/projection product as the source and differentiates its equally spaced perturbation. The projection-distance term contributes \(n(n-1)/12\); the section term is the absolute first moment of a centered Irwin–Hall sum. I independently recomputed the exact values for \(2\le n\le13\): the derivatives are \(-1/3,-1/2,-5/8,-2/3,-239/384,-29/60,-5629/23040,25/252,\ldots\), so the sign flips exactly between 8 and 9. For \(d\ge13\), Cauchy–Schwarz gives \(A_d\le\sqrt{d/12}<d/12\), proving positivity thereafter. Thus the finite exact check plus the analytic tail covers every dimension.
 
-## Closest literature and limitations
-The closest source is Feng--Hu--Liu--Xu, which supplies the product identity and the \(n=9\) perturbation. The finding neither strengthens their global theorem to new dimensions nor settles the unresolved cases. Its negative statements are local to the specified path, and search-based novelty evidence cannot rule out an equivalent statement hidden under unrelated terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source full text constructs the nine-dimensional violation using nine equally spaced middle coordinates and then reaches all higher dimensions by appending zero coordinates through a lifting procedure. It explicitly leaves dimensions 4–8 unresolved. The audited theorem instead analyzes the dimension-dependent direct equally spaced split itself for every n, identifies its first variation with a centered Irwin–Hall absolute moment, and proves the direct path points the wrong way through n=8 and the right way from n=9 onward. The source contains the n=9 seed but not this all-dimensional sign law.
+
+## value
+
+PASS
+
+The theorem identifies the exact first-order dimension threshold of the concrete mechanism responsible for the recent counterexample and explains the threshold through a classical probability moment. It also rigorously shows why the same direct split cannot settle the still-open lower dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

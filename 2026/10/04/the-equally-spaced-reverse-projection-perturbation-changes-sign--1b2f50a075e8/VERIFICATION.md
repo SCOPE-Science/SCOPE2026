@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two components.
+# Independent mathematical audit
 
-First, the all-dimensional identities are analytic. For the direct family, the normalized product factors as \(\Gamma_n=(D(a_\varepsilon)/D(a_0))I_n\); differentiation gives
-\[
-\Gamma_n'(0+)=n\left(\mathbb E L_n^2-\mathbb E|L_n|\right).
-\]
-The ordered-gap parametrization converts the two moments to those of \(S_{n-1}\), a sum of centered independent uniforms. The second moment is \((n-1)/12\), and integrating the truncated-power density gives the stated finite formula for \(A_{n-1}=\mathbb E|S_{n-1}|\).
+## correctness
 
-Second, the sign classification uses exact arithmetic only where a finite check is genuinely needed. `verify_threshold.py` evaluates \(A_d\) as a rational number for \(1\le d\le12\), checks the derivative signs and the identity \(D(b)=2\sum b_j^2\), and prints `VERIFY_OK`. For every \(d\ge13\), the proof does not rely on the checker: Cauchy--Schwarz gives \(A_d\le\sqrt{d/12}<d/12\).
+PASS
 
-Limits: the verification is local in \(\varepsilon\) and does not test or assert global behavior of the path away from the origin. It also does not establish the unresolved reverse-projection inequality in dimensions four through eight.
+The package derives the same normalized section/projection product as the source and differentiates its equally spaced perturbation. The projection-distance term contributes \(n(n-1)/12\); the section term is the absolute first moment of a centered Irwin–Hall sum. I independently recomputed the exact values for \(2\le n\le13\): the derivatives are \(-1/3,-1/2,-5/8,-2/3,-239/384,-29/60,-5629/23040,25/252,\ldots\), so the sign flips exactly between 8 and 9. For \(d\ge13\), Cauchy–Schwarz gives \(A_d\le\sqrt{d/12}<d/12\), proving positivity thereafter. Thus the finite exact check plus the analytic tail covers every dimension.
+
+## originality
+
+PASS
+
+The source full text constructs the nine-dimensional violation using nine equally spaced middle coordinates and then reaches all higher dimensions by appending zero coordinates through a lifting procedure. It explicitly leaves dimensions 4–8 unresolved. The audited theorem instead analyzes the dimension-dependent direct equally spaced split itself for every n, identifies its first variation with a centered Irwin–Hall absolute moment, and proves the direct path points the wrong way through n=8 and the right way from n=9 onward. The source contains the n=9 seed but not this all-dimensional sign law.
+
+## value
+
+PASS
+
+The theorem identifies the exact first-order dimension threshold of the concrete mechanism responsible for the recent counterexample and explains the threshold through a classical probability moment. It also rigorously shows why the same direct split cannot settle the still-open lower dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

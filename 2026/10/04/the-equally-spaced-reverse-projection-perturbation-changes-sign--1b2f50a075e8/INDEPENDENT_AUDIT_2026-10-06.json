@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:57:07Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 849375093e4f9416c2a98f76ab58cb875fb942ec",
+        "VERIFICATION.md blob 779ec9024dc10eb5f19ec4867e3e7634d1551502",
+        "verify_threshold.py blob 6f043ff0b1fe06db75a7b16bf39f5935360d0943",
+        "Fresh exact Fraction replay in this audit produced the sign sequence through n=13 and the first positive value 25/252 at n=9.",
+        "Feng–Hu–Liu–Xu primary PDF, Section 4, inspected at pages 15–20."
+      ],
+      "rationale": "The package derives the same normalized section/projection product as the source and differentiates its equally spaced perturbation. The projection-distance term contributes \\(n(n-1)/12\\); the section term is the absolute first moment of a centered Irwin–Hall sum. I independently recomputed the exact values for \\(2\\le n\\le13\\): the derivatives are \\(-1/3,-1/2,-5/8,-2/3,-239/384,-29/60,-5629/23040,25/252,\\ldots\\), so the sign flips exactly between 8 and 9. For \\(d\\ge13\\), Cauchy–Schwarz gives \\(A_d\\le\\sqrt{d/12}<d/12\\), proving positivity thereafter. Thus the finite exact check plus the analytic tail covers every dimension.",
+      "risks": [
+        "The theorem concerns one specific direct equally spaced perturbation mechanism; it does not decide the full reverse-projection inequality in dimensions 4 through 8."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full primary paper proves failure for every n>=9, but its higher-dimensional construction is a lift of the fixed n=9 example.",
+          "The paper states that the global inequality remains unresolved in dimensions 4<=n<=8."
+        ],
+        "reasoning": "Global failure for n>=9 does not imply the sign of the different direct equally-spaced path in every dimension; the audited theorem refines the mechanism.",
+        "searches": [
+          "Feng–Hu–Liu–Xu, DOI:10.5281/zenodo.22037130 / MathSciDoc 2608.23002"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search above",
+        "DOI:10.5281/zenodo.22037130",
+        "MathSciDoc 2608.23002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's lifted vector for n>9 has appended zeros and is not the equally spaced n-level split audited here.",
+          "Its n=9 calculation does not determine the n<=8 signs or the all-n centered-Irwin–Hall formula."
+        ],
+        "reasoning": "The new implication is a genuine dimension-dependent analysis of the direct mechanism rather than restating Theorem 1.3.",
+        "searches": [
+          "Primary PDF Section 4, especially Proposition 4.5 and zero-coordinate lifting Proposition 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record as the direct match.",
+          "The primary PDF's Proposition 4.5 proves the dimension-nine equally spaced perturbation; Proposition 4.6 uses zero-coordinate lifting.",
+          "No inspected source states the direct-path negative signs in n=2..8 or the all-n formula."
+        ],
+        "reasoning": "Equivalent formulations using the normalized section/projection ratio, arithmetic-progression splitting and centered Irwin–Hall moments were checked.",
+        "searches": [
+          "Resultary: reverse projection inequality equally spaced perturbation dimension nine first variation",
+          "Web: On the Reverse Projection Inequality Proposition 4.5 equally spaced",
+          "Web: reverse projection inequality Irwin-Hall first variation dimension threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published table of the direct-path first variations was found beyond the source's n=9 computation."
+        ],
+        "reasoning": "The finite low-dimensional values support a symbolic all-dimensional theorem and are not a table-only result.",
+        "searches": [
+          "Resultary exact threshold query",
+          "Web exact first-variation formula search"
+        ]
+      },
+      "rationale": "The source full text constructs the nine-dimensional violation using nine equally spaced middle coordinates and then reaches all higher dimensions by appending zero coordinates through a lifting procedure. It explicitly leaves dimensions 4–8 unresolved. The audited theorem instead analyzes the dimension-dependent direct equally spaced split itself for every n, identifies its first variation with a centered Irwin–Hall absolute moment, and proves the direct path points the wrong way through n=8 and the right way from n=9 onward. The source contains the n=9 seed but not this all-dimensional sign law.",
+      "residual_risks": [
+        "A separate convex-geometry note may have recast the source perturbation in probabilistic Irwin–Hall language without being found in the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OWNS_N9_SEED_AND_LIFTING_NOT_ALL_DIMENSION_DIRECT_SIGN_LAW",
+          "evidence": [
+            "The paper says its Section 4 constructs a counterexample in dimension nine and extends it by lifting; it explicitly says 4<=n<=8 remain unresolved for the global inequality."
+          ],
+          "identifier_or_url": "DOI:10.5281/zenodo.22037130; MathSciDoc 2608.23002",
+          "material_read": "Complete primary PDF with focused reading of the introduction and Section 4, including the n=9 equally spaced vector, Lemma 4.3, Proposition 4.5 and the zero-coordinate lifting through Proposition 4.6.",
+          "method": "Open primary PDF from MathSciDoc; text extraction plus rendered-page inspection.",
+          "title": "On the Reverse Projection Inequality",
+          "trigger": "Exact source of the counterexample mechanism."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact sign classification for every dimension.",
+        "Mechanistic explanation of why dimension nine is the first successful direct split."
+      ],
+      "rationale": "The theorem identifies the exact first-order dimension threshold of the concrete mechanism responsible for the recent counterexample and explains the threshold through a classical probability moment. It also rigorously shows why the same direct split cannot settle the still-open lower dimensions.",
+      "risks": [
+        "Negative first variation does not prove the reverse-projection inequality itself in dimensions 4–8."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the direct equally spaced splitting path in dimension \\(n\\ge2\\), the normalized reverse-projection first variation is \\(n((n-1)/12-A_{n-1})\\), where \\(A_d=\\mathbf E|\\sum_{i=1}^d U_i|\\) for iid \\(U_i\\sim\\mathrm{Unif}[-1/2,1/2]\\); it is negative for \\(2\\le n\\le8\\) and positive for every \\(n\\ge9\\).",
+  "limitations": [
+    "Only the direct equally spaced perturbation path is classified.",
+    "No global theorem for dimensions 4 through 8."
+  ],
+  "schema_version": 1
+}
