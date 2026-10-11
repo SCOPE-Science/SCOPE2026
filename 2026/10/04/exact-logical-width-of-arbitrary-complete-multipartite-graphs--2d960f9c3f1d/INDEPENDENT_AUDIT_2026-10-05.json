@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:40:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4a143deedced5e347bda8f07ccaac426d65493a7",
+        "assigned verify.py blob ca21d74dad39710714e9c4b8bf65fd5ab10a8c5",
+        "Pikhurko--Verbitsky, Logical complexity of graphs: a survey, arXiv:1003.4865"
+      ],
+      "rationale": "The upper bound is valid with one reusable pool of \\(M+1\\) variable names: same-part equivalence is first-order definable from adjacency, transitivity needs three names, exact class size \\(s\\) needs \\(s+1\\), and exact multiplicity \\(m_s\\) needs \\(m_s+1\\) representatives while inner class-size quantifiers may shadow and release representative names lexically. For the lower bound at \\(k=M\\), if a part of size \\(M\\) exists, enlarge one such part by one vertex; otherwise add one extra part of a size already occurring in exactly \\(M\\) copies. In either case Duplicator's invariant in the infinite \\(M\\)-pebble game is sound: after a moved pebble is lifted, at most \\(M-1\\) vertices or relevant parts remain occupied, leaving a fresh match on the smaller side. Thus the nonisomorphic witness is \\(M\\)-variable equivalent. The repository checker independently verifies capped type profiles for all integer partitions through order 12 and solves representative small pebble games by greatest fixed point.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources give general finite-variable/pebble-game machinery rather than an exact width evaluation for this graph class."
+        ],
+        "reasoning": "A general characterization of finite-variable equivalence is methodology, not a theorem evaluating the minimum defining width of each heterogeneous complete multipartite graph; no stronger specialized result was located.",
+        "searches": [
+          "Pikhurko--Verbitsky arXiv:1003.4865",
+          "Grohe finite-variable logic survey",
+          "Dawar--Holm pebble-game framework"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1003.4865",
+        "Grohe 1998 finite-variable logic survey",
+        "Dawar--Holm 2017 pebble games",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-graph identity is recovered when all parts are singletons, but it does not imply heterogeneous part sizes or repeated class sizes.",
+          "The standard pebble-game theorem converts winning strategies to inexpressibility; the two separate witness constructions remain class-specific mathematical content."
+        ],
+        "reasoning": "The checked prior statements do not mechanically imply the displayed width without carrying out essentially the audited equivalence-class analysis.",
+        "searches": [
+          "arXiv:1003.4865 logical-width section and complete-graph example",
+          "finite-variable pebble-game sources"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The survey defines logical width as the least number of variables in a defining first-order sentence and records \\(W(K_n)=n+1\\).",
+          "No checked source states that complete multipartite width is controlled jointly by maximum class size and maximum multiplicity of a class size."
+        ],
+        "reasoning": "The complement of a complete multipartite graph is a disjoint union of cliques, so formulations via equivalence-class structures, capped class-size profiles, and complete-multipartite graphs were all treated as aliases.",
+        "searches": [
+          "Resultary: complete multipartite graph logical width finite variable first-order definability largest part multiplicity pebble game",
+          "web: finite-variable logic equivalence relations class sizes multiplicities pebble game",
+          "arXiv:1003.4865"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published SCOPE record or exact table with the formula \\(1+\\max\\{\\max s,\\max m_s\\}\\) was found."
+        ],
+        "reasoning": "This is an all-parameter structural formula rather than a finite numerical table, but exact-formula/database coverage was specifically checked.",
+        "searches": [
+          "Resultary query above",
+          "web exact searches for complete multipartite logical width and disjoint-union-of-cliques logical width"
+        ]
+      },
+      "rationale": "The finite-variable graph literature supplies the invariant, pebble-game characterization, and benchmark \\(W(K_n)=n+1\\), but the checked full survey does not state the arbitrary complete-multipartite width formula. Targeted Resultary and web searches for complete multipartite/equivalence-class size-multiplicity width found no implication-equivalent theorem. The proof uses standard finite-variable methods, so folklore equivalence-structure classifications remain a residual risk, but no checked broader result supplied this exact two-bottleneck graph invariant.",
+      "residual_risks": [
+        "Because the class reduces to finite equivalence relations and the proof is elementary, an equivalent folklore exercise or unindexed model-theory note could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_AND_BOUNDARY_CASE_ONLY",
+          "evidence": "It records ordinary \\(W(K_n)=n+1\\) and the general width framework, but not the arbitrary complete-multipartite formula.",
+          "identifier_or_url": "arXiv:1003.4865",
+          "material_read": "Full accessible article sections defining width, finite-variable equivalence, complement invariance, and the complete-graph benchmark.",
+          "method": "Open full-text web inspection.",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "Primary survey for graph logical width and finite-variable lower bounds."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pikhurko--Verbitsky arXiv:1003.4865",
+        "finite-variable logic literature"
+      ],
+      "rationale": "Logical width is a standard finite-model-theoretic invariant, and complete multipartite graphs form a canonical graph class whose isomorphism type is exactly a multiset of equivalence-class sizes. The theorem gives a complete all-parameter evaluation and reveals two independent obstructions—largest class size and largest multiplicity—rather than a one-off small computation.",
+      "residual_risks": [
+        "The result is class-specific and does not address counting logic, where the width can collapse sharply."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite nonempty complete multipartite graph \\(G\\), if \\(m_s\\) is the number of parts of size \\(s\\) and \\(M=\\max\\{\\max(s:m_s>0),\\max(m_s:m_s>0)\\}\\), then the ordinary first-order logical width is exactly \\(W(G)=M+1\\).",
+  "limitations": [
+    "Finite nonempty simple undirected complete multipartite graphs only.",
+    "Ordinary first-order logic with equality and no counting quantifiers; formula length and quantifier rank are not classified."
+  ],
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The upper construction first makes nonadjacency-or-equality an equivalence relation and then specifies, for every occurring part size, the exact size of a class and the exact number of classes of that size. Variable shadowing keeps the requirement within \(1+\max\{s,m_s\}\) names. The lower proof gives permanent Duplicator strategies against a one-vertex enlargement of a largest part or against one extra class of a maximally repeated smaller size. Both witnesses are nonisomorphic to the target.
+## correctness
 
-## Originality
-PASS. Targeted searches covered the standard terms “logical width,” finite-variable logic, complete multipartite and Turán graphs, finite equivalence relations, class-size multiplicities, and pebble games. The inspected graph-logical-complexity sources define the invariant and record special extremal examples, while the inspected equivalence-relation fragment papers address satisfiability and expressive/model-theoretic questions rather than an exact individual-structure width formula. No source inspected stated \(1+\max\{\max s,\max m_s\}\). Residual risk remains because the proof is elementary enough to be folklore.
+PASS
 
-## Value
-PASS. Complete multipartite graphs form a canonical family, and the theorem upgrades a balanced two-parameter calculation to a closed exact classification for every heterogeneous part multiset. It isolates two independent finite-variable counting obstructions and simultaneously recovers cliques, edgeless graphs, balanced Turán graphs, and arbitrary mixtures of part sizes.
+The upper bound is valid with one reusable pool of \(M+1\) variable names: same-part equivalence is first-order definable from adjacency, transitivity needs three names, exact class size \(s\) needs \(s+1\), and exact multiplicity \(m_s\) needs \(m_s+1\) representatives while inner class-size quantifiers may shadow and release representative names lexically. For the lower bound at \(k=M\), if a part of size \(M\) exists, enlarge one such part by one vertex; otherwise add one extra part of a size already occurring in exactly \(M\) copies. In either case Duplicator's invariant in the infinite \(M\)-pebble game is sound: after a moved pebble is lifted, at most \(M-1\) vertices or relevant parts remain occupied, leaving a fresh match on the smaller side. Thus the nonisomorphic witness is \(M\)-variable equivalent. The repository checker independently verifies capped type profiles for all integer partitions through order 12 and solves representative small pebble games by greatest fixed point.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The finite-variable graph literature supplies the invariant, pebble-game characterization, and benchmark \(W(K_n)=n+1\), but the checked full survey does not state the arbitrary complete-multipartite width formula. Targeted Resultary and web searches for complete multipartite/equivalence-class size-multiplicity width found no implication-equivalent theorem. The proof uses standard finite-variable methods, so folklore equivalence-structure classifications remain a residual risk, but no checked broader result supplied this exact two-bottleneck graph invariant.
+
+## value
+
+PASS
+
+Logical width is a standard finite-model-theoretic invariant, and complete multipartite graphs form a canonical graph class whose isomorphism type is exactly a multiset of equivalence-class sizes. The theorem gives a complete all-parameter evaluation and reveals two independent obstructions—largest class size and largest multiplicity—rather than a one-off small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
