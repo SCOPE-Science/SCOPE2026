@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The recurrence is exact: after appending one bit, every newly appearing factor ends at the new final position, so new distinct closed factors are exactly the closed suffixes with no earlier occurrence. Induction from the empty word therefore computes the exact number of distinct closed factors for every binary word. Exhaustive enumeration of all \(2^{25}\), \(2^{26}\), and \(2^{27}\) words supplies both upper and lower bounds. The same executable reproduces every published maximum through length \(24\), and direct factor-set checks independently confirm the three displayed witnesses. Shortest periods are tested from their defining equalities for every maximizer.
+## correctness
 
-## Originality
-PASS. The closest primary full text explicitly asks for an exact formula and gives an exact binary table only through length \(24\). A later algorithmic paper provides fast counting for one given string while still describing the extremal maximum only via the known asymptotic result. The 2026 closed-rich follow-up concerns constants for infinite words, not the finite extremal table. Targeted semantic and bibliographic searches under the exact values, notation variants, and equivalent maximum-distinct-closed-factor formulations did not reveal coverage of the three new values or the complete maximizer-period profile.
+PASS
 
-Residual risk remains that an unindexed computation, thesis, or unpublished table contains the same finite values.
+The append-one-symbol recurrence is exact because every newly appearing factor must be a suffix. The closed-word predicate checks the longest nonempty border and its occurrences. The C verifier exhausts all binary words through length 27, reproduces the published maxima through 24, and yields 109,117,126 with maximizer counts 56,128,72 and the stated period histograms. A fresh compile-and-run completed successfully with the expected terminal certificate.
 
-## Value
-PASS. The source literature presents the exact extremal function as an open problem and publishes a table ending at length \(24\). Determining the next three consecutive values starts at the exact frontier rather than an arbitrary slice, and the complete period distribution supplies structural evidence for the source’s cube/near-cube conjecture, including the first new exact-cube milestone at length \(27\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary expanded paper publishes the exact binary table only through length 24, ending at 101, and explicitly asks for the exact formula; it also motivates cube/near-cube structure. Later work on counting closed factors in one string and on infinite closed-rich constants does not supply the missing finite maxima. Exact searches found no inspected continuation through 27.
+
+## value
+
+PASS
+
+The exact extremal function is explicitly open and the published table stops immediately before these lengths. Extending the natural frontier by three consecutive lengths and classifying all maximizer periods also directly tests the source paper’s structural cube/near-cube heuristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

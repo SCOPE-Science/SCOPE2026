@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:05:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The append-one-symbol recurrence is exact because every newly appearing factor must be a suffix. The closed-word predicate checks the longest nonempty border and its occurrences. The C verifier exhausts all binary words through length 27, reproduces the published maxima through 24, and yields 109,117,126 with maximizer counts 56,128,72 and the stated period histograms. A fresh compile-and-run completed successfully with the expected terminal certificate.",
+      "risk": "The exhaustive computation proves only the stated finite lengths.",
+      "sources": [
+        "frozen RESULT.md and verify.c",
+        "fresh local C11 replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asymptotic growth does not determine any one exact finite maximum.",
+          "Fast counting for a fixed word does not identify the global extremum.",
+          "Infinite-word constants are a different optimization target."
+        ],
+        "reasoning": "No broader checked theorem implies the three exact new rows.",
+        "searches": [
+          "arXiv:2111.00863 asymptotic theorem",
+          "arXiv:2409.19576 counting algorithms",
+          "arXiv:2605.19535 infinite-word constants"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2111.00863",
+        "arXiv:2409.19576",
+        "arXiv:2605.19535",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source leaves the exact formula open and does not contain rows 25–27.",
+          "The later algorithmic paper does not add an extremal table."
+        ],
+        "reasoning": "A complete exhaustive search is necessary to obtain the submitted rows; they are not corollaries of the known asymptotic.",
+        "searches": [
+          "arXiv:2111.00863 full table and conclusion",
+          "arXiv:2409.19576"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching Resultary record was returned.",
+          "The primary paper defines the same maximum-distinct-closed-factor invariant."
+        ],
+        "reasoning": "Closed-rich and maximum-distinct-closed-factor formulations are the same extremal problem and were both checked.",
+        "searches": [
+          "Resultary: closed-rich binary maximum distinct closed factors length 25 109 length 26 117 length 27 126 periods 8 9",
+          "Web: C2(25) 109 closed-rich",
+          "arXiv:2111.00863"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary table stops at length 24.",
+          "No inspected table continuing with 109,117,126 was located."
+        ],
+        "reasoning": "The submission starts at the first length missing from the published exact table.",
+        "searches": [
+          "Primary paper exact-value table",
+          "Resultary literal value query"
+        ]
+      },
+      "rationale": "The primary expanded paper publishes the exact binary table only through length 24, ending at 101, and explicitly asks for the exact formula; it also motivates cube/near-cube structure. Later work on counting closed factors in one string and on infinite closed-rich constants does not supply the missing finite maxima. Exact searches found no inspected continuation through 27.",
+      "residual_risks": [
+        "An unindexed private computation could contain the same three finite rows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_FRONTIER",
+          "evidence": "The table ends at n=24 and the exact formula remains open.",
+          "identifier_or_url": "arXiv:2111.00863",
+          "material_read": "Full open preprint including exact table through 24, exact-formula question and cube/near-cube discussion.",
+          "method": "lawful arXiv full text",
+          "title": "Finite and infinite closed-rich words",
+          "trigger": "Primary full text for the exact extremal function and published finite table."
+        },
+        {
+          "assessment": "NOT_COVERING_EXTREMAL_ROWS",
+          "evidence": "It counts factors of one given string and cites the extremal problem only through known general results.",
+          "identifier_or_url": "arXiv:2409.19576",
+          "material_read": "Open full text introduction and algorithm statements.",
+          "method": "lawful arXiv full text",
+          "title": "Online and Offline Algorithms for Counting Distinct Closed Factors via Sliding Suffix Trees",
+          "trigger": "Later highly relevant counting work."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact extremal function is explicitly open and the published table stops immediately before these lengths. Extending the natural frontier by three consecutive lengths and classifying all maximizer periods also directly tests the source paper’s structural cube/near-cube heuristic.",
+      "risk": "This does not settle the general formula or general cube structure.",
+      "sources": [
+        "arXiv:2111.00863"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The binary closed-rich maxima are C₂(25)=109, C₂(26)=117 and C₂(27)=126; the maximizers have the stated period-8/period-9 distribution, and every length-27 maximizer has primitive period 9.",
+  "limitations": [
+    "Complete finite determination only at lengths 25, 26 and 27."
+  ],
+  "schema_version": 1
+}

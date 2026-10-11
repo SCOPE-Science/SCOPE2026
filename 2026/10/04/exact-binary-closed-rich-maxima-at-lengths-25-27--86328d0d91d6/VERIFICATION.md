@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Compile and run `verify.c` with a C11 compiler, for example:
+# Independent mathematical audit
 
-`cc -O3 -std=c11 verify.c -o verify && ./verify`
+## correctness
 
-The program first evaluates the closed predicate for every binary word of every length through \(27\). It then computes the exact number of distinct closed factors for every binary word by the append-one-symbol suffix recurrence proved in `RESULT.md`. It checks the published extremal sequence through length \(24\) before checking the new maxima at lengths \(25\), \(26\), and \(27\). Finally it enumerates every maximizer and tests all candidate periods from the defining equalities.
+PASS
 
-Successful replay prints exactly:
+The append-one-symbol recurrence is exact because every newly appearing factor must be a suffix. The closed-word predicate checks the longest nonempty border and its occurrences. The C verifier exhausts all binary words through length 27, reproduces the published maxima through 24, and yields 109,117,126 with maximizer counts 56,128,72 and the stated period histograms. A fresh compile-and-run completed successfully with the expected terminal certificate.
 
-`VERIFY_OK source_table_1_24=matched n25=109 count25=56 p25=8:56 n26=117 count26=128 p26=8:56,9:72 n27=126 count27=72 p27=9:72`
+## originality
 
-This is a finite exhaustive certificate for the three stated lengths. No extrapolation to larger \(n\) is claimed. The correctness of the global maxima depends on the recurrence proof plus enumeration of every binary word, not on heuristic search or sampling.
+PASS
+
+The primary expanded paper publishes the exact binary table only through length 24, ending at 101, and explicitly asks for the exact formula; it also motivates cube/near-cube structure. Later work on counting closed factors in one string and on infinite closed-rich constants does not supply the missing finite maxima. Exact searches found no inspected continuation through 27.
+
+## value
+
+PASS
+
+The exact extremal function is explicitly open and the published table stops immediately before these lengths. Extending the natural frontier by three consecutive lengths and classifying all maximizer periods also directly tests the source paper’s structural cube/near-cube heuristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
