@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:08:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The current spiral-knot source gives \\(D=(p-1)(q-1)\\) and \\(|a_1|=q\\gamma_{p-1}+1\\). Hence \\(q-1\\mid D\\), \\(q\\mid m\\), \\(p=1+D/(q-1)\\), and coprimality is required by the parameter convention. If \\(m\\) is prime and \\(q\\ge2\\), then \\(q=m\\) immediately. For \\(8_{21}\\), \\(D=4,m=3\\) forces \\((p,q)=(3,3)\\), violating coprimality. The verifier accurately checks bounded instances but is unnecessary for the proof.",
+      "risk": "No correctness risk beyond dependence on the cited source formulas.",
+      "sources": [
+        "Blackwell et al., arXiv:2506.17889 current version, degree and adjacent-coefficient corollaries",
+        "frozen artifacts/verify_parameter_sieve.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published formulas hold for the whole spiral family and directly imply every displayed divisibility condition."
+        ],
+        "reasoning": "The source formulas are broader premises; the prime case is their elementary divisor specialization.",
+        "searches": [
+          "arXiv:2506.17889 degree/second-coefficient formulas and parameter-uniqueness conjecture"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2506.17889 current version",
+        "Kim-Stees-Taalman, Journal of Integer Sequences 19 (2016)",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From these, \\(q\\mid m\\) and prime \\(m\\) force \\(q=m\\); the degree formula then forces \\(p\\)."
+        ],
+        "reasoning": "The full final claim, including the \\(8_{21}\\) rejection, follows by direct substitution.",
+        "searches": [
+          "Source formulas \\(D=(p-1)(q-1)\\), \\(|a_1|-1=q\\gamma_{p-1}\\), and \\(\\gcd(p,q)=1\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top Resultary exact hit is the audited record itself.",
+          "The source gives exactly the two formulas from which the sieve follows."
+        ],
+        "reasoning": "Rewriting the source equations in terms of \\(D\\) and \\(m\\) does not add an implication-independent theorem.",
+        "searches": [
+          "Resultary: spiral knot Alexander coefficient prime gap parameter uniqueness p q",
+          "arXiv:2506.17889 current full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate database statement was found, but this does not establish novelty because the claim is already implied by the primary formulas."
+        ],
+        "reasoning": "Exact wording is immaterial under the required implication test.",
+        "searches": [
+          "Resultary exact prime-gap spiral search"
+        ]
+      },
+      "rationale": "The final theorem is an immediate arithmetic corollary of the two published Alexander formulas and the defining coprimality condition. Under implication-based originality, a special case/corollary is covered even if the source does not print the divisor sieve or prime-gap sentence verbatim. The source's parameter-uniqueness conjecture does not make this one-line prime-divisor subcase independently original.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_FORMULAS_IMPLY_FINAL_CLAIM",
+          "evidence": "The two source formulas plus coprimality yield the sieve and prime-gap uniqueness by one divisor argument.",
+          "identifier_or_url": "arXiv:2506.17889 current version",
+          "material_read": "Full-text portions containing the degree formula, adjacent-extremal coefficient formula, parameter-uniqueness conjecture and the \\(8_{21}\\) discussion.",
+          "method": "Lawful open arXiv inspection.",
+          "title": "Classical invariants of spiral knots",
+          "trigger": "Same objects and exact formulas used by the result."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although connected to a natural conjecture, the asserted subfamily is obtained by the routine observation that a divisor \\(q\\ge2\\) of a prime \\(m\\) must equal \\(m\\). The recognition example is then a direct substitution. Under the common value bar this is too mechanically implied to count as a substantive new structural result.",
+      "risk": "The general composite-\\(m\\) classification problem remains nontrivial but is not solved here.",
+      "sources": [
+        "arXiv:2506.17889"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a spiral knot, the Alexander degree and adjacent extremal coefficient give the displayed divisor sieve; if \\(m=|a_1|-1\\) is prime, then \\(q=m\\) and \\(p=1+D/(m-1)\\), yielding the stated Alexander-only obstruction for \\(8_{21}\\).",
+  "limitations": [
+    "Necessary sieve only; no sign-vector realization theorem.",
+    "Scientific rejection is for prior implication/routine value, not correctness."
+  ],
+  "schema_version": 1
+}
