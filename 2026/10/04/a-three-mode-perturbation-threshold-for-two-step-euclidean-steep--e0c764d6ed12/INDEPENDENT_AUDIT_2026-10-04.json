@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:45:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Y.-X. Yuan, A Short Note on the Q-linear Convergence of the Steepest Descent Method, Mathematical Programming 123 (2010); complete author-hosted manuscript relevant to the exact line-search formula and one-step Euclidean extremal theorem inspected.",
+        "J. Nocedal, A. Sartenaer, C. Zhu, On the Behavior of the Gradient Norm in the Steepest Descent Method, Computational Optimization and Applications 22 (2002), DOI 10.1023/A:1014897230089; repository abstract inspected and an accepted-manuscript link attempted but returned HTTP 403.",
+        "C. Cartis, N. Gould, P. Toint, On the complexity of the steepest-descent method with exact linesearches (2012); open report relevant algorithm/gradient-norm complexity material inspected.",
+        "Resultary semantic searches for exact-line-search two-step Euclidean error, third spectral modes, and conditioning thresholds; closest hits concern different algorithms/observables.",
+        "Fresh symbolic reconstruction of both exact line-search steps verified the perturbation derivative, cubic discriminant factorization, and exact κ=14,s=5,ε=1/2000 witness."
+      ],
+      "rationale": "Reconstructing the exact-line-search moment recursion gives \\(\\alpha=m_2/m_3\\), the post-step moments, the second line-search parameter, and the stated two-step ratio. Fresh symbolic differentiation reproduces the derivative exactly. The cubic discriminant factors as \\(4\\kappa(\\kappa-1)^2(\\kappa+1)^2F(\\kappa)\\), the reciprocal substitution yields a single positive threshold, and the exact rational κ=14,s=5,ε=1/2000 witness has strictly positive excess over the balanced two-mode squared factor. The claim is correctly limited to this perturbation family, not a global worst-case theorem.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yuan covers one-step Euclidean iterate error.",
+          "Nocedal et al. explicitly center the gradient norm.",
+          "Cartis et al. concern gradient-norm complexity on general smooth problems."
+        ],
+        "reasoning": "These are broader algorithmically but do not dominate a finite two-step Euclidean iterate-error perturbation calculation, because the second exact step depends on the perturbed spectral weights.",
+        "searches": [
+          "Yuan 2010 full manuscript",
+          "Nocedal--Sartenaer--Zhu 2002 repository record/abstract",
+          "Cartis--Gould--Toint exact-linesearch report"
+        ]
+      },
+      "checked_sources": [
+        "Y.-X. Yuan, A Short Note on the Q-linear Convergence of the Steepest Descent Method, Mathematical Programming 123 (2010); complete author-hosted manuscript relevant to the exact line-search formula and one-step Euclidean extremal theorem inspected.",
+        "J. Nocedal, A. Sartenaer, C. Zhu, On the Behavior of the Gradient Norm in the Steepest Descent Method, Computational Optimization and Applications 22 (2002), DOI 10.1023/A:1014897230089; repository abstract inspected and an accepted-manuscript link attempted but returned HTTP 403.",
+        "C. Cartis, N. Gould, P. Toint, On the complexity of the steepest-descent method with exact linesearches (2012); open report relevant algorithm/gradient-norm complexity material inspected.",
+        "Resultary semantic searches for exact-line-search two-step Euclidean error, third spectral modes, and conditioning thresholds; closest hits concern different algorithms/observables.",
+        "Fresh symbolic reconstruction of both exact line-search steps verified the perturbation derivative, cubic discriminant factorization, and exact κ=14,s=5,ε=1/2000 witness."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-step Euclidean extremality does not fix two composed state-dependent line searches.",
+          "Gradient-norm behavior does not imply an iterate-Euclidean first variation.",
+          "The threshold requires differentiating the full two-step moment map and analyzing the cubic discriminant."
+        ],
+        "reasoning": "No inspected prior theorem mechanically implies the sign transition or the degree-eight threshold polynomial.",
+        "searches": [
+          "Yuan one-step theorem and two-mode reduction",
+          "Nocedal gradient-norm description",
+          "assigned two-step moment recursion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No exact Resultary or web hit for the threshold was located.",
+          "Yuan's theorem is a one-step Euclidean contraction result."
+        ],
+        "reasoning": "Equivalent formulations as local instability of the balanced two-mode state or positive first variation under insertion of an interior spectral atom were not found in the inspected sources.",
+        "searches": [
+          "Resultary: steepest descent exact line search two-step Euclidean error three eigenvalues",
+          "searches for κ≈13.162650375 and the threshold polynomial",
+          "Yuan manuscript"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact constant/polynomial table was located.",
+          "The threshold arises as the discriminant boundary of the derived cubic."
+        ],
+        "reasoning": "The result is an analytic local frontier, not a table recomputation.",
+        "searches": [
+          "search for 13.162650375738556 steepest descent",
+          "Resultary threshold searches"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes for the finite two-step Euclidean third-mode sensitivity frontier. Yuan's full manuscript treats the same algorithm and Euclidean iterate norm, but its sharp result is one-step and reduces that one-step problem to two modes. Nocedal--Sartenaer--Zhu study the gradient norm, a different observable; the full accepted manuscript could not be retrieved and remains a risk. Resultary searches returned neighboring Richardson, CG_AOS, Jacobi, and Nesterov results but no statement with this exact-line-search two-step derivative or algebraic threshold.",
+      "residual_risks": [
+        "The complete Nocedal--Sartenaer--Zhu accepted manuscript could not be retrieved from the repository during this run; differently phrased finite two-step material in inaccessible pages remains a best-of-knowledge originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING THE TWO-STEP THIRD-MODE FRONTIER",
+          "evidence": "Its sharp Euclidean statement is one-step; the assigned first variation depends on two state-dependent exact line searches.",
+          "identifier_or_url": "https://lsec.cc.ac.cn/pub/home/yyx/papers/p0703.pdf",
+          "material_read": "Author-hosted manuscript sections containing the exact step formula, reduction of the one-step extremum, main Q-linear theorem, discussion, and references",
+          "method": "Lawful primary full-text manuscript inspection",
+          "title": "A Short Note on the Q-linear Convergence of the Steepest Descent Method",
+          "trigger": "Same exact-line-search steepest descent and same Euclidean iterate-error observable"
+        },
+        {
+          "assessment": "ACCESS-LIMITED; DIFFERENT OBSERVABLE IN ACCESSIBLE MATERIAL",
+          "evidence": "The abstract states that the paper studies properties of the gradient norm for steepest descent on quadratics; no whole-document noncoverage claim is made.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1014897230089",
+          "material_read": "University repository bibliographic page and abstract; accepted-author-manuscript link was attempted and returned HTTP 403",
+          "method": "Lawful repository inspection and OA retrieval attempt",
+          "title": "On the Behavior of the Gradient Norm in the Steepest Descent Method",
+          "trigger": "Highly relevant classical exact steepest-descent paper with later descriptions of two-step asymptotic behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Y.-X. Yuan, A Short Note on the Q-linear Convergence of the Steepest Descent Method, Mathematical Programming 123 (2010); complete author-hosted manuscript relevant to the exact line-search formula and one-step Euclidean extremal theorem inspected.",
+        "J. Nocedal, A. Sartenaer, C. Zhu, On the Behavior of the Gradient Norm in the Steepest Descent Method, Computational Optimization and Applications 22 (2002), DOI 10.1023/A:1014897230089; repository abstract inspected and an accepted-manuscript link attempted but returned HTTP 403.",
+        "C. Cartis, N. Gould, P. Toint, On the complexity of the steepest-descent method with exact linesearches (2012); open report relevant algorithm/gradient-norm complexity material inspected.",
+        "Resultary semantic searches for exact-line-search two-step Euclidean error, third spectral modes, and conditioning thresholds; closest hits concern different algorithms/observables.",
+        "Fresh symbolic reconstruction of both exact line-search steps verified the perturbation derivative, cubic discriminant factorization, and exact κ=14,s=5,ε=1/2000 witness."
+      ],
+      "rationale": "The theorem isolates a natural robustness boundary for the classical two-mode picture of exact steepest descent: beyond a sharp algebraic condition-number frontier, a third curvature mode immediately degrades the finite two-step Euclidean benchmark. The exact threshold and finite witness provide a meaningful structural boundary rather than an arbitrary perturbation computation.",
+      "residual_risks": [
+        "The complete Nocedal--Sartenaer--Zhu accepted manuscript could not be retrieved from the repository during this run; differently phrased finite two-step material in inaccessible pages remains a best-of-knowledge originality risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the stated three-mode spectral perturbation of two exact-line-search steepest-descent steps, the first variation of the squared Euclidean error ratio has the displayed cubic factor, with a sharp conditioning frontier at the unique \\(\\kappa_0>1\\) root of the displayed reciprocal degree-eight polynomial, \\(\\kappa_0\\approx13.16265037573856\\); above it an arbitrarily small interior mode can worsen the balanced two-mode benchmark.",
+  "limitations": [
+    "The theorem is local to the specified mass-preserving perturbation and does not determine the global worst two-step Euclidean contraction.",
+    "The complete Nocedal--Sartenaer--Zhu accepted manuscript could not be retrieved from the repository during this run; differently phrased finite two-step material in inaccessible pages remains a best-of-knowledge originality risk."
+  ],
+  "schema_version": 1
+}
