@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For each \\(n\\ge4\\), the norm upper bound is attained by positive singular vectors at the unique strictly-convex envelope optimizer; the norm-one plateau is characterized by the top singular subspace. The Schur-complement computation about the multiple unit singular value gives \\(s_n(t)=1+q_nt+a_nt^2/2+O(t^3)\\) with \\(a_n=(n+2)\\sin^2(\\pi/n)/n\\). Inverting its derivative proves the exact quadratic coefficient. The endpoint \\(q=1\\) follows from the standard numerical radius. Finite tests do not stand in for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chien--Nakazato 2010, printed p. 378, equation (6), gives Tsing circular-union formula for every matrix.",
+        "Ogasawara--Nakazato 2014, printed p. 1632, states circular-union formula and algebraic-boundary method.",
+        "Kaunisto--O'Loughlin--Virtanen 2026, Theorem 2.2 and Corollary 3.1 concern dilation and complete spectral-set constants."
+      ],
+      "reasoning": "Tsing describes a general constrained range as a union of disks but does not explicitly evaluate the all-order shifted-Jordan singular-norm response or its second-order onset; its specialized derivation is the new assertion. General scaled spectral-set inequalities bound polynomial norms rather than determine the individual radius profile. The uninspected broad 1998 paper is retained as a residual risk, not falsely certified as noncovering.",
+      "searches": [
+        "web: arxiv:2608.09866 scaled q-numerical spectral constants",
+        "web: Li Nakazato Some Results on the q-Numerical 1998",
+        "web: Tsing circular union formula Davis-Wielandt shell",
+        "published-finding corpus: q-numerical range nilpotent Jordan block J_n saturation w_q equals one for q <= cos pi/n and sharp quadratic edge curvature"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.00443v2 [sections 1--3, full HTML]",
+      "doi:10.13001/1081-3810.1382 [primary PDF theorem and sections]",
+      "doi:10.12988/imf.2014.49157 [primary full PDF]",
+      "doi:10.1080/03081089808818539 [abstract only]",
+      "arxiv:2608.09866 [abstract and cross-reference]",
+      "published-finding corpus search records with closest IDs embedded in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.00443v2, Theorem 2.2: \\(q\\)-range disk inclusion implies a \\(\\rho_q\\)-unitary dilation.",
+        "Chien--Nakazato 2010, Theorem 2.1: \\(W_q(A(0))\\) stays a unit disk for \\(q\\le1/2\\) in size three.",
+        "Ogasawara--Nakazato 2014, Theorem 3.1: algebraic boundary at fixed \\(q\\) for \\(N\\ne J_4\\)."
+      ],
+      "reasoning": "The recent theorem treats functional calculus and dilations rather than the exact radius for a fixed shift. The 2010 result is only order three and has no all-order coefficient; it cannot imply the quantified family with \\(n\\ge4\\). The 2014 matrix is different and the result does not vary \\(q\\). The classical radius \\(w(J_n)=\\cos(\\pi/(n+1))\\) supplies only the endpoint \\(q=1\\), not the plateau boundary or curvature.",
+      "searches": [
+        "web: arxiv:2610.00443v2 HTML Theorem 2.2 Corollary 3.1",
+        "web: Chien Nakazato 2010 Theorem 2.1 tridiagonal b=0",
+        "web: 2014 Ogasawara Nakazato explicit nilpotent N",
+        "published-finding corpus: partial isometry q numerical range norm attainment plateau threshold subspace numerical radius Jordan shift"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.00443v2, Secs. 1--3: dilation and complete spectral-set statements, not \\(r_n(q)\\).",
+        "Chien--Nakazato 2010, Theorem 2.1 with \\(b=0\\), covers the \\(3\\times3\\) Jordan shift plateau."
+      ],
+      "reasoning": "Potential equivalent aliases are constrained two-vector inner-product radius, \\(C\\)-numerical range with rank-one \\(C\\), circular \\(q\\)-range, and a one-parameter singular-value Legendre envelope. Search results and inspected theorems do not supply the \\(n\\ge4\\) exact quadratic exit. The \\(n=3\\) special case is excluded, rather than relabeled as original.",
+      "searches": [
+        "Jordan nilpotent shift J_n q-numerical radius exact plateau q=cos(pi/n) q-spectral boundary",
+        "Jordan shift q-numerical radius quadratic departure coefficient n/(2(n+2) sin^2(pi/n))",
+        "web: \"nilpotent Jordan block all orders q-numerical range Jordan radius\"",
+        "web: \"q numerical range Jordan block general n cos pi n saturation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ogasawara--Nakazato 2014, equation (1.2), matrix has every strictly upper-diagonal entry \\(1\\); Theorem 3.1 concerns \\(q=1599/1601\\).",
+        "Closest published-finding corpus ID 2026/10/4/SCOPE-rank-four-is-the-exact-rank-threshold-for-off-center-circular-nu--f920baa2d402 concerns ordinary numerical ranges of partial isometries, not \\(q\\)-radii of \\(J_n\\)."
+      ],
+      "reasoning": "A matrix of the same size is not an exact tabulation: the 2014 nilpotent \\(N\\) has additional superdiagonals and is not unitarily the unweighted shift. A single fixed-parameter algebraic boundary does not imply the all-parameter exit coefficient. Database hits concern other operators or different spectral parameters.",
+      "searches": [
+        "published-finding corpus: Jordan nilpotent shift J_n q-numerical radius exact plateau q=cos(pi/n) q-spectral boundary",
+        "published-finding corpus: Jordan shift q-numerical radius quadratic departure coefficient n/(2(n+2) sin^2(pi/n))",
+        "published-finding corpus: Jordan shift q numerical radius Legendre transform singular norm J_n+tI spectral transition coefficient sin pi/n",
+        "web: The q-Numerical Range of a Nilpotent 4 x 4 Matrix Ogasawara Nakazato PDF"
+      ]
+    },
+    "rationale": "The exact \\(n\\ge4\\) transition and the coefficient \\(n/[2(n+2)\\sin^2(\\pi/n)]\\) are not asserted in the inspected scaled-range dilation paper, the three-dimensional tridiagonal source, or the explicit but different nilpotent four-dimensional source. Earlier circular-union and ordinary numerical-radius machinery does not itself state this all-order curvature. Relevant 1998 literature was only available by abstract; residual equivalence risk remains.",
+    "residual_risks": [
+      "Li--Nakazato 1998 full text not accessible; some general scalar-function theorem may provide an equivalent specialization.",
+      "Unindexed older Jordan-shift q-radius analyses or corollaries of Tsing-type representation might cover the result without using the same title or coefficient.",
+      "Numerical verifier tests only n=4..8 and cannot prove the arbitrary-n assertion; the analytical proof is the sole general justification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as to the specific n>=4 Jordan-shift radius and curvature",
+        "evidence": [
+          "arXiv HTML section 2, Theorem 2.2, proves unitary dilation",
+          "section 3, Corollary 3.1, complete spectral sets; no Jordan-shift parameter calculation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00443v2",
+        "material_read": "full HTML: Introduction, Theorem 2.2 and proof, Corollary 3.1 and proof, reference list",
+        "method": "arXiv HTML textual inspection",
+        "title": "Dilation Theory for Scaled q-Numerical Ranges",
+        "trigger": "verified 2026-09-30 recent primary MSC 47A12, identical q-range notion"
+      },
+      {
+        "assessment": "COVERS n=3 q<=1/2 plateau, EXCLUDED; does not establish claimed n>=4 curvature",
+        "evidence": [
+          "Theorem 2.1(i), b=0 corresponds to J3 transposed, radius1 for q<=1/2",
+          "equation (6) general circular-union formula"
+        ],
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/765/765/765",
+        "material_read": "PDF introduction, Sec. 2 Theorem 2.1, proof, Tsing formula, and relevant later material; pages 376-379 checked as text and theorem pages visually",
+        "method": "open-access publisher PDF text extraction and page images",
+        "title": "The q-Numerical Range of 3 by 3 Tridiagonal Matrices",
+        "trigger": "exact low-dimensional nilpotent tridiagonal analog"
+      },
+      {
+        "assessment": "NOT_COVERING: N has ones on all superdiagonals and fixed q=1599/1601; distinct from J4 and variable-q profile",
+        "evidence": [
+          "equation (1.2) explicit upper-triangular N",
+          "Theorem 3.1 fixed q=1599/1601"
+        ],
+        "identifier_or_url": "https://www.m-hikari.com/imf/imf-2014/33-36-2014/nakazatoIMF33-36-2014-1.pdf",
+        "material_read": "seven-page primary paper, notably printed pp. 1632-1635 and equations (1.2), (3.1)",
+        "method": "open-access full PDF text plus visual page image of explicit matrix",
+        "title": "The q-Numerical Range of a Nilpotent 4 by 4 Matrix",
+        "trigger": "plausible identical n=4 nilpotent title"
+      },
+      {
+        "assessment": "UNRESOLVED_TEXT: no whole-document coverage verdict; nondecisive residual risk",
+        "evidence": [
+          "publisher abstract describes scalar functions and general algorithms but does not name Jordan-shift exit curvature",
+          "full text not inspected, so absence is not established"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081089808818539",
+        "material_read": "bibliographic metadata and published abstract only",
+        "method": "arXiv title and open-access search unsuccessful; publisher abstract visited; lawful full-text access attempt unsuccessful",
+        "title": "Some Results on the q-Numerical Range",
+        "trigger": "1998 broad general q-numerical-range/Davis-Wielandt-shell results may subsume dual representations"
+      },
+      {
+        "assessment": "ABSTRACT_SCOPE_DISTINCT; full-text coverage is not certified",
+        "evidence": [
+          "abstract gives similarity-union and polynomial spectral-set inequalities, not Jordan-shift radii"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.09866",
+        "material_read": "full public abstract and theorem summary",
+        "method": "arXiv abstract and contemporary source cross-reference",
+        "title": "Sharp Spectral Constants for Scaled q-Numerical Ranges",
+        "trigger": "stronger possible coverage of q-range properties"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f322322a-276d-419c-8954-990ef09eb099",
+  "value": {
+    "rationale": "The finite truncated shift is a natural model contraction for spectral-set questions. The exact all-order onset at \\(q_n=\\cos(\\pi/n)\\) and the nonzero explicit quadratic curvature quantify the transition from full operator-norm saturation to constrained decay. The dimensional coefficient and full singular-norm variational profile are motivated structural invariants, not a normalization, isolated parameter substitution, or table recomputation.",
+    "status": "PASS"
+  }
+}
