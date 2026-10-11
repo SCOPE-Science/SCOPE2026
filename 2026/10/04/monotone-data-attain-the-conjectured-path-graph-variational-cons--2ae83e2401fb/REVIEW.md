@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each fixed graph radius, the centered ball average of a nondecreasing sequence is itself nondecreasing along the path: moving the center right either shifts an equal-length interval right, appends a new largest value, removes an old smallest value, or leaves the ball unchanged. Taking the pointwise maximum preserves monotonicity. The left endpoint maximal value is the global mean, the right endpoint maximal value is the terminal value, and total variation therefore telescopes exactly. The mean bound gives the factor \(1-1/n\), and its equality condition gives the endpoint-step classification. Reflection handles nonincreasing data.
+## correctness
 
-The exact-rational verifier exhaustively checks bounded integer monotone data for \(3\le n\le8\), including the exact identity and equality conditions. This is a consistency check rather than a substitute for the proof.
+PASS
 
-## Originality
-PASS with residual literature risk. The primary 2026 paper formulates the full path conjecture, gives numerical evidence through \(n\le10\), and emphasizes its difficulty, but its full text contains no monotone or nondecreasing-data statement. The earlier finite-graph papers inspected focus on complete and star graphs or other global bounds. Targeted published-finding corpus and web searches found no statement implying the all-\(n\) monotone identity or the equality classification.
+For nonnegative nondecreasing data on \(P_n\), every fixed-radius centered ball average is nondecreasing as the center moves right: an interval either shifts right, gains a new largest value, loses an old smallest value, or is unchanged. The pointwise maximum over radii is therefore nondecreasing. At the left endpoint its maximal value is the global mean, while at the right endpoint it is the terminal value. Hence \(\operatorname{Var}(Mf)=f(n)-\overline f\). The elementary bound \(\overline f\ge((n-1)f(1)+f(n))/n\) gives the sharp factor \(1-1/n\), and equality for nonconstant data forces \(f(1)=\cdots=f(n-1)<f(n)\). Reflection gives the nonincreasing case. This proves the quantified theorem symbolically; finite checks are not needed for the infinite statement.
 
-The closest database results concern continuous centered maximal norms or unrelated graph path extremality, not finite-path \(1\)-variation. The result is therefore not a reformulation of the inspected literature, though unindexed folklore remains a residual risk.
+## originality
 
-## Value
-PASS. The result proves the conjectured constant on a natural structured class for every path size, not only for the numerically checked small paths. The exact identity identifies the extremizers within that class and shows that any counterexample to the full conjecture must contain oscillation. This isolates a concrete structural obstruction for the open problem rather than merely verifying more small cases.
+PASS
 
-## Closest literature and limitations
-The closest source is arXiv:2603.12462, which conjectures \(\mathbf C_{P_n}=1-1/n\) and reports numerical evidence for \(n\le10\). Earlier work by Liu--Xue and González-Riquelme--Madrid develops the finite-graph variation framework and sharp constants for other graph families. None of the inspected sources gives the monotone endpoint-mean formula proved here.
+The complete primary preprint formulates the path constant \(1-1/n\) as an open conjecture and reports computation only for small paths. Full-text searches in this round found no occurrence of 'monotone' or 'nondecreasing', and no theorem giving the endpoint-minus-mean identity or equality cases. Resultary returned the submitted record as the direct exact match and no earlier equivalent finite-path monotone theorem. The claim therefore establishes a genuine structured all-size slice of the open conjecture.
 
-The full path conjecture is not settled. No claim is made for nonmonotone data or for \(p\)-variation with \(p\ne1\).
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The theorem proves the conjectured sharp factor for every path size on a natural structured class, identifies its extremizers, and shows that any counterexample to the full conjecture must be genuinely oscillatory. That materially narrows an explicitly open problem rather than merely checking more small cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
