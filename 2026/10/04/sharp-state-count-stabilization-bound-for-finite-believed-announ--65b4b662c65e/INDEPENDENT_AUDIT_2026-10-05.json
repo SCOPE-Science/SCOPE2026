@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:55:37Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob ed97b6609a77aad03b66b0c8ad113cd37b538c7d.",
+        "Actual verify.py blob af9b873bdd3e9bf5f3a28a75880ed24ffd077e5b was read; its finite replay is corroborative, not the general proof.",
+        "Yamada arXiv:2609.24006 Definition 5 gives the exact target-filter update; Proposition 3 gives the older labelled-arrow stabilization argument."
+      ],
+      "rationale": "Yamada's update is exactly \\(R_i^{k+1}=R_i^k\\cap(W\\times\\llbracket\\varphi\\rrbracket_{M^k})\\). Therefore if a stage is strict, some surviving arrow into a currently false target \\(v\\) is removed, and the same target filter simultaneously removes every remaining incoming arrow to \\(v\\) for every source and agent. Thus \\(v\\) leaves the active-target set permanently, so every strict stage consumes at least one element of \\(T_0\\). The directed-cycle witness was reconstructed: initially only the unique \\(p\\)-false state fails the formula; deleting its incoming edge makes its predecessor a dead end, producing exactly one new false target each round until the last edge disappears at round \\(n\\).",
+      "risks": [
+        "The sharp witness is a general modal frame and is not claimed sharp inside K45, KD45, or S5.",
+        "The theorem bounds update rounds, not the computational complexity of reevaluating the formula at each round."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3 obtains a fixed ordinal below the successor cardinal of the labelled-arrow set.",
+          "Lemma 6 gives finite stabilization in single-agent K45 by eliminating propositional valuation types."
+        ],
+        "reasoning": "The source has a broader transfinite theorem and a narrower K45 theorem, but neither dominates the arbitrary finite-state \\(|T_0|\\) bound.",
+        "searches": [
+          "arXiv:2609.24006 Definition 5, Definition 8, Proposition 3, Lemma 6"
+        ]
+      },
+      "checked_sources": [
+        "Fresh Resultary query",
+        "arXiv:2609.24006"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An arrow-count bound can be arbitrarily larger than the number of targets when many agents/sources point to the same state.",
+          "The K45 valuation-type proof uses extra frame structure and does not imply the general-model sharp cycle bound."
+        ],
+        "reasoning": "The observation that one false target deletes all of its incoming labelled arrows is the structural step converting the source update rule into the sharper rank.",
+        "searches": [
+          "Yamada Proposition 3 labelled-arrow charging",
+          "Yamada Lemma 6 K45 valuation-type charging"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fresh Resultary top results were unrelated finite-stabilization problems; no believed-announcement state-count theorem appeared.",
+          "The primary source's quantitative proof uses labelled arrows, not states/targets."
+        ],
+        "reasoning": "Equivalent formulations via active targets, state-count rank, target deletion, finite closure ordinal, and sharp iteration depth were searched.",
+        "searches": [
+          "Resultary: finite believed public announcement stabilization active targets state count sharp n rounds Yamada",
+          "Web: believed public announcement finite model stabilization number of states sharp bound active targets",
+          "arXiv:2609.24006 finite state target bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed table/theorem with the exact cutoff \\(|T_0|\\) or the \\(n\\)-cycle lower-bound family was found."
+        ],
+        "reasoning": "This is a symbolic sharp cutoff for every finite model rather than a finite experiment/table.",
+        "searches": [
+          "Resultary exact active-target/state-count query"
+        ]
+      },
+      "rationale": "The exact primary full text proves arbitrary-model stabilization by charging strict stages to labelled arrows and, separately, finite stabilization for single-agent K45 generated models by propositional valuation types. It does not state the active-target invariant, a universal sharp \\(|W|\\) finite-state bound, or the cycle family attaining it. Fresh Resultary search for those formulations returned no same-object covering record.",
+      "residual_risks": [
+        "An older monotone relation-pruning lemma in modal/dynamic-logic terminology could contain the same target-rank observation even if it is not attached to believed announcements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_TRANSFINITE_AND_NARROWER_K45_RESULTS; NOT_THE_STATE_COUNT_BOUND",
+          "evidence": [
+            "Proposition 3 explicitly enumerates labelled arrows; Lemma 6 explicitly counts proposition-valuation types."
+          ],
+          "identifier_or_url": "arXiv:2609.24006",
+          "material_read": "Full arXiv HTML at Definition 5, Definition 8, Proposition 3 and proof, and Lemma 6 with its single-agent K45 valuation-type argument.",
+          "method": "Direct primary full-text inspection.",
+          "title": "Eventual and Strong Eventual Notions in Public Announcements",
+          "trigger": "Exact primary source defining the iteration and proving stabilization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Sharp \\(|W|\\) worst-case bound for all finite models.",
+        "Stronger instance-sensitive \\(|T_0|\\) bound."
+      ],
+      "rationale": "This is a meaningful finite cutoff for the exact update process motivating the source's transfinite theory. It replaces a potentially huge labelled-arrow resource by a sharp linear state resource independent of the number of agents, and the matching family proves that no smaller universal state-only cutoff is possible on general frames.",
+      "risks": [
+        "Additional epistemic frame axioms may allow stronger cutoffs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any finite-state believed-public-announcement model and any fixed formula, iteration stabilizes after at most \\(|T_0|\\) strict updates, where \\(T_0\\) is the set of states initially targeted by some labelled arrow, hence after at most \\(|W|\\) strict updates; the bound is sharp for every \\(n\\ge1\\) on an \\(n\\)-cycle with repeated announcement \\(p\\land\\neg\\Box\\bot\\).",
+  "limitations": [
+    "Finite state space only.",
+    "Sharpness is only for general frames, not K45/KD45/S5 subclasses."
+  ],
+  "schema_version": 1
+}

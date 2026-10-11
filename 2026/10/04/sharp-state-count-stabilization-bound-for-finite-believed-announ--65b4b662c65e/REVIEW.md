@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Under believed public announcement, every relation is intersected with the same target truth set. If an update is strict, at least one surviving arrow into a false target is deleted, and the update simultaneously deletes every incoming arrow to that target for every source and agent. That target therefore leaves the active-target set permanently. At most \(|T_0|\) strict updates are possible.
+PASS
 
-The sharpness construction is explicit. On the directed \(n\)-cycle, \(p\) is false only at one state and \(\neg\Box\bot\) says that the current state has a successor. The initially false target is removed first; its predecessor then becomes a sink, producing a one-state-per-round cascade. The final edge disappears at round \(n\), so the bound is attained.
+Yamada's update is exactly \(R_i^{k+1}=R_i^k\cap(W\times\llbracket\varphi\rrbracket_{M^k})\). Therefore if a stage is strict, some surviving arrow into a currently false target \(v\) is removed, and the same target filter simultaneously removes every remaining incoming arrow to \(v\) for every source and agent. Thus \(v\) leaves the active-target set permanently, so every strict stage consumes at least one element of \(T_0\). The directed-cycle witness was reconstructed: initially only the unique \(p\)-false state fails the formula; deleting its incoming edge makes its predecessor a dead end, producing exactly one new false target each round until the last edge disappears at round \(n\).
 
-## Originality
+## originality
 
-PASS. The primary 2026 paper proves general stabilization by counting labelled arrows and later gives a different finite-stabilization argument for single-agent \(K45\) generated models. It does not state a bound by active target states, a universal \(|W|\) finite-state bound independent of the agent set, or the sharp cycle family.
+PASS
 
-Targeted database and literature searches for finite stabilization bounds, active-target formulations, and sharp finite believed-announcement examples did not locate an equivalent theorem.
+The exact primary full text proves arbitrary-model stabilization by charging strict stages to labelled arrows and, separately, finite stabilization for single-agent K45 generated models by propositional valuation types. It does not state the active-target invariant, a universal sharp \(|W|\) finite-state bound, or the cycle family attaining it. Fresh Resultary search for those formulations returned no same-object covering record.
 
-## Value
+## value
 
-PASS. Transfinite stabilization is a central mechanism in the source paper. The theorem isolates the exact finite obstruction: on a finite carrier, the process cannot require transfinite stages and in fact has a sharp linear state-count bound even when the number of agents or labelled arrows is much larger. This gives a natural quantitative baseline for finite-model experimentation with iterated believed announcements.
+PASS
 
-## Closest literature and limitations
+This is a meaningful finite cutoff for the exact update process motivating the source's transfinite theory. It replaces a potentially huge labelled-arrow resource by a sharp linear state resource independent of the number of agents, and the matching family proves that no smaller universal state-only cutoff is possible on general frames.
 
-Yamada (2026), Definition 5 and Proposition 3, are the closest source. Proposition 3 uses the cardinality of the labelled-arrow set. Lemma 6 proves finite stabilization in a specific single-agent \(K45\) setting through propositional valuation types.
-
-The sharp lower bound here is only for general models. A sharp \(K45\)-specific state bound is not claimed.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For a relation \(R\) and a target truth set \(S\), the believed-announcement update is
-\[
-R'=R\cap(W\times S).
-\]
+# Independent mathematical audit
 
-The key finite invariant is the active-target set
-\[
-T(R)=\{v:\exists u\ (u,v)\in R\}.
-\]
-Whenever \(R'\ne R\), some active target lies outside \(S\), and all arrows to that target are removed. Hence
-\[
-T(R')\subsetneq T(R).
-\]
+## correctness
 
-The bundled checker exhaustively verifies this implication for every one-agent relation and every target truth set on carriers of size at most four.
+PASS
 
-It separately implements the sharp cycle model with
-\[
-\varphi=p\land\neg\Box\bot
-\]
-and verifies for
-\[
-1\le n\le12
-\]
-that all stages
-\[
-0,\ldots,n-1
-\]
-are strict and that
-\[
-M^n=M^{n+1}.
-\]
+Yamada's update is exactly \(R_i^{k+1}=R_i^k\cap(W\times\llbracket\varphi\rrbracket_{M^k})\). Therefore if a stage is strict, some surviving arrow into a currently false target \(v\) is removed, and the same target filter simultaneously removes every remaining incoming arrow to \(v\) for every source and agent. Thus \(v\) leaves the active-target set permanently, so every strict stage consumes at least one element of \(T_0\). The directed-cycle witness was reconstructed: initially only the unique \(p\)-false state fails the formula; deleting its incoming edge makes its predecessor a dead end, producing exactly one new false target each round until the last edge disappears at round \(n\).
 
-The script prints `VERIFY_OK`.
+## originality
 
-## Limits
+PASS
 
-The finite computation corroborates the set-theoretic proof. The upper bound applies to arbitrary agent sets because the published update uses the same target truth set for every agent relation. The sharpness construction is not a \(K45\) lower bound.
+The exact primary full text proves arbitrary-model stabilization by charging strict stages to labelled arrows and, separately, finite stabilization for single-agent K45 generated models by propositional valuation types. It does not state the active-target invariant, a universal sharp \(|W|\) finite-state bound, or the cycle family attaining it. Fresh Resultary search for those formulations returned no same-object covering record.
+
+## value
+
+PASS
+
+This is a meaningful finite cutoff for the exact update process motivating the source's transfinite theory. It replaces a potentially huge labelled-arrow resource by a sharp linear state resource independent of the number of agents, and the matching family proves that no smaller universal state-only cutoff is possible on general frames.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
