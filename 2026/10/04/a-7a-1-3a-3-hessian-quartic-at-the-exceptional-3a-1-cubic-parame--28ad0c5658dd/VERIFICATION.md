@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker `verify.py` uses symbolic arithmetic in \(\mathbb Q[\rho]/(9\rho^2-14\rho+9)\). A successful replay ends with `VERIFY_OK`.
+# Independent mathematical audit
 
-It verifies the following claims directly:
+## correctness
 
-- the displayed Hessian-quartic determinant;
-- equality of both quadratic rank-drop discriminants with \(9\rho^2-14\rho+9\);
-- the double-root coordinates \(x_0\) and \(y_0\);
-- vanishing of every \(3\times3\) Hessian minor at the seven special-fiber rank-drop support points;
-- corank-one quadratic parts at the three collision points and reduced fourth-order coefficient \(8\rho\) after solving the transverse critical equations through the order needed for the splitting lemma;
-- nondegenerate local quadratic parts at the four fixed rank-drop points and at the three nodes of the cubic;
-- rank three of the cubic Hessian at those three nodes; and
-- uniqueness, up to projective scale, of the solutions to \(H_\rho(x)k=0\) for each node kernel \(k\).
+PASS
 
-The checker therefore certifies the new local type and exhaustion steps. It does not independently reconstruct the complete primary decomposition of the \(3\times3\)-minor ideal; that global decomposition is a premise from arXiv:1909.12538.
+Seigal–Sukarto's published primary decomposition gives four fixed rank-two points plus three quadratic components; at \(9\rho^2-14\rho+9=0\), each quadratic has a double root, so the rank-at-most-two scheme has length \(10\) and support \(7\). For a rank-three symmetric Hessian matrix, singularity of its determinant forces \(T(k,k,v)=0\) for every \(v\), hence the kernel point \(k\) is singular on the cubic. The three source-listed cubic nodes yield unique projective kernel-incidence points, exhausting rank-three singularities. The inspected exact symbolic checker verifies all \(3\times3\) minors at the seven rank-drop points, the three corank-one splitting calculations with nonzero fourth-order coefficient, and nondegenerate quadratic germs at the four remaining rank-drop points and three cubic nodes. This gives exactly \(3A_3+7A_1\).
+
+## originality
+
+PASS
+
+The primary Seigal–Sukarto source identifies the same \(3A_1\) family, the four fixed points and three quadratic pieces, and the exceptional condition \(9\rho^2-14\rho+9=0\) where the ten generic rank-drop points cease to be distinct. It does not determine the resulting curvilinear double structure, the \(A_3\) local types, or the three additional rank-three \(A_1\) singularities of the Hessian quartic. Current Resultary searches for the exact exceptional basket found no covering theorem.
+
+## value
+
+PASS
+
+The exceptional divisor is already singled out in the primary Hessian-rank analysis, so determining what the three pair-collisions become is a motivated local-geometry question. The exact \(7A_1+3A_3\) basket, including the previously hidden rank-three nodes, is a structural classification of that natural degeneration rather than an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

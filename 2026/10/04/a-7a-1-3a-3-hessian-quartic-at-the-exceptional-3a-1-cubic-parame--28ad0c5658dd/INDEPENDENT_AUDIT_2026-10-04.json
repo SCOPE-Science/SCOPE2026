@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:19:58.249470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Seigal–Sukarto's published primary decomposition gives four fixed rank-two points plus three quadratic components; at \\(9\\rho^2-14\\rho+9=0\\), each quadratic has a double root, so the rank-at-most-two scheme has length \\(10\\) and support \\(7\\). For a rank-three symmetric Hessian matrix, singularity of its determinant forces \\(T(k,k,v)=0\\) for every \\(v\\), hence the kernel point \\(k\\) is singular on the cubic. The three source-listed cubic nodes yield unique projective kernel-incidence points, exhausting rank-three singularities. The inspected exact symbolic checker verifies all \\(3\\times3\\) minors at the seven rank-drop points, the three corank-one splitting calculations with nonzero fourth-order coefficient, and nondegenerate quadratic germs at the four remaining rank-drop points and three cubic nodes. This gives exactly \\(3A_3+7A_1\\).",
+      "risks": [
+        "The full \\(3\\times3\\)-minor primary decomposition is a verified literature premise rather than recomputed independently from scratch."
+      ],
+      "sources": [
+        "assigned RESULT.md blob 2988701285b7fd9755d2b2c441fb43feb77efff2",
+        "verify.py blob f1700c6ea9b748280f27d9827af6f0139038d975",
+        "Seigal–Sukarto, arXiv:1909.12538, \\(3A_1\\) normal form and Hessian-minor decomposition"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "No inspected broader statement supplies this exceptional basket or the three-pair \\(A_3\\) upgrade."
+        ],
+        "reasoning": "General non-Sylvester Hessian theory does not mechanically determine the local analytic types at this special parameter without the new local calculation.",
+        "searches": [
+          "Seigal–Sukarto primary text",
+          "current Resultary Hessian-surface findings",
+          "Dardanelli–van Geemen / Koike terminology checked as broader context"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1909.12538",
+        "Dardanelli–van Geemen arXiv:math/0409322",
+        "Koike arXiv:1006.3617",
+        "current Resultary Hessian search",
+        "assigned exact checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A doubled component of the rank-two degeneracy scheme alone does not determine that the determinant hypersurface has type \\(A_3\\), nor does it expose rank-three singularities."
+        ],
+        "reasoning": "The source decomposition is an essential premise but does not imply the final ADE basket without additional Hessian-kernel and splitting-lemma analysis.",
+        "searches": [
+          "claim-versus-Seigal–Sukarto decomposition implication comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source stops at the non-distinct rank-drop configuration and the cubic's \\(3A_1\\) type.",
+          "The audited theorem classifies the analytic singularities of the Hessian quartic and adds rank-three singularities."
+        ],
+        "reasoning": "Collision of the rank-drop scheme and ADE classification of the determinant hypersurface are distinct statements.",
+        "searches": [
+          "Resultary: \\(7A_1+3A_3\\) Hessian quartic \\(3A_1\\) cubic",
+          "Seigal–Sukarto arXiv:1909.12538 exceptional \\(9\\rho^2-14\\rho+9\\)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table entry or prior exact basket matching \\(7A_1+3A_3\\) was located."
+        ],
+        "reasoning": "The claim is a local-analytic classification theorem, not merely a finite lookup.",
+        "searches": [
+          "current Resultary exact basket search"
+        ]
+      },
+      "rationale": "The primary Seigal–Sukarto source identifies the same \\(3A_1\\) family, the four fixed points and three quadratic pieces, and the exceptional condition \\(9\\rho^2-14\\rho+9=0\\) where the ten generic rank-drop points cease to be distinct. It does not determine the resulting curvilinear double structure, the \\(A_3\\) local types, or the three additional rank-three \\(A_1\\) singularities of the Hessian quartic. Current Resultary searches for the exact exceptional basket found no covering theorem.",
+      "residual_risks": [
+        "An equivalent ADE basket could exist in an older classification under different cubic coordinates; no such covering source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE, not the Hessian quartic ADE basket.",
+          "evidence": "The source states when the ten rank-drop points are not distinct but does not classify the quartic singularities as \\(7A_1+3A_3\\).",
+          "identifier_or_url": "https://arxiv.org/abs/1909.12538",
+          "material_read": "Full relevant primary section containing the normal form, four fixed points, three degree-two components, and exceptional discriminant condition.",
+          "method": "Primary statement and implication comparison.",
+          "title": "Ranks and Singularities of Cubic Surfaces",
+          "trigger": "Primary source for the exact \\(3A_1\\) normal form and exceptional Hessian rank-drop decomposition."
+        },
+        {
+          "assessment": "Correct corroboration of the new local calculations.",
+          "evidence": "The checker verifies double roots, all rank-drop incidences, three nonzero fourth-order reduced germs, seven nondegenerate node quadratics, and unique rank-three kernel incidences.",
+          "identifier_or_url": "verify.py",
+          "material_read": "Complete source.",
+          "method": "Line-by-line exact-algebra inspection.",
+          "title": "Assigned exact symbolic checker",
+          "trigger": "Local analytic classification and singular-locus exhaustion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exceptional divisor is already singled out in the primary Hessian-rank analysis, so determining what the three pair-collisions become is a motivated local-geometry question. The exact \\(7A_1+3A_3\\) basket, including the previously hidden rank-three nodes, is a structural classification of that natural degeneration rather than an arbitrary computation.",
+      "risks": [
+        "No claim is made about resolutions, monodromy, or Néron–Severi lattices."
+      ],
+      "sources": [
+        "Seigal–Sukarto exceptional \\(3A_1\\) parameter locus",
+        "assigned exact local singularity calculation"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Over \\(\\mathbb C\\) and only at the two roots of \\(9\\rho^2-14\\rho+9=0\\).",
+    "Uses Seigal–Sukarto's full rank-drop primary decomposition as a literature premise.",
+    "No global resolution or deformation classification is claimed."
+  ],
+  "schema_version": 1
+}
