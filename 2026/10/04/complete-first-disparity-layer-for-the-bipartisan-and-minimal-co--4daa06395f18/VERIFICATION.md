@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_bp_mc_first_layer.py` performs an exact census of every labeled tournament through order \(6\).
 
-The bipartisan set is computed primarily from positive Pfaffian null vectors of odd principal subtournaments. On every one of the \(1440\) strict order-\(6\) cases, the resulting maximal lottery is independently recomputed with exact rational Gaussian elimination.
+# Independent mathematical audit
 
-The minimal covering set is computed by exhaustive enumeration of all covering subsets. Brandt's iterative algorithm, initialized from the bipartisan set, is independently replayed on every tournament through order \(5\) and on every strict order-\(6\) case.
+## correctness
 
-The verifier confirms:
-- \(BP(T)=MC(T)\) for every tournament through order \(5\);
-- \(1440\) strict cases among the \(32768\) labeled order-\(6\) tournaments;
-- exact incidence \(45/1024\);
-- the order-\(6\) histogram
-\[
-(1,1):6144,\quad
-(3,3):20480,\quad
-(5,5):4704,\quad
-(5,6):1440;
-\]
-- exactly two strict isomorphism classes;
-- orbit size \(720\) for each class;
-- canonical encodings \(344\) and \(345\);
-- the two displayed maximal lotteries and payoff vectors.
+PASS
 
-Run:
+Independent exact enumeration of all \(32768\) labeled six-vertex tournaments reproduced the complete histogram: 6144 (1,1), 20480 (3,3), 4704 (5,5), and 1440 strict (5,6). Canonicalization under all 720 relabelings gives exactly classes 344 and 345, each 720.
 
-`python3 verify_bp_mc_first_layer.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+The 2015 exhaustive paper establishes disparity index 6 and a witness but does not publish the complete 1440-case/two-class first layer.
 
-The computation establishes only the complete first disparity layer.
+## value
+
+PASS
+
+A complete first-disparity layer is a natural finite boundary classification; the uniform size pattern and two unlabeled types are meaningful structure beyond the threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

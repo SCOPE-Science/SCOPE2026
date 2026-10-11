@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite domain is exhaustive through six alternatives. The maximal-lottery support is computed exactly from Pfaffian null vectors, and every one of the \(1440\) strict six-alternative cases is independently replayed with rational Gaussian elimination. The minimal covering set is computed from all covering subsets, with Brandt's iterative algorithm replayed on every lower-order tournament and every strict six-alternative case. Full relabeling under \(6!\) permutations proves the two-class statement.
+## correctness
 
-Risk: the theorem is purely finite. It does not infer behavior at order \(7\) or above.
+PASS
 
-## Originality
-**PASS.** Brandt, Dau, and Seedig already prove the disparity index \(d(BP,MC)=6\) and display one minimal witness, so neither fact is claimed as new. The accepted claim is the complete first-layer census and quotient: \(1440\) labeled strict cases, only the size pattern \((5,6)\), and exactly two unlabeled asymmetric classes. Exact-number, alias, implication, and full-text searches did not locate those stronger statements.
+Independent exact enumeration of all \(32768\) labeled six-vertex tournaments reproduced the complete histogram: 6144 (1,1), 20480 (3,3), 4704 (5,5), and 1440 strict (5,6). Canonicalization under all 720 relabelings gives exactly classes 344 and 345, each 720.
 
-Risk: an unpublished data file from earlier exhaustive searches or an unindexed appendix could contain the same census.
+## originality
 
-## Value
-**PASS.** \(BP\) and \(MC\) are canonical tournament solutions with distinct game-theoretic interpretations: equilibrium support versus weak-saddle/covering stability. Their disparity threshold is already known, making the complete structure of the threshold layer a natural invariant rather than an arbitrary slice. The result shows unexpected rigidity: the first separation always adds exactly one alternative and consists of only two unlabeled tournament types.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 2015 exhaustive paper establishes disparity index 6 and a witness but does not publish the complete 1440-case/two-class first layer.
+
+## value
+
+PASS
+
+A complete first-disparity layer is a natural finite boundary classification; the uniform size pattern and two unlabeled types are meaningful structure beyond the threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
