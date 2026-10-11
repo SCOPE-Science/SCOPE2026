@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:54:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The algebra \\(A=k\times k[\u000barepsilon]/(\u000barepsilon^2)\\) with \\(A_0=ke\\oplus kf\\) and \\(A_1=kx\\) satisfies the grading, semisimplicity and standard-generation hypotheses directly. The central idempotent ideal \\(J=ke\\) has \\(\\dim_k(A/J)=2=\\dim_k A_0\\), but the map \\(A_0\to A/J\\) has kernel \\(ke\\), so it is not split. Also \\(J^2=J\\), hence \\(J/J^2=0\\) while \\(\\dim_kA_1=1\\). The dimension-minimality argument is exhaustive: for total dimension at most \\(2\\), either \\(\\dim A_0=1\\), when the unital map to the one-dimensional quotient is automatically an isomorphism, or \\(\\dim A_0=2\\), when the quotient-dimension equality forces \\(J=0\\).",
+      "risks": [
+        "The finite-field verifier is only corroborative; the arbitrary-field and minimality statements rest on the symbolic argument."
+      ],
+      "sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md and REVIEW.md",
+        "R. Dramburg, arXiv:2609.03288v1, full manuscript at the split-ideal question"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source explains that the established isomorphism method controls both codimension and tangent dimension and then separately poses the codimension-only problem."
+        ],
+        "reasoning": "The known broader isomorphism results do not imply splitness from codimension alone; the submitted \\(J/J^2=0\\) calculation shows why the omitted tangent condition matters.",
+        "searches": [
+          "arXiv:2609.03288v1, proof strategy and split-ideal discussion",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.03288v1",
+        "Resultary published-finding corpus search for the exact splitness question",
+        "Fresh exact-form web/literature searches for the direct-product dual-number example"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source leaves the codimension-only implication open and explicitly separates it from the codimension-plus-tangent argument."
+        ],
+        "reasoning": "No prior implication inspected forces the submitted ideal to be split; the example therefore resolves rather than specializes an existing statement.",
+        "searches": [
+          "arXiv:2609.03288v1, Question 6.1 and preceding discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source asks whether every ideal \\(J\\) with \\(\\dim_k(A/J)=\\dim_k(A_0)\\) is split.",
+          "No searched source states the submitted \\(k\times k[\u000barepsilon]/(\u000barepsilon^2)\\) counterexample."
+        ],
+        "reasoning": "The final claim is an explicit negative answer to the same question, not a rephrasing of an existing theorem.",
+        "searches": [
+          "arXiv:2609.03288v1, split-ideal section and Question 6.1",
+          "Resultary: split ideal codimension dim A0 semiconnected graded algebra counterexample dual numbers",
+          "literature search: k times dual numbers non-split ideal codimension dim A0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current submitted record was the unique exact hit; other algebra records concern different invariants."
+        ],
+        "reasoning": "The target is an explicit open question rather than a database table, so exact-index searches are only supporting evidence.",
+        "searches": [
+          "Resultary exact semantic search for splitness, codimension and semiconnected gradings"
+        ]
+      },
+      "rationale": "Dramburg's full manuscript states the codimension-only splitness problem explicitly after explaining that the isomorphism proof uses both prescribed codimension and tangent dimension. The submitted three-dimensional direct-product example gives a negative answer and identifies exactly the missing tangent information. Fresh Resultary and exact-form searches found the submitted record but no prior answer or stronger theorem implying it. The main residual risk is a very recent contemporaneous solution not yet indexed.",
+      "residual_risks": [
+        "Because the source question is very recent, an unindexed contemporaneous note could exist.",
+        "The final claim gives the minimal counterexample but does not classify all nonsplit ideals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_QUESTION_NOT_COVERING",
+          "evidence": [
+            "The source says the proof uses both codimension and tangent dimension.",
+            "It then asks whether codimension \\(\\dim A_0\\) alone forces splitness."
+          ],
+          "identifier_or_url": "arXiv:2609.03288v1",
+          "material_read": "Full manuscript sections defining semiconnected/standard gradings and split ideals, the proof-strategy discussion, and the codimension-only open question.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "Isomorphisms of graded semiconnected algebras",
+          "trigger": "Primary source of the exact splitness question and hypotheses."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The record settles an explicit structural question with the smallest possible finite-dimensional example and pinpoints the lost invariant through \\(J/J^2=0\\) versus \\(\\dim_kA_1=1\\). That explanatory tangent-space contrast makes the result more than an isolated small counterexample.",
+      "risks": [
+        "The result does not address the source's other open questions or classify all split ideals."
+      ],
+      "sources": [
+        "Exact direct-product proof in the frozen package",
+        "Dramburg's explicit codimension-only question"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem concerns finite-dimensional minimality only.",
+    "The computational checks over a few finite fields are not used as proof of the arbitrary-field statement."
+  ],
+  "schema_version": 1
+}

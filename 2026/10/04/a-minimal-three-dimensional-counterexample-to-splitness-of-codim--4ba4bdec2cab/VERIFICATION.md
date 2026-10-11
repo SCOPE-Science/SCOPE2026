@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact proof uses the basis \(e,f,x\) with \(e^2=e\), \(f^2=f\), \(fx=xf=x\), and all other basis products zero. This immediately verifies the grading, \(A_0\cong k\times k\), the central-idempotent ideal \(J=ke\), and \(A/J\cong k[\varepsilon]/(\varepsilon^2)\). The map \(A_0\to A/J\) has kernel \(ke\), hence is not an isomorphism. Also \(J^2=J\), so \(J/J^2=0\).
+# Independent mathematical audit
 
-Minimality is analytic. In total dimension at most \(2\), if \(\dim_k A_0=1\), any one-dimensional quotient receives the unit nontrivially from \(A_0\cong k\), forcing the map to be an isomorphism. If \(\dim_k A_0=2\), then \(A=A_0\) and the quotient-dimension equality forces \(J=0\). Thus no smaller counterexample exists.
+## correctness
 
-`artifacts/verify.py` independently checks the algebra over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_5\), including associativity, grading compatibility, the two-sided ideal property, quotient dimension, nonsplitness and idempotence of \(J\). `artifacts/verification_output.txt` records a successful replay ending in `CHECK_OK`. These finite checks do not prove the arbitrary-field or minimality statements; those are established by the exact argument above.
+PASS
+
+The algebra \(A=k	imes k[arepsilon]/(arepsilon^2)\) with \(A_0=ke\oplus kf\) and \(A_1=kx\) satisfies the grading, semisimplicity and standard-generation hypotheses directly. The central idempotent ideal \(J=ke\) has \(\dim_k(A/J)=2=\dim_k A_0\), but the map \(A_0	o A/J\) has kernel \(ke\), so it is not split. Also \(J^2=J\), hence \(J/J^2=0\) while \(\dim_kA_1=1\). The dimension-minimality argument is exhaustive: for total dimension at most \(2\), either \(\dim A_0=1\), when the unital map to the one-dimensional quotient is automatically an isomorphism, or \(\dim A_0=2\), when the quotient-dimension equality forces \(J=0\).
+
+## originality
+
+PASS
+
+Dramburg's full manuscript states the codimension-only splitness problem explicitly after explaining that the isomorphism proof uses both prescribed codimension and tangent dimension. The submitted three-dimensional direct-product example gives a negative answer and identifies exactly the missing tangent information. Fresh Resultary and exact-form searches found the submitted record but no prior answer or stronger theorem implying it. The main residual risk is a very recent contemporaneous solution not yet indexed.
+
+## value
+
+PASS
+
+The record settles an explicit structural question with the smallest possible finite-dimensional example and pinpoints the lost invariant through \(J/J^2=0\) versus \(\dim_kA_1=1\). That explanatory tangent-space contrast makes the result more than an isolated small counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
