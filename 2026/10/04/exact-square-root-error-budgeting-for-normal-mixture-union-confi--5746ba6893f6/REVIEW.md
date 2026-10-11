@@ -1,14 +1,21 @@
-# Same-model review
-## Correctness
-PASS. Writing \(s_i=\sqrt{{V_i+\eta^{{-2}}}}\) and \(z_i=a_i/s_i\) turns the total boundary into \(\sum_i s_i\phi(z_i)\) with \(\phi(z)=\sqrt{{\log(\eta^2/z^2)}}\) and weighted mean \(\sum_i s_i z_i/S=\alpha/S\). For \(\alpha<e^{{-1/2}}\), every feasible point lies where \(\phi''(z)>0\). Strict Jensen convexity therefore gives the unique allocation \(a_i=\alpha s_i/S\) and the exact minimized width. The union-bound validity statement uses fixed error levels only. The square-root-rate limit follows directly from the exact formula, and the entropy term follows from a first-order expansion in \(1/\log t\). The packaged checker independently replays the algebra numerically and catches indexing or sign errors.
+# Independent mathematical audit
 
-## Originality
-PASS. The motivating paper fixes both arm levels at \(\alpha/2\) in Theorem 4.9 and then studies the effect of clock imbalance on the width comparison in Proposition 4.12; its inspected full text contains no optimization of the arm-wise error allocation. The normal-mixture source literature develops the boundary itself rather than this heterogeneous union-budget design. Generic Bonferroni weighting explains why unequal fixed allocations can be valid but does not imply the closed-form square-root clock optimizer, the exact minimized normal-mixture width, or the entropy/KL second-order penalty. Candidate-specific semantic and web searches returned no equivalent result. A mathematically equivalent convex resource-allocation lemma may exist under different terminology; that remains a stated residual risk.
+## correctness
 
-## Value
-PASS. The source identifies arm imbalance as a regime where its union construction can be especially attractive, yet keeps the significance split equal. The result completely solves the natural design problem created by that observation: how to prespecify a fixed union-bound budget when the arms have unequal target variance clocks. It gives an exact finite-clock optimizer, a simple square-root-rate prescription for planned asymmetric experiments, and a quantitative penalty for equal splitting. The result also makes the important validity boundary explicit: target-based prespecification is covered, post-hoc allocation from observed plug-in clocks is not.
+PASS
 
-## Closest literature and limitations
-The closest source is Lindon and Kallus, arXiv:2603.25971v2 / PMLR 306 (2026), especially Theorem 4.6, Theorem 4.9, and Proposition 4.12. Howard, Ramdas, McAuliffe, and Sekhon (2021) is the underlying normal-mixture confidence-sequence reference. The new statement is limited to deterministic fixed allocations and the stated convexity regime; it does not provide a data-adaptive error-spending rule or optimize the mixture parameter.
+Writing \(s_i=\sqrt{V_i+\eta^{-2}}\) converts each boundary exactly to \(s_i\sqrt{\log(\eta^2/(a_i/s_i)^2)}\). For \(0<\alpha<e^{-1/2}\), every feasible \(a_i/s_i\) lies in the strict-convexity region of this scalar function, so weighted Jensen gives the unique common-ratio allocation \(a_i=\alpha s_i/S\) and the displayed minimum. The fixed-allocation coverage extension uses only a union bound. Expanding the equal-split logarithms around \(L_t=\log(\eta^2S(t)^2/\alpha^2)\) gives the stated KL coefficient. An independent numerical reconstruction reproduced the closed-form objective on a three-clock example.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison found the motivating paper to combine two arm-level confidence sequences by a union bound but did not find the boundary-specific optimal error split, exact minimized summed width, or KL/entropy equal-split penalty. Generic weighted Bonferroni procedures establish admissible fixed weights, not this optimizer. The full PMLR PDF could not be text-inspected in this runtime because the public PDF endpoint was exposed as unsupported binary content; that access limitation is retained as a residual risk rather than treated as negative evidence.
+
+## value
+
+PASS
+
+The source setting has a concrete design choice—how to prespecify a familywise error budget across arm-level anytime-valid intervals when target variance clocks are imbalanced. The theorem solves that natural finite-clock optimization exactly, gives a simple square-root-rate prescription, quantifies the cost of equal splitting by a KL term, and states the validity boundary against data-dependent reallocation. This is more than a normalization check or arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

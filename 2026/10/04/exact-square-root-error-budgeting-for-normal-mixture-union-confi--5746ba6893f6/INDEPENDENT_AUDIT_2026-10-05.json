@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:01:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing \\(s_i=\\sqrt{V_i+\\eta^{-2}}\\) converts each boundary exactly to \\(s_i\\sqrt{\\log(\\eta^2/(a_i/s_i)^2)}\\). For \\(0<\\alpha<e^{-1/2}\\), every feasible \\(a_i/s_i\\) lies in the strict-convexity region of this scalar function, so weighted Jensen gives the unique common-ratio allocation \\(a_i=\\alpha s_i/S\\) and the displayed minimum. The fixed-allocation coverage extension uses only a union bound. Expanding the equal-split logarithms around \\(L_t=\\log(\\eta^2S(t)^2/\\alpha^2)\\) gives the stated KL coefficient. An independent numerical reconstruction reproduced the closed-form objective on a three-clock example.",
+      "risks": [
+        "The convexity hypothesis is sufficient and is used exactly as stated; the audit does not extend the theorem to larger alpha.",
+        "The coverage statement is only for allocations fixed independently of the experiment, not post-hoc plug-in clocks."
+      ],
+      "sources": [
+        "RESULT.md blob 287b04eee7996127c1fd3e53286f8974204845a6",
+        "verify_error_budget.py blob 328eb801ae834e137011b70dcffa9cb2a248d857",
+        "Lindon--Kallus, PMLR 306 (2026)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The PMLR abstract states that the treatment-effect confidence sequence is built by combining two arm-level confidence sequences with a union bound.",
+          "Howard et al. develop the general time-uniform confidence-sequence machinery; the inspected abstract does not give this heterogeneous union-budget optimization."
+        ],
+        "reasoning": "The broader sources supply validity machinery and the component boundary context, but the material read does not imply the exact design-width minimizer or second-order entropy loss.",
+        "searches": [
+          "Lindon--Kallus, Design-Based Anytime-Valid Inference..., PMLR 306 (2026)",
+          "Howard--Ramdas--McAuliffe--Sekhon, arXiv:1810.08240 / Ann. Statist. 2021"
+        ]
+      },
+      "checked_sources": [
+        "PMLR:v306:lindon26a",
+        "arXiv:1810.08240",
+        "Resultary query on unequal normal-mixture alpha allocation",
+        "weighted Bonferroni literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source paper explicitly uses a union construction, so fixed unequal allocations are admissible in principle, but the inspected material does not state an optimization over those allocations.",
+          "The submitted theorem requires the additional strict-convexity/Jensen calculation and derives a source-specific exact objective value and asymptotic loss."
+        ],
+        "reasoning": "Prior validity statements do not by themselves imply the claimed optimizer. The inaccessible full theorem text is the principal residual comparison risk.",
+        "searches": [
+          "PMLR v306:lindon26a abstract and related-material metadata",
+          "Weighted Bonferroni literature search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary search returned no equivalent published SCOPE record.",
+          "Weighted-Bonferroni literature permits heterogeneous weights but does not in the inspected material identify weights proportional to target-clock square roots for this normal-mixture boundary."
+        ],
+        "reasoning": "Equivalent formulations through weighted Bonferroni allocation, normal-mixture boundary optimization, and convex resource allocation were searched; no covering statement was located.",
+        "searches": [
+          "Resultary: optimal unequal alpha allocation normal mixture confidence sequence union bound square root variance clock entropy penalty",
+          "Web: optimal Bonferroni allocation confidence sequence variance",
+          "Web: weighted Bonferroni normal mixture confidence sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published SCOPE entry or table with the allocation \\(a_i\\propto\\sqrt{V_i+\\eta^{-2}}\\) or the displayed minimum was returned."
+        ],
+        "reasoning": "No exact database/table coverage was found; non-retrieval is not itself treated as novelty proof.",
+        "searches": [
+          "Resultary exact-claim search for square-root clock weighting and entropy penalty"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison found the motivating paper to combine two arm-level confidence sequences by a union bound but did not find the boundary-specific optimal error split, exact minimized summed width, or KL/entropy equal-split penalty. Generic weighted Bonferroni procedures establish admissible fixed weights, not this optimizer. The full PMLR PDF could not be text-inspected in this runtime because the public PDF endpoint was exposed as unsupported binary content; that access limitation is retained as a residual risk rather than treated as negative evidence.",
+      "residual_risks": [
+        "The full Lindon--Kallus PDF could not be text-inspected through the available public-PDF route in this run, so a theorem-level allocation discussion not visible in the abstract remains possible.",
+        "Because the proof is a short strict-convexity argument, an equivalent allocation lemma may exist under different terminology outside the searched sequential-inference literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ACCESS_NOT_COVERING_IN_READ_MATERIAL",
+          "evidence": [
+            "The abstract states construction by combining two arm-level confidence sequences with a union bound; it does not state an optimal unequal split."
+          ],
+          "identifier_or_url": "PMLR:v306:lindon26a; arXiv:2603.25971",
+          "material_read": "PMLR article page, abstract, bibliographic metadata, and related-material metadata. The public PDF fetch was attempted but this runtime exposed it as unsupported binary content.",
+          "method": "Primary PMLR HTML inspection plus attempted public-PDF retrieval.",
+          "title": "Design-Based Anytime-Valid Inference for Randomized Experiments with Delayed Outcomes and Staggered Entry",
+          "trigger": "Primary motivating source for the two-arm union confidence sequence."
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING_IN_READ_MATERIAL",
+          "evidence": [
+            "The abstract develops general time-uniform confidence-sequence methods, not this target-clock error-budget optimizer."
+          ],
+          "identifier_or_url": "arXiv:1810.08240; DOI:10.1214/20-AOS1991",
+          "material_read": "Primary arXiv abstract and bibliographic record.",
+          "method": "Primary record inspection.",
+          "title": "Time-uniform, nonparametric, nonasymptotic confidence sequences",
+          "trigger": "Underlying confidence-sequence theory for normal-mixture style boundaries."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source setting has a concrete design choice—how to prespecify a familywise error budget across arm-level anytime-valid intervals when target variance clocks are imbalanced. The theorem solves that natural finite-clock optimization exactly, gives a simple square-root-rate prescription, quantifies the cost of equal splitting by a KL term, and states the validity boundary against data-dependent reallocation. This is more than a normalization check or arbitrary parameter slice.",
+      "risks": [
+        "The practical gain depends on availability of credible deterministic target clocks; no adaptive allocation theorem is supplied."
+      ],
+      "sources": [
+        "RESULT.md blob 287b04eee7996127c1fd3e53286f8974204845a6",
+        "PMLR:v306:lindon26a"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Common mixture parameter \\(\\eta\\), deterministic target clocks, and \\(\\alpha<e^{-1/2}\\) only; no post-hoc random-clock allocation is validated."
+  ],
+  "schema_version": 1
+}
