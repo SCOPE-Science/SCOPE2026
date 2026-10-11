@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof is exhaustive because every function has label \(2\) in zero, one, or at least two parts. The two quasi-total Roman conditions are checked exactly in each case.
+# Independent mathematical audit
 
-The included checker does not use the structural classification to decide feasibility. It reconstructs each complete multipartite graph from its part labels and, for every ternary vertex labeling, directly tests that each zero has an adjacent \(2\) and each \(2\) has an adjacent positive vertex. It independently expands the displayed polynomial with integer polynomial arithmetic.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-multipartite_types_checked = 87
-ternary_labelings_checked = 748341
-orders = 2..9
-definition-level QTR condition matched every polynomial coefficient
-total-function count matched
-minimum-weight corollary matched
-```
+The three cases are disjoint and exhaustive. With no label \(2\), the zero-defense rule forces the all-one labeling. With label \(2\) in exactly one part, that part may contain only labels \(1,2\), must contain a \(2\), and at least one outside vertex must carry label \(1\); these conditions are also sufficient. With label \(2\) in at least two parts, every zero sees a \(2\) in another part and every \(2\) has a positive neighbor in another part, so no additional restrictions remain. Multiplying the independent part contributions gives the stated polynomial; evaluating at \(z=1\) gives the count. The finite checker is corroborative only.
 
-The finite computation is corroborative only; the theorem for arbitrary part sizes follows from the proof.
+## originality
+
+PASS
+
+Fresh Resultary search found several analogous complete-multipartite enumerators for other Roman-domination variants but no prior quasi-total Roman all-function polynomial besides the audited record. The foundational QTR paper defines the same feasibility rule and studies the minimum parameter; the accessible source description does not give a complete-multipartite weight enumerator. Analogous Roman or total-Roman polynomials do not imply this one because the positive-support condition changes the one-part case.
+
+## value
+
+PASS
+
+This is a natural complete classification for an established domination invariant on the canonical complete multipartite family. It determines every feasible weight multiplicity, not merely the already-covered minimum, and is therefore a reusable benchmark for enumerative and probabilistic questions about the parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

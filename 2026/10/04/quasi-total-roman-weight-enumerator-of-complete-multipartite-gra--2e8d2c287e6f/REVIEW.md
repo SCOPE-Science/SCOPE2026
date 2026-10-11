@@ -1,12 +1,21 @@
-# Review of Quasi-total Roman weight enumerator of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof partitions all ternary labelings by the number of parts containing label \(2\). With no \(2\), the zero-defense condition forces the all-\(1\) labeling. With exactly one \(2\)-containing part, that part cannot contain zeros and at least one outside \(1\) is necessary and sufficient to support the \(2\)-vertices. With \(2\)-labels in at least two parts, both defining conditions become automatic. These cases are disjoint and exhaustive, and their generating functions give the displayed polynomial. Definition-level exhaustive verification matches every coefficient for all complete multipartite types through order nine.
+## correctness
 
-## Originality
-PASS. The 2019 full primary source introduces the invariant and proves general minimum-value results and complexity, but exact full-text searches show no complete-bipartite or complete-multipartite treatment. The 2021 follow-up concerns bounds and relationships among minimum domination parameters rather than enumeration of every feasible function. The published minimum characterizations already imply the complete-multipartite minimum formula after elementary specialization, so that corollary is explicitly excluded from the novelty claim. Targeted semantic and exact-phrase searches did not locate the all-function three-regime classification or the weight polynomial.
+PASS
 
-## Value
-PASS. Quasi-total Roman domination was introduced as an intermediate Roman-defense model and is computationally nontrivial in general. On the canonical complete multipartite family, the theorem determines the entire feasible function space, all weight multiplicities, and the exact total number of functions. This is information not recoverable from the known minimum-value theory and gives a compact exact benchmark for further enumerative or probabilistic study of the parameter.
+The three cases are disjoint and exhaustive. With no label \(2\), the zero-defense rule forces the all-one labeling. With label \(2\) in exactly one part, that part may contain only labels \(1,2\), must contain a \(2\), and at least one outside vertex must carry label \(1\); these conditions are also sufficient. With label \(2\) in at least two parts, every zero sees a \(2\) in another part and every \(2\) has a positive neighbor in another part, so no additional restrictions remain. Multiplying the independent part contributions gives the stated polynomial; evaluating at \(z=1\) gives the count. The finite checker is corroborative only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fresh Resultary search found several analogous complete-multipartite enumerators for other Roman-domination variants but no prior quasi-total Roman all-function polynomial besides the audited record. The foundational QTR paper defines the same feasibility rule and studies the minimum parameter; the accessible source description does not give a complete-multipartite weight enumerator. Analogous Roman or total-Roman polynomials do not imply this one because the positive-support condition changes the one-part case.
+
+## value
+
+PASS
+
+This is a natural complete classification for an established domination invariant on the canonical complete multipartite family. It determines every feasible weight multiplicity, not merely the already-covered minimum, and is therefore a reusable benchmark for enumerative and probabilistic questions about the parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
