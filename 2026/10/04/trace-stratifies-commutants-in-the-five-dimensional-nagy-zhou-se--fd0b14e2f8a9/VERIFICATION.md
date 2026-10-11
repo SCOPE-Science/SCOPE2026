@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is reduced to the split commutator matrix obtained by subtracting the two input orders in equation (23) of Nagy–Zhou, arXiv:2609.32651v1. The scalar factor \(1-w\) is nonzero and therefore does not affect rank.
+# Independent mathematical audit
 
-`verify_commutator.py` constructs the normalized matrix over \(\mathbb Z[X_0,\ldots,X_4]\) and checks exactly that its determinant is zero and that every deleted-row/deleted-column determinant equals
-\[
-(-1)^{r+c}X_rX_c(X_0+X_1+X_2+X_3+X_4)^2.
-\]
-The actual run captured in `verification_output.txt` reports `VERIFY_OK`.
+## correctness
 
-For field elements, the conjugate-coordinate map is invertible and the coordinate sum is \(\operatorname{Tr}_{F/K}(x)\). Thus the symbolic identities prove rank \(4\) when the trace is nonzero. On the nonzero trace-zero stratum all \(4\times4\) minors vanish; alternating rank parity and the nonzero entry \(X_1\) force rank \(2\). No finite enumeration is used to infer an infinite statement.
+PASS
 
-Limits: extension degrees other than \(5\) are not checked or claimed, and no isotopy-invariance statement is made.
+Directly subtracting the two split multiplication formulas factors the commutator matrix by the nonzero scalar \(1-w\) and gives the displayed alternating \(5\times5\) matrix. This derivation was independently reconstructed. The actual checker blob verifies symbolically that its determinant is zero and all 25 cofactors equal \((-1)^{r+c}X_rX_cS^2\), with \(S=\sum_iX_i\); an independent symbolic replay reproduced those identities. For an actual nonzero field element every conjugate \(X_i\) is nonzero and \(S\) is the field trace. Thus nonzero trace gives a nonzero \(4\times4\) minor and rank four; trace zero kills all fourth-order minors, and alternating rank is even in every characteristic while the entry \(X_1\) keeps rank at least two. Counting the \(q^4\)-element trace-zero hyperplane then gives the stated commutant sizes, pair count and probability.
+
+## originality
+
+PASS
+
+The complete Nagy--Zhou primary preprint was inspected. It gives the multiplication, determinant factorization, nuclei, isotopy classification and the theorem that no member of the Knuth orbit has a commutative isotope. Full-text searches found no occurrence of 'commutator', 'commuting' or 'centralizer', and none of its stated theorems gives elementwise commutant ranks. The assigned cofactor factorization is a new matrix calculation rather than a consequence of the no-commutative-isotope result. Resultary searches for same-family commuting probability returned only the assigned record.
+
+## value
+
+PASS
+
+The Nagy--Zhou examples are new counterexamples in prime-dimensional semifield theory. Exact commutant dimensions and commuting probability provide natural elementwise structural invariants complementary to nuclei and isotopy, and the trace hyperplane stratification is a concrete reusable description of noncommutativity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:34:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 7c8b8d8efac56cda7eeca8c9f4916b5630de00f5",
+        "assigned verify_commutator.py blob c5ebf89ad14df0e9a3b784d4f896070766ff8ca1",
+        "Nagy--Zhou, arXiv:2609.32651v1",
+        "Biliotti--Jha--Johnson, DOI:10.1016/j.disc.2003.04.002"
+      ],
+      "rationale": "Directly subtracting the two split multiplication formulas factors the commutator matrix by the nonzero scalar \\(1-w\\) and gives the displayed alternating \\(5\\times5\\) matrix. This derivation was independently reconstructed. The actual checker blob verifies symbolically that its determinant is zero and all 25 cofactors equal \\((-1)^{r+c}X_rX_cS^2\\), with \\(S=\\sum_iX_i\\); an independent symbolic replay reproduced those identities. For an actual nonzero field element every conjugate \\(X_i\\) is nonzero and \\(S\\) is the field trace. Thus nonzero trace gives a nonzero \\(4\\times4\\) minor and rank four; trace zero kills all fourth-order minors, and alternating rank is even in every characteristic while the entry \\(X_1\\) keeps rank at least two. Counting the \\(q^4\\)-element trace-zero hyperplane then gives the stated commutant sizes, pair count and probability.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The associated-group commutator literature studies a group built from a presemifield, not equality \\(x*y=y*x\\) inside the native multiplication.",
+          "The source's no-commutative-isotope theorem is global and does not determine dimensions of individual commutants."
+        ],
+        "reasoning": "No checked broader theorem yields the trace-zero rank dichotomy.",
+        "searches": [
+          "Nagy--Zhou full preprint",
+          "Biliotti--Jha--Johnson 2003 class-two-group comparison",
+          "Resultary searches for finite-semifield commuting probability"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.32651v1",
+        "DOI:10.1016/j.disc.2003.04.002",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Invertibility of all nonzero multiplication maps does not determine the rank of their left-right difference.",
+          "Having no commutative isotope does not specify which individual pairs commute or their count.",
+          "The 25-cofactor identity supplies the additional nonstandard rank information."
+        ],
+        "reasoning": "The final trace stratification is not mechanically implied by the source's determinant or isotopy theorems.",
+        "searches": [
+          "Nagy--Zhou Theorem 3.1, Theorem 5.4 and Corollary 5.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source defines the exact multiplication and proves isotopy/nucleus properties.",
+          "No elementwise centralizer or commuting-pair statistic appears in the searched full text."
+        ],
+        "reasoning": "Kernel dimension of \\(C_x\\), commutant size of \\(x\\), and the elementwise commuting-pair count are equivalent formulations of the assigned stratification.",
+        "searches": [
+          "Resultary query: Nagy Zhou semifield commuting commutator trace rank commuting probability",
+          "arXiv:2609.32651v1 full primary preprint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct same-family hit is the assigned record; no earlier exact formula for \\(q^{-3}+q^{-4}-q^{-7}\\) was returned."
+        ],
+        "reasoning": "The exact database check found no same-object commuting-probability table.",
+        "searches": [
+          "Resultary exact Nagy--Zhou commutant query"
+        ]
+      },
+      "rationale": "The complete Nagy--Zhou primary preprint was inspected. It gives the multiplication, determinant factorization, nuclei, isotopy classification and the theorem that no member of the Knuth orbit has a commutative isotope. Full-text searches found no occurrence of 'commutator', 'commuting' or 'centralizer', and none of its stated theorems gives elementwise commutant ranks. The assigned cofactor factorization is a new matrix calculation rather than a consequence of the no-commutative-isotope result. Resultary searches for same-family commuting probability returned only the assigned record.",
+      "residual_risks": [
+        "The family is extremely recent, so a concurrent follow-up could independently compute the same commutant distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_AND_ISOTOPY_THEORY_NOT_ELEMENTWISE_COMMUTANT_STRATIFICATION",
+          "evidence": "The source proves the division property and isotopy structure but contains no elementwise commutator-rank or commuting-probability theorem.",
+          "identifier_or_url": "arXiv:2609.32651v1",
+          "material_read": "Complete 31-page primary preprint through authorized retrieval, with focused reading of the construction, determinant theorem, isotopy theorem and no-commutative-isotope corollary; full-text searches for commutator/commuting/centralizer were performed.",
+          "method": "Authorized full-primary-text inspection after ordinary open retrieval was insufficient.",
+          "title": "Semifields in prime dimensions and counterexamples to Kaplansky's conjecture",
+          "trigger": "Exact primary source of the new multiplication and its strongest structural results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Nagy--Zhou 2026",
+        "finite-semifield/group commutator literature"
+      ],
+      "rationale": "The Nagy--Zhou examples are new counterexamples in prime-dimensional semifield theory. Exact commutant dimensions and commuting probability provide natural elementwise structural invariants complementary to nuclei and isotopy, and the trace hyperplane stratification is a concrete reusable description of noncommutativity.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the five-dimensional Nagy--Zhou presemifield multiplication, the commutator map \\(C_x(y)=x*y-y*x\\) has \\(\\mathbb F_q\\)-rank \\(0\\) for \\(x=0\\), rank \\(2\\) for nonzero trace-zero \\(x\\), and rank \\(4\\) for \\(\\operatorname{Tr}_{\\mathbb F_{q^5}/\\mathbb F_q}(x)\\ne0\\). Hence the commutant dimensions are \\(5,3,1\\), the number of ordered commuting pairs is \\(q^7+q^6-q^3\\), and the commuting probability is \\(q^{-3}+q^{-4}-q^{-7}\\).",
+  "limitations": [
+    "Only the native displayed multiplication in extension degree five is covered.",
+    "Commuting probability is not asserted to be invariant under isotopy, and no higher odd-dimensional analogue is claimed."
+  ],
+  "schema_version": 1
+}
