@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every finite connected simple triangle-free H, the vertex-incidence model makes each even/odd Čech generator explicit by Adams–Shukla–Singh Lemma 2.2. The proof partitions extra faces into unique markers and removes them by descending-cardinality codimension-one free pairs, first from scale three to the cross-edge complex and then to scale two. Two further exact collapses produce a graph with original-vertex star trees and reversal edges, homotopy equivalent to H. The injection and direct-sum decomposition of local complete-graph cycle lattices gives the integral kernel and surjectivity. All degree-one and zero-cycle boundaries are covered. A standalone standard-library program checked every individual relative collapse in 38 finite triangle-free graphs and computed the C3 mod-two sharpness witness; experiments corroborate but do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamaszek et al., SoCG 2018, pp. 3:2–3:4 and §3, address metric-space gluing and largely continuum-centered Čech constructions.",
+        "Adams–Shukla–Singh 2022 consider hypercubes and a girth-based small-scale theorem; a vertex-truncated graph with a degree-three base vertex has triangles and therefore falls outside the r=3 girth bound."
+      ],
+      "reasoning": "The geometric gluing and girth statements do not dominate the finite vertex-centered relative collapse, particularly for base graphs with arbitrary degree and triangle-containing truncations.",
+      "searches": [
+        "metric graph Cech complex of vertex truncation edge subdivision line graph homotopy persistence triangle free",
+        "graph metric Čech complex line graphs of subdivisions scale three collapse neighborhood unions",
+        "arXiv:1712.06224 metric gluings Čech vertex versus all-points"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2212.05871 §2 Lemma 2.2 and §3–6 main statements",
+      "arXiv:2009.12130 Lemma 2.3, Lemma 3.2, Corollary 3.3",
+      "DOI 10.4230/LIPIcs.SoCG.2018.3, abstract, introduction and center-set conventions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier scale-two line-graph result proves a scale-two homotopy identification but contains no statement about the scale-three Čech inclusion.",
+        "The general girth bound of Adams–Shukla–Singh does not apply at r=3 once the truncation has a 3-cycle.",
+        "For a base triangle, the scale-two/scale-three inclusion changes H2 mod two, so persistence rigidity is not automatic from line-graph identities."
+      ],
+      "reasoning": "The new statement is inclusion-level simple-homotopy rigidity at r=2 to r=3 for every triangle-free base, plus its integral persistence kernel; it is neither a formal corollary of a scale-two homotopy result nor of clique-complex equivalence. The free-face proof supplies the missing nontrivial implication.",
+      "searches": [
+        "For triangle-free graph H, Cech nerve at scale three of the line graph of the edge-subdivision S(H) collapses onto scale two Cech complex, preserving graph homotopy",
+        "Čech graph metric ball nerve Cartesian product of cycles torus scale two homotopy",
+        "arXiv:2212.05871 Theorem 4.1, Lemma 2.3; arXiv:2009.12130 Corollary 3.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adams–Shukla–Singh Lemma 2.2 gives generic even/odd facets, not a line-subdivision collapse.",
+        "Goyal–Shukla–Singh Corollary 3.3 describes the clique complex of a line graph, not the radius-3/2 vertex-centered Čech nerve."
+      ],
+      "reasoning": "A clique-complex homotopy equivalence cannot establish that a larger odd-scale nerve simplicially collapses onto the even-scale nerve, nor identify the inclusion-induced homology map. The theorem supplies an additional relative-collapse mechanism using exclusive remote-pair faces.",
+      "searches": [
+        "line graph of subdivided graph Čech complex radius 3/2 collapses scale 2 neighborhood facet, persistence H1",
+        "graph metric Čech complex line graphs of subdivisions scale three collapse neighborhood unions",
+        "arXiv:2212.05871 Lemma 2.2; arXiv:2009.12130 Corollary 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published comparisons concern scale-3 Vietoris–Rips homotopy for the truncated cubical graph, a different simplicial complex.",
+        "An exact complete-Cech calculation for a truncated tetrahedral graph applies to a base with triangles, outside the theorem hypothesis.",
+        "The finite 38-graph collapse verifier supplies new checks but no public table is used as a premise."
+      ],
+      "reasoning": "A specific Rips computation or graph outside the triangle-free condition is not an exact table of the scale-three Čech collapse for every triangle-free base graph. No exact table or database result covering that universal inclusion was identified.",
+      "searches": [
+        "truncation graph L(S(H)) Cech complexes scale 3, vertex truncation of triangle-free graph simple homotopy",
+        "Čech complex truncated cube graph intrinsic radius one graph",
+        "scale 3 Cech complex L(S(C4)) L(S(Q3)) graph line subdivision recovery and no new H1 deaths"
+      ]
+    },
+    "rationale": "Comparison of claim implications with graph Čech, line-graph clique, metric-gluing and related exact finite Rips statements shows no identified covering result for the scale-three-to-scale-two inclusion-level simplicial collapse. A scale-two topology result alone does not imply persistence rigidity at scale three. The search cannot rule out unindexed equivalent work.",
+    "residual_risks": [
+      "A mathematically equivalent unpublished or poorly indexed relative-collapse theorem may exist.",
+      "The literature search is not a completeness or independence certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the required generating-facet lemma and a girth threshold; does not classify vertex-truncated triangle-free graphs or prove a scale-two-to-three relative collapse.",
+        "evidence": "Lemma 2.2, arXiv v2 p.4: even radius-neighborhood faces; odd union-across-edge faces. Lemma 2.3: r<girth/2. Theorems 4.1 and 5.9 concern hypercube families.",
+        "identifier_or_url": "https://arxiv.org/pdf/2212.05871",
+        "material_read": "Pages 1–4 and the full §2 Lemma 2.2 and statements of §§3–6.",
+        "method": "Full-text PDF passage inspection and visual review of the lemma on page 4.",
+        "title": "Čech complexes of hypercube graphs",
+        "trigger": "Same finite vertex-centered graph Čech definition and odd/even facet formula."
+      },
+      {
+        "assessment": "Its clique-complex equivalence is a different (smaller) complex; the general odd Čech inclusion cannot be derived from the cited result alone. Its elementary-collapse toolkit supports methodology only.",
+        "evidence": "Lemma 3.2 and Corollary 3.3 (PDF page 6); Lemma 2.3 (PDF pages 4–5).",
+        "identifier_or_url": "https://arxiv.org/pdf/2009.12130",
+        "material_read": "Pages 1–7, including Lemma 2.3 and complete proof/discussion of Lemma 3.2 and Corollary 3.3.",
+        "method": "Full-text PDF inspection and page-six visual review.",
+        "title": "Topology of Clique Complexes of Line Graphs",
+        "trigger": "Same line-graph objects and a potential stronger topological coverage."
+      },
+      {
+        "assessment": "Metric-space gluing and all-points metric graph Čech setting, not a theorem establishing the specified finite vertex-center scale-three collapse.",
+        "evidence": "SoCG 2018 pp. 3:2–3:4 explicitly define metric graphs and distinguish all-point metric constructions from sampled-vertex graph Čech nerves.",
+        "identifier_or_url": "https://www.sci.utah.edu/~beiwang/publications/Metric_Gluing_BeiWang_2018.pdf",
+        "material_read": "Abstract and introduction (pp. 3:2–3:4), discussion of center-set conventions and metric gluings (including continuation at p. 3:12).",
+        "method": "PDF full-text inspection with visual review of p. 3:3.",
+        "title": "Vietoris–Rips and Čech Complexes of Metric Gluings",
+        "trigger": "Possible broad Čech persistence decomposition theorem for graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "050621e1-a6fe-444b-a110-02c4935262b7",
+  "value": {
+    "rationale": "The result gives an explicit relative elementary collapse and exact integral persistence-kernel classification across a natural infinite graph family with arbitrary degrees and cycle rank. For degrees at least three the truncated graph contains 3-cycles so the generic r<girth/2 nerve reconstruction theorem cannot certify persistence at r=3. The proof separates local clique cycles dying at scale two from global cycles persisting to scale three, with a sharp triangle-base counterexample. This is structural inclusion-level information, not a routine table recomputation.",
+    "status": "PASS"
+  }
+}
