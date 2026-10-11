@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:08:11.197294Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a598197d865841f9400f06fbed04be1888598caa",
+        "assigned verify.py blob c14d7bd2ba79911c9b54b5643edc5b676a2deb9e",
+        "Zhuang et al., arXiv:2010.07468, complete accessible primary text",
+        "independent Jury-boundary and numerical-ceiling checks"
+      ],
+      "rationale": "For the autonomous source-theory recurrence, the optimum satisfies \\(s_\\star=\\varepsilon/(1-\\beta_2)\\). The residual square has zero differential at the optimum and the denominator perturbation is multiplied by a zero numerator, so the Jacobian is block triangular with eigenvalue \\(\\beta_2\\) and optimization block determinant \\(\\beta_1\\), trace \\(1+\\beta_1-(1-\\beta_1)\\chi\\). The second-order Jury conditions reduce exactly to \\(0<\\chi<2(1+\\beta_1)/(1-\\beta_1)\\). At the upper boundary the roots are \\(-1\\) and \\(-\\beta_1\\). The discriminant gives the stated complex-root interval, and constant product \\(\\beta_1\\) forces modulus \\(\\sqrt{\\beta_1}\\). For the debiased algorithm, the optimum reference orbit has constant corrected second moment and an exponentially convergent first-moment factor, so the same strict asymptotic frontier follows away from equality.",
+      "residual_risks": [
+        "The equality case for the nonautonomous debiased system is intentionally not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper gives general convex/nonconvex convergence analysis and states the exact epsilon convention.",
+          "Aida analyzes epsilon placement as a stepsize-range mechanism.",
+          "FastAdaBelief changes the schedule and proves global regret/convergence bounds."
+        ],
+        "reasoning": "These broader results do not imply the exact constant-parameter local eigenvalue frontier on a deterministic quadratic.",
+        "searches": [
+          "Zhuang et al., arXiv:2010.07468",
+          "Zhang--Niwa--Kleijn, arXiv:2203.13273",
+          "FastAdaBelief, arXiv:2104.13790"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2010.07468",
+        "https://arxiv.org/abs/2203.13273",
+        "https://arxiv.org/abs/2104.13790",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source theory assumes a positive lower bound on the adaptive second moment and omits debiasing; it does not linearize the optimizer at a quadratic optimum.",
+          "The exact epsilon floor and characteristic polynomial require a separate dynamical-systems calculation."
+        ],
+        "reasoning": "No inspected theorem yields the Jury boundary or plateau by parameter substitution alone.",
+        "searches": [
+          "AdaBelief full-text comparison around algorithm definition and Appendix B",
+          "Aida abstract/method comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned optimizer-stability results for other algorithms but no exact AdaBelief frontier.",
+          "The AdaBelief paper contains convergence bounds and qualitative curvature discussion, not this local spectral calculation."
+        ],
+        "reasoning": "Quadratic, local-linear, Schur/Jury, momentum-root and epsilon-curvature formulations were searched.",
+        "searches": [
+          "Resultary query: AdaBelief scalar quadratic local stability epsilon curvature frontier Jury momentum roots",
+          "web query: AdaBelief epsilon quadratic stability",
+          "web query: AdaBelief local stability quadratic curvature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior table or symbolic local-stability threshold matching the audited formula was located."
+        ],
+        "reasoning": "The numeric examples are consequences of the analytic theorem, not the scientific claim by themselves.",
+        "searches": [
+          "searches for the exact ceiling formula and the source settings \\(\\beta_1=0.9,\\beta_2=0.999\\)"
+        ]
+      },
+      "rationale": "The full AdaBelief primary text confirms the source epsilon convention, explicitly says bias correction is omitted in the theoretical analysis, discusses curvature qualitatively, and experimentally studies epsilon sensitivity. The later Aida paper explicitly analyzes how AdaBelief's epsilon placement suppresses its adaptive-step range. Neither inspected source gives a scalar quadratic Schur frontier, the \\(-1\\) crossing, or the exact momentum-root plateau. Targeted Resultary and literature searches for AdaBelief quadratic/local/Jury stability found no equivalent theorem.",
+      "residual_risks": [
+        "Optimizer-control literature may contain an equivalent local linearization under generic Adam-type recurrences without naming AdaBelief."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_MODEL_NOT_LOCAL_FRONTIER",
+          "evidence": "The paper confirms the accumulated-epsilon convention and omitted debiasing in theory but does not derive the audited local quadratic spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.07468",
+          "material_read": "Complete accessible arXiv text, including the algorithm definitions, epsilon and bias-correction discussion, curvature section, convergence appendix, and epsilon robustness experiments.",
+          "method": "Lawful open full-text inspection.",
+          "title": "AdaBelief Optimizer: Adapting Stepsizes by the Belief in Observed Gradients",
+          "trigger": "Defining primary source for the precise recurrence and theoretical convention."
+        },
+        {
+          "assessment": "MECHANISM_RELATED_NOT_FRONTIER",
+          "evidence": "It identifies epsilon as structurally important but does not give the scalar curvature ceiling or root plateau.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.13273",
+          "material_read": "Primary abstract and method-level statement that epsilon placement suppresses the adaptive stepsize range.",
+          "method": "Lawful arXiv primary-text inspection.",
+          "title": "A DNN Optimizer that Improves over AdaBelief by Suppression of the Adaptive Stepsize Range",
+          "trigger": "Closest paper explicitly analyzing the effect of AdaBelief's epsilon placement."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "AdaBelief defining paper",
+        "Aida paper"
+      ],
+      "rationale": "The defining paper emphasizes both curvature adaptation and epsilon sensitivity, so the exact scalar curvature ceiling is a motivated stability invariant. The theorem identifies a sharp unit-root boundary and a nontrivial constant-modulus momentum plateau, explaining a qualitative mechanism not captured by the global convergence bounds.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2010.07468",
+    "https://arxiv.org/abs/2203.13273",
+    "https://arxiv.org/abs/2104.13790",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The exact fixed-point theorem is scalar, deterministic, local and uses the paper-form epsilon placement.",
+    "Rectification, AMSGrad, weight decay, stochastic gradients and nonlinear post-instability dynamics are outside scope.",
+    "The debiased statement is strict asymptotic local stability away from the boundary."
+  ],
+  "residual_risks": [
+    "Optimizer-control literature may contain an equivalent local linearization under generic Adam-type recurrences without naming AdaBelief."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DEFINES_MODEL_NOT_LOCAL_FRONTIER",
+      "evidence": "The paper confirms the accumulated-epsilon convention and omitted debiasing in theory but does not derive the audited local quadratic spectrum.",
+      "identifier_or_url": "https://arxiv.org/abs/2010.07468",
+      "material_read": "Complete accessible arXiv text, including the algorithm definitions, epsilon and bias-correction discussion, curvature section, convergence appendix, and epsilon robustness experiments.",
+      "method": "Lawful open full-text inspection.",
+      "title": "AdaBelief Optimizer: Adapting Stepsizes by the Belief in Observed Gradients",
+      "trigger": "Defining primary source for the precise recurrence and theoretical convention."
+    },
+    {
+      "assessment": "MECHANISM_RELATED_NOT_FRONTIER",
+      "evidence": "It identifies epsilon as structurally important but does not give the scalar curvature ceiling or root plateau.",
+      "identifier_or_url": "https://arxiv.org/abs/2203.13273",
+      "material_read": "Primary abstract and method-level statement that epsilon placement suppresses the adaptive stepsize range.",
+      "method": "Lawful arXiv primary-text inspection.",
+      "title": "A DNN Optimizer that Improves over AdaBelief by Suppression of the Adaptive Stepsize Range",
+      "trigger": "Closest paper explicitly analyzing the effect of AdaBelief's epsilon placement."
+    }
+  ]
+}

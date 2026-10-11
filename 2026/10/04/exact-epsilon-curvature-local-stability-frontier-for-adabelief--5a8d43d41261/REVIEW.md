@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source recurrence has \(s_\star=\varepsilon/(1-\beta_2)\). At the optimum, the residual square has zero derivative and denominator perturbations are multiplied by a zero numerator. The Jacobian therefore splits into eigenvalue \(\beta_2\) and a \(2\times2\) block with determinant \(\beta_1\) and trace \(1+\beta_1-(1-\beta_1)\chi\). The Jury inequalities give the exact frontier, and the discriminant gives the exact complex-root plateau.
+PASS
 
-Risk: this is a local theorem and does not classify nonlinear motion after instability.
+For the autonomous source-theory recurrence, the optimum satisfies \(s_\star=\varepsilon/(1-\beta_2)\). The residual square has zero differential at the optimum and the denominator perturbation is multiplied by a zero numerator, so the Jacobian is block triangular with eigenvalue \(\beta_2\) and optimization block determinant \(\beta_1\), trace \(1+\beta_1-(1-\beta_1)\chi\). The second-order Jury conditions reduce exactly to \(0<\chi<2(1+\beta_1)/(1-\beta_1)\). At the upper boundary the roots are \(-1\) and \(-\beta_1\). The discriminant gives the stated complex-root interval, and constant product \(\beta_1\) forces modulus \(\sqrt{\beta_1}\). For the debiased algorithm, the optimum reference orbit has constant corrected second moment and an exponentially convergent first-moment factor, so the same strict asymptotic frontier follows away from equality.
 
-## Originality
+## originality
 
-PASS. The defining paper specifies the epsilon placement and proves broad convergence bounds but does not state this deterministic quadratic local frontier. The official implementation confirms the same accumulated-epsilon convention. Later Aida work studies how epsilon placement changes adaptive-step ranges but does not derive the curvature ceiling or rate plateau. FastAdaBelief changes the schedule to exploit strong convexity rather than analyzing this constant-parameter local dynamics.
+PASS
 
-Focused published-record searches over AdaBelief, scalar quadratics, epsilon, Jacobians, fixed points, and local stability found no covering statement.
+The full AdaBelief primary text confirms the source epsilon convention, explicitly says bias correction is omitted in the theoretical analysis, discusses curvature qualitatively, and experimentally studies epsilon sensitivity. The later Aida paper explicitly analyzes how AdaBelief's epsilon placement suppresses its adaptive-step range. Neither inspected source gives a scalar quadratic Schur frontier, the \(-1\) crossing, or the exact momentum-root plateau. Targeted Resultary and literature searches for AdaBelief quadratic/local/Jury stability found no equivalent theorem.
 
-## Value
+## value
 
-PASS. Epsilon is an operationally important AdaBelief hyperparameter and later work already identifies its placement as shaping adaptive-step ranges. The exact quadratic calculation shows a sharper consequence: the locally admissible curvature scales through \(\sqrt{\varepsilon/(1-\beta_2)}+\varepsilon\), and momentum creates a broad exact rate plateau. This supplies a concrete tuning and implementation diagnostic.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The defining paper emphasizes both curvature adaptation and epsilon sensitivity, so the exact scalar curvature ceiling is a motivated stability invariant. The theorem identifies a sharp unit-root boundary and a nontrivial constant-modulus momentum plateau, explaining a qualitative mechanism not captured by the global convergence bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
