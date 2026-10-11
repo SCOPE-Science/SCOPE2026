@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced to a one-parameter family of swap-invariant ellipsoids by averaging a quadratic form over a genuine isometry of the norm. The lower bound uses three exact direction evaluations and splits at \(\rho=3/2\). The matching upper bound uses explicit derivative signs on both branches, giving global extrema \(3/2^{4/3}\) and \(2^{1/3}\). Therefore the squared distortion is exactly \(2^{5/3}/3\), and the displayed quadratic form realizes it.
+## correctness
 
-## Originality
-PASS. Targeted literature and database searches for the exact Day--James pair, conjugate exponents, Euclidean Banach--Mazur distance, and the constant \(2^{5/6}/\sqrt3\) found no same statement. Alonso (2011) supplies the family and conjugate-exponent motivation, not this distance. The inspected 2019 Mitani--Saito full text gives a Hilbert-distance identity only under the hypothesis attached to its Theorem 5; \((p,q)=(3,3/2)\) does not satisfy that hypothesis. The closest primary 2018 paper is a residual bibliographic risk because its full text was not directly inspected, but the later authors' survey reproduces its relevant theorem and restriction, so it does not imply the present claim through that result.
+PASS
 
-## Value
-PASS. The conjugate Day--James planes are classical self-dual/Birkhoff-symmetric non-Hilbert examples. The cubic pair \((3,3/2)\) is the first non-Hilbert pair with an integer exponent above two and gives a natural benchmark at which the known restricted Hilbert-distance criterion does not apply. The exact optimal ellipsoid quantifies its Euclidean deviation rather than recomputing a tabulated constant.
+Averaging an arbitrary admissible quadratic form with its pullback under the coordinate swap preserves its comparison bounds, so an optimum may be taken as \(Q_\rho=u^2+\rho v^2\). The two norm branches reduce to the displayed one-variable ratios. Three fixed directions force \(M_\rho/m_\rho\ge2^{5/3}/3\) on the two sides of \(\rho=3/2\). At \(\rho=3/2\), the positive-branch derivative has sign \(t(3t^2-1)\), and the negative-branch derivative reduces to the sign of \(\sqrt{1-s^2}-1/2\), giving global minimum \(3/2^{4/3}\) and maximum \(2^{1/3}\) on both branches. Their ratio is exactly \(2^{5/3}/3\). A fresh symbolic derivative check independently reproduced the positive-branch critical factor; the bundled dense numerical verifier only supplements the analytic extrema.
 
-Closest literature and limitations: Alonso (2011) defines the Day--James framework and recalls the conjugate family; Mitani--Saito (2019) summarizes the von Neumann--Jordan/Hilbert-distance method under a parameter restriction that excludes this pair. The claim is specific to the real two-dimensional cubic conjugate case; no assertion is made for all \(p\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected Mitani--Saito Day--James proceedings paper gives a Banach--Mazur identity only under the hypothesis \(2^{2/p-2/q}(p-1)\le1\). For \((p,q)=(3,3/2)\) that quantity is \(2^{1/3}>1\), so the theorem does not cover the audited conjugate cubic pair. Resultary returned the audited exact distance as the direct same-parameter hit and no earlier external exact value.
+
+## value
+
+PASS
+
+The Euclidean Banach--Mazur distance is a fundamental two-dimensional geometric invariant. The conjugate cubic Day--James pair lies outside the parameter range of the inspected exact prior identity, so resolving its optimal ellipse gives a natural exact benchmark rather than an arbitrary constant evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

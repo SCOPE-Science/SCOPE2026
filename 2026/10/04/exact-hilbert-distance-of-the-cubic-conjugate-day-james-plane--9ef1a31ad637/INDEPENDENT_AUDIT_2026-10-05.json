@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:23:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob cb165294192dcdf254a52b8393060d623ed8114e",
+        "assigned verify.py blob 53cf3f15cedf542a60bd82e640822ffd660e049a",
+        "fresh independent symbolic derivative check",
+        "Mitani--Saito full proceedings text"
+      ],
+      "rationale": "Averaging an arbitrary admissible quadratic form with its pullback under the coordinate swap preserves its comparison bounds, so an optimum may be taken as \\(Q_\\rho=u^2+\\rho v^2\\). The two norm branches reduce to the displayed one-variable ratios. Three fixed directions force \\(M_\\rho/m_\\rho\\ge2^{5/3}/3\\) on the two sides of \\(\\rho=3/2\\). At \\(\\rho=3/2\\), the positive-branch derivative has sign \\(t(3t^2-1)\\), and the negative-branch derivative reduces to the sign of \\(\\sqrt{1-s^2}-1/2\\), giving global minimum \\(3/2^{4/3}\\) and maximum \\(2^{1/3}\\) on both branches. Their ratio is exactly \\(2^{5/3}/3\\). A fresh symbolic derivative check independently reproduced the positive-branch critical factor; the bundled dense numerical verifier only supplements the analytic extrema.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior work supplies the space and parameter-restricted Banach--Mazur identities.",
+          "No inspected broader theorem covers the conjugate cubic parameter outside that restriction."
+        ],
+        "reasoning": "The failure of the source hypothesis means the audited value is not a corollary of its closed-form branch.",
+        "searches": [
+          "Mitani--Saito Day--James geometric constants",
+          "Alonso's generalized Day--James framework"
+        ]
+      },
+      "checked_sources": [
+        "Mitani--Saito, RIMS Kôkyûroku 2143 (2019)",
+        "Alonso, J. Inequal. Appl. 2011:2",
+        "Resultary Day--James exact-distance query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The audited lower bound uses three fixed directions for every quadratic form and then proves a matching global upper bound at \\(\\rho=3/2\\).",
+          "This argument addresses the parameter region left outside the prior theorem's stated condition."
+        ],
+        "reasoning": "The final exact distance therefore is not prior-implied by the inspected Day--James result.",
+        "searches": [
+          "Mitani--Saito hypothesis check versus the audited one-parameter quadratic optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 1 identifies the Banach--Mazur distance with the square root of the von Neumann--Jordan constant only when \\(2^{2/p-2/q}(p-1)\\le1\\).",
+          "At \\(p=3,q=3/2\\), the hypothesis equals \\(2^{1/3}>1\\), so the inspected exact-distance theorem is inapplicable.",
+          "Resultary's direct same-parameter hit is the audited finding itself."
+        ],
+        "reasoning": "The audited problem is the optimal quadratic-form sandwich for the nonabsolute Day--James unit ball; swap symmetry reduces the ellipsoid search to one parameter.",
+        "searches": [
+          "Mitani--Saito, Geometrical constants of Day-James spaces, RIMS Kôkyûroku 2143 (2019), Theorem 7 and Remark 1",
+          "Alonso, DOI:10.1186/1029-242X-2011-2",
+          "Resultary query: Day James l3 l3/2 Banach Mazur distance Euclidean Hilbert exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external exact same-pair table or formula was located."
+        ],
+        "reasoning": "The checked geometric-constant literature is the relevant exact theorem corpus.",
+        "searches": [
+          "Resultary Day--James Banach--Mazur search",
+          "targeted searches for \\(\\ell_3-\\ell_{3/2}\\) and conjugate Day--James Hilbert distance"
+        ]
+      },
+      "rationale": "The inspected Mitani--Saito Day--James proceedings paper gives a Banach--Mazur identity only under the hypothesis \\(2^{2/p-2/q}(p-1)\\le1\\). For \\((p,q)=(3,3/2)\\) that quantity is \\(2^{1/3}>1\\), so the theorem does not cover the audited conjugate cubic pair. Resultary returned the audited exact distance as the direct same-parameter hit and no earlier external exact value.",
+      "residual_risks": [
+        "An older source on Euclidean sections or geometric constants of Day--James planes may contain the same value under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_DISTANCE_BRANCH_INAPPLICABLE_TO_P3_Q3_OVER_2",
+          "evidence": "Remark 1 requires \\(2^{2/p-2/q}(p-1)\\le1\\), while the audited parameters give \\(2^{1/3}>1\\).",
+          "identifier_or_url": "RIMS Kôkyûroku 2143 (2019), 147--153",
+          "material_read": "Full public proceedings PDF around Theorem 7 and Remark 1; the relevant pages were visually inspected.",
+          "method": "Primary/survey full-text hypothesis and implication comparison.",
+          "title": "Geometrical constants of Day-James spaces",
+          "trigger": "Closest same-family source explicitly relating Day--James Banach--Mazur distance to an exact geometric constant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mitani--Saito 2019",
+        "Alonso 2011",
+        "Resultary search"
+      ],
+      "rationale": "The Euclidean Banach--Mazur distance is a fundamental two-dimensional geometric invariant. The conjugate cubic Day--James pair lies outside the parameter range of the inspected exact prior identity, so resolving its optimal ellipse gives a natural exact benchmark rather than an arbitrary constant evaluation.",
+      "residual_risks": [
+        "An older source on Euclidean sections or geometric constants of Day--James planes may contain the same value under different notation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Mitani--Saito, RIMS Kôkyûroku 2143 (2019)",
+    "Alonso, J. Inequal. Appl. 2011:2",
+    "Resultary Day--James exact-distance query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the real Day--James plane \\(\\ell_3-\\ell_{3/2}\\), the exact Euclidean Banach--Mazur distance is \\(2^{5/6}/\\sqrt3\\), with optimal pullback quadratic form proportional to \\((5x^2-2xy+5y^2)/4\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An older source on Euclidean sections or geometric constants of Day--James planes may contain the same value under different notation."
+  ]
+}

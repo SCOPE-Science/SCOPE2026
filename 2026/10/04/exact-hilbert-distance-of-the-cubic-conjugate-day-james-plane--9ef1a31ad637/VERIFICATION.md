@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof in `RESULT.md` is the verification basis. It reduces arbitrary Euclidean pullbacks to swap-invariant quadratic forms, proves a lower bound for every parameter \(\rho>0\) from exact test directions, and proves matching global extrema for \(\rho=3/2\) by derivative signs on both branches.
+# Independent mathematical audit
 
-`verify.py` is a supplementary numerical replay. It recomputes \(2^{5/3}/3\), the endpoint and critical-point ratios, and samples both one-variable branches densely. A successful run prints `VERIFY_OK`. The grid is not used to establish the infinite-domain claim.
+## correctness
 
-The proof does not claim uniqueness of every optimal linear map. It proves that the displayed swap-invariant pullback is optimal and that no quadratic pullback can have smaller distortion.
+PASS
+
+Averaging an arbitrary admissible quadratic form with its pullback under the coordinate swap preserves its comparison bounds, so an optimum may be taken as \(Q_\rho=u^2+\rho v^2\). The two norm branches reduce to the displayed one-variable ratios. Three fixed directions force \(M_\rho/m_\rho\ge2^{5/3}/3\) on the two sides of \(\rho=3/2\). At \(\rho=3/2\), the positive-branch derivative has sign \(t(3t^2-1)\), and the negative-branch derivative reduces to the sign of \(\sqrt{1-s^2}-1/2\), giving global minimum \(3/2^{4/3}\) and maximum \(2^{1/3}\) on both branches. Their ratio is exactly \(2^{5/3}/3\). A fresh symbolic derivative check independently reproduced the positive-branch critical factor; the bundled dense numerical verifier only supplements the analytic extrema.
+
+## originality
+
+PASS
+
+The inspected Mitani--Saito Day--James proceedings paper gives a Banach--Mazur identity only under the hypothesis \(2^{2/p-2/q}(p-1)\le1\). For \((p,q)=(3,3/2)\) that quantity is \(2^{1/3}>1\), so the theorem does not cover the audited conjugate cubic pair. Resultary returned the audited exact distance as the direct same-parameter hit and no earlier external exact value.
+
+## value
+
+PASS
+
+The Euclidean Banach--Mazur distance is a fundamental two-dimensional geometric invariant. The conjugate cubic Day--James pair lies outside the parameter range of the inspected exact prior identity, so resolving its optimal ellipse gives a natural exact benchmark rather than an arbitrary constant evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
