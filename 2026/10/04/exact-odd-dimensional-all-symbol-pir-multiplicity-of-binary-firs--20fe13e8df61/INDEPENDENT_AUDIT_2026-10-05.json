@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:10:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the standard generator columns \\(g_x=(1,x)^T\\), a minimal nontrivial recovery set for a target has odd cardinality and therefore at least three. A recovery triple, after translating by the target, is exactly the three nonzero vectors of a two-dimensional subspace. For odd \\(m\\), the exact partial two-spread theorem of Năstase--Sissokho at \\(q=2,t=2,r=1\\) gives \\((2^m-5)/3\\) disjoint planes. The upper bound does not assume locality three: if one more nontrivial disjoint recovery set existed, counting forces every such set to be a triple and leaves exactly one nonzero vector uncovered; XOR of every plane triple and of all nonzero vectors is zero, forcing the leftover vector to be zero, a contradiction. A fresh independent exact replay verified the explicit maximum partial-spread witnesses and every target at \\(m=3,5\\).",
+      "risk": "The infinite existence step depends on the cited exact partial-spread theorem; the finite replay is corroborative only.",
+      "sources": [
+        "Năstase--Sissokho, arXiv:1605.04824, Theorem 5",
+        "Boruchovsky--Gruica--Niemann--Yaakobi, arXiv:2601.04041",
+        "Baumbaugh et al., arXiv:1710.07386"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older code paper gives Reed--Muller locality/availability results, while Năstase--Sissokho determine the finite-geometric plane packing number.",
+          "Neither source alone or in its stated theorem supplies the arbitrary-size recovery-set exclusion needed for the exact all-symbol result."
+        ],
+        "reasoning": "The prior results provide ingredients but do not state or logically close the full coding claim without the submitted XOR obstruction.",
+        "searches": [
+          "arXiv:1710.07386 Reed--Muller locality/availability",
+          "arXiv:1605.04824 exact partial-spread theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.04041",
+        "arXiv:1605.04824",
+        "arXiv:1710.07386",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 gives the exact size of a partial two-spread, hence the sharp number of disjoint recovery triples.",
+          "The all-symbol paper does not derive Reed--Muller multiplicity and explicitly leaves the family open."
+        ],
+        "reasoning": "A hypothetical larger recovery family could contain sets larger than triples, so the exact all-symbol upper bound is not merely a restatement of the partial-spread theorem; the submitted counting/XOR step rules that out.",
+        "searches": [
+          "arXiv:1605.04824 Theorem 5",
+          "arXiv:2601.04041 discussion/future directions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-symbol property is equivalent under affine transitivity to the same recovery multiplicity at one stored coordinate.",
+          "The 2026 source says investigating all-symbol PIR/batch properties of Reed--Muller codes remains open."
+        ],
+        "reasoning": "Availability, all-symbol PIR, translated recovery triples, and partial two-spread formulations were compared rather than relying on title matching.",
+        "searches": [
+          "Resultary query: binary first order Reed Muller all-symbol PIR multiplicity odd m availability partial 2-spread exact",
+          "arXiv:2601.04041 full PDF, all-symbol PIR/Reed--Muller future-work language"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact odd-dimensional all-symbol multiplicity record was returned among the focused scientific-search results."
+        ],
+        "reasoning": "This is an all-odd-dimension theorem, not a finite known-table recomputation; database absence is supporting evidence only.",
+        "searches": [
+          "Resultary exact-formula query for \\((2^m-2)/3\\) all-symbol PIR Reed--Muller",
+          "targeted web searches for odd-dimensional Reed--Muller all-symbol recovery"
+        ]
+      },
+      "rationale": "The 2026 all-symbol PIR paper explicitly leaves all-symbol recovery properties of Reed--Muller codes as an open direction. The older Reed--Muller availability paper studies locality/availability and does not state this odd-dimensional exact all-symbol multiplicity. The finite-geometry theorem supplies the maximum number of disjoint planes but not the coding-theoretic arbitrary-recovery-set upper bound or all-symbol conclusion. Focused semantic searches did not locate an equivalent or stronger odd-dimensional theorem.",
+      "residual_risks": [
+        "An older coding paper could phrase the same result purely as codeword-symbol availability; bounded searches did not locate such an exact odd-dimensional statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_DIRECTION_NOT_COVERING",
+          "evidence": "The paper develops the all-symbol framework but leaves Reed--Muller all-symbol recovery as future work.",
+          "identifier_or_url": "arXiv:2601.04041",
+          "material_read": "Full open PDF, especially the discussion/future-directions page stating that all-symbol PIR and batch properties of Hamming and Reed--Muller codes remain open.",
+          "method": "Lawful arXiv full-text inspection with page screenshot.",
+          "title": "Serving Every Symbol: All-Symbol PIR and Batch Codes",
+          "trigger": "Most recent primary source defining the exact all-symbol notion and naming Reed--Muller as an open family."
+        },
+        {
+          "assessment": "CRITICAL_GEOMETRIC_INGREDIENT_NOT_CODING_THEOREM",
+          "evidence": "At \\(q=2,t=2,r=1\\), Theorem 5 yields exactly \\((2^m-5)/3\\) disjoint two-dimensional subspaces for odd \\(m\\).",
+          "identifier_or_url": "arXiv:1605.04824",
+          "material_read": "Full open PDF around Theorem 5 and its parameter hypothesis/formula.",
+          "method": "Lawful arXiv full-text inspection with page screenshot.",
+          "title": "The maximum size of a partial spread in a finite projective space",
+          "trigger": "Critical nonstandard existence theorem used for odd-dimensional disjoint recovery triples."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Odd dimension is precisely the case where a full two-spread is impossible and the classical Reed--Muller availability story is subtler. The theorem closes a natural open all-symbol family with an exact infinite formula and shows why allowing larger recovery sets cannot beat the finite-geometric construction.",
+      "risk": "The result determines multiplicity, not all-symbol batch multiplicity or classification of every extremal recovery family.",
+      "sources": [
+        "arXiv:2601.04041",
+        "arXiv:1605.04824"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every odd integer \\(m\\ge3\\), the binary first-order Reed-Muller code \\(\\mathrm{RM}_2(1,m)\\) has exact all-symbol PIR multiplicity \\((2^m-2)/3\\): after reserving the target singleton, exactly \\((2^m-5)/3\\) pairwise disjoint nontrivial recovery sets are possible.",
+  "limitations": [
+    "Binary first-order Reed--Muller codes with odd \\(m\\ge3\\) only.",
+    "No all-symbol batch claim and no classification of all extremal recovery families."
+  ],
+  "schema_version": 1
+}

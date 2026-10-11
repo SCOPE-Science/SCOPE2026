@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked at the level of definitions, quantifiers, and boundary cases.
+# Independent mathematical audit
 
-* Domain: odd integers \(m\ge3\), binary \(\mathrm{RM}_2(1,m)\), all stored coordinates.
-* Generator normalization: coordinate \(x\) uses column \((1,x)^T\); affine transitivity makes the target irrelevant.
-* Recovery-size check: every minimized nontrivial recovery set has odd size at least three.
-* Triple correspondence: a recovery triple is exactly a translate of the three nonzero vectors of a two-dimensional subspace.
-* Existence: the Năstase--Sissokho partial-spread theorem at \(q=2,t=2,r=1\) gives \((2^m-5)/3\) pairwise disjoint triples.
-* Upper bound: one additional nontrivial set would force all sets to be triples and leave exactly one nonzero vector uncovered; XOR of plane triples and of all nonzero vectors gives a contradiction.
-* All-symbol conversion: the target singleton contributes exactly one additional disjoint recovery set.
+## correctness
 
-`verify_rm_asp.py` performs independent finite sanity checks at \(m=3\) and \(m=5\), including explicit maximum-size partial two-spread witnesses and every target coordinate, and checks the general formula arithmetic for further odd dimensions.
+PASS
 
-Unproved limits: no classification of maximum families is claimed; no claim is made for all-symbol batch recovery, higher-order Reed–Muller codes, or nonbinary fields. The finite script is corroborative and does not replace the cited infinite partial-spread existence theorem.
+Using the standard generator columns \(g_x=(1,x)^T\), a minimal nontrivial recovery set for a target has odd cardinality and therefore at least three. A recovery triple, after translating by the target, is exactly the three nonzero vectors of a two-dimensional subspace. For odd \(m\), the exact partial two-spread theorem of Năstase--Sissokho at \(q=2,t=2,r=1\) gives \((2^m-5)/3\) disjoint planes. The upper bound does not assume locality three: if one more nontrivial disjoint recovery set existed, counting forces every such set to be a triple and leaves exactly one nonzero vector uncovered; XOR of every plane triple and of all nonzero vectors is zero, forcing the leftover vector to be zero, a contradiction. A fresh independent exact replay verified the explicit maximum partial-spread witnesses and every target at \(m=3,5\).
+
+## originality
+
+PASS
+
+The 2026 all-symbol PIR paper explicitly leaves all-symbol recovery properties of Reed--Muller codes as an open direction. The older Reed--Muller availability paper studies locality/availability and does not state this odd-dimensional exact all-symbol multiplicity. The finite-geometry theorem supplies the maximum number of disjoint planes but not the coding-theoretic arbitrary-recovery-set upper bound or all-symbol conclusion. Focused semantic searches did not locate an equivalent or stronger odd-dimensional theorem.
+
+## value
+
+PASS
+
+Odd dimension is precisely the case where a full two-spread is impossible and the classical Reed--Muller availability story is subtler. The theorem closes a natural open all-symbol family with an exact infinite formula and shows why allowing larger recovery sets cannot beat the finite-geometric construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
