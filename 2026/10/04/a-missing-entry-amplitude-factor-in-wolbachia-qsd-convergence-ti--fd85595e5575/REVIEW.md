@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof was reconstructed from the source's block generator. The key step is the exact variation-of-constants representation followed by the Perron projector for each single-type block; strict faster decay of the mixed block makes the resolvent integral convergent. The finite three-state witness was checked from its closed-form probabilities and by the bundled script.
+## correctness
 
-## Originality
-PASS. Broader matrix-population literature already warns that a damping ratio is an asymptotic rate and that case-specific convergence depends on initial structure. The surviving claim is narrower: it gives the exact mixed-entry/eigenvector amplitude for this reducible Wolbachia CTMC architecture and identifies the missing condition behind the source's Table 5 class-mass interpretation. Semantic published-finding searches and source/alias web searches found no source-specific covering result or erratum.
+PASS
 
-## Value
-PASS. Table 5 turns the damping ratio into operational times of hundreds of days. The exact amplitude formula determines what additional source-model computation is required before those values can be interpreted as class-mass crossings, and the counterexample proves that this is not a cosmetic normalization.
+For a mixed initial row distribution, variation of constants gives \(p_k(t)=\int_0^t p_3e^{Q_3s}Q_{3k}e^{Q_k(t-s)}\,ds\). With simple Perron mode \(e^{Q_ku}=e^{-lpha_ku}u_k\ell_k+o(e^{-lpha_ku})\) and \(lpha_3>lpha_k\), the forcing integral converges and yields \(A_k=-p_3(Q_3+lpha_kI)^{-1}Q_{3k}u_k(\ell_k\mathbf1)\). Hence \(M_k(t)=A_ke^{-lpha_kt}+o(e^{-lpha_kt})\), so \(M_1/M_2=(A_1/A_2)e^{(lpha_2-lpha_1)t}(1+o(1))\) and the crossing time contains \(-\log(A_1/A_2)/(lpha_2-lpha_1)\). Conditioning on non-extinction cancels from the class-mass ratio. The submitted three-state chain independently shows that fixing the spectral gap while changing entry branching changes the prefactor and therefore the crossing time.
 
-## Closest literature and limitations
-The closest broad predecessor is Stott, Townley and Hodgson (2011), which explains that damping ratio measures asymptotic convergence rate and ignores initial population structure. It does not provide the present block-entry resolvent coefficient. The present result does not recompute the source's full numerical generators and therefore does not claim replacement values for Table 5.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary article itself retains modal coefficients in its general spectral expansion but then turns the damping ratio into class-mass crossing times in Table 5 without an entry/eigenvector amplitude. The submitted result adds the exact block-resolvent coefficient for a mixed start and proves that the class-mass crossing is not determined by the gap alone. Fresh Resultary and exact source/title searches located no source-specific correction or equivalent formula. Although the derivation uses standard finite-dimensional semigroup tools, the source-specific coefficient and correction are not stated in the inspected article, so originality passes on a best-of-knowledge basis.
+
+## value
+
+PASS
+
+The published table converts an asymptotic spectral rate into operational class-separation times. The exact entry/eigenvector amplitude identifies the additional quantity required for that interpretation, and the fixed-gap counterexample proves the omission can change the crossing time substantially. This is a motivated correction to a concrete stochastic-population observable, not an arbitrary spectral exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:54:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a mixed initial row distribution, variation of constants gives \\(p_k(t)=\\int_0^t p_3e^{Q_3s}Q_{3k}e^{Q_k(t-s)}\\,ds\\). With simple Perron mode \\(e^{Q_ku}=e^{-\u0007lpha_ku}u_k\\ell_k+o(e^{-\u0007lpha_ku})\\) and \\(\u0007lpha_3>\u0007lpha_k\\), the forcing integral converges and yields \\(A_k=-p_3(Q_3+\u0007lpha_kI)^{-1}Q_{3k}u_k(\\ell_k\\mathbf1)\\). Hence \\(M_k(t)=A_ke^{-\u0007lpha_kt}+o(e^{-\u0007lpha_kt})\\), so \\(M_1/M_2=(A_1/A_2)e^{(\u0007lpha_2-\u0007lpha_1)t}(1+o(1))\\) and the crossing time contains \\(-\\log(A_1/A_2)/(\u0007lpha_2-\u0007lpha_1)\\). Conditioning on non-extinction cancels from the class-mass ratio. The submitted three-state chain independently shows that fixing the spectral gap while changing entry branching changes the prefactor and therefore the crossing time.",
+      "risks": [
+        "The theorem assumes strict spectral ordering, simple Perron modes and nonzero reachability; resonance or vanishing coefficients require separate asymptotics.",
+        "The record does not reconstruct the biological generator and therefore does not certify replacement numerical Table 5 entries."
+      ],
+      "sources": [
+        "Frozen RESULT.md, AUDIT.json and VERIFICATION.md",
+        "A. Barlow, S. Penington and B. Adams, arXiv:2502.12833v1 / DOI:10.1007/s00285-025-02332-8, full article including damping-ratio section, Table 5 and modal-coefficient appendix"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard spectral theory supplies the Perron projectors and generic modal coefficients, but the inspected source does not propagate the mixed-class forcing into the exact \\(A_k\\) coefficient used by its Table 5 observable."
+        ],
+        "reasoning": "The broader ingredients do not by themselves state the submitted source-specific class-mass correction; deriving the forcing coefficient is the nontrivial comparison step.",
+        "searches": [
+          "Primary article Appendix modal expansion and mixed/single-type block structure",
+          "Resultary exact-topic search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2502.12833v1",
+        "doi:10.1007/s00285-025-02332-8",
+        "Resultary published-finding search for source-specific damping-ratio amplitude corrections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's generic expansion shows that coefficients exist, but its gap-only class-mass timing formula does not include the mixed-entry amplitude.",
+          "The submitted same-gap three-state family proves the crossing observable is not a function of the gap alone."
+        ],
+        "reasoning": "The prior article provides ingredients but does not imply the gap-only formula is valid; the final claim isolates the missing source-specific coefficient and its exact consequence.",
+        "searches": [
+          "DOI:10.1007/s00285-025-02332-8, damping-ratio discussion and Table 5",
+          "same source modal-coefficient appendix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source defines the damping ratio from the two leading decay rates, retains coefficients \\(c_i\\) in a generic modal expansion, and nevertheless reports \\(\\log K/\\log\rho\\) as the class-mass crossing time.",
+          "No searched finding states the submitted \\(A_k\\) block-entry formula or correction."
+        ],
+        "reasoning": "The final claim is the coefficient-sensitive class-mass asymptotic for the source's reducible block architecture, not merely the generic statement that eigenmodes have coefficients.",
+        "searches": [
+          "arXiv:2502.12833v1 / DOI:10.1007/s00285-025-02332-8, damping-ratio section, Table 5 and modal expansion",
+          "Resultary: Wolbachia damping ratio class mass crossing amplitude entry eigenvector Table 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published table is the exact numerical object under interpretation; no indexed correction was located."
+        ],
+        "reasoning": "This is a correction to the interpretation of a published table rather than a recomputation of an established database invariant.",
+        "searches": [
+          "Resultary exact source-specific query",
+          "Primary article Table 5"
+        ]
+      },
+      "rationale": "The primary article itself retains modal coefficients in its general spectral expansion but then turns the damping ratio into class-mass crossing times in Table 5 without an entry/eigenvector amplitude. The submitted result adds the exact block-resolvent coefficient for a mixed start and proves that the class-mass crossing is not determined by the gap alone. Fresh Resultary and exact source/title searches located no source-specific correction or equivalent formula. Although the derivation uses standard finite-dimensional semigroup tools, the source-specific coefficient and correction are not stated in the inspected article, so originality passes on a best-of-knowledge basis.",
+      "residual_risks": [
+        "A generic coefficient-sensitive transient formula may appear in older matrix-population literature; no inspected source stated the exact Wolbachia block-entry coefficient or corrected Table 5 interpretation.",
+        "No replacement numerical Table 5 values are claimed without reconstructing the source generator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_WITH_MISSING_APPLICATION_COEFFICIENT",
+          "evidence": [
+            "Table 5 labels \\(\\log K/\\log\rho\\) as the time until one class has \\(K\\) times the probability mass of the other.",
+            "The article's own modal expansion contains coefficients, but no mixed-start block-resolvent amplitude is inserted into those class-mass crossing times."
+          ],
+          "identifier_or_url": "arXiv:2502.12833v1 / doi:10.1007/s00285-025-02332-8",
+          "material_read": "Full article sections on the transient-class architecture and damping ratio, Table 5, and the appendix retaining modal coefficients in the spectral expansion.",
+          "method": "Lawful open/full-text inspection.",
+          "title": "Analysis of a household-scale model for the invasion of Wolbachia into a resident mosquito population",
+          "trigger": "Exact model, damping-ratio definition and Table 5 class-mass timing claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The published table converts an asymptotic spectral rate into operational class-separation times. The exact entry/eigenvector amplitude identifies the additional quantity required for that interpretation, and the fixed-gap counterexample proves the omission can change the crossing time substantially. This is a motivated correction to a concrete stochastic-population observable, not an arbitrary spectral exercise.",
+      "risks": [
+        "The result does not challenge the source's QSD existence, invasion probability or expected-invasion-time calculations."
+      ],
+      "sources": [
+        "Primary Table 5 and damping-ratio discussion",
+        "Exact block-semigroup derivation and three-state witness"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict ordering \\(\u0007lpha_3>\u0007lpha_2>\u0007lpha_1>0\\), simple single-type Perron modes and reachability are assumed.",
+    "The source's full biological generator was not reconstructed, so no replacement numerical Table 5 entries are certified."
+  ],
+  "schema_version": 1
+}
