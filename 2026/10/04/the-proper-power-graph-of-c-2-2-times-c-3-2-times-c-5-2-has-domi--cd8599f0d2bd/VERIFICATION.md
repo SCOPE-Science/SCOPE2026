@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-The standalone `verify.py` checks the exact finite reduction and lower-bound certificate. It reconstructs all \(139\) nonempty partial assignments in coordinate alphabets of sizes \(3,4,6\), builds the complete comparability graph, checks the explicit dominating family of size \(11\), and exhaustively rules out a dominating family of size at most \(10\) by branch-and-bound. The search uses only a maximum-new-coverage lower bound for pruning and memoizes a state only after all of its branches fail.
+# Independent mathematical audit
 
-Observed output:
+## correctness
 
-```text
-VERIFY_OK
-group_order=900
-proper_power_vertices=899
-cyclic_subgroup_types=139
-dominating_witness_size=11
-no_dominating_family_size_10=true
-branch_nodes=1022864
-```
+PASS
 
-The computation proves this finite claim only; it does not certify a formula for larger prime sets or higher Sylow ranks.
+The reduction and exhaustive lower bound were independently replayed. There are exactly 139 nontrivial cyclic-subgroup types, represented by nonempty partial assignments in alphabets of sizes 3,4,6, and adjacency is inclusion comparability. The canonical ten nondistinguished prime-line generators plus one distinguished order-30 generator dominate. A fresh exact branch-and-bound replay reconstructed all comparability neighborhoods and exhausted 1,022,864 search nodes without any dominating family of size 10. The pruning lower bound uses maximum remaining coverage and is logically safe, so the finite computation is exhaustive rather than experimental.
+
+## originality
+
+PASS
+
+Originality passes. The 2025 primary domination paper supplies the nilpotent upper-bound machinery and states exact determination for the nilpotent regime with at most two distinct prime divisors. The present group has three noncyclic Sylow factors; that upper bound specializes to 11 but does not provide the matching lower bound. The exact Resultary hit is the assigned result, and no checked stronger theorem or table closes this minimal three-prime case.
+
+## value
+
+PASS
+
+Order 900 is the smallest nilpotent boundary where three distinct primes occur and every Sylow subgroup is noncyclic. Establishing equality at the general upper bound is therefore a natural first exact test beyond the published two-prime regime. The fact is finite but motivated and complete, not an arbitrary census point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
