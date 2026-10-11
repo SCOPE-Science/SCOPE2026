@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every radius-\\(\\rho\\) ball in the order polytope, coordinate halfspaces give \\(\\rho\\le c_p\\le1-\\rho\\) and each cover halfspace, whose normal has norm \\(\\sqrt2\\), gives \\(c_q-c_p\\ge\\sqrt2\\rho\\). Summing along a longest saturated chain gives the sharp upper bound. The canonical depth vector attains every required normalized halfspace margin, proving the lower bound and the full center description. Prefix/suffix depth bounds prove the uniqueness criterion. All quantifiers include every nonempty finite poset; height counts elements. A finite exhaustive checker through six elements corroborates but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2102.11306 studies order-polytope volumes, circuits, flips, and triangulations and has no metric-radius terminology in the inspected full text.",
+        "arXiv:2309.01626 studies order/chain face vectors and chain-order interpolations and has no inradius/Chebyshev/Euclidean occurrence in the inspected full text.",
+        "The standard Chebyshev-center LP is a general computational framework, but it does not state the order-polytope optimum, complete center set, or uniqueness criterion; these require solving the specialized cover-difference system."
+      ],
+      "reasoning": "Broader recent work on order polytopes was checked for a theorem that would dominate the proposed statement. The inspected results do not control Euclidean distance to all defining facets and therefore do not imply the inradius or center-set classification. The generic polyhedral Chebyshev-center theorem was treated as potential dominating coverage: it reduces the problem to an LP but leaves the nontrivial exact solution and equality structure undetermined, so it does not by itself imply the stated closed form without the new longest-chain argument.",
+      "searches": [
+        "published-finding corpus: poset polytope Euclidean inradius cover relations",
+        "published-finding corpus: order polytope exact Euclidean inradius longest-chain height Chebyshev centers uniqueness every element lies on a longest chain",
+        "arXiv:2102.11306 full text; searched inradius, Chebyshev, Euclidean, ball",
+        "arXiv:2309.01626 full text; searched inradius, Chebyshev, Euclidean",
+        "General polyhedral Chebyshev-center LP: maximize r subject to a_i^T c + ||a_i||_2 r <= b_i"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/BF02187680",
+      "arXiv:2102.11306",
+      "DOI:10.5070/C62359166",
+      "arXiv:2309.01626",
+      "published-finding corpus semantic index searches recorded above",
+      "Boyd--Vandenberghe, Convex Optimization (2004), Section 4.3.1 general Chebyshev-center LP; comparison supported by public optimization references"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stanley 1986 gives the Euclidean ambient space and the minimal/maximal/cover facet description, but the full text has no inradius, Chebyshev, or ball statement.",
+        "arXiv:2102.11306 has first-public date 2021-02-22 and published primary MSC 52B20; its inspected results do not imply the metric theorem.",
+        "arXiv:2309.01626 gives modern facet/face context but does not derive Euclidean largest-ball geometry."
+      ],
+      "reasoning": "The new theorem uses Stanley’s facet description as an input but adds a sharp global metric optimization and a complete center classification. Neither the facet description alone nor the inspected combinatorial results state or logically force the height-only formula without the new longest-chain distance argument.",
+      "searches": [
+        "Stanley 1986, Two Poset Polytopes, DOI 10.1007/BF02187680, full text",
+        "arXiv:2102.11306, Triangulations, order polytopes, and generalized snake posets, full text",
+        "arXiv:2309.01626, Order and chain polytopes of maximal ranked posets, full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated an order-polytope inradius or Chebyshev-center formula.",
+        "Direct web searches for order-polytope inradius/inscribed-ball terminology returned general order-polytope references but no matching theorem."
+      ],
+      "reasoning": "The claim was searched under inradius, insphere/inball, largest inscribed Euclidean ball, Chebyshev center, height, longest chain, and cover-distance formulations. None of the retrieved statements was equivalent.",
+      "searches": [
+        "published-finding corpus: order polytope inradius Euclidean ball Chebyshev center height poset",
+        "published-finding corpus: order polytope insphere radius longest chain height",
+        "Web: \"order polytope\" inradius Euclidean Chebyshev center",
+        "Web: \"order polytope\" \"inscribed ball\" OR inball OR inradius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus items concerned unrelated Euclidean polytope metrics or unrelated order/poset invariants; none tabulated order-polytope inradii or Chebyshev centers.",
+        "No exact database/table located in the searches contained the height-only radius formula."
+      ],
+      "reasoning": "A database/table match would cover the claim even without matching prose. The retrieved exact-result records did not contain this object-and-invariant pair.",
+      "searches": [
+        "published-finding corpus semantic search: geometry order polytope chain polytope exact metric invariant",
+        "published-finding corpus semantic search: order polytope inradius Euclidean ball Chebyshev center height poset",
+        "published-finding corpus semantic search: poset polytope Euclidean inradius cover relations"
+      ]
+    },
+    "rationale": "The comparison was made at statement and implication level. Stanley supplies the defining/facet halfspaces but no metric-radius theorem. Two modern full-text order-polytope papers treat triangulations, volume, circuits, or face vectors rather than Euclidean largest-ball geometry. published-finding corpus and web searches using inradius, insphere, Chebyshev-center, height, longest-chain, and cover-relation aliases returned no statement that implies the formula or the full center classification. The residual risk from unindexed or differently worded literature is explicit.",
+    "residual_risks": [
+      "An unindexed thesis, book passage, or older article may state the same metric formula under different terminology such as insphere or order-simplex radius.",
+      "Searches do not prove novelty; the PASS assessment rests on the combination of direct full-text inspection of the foundational and highly relevant modern sources plus implication-level comparison.",
+      "The result specializes a standard Chebyshev-center LP. Its value and originality therefore rest on the exact all-poset solution and optimal-center classification, not on introducing the LP formulation itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "The paper defines the standard Euclidean space and proves that minimal-element, maximal-element, and cover equalities give the facets. Full-text searches found no occurrence of inradius, Chebyshev, or ball.",
+        "identifier_or_url": "DOI:10.1007/BF02187680; https://math.mit.edu/~rstan/pubs/pubfiles/66.pdf",
+        "material_read": "Definition 1.1 and the facet discussion, plus full-text term searches.",
+        "method": "Lawful author-hosted full PDF; text and rendered page inspected.",
+        "title": "Two Poset Polytopes",
+        "trigger": "Foundational source for the exact defining and facet halfspaces of order polytopes."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper concerns volume, circuits, flips, and triangulations. Full-text searches found no occurrence of inradius, Chebyshev, Euclidean, or ball. The public journal record lists MSC 52B20 first.",
+        "identifier_or_url": "arXiv:2102.11306; DOI:10.5070/C62359166",
+        "material_read": "Abstract, introduction, order-polytope background section, rendered PDF page, and full-text term searches.",
+        "method": "arXiv full PDF and public journal metadata.",
+        "title": "Triangulations, order polytopes, and generalized snake posets",
+        "trigger": "Modern order-polytope geometry source in the middle cohort and primary MSC 52B20."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper studies f-vectors and chain-order polytopes. Full-text searches found no occurrence of inradius, Chebyshev, or Euclidean.",
+        "identifier_or_url": "arXiv:2309.01626",
+        "material_read": "Abstract, introduction, facet/face preliminaries, rendered first page, and full-text term searches.",
+        "method": "arXiv full PDF.",
+        "title": "Order and chain polytopes of maximal ranked posets",
+        "trigger": "Plausibly relevant modern work because ranked posets make height especially prominent."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3b4d0614-da81-46c8-bff5-7680f752ec0e",
+  "value": {
+    "rationale": "This is a structural metric theorem for a foundational polytope family: a Euclidean invariant that could depend on the entire Hasse diagram collapses exactly to poset height, while the geometry of all optimal centers recovers whether elements lie on longest chains. It is not a parameter substitution, table recomputation, or arbitrary finite slice, and the exact center-set description supplies information beyond the scalar radius.",
+    "status": "PASS"
+  }
+}
