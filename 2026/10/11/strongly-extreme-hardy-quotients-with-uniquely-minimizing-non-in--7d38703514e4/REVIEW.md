@@ -1,0 +1,11 @@
+# Same-model scientific review
+
+**Correctness: PASS.** The Cayley transform stays in the right half-plane, fixing the principal-logarithm branch; direct boundary arguments give exactly two moduli. The boundary integral is a weak-star continuous norm-one functional attaining its norm at the constructed analytic function, with uniqueness by positive-measure boundary uniqueness. Odd Fourier moments establish the exact independent functional rank. Weak-star proximinality and finite-dimensional compactness give strong extremity; no finite experiment is used as a universal proof.
+
+**Originality: PASS.** The closest source, Dyakonov's arXiv:2603.29103v1, explicitly conjectures a unique-inner-minimizer characterization for strongly extreme points in general Hardy quotients, but proves a criterion only for ordinary extreme points. It mentions a non-inner unique minimizer in an infinite Blaschke quotient without proving strong extremity. The new construction supplies weak-star closed subspaces of **every finite codimension** with strongly extreme cosets and uniquely minimizing non-inner outer functions; this is not stated in either inspected primary paper. Published-record searches yielded no exact counterexample, though indexing is incomplete and the mechanism uses familiar exposure and finite-dimensional compactness.
+
+**Value: PASS.** This is a motivated counterexample to a specifically posed 2026 characterization, not a synthetic parameter slice. It shows that innerness fails as a necessary condition in all positive finite quotient dimensions and the unique minimizing functions can be uniformly separated from every inner function by nearly one. The result isolates a genuine boundary between arbitrary weak-star closed subspaces and more structured quotient classes. Although the proof is short, the consequence changes the formulation of the stated open problem.
+
+The comparison is limited to the unrestricted quotient hypothesis; no assertion is made for shift-invariant ideals, infinite-dimensional quotient rigidity, or the conjecture's sufficiency direction. An unindexed equivalent construction or an older general result specifically supplying these quotients remains possible.
+
+Same-model review: passed. Independent audit: not yet performed.
