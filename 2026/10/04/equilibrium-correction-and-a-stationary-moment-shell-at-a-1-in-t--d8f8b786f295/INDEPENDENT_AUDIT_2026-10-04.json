@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:07:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At equilibrium, \\(z=xy\\) and \\(y+z=x\\), so \\(y(1+x)=x\\); hence \\(x=-1\\) is impossible before division. For \\(x\\ne-1\\), substitution yields the source cubic, and at \\(a=1\\) it factors as \\((x+1)(x^2-x-b)\\). The polynomial observable \\(F=x^2-2x-2y+2z\\) has exact Lie derivative \\(-2(x^2-x-b)\\), verified coefficientwise in the package, so invariance gives the shell law. The variance identity follows from the two roots; endpoint variance zero forces constant \\(x\\), and invariance then forces an equilibrium whenever the root is admissible. For a non-equilibrium ergodic measure the quadratic must occur with both signs, giving positive mass inside and outside its root interval; the periodic crossing follows by continuity.",
+      "risk": "The theorem is restricted to the singular parameter slice \\(a=1\\) and compact recurrent states; it does not establish that a non-equilibrium compact invariant set exists there.",
+      "sources": [
+        "Frozen RESULT.md and verify_balance.py at the assigned tree",
+        "A. Ray and D. Ghosh, arXiv:1911.11429; Int. J. Bifurcation and Chaos 30 (2020) 2050161"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source analyzes equilibria, Hopf bifurcation, period doubling and chaos over parameter space.",
+          "It treats the cubic roots formally and does not derive a stationary invariant-measure classification on the special slice."
+        ],
+        "reasoning": "The broader dynamical study supplies context but does not dominate the submitted correction plus shell law.",
+        "searches": [
+          "arXiv:1911.11429",
+          "DOI 10.1142/S0218127420501618"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1911.11429",
+        "DOI:10.1142/S0218127420501618",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives \\(\\dot x=-x+y+z\\), \\(\\dot y=xy-z\\), \\(\\dot z=-axz+y+b\\) and the cubic \\(a x^3-(b+1)x-b=0\\).",
+          "At \\(a=1\\), the source's rational equilibrium parametrization divides by \\(1+x\\), so the cubic root \\(-1\\) requires a separate consistency check and is not a valid implied equilibrium. The shell requires an additional exact coboundary."
+        ],
+        "reasoning": "The submitted result corrects a singular algebraic inference and adds a stationary law not implied by the published bifurcation analysis.",
+        "searches": [
+          "arXiv:1911.11429, Section 2 model and fixed points"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited record is the only direct Resultary hit.",
+          "The arXiv primary text explicitly gives the cubic and fixed-point count but contains no submitted shell identity in the inspected model/stability sections."
+        ],
+        "reasoning": "The search covered equilibrium correction, singular denominator, time-average/coboundary, variance shell and periodic crossing aliases.",
+        "searches": [
+          "Resultary: Ray Ghosh a=1 stationary invariant measure moment shell x squared x b equilibrium correction",
+          "Web/arXiv: exact title plus a=1, x=-1, invariant measure, stationary moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table of invariant-measure moments or corrected \\(a=1\\) equilibria was located."
+        ],
+        "reasoning": "This is an exact symbolic parameter-slice theorem, not a finite numerical table.",
+        "searches": [
+          "Resultary Ray-Ghosh searches"
+        ]
+      },
+      "rationale": "The primary paper's full arXiv text prints the same system, gives the equilibrium cubic \\(a x^3-(b+1)x-b=0\\), and discusses three-versus-one fixed-point regions. It does not handle the singular invalid denominator at \\(a=1\\) or state the stationary shell. Resultary searches found no earlier same-flow correction or invariant-measure theorem.",
+      "residual_risks": [
+        "A later correction note under different terminology may exist, but targeted searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_OF_SINGULAR_EQUILIBRIUM_ERROR_NOT_SHELL",
+          "evidence": "The source states the cubic fixed-point criterion; direct use of the undivided equilibrium equations excludes \\(x=-1\\) on the \\(a=1\\) slice.",
+          "identifier_or_url": "arXiv:1911.11429; DOI:10.1142/S0218127420501618",
+          "material_read": "Full arXiv HTML around Section 2, including the three differential equations, cubic fixed-point equation, claimed three/one fixed-point regions, Jacobian and stability discussion.",
+          "method": "lawful arXiv full text",
+          "title": "Another new chaotic system: bifurcation and chaos control",
+          "trigger": "Primary source of the exact vector field and equilibrium cubic."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result both corrects the published equilibrium geometry on a mathematically distinguished slice and derives an exact stationary shell that constrains every compact recurrent state there. This is a motivated source correction plus a natural invariant-measure law, not a numerical recheck.",
+      "risk": "The slice may or may not support non-equilibrium recurrence for every \\(b>0\\); the theorem correctly states only necessary restrictions.",
+      "sources": [
+        "arXiv:1911.11429"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "At \\(a=1\\) in the Ray-Ghosh flow, the factor \\(x=-1\\) of the published equilibrium cubic is spurious, leaving the roots of \\(x^2-x-b=0\\) as the actual equilibrium levels except that the lower root is invalid when \\(b=2\\); every compact invariant probability measure obeys \\(\\int(x-1/2)^2\\,d\\mu=b+1/4\\), which yields the stated mean/variance interval, rigidity, sign-mass and periodic-crossing consequences.",
+  "limitations": [
+    "No non-equilibrium compact invariant set is asserted to exist at \\(a=1\\)."
+  ],
+  "schema_version": 1
+}
