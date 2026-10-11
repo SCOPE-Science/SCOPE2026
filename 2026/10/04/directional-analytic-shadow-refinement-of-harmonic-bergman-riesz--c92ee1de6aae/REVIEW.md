@@ -1,36 +1,21 @@
-# Review of Directional analytic-shadow refinement of harmonic Bergman Riesz–Fejér
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a harmonic expansion
-\[
-f(z)=c+\sum_{n\ge1}a_nz^n+\sum_{n\ge1}b_n\overline z^{\,n},
-\]
-the directional shadow
-\[
-F_\zeta(w)=c+\sum_{n\ge1}(a_n\zeta^n+b_n\overline\zeta^{\,n})w^n
-\]
-is analytic and satisfies \(F_\zeta(r)=f(r\zeta)\) exactly. Radial orthogonality gives both its exact weighted Bergman norm and the harmonic norm of \(f\). The elementary coefficient inequality then gives
-\[
-\|F_\zeta\|_{A^2_\alpha}^2
-\le2\|f\|_{a^2_\alpha}^2-|f(0)|^2.
-\]
-Applying the verified analytic Riesz–Fejér theorem to \(F_\zeta\) proves the claim. The opposite ray is encoded by \(F_\zeta(-r)\), so the diameter estimate follows without an additional structural assumption.
+PASS
 
-The center normalization is correct because the normalized weighted measure has \(\beta_0=1\). The analytic special case loses no factor, and the test \(f(z)=z-\overline z\) correctly gives zero shadow on the real ray.
+For fixed \(|\zeta|=1\), the analytic series \(F_\zeta(w)=c+\sum_{n\ge1}(a_n\zeta^n+b_n\bar\zeta^n)w^n\) satisfies \(F_\zeta(r)=f(r\zeta)\) exactly. Radial orthogonality gives its weighted Bergman norm coefficient-by-coefficient, and \(|u+v|^2\le2(|u|^2+|v|^2)\) yields \(\lVert F_\zeta\rVert^2\le2\lVert f\rVert^2-|f(0)|^2\). Applying the established analytic Riesz--Fejer inequality then proves the ray bound; evaluating at \(-r\) gives the opposite ray. Boundary checks recover the analytic case with no factor two and correctly give zero for \(f(z)=z-\bar z\) on the real ray.
 
-## Originality
+## originality
 
-PASS. The full 2026 primary text was inspected through Theorems 1.2 and 1.3 and the complete proof of Theorem 1.3. Its Hilbert-space refinement explicitly assumes \(f(0)=0\), removes the constant coefficient, splits the function into two real harmonic parts, and obtains a uniform factor-two estimate. It does not state the one-shadow formula, the center-energy correction, or the normalization-free diameter improvement.
+PASS
 
-Kasuga's full 2025 open-access paper was inspected through its statement of Andreev's \(p=2\) analytic theorem and its all-positive-exponent analytic extension. Those results concern analytic Bergman functions, so they supply the analytic input but not the harmonic directional shadow.
+The closest sources give the analytic weighted Bergman Riesz--Fejer inequality, a recent harmonic theorem with an \(f(0)=0\) hypothesis, and a separate two-diameter Frazer theory. None of the inspected statements gives the direction-dependent analytic shadow \(F_\zeta\), its exact norm, or the center correction \(2\lVert f\rVert^2-|f(0)|^2\). The reduction is simple but is not a special case of a stronger harmonic theorem: it transfers a complex harmonic trace to a single analytic function in a direction-dependent way.
 
-Candidate-specific searches for the source identifier, removal of \(f(0)=0\), center-value corrections, analytic lifts, and weighted harmonic Bergman radial traces found no published statement implying the accepted claim. The accessible abstract of the 2022 harmonic Riesz–Fejér paper concerns harmonic Hardy-space circle/diameter comparisons, not weighted harmonic Bergman traces.
+## value
 
-## Value
+PASS
 
-PASS. The recent paper's strongest \(p=2\) improvement is presented only under an origin normalization, even though its general \(p=2\) theorem has no such restriction. The finding removes that gap and simultaneously exposes the direction-dependent coefficient interference that the real/imaginary splitting discards. For \(\alpha\ge0\), it extends the paper's improved full-diameter constant from normalized functions to all weighted harmonic Bergman functions and retains a strictly favorable center-energy term.
+The exact directional shadow removes a published normalization hypothesis, retains analytic/coanalytic cancellation, and identifies a center-energy correction. Those are structurally meaningful refinements of the Hilbert-case trace inequality, not an arbitrary numerical tweak.
 
-This is a structural strengthening of the new theorem rather than a formal subtraction of a constant: the exact analytic shadow can be much smaller than the uniform estimate because the analytic and coanalytic modes may cancel along the selected ray.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

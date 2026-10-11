@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,65 +19,24 @@
 }
 ---
 
-Write
-\[
-f(z)=c+\sum_{n\ge1}a_nz^n+\sum_{n\ge1}b_n\overline z^{\,n}.
-\]
-For the normalized radial weight,
-\[
-\beta_n
-=
-\frac{\Gamma(n+1)\Gamma(\alpha+2)}{\Gamma(n+\alpha+2)},
-\qquad
-\beta_0=1,
-\]
-and therefore
-\[
-\|f\|_{a^2_\alpha}^2
-=
-|c|^2+\sum_{n\ge1}\beta_n(|a_n|^2+|b_n|^2).
-\]
+# Independent mathematical audit
 
-For every \(|\zeta|=1\), define
-\[
-F_\zeta(w)
-=
-c+\sum_{n\ge1}(a_n\zeta^n+b_n\overline\zeta^{\,n})w^n.
-\]
-Then, identically for \(0\le r<1\),
-\[
-F_\zeta(r)=f(r\zeta).
-\]
-Its exact analytic Bergman norm is
-\[
-\|F_\zeta\|_{A^2_\alpha}^2
-=
-|c|^2+\sum_{n\ge1}\beta_n
-|a_n\zeta^n+b_n\overline\zeta^{\,n}|^2.
-\]
-Using
-\[
-|u+v|^2\le2(|u|^2+|v|^2)
-\]
-gives
-\[
-\|F_\zeta\|_{A^2_\alpha}^2
-\le
-2\|f\|_{a^2_\alpha}^2-|f(0)|^2.
-\]
+## correctness
 
-The inspected analytic Riesz–Fejér theorem gives
-\[
-\int_0^1|F_\zeta(r)|^2(1-r)^{\alpha+1}\,dr
-\le
-\lambda_\alpha\|F_\zeta\|_{A^2_\alpha}^2.
-\]
-Substitution proves the ray claim. Since
-\[
-F_\zeta(-r)=f(-r\zeta),
-\]
-the two half-rays give the stated diameter inequality.
+PASS
 
-Boundary checks: if \(f\) is analytic, then the shadow is just the rotated analytic function and the factor two disappears. If \(f(z)=z-\overline z\) and \(\zeta=1\), then the shadow is zero and the ray trace vanishes exactly.
+For fixed \(|\zeta|=1\), the analytic series \(F_\zeta(w)=c+\sum_{n\ge1}(a_n\zeta^n+b_n\bar\zeta^n)w^n\) satisfies \(F_\zeta(r)=f(r\zeta)\) exactly. Radial orthogonality gives its weighted Bergman norm coefficient-by-coefficient, and \(|u+v|^2\le2(|u|^2+|v|^2)\) yields \(\lVert F_\zeta\rVert^2\le2\lVert f\rVert^2-|f(0)|^2\). Applying the established analytic Riesz--Fejer inequality then proves the ray bound; evaluating at \(-r\) gives the opposite ray. Boundary checks recover the analytic case with no factor two and correctly give zero for \(f(z)=z-\bar z\) on the real ray.
 
-No numerical experiment, finite truncation, or limiting inference is used in the proof.
+## originality
+
+PASS
+
+The closest sources give the analytic weighted Bergman Riesz--Fejer inequality, a recent harmonic theorem with an \(f(0)=0\) hypothesis, and a separate two-diameter Frazer theory. None of the inspected statements gives the direction-dependent analytic shadow \(F_\zeta\), its exact norm, or the center correction \(2\lVert f\rVert^2-|f(0)|^2\). The reduction is simple but is not a special case of a stronger harmonic theorem: it transfers a complex harmonic trace to a single analytic function in a direction-dependent way.
+
+## value
+
+PASS
+
+The exact directional shadow removes a published normalization hypothesis, retains analytic/coanalytic cancellation, and identifies a center-energy correction. Those are structurally meaningful refinements of the Hilbert-case trace inequality, not an arbitrary numerical tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

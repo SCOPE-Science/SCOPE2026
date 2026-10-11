@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:57:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed \\(|\\zeta|=1\\), the analytic series \\(F_\\zeta(w)=c+\\sum_{n\\ge1}(a_n\\zeta^n+b_n\\bar\\zeta^n)w^n\\) satisfies \\(F_\\zeta(r)=f(r\\zeta)\\) exactly. Radial orthogonality gives its weighted Bergman norm coefficient-by-coefficient, and \\(|u+v|^2\\le2(|u|^2+|v|^2)\\) yields \\(\\lVert F_\\zeta\\rVert^2\\le2\\lVert f\\rVert^2-|f(0)|^2\\). Applying the established analytic Riesz--Fejer inequality then proves the ray bound; evaluating at \\(-r\\) gives the opposite ray. Boundary checks recover the analytic case with no factor two and correctly give zero for \\(f(z)=z-\\bar z\\) on the real ray.",
+      "risks": [
+        "The argument is specific to \\(p=2\\); no optimality of the uniform harmonic factor is proved."
+      ],
+      "sources": [
+        "Actual RESULT.md blob 01f8ba9b4a41441d9312eea753180de07e35e7ef",
+        "Actual VERIFICATION.md blob 048120dfa7ba37eb79c10afbdc5624883163e731",
+        "Kasuga 2025 OA analytic weighted Bergman theorem"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted harmonic Riesz--Fejer paper states a special \\(p=2\\) improvement but, as described in the submitted source and abstract, uses harmonic Hilbert-space structure rather than the single-shadow center correction.",
+          "The Frazer paper Theorem 1.4 treats two diameters with weight \\((1-|z|^2)^{\\alpha+1}\\), \\(f(0)=0\\), and different constants.",
+          "The published SCOPE Frazer refinement still assumes \\(f(0)=0\\) and addresses a different weighted two-diameter problem."
+        ],
+        "reasoning": "These broader-looking harmonic inequalities do not imply the exact one-ray \\((1-r)^{\\alpha+1}\\) shadow bound with the retained constant mode.",
+        "searches": [
+          "Halder--Kumar arXiv:2607.11795",
+          "Halder--Kumar arXiv:2607.13543",
+          "Published SCOPE: weight-uniform Frazer bounds across the full weighted Bergman range"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search r3a",
+        "Kasuga 2025 OA full text",
+        "Halder--Kumar arXiv:2607.11795 abstract",
+        "Halder--Kumar arXiv:2607.13543 full-text excerpts",
+        "Published SCOPE Frazer refinement complete RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the analytic theorem requires the additional direction-dependent shadow construction; the existing harmonic theorems do not provide that construction or the center-defect estimate."
+        ],
+        "reasoning": "The prior analytic theorem is an ingredient, but the final harmonic statement is not obtained by parameter specialization alone; the transfer lemma carries the new content.",
+        "searches": [
+          "Statement comparison against Kasuga 2025 analytic theorem and both Halder--Kumar 2026 harmonic/Frazer papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the current record as the closest match; the nearest published SCOPE Frazer refinement concerns weighted full diameters and retains \\(f(0)=0\\).",
+          "Kasuga 2025 proves the analytic weighted inequality but does not state the harmonic shadow construction."
+        ],
+        "reasoning": "The analytic-shadow formulation was searched explicitly and did not match an earlier harmonic statement.",
+        "searches": [
+          "Resultary: harmonic Bergman analytic shadow ray Riesz Fejer origin normalization",
+          "Web: weighted harmonic Bergman Riesz-Fejer p=2 f(0)=0 lambda alpha",
+          "Web: analytic weighted Bergman Fejer-Riesz Kasuga"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database row or source inspected states the norm identity \\(\\lVert F_\\zeta\\rVert^2=|f(0)|^2+\\sum \\beta_n|a_n\\zeta^n+b_n\\bar\\zeta^n|^2\\) as a harmonic Bergman Riesz--Fejer refinement."
+        ],
+        "reasoning": "No exact prior table/statement was found; this is supporting evidence only, not by itself a novelty proof.",
+        "searches": [
+          "Resultary query r3a",
+          "Exact searches for analytic shadow, center correction, and removal of origin normalization"
+        ]
+      },
+      "rationale": "The closest sources give the analytic weighted Bergman Riesz--Fejer inequality, a recent harmonic theorem with an \\(f(0)=0\\) hypothesis, and a separate two-diameter Frazer theory. None of the inspected statements gives the direction-dependent analytic shadow \\(F_\\zeta\\), its exact norm, or the center correction \\(2\\lVert f\\rVert^2-|f(0)|^2\\). The reduction is simple but is not a special case of a stronger harmonic theorem: it transfers a complex harmonic trace to a single analytic function in a direction-dependent way.",
+      "residual_risks": [
+        "The full text of arXiv:2607.11795 was not accessible through the web reader; an unindexed equivalent shadow observation in that paper remains a bounded originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_SOURCE; FULL_TEXT_ACCESS_RISK",
+          "evidence": [
+            "The abstract confirms weighted harmonic Riesz--Fejer inequalities and a special \\(p=2\\) improvement."
+          ],
+          "identifier_or_url": "arXiv:2607.11795v1",
+          "material_read": "Primary arXiv abstract; full PDF was not available in the web reader.",
+          "method": "Primary abstract plus comparison with the actual frozen theorem/proof.",
+          "title": "Riesz Theorem and Riesz-Fejér inequality for weighted harmonic Bergman spaces with applications to Möbius invariant spaces",
+          "trigger": "Closest harmonic theorem and claimed \\(f(0)=0\\) restriction."
+        },
+        {
+          "assessment": "ANALYTIC_INPUT_NOT_HARMONIC_COVERAGE",
+          "evidence": [
+            "The paper treats analytic \\(A_\\alpha^p\\) spaces, supplying the analytic inequality but not the harmonic shadow."
+          ],
+          "identifier_or_url": "K. Kasuga, FJMS 142 (2025), DOI:10.17654/0972087125014",
+          "material_read": "Open-access article landing page and PDF text.",
+          "method": "Primary full-text scope comparison.",
+          "title": "Fejér-Riesz Type Inequalities for Weighted Bergman Spaces",
+          "trigger": "Analytic inequality used by the shadow argument."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Theorem 1.4 assumes \\(f(0)=0\\) and uses \\((1-|z|^2)^{\\alpha+1}\\) on two diameters, not the submitted one-ray shadow/center correction."
+          ],
+          "identifier_or_url": "arXiv:2607.13543v1",
+          "material_read": "Full-text theorem/proof excerpts including Theorem 1.4 and Lemma 1.1.",
+          "method": "Primary full-text statement/constant/weight comparison.",
+          "title": "Gabriel's and Frazer's problems for weighted Bergman spaces and their applications",
+          "trigger": "Same authors, harmonic weighted Bergman diameter inequalities."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "It sharpens a two-diameter radial-kernel constant, retains \\(f(0)=0\\), and does not state the analytic-shadow norm identity."
+          ],
+          "identifier_or_url": "Resultary/2026 published SCOPE record 03280d0a992d",
+          "material_read": "Complete RESULT.md.",
+          "method": "Published-SCOPE statement comparison.",
+          "title": "Weight-uniform Frazer bounds across the full weighted Bergman range",
+          "trigger": "Highest-similarity published SCOPE result after the current record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact directional shadow removes a published normalization hypothesis, retains analytic/coanalytic cancellation, and identifies a center-energy correction. Those are structurally meaningful refinements of the Hilbert-case trace inequality, not an arbitrary numerical tweak.",
+      "risks": [
+        "The proof is short and does not establish the best possible harmonic constant."
+      ],
+      "sources": [
+        "Exact shadow norm identity",
+        "Comparison with recent harmonic and two-diameter theorems"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the Hilbert case \\(p=2\\) is covered; no global optimality claim is made."
+  ],
+  "schema_version": 1
+}
