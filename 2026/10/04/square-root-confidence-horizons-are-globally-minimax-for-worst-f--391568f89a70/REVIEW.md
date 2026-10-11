@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The theorem reduces to one set inclusion. If \(R(g)=K\), then \(g(s)\le K z_\alpha\sqrt{s}\) pointwise, so every Brownian path admitted by \(g\) is admitted by the square-root envelope. A calibrated candidate therefore forces the envelope crossing quantile to be at least \(c_\alpha(\Delta)\). The square-root boundary attains equality by definition of that quantile. The conversion from Brownian partial-sum boundary to mean half-width was checked against the confidence-horizon formula in Theorem 3.3.
+## correctness
 
-## Originality
-PASS, with a recorded literature risk. The closest source, Confidence Horizons, gives the power family and the square-root member, but the inspected theorem, appendix duality, group-sequential discussion, and power appendix do not formulate or prove the global minimization over arbitrary deterministic boundary shapes for worst fixed-time-relative width. Wang–Tsiatis optimize a group-sequential testing family under different design criteria. Jennison–Turnbull establish repeated confidence intervals but the material inspected does not state this global boundary-shape optimization. Targeted semantic/database searches returned no equivalent claim.
+PASS
 
-## Value
-PASS. Bounded-horizon sequential inference requires choosing how precision is distributed across information times. The result supplies a criterion-specific, horizon-wide design guarantee with no numerical search over shapes: if the priority is to minimize the largest multiplicative precision loss relative to ordinary fixed-time Gaussian intervals, a square-root/Pocock-shaped boundary is globally optimal, not merely a convenient member of a parametric family. This clarifies when the \(q=1/2\) design has a principled advantage despite other \(q\) values being preferable for power or stopping-time objectives.
+If K is the candidate's worst relative width, then pointwise g(s) is bounded above by K z_alpha sqrt(s). The candidate crossing event is therefore contained in the crossing event for that square-root envelope. Calibration forces K z_alpha to be at least the 1-alpha quantile of sup |W(s)|/sqrt(s), and choosing the square-root boundary at that quantile attains equality. This is a complete continuum proof and does not rely on the package's finite-grid sanity check.
 
-## Closest literature and limitations
-The central source is Mathis–Waudby-Smith, arXiv:2608.03889v1. The older comparison sources are Wang–Tsiatis (1987), DOI 10.2307/2531959, and Jennison–Turnbull (1984), DOI 10.1016/0197-2456(84)90148-X. The result is restricted to the Brownian asymptotic design problem and its stated minimax loss. It does not claim finite-sample validity, a unique minimizer, or optimality for power, expected stopping time, or average width. Full text of the two older comparison papers was not available in the inspected material, so terminological duplication remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Confidence Horizons supplies the Brownian calibration and its q=1/2 square-root member, while classical group-sequential sources optimize different testing criteria or construct repeated intervals. No inspected statement or fresh Resultary result gives the global minimax theorem over every deterministic calibrated boundary for worst fixed-time-relative half-width.
+
+## value
+
+PASS
+
+Worst multiplicative precision loss versus ordinary fixed-time inference is a natural repeated-inference design criterion. The theorem turns the familiar square-root/Pocock shape from one member of a parametric family into a global optimizer over all deterministic Brownian boundaries for that criterion, while clearly separating this objective from power or stopping time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

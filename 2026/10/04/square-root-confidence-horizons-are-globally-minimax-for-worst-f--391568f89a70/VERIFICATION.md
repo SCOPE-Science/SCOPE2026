@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic verification is the event inclusion in RESULT.md. For any admissible boundary \(g\), its worst fixed-time-relative ratio \(K\) implies the deterministic pointwise envelope \(g(s)\le K z_\alpha\sqrt{s}\). Therefore simultaneous coverage by \(g\) cannot exceed that of its square-root envelope, which forces the stated quantile lower bound. The square-root boundary attains that lower bound by construction.
+# Independent mathematical audit
 
-`verify_boundary.py` checks the pointwise envelope and constant-relative-width identities on representative power and non-power shapes. It is a finite arithmetic sanity check only. No finite grid or simulation is used as proof of the continuous Brownian statement.
+## correctness
 
-Scientific limits: Brownian/asymptotic calibration; deterministic pre-specified boundaries; worst fixed-time-relative half-width criterion; no finite-sample or uniqueness assertion.
+PASS
+
+If K is the candidate's worst relative width, then pointwise g(s) is bounded above by K z_alpha sqrt(s). The candidate crossing event is therefore contained in the crossing event for that square-root envelope. Calibration forces K z_alpha to be at least the 1-alpha quantile of sup |W(s)|/sqrt(s), and choosing the square-root boundary at that quantile attains equality. This is a complete continuum proof and does not rely on the package's finite-grid sanity check.
+
+## originality
+
+PASS
+
+Confidence Horizons supplies the Brownian calibration and its q=1/2 square-root member, while classical group-sequential sources optimize different testing criteria or construct repeated intervals. No inspected statement or fresh Resultary result gives the global minimax theorem over every deterministic calibrated boundary for worst fixed-time-relative half-width.
+
+## value
+
+PASS
+
+Worst multiplicative precision loss versus ordinary fixed-time inference is a natural repeated-inference design criterion. The theorem turns the familiar square-root/Pocock shape from one member of a parametric family into a global optimizer over all deterministic Brownian boundaries for that criterion, while clearly separating this objective from power or stopping time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

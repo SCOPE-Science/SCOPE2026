@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:46:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Mathis and Waudby-Smith, Confidence Horizons, arXiv:2608.03889v1; substantive public full-text representation inspected through the bounded-horizon Brownian calibration, the power-boundary family, q=1/2 square-root/Pocock member and power/stopping-time discussion.",
+        "Wang and Tsiatis, Approximately Optimal One-Parameter Boundaries for Group Sequential Trials, Biometrics 43 (1987), DOI:10.2307/2531959; primary abstract/metadata compared.",
+        "Jennison and Turnbull, Repeated Confidence Intervals for Group Sequential Clinical Trials, Controlled Clinical Trials 5 (1984), DOI:10.1016/0197-2456(84)90148-X; primary abstract/metadata compared.",
+        "Resultary query: Brownian confidence horizon square root boundary minimax worst fixed time relative width arbitrary deterministic boundary.",
+        "Assigned RESULT.md, VERIFICATION.md and verify_boundary.py at exact tree fb0da89f0dae0cafe6d602993e4c980ec826ea7f."
+      ],
+      "rationale": "If K is the candidate's worst relative width, then pointwise g(s) is bounded above by K z_alpha sqrt(s). The candidate crossing event is therefore contained in the crossing event for that square-root envelope. Calibration forces K z_alpha to be at least the 1-alpha quantile of sup |W(s)|/sqrt(s), and choosing the square-root boundary at that quantile attains equality. This is a complete continuum proof and does not rely on the package's finite-grid sanity check.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Those sources are broader in clinical-trial design but optimize/test under different objectives or construct repeated intervals rather than solve the audited Brownian sup-relative-width problem."
+        ],
+        "reasoning": "Different admissible classes and loss functions prevent those broader frameworks from implying this exact minimax result.",
+        "searches": [
+          "Wang–Tsiatis group-sequential boundary optimization",
+          "Jennison–Turnbull repeated confidence intervals"
+        ]
+      },
+      "checked_sources": [
+        "Mathis and Waudby-Smith, Confidence Horizons, arXiv:2608.03889v1; substantive public full-text representation inspected through the bounded-horizon Brownian calibration, the power-boundary family, q=1/2 square-root/Pocock member and power/stopping-time discussion.",
+        "Wang and Tsiatis, Approximately Optimal One-Parameter Boundaries for Group Sequential Trials, Biometrics 43 (1987), DOI:10.2307/2531959; primary abstract/metadata compared.",
+        "Jennison and Turnbull, Repeated Confidence Intervals for Group Sequential Clinical Trials, Controlled Clinical Trials 5 (1984), DOI:10.1016/0197-2456(84)90148-X; primary abstract/metadata compared.",
+        "Resultary query: Brownian confidence horizon square root boundary minimax worst fixed time relative width arbitrary deterministic boundary.",
+        "Assigned RESULT.md, VERIFICATION.md and verify_boundary.py at exact tree fb0da89f0dae0cafe6d602993e4c980ec826ea7f."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source theorem guarantees calibration of individual q-family shapes but does not imply that q=1/2 minimizes a loss over arbitrary deterministic boundaries.",
+          "The audited event-inclusion envelope establishes that stronger global statement."
+        ],
+        "reasoning": "The proof is short but adds a new optimization quantifier and a practically interpretable loss, so it is not merely reparameterizing the source formula.",
+        "searches": [
+          "Confidence Horizons q-power calibration theorem",
+          "Brownian crossing quantile definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Confidence Horizons source defines the q-family and identifies q=1/2 with the square-root/Pocock shape.",
+          "The inspected source discussion concerns calibration, power and stopping-time tradeoffs, not the audited arbitrary-boundary worst-width optimization."
+        ],
+        "reasoning": "The q=1/2 member and the global optimizer under this specific sup-width loss coincide, but the latter is a stronger variational statement over all deterministic shapes.",
+        "searches": [
+          "Resultary query: Brownian confidence horizon square root boundary minimax worst fixed time relative width arbitrary deterministic boundary",
+          "arXiv:2608.03889v1",
+          "Wang–Tsiatis DOI:10.2307/2531959",
+          "Jennison–Turnbull DOI:10.1016/0197-2456(84)90148-X"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact theorem or table matching the arbitrary-boundary result was located."
+        ],
+        "reasoning": "The result is an analytic variational identity, not an empirical choice among tabulated group-sequential designs.",
+        "searches": [
+          "Resultary exact minimax-width search",
+          "Searches for Pocock maximum repeated-confidence-interval width"
+        ]
+      },
+      "rationale": "Confidence Horizons supplies the Brownian calibration and its q=1/2 square-root member, while classical group-sequential sources optimize different testing criteria or construct repeated intervals. No inspected statement or fresh Resultary result gives the global minimax theorem over every deterministic calibrated boundary for worst fixed-time-relative half-width.",
+      "residual_risks": [
+        "Older group-sequential decision-theory literature may contain the same envelope minimax observation under different terminology.",
+        "After ordinary open retrieval routes for the arXiv PDF failed, one authorized institutional request returned unavailable/request-invalid and was not retried; the substantive public text representation was nevertheless sufficient to inspect the relevant source theorem and discussion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES q=1/2 CANDIDATE AND CALIBRATION; GLOBAL WORST-WIDTH MINIMAX NOT STATED IN INSPECTED MATERIAL",
+          "evidence": "The source presents q as a design choice and discusses power/stopping time rather than optimizing the audited sup relative-width functional over all deterministic boundaries.",
+          "identifier_or_url": "arXiv:2608.03889v1",
+          "material_read": "Substantive public full-text representation covering the Brownian calibration, Theorem 3.3 power family, q=1/2 root/Pocock discussion and appendix discussion of power and expected rejection time.",
+          "method": "Public full-text representation inspection; after ordinary PDF routes failed, one authorized institutional request returned unavailable/request-invalid and was not retried.",
+          "title": "Confidence Horizons",
+          "trigger": "Defining source of the Brownian horizon calibration and q-power family."
+        },
+        {
+          "assessment": "DIFFERENT TESTING OPTIMIZATION",
+          "evidence": "The abstract concerns approximately optimal testing boundaries within a one-parameter family, not global repeated-interval width minimization.",
+          "identifier_or_url": "DOI:10.2307/2531959",
+          "material_read": "Primary abstract and bibliographic metadata.",
+          "method": "Primary-index statement comparison.",
+          "title": "Approximately Optimal One-Parameter Boundaries for Group Sequential Trials",
+          "trigger": "Classical optimization source for Pocock/Wang–Tsiatis-type boundary families."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mathis and Waudby-Smith, Confidence Horizons, arXiv:2608.03889v1; substantive public full-text representation inspected through the bounded-horizon Brownian calibration, the power-boundary family, q=1/2 square-root/Pocock member and power/stopping-time discussion.",
+        "Wang and Tsiatis, Approximately Optimal One-Parameter Boundaries for Group Sequential Trials, Biometrics 43 (1987), DOI:10.2307/2531959; primary abstract/metadata compared.",
+        "Jennison and Turnbull, Repeated Confidence Intervals for Group Sequential Clinical Trials, Controlled Clinical Trials 5 (1984), DOI:10.1016/0197-2456(84)90148-X; primary abstract/metadata compared.",
+        "Resultary query: Brownian confidence horizon square root boundary minimax worst fixed time relative width arbitrary deterministic boundary.",
+        "Assigned RESULT.md, VERIFICATION.md and verify_boundary.py at exact tree fb0da89f0dae0cafe6d602993e4c980ec826ea7f."
+      ],
+      "rationale": "Worst multiplicative precision loss versus ordinary fixed-time inference is a natural repeated-inference design criterion. The theorem turns the familiar square-root/Pocock shape from one member of a parametric family into a global optimizer over all deterministic Brownian boundaries for that criterion, while clearly separating this objective from power or stopping time.",
+      "residual_risks": [
+        "Older group-sequential decision-theory literature may contain the same envelope minimax observation under different terminology.",
+        "After ordinary open retrieval routes for the arXiv PDF failed, one authorized institutional request returned unavailable/request-invalid and was not retried; the substantive public text representation was nevertheless sufficient to inspect the relevant source theorem and discussion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among all deterministic Brownian boundaries on a fixed bounded horizon with simultaneous coverage at least 1-alpha, the square-root boundary globally minimizes the worst half-width relative to the corresponding fixed-time Gaussian interval, with optimal ratio c_alpha(Delta)/z_alpha; in the Confidence Horizons power family this is q=1/2.",
+  "limitations": [
+    "Asymptotic Brownian setting, deterministic pre-specified boundaries and one specific worst-width loss.",
+    "No uniqueness claim and no finite-sample confidence-sequence guarantee.",
+    "Older group-sequential decision-theory literature may contain the same envelope minimax observation under different terminology.",
+    "After ordinary open retrieval routes for the arXiv PDF failed, one authorized institutional request returned unavailable/request-invalid and was not retried; the substantive public text representation was nevertheless sufficient to inspect the relevant source theorem and discussion."
+  ],
+  "schema_version": 1
+}
