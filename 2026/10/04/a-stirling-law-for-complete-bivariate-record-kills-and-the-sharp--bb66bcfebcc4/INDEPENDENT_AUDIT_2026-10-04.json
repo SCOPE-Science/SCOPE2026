@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:11:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/html/1901.08232v1",
+        "repository RESULT.md blob a39c000f8d8fc4a532736b421d7f69f25c587c47",
+        "repository verify.py blob d4847930391839295d8b3d10c49dabd1a36e2a25"
+      ],
+      "rationale": "Condition on the complete-kill event \\(E_n\\), which fixes the \\(n\\)th label to rank one in both independent coordinate permutations. Relative ranks of the first \\(n-1\\) labels remain uniform. After ordering by the first coordinate, current Pareto minima are exactly left-to-right minima of a uniform permutation. Their independent sequential relative-rank indicators have probabilities \\(1/j\\), so the generating function is \\(z(z+1)\\cdots(z+n-2)/(n-1)!\\), yielding the unsigned-Stirling formula. Fixed-degree elementary-symmetric asymptotics give \\(C_{n,k}\\sim n^{-3}(\\log n)^{k-1}/(k-1)!\\), and Fill's exact remainder formula then gives the stated factor \\(1/4\\). A fresh recurrence replay through \\(n=19\\) verified row normalization \\(\\sum_k C_{n,k}=n^{-2}\\); this finite check is supplementary.",
+      "residual_risks": [
+        "The exact law is bivariate and uses independent continuous coordinates; no uniform-in-k or higher-dimensional analogue is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later multivariate work studies limiting broken-record distributions rather than the finite complete-kill row.",
+          "No retrieved broader theorem supplies the exact all-n coefficients or the fixed-k error constant."
+        ],
+        "reasoning": "The broader asymptotic record literature does not dominate this finite-sample component.",
+        "searches": [
+          "Fill, Breaking Multivariate Records, arXiv:2109.14846",
+          "Resultary semantic search for bivariate/multivariate complete-kill laws"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1901.08232v1",
+        "https://arxiv.org/abs/2109.14846",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 3.11(b) explicitly conjectures the claimed fixed-k rate and leading term.",
+          "Fill's displayed formulas do not themselves identify the full \\(C_{n,k}\\) row with a Stirling distribution.",
+          "The additional conditional-rank symmetry supplies the missing implication."
+        ],
+        "reasoning": "The final claim is not stated by the source; a short but substantive conditional-rank lemma is needed to turn prior formulas into the conjectured asymptotic.",
+        "searches": [
+          "Fill Lemma 3.6, Theorem 3.9, Remark 3.11(b)",
+          "classical permutation record-count identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent formulation is that, conditional on a complete kill, the old Pareto-record count is the left-to-right-minimum count of a uniform permutation.",
+          "The classical record-count distribution is unsigned Stirling, but Fill does not state this conditional identification."
+        ],
+        "reasoning": "The new structural statement is the conditional identification, not the classical one-dimensional Stirling law.",
+        "searches": [
+          "Resultary query: Breaking Bivariate Records complete kill Stirling first kind C_{n,k} fixed-k error",
+          "Fill, arXiv:1901.08232v1, Sections 3.1-3.5 and Remark 3.11(b)",
+          "permutation left-to-right minima / unsigned Stirling record-count formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fill tabulates only small rows; those rows agree with the formula but are not an all-n theorem.",
+          "No earlier exact published-finding hit was retrieved."
+        ],
+        "reasoning": "The claim is an all-n identity and asymptotic consequence, not a recomputation of a finite table.",
+        "searches": [
+          "Fill Example 3.10 finite C-matrix",
+          "Resultary exact semantic search for complete-kill Stirling coefficients"
+        ]
+      },
+      "rationale": "Fill's complete primary text gives the complete-kill coefficients through integral/finite-sum expressions and special cases, and Remark 3.11(b) explicitly states the fixed-k sharp rate and leading asymptotic as a conjecture. The classical Stirling law for ordinary permutation records is prior art, but the required bridge is the exact conditional-rank identification of Fill's complete-kill component. Current published-finding searches found no earlier statement of that bridge or of the resulting solution of Remark 3.11(b).",
+      "residual_risks": [
+        "An equivalent conditional-rank observation could exist under planar-maxima or permutation-record terminology and remain poorly indexed.",
+        "No novelty is claimed for the classical unsigned-Stirling law for ordinary records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_CONJECTURE_AND_NO_STIRLING_IDENTIFICATION",
+          "evidence": "Remark 3.11(b) explicitly conjectures the fixed-k rate and asymptotic; the paper gives small rows and other formulas but no Stirling-cycle law.",
+          "identifier_or_url": "https://arxiv.org/html/1901.08232v1",
+          "material_read": "Full accessible HTML, including the exact-probability section, the displayed finite matrices, Theorem 3.9 context, and Remark 3.11(b)",
+          "method": "Primary full-text inspection",
+          "title": "Breaking Bivariate Records",
+          "trigger": "Exact source defining the complete-kill term and posing the fixed-k error conjecture"
+        },
+        {
+          "assessment": "LIMITING_MULTIVARIATE_CONTEXT_NOT_FINITE_COMPLETE_KILL_COVERAGE",
+          "evidence": "The paper concerns the limiting broken-record law in general dimension rather than the finite complete-kill coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.14846",
+          "material_read": "Primary abstract and targeted scope comparison",
+          "method": "Primary-source scope inspection",
+          "title": "Breaking Multivariate Records",
+          "trigger": "Later same-author general-dimensional work that could have subsumed the bivariate component"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fill 2019/2021 primary paper",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The exact law converts the complete-kill component controlling Fill's remainder into a standard permutation statistic and resolves a named fixed-k asymptotic conjecture with an explicit constant. This is a motivated structural identity valid for every \\(n\\) and fixed \\(k\\), not a finite census.",
+      "residual_risks": [
+        "The uniform-in-k error rate and empirical-frequency conjectures remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The exact law is bivariate and uses independent continuous coordinates; no uniform-in-k or higher-dimensional analogue is proved.",
+    "An equivalent conditional-rank observation could exist under planar-maxima or permutation-record terminology and remain poorly indexed.",
+    "No novelty is claimed for the classical unsigned-Stirling law for ordinary records.",
+    "The uniform-in-k error rate and empirical-frequency conjectures remain open."
+  ]
+}

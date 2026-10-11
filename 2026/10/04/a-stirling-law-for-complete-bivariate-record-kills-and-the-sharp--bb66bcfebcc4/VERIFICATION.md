@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The exact finite-sample step is the conditional-rank argument: under a complete kill, the relative ranks of the first \(n-1\) points are unchanged in law, and their Pareto-minimum count is the left-to-right-minimum count of a uniform permutation. Its probability generating function is \(z(z+1)\cdots(z+n-2)/(n-1)!\).
+# Independent mathematical audit
 
-The asymptotic step uses only fixed-degree elementary symmetric sums: for fixed \(r\), the tuples with repeated indices contribute lower order than \(H_m^r\). Combining this with the exact remainder formula from Theorem 3.9 makes every \(C_{n,j}\) with \(j<k\) negligible relative to \(C_{n,k}\) for fixed \(k\).
+## correctness
 
-`verify.py` independently checks the unsigned-Stirling recurrence, normalization, the source formulas for the first, second, and last \(C\)-entries, and the displayed rows through \(n=5\). A successful run prints `VERIFY_OK`. These calculations are consistency checks only; they do not certify the infinite argument.
+PASS
 
-Unproved here: any uniform-in-\(k\) sharpening of Theorem 3.9, higher-dimensional analogues of the exact Stirling law, and the empirical-frequency conjectures from Section 4 of the motivating paper.
+Condition on the complete-kill event \(E_n\), which fixes the \(n\)th label to rank one in both independent coordinate permutations. Relative ranks of the first \(n-1\) labels remain uniform. After ordering by the first coordinate, current Pareto minima are exactly left-to-right minima of a uniform permutation. Their independent sequential relative-rank indicators have probabilities \(1/j\), so the generating function is \(z(z+1)\cdots(z+n-2)/(n-1)!\), yielding the unsigned-Stirling formula. Fixed-degree elementary-symmetric asymptotics give \(C_{n,k}\sim n^{-3}(\log n)^{k-1}/(k-1)!\), and Fill's exact remainder formula then gives the stated factor \(1/4\). A fresh recurrence replay through \(n=19\) verified row normalization \(\sum_k C_{n,k}=n^{-2}\); this finite check is supplementary.
+
+## originality
+
+PASS
+
+Fill's complete primary text gives the complete-kill coefficients through integral/finite-sum expressions and special cases, and Remark 3.11(b) explicitly states the fixed-k sharp rate and leading asymptotic as a conjecture. The classical Stirling law for ordinary permutation records is prior art, but the required bridge is the exact conditional-rank identification of Fill's complete-kill component. Current published-finding searches found no earlier statement of that bridge or of the resulting solution of Remark 3.11(b).
+
+## value
+
+PASS
+
+The exact law converts the complete-kill component controlling Fill's remainder into a standard permutation statistic and resolves a named fixed-k asymptotic conjecture with an explicit constant. This is a motivated structural identity valid for every \(n\) and fixed \(k\), not a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
