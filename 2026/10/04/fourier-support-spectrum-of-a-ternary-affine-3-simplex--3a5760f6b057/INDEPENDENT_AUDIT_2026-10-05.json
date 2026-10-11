@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:03:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Affine normalization and character restriction reduce every dimension to the 27-point local cube with multiplicity \\(3^{d-3}\\). The finite local claim is exact: every four evaluation rows have rank at least three, so any zero set of size at least four contains a rank-three triple determining the coefficient hyperplane. Exhaustive exact Eisenstein arithmetic over all triples shows that every such admissible hyperplane has intersection size three or five, while explicit nonzero coefficient vectors realize zero counts zero, one, two, three, and five. A fresh independent Eisenstein-arithmetic replay in this audit reproduced 216 rank-three triples with three-point intersections and 648 with five-point intersections among all-nonzero cofactor vectors.",
+      "risk": "The finite local classification is certificate-based but exact; the theorem applies only to affine rank three.",
+      "sources": [
+        "Delvaux-Van Barel, KU Leuven TW477 / DOI:10.1016/j.laa.2007.05.009",
+        "Bonami-Ghobber, arXiv:1003.5060",
+        "frozen artifacts/verify.py",
+        "fresh independent exact local replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global Hamming-number theory minimizes over all column choices and does not classify one affine-simplex orbit.",
+          "Bonami-Ghobber do not treat \\(\\mathbb F_3^3\\) as a complete family."
+        ],
+        "reasoning": "Broader rank/minimum results do not imply the exact five-value spectrum.",
+        "searches": [
+          "Delvaux-Van Barel Kronecker Fourier theory",
+          "Bonami-Ghobber uncertainty equality cases"
+        ]
+      },
+      "checked_sources": [
+        "KU Leuven TW477 / DOI:10.1016/j.laa.2007.05.009",
+        "arXiv:1003.5060",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of rank-deficient submatrices does not determine all attainable null counts under four nonzero time coefficients.",
+          "Minimum uncertainty results do not yield the intermediate support values or the forbidden 23-cell."
+        ],
+        "reasoning": "The submitted exact hyperplane-section classification is additional content.",
+        "searches": [
+          "TW477 rank-deficiency theorems",
+          "arXiv:1003.5060 equality theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No distinct exact affine-simplex spectrum appeared in the leading Resultary results.",
+          "The primary literature treats global rank minima/equality cases rather than this fixed geometry."
+        ],
+        "reasoning": "Finite-grid hyperplane sections, rank-deficient Fourier submatrices, support-pair uncertainty, and affine-simplex formulations were compared.",
+        "searches": [
+          "Resultary query: ternary affine 3-simplex Fourier support spectrum F3^d four-point affine independent support 22 24 25 26 27",
+          "Delvaux-Van Barel TW477",
+          "arXiv:1003.5060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related SCOPE records concern five-point \\(\\mathbb F_3^2\\), three-sparse odd-prime groups, or binary Walsh spectra; none contains this local 27-point spectrum."
+        ],
+        "reasoning": "No exact prior table for the prescribed affine 3-simplex was located.",
+        "searches": [
+          "Resultary exact formula and ternary-simplex searches"
+        ]
+      },
+      "rationale": "The closest Kronecker-Fourier work gives global Hamming-number/rank-deficiency bounds, and Bonami-Ghobber treat different finite Abelian families and uncertainty minima. Neither inspected source determines the complete fixed affine-simplex spectrum on \\(\\mathbb F_3^3\\), the forbidden 23-cell, or the exact local hyperplane-section set. Resultary searches surfaced related sparse-Fourier classifications but no dominating ternary-simplex theorem.",
+      "residual_risks": [
+        "Finite-geometry or coding-theory literature may encode the same 27-point hyperplane-section census without Fourier terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GLOBAL_RANK_BOUNDS_NOT_FIXED_SIMPLEX_SPECTRUM",
+          "evidence": "The source controls global Fourier-submatrix rank quantities but does not enumerate hyperplane intersections for the ternary affine simplex.",
+          "identifier_or_url": "KU Leuven TW477; DOI:10.1016/j.laa.2007.05.009",
+          "material_read": "Complete public report/PDF, including Hamming-number bounds and discussion of non-uniqueness.",
+          "method": "Lawful full-text PDF inspection.",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Closest general product-Fourier rank source."
+        },
+        {
+          "assessment": "DIFFERENT_GROUP_SCOPE_AND_MINIMUM_ONLY",
+          "evidence": "The paper does not supply a complete \\(\\mathbb F_3^3\\) fixed-support spectrum.",
+          "identifier_or_url": "arXiv:1003.5060",
+          "material_read": "Full open arXiv text and the group families treated.",
+          "method": "Lawful full-text inspection.",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Exact uncertainty/equality literature."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An affine 3-simplex is the canonical four-point full-rank support in ternary vector spaces. The exact spectrum and forbidden cell give a complete sharp uncertainty slice with a nontrivial finite-geometric obstruction, making this a natural exact invariant rather than an arbitrary enumeration.",
+      "risk": "The result does not cover affine-rank-two supports or other primes.",
+      "sources": [
+        "DOI:10.1016/j.laa.2007.05.009",
+        "arXiv:1003.5060"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every affine-independent four-point support in \\(\\mathbb F_3^d\\), \\(d\\ge3\\), the attainable Fourier-support sizes are exactly \\(\\{22,24,25,26,27\\}3^{d-3}\\). Equivalently, the normalized affine polynomial \\(a_0+a_1X+a_2Y+a_3Z\\) with all coefficients nonzero has exactly \\(0,1,2,3\\), or \\(5\\) zeros on \\(\\mu_3^3\\), and never four or more than five.",
+  "limitations": [
+    "Only affine-independent four-point supports over \\(\\mathbb F_3\\).",
+    "The local 27-point certificate does not by itself cover other characteristics."
+  ],
+  "schema_version": 1
+}
