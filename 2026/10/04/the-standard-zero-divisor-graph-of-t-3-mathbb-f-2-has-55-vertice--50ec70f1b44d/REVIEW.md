@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The vertex count follows algebraically from the triangular unit criterion: among the 64 elements of \(T_3(\mathbb F_2)\), exactly eight have diagonal \((1,1,1)\) and are units, leaving 55 nonzero zero-divisors. A standalone exhaustive program independently reconstructs all 64 matrices, finds the same eight units by brute-force inversion, verifies a nonzero one-sided annihilator for each of the 55 remaining nonzero matrices, checks all 1485 unordered pairs, and obtains 420 edges and diameter 2.
+PASS
 
-Risk: the conclusion is convention-sensitive. The convention is therefore stated explicitly and matched to the earlier noncommutative zero-divisor graph literature.
+There are 64 upper-triangular binary 3 by 3 matrices. Exactly the eight matrices with all three diagonal entries equal to one are units; in a finite ring every other element is a zero-divisor, leaving 55 nonzero standard vertices. Independent brute-force multiplication verified a nonzero one-sided annihilator for every such vertex, tested AB=0 or BA=0 on all 1485 unordered pairs to obtain 420 edges, and exact BFS from every vertex gave diameter two. The current 2025 source text independently confirms that its host retains only 27 matrices.
 
-## Originality
+## originality
 
-PASS. Searches in published-finding corpus and the public web for the exact \(T_3(\mathbb F_2)\) census, the 55-vertex correction, the 420-edge count, and the 2025 paper/title found no prior correction. The older papers provide definitions and general structural criteria, while the 2025 paper uses a 27-vertex host. The novelty claimed here is the exact corrected host census and the resulting scope correction, not the elementary triangular unit criterion by itself.
+PASS
 
-Risk: an unindexed note or comment could have noticed the same discrepancy. No such source was found in the searches performed.
+General finite-ring facts make the 55-vertex count elementary once the standard convention is fixed, so that count alone is not claimed as a new theorem. The source-specific diagnosis and the corrected standard host's exact 420-edge and diameter-two census are not stated in the inspected matrix-ring literature or the 2025 article. The latter instead explicitly constructs a 27-vertex host after starting from the same 64-element ring. No independent correction or exact standard-host census was located.
 
-## Value
+## value
 
-PASS. The 2025 metric-dimension claims are computed on a graph with only 27 vertices, whereas the standard graph has 55. Since metric dimension is host-graph dependent, identifying the correct vertex set is a prerequisite for using those numerical claims as invariants of \(T_3(\mathbb F_2)\). The exact 420-edge, diameter-2 census supplies a reproducible corrected baseline.
+PASS
 
-Risk: the corrected metric dimensions remain open in this package.
+Although the corrected vertex count is elementary, the finding repairs the host graph underlying published metric-dimension claims and supplies the basic edge and diameter census for the standard object. That is a substantive reproducibility correction with direct consequences for any invariant claimed for T3(F2).
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

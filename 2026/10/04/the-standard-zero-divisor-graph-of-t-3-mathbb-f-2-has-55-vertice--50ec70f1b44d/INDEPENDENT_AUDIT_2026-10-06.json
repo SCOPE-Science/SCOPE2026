@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:47:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Hanna, Alkandari and Bhat, Fault-Tolerant Metric Dimension and Applications: Zero-Divisor Graph of Upper Triangular Matrices, Mathematics 13 (2025), 3678, DOI 10.3390/math13223678; current publisher full text inspected at the T3(F2) construction.",
+        "C. Abdioğlu, Zero-divisor graph of matrix rings and Hurwitz rings, Turkish Journal of Mathematics 40 (2016), DOI 10.3906/mat-1505-51; primary full text inspected at the noncommutative directed zero-divisor definition.",
+        "Tucci, McDermott, El-Khatib and Harvey, Zero-Divisor Graphs of Upper Triangular Matrices over Finite Fields, 2019; primary full text inspected for the finite-ring unit/zero-divisor and triangular-unit criteria.",
+        "Li and Tucci, Zero Divisor Graphs of Upper Triangular Matrix Rings, Communications in Algebra 41 (2013), DOI 10.1080/00927872.2012.706841; abstract and scope inspected, with detailed results centered on the 2 by 2 case.",
+        "Resultary query: standard zero divisor graph T3 F2 55 vertices 420 edges Hanna Alkandari Bhat 27; the exact assigned correction was the only directly matching returned hit.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree 3016ccc1fd71982e8938f290edc850c747210a47.",
+        "Fresh independent exhaustive ring replay reproduced 64 elements, 8 units, 55 nonzero one-sided zero-divisors, 420 undirected edges and diameter two."
+      ],
+      "rationale": "There are 64 upper-triangular binary 3 by 3 matrices. Exactly the eight matrices with all three diagonal entries equal to one are units; in a finite ring every other element is a zero-divisor, leaving 55 nonzero standard vertices. Independent brute-force multiplication verified a nonzero one-sided annihilator for every such vertex, tested AB=0 or BA=0 on all 1485 unordered pairs to obtain 420 edges, and exact BFS from every vertex gave diameter two. The current 2025 source text independently confirms that its host retains only 27 matrices.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These general facts immediately imply 55 standard vertices but do not give the full 420-edge host or diameter.",
+          "The inspected older matrix-ring work does not supply the T3(F2) census."
+        ],
+        "reasoning": "Prior theory partially covers vertex counting but does not dominate the final graph classification and published-host correction.",
+        "searches": [
+          "General finite-ring unit-or-zero-divisor theorem",
+          "Upper-triangular unit criterion over a field",
+          "Li–Tucci upper-triangular graph literature"
+        ]
+      },
+      "checked_sources": [
+        "Hanna, Alkandari and Bhat, Fault-Tolerant Metric Dimension and Applications: Zero-Divisor Graph of Upper Triangular Matrices, Mathematics 13 (2025), 3678, DOI 10.3390/math13223678; current publisher full text inspected at the T3(F2) construction.",
+        "C. Abdioğlu, Zero-divisor graph of matrix rings and Hurwitz rings, Turkish Journal of Mathematics 40 (2016), DOI 10.3906/mat-1505-51; primary full text inspected at the noncommutative directed zero-divisor definition.",
+        "Tucci, McDermott, El-Khatib and Harvey, Zero-Divisor Graphs of Upper Triangular Matrices over Finite Fields, 2019; primary full text inspected for the finite-ring unit/zero-divisor and triangular-unit criteria.",
+        "Li and Tucci, Zero Divisor Graphs of Upper Triangular Matrix Rings, Communications in Algebra 41 (2013), DOI 10.1080/00927872.2012.706841; abstract and scope inspected, with detailed results centered on the 2 by 2 case.",
+        "Resultary query: standard zero divisor graph T3 F2 55 vertices 420 edges Hanna Alkandari Bhat 27; the exact assigned correction was the only directly matching returned hit.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree 3016ccc1fd71982e8938f290edc850c747210a47.",
+        "Fresh independent exhaustive ring replay reproduced 64 elements, 8 units, 55 nonzero one-sided zero-divisors, 420 undirected edges and diameter two."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Those prior facts force the vertex-count discrepancy, but they do not establish the edge count or diameter and the 2025 paper does not acknowledge the standard-host mismatch.",
+          "Exhaustive multiplication over all 1485 vertex pairs and BFS on the corrected host supply the remaining exact invariants."
+        ],
+        "reasoning": "The final correction is not fully implied as a published result even though its vertex-count component is elementary.",
+        "searches": [
+          "Finite-ring nonunit theorem and triangular unit criterion",
+          "2025 article's stated 64-element ring and 27-vertex host"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard noncommutative convention uses every nonzero left or right zero-divisor as a vertex and an arc for zero product.",
+          "The 2025 article starts from the 64 upper-triangular binary matrices but then uses only 27 named vertices."
+        ],
+        "reasoning": "The audited graph is exactly the standard directed zero-divisor graph with direction forgotten by joining A and B when AB=0 or BA=0; it is not an alternative commutativity-restricted convention.",
+        "searches": [
+          "Abdioğlu DOI:10.3906/mat-1505-51",
+          "Tucci et al. 2019 upper-triangular zero-divisor paper",
+          "Hanna–Alkandari–Bhat DOI:10.3390/math13223678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact matching Resultary hit is the assigned correction.",
+          "The published 27-vertex table is a different host rather than coverage of the 55-vertex standard graph."
+        ],
+        "reasoning": "No independent exact table with 55 vertices, 420 edges and diameter two was located.",
+        "searches": [
+          "Resultary exact 55/420 query",
+          "Hanna–Alkandari–Bhat 27-vertex construction"
+        ]
+      },
+      "rationale": "General finite-ring facts make the 55-vertex count elementary once the standard convention is fixed, so that count alone is not claimed as a new theorem. The source-specific diagnosis and the corrected standard host's exact 420-edge and diameter-two census are not stated in the inspected matrix-ring literature or the 2025 article. The latter instead explicitly constructs a 27-vertex host after starting from the same 64-element ring. No independent correction or exact standard-host census was located.",
+      "residual_risks": [
+        "The 2013 Li–Tucci full PDF was not obtained in this run; its accessible abstract does not state the T3(F2) census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "USES A 27-VERTEX SUBGRAPH OF THE 64-ELEMENT RING",
+          "evidence": "The paper states the ring has 64 matrices, then retains X1 through X27 while its adjacency is based on AB=0 or BA=0.",
+          "identifier_or_url": "DOI:10.3390/math13223678",
+          "material_read": "Current publisher full text at the ring enumeration, vertex naming/removal step, adjacency definition and subsequent metric computations.",
+          "method": "Primary publisher full-text inspection.",
+          "title": "Fault-Tolerant Metric Dimension and Applications: Zero-Divisor Graph of Upper Triangular Matrices",
+          "trigger": "Exact publication whose 27-vertex host is being corrected."
+        },
+        {
+          "assessment": "STANDARD VERTEX CONVENTION CONFIRMED",
+          "evidence": "The vertex set is the union of nonzero left and right zero-divisors, with an arc r to s exactly when rs=0.",
+          "identifier_or_url": "DOI:10.3906/mat-1505-51",
+          "material_read": "Primary full text at the definition of left/right zero-divisors and the directed graph.",
+          "method": "Open full-text inspection.",
+          "title": "Zero-divisor graph of matrix rings and Hurwitz rings",
+          "trigger": "Primary source for the standard noncommutative graph convention."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hanna, Alkandari and Bhat, Fault-Tolerant Metric Dimension and Applications: Zero-Divisor Graph of Upper Triangular Matrices, Mathematics 13 (2025), 3678, DOI 10.3390/math13223678; current publisher full text inspected at the T3(F2) construction.",
+        "C. Abdioğlu, Zero-divisor graph of matrix rings and Hurwitz rings, Turkish Journal of Mathematics 40 (2016), DOI 10.3906/mat-1505-51; primary full text inspected at the noncommutative directed zero-divisor definition.",
+        "Tucci, McDermott, El-Khatib and Harvey, Zero-Divisor Graphs of Upper Triangular Matrices over Finite Fields, 2019; primary full text inspected for the finite-ring unit/zero-divisor and triangular-unit criteria.",
+        "Li and Tucci, Zero Divisor Graphs of Upper Triangular Matrix Rings, Communications in Algebra 41 (2013), DOI 10.1080/00927872.2012.706841; abstract and scope inspected, with detailed results centered on the 2 by 2 case.",
+        "Resultary query: standard zero divisor graph T3 F2 55 vertices 420 edges Hanna Alkandari Bhat 27; the exact assigned correction was the only directly matching returned hit.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree 3016ccc1fd71982e8938f290edc850c747210a47.",
+        "Fresh independent exhaustive ring replay reproduced 64 elements, 8 units, 55 nonzero one-sided zero-divisors, 420 undirected edges and diameter two."
+      ],
+      "rationale": "Although the corrected vertex count is elementary, the finding repairs the host graph underlying published metric-dimension claims and supplies the basic edge and diameter census for the standard object. That is a substantive reproducibility correction with direct consequences for any invariant claimed for T3(F2).",
+      "residual_risks": [
+        "The 2013 Li–Tucci full PDF was not obtained in this run; its accessible abstract does not state the T3(F2) census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Under the standard noncommutative zero-divisor convention, the underlying simple zero-divisor graph of T3(F2) has 55 vertices, 420 edges and diameter two, so the 27-vertex host used in a 2025 metric-dimension article is not the standard graph and its metric invariants cannot be transferred without recomputation.",
+  "limitations": [
+    "The corrected fault-tolerant metric dimensions themselves are not computed.",
+    "The conclusion is specific to the standard one-sided zero-divisor convention and T3(F2).",
+    "The 2013 Li–Tucci full PDF was not obtained in this run; its accessible abstract does not state the T3(F2) census."
+  ],
+  "schema_version": 1
+}
