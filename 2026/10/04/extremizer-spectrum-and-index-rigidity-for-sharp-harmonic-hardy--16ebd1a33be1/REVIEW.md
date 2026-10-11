@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The final claim is proved from the boundary representation of harmonic Hardy functions, equality in complex Hölder, and an exact Fourier recurrence. The necessity and converse are both established, including the quantifiers \(1<p<\infty\) and \(n\ge1\). The recurrence proves the stated Gamma coefficients and the exact finite-spectrum threshold; the zero-set argument proves index rigidity. A finite checker is only a sanity test and is not treated as proof of the infinite statement.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest source, arXiv:2609.33159v1, proves the sharp coefficient constant and constructs a cosine-power witness, but the inspected source does not state the converse classification, the complete spectrum of every extremizer, the finite-spectrum phase, or disjointness across coefficient indices. The 2012 coefficient paper classifies extremals for its \(p=\infty\) case rather than the new finite-\(p\) constant. Targeted searches for equality-case, spectral, alias, and simultaneous-extremality formulations found no dominating statement. The complete Shi-Li-Lian 2026 text was not openly available during review, leaving a disclosed residual risk.
+## correctness
 
-## Value
-PASS. A complete equality classification is the natural next structural question after a sharp constant is found. Here it produces additional exact information that is not visible from one sharpness witness: the entire analytic/coanalytic spectrum, a discrete finite-spectrum phase \(p=1+1/(2s+1)\), and coefficient-order rigidity. The result is not a routine numerical slice or a restatement of the source inequality.
+PASS
 
-## Closest literature and limitations
-The motivating source is S. Chen, M. Huang, L. Jin and Q. Li, arXiv:2609.33159v1. Supporting comparisons are arXiv:2604.14217v1; S. Chen, S. Ponnusamy and X. Wang, doi:10.5186/aasfm.2012.3707; and Q. Shi, X. Li and X. Lian, doi:10.1007/s40315-025-00600-8. The claim excludes \(p=1\), does not improve the sharp constant, and does not give quantitative near-extremizer stability. The closed cosine-power Fourier coefficient formula itself is classical supporting algebra.
+For 1<p<infinity, the sharp coefficient functional is integration of the boundary trace against a two-frequency kernel. Because the sharp constant exceeds one, neither target coefficient can vanish at equality, and strict complex Holder equality forces the boundary trace to be a phase-scaled sign(cos)|cos|^{1/(p-1)} profile; direct integration proves the converse. The Fourier spectrum follows from the exact recurrence (m+r+1)c_{m+1}=(r+1-m)c_{m-1}; iteration yields the Gamma formula and shows termination exactly when r is a positive odd integer. If r is not such an integer every positive odd mode is nonzero. The classified continuous trace at index n has exactly 2n zeros, so the same nonzero function cannot extremize a different index. Fresh numerical integration for several noninteger and odd-integer r values independently matched the Gamma coefficients and pole-induced truncation.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete Chen--Huang--Jin--Li paper was read. Its Theorem 1.3 proves the sharp constant and its proof constructs exactly one cosine-power Poisson witness, but it does not state the converse equality classification, the full Fourier spectrum of every extremizer, the finite-spectrum phase, or rigidity across coefficient indices. Pages 13--15 complete the witness calculation and references without adding such a classification. Earlier p=infinity extremal classifications concern a different endpoint inequality. Resultary searches found the assigned result but no prior theorem with the same all-extremizer consequences.
+
+## value
+
+PASS
+
+Classifying equality cases is the natural structural question immediately after a sharp constant is established. Here the classification yields nontrivial extra information: the complete analytic/coanalytic spectrum, a discrete finite-spectrum phase in p, and impossibility of simultaneous extremality at two coefficient indices. These are exact structural consequences not visible from merely exhibiting one sharpness witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
