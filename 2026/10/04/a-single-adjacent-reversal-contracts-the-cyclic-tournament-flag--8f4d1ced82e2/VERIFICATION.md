@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-order proof is structural. The bundled script independently checks the finite odd orders \(3\le n\le17\) by reconstructing each tournament from its edge rule, enumerating all transitive vertex subsets, comparing the two complexes exactly, and computing mod-2 boundary ranks.
+# Independent mathematical audit
 
-For every tested odd \(n\), it verifies all of the following:
+## correctness
 
-- the original directed flag complex consists exactly of subsets of the cyclic blocks \(\{a,a+1,\ldots,a+m\}\);
-- no original simplex is removed by reversing \(0\to1\);
-- the unique newly added simplex is \(\{0,1,m+1\}\);
-- the reversed complex has mod-2 Betti vector \((1,0,\ldots,0)\).
+PASS
 
-The finite homology calculation does not prove contractibility or the infinite range. Those follow from the explicit simplex comparison plus the good-subcover nerve argument in `RESULT.md`.
+A transitive subtournament of the cyclic tournament lies in one cyclic block, giving \(\operatorname{dFl}(R_n)=\mathcal N(n,m)\). Reversing only \(0\to1\) preserves every old simplex, creates exactly the transitive triangle \(\{0,1,m+1\}\), and creates no larger new simplex. The three corresponding circular arcs cover the circle, have pairwise but no triple intersection, and therefore their boundary-triangle nerve includes into \(\mathcal N(n,m)\) by a homotopy equivalence; filling that loop makes the pushout contractible. Independent enumeration for odd \(n=3,5,7,9,11,13\) reproduced exactly one added triangle and no deleted faces.
 
-Replay with `python3 verify_edge_reversal.py`; success ends with `VERIFY_OK`.
+## originality
+
+PASS
+
+Govc gives the unperturbed cyclic-tournament/circular-nerve model and finite tournament classifications; circular-arc literature gives \(\mathcal N(n,m)\simeq S^1\). Fresh searches found no all-order theorem that a single adjacent edge reversal adds exactly one triangle and kills the homotopy class.
+
+## value
+
+PASS
+
+The cyclic tournament is a canonical all-order circle-type example, and showing that one natural adjacent outcome reversal adds exactly one 2-simplex and destroys that topology gives a sharp structural sensitivity boundary rather than an isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
