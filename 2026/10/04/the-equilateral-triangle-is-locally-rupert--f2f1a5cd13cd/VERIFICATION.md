@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,54 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The normalized triangle is represented by three exact half-space inequalities. For the explicit rotation path, the projected linear map satisfies
-\[
-A_0=I
-\]
-and
-\[
-A'_0
-=
-\begin{pmatrix}
--\frac12-\frac{\sqrt3}{4}&-\frac12\\
-0&-\frac12+\frac{\sqrt3}{4}
-\end{pmatrix}.
-\]
+## correctness
 
-With
-\[
-q=(2\sqrt3-4,0),
-\]
-the exact identity
-\[
-A'_0q=(1/2,0)
-\]
-holds.
+PASS
 
-The embedded checker implements arithmetic in \(\mathbb Q(\sqrt3)\) directly. It enumerates the six tight vertex-side incidences and obtains five copies of
-\[
--\frac14+\frac{\sqrt3}{8}<0
-\]
-and one copy of
-\[
--\frac14-\frac{5\sqrt3}{8}<0.
-\]
-This is the critical certificate used by the proof.
+At the flat configuration, the package gives an explicit rotational path with first-order planar matrix \(B\) and translation q. I independently reconstructed the six active vertex-side inequalities exactly in \(\mathbf Q(\sqrt3)\): \(Bq=(1/2,0)\), five active derivatives are \(-1/4+\sqrt3/8<0\), and the sixth is \(-1/4-5\sqrt3/8<0\). Every inactive inequality has strict slack at t=0, so continuity gives strict containment for all sufficiently small positive t. Scott's Theorem 4.3 then transports local Rupertness of the base polygon to local reverse Rupertness of its right prism.
 
-The checker also reconstructs the full three-dimensional matrices
-\[
-Q_t
-=
-R_z(t/4-5\pi/12)
-R_x(\arccos(1-t))
-R_z(5\pi/12)
-\]
-at several positive parameter values. It verifies orthogonality, determinant \(1\), and strict satisfaction of every projected triangle side inequality after applying the fixed translation.
+## originality
 
-The replay output is:
+PASS
 
-`VERIFY_OK equilateral triangle local Rupert passage`
+Scott's full paper explicitly says its nontrivial-double-arch criterion covers all regular polygons except the triangle, says its prism applications cover all prisms besides the triangular prism, and in further work says extending Theorem 4.1 to include the triangle appears possible. The audited explicit infinitesimal certificate closes exactly that stated boundary case. Resultary found no prior separate equilateral-triangle local-Rupert theorem.
 
-Finite parameter checks are supplementary. The theorem for all sufficiently small positive parameters follows from the exact first-order certificate together with continuity.
+## value
+
+PASS
+
+This closes the unique regular-polygon exception left by the source's local criterion and immediately closes the corresponding triangular-prism gap in its infinite prism application. The certificate is structural and exact rather than a numerical pose search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

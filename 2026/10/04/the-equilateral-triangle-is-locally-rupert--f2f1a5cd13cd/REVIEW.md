@@ -1,29 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The displayed matrices form a genuine path in \(SO(3)\) converging to the identity. The projected affine map has derivative
-\[
-B=\frac14J-nn^{\mathsf T},
-\]
-and the chosen translation satisfies
-\[
-Bq=(1/2,0).
-\]
-All six active vertex-side constraints have strictly negative derivatives, while the three nonactive constraints start with strict slack. Finiteness and continuity therefore give strict projected containment for every sufficiently small positive parameter. This is exactly Scott's definition of a locally Rupert flat polygon. Scott's prism theorem then gives the stated local reverse Rupert corollary.
+PASS
 
-The exact arithmetic checker verifies the first-order certificate in \(\mathbb Q(\sqrt3)\), and an independent floating-point replay verifies the actual three-dimensional rotation matrices and strict containment at several positive scales. The finite replay supports, but does not replace, the analytic continuity argument.
+At the flat configuration, the package gives an explicit rotational path with first-order planar matrix \(B\) and translation q. I independently reconstructed the six active vertex-side inequalities exactly in \(\mathbf Q(\sqrt3)\): \(Bq=(1/2,0)\), five active derivatives are \(-1/4+\sqrt3/8<0\), and the sixth is \(-1/4-5\sqrt3/8<0\). Every inactive inequality has strict slack at t=0, so continuity gives strict containment for all sufficiently small positive t. Scott's Theorem 4.3 then transports local Rupertness of the base polygon to local reverse Rupertness of its right prism.
 
-## Originality
+## originality
 
-PASS with a stated residual risk. Scott's primary source was inspected at the definition of locally Rupert, the flat-polygon criterion, the nontrivial double-arch theorem, the prism theorem, the survey of covered regular prisms, and the further-work discussion. It explicitly excludes the triangle from the regular double-arch family, excludes the triangular prism from the covered prism family, and identifies extension to the triangle as a plausible future direction.
+PASS
 
-The earlier algorithmic Rupert paper was inspected for its projection characterization and searched for triangle/prism coverage; no local equilateral-triangle or locally reverse triangular-prism theorem was found. Later work distinguishing Rupert from locally Rupert was also inspected and does not state the result.
+Scott's full paper explicitly says its nontrivial-double-arch criterion covers all regular polygons except the triangle, says its prism applications cover all prisms besides the triangular prism, and in further work says extending Theorem 4.1 to include the triangle appears possible. The audited explicit infinitesimal certificate closes exactly that stated boundary case. Resultary found no prior separate equilateral-triangle local-Rupert theorem.
 
-Semantic-index and public literature searches under the direct statement, the triangular-prism consequence, and small-rotation aliases found no equivalent claim.
+## value
 
-## Value
+PASS
 
-PASS. The result fills a named boundary case left open by the source's method, rather than selecting an arbitrary polygon. The equilateral triangle is the sole regular polygon excluded from Scott's nontrivial-double-arch argument, and its omission propagates exactly to the triangular prism in the source's regular-prism survey. The construction therefore closes a natural structural gap and extends the local theory, which is strictly stronger than ordinary Rupertness.
+This closes the unique regular-polygon exception left by the source's local criterion and immediately closes the corresponding triangular-prism gap in its infinite prism application. The certificate is structural and exact rather than a numerical pose search.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
