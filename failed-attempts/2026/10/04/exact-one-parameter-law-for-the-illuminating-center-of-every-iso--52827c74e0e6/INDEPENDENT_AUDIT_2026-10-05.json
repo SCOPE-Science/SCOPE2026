@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:37:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 8aa37e649fd04f5a1a260310daeed6ea487043ff",
+        "assigned verify.py blob 293a9ad79a9c9cc76a722f08bba600e6126c1a23",
+        "O'Hara, arXiv:1008.2731v1",
+        "Finch, arXiv:1406.0836v2, Section 2",
+        "fresh independent scalar bisection/asymptotic check"
+      ],
+      "rationale": "O'Hara's uniqueness theorem and reflection symmetry place the center on the altitude. Finch's accessible statement of Shibata's theorem says the three central-angle/subtriangle-area ratios are equal. Since their numerators sum to \\(2\\pi\\) and denominators to the triangle area, the base subtriangle of area fraction \\(q\\) must subtend angle \\(2\\pi q\\). Direct isosceles geometry gives the same angle as \\(2\\arctan(1/(\\lambda q))\\), hence \\(\\lambda q\\tan(\\pi q)=1\\). The left side is strictly increasing in q on \\((0,1/2)\\), and implicit differentiation and elementary tangent expansions give the monotonicity and asymptotics. A fresh bisection check over \\(\\lambda=10^{-3},0.1,1,10,10^3\\) reproduced the defining equation and both asymptotic regimes.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shibata's characterization as quoted by Finch applies to arbitrary triangles, a broader class than isosceles triangles.",
+          "O'Hara's uniqueness applies to arbitrary convex bodies in the stated alpha range."
+        ],
+        "reasoning": "Those broader prior facts jointly determine the isosceles location by symmetry and elementary geometry; no new nonstandard lemma is required.",
+        "searches": [
+          "arXiv:1406.0836v2 Section 2",
+          "arXiv:1008.2731v1 uniqueness theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1008.2731v1",
+        "arXiv:1406.0836v2",
+        "Sakata later references to Shibata manuscript",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal ratios plus the sums of the three angles and three subtriangle areas force each angle to equal \\(2\\pi\\) times its area fraction.",
+          "For the symmetric base subtriangle, that area fraction is q and its angle is \\(2\\arctan(1/(\\lambda q))\\)."
+        ],
+        "reasoning": "The audited equation is therefore a direct corollary of prior general characterization and uniqueness, even though it is not printed verbatim.",
+        "searches": [
+          "Finch arXiv:1406.0836v2 lines giving equal angle/area ratios",
+          "O'Hara arXiv:1008.2731v1 center uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch states the equal angle-to-area characterization for every triangle and reports the same right-isosceles numerical center.",
+          "O'Hara identifies the illuminating center with the renormalized \\(r^{-2}\\)-center and proves uniqueness in the relevant convex regime."
+        ],
+        "reasoning": "Equivalent altitude-fraction, central-angle, streetlight, and \\(r^{-2}\\)-center formulations were checked.",
+        "searches": [
+          "Resultary query: illuminating center isosceles triangle Shibata Finch streetlight exact equation",
+          "web exact-title search for Shibata streetlight manuscript",
+          "arXiv:1406.0836v2 Section 2",
+          "arXiv:1008.2731v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned current finding is the direct exact Resultary hit; Finch already tabulates the right-isosceles decimal 0.308275698614655... ."
+        ],
+        "reasoning": "The lack of an all-aspect-ratio table is immaterial because implication-level coverage follows from the general characterization.",
+        "searches": [
+          "Resultary exact isosceles illuminating-center query"
+        ]
+      },
+      "rationale": "The location equation is an implication-level specialization of prior results rather than a new theorem under the audit's strict originality rule. O'Hara supplies uniqueness of the relevant center for convex bodies, so reflection forces the isosceles center onto the symmetry altitude. Finch publicly records Shibata's all-triangle characterization \\(\\angle APB/|APB|=\\angle BPC/|BPC|=\\angle CPA/|CPA|\\). On an isosceles triangle, substituting the altitude coordinate and the elementary area fraction immediately yields \\(\\lambda q\\tan(\\pi q)=1\\). The monotonicity and endpoint asymptotics are routine one-variable consequences of that equation. Thus absence of the formula verbatim does not preserve originality.",
+      "residual_risks": [
+        "The inaccessible Shibata manuscript may itself contain the isosceles equation explicitly; this can only strengthen, not weaken, the coverage conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_PRIOR_INPUT",
+          "evidence": "Uniqueness makes reflection symmetry enough to place the center on the altitude.",
+          "identifier_or_url": "arXiv:1008.2731v1",
+          "material_read": "Primary full-text material identifying Shibata's illuminating center with the \\(r^{-2}\\)-center and the uniqueness theorem for convex bodies in the relevant alpha range.",
+          "method": "Open-access full-text inspection.",
+          "title": "Renormalization of potentials and generalized centers",
+          "trigger": "Foundational center framework and uniqueness needed for the symmetry reduction."
+        },
+        {
+          "assessment": "IMPLICATION_LEVEL_COVERING_WITH_OHARA",
+          "evidence": "The all-triangle characterization specializes mechanically to the audited isosceles scalar equation once uniqueness/symmetry is used.",
+          "identifier_or_url": "arXiv:1406.0836v2",
+          "material_read": "Full Section 2, including the equal angle-to-area ratios and the right-isosceles coordinates.",
+          "method": "Open-access full-text inspection.",
+          "title": "In Limbo: Three Triangle Centers",
+          "trigger": "Accessible primary source recording Shibata's exact geometric characterization and the right-isosceles benchmark."
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "Its inaccessibility is retained as a residual risk, but the originality failure already follows from the accessible general characterization quoted by Finch.",
+          "identifier_or_url": "historical Shibata manuscript URL cited by O'Hara, Finch, and Sakata",
+          "material_read": "No full manuscript was available; exact-title searches found later references and the historical URL but not readable source text.",
+          "method": "Bounded lawful web search; no inaccessible-text noncoverage inference.",
+          "title": "Where should a streetlight be placed in a triangle-shaped park? Elementary integro-differential geometric optics",
+          "trigger": "Original source of the angle/area characterization and the most plausible place for an explicit special-case reduction."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "O'Hara arXiv:1008.2731v1",
+        "Finch arXiv:1406.0836v2"
+      ],
+      "rationale": "The isosceles family is natural and the resulting formula is a useful exposition, but after the published all-triangle angle/area characterization and uniqueness are imported, the remaining work is a symmetry substitution followed by elementary one-variable calculus. Under the common value bar this is a routine specialization rather than a separate structural gap.",
+      "residual_risks": [
+        "The formula can still be useful pedagogically and for numerical evaluation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every nondegenerate isosceles triangle \\(T_{a,h}=\\operatorname{conv}\\{(-a,0),(a,0),(0,h)\\}\\), the planar illuminating center is \\(P=(0,qh)\\), where \\(q\\in(0,1/2)\\) is uniquely determined by \\(\\lambda q\\tan(\\pi q)=1\\) with \\(\\lambda=h/a\\); moreover \\(q\\) decreases strictly with \\(\\lambda\\) and has the stated flat and tall-triangle asymptotics.",
+  "limitations": [
+    "Only the planar renormalized inverse-square illuminating center of isosceles triangles is treated.",
+    "The general center definition, uniqueness, and equal angle-to-area characterization are prior results.",
+    "The original Shibata manuscript remains inaccessible and is retained as an access risk."
+  ],
+  "schema_version": 1
+}
