@@ -1,52 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The fixed-sum two-Bernoulli law depends affinely on the product, so the
-difference between the two full probability mass functions is exactly a
-second finite difference of the independent background. The generating
-polynomial of that signed difference is
-\[
-(z-1)^2P(z).
-\]
-After deterministic shifts are removed, \(P\) has only negative real roots.
-The real-rooted Descartes lemma therefore gives exactly two coefficient sign
-changes, and positive endpoint coefficients force the \(+,-,+\) pattern.
+PASS
 
-Telescoping gives the CDF identity. Poisson-binomial log-concavity gives
-unimodality, which reduces the integer \(W_1\) formula to twice the modal
-background mass. Total variation, Kolmogorov distance, and stop-loss follow
-without approximation.
+The pair law changes by the signed kernel \((1,-2,1)\) times \(\delta\), so convolution gives the claimed point-mass second-difference identity and telescoping gives the CDF first-difference identity. For a Poisson-binomial background, the generating polynomial of the second-difference sequence is \((z-1)^2P(z)\), where the nonzero roots of \(P\) are real and nonpositive; the coefficient variation therefore has exactly two sign changes with positive ends. Unimodality then gives \(\sum_k|\Delta a_k|=2\max_k a_k\), yielding the Wasserstein formula, while total variation, Kolmogorov and stop-loss formulas follow directly from the same identities. Independent bounded checks on deterministic and nondegenerate backgrounds reproduced the two sign changes and the finite-difference identities.
 
-## Originality
+## originality
 
-PASS, with a specific total-positivity residual risk. Hoeffding's full text
-was inspected and already contains the general finite-difference machinery
-for expectations under fixed-mean Bernoulli parameter changes; the classical
-convex-order implication is therefore treated as prior coverage rather than
-new content.
+PASS
 
-The inspected Wang paper proves Poisson-binomial unimodality, and the inspected
-Roos paper develops finite-difference formulas for binomial approximation.
-Neither states that a single balancing transfer has an exact \(+,-,+\)
-probability-mass difference, a one-crossing CDF difference, or the exact
-simultaneous formulas for total variation, Kolmogorov distance, \(W_1\), and
-every stop-loss threshold.
+Hoeffding and Gleser establish fixed-mean convex-order and majorization/CDF comparisons, and Wang supplies unimodality, but the inspected material did not state the exact single-pair mass transport, the exact CDF difference, or the three exact metric identities together. Targeted Resultary and literature searches for pair balancing, second differences, crossings, total variation and Wasserstein distance found no implication-equivalent statement. Because Hoeffding's complete theorem body could not be textually inspected in this run, the possibility that the exact pair-transfer algebra is written explicitly there is retained as a priority risk rather than converted into a failure.
 
-Targeted searches for pair-transfer crossings, Wasserstein distance,
-total-variation distance, peakedness, and majorization did not locate a
-stronger statement implying the complete result.
+## value
 
-## Value
+PASS
 
-PASS. Pair balancing is the elementary move underlying majorization arguments
-for Poisson-binomial laws. The theorem upgrades the qualitative convex-order
-effect of that move to an exact finite distributional calculus: where the mass
-goes, how many crossings occur, the transport cost, and the stop-loss gain at
-every threshold. The modal-mass coefficient in the \(W_1\) identity gives a
-direct concentration-sensitive scale for one balancing operation.
+A fixed-sum pair balancing move is the elementary step behind Bernoulli majorization. Quantifying that step simultaneously in the mass function, CDF, total variation, Kolmogorov distance, Wasserstein distance and stop-loss transform gives a compact structural transport lemma rather than an arbitrary numerical specialization. The exact two-crossing description sharpens the classical inequality direction and can be reused along majorization paths.
 
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK pmf_checks=125741 cdf_checks=161741 metric_checks=54000 stoploss_checks=197741 crossing_checks=18781 variation_checks=18781`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

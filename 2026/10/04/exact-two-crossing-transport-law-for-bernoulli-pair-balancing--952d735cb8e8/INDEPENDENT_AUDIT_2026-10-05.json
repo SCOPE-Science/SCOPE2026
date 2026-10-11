@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:14:05.499325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e0396187688bceca3d9528849b4120102c7fddac",
+        "assigned verifier source blob a81c6ce628b2028d7d3e115cd7a58ee856e69b9f, inspected but not executed",
+        "Hoeffding, DOI 10.1214/AOMS/1177728178",
+        "Wang, Statistica Sinica 3 (1993), 295--312",
+        "Gleser, DOI 10.1214/aop/1176996461"
+      ],
+      "rationale": "The pair law changes by the signed kernel \\((1,-2,1)\\) times \\(\\delta\\), so convolution gives the claimed point-mass second-difference identity and telescoping gives the CDF first-difference identity. For a Poisson-binomial background, the generating polynomial of the second-difference sequence is \\((z-1)^2P(z)\\), where the nonzero roots of \\(P\\) are real and nonpositive; the coefficient variation therefore has exactly two sign changes with positive ends. Unimodality then gives \\(\\sum_k|\\Delta a_k|=2\\max_k a_k\\), yielding the Wasserstein formula, while total variation, Kolmogorov and stop-loss formulas follow directly from the same identities. Independent bounded checks on deterministic and nondegenerate backgrounds reproduced the two sign changes and the finite-difference identities.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoeffding shows equalization maximizes convex expectations under fixed mean.",
+          "Gleser gives CDF inequalities under doubly-stochastic majorization outside a central band.",
+          "Wang proves Poisson-binomial unimodality and homogenization properties."
+        ],
+        "reasoning": "These sources cover the comparison direction and shape ingredients, but the inspected statements do not determine the exact signed mass/CDF differences or exact transport metrics for one pair move.",
+        "searches": [
+          "Hoeffding 1956 DOI 10.1214/AOMS/1177728178",
+          "Gleser 1975 DOI 10.1214/aop/1176996461",
+          "Wang 1993 Statistica Sinica 3, 295--312"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1214/AOMS/1177728178",
+        "https://www3.stat.sinica.edu.tw/statistica/j3n2/j3n23/j3n23.htm",
+        "https://doi.org/10.1214/aop/1176996461",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical theorems establish inequalities or unimodality, not the exact pointwise difference sequence.",
+          "The submitted formulas additionally use the exact three-point kernel for one fixed-sum pair replacement and real-rooted coefficient variation."
+        ],
+        "reasoning": "No inspected stronger theorem was found that mechanically outputs all of the final exact transport identities.",
+        "searches": [
+          "statement comparison with Hoeffding convex-order theorem",
+          "statement comparison with Gleser CDF majorization theorem",
+          "statement comparison with Wang unimodality theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned no equivalent published finding.",
+          "Searches located classical Poisson-binomial majorization and approximation literature but no exact pair-transfer transport law with the submitted metric formulas."
+        ],
+        "reasoning": "Pair averaging, T-transform/majorization, convex-order and finite-difference formulations were all compared.",
+        "searches": [
+          "Resultary query: Poisson-binomial pair balancing fixed sum Bernoulli two crossing total variation Wasserstein convex order finite difference",
+          "web search: Poisson binomial second difference balancing Bernoulli probabilities fixed sum",
+          "web search: Bernoulli pair averaging total variation Poisson binomial majorization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact formula table or database entry for this single-pair transport profile was located."
+        ],
+        "reasoning": "The result is an all-parameter symbolic identity rather than a finite table.",
+        "searches": [
+          "Resultary exact-phrase and semantic searches",
+          "literature searches for the submitted metric identities"
+        ]
+      },
+      "rationale": "Hoeffding and Gleser establish fixed-mean convex-order and majorization/CDF comparisons, and Wang supplies unimodality, but the inspected material did not state the exact single-pair mass transport, the exact CDF difference, or the three exact metric identities together. Targeted Resultary and literature searches for pair balancing, second differences, crossings, total variation and Wasserstein distance found no implication-equivalent statement. Because Hoeffding's complete theorem body could not be textually inspected in this run, the possibility that the exact pair-transfer algebra is written explicitly there is retained as a priority risk rather than converted into a failure.",
+      "residual_risks": [
+        "Hoeffding's complete theorem body was not readable in this run after the lawful open and institutional routes; an explicit pair-transfer identity there would weaken priority for the algebraic core.",
+        "Older total-positivity literature could contain the two-crossing statement under variation-diminishing terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_SOURCE_PARTIAL_ACCESS",
+          "evidence": "The readable material confirms convex-expectation and central CDF extremal results but is insufficient to assert whole-document noncoverage of the exact pair-transfer algebra.",
+          "identifier_or_url": "https://doi.org/10.1214/AOMS/1177728178",
+          "material_read": "Accessible repository abstract/introduction and theorem summary; an authorized institutional retrieval was also attempted, but its extraction returned only the first page and blank later pages.",
+          "method": "Open repository route first, then authorized institutional retrieval after the full open text was inaccessible.",
+          "title": "On the Distribution of the Number of Successes in Independent Trials",
+          "trigger": "Closest classical source on fixed-mean Bernoulli equalization."
+        },
+        {
+          "assessment": "SHAPE_RESULT_ONLY",
+          "evidence": "The source states unimodality and homogenization properties, supplying an ingredient but not the submitted exact pairwise transport metrics.",
+          "identifier_or_url": "https://www3.stat.sinica.edu.tw/statistica/j3n2/j3n23/j3n23.htm",
+          "material_read": "Official journal abstract and result summary.",
+          "method": "Lawful journal-page inspection.",
+          "title": "On the Number of Successes in Independent Trials",
+          "trigger": "Primary source for Poisson-binomial unimodality used by the proof."
+        },
+        {
+          "assessment": "BROADER_INEQUALITY_NOT_EXACT_PROFILE",
+          "evidence": "The abstract gives CDF inequalities outside a central band under majorization, not an exact single-pair CDF difference.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176996461",
+          "material_read": "Primary abstract as exposed by indexed publication metadata.",
+          "method": "Lawful indexed primary-source inspection.",
+          "title": "On the distribution of the number of successes in independent trials",
+          "trigger": "Majorization refinement closest to the CDF-crossing component."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hoeffding 1956",
+        "Gleser 1975",
+        "Wang 1993"
+      ],
+      "rationale": "A fixed-sum pair balancing move is the elementary step behind Bernoulli majorization. Quantifying that step simultaneously in the mass function, CDF, total variation, Kolmogorov distance, Wasserstein distance and stop-loss transform gives a compact structural transport lemma rather than an arbitrary numerical specialization. The exact two-crossing description sharpens the classical inequality direction and can be reused along majorization paths.",
+      "residual_risks": [
+        "The identities are elementary once the pair-transfer kernel and Poisson-binomial shape facts are recognized."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1214/AOMS/1177728178",
+    "https://www3.stat.sinica.edu.tw/statistica/j3n2/j3n23/j3n23.htm",
+    "https://doi.org/10.1214/aop/1176996461",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The two-crossing and modal Wasserstein simplification require a Poisson-binomial background; the algebraic finite-difference identities do not.",
+    "Distances do not generally add over multiple balancing steps.",
+    "Historical priority remains conditional on the unread portion of Hoeffding's paper."
+  ],
+  "residual_risks": [
+    "Hoeffding's complete theorem body was not readable in this run after the lawful open and institutional routes; an explicit pair-transfer identity there would weaken priority for the algebraic core.",
+    "Older total-positivity literature could contain the two-crossing statement under variation-diminishing terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PLAUSIBLE_SOURCE_PARTIAL_ACCESS",
+      "evidence": "The readable material confirms convex-expectation and central CDF extremal results but is insufficient to assert whole-document noncoverage of the exact pair-transfer algebra.",
+      "identifier_or_url": "https://doi.org/10.1214/AOMS/1177728178",
+      "material_read": "Accessible repository abstract/introduction and theorem summary; an authorized institutional retrieval was also attempted, but its extraction returned only the first page and blank later pages.",
+      "method": "Open repository route first, then authorized institutional retrieval after the full open text was inaccessible.",
+      "title": "On the Distribution of the Number of Successes in Independent Trials",
+      "trigger": "Closest classical source on fixed-mean Bernoulli equalization."
+    },
+    {
+      "assessment": "SHAPE_RESULT_ONLY",
+      "evidence": "The source states unimodality and homogenization properties, supplying an ingredient but not the submitted exact pairwise transport metrics.",
+      "identifier_or_url": "https://www3.stat.sinica.edu.tw/statistica/j3n2/j3n23/j3n23.htm",
+      "material_read": "Official journal abstract and result summary.",
+      "method": "Lawful journal-page inspection.",
+      "title": "On the Number of Successes in Independent Trials",
+      "trigger": "Primary source for Poisson-binomial unimodality used by the proof."
+    },
+    {
+      "assessment": "BROADER_INEQUALITY_NOT_EXACT_PROFILE",
+      "evidence": "The abstract gives CDF inequalities outside a central band under majorization, not an exact single-pair CDF difference.",
+      "identifier_or_url": "https://doi.org/10.1214/aop/1176996461",
+      "material_read": "Primary abstract as exposed by indexed publication metadata.",
+      "method": "Lawful indexed primary-source inspection.",
+      "title": "On the distribution of the number of successes in independent trials",
+      "trigger": "Majorization refinement closest to the CDF-crossing component."
+    }
+  ]
+}

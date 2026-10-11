@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. The accompanying script uses only exact rational
-arithmetic.
+# Independent mathematical audit
 
-For thousands of rational Poisson-binomial backgrounds it:
+## correctness
 
-1. constructs the background mass function by exact convolution;
-2. balances a selected Bernoulli pair while preserving its sum;
-3. checks the exact second-difference probability-mass identity;
-4. checks the telescoping first-difference CDF identity;
-5. verifies total variation, Kolmogorov distance, and integer-line
-   Wasserstein distance from both their definitions and the closed formulas;
-6. verifies the stop-loss identity for every threshold intersecting the
-   support;
-7. removes zero second-difference coefficients and checks exactly two sign
-   changes with the pattern \(+,-,+\);
-8. checks background unimodality and
-   \[
-   \sum_k|\Delta a_k|=2\max_k a_k.
-   \]
+PASS
 
-The real-rooted coefficient-sign lemma and the Poisson-binomial
-real-rootedness argument in `RESULT.md` prove the crossing statement for all
-parameters. Finite replay is not used as a proof of the universal theorem.
+The pair law changes by the signed kernel \((1,-2,1)\) times \(\delta\), so convolution gives the claimed point-mass second-difference identity and telescoping gives the CDF first-difference identity. For a Poisson-binomial background, the generating polynomial of the second-difference sequence is \((z-1)^2P(z)\), where the nonzero roots of \(P\) are real and nonpositive; the coefficient variation therefore has exactly two sign changes with positive ends. Unimodality then gives \(\sum_k|\Delta a_k|=2\max_k a_k\), yielding the Wasserstein formula, while total variation, Kolmogorov and stop-loss formulas follow directly from the same identities. Independent bounded checks on deterministic and nondegenerate backgrounds reproduced the two sign changes and the finite-difference identities.
 
-Independent audit has not been performed.
+## originality
 
-Exact-rational replay result: `VERIFY_OK pmf_checks=125741 cdf_checks=161741 metric_checks=54000 stoploss_checks=197741 crossing_checks=18781 variation_checks=18781`.
+PASS
+
+Hoeffding and Gleser establish fixed-mean convex-order and majorization/CDF comparisons, and Wang supplies unimodality, but the inspected material did not state the exact single-pair mass transport, the exact CDF difference, or the three exact metric identities together. Targeted Resultary and literature searches for pair balancing, second differences, crossings, total variation and Wasserstein distance found no implication-equivalent statement. Because Hoeffding's complete theorem body could not be textually inspected in this run, the possibility that the exact pair-transfer algebra is written explicitly there is retained as a priority risk rather than converted into a failure.
+
+## value
+
+PASS
+
+A fixed-sum pair balancing move is the elementary step behind Bernoulli majorization. Quantifying that step simultaneously in the mass function, CDF, total variation, Kolmogorov distance, Wasserstein distance and stop-loss transform gives a compact structural transport lemma rather than an arbitrary numerical specialization. The exact two-crossing description sharpens the classical inequality direction and can be reused along majorization paths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
