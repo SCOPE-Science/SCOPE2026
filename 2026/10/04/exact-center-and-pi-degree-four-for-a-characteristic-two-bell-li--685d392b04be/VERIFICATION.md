@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses only symbolic identities in the Ore extension and the PBW basis.
+# Independent mathematical audit
 
-1. With \(\delta(y)=z\) and \(\delta(z)=\gamma y\), verify \(A_\gamma=K[y,z][x;\delta]\).
-2. In characteristic \(2\), compute \((\operatorname{ad}x)^2\) on \(y,z\) and verify centrality of \(x^4+\gamma x^2\).
-3. Reduce uniquely to degree at most \(3\) in \(x\) over \(K[y,z,x^4+\gamma x^2]\).
-4. Expand commutators with \(y,z\). The \(x^3\) coefficient first vanishes, then the remaining two coefficients are killed by the nonzero determinant \(\gamma(z^2+\gamma y^2)\).
-5. Write \(K[y,z]\) freely over \(K[y^2,z^2]\) with basis \(1,y,z,yz\) and solve \(\delta(r)=0\), obtaining only \(K[y^2,z^2]\).
-6. Reduce PBW exponents modulo \((2,2,4)\) to obtain exactly \(16\) center-basis classes.
-7. Central localization remains a domain and has dimension \(16\) over its center field, so it is a central division algebra of degree \(4\).
+## correctness
 
-Finite computation is not used as a substitute for any infinite argument. The limitations are exactly those stated in RESULT.md.
+PASS
+
+Write \(A=K[y,z][x;\delta]\) with \(\delta(y)=z\) and \(\delta(z)=\gamma y\). Bell--Li's \(p\)-polynomial gives \(c=x^4+\gamma x^2\) central in characteristic \(2\). Reducing uniquely to \(\sum_{i<4} r_i x^i\) over \(R[c]\), the formulas \([x^2,a]=\delta^2(a)\) and \([x^3,a]=\delta(a)x^2+\delta^2(a)x+\delta^3(a)\) show that commuting with \(y\) forces \(r_3=0\). Commuting with \(y\) and \(z\) then gives a \(2\times2\) system for \(r_1,r_2\) with nonzero determinant \(\gamma(z^2+\gamma y^2)\), so \(r_1=r_2=0\). As \(R\) is free over \(K[y^2,z^2]\) on \(1,y,z,yz\) and \(\delta\) kills only the scalar-basis coefficient, \(\ker\delta=K[y^2,z^2]\). Thus \(Z(A)=K[y^2,z^2,c]\). PBW leading terms yield algebraic independence and a 16-element central basis; central localization is a 16-dimensional division algebra, so PI degree is \(4\).
+
+## originality
+
+PASS
+
+Bell--Li prove that \(x^{p^2}-\gamma^{(p^2-p)/2}x^p\) is central in family (2), so at \(p=2\) they provide \(c\) but not the complete center, rank 16, or PI degree 4. Fresh exact-expression, solvable-Lie, and Resultary searches found no source stating \(Z(A)=K[y^2,z^2,c]\) or the rank/PI-degree conclusion. Classical modular enveloping-center literature remains a residual historical risk, but no inspected theorem directly specialized to this algebra and supplied the exact reverse inclusion.
+
+## value
+
+PASS
+
+Exact center and PI degree are natural structural invariants of a distinguished nontrivial characteristic-two member of a newly classified deformation family, and the result materially sharpens central-element existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

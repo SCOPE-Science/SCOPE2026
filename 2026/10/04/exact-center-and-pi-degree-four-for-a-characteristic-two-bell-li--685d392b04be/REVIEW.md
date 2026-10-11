@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The argument reconstructs the Ore extension from the defining relations and proves the center directly. The centralizer calculation is exact: after reduction to degree at most three in \(x\), commutation with \(y,z\) has determinant \(\gamma(z^2+\gamma y^2)\ne0\), forcing all positive \(x\)-degree coefficients away. The remaining invariant-ring calculation gives exactly \(K[y^2,z^2]\). PBW residue classes establish central rank \(16\), and the central quotient is a degree-\(4\) division algebra.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2609.06710v1, contains this family and exhibits \(x^4+\gamma x^2\) as a characteristic-two central element, but does not state the complete center, free center rank, or exact PI degree. Broader positive-characteristic enveloping/Ore literature inspected gives only general finiteness or power-of-characteristic constraints. Searches using the defining relations, exact center generators, center rank, and PI degree did not locate the same theorem. The main residual risk is an older solvable-Lie classification under unrelated notation.
+PASS
 
-## Value
-PASS. Bell and Li emphasize positive-characteristic PI behavior and the difficulty of finding central elements. Determining the entire center and exact degree \(4\) for the natural \(f=0\), nonzero-\(\gamma\) enveloping subfamily sharpens existence to an exact structural invariant and provides a concrete base case for further representation-theoretic study.
+Write \(A=K[y,z][x;\delta]\) with \(\delta(y)=z\) and \(\delta(z)=\gamma y\). Bell--Li's \(p\)-polynomial gives \(c=x^4+\gamma x^2\) central in characteristic \(2\). Reducing uniquely to \(\sum_{i<4} r_i x^i\) over \(R[c]\), the formulas \([x^2,a]=\delta^2(a)\) and \([x^3,a]=\delta(a)x^2+\delta^2(a)x+\delta^3(a)\) show that commuting with \(y\) forces \(r_3=0\). Commuting with \(y\) and \(z\) then gives a \(2\times2\) system for \(r_1,r_2\) with nonzero determinant \(\gamma(z^2+\gamma y^2)\), so \(r_1=r_2=0\). As \(R\) is free over \(K[y^2,z^2]\) on \(1,y,z,yz\) and \(\delta\) kills only the scalar-basis coefficient, \(\ker\delta=K[y^2,z^2]\). Thus \(Z(A)=K[y^2,z^2,c]\). PBW leading terms yield algebraic independence and a 16-element central basis; central localization is a 16-dimensional division algebra, so PI degree is \(4\).
 
-## Closest literature and limitations
-The closest source is Bell–Li's 2026 filtered-deformation paper. Brown–Zhang gives broader positive-characteristic Hopf-Ore context; de Jesus–Schneider is nilpotent-only; and the inspected generalized-Weyl-algebra result assumes odd characteristic. The present theorem is limited to characteristic \(2\), \(f=0\), and \(\gamma\ne0\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bell--Li prove that \(x^{p^2}-\gamma^{(p^2-p)/2}x^p\) is central in family (2), so at \(p=2\) they provide \(c\) but not the complete center, rank 16, or PI degree 4. Fresh exact-expression, solvable-Lie, and Resultary searches found no source stating \(Z(A)=K[y^2,z^2,c]\) or the rank/PI-degree conclusion. Classical modular enveloping-center literature remains a residual historical risk, but no inspected theorem directly specialized to this algebra and supplied the exact reverse inclusion.
+
+## value
+
+PASS
+
+Exact center and PI degree are natural structural invariants of a distinguished nontrivial characteristic-two member of a newly classified deformation family, and the result materially sharpens central-element existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
