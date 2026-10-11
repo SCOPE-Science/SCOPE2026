@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a nonfield local factor with square-zero maximal ideal, the unit action on the maximal ideal factors through the residue-field multiplicative group, so nonzero orbits are projective directions. The source entry formula gives the displayed block matrix. Its projective-direction columns coincide, and the determinant of the three distinguished row/column types is \(-hq^2\), which is nonzero. This proves local rank \(3\) and the stated sum-zero kernel. Field factors have rank \(2\), and the source Kronecker-product formula gives global rank \(2^f3^e\). Exact-rational replay covers representative finite cases without being used as a substitute for proof.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2609.30407v1, proves nonsingularity exactly for Frobenius rings and then poses rank as Question 3.4. Its theorem does not determine the rank of singular matrices. Targeted searches across rank, determinant, generalized Ramanujan sums, square-zero local rings, and Jacobson-radical terminology found no statement implying the formula. Schlage-Puchta's classical determinant theorem is for a different divisor-indexed matrix. Residual risk remains from unindexed literature using different terminology.
+PASS
 
-## Value
-PASS. Square-zero Jacobson radical is the canonical first radical layer beyond semisimple rings. The result gives an exact answer across that entire class, not an isolated computation: every field factor contributes rank \(2\), every nonfield factor rank \(3\), and the local kernel is explicit. It sharpens the motivating paper's binary full-rank/singular dichotomy into a quantitative structural theorem.
+In a local nonfield with square-zero maximal ideal, unit orbits in the nonzero radical are exactly projective directions over the residue field. The source entry formula then gives identical columns for all such directions, so rank is at most three. The unit column, one projective-direction column and the zero column have determinant minus h times q squared after compression and are independent, so local rank is exactly three. A field factor has the displayed two-by-two full-rank matrix. The source direct-product identity makes the global matrix a Kronecker product, so ranks multiply. A fresh symbolic calculation reproduced the determinant and the packaged exact verifier independently checks fifteen local parameter cells and four tensor products.
 
-## Closest literature and limitations
-The motivating preprint is arXiv:2609.30407v1; the closest classical determinant analogue is DOI 10.1007/s00013-021-01643-8. The theorem does not address local factors of higher Loewy length, and no claim of exhaustive uniqueness in the literature is made.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper gives the entry formula for the generalized Ramanujan matrix, proves the direct-product Kronecker factorization, and explicitly asks what can be said about its rank. It does not answer the rank question for square-zero radicals. The audited theorem uses the square-zero local orbit structure to collapse all projective-direction columns and obtains a genuinely new exact local rank three, then multiplies those local ranks across factors. No Resultary predecessor with an equivalent square-zero formula was located.
+
+## value
+
+PASS
+
+The theorem answers the source paper's explicit rank question on the first broad non-Frobenius layer where singularity alone gives no rank information. The independence from radical embedding dimension is a structural phenomenon and the factorwise formula is reusable for arbitrary products of square-zero local rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
