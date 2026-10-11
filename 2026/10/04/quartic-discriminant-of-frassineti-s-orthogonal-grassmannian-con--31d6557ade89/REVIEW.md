@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Frassineti supplies the exact conic-bundle model. Hara's roof identities identify the relative hyperplane and the rank-three quotient \(F\); the spinor determinant \(\det\mathcal S_+\cong\mathcal O(-2)\) gives \(\det F\cong\mathcal O(2)\), so the quadratic determinant lies in \(\mathcal O(4)\). Generic smoothness makes the discriminant Cartier. Adjunction and the divisor exact sequence give the stated invariants, and the bundled verifier reproduces the arithmetic.
+## correctness
 
-## Originality
-PASS. Exact-family, roof/triality, determinant-discriminant, complete-intersection, and invariant searches found no same-family statement. The closest primary analogue computes a quartic discriminant for a different Fano fourfold over \(Q^3\) and therefore does not imply this claim. Frassineti's inspected passage stops at the conic-bundle structure. Residual risk from unindexed literature remains.
+PASS
 
-## Value
-PASS. The discriminant is the natural singular-fibre and Clifford-theoretic invariant of a conic bundle. Identifying it as a canonical \((2,4)\) surface supplies concrete geometry absent from the bare conic-bundle presentation and is directly useful for derived and birational study.
+The rank-three quotient has determinant \(\mathcal O_{Q^3}(2)\). The remaining relative quadratic is a symmetric map from the dual quotient to the quotient, so its determinant is a section of the square of that determinant line, namely \(\mathcal O_{Q^3}(4)\). Generic smoothness prevents the determinant from vanishing identically. Since \(Q^3\subset\mathbf P^4\) is quadratic, the discriminant is a scheme-theoretic \((2,4)\) complete intersection. Adjunction and the divisor exact sequence give the listed canonical and cohomological invariants; the arithmetic replay in the frozen verifier is consistent with the symbolic calculation.
 
-## Closest literature and limitations
-The determinant mechanism is standard and appears for another \(Q^3\)-conic bundle in Bernardara--Fatighenti--Manivel--Tanturri. That covers the method, not this family. No singularity classification is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh Resultary search returned only the audited record for this exact Frassineti family. The closest accessible primary comparison computes a quartic discriminant for a different Fano fourfold over \(Q^3\); it therefore does not imply the family-specific bundle determinant. Frassineti's current public abstract confirms the classified family context but does not expose the Section 6 body through the available web route, so the possibility that the same discriminant computation appears deeper in that recent paper remains an explicit residual risk rather than negative evidence.
+
+## value
+
+PASS
+
+The discriminant is the natural geometric invariant controlling singular fibers and Clifford data of a conic bundle. Determining its divisor class and canonical surface invariants for a newly classified Fano-fourfold family is a motivated structural calculation, not a cosmetic parameter check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
