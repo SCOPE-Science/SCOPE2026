@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "The published Rousseeuw--Ruts triangle depth expression is reconstructed in barycentric coordinates, where it is exactly four times the smallest pairwise barycentric product. The central-region area then reduces by sixfold permutation symmetry to two elementary integrals over one ordering chamber. Their exact evaluation gives the closed formula, and the product maximum at equal barycentric coordinates gives the extinction level 4/9. Symbolic replay verifies the integral identity and series; a separate fixed-seed numerical integration test agrees.",
+    "risks": [
+      "The pointwise depth formula is published prior work and is used as a premise rather than claimed as new.",
+      "The Monte Carlo check is diagnostic only."
+    ],
+    "sources": [
+      "DOI:10.1007/PL00020903",
+      "DOI:10.1214/19-SS123"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schütt--Werner establish polygonal asymptotics, not the complete triangle level profile.",
+        "Rousseeuw--Ruts derive pointwise depth functions for triangles, squares and regular polygons but do not give the triangle central-region area function in the inspected section.",
+        "The later halfspace-depth/floating-body survey refers readers back to the triangle depth expression and shows contours rather than a volume formula."
+      ],
+      "reasoning": "A broader exact polygon theorem would cover triangles immediately; the checked broader sources instead provide asymptotics or pointwise contour equations.",
+      "searches": [
+        "convex floating body regular polygon exact area profile",
+        "floating body regular n-gon exact",
+        "convex floating body polygon exact formula regular polygon",
+        "wet part regular polygon exact area"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.7146/math.scand.a-12311",
+      "DOI:10.1007/BF00182948",
+      "DOI:10.1007/PL00020903",
+      "arXiv:1809.10925",
+      "DOI:10.1214/19-SS123",
+      "DOI:10.1112/S0024609306018728"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1999 source gives the depth at each point and the maximal level, which determines the region implicitly but does not state or evaluate its area.",
+        "The 2019 survey explicitly gives the equivalence between central regions and convex floating bodies and displays triangle regions without integrating them.",
+        "The 1992 source supplies logarithmic polygonal difference-volume behavior but not the exact triangle coefficients at all levels."
+      ],
+      "reasoning": "An implicit contour description makes the new integral derivable but does not itself imply the displayed closed area formula without a nontrivial chamber integration. The accepted novelty is therefore narrowly the exact region-volume profile and its expansion, not the underlying depth function.",
+      "searches": [
+        "DOI:10.1007/PL00020903 triangle Section 5.3 depth contours",
+        "arXiv:1809.10925 triangle convex floating body central regions",
+        "DOI:10.1007/BF00182948 polygon difference volume"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For uniform measure on a convex body, halfspace-depth central regions are the convex floating bodies at the corresponding normalized cap level.",
+        "The same triangle region can therefore appear under floating-body, Tukey-depth, central-region, or trimmed-region terminology.",
+        "No returned result stated the claimed all-level normalized area formula."
+      ],
+      "reasoning": "The searches deliberately covered both convex-geometric and statistical-depth names and also the barycentric analytic form, so terminology changes were not used as novelty evidence.",
+      "searches": [
+        "triangle convex floating body exact area profile halfspace depth",
+        "uniform triangle halfspace depth region area exact",
+        "triangle Tukey depth contour area formula logarithm",
+        "floating body triangle volume exact formula",
+        "halfspace depth triangle barycentric pair products"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-expression and numerical-level searches returned the known pointwise triangle-depth source and modern reviews, not a tabulated or closed area profile.",
+        "The known maximum 4/9 is visible in the primary depth paper and is treated as prior work."
+      ],
+      "reasoning": "Exact-value searches were used as a supplement to full statement comparison, not as standalone novelty proof.",
+      "searches": [
+        "\"floating body\" triangle area logarithm",
+        "\"halfspace depth contours\" triangle area formula",
+        "\"uniform triangle\" \"halfspace depth region\" area",
+        "\"Tukey depth\" triangle \"4/9\""
+      ]
+    },
+    "rationale": "The exact pointwise depth function and triangle contour geometry are published, but the inspected primary section does not integrate the central regions. Classical floating-body sources establish the convex floating-body definition and polygonal logarithmic asymptotic without an all-level triangle area formula. The later halfspace-depth/floating-body survey explicitly revisits the triangle example and plots its central regions but does not state their area profile. Candidate-specific database and public-literature searches under triangle floating-body, Tukey-depth-area, barycentric-product and logarithmic-profile formulations found no covering result.",
+    "residual_risks": [
+      "An unindexed note may have integrated the known triangle depth contours.",
+      "The source formula already determines the area implicitly; novelty is limited to the closed integration and consequences.",
+      "The 1990 foundational paper could not be materially text-inspected in this run and is not used for a NOT_COVERING conclusion."
+    ],
+    "risks": [
+      "The remaining integration is elementary enough that an unindexed statistical-depth note may contain it.",
+      "The exact pointwise depth formula and the maximal depth 4/9 are prior-covered and excluded from the originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "POINTWISE_DEPTH_AND_CONTOURS_NOT_AREA_PROFILE",
+        "evidence": "Section 5.3 gives the exact pointwise depth and the centroid maximum 4/9, but the inspected section does not integrate the central-region area as a function of depth.",
+        "identifier_or_url": "DOI:10.1007/PL00020903",
+        "material_read": "Author-uploaded full text, Section 5.3, including the triangle coordinate formula, symmetry continuation, contour figure, maximal depth 4/9 and affine-transfer statement.",
+        "method": "Lawful public author full-text inspection.",
+        "title": "The depth function of a population distribution",
+        "trigger": "Closest primary source because it computes the exact uniform-triangle halfspace depth."
+      },
+      {
+        "assessment": "POLYGONAL_ASYMPTOTICS_NOT_EXACT_TRIANGLE_PROFILE",
+        "evidence": "The paper studies difference-volume rates for almost polygonal bodies and recalls the polygonal logarithmic law; no all-level triangle volume formula appears in the inspected material.",
+        "identifier_or_url": "DOI:10.1007/BF00182948",
+        "material_read": "Authorized full text, introduction and the first twelve pages, including the polygonal delta-log asymptotic discussion, Proposition 2.1 and its quantitative estimates.",
+        "method": "Full-text inspection of a lawfully accessed copy.",
+        "title": "The convex floating body of almost polygonal bodies",
+        "trigger": "Primary convex-geometric source for polygonal difference-volume behavior."
+      },
+      {
+        "assessment": "EQUIVALENCE_AND_TRIANGLE_CONTOURS_NOT_AREA_PROFILE",
+        "evidence": "The survey points to Rousseeuw--Ruts for the triangle depth expression and displays central regions, but does not state their exact area function.",
+        "identifier_or_url": "arXiv:1809.10925",
+        "material_read": "Open full arXiv text around the triangle example and the convex-floating-body definition, including lines discussing the triangle depth expression, central-region figures, and nonexistence of the Dupin floating body.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Data depth and floating body",
+        "trigger": "Modern source explicitly identifying halfspace central regions with convex floating bodies and revisiting the triangle example."
+      },
+      {
+        "assessment": "FOUNDATIONAL_SOURCE_ACCESS_LIMIT",
+        "evidence": "Verified publication date 1990-06-01 and the foundational title/DOI; no NOT_COVERING judgment is based on unreadable full text.",
+        "identifier_or_url": "DOI:10.7146/math.scand.a-12311",
+        "material_read": "Journal metadata and bibliographic record; open PDF extraction was unavailable, and available page images contained no usable extracted text.",
+        "method": "Bibliographic metadata and available page-image inspection.",
+        "title": "The convex floating body",
+        "trigger": "Original convex-floating-body source and earliest dated source in the package."
+      }
+    ],
+    "sources": [
+      "DOI:10.7146/math.scand.a-12311",
+      "DOI:10.1007/BF00182948",
+      "DOI:10.1007/PL00020903",
+      "arXiv:1809.10925",
+      "DOI:10.1214/19-SS123"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34558385-f85d-4b42-8b18-a4db711647ee",
+  "value": {
+    "rationale": "The triangle is the canonical first polygonal model for convex floating bodies and halfspace depth. General polygon theory records a logarithmic small-cap law, while the statistical-depth literature records the triangle contours pointwise. Converting those contours into the exact full volume profile supplies a natural invariant at every level, identifies the extinction scale, and sharpens the asymptotic with explicit leading and lower-order coefficients.",
+    "risks": [
+      "The result is two-dimensional and does not solve the higher-dimensional simplex volume-profile problem."
+    ],
+    "sources": [
+      "DOI:10.1007/BF00182948",
+      "DOI:10.1007/PL00020903",
+      "DOI:10.1214/19-SS123"
+    ],
+    "status": "PASS"
+  }
+}
