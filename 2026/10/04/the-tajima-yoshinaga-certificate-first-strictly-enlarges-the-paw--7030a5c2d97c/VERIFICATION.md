@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-The finite certificate is `verify_small_pawful_boundary.py`, which uses only the Python standard library.
+# Independent mathematical audit
 
-It performs four checks from first principles:
+## correctness
 
-1. It partitions every labeled simple graph on \(n\le 6\) vertices into full vertex-permutation orbits and verifies that those orbits cover all \(2^{\binom n2}\) edge masks.
-2. It recomputes connectivity, diameter, and the pawful triple condition for every isomorphism representative.
-3. It decides existence of Tajima--Yoshinaga Definition 5.1 maps by exhaustive backtracking over all allowable \(f_2\) choices, enforcing conditions (ii) and (iii), followed by the exact residual \(f_1\) choices.
-4. It reconstructs Figure 3's graph \(G_1\) and replays the published ten \(f_1\) and thirty \(f_2\) values against the exact domains and all Definition 5.1 conditions.
+PASS
 
-Expected census rows, with columns `(n, all types, connected, diameter<=2, pawful, Definition-5.1, strict non-pawful)`, are:
+The certificate search exactly implements the section conditions of Definition 5.1, including the new condition (iii), and pawfulness is tested directly from graph distances. A fresh independent NetworkX graph-atlas implementation over every unlabeled graph through six vertices reproduced, for orders one through six, the pawful/certificate counts \((1,1),(1,1),(2,2),(5,5),(13,13),(47,48)\) and found exactly one strict six-vertex class. Its edge set is isomorphic to the source's displayed \(G_1\). This independently confirms the frozen verifier's exhaustive census.
 
-`(1,1,1,1,1,1,0)`
-`(2,2,1,1,1,1,0)`
-`(3,4,2,2,2,2,0)`
-`(4,11,6,5,5,5,0)`
-`(5,34,21,15,13,13,0)`
-`(6,156,112,60,47,48,1)`
+## originality
 
-A successful replay ends with `VERIFY_OK`. The computation proves only the stated six-vertex cutoff; it does not test larger graphs or classify all diagonal graphs.
+PASS
+
+Tajima–Yoshinaga's full primary preprint was materially reread at Definition 5.1, Theorem 5.2, and Example 5.4. The paper itself exhibits the six-vertex non-pawful graph \(G_1\) carrying the generalized certificate, but it does not prove that six vertices are the first possible order or that \(G_1\) is the unique strict isomorphism class there. The submitted exhaustive census supplies exactly that sharp boundary. Resultary searches found the audited finding but no distinct earlier publication with the complete order-through-six classification.
+
+## value
+
+PASS
+
+The source introduced the certificate precisely as a strict extension of pawfulness and gave a six-vertex witness. Determining that this witness occurs at the first possible order and is the unique obstruction there is a natural sharp finite boundary for a newly introduced structural class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

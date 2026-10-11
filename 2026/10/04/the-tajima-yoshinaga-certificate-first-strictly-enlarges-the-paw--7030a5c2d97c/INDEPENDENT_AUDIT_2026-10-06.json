@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:47:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0b0d9568254d919d45bfde27f37f8b0f9c9399b5",
+        "verify_small_pawful_boundary.py blob 5dc59cd62de9a18bce920e2f1270077a19b5c28e",
+        "arXiv:2110.02458v3 Definition 5.1 and Example 5.4",
+        "fresh independent graph-atlas/backtracking census"
+      ],
+      "rationale": "The certificate search exactly implements the section conditions of Definition 5.1, including the new condition (iii), and pawfulness is tested directly from graph distances. A fresh independent NetworkX graph-atlas implementation over every unlabeled graph through six vertices reproduced, for orders one through six, the pawful/certificate counts \\((1,1),(1,1),(2,2),(5,5),(13,13),(47,48)\\) and found exactly one strict six-vertex class. Its edge set is isomorphic to the source's displayed \\(G_1\\). This independently confirms the frozen verifier's exhaustive census.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper proves the generalized certificate sufficient for diagonality and supplies examples, not a small-order classification.",
+          "General diagonality results do not decide whether Definition 5.1 itself is realizable beyond pawful graphs at smaller orders."
+        ],
+        "reasoning": "No checked broader theorem yields the exact census \\((P_n,T_n)\\) through six vertices.",
+        "searches": [
+          "arXiv:2110.02458v3 full paper",
+          "Gu's pawful-graph magnitude-homology result as cited there",
+          "Resultary magnitude-homology boundary search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.02458v3 full primary text/PDF",
+        "DOI:10.4310/HHA.2023.v25.n1.a17",
+        "Resultary Tajima–Yoshinaga boundary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One six-vertex example establishes strictness by order six but cannot exclude smaller examples or prove uniqueness at six.",
+          "The exhaustive certificate solver over all connected diameter-at-most-two unlabeled graphs closes precisely those missing implications."
+        ],
+        "reasoning": "Minimality and uniqueness are new information beyond the source example.",
+        "searches": [
+          "Tajima–Yoshinaga Example 5.4",
+          "audited all-unlabeled-graphs census through order six"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant class is the diameter-at-most-two graphs admitting the two section maps satisfying Definition 5.1.",
+          "Pawful graphs form a subclass, and Example 5.4 provides a non-pawful six-vertex member of the generalized class."
+        ],
+        "reasoning": "The audited statement asks for the first strict containment and all isomorphism types at that boundary.",
+        "searches": [
+          "Tajima–Yoshinaga, arXiv:2110.02458v3, Definition 5.1 and Example 5.4",
+          "Resultary semantic query: Tajima Yoshinaga Definition 5.1 pawful smallest six vertices unique G1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct published database table with counts \\((1,1),(1,1),(2,2),(5,5),(13,13),(47,48)\\) was located.",
+          "The independent graph-atlas calculation reproduced those counts directly."
+        ],
+        "reasoning": "The finite table is generated from the definitions and is not imported from a prior database.",
+        "searches": [
+          "Resultary exact query for six-vertex pawful/Tajima–Yoshinaga boundary",
+          "fresh graph-atlas census through six vertices"
+        ]
+      },
+      "rationale": "Tajima–Yoshinaga's full primary preprint was materially reread at Definition 5.1, Theorem 5.2, and Example 5.4. The paper itself exhibits the six-vertex non-pawful graph \\(G_1\\) carrying the generalized certificate, but it does not prove that six vertices are the first possible order or that \\(G_1\\) is the unique strict isomorphism class there. The submitted exhaustive census supplies exactly that sharp boundary. Resultary searches found the audited finding but no distinct earlier publication with the complete order-through-six classification.",
+      "residual_risks": [
+        "An unindexed small-graph computation could contain the same minimality census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_SUPPLIES_SIX_VERTEX_WITNESS_NOT_MINIMALITY_OR_UNIQUENESS",
+          "evidence": "Example 5.4 gives a non-pawful \\(G_1\\) with explicit \\(f_1,f_2\\), while no theorem on the smallest order or complete six-vertex orbit census is stated.",
+          "identifier_or_url": "arXiv:2110.02458v3; DOI:10.4310/HHA.2023.v25.n1.a17",
+          "material_read": "Full accessible arXiv text around Section 5, with the PDF pages containing Definition 5.1, Theorem 5.2 and Figure/Example 5.4 visually inspected.",
+          "method": "Exact class-definition, example and implication comparison.",
+          "title": "Magnitude homology of graphs and discrete Morse theory on Asao-Izumihara complexes",
+          "trigger": "Defining primary source for the generalized certificate and the graph \\(G_1\\)."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2110.02458v3 full primary text/PDF",
+        "DOI:10.4310/HHA.2023.v25.n1.a17",
+        "Resultary Tajima–Yoshinaga boundary search"
+      ],
+      "rationale": "The source introduced the certificate precisely as a strict extension of pawfulness and gave a six-vertex witness. Determining that this witness occurs at the first possible order and is the unique obstruction there is a natural sharp finite boundary for a newly introduced structural class.",
+      "residual_risks": [
+        "An unindexed small-graph computation could contain the same minimality census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2110.02458v3 full primary text/PDF",
+    "DOI:10.4310/HHA.2023.v25.n1.a17",
+    "Resultary Tajima–Yoshinaga boundary search"
+  ],
+  "disposition": "passed",
+  "final_claim": "Among connected finite simple graphs of diameter at most two, every graph on at most five vertices satisfying the Tajima–Yoshinaga Definition 5.1 certificate is pawful; at six vertices there are 47 pawful isomorphism classes and 48 certificate-admitting classes, with exactly one strict extra class, isomorphic to the paper's graph \\(G_1\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed small-graph computation could contain the same minimality census.",
+    "The census stops at six vertices and concerns the sufficient certificate class, not all diagonal graphs."
+  ]
+}

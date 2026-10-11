@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is finite and exhaustive. The verifier partitions every simple labeled graph on at most six vertices into vertex-permutation orbits, checks complete orbit coverage, and then evaluates the pawful condition and the exact existential constraints of Tajima--Yoshinaga Definition 5.1 on every connected diameter-at-most-two representative. The unique strict six-vertex class is identified with the source graph \(G_1\), and the ten published \(f_1\) values plus thirty published \(f_2\) values are replayed directly.
+## correctness
 
-## Originality
-PASS relative to the inspected sources. Tajima--Yoshinaga prove that Definition 5.1 implies wedge-of-spheres Asao--Izumihara complexes and exhibit \(G_1\) as one non-pawful example; they separately show a five-vertex diagonal non-pawful graph \(G_2\) outside the certificate class. Their text does not state the order-minimality or uniqueness established here. Searches of a semantic published-results database and the web under exact-object, minimality, uniqueness, and equivalent “generalized pawful” aliases produced no covering census. Residual risk remains for terminology not searched or inaccessible literature.
+PASS
 
-## Value
-PASS. The result locates the exact first finite boundary at which the paper's generalized sufficient condition becomes strictly stronger than pawfulness: equality of the two certificate classes through five vertices, followed by exactly one new isomorphism class at six vertices. This sharpens the interpretation of the generalization while explicitly separating it from the broader class of diagonal graphs.
+The certificate search exactly implements the section conditions of Definition 5.1, including the new condition (iii), and pawfulness is tested directly from graph distances. A fresh independent NetworkX graph-atlas implementation over every unlabeled graph through six vertices reproduced, for orders one through six, the pawful/certificate counts \((1,1),(1,1),(2,2),(5,5),(13,13),(47,48)\) and found exactly one strict six-vertex class. Its edge set is isomorphic to the source's displayed \(G_1\). This independently confirms the frozen verifier's exhaustive census.
 
-Closest literature: Tajima--Yoshinaga, arXiv:2110.02458, especially Definition 5.1, Theorem 5.2, and Examples 5.4--5.5; Gu, arXiv:1809.07240, for the pawful class.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Tajima–Yoshinaga's full primary preprint was materially reread at Definition 5.1, Theorem 5.2, and Example 5.4. The paper itself exhibits the six-vertex non-pawful graph \(G_1\) carrying the generalized certificate, but it does not prove that six vertices are the first possible order or that \(G_1\) is the unique strict isomorphism class there. The submitted exhaustive census supplies exactly that sharp boundary. Resultary searches found the audited finding but no distinct earlier publication with the complete order-through-six classification.
+
+## value
+
+PASS
+
+The source introduced the certificate precisely as a strict extension of pawfulness and gave a six-vertex witness. Determining that this witness occurs at the first possible order and is the unique obstruction there is a natural sharp finite boundary for a newly introduced structural class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
