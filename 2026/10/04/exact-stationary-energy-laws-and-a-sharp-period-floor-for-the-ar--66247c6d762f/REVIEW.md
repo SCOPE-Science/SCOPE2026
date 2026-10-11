@@ -1,24 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Generator stationarity yields
-\[
-\mathbb E[z^2]=\mathbb E[y^2]
-\]
-and
-\[
-\mathbb E[x f(x)]=-\beta\mathbb E[y^2].
-\]
-The equality case is exactly equilibrium-supported because vanishing \(y\)-energy forces \(y=z=0\) on the invariant support and then \(f(x)=0\). For a nonconstant periodic orbit, Wirtinger's inequality applied to \(y=x'\) gives \(P\ge2\pi\); its equality case gives the exact affine-on-range condition. In the 1981 piecewise model, sign analysis of \(x f(x)\) gives the outer-amplitude barrier, while the affine equality condition reduces exactly to \(\beta=\mu\) and the two stated harmonic families.
+## correctness
 
-Risk: support rigidity uses the standard invariance of the support of a compactly supported invariant measure.
+PASS
 
-## Originality
-PASS. The inspected primary full text treats the Shilnikov mechanism, symmetric piecewise forcing, Poincare return geometry, and a numerical spiral attractor. The modern full text studies symmetry, local bifurcations, and deformations. Neither states the two universal stationary identities, the complete \(2\pi\) equality classification, or the outer-equilibrium recurrence barrier. Exact-object semantic searches returned only analogous theorems for distinct flows.
+Stationarity of \(y^2/2\), an antiderivative of \(f\), \(yz\), \(x^2/2\), \(xy\) and \(xz\) gives \(\mathbb E[z^2]=\mathbb E[y^2]\) and \(\mathbb E[x f(x)]=-\beta\mathbb E[y^2]\). Zero energy forces invariant support onto equilibria. On a nonconstant periodic orbit, \(y=x'\) has zero mean and \(z=y'\); Wirtinger's inequality plus the exact energy equality yields \(P\ge2\pi\). Equality forces a first harmonic and substitution gives the exact affine restoring law on the swept interval; the converse is immediate. In the 1981 piecewise model, \(x f(x)<0\) exactly outside the outer equilibrium radius, which forces the stated excursions, while the equality interval can lie in an outer branch exactly when \(\beta=\mu\) with the stated amplitudes. The exact verifier independently checks the generator identities and piecewise algebra.
 
-Risk: the complete 1979 founding article was unavailable for line-by-line inspection and remains an explicit bibliographic risk.
+## originality
 
-## Value
-PASS. The theorem is global across the whole forced-oscillator jerk class and turns the historical model's harmonic core into a sharp universal period floor. Its piecewise specialization identifies the nonzero-equilibrium amplitude as a mandatory excursion threshold for every non-equilibrium compact recurrent state, directly constraining the spiral-attractor regime studied in the primary literature.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The historical same-object sources develop the forced-oscillator equation, Shilnikov homoclinic/spiral-attractor geometry, bifurcations and later deformations, but the inspected full texts do not state the two global stationary energy laws or a universal least-period theorem. The generator identities alone are elementary, yet their combination with Wirtinger's inequality gives a sharp all-forcing period floor and a complete equality classification; the 1981 piecewise model then gains a nontrivial outer-equilibrium excursion barrier. No implication-equivalent ACT result was found in Resultary.
+
+## value
+
+PASS
+
+The historical ACT family is organized around forced-oscillator chaos and Shilnikov geometry. A universal sharp least-period floor with complete equality classification, coupled to exact invariant-measure energy laws and a concrete amplitude barrier in the canonical piecewise model, is a substantial global complement to that literature rather than a routine coordinate balance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

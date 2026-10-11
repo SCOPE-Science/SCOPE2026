@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact rational sparse-polynomial arithmetic.
 
-Writing \(q\) for the formal value \(f(x)\), it verifies for
-\[
-\dot x=y,\qquad
-\dot y=z,\qquad
-\dot z=q-y-\beta z
-\]
-the identities
-\[
-L\left(\frac12y^2\right)=yz,
-\qquad
-L\left(\frac12x^2\right)=xy,
-\]
-\[
-L(yz)=z^2+qy-y^2-\beta yz,
-\]
-\[
-L(xy)=y^2+xz,
-\]
-and
-\[
-L(xz)=yz+xq-xy-\beta xz.
-\]
+# Independent mathematical audit
 
-The checker also verifies, on exact rational symbolic substitutions for the piecewise parameters, continuity of the three branches, the roots
-\[
-0,\qquad \pm\left(1+\frac{\alpha}{\mu}\right),
-\]
-and the harmonic equality substitution when \(\beta=\mu\).
+## correctness
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+PASS
 
-The checker validates the algebraic certificates. The invariant-measure conclusions additionally use stationarity and support invariance; the period statement additionally uses the classical equality case of Wirtinger's inequality.
+Stationarity of \(y^2/2\), an antiderivative of \(f\), \(yz\), \(x^2/2\), \(xy\) and \(xz\) gives \(\mathbb E[z^2]=\mathbb E[y^2]\) and \(\mathbb E[x f(x)]=-\beta\mathbb E[y^2]\). Zero energy forces invariant support onto equilibria. On a nonconstant periodic orbit, \(y=x'\) has zero mean and \(z=y'\); Wirtinger's inequality plus the exact energy equality yields \(P\ge2\pi\). Equality forces a first harmonic and substitution gives the exact affine restoring law on the swept interval; the converse is immediate. In the 1981 piecewise model, \(x f(x)<0\) exactly outside the outer equilibrium radius, which forces the stated excursions, while the equality interval can lie in an outer branch exactly when \(\beta=\mu\) with the stated amplitudes. The exact verifier independently checks the generator identities and piecewise algebra.
+
+## originality
+
+PASS
+
+The historical same-object sources develop the forced-oscillator equation, Shilnikov homoclinic/spiral-attractor geometry, bifurcations and later deformations, but the inspected full texts do not state the two global stationary energy laws or a universal least-period theorem. The generator identities alone are elementary, yet their combination with Wirtinger's inequality gives a sharp all-forcing period floor and a complete equality classification; the 1981 piecewise model then gains a nontrivial outer-equilibrium excursion barrier. No implication-equivalent ACT result was found in Resultary.
+
+## value
+
+PASS
+
+The historical ACT family is organized around forced-oscillator chaos and Shilnikov geometry. A universal sharp least-period floor with complete equality classification, coupled to exact invariant-measure energy laws and a concrete amplitude barrier in the canonical piecewise model, is a substantial global complement to that literature rather than a routine coordinate balance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
