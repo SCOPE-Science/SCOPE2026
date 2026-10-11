@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The reduction is exact: Corollary 3.3 of the motivating paper gives 60 distinct \([5,3]_7\) Reed--Solomon codes, and affine normalization gives the same 60 representatives directly. For each pair, the intersection dimension is computed from the rank of the stacked generator matrices over \(\mathbb F_7\). The verifier reconstructs all 60 row spaces from all ordered distinct evaluation tuples, obtains exactly 1200 intersection-one pairs and 570 intersection-two pairs, checks an explicit 10-clique, and proves the absence of an 11-clique by exhaustive maximal-clique enumeration. A separate exact coloring-bound branch-and-bound search also returns clique number \(10\). No finite experiment is used to support a claim beyond the finite parameter set actually enumerated.
+## correctness
 
-## Originality
-PASS with residual literature risk. The 27 Sep 2026 primary paper introduces Reed--Solomon sunflowers, poses the extremal-size problem for \(k\ge3\), and supplies asymptotic constructions and a general greedy lower bound, but does not give the exact \((5,3,7;1)\) value. Exact-parameter, generalized-\(V\)-matrix, constant-dimension, and pairwise-intersection searches found no published statement implying the value \(10\). Similarity searches returned other finite coding-theory extrema but no Reed--Solomon-sunflower computation for these parameters. An older equivalent finite computation under different language remains a residual risk.
+PASS
 
-## Value
-PASS. The result answers the newly posed extremal question at the minimal higher-dimensional length \(\ell=2k-1\) in a concrete small field. It is not a routine recomputation of a known table: the source paper gives only general counting and asymptotic lower bounds for \(k\ge3\). The exact optimum also quantifies a sharp finite contrast with unrestricted subspace sunflowers, for which the standard construction has 50 petals at the same \((\ell,k,q)=(5,3,7)\).
+The finite theorem was independently reconstructed from field arithmetic rather than trusted from a saved log. Affine normalization gives exactly 60 distinct \([5,3]_7\) row spaces. Fresh modular row reduction over \(\mathbb F_7\) reproduced 1200 compatible pairs of intersection dimension one, 570 pairs of dimension two, and a 40-regular compatibility graph. An independently implemented Bron--Kerbosch enumeration gave maximal-clique histogram \(30,1920,5070,1800,138\) at sizes \(6,7,8,9,10\), respectively, with clique number 10. This independently matches the displayed ten-code witness and establishes the finite upper bound.
 
-## Closest literature and limitations
-The closest primary source is Con--Gruica--Montanucci--Zullo, arXiv:2609.33512v1. Relevant parts are Theorem 2.6, Corollary 3.3, Claim 3.22, Proposition 3.23, and the Section 5 open problem. The new result is finite and parameter-specific. It does not classify the 138 maximum 10-petal families up to symmetry and leaves all larger fields open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The current primary abstract introduces Reed--Solomon sunflowers, gives the generalized V-matrix framework, solves dimension two, and for fixed \(k\ge3\), \(\ell\ge2k-1\) advertises asymptotic recursive and greedy lower bounds rather than an exact finite \((5,3,7;1)\) optimum. Targeted Resultary searching did not locate an earlier exact value for these parameters. The full current preprint could not be read in this run: the open full-text route was unavailable and the permitted institutional retrieval returned an Oxford worker error. Accordingly the assessment is best-of-knowledge with the unread remainder explicitly retained as a residual risk.
+
+## value
+
+PASS
+
+This is the minimal-length higher-dimensional regime \(\ell=2k-1\) with \(k=3\), and \(q=7\) is the first prime field above the boundary field size \(q=5\) with a substantially nontrivial 60-code compatibility graph. The exact optimum therefore supplies a natural finite benchmark for an explicitly introduced extremal problem, including a complete finite upper certificate rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

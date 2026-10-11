@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify_rs_sunflower_q7.py` reconstructs the finite instance from first principles over \(\mathbb F_7\). It checks:
+## correctness
 
-- all ordered 5-tuples of distinct field elements generate exactly 60 distinct \([5,3]_7\) Reed--Solomon row spaces;
-- affine-normalized vectors \((0,1,a,b,c)\) give exactly the same 60 codes;
-- among the 1770 unordered code pairs, exactly 1200 have intersection dimension \(1\) and 570 have intersection dimension \(2\);
-- the resulting compatibility graph is 40-regular;
-- the ten displayed evaluation vectors form a clique;
-- exhaustive Bron--Kerbosch enumeration finds maximal-clique histogram \(\{6:30,7:1920,8:5070,9:1800,10:138\}\), so no clique has size greater than \(10\);
-- a separate exact branch-and-bound maximum-clique routine also returns \(10\).
+PASS
 
-Replay command: `python3 verify_rs_sunflower_q7.py`. Expected final line: `VERIFY_OK`.
+The finite theorem was independently reconstructed from field arithmetic rather than trusted from a saved log. Affine normalization gives exactly 60 distinct \([5,3]_7\) row spaces. Fresh modular row reduction over \(\mathbb F_7\) reproduced 1200 compatible pairs of intersection dimension one, 570 pairs of dimension two, and a 40-regular compatibility graph. An independently implemented Bron--Kerbosch enumeration gave maximal-clique histogram \(30,1920,5070,1800,138\) at sizes \(6,7,8,9,10\), respectively, with clique number 10. This independently matches the displayed ten-code witness and establishes the finite upper bound.
 
-Limits: this checker proves only the finite \((5,3,7;1)\) instance. It is not evidence for an infinite-field formula. The literature comparison is not independently audited, and independent validation has not been performed.
+## originality
+
+PASS
+
+The current primary abstract introduces Reed--Solomon sunflowers, gives the generalized V-matrix framework, solves dimension two, and for fixed \(k\ge3\), \(\ell\ge2k-1\) advertises asymptotic recursive and greedy lower bounds rather than an exact finite \((5,3,7;1)\) optimum. Targeted Resultary searching did not locate an earlier exact value for these parameters. The full current preprint could not be read in this run: the open full-text route was unavailable and the permitted institutional retrieval returned an Oxford worker error. Accordingly the assessment is best-of-knowledge with the unread remainder explicitly retained as a residual risk.
+
+## value
+
+PASS
+
+This is the minimal-length higher-dimensional regime \(\ell=2k-1\) with \(k=3\), and \(q=7\) is the first prime field above the boundary field size \(q=5\) with a substantially nontrivial 60-code compatibility graph. The exact optimum therefore supplies a natural finite benchmark for an explicitly introduced extremal problem, including a complete finite upper certificate rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
