@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:57:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Maximum overlap degree one makes every connected term component a singleton or one edge, and different components act on disjoint qubit sets. The Pauli-mixture lemma is an explicit convex decomposition. For commuting pairs the nonidentity coefficient l1 norm is at most 2t+t^2<=1 exactly through t=sqrt2-1. For anticommuting pairs tanh(beta r)(|a|+|b|)/r<=2 beta J<1 at the same boundary, so they are safely separable. For H=-J(XX+ZZ), the partial-transpose Bell eigenvalue (1-2t-t^2)/4 changes sign exactly above t=sqrt2-1, proving sharpness. The packaged checker corroborates the scalar inequalities and witness sign transition.",
+      "risks": [
+        "The theorem is for finite systems, coefficient cap |J_i|<=J, and the specified term-overlap graph."
+      ],
+      "sources": [
+        "RESULT.md blob aab8d1473abd8f090920aeda8684886975385450",
+        "verify.py blob c24a6da7dd466974b6992d058a2a6ff83c32c75f",
+        "Independent proof reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact Kiani theorem covers Delta>=2.",
+          "Its weighted corollary is all-degree but at degree one gives only beta J<=1/(4e).",
+          "Earlier high-temperature separability work gives constant/degree-scaled sufficient regions rather than the exact degree-one constant."
+        ],
+        "reasoning": "Broader high-temperature results do not imply the sharp degree-one boundary.",
+        "searches": [
+          "arXiv:2609.30149v1 Theorem 1.1 and Corollary 1.2",
+          "arXiv:2403.16850",
+          "arXiv:2607.28536v1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob aab8d1473abd8f090920aeda8684886975385450",
+        "verify.py blob c24a6da7dd466974b6992d058a2a6ff83c32c75f",
+        "arXiv:2609.30149v1 full relevant primary pages",
+        "arXiv:2403.16850",
+        "arXiv:2607.28536v1",
+        "Fresh Resultary and web exact-constant searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 expressly excludes Delta=1 and its formula is derived from a Delta>=2 branching recursion.",
+          "Corollary 1.2 implies only beta J<=1/(4e) at degree one, strictly below atanh(sqrt2-1)."
+        ],
+        "reasoning": "The component-size-at-most-two reduction and commuting/anticommuting classification are additional arguments; the sharp boundary is not a corollary of the source threshold formula.",
+        "searches": [
+          "Statement comparison with arXiv:2609.30149v1 Theorem 1.1",
+          "Statement comparison with Corollary 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary theorem states Delta>=2 repeatedly and develops a b=Delta-1 tree recursion.",
+          "Fresh searches did not locate an equivalent universal single-edge/degree-one theorem."
+        ],
+        "reasoning": "The final claim quantifies all finite Pauli Hamiltonians whose term-overlap graph has maximum degree at most one, not merely the XX+ZZ witness; that universal statement is absent from the inspected source.",
+        "searches": [
+          "arXiv:2609.30149v1 full-text pages 1--8",
+          "Resultary query: Pauli Hamiltonian maximum overlap degree one exact Gibbs separability threshold sqrt2-1",
+          "web query: sqrt(2)-1 Pauli Gibbs separability degree one"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry for the universal degree-one constant was located."
+        ],
+        "reasoning": "The two-qubit Bell-diagonal transition may be known in isolation; originality is scoped to the universal maximum-overlap-degree-one completion.",
+        "searches": [
+          "Fresh Resultary degree-one Pauli Gibbs query",
+          "targeted exact-constant web query"
+        ]
+      },
+      "rationale": "Fresh inspection of the primary 2026 paper confirms that its exact universal theorem, notation, tree recursion, and sharpness construction assume maximum overlap degree Delta>=2. Its weighted all-degree corollary yields only the weaker sufficient degree-one bound beta J<=1/(4e). Fresh Resultary and keyword searches found no universal Delta=1 theorem at atanh(sqrt2-1). The submitted result is therefore a genuine missing boundary case rather than a substitution into the published Delta>=2 formula.",
+      "residual_risks": [
+        "An older two-qubit thermal-entanglement paper may contain the same XX+ZZ transition constant without the universal degree-one theorem.",
+        "A later revision of arXiv:2609.30149 could add the omitted boundary; this audit concerns the assigned source snapshot and literature available at audit time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_MOTIVATING_SOURCE_NOT_COVERING_DELTA_ONE",
+          "evidence": [
+            "Abstract and Theorem 1.1 explicitly state Delta>=2; Section 2 notation again assumes Delta>=2.",
+            "The weighted corollary is weaker than the submitted degree-one threshold."
+          ],
+          "identifier_or_url": "arXiv:2609.30149v1",
+          "material_read": "Full PDF pages 1--8: abstract, definitions, Theorem 1.1, weighted Corollary 1.2, proof sketch, tree sharpness recursion, related work, and notation.",
+          "method": "Authorized full-text PDF inspection after open-access routes were checked.",
+          "title": "Sharp universal death of entanglement threshold for Pauli Hamiltonians",
+          "trigger": "Direct primary source whose exact theorem omits the low-degree boundary."
+        },
+        {
+          "assessment": "BROADER_SUFFICIENT_BOUND_NOT_EXACT",
+          "evidence": [
+            "Gives inverse-degree high-temperature separability, not the exact degree-one endpoint."
+          ],
+          "identifier_or_url": "arXiv:2403.16850",
+          "material_read": "Primary abstract/theorem-level summary as compared in the 2026 paper.",
+          "method": "Primary-record comparison.",
+          "title": "High-Temperature Gibbs States are Unentangled and Efficiently Preparable",
+          "trigger": "Foundational high-temperature separability antecedent cited by the primary source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result closes a natural low-degree boundary deliberately excluded from a new exact Delta>=2 theorem, identifies the qualitative jump from infinite threshold at degree zero to a finite sharp degree-one constant, and supplies a matching extremal single-edge witness. This is a motivated endpoint classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite systems and full separability across physical qubits.",
+    "No optimal weighted unequal-coefficient analogue or sampling-complexity claim is made."
+  ],
+  "schema_version": 1
+}

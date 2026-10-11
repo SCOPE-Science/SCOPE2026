@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Maximum overlap degree one reduces the Hamiltonian to disjoint one- and two-term components. The Pauli-mixture lemma gives an explicit fully separable decomposition whenever the absolute nonidentity Pauli coefficients sum to at most one. At \(t=\sqrt2-1\), the commuting two-term worst case has coefficient sum exactly one, while the anticommuting case is strictly below one. The explicit \(XX+ZZ\) witness has a partial-transpose eigenvalue \((1-2t-t^2)/4\), which becomes negative exactly above the same threshold.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2609.30149v1, states its exact threshold only for \(\Delta\ge2\). Its general weighted sufficient bound is weaker at degree one. Earlier high-temperature separability papers provide degree-scaled or constant-factor bounds, not this exact low-degree boundary. Searches for the paper identifier, degree-one overlap, the \(XX+ZZ\) thermal witness, and the constant \(\operatorname{arctanh}(\sqrt2-1)\) did not locate an equivalent universal theorem. The specific two-qubit threshold itself may be known; the reviewed originality claim is the universal maximum-overlap-degree-one completion.
+PASS
 
-## Value
-PASS. The result closes the only lower-degree boundary excluded from a newly exact universal threshold theorem and reveals a qualitative discontinuity: degree zero is separable at all temperatures, degree one has a finite exact threshold, and the published tree-recursion formula begins at degree two. It also improves the general weighted sufficient condition by an explicit sharp constant in this natural boundary case.
+Maximum overlap degree one makes every connected term component a singleton or one edge, and different components act on disjoint qubit sets. The Pauli-mixture lemma is an explicit convex decomposition. For commuting pairs the nonidentity coefficient l1 norm is at most 2t+t^2<=1 exactly through t=sqrt2-1. For anticommuting pairs tanh(beta r)(|a|+|b|)/r<=2 beta J<1 at the same boundary, so they are safely separable. For H=-J(XX+ZZ), the partial-transpose Bell eigenvalue (1-2t-t^2)/4 changes sign exactly above t=sqrt2-1, proving sharpness. The packaged checker corroborates the scalar inequalities and witness sign transition.
 
-## Closest literature and limitations
-The primary comparison is arXiv:2609.30149v1. Bakshi–Liu–Moitra–Tang and Putterman–Zlokapa–Cotler are broader high-temperature separability antecedents but do not state the exact degree-one constant. The result is finite-system and coefficient-cap specific and does not claim an optimal weighted extension or new sampling theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh inspection of the primary 2026 paper confirms that its exact universal theorem, notation, tree recursion, and sharpness construction assume maximum overlap degree Delta>=2. Its weighted all-degree corollary yields only the weaker sufficient degree-one bound beta J<=1/(4e). Fresh Resultary and keyword searches found no universal Delta=1 theorem at atanh(sqrt2-1). The submitted result is therefore a genuine missing boundary case rather than a substitution into the published Delta>=2 formula.
+
+## value
+
+PASS
+
+The result closes a natural low-degree boundary deliberately excluded from a new exact Delta>=2 theorem, identifies the qualitative jump from infinite threshold at degree zero to a finite sharp degree-one constant, and supplies a matching extremal single-edge witness. This is a motivated endpoint classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

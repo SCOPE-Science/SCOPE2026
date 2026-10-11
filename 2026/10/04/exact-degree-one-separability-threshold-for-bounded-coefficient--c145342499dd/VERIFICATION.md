@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof reduces every maximum-degree-one term-overlap graph to isolated vertices and edges. The one-term case is a Pauli-parity mixture. For a commuting edge, the nonidentity Pauli coefficient sum is bounded by \(2t+t^2\), which equals one at \(t=\sqrt2-1\). For an anticommuting edge, the coefficient sum is bounded by \(2\beta J\), which is strictly below one at \(\beta J=z_1^*\).
+# Independent mathematical audit
 
-For the sharp commuting witness \(H_*=-J(X\otimes X+Z\otimes Z)\), the partial transpose has minimum eigenvalue
-\[
-\lambda_{\min}=\frac{1-2t-t^2}{4},\qquad t=\tanh(\beta J),
-\]
-so its sign changes exactly at \(t=\sqrt2-1\). The included script checks the closed-form identities, coefficient inequalities over a dense coefficient grid, and the partial-transpose sign change on both sides of the threshold.
+## correctness
 
-The checker is a finite replay aid, not a replacement for the analytic argument. Literature priority and later revisions are not independently validated.
+PASS
+
+Maximum overlap degree one makes every connected term component a singleton or one edge, and different components act on disjoint qubit sets. The Pauli-mixture lemma is an explicit convex decomposition. For commuting pairs the nonidentity coefficient l1 norm is at most 2t+t^2<=1 exactly through t=sqrt2-1. For anticommuting pairs tanh(beta r)(|a|+|b|)/r<=2 beta J<1 at the same boundary, so they are safely separable. For H=-J(XX+ZZ), the partial-transpose Bell eigenvalue (1-2t-t^2)/4 changes sign exactly above t=sqrt2-1, proving sharpness. The packaged checker corroborates the scalar inequalities and witness sign transition.
+
+## originality
+
+PASS
+
+Fresh inspection of the primary 2026 paper confirms that its exact universal theorem, notation, tree recursion, and sharpness construction assume maximum overlap degree Delta>=2. Its weighted all-degree corollary yields only the weaker sufficient degree-one bound beta J<=1/(4e). Fresh Resultary and keyword searches found no universal Delta=1 theorem at atanh(sqrt2-1). The submitted result is therefore a genuine missing boundary case rather than a substitution into the published Delta>=2 formula.
+
+## value
+
+PASS
+
+The result closes a natural low-degree boundary deliberately excluded from a new exact Delta>=2 theorem, identifies the qualitative jump from infinite threshold at degree zero to a finite sharp degree-one constant, and supplies a matching extremal single-edge witness. This is a motivated endpoint classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
