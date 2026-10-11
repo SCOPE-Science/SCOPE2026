@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:04:11.363196Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 14ac49c6a5c5b4b8be36aee40f52ce287ef72a1d",
+        "verify.py blob bfd3675e11f15acb7a09262643d76fc9e0b66f93",
+        "independent recurrence and geometric-mixture reconstruction"
+      ],
+      "rationale": "The one-impulse recurrence solves exactly: m_t=(1-beta_1)beta_1^{t-1}G and v_t=beta_2(1+beta_2)^{t-1}G^2. Substitution into the displayed bias correction gives the stated decreasing v-hat and the increasing kernel F_t from 1 to sqrt((1+beta_2)/beta_2). The gain is an expectation of F_N under a geometric N; stochastic ordering of geometric laws proves strict increase in beta_1 and bounded convergence gives the sharp beta_1-to-1 ceiling. At beta_1=0 the gain is 1. The source-default numerical value and ceiling were independently checked. Under the stated Adam convention, the impulse tail is asymptotic to a positive constant times (beta_1/sqrt(beta_2))^{t-1}, so summability is exactly beta_1<sqrt(beta_2).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bock--Weiß analyze local deterministic convergence of adaptive optimizers rather than an AdaX sparse-input transfer function.",
+          "The AdaX convergence theory is broader in objective class but does not, in the accessible material, determine this exact input-response gain."
+        ],
+        "reasoning": "General convergence analyses and qualitative long-memory claims do not mechanically provide the displayed finite-gain law.",
+        "searches": [
+          "arXiv:2102.09804 adaptive-optimizer local convergence",
+          "arXiv:2004.09740v2"
+        ]
+      },
+      "checked_sources": [
+        "Li--Zhang--Wang--Luo, AdaX: Adaptive Gradient Descent with Exponential Long Term Memory, arXiv:2004.09740v2",
+        "Bock--Weiß, Local Convergence of Adaptive Gradient Descent Optimizers, arXiv:2102.09804",
+        "AdaX official implementation/default hyperparameters",
+        "Resultary query: AdaX isolated gradient impulse response cumulative displacement long term memory beta1 beta2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence solves explicitly after a single nonzero input, but strict gain monotonicity and the Abel/geometric-mixture limiting ceiling require an additional argument.",
+          "The Adam condition beta_1<sqrt(beta_2) is contextual prior knowledge and does not imply the AdaX gain law."
+        ],
+        "reasoning": "The final claim adds a model-specific exact transfer law rather than merely renaming the source recurrence.",
+        "searches": [
+          "direct source-form AdaX recurrence",
+          "Adam comparison under the source-displayed bias-corrected second-moment convention"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source motivation is persistent long-term memory of past squared gradients.",
+          "No inspected source statement gives the exact isolated-gradient gain series or its sharp ceiling."
+        ],
+        "reasoning": "The theorem was compared both as a memory-kernel response and as total parameter displacement from a single impulse.",
+        "searches": [
+          "arXiv:2004.09740v2 primary record",
+          "AdaX official implementation/defaults",
+          "Resultary impulse-gain query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent indexed same-object theorem was returned."
+        ],
+        "reasoning": "Search absence is supporting evidence only, with primary full-text access limitation retained explicitly.",
+        "searches": [
+          "Resultary impulse-gain query",
+          "targeted searches for AdaX impulse response, isolated gradient, cumulative displacement, sparse-gradient tail"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. AdaX's source contribution is exponential long-term second-moment memory, and the checked source record/implementation material supplies the recurrence and defaults. The audited theorem isolates the exact response to one sparse gradient, deriving the nonzero asymptotic second-moment weight, finite cumulative gain, strict beta_1 monotonicity, and sharp gain ceiling. The Adam summability condition is prior/contextual and is not treated as the novel component.",
+      "residual_risks": [
+        "The AdaX primary abstract/current record and implementation-level recurrence/defaults were accessible, but the complete primary paper was not independently reread in this run; no whole-document noncoverage claim is made.",
+        "The isolated-impulse calculation is elementary once the exact displayed recurrence is fixed, so an unindexed optimizer note could contain an equivalent response formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_LONG_TERM_MEMORY; FULL_TEXT_COMPARISON_LIMITED",
+          "evidence": "The accessible material establishes the exponential-memory design and default parameters, while no exact isolated-impulse cumulative-gain theorem was located.",
+          "identifier_or_url": "arXiv:2004.09740v2",
+          "material_read": "Primary abstract/current record plus accessible official implementation/default-hyperparameter material and equation-level reproductions of the source-form recurrence. The complete primary paper was not independently reread in this run.",
+          "method": "lawful primary record and official implementation material",
+          "title": "AdaX: Adaptive Gradient Descent with Exponential Long Term Memory",
+          "trigger": "Defining source for the optimizer recurrence and long-term-memory motivation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li--Zhang--Wang--Luo, AdaX: Adaptive Gradient Descent with Exponential Long Term Memory, arXiv:2004.09740v2",
+        "Bock--Weiß, Local Convergence of Adaptive Gradient Descent Optimizers, arXiv:2102.09804",
+        "AdaX official implementation/default hyperparameters",
+        "Resultary query: AdaX isolated gradient impulse response cumulative displacement long term memory beta1 beta2"
+      ],
+      "rationale": "Sparse or intermittent gradients are part of AdaX's stated motivation, so the isolated impulse is a natural diagnostic rather than an arbitrary adversarial input. The exact finite gain quantifies how long-term second-moment retention interacts with first-moment momentum, revealing both guaranteed summability and potentially large amplification when beta_2 is small. This precise transfer fact is useful for interpreting and tuning the method.",
+      "residual_risks": [
+        "The theorem is an input-response result for the displayed recurrence, not a fixed-objective or stochastic-training convergence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The AdaX primary abstract/current record and implementation-level recurrence/defaults were accessible, but the complete primary paper was not independently reread in this run; no whole-document noncoverage claim is made.",
+    "The isolated-impulse calculation is elementary once the exact displayed recurrence is fixed, so an unindexed optimizer note could contain an equivalent response formula.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

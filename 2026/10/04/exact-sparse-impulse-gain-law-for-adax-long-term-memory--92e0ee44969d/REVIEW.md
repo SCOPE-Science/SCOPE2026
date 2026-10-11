@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The one-impulse recurrence is solved exactly. The second-moment floor and response kernel are closed form; strict gain monotonicity follows from stochastic ordering of geometric indices, and the sharp ceiling follows from the bounded kernel limit. Adam's threshold is an exact ratio-test consequence.
+PASS
 
-Risk: this is a sparse gradient-input theorem, not a fixed-objective global convergence result.
+The one-impulse recurrence solves exactly: m_t=(1-beta_1)beta_1^{t-1}G and v_t=beta_2(1+beta_2)^{t-1}G^2. Substitution into the displayed bias correction gives the stated decreasing v-hat and the increasing kernel F_t from 1 to sqrt((1+beta_2)/beta_2). The gain is an expectation of F_N under a geometric N; stochastic ordering of geometric laws proves strict increase in beta_1 and bounded convergence gives the sharp beta_1-to-1 ceiling. At beta_1=0 the gain is 1. The source-default numerical value and ceiling were independently checked. Under the stated Adam convention, the impulse tail is asymptotic to a positive constant times (beta_1/sqrt(beta_2))^{t-1}, so summability is exactly beta_1<sqrt(beta_2).
 
-## Originality
+## originality
 
-PASS. The defining AdaX paper gives the long-term-memory recurrence and sparse-gradient motivation, but the inspected full text does not state the isolated-gradient cumulative response or its sharp gain ceiling. Nearby local adaptive-optimizer analysis studies fixed points rather than this source-specific input response. Focused published-record searches found no implication-equivalent result.
+PASS
 
-Residual risk: an equivalent short derivation may exist in unindexed notes.
+Best-of-knowledge originality passes. AdaX's source contribution is exponential long-term second-moment memory, and the checked source record/implementation material supplies the recurrence and defaults. The audited theorem isolates the exact response to one sparse gradient, deriving the nonzero asymptotic second-moment weight, finite cumulative gain, strict beta_1 monotonicity, and sharp gain ceiling. The Adam summability condition is prior/contextual and is not treated as the novel component.
 
-## Value
+## value
 
-PASS. The result directly measures what AdaX's two memory parameters do after fresh gradient information disappears. It proves finite impulse motion for every \(\beta_1<1\), in contrast with Adam's \(\beta_1<\sqrt{\beta_2}\) requirement, while quantifying the exact finite-gain cost as the long-memory parameter becomes small.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Sparse or intermittent gradients are part of AdaX's stated motivation, so the isolated impulse is a natural diagnostic rather than an arbitrary adversarial input. The exact finite gain quantifies how long-term second-moment retention interacts with first-moment momentum, revealing both guaranteed summability and potentially large amplification when beta_2 is small. This precise transfer fact is useful for interpreting and tuning the method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
