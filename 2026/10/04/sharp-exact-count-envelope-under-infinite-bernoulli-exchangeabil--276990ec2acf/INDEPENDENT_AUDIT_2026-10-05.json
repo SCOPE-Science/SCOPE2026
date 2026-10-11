@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:57:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob eba59bb64ce1ef0e4bb899a50d540ea7a1ef82c6.",
+        "Misra–Singh–Harner, DOI:10.1016/j.spl.2003.07.002, full paper inspected at mixed-binomial comparisons.",
+        "Independent exact-rational replay during this audit."
+      ],
+      "rationale": "De Finetti reduces the problem to maximizing E f(P) over laws on [0,1] with E P=mu, where f(p)=C(n,k)p^k(1-p)^(n-k). The ratios f(p)/p and f(p)/(1-p) have unique maxima at a=(k-1)/(n-1) and b=k/(n-1). Their tangent chords meet f with matching slopes. The explicit second-derivative quadratic is nonpositive on [a,b], proving central concavity; the chord argument proves the resulting function is the least concave majorant. The greatest convex minorant is zero because f vanishes at both endpoints. Explicit one/two-atom directing laws attain every boundary piece and convex mixing fills the interval. An independently written exact-rational grid replay verified f<=U for n<=30 and all interior k.",
+      "risks": [
+        "Endpoint counts k=0,n are intentionally excluded and have different one-sided geometry."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2003 paper studies order comparisons for mixed binomials at equal mean, not sharp one-cell extrema.",
+          "The prior SCOPE record solves monotone tails, whose least concave majorant has different geometry."
+        ],
+        "reasoning": "Neither broader statement determines the exact point-mass interval.",
+        "searches": [
+          "Misra–Singh–Harner DOI:10.1016/j.spl.2003.07.002",
+          "Resultary published-record 2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query above",
+        "DOI:10.1016/j.spl.2003.07.002",
+        "published-record:829140c11a96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A cell indicator is neither convex nor concave in the count, so convex order does not give its sharp maximum.",
+          "Subtracting separately optimized tail bounds cannot recover a sharp point mass because the tail optimizers differ."
+        ],
+        "reasoning": "The prior results do not logically imply the submitted three-piece envelope without the new hull calculation.",
+        "searches": [
+          "Mixed-binomial convex-order theorem",
+          "Prior infinite-exchangeability tail-envelope theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest Resultary record is 'Exact Bernoulli tail envelopes under infinite exchangeability', not an exact-count theorem.",
+          "No searched source stated the two breakpoints or three-regime exact-count extremizer."
+        ],
+        "reasoning": "Searches covered mixed binomial, de Finetti mixture, exact cell probability, fixed directing mean, concave envelope and exactly-k-successes language.",
+        "searches": [
+          "Resultary: sharp exact count envelope infinite Bernoulli exchangeability exactly k successes fixed mean",
+          "Web: binomial mixture fixed mean maximum probability exactly k successes concave envelope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved database/table contains the symbolic breakpoints or extremizing directing measures."
+        ],
+        "reasoning": "The theorem is a continuous one-moment extremal result for all n,k,mu rather than a finite table.",
+        "searches": [
+          "Resultary exact-count exchangeability query"
+        ]
+      },
+      "rationale": "Misra–Singh–Harner compare a binomial and equal-mean mixed binomial in stochastic/variability/convex orders, which does not optimize one nonconvex cell probability. A prior published SCOPE result gives sharp tail envelopes under infinite exchangeability via a one-tangent concave hull; that tail result does not imply the point-mass envelope because adjacent sharp tail optimizers need not coincide. The two-tangent geometry and complete exact-count interval require a separate calculation.",
+      "residual_risks": [
+        "An older moment-problem or mixture-theory source could contain the same point-mass envelope under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MIXTURE_CLASS_NOT_COVERING_POINT_MASS_ENVELOPE",
+          "evidence": [
+            "The theorem compares variability/order, not the maximum of P(K_n=k) over all directing laws with fixed mean."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.spl.2003.07.002",
+          "material_read": "Full 12-page paper, with focused inspection of the mixed-binomial definition and Theorem 4.3 on equal-mean variability/convex-order comparison.",
+          "method": "Public full-text PDF inspection, including rendered-page verification.",
+          "title": "Stochastic comparisons of Poisson and binomial random variables with their mixtures",
+          "trigger": "Primary paper on equal-mean mixed binomial laws."
+        },
+        {
+          "assessment": "METHOD_RELATED_DIFFERENT_OBJECTIVE",
+          "evidence": [
+            "It optimizes binomial tails by a one-tangent concave envelope, not the nonmonotone exact-count mass."
+          ],
+          "identifier_or_url": "Resultary published record 2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+          "material_read": "Resultary title/summary and implication-level comparison with its tail objective.",
+          "method": "Resultary semantic search.",
+          "title": "Exact Bernoulli tail envelopes under infinite exchangeability",
+          "trigger": "Closest published SCOPE result in exactly the same feasible class."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete finite-sample classification for every interior count.",
+        "The iid-optimal window has exact width 1/(n-1)."
+      ],
+      "rationale": "Exact-count probabilities are natural local concentration statistics in exchangeable binary and random-effects models. The theorem gives the full attainable interval and explicit extremizers, and identifies exactly when the iid law is or is not optimal.",
+      "risks": [
+        "Additional constraints on the directing law, such as a fixed variance, would change the envelope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For an infinitely exchangeable Bernoulli sequence with marginal mean mu, the attainable probability of exactly k successes in n trials, 1<=k<=n-1, is exactly [0,U_{n,k}(mu)], where U is the stated three-piece least-concave-majorant formula with breakpoints (k-1)/(n-1) and k/(n-1).",
+  "limitations": [
+    "Infinite exchangeability is essential.",
+    "Only the directing mean is fixed.",
+    "Interior counts only."
+  ],
+  "schema_version": 1
+}

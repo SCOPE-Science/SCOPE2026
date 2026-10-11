@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic.
+# Independent mathematical audit
 
-For each tested pair \((n,k)\), it forms
-\[
-a=\frac{k-1}{n-1},
-\qquad
-b=\frac{k}{n-1},
-\]
-and verifies:
+## correctness
 
-- the exact tangent identities at every non-endpoint tangent point;
-- the left and right line-majorant inequalities on rational grids;
-- the central second-derivative quadratic certificate;
-- normalization and mean constraints for every endpoint directing measure;
-- exact agreement between the endpoint mixtures and the stated upper envelope;
-- the zero lower endpoint from the directing law on \(\{0,1\}\).
+PASS
 
-A finite two-atom stress test enumerates many rational support pairs and weights
-with prescribed rational mean. No enumerated law exceeds the closed-form
-upper envelope.
+De Finetti reduces the problem to maximizing E f(P) over laws on [0,1] with E P=mu, where f(p)=C(n,k)p^k(1-p)^(n-k). The ratios f(p)/p and f(p)/(1-p) have unique maxima at a=(k-1)/(n-1) and b=k/(n-1). Their tangent chords meet f with matching slopes. The explicit second-derivative quadratic is nonpositive on [a,b], proving central concavity; the chord argument proves the resulting function is the least concave majorant. The greatest convex minorant is zero because f vanishes at both endpoints. Explicit one/two-atom directing laws attain every boundary piece and convex mixing fills the interval. An independently written exact-rational grid replay verified f<=U for n<=30 and all interior k.
 
-These checks do not replace the continuous concave-envelope proof.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK tangent_checks=3422 majorant_checks=178770 concavity_checks=143370 construction_checks=357540 two_atom_checks=30030`.
+Misra–Singh–Harner compare a binomial and equal-mean mixed binomial in stochastic/variability/convex orders, which does not optimize one nonconvex cell probability. A prior published SCOPE result gives sharp tail envelopes under infinite exchangeability via a one-tangent concave hull; that tail result does not imply the point-mass envelope because adjacent sharp tail optimizers need not coincide. The two-tangent geometry and complete exact-count interval require a separate calculation.
+
+## value
+
+PASS
+
+Exact-count probabilities are natural local concentration statistics in exchangeable binary and random-effects models. The theorem gives the full attainable interval and explicit extremizers, and identifies exactly when the iid law is or is not optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
