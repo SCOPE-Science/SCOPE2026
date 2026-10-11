@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:21:04.492813Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Heiney–Kipe–Pezzimenti–Pontes–Ta, arXiv:2504.02265, complete 21-page primary text",
+        "Assigned RESULT.md at tree 524bf0fed916b9f277f6bff05ca027ecd5a58b72"
+      ],
+      "rationale": "The source one-braid construction minimizes \\(N=q-h-v\\) over nonnegative integers satisfying its four linear inequalities, so equivalently it maximizes \\(s=h+v\\). Feasibility forces \\(q\\ge3p-4\\), attained at the boundary. In the low range \\(3p-4\\le q\\le4p-4\\), the second inequality bounds \\(s\\le q-3p+4\\), and the displayed witnesses attain it, giving \\(N=3p-4\\). For \\(q\\ge4p-3\\), adding the two oblique inequalities yields the half-sum bound on \\(s\\); integer parity gives the ceiling expression. When \\(q\\equiv2\\pmod4\\), equality in that half-sum bound would force the incompatible parity condition \\(h-v=p\\), producing exactly the one-unit penalty stated in the theorem; the supplied residue-class witnesses attain all remaining cases. An independent brute-force solution of the integer program for every coprime \\(2\\le p<25\\), \\(p<q<100\\) found no mismatch with the closed form.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete paper gives one-braid and full-braid algorithms, a computer census, and open questions.",
+          "For one-braid optimization it explicitly points to an ILP implementation and only tabulates/special-cases selected \\(p\\)."
+        ],
+        "reasoning": "The full-braid construction can improve the toric-mosaic bound for some knots but does not solve the one-braid ILP in general.",
+        "searches": [
+          "Heiney et al. arXiv:2504.02265, Sections 2.1–4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2504.02265",
+        "https://doi.org/10.1016/j.topol.2025.109657",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source says 'optimal solutions ... can be computed using an integer linear programming algorithm' and gives special cases, not the closed form."
+        ],
+        "reasoning": "A nontrivial integer-parity optimization, including an exceptional residue class, is required to pass from the prior construction to the final theorem.",
+        "searches": [
+          "Direct comparison with Theorem 1 and the paragraph immediately after its system (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact prior source exposes the same optimization problem but leaves it to ILP except for special families.",
+          "No equivalent all-\\((p,q)\\) optimizer appeared in the targeted searches."
+        ],
+        "reasoning": "The audited result solves the source ILP analytically; it is not merely a renaming of the construction.",
+        "searches": [
+          "Resultary query: toric mosaic one-braid integer program closed form optimizer Heiney Kipe Pezzimenti Pontes Ta",
+          "Web search: one-braid toric mosaic optimizer h v q p closed form",
+          "Web search: q>=3p-4 toric mosaic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tables 1–2 contain only selected \\(p=3,4\\) solutions; the audited theorem covers every feasible coprime \\(p<q\\)."
+        ],
+        "reasoning": "The result is an analytic optimization theorem rather than extrapolation from the published tables.",
+        "searches": [
+          "Heiney et al. Tables 1–3 and toric.py discussion"
+        ]
+      },
+      "rationale": "The defining toric-mosaic paper states exactly this integer program and says optimal solutions can be computed by an integer-linear-programming routine; it gives a formula only for \\(p=2\\) and finite/special tables for \\(p=3,4\\). The complete primary paper does not provide an all-parameter symbolic optimum or the residue-\\(2\\pmod4\\) penalty. Targeted Resultary and web searches on the one-braid inequalities found no later equivalent closed form.",
+      "residual_risks": [
+        "The authors' public code could implicitly implement simplifications not stated as a theorem, but code execution is not a published closed-form implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_OPTIMIZATION_NOT_COVERING",
+          "evidence": "The paper delegates general one-braid optimization to ILP and gives only special formulas/tables; no general symbolic optimizer appears.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.02265",
+          "material_read": "Complete 21-page primary text, including Theorem 1, Tables 1–3, full-braid section, census, and further questions.",
+          "method": "Open routes were checked; complete text was then read through authorized institutional access.",
+          "title": "Constructions of and Bounds on the Toric Mosaic Number",
+          "trigger": "Direct source defining the one-braid integer program."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Heiney et al. complete primary text"
+      ],
+      "rationale": "The result converts a published parametric ILP into an exact all-parameter theorem, identifies the feasibility threshold, and isolates a genuine parity obstruction. That is a natural complete optimization of a named construction and removes repeated integer-program solving; it is not a tiny numerical improvement.",
+      "residual_risks": [
+        "It optimizes only the one-braid construction; the actual toric mosaic number or full-braid bound may be smaller."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2504.02265",
+    "https://doi.org/10.1016/j.topol.2025.109657",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The formula is the optimum within the one-braid construction, not the exact toric mosaic number.",
+    "The source's full-braid construction can outperform one-braid for some torus knots."
+  ],
+  "residual_risks": [
+    "The authors' public code could implicitly implement simplifications not stated as a theorem, but code execution is not a published closed-form implication."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "OPEN_OPTIMIZATION_NOT_COVERING",
+      "evidence": "The paper delegates general one-braid optimization to ILP and gives only special formulas/tables; no general symbolic optimizer appears.",
+      "identifier_or_url": "https://arxiv.org/abs/2504.02265",
+      "material_read": "Complete 21-page primary text, including Theorem 1, Tables 1–3, full-braid section, census, and further questions.",
+      "method": "Open routes were checked; complete text was then read through authorized institutional access.",
+      "title": "Constructions of and Bounds on the Toric Mosaic Number",
+      "trigger": "Direct source defining the one-braid integer program."
+    }
+  ]
+}
