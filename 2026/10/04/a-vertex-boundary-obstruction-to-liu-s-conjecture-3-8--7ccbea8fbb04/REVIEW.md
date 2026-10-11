@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The standard internal angle-bisector formula gives a continuous boundary extension of the defect at \(C\). The exact boundary value is \(b[ac^2-(a-b)(a+b)^2]/(a+b)^2\), so the stated strict side condition forces violations in an interior neighborhood. The \(3\)-\(4\)-\(5\) specialization gives exactly \(-16/9\).
+## correctness
 
-## Originality
-PASS, subject to the residual literature risk below. The 2012 source was read at Conjecture 3.8. Exact-statement and alias searches found no covering proof or counterexample. A 2016 full-text follow-up using the same point-to-vertex distances and angle-bisector quantities was inspected and treats different refinements. A 2018 full-text follow-up was also inspected and treats different Erdős-Mordell refinements and open problems. No inspected source states or implies the vertex-boundary obstruction or the \(3\)-\(4\)-\(5\) counterexample.
+PASS
 
-## Value
-PASS. This is not a numerical exception: it refutes an explicit published conjecture by identifying a simple geometric mechanism that produces an open family of triangle shapes and an open boundary layer of violating interior points. The exact \(3\)-\(4\)-\(5\) specialization makes the obstruction transparent and independently checkable.
+The standard internal angle-bisector identity gives \(w_c^2=ab((a+b)^2-c^2)/(a+b)^2\). As an interior point tends to \(C\), \(R_1\to b\), \(R_2\to a\), \(R_3\to0\), \(w_1,w_2\to0\), and \(w_3\to w_c\). Hence the defect tends exactly to \(b[ac^2-(a-b)(a+b)^2]/(a+b)^2\). The strict side condition makes this negative, and continuity supplies an actual open interior neighborhood of counterexamples. For \(a,b,c=(5,4,3)\), the limit is \(16-160/9=-16/9\). No finite numerical sampling is needed for the quantified conclusion.
 
-## Closest literature and limitations
-The closest source is Liu's 2012 paper, which is the conjecture being refuted. The 2016 follow-up uses the same \(R_i\) and \(w_i\) objects and proves other Barrow/Oppenheim refinements, while the 2018 paper continues the same research line. None of these inspected texts covers the present statement. The main residual originality risk is an unindexed or differently worded counterexample elsewhere. Scientifically, the criterion is sufficient rather than necessary and does not classify all counterexamples.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2012 source was freshly inspected at the page containing Conjecture 3.8 and states the universal inequality contradicted here. The highly relevant 2016 open-access follow-up and 2018 full paper by the same author were also checked for their Oppenheim/Barrow refinements; neither supplies this boundary disproof. Fresh Resultary search returns the audited record as the exact hit and other, different Liu counterexamples, but no earlier theorem covering Conjecture 3.8's vertex obstruction.
+
+## value
+
+PASS
+
+Refuting a published geometric conjecture with a structural open family is intrinsically motivated. The side-length criterion explains a mechanism of failure and the canonical \(3\)-\(4\)-\(5\) specialization makes the obstruction transparent; this is materially stronger than an isolated numerical point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
