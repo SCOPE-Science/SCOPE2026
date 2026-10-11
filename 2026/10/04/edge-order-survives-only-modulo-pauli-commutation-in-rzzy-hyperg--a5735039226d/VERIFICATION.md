@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof checks the exact Pauli commutation sign for arbitrary pairs of RZZY edge generators. For the two star families it proves pairwise commutation for every edge count and every real choice of weights. For a two-edge chain it proves anticommutation and derives the exact order-overlap formula.
+# Independent mathematical audit
 
-The accompanying `verify.py` independently constructs finite Pauli matrices, checks both star commutation patterns, checks the chain anticommutator, and evaluates the two circuit orders numerically at multiple parameter choices. It prints `VERIFY_OK` when all checks pass.
+## correctness
 
-The finite computation is not evidence for the universal statement by itself; it only checks the indexing, sign conventions, and explicit example against the analytic derivation.
+PASS
+
+The algebra was reconstructed independently. For Pauli strings \(P_e=Z_iZ_jY_k\) and \(P_f\), each shared vertex at which one edge assigns \(Y\) and the other assigns \(Z\) contributes one anticommutation sign, so \(P_eP_f=(-1)^{m(e,f)}P_fP_e\). Both advertised star families have zero role mismatches for every edge pair, hence all rotations commute and every permutation gives exactly the same unitary. The chain generators \(A=Z_0Z_1Y_2\) and \(B=Z_1Z_2Y_3\) have one mismatch and anticommute. Exact expansion on \(|+\rangle^{\otimes4}\) gives overlap \(1-2\sin^2(a)\sin^2(b)\); at \(a=b=\pi/4\) the fidelity is \(1/4\). Independent symbolic role checks reproduced these conclusions.
+
+## originality
+
+PASS
+
+The primary RZZY hypergraph paper itself is the decisive comparison. It defines the generators \(Z_iZ_jY_k\), states that noncommuting edge operators support a one-to-one edge-ordered encoding, and explicitly advertises both star families. Direct inspection shows those displayed star generators commute pairwise, yet the paper does not formulate the resulting collapse of all edge orders or the general role-mismatch parity criterion. General Pauli-commutation/circuit-optimization literature is background rather than implication coverage of this source-specific injectivity correction.
+
+## value
+
+PASS
+
+Edge order is a defining datum of the proposed representation. Proving that both advertised star subclasses erase the entire order, and identifying the exact local parity criterion for when adjacent rotations commute, is a substantive structural correction with direct consequences for reconstruction and interpretation. It is not a cosmetic convention or routine numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:00:01.937819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 9cdf9a9c3962890c02c188b53829e0d5a39bb225",
+        "verify.py blob 6233e602bed8ed1b2f3cb75f6198d62ead058962",
+        "Actual source tree 18066f326bb06604972bcbbf03c57bad6ef3362e",
+        "Complete arXiv:2609.30399v1 text",
+        "Independent Pauli-role calculation in this audit"
+      ],
+      "rationale": "The algebra was reconstructed independently. For Pauli strings \\(P_e=Z_iZ_jY_k\\) and \\(P_f\\), each shared vertex at which one edge assigns \\(Y\\) and the other assigns \\(Z\\) contributes one anticommutation sign, so \\(P_eP_f=(-1)^{m(e,f)}P_fP_e\\). Both advertised star families have zero role mismatches for every edge pair, hence all rotations commute and every permutation gives exactly the same unitary. The chain generators \\(A=Z_0Z_1Y_2\\) and \\(B=Z_1Z_2Y_3\\) have one mismatch and anticommute. Exact expansion on \\(|+\\rangle^{\\otimes4}\\) gives overlap \\(1-2\\sin^2(a)\\sin^2(b)\\); at \\(a=b=\\pi/4\\) the fidelity is \\(1/4\\). Independent symbolic role checks reproduced these conclusions.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 primary paper provides the exact RZZY construction and star formulas but not the commuting-order collapse.",
+          "Generic commuting-Pauli optimization literature explains how Pauli rotations can be reordered but does not analyze this hypergraph representation or its one-to-one claim."
+        ],
+        "reasoning": "General Pauli algebra supplies a tool, not the source-specific correction. The scientific content is applying the exact commutation criterion to the advertised edge-order encoding and identifying whole subclasses where order is erased.",
+        "searches": [
+          "arXiv:2609.30399v1",
+          "arXiv:2305.10966",
+          "Fresh 2026 search for Pauli commutation quotient hypergraph states"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.30399v1",
+        "arXiv:2305.10966",
+        "Resultary RZZY/commutation search",
+        "Fresh exact web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly claims that the selected interaction establishes correspondence with edge-ordered hypergraphs, while its two displayed star families have pairwise commuting Pauli generators.",
+          "Generic Pauli-string commutation does not by itself state that the proposed hypergraph encoding fails to distinguish all star edge orders or quantify a chain order witness."
+        ],
+        "reasoning": "The correction is not already stated by the source: it results from checking the source formulas against the algebraic injectivity claim. The general mismatch-parity rule then gives the precise mandatory quotient.",
+        "searches": [
+          "Full-text implication check against arXiv:2609.30399v1 Equations (3), (5), (7), and (8) and the conclusion",
+          "Comparison with generic commuting-Pauli circuit literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published-finding search returned no earlier RZZY correction; retrieved hits concerned unrelated edge ordering or generic Pauli commutation.",
+          "The primary paper says only that certain permutations of adjacent-edge operators do not commute and uses this to motivate edge ordering; it does not quotient orders by commuting swaps."
+        ],
+        "reasoning": "The claim was searched as an injectivity/ordering issue and as a Pauli-commutation issue. No equivalent source-specific theorem was located.",
+        "searches": [
+          "Resultary semantic query: RZZY edge ordered hypergraph Pauli commuting star order collapse",
+          "Web search: arXiv 2609.30399 commutation edge order star",
+          "Web search: RZZY Pauli string commutation edge-ordered hypergraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database or table giving commutation classes for the RZZY hypergraph construction was retrieved.",
+          "Independent role-label checks found mismatch parity zero for every pair in both star families and one for the two-edge chain witness."
+        ],
+        "reasoning": "This is a structural algebraic statement rather than a lookup-table result.",
+        "searches": [
+          "Resultary query above",
+          "Exact searches for all star edge orderings same RZZY state"
+        ]
+      },
+      "rationale": "The primary RZZY hypergraph paper itself is the decisive comparison. It defines the generators \\(Z_iZ_jY_k\\), states that noncommuting edge operators support a one-to-one edge-ordered encoding, and explicitly advertises both star families. Direct inspection shows those displayed star generators commute pairwise, yet the paper does not formulate the resulting collapse of all edge orders or the general role-mismatch parity criterion. General Pauli-commutation/circuit-optimization literature is background rather than implication coverage of this source-specific injectivity correction.",
+      "residual_risks": [
+        "The audit targets the cited first public version; a later correction or revision could alter the authors' claims, although no indexed second-version theorem covering this correction was located.",
+        "The commutation quotient is only a necessary identification: special weights, global phases, or state-dependent coincidences can create additional degeneracies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_CONTAINS_UNSTATED_DEGENERACY",
+          "evidence": "Equations (7) and (8) make every pair of star Pauli generators commute, so all star edge orderings yield the same product despite the paper's one-to-one edge-order language.",
+          "identifier_or_url": "arXiv:2609.30399v1",
+          "material_read": "Complete primary paper, including Equations (3)--(10), the star and chain definitions, the analytical section, and the conclusion. The displayed generator is \\(e^{-i\\theta Z_iZ_jY_k}\\); the paper states that noncommutativity is used to encode edge order.",
+          "method": "Lawful full-text inspection after open-access HTML transport failed; institutional access returned the paper text.",
+          "title": "Three-uniform edge-ordered hypergraph quantum states: entanglement and its relation to hypergraph properties",
+          "trigger": "Same paper and same mathematical construction; strongest possible coverage source."
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND_NOT_SOURCE_SPECIFIC",
+          "evidence": "It treats commuting Pauli operations as an optimization resource and does not analyze the RZZY hypergraph map or edge-order injectivity.",
+          "identifier_or_url": "arXiv:2305.10966",
+          "material_read": "Primary abstract and method description concerning commutative properties of Pauli strings.",
+          "method": "Lawful public primary record inspection.",
+          "title": "Pauli-based circuit optimization literature",
+          "trigger": "Broader literature on commuting Pauli rotations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.30399v1",
+        "Independent Pauli derivation"
+      ],
+      "rationale": "Edge order is a defining datum of the proposed representation. Proving that both advertised star subclasses erase the entire order, and identifying the exact local parity criterion for when adjacent rotations commute, is a substantive structural correction with direct consequences for reconstruction and interpretation. It is not a cosmetic convention or routine numerical check.",
+      "residual_risks": [
+        "The result does not claim a complete classification of all state-level degeneracies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The audit targets the cited first public version; a later correction or revision could alter the authors' claims, although no indexed second-version theorem covering this correction was located.",
+    "The commutation quotient is only a necessary identification: special weights, global phases, or state-dependent coincidences can create additional degeneracies."
+  ],
+  "schema_version": 1
+}
