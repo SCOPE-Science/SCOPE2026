@@ -1,12 +1,21 @@
-# Review of Fort hypergraph and fractional zero forcing of double stars
+# Independent mathematical audit
 
-## Correctness
-PASS. Any minimal fort cannot contain a center, because including a center forces all leaves on that side into the fort and therefore contains a proper two-leaf fort. With both centers outside, each same-side leaf count must avoid one; minimality therefore leaves exactly two leaves on one side. The fort hypergraph is consequently \(K_a\sqcup K_b\). Standard matching, fractional vertex-cover, and vertex-cover calculations then give the fort number, fractional zero forcing number, optimizer classification, and ordinary zero forcing number. Exhaustive fort enumeration, direct color-change simulation, and LP face checks agree for all \(2\le a,b\le6\).
+## correctness
 
-## Originality
-PASS. The primary 2023 source introduces the fort hypergraph and LP fractional zero forcing, proves the general tree upper bound \(Z^*(T)\le\ell(T)/2\), and characterizes equality with the integral zero forcing number, but targeted full-text searches found no double-star or bistar theorem. Later IP-model work provides computational methods and experiments, not this closed structural formula. Semantic and exact-phrase searches found no equivalent double-star fort-hypergraph classification or optimizer theorem.
+PASS
 
-## Value
-PASS. Double stars are the canonical diameter-three trees with two branching vertices. The result makes the general tree upper bound sharp throughout this family while the integral zero forcing number can be almost twice as large, yielding a transparent near-factor-two integrality gap on a very simple tree class. The full optimizer classification and exact fort hypergraph also explain the mechanism rather than merely reporting a scalar value.
+If a center belongs to a fort, every leaf adjacent to it must also belong or would have exactly one neighbour in the fort; such a fort then strictly contains a two-leaf fort and is not minimal. With both centers absent, the fort condition is exactly that neither leaf-class intersection has size one. Every nonempty fort therefore contains a same-side leaf pair, proving that the minimal forts are precisely those pairs. The resulting fort hypergraph is \(K_a\sqcup K_b\): its matching, fractional transversal and transversal numbers give the three claimed invariants, and the optimum face of a clique's fractional vertex-cover LP gives the optimizer classification. Fresh independent enumeration for all 2<=a,b<=4 recovered exactly these minimal forts.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The foundational fractional-zero-forcing paper proves the general tree bound \(Z^*(T)\le\ell(T)/2\), characterizes trees with equality \(Z^*=Z\), and gives selected corona examples with two-leaf forts. Its searchable primary PDF contains no 'double star' occurrence, and those results do not determine the double-star fort hypergraph or the integrality gap because generally \(Z(D_{a,b})\ne Z^*(D_{a,b})\). Targeted Resultary searches returned no equivalent double-star theorem. The audited classification of every minimal fort and every fractional optimizer is therefore additional structure.
+
+## value
+
+PASS
+
+Double stars are the simplest diameter-three trees with two branching centers. The exact fort hypergraph gives more than the general leaf bound: it determines every fractional optimum and shows the fort-cover integrality gap approaching two already in this elementary tree family, a natural extremal benchmark for the new relaxation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
