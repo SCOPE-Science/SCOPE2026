@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:43:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify.py at the frozen tree",
+        "Li, Ramsey-type results for threshold graphs and beyond, arXiv:2608.22350 metadata/abstract",
+        "Brosch et al., Lower and Upper Bounds for Small Canonical and Ordered Ramsey Numbers, primary-paper material"
+      ],
+      "rationale": "Color \\(K_{t+2}\\) red on a Hamilton cycle and blue off the cycle. For a proposed left pair \\(x,y\\), an orderable coloring of the whole \\(K_{2,t}\\) requires one of the two alternating classes \\(V_{rb},V_{br}\\) to be empty. On a cycle, each of \\(x,y\\) has a neighbor not shared in the required direction, so both alternating classes are nonempty; hence no orderable spanning \\(K_{2,t}\\) occurs. With only two colors there is no rainbow triangle, proving both lower bounds. The actual verifier checks all left pairs for \\(3\\le t\\le50\\) and directly checks all orderings for the smallest cases. Substitution into the cited upper \\(r'_2(K_{2,t})\\le CR(K_{2,t},K_3)\\le\\lfloor4t/3\\rfloor+2\\) gives 7 and 8 for \\(t=4,5\\).",
+      "residual_risks": [
+        "The full text of Li’s recent preprint was not obtainable through the available lawful full-text routes in this run; the exact upper-bound theorem is therefore accepted from the stable citation in the package, with its scope cross-checked against the public abstract and later summaries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li is asymptotically stronger for large t but does not, in accessible material, dominate the explicit all-t additive lower bound plus the two small closures.",
+          "The earlier computational paper treats a different table of bipartite target pairs and does not provide the claimed K3-target exact values in the material located."
+        ],
+        "reasoning": "The audited contribution is a simple uniform witness with two exact boundary values, not an asymptotic improvement.",
+        "searches": [
+          "Li 2026 threshold-graph Ramsey preprint",
+          "Brosch et al. small canonical/ordered Ramsey paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.22350",
+        "Brosch et al. canonical/ordered Ramsey paper",
+        "semantic corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited upper theorem alone does not imply any matching lower value.",
+          "The cycle coloring supplies the missing lower witnesses at every t and happens to meet the upper bound at t=4,5."
+        ],
+        "reasoning": "The exact small cases require the new lower construction in addition to the prior upper bound.",
+        "searches": [
+          "Li upper bound versus Hamilton-cycle lower construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li’s public abstract states the complete-bipartite asymptotic and infinitely many exact values, but not the audited cycle construction or these two exact values.",
+          "Exact-value web searches did not recover a prior statement for the two audited pairs."
+        ],
+        "reasoning": "Equivalent formulations in graph language, two-color orderable language, and unordered-canonical language were compared.",
+        "searches": [
+          "semantic-search: orderable Ramsey K_{2,t} cycle lower bound K_{2,4} K_{2,5}",
+          "arXiv:2608.22350",
+          "search: CR(K_{2,4},K_3) and CR(K_{2,5},K_3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table entry for both t=4 and t=5 was located."
+        ],
+        "reasoning": "The verifier’s finite checks support the construction only; exactness uses the cited theorem, not a database lookup.",
+        "searches": [
+          "search: exact r'_2(K_{2,4}), r'_2(K_{2,5}), CR(K_{2,t},K_3)"
+        ]
+      },
+      "rationale": "Li’s primary abstract gives the \\(4t/3+o(t)\\) asymptotic for \\(K_{2,t}\\) and exact values for infinitely many t, but targeted searches did not locate the universal Hamilton-cycle lower bound or the specific exact pairs \\(t=4,5\\). The earlier small canonical-Ramsey paper studies \\(K_{2,4}\\) against bipartite rainbow targets, not the audited \\(K_3\\) target in the material located.",
+      "residual_risks": [
+        "The inaccessible full text of Li 2026 is the main residual originality risk; it could contain these specific small exact values even though they were not exposed by accessible metadata/searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL comparison; no accessible material was found that states the audited cycle lower bound or the two exact values.",
+          "evidence": "The abstract states the \\(4t/3+o(t)\\) asymptotic for s=2 and infinitely many exact values, without the audited witness.",
+          "identifier_or_url": "arXiv:2608.22350",
+          "material_read": "Public primary abstract and metadata; full text could not be obtained through the lawful routes available in this run.",
+          "method": "Primary abstract inspection plus bounded source comparison.",
+          "title": "Ramsey-type results for threshold graphs and beyond",
+          "trigger": "Closest and newest complete-bipartite orderable/canonical Ramsey source; supplies the upper-bound side cited by the package."
+        },
+        {
+          "assessment": "NOT_COVERING the audited K3-target statement in the material located.",
+          "evidence": "Its bipartite section lists K_{2,4} among G,H from a bipartite test set rather than the claimed K3 target.",
+          "identifier_or_url": "https://lidicky.name/pub/canonical.pdf",
+          "material_read": "Search-indexed primary-paper material around its bipartite-results section and Table 5 context; direct PDF retrieval was unavailable.",
+          "method": "Indexed full-paper comparison.",
+          "title": "Lower and Upper Bounds for Small Canonical and Ordered Ramsey Numbers",
+          "trigger": "Earlier small-graph canonical Ramsey study containing K_{2,4}."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li 2026",
+        "small canonical-Ramsey literature"
+      ],
+      "rationale": "The Hamilton-cycle coloring is a uniform explicit obstruction for a natural new Ramsey parameter, and matching it to the best available upper bound settles the first two nontrivial biclique cases beyond the smallest example. The result is modest but mathematically motivated and not just a table lookup.",
+      "residual_risks": [
+        "The all-t lower bound is asymptotically weaker than known constructions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every \\(t\\ge3\\), the two-color orderable and unordered-canonical biclique Ramsey parameters satisfy \\(r'_2(K_{2,t})\\ge t+3\\) and \\(CR(K_{2,t},K_3)\\ge t+3\\); together with Li’s upper bound this gives the exact values \\(r'_2(K_{2,4})=CR(K_{2,4},K_3)=7\\) and \\(r'_2(K_{2,5})=CR(K_{2,5},K_3)=8\\).",
+  "limitations": [
+    "The linear lower bound is not asymptotically sharp compared with the known \\(4t/3+o(t)\\) scale.",
+    "Only \\(t=4,5\\) are closed exactly by the cited upper bound."
+  ],
+  "schema_version": 1
+}
