@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically from the defining identities.
+# Independent mathematical audit
 
-For a rank-one operator \(T=f\otimes x\), direct composition gives \(T^2=f(x)T\). If \(f(x)\ne0\), then \(P=T/f(x)\) satisfies \(P^2=P\) and \(T^2=f(x)^2P\). Since the scalar field is real, \(f(x)^2>0\).
+## correctness
 
-The scale-propagation lemma was checked in both regimes. For \(0<t\le1\),
-\[
-I+\sigma P=(I+\sigma tP)+\sigma(1-t)P.
-\]
-For \(t\ge1\),
-\[
-I+\sigma P=t^{-1}(I+\sigma tP)+(1-t^{-1})I.
-\]
-In each case, the assumed equality at \(t=1\) plus the triangle inequality gives the sharp lower bound \(1+t\|P\|\), while the ordinary triangle inequality gives the same upper bound.
+PASS
 
-The only non-elementary input is Langemets's theorem that, for a real Banach space of dimension greater than one, either signed square Daugavet identity for all rank-one operators is equivalent to the Daugavet property. The inspected arXiv record states this theorem and lists Primary MSC 46B20.
+For \(0<t\le1\), the identity \(I+\sigma P=(I+\sigma tP)+\sigma(1-t)P\) forces the sharp lower bound, while the triangle inequality gives the matching upper bound. For \(t\ge1\), the decomposition \(I+\sigma P=t^{-1}(I+\sigma tP)+(1-t^{-1})I\) does the same. Every rank-one \(T=f\otimes x\) satisfies \(T^2=f(x)T\); if the scalar is nonzero, \(P=T/f(x)\) is a projection and \(T^2=f(x)^2P\), a positive multiple over the real field. Thus the projection hypothesis yields Langemets’s signed-square property for every rank-one operator, which characterizes Daugavet in real dimension greater than one.
 
-No numerical experiment, finite enumeration, or computer algebra certificate is used. No complex-scalar analogue is claimed from the same fixed-sign hypothesis.
+## originality
+
+PASS
+
+Langemets’s primary arXiv record states that either signed square identity for every rank-one operator characterizes the Daugavet property in real dimension greater than one, but the accessible material does not state the one-scale projection-only criterion. The older bad-projection condition is only a lower bound and is explicitly known not to be equivalent to Daugavet. Exact web and Resultary searches for every-rank-one-projection/idempotent formulations found no earlier fixed-scale identity with right side \(1+\|P\|\).
+
+## value
+
+PASS
+
+The theorem isolates a natural exact projection boundary: a single-scale equality on rank-one idempotents suffices, while the classical bad-projection inequality is strictly weaker. This makes the newest square characterization easier to test on a distinguished operator class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
