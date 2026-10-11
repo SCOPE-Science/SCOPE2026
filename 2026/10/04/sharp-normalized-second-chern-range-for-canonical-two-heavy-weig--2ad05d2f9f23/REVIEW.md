@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The weighted Euler sequence gives the two Chern classes directly. The canonical region is re-derived from the Reid--Tai ages for the two heavy quotient charts. Cauchy--Schwarz gives the unique upper equality case, and two explicit monotonicity derivatives give the unique lower equality case. The exact checker independently matches the local age criterion and endpoint formulas on finite ranges; the theorem itself does not rely on finite enumeration.
+## correctness
 
-## Originality
-PASS. The closest inspected literature supplies the general weighted-projective, cohomological, and tangent-sequence background, but the inspected statements do not impose the canonical two-heavy region and optimize the normalized second-Chern ratio on it. Multiple formula, alias, and broader-coverage searches found no statement implying both sharp bounds with their equality classifications. The residual risk is an uncatalogued or differently phrased prior statement.
+PASS
 
-## Value
-PASS. The ratio is dimensionless and built from the first two tangent Chern classes, so it gives a natural characteristic-number coordinate on a Fano-orbifold family. The result identifies both unique extremal canonical geometries in every dimension and shows that the smooth point and the far canonical boundary are opposite ends of this invariant. This is a structural extremal theorem over the complete canonical parameter region rather than a recomputation at isolated examples.
+The weighted Euler sequence gives c1=(r+a+b)H and c2=[binom(r,2)+r(a+b)+ab]H^2, so the ratio follows after cancellation. The canonical region is 0<=d=b-a<=r and 1<=a<=r+d; this was independently rechecked from Reid–Tai ages on finite boxes and agrees with the separate published classification. Cauchy–Schwarz gives the upper bound with equality only at all weights one. For the lower bound, the audited derivative in a is nonnegative over the triangle and the boundary derivative in d is strictly positive, forcing the unique corner (2r,3r). The inspected exact verifier independently checks the region and extrema on finite regression ranges; the theorem itself is symbolic.
 
-## Closest literature and limitations
-Dolgachev gives the foundational weighted-projective framework. Bahri--Franz--Ray give cohomological and Chern-class formulas for weighted projective constructions. El Haloui displays the weighted Euler sequence for the tangent sheaf of a weighted projective stack. The present statement is limited to characteristic zero and to weights \((1^r,a,b)\), and its Chern numbers are stack Chern numbers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+General weighted-projective sources supply Chern-class machinery and the tangent Euler sequence. A separate published Resultary theorem gives the same triangular canonical/terminal parameter classification for the two-heavy family, so that ingredient is treated as prior input. Neither it nor the broader Chern sources states the normalized second-Chern extrema. The audited contribution survives as the exact optimization over that canonical triangle.
+
+## value
+
+PASS
+
+The ratio is a natural dimensionless invariant built from the first two tangent Chern classes. Its complete sharp range and equality geometries on the full canonical two-heavy family form a structural extremal classification, even though the canonical parameter triangle itself is prior input.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
