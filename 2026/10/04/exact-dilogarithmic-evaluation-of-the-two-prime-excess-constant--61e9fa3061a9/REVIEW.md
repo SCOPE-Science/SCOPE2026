@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's three pieces of \(G\) were transcribed from equation (18). Defining \(\Phi(w)=\log w\log(1+w/2)+\operatorname{Li}_2(-w/2)\) gives \(\Phi'(w)=\log w/(w+2)\). The displayed antiderivatives differentiate to the second and third source pieces, while the first piece integrates directly. Endpoint substitution uses only \(\operatorname{Li}_2(-1)=-\pi^2/12\) and elementary logarithm algebra. Independent numerical replay agrees with the source decimal to floating precision.
+## correctness
 
-## Originality
-PASS. Full inspection of arXiv:2609.25446v1 shows that Section 5 supplies the piecewise integrand, gives a closed form only for the first piece, then reports high-precision quadrature for the complete \(I\) and a rational lower-bound certificate. It does not state the displayed exact dilogarithmic value. Database searches for the source title plus exact evaluation, for the decimal plus dilogarithm, and for the practical-number two-prime excess constant returned no same-object statement. Exact-decimal and formula web searches likewise found no same constant. Residual risk is limited to an unindexed symbolic evaluation.
+PASS
 
-## Value
-PASS. The evaluated quantity is not an arbitrary slice: \(I\) is the explicit constant in the paper's principal pointwise excess lower bound. Converting its quadrature value into an exact special-function expression removes a numerical-integration dependency, makes exact transformations and comparisons possible, and gives a reusable symbolic form for this theorem-level invariant. The result is narrow but naturally singled out by the source itself.
+Differentiating the stated auxiliary Phi gives log(w)/(w+2), so the three antiderivatives differentiate to the corresponding profile pieces. Endpoint substitution leaves Li_2(-1/2), Li_2(-3/4), and Li_2(-1)=-pi^2/12 and yields the displayed closed form. The independent verifier evaluates the convergent dilogarithm series and separately performs split Simpson quadrature, agreeing to about 1e-15. The numerical check corroborates the exact antiderivative proof.
 
-The closest literature is Hughes's arXiv:2609.25446v1; NIST DLMF §25.12 supplies the standard dilogarithm definition. The result does not strengthen the density asymptotics or settle the underlying Erdős problem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hughes defines the same two-prime excess integral, reports its decimal value, and uses it in the density lower bound, but the accessible source material does not supply the displayed dilogarithmic closed form. Resultary's direct semantic match is the audited finding itself, with no earlier exact symbolic evaluation located. Standard dilogarithm references supply generic identities rather than this evaluated constant.
+
+## value
+
+PASS
+
+The constant occurs explicitly in a quantitative density lower bound. Replacing quadrature by an exact expression provides a reusable symbolic value for comparison and certification, resolving a natural exact constant used by the source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

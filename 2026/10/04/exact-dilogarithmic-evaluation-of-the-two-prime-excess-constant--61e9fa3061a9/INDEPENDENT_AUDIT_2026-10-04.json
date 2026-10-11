@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:52:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 67eb8452d98ced71f23dfb9232fc8730e7d4b90c",
+        "assigned verify.py blob 985a985ed240bc2498b9741e7847b33606d3a54c",
+        "Hughes arXiv:2609.25446v1",
+        "NIST DLMF Section 25.12"
+      ],
+      "rationale": "Differentiating the stated auxiliary Phi gives log(w)/(w+2), so the three antiderivatives differentiate to the corresponding profile pieces. Endpoint substitution leaves Li_2(-1/2), Li_2(-3/4), and Li_2(-1)=-pi^2/12 and yields the displayed closed form. The independent verifier evaluates the convergent dilogarithm series and separately performs split Simpson quadrature, agreeing to about 1e-15. The numerical check corroborates the exact antiderivative proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source theorem uses the numerical integral value; generic polylogarithm references do not state this endpoint combination."
+        ],
+        "reasoning": "Neither inspected source states the particular Li_2(-3/4), Li_2(-1/2), logarithmic combination.",
+        "searches": [
+          "Hughes arXiv:2609.25446v1",
+          "standard polylogarithm references"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.25446v1",
+        "NIST DLMF Section 25.12",
+        "Resultary exact-constant query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's numerical quadrature does not itself imply the exact endpoint simplification; the package supplies the antiderivatives and collection."
+        ],
+        "reasoning": "The symbolic evaluation is additional content.",
+        "searches": [
+          "Hughes profile/quadrature value",
+          "audited antiderivative evaluation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hughes source identifies the same constant and reports its decimal value; DLMF supplies the standard dilogarithm calculus."
+        ],
+        "reasoning": "The audited expression is an exact closed-form representation of the already-defined integral, not a different quantity.",
+        "searches": [
+          "Scott D. Hughes, arXiv:2609.25446v1",
+          "NIST DLMF Section 25.12 Polylogarithms",
+          "Resultary query: two-prime excess constant Hughes integral G(w) dilogarithm exact evaluation 0.0588797799"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact table or formula for this constant was located."
+        ],
+        "reasoning": "This is a source-defined constant rather than a standard tabulated value.",
+        "searches": [
+          "Resultary exact-decimal/profile search",
+          "targeted symbolic-evaluation search"
+        ]
+      },
+      "rationale": "Hughes defines the same two-prime excess integral, reports its decimal value, and uses it in the density lower bound, but the accessible source material does not supply the displayed dilogarithmic closed form. Resultary's direct semantic match is the audited finding itself, with no earlier exact symbolic evaluation located. Standard dilogarithm references supply generic identities rather than this evaluated constant.",
+      "residual_risks": [
+        "The full source Section 5 was not materially read in this run; an unindexed symbolic evaluation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NUMERICAL_CONSTANT_PRIOR_EXACT_SYMBOLIC_EVALUATION_NOT_LOCATED",
+          "evidence": "Accessible source material reports the decimal used in the lower bound; no exact dilogarithmic expression was located.",
+          "identifier_or_url": "arXiv:2609.25446v1",
+          "material_read": "Accessible arXiv abstract/metadata and source-linked statements identifying the integral and reported decimal; full Section 5 was not materially available through the tool path before closeout.",
+          "method": "Same-constant comparison plus independent symbolic verification of the assigned antiderivative calculation.",
+          "title": "The density of sums of distinct divisors",
+          "trigger": "Primary source defining the piecewise profile and excess constant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hughes arXiv:2609.25446v1",
+        "NIST DLMF Section 25.12"
+      ],
+      "rationale": "The constant occurs explicitly in a quantitative density lower bound. Replacing quadrature by an exact expression provides a reusable symbolic value for comparison and certification, resolving a natural exact constant used by the source.",
+      "residual_risks": [
+        "The full source Section 5 was not materially read in this run; an unindexed symbolic evaluation remains possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.25446v1",
+    "NIST DLMF Section 25.12",
+    "Resultary exact-constant query"
+  ],
+  "disposition": "passed",
+  "final_claim": "The two-prime excess integral I from Hughes's density theorem has the displayed exact dilogarithmic/logarithmic closed form and numerical value 0.058879779905129229..., matching the source's quadrature value.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The full source Section 5 was not materially read in this run; an unindexed symbolic evaluation remains possible.",
+    "The assigned RESULT.md blob contains literal control characters where LaTeX sequences were intended; the mathematical reconstruction used context and the verifier, but the public text is not safe to publish unchanged."
+  ]
+}

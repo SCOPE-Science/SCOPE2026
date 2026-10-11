@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof was checked by differentiating the stated antiderivatives back to the three published pieces of \(G\), substituting the endpoints \(0,1,3/2,2\), and using \(\operatorname{Li}_2(-1)=-\pi^2/12\). The numerical checker then evaluated \(\operatorname{Li}_2(-1/2)\) and \(\operatorname{Li}_2(-3/4)\) from their convergent series and compared the closed form with direct split quadrature of the published profile.
+# Independent mathematical audit
 
-Recorded replay: `VERIFY_OK closed=0.05887977990512816 direct=0.058879779905129243 abs_diff=1.08e-15`.
+## correctness
 
-The numerical replay is not the proof and does not establish originality. The theorem's density asymptotics and the open Erdős problem are outside this verification.
+PASS
+
+Differentiating the stated auxiliary Phi gives log(w)/(w+2), so the three antiderivatives differentiate to the corresponding profile pieces. Endpoint substitution leaves Li_2(-1/2), Li_2(-3/4), and Li_2(-1)=-pi^2/12 and yields the displayed closed form. The independent verifier evaluates the convergent dilogarithm series and separately performs split Simpson quadrature, agreeing to about 1e-15. The numerical check corroborates the exact antiderivative proof.
+
+## originality
+
+PASS
+
+Hughes defines the same two-prime excess integral, reports its decimal value, and uses it in the density lower bound, but the accessible source material does not supply the displayed dilogarithmic closed form. Resultary's direct semantic match is the audited finding itself, with no earlier exact symbolic evaluation located. Standard dilogarithm references supply generic identities rather than this evaluated constant.
+
+## value
+
+PASS
+
+The constant occurs explicitly in a quantitative density lower bound. Replacing quadrature by an exact expression provides a reusable symbolic value for comparison and certification, resolving a natural exact constant used by the source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
