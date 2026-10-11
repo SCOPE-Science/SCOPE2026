@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is analytic.
 
-For the disease-free spatially constant subsystem,
-\[
-H(t)=
-\frac{K_GH_0e^{r_Gt}}
-{K_G+H_0(e^{r_Gt}-1)}.
-\]
-With the source values
-\[
-H_0=0.015,
-\quad r_G=0.209,
-\quad K_G=5.524,
-\quad r_s=0.103,
-\quad t_s=95,
-\]
-the bundled checker verifies
-\[
-H(t_s)\approx5.5239951659
-\]
-and
-\[
--r_sH(t_s)\approx-0.5689715021<0.
-\]
+# Independent mathematical audit
 
-The checker also symbolically sums the four host equations and obtains
-\[
-\partial_tN
-=
-r_GN\left(1-\frac{N}{K_G}\right)
--2hr_s(H+L+I),
-\]
-and verifies that the first displayed Euler update after switching from \(h=0\) to \(h=1\) sends \(R=0\) to a negative value on the disease-free trajectory.
+## correctness
 
-No simulation is used to infer the sign failure.
+PASS
+
+The counterexample is exact. Disease-free spatially constant data keep u,L,I,R equal to zero up to the switch, while H remains strictly positive by the logistic equation. The source convention changes the Heaviside factor to one for t>t_s, so the right derivative of R at the boundary is -r_s H(t_s)<0 and R immediately becomes negative. A fresh numerical replay using the source values gives H(95)=5.5239951658751245 and right derivative -0.5689715020851378. The source's explicit update has the identical sign defect, and summing the printed component equations reproduces the doubled senescence loss in its total-density equation.
+
+## originality
+
+PASS
+
+Originality passes. The complete primary PDF explicitly declares nonnegative initial states, defines the senescence switch, and prints a removed-compartment equation whose vector field points strictly outward from the nonnegative cone on a simple disease-free boundary state. The immediate predecessor does not contain an HLIR removed compartment, and the bounded searches found no correction of this source-specific sign obstruction.
+
+## value
+
+PASS
+
+The removed density is part of the modeled nonnegative state and enters the paper's disease-severity denominator. An admissible trajectory that is forced negative by the printed senescence mechanism invalidates the claimed compartment interpretation and identifies a necessary correction target. That is a substantive model-consistency result even though more than one biological repair is possible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The disease-free subsystem gives an exact counterexample. Before the senescence switch, \(u=L=I=R=0\) and \(H\) follows a positive logistic equation. Immediately after the switch, the printed removed equation gives \(\partial_tR=-r_sH<0\) at the boundary \(R=0\). The explicit update printed in the paper has the identical sign defect. Summing the component equations independently reproduces the source’s doubled senescence term in the total-density balance.
+PASS
 
-## Originality
+The counterexample is exact. Disease-free spatially constant data keep u,L,I,R equal to zero up to the switch, while H remains strictly positive by the logistic equation. The source convention changes the Heaviside factor to one for t>t_s, so the right derivative of R at the boundary is -r_s H(t_s)<0 and R immediately becomes negative. A fresh numerical replay using the source values gives H(95)=5.5239951658751245 and right derivative -0.5689715020851378. The source's explicit update has the identical sign defect, and summing the printed component equations reproduces the doubled senescence loss in its total-density equation.
 
-PASS. The predecessor spore-dispersal paper has no HLIR removed compartment, while broader plant-disease HLIR literature supplies only the general compartmental context. Exact-title, DOI, positivity, removed-density, senescence, and equivalent-formulation searches found no published correction or prior source-specific counterexample. The claim is restricted to this printed model and does not claim novelty for the general inward-pointing criterion for compartment systems.
+## originality
 
-## Value
+PASS
 
-PASS. The paper interprets \(R\) as a density and uses \(H+L+I+R\) in disease severity. Failure of nonnegative invariance therefore affects the mathematical admissibility of the modeled state, not merely a cosmetic formula. The exact boundary trajectory pinpoints a necessary correction target without overclaiming which biological repair is preferred.
+Originality passes. The complete primary PDF explicitly declares nonnegative initial states, defines the senescence switch, and prints a removed-compartment equation whose vector field points strictly outward from the nonnegative cone on a simple disease-free boundary state. The immediate predecessor does not contain an HLIR removed compartment, and the bounded searches found no correction of this source-specific sign obstruction.
 
-## Closest literature and limitations
+## value
 
-The primary source is DOI 10.3934/math.2023125. Its immediate predecessor, DOI 10.3390/sym14061131, develops only the healthy-host/spore subsystem and proposes an HLIR split as future work. Rimbaud et al., DOI 10.1111/eva.12681, provide earlier plant-disease HLIR context but do not contain the source-specific senescence term.
+PASS
 
-The fitted outbreak simulation code was not available in the inspected article, so the review does not claim that every published numerical trajectory crosses into negative \(R\). It proves that the printed continuum model and displayed Euler update fail positivity for admissible nonnegative data.
+The removed density is part of the modeled nonnegative state and enters the paper's disease-severity denominator. An admissible trajectory that is forced negative by the printed senescence mechanism invalidates the claimed compartment interpretation and identifies a necessary correction target. That is a substantive model-consistency result even though more than one biological repair is possible.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

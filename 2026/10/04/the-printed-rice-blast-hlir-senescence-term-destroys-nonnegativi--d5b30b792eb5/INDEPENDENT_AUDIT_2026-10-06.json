@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:51:40.511808Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 4533c4e45b5aea38b9e0b70782e2b34c2b257ff9",
+        "verify.py blob ee89e9f295b3154bf4ae11155aa94b97bec2b073",
+        "fresh boundary and source-parameter replay",
+        "Tabonglek--Khan--Humphries, An extension of mathematical model for severity of rice blast disease, DOI:10.3934/math.2023125"
+      ],
+      "rationale": "The counterexample is exact. Disease-free spatially constant data keep u,L,I,R equal to zero up to the switch, while H remains strictly positive by the logistic equation. The source convention changes the Heaviside factor to one for t>t_s, so the right derivative of R at the boundary is -r_s H(t_s)<0 and R immediately becomes negative. A fresh numerical replay using the source values gives H(95)=5.5239951658751245 and right derivative -0.5689715020851378. The source's explicit update has the identical sign defect, and summing the printed component equations reproduces the doubled senescence loss in its total-density equation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The predecessor models healthy hosts and spores and motivates later compartment splitting, so it cannot contain the disputed removed-compartment senescence term.",
+          "Generic inward-pointing criteria explain why the sign is problematic but do not state this rice-blast counterexample."
+        ],
+        "reasoning": "No inspected broader source covers the source-specific printed equation.",
+        "searches": [
+          "Tabonglek--Humphries--Khan, Mathematical Model for Rice Blast Disease Caused by Spore Dispersion Affected from Climate Factors, DOI:10.3390/sym14061131",
+          "Tabonglek--Khan--Humphries, An extension of mathematical model for severity of rice blast disease, DOI:10.3934/math.2023125"
+        ]
+      },
+      "checked_sources": [
+        "Tabonglek--Khan--Humphries, An extension of mathematical model for severity of rice blast disease, DOI:10.3934/math.2023125",
+        "Tabonglek--Humphries--Khan, Mathematical Model for Rice Blast Disease Caused by Spore Dispersion Affected from Climate Factors, DOI:10.3390/sym14061131",
+        "Resultary semantic query: rice blast HLIR senescence nonnegativity printed model term correction",
+        "Targeted exact-title, DOI, removed-density, senescence, positivity, and erratum searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With u=L=I=R=0 before the switch, H follows a positive logistic equation.",
+          "Immediately after the printed switch, the source's Eq. (2.17)/(2.23) gives R_t=-r_s H<0, and its displayed explicit method inherits the same sign."
+        ],
+        "reasoning": "The conclusion follows from the exact printed model but is not stated or repaired by the source.",
+        "searches": [
+          "Tabonglek--Khan--Humphries, An extension of mathematical model for severity of rice blast disease, DOI:10.3934/math.2023125",
+          "independent boundary-vector-field reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulations are failure of forward invariance, a negative boundary derivative for the removed density, and the same negative first Euler step after the senescence switch.",
+          "The primary source prints all of these ingredients in the same model."
+        ],
+        "reasoning": "Generic compartment positivity is not the claim; the claim is the exact violation by this printed HLIR senescence term.",
+        "searches": [
+          "Tabonglek--Khan--Humphries, An extension of mathematical model for severity of rice blast disease, DOI:10.3934/math.2023125",
+          "Resultary semantic query: rice blast HLIR senescence nonnegativity printed model term correction",
+          "Targeted exact-title, DOI, removed-density, senescence, positivity, and erratum searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked indexed correction or exact source-specific positivity diagnosis was found.",
+          "The numeric source values merely illustrate the exact sign obstruction; the theorem holds for every positive H0 and senescence rate."
+        ],
+        "reasoning": "The result is analytic rather than a published table recomputation.",
+        "searches": [
+          "Resultary semantic query: rice blast HLIR senescence nonnegativity printed model term correction",
+          "Targeted exact-title, DOI, removed-density, senescence, positivity, and erratum searches"
+        ]
+      },
+      "rationale": "Originality passes. The complete primary PDF explicitly declares nonnegative initial states, defines the senescence switch, and prints a removed-compartment equation whose vector field points strictly outward from the nonnegative cone on a simple disease-free boundary state. The immediate predecessor does not contain an HLIR removed compartment, and the bounded searches found no correction of this source-specific sign obstruction.",
+      "residual_risks": [
+        "An unindexed implementation may use a corrected transfer despite the printed equations; the claim is deliberately about the published model and displayed scheme."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_MODEL_FAILS_NONNEGATIVE_INVARIANCE",
+          "evidence": "Eq. (2.17)/(2.23) subtracts senescence of H+L+I from R, so at R=L=I=0 and H>0 after the switch the R derivative is strictly negative.",
+          "identifier_or_url": "DOI:10.3934/math.2023125",
+          "material_read": "Complete relevant open PDF, including disease-severity definition, Heaviside Eq. (2.12), total-density Eq. (2.13), component Eqs. (2.14)-(2.24), nonnegative initial data, and explicit update Eq. (2.28); equation pages were visually inspected.",
+          "method": "Lawful open-access primary PDF plus page-image inspection and an independent inward-pointing boundary test.",
+          "title": "An extension of mathematical model for severity of rice blast disease",
+          "trigger": "Exact primary source of the HLIR equations and senescence switch."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tabonglek--Khan--Humphries, An extension of mathematical model for severity of rice blast disease, DOI:10.3934/math.2023125",
+        "Tabonglek--Humphries--Khan, Mathematical Model for Rice Blast Disease Caused by Spore Dispersion Affected from Climate Factors, DOI:10.3390/sym14061131",
+        "Resultary semantic query: rice blast HLIR senescence nonnegativity printed model term correction",
+        "Targeted exact-title, DOI, removed-density, senescence, positivity, and erratum searches"
+      ],
+      "rationale": "The removed density is part of the modeled nonnegative state and enters the paper's disease-severity denominator. An admissible trajectory that is forced negative by the printed senescence mechanism invalidates the claimed compartment interpretation and identifies a necessary correction target. That is a substantive model-consistency result even though more than one biological repair is possible.",
+      "residual_risks": [
+        "The result does not assert that every fitted outbreak trajectory becomes negative or choose a unique biological repair."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Publication is withheld because every frozen package contains operational audit/workflow state in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md files. The complete 35-file recursive inventory was read; RESULT.md, SLOGAN.txt, and verifier sources were semantically inspected and were clear of the checked platform, provider, scheduling, credential, and private-workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}
