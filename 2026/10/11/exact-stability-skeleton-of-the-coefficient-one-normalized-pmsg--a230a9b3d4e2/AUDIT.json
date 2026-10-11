@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For the printed system, direct differentiation gives an exact radially unbounded Lyapunov function with negative-definite derivative for \\(0<b<1\\), and LaSalle closes \\(b=1\\). The nonzero branch follows algebraically from \\(z=xy\\), the characteristic cubic was reconstructed, and the specialized Routh determinant is the negative of a strictly increasing cubic divided by a positive denominator. The root and decimal renderings were replayed from the packaged standard-library checker. No finite experiment is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1049/iet-epa.2016.0506 gives fractional-order stability and Hopf analysis for a related PMSG model.",
+        "DOI 10.1140/epjs/s11734-021-00422-4 is a related PMSG control/synchronization paper; accessible metadata and abstract emphasize control rather than the exact target stability partition."
+      ],
+      "reasoning": "The closest broader analytical source does not dominate the present claim because the claim includes a global Lyapunov theorem at and below the creation threshold for the coefficient-one target vector field, followed by the exact Routh-Hurwitz boundary of its specific nonzero branch.",
+      "searches": [
+        "permanent magnet synchronous generator chaotic system nonzero equilibria pitchfork Hopf exact stability",
+        "global asymptotic stability PMSG origin b<=1 quadratic Lyapunov a=5.45",
+        "Predictive control and synchronization uncertain perturbed chaotic permanent-magnet synchronous generator equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023285",
+      "doi:10.1049/iet-epa.2016.0506",
+      "doi:10.1088/1674-1056/24/1/010502",
+      "doi:10.1140/epjs/s11734-021-00422-4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target full text was inspected at the model equations and bifurcation section.",
+        "The 2017 full accessible article was inspected at its model, equilibria, characteristic equation, stability theorem, and Hopf discussion.",
+        "The 2015 Chinese Physics B bibliographic page and abstract were inspected; full text was not recovered."
+      ],
+      "reasoning": "Neither accessible primary source states a theorem implying the combined claim. The target article's numerical labels do not imply exact local stability, and the 2017 fractional analysis does not imply the global Lyapunov result for this coefficient-one flow. The 2015 source remains a bounded unresolved access risk, not a basis for a novelty claim.",
+      "searches": [
+        "10.3934/math.2023285 equilibrium stability",
+        "Dynamics of the fractional-order chaotic PMSG equilibria Hopf integer order",
+        "Predictive control of a chaotic permanent magnet synchronous generator equilibrium stability bifurcation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.2023285, printed systems (3)-(4) and Section 3.1",
+        "DOI 10.1049/iet-epa.2016.0506, Sections 2.2-2.4"
+      ],
+      "reasoning": "The target coefficient-one vector field was searched both by DOI and by equation aliases. The 2017 PMSG formulation is the closest accessible equivalent-family source, but its displayed model retains a separate first-equation quadratic coefficient and its displayed nonzero-equilibrium parameterization is different. It does not state the target branch, the global Lyapunov factorization, or the algebraic boundary proved here.",
+      "searches": [
+        "normalized PMSG y1dot=a(y2-y1)+y3*y2 y2dot=-y2-y1*y3+b*y1 exact equilibrium stability threshold",
+        "PMSG a=5.45 b=5.585903740768374 local stability nonzero equilibria",
+        "doi:10.3934/math.2023285"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DOI 10.3934/math.2023285 reports the numerical \\(b\\)-sweep with stable behavior on \\([0,5.2]\\) at \\(a=5.45\\), but no exact equilibrium-stability table.",
+        "No exact threshold or matching coefficient-one equilibrium table was recovered by these searches."
+      ],
+      "reasoning": "The accepted statement is not a recomputation of a known table: its exact threshold is defined by a new algebraic root condition derived from the printed Jacobian, and the source table/figures are trajectory-level numerical diagnostics rather than an exact local equilibrium partition.",
+      "searches": [
+        "PMSG a=5.45 b=5.585903740768374 local stability nonzero equilibria",
+        "10.3934/math.2023285 nonzero equilibria Routh Hurwitz",
+        "PMSG stable behavior 5.2 5.45 equilibrium"
+      ]
+    },
+    "rationale": "The target article supplies numerical bifurcation/Lyapunov intervals, not the combined global-origin theorem and exact local equilibrium threshold. The closest accessible analytical PMSG paper treats a related fractional model but does not state this coefficient-one stability skeleton. Exact equation, source, alias, threshold, and implication searches did not recover a covering theorem. The inaccessible full text of the 2015 model source remains an explicit residual risk rather than being treated as negative evidence.",
+    "residual_risks": [
+      "The complete 2015 Messadi et al. text was not recovered, so it could contain a related equilibrium calculation not visible in the abstract/metadata.",
+      "A source using a non-obvious rescaling or alternate variable names could have an equivalent local threshold that escaped keyword search; the global endpoint Lyapunov statement would still require comparison.",
+      "No nonlinear Hopf coefficient was computed, so the spectral crossing must not be promoted to a nonlinear Hopf-bifurcation theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source prints the exact vector field used here and reports stable behavior for \\(b\\) through about \\(5.2\\), but does not give the equilibrium branch, global origin theorem, or exact local threshold.",
+        "evidence": "Published 22 December 2022; MSC list begins 34A07; equations (4), parameter choice \\(a=5.45\\), \\(b=20\\), and Section 3.1 numerical sweep.",
+        "identifier_or_url": "doi:10.3934/math.2023285",
+        "material_read": "Publisher PDF, model derivation and systems (2)-(4), Lyapunov exponents, Section 3.1 bifurcation discussion, references and publication metadata.",
+        "method": "Lawful publisher full text; text extraction cross-checked against rendered PDF pages containing the model and parameter values.",
+        "title": "Investigation of chaotic behavior and adaptive type-2 fuzzy controller approach for Permanent Magnet Synchronous Generator (PMSG) wind turbine system",
+        "trigger": "Primary source for the printed coefficient-one vector field and numerical parameter sweep."
+      },
+      {
+        "assessment": "Related but not covering: it treats a fractional PMSG formulation with a separate quadratic coefficient and a different displayed equilibrium parameterization; it does not state the coefficient-one global/local partition proved here.",
+        "evidence": "Its displayed equation (5), equilibrium formula, characteristic equation (7), and Hopf section were compared to the target statement.",
+        "identifier_or_url": "doi:10.1049/iet-epa.2016.0506",
+        "material_read": "Full accessible article, Sections 2.2-2.4, including the displayed fractional PMSG model, equilibria, Jacobian/characteristic equation, stability theorem, and Hopf discussion.",
+        "method": "Lawful open full text with equation images inspected directly.",
+        "title": "Dynamics of the fractional-order chaotic PMSG, its stabilisation using predictive control and circuit validation",
+        "trigger": "Closest accessible paper analyzing equilibria and Hopf behavior in a related PMSG family."
+      },
+      {
+        "assessment": "No accessible evidence was found for the exact combined claim; because the full text was unavailable, this source is retained as a residual originality risk.",
+        "evidence": "The abstract emphasizes predictive control of chaotic PMSG operation and the publisher page confirms DOI and bibliographic identity.",
+        "identifier_or_url": "doi:10.1088/1674-1056/24/1/010502",
+        "material_read": "Publisher bibliographic page and abstract; full article text was not recovered after bounded lawful-access attempts.",
+        "method": "Publisher metadata/abstract plus bounded open-access and authorized-access retrieval attempts.",
+        "title": "Predictive control of a chaotic permanent magnet synchronous generator in a wind turbine system",
+        "trigger": "The target article cites this paper for the underlying PMSG model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a230a9b3-d4e2-4a7b-96f6-34226c7df40b",
+  "value": {
+    "rationale": "The result converts a numerical stability/chaos sweep of a control-relevant published PMSG model into a sharp structural phase skeleton: a global stability theorem through the nonhyperbolic origin threshold, an exact parameterization of the new equilibrium pair, and its exact algebraic local-stability loss. The distinction between the numerical trajectory transition near \\(5.2\\) and the local equilibrium threshold near \\(5.5859\\) is mathematically informative for basin coexistence and equilibrium-targeting control, not an arbitrary parameter slice or a mere recomputation of a table.",
+    "status": "PASS"
+  }
+}
