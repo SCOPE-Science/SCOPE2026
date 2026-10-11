@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Starting from the published complex equations, expand \(x=x_1+ix_2\) and \(y=x_3+ix_4\). The relative-phase defect is
-\[
-J=x_1x_4-x_2x_3.
-\]
-Substitution of the five real differential equations into \(\dot J\) cancels all \(z\)- and \(\alpha\)-terms and leaves exactly
-\[
-\dot J=-2\beta J.
-\]
-This algebraic identity is the only nontrivial calculation needed for the phase-locking theorem.
+# Independent mathematical audit
 
-For a bounded complete solution, \(J(t_0)\ne0\) would imply exponential growth as \(t\to-\infty\), so \(J\equiv0\). If \(x=y=0\) at any time, uniqueness forces the complex coordinates to remain zero while \(z\) evolves linearly, contradicting bounded completeness. Hence a fixed common phase is well-defined modulo \(\pi\) and is preserved by uniqueness.
+## correctness
 
-On the corresponding real slice, normal perturbations satisfy
-\[
-\dot u=-\beta u+Zv,\qquad
-\dot v=(Z-\alpha)u-\beta v.
-\]
-The symmetry mode \((u,v)=(X,Y)\) is an exact solution. Compact recurrence keeps its norm between positive finite bounds, so its Lyapunov exponent is \(0\). The normal trace is \(-2\beta\); Liouville's determinant formula therefore fixes the other exponent at \(-2\beta\).
+PASS
 
-The published parameter value \(\beta=2\) gives exact normal exponents \(0\) and \(-4\). The displayed initial condition gives \(J(0)=-17\), hence \(J(t)=-17e^{-4t}\). These substitutions are exact and are not evidence for the general theorem; they are checks of its specialization.
+Direct differentiation of the frozen vector field gives \(\dot J=-2\beta J\) for \(J=\operatorname{Im}(\overline{x}y)\). Backward exponential growth excludes nonzero \(J\) on a bounded complete orbit. The zero-defect condition plus uniqueness fixes a common phase, and a bounded complete orbit cannot pass through \(x=y=0\). On a compact invariant support the symmetry solution \((u,v)=(X,Y)\) of the normal block is continuous, nonvanishing and therefore bounded above and away from zero, giving exponent zero; the normal trace is \(-2\beta\), so Liouville gives the second exponent \(-2\beta\).
 
-Limits: no claim is made that a generic forward transient with nonzero \(J(0)\) reaches a real slice at finite time. The Lyapunov-spectrum conclusion is scoped to compactly supported ergodic invariant measures so that the cocycle hypotheses and the bounded-away-from-zero symmetry mode are explicit.
+## originality
+
+PASS
+
+The inspected primary complex-Rikitake paper supplies the same equations, symmetry, equilibrium circle and local/numerical spectra but not the global phase-defect law, fixed-phase reduction, or compact-measure normal-spectrum splitting. Fresh Resultary searches returned the present record as the only same-claim match; nearby Rikitake and symmetry results concern different balances or different flows.
+
+## value
+
+PASS
+
+The theorem gives a structural dimension reduction for all compact recurrent dynamics of a published five-real-dimensional model and fixes two Lyapunov exponents exactly. That is a reusable dynamical statement, not a finite numerical check or notation change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
