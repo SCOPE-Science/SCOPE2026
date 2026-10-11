@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The equilibrium coordinates and linear drift follow by direct differentiation. Ito moment closure produces the 3x3 matrix K and an exactly cross-checked cubic. Necessity uses mean drift stability plus the positive-definite solution of the stochastic Lyapunov identity; its diagonal and off-diagonal entries force delta>0 and Q(2bd+z delta)<2bd delta. Sufficiency constructs a positive-definite H from any eta in the exact open interval and obtains a strictly negative diagonal generator. Boundary equalities are excluded by the same strict necessity. The extracted symbolic checker verifies all algebraic coefficients; 1260 finite numerical cases independently stress-test but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buckwar–Kelly Sections 3.2–3.3 give the general 4x4 mean-square matrix and examine a distinct Holling-II response numerically; it is broad methodology, not an explicit analytic inequality.",
+        "Senosiain–Tocino analyze upper-triangular Jordan-type drift and structured noise matrices; the drift considered here has both signed nonzero off-diagonal couplings and a zero bottom-right diagonal entry.",
+        "The resulting constructive Lyapunov proof fixes both the entire noise trade-off and its boundary, not merely sufficient control of a moment-matrix eigenvalue."
+      ],
+      "reasoning": "A general matrix Hurwitz or Lyapunov criterion is logically applicable to this SDE and is credited. But its explicit elimination into the closed sharp two-noise graph and its strict predator-prey variance ordering is not printed by these sources. Their own specified examples have different functional responses or algebraically nonequivalent drift/noise structures.",
+      "searches": [
+        "\"Asymptotic and Transient Mean-Square Properties of Stochastic Systems Arising in Ecology\" predator prey moment",
+        "\"A survey of mean-square destabilization of multidimensional linear stochastic differential systems\" eigenvalues noise intensities Jordan",
+        "\"stochastic planar predator prey community matrix negative positive offdiagonal zero bottom right exact mean square stability curve Q=2bd(2z-P)/(2bd+z(2z-P))\"",
+        "Senosiain and Tocino (2023), DOI 10.1007/s11075-022-01478-6, sections 1,3,5"
+      ]
+    },
+    "checked_sources": [
+      "Tan, Wang, Feng, Mathematics 10 (2022) 4087, DOI 10.3390/math10214087, full open-access HTML",
+      "Buckwar, Kelly, SIAM J. Appl. Math. 74 (2014) 411–433, DOI 10.1137/120893859, author-provided full-text transcription",
+      "Senosiain, Tocino, Numerical Algorithms 93 (2023) 1543–1559, DOI 10.1007/s11075-022-01478-6, full open-access HTML",
+      "Tocino, Senosiain, Journal of Computational and Applied Mathematics (2020), DOI 10.1016/j.cam.2020.112950, abstract and later survey description only",
+      "Published research-record semantic comparisons of predator–prey stability, joint-noise stability and mean-square threshold aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original paper gives numerical findings that predator perturbations destabilize more strongly; such examples are consistent with but do not prove a universal analytic strict ordering.",
+        "Buckwar–Kelly express stability via spectral abscissa of a Kronecker matrix, applicable in principle; they do not evaluate the fully explicit sharp two-noise curve for this response.",
+        "Senosiain–Tocino give explicit regions for different drift matrices and diffusion orientations."
+      ],
+      "reasoning": "The claim is not novelty of the stochastic moment method or a stochastic-equilibrium stability test in general. For the specific square-root coexistence system it is a complete exact if-and-only-if joint-noise threshold and everywhere-strict inequality between single-species critical variances. These are not asserted or calculated in the inspected primary statements. This is an analytically resolved, application-specific parameter region of a general method, with residual risk of unindexed equivalent derivations.",
+      "searches": [
+        "DOI 10.3390/math10214087 paper sections 3–4 coexistence stochastic dynamics",
+        "DOI 10.1137/120893859 Sections 3.2–3.3 stochastic predator-prey full-text",
+        "DOI 10.1007/s11075-022-01478-6 Section 3 and Table 1",
+        "Tan Wang Feng square root functional response stochastic coexistence equilibrium exact analytic mean-square stability σ1² σ2² tradeoff predator noise 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tan et al. (2022) compute a Kronecker mean-square stability matrix and plot one-species noise responses, not a closed joint-variance frontier.",
+        "Buckwar and Kelly (2014) present generic moment spectral criterion and a Holling-II system with structurally similar drift, but do not give an explicit two-noise frontier even for their model.",
+        "The formula here supplies an explicit exact elimination of the stability spectral test and the strict single-noise threshold inequality."
+      ],
+      "reasoning": "The natural alias is a 2x2 predator–prey Jacobian with lower-right entry zero, opposite-sign off-diagonal feedback, and independent coordinate-projection Itô noises. The older general mean-square spectral and Lyapunov theorems apply but do not state the present explicit threshold in either model or generic b,d,z parameters. Numeric plots and qualitative greater-predator sensitivity do not imply an exact two-dimensional necessary-and-sufficient boundary without further analysis.",
+      "searches": [
+        "\"Tan Wang Feng square root functional response stochastic coexistence equilibrium exact analytic mean-square stability σ1² σ2² tradeoff predator noise 2022\"",
+        "\"square root functional response\" \"mean-square\" \"noise\" stability boundary predator prey",
+        "\"Tan\" \"Wang\" \"Feng\" \"2022\" \"mean-square\" \"threshold\" predator",
+        "Tan et al. (2022), DOI 10.3390/math10214087, sections 3–4",
+        "Buckwar & Kelly (2014), DOI 10.1137/120893859, sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original 2022 source shows figures 4–8 and a mean-square matrix, not a numerical table or equation identifying the full analytic boundary.",
+        "Generic 2x2 mean-square matrix computations in Buckwar–Kelly are not a table of the square-root model’s exact noise variances.",
+        "The finding is a continuous two-parameter strict stability criterion valid for all c>0 and 1/sqrt(3)<s/c<1, not a new row of an existing finite database."
+      ],
+      "reasoning": "No exact database/table value was identified; this object is a two-parameter algebraic stability region rather than a finite table lookup. A known spectral matrix or a plotted resilience curve does not directly provide the simplified exact curve and strict inequalities.",
+      "searches": [
+        "\"Transient Dynamics Analysis of a Predator-Prey System with Square Root Functional Responses and Random Perturbation\" sigma1 sigma2 stability",
+        "\"square root functional response\" \"mean-square\" \"noise\" stability boundary predator prey",
+        "\"two-dimensional linear multiplicative independent diagonal noise mean square stable exact covariance criterion A=[[a,-b],[d,0]]\""
+      ]
+    },
+    "rationale": "The claimed contribution is the exact algebraic two-independent-noise if-and-only-if region and universal strict predator-versus-prey critical variance ordering in the 2022 square-root predator–prey model. The motivating full article reports a Kronecker matrix and numerical graphs, while the broad 2014 method and a 2023 explicit survey do not print this frontier or its ordering. The general moment/Lyapunov criterion is prior art and is explicitly acknowledged, leaving an application-specific exact parameter-elimination result rather than an invented general theory.",
+    "residual_risks": [
+      "The 2020 Tocino–Senosiain article was not read in full; source-specific content not exhaustively ruled out, though the accessible later survey describes different Jordan-type systems.",
+      "An unindexed exact specialization of the generic 2014 Lyapunov criterion may exist. The current novelty claim is limited to the explicit square-root model joint-variance boundary, not covariance methods in general."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_FOR_MODEL_BUT_NOT_EXPLICIT_SHARP_FRONTIER",
+        "evidence": "The reported results use Kronecker stability matrix and numerical resilience/reactivity/amplification graphics and state predator perturbations are more destabilizing; no all-parameter iff analytic two-noise inequality or proof of strict single-noise ordering.",
+        "identifier_or_url": "https://doi.org/10.3390/math10214087",
+        "material_read": "Open-access HTML: introduction and Sections 2–5, especially deterministic equilibria, linear noise moment matrix, Theorem 3.2, and Figs. 4–8 with the reported single-noise stability behavior.",
+        "method": "Full article HTML text, equation and section-by-section scientific comparison.",
+        "title": "Transient Dynamics Analysis of a Predator-Prey System with Square Root Functional Responses and Random Perturbation",
+        "trigger": "Same model, noise matrices, and coexistence equilibrium; exact primary source."
+      },
+      {
+        "assessment": "GENERAL_STOCHASTIC_STABILITY_TOOL_APPLIES_BUT_NO_EXPLICIT_TRADEOFF",
+        "evidence": "Their response is Holling-II (3.3), not the square-root model; (3.2)–(3.8) provide the general covariance framework and numerical stability indicators, while subsection 3.3.2 says eigenvalues are not explicitly written and uses figures.",
+        "identifier_or_url": "https://doi.org/10.1137/120893859",
+        "material_read": "Author-provided full-text transcription, §§2.1–2.3 and §§3.1–3.3.4, including matrices (3.6),(3.8), S and numerical Figs. 1–4.",
+        "method": "Full author textual preview, direct comparison of equations, noise independence, moment spectral criterion and parameter results.",
+        "title": "Asymptotic and Transient Mean-Square Properties of Stochastic Systems Arising in Ecology, Fluid Dynamics, and System Control",
+        "trigger": "Most plausible broad dominating mean-square predator–prey framework."
+      },
+      {
+        "assessment": "DIFFERENT_DRIFT_AND_NOISE_FAMILIES",
+        "evidence": "Section 3 treats upper triangular Jordan drift with equal diagonal entries and different noise matrices; its Table 1 does not contain signed off-diagonal feedback with zero predator diagonal and the stated independent two-projector noise.",
+        "identifier_or_url": "https://doi.org/10.1007/s11075-022-01478-6",
+        "material_read": "Open access HTML: abstract, §§1–3 and summary/Table 1 and §5.",
+        "method": "Full HTML scientific comparison of drift and diffusion structures against the 2x2 ecological drift with independent diagonal projections.",
+        "title": "A survey of mean-square destabilization of multidimensional linear stochastic differential systems with non-normal drift",
+        "trigger": "Paper claiming explicit necessary and sufficient multi-noise stability regions."
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_RISK",
+        "evidence": "The 2023 survey attributes upper-triangular test-matrix criteria to this paper. Full original may contain further related formulas; not assumed to be absent.",
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2020.112950",
+        "material_read": "Abstract and bibliographic summaries, plus the 2023 survey characterizing its model matrices. Original full text not accessed.",
+        "method": "Abstract-level risk identification; not treated as full-document exclusion.",
+        "title": "MS-Stability of nonnormal stochastic differential systems",
+        "trigger": "Earlier related paper referenced by the mean-square survey."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "479c623e-a3e7-4916-a070-b617baef130e",
+  "value": {
+    "rationale": "The motivating 2022 ecological question asks how separate prey and predator environmental noise intensities affect coexistence. A complete joint-noise threshold replaces a sampled numerical region with a sharp strict parameter boundary, quantifies all prey/predator trade-offs, and proves the mathematically motivated observed asymmetry uniformly across the entire deterministic stability interval. The exact frontier permits reproducible boundary and interior decisions and identifies the critical noise strengths rather than offering an arbitrary parameter slice, minor numerical improvement, or simple normalization.",
+    "status": "PASS"
+  }
+}
