@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:07:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On an eigenvector, the proposed cycle keeps v constant and the momentum/parameter flip equations give the stated radius exactly. In a transverse eigenmode the first variation of the scalar squared-gradient norm vanishes by orthogonality, leaving a 2x2 block with characteristic polynomial \\(z^2-(1+\\beta_1)(1-2\\mu/\\lambda)z+\\beta_1\\). Jury's inequalities reduce exactly to 0<mu<lambda.",
+      "risk": "Only transverse linear stability is classified; radial attraction and convergence from standard initialization are not proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "NovoGrad sources define the algorithm; Adam literature studies another adaptive optimizer; normalized-gradient work does not give the submitted Floquet law."
+        ],
+        "reasoning": "No broader checked theorem specialized to the exact NovoGrad curvature criterion.",
+        "searches": [
+          "arXiv:1905.11286 full text",
+          "arXiv:2210.02070 full text",
+          "normalized-gradient literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.11286v3",
+        "NVIDIA/OpenSeq2Seq NovoGrad implementation",
+        "arXiv:2210.02070",
+        "arXiv:1904.03288",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work supplies the recurrence and a related Adam phenomenon, but not the NovoGrad orbit radius or transverse polynomial."
+        ],
+        "reasoning": "The submitted result requires solving and linearizing the NovoGrad recurrence afresh.",
+        "searches": [
+          "arXiv:1905.11286 Algorithm 1",
+          "arXiv:2210.02070 quadratic Adam analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No NovoGrad equivalent was found; the closest exact cycle theorem is for Adam."
+        ],
+        "reasoning": "Adam cycle results are analogous but not equivalent because the recurrences and stability matrices differ.",
+        "searches": [
+          "Resultary NovoGrad period-two search",
+          "web: NovoGrad period two cycle quadratic optimizer",
+          "arXiv:2210.02070 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table or database of NovoGrad periodic orbits/stability thresholds was found."
+        ],
+        "reasoning": "The result is analytic, not benchmark-table driven.",
+        "searches": [
+          "Resultary optimizer corpus",
+          "NVIDIA/OpenSeq2Seq NovoGrad implementation"
+        ]
+      },
+      "rationale": "The full NovoGrad paper and official implementation define the exact update ordering used here. The paper contains no quadratic cycle analysis. Bock-Weiss proves analogous period-two cycles for Adam, but Adam's coordinatewise moment dynamics differ materially from NovoGrad's scalar layer normalization.",
+      "residual_risks": [
+        "An unindexed general theorem for layerwise normalized momentum could specialize to this recurrence; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING",
+          "evidence": "Defines the recurrence but gives no period-two quadratic analysis.",
+          "identifier_or_url": "arXiv:1905.11286v3",
+          "material_read": "Full preprint, especially Algorithm 1.",
+          "method": "lawful arXiv full text",
+          "title": "Training Deep Networks with Stochastic Gradient Normalized by Layerwise Adaptive Second Moments",
+          "trigger": "Primary NovoGrad algorithm."
+        },
+        {
+          "assessment": "ANALOGOUS_DIFFERENT_ALGORITHM",
+          "evidence": "Proves Adam 2-cycles on quadratics, not NovoGrad cycles.",
+          "identifier_or_url": "arXiv:2210.02070",
+          "material_read": "Full preprint introduction and algorithm/cycle setup.",
+          "method": "lawful arXiv full text",
+          "title": "Non-Convergence and Limit Cycles in the Adam optimizer",
+          "trigger": "Closest exact adaptive-optimizer limit-cycle theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact limit cycles on convex quadratics are a meaningful optimizer diagnostic. The sharp curvature ordering—lower modes damped, higher modes unstable—adds structural information specific to NovoGrad rather than a parameter example.",
+      "risk": "The theorem is deterministic and excludes several production options.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For deterministic NovoGrad without weight decay or gradient averaging on \\(f(x)=\\frac12x^THx\\), each eigenvalue \\(\\lambda\\) with \\(\\alpha\\lambda>2(1+\\beta_1)\\sqrt\\varepsilon\\) supports an exact sign-flip period-two orbit of radius \\(r_\\lambda^2=\\alpha^2/[4(1+\\beta_1)^2]-\\varepsilon/\\lambda^2\\); a transverse curvature \\(\\mu\\) is Schur-stable exactly when \\(0<\\mu<\\lambda\\).",
+  "limitations": [
+    "No radial-stability or basin claim.",
+    "No weight decay, stochastic gradients, gradient averaging, or learning-rate schedule."
+  ],
+  "schema_version": 1
+}

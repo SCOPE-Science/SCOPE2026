@@ -1,29 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Substituting a sign-alternating eigenvector state into the source NovoGrad recurrence gives the exact cycle radius
-\[
-r_\lambda^2
-=
-\frac{\alpha^2}{4(1+\beta_1)^2}
--
-\frac{\varepsilon}{\lambda^2}.
-\]
-For an orthogonal eigenmode, the derivative of the layerwise squared-gradient norm is zero, so the transverse first-order dynamics close on a constant \(2\times2\) position-momentum block. Its determinant is \(\beta_1\), its trace is \((1+\beta_1)(1-2\mu/\lambda)\), and the exact Jury conditions reduce to \(\mu<\lambda\).
+PASS
 
-Risk: no claim is made about the radial Floquet multiplier along the generating eigenvector.
+On an eigenvector, the proposed cycle keeps v constant and the momentum/parameter flip equations give the stated radius exactly. In a transverse eigenmode the first variation of the scalar squared-gradient norm vanishes by orthogonality, leaving a 2x2 block with characteristic polynomial \(z^2-(1+\beta_1)(1-2\mu/\lambda)z+\beta_1\). Jury's inequalities reduce exactly to 0<mu<lambda.
 
-## Originality
+## originality
 
-PASS. The Jasper and dedicated NovoGrad papers define the normalize-current-gradient-then-momentum ordering and motivate layerwise robustness, but their inspected full text contains no period-two quadratic orbit or transverse eigenmode classification. ND-Adam uses a different first-moment ordering together with spherical renormalization. The inspected normalized-gradient saddle literature states the discrete direction-only update but focuses its rigorous analysis on continuous time and explicitly leaves discrete stable-manifold analysis open.
+PASS
 
-Focused published-record searches for NovoGrad period-two cycles, scalar or SPD quadratic stability, normalized-momentum eigencycles, and relative-curvature transverse spectra returned no covering result.
+The full NovoGrad paper and official implementation define the exact update ordering used here. The paper contains no quadratic cycle analysis. Bock-Weiss proves analogous period-two cycles for Adam, but Adam's coordinatewise moment dynamics differ materially from NovoGrad's scalar layer normalization.
 
-Residual risk: a fixed-step normalized-gradient cycle may be folklore in nonsmooth optimization, but the momentum-dependent radius, epsilon existence threshold, and curvature-ratio Floquet law are specific to the NovoGrad state ordering.
+## value
 
-## Value
+PASS
 
-PASS. Layerwise gradient normalization is NovoGrad's defining mechanism. The theorem shows a precise consequence of that normalization that is invisible in first-order origin analysis: nonzero oscillatory states exist on eigendirections, and the layerwise scalar normalizer makes their transverse stability depend only on curvature ordering. The result explains why high-curvature directions are dynamically privileged and supplies an exact relative-curvature rate plateau controlled solely by momentum.
+Exact limit cycles on convex quadratics are a meaningful optimizer diagnostic. The sharp curvature ordering—lower modes damped, higher modes unstable—adds structural information specific to NovoGrad rather than a parameter example.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
