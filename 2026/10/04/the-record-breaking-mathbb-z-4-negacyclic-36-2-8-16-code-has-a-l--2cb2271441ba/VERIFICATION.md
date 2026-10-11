@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library and starts from the exact coefficient string printed in the source.
 
-It reverses that string according to the source's descending-degree convention, generates the full length-\(36\) negacyclic ideal over \(\mathbb Z_4\), and checks its size, \(2\)-torsion size, minimum Lee distance, and complete Lee weight distribution. The verifier applies the standard Gray map to every codeword and checks that the resulting \(4096\)-word binary set equals its \(12\)-dimensional binary span.
+# Independent mathematical audit
 
-The induced negacyclic Gray-coordinate permutation is checked directly to be a single \(72\)-cycle. In that coordinate order the verifier checks cyclic closure, recomputes the polynomial gcd with \(x^{72}+1\), obtains the stored degree-\(60\) generator, and verifies that its \(12\) cyclic shifts generate exactly the Gray image. Finally it constructs a binary generator matrix, rules out dual dependencies of weights below \(4\), and checks an explicit four-column dependency. No floating-point arithmetic, external algebra system, or solver status is used.
+## correctness
+
+PASS
+
+The primary source's Table 5 confirms the exact length, type, Lee distance and generator string. I inspected the exact package certificate and verifier and independently replayed the core exhaustive construction from the source string: the negacyclic ideal has 4096 words and 1024 two-torsion words, minimum Lee weight 16, and exactly the stored weight distribution. Its Gray image has 4096 words and binary rank 12, hence is linear, and direct checking confirms cyclic closure after the stated coordinate reorder. The package additionally verifies the binary polynomial gcd and all dual column-dependency cases through weight four.
+
+## originality
+
+PASS
+
+Aydin et al. publish the quaternary type, Lee distance and generator string but not this code's Gray rank/kernel, complete weight distribution, binary cyclic generator or dual distance. Blackford's theory supplies general cyclicity background for Gray images of even-length negacyclic codes, so cyclicity alone is not counted as the novelty. Exact-string, parameter and Resultary searches found no prior source listing the submitted invariant package for this record-breaker.
+
+## value
+
+PASS
+
+The object is not an arbitrary small code: it is a newly published record-breaking negacyclic code. Binary linearity of its Gray image, complete weight distribution, cyclic generator and dual distance are standard structural invariants that a coding-theory researcher could directly use for identification, comparison, decoding or further constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

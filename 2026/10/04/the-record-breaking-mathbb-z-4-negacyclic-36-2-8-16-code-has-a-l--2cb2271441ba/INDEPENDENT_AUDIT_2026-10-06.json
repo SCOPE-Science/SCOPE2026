@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:58:43Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 5ccf4fdf1d354545a1ab8966817f48999abdd4b8",
+        "artifacts/certificate.json blob 2b11953594a77c12afbe13034b2d09b6d1d8de26",
+        "artifacts/verify.py blob 67e376b6912e99f53fe42e051961afc23706c371",
+        "Aydin--Belghith--Idowu--Nguyen--Tran, arXiv:2606.08750, full primary preprint, Table 5."
+      ],
+      "rationale": "The primary source's Table 5 confirms the exact length, type, Lee distance and generator string. I inspected the exact package certificate and verifier and independently replayed the core exhaustive construction from the source string: the negacyclic ideal has 4096 words and 1024 two-torsion words, minimum Lee weight 16, and exactly the stored weight distribution. Its Gray image has 4096 words and binary rank 12, hence is linear, and direct checking confirms cyclic closure after the stated coordinate reorder. The package additionally verifies the binary polynomial gcd and all dual column-dependency cases through weight four.",
+      "risks": [
+        "The independent replay rechecked the complete quaternary census, Gray rank, weight distribution and cyclic closure; the package's exact polynomial-gcd and dual-distance routines were inspected rather than reimplemented in a second software stack."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blackford establishes general structural background for even-length negacyclic Gray images.",
+          "Dougherty--Fernández-Córdoba establish rank and kernel as standard invariants.",
+          "Neither source provides the exact invariants of this newly listed record-breaking code."
+        ],
+        "reasoning": "General theory explains why these are natural invariants but does not mechanically determine their values for the printed generator.",
+        "searches": [
+          "arXiv:2606.08750",
+          "Blackford, IEEE Trans. IT 49 (2003), DOI:10.1109/TIT.2003.811915",
+          "Dougherty--Fernández-Córdoba, DOI:10.1007/s10623-015-0163-6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:2606.08750",
+        "DOI:10.1109/TIT.2003.811915",
+        "DOI:10.1007/s10623-015-0163-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General cyclicity does not imply binary linearity of a Gray image, its rank, weight enumerator, generator polynomial or dual distance.",
+          "The source itself emphasizes that Gray images of \\(\\mathbb Z_4\\)-linear codes need not be binary linear."
+        ],
+        "reasoning": "The submitted exhaustive finite calculation supplies genuinely additional code-specific information.",
+        "searches": [
+          "Blackford even-length negacyclic theory",
+          "Aydin et al. Table 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact generator-string search returns the Aydin et al. source table.",
+          "No Resultary hit supplies the linear Gray image or its complete binary invariants."
+        ],
+        "reasoning": "Equivalent formulations through Gray rank/kernel, binary cyclic equivalence and complete Lee/Hamming weight distribution were checked.",
+        "searches": [
+          "Resultary: Z4 negacyclic length 36 type 4^2 2^8 Lee 16 Gray image linear cyclic [72,12,16] weight enumerator",
+          "Web exact generator string 303230323030321210301230123010323210"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 table gives only the quaternary row.",
+          "No accessible code table was found containing the complete Gray-image description."
+        ],
+        "reasoning": "Because the contribution is a finite invariant of one distinguished code, exact database duplication was specifically checked.",
+        "searches": [
+          "Exact generator-string search",
+          "Searches for [72,12,16], A16=9 and the source quaternary parameters in connection with this generator"
+        ]
+      },
+      "rationale": "Aydin et al. publish the quaternary type, Lee distance and generator string but not this code's Gray rank/kernel, complete weight distribution, binary cyclic generator or dual distance. Blackford's theory supplies general cyclicity background for Gray images of even-length negacyclic codes, so cyclicity alone is not counted as the novelty. Exact-string, parameter and Resultary searches found no prior source listing the submitted invariant package for this record-breaker.",
+      "residual_risks": [
+        "An unindexed database entry for an equivalent quaternary or binary code may contain overlapping finite invariants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_OWNS_QUATERNARY_ROW_NOT_GRAY_INVARIANT_CENSUS",
+          "evidence": [
+            "Table 5 lists \\([36,2,8,16]\\) with generator 303230323030321210301230123010323210."
+          ],
+          "identifier_or_url": "arXiv:2606.08750",
+          "material_read": "Full accessible primary preprint text, including definitions, coefficient-string convention, Gray-map background, search methodology and Table 5 with the exact \\([36,2,8,16]\\) row and generator string.",
+          "method": "Lawful public preprint full-text inspection.",
+          "title": "New Codes from Cyclic and Negacyclic Codes of Even Length over Z4",
+          "trigger": "Exact source of the record-breaking code."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete exact invariant package for the distinguished Table 5 record-breaker."
+      ],
+      "rationale": "The object is not an arbitrary small code: it is a newly published record-breaking negacyclic code. Binary linearity of its Gray image, complete weight distribution, cyclic generator and dual distance are standard structural invariants that a coding-theory researcher could directly use for identification, comparison, decoding or further constructions.",
+      "risks": [
+        "No general statement about the other 729 new negacyclic codes is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The record-breaking length-36 negacyclic \\(\\mathbb Z_4\\) code of Aydin et al. with type \\(4^2 2^8\\), Lee distance 16 and printed generator string 303230323030321210301230123010323210 has a binary linear Gray image of parameters \\([72,12,16]\\); after the natural 72-cycle coordinate reorder it is cyclic, with the stated degree-60 generator, complete weight enumerator, dual distance 4, and Gray rank and kernel dimensions 12.",
+  "limitations": [
+    "One source-table code only.",
+    "No claim that the binary \\([72,12,16]\\) image is itself record-breaking."
+  ],
+  "schema_version": 1
+}
