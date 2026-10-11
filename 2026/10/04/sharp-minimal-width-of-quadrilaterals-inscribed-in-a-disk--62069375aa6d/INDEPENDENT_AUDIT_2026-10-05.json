@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:01:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 6bc851cda232f50348a98b2cb4ff59e63826a2cb",
+        "assigned artifacts/verify_widest_quadrilateral.py blob dc1a129490f49dfc3c27bf165117b080ebe8edad",
+        "Lassak, arXiv:1703.10110 / DOI 10.4064/cm6856-7-2016",
+        "fresh independent support-width replay"
+      ],
+      "rationale": "The global upper bound and equality analysis reconstruct correctly. Radial expansion reduces to cyclic quadrilaterals. For a cyclic quadrilateral, the four edge-normal widths reduce after the stated cyclic/reversal relabeling to a minimum equal to \\(a q\\). Writing the relevant half-arcs as \\(s\\le t\\) gives \\(w=\\sin s\\,\\sin(s+t)\\). If \\(s\\le\\pi/4\\), this is already below the target; if \\(s\\ge\\pi/4\\), then \\(t\\ge s\\) and monotonicity of sine past \\(\\pi/2\\) gives \\(w\\le\\sin s\\sin(2s)=2\\sin^2s\\cos s\\), whose unique maximum is attained at \\(\\sin^2s=2/3\\) with value \\(4\\sqrt3/9\\). Equality forces \\(s=t=\\arcsin\\sqrt{2/3}\\), and the remaining arc inequalities give exactly the stated one-parameter family. The triangle bound is strictly smaller. A fresh independent numerical replay over fifty thousand random cyclic quadrilaterals stayed below the constant and reproduced the complete displayed equality family to machine precision; this finite replay is corroborative only.",
+      "residual_risks": [
+        "The theorem is only the four-vertex disk problem; larger even vertex counts remain outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lassak proves the odd-\\(n\\) disk theorem but leaves even \\(n=4\\) conjectural.",
+          "The 2023 result concerns wide triangles contained in a quadrilateral, the opposite approximation direction."
+        ],
+        "reasoning": "No inspected broader theorem supplies the required even-four disk upper bound.",
+        "searches": [
+          "Lassak 2017 full paper",
+          "González-Arreola--Jerónimo-Castro--Sánchez-Ortiz 2023 quadrilateral/triangle width search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1703.10110",
+        "DOI 10.4064/cm6856-7-2016",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exhibiting a family at the candidate width proves only a lower bound and does not exclude other cyclic quadrilaterals.",
+          "The audited side/diagonal relabeling and two-variable trigonometric reduction provide the missing universal exclusion."
+        ],
+        "reasoning": "The new upper-bound step is not mechanically implied by the prior construction.",
+        "searches": [
+          "Lassak lower-bound/equality examples versus audited global upper bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lassak studies the identical radius-\\(1/2\\), unit-width disk problem and reports the same numerical constant.",
+          "The apparent \\(8\\sqrt3/9\\) typeset factor in the source is inconsistent with its own \\(0.7698\\) decimal and displayed coordinates; the normalized geometric value is \\(4\\sqrt3/9\\)."
+        ],
+        "reasoning": "The final claim is the resolution of the same explicit conjecture, with exhaustive equality classification.",
+        "searches": [
+          "Resultary: minimal width quadrilaterals inscribed in disk Lassak quadrilateral 4 sqrt3 9 equality",
+          "Lassak 2017 full primary PDF, Proposition 1.6 discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned result was the only exact current hit; no independent proof or exact table was retrieved."
+        ],
+        "reasoning": "Search absence is supporting evidence, while Lassak's explicit conjecture is the decisive primary-source comparison.",
+        "searches": [
+          "Resultary exact/semantic query for \\(4\\sqrt3/9\\) disk quadrilateral minimal width",
+          "web searches for 0.7698, lambda_4(D), and proof of Lassak's conjecture"
+        ]
+      },
+      "rationale": "Lassak's complete primary paper explicitly exhibits the same normalized \\(0.7698\\ldots\\) quadrilateral family and explicitly conjectures that it is globally optimal. It also describes motion of one vertex through a family ending in two trapezoids, so those example/equality-family observations are prior and are not credited as new by themselves. The audited theorem supplies the missing global upper bound and proves that all equality cases are exactly that family. Current Resultary and targeted exact-constant searches returned no later proof of Lassak's conjecture.",
+      "residual_risks": [
+        "An obscure later convex-geometry note under different terminology could have settled the same 2017 conjecture without being surfaced by current indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_CONJECTURE_AND_EQUALITY_EXAMPLES_PRIOR",
+          "evidence": "The source conjectures the sharp four-vertex disk value and displays a one-parameter family attaining the candidate value, but gives no global proof.",
+          "identifier_or_url": "arXiv:1703.10110; DOI 10.4064/cm6856-7-2016",
+          "material_read": "complete open 12-page primary PDF around Proposition 1.6 and the following quadrilateral-family discussion, with the relevant page visually inspected",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Approximation of convex bodies by polytopes with respect to minimal width and diameter",
+          "trigger": "exact source of the four-vertex disk conjecture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lassak 2017",
+        "assigned analytic proof and verifier"
+      ],
+      "rationale": "The theorem settles an explicit published extremal conjecture and completely determines its equality set. Minimal-width approximation of a disk by few-vertex inscribed polygons is a natural convex-geometric optimization problem, and the result closes the first even case where the regular polygon ceases to be optimal.",
+      "residual_risks": [
+        "The solution does not address the unresolved larger even-\\(n\\) disk cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is only the four-vertex disk problem; larger even vertex counts remain outside the claim.",
+    "An obscure later convex-geometry note under different terminology could have settled the same 2017 conjecture without being surfaced by current indexing.",
+    "The solution does not address the unresolved larger even-\\(n\\) disk cases."
+  ]
+}

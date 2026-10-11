@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof gives a complete boundary reduction, excludes the triangular case, derives the exact four side-normal widths of a cyclic quadrilateral, proves the diagonal ratio needed for the symmetry reduction, and reduces the sharp problem to maximizing \(2z\sqrt{1-z}\) on \(1/2\le z\le1\). Equality conditions are tracked in both directions. The bundled checker independently confirms the width formulas, the sharp ceiling on random samples, and the full displayed equality family.
+## correctness
 
-## Originality
-**PASS.** The primary 2017 source explicitly leaves the four-vertex disk constant as a conjecture after displaying the candidate family. The nearby 2023 Results in Mathematics paper treats the reverse containment problem, wide triangles inside a quadrilateral, and does not imply this theorem. Exact-form, alias, and broader-coverage searches found no covering statement. The residual bibliographic risk is an obscure older result under different terminology.
+PASS
 
-## Value
-**PASS.** This settles the first even case left open by the motivating disk-approximation problem and gives all equality cases. The invariant and extremal family are natural, and the result converts a published lower-bound construction/conjecture into a sharp theorem with structural classification.
+The global upper bound and equality analysis reconstruct correctly. Radial expansion reduces to cyclic quadrilaterals. For a cyclic quadrilateral, the four edge-normal widths reduce after the stated cyclic/reversal relabeling to a minimum equal to \(a q\). Writing the relevant half-arcs as \(s\le t\) gives \(w=\sin s\,\sin(s+t)\). If \(s\le\pi/4\), this is already below the target; if \(s\ge\pi/4\), then \(t\ge s\) and monotonicity of sine past \(\pi/2\) gives \(w\le\sin s\sin(2s)=2\sin^2s\cos s\), whose unique maximum is attained at \(\sin^2s=2/3\) with value \(4\sqrt3/9\). Equality forces \(s=t=\arcsin\sqrt{2/3}\), and the remaining arc inequalities give exactly the stated one-parameter family. The triangle bound is strictly smaller. A fresh independent numerical replay over fifty thousand random cyclic quadrilaterals stayed below the constant and reproduced the complete displayed equality family to machine precision; this finite replay is corroborative only.
 
-## Closest literature and limitations
-The closest source is Lassak, arXiv:1703.10110, which gives the four-vertex candidate and conjectures its optimality. González-Arreola, Jerónimo-Castro, and Sánchez-Ortiz, DOI 10.1007/s00025-023-01898-3, concerns a different containment direction. The theorem here is limited to the Euclidean disk and four vertices; it does not address larger even vertex counts or arbitrary centrally symmetric bodies.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lassak's complete primary paper explicitly exhibits the same normalized \(0.7698\ldots\) quadrilateral family and explicitly conjectures that it is globally optimal. It also describes motion of one vertex through a family ending in two trapezoids, so those example/equality-family observations are prior and are not credited as new by themselves. The audited theorem supplies the missing global upper bound and proves that all equality cases are exactly that family. Current Resultary and targeted exact-constant searches returned no later proof of Lassak's conjecture.
+
+## value
+
+PASS
+
+The theorem settles an explicit published extremal conjecture and completely determines its equality set. Minimal-width approximation of a disk by few-vertex inscribed polygons is a natural convex-geometric optimization problem, and the result closes the first even case where the regular polygon ceases to be optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
