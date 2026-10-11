@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The source algorithm and envelope formulas were reconstructed for the scalar quadratic. The forward--backward envelope is \(F_\gamma(x)=a(1-s)x^2/2\), the normalized feedback is a fixed scalar quadratic in \(p\), and its derivative gives an autonomous projected affine scheduler. The full candidate interval maps every probe multiplier into \([-(1-s),1-s]\), which proves that every nonzero probe is accepted. The two regimes then follow from the exact projected affine map. The bundled exact-arithmetic checker reproduces representative instances, but the infinite claim is established algebraically rather than experimentally.
+# Independent mathematical audit
 
-## Originality
-PASS with a stated residual risk. The primary OSOP paper defines the method and proves a general local superlinear theorem, but the inspected full text does not state this constant-learning-rate scalar phase boundary, its exact product formula, or the endpoint two-cycle. The closest hypergradient-descent papers contain the affine-equivalent learning mechanism and general quadratic superlinear analysis, so that equivalence was treated as a required comparison rather than hidden. Their inspected statements do not give the \(\theta=2\) projected bifurcation or the fact that all null-step tests still succeed after acceleration is lost. Targeted semantic searches for the phase law and its aliases returned no dominating result.
+## correctness
 
-## Value
-PASS. The online learning rate is an explicit algorithm parameter, and the source emphasizes both superlinear local behavior and null-step safeguarding. The exact scalar boundary separates two qualitatively different outcomes under the same monotone safeguard: accelerated \(\exp(-\Theta(k^2))\) decay versus a scheduler boundary cycle with only the base linear contraction. This supplies a concrete tuning limit and a mechanism showing that monotone null steps can protect function values without protecting acceleration. The symmetric interval is motivated canonically by the identity initialization and the exact one-step preconditioner rather than by an arbitrary numerical slice.
+PASS
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.10732v1 (the OSOP algorithm and general local theorem), arXiv:2502.11229v2 (projected hypergradient descent, null steps, and quadratic local superlinear analysis), and arXiv:2505.23081v2 (the online-scaling/hypergradient framework). The scalar OS-FBS specialization is affinely equivalent to scalar projected hypergradient descent, which is the main residual originality risk. No claim is made beyond the stated scalar constant-online-stepsize setting or the symmetric preconditioner interval.
+For the quadratic FBE, direct substitution gives the feedback \(\ell_x(p)=a(1-s)(p^2-2p/s)/2\), hence the online update is the projected affine map \(p_{k+1}=\Pi_{[1,2/s-1]}(1/s+(1-\theta)(p_k-1/s))\). Every candidate in the interval contracts the primal step, so the null-step safeguard never fires. For \(0<\theta<2\), projection is inactive and the closed forms for \(p_k\) and \(x_k\) follow; \(\theta=1\) reaches the optimum on the second primal step. For \(\theta\ge2\), the projected map sends endpoints to opposite endpoints, producing the exact 2-cycle and linear absolute contraction. The repository exact-rational verifier checks representative regimes and the feedback identity; the symbolic projected-map analysis proves the complete range.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The OSOP source introduces online-scaled operator splitting and its feedback framework but the accessible primary material does not state this scalar closed-form bifurcation. The earlier full HDM paper proves instability and local superlinear convergence for strongly convex quadratics and discusses null steps, yet does not give the exact projected scalar threshold \(\theta=2\) or endpoint 2-cycle. Resultary searches found no equivalent theorem.
+
+## value
+
+PASS
+
+The theorem gives an exact stability/bifurcation boundary for a new adaptive splitting mechanism and exhibits a concrete regime in which the descent safeguard is blind to a preconditioner 2-cycle. The stable side also has an exact superlinear law, making this a motivated algorithmic boundary rather than an arbitrary scalar exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

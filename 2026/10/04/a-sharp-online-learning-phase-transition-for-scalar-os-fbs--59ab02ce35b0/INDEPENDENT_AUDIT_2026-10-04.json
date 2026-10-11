@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:05:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the quadratic FBE, direct substitution gives the feedback \\(\\ell_x(p)=a(1-s)(p^2-2p/s)/2\\), hence the online update is the projected affine map \\(p_{k+1}=\\Pi_{[1,2/s-1]}(1/s+(1-\\theta)(p_k-1/s))\\). Every candidate in the interval contracts the primal step, so the null-step safeguard never fires. For \\(0<\\theta<2\\), projection is inactive and the closed forms for \\(p_k\\) and \\(x_k\\) follow; \\(\\theta=1\\) reaches the optimum on the second primal step. For \\(\\theta\\ge2\\), the projected map sends endpoints to opposite endpoints, producing the exact 2-cycle and linear absolute contraction. The repository exact-rational verifier checks representative regimes and the feedback identity; the symbolic projected-map analysis proves the complete range.",
+      "risk": "The phase boundary depends on the specific candidate interval, initialization, scalar quadratic and constant online stepsize.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sources give broad convergence/online-learning frameworks, but no theorem whose statement implies the endpoint alternation for all theta>=2 under this interval."
+        ],
+        "reasoning": "General convergence theory does not dominate the exact dynamical classification outside the stable online-learning regime.",
+        "searches": [
+          "Zhang--Gao--Udell arXiv:2609.10732 public primary material",
+          "Chu et al. arXiv:2502.11229v2 full text",
+          "Resultary optimization corpus"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2502.11229v2",
+        "arXiv:2609.10732",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work supplies the projected hypergradient/online-learning mechanism and qualitative superlinear/instability phenomena.",
+          "The submitted reduction identifies an exact invariant affine map and solves it through and beyond the projection boundary."
+        ],
+        "reasoning": "The exact threshold and safeguard blind spot require a new specialization and full orbit analysis, not merely quoting the prior convergence theorem.",
+        "searches": [
+          "arXiv:2502.11229v2 Sections 2-3.3",
+          "arXiv:2609.10732 public paper description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chu--Gao--Ye--Udell analyze quadratic HDM, instability and superlinear convergence but not this exact phase law.",
+          "No equivalent projected-affine-map threshold was located."
+        ],
+        "reasoning": "The claim was compared against both operator-splitting and hypergradient-descent formulations.",
+        "searches": [
+          "Resultary: scalar projected hypergradient quadratic phase transition theta=2 endpoint cycle",
+          "web: hypergradient descent scalar quadratic projected stepsize two-cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact scalar phase table or threshold record was found."
+        ],
+        "reasoning": "The result is a symbolic orbit classification, not a numerical table.",
+        "searches": [
+          "Resultary OS-FBS/HDM searches"
+        ]
+      },
+      "rationale": "The OSOP source introduces online-scaled operator splitting and its feedback framework but the accessible primary material does not state this scalar closed-form bifurcation. The earlier full HDM paper proves instability and local superlinear convergence for strongly convex quadratics and discusses null steps, yet does not give the exact projected scalar threshold \\(\\theta=2\\) or endpoint 2-cycle. Resultary searches found no equivalent theorem.",
+      "residual_risks": [
+        "Formula-level full text of arXiv:2609.10732 was unavailable in this run, so a body-only scalar example with the same threshold cannot be excluded absolutely."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "It proves local superlinear convergence and discusses instability, but does not state the audited theta=2 projected scalar bifurcation.",
+          "identifier_or_url": "arXiv:2502.11229v2",
+          "material_read": "Full HTML around the HDM update, instability/null-step discussion, strongly convex quadratic section, and Theorem 3.3.",
+          "method": "lawful arXiv full text",
+          "title": "Provable and Practical Online Learning Rate Adaptation with Hypergradient Descent",
+          "trigger": "Closest full primary analysis of projected hypergradient dynamics, instability, null steps and quadratic superlinear convergence."
+        },
+        {
+          "assessment": "FOUNDATIONAL_WITH_ACCESS_RISK",
+          "evidence": "The accessible material describes OSOP feedback/preconditioner learning but does not expose a scalar phase-transition theorem.",
+          "identifier_or_url": "arXiv:2609.10732",
+          "material_read": "Primary abstract/public paper description and framework summary; direct arXiv full text was unavailable in this run.",
+          "method": "lawful public primary metadata plus source-linked description",
+          "title": "Operator Splitting Methods with Online Scaling",
+          "trigger": "Exact source algorithm specialized by the submission."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact stability/bifurcation boundary for a new adaptive splitting mechanism and exhibits a concrete regime in which the descent safeguard is blind to a preconditioner 2-cycle. The stable side also has an exact superlinear law, making this a motivated algorithmic boundary rather than an arbitrary scalar exercise.",
+      "risk": "It is a deliberately one-dimensional diagnostic and does not by itself characterize matrix-valued OSOP.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For scalar OS-FBS on \\(f(x)=a x^2/2\\), \\(g=0\\), with \\(s=\\gamma a\\in(0,1)\\), candidate interval \\([1,2/s-1]\\), initial \\(p_0=1\\), zero regularization, and constant online stepsize, the dimensionless parameter \\(\\theta=\\eta a(1-s)\\) has a sharp transition at \\(2\\): for \\(0<\\theta<2\\) the preconditioner converges geometrically to \\(1/s\\) and the primal iterates are Q-superlinear (with finite termination at \\(\\theta=1\\)); for \\(\\theta\\ge2\\) the preconditioner alternates between the two interval endpoints and the primal iterates converge only linearly with factor \\(1-s\\).",
+  "limitations": [
+    "The theorem does not extend the theta=2 threshold to multidimensional or nonquadratic problems."
+  ],
+  "schema_version": 1
+}
