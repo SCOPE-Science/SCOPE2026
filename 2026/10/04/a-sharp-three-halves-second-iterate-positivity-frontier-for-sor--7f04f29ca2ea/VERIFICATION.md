@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The verification artifact uses exact rational arithmetic and the Python standard library.
 
-For normalized \(2\times2\) Stieltjes matrices it reconstructs forward SOR directly from the sequential update equations. On multiple rational pairs \((\rho,\omega)\), it verifies that the response to the two coordinate basis right-hand sides equals the closed first- and second-iterate matrices in RESULT.md.
+# Independent mathematical audit
 
-It verifies the exact witness
-\[
-\rho=\frac15,\qquad \omega=\frac53,\qquad g=(1,1/10)^{\mathsf T},
-\]
-obtaining
-\[
-y^{(1)}=(5/3,13/18)^{\mathsf T},
-\qquad
-y^{(2)}=(43/54,-4/81)^{\mathsf T},
-\]
-and
-\[
-\widehat A^{-1}g=(17/16,5/16)^{\mathsf T}.
-\]
+## correctness
 
-The infinite phase diagram is not inferred from the finite test set. Its proof is the exact quadratic sign analysis of
-\[
-3-2\omega+\omega^2\rho^2
-\]
-given in RESULT.md.
+PASS
+
+From \(x^{(0)}=0\), one forward SOR step for a nonsingular \(M\)-matrix is nonnegative because the lower-triangular SOR factor has a finite nonnegative inverse. In one dimension \(x^{(k)}=(1-(1-\omega)^k)b/a\) is nonnegative for \(0<\omega<2\). After positive diagonal scaling, the \(2\times2\) Stieltjes case has the displayed second-response matrix; every entry is manifestly nonnegative except the lower-left factor \(\rho\omega^2(3-2\omega+\omega^2\rho^2)\). Its quadratic sign gives the fixed-coupling criterion and robust threshold \(\omega=3/2\); above it sufficiently small positive \(\rho\) and then small positive second forcing give a negative second coordinate. Independent exact-rational reconstruction reproduced the witness \(\rho=1/5,\omega=5/3,g=(1,1/10)^{\mathsf T}\) with second iterate \((43/54,-4/81)^{\mathsf T}\) and positive exact solution.
+
+## originality
+
+PASS
+
+The classical sources concern convergence, spectral-radius bounds, and regular/weak-regular splittings; the closest Yun note proves only that overrelaxed SOR splittings of an \(M\)-matrix cannot be weak regular for \(\omega>1\). That obstruction begins at \(1\), whereas the audited finite-horizon positivity statement remains uniformly true through the strictly larger sharp value \(3/2\), so it is not implied. Resultary searches found no prior second-iterate phase law.
+
+## value
+
+PASS
+
+The exact transient positivity boundary and earliest dimension/iterate counterexample are mathematically motivated by the gap between asymptotic SOR convergence and order preservation. The sharp \(3/2\) frontier is a meaningful boundary with a positive-data counterfamily, not merely a type or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:27:24.564554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md tree 8ded0f1ee0f8f468dbac259be63d22612e847309",
+        "audited verify.py blob f9b04265bd8f378271014a695bde6878667e0af5",
+        "classical SOR update formula"
+      ],
+      "rationale": "From \\(x^{(0)}=0\\), one forward SOR step for a nonsingular \\(M\\)-matrix is nonnegative because the lower-triangular SOR factor has a finite nonnegative inverse. In one dimension \\(x^{(k)}=(1-(1-\\omega)^k)b/a\\) is nonnegative for \\(0<\\omega<2\\). After positive diagonal scaling, the \\(2\\times2\\) Stieltjes case has the displayed second-response matrix; every entry is manifestly nonnegative except the lower-left factor \\(\\rho\\omega^2(3-2\\omega+\\omega^2\\rho^2)\\). Its quadratic sign gives the fixed-coupling criterion and robust threshold \\(\\omega=3/2\\); above it sufficiently small positive \\(\\rho\\) and then small positive second forcing give a negative second coordinate. Independent exact-rational reconstruction reproduced the witness \\(\\rho=1/5,\\omega=5/3,g=(1,1/10)^{\\mathsf T}\\) with second iterate \\((43/54,-4/81)^{\\mathsf T}\\) and positive exact solution.",
+      "residual_risks": [
+        "The theorem stops at the second iterate and is specific to symmetric positive-definite \\(2\\times2\\) Stieltjes matrices for the sharp robust threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yun’s abstract states only the impossibility of weak regular SOR splitting for \\(\\omega>1\\).",
+          "Chang’s complete three-page note gives the general SOR iteration matrix and a \\(2\\times2\\) M-matrix spectral-radius counterexample at \\(\\omega=5/3\\), but no transient sign theorem."
+        ],
+        "reasoning": "Asymptotic/splitting results do not dominate the exact second-iterate entrywise phase diagram.",
+        "searches": [
+          "Jae Heon Yun, DOI 10.1016/j.cam.2004.07.029",
+          "Da-Wei Chang, Journal of Computational and Applied Mathematics 167 (2004), 251–253",
+          "classical SOR iteration formula"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.cam.2004.07.029 abstract",
+        "DOI:10.1016/j.cam.2003.09.052 full text",
+        "Resultary published-result search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Failure of weak regularity for every \\(\\omega>1\\) does not imply a negative coordinate by the second iterate; the audited theorem proves universal second-iterate nonnegativity up to \\(\\omega=3/2\\).",
+          "The exact factor \\(3-2\\omega+\\omega^2\\rho^2\\) requires a separate finite-horizon calculation and yields a sharp counterfamily above \\(3/2\\)."
+        ],
+        "reasoning": "The prior splitting obstruction is logically weaker/different in the relevant finite-horizon direction and cannot yield the sharp frontier.",
+        "searches": [
+          "Yun weak-regularity statement",
+          "general SOR matrix formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent finite-horizon threshold was returned.",
+          "Searches surfaced weak-regularity and asymptotic convergence papers rather than entrywise positivity of the second iterate."
+        ],
+        "reasoning": "Aliases based on transient monotonicity, nonnegative iterates, regular splitting, and two-step response did not reveal an equivalent theorem.",
+        "searches": [
+          "Resultary: second SOR iterate positivity Stieltjes omega 3/2 negative coordinate",
+          "web search for second-iterate SOR positivity and M-matrix monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior \\(3/2\\) frontier table was found.",
+          "Chang’s example uses a different purpose and coupling and does not produce the audited negative second-coordinate witness."
+        ],
+        "reasoning": "The final theorem is a symbolic all-coupling phase diagram, not a recomputation of a published numerical example.",
+        "searches": [
+          "Resultary exact semantic search on \\(3/2\\) SOR positivity frontier",
+          "Chang’s explicit \\(2\\times2\\) example"
+        ]
+      },
+      "rationale": "The classical sources concern convergence, spectral-radius bounds, and regular/weak-regular splittings; the closest Yun note proves only that overrelaxed SOR splittings of an \\(M\\)-matrix cannot be weak regular for \\(\\omega>1\\). That obstruction begins at \\(1\\), whereas the audited finite-horizon positivity statement remains uniformly true through the strictly larger sharp value \\(3/2\\), so it is not implied. Resultary searches found no prior second-iterate phase law.",
+      "residual_risks": [
+        "The full Yun note was inaccessible through the permitted route, so an unindexed finite-iterate remark there cannot be ruled out.",
+        "Older monographs on monotone matrix iterations may contain an equivalent low-dimensional computation under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "The available statement concerns weak regularity, not finite-iterate coordinate signs; hidden equivalent observations cannot be excluded.",
+          "identifier_or_url": "DOI:10.1016/j.cam.2004.07.029",
+          "material_read": "Primary abstract stating that SOR with \\(\\omega>1\\) can never be a weak regular splitting. Full text was not available through ordinary lawful routes; an authorized retrieval attempt resolved incorrectly once and a title-specific attempt returned an unavailable-worker error.",
+          "method": "OA search followed by authorized institutional attempt; no bypass.",
+          "title": "A note on SOR(ω) splitting of an M-matrix",
+          "trigger": "Closest source on positivity-related splitting failure for overrelaxed M-matrix SOR."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "The paper is about a false spectral-radius bound and contains no second-iterate positivity frontier.",
+          "identifier_or_url": "DOI:10.1016/j.cam.2003.09.052",
+          "material_read": "Complete three-page article including equations for the SOR matrix and the \\(\\omega=5/3\\) example.",
+          "method": "Authorized full-text retrieval.",
+          "title": "A note on the upper bound of the spectral radius for SOR iteration matrix",
+          "trigger": "Primary \\(2\\times2\\) M-matrix SOR example and explicit iteration-matrix formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yun weak-regularity result",
+        "Chang spectral-radius example"
+      ],
+      "rationale": "The exact transient positivity boundary and earliest dimension/iterate counterexample are mathematically motivated by the gap between asymptotic SOR convergence and order preservation. The sharp \\(3/2\\) frontier is a meaningful boundary with a positive-data counterfamily, not merely a type or normalization check.",
+      "residual_risks": [
+        "It does not claim positivity of later iterates below the frontier or a nonsymmetric \\(M\\)-matrix classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1016/j.cam.2004.07.029 abstract",
+    "DOI:10.1016/j.cam.2003.09.052 full text",
+    "Resultary published-result search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Second-iterate result only.",
+    "Robust \\(3/2\\) threshold is for the symmetric \\(2\\times2\\) Stieltjes class."
+  ],
+  "residual_risks": [
+    "The full Yun note was inaccessible through the permitted route, so an unindexed finite-iterate remark there cannot be ruled out.",
+    "Older monographs on monotone matrix iterations may contain an equivalent low-dimensional computation under different terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+      "evidence": "The available statement concerns weak regularity, not finite-iterate coordinate signs; hidden equivalent observations cannot be excluded.",
+      "identifier_or_url": "DOI:10.1016/j.cam.2004.07.029",
+      "material_read": "Primary abstract stating that SOR with \\(\\omega>1\\) can never be a weak regular splitting. Full text was not available through ordinary lawful routes; an authorized retrieval attempt resolved incorrectly once and a title-specific attempt returned an unavailable-worker error.",
+      "method": "OA search followed by authorized institutional attempt; no bypass.",
+      "title": "A note on SOR(ω) splitting of an M-matrix",
+      "trigger": "Closest source on positivity-related splitting failure for overrelaxed M-matrix SOR."
+    },
+    {
+      "assessment": "RELATED_NOT_COVERING",
+      "evidence": "The paper is about a false spectral-radius bound and contains no second-iterate positivity frontier.",
+      "identifier_or_url": "DOI:10.1016/j.cam.2003.09.052",
+      "material_read": "Complete three-page article including equations for the SOR matrix and the \\(\\omega=5/3\\) example.",
+      "method": "Authorized full-text retrieval.",
+      "title": "A note on the upper bound of the spectral radius for SOR iteration matrix",
+      "trigger": "Primary \\(2\\times2\\) M-matrix SOR example and explicit iteration-matrix formula."
+    }
+  ]
+}

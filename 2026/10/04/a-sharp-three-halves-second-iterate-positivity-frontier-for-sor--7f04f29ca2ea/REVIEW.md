@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The first-iterate nonnegativity follows from the finite Neumann expansion of the lower-triangular \(M\)-matrix inverse. Positive diagonal scaling reduces every \(2\times2\) Stieltjes system to a single coupling parameter \(\rho\). Exact multiplication gives the second-iterate response matrix, whose only potentially negative entry has sign \(3-2\omega+\omega^2\rho^2\). The resulting quadratic is analyzed on the full domain \(0\le\rho<1\), \(0<\omega<2\), yielding both the fixed-coupling formula and the robust frontier \(\omega=3/2\). The exact rational witness and independent replay agree with the formulas.
+## correctness
 
-## Originality
-PASS with explicit residual risk. Classical sources cover SOR convergence, spectral radii, Stieltjes matrices, and \(M\)-matrix splitting theory. Weak regularity is already known to fail for overrelaxed \(M\)-matrix SOR when \(\omega>1\); that statement is explicitly excluded. Searches under finite-iterate positivity, nonnegative iterates, Stieltjes systems, weak regularity, and exact three-halves aliases found no implication-equivalent second-iterate theorem. Full-text inspection of the most relevant classical convergence and spectral-radius papers found no finite-horizon coordinatewise positivity classification. The closest weak-regularity note was available only at abstract level, so hidden overlap there remains a named risk.
+PASS
 
-## Value
-PASS. SOR is a classical solver for Stieltjes and \(M\)-matrix systems, where a nonnegative right-hand side has a nonnegative exact solution. A transient negative coordinate can therefore violate a natural physical or probabilistic constraint even while the iteration converges. The theorem identifies the earliest possible iteration and dimension for such a failure and supplies an exact robust frontier strictly beyond the familiar weak-regularity boundary \(\omega=1\), together with a coupling-dependent phase diagram and a strictly positive exact witness.
+From \(x^{(0)}=0\), one forward SOR step for a nonsingular \(M\)-matrix is nonnegative because the lower-triangular SOR factor has a finite nonnegative inverse. In one dimension \(x^{(k)}=(1-(1-\omega)^k)b/a\) is nonnegative for \(0<\omega<2\). After positive diagonal scaling, the \(2\times2\) Stieltjes case has the displayed second-response matrix; every entry is manifestly nonnegative except the lower-left factor \(\rho\omega^2(3-2\omega+\omega^2\rho^2)\). Its quadratic sign gives the fixed-coupling criterion and robust threshold \(\omega=3/2\); above it sufficiently small positive \(\rho\) and then small positive second forcing give a negative second coordinate. Independent exact-rational reconstruction reproduced the witness \(\rho=1/5,\omega=5/3,g=(1,1/10)^{\mathsf T}\) with second iterate \((43/54,-4/81)^{\mathsf T}\) and positive exact solution.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical sources concern convergence, spectral-radius bounds, and regular/weak-regular splittings; the closest Yun note proves only that overrelaxed SOR splittings of an \(M\)-matrix cannot be weak regular for \(\omega>1\). That obstruction begins at \(1\), whereas the audited finite-horizon positivity statement remains uniformly true through the strictly larger sharp value \(3/2\), so it is not implied. Resultary searches found no prior second-iterate phase law.
+
+## value
+
+PASS
+
+The exact transient positivity boundary and earliest dimension/iterate counterexample are mathematically motivated by the gap between asymptotic SOR convergence and order preservation. The sharp \(3/2\) frontier is a meaningful boundary with a positive-data counterfamily, not merely a type or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
