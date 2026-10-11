@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof is analytic. The following checks were performed on the packaged statement.
 
-1. The weighted Gram entry was expanded as a binomial Fourier sum, and cyclic characters were checked to coincide exactly when their binomial indices agree modulo \(N\). This gives the claimed spectrum without a rank or nonsingularity assumption.
-2. The pure-GU success formula \(P=N^{-1}(\operatorname{tr}\sqrt G)^2\) was applied to the weighted Gram convention \(G_{ab}=N^{-1}\langle\psi_a|\psi_b\rangle^k\); the normalization \(\operatorname{tr}G=1\) agrees with \(\sum_r p_r=1\).
-3. In the non-aliasing regime \(N>k\), each occupied residue contains one binomial index, reproducing the published \(N^{-1}2^{-k}(\sum_j\sqrt{\binom{k}{j}})^2\) formula.
-4. The root-of-unity filter isolates the conjugate modes of modulus \(\cos(\pi/N)\). For \(N\ge4\), all remaining nonconstant modes have modulus at most \(|\cos(2\pi/N)|\le\cos(\pi/N)^3\); for \(N=3\) there are no further modes. This supports the stated remainder after the square-root expansion.
-5. The projective-circle argument uses distinct lines modulo angle \(\pi\); equality in the minimum-gap bound forces all \(N\) gaps to be \(\pi/N\), so the exponent equality case is genuinely rigid.
-6. `artifacts/verify.py` was executed from the extracted package. It checks representative Gram eigenvector equations directly against the residue sums and checks convergence of the normalized error toward the predicted coefficient \(1/2\).
+# Independent mathematical audit
 
-The checker does not certify the universal theorem by enumeration, and no claim is made about finite-copy global optimality outside the regular polygon.
+## correctness
+
+PASS
+
+The weighted Gram matrix is exactly diagonalized by the gauge-shifted cyclic characters. Expanding \(\cos^k t=2^{-k}\sum_j\binom{k}{j}e^{i(k-2j)t}\) gives rank-one character terms; two terms are the same character exactly when their binomial indices agree modulo \(N\). Because each character has squared norm \(N\), the nonzero eigenvalue in residue class \(r\) is precisely the fair-binomial residue mass \(p_r\), including zero masses when the residue is absent. For an equiprobable pure geometrically-uniform orbit the pretty-good measurement is minimum-error optimal and the diagonal of \(\sqrt G\) is constant, so the success probability is \(N^{-1}(\sum_r\sqrt{p_r})^2\). The root-of-unity filter has a unique dominant conjugate nonconstant pair of modulus \(c_N=\cos(\pi/N)\); the next Fourier modulus is at most \(c_N^3\), and the first-order square-root term cancels on summation, yielding \(1-P_{N,k}=\tfrac12c_N^{2k}+O(c_N^{3k})\). Finally, the multiple quantum Chernoff theorem reduces the fixed-ensemble exponent to the smallest pairwise pure-state Chernoff distance. On the projective circle of length \(\pi\), some adjacent gap is at most \(\pi/N\), and equality in the resulting exponent bound forces every gap to equal \(\pi/N\). The inspected package verifier directly checks the character eigenvectors and residue weights on a grid; those finite checks corroborate rather than replace the analytic argument.
+
+## originality
+
+PASS
+
+The closest current primary source, Achenbach--Leppäjärvi--Lee--Heinosaari, defines the same regular real-qubit cyclic ensemble and the same Gram matrix and proves PGM optimality, but its Proposition 5.5 explicitly assumes \(n>k\); its table and analytic scaling formula are likewise restricted to that non-aliasing regime. Kvashchuk et al. treat the broader multicopy optimization problem and real-state restrictions, while Krovi et al. provide general GU measurement machinery, but the inspected statements do not evaluate the symmetric-power cyclic spectrum after residue aliasing. A general GU formula still requires the object-specific decomposition that produces the fair-binomial residue law. Ke Li supplies the general multiple-Chernoff theorem; the projective-circle extremal specialization is elementary background to the main finite-copy result rather than the sole novelty. Current Resultary search did not return a stronger same-object arbitrary-\(N,k\) formula among its leading results.
+
+## value
+
+PASS
+
+The recent primary literature explicitly isolates the regular rebit polygon as a central multicopy benchmark and leaves the aliased regime outside its closed formula. Resolving all \(N,k\), identifying the spectrum as a binomial law modulo \(N\), and extracting the sharp fixed-\(N\) error prefactor give a reusable exact benchmark for a current discrimination problem. The exponent consequence also clarifies why this same polygon is asymptotically extremal without claiming the still-open finite-copy global conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

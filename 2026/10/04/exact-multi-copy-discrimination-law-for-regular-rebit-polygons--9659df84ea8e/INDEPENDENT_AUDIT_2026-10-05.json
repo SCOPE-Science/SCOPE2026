@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:11:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 6d197209fd916ec7b7684e4bee4c26d9a6e1c316",
+        "assigned artifacts/verify.py blob c21159e47e1e50d0ee6f44165ed29b76271af6de",
+        "Achenbach et al. arXiv:2604.26647v2 full primary HTML",
+        "Ke Li arXiv:1508.06624 primary record"
+      ],
+      "rationale": "The weighted Gram matrix is exactly diagonalized by the gauge-shifted cyclic characters. Expanding \\(\\cos^k t=2^{-k}\\sum_j\\binom{k}{j}e^{i(k-2j)t}\\) gives rank-one character terms; two terms are the same character exactly when their binomial indices agree modulo \\(N\\). Because each character has squared norm \\(N\\), the nonzero eigenvalue in residue class \\(r\\) is precisely the fair-binomial residue mass \\(p_r\\), including zero masses when the residue is absent. For an equiprobable pure geometrically-uniform orbit the pretty-good measurement is minimum-error optimal and the diagonal of \\(\\sqrt G\\) is constant, so the success probability is \\(N^{-1}(\\sum_r\\sqrt{p_r})^2\\). The root-of-unity filter has a unique dominant conjugate nonconstant pair of modulus \\(c_N=\\cos(\\pi/N)\\); the next Fourier modulus is at most \\(c_N^3\\), and the first-order square-root term cancels on summation, yielding \\(1-P_{N,k}=\\tfrac12c_N^{2k}+O(c_N^{3k})\\). Finally, the multiple quantum Chernoff theorem reduces the fixed-ensemble exponent to the smallest pairwise pure-state Chernoff distance. On the projective circle of length \\(\\pi\\), some adjacent gap is at most \\(\\pi/N\\), and equality in the resulting exponent bound forces every gap to equal \\(\\pi/N\\). The inspected package verifier directly checks the character eigenvectors and residue weights on a grid; those finite checks corroborate rather than replace the analytic argument.",
+      "residual_risks": [
+        "The all-copy closed form is for the regular real-qubit projective polygon with equal priors and unrestricted collective measurement.",
+        "The final regular-polygon uniqueness statement concerns the asymptotic exponent of a fixed ensemble, not finite-copy optimality among all rebit ensembles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kvashchuk et al. derive universal multicopy bounds/design results and real-state restrictions, not the inspected aliased residue formula.",
+          "Krovi et al. give representation-theoretic MPE machinery for GU sets, but applying it here still requires the cyclic symmetric-power decomposition and does not state the resulting binomial-modulo-N closed form."
+        ],
+        "reasoning": "The broader machinery explains why a spectral calculation solves the problem but does not mechanically provide the audited closed formula or sharp prefactor without the additional object-specific diagonalization.",
+        "searches": [
+          "Kvashchuk et al. arXiv:2604.26927",
+          "Krovi et al. arXiv:1507.04737",
+          "Zhou et al. arXiv:2501.12376"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.26647v2",
+        "arXiv:2604.26927",
+        "arXiv:1507.04737",
+        "arXiv:1508.06624",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The non-aliasing formula does not determine what happens when several binomial indices occupy the same cyclic character.",
+          "General GU optimality reduces the problem to spectral data but does not state those residue masses or the resulting Hellinger expression.",
+          "The asymptotic exponent itself is a standard Chernoff theorem plus elementary spacing; it is recorded as a consequence, while the finite-copy all-regime law and sharp prefactor supply the independent content."
+        ],
+        "reasoning": "The final result contains a genuine new all-copy evaluation even though one of its consequences is a short specialization of general Chernoff theory.",
+        "searches": [
+          "Achenbach Proposition 5.5 \\(n>k\\) versus the aliased \\(N\\le k\\) regime",
+          "general GU PGM formulas versus explicit cyclic symmetric-power spectrum",
+          "multiple Chernoff theorem versus regular projective-circle spacing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Achenbach et al. use the same cyclic real-qubit states and weighted Gram-matrix/PGM framework.",
+          "Their Proposition 5.5 states the closed scaling only for \\(n>k\\), exactly the regime in which the residue classes do not alias.",
+          "The audited formula resolves the missing aliased spectrum by grouping symmetric-power binomial weights modulo \\(N\\)."
+        ],
+        "reasoning": "The projective-state, GU-orbit and cyclic-frame formulations are the same object; the new content is the explicit arbitrary-copy residue spectrum rather than a change of notation.",
+        "searches": [
+          "Resultary query: regular rebit polygon multi-copy discrimination aliasing binomial residue masses arbitrary N k",
+          "Achenbach et al. arXiv:2604.26647v2, Definition 5.4 and Proposition 5.5",
+          "Krovi et al. arXiv:1507.04737 geometrically-uniform state discrimination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No stronger same-object arbitrary-\\(N,k\\) result appeared among the twelve leading returned findings.",
+          "The current exact package itself is not reliably surfaced by that semantic query, so corpus non-detection is not used as novelty proof."
+        ],
+        "reasoning": "The database check is treated as supplementary; originality rests on direct comparison with the recent primary papers.",
+        "searches": [
+          "Resultary current semantic search for regular rebit polygons, multicopy discrimination, aliasing and binomial residue masses"
+        ]
+      },
+      "rationale": "The closest current primary source, Achenbach--Leppäjärvi--Lee--Heinosaari, defines the same regular real-qubit cyclic ensemble and the same Gram matrix and proves PGM optimality, but its Proposition 5.5 explicitly assumes \\(n>k\\); its table and analytic scaling formula are likewise restricted to that non-aliasing regime. Kvashchuk et al. treat the broader multicopy optimization problem and real-state restrictions, while Krovi et al. provide general GU measurement machinery, but the inspected statements do not evaluate the symmetric-power cyclic spectrum after residue aliasing. A general GU formula still requires the object-specific decomposition that produces the fair-binomial residue law. Ke Li supplies the general multiple-Chernoff theorem; the projective-circle extremal specialization is elementary background to the main finite-copy result rather than the sole novelty. Current Resultary search did not return a stronger same-object arbitrary-\\(N,k\\) formula among its leading results.",
+      "residual_risks": [
+        "Older phase-shift-keying or cyclic-frame literature may contain the same binomial-residue specialization under different terminology.",
+        "The Kvashchuk primary body was not reread page-by-page in this run; its accessible current abstract/scope is therefore retained as a literature risk rather than used for whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NON_ALIASING_PRIMARY_SCOPE",
+          "evidence": "The source explicitly states \\(n>k\\) in Proposition 5.5 and in the success-probability table; it does not state an arbitrary-\\(n,k\\) residue formula.",
+          "identifier_or_url": "arXiv:2604.26647v2",
+          "material_read": "full experimental HTML with the ensemble definition, Gram-matrix/PGM discussion, Proposition 5.5, its table and surrounding proof context inspected",
+          "method": "primary full-text inspection",
+          "title": "Nonclassical traits in multi-copy state discrimination",
+          "trigger": "exact same regular real-qubit cyclic ensemble"
+        },
+        {
+          "assessment": "BROADER_OPTIMIZATION_CONTEXT",
+          "evidence": "The accessible material addresses global ensemble optimality and design regimes rather than the audited aliased cyclic spectrum.",
+          "identifier_or_url": "arXiv:2604.26927",
+          "material_read": "primary abstract and stated theorem scope on designs, universal limits and real-state restrictions",
+          "method": "primary-source scope inspection",
+          "title": "The most discriminable quantum states in the multicopy regime",
+          "trigger": "contemporary primary source on optimal multicopy state sets and rebit restrictions"
+        },
+        {
+          "assessment": "GENERAL_GU_MACHINERY",
+          "evidence": "The source gives general GU measurement formulas but not the regular-rebit binomial-residue evaluation.",
+          "identifier_or_url": "arXiv:1507.04737",
+          "material_read": "primary abstract and theorem-level statement of representation-theoretic MPE formulas for GU states",
+          "method": "primary-source theorem-scope comparison",
+          "title": "Optimal Measurements for Symmetric Quantum States with Applications to Optical Communication",
+          "trigger": "general GU formula potentially dominating the special case"
+        },
+        {
+          "assessment": "GENERAL_EXPONENT_INPUT",
+          "evidence": "The source supplies the general exponent theorem; the regular projective-circle extremal specialization is not claimed as independent deep input.",
+          "identifier_or_url": "arXiv:1508.06624",
+          "material_read": "primary abstract stating that the multiple-state error exponent is the minimum pairwise quantum Chernoff distance",
+          "method": "primary-source theorem inspection",
+          "title": "Discriminating quantum states: the multiple Chernoff distance",
+          "trigger": "general theorem used in the exponent corollary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Achenbach et al. 2026",
+        "Kvashchuk et al. 2026",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The recent primary literature explicitly isolates the regular rebit polygon as a central multicopy benchmark and leaves the aliased regime outside its closed formula. Resolving all \\(N,k\\), identifying the spectrum as a binomial law modulo \\(N\\), and extracting the sharp fixed-\\(N\\) error prefactor give a reusable exact benchmark for a current discrimination problem. The exponent consequence also clarifies why this same polygon is asymptotically extremal without claiming the still-open finite-copy global conjecture.",
+      "residual_risks": [
+        "The explicit diagonalization is short once the correct cyclic characters are chosen."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The all-copy closed form is for the regular real-qubit projective polygon with equal priors and unrestricted collective measurement.",
+    "The final regular-polygon uniqueness statement concerns the asymptotic exponent of a fixed ensemble, not finite-copy optimality among all rebit ensembles.",
+    "Older phase-shift-keying or cyclic-frame literature may contain the same binomial-residue specialization under different terminology.",
+    "The Kvashchuk primary body was not reread page-by-page in this run; its accessible current abstract/scope is therefore retained as a literature risk rather than used for whole-document noncoverage.",
+    "The explicit diagonalization is short once the correct cyclic characters are chosen."
+  ]
+}
