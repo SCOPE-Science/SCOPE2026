@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The allocation identity is exact: the four stated fractions are nonnegative on \\([0,1]^3\\) and sum algebraically to one. The source's reported Wuhan split coordinates satisfy \\(0.6242+0.8157=1.4399>1\\), so they are outside the source's triangular set. The square-domain minimax formula follows from independent lower bounds \\(R_i\\ge m_i\\) and simultaneous attainment at independent minimizers. Exact-rational replay confirms all numerical statements used in the case-study witness.
+## correctness
 
-## Originality
-**PASS.** The current publisher full text was inspected at the exact allocation definitions, Eqs. (18)–(20), the Wuhan case-study ratios, and Appendix B.2. Exact-title, DOI, feasible-set, numerical-pair, and semantic searches did not locate a published correction stating this square-versus-triangle inconsistency. The closest broader epidemic-resource literature formulates different budget variables and does not imply the source-specific correction. Residual risk is limited to an unlocated later correction or a notation reinterpretation inconsistent with the paper's own adjacent formulas.
+PASS
 
-## Value
-**PASS.** The feasible set is part of the paper's operational decision rule. Replacing a square of independent within-stratum splits by a triangle removes valid allocations, forces an artificial coupling, and changes the instantaneous minimax problem. The paper's own reported policy lies in the removed region, so this is not a merely formal corner case. The correction restores internal consistency and gives the exact corrected instantaneous minimax value.
+For fixed \(\sigma\in[0,1]\), all four printed shares are nonnegative and their sum is identically one for every \((\alpha_1,\alpha_2)\in[0,1]^2\). The reported coordinates satisfy \(0.6242+0.8157=1.4399\), so they are valid under the share map but excluded by the later triangle. On the square, every point has objective at least the maximum of the two coordinatewise minima, and choosing independent minimizers attains that lower bound. Fresh exact-rational replay verifies the numerical witness; the universal identities are symbolic.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The initiating paper itself supplies the inconsistent statements: its four nested shares already exhaust one resource pool for every independent pair of within-stratum splits, yet it later imposes a triangle and then reports a numerical policy outside that triangle. Broader epidemic-allocation literature does not imply this source-specific correction, and targeted exact-ratio and correction searches found no prior correction. The finding is therefore best-of-knowledge original as a diagnosis of this model, not as a new theorem about simplices.
+
+## value
+
+PASS
+
+This is not merely a normalization check: the extra triangle deletes valid policies, excludes the source's own reported optimum, and converts two independent within-stratum choices into an artificial tradeoff. Correcting it materially changes the optimization problem and reproducibility of the model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
