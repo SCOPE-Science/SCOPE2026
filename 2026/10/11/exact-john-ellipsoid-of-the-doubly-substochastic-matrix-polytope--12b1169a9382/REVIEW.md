@@ -1,0 +1,15 @@
+# Review: exact John ellipsoid of the doubly substochastic matrix polytope
+
+## Correctness — PASS
+The statement specifies the full-dimensional Frobenius metric, all positive integer parameters \(n\ge2\), center, spectrum, and tangent facets. The facet inequalities coincide with the partial-permutation-matrix convex hull. Row/column permutation and transpose invariance force the three-eigenvalue form. Exact norm support formulas reduce ellipsoid feasibility to two inequalities. In squared-semiaxis coordinates the explicit stationary point has positive multipliers and satisfies both constraints; after changing variables to semiaxis lengths, the feasible optimization is convex and the log-determinant objective strictly concave. Thus its KKT point is the global unique optimum. The included verifier independently realizes all facet normals and contact points in ambient matrix coordinates for \(2\le n\le9\), while the analytic convexity proof establishes all \(n\ge2\). The previously known general John theorem is used only for existence and uniqueness, not for the explicit formula.
+
+## Originality — PASS, with identified uncertainty
+Relevant primary texts were examined at their definitions, inequality presentations, major results, and applications. Heuer–Striker treats combinatorial structure, Kohl–Olsen–Sanyal gives the positive type-B Birkhoff identification, and Eisley–Matsushita–Vindas-Meléndez studies Gorensteinness and the integer decomposition property. The inspected material does not entail the three spectral eigenvalues, the universal all-facet contact identity, or the exact inscribed-ellipsoid volume. The closest mathematical-result searches returned distinct ellipsoid problems on other convex bodies, not a stronger statement applying to this polytope. Previous related calculations for a fixed-cardinality assignment polytope concern *inradii*, not maximizing the volume of contained anisotropic ellipsoids. This is an originality judgment based on searches and inspected results, not a proof that no equivalent older source exists; older experimental-design or unpublished treatments could overlap.
+
+## Value — PASS
+This is a complete closed-form Euclidean optimization of a canonical \(n^2\)-dimensional matching polytope, including uniqueness, three distinct eigenvalue classes, an all-facets-contact classification, and exact volume. These answer a natural metric question not specified by the established lattice and combinatorial descriptions and produce nontrivial anisotropy across an infinite family. It is not a rebranding of an already quoted table entry or an arbitrary small numerical example.
+
+## Limits
+Only the square complete-bipartite matching polytopes and Frobenius metric are claimed. The proof is mathematical; symbolic and finite-dimensional tests provide separate reproducibility evidence. An equivalent previously published design-theory result remains possible. No independent scientific evaluation has been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
