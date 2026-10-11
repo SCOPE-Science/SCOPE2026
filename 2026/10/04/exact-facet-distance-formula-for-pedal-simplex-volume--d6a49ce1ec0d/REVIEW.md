@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the pedal simplex to the translated vertices \(-d_i u_i\), expands the augmented affine-volume determinant, identifies the normal-matrix cofactor vector with the facet-area kernel vector, and computes the common scale from barycentric-coordinate gradients. The coefficient has been independently replayed numerically for random simplices in dimensions \(2\) through \(6\). The vertex multiplicity argument uses independent local facet-distance coordinates and has a nonzero degree-\(n-1\) initial form.
+## correctness
 
-## Originality
-PASS, with explicit historical risk. Targeted published-finding corpus searches for “pedal simplex volume facet distances exact formula,” “pedal degeneracy hypersurface simplex,” “tetrahedron pedal plane cubic surface volume formula,” and “signed distances facets pedal simplex volume” returned no matching finding; the closest results concern unrelated simplex volume profiles, simplex sections, and tetrahedral Ptolemy slack. Grace (1927) covers the qualitative tetrahedral cubic coplanarity locus; Yang (2004) and Yang--Cheng (2006) cover pedal-simplex inequalities. The accessible 2006 full-text transcription does not state this exact formula. Grace's full text was not available, so the review does not claim novelty for the mere n=3 cubic equation.
+PASS
 
-## Value
-PASS. The formula gives a direct computable invariant for arbitrary simplices and arbitrary points, identifies the complete pedal-degeneracy locus in every dimension, recovers the planar Simson phenomenon and the tetrahedral cubic as low-dimensional cases, and supplies the exact vertex multiplicities. This is a structural identity rather than a routine numerical refinement of an existing inequality.
+The barycentric gradients give sum_i S_i u_i=0 and identify the unique cofactor vector of the normal matrix. Expanding the augmented determinant of the translated projected feet yields a homogeneous degree-n polynomial in signed distances with cofactors proportional to S_i. The determinant of the remaining barycentric gradients fixes the proportionality constant exactly, producing the displayed volume factor. At A_k, the n other signed distances are independent affine coordinates, d_k is a nonzero altitude, and the first nonzero homogeneous part has degree n-1 with positive nonzero coefficients, proving exact multiplicity. The deterministic verifier independently checks dimensions 2 through 6 and the planar Euler specialization.
 
-The main residual risk is historical terminology: an equivalent determinant identity could exist in older work on pedal simplices or barycentric/trilinear coordinates. That risk is recorded in AUDIT.json and VERIFICATION.md.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Grace's primary 1927 extract explicitly records the tetrahedral coplanarity locus as a cubic surface with nodes at the vertices, so that qualitative n=3 fact is prior. Yang's full open 2004 paper treats pedal simplices through inequalities, not the exact signed facet-distance determinant identity. Resultary found the audited all-dimensional formula as the direct exact match.
+
+## value
+
+PASS
+
+The formula unifies the classical Simson/circumcircle and tetrahedral pedal-surface degeneracies with an exact all-dimensional normalization and singularity multiplicity. That is a natural geometric structural identity rather than a numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

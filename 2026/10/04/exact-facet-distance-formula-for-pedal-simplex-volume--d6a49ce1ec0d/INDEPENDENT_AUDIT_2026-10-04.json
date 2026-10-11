@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:46:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ff932c32276c7b834b0238204037c5a58a2aae1a",
+        "assigned verify_pedal_simplex.py blob e167dbe8bec45e43e568f5e6d90ebee21f4cf529",
+        "fresh determinant/cofactor reconstruction"
+      ],
+      "rationale": "The barycentric gradients give sum_i S_i u_i=0 and identify the unique cofactor vector of the normal matrix. Expanding the augmented determinant of the translated projected feet yields a homogeneous degree-n polynomial in signed distances with cofactors proportional to S_i. The determinant of the remaining barycentric gradients fixes the proportionality constant exactly, producing the displayed volume factor. At A_k, the n other signed distances are independent affine coordinates, d_k is a nonzero altitude, and the first nonzero homogeneous part has degree n-1 with positive nonzero coefficients, proving exact multiplicity. The deterministic verifier independently checks dimensions 2 through 6 and the planar Euler specialization.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These cover the planar/tetrahedral qualitative cases or inequalities; no inspected source supplies the normalized all-dimensional polynomial."
+        ],
+        "reasoning": "The all-dimensional exact identity strictly contains, but does not claim novelty for, Grace's qualitative n=3 locus.",
+        "searches": [
+          "Grace 1927 tetrahedral pedal surface",
+          "Yang 2004 simplex inequalities",
+          "Yang--Cheng 2006 pedal-simplex inequalities"
+        ]
+      },
+      "checked_sources": [
+        "Grace 1927",
+        "Yang 2004",
+        "Yang--Cheng 2006",
+        "Resultary pedal-simplex query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grace's cubic/nodes statement is consistent with the n=3 specialization but does not mechanically determine the coefficient and all-n determinant identity."
+        ],
+        "reasoning": "The final all-dimensional formula and normalization require the cofactor computation.",
+        "searches": [
+          "Grace n=3 statement versus audited cofactor formula and vertex multiplicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grace states the tetrahedral degeneracy locus is a cubic with nodes at the corners.",
+          "Yang defines the general pedal simplex and proves volume inequalities, not the audited exact determinant formula in the inspected section."
+        ],
+        "reasoning": "The determinant formula is equivalently the oriented volume of the n+1 projected feet expressed through the unique linear dependence among the facet normals.",
+        "searches": [
+          "Grace, The pedal planes of a tetrahedron, DOI:10.1017/S0305004100013700",
+          "Yang 2004 JIPAM full PDF",
+          "Resultary query: pedal simplex exact volume signed facet distances all dimensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact all-dimensional normalization formula was located."
+        ],
+        "reasoning": "The closest exact historical database fact is the tetrahedral cubic, explicitly credited.",
+        "searches": [
+          "Resultary pedal-simplex query",
+          "targeted searches under pedal surface, barycentric/trilinear coordinates"
+        ]
+      },
+      "rationale": "Grace's primary 1927 extract explicitly records the tetrahedral coplanarity locus as a cubic surface with nodes at the vertices, so that qualitative n=3 fact is prior. Yang's full open 2004 paper treats pedal simplices through inequalities, not the exact signed facet-distance determinant identity. Resultary found the audited all-dimensional formula as the direct exact match.",
+      "residual_risks": [
+        "Grace's full 1927 text was inaccessible; it may contain an explicit n=3 cubic equation.",
+        "Older simplex-coordinate literature could contain an equivalent determinant identity under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_N3_COVERAGE_ONLY",
+          "evidence": "The extract explicitly states the known cubic surface with nodes at the corners.",
+          "identifier_or_url": "DOI:10.1017/S0305004100013700",
+          "material_read": "Cambridge primary extract stating the cubic coplanarity locus and nodes at the tetrahedron corners; full article was not accessible.",
+          "method": "Dimension-three scope comparison.",
+          "title": "The pedal planes of a tetrahedron",
+          "trigger": "Classical same-locus source in dimension three."
+        },
+        {
+          "assessment": "PEDAL_SIMPLEX_INEQUALITY_NOT_EXACT_FACET_DISTANCE_IDENTITY",
+          "evidence": "The inspected theorem is a volume inequality for an interior pedal simplex, not the signed determinant formula.",
+          "identifier_or_url": "JIPAM 5(4) Article 106 (2004)",
+          "material_read": "Full open PDF section defining the pedal simplex and Theorem 3.1 inequality.",
+          "method": "Full-text theorem comparison.",
+          "title": "The generalized sine law and some inequalities for simplices",
+          "trigger": "Accessible general-dimensional pedal-simplex source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Grace 1927",
+        "Yang 2004",
+        "Resultary search"
+      ],
+      "rationale": "The formula unifies the classical Simson/circumcircle and tetrahedral pedal-surface degeneracies with an exact all-dimensional normalization and singularity multiplicity. That is a natural geometric structural identity rather than a numerical exercise.",
+      "residual_risks": [
+        "Grace's full 1927 text was inaccessible; it may contain an explicit n=3 cubic equation.",
+        "Older simplex-coordinate literature could contain an equivalent determinant identity under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Grace 1927",
+    "Yang 2004",
+    "Yang--Cheng 2006",
+    "Resultary pedal-simplex query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every nondegenerate Euclidean n-simplex and every point P, the pedal-simplex volume equals the stated normalized absolute value of sum_i S_i product_{j!=i} d_j(P); the degeneracy polynomial has multiplicity exactly n-1 at every original vertex.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Grace's full 1927 text was inaccessible; it may contain an explicit n=3 cubic equation.",
+    "Older simplex-coordinate literature could contain an equivalent determinant identity under different terminology."
+  ]
+}
