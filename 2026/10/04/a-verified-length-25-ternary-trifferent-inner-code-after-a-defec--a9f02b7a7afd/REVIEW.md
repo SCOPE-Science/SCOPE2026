@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite object is fully specified. Exact replay verifies rank, projectivity, all \(729\) codewords, all \(364\) projective support classes, all \(364\) projective hyperplanes, direct trifference, minimum distance \(11\), and the complete nonzero weight distribution. The support-antichain and hyperplane-rank checks provide two independent routes to minimality/strong blocking, while the direct pair check verifies trifference without relying solely on a literature equivalence.
+## correctness
 
-## Originality
-PASS, with deliberately narrow scope. The 2024 paper claims the stronger numerical statement \(b_3^*(6,1)\le24\), so mere existence of a length-25 code would be covered and is not claimed as new. The closest published-finding corpus record instead exposes that the specific 24-column matrix printed for the concatenation is not trifferent. Searches under exact parameters and equivalent formulations found no matching verified 25-column replacement. The original content is the displayed concrete witness, its exact invariants, and the repair consequence. Residual risk remains that an equivalent 25-column witness or a corrected 24-column witness exists outside the inspected sources.
+PASS
 
-## Value
-PASS. The paper's explicit concatenation needs a valid finite inner trifferent code. The displayed matrix is a compact exact substitute, recovering the construction template at asymptotic rate \(23/325\) and providing transparent finite certificates. It does not pretend to settle the stronger minimum-length problem.
+An independent exact reimplementation of the displayed \(6\times25\) matrix over \(\mathbb F_3\) verified rank six, 25 distinct normalized projective columns, the stated complete 729-codeword weight distribution with minimum weight 11, and absence of every strict support containment among the 364 projective nonzero codewords. It also checked all 364 projective hyperplanes and found rank five for every intersection, and directly verified the translated trifference condition for all 264628 unordered pairs of distinct nonzero messages. Thus the strong-blocking, minimal-code, trifferent, and weight claims are exhaustive finite facts rather than sampled evidence. The concatenation rate \(6/25\cdot23/78=23/325\) is exact arithmetic.
 
-Closest literature: arXiv:2301.09457 (claimed length 24, printed defective witness), arXiv:2011.11101 (length 28 construction at \(q=3\)), and arXiv:2010.16339 (minimal-code/strong-blocking framework). Scientific limitations and the unresolved length-24 question are stated in RESULT.md and AUDIT.json.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2024 primary paper was freshly inspected in full text at the strong-blocking/minimal/trifferent equivalences, its small-dimension table, and Theorem 1.7. It claims a stronger length-24 existential/construction result, but the specific printed \(6\times24\) matrix used for the concatenation has a published support-containment defect. The audited final claim is deliberately narrower: the exact displayed 25-column matrix, its full verified invariants, and a concrete fallback certificate restoring the inner-code step. A stronger bare existence claim does not determine this matrix or its certificate. Fresh Resultary and exact-parameter web searches located the defective-24 record but no prior 25-column repair.
+
+## value
+
+PASS
+
+The record addresses a concrete reproducibility failure in an explicit construction: a valid dimension-six inner code is necessary for the concatenation argument, and this small matrix restores a fully checkable fallback at rate \(23/325\). The exhaustive projective and weight data make the replacement independently reusable. Its value is the certified repair object, not an extremal-length claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
