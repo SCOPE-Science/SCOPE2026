@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:10:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Guo-Hu arXiv:2609.04279 complete six-page primary PDF",
+        "repository RESULT.md blob bc6ac2594b3cca248559e1b9e0ede73d0ea893b2",
+        "fresh exact quadratic/discriminant replay"
+      ],
+      "rationale": "Keeping the Guo-Hu pair and fixed point \\(z_0=400/399\\), the curvature numerator and denominator are quadratic functions of the mixing weight. Independent exact arithmetic reproduced the discriminant \\(36000^2\\cdot103288299735\\) and the roots \\(0.201486508538007\\ldots\\) and \\(0.953210606835668\\ldots\\); the denominator has positive coefficients on \\([0,1]\\). Thus the same fixed point violates the strict exterior-convexity condition exactly on the displayed interval. The source's weighted Laurent-tail argument extends to every convex mixture and keeps the family in \\(\\Sigma\\).",
+      "residual_risks": [
+        "The interval classifies only failure detected at the fixed source test point; mixtures outside it may fail convexity elsewhere."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary counterexample contains every analytic ingredient needed for arbitrary mixture weight at its chosen test point."
+        ],
+        "reasoning": "The source construction itself is broader in parameter data than its single printed evaluation and mechanically generates the claimed interval.",
+        "searches": [
+          "Guo-Hu 2026 counterexample construction",
+          "Pommerenke Problem 6.10 background"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.04279",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For general \\(\\lambda\\), both derivative combinations are affine and their real quotient has a quadratic numerator.",
+          "The same strict weighted-tail bound holds by convexity for every \\(0<\\lambda<1\\)."
+        ],
+        "reasoning": "No additional nonstandard lemma or geometric mechanism is required beyond solving one quadratic inequality.",
+        "searches": [
+          "Guo-Hu fixed \\(3/5\\) curvature calculation versus symbolic \\(\\lambda\\)",
+          "source Laurent-tail univalence proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives the exact \\(F'(z_0),G'(z_0),z_0F''(z_0),z_0G''(z_0)\\) data used by the assigned polynomial.",
+          "The assigned interval is simply the sign set of the same curvature expression with the source's mixing coefficient left symbolic."
+        ],
+        "reasoning": "The robustness-window formulation is algebraically equivalent to varying the one scalar already present in the source convex combination.",
+        "searches": [
+          "Resultary: Pommerenke counterexample lambda mixture robustness interval z0=400/399",
+          "Guo-Hu arXiv:2609.04279 full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the assigned exact interval was retrieved."
+        ],
+        "reasoning": "Absence of the exact roots does not establish originality when those roots are immediate algebra from the published formula.",
+        "searches": [
+          "Resultary exact search for the two endpoint values and robustness interval"
+        ]
+      },
+      "rationale": "The source already supplies the same two functions, the same fixed test point, the exact derivative values there, the strict-convexity criterion and the Laurent-tail univalence argument; it evaluates the resulting expression at \\(\\lambda=3/5\\). Replacing that fixed scalar by a variable \\(\\lambda\\), taking the real part of the ratio of affine complex functions, and solving the resulting quadratic inequality is a routine symbolic corollary of those published inputs. Exact endpoint numbers need not have appeared previously for the scientific statement to be implication-covered.",
+      "residual_risks": [
+        "No correctness defect is asserted; rejection is implication-based originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_ROUTINE_PRIOR_IMPLICATION",
+          "evidence": "The paper prints the same load-bearing derivative data and evaluates the same curvature expression at one mixture weight; leaving that scalar symbolic yields the assigned quadratic.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.04279",
+          "material_read": "complete six-page primary PDF, including the construction, fixed \\(3/5\\) mixture, derivative identities at \\(400/399\\), negative exact curvature value and univalence estimate",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "A Counterexample to a Problem of Pommerenke on Convex Functions in the Class Sigma",
+          "trigger": "exact pair, mixture and test point used by the assigned record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Guo-Hu 2026 full paper",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The robustness interval is a useful quantitative annotation of the counterexample, but it is obtained by a routine one-parameter substitution and quadratic-root calculation using the same pair and same test point, and it does not classify convexity outside that test-point obstruction. Under the shared value bar, that does not constitute an independent mathematical gap.",
+      "residual_risks": [
+        "The interval may still be useful pedagogically or as a numerical robustness benchmark."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The interval classifies only failure detected at the fixed source test point; mixtures outside it may fail convexity elsewhere.",
+    "No correctness defect is asserted; rejection is implication-based originality.",
+    "The interval may still be useful pedagogically or as a numerical robustness benchmark."
+  ]
+}
