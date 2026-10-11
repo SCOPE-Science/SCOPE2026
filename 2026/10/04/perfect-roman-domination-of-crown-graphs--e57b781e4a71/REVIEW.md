@@ -1,12 +1,21 @@
-# Review of Perfect Roman domination of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. A deleted matched pair labeled \(2,2\) gives a valid weight-\(4\) perfect Roman function because every other vertex is adjacent to exactly one of those two vertices. Weight at most \(3\) allows at most one value-\(2\) vertex; if that vertex lies in one bipartition class, all other vertices of the same class must be positive. At optimum weight \(4\), a one-defender solution is impossible: for \(n\ge4\) it is already too heavy, and for \(n=3\) it leaves the matched opposite vertex undefended. Thus two value-\(2\) vertices are required. They must lie in opposite classes, and their indices must match, because otherwise one zero vertex is precisely the nonneighbor of the opposite value-\(2\) vertex. Exhaustive checks for \(3\le n\le7\) reproduce the value and all minima.
+## correctness
 
-## Originality
-PASS. The closest primary source is the 2018 regular-graph paper. Its packing construction yields the same weight-\(4\) candidate when specialized to a deleted matched pair, but its theorem is an upper bound for general regular graphs and does not prove optimality or classify crown minima. Targeted full-text searches found no crown or bipartite occurrence in that paper, and targeted searches of the 2019 algorithmic paper found no crown, deleted-matching, or complete-bipartite-minus-matching formula. Database and web searches under “crown graph,” \(K_{n,n}-M\), and regular-bipartite aliases located no equivalent theorem.
+PASS
 
-## Value
-PASS. Crown graphs are a standard dense regular bipartite family in which every vertex has a unique nonneighbor on the opposite side. The theorem shows that this deleted perfect matching is not merely a convenient construction: it exactly parameterizes every optimum perfect Roman defense. This gives a natural exact family inside the regular-graph setting of the foundational bounds paper and adds a complete optimizer count, rather than only another upper bound.
+The upper bound is realized by placing label 2 on one deleted matching pair and 0 elsewhere. For weight at most 3 there can be at most one label-2 vertex; every same-side vertex then lacks a label-2 neighbor and must be positive, which forces weight at least 4, with the n=3 boundary checked separately. At weight 4 there must be exactly two label-2 vertices and no label-1 vertices; they must lie in opposite parts, and the zero vertex paired with the opposite label-2 vertex forces the two indices to coincide. Thus the minimum is 4 and the minimum functions are exactly the n deleted-pair labelings. The inspected verifier independently exhausts all ternary labelings for n from 3 through 7 and matches both the optimum and the complete minimum-set classification; this finite check corroborates but does not replace the all-n proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2018 regular-graph paper supplies degree-based upper bounds and packing methods but no crown-graph equality or classification of all minimum functions. The 2019 algorithmic paper proves hardness on bipartite graphs and gives algorithms for cographs and other structured classes, but crown graphs are not covered there by an exact closed theorem and no crown formula was located in the full accessible article. Targeted Resultary searches returned related domination variants on crown graphs and Roman variants on complete multipartite graphs, not the same perfect-Roman crown statement. The submitted exact optimum together with the complete minimum-function classification therefore survives best-of-knowledge comparison.
+
+## value
+
+PASS
+
+Crown graphs are a standard dense regular bipartite family, and perfect Roman domination is a natural exact invariant on them. The result gives both the optimum and every optimum, not merely another upper bound, and the deleted-pair structure is a reusable boundary example for perfect-Roman behavior on dense bipartite graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
