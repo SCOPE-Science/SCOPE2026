@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The parameter reduction to r=min/max is exact by common scaling and swapping lambda,mu together with x,y. The embedding T(s,t)=(s,t,s-t) converts the hexagonal norm to the sup norm on a two-dimensional subspace. For equal output coordinates the quotient is at most 1. For distinct output coordinates, weighted AM-GM and the exact dual-norm lemma reduce the global optimization to minimizing a one-variable function in z=kappa^2. Its stationary point is feasible exactly when r^4+r^2<=1; otherwise the minimum lies on z=1/r. The two explicit families attain the respective upper bounds, including the transition point.",
+    "risks": [
+      "The proof depends on the exact dual norm of coordinate functionals on the affine-regular hexagon; the bundled checker enumerates all six vertices and all distinct coordinate-pair sign patterns.",
+      "The deterministic numerical search is supplementary only and is not used to establish the continuum supremum."
+    ],
+    "sources": [
+      "doi:10.1515/dema-2021-0033 for the exact definition of C_Z(lambda,mu,X)",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Sarfraz–Li Proposition 4.4 gives a general upper comparison in terms of C_NJ and C_Z, not an exact hexagonal profile.",
+        "Their Proposition 4.6 gives an exact formula only in the extremal C_NJ=2 case; the affine-regular hexagon is not covered by that extremal regime.",
+        "Closest indexed hexagonal results concern isosceles von Neumann–Jordan, Banach–Mazur or Ptolemy constants."
+      ],
+      "reasoning": "The general source inequalities do not determine the threshold r^4+r^2=1 or either extremizing family. No stronger inspected theorem specializes to the present statement.",
+      "searches": [
+        "generalized Zbaganu constant affine regular hexagon full parameter profile",
+        "generalized Zbaganu affine regular hexagon (r+sqrt(1+r^2))/(1+r^2)",
+        "generalized Zbaganu hexagon golden ratio transition r^4+r^2=1"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1515/dema-2021-0033",
+      "2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade",
+      "2026/10/4/SCOPE-euclidean-banach-mazur-profile-of-a-classical-hexagonal-family--19a906569c60",
+      "2026/10/4/SCOPE-exact-ptolemy-constant-on-the-first-nontrivial-hexagonal-regime--ba5cdee4c994",
+      "Current own ledger through generation g000045"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Example 4.5 of the defining paper is an octagonal norm and gives an upper bound, not an exact hexagonal profile.",
+        "Proposition 4.4 is a general comparison inequality and does not force equality for the affine-regular hexagon.",
+        "The closest indexed hexagon profiles optimize different objectives and therefore do not imply C_Z(lambda,mu,X_H)."
+      ],
+      "reasoning": "The new content is the exact product optimization and the phase transition of the optimal dual certificate. Neither the source bounds nor the closest same-space constants logically imply those statements.",
+      "searches": [
+        "doi:10.1515/dema-2021-0033 Example 4.5",
+        "doi:10.1515/dema-2021-0033 Proposition 4.4",
+        "2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade",
+        "2026/10/4/SCOPE-euclidean-banach-mazur-profile-of-a-classical-hexagonal-family--19a906569c60"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source definition is homogeneous in a common scaling of lambda and mu and symmetric after swapping the parameters and x,y, so the ratio r is the complete parameter.",
+        "The affine-regular hexagon appears equivalently as N(s,t)=max{|s|,|t|,|s-t|}.",
+        "No published-finding corpus hit states a generalized Zbăganu profile for this norm."
+      ],
+      "reasoning": "Both the original notation and the natural affine-normalization alias were searched. The claim is a full parameter profile, so an equivalent result would have to imply both displayed branches for every positive parameter pair.",
+      "searches": [
+        "C_Z(lambda,mu) hexagonal Banach plane",
+        "generalized Zbăganu regular hexagon Banach",
+        "weighted Zbaganu constant hexagon exact",
+        "C_Z(lambda,mu,X) regular hexagonal norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula published-finding corpus hit matched either branch or the threshold.",
+        "The nearest same-space record is 2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade.",
+        "The current local ledger through generation g000045 contains a generalized Zbăganu value for the regular octagon at one parameter pair, but no affine-regular-hexagon profile."
+      ],
+      "reasoning": "Exact radical/formula searches and the parameter-transition equation were checked in addition to semantic queries. Negative database evidence is combined with primary full-text inspection rather than treated as proof by itself.",
+      "searches": [
+        "C_Z(lambda,mu) hexagon (1+3r^2+r^4)/(2r(1+r^2))",
+        "generalized Zbaganu hexagon golden ratio transition r^4+r^2=1",
+        "C_Z(lambda,mu) hexagonal Banach plane"
+      ]
+    },
+    "rationale": "The defining 2021 primary full text was inspected through the definition, general estimates, Example 4.3, Proposition 4.4, Example 4.5 and Proposition 4.6. Example 4.5 concerns the regular octagon and supplies only an upper estimate; searches within the full text found no hexagon or regular-polygon calculation. published-finding corpus was queried under the exact invariant, the affine-regular-hexagon alias, both closed-form branches and the golden-ratio threshold. The closest records compute different invariants and do not imply the claim.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "An equivalent calculation may exist under a different affine normalization or an alternate notation for the generalized Zbăganu constant.",
+      "The theorem does not address nearby nonregular hexagonal norms, where the dual-norm two-value lemma changes."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: the paper introduces the invariant and treats an octagonal norm by an upper estimate, but no hexagonal or regular-polygon exact profile occurs in the inspected full text.",
+        "evidence": "Demonstratio Mathematica 54 (2021), 299–310; published 16 August 2021; MSC 2020: 46B20. Example 4.5 is the regular-octagonal norm max{|x1|+(sqrt2-1)|x2|, |x2|+(sqrt2-1)|x1|}.",
+        "identifier_or_url": "doi:10.1515/dema-2021-0033",
+        "material_read": "Primary full PDF: title/abstract/MSC page; definition of C_Z(lambda,mu,X); Proposition 4.2; Example 4.3; Proposition 4.4; Example 4.5; Proposition 4.6; searches for hexagon and regular.",
+        "method": "Lawful open-access full-PDF text inspection plus direct page-image inspection of the title page and pages containing Example 4.3, Proposition 4.4 and Example 4.5.",
+        "title": "Some aspects of generalized Zbăganu and James constant in Banach spaces",
+        "trigger": "Defining primary source for the generalized Zbăganu constant and its main general comparison theorems."
+      }
+    ],
+    "sources": [
+      "doi:10.1515/dema-2021-0033",
+      "published-finding corpus records listed in the four comparison checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b22898e0-6bc1-44ec-9ac3-57cef9a8ae6f",
+  "value": {
+    "rationale": "The result determines the entire two-parameter invariant up to its intrinsic ratio symmetry, rather than a single test value. The affine-regular hexagon is the canonical nonsmooth Radon plane and a standard benchmark for planar Banach geometry. The exact golden-ratio threshold marks a genuine change in the optimizing dual certificate and extremizer geometry. The proof method—three-coordinate embedding plus optimized dual support—can be reused for weighted geometric constants on other polyhedral norms.",
+    "risks": [
+      "The contribution is an exact canonical-space profile, not a classification of all polygonal Banach planes."
+    ],
+    "sources": [
+      "doi:10.1515/dema-2021-0033 for the invariant and its geometric motivation",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  }
+}
