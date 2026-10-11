@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the full domain \(0<\delta<p<\pi/2\), derives the exact ratio \(Q(\gamma,u)\), verifies positivity of every denominator, and reduces the global minimization to endpoints because the numerator controlling \(\partial_u\log Q\) is strictly decreasing. The endpoint values are \(1\) and \(f(2\gamma)\); the one-variable minimization of \(f\) is exact. Sharpness follows from a concrete limiting family. The numerical checker is supplemental and is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS, with stated residual risk. Hajja (2008) explicitly poses the same best-constant statement as a conjecture after finite searches and derives the limiting function but not the global inequality. Gardner (2013) likewise describes this refinement as a conjecture rather than a proof. Searches for the exact numerical constant, the cubic, the bisector-gap inequality, and later Steiner–Lehmus generalizations did not locate a proof. A 2019 same-theme article was not available in full text, so hidden overlap there remains possible; this is recorded rather than treated as resolved.
+PASS
 
-## Value
-PASS. The result closes a precise, published best-constant problem rather than merely reproving the qualitative Steiner–Lehmus theorem. It identifies the exact sharp robustness constant and the unique limiting shape that controls it, replacing finite integer-side evidence by a short continuous proof.
+The proof reconstructs the full two-parameter triangle domain. With \(p=(B+C)/2\), \(\delta=(C-B)/2\), \(\gamma=\cos p\), and \(u=\cos\delta\), one has \(0<\gamma<u<1\) and the exact ratio \(Q=(y-z)/(c-b)=2(1-\gamma)\sqrt{(1+\gamma)/(1+u)}(u+\gamma+2\gamma^2)/(u-4\gamma^3+3\gamma)\). The denominator is positive because \(u>\gamma\) and \(\gamma-(4\gamma^3-3\gamma)=4\gamma(1-\gamma^2)>0\). For fixed \(\gamma\), the logarithmic derivative has numerator \(N_\gamma(u)\) with \(N_\gamma'(u)=-2u-4\gamma^3-6\gamma^2<0\); hence any interior stationary point is the sole sign change from positive to negative and is a maximum, so the minimum lies at an endpoint. The endpoint limits are \(1\) and \(f(2\gamma)\). The derivative of \(f\) has numerator \(x^3+4x^2+x-10\), strictly increasing on \(x>0\), so its unique root \(q\in(0,2)\) gives the global minimum \(\kappa=f(q)=0.856762017555545\ldots\). Taking \(\delta\downarrow0\) with \(2\cos p=q\) proves sharpness and also shows nonattainment away from the isosceles limit. A fresh independent numerical replay over the reduced domain found no violation and converged to the same constant; it is corroborative only.
 
-## Closest literature and limitations
-The closest source is Hajja (2008), which contains the conjecture itself, its numerical evidence, the limiting function, and the cubic defining the candidate constant. This finding contributes the missing global endpoint argument. It does not solve the separate best-constant problems involving the auxiliary segments in Hajja's equation (11), and it makes no non-Euclidean claim.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hajja's 2008 primary paper poses exactly the best-constant problem, reports numerical searches near \(0.856762\), derives the same isosceles-limit function and cubic, and explicitly conjectures the inequality with \(f(q)\). The audited result supplies the missing global two-parameter upper exclusion by proving that the ratio has no interior minimum. Current Resultary and targeted searches returned the assigned theorem but no independent proof of the 2008 conjecture. Later Steiner-Lehmus papers located in the search concern other variants; a 2019 same-theme article was not fully inspectable here, so that source remains a residual risk rather than a basis for a noncoverage claim.
+
+## value
+
+PASS
+
+The theorem resolves an explicit published sharp-constant conjecture in a classical geometry problem and identifies the exact limiting shape. This is a natural global extremal question, not a parameter substitution or finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
