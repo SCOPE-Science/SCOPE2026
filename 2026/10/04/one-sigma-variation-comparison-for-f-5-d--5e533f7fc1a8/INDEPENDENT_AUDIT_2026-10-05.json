@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:18:24.697845Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a0f5a6ebb81b7e7bff3ebdede6792b7cab5a9d36",
+        "assigned verify.py blob 531bbe14c9addcca190ef4049956bcf7427fb677",
+        "Sun--Hu--Sun, arXiv:2305.13615 complete primary PDF, especially Section 5.2",
+        "Sun--Hu--Sun, Journal of Inequalities and Applications 2024:5"
+      ],
+      "rationale": "The primary F-distribution paper reduces denominator-step monotonicity to inequalities (4.1) and (4.2), and its odd-numerator Section 5.2 gives the finite-sum sufficient inequalities (5.2) and (5.3). At numerator degree five those sums collapse to the submitted scalar forms. The inspected verifier uses outward rational square-root intervals to exhaust every integer \\(5\\le d\\le26\\), and exact resultants plus Sturm root counts for the infinite tails: independently replayed certificate structure gives the degree-26 no-root polynomial for the upper bound, the quartic for \\(z-1\\), and the degree-22 no-root polynomial for the lower endpoint. The endpoint-crossing quartic has the claimed sign split at 14. These exact certificates, not finite extrapolation, establish \\(p_{d+2}<p_d\\) for all integers \\(d\\ge5\\). The chi-square limit then follows by Slutsky, and the cited Gamma theorem supplies the strict Gaussian comparison. RESULT.md has one harmless notational typo in the displayed \\(M_d\\): the previously defined variable \\(u\\) is printed once as \\(\\nu\\); the verifier and surrounding derivation unambiguously use \\(u\\), so the theorem/proof content is reconstructible without changing the scientific conclusion.",
+      "residual_risks": [
+        "The displayed \\(M_d\\) line contains an undefined \\(\\nu\\) glyph where \\(u\\) is intended; this is a publication-quality notation defect, not a mathematical ambiguity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The F paper covers four smaller numerator degrees and reduces larger cases.",
+          "The Gamma paper settles the limiting chi-square/Gamma comparison, not the finite-denominator F monotonicity."
+        ],
+        "reasoning": "Neither broader result includes numerator degree five for finite denominator degrees.",
+        "searches": [
+          "arXiv:2305.13615",
+          "Sun--Hu--Sun, J. Inequal. Appl. 2024:5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.13615",
+        "DOI:10.1186/s13660-024-03081-w",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly presents establishment of these inequalities as unfinished work.",
+          "The audited proof supplies that missing sign analysis for \\(d_1=5\\)."
+        ],
+        "reasoning": "This is not mechanically implied by the prior reductions; it closes their first unresolved parameter value.",
+        "searches": [
+          "full-text comparison with equations (5.2)-(5.3) and the final sentence of Section 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original paper states only \\(d_1\\in\\{1,2,3,4\\}\\) in Theorem 1.2.",
+          "Section 5.2 leaves the odd \\(d_1\\ge5\\) inequalities as the route to resolving the conjecture."
+        ],
+        "reasoning": "The audited monotonicity is exactly the source's reduction specialized to the first unresolved odd numerator.",
+        "searches": [
+          "Resultary: F distribution numerator degree 5 one standard deviation monotonic denominator degrees variation comparison",
+          "web search: F(5,d) variation comparison one standard deviation Sun Hu Sun numerator 5",
+          "arXiv:2305.13615"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table/theorem for all denominator degrees at numerator five was located."
+        ],
+        "reasoning": "The bounded prefix is not the result: exact algebraic tail certificates prove the infinite theorem.",
+        "searches": [
+          "Resultary semantic search and exact F(5,d) web query"
+        ]
+      },
+      "rationale": "The complete 25-page primary paper was inspected, including rendered pages 24-25. It proves the conjecture only for numerator degrees 1 through 4, then Section 5.2 explicitly treats odd \\(d_1\\ge5\\), derives inequalities (5.2) and (5.3), and closes by saying the conjecture would be resolved if those two-variable inequalities could be established. The audited result solves exactly the first open odd numerator, \\(d_1=5\\), for every admissible denominator using exact certificates. Targeted Resultary/web searches found no later source covering this case.",
+      "residual_risks": [
+        "A later or unindexed proof of the d1=5 case may exist, but targeted current searches located none."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICITLY_OPEN_FIRST_ODD_CASE",
+          "evidence": "The source stops at the sufficient inequalities; it does not prove the d1=5 case.",
+          "identifier_or_url": "arXiv:2305.13615",
+          "material_read": "Complete 25-page primary PDF, including introduction/Theorem 1.2 and rendered pages 24-25 of Section 5.2 displaying (5.2), (5.3), and the statement that proving them would resolve the odd cases.",
+          "method": "Lawful open primary PDF full-text plus page-image inspection.",
+          "title": "Variation comparison between the F-distribution and the normal distribution",
+          "trigger": "Defining conjecture and exact reduction used by the claim."
+        },
+        {
+          "assessment": "LIMIT_INPUT_ONLY",
+          "evidence": "It supplies the chi-square/Gamma endpoint inequality but not finite-F monotonicity.",
+          "identifier_or_url": "DOI:10.1186/s13660-024-03081-w",
+          "material_read": "Primary theorem/abstract material for the Gamma one-standard-deviation bound.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "The infimum values of two probability functions for the Gamma distribution",
+          "trigger": "Source for the limiting strict Gaussian comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2305.13615",
+        "Gamma comparison paper"
+      ],
+      "rationale": "This is the first unresolved numerator degree in an explicit published conjecture, and the result proves the full infinite denominator range rather than a finite sample. The exact Sturm/resultant certificates resolve a natural boundary case and establish the conjectured one-sigma comparison for numerator five.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2305.13615",
+    "DOI:10.1186/s13660-024-03081-w",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No result is claimed for numerator degree six or larger.",
+    "The proof is computer-assisted but its infinite tail uses exact elimination/Sturm certificates rather than floating-point extrapolation.",
+    "The public RESULT has the non-substantive \\(\\nu\\)-for-\\(u\\) notation typo noted above."
+  ],
+  "residual_risks": [
+    "A later or unindexed proof of the d1=5 case may exist, but targeted current searches located none."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "EXPLICITLY_OPEN_FIRST_ODD_CASE",
+      "evidence": "The source stops at the sufficient inequalities; it does not prove the d1=5 case.",
+      "identifier_or_url": "arXiv:2305.13615",
+      "material_read": "Complete 25-page primary PDF, including introduction/Theorem 1.2 and rendered pages 24-25 of Section 5.2 displaying (5.2), (5.3), and the statement that proving them would resolve the odd cases.",
+      "method": "Lawful open primary PDF full-text plus page-image inspection.",
+      "title": "Variation comparison between the F-distribution and the normal distribution",
+      "trigger": "Defining conjecture and exact reduction used by the claim."
+    },
+    {
+      "assessment": "LIMIT_INPUT_ONLY",
+      "evidence": "It supplies the chi-square/Gamma endpoint inequality but not finite-F monotonicity.",
+      "identifier_or_url": "DOI:10.1186/s13660-024-03081-w",
+      "material_read": "Primary theorem/abstract material for the Gamma one-standard-deviation bound.",
+      "method": "Lawful open primary-source inspection.",
+      "title": "The infimum values of two probability functions for the Gamma distribution",
+      "trigger": "Source for the limiting strict Gaussian comparison."
+    }
+  ]
+}
