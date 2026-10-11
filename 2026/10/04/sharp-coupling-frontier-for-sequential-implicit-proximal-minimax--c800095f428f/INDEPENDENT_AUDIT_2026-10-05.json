@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:58:21.047102Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 064ee435bce4d0632e2419f7266d41a4733fa35f",
+        "verification script blob 287506c86493359a063997f886b61fc77d0c5d91",
+        "arXiv:2605.23488v1"
+      ],
+      "rationale": "The sequential solves give trace (2+2t-kappa^2 t^2)/(1+t)^2 and determinant 1/(1+t)^2. Jury conditions reduce to 4+4t+(1-kappa^2)t^2>0, yielding all-step stability for kappa<=1 and t<2/(kappa-1) for kappa>1, with multiplier -1 at equality. The discriminant is kappa^2 t^2[kappa^2 t^2-4(1+t)]/(1+t)^4, giving the unique collision t_star. Before it the radius is 1/(1+t); after it the dominant negative root increases, so t_star is the unique rate minimizer. The simultaneous resolvent has factor 1/sqrt((1+t)^2+kappa^2 t^2), strictly decreasing for all t>0.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full resolvent proximal-point theory analyzes a different, simultaneous operator resolvent.",
+          "Sufficient source conditions do not imply necessity or rate optimality."
+        ],
+        "reasoning": "No inspected theorem dominates the sharp split-map phase diagram.",
+        "searches": [
+          "Zhu--Wang--Dai, A Stochastic Implicit Proximal Point Algorithm for Solving Linearly Constrained Stochastic Minimax Problems, arXiv:2605.23488v1",
+          "Ouyang, Alternating Proximity Mapping Method for Strongly Convex-Strongly Concave Saddle-Point Problems, arXiv:2310.20156v1",
+          "Rockafellar, Monotone Operators and the Proximal Point Algorithm, DOI:10.1137/0314056",
+          "Resultary query: sequential implicit proximal minimax bilinear saddle sharp coupling frontier stability rate optimal step"
+        ]
+      },
+      "checked_sources": [
+        "Zhu--Wang--Dai, A Stochastic Implicit Proximal Point Algorithm for Solving Linearly Constrained Stochastic Minimax Problems, arXiv:2605.23488v1",
+        "Ouyang, Alternating Proximity Mapping Method for Strongly Convex-Strongly Concave Saddle-Point Problems, arXiv:2310.20156v1",
+        "Rockafellar, Monotone Operators and the Proximal Point Algorithm, DOI:10.1137/0314056",
+        "Resultary query: sequential implicit proximal minimax bilinear saddle sharp coupling frontier stability rate optimal step"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's convergence theorem is sufficient-condition based.",
+          "The split map develops a finite r=-1 boundary for strong coupling although the full resolvent remains stable for all positive steps."
+        ],
+        "reasoning": "The audited conclusion is not implied by the source theorem.",
+        "searches": [
+          "Zhu--Wang--Dai, A Stochastic Implicit Proximal Point Algorithm for Solving Linearly Constrained Stochastic Minimax Problems, arXiv:2605.23488v1",
+          "Ouyang, Alternating Proximity Mapping Method for Strongly Convex-Strongly Concave Saddle-Point Problems, arXiv:2310.20156v1",
+          "direct Jury/Schur analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The focal update specializes exactly to the audited y-then-x implicit matrix.",
+          "Ouyang studies alternating proximity but advertises sufficient conditions."
+        ],
+        "reasoning": "Sequential implicit, alternating proximal, Gauss--Seidel and simultaneous-resolvent formulations were compared.",
+        "searches": [
+          "Zhu--Wang--Dai, A Stochastic Implicit Proximal Point Algorithm for Solving Linearly Constrained Stochastic Minimax Problems, arXiv:2605.23488v1",
+          "Ouyang, Alternating Proximity Mapping Method for Strongly Convex-Strongly Concave Saddle-Point Problems, arXiv:2310.20156v1",
+          "Rockafellar, Monotone Operators and the Proximal Point Algorithm, DOI:10.1137/0314056",
+          "Resultary query: sequential implicit proximal minimax bilinear saddle sharp coupling frontier stability rate optimal step"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed source supplied the exact source-specialization formula."
+        ],
+        "reasoning": "The constants arise from the characteristic polynomial, not a table.",
+        "searches": [
+          "Resultary query: sequential implicit proximal minimax bilinear saddle sharp coupling frontier stability rate optimal step",
+          "targeted searches for the flip threshold and square-root optimal step"
+        ]
+      },
+      "rationale": "Originality passes. The focal source defines the staggered implicit update and proves convergence under sufficient parameter rules, while Ouyang likewise gives sufficient alternating-proximity conditions. No inspected theorem gives this exact necessary-and-sufficient scalar coupling frontier together with the unique rate-optimal discriminant collision.",
+      "residual_risks": [
+        "Older alternating/Gauss--Seidel proximal literature could contain the same scalar spectral calculation under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_UPDATE_AND_SUFFICIENT_CONVERGENCE_NOT_EXACT_FRONTIER",
+          "evidence": "It supplies the exact update but not the audited Jury boundary or closed-form rate optimum.",
+          "identifier_or_url": "arXiv:2605.23488v1",
+          "material_read": "Relevant primary material around the implicit update and q-linear convergence claims.",
+          "method": "lawful open primary text",
+          "title": "A Stochastic Implicit Proximal Point Algorithm for Solving Linearly Constrained Stochastic Minimax Problems",
+          "trigger": "Defining source for the staggered implicit update."
+        },
+        {
+          "assessment": "SUFFICIENT_CONDITIONS_ONLY",
+          "evidence": "It gives sufficient linear-convergence conditions rather than an exact scalar phase diagram.",
+          "identifier_or_url": "arXiv:2310.20156v1",
+          "material_read": "Primary abstract and theorem-level description.",
+          "method": "lawful open primary material",
+          "title": "Alternating Proximity Mapping Method for Strongly Convex-Strongly Concave Saddle-Point Problems",
+          "trigger": "Closest older alternating-proximal comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhu--Wang--Dai, A Stochastic Implicit Proximal Point Algorithm for Solving Linearly Constrained Stochastic Minimax Problems, arXiv:2605.23488v1",
+        "Ouyang, Alternating Proximity Mapping Method for Strongly Convex-Strongly Concave Saddle-Point Problems, arXiv:2310.20156v1",
+        "Rockafellar, Monotone Operators and the Proximal Point Algorithm, DOI:10.1137/0314056",
+        "Resultary query: sequential implicit proximal minimax bilinear saddle sharp coupling frontier stability rate optimal step"
+      ],
+      "rationale": "This gives a sharp boundary between full-resolvent stability and staggered block implicitness, plus the exact fastest step. Both are natural calibration facts for a current minimax method and explain why the word implicit does not guarantee unconditional stability.",
+      "residual_risks": [
+        "Only the symmetric scalar common-step deterministic specialization is classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older alternating/Gauss--Seidel proximal literature could contain the same scalar spectral calculation under different terminology.",
+    "Publication is withheld because each frozen package contains operational workflow fields in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md. RESULT.md, SLOGAN.txt, and computational artifacts were separately semantically scanned and were clear of the checked operational/platform content. Exact guarded sanitizing replacement bytes were not prepared during the audit window."
+  ],
+  "schema_version": 1
+}
