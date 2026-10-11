@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact nondimensionalization reduces the source surrogate on a scalar quadratic to
-\[
-u_{k+1}=u_k\left[1-\frac{\tau}{(1+|u_k|^4)^{1/4}}\right].
-\]
-For \(0<\tau\le2\), the absolute multiplier is strictly below one at every nonzero state, which proves global convergence. Taylor expansion gives both the fifth-order matched-step law at \(\tau=1\) and the critical recurrence at \(\tau=2\); the latter implies \(|u_k|\sim(2k)^{-1/4}\). Above the frontier, the origin is linearly unstable and the exact symmetric two-cycle has squared multiplier \([1-32/\tau^4]^2<1\).
+PASS
 
-The bundled verifier replays representative identities and asymptotics. It is supporting evidence only; the quantified conclusions are proved algebraically.
+After the scaling \(u=ax/\varepsilon\) and \(\tau=\gamma a/\varepsilon\), the iteration is exactly \(T_{\tau}(u)=u[1-\tau/(1+|u|^4)^{1/4}]\). For \(0<\tau\le2\), every nonzero point contracts strictly in magnitude, which forces the global limit zero. The local expansion gives the ordinary linear factor \(1-\tau\), the matched case \(\tau=1\) has \(T_1(u)=u^5/4+O(u^9)\), and at \(\tau=2\) one obtains \(|u_{k+1}|=|u_k|-|u_k|^5/2+O(|u_k|^9)\), hence \(|u_k|\sim(2k)^{-1/4}\). For \(\tau>2\), solving \(T_{\tau}(u)=-u\) gives the stated unique positive symmetric two-cycle and differentiating gives the two-step multiplier \((1-32/\tau^4)^2<1\). Independent arithmetic reproduced the cycle, multiplier, contraction regime, and the bundled verifier was inspected rather than treated as proof.
 
-## Originality
+## originality
 
-PASS. The primary source was inspected through its general deterministic update and its Polar Express sections. It introduces the \(\kappa=4\) smooth surrogate but does not state the scalar quadratic flip frontier, the fifth-order matched-step cancellation, or the critical algebraic rate.
+PASS
 
-The closest nonlinear-preconditioning predecessor was inspected at full-text statement level; it supplies the general framework and other sigmoid-like preconditioners but not the new \(\kappa=4\) surrogate. The original Polar Express paper studies polynomial matrix-sign computation rather than this outer optimization map. Targeted published-research and web searches using the exact surrogate and bifurcation aliases returned no equivalent claim.
+The closest primary source introduces exactly the \(\kappa=4\) nonlinear surrogate and analyzes it inside normalized vector/matrix preconditioned-gradient schemes, but the inspected full text does not state the autonomous unnormalized scalar quadratic map, the exact frontier \(\gamma a=2\varepsilon\), the fifth-order matched regime, the critical \(k^{-1/4}\) law, or the post-frontier attracting two-cycle. The original Polar Express paper concerns polynomial matrix-sign iteration, not this scalar gradient dynamical system. Published SCOPE search returned nearby optimization stability results but no theorem implying this phase diagram.
 
-Residual risk remains that an equivalent one-dimensional saturation-map calculation exists in dynamical-systems literature under different terminology.
+## value
 
-## Value
+PASS
 
-PASS. The source presents the \(\kappa=4\) map as a faithful smooth model of practical Polar Express. The finding gives that model a sharp scalar learning-rate calibration: a globally convergent regime, a degenerate critical boundary, and a postcritical persistent two-cycle. It also identifies a special matched step with fifth-order local convergence. These facts clarify both successful tuning and a concrete oscillatory failure mode of the newly proposed model.
+The surrogate is explicitly motivated by a current optimizer analysis, and the exact scalar theorem identifies a sharp stability loss, a nonhyperbolic critical decay law, and the first postcritical attractor. Those are structural boundaries for a natural model of the practical nonlinear preconditioner rather than an arbitrary numerical slice.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

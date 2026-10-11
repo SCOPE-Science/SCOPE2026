@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:02:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen package RESULT.md, blob 851c873e786643489bebfa3926b746705a2b5118, and artifacts/verify_polar_surrogate_scalar.py, blob c3bab57b1c7608f8f119a29fde77630a8bf3cef0.",
+        "Oikonomidis et al., Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives, arXiv:2605.11850v1, Figure 1 and Appendix F.1--F.2.",
+        "Amsel et al., The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm, arXiv:2505.16932.",
+        "Published SCOPE semantic query: Polar Express h4 nonlinear preconditioner scalar quadratic stability two cycle."
+      ],
+      "rationale": "After the scaling \\(u=ax/\\varepsilon\\) and \\(\\tau=\\gamma a/\\varepsilon\\), the iteration is exactly \\(T_{\\tau}(u)=u[1-\\tau/(1+|u|^4)^{1/4}]\\). For \\(0<\\tau\\le2\\), every nonzero point contracts strictly in magnitude, which forces the global limit zero. The local expansion gives the ordinary linear factor \\(1-\\tau\\), the matched case \\(\\tau=1\\) has \\(T_1(u)=u^5/4+O(u^9)\\), and at \\(\\tau=2\\) one obtains \\(|u_{k+1}|=|u_k|-|u_k|^5/2+O(|u_k|^9)\\), hence \\(|u_k|\\sim(2k)^{-1/4}\\). For \\(\\tau>2\\), solving \\(T_{\\tau}(u)=-u\\) gives the stated unique positive symmetric two-cycle and differentiating gives the two-step multiplier \\((1-32/\\tau^4)^2<1\\). Independent arithmetic reproduced the cycle, multiplier, contraction regime, and the bundled verifier was inspected rather than treated as proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix F of arXiv:2605.11850v1 proves convergence bounds for normalized vector/matrix schemes and explicitly discusses the required input normalization.",
+          "arXiv:2505.16932 studies adaptive polynomial matrix-sign iterations."
+        ],
+        "reasoning": "Those broader analyses use different update maps and do not mechanically imply the exact scalar frontier or two-cycle.",
+        "searches": [
+          "Resultary: Polar Express h4 nonlinear preconditioner scalar quadratic stability two cycle",
+          "Web: Polar Express nonlinear preconditioner scalar quadratic stability",
+          "arXiv:2605.11850v1",
+          "arXiv:2505.16932"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package RESULT.md, blob 851c873e786643489bebfa3926b746705a2b5118, and artifacts/verify_polar_surrogate_scalar.py, blob c3bab57b1c7608f8f119a29fde77630a8bf3cef0.",
+        "Oikonomidis et al., Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives, arXiv:2605.11850v1, Figure 1 and Appendix F.1--F.2.",
+        "Amsel et al., The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm, arXiv:2505.16932.",
+        "Published SCOPE semantic query: Polar Express h4 nonlinear preconditioner scalar quadratic stability two cycle."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary 2026 source supplies the surrogate and broader convergence machinery, while its practical Polar-Express discussion adds normalization.",
+          "The audited claim analyzes the exact scalar map \\(u\\mapsto T_{\\tau}(u)\\) exactly."
+        ],
+        "reasoning": "Neither inspected prior theorem has the audited phase diagram as an immediate corollary; the critical and postcritical conclusions require analysis absent from those results.",
+        "searches": [
+          "arXiv:2605.11850v1 Appendix F.1--F.2",
+          "arXiv:2505.16932"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2605.11850v1 defines \\((h_4^*)′(d)=d/(\\varepsilon^4+|d|^4)^{1/4}\\) and identifies it as the nonlinear surrogate for Polar Express.",
+          "No inspected source states an equivalent scalar map phase diagram."
+        ],
+        "reasoning": "The same surrogate formula is prior, but the final claim is an exact dynamical classification of its scalar quadratic iteration, not a restatement of that definition.",
+        "searches": [
+          "Resultary: Polar Express h4 nonlinear preconditioner scalar quadratic stability two cycle",
+          "Web: Polar Express nonlinear preconditioner scalar quadratic stability",
+          "arXiv:2605.11850v1",
+          "arXiv:2505.16932"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact theorem/database entry for the scalar frontier or cycle was returned."
+        ],
+        "reasoning": "This is a parametric dynamical theorem rather than a standard tabulated invariant; the published theorem corpus was searched directly.",
+        "searches": [
+          "Resultary semantic corpus: Polar Express h4 nonlinear preconditioner scalar quadratic stability two cycle"
+        ]
+      },
+      "rationale": "The closest primary source introduces exactly the \\(\\kappa=4\\) nonlinear surrogate and analyzes it inside normalized vector/matrix preconditioned-gradient schemes, but the inspected full text does not state the autonomous unnormalized scalar quadratic map, the exact frontier \\(\\gamma a=2\\varepsilon\\), the fifth-order matched regime, the critical \\(k^{-1/4}\\) law, or the post-frontier attracting two-cycle. The original Polar Express paper concerns polynomial matrix-sign iteration, not this scalar gradient dynamical system. Published SCOPE search returned nearby optimization stability results but no theorem implying this phase diagram.",
+      "residual_risks": [
+        "A generic one-dimensional dynamics paper could contain the same map under unrelated normalization terminology; targeted exact-form and Polar-Express searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SURROGATE_PRIOR_DYNAMICAL_FRONTIER_NOT_COVERED",
+          "evidence": "The paper defines the \\(\\kappa=4\\) surrogate and normalized update but does not state the scalar quadratic flip frontier or its critical/two-cycle laws.",
+          "identifier_or_url": "arXiv:2605.11850v1",
+          "material_read": "full lawful PDF at Figure 1 and Appendix F.1--F.2, including the surrogate definition, normalization, and deterministic analysis",
+          "method": "full-text PDF inspection with page-image inspection",
+          "title": "Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives",
+          "trigger": "primary source identifying the practical Polar Express nonlinear surrogate"
+        },
+        {
+          "assessment": "DIFFERENT_UPDATE_NOT_COVERING",
+          "evidence": "The object analyzed is the matrix-sign polynomial iteration rather than the scalar surrogate gradient map.",
+          "identifier_or_url": "arXiv:2505.16932",
+          "material_read": "abstract and algorithm-level description of adaptive polynomial matrix-sign iteration",
+          "method": "primary bibliographic/statement comparison",
+          "title": "The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm",
+          "trigger": "original algorithm source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen package RESULT.md, blob 851c873e786643489bebfa3926b746705a2b5118, and artifacts/verify_polar_surrogate_scalar.py, blob c3bab57b1c7608f8f119a29fde77630a8bf3cef0.",
+        "Oikonomidis et al., Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives, arXiv:2605.11850v1, Figure 1 and Appendix F.1--F.2.",
+        "Amsel et al., The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm, arXiv:2505.16932.",
+        "Published SCOPE semantic query: Polar Express h4 nonlinear preconditioner scalar quadratic stability two cycle."
+      ],
+      "rationale": "The surrogate is explicitly motivated by a current optimizer analysis, and the exact scalar theorem identifies a sharp stability loss, a nonhyperbolic critical decay law, and the first postcritical attractor. Those are structural boundaries for a natural model of the practical nonlinear preconditioner rather than an arbitrary numerical slice.",
+      "residual_risks": [
+        "The theorem is deliberately limited to the deterministic scalar quadratic surrogate and does not certify pre-normalized stochastic or matrix Polar Express dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(f(x)=ax^2/2\\) with \\(a>0\\), the unnormalized \\(h_4\\)-surrogate step has exact stability frontier \\(\\gamma a=2\\varepsilon\\): the origin is globally asymptotically stable through the closed stable side, with ordinary linear convergence off the exceptional matched/critical values, fifth-order convergence at \\(\\gamma a=\\varepsilon\\), and \\(k^{-1/4}\\) critical relaxation at equality; above the frontier the origin is unstable and there is a unique locally attracting symmetric two-cycle of the stated amplitude and multiplier.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Scalar deterministic quadratic surrogate only; no claim is made for the source’s pre-normalized stochastic or matrix dynamics.",
+    "The postcritical two-cycle is proved locally attracting, not globally attracting."
+  ]
+}
