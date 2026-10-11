@@ -1,0 +1,11 @@
+# Same-model scientific review
+
+**Correctness — PASS.** Global convergence follows from the coercive Lyapunov energy. The center-graph invariance equation determines the fifth-order jet exactly; the distance from that graph obeys an exact exponentially damped equation, enabling asymptotic phase. The reduced inverse-square derivative has a summable residual after the logarithm is removed, proving a finite constant remainder, not only a rate estimate. The polynomial cancellation identity and sign-changing examples were also checked by exact symbolic algebra.
+
+**Originality — PASS.** The closest original source is Llibre–Valls (2023), which proves global asymptotic stability but no two-term relaxation. Bárta establishes the fast/slow distinction and leading power rates for a different velocity-damped class. Demina's 2021 full preprint and Demina–Sinelshchikov's 2021 integrability paper address algebraic invariant curves: the tuned cubic slow graph is already implied by known curve criteria and is expressly not offered as a novel standalone result. No inspected source supplies this global, signed, three-contribution logarithmic coefficient and its exact cancellation equivalence. The latter integrability paper could not be fully obtained; this is a residual originality risk, not evidence of absence.
+
+**Value — PASS.** The coefficient is the first sensitive correction to the universally leading critical slowing of a degenerate dissipative oscillator. It determines the logarithmic correction to threshold-passage times, can have either sign, and vanishes precisely at a structurally motivated invariant-graph resonance in an important cubic–quintic subclass. These are connected statements about a natural asymptotic invariant, not an ad hoc small numerical change.
+
+**Limitations.** Requires smooth odd force, smooth even damping, uniform positive damping, unique restoring zero and coercive potential. The exact invariant polynomial graph is limited to a specified subclass. The result concerns deterministic autonomous dynamics and does not establish robustness under symmetry-breaking perturbations. Unobtained complete text of a related 2021 integrability paper leaves a documented residual overlap risk. The asymptotic proof, not the numeric checks, supports the conclusion.
+
+Same-model review: passed. Independent audit: not yet performed.
