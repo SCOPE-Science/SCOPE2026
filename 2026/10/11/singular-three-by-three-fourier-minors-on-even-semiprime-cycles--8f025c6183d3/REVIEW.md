@@ -1,0 +1,12 @@
+# Scientific assessment: Fourier three-minor classification
+
+## Correctness — PASS
+The statement fixes the exact Fourier character normalization and treats every odd prime. Loukaki's Theorem A certifies all mixed/mixed three-minors after an allowed parity translation; prime-order Chebotarev nonsingularity controls every pure-triple case. The remaining singular cases have a visible proportional pair and a nonzero two-by-two minor, fixing rank two, not merely determinant zero. The counting separates two disjoint geometries. A full-support three-frequency function with mixed parity support cannot exploit the two-column nullvector, whereas a pure-parity support has paired zeros. These facts prove the zero-count spectrum and exclude exactly three zeros. The four-term polynomial supplies the matching exact-support construction. Exhaustive integer-cyclotomic verification for primes three, five, and seven independently checks the finite census; it is not used to infer the infinite result.
+
+## Originality — PASS, with scope and residual risk
+Loukaki (DOI:10.1112/blms.70192, Theorem A, original public version arXiv:2412.08600v1) provides the precise matched-fiber **sufficiency** theorem but not the all-triple if-and-only-if rank census or its count. Bonami–Ghobber (arXiv:1003.5060, especially Sections 1 and 3) classify at-most-support equality cases on two-prime products, not the exact three-zero gap. Krahmer–Pfander–Rashkov (2008, Fourier minor tabulation) already gives the order-six numerical special case; no novelty is claimed for that single table value. Caragea–Lee (arXiv:2409.09793) treats principal, rather than arbitrary, minors. The mathematical deduction is deliberately narrow: the nonvanishing ingredients themselves are not new. An implicitly equivalent enumeration in older sparse-interpolation literature remains possible.
+
+## Value — PASS
+The all-prime complete rank-stratified three-minor census is a natural interpolation invariant. It describes all minimal linear dependencies among triples of sampled Fourier characters, not an arbitrary finite slice. Its support-zero spectrum and the exact high-support uncertainty gap distinguish exactly supported signals from the at-most-support theory and provide a nonmonotonic phenomenon on every even semiprime cycle of sufficiently large order. The result does not claim a general classification for larger minors or provide any independent certification.
+
+Same-model review: passed. Independent audit: not yet performed.
