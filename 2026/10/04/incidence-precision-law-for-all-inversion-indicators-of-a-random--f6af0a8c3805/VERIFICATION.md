@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic.
+# Independent mathematical audit
 
-It exhaustively enumerates every permutation through \(n=7\), reconstructs the full covariance matrix from the sample space, and checks it against
-\[
-C=\frac1{12}(I+B^\top B).
-\]
+## correctness
 
-For dimensions through \(n=14\), it independently verifies
-\[
-(B^\top B)^2=nB^\top B,
-\]
-multiplies the proposed inverse factor by \(I+B^\top B\), checks the determinant from the two spectral multiplicities, and checks every pairwise marginal and full-order linear partial-correlation class.
+PASS
 
-The finite replay is supplementary. The universal theorem is the exact rank-probability and incidence-matrix argument in `RESULT.md`.
+Each comparison has variance one quarter. Disjoint pair comparisons are independent, while the two shared-index orientations have joint probabilities one third and one sixth, giving covariances \(\pm1/12\); these are exactly the off-diagonal entries of \(B^\top B/12\). For the oriented incidence matrix, \(BB^\top=nI-J\), so \(Q=B^\top B\) satisfies \(Q^2=nQ\). Direct multiplication gives the proposed inverse, and the rank of \(B\) gives eigenvalue \(n\) of \(Q\) with multiplicity \(n-1\) and zero on the cycle space, yielding spectrum and determinant. Equal precision diagonals and the standard residual-correlation identity give \(\pm1/(n-1)\). An independent exact enumeration of small permutations in this audit matched the covariance identity. The packaged VERIFICATION.md was also inspected; its finite replay is supplementary to the analytic proof.
 
-Independent audit has not been performed.
+## originality
 
-Exact replay result: `VERIFY_OK permutations_checked=5912 covariance_entries=812 q_square_entries=26663 inverse_entries=26663 pair_class_checks=13104 determinant_checks=13`.
+PASS
+
+The closest permutation-statistics source uses the same iid-continuous comparison representation to study the scalar inversion count, while random-permutation-graph papers aggregate the same edge indicators into degree and graph statistics. The inspected statements do not form or invert the complete edge-indicator covariance. Resultary and targeted searches found no prior theorem combining the incidence covariance, no-fill-in precision, cut/cycle spectrum and all-pairs residual correlations. Residual risk remains in older ranking, social-choice, tournament or Hodge-decomposition literature under different notation.
+
+## value
+
+PASS
+
+Pairwise comparisons are the atomic variables behind inversion counts, Kendall-type statistics and permutation graphs. The theorem gives their complete finite second-order geometry and an unusual exact self-sparsity property: conditioning linearly on every other comparison creates no inverse-covariance fill-in. The cut/cycle spectrum and explicit residual correlations make this a natural reusable benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

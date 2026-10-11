@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:57:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each comparison has variance one quarter. Disjoint pair comparisons are independent, while the two shared-index orientations have joint probabilities one third and one sixth, giving covariances \\(\\pm1/12\\); these are exactly the off-diagonal entries of \\(B^\\top B/12\\). For the oriented incidence matrix, \\(BB^\\top=nI-J\\), so \\(Q=B^\\top B\\) satisfies \\(Q^2=nQ\\). Direct multiplication gives the proposed inverse, and the rank of \\(B\\) gives eigenvalue \\(n\\) of \\(Q\\) with multiplicity \\(n-1\\) and zero on the cycle space, yielding spectrum and determinant. Equal precision diagonals and the standard residual-correlation identity give \\(\\pm1/(n-1)\\). An independent exact enumeration of small permutations in this audit matched the covariance identity. The packaged VERIFICATION.md was also inspected; its finite replay is supplementary to the analytic proof.",
+      "risk": "The novelty lies in the complete probabilistic covariance/precision classification; the incidence-matrix algebra after recognizing \\(C\\) is classical.",
+      "sources": [
+        "Işlak, arXiv:1303.2387",
+        "Bhattacharya-Mukherjee, arXiv:1503.03582 / Annals of Applied Probability 27 (2017)",
+        "Gürerk-Işlak-Yıldız, arXiv:1901.06678",
+        "frozen RESULT.md and VERIFICATION.md"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A scalar inversion variance determines only one quadratic form of the covariance matrix.",
+          "Degree distributions aggregate incident edge indicators and do not determine the full edge covariance or inverse."
+        ],
+        "reasoning": "The broader aggregate results do not imply the no-fill-in precision matrix or exact full-order residual correlations.",
+        "searches": [
+          "Işlak inversion/descent representation",
+          "Bhattacharya-Mukherjee permutation-graph degree program",
+          "Gürerk-Işlak-Yıldız random permutation graph statistics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.2387",
+        "arXiv:1503.03582",
+        "arXiv:1901.06678",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither prior source provides enough joint second-order information to recover all covariance entries and then invert the matrix.",
+          "The complete-graph cut/cycle decomposition and partial-correlation law require treating the full edge vector simultaneously."
+        ],
+        "reasoning": "The final theorem is not a scalar corollary of known inversion variance or a degree-sequence result.",
+        "searches": [
+          "arXiv:1303.2387 inversion indicator sum",
+          "arXiv:1503.03582 inversion-edge definition and degree results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest sources study scalar inversion sums or graph-level aggregates of inversion edges.",
+          "No Resultary hit gave the complete comparison-vector precision law."
+        ],
+        "reasoning": "Inversion-indicator, pairwise-comparison, transitive-tournament, incidence-matrix, precision and partial-correlation formulations were compared.",
+        "searches": [
+          "Resultary: inversion indicators random permutation covariance precision incidence matrix inverse partial correlation",
+          "arXiv:1303.2387",
+          "arXiv:1503.03582",
+          "arXiv:1901.06678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matrix formula or table matching both covariance and precision was located."
+        ],
+        "reasoning": "The audited result is an all-\\(n\\) matrix identity, not a finite covariance table.",
+        "searches": [
+          "Resultary exact semantic searches for \\(C=(I+B^\\top B)/12\\), inversion precision and line-graph sparsity"
+        ]
+      },
+      "rationale": "The closest permutation-statistics source uses the same iid-continuous comparison representation to study the scalar inversion count, while random-permutation-graph papers aggregate the same edge indicators into degree and graph statistics. The inspected statements do not form or invert the complete edge-indicator covariance. Resultary and targeted searches found no prior theorem combining the incidence covariance, no-fill-in precision, cut/cycle spectrum and all-pairs residual correlations. Residual risk remains in older ranking, social-choice, tournament or Hodge-decomposition literature under different notation.",
+      "residual_risks": [
+        "Older ranking, social-choice, linear-ordering, transitive-tournament or Hodge-decomposition literature may encode the same covariance in incidence notation.",
+        "The full Bhattacharya-Mukherjee PDF was not stably available in this run, so only accessible primary material was used for statement comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_ATOMIC_INDICATORS_SCALAR_STATISTIC_NOT_FULL_PRECISION",
+          "evidence": "The source aggregates comparison indicators into the inversion number rather than classifying the covariance inverse of the entire comparison vector.",
+          "identifier_or_url": "arXiv:1303.2387",
+          "material_read": "Primary arXiv source material around the inversion-indicator sum and scalar asymptotic/variance program.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Descent-Inversion Statistics in Riffle Shuffles",
+          "trigger": "Uses the same pairwise-comparison representation for inversion counts."
+        },
+        {
+          "assessment": "EDGE_AGGREGATES_NOT_EDGE_PRECISION",
+          "evidence": "The stated results concern degree sequences and limiting graph statistics rather than edge-indicator covariance/precision.",
+          "identifier_or_url": "arXiv:1503.03582",
+          "material_read": "Primary abstract/source material defining the permutation graph and its degree-sequence focus.",
+          "method": "Lawful open primary-source inspection; full PDF retrieval was not stable in this run.",
+          "title": "Degree Sequence of Random Permutation Graphs",
+          "trigger": "Uses exactly the inversion edges as a random graph."
+        },
+        {
+          "assessment": "RELATED_GRAPH_STATISTICS_NOT_COVERING",
+          "evidence": "The source studies aggregate graph properties, not the full inversion-indicator precision matrix.",
+          "identifier_or_url": "arXiv:1901.06678",
+          "material_read": "Primary abstract/source material describing graph-level statistics.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "A study on random permutation graphs",
+          "trigger": "Later same random-graph object."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pairwise comparisons are the atomic variables behind inversion counts, Kendall-type statistics and permutation graphs. The theorem gives their complete finite second-order geometry and an unusual exact self-sparsity property: conditioning linearly on every other comparison creates no inverse-covariance fill-in. The cut/cycle spectrum and explicit residual correlations make this a natural reusable benchmark.",
+      "risk": "Zero precision is only a linear partial-correlation statement and does not imply nonlinear conditional independence.",
+      "sources": [
+        "arXiv:1303.2387",
+        "arXiv:1503.03582"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all inversion indicators of a uniform random permutation, with \\(B\\) the oriented complete-graph incidence matrix, the covariance is \\(C=(I+B^\\top B)/12\\), the precision is \\(12(I-B^\\top B/(n+1))\\), the spectrum and determinant have the stated two-level forms, and full-order linear partial correlations are zero for disjoint comparisons and \\(\\pm1/(n-1)\\) for incident comparisons.",
+  "limitations": [
+    "Uniform random permutations, equivalently iid continuous comparisons, only.",
+    "Only covariance, precision and linear partial correlation are classified.",
+    "Deleting comparison coordinates need not preserve the no-fill-in property."
+  ],
+  "schema_version": 1
+}
