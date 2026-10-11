@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:56:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f(x)=x^2/2 and the exact quadratic model, the constrained minimizer is s_k=-Delta_k as long as x_k>Delta_k. The condition Delta_0<(1-q)x_0 makes the total radius mass Delta_0/(1-q) smaller than x_0, so x_k=x_0-Delta_0(1-q^k)/(1-q) stays positive and x_k-Delta_k=x_{k+1}>x_infinity. Model and objective coincide, hence every accepted ratio is rho_k=1 for every eta in (0,1). There are no unsuccessful iterations, so C.2 is vacuous; C.3 holds because Delta_{k+1}=q Delta_k with q<1<gamma_3; C.1 fails because Delta_k tends to zero while the running minimum gradient tends to x_infinity>0. An independent exact-rational replay confirms the recurrence and rho=1, while the infinite conclusion comes from the geometric sum.",
+      "risks": [
+        "The construction concerns the generic framework and deliberately does not satisfy the concrete mechanisms that the source proves enforce C.1."
+      ],
+      "sources": [
+        "Frozen source tree acb0d1b1cee98086a97371aa6d56c2d2634911c2",
+        "Rieussec-Bastin, arXiv:2606.30202v1, Section 3.1 structural conditions",
+        "Independent algebraic reconstruction and rational replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rieussec-Bastin give broader sufficient convergence theory under C.1.",
+          "Yuan constructs nonconvergence for a different 'simple reduction' trust-region regime."
+        ],
+        "reasoning": "Neither broader result implies this necessity witness after deleting C.1 while retaining strict positive acceptance and rho=1.",
+        "searches": [
+          "arXiv:2606.30202v1 abstract and Sections 2.6-3.2",
+          "Yuan, DOI:10.1007/978-1-4613-3335-7_9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.30202v1",
+        "DOI:10.1007/978-1-4613-3335-7_9",
+        "Resultary SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The modern source proves sufficiency with C.1 but does not prove its logical necessity.",
+          "Yuan's example is not an all-successful perfect-model geometric-radius construction."
+        ],
+        "reasoning": "A sufficient theorem with C.1 does not imply failure without C.1; the submitted witness supplies that missing direction in the generic class.",
+        "searches": [
+          "Rieussec-Bastin Condition C.1-C.3 and convergence theorems",
+          "Yuan 1998/1996 nonconvergence manuscript"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C.1 is defined as a lower bound tied to the running criticality scale, but no exact scalar summable-radius obstruction is stated.",
+          "Resultary's closest hit was SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe, a one-step decrease result."
+        ],
+        "reasoning": "Equivalent coverage would have to permit perfect models and all successful steps while proving nonstationary convergence from summable radii; no inspected source did.",
+        "searches": [
+          "arXiv:2606.30202v1 Section 3.1",
+          "Resultary query: trust region summable radii scalar quadratic nonstationary exact model rho=1 radius lower bound C.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published-finding match for summable successful radii on a scalar exact quadratic was returned."
+        ],
+        "reasoning": "This is a structural counterexample, not a database/table value.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "The 2026 primary survey names C.1 as the lower bound preventing radius collapse and proves convergence for mechanism classes satisfying it, but the inspected full text does not state an all-successful exact-quadratic counterexample showing that C.2 and C.3 alone are insufficient. Yuan's classical nonconvergence example addresses simple-reduction acceptance and is cited in the modern survey in a different acceptance-regime discussion. Fresh Resultary search found only the distinct SPD Cauchy-decrease record as the closest trust-region item. The submitted summable-radius witness therefore survives on a best-of-knowledge basis.",
+      "residual_risks": [
+        "The historical trust-region literature is extensive and may contain the same summable-radius observation under different terminology.",
+        "The witness establishes indispensability only within the source's generic structural framework, not minimality of C.1 among all possible replacement hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SUFFICIENCY_PRESENT_EXACT_NECESSITY_WITNESS_NOT_STATED",
+          "evidence": [
+            "C.1 explicitly prevents the radius from collapsing faster than the criticality measure.",
+            "C.2 and C.3 are separate unsuccessful/successful radius controls; no all-successful counterexample was found in the inspected text."
+          ],
+          "identifier_or_url": "arXiv:2606.30202v1",
+          "material_read": "Primary full-text material covering the generic algorithm, Theorem 2.4 context, Section 3.1 definitions of C.1-C.3, admissibility classes and convergence discussion.",
+          "method": "Lawful online full-text inspection of the primary manuscript text.",
+          "title": "A survey of trust-region radius update mechanisms. Part I: First-order analysis",
+          "trigger": "Exact source defining C.1-C.3 and motivating the necessity question."
+        },
+        {
+          "assessment": "RELATED_FAILURE_MODE_NOT_EQUIVALENT",
+          "evidence": [
+            "Yuan's stated mechanism concerns accepting any objective decrease rather than collapse of a radius sequence with rho=1 and positive eta."
+          ],
+          "identifier_or_url": "DOI:10.1007/978-1-4613-3335-7_9",
+          "material_read": "Author-hosted manuscript abstract and opening classification of sufficient-reduction versus simple-reduction trust-region methods; bibliographic relation through the 2026 survey.",
+          "method": "Lawful author-hosted manuscript/web inspection.",
+          "title": "An example of non-convergence of trust region algorithms",
+          "trigger": "Closest classical one-dimensional/nonconvergence comparison cited by the modern survey."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example isolates the independent role of a central convergence hypothesis: even a perfect model, exact subproblem solves, positive acceptance threshold and the other two radius controls do not prevent stalling if successful radii can have finite total mass. That is a motivated structural boundary/counterexample, despite the elementary scalar algebra.",
+      "risks": [
+        "It is a necessity witness for the generic framework, not a counterexample to any mechanism already proved to satisfy C.1."
+      ],
+      "sources": [
+        "Rieussec-Bastin arXiv:2606.30202v1",
+        "Frozen exact construction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim is made that C.1 is the weakest conceivable replacement condition.",
+    "The five concrete radius mechanisms proved admissible in the source are not contradicted."
+  ],
+  "schema_version": 1
+}
