@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claimed value is reduced to the exact constrained minimum \(N(x+y)\) over \(N(x)=N(y)=N(x-y)=1\). The regular-octagon norm has eight linear support functionals. Exhausting all active-facet triples gives a complete one-dimensional polyhedral decomposition, and exact arithmetic over \(\mathbb Q(\sqrt2)\) proves the global minimum \(3-\sqrt2\). The displayed witness attains it, and the final conversion to \(3\sqrt2-9/2\) is algebraic. The packaged checker independently replays every finite branch calculation within the same package.
+## correctness
 
-## Originality
-PASS. The defining angle-modulus paper was inspected in its equivalent constrained-infimum formulation. Two primary exact regular-octagon papers were inspected in full: one treats generalized von Neumann--Jordan constants and the other treats \(L_{YJ}\) and \(L'_{YJ}\). Targeted published-finding corpus searches used the invariant name, regular-octagon aliases, unit-separation language, and the equivalent minimum formulation. The closest indexed and prior-ledger octagon results concern different objectives and do not imply this exact minimum. Residual risk remains from unindexed or unexpectedly aliased literature.
+PASS
 
-## Value
-PASS. Unit separation is a distinguished parameter in the defining angle-modulus theory rather than an arbitrary slice, and the regular octagon is a standard exact-test Banach plane. The exact endpoint supplies a benchmark for uniform non-squareness geometry and a finite-facet calculation that can be compared with other polyhedral spaces.
+For the regular-octagonal norm, the angle modulus at unit separation is one minus one half of the square of the least possible norm of the sum of two unit vectors at mutual distance one. The package proof reduces the constrained polyhedral problem to active supporting facets for the two unit constraints and the unit-distance constraint. On each feasible one-dimensional branch, the sum norm is the maximum of finitely many affine functions, so its minimum occurs at a branch endpoint or a support-switch point. The exact Q(sqrt(2)) checker at the assigned package path exhausts all 512 active triples, rejects 32 inconsistent triples, finds 48 feasible branches, and certifies the global minimum 3-sqrt(2), with 32 equality branches. An independent direct substitution of the displayed witness gives unit norms for both vectors and their difference and gives sum norm 3-sqrt(2). Therefore the claimed value 3*sqrt(2)-9/2 follows exactly.
 
-## Closest literature and limitations
-The closest direct source is Du--Ahmad--Din--Li (2022), which defines \(\rho_X^a\) and gives the unit-separation constrained-infimum formulation but does not compute the regular octagon. Yang--Wang (2017) and Yang--Li--Yang (2024) compute other exact constants on the same space. The result here is restricted to \(\varepsilon=1\); it does not claim the full angle-modulus profile. The literature search cannot exclude an unindexed equivalent result.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Du, Ahmad, Din and Li define the angle modulus of smoothness, prove general properties, and compute it for some standard spaces, but their complete accessible article does not give the regular-octagonal value. Current published regular-octagon results located in the search corpus compute other invariants, including the parameterized von Neumann-Jordan profile and the Chen-Liu-Li G_L constant. Those objectives do not imply the present constrained minimum: at the symmetric von Neumann-Jordan parameter the prior objective maximizes a sum containing the squared difference, whereas the angle modulus fixes that difference and requires the least sum norm. No inspected primary or published finding covers the displayed exact value.
+
+## value
+
+PASS
+
+The angle modulus at epsilon=1 is singled out in the defining literature by its connection with uniform non-squareness, and the regular octagon is a canonical non-smooth Banach plane for exact geometric-constant computations. Determining its exact value is therefore a natural exact invariant, not an arbitrary coordinate slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
