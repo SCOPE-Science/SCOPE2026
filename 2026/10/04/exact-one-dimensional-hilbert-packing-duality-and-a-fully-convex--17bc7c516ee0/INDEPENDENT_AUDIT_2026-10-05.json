@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:37:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 635ffbaaa24646d89bee71a49af93da56d3bb805",
+        "assigned verify.py blob 0d940f2fa75534157e68462f00ebd6b4a3e978c9",
+        "Arya--Mount, arXiv:2608.05533v2, Lemma 4.3 and Problem 5.1",
+        "Artstein--Milman--Szarek--Tomczak-Jaegermann, arXiv:math/0407238"
+      ],
+      "rationale": "The Hilbert coordinate \\(\\psi_K(x)=\\tfrac12\\log((x-a)/(b-x))\\) is an isometry from \\((a,b)\\) to the real line, and \\(G\\) becomes a closed coordinate interval of length \\(D_H\\). For an ordered convexified-separated sequence on a line, each new point outside the convex hull of its predecessors must extend the running span by at least \\(\\alpha\\), so at most \\(\\lfloor D_H/\\alpha\\rfloor+1\\) points occur; a monotone equally spaced sequence attains this bound, proving equality with ordinary packing. Direct cross-ratio algebra shows the polar interval pair has the same Hilbert diameter. Arya--Mount Lemma 4.3 then becomes the claimed fully convexified square because ordinary and convexified factors coincide and monotonicity absorbs the \\(\\eta/2\\) factor into \\(\\eta/4\\). Fresh numerical cross-ratio checks on several asymmetric nested interval pairs independently reproduced exact primal--polar equality.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Artstein et al. introduce convexified packing and prove broad normed-space entropy duality.",
+          "Arya--Mount prove the current Hilbert mixed bound but state the fully convexified replacement as open."
+        ],
+        "reasoning": "Neither broader framework contains the missing one-dimensional identity between ordinary and convexified Hilbert packings.",
+        "searches": [
+          "arXiv:math/0407238",
+          "arXiv:2608.05533v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.05533v2",
+        "arXiv:math/0407238",
+        "Resultary semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's mixed bound becomes fully convexified only after supplying the additional equality \\(M_H=\\widehat M_H\\) in one dimension.",
+          "That equality follows from an ordered-span argument not present in the source."
+        ],
+        "reasoning": "The audited statement is therefore a genuine one-dimensional solution of an open specialization, not merely a numerical substitution into the mixed bound.",
+        "searches": [
+          "arXiv:2608.05533v2 Lemma 4.3",
+          "arXiv:2608.05533v2 Problem 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Problem 5.1 asks for a product of two convexified packing factors with absolute constants.",
+          "Lemma 4.3 proves only the mixed product \\(M_H(\\eta/4)\\widehat M_H(\\eta/2)\\)."
+        ],
+        "reasoning": "Equivalent formulations through Hilbert interval coordinates, one-dimensional convexified separation, and the fully convexified diagonal product were compared.",
+        "searches": [
+          "Resultary query: one dimensional Hilbert geometry convexified packing interval diagonal duality Problem 5.1 Arya Mount",
+          "Resultary query: Hilbert interval ordinary convexified packing equality one dimension",
+          "arXiv:2608.05533v2 Lemma 4.3 and Problem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct hit is the assigned current record; no earlier exact interval packing formula or one-dimensional resolution of Problem 5.1 appeared."
+        ],
+        "reasoning": "The exact floor formula and polar equality were searched directly rather than inferred from absence of a higher-dimensional theorem.",
+        "searches": [
+          "Resultary one-dimensional Hilbert packing query above"
+        ]
+      },
+      "rationale": "Arya--Mount explicitly leave the fully convexified diagonal-product estimate as Problem 5.1 and their Lemma 4.3 retains one ordinary-packing factor. The one-dimensional equality \\(M_H=\\widehat M_H\\) is not stated there and is exactly what removes that factor. The older convexified-packing paper develops the general notion and entropy duality but does not give this Hilbert-interval formula. A targeted Resultary search returned the assigned record as the direct match and no earlier one-dimensional theorem.",
+      "residual_risks": [
+        "The one-dimensional span argument is elementary enough that it may exist as folklore without being indexed as a Hilbert-packing result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_LEAVES_FULLY_CONVEXIFIED_BOUND_OPEN",
+          "evidence": "The paper explicitly asks whether the ordinary packing factor can be replaced by a second convexified factor.",
+          "identifier_or_url": "arXiv:2608.05533v2",
+          "material_read": "Full primary HTML around Lemma 4.3, the mixed product proof, the discussion of the ordinary-packing obstruction, and Problem 5.1.",
+          "method": "Open-access full-text inspection.",
+          "title": "Duality Bounds for Convexified Packing in Hilbert Geometry",
+          "trigger": "Exact source of the mixed diagonal bound and the open fully convexified problem."
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_HILBERT_INTERVAL_FORMULA",
+          "evidence": "The source treats convexified packing in normed-space entropy duality, not the exact Hilbert interval packing count or Arya--Mount's later diagonal object.",
+          "identifier_or_url": "arXiv:math/0407238; DOI:10.1007/s00039-004-0486-3",
+          "material_read": "Primary abstract/introduction-level material describing the convexified-packing notion and general duality theorem.",
+          "method": "Open-access bibliographic/full-text excerpt inspection.",
+          "title": "On convexified packing and entropy duality",
+          "trigger": "Foundational source defining convexified packing and proving entropy duality."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Arya--Mount arXiv:2608.05533v2",
+        "Artstein et al. arXiv:math/0407238"
+      ],
+      "rationale": "The result resolves the exact one-dimensional base case of a current explicitly stated convexified-diagonal packing problem and identifies the precise mechanism that removes the ordinary-packing factor. Exact primal--polar equality and the closed floor formula give a reusable sanity benchmark for higher-dimensional conjectures rather than a one-off numerical example.",
+      "residual_risks": [
+        "Its direct reach is limited to dimension one."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every nested pair of nondegenerate real intervals \\(G=[c,d]\\subset(a,b)=\\operatorname{int}K\\) and every \\(\\alpha>0\\), ordinary and convexified Hilbert packing numbers coincide exactly and equal \\(\\lfloor D_H/\\alpha\\rfloor+1\\), where \\(D_H=\\tfrac12\\log\\!\\frac{(d-a)(b-c)}{(c-a)(b-d)}\\). The same value is preserved under reversed polarity. Consequently Arya--Mount's fully convexified diagonal-product bound holds in dimension one as \\(\\widehat M_{\\mathrm{diag},H}(K^\\circ,G^\\circ;\\eta)\\le \\widehat M_H(K^\\circ,G^\\circ;\\eta/4)^2\\), with multiplicative constant one.",
+  "limitations": [
+    "Only one-dimensional Hilbert geometry (nested real intervals) is resolved.",
+    "The constants do not settle Arya--Mount Problem 5.1 in higher dimensions.",
+    "Packing conventions are those of the source paper; endpoint equality is included."
+  ],
+  "schema_version": 1
+}
