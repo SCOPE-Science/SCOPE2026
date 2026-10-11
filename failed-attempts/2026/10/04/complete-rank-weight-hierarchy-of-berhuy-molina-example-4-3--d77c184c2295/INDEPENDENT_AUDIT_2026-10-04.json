@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:59:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hierarchy (1,2,3,5) is correct. Independently over GF(9)=GF(3)[i]/(i^2+1), the three generator rows of the x-i primary component have full GF(3) rank-support dimension four. The combinations i*r0+r1=(1,0,1,0) and i*r1+r2=(0,1,0,1) give a two-dimensional base-field subcode, hence component weights (1,2,4). The (x+1)^2 component is one-dimensional with weight one. Applying the published direct-sum convolution gives (1,2,3,5).",
+      "risks": [
+        "Correctness depends on the cited primary-decomposition theorem, whose hypotheses match the displayed repeated-primary factorization."
+      ],
+      "sources": [
+        "Frozen source tree 48f0be34ee8555f4227da20aa8a054653cb939e2",
+        "Independent GF(9) arithmetic and GF(3) rank calculation",
+        "Berhuy–Molina Theorem 4.1 / source decomposition formula"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source supplies the exact direct-sum formula and endpoint values/framework.",
+          "For C1, multiplying x-i by x+i gives a GF(3)-word (1,0,1,0), and shifting gives an independent second base-field word; this is the shortest possible component calculation.",
+          "The full support of C1 is dimension four from the displayed generator rows."
+        ],
+        "reasoning": "The broader primary theorem, instantiated on the paper’s own example, dominates the submitted complete tuple after a routine finite specialization; no new nonstandard lemma is needed.",
+        "searches": [
+          "arXiv:2507.00609 full text: Theorem 4.1, Corollary 4.2, Example 4.3, Theorem 4.5, Example 4.19",
+          "Source theorem implication check"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.00609v1 full text",
+        "Resultary exact-example query",
+        "Exact tuple web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source’s convolution reduces M_2 and M_3 to component weights.",
+          "The base-field word and its shift force M_1(C1)=1 and M_2(C1)=2 by the universal lower bound; source/row support gives M_3(C1)=4; C2 has M_1=1."
+        ],
+        "reasoning": "Thus (1,2,3,5) is a direct corollary/specialization of the same paper, even though the middle pair is not typeset there.",
+        "searches": [
+          "Direct implication from Theorem 4.1 plus Example 4.3 data",
+          "Example 4.19 endpoint comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 4.3 gives exactly the polynomial and active primary blocks.",
+          "Theorem 4.1 gives the generalized-weight convolution for those blocks.",
+          "Example 4.19 continues Example 4.3 and gives M_4(C_g)=5; the paper’s first-weight criterion gives M_1=1."
+        ],
+        "reasoning": "The audited statement is the same example and invariant as the source; only two numerical entries are unstated.",
+        "searches": [
+          "Full text search in arXiv:2507.00609 for Example 4.3, Theorem 4.1, Example 4.19, M_2, M_3",
+          "Resultary query: Berhuy Molina Example 4.3 generalized rank weights M2 M3 hierarchy 1 2 3 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent explicit database row for the full tuple was found."
+        ],
+        "reasoning": "Absence of an explicit table does not rescue originality because the primary source already implies the tuple.",
+        "searches": [
+          "Resultary exact-example/tuple query",
+          "Web exact searches for the tuple (1,2,3,5) with Example 4.3"
+        ]
+      },
+      "rationale": "The numerical middle weights are not printed in the source, but the claim is covered under the required implication standard: it is a routine specialization of Berhuy–Molina’s own primary-decomposition/convolution theorem to their Example 4.3, together with immediate base-field words in the displayed component. Special cases and corollaries count as prior coverage even when the final tuple is not written verbatim.",
+      "residual_risks": [
+        "The full tuple may be absent verbatim from the literature, but that is immaterial under the implication-based originality rule."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_DIRECT_SPECIALIZATION",
+          "evidence": [
+            "Example 4.3 fixes the exact code; Theorem 4.1 supplies convolution; Example 4.19 gives M4=5. The remaining middle values follow from the two explicit base-field component words and rank-support dimension."
+          ],
+          "identifier_or_url": "arXiv:2507.00609v1; DOI:10.3934/amc.2026035",
+          "material_read": "Full accessible text around Theorem 4.1, Corollary 4.2, Example 4.3, first-weight section, last-weight section, and Example 4.19.",
+          "method": "Primary full-text implication comparison plus independent specialization.",
+          "title": "On the rank weight hierarchy of M-codes",
+          "trigger": "Primary source containing the exact code and decomposition theorem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Completing two unstated entries of a single published benchmark by a direct application of the same paper’s decomposition theorem and two immediate base-field words is a routine specialization, not a motivated new structural gap under the value bar. Its usefulness as a regression example does not overcome the rule rejecting textbook/routine deductions.",
+      "risks": [
+        "The numerical tuple is correct and potentially useful pedagogically, but correctness and reproducibility alone do not establish value."
+      ],
+      "sources": [
+        "Berhuy–Molina Example 4.3 and Theorem 4.1",
+        "Independent two-word component calculation"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The mathematical tuple is correct, but the final claim is rejected for decisive prior implication and routine-specialization value."
+  ],
+  "schema_version": 1
+}
