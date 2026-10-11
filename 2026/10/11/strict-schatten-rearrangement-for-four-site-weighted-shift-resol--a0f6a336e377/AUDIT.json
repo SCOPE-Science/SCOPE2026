@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The triangular inverse is explicit. Directly expanding its Gram characteristic polynomial gives invariant quadratic, linear and constant coefficients and a single central-weight-dependent cubic coefficient. Inverse Gram tridiagonal Jacobi simplicity gives four distinct positive endpoint roots. The horizontal-level function H has exactly three positive critical points by Rolle and Descartes; consequently all intermediate cubic coefficients retain four distinct positive roots. Differentiating their spectral moments yields the third divided difference of t^(q+2), positive because its third derivative is q(q+1)(q+2)t^(q-1)>0 for q>0. The alternating signs of the quartic derivative at ordered roots establish the individual-value behavior. The included unmodified code at verify.py was executed successfully and reproduced 216 exact rational cases; these finite checks do not prove the continuum theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chang and Wang, Maximizing numerical radii of weighted shifts under weight permutations, DOI 10.1016/j.jmaa.2012.04.039 (2012)",
+        "Higham, Bounds for the Norm of the Inverse of a Triangular Matrix (2021-03-30), https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+        "Schatten phase transitions for biased-sign resolvents, publicly indexed mathematical record (2026): membership asymptotics rather than permutation of a finite nilpotent shift.",
+        "Li, Gu and Parlett, An improved dqds algorithm, arXiv:1209.5462, studies high-relative-accuracy bidiagonal singular-value algorithms, not rearrangement of their inverse power traces."
+      ],
+      "reasoning": "The numerical-radius rearrangement theorem optimizes numerical radius of N, not singular values of (I-N)^(-1). General inverse comparison-matrix inequalities bound one inverse against another constructed envelope, not arbitrary edge permutations in every Schatten class. The biased-sign resolvent result treats infinite-dimensional Schatten-membership thresholds and does not dominate this finite-dimensional ordering.",
+      "searches": [
+        "nilpotent weighted shift resolvents Schatten norm rearrangement optimal order weights",
+        "Sharp Schatten p trace norm rearrangement theorem inverse 4x4 upper bidiagonal matrix with fixed off diagonal magnitudes central edge maximal for all p, alternating singular values",
+        "Weighted shift inverse (I-T)^-1 permutation central weight unitarily invariant norms, stronger prior published result",
+        "Maximizing numerical radii of weighted shifts under weight permutations",
+        "Schatten norms of inverse triangular bidiagonal matrices weight rearrangement inequalities",
+        "An improved dqds algorithm arxiv:1209.5462 singular values upper bidiagonal matrices"
+      ]
+    },
+    "checked_sources": [
+      "Chang and Wang, Maximizing numerical radii of weighted shifts under weight permutations, DOI 10.1016/j.jmaa.2012.04.039 (2012)",
+      "Higham, Bounds for the Norm of the Inverse of a Triangular Matrix (2021-03-30), https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+      "Schatten phase transitions for biased-sign resolvents, publicly indexed mathematical record (2026): membership asymptotics rather than permutation of a finite nilpotent shift.",
+      "MSC2020 Mathematics Subject Classification 47A30: norms of linear operators.",
+      "Li, Gu and Parlett, An improved dqds algorithm, arXiv:1209.5462 (initially public 2012-09-25), open-access PDF substantively read."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chang and Wang, Maximizing numerical radii of weighted shifts under weight permutations, DOI 10.1016/j.jmaa.2012.04.039 (2012)",
+        "Higham, Bounds for the Norm of the Inverse of a Triangular Matrix (2021-03-30), https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+        "Related critical-window nilpotent Jordan resolvent asymptotics apply to a constant-weight shift and fixed singular-value ranks at growing matrix order.",
+        "Li, Gu and Parlett, An improved dqds algorithm, arXiv:1209.5462, studies high-relative-accuracy bidiagonal singular-value algorithms, not rearrangement of their inverse power traces."
+      ],
+      "reasoning": "Chang-Wang numerical radius of N does not determine singular values of (I-N)^(-1). Higham upper bounds do not distinguish the sharp order of the permutation classes. Fixed-weight large-order resolvent asymptotics do not imply a complete four-site arbitrary-weight Schatten comparison. The given polynomial and positive-divided-difference argument supply the missing logical implication.",
+      "searches": [
+        "nilpotent weighted shift resolvents Schatten norm rearrangement optimal order weights",
+        "Weighted shift inverse (I-T)^-1 permutation central weight unitarily invariant norms, stronger prior published result",
+        "Four-site nilpotent weighted shift resolvent singular value power majorization under edge permutations, reverse ordering, divided difference quartic",
+        "Maximizing numerical radii of weighted shifts under weight permutations 2012 DOI 10.1016/j.jmaa.2012.04.039",
+        "An improved dqds algorithm arxiv:1209.5462 singular values upper bidiagonal matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chang and Wang, Maximizing numerical radii of weighted shifts under weight permutations, DOI 10.1016/j.jmaa.2012.04.039 (2012)",
+        "Higham, Bounds for the Norm of the Inverse of a Triangular Matrix (2021-03-30), https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+        "Existing large-order critical-window nilpotent Jordan resolvent asymptotic formulas treat constant weights and growing matrix size, not the three-edge permutation classification.",
+        "Li, Gu and Parlett, An improved dqds algorithm, arXiv:1209.5462, studies high-relative-accuracy bidiagonal singular-value algorithms, not rearrangement of their inverse power traces."
+      ],
+      "reasoning": "The equivalent formulations include power sums of squared singular values, Schatten p norms, nuclear and Frobenius norms, inverse unit bidiagonal matrices, and permutation-dependent spectral-polynomial coefficients. The published shift-numerical-radius and general inverse-bound statements do not themselves imply strict ordering for the whole continuum of power sums.",
+      "searches": [
+        "Schatten norm bidiagonal inverse rearrangement weights permutation 4x4",
+        "nilpotent weighted shift resolvents Schatten norm rearrangement optimal order weights",
+        "Four-site nilpotent weighted shift resolvent singular value power majorization under edge permutations, reverse ordering, divided difference quartic",
+        "An improved dqds algorithm arxiv:1209.5462 singular values upper bidiagonal matrices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The invariant is a continuum of functions of three arbitrary nonzero magnitudes and every real exponent p>0.",
+        "No exact matching formula or finite table was identified in the searched public mathematical records."
+      ],
+      "reasoning": "A numerical table or isolated matrix calculation could only cover specific magnitudes and exponents; the claimed universal strict order would be covered by a published theorem for the same operator family or a stronger parameter-independent spectral comparison, neither of which was identified. This is not a claim of exhaustive database novelty.",
+      "searches": [
+        "Schatten norm bidiagonal inverse rearrangement weights permutation 4x4",
+        "Sharp Schatten p trace norm rearrangement theorem inverse 4x4 upper bidiagonal matrix with fixed off diagonal magnitudes central edge maximal for all p, alternating singular values",
+        "singular values resolvent of 4 by 4 weighted shift arrangement permutation characteristic polynomial only trace varying Schatten power sums"
+      ]
+    },
+    "rationale": "This is a different functional and object from the closest identified shift numerical-radius permutation theorems: it classifies every Schatten spectral power of (I-N)^(-1) and establishes a counter-moving singular-value pattern. General triangular inverse norm bounds do not state its simultaneous strict all-exponent comparison. Direct search for spectral power moments, shifted resolvents, permutations, and bidiagonal inverses did not locate a stronger covering formula, although the inaccessible portions of one pertinent full text and unindexed literature leave risk. The full-text arXiv:1209.5462 analysis treats bidiagonal singular-value algorithms, not this inverse rearrangement.",
+    "residual_risks": [
+      "The complete historical 2012 printed article could not be accessed; its indexed main-text material is not a substitute for reading all pages.",
+      "A semantically equivalent spectral trace comparison could exist in unindexed historical matrix-inequality literature.",
+      "Search coverage cannot establish priority over unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The read material treats numerical radius of shifts rather than Schatten powers of a resolvent. Unread article portions remain a bibliographic originality risk, not evidence of a covering theorem.",
+        "evidence": [
+          "Chang and Wang, Maximizing numerical radii of weighted shifts under weight permutations, DOI 10.1016/j.jmaa.2012.04.039 (2012)",
+          "Section 3 explicitly states numerical-radius suprema of unilateral and bilateral weighted backward shifts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2012.04.039",
+        "material_read": "Publicly indexed journal article introduction, description of Section 2 rearrangement problem, a substantive excerpt of its combinatorial rearrangement lemma, Section 3 and displayed main theorems on unilateral/bilateral shifts, plus author-affiliation bibliographic abstract; not the complete printable 11-page article.",
+        "method": "Indexed journal article text and author-university publication record.",
+        "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+        "trigger": "The source explicitly optimizes weighted shifts under edge-weight permutations."
+      },
+      {
+        "assessment": "Gives general inverse-norm bounds, no weight-permutation sharp Schatten ordering for four-site resolvents.",
+        "evidence": [
+          "Higham, Bounds for the Norm of the Inverse of a Triangular Matrix (2021-03-30), https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+          "The bounds in Theorem 1 are comparisons with entrywise nonnegative envelope inverses, not permutations of a fixed weight multiset."
+        ],
+        "identifier_or_url": "https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+        "material_read": "Full publicly available article, including lower bounds, upper comparison-matrix bounds, bidiagonal exact inverse observations and references.",
+        "method": "Full HTML article text.",
+        "title": "Bounds for the Norm of the Inverse of a Triangular Matrix",
+        "trigger": "Directly studies triangular inverses and special bidiagonal inversion."
+      },
+      {
+        "assessment": "Gives accurate numerical algorithms and dqds theory for singular values of bidiagonal matrices. Does not present a fixed-multiset permutation ordering of power moments for the inverse unit bidiagonal matrix. Distinct computational question; does not imply this strict theorem.",
+        "evidence": [
+          "Shengguo Li, Ming Gu and Beresford N. Parlett, An improved dqds algorithm, arXiv:1209.5462, first submitted 2012-09-25 00:31:17 UTC.",
+          "Abstract and main numerical-bidiagonal discussion establish numerical singular-value computation, not algebraic permutation comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.5462",
+        "material_read": "Open-access arXiv PDF text, introduction and numerical-bidiagonal formulations and the discussion of differential quotient difference and deflation, including opening page visual inspection. The publicly available v2 PDF is a revision; arXiv records the original v1 submission at 2012-09-25 00:31:17 UTC.",
+        "method": "Open-access arXiv abstract and PDF textual extraction plus rendered first page.",
+        "title": "An improved dqds algorithm",
+        "trigger": "Computing all singular values of nonsymmetric upper bidiagonal matrices and their inverse sensitivity connects directly to this spectral rearrangement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a0f6a336-e377-4437-b110-3b88042e9f8a",
+  "value": {
+    "rationale": "A path with fixed edge gains defines a canonical feed-forward triangular resolvent; spectral power sums measure its complete amplification profile. Dimension four is the smallest path size for which weight placement changes singular spectra. The theorem gives a natural complete sharp rearrangement classification simultaneously for all real positive exponents, and shows a nonobvious distinction between strict power-moment order and the alternating directions of individual singular values. The entire continuum result is not a routine recomputation of a single norm.",
+    "status": "PASS"
+  }
+}
