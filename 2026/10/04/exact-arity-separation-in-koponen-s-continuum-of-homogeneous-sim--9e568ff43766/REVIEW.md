@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The argument uses only standard homogeneity/orbit correspondence together with Koponen's explicit definition of \(H_n\) and her lemma that the \(H_n\) form an embedding antichain. The first possible affected finite size is \(n+1\). At that size, toggling \(H_n\) removes exactly its isomorphism type, and the automorphism group calculation is forced by the unique distinguished point \(0\) and the directed \(n\)-cycle on the remaining points. The resulting labeled-copy count is \((n+1)!/n\). The Stirling transform correctly transfers the first difference to tuple profiles with repetitions.
+PASS
 
-## Originality
+Constraints H_j with j>=n have at least n+1 vertices, so below arity n the two ages are identical. At size n+1 only H_n can differ. From the defining failed triples, any embedding H_m->H_n with m<n would have to send 0 to 0 and embed the entire directed m-cycle induced by failures into the directed n-cycle; successor-closure forces the full n-cycle, so no proper such embedding exists. In H_n, 0 is fixed by every automorphism and the positive vertices form a directed n-cycle, hence Aut(H_n) is exactly its n rotations. Therefore one forbidden isomorphism type removes \((n+1)!/n\) labeled structures. Homogeneity identifies these with injective ordered-tuple orbits. Allowing repeated coordinates gives the Stirling transform \(b_k=\sum_j {k\brace j}a_j\), preserving the first nonzero difference. A fresh independent finite reconstruction for n=3,4,5,6 gave automorphism counts 3,4,5,6 and labeled-copy counts 8,30,144,840, matching the symbolic formula; the finite check is corroborative only.
 
-PASS, with a folklore caveat. The primary paper was checked for the construction, antichain lemma, continuum-family conclusion, and terminology. Targeted searches using the exact family together with orbit-profile, tuple-orbit, first-difference, and automorphism-group language found no statement of the quantitative theorem. General orbit-profile literature and recent exact profile calculations for other homogeneous structures do not imply the numerical gap without the object-specific automorphism calculation. The strongest residual risk is that the short consequence has circulated without being separately indexed.
+## originality
 
-## Value
+PASS
 
-PASS. Koponen's family encodes continuum many tame homogeneous structures by an infinite forbidden-set parameter. The result gives an exact quantitative decoding law for that parameter from automorphism orbits. It simultaneously shows a sharp local/global contrast: every fixed finite arity sees continuum many indistinguishable members, yet the full orbit-count sequence determines the member. This is a concrete structural invariant of a published continuum construction rather than a routine small-case enumeration.
+Best-of-knowledge comparison found Koponen's construction and general orbit/age background but no theorem that gives the first differing tuple arity or the exact factorial gap. The audited result adds a finite-orbit invariant calculation for the constraint coding, not merely a relabeling of the construction. The primary paper's full text was not materially available in this run, so the possibility of an unindexed remark in the source remains an explicit residual risk rather than negative evidence.
 
-## Closest literature and limitations
+## value
 
-Koponen's paper is the essential prior source and already proves continuum many pairwise nonisomorphic structures; the new claim is not that continuum result itself. Cameron's oligomorphic-group framework supplies the classical age/orbit viewpoint, not the object-specific threshold. The conclusion is limited to this explicit forbidden-antichain family, and the search cannot rule out unpublished folklore.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Finite orbit profiles are a natural oligomorphic invariant of homogeneous structures. The theorem identifies exactly when the continuum coding first becomes visible to that invariant and by how much, while also showing arbitrarily long finite-profile agreement among continuum many nonisomorphic members. This is a motivated structural refinement of the construction rather than an arbitrary small-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
