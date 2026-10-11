@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The weak-contractibility part is geometric: the order complex is the antistar of one vertex in the barycentric subdivision of a simplex-boundary sphere, hence a ball. The two extreme ranks admit explicit order-preserving retractions comparable with the identity. For internal ranks the proof checks all rank cases and leaves at least two incomparable immediate neighbors on every nonempty strict side, excluding every beat point. Stong's core theorem then gives noncontractibility. The finite verifier is only a stress test and is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. Full-text inspection of Cianci--Ottina and Barmak--Minian, together with focused searches under the aliases “proper part of the Boolean lattice,” “face poset of a simplex boundary,” “punctured face poset,” and “antistar,” found the general machinery and the nine-point minimum classification but not this all-ranks weak-contractibility plus atom/coatom contractibility theorem. General antistar results cover only the order-complex side and do not imply finite-space contractibility. Residual risk remains that an unindexed older poset source contains an equivalent statement.
+PASS
 
-## Value
-PASS. The theorem gives a natural infinite family and a complete rank threshold, not a routine recomputation. It cleanly separates contractibility of a finite Alexandrov space from contractibility of its order complex on one of the most canonical poset families, and shows that every internal puncture is already a core.
+The proper Boolean poset has order complex the barycentric subdivision of a simplex boundary; deleting one poset element deletes one vertex and leaves its antistar, a PL ball, so every puncture is weakly contractible by McCord. For an atom or coatom, the displayed monotone retraction respectively deletes or adjoins the distinguished element and retracts onto a subposet with a maximum or minimum. For internal ranks, every point retains either no strict upper/lower set at an extreme rank or at least two incomparable immediate upper/lower neighbors after one deletion, so there are no beat points. The non-singleton space is therefore already a Stong core and cannot be contractible. The finite verifier checks representative ranks through \(k=8\) only as corroboration.
 
-## Closest literature and limitations
-Cianci--Ottina (arXiv:1608.05307) classifies minimum-cardinality homotopically trivial noncontractible finite spaces and supplies the closest conceptual setting. Barmak--Minian (arXiv:math/0611158) supplies the finite-space/simple-homotopy framework, and Stong supplies the core theorem. None of the inspected statements gives the punctured-Boolean rank dichotomy. The proof relies on the standard PL fact that a vertex antistar in a combinatorial sphere is a ball; finite checks cover only \(4\le k\le8\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Finite-space literature contains the general Stong core/beat-point theory and examples/classifications of weakly contractible noncontractible spaces, including the nine-point minimum. Fresh searches for punctured proper Boolean lattices and rank-dependent contractibility found no earlier theorem giving this atom/coatom versus internal-rank dichotomy. Resultary returned the audited record as the exact match.
+
+## value
+
+PASS
+
+The theorem gives a clean complete classification in a canonical infinite family and produces, at every internal rank, explicit beat-point-free finite models that are weakly contractible but noncontractible. It sharply illustrates the gap between order-complex homotopy and finite-space contractibility, a central structural phenomenon in finite topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
