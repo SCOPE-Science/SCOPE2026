@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:55:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b479bb2de4206e412d979d1d634219df5673e0fd",
+        "verify_dp_ss_proper_boundary.py blob e2e26f8ed648c5dcc39eaed530f67049f6d7a9ef",
+        "independent monotone-table census through five players"
+      ],
+      "rationale": "The inspected verifier independently generates all simple games through five players both as antichains of minimal winning coalitions and as monotone Boolean tables and obtains identical universes. It checks properness, computes Shapley-Shubik both from pivotal-coalition weights and all permutations, computes Deegan-Packel exactly, requires a strict pairwise reversal for every disagreement, canonicalizes every five-player disagreement under all 120 relabelings, and reconstructs all nine classes from explicit weighted representations. It obtains the standard simple-game counts \\(1,4,18,166,7579\\), proper counts \\(1,3,11,80,2645\\), zero proper disagreements through four and exactly 460 at five, plus 16 unrestricted four-player disagreements all improper. An independent monotone-table replay reproduced the proper and divergence counts.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aziz treats complexity of influence comparison and gives exact formulas for both indices.",
+          "Freixas–Marciniak prove Shapley-Shubik has an egalitarian property for which Deegan-Packel has counterexamples.",
+          "The auxiliary-game Shapley representation of Deegan-Packel compares different games and therefore does not force ordinal agreement in the original game."
+        ],
+        "reasoning": "These broader relationships do not determine the sharp proper-game player-count boundary or its complete first divergent stratum.",
+        "searches": [
+          "Aziz arXiv:0809.0519 full PDF",
+          "Freixas–Marciniak open publisher article",
+          "Khmelnitskaya–Chessa auxiliary-game relation as cited in the package"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0809.0519",
+        "DOI:10.1007/s00355-011-0593-7",
+        "Resultary DP/SS proper-game boundary query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known differences in axiomatic behavior do not imply an ordinal ranking reversal at any given player count.",
+          "The lower bound through four proper players and the nine exact five-player obstruction classes require direct enumeration."
+        ],
+        "reasoning": "The sharp boundary is not a corollary of the inspected prior theoretical relationships.",
+        "searches": [
+          "Aziz power-index definitions and complexity results",
+          "Freixas–Marciniak structural comparison",
+          "exhaustive first-boundary computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim concerns equality of weak player orderings, not equality of normalized index vectors.",
+          "A disagreement is strengthened in the audited theorem to a strict pairwise rank reversal, eliminating mere tie-breaking artifacts."
+        ],
+        "reasoning": "The weak-order formulation is distinct from computational-complexity and axiomatic comparisons in the prior sources.",
+        "searches": [
+          "Aziz, arXiv:0809.0519, Sections 2 and 6",
+          "Freixas–Marciniak, DOI:10.1007/s00355-011-0593-7",
+          "web/Resultary query: Deegan Packel Shapley Shubik ranking proper simple games five players 460"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source returned the 460-game count, the nine-class decomposition or the orbit-size multiset.",
+          "The verifier derives these values by exhaustive exact enumeration of the entire five-player proper-game universe."
+        ],
+        "reasoning": "No located small-game table supplied the audited classification.",
+        "searches": [
+          "web exact search: \"460\" \"Deegan-Packel\" \"Shapley-Shubik\"",
+          "Resultary exact boundary query"
+        ]
+      },
+      "rationale": "Aziz's full primary paper defines and computationally compares classical power indices including Deegan-Packel and Shapley-Shubik, while Freixas–Marciniak establish a structural property satisfied by Shapley-Shubik but not Deegan-Packel. These sources show meaningful differences between the indices but do not identify the first proper simple-game size at which their weak rankings reverse. Targeted web and Resultary searches for the count 460, the nine classes, and the displayed weighted witness found no covering theorem or table.",
+      "residual_risks": [
+        "An unindexed historical enumeration, thesis, classroom note or voting-game software table may contain the same five-player classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIONS_AND_COMPLEXITY_PRIOR_NO_SMALL_PROPER_RANKING_BOUNDARY",
+          "evidence": "The source defines Deegan-Packel from minimal winning coalitions and discusses complexity of both indices, not the first proper-game weak-order reversal.",
+          "identifier_or_url": "arXiv:0809.0519",
+          "material_read": "Full primary PDF around the simple-game definitions and Section 6; the rendered page introducing power indices and the Deegan-Packel formula was visually inspected.",
+          "method": "Same-index theorem-scope comparison.",
+          "title": "Complexity of comparison of influence of players in simple games",
+          "trigger": "Open primary paper treating both Shapley-Shubik and Deegan-Packel on simple games."
+        },
+        {
+          "assessment": "STRUCTURAL_DIFFERENCE_PRIOR_NOT_FIRST_PLAYER_COUNT_CLASSIFICATION",
+          "evidence": "The source proves Shapley-Shubik satisfies an egalitarian property and Deegan-Packel has counterexamples, which does not determine their player rankings in all small proper games.",
+          "identifier_or_url": "DOI:10.1007/s00355-011-0593-7",
+          "material_read": "Open publisher abstract and theorem scope.",
+          "method": "Axiomatic-difference versus ordinal-boundary comparison.",
+          "title": "Egalitarian property for power indices",
+          "trigger": "Primary paper directly contrasting structural behavior of Shapley-Shubik and Deegan-Packel."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:0809.0519",
+        "DOI:10.1007/s00355-011-0593-7",
+        "Resultary DP/SS proper-game boundary query"
+      ],
+      "rationale": "Deegan-Packel and Shapley-Shubik are classical power indices with different interpretations, and properness is a standard structural restriction. The smallest proper electorate size at which the two indices strictly reverse a pairwise ranking is therefore a natural exact boundary; classifying all nine first obstruction types and showing they are weighted makes the result directly reusable for voting-power examples and benchmark tests.",
+      "residual_risks": [
+        "An unindexed historical enumeration, thesis, classroom note or voting-game software table may contain the same five-player classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0809.0519",
+    "DOI:10.1007/s00355-011-0593-7",
+    "Resultary DP/SS proper-game boundary query"
+  ],
+  "disposition": "passed",
+  "final_claim": "Every proper simple game on at most four players has the same Deegan-Packel and Shapley-Shubik weak player ordering, while among the 2645 labelled proper five-player games exactly 460 have a strict ranking reversal; these form exactly nine isomorphism classes, all weighted, with the stated representatives, and unrestricted divergence already occurs for 16 improper four-player games.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed historical enumeration, thesis, classroom note or voting-game software table may contain the same five-player classification.",
+    "The result classifies weak-order disagreement only through five players and gives no larger-player frequency law."
+  ]
+}

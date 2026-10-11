@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_dp_ss_proper_boundary.py` gives an exact finite replay with only the Python standard library.
 
-Simple games are independently generated in two ways: as antichains of minimal winning coalitions and as monotone Boolean truth tables obtained recursively from pairs \((f_0,f_1)\) with \(f_0\le f_1\).
+# Independent mathematical audit
 
-The replay confirms the simple-game counts
-\[
-1,4,18,166,7579
-\]
-and the proper-game counts
-\[
-1,3,11,80,2645
-\]
-for \(1\) through \(5\) players.
+## correctness
 
-For every proper game, Shapley-Shubik is computed independently by the pivotal-coalition factorial formula and by enumerating all player permutations. Deegan-Packel is computed with exact rational coalition-size weights.
+PASS
 
-The verifier confirms zero proper weak-order disagreements through \(4\) players and exactly \(460\) at \(5\) players. Every disagreement contains a strict pairwise reversal. Canonicalization under all \(120\) player relabelings gives exactly \(9\) classes with orbit-size multiset
-\[
-\{120,60,60,60,60,30,30,20,20\}.
-\]
+The inspected verifier independently generates all simple games through five players both as antichains of minimal winning coalitions and as monotone Boolean tables and obtains identical universes. It checks properness, computes Shapley-Shubik both from pivotal-coalition weights and all permutations, computes Deegan-Packel exactly, requires a strict pairwise reversal for every disagreement, canonicalizes every five-player disagreement under all 120 relabelings, and reconstructs all nine classes from explicit weighted representations. It obtains the standard simple-game counts \(1,4,18,166,7579\), proper counts \(1,3,11,80,2645\), zero proper disagreements through four and exactly 460 at five, plus 16 unrestricted four-player disagreements all improper. An independent monotone-table replay reproduced the proper and divergence counts.
 
-All nine canonical classes are reconstructed exactly from the weighted representations listed in `RESULT.md`. The witness \([9;5,4,3,2,1]\) is checked to have the stated minimal winning coalitions and exact power vectors.
+## originality
 
-Finally, the replay confirms that unrestricted ordinal divergence already occurs in exactly \(16\) labeled four-player simple games, all of which are improper.
+PASS
 
-Run:
+Aziz's full primary paper defines and computationally compares classical power indices including Deegan-Packel and Shapley-Shubik, while Freixas–Marciniak establish a structural property satisfied by Shapley-Shubik but not Deegan-Packel. These sources show meaningful differences between the indices but do not identify the first proper simple-game size at which their weak rankings reverse. Targeted web and Resultary searches for the count 460, the nine classes, and the displayed weighted witness found no covering theorem or table.
 
-`python3 verify_dp_ss_proper_boundary.py`
+## value
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+Deegan-Packel and Shapley-Shubik are classical power indices with different interpretations, and properness is a standard structural restriction. The smallest proper electorate size at which the two indices strictly reverse a pairwise ranking is therefore a natural exact boundary; classifying all nine first obstruction types and showing they are weighted makes the result directly reusable for voting-power examples and benchmark tests.
 
-No larger-player frequency claim is inferred from the finite classification.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

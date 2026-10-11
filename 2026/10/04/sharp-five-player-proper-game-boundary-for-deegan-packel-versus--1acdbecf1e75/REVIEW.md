@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The simple-game universe through five players is independently generated in two mathematically distinct ways and agrees exactly. Properness is tested directly. Shapley-Shubik is independently computed from pivotal coalitions and all player permutations. Deegan-Packel uses exact rational minimal-winning-coalition weights. Relabeling orbits and every weighted representation are replayed exactly. The actual packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the theorem is a finite exhaustive classification, not a symbolic all-\(n\) theorem. No claim beyond five players is inferred.
+PASS
 
-## Originality
-**PASS.** The literature already establishes both indices, their distinct coalition models, computational properties, and a close Shapley-value relationship. It also contains structural results where Shapley-Shubik and Deegan-Packel behave differently. The inspected sources do not state the proper-game coincidence through four players, the exact \(460\)-game first divergent stratum, the nine isomorphism classes, or the fact that every first divergent class is weighted. Exact-count, coalition-family, alias, and implication searches did not locate an equivalent theorem.
+The inspected verifier independently generates all simple games through five players both as antichains of minimal winning coalitions and as monotone Boolean tables and obtains identical universes. It checks properness, computes Shapley-Shubik both from pivotal-coalition weights and all permutations, computes Deegan-Packel exactly, requires a strict pairwise reversal for every disagreement, canonicalizes every five-player disagreement under all 120 relabelings, and reconstructs all nine classes from explicit weighted representations. It obtains the standard simple-game counts \(1,4,18,166,7579\), proper counts \(1,3,11,80,2645\), zero proper disagreements through four and exactly 460 at five, plus 16 unrestricted four-player disagreements all improper. An independent monotone-table replay reproduced the proper and divergence counts.
 
-Risk: failed search is not a proof of novelty. An unindexed historical enumeration, thesis, exercise, or software table may contain the same boundary.
+## originality
 
-## Value
-**PASS.** Shapley-Shubik and Deegan-Packel are classical but normatively different voting-power measures: one averages pivotality over all orderings, while the other distributes weight over minimal winning coalitions. Properness is a standard coherence condition preventing a coalition and its complement from both winning. Determining the smallest proper voting body where these two models reverse a pairwise power ranking is therefore a natural structural question. The answer is sharp, includes the entire first divergent stratum, and remains sharp inside weighted majority games.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Aziz's full primary paper defines and computationally compares classical power indices including Deegan-Packel and Shapley-Shubik, while Freixas–Marciniak establish a structural property satisfied by Shapley-Shubik but not Deegan-Packel. These sources show meaningful differences between the indices but do not identify the first proper simple-game size at which their weak rankings reverse. Targeted web and Resultary searches for the count 460, the nine classes, and the displayed weighted witness found no covering theorem or table.
+
+## value
+
+PASS
+
+Deegan-Packel and Shapley-Shubik are classical power indices with different interpretations, and properness is a standard structural restriction. The smallest proper electorate size at which the two indices strictly reverse a pairwise ranking is therefore a natural exact boundary; classifying all nine first obstruction types and showing they are weighted makes the result directly reusable for voting-power examples and benchmark tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
