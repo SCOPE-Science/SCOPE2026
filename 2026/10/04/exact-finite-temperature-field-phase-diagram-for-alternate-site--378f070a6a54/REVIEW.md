@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Starting from the published reduced Gibbs state, the concurrence sign reduces exactly to a quadratic in \(c=\cosh(2|B|/T)\). The leading coefficient has one sign change because \(\sinh^2x-\cosh(\sqrt2\,x)\) is strictly increasing after the origin, giving a unique temperature ceiling. Below that ceiling the quadratic has one positive and one negative root and is negative at zero field, proving a single lower field threshold and no finite upper cutoff. The low-temperature and high-field asymptotics follow from the same exact coefficients. A standalone checker replays the algebraic identity and phase signs.
+PASS
 
-## Originality
+Starting from the primary source's explicit \(u,v,y,Z\), \(y\) simplifies to a nonnegative affine function of \(\cosh(2|B|/T)\), so concurrence positivity is equivalent to the sign of \(y^2-uv\). Independent expansion reconstructs exactly the stated quadratic coefficients. The leading coefficient is positive exactly when \(\sinh^2x>\cosh(\sqrt2 x)\); its difference is strictly increasing for \(x>0\), giving a unique root. Above the corresponding temperature the quadratic is negative for every admissible field; below it, opposite-sign roots and negativity at zero field yield exactly one positive threshold. Standard asymptotic expansion of those exact coefficients gives the stated low-temperature activation law and high-field positive tail. The numerical root \(x_*=1.4195389207530749\ldots\) and \(T_*/|J|=0.7044540909589808\ldots\) were independently reproduced.
 
-**PASS, narrowly scoped.** The direct source supplies the exact ingredients and finite-resolution plots but presents field-induced entanglement as occurring in a bounded-looking range. Targeted statement-level searches did not locate the exact quadratic reduction, the universal \(0.7044540909589808\ldots |J|\) ceiling, the exponentially vanishing activation field, or the positive high-field tail. The closest later four-qubit field-plus-DM paper is broader but only abstract-level material was accessible; this is retained as a residual risk rather than treated as negative evidence.
+## originality
 
-## Value
+PASS
 
-**PASS.** The magnetic-field entanglement switch is the central phenomenon of the source. The exact phase theorem changes its positive-temperature topology: the apparent two-sided field window is actually a one-sided activation region with an exponentially small tail. The result also explains why finite-resolution plots can show spurious hard field cutoffs and identifies a universal maximal temperature for any alternate-site field activation.
+The direct Cao--Zhu paper supplies the exact reduced Gibbs state and concurrence but gives a numerical/qualitative field picture rather than the exact one-boundary positive-temperature classification. The closest later broader four-qubit field-plus-DM paper was read in full through authorized institutional access: it reproduces the next-neighbor setup, studies critical-temperature plots, and explicitly treats concurrence below \(10^{-4}\) as disappearing in one figure; it does not state the zero-D quadratic sign reduction, universal temperature ceiling, vanishing low-temperature activation scale, or strictly positive high-field tail. Fresh Resultary searches did not locate an equivalent theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The field-induced alternate-site entanglement switch is the central phenomenon of the source. Replacing a finite-resolution bounded-looking field window by an exact one-boundary positive-temperature phase diagram, with a universal ceiling and two singular asymptotic laws, is a motivated structural correction rather than a routine numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

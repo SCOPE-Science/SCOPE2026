@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:54:37.675168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 540769a20e8777c5e8af74d43312423d46da9089",
+        "verify_xx4_field_phase.py blob 43cf5fbd25963255b1eae2a6ee056492b666cbe2",
+        "independent source-formula expansion and root reconstruction"
+      ],
+      "rationale": "Starting from the primary source's explicit \\(u,v,y,Z\\), \\(y\\) simplifies to a nonnegative affine function of \\(\\cosh(2|B|/T)\\), so concurrence positivity is equivalent to the sign of \\(y^2-uv\\). Independent expansion reconstructs exactly the stated quadratic coefficients. The leading coefficient is positive exactly when \\(\\sinh^2x>\\cosh(\\sqrt2 x)\\); its difference is strictly increasing for \\(x>0\\), giving a unique root. Above the corresponding temperature the quadratic is negative for every admissible field; below it, opposite-sign roots and negativity at zero field yield exactly one positive threshold. Standard asymptotic expansion of those exact coefficients gives the stated low-temperature activation law and high-field positive tail. The numerical root \\(x_*=1.4195389207530749\\ldots\\) and \\(T_*/|J|=0.7044540909589808\\ldots\\) were independently reproduced.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou's Section 4 gives the broader DM Hamiltonian and explicit next-neighbor reduced-state entries.",
+          "At \\(D=0\\) it contains the Cao--Zhu family, but its stated results do not specialize to the exact positive-temperature one-threshold theorem.",
+          "Zhou's Figure 6 caption uses a numerical disappearance threshold of \\(10^{-4}\\), which cannot certify exact zero in the exponentially small regime."
+        ],
+        "reasoning": "The broader parameter family does not dominate the claim at statement/implication level; it provides formulas and numerical plots but not the exact zero-D sign topology.",
+        "searches": [
+          "DOI:10.1142/S021797921110117X, complete 14-page article",
+          "Cao--Zhu references on small XX chains",
+          "searches for four-qubit next-neighbor concurrence with magnetic field and DM interaction"
+        ]
+      },
+      "checked_sources": [
+        "Cao and Zhu, Thermal Entanglement between Alternate Qubits of a Four-qubit Heisenberg XX Chain in a Magnetic Field, arXiv:quant-ph/0501029; DOI:10.1103/PhysRevA.71.034311",
+        "Zhou, Pairwise entanglement in the N-qubit XX model with Dzyaloshinski-Moriya interaction and magnetic field, DOI:10.1142/S021797921110117X",
+        "Resultary semantic search: four-qubit XX ring alternate-site thermal entanglement magnetic field exact finite-temperature threshold high-field tail"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent expansion at 48 parameter points agreed with the claimed polynomial to relative error below \\(3\\times10^{-10}\\), supplementing the exact algebraic reconstruction.",
+          "The sign of the leading coefficient has one positive root \\(x_*=1.4195389207530749\\ldots\\), independently reproduced by bisection.",
+          "Neither primary paper states that for every subcritical positive temperature all sufficiently large finite fields remain entangled."
+        ],
+        "reasoning": "The prior formulas are necessary premises, but extracting the global sign topology and both singular asymptotics requires a nontrivial all-parameter reduction not printed in the inspected literature.",
+        "searches": [
+          "expand the Cao--Zhu \\(y^2-uv\\) expression in \\(c=\\cosh(2|B|/T)\\)",
+          "compare the resulting leading coefficient with \\(\\sinh^2x-\\cosh(\\sqrt2 x)\\)",
+          "compare the zero-D specialization against Zhou's full four-qubit next-neighbor discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cao--Zhu give \\(u,v,y,Z\\) and the X-state concurrence, but no closed quadratic phase boundary.",
+          "Zhou studies the same four-qubit next-neighbor observable inside a broader DM family but retains numerical critical-temperature/field plots rather than the audited exact zero-D classification.",
+          "The Resultary query returned no equivalent published SCOPE statement."
+        ],
+        "reasoning": "Equivalent formulations as a sign condition, temperature ceiling, activation threshold, and high-field asymptotic were compared rather than relying on title matching.",
+        "searches": [
+          "arXiv:quant-ph/0501029 full text: reduced state and field-temperature discussion",
+          "DOI:10.1142/S021797921110117X full text: four-qubit next-neighbor section",
+          "Resultary query: four-qubit XX ring alternate-site thermal entanglement magnetic field exact finite-temperature threshold high-field tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked table or database gave the audited universal ceiling or exact activation field.",
+          "The source figures are finite-resolution numerical plots and cannot decide exact positivity of an exponentially small tail."
+        ],
+        "reasoning": "The claim is an analytic phase classification, not a table recomputation.",
+        "searches": [
+          "searches for 0.7044540909589808 four-qubit XX concurrence",
+          "searches for the high-field exponential tail of alternate-site concurrence",
+          "Resultary exact/semantic search for the threshold constants"
+        ]
+      },
+      "rationale": "The direct Cao--Zhu paper supplies the exact reduced Gibbs state and concurrence but gives a numerical/qualitative field picture rather than the exact one-boundary positive-temperature classification. The closest later broader four-qubit field-plus-DM paper was read in full through authorized institutional access: it reproduces the next-neighbor setup, studies critical-temperature plots, and explicitly treats concurrence below \\(10^{-4}\\) as disappearing in one figure; it does not state the zero-D quadratic sign reduction, universal temperature ceiling, vanishing low-temperature activation scale, or strictly positive high-field tail. Fresh Resultary searches did not locate an equivalent theorem.",
+      "residual_risks": [
+        "Equivalent algebra could exist under a different Hamiltonian normalization, although targeted statement/numerical-constant searches and the closest broader full text did not reveal it.",
+        "The high-field concurrence is exponentially small, so numerical literature that thresholds small values as zero is weak evidence about exact positivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREMISES_AND_NUMERICAL_PHASE_PICTURE_NOT_EXACT_CLASSIFICATION",
+          "evidence": "The source provides the exact ingredients but not the quadratic sign theorem, universal ceiling, one-sided finite-temperature field boundary, or high-field positivity asymptotic.",
+          "identifier_or_url": "arXiv:quant-ph/0501029; DOI:10.1103/PhysRevA.71.034311",
+          "material_read": "Full public manuscript portions containing the reduced X-state entries, concurrence formula, zero-temperature level-crossing discussion, and positive-temperature magnetic-field plots/discussion.",
+          "method": "lawful open full-text inspection",
+          "title": "Thermal Entanglement between Alternate Qubits of a Four-qubit Heisenberg XX Chain in a Magnetic Field",
+          "trigger": "Direct source of the exact Hamiltonian, reduced state and alternate-site concurrence."
+        },
+        {
+          "assessment": "BROADER_MODEL_NOT_COVERING_EXACT_ZERO_D_PHASE_THEOREM",
+          "evidence": "The paper gives numerical critical-temperature regions and explicitly thresholds concurrence below \\(10^{-4}\\) as disappearing in a figure; it does not provide the audited exact zero-D phase boundary or asymptotic tails.",
+          "identifier_or_url": "DOI:10.1142/S021797921110117X",
+          "material_read": "Complete 14-page article, especially Section 4, equations for the four-qubit next-neighbor reduced state, Figures 6--7, zero-temperature result, and summary.",
+          "method": "authorized institutional full-text inspection after open full-text routes did not yield the paper",
+          "title": "Pairwise entanglement in the N-qubit XX model with Dzyaloshinski-Moriya interaction and magnetic field",
+          "trigger": "Closest later broader paper covering four-qubit next-neighbor entanglement with the audited model as the \\(D=0\\) specialization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cao--Zhu direct source",
+        "Zhou broader four-qubit full text",
+        "independent exact reduction"
+      ],
+      "rationale": "The field-induced alternate-site entanglement switch is the central phenomenon of the source. Replacing a finite-resolution bounded-looking field window by an exact one-boundary positive-temperature phase diagram, with a universal ceiling and two singular asymptotic laws, is a motivated structural correction rather than a routine numerical refinement.",
+      "residual_risks": [
+        "The result is restricted to four sites, alternate sites, uniform field, and strictly positive temperature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent algebra could exist under a different Hamiltonian normalization, although targeted statement/numerical-constant searches and the closest broader full text did not reveal it.",
+    "The high-field concurrence is exponentially small, so numerical literature that thresholds small values as zero is weak evidence about exact positivity."
+  ],
+  "schema_version": 1
+}
