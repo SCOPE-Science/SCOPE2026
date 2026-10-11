@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:11:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2476467b65fc808415ab6c4c65302c1b205b0f50",
+        "assigned artifacts/verify.py blob d654a448f8094afacad3fcaf14f69424a8ea0aa1",
+        "Trabelsi--Reyes-Lega--Arrighi, Connes Distance in Discrete-Time Quantum Walks, arXiv:2609.31488v1",
+        "Dimakis--Müller-Hoissen, Connes' distance function on one-dimensional lattices, q-alg/9707016"
+      ],
+      "rationale": "For a diagonal spatial observable, only the two-step displacements in \\(W=\\Lambda^{-1}SCSC\\Lambda\\) contribute to the commutator. Along the right maximal path the middle coin contributes \\(P_+C(x+1)P_+=-b_{x+1}P_+\\), while the left path contributes the corresponding \\(P_-\\) factor. At a fixed arrival site the two contributions land in orthogonal \\(\\Lambda^{-1}P_\\pm\\) coin subspaces, giving the upper bound by the largest \\(b_{x+1}|a_{x+2}-a_x|\\). Choosing a state localized at the left endpoint with the saturating coin direction kills the opposite path and attains that bound, so the seminorm identity is exact. The admissible observables are therefore precisely weighted one-Lipschitz functions on each parity graph. Standard finite-graph duality then gives the weighted shortest-path state transport formula, with edge length \\(2\\epsilon/b_{x+1}\\). The homogeneous specialization matches the primary source exactly, and the assigned finite-matrix checker confirms the inhomogeneous edge law on periodic lattices.",
+      "residual_risks": [
+        "The exact graph formula uses diagonal spatial observables and the massless plastic walk under the stated coin assumptions.",
+        "On a finite periodic lattice the relevant parity component has the weighted cycle metric rather than the infinite-line metric."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source provides the exact walk and numerical convex formulation but not the weighted edge seminorm.",
+          "General graph spectral-distance results require a Dirac/Lipschitz structure as input and do not determine that the plastic walk's two-step unitary commutator reduces to these local weights."
+        ],
+        "reasoning": "No inspected broader theorem bypasses the load-bearing plastic-walk commutator calculation.",
+        "searches": [
+          "Trabelsi--Reyes-Lega--Arrighi complete experimental HTML",
+          "general one-dimensional Connes-distance graph literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.31488v1",
+        "q-alg/9707016",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite convex program does not reveal that its operator-norm constraint is exactly a collection of independent weighted edge inequalities.",
+          "Translation-invariant homogeneous reduction cannot be substituted when \\(b_x\\) varies; the source explicitly notes this breakdown."
+        ],
+        "reasoning": "The exact inhomogeneous law requires a new saturation argument for the walk's coin-path decomposition.",
+        "searches": [
+          "source finite convex program versus exact local commutator norm",
+          "homogeneous exact distance versus inhomogeneous weighted transport"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source's homogeneous formula is \\(d_N=\\epsilon|\\cos heta|^{-1}\\sum_x |x|P_N(x)\\), exactly recovered by the audited constant-weight graph.",
+          "For spatially varying \\(c(x)\\), the source explicitly reverts to its defining convex program and solves it numerically."
+        ],
+        "reasoning": "The audited weighted-transport statement is the exact analytical solution of the same inhomogeneous optimization.",
+        "searches": [
+          "Resultary query: plastic quantum walk inhomogeneous Connes distance weighted transport law commutator seminorm",
+          "Trabelsi--Reyes-Lega--Arrighi arXiv:2609.31488v1 Sections VI.2 and Appendix D.2",
+          "Dimakis--Müller-Hoissen q-alg/9707016"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact inhomogeneous weighted shortest-path formula was retrieved."
+        ],
+        "reasoning": "The direct source statement that the inhomogeneous problem is solved numerically is stronger evidence than database absence.",
+        "searches": [
+          "Resultary current query for the inhomogeneous plastic-walk weighted metric",
+          "web search within arXiv:2609.31488 for inhomogeneous, convex, and homogeneous reductions"
+        ]
+      },
+      "rationale": "The 2026 primary paper derives the homogeneous exact formula but explicitly says that the reduction breaks for spatially varying \\(c(x)\\); it then solves the inhomogeneous distance by finite-dimensional convex optimization at each time step. Its numerical-method appendix states that those solves are only to finite precision and do not by themselves establish global optimality. The audited commutator factorization converts that unresolved inhomogeneous convex problem into an exact weighted graph metric and transport law. Classical one-dimensional spectral-distance results make shortest paths natural once a weighted Lipschitz seminorm is known, but they do not supply the plastic-walk-specific exact commutator weights \\(b_{x+1}\\).",
+      "residual_risks": [
+        "A general theorem for banded unitary-derived Connes seminorms could encode the same local saturation mechanism under more abstract operator-algebra language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NUMERICAL_INHOMOGENEOUS_PROBLEM_CLOSED_ANALYTICALLY_BY_AUDIT",
+          "evidence": "The source states that the homogeneous reduction no longer holds when \\(c=c(x)\\) and numerically optimizes the defining commutator constraint at every inhomogeneous step.",
+          "identifier_or_url": "arXiv:2609.31488v1",
+          "material_read": "complete relevant primary HTML sections VI.2.1--VI.2.2 and Appendix D.2, including the homogeneous derivation, Eq. 26, finite-lattice convex program, and solver-accuracy discussion",
+          "method": "primary full-text inspection",
+          "title": "Connes Distance in Discrete-Time Quantum Walks",
+          "trigger": "exact source of the plastic walk and the unresolved inhomogeneous convex problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Trabelsi--Reyes-Lega--Arrighi 2026",
+        "one-dimensional spectral-distance background",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The result replaces repeated numerical convex optimization in the motivating paper by an exact closed weighted-transport law for every admissible inhomogeneous profile. It identifies the precise local lattice cost \\(2\\epsilon/b_{x+1}\\), recovers the simulated continuum line element, and gives a reusable analytical benchmark for geometry-sensitive quantum-walk spread. This is a motivated structural simplification of the model rather than a toy special case.",
+      "residual_risks": [
+        "The result is not a statement about non-diagonal observable algebras or massive walks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The exact graph formula uses diagonal spatial observables and the massless plastic walk under the stated coin assumptions.",
+    "On a finite periodic lattice the relevant parity component has the weighted cycle metric rather than the infinite-line metric.",
+    "A general theorem for banded unitary-derived Connes seminorms could encode the same local saturation mechanism under more abstract operator-algebra language.",
+    "The result is not a statement about non-diagonal observable algebras or massive walks."
+  ]
+}

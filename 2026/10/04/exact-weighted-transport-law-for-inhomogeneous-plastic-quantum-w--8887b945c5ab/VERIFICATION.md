@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The key checks are:
+# Independent mathematical audit
 
-1. With \(b_x=\cos\theta(x)\), the right maximal path from \(x\) to \(x+2\) contains the factor \(P_+C(x+1)P_+=-b_{x+1}P_+\), while the left maximal path contains \(P_-C(x-1)P_-=b_{x-1}P_-\).
-2. After arrival at the same site, the two maximal-path contributions lie in the orthogonal subspaces \(\Lambda(y)^{-1}P_+\mathbb C^2\) and \(\Lambda(y)^{-1}P_-\mathbb C^2\). This removes cross-terms in the squared norm.
-3. The upper bound \(\|[W,A(a)]\|\le\sup_x b_{x+1}|a_{x+2}-a_x|\) is saturated by a state localized at the left endpoint of a selected edge with coin state \(U_x^*|0\rangle\), where \(U_x=C(x)\Lambda(x)\).
-4. The Connes constraint is therefore exactly \(|a_{x+2}-a_x|\le2\epsilon/b_{x+1}\). The distance function from the origin in this weighted parity graph is itself admissible and saturates the state-distance upper bound.
-5. In the homogeneous specialization \(b_x=b\), the unique infinite-line path from \(0\) to \(x\in2\mathbb Z\) has \(|x|/2\) edges, each of length \(2\epsilon/b\), yielding \(d(0,x)=\epsilon|x|/b\), exactly the source formula.
+## correctness
 
-The bundled checker constructs finite periodic walk matrices with position-dependent coins and \(\Lambda\), computes commutator operator norms by singular values, and verifies the predicted edge formula. It also checks the weighted-cycle distance specialization. Numerical agreement is not used to promote finite evidence to an infinite proof.
+PASS
+
+For a diagonal spatial observable, only the two-step displacements in \(W=\Lambda^{-1}SCSC\Lambda\) contribute to the commutator. Along the right maximal path the middle coin contributes \(P_+C(x+1)P_+=-b_{x+1}P_+\), while the left path contributes the corresponding \(P_-\) factor. At a fixed arrival site the two contributions land in orthogonal \(\Lambda^{-1}P_\pm\) coin subspaces, giving the upper bound by the largest \(b_{x+1}|a_{x+2}-a_x|\). Choosing a state localized at the left endpoint with the saturating coin direction kills the opposite path and attains that bound, so the seminorm identity is exact. The admissible observables are therefore precisely weighted one-Lipschitz functions on each parity graph. Standard finite-graph duality then gives the weighted shortest-path state transport formula, with edge length \(2\epsilon/b_{x+1}\). The homogeneous specialization matches the primary source exactly, and the assigned finite-matrix checker confirms the inhomogeneous edge law on periodic lattices.
+
+## originality
+
+PASS
+
+The 2026 primary paper derives the homogeneous exact formula but explicitly says that the reduction breaks for spatially varying \(c(x)\); it then solves the inhomogeneous distance by finite-dimensional convex optimization at each time step. Its numerical-method appendix states that those solves are only to finite precision and do not by themselves establish global optimality. The audited commutator factorization converts that unresolved inhomogeneous convex problem into an exact weighted graph metric and transport law. Classical one-dimensional spectral-distance results make shortest paths natural once a weighted Lipschitz seminorm is known, but they do not supply the plastic-walk-specific exact commutator weights \(b_{x+1}\).
+
+## value
+
+PASS
+
+The result replaces repeated numerical convex optimization in the motivating paper by an exact closed weighted-transport law for every admissible inhomogeneous profile. It identifies the precise local lattice cost \(2\epsilon/b_{x+1}\), recovers the simulated continuum line element, and gives a reusable analytical benchmark for geometry-sensitive quantum-walk spread. This is a motivated structural simplification of the model rather than a toy special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
