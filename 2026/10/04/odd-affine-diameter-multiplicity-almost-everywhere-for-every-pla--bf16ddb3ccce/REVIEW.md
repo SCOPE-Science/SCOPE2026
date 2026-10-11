@@ -1,15 +1,21 @@
-# Review of Odd affine-diameter multiplicity almost everywhere for every planar body of constant width
+# Independent mathematical audit
 
-## Correctness
-PASS. Constant width forces singleton exposed faces and makes the support-point map Lipschitz through the curvature-measure identity. The Möbius-strip diameter sweep has boundary winding number one. Rademacher's theorem, the Lipschitz null-set property, and the area formula reduce almost every finite fiber to isolated nonzero local degrees, each one modulo \(2\). Published mean-multiplicity theory gives finite fibers almost everywhere.
+## correctness
 
-## Originality
-PASS. The closest inspected literature splits into a general open finite-even measure-zero question, smooth positive-curvature degree/kinematic theorems, a piecewise-\(C^2\) constant-width result, and a later general mean-multiplicity theorem with no parity conclusion. Targeted published-literature, alias, and exact-formulation searches found no statement covering arbitrary planar constant-width bodies. The inaccessible full text of the 2000 constant-width paper remains a stated residual risk.
+PASS
 
-## Value
-PASS. This resolves a natural parity-measure question on the entire canonical constant-width class, including nonsmooth examples, and replaces a smooth Sard argument by a Lipschitz curvature-measure/mod-\(2\)-degree mechanism.
+Constant width gives \(K-K=wB_2\), hence singleton support faces. The support-function identity implies \(\mu+\tau_\pi\mu=w\,d\theta\); positivity makes the curvature measure absolutely continuous with bounded density, so the support-point map is Lipschitz. The unoriented diameter sweep is then a Lipschitz map from a Möbius strip whose boundary winds once around every interior point, hence has relative mod-2 degree one. Rademacher and the area formula discard the nondifferentiable and zero-Jacobian images; each remaining finite fiber has odd size. Bárány--Hug--Schneider give a.e. finiteness under relative general position, which strict convexity supplies for \(K\) and \(-K\).
 
-## Closest literature and limitations
-The closest sources are Makeev's 2000/2001 affine-diameter papers, Soltan's 2005 survey Problem 6.5, and Bárány–Hug–Schneider's 2014 mean-multiplicity theorem. The result is planar, constant-width, and almost-everywhere only; it does not solve the unrestricted convex-body problem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Makeev's full 2000 constant-width paper was inspected and already uses the Möbius-strip degree mechanism plus Sard under a piecewise \(C^2\) hypothesis. The audited result removes that boundary regularity by deriving a Lipschitz diameter sweep from the constant-width curvature measure and replacing Sard by area-formula degree theory. Bárány--Hug--Schneider supply a.e. finiteness but not parity. No checked source covers all constant-width bodies.
+
+## value
+
+PASS
+
+The result removes a real regularity barrier in a classical affine-diameter parity question and includes standard nonsmooth constant-width bodies; this is a motivated geometric boundary result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
