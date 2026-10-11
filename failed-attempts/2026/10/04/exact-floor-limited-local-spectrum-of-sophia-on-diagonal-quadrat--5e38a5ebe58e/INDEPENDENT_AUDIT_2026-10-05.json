@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:43:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at blob 935726a9d1dbdc2fe20f97cbb5e5d77b781f1fde",
+        "assigned verify.py at blob 04a0fed7a6b3b77ab5e458af1fadc24e32df4bf0",
+        "independent discriminant evaluation at \\(\\chi=\\chi_-\\)",
+        "Sophia source algorithm"
+      ],
+      "rationale": "The EMA formula, limiting mode matrix, determinant \\(\\beta_1\\), trace, Jury stability frontier, and flat-curvature expansion all reconstruct correctly. But the final theorem includes the plateau boundary with \\(\\lambda_i\\ge\\varepsilon\\chi_-/\\eta\\) and calls every such mode a complex-conjugate pair. At equality, the floor branch gives exactly \\(\\chi_i=\\chi_-\\); by the package's own discriminant condition \\(T_i^2<4\\beta_1\\), equality has zero discriminant and a repeated real root \\(\\sqrt{\\beta_1}\\), not a nonreal conjugate pair. The supplied verifier also avoids asserting nonzero imaginary part exactly at the threshold. The rate modulus remains correct at equality, but the stated root-type claim is false on an explicitly included boundary, so the submitted final claim fails correctness.",
+      "residual_risks": [],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source supplies the recurrence ingredients and motivation; Jury theory supplies a generic root test.",
+          "Neither source states the full combined floor-limited phase diagram."
+        ],
+        "reasoning": "The exact plateau threshold and flat-curvature asymptotic require applying the practical denominator floor to the modal recurrence.",
+        "searches": [
+          "Sophia practical algorithm",
+          "standard second-order Jury/Schur stability criteria"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.14342",
+        "ICLR 2024 Sophia paper",
+        "standard Jury stability criterion",
+        "Resultary Sophia local-spectrum query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mode polynomial and strict Schur frontier follow from source ingredients and standard algebra but are not stated by the source.",
+          "The submitted boundary sentence, however, conflicts with its own exact discriminant condition: at \\(\\chi=\\chi_-\\) the roots coincide on the real axis rather than form a nonreal conjugate pair."
+        ],
+        "reasoning": "The intended floor-limited spectrum is not covered by prior work, but originality cannot rescue the false inclusive root-type claim.",
+        "searches": [
+          "source practical update plus audited limiting \\(2\\times2\\) mode"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source defines the practical optimizer with momentum, a diagonal Hessian estimate, clipping, and a denominator floor.",
+          "Its stated simplified deterministic theory does not give the submitted practical local spectrum in the inspected accessible material.",
+          "Resultary's leading semantic matches were unrelated spectral-optimization results, not the same Sophia theorem."
+        ],
+        "reasoning": "On an exact diagonal quadratic the practical update decouples into scalar second-order modes after the Hessian EMA converges.",
+        "searches": [
+          "Liu--Li--Hall--Liang--Ma, arXiv:2305.14342, Sophia optimizer",
+          "Resultary query: Sophia exact local spectrum diagonal quadratic floor epsilon denominator stability plateau"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-theorem database or published finding was located."
+        ],
+        "reasoning": "This is a continuous local-stability theorem rather than a standard table lookup.",
+        "searches": [
+          "Resultary Sophia local-spectrum query",
+          "targeted searches for denominator-floor and diagonal-quadratic local stability"
+        ]
+      },
+      "rationale": "The Sophia source introduces the practical momentum/Hessian-EMA optimizer, clipping, and the max-with-epsilon denominator, and gives a condition-number-independent theorem only for a substantially simplified theoretical method. No inspected source or Resultary hit gives the practical exact diagonal-quadratic characteristic polynomial, floor threshold, or modal plateau. The originality of the intended theorem survives, but the submitted final claim is scientifically false at one included boundary.",
+      "residual_risks": [
+        "Full primary text was not materially reread line by line in this run, so an unadvertised appendix calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRACTICAL_ALGORITHM_PRIOR_EXACT_FLOOR_LIMITED_MODAL_THEOREM_NOT_LOCATED",
+          "evidence": "The source supplies the practical ingredients but its cited theory is for a simplified method rather than the submitted practical momentum-Hessian recurrence.",
+          "identifier_or_url": "arXiv:2305.14342; ICLR 2024",
+          "material_read": "Accessible primary abstract/algorithm-level material and the exact update as reproduced in the assigned package; full paper text was not materially inspected line by line in this run.",
+          "method": "Algorithm/theorem-scope comparison and independent modal reconstruction.",
+          "title": "Sophia: A Scalable Stochastic Second-order Optimizer for Language Model Pre-training",
+          "trigger": "Defining primary source for the practical update and the theoretical condition-number-independent motivation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sophia source",
+        "Resultary search"
+      ],
+      "rationale": "A corrected strict-boundary version would give a useful exact local phase diagram for the practical Sophia recurrence, isolating the denominator floor as the curvature-dependent slow regime and distinguishing Hessian-EMA transients from limiting optimization modes. That mathematical value does not permit acceptance of the false inclusive boundary statement.",
+      "residual_risks": [
+        "Full primary text was not materially reread line by line in this run, so an unadvertised appendix calculation remains possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2305.14342",
+    "ICLR 2024 Sophia paper",
+    "standard Jury stability criterion",
+    "Resultary Sophia local-spectrum query"
+  ],
+  "disposition": "failed",
+  "final_claim": "For practical Sophia on an exact diagonal quadratic, the limiting local modes have the submitted second-order characteristic polynomial and Schur frontier, and the submission further claims that, whenever \\(\\chi_-<\\eta/\\gamma<\\chi_+\\), every coordinate satisfying \\(\\lambda_i\\ge\\varepsilon\\chi_-/\\eta\\) has a complex-conjugate root pair of modulus \\(\\sqrt{\\beta_1}\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for a concrete boundary falsehood: at \\(\\lambda_i=\\varepsilon\\chi_-/\\eta\\) the characteristic roots are repeated real roots, not a nonreal complex-conjugate pair."
+  ]
+}
