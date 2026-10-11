@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:06:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary source's balanced-case proof explicitly permutes the stacked generator/parity-check coefficient matrix into independent \\(2\\times2\\) blocks. The first block has determinant \\(1+\\eta_1^2\\); for \\(i\\ge2\\), the block has determinant \\(-(\\eta_i+\\eta_{k+2-i})\\). Every singular block has rank exactly one, so the total rank deficiency equals the stated hull dimension. Counting the involution orbits on \\(\\{2,\\ldots,k\\}\\), including the even-\\(k\\) fixed point where \\(2\\eta_i\\ne0\\), gives the product enumerator and LCD constant term.",
+      "risk": "The theorem is restricted to the balanced subgroup-evaluation branch in odd characteristic, exactly as stated.",
+      "sources": [
+        "Sun, Chen, Liu, Zhang, Wang, arXiv:2609.16921v1, Theorem 4.2(ii) and its proof on pages 15-18",
+        "independent block-rank/count reconstruction in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. treat the entire fully twisted family and give the balanced LCD block proof.",
+          "The double-twisted literature is a different family and does not change the decisive same-source coverage."
+        ],
+        "reasoning": "The source theorem is broader in construction and already contains the structural algebra from which the submitted balanced hull spectrum follows.",
+        "searches": [
+          "Sun et al. arXiv:2609.16921v1 full text",
+          "Meena-Awasthi-Sharma double-twisted RS hull literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.16921v1",
+        "Meena-Awasthi-Sharma DOI:10.3934/amc.2026019",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly says every balanced-case block is nonsingular under the listed determinant conditions and writes each block.",
+          "When a determinant vanishes, the block visibly has rank one because a column/row remains nonzero; summing these deficits is immediate."
+        ],
+        "reasoning": "The submitted dimension formula and coefficient count are direct consequences of already-displayed independent blocks, not a new structural decomposition.",
+        "searches": [
+          "arXiv:2609.16921v1 pages 15-18, Theorem 4.2(ii) proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's first block has determinant \\(1+\\eta_1^2\\), and every remaining block has determinant \\(-(\\eta_i+\\eta_{k+2-i})\\), exactly the submitted singularity conditions.",
+          "Focused Resultary search did not reveal a separate older enumerator, but source implication is already decisive."
+        ],
+        "reasoning": "Hull dimension is the rank deficiency of the same stacked generator/parity-check matrix that the source block-diagonalizes.",
+        "searches": [
+          "arXiv:2609.16921v1 Theorem 4.2(ii) and case-(ii) proof",
+          "Resultary: fully twisted Reed Solomon exact hull enumerator n=2k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent prior enumerator was found among the leading hits."
+        ],
+        "reasoning": "Absence of a verbatim table cannot overcome the direct rank-deficiency implication from the source's printed blocks.",
+        "searches": [
+          "Resultary semantic search for balanced fully twisted RS hull spectrum and enumerator"
+        ]
+      },
+      "rationale": "The decisive block decomposition is already printed in the primary source's proof of Theorem 4.2(ii): it lists exactly the same \\(2\\times2\\) blocks and their determinants. The submitted hull formula is the nullity obtained by allowing those published blocks to be singular, and the enumerator is then elementary independent counting across the displayed blocks. Under the rule that direct corollaries are covered without matching wording, the claim is not original.",
+      "residual_risks": [
+        "No access limitation affects the rejection because the same-source full manuscript and decisive theorem proof were read completely."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_BLOCK_DECOMPOSITION_ALREADY_PRESENT",
+          "evidence": "Theorem 4.2(ii) states the same determinant nonvanishing conditions, and its proof explicitly writes every \\(2\\times2\\) block whose singularity contributes one unit of hull nullity.",
+          "identifier_or_url": "arXiv:2609.16921v1",
+          "material_read": "Complete 20-page primary manuscript, with detailed inspection of Section IV, Lemma 4.1, Theorem 4.2 and the balanced case proof on pages 15-18.",
+          "method": "Authorized institutional retrieval after the ordinary open full-PDF path did not return usable full text; the complete extracted text was read.",
+          "title": "Constructions of LCPs and LCD codes from twisted Reed-Solomon codes",
+          "trigger": "Exact source family and the cited balanced LCD theorem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The hull dimension and enumerator are natural invariants, but in this precise balanced family they are obtained mechanically from a block diagonalization and determinant conditions already printed in the source proof, followed by elementary orbit counting. That is a useful extraction, not an independently substantive mathematical advance under the common value standard.",
+      "risk": "The exact enumerator may be useful for applications, but usefulness alone does not overcome the direct-corollary nature.",
+      "sources": [
+        "arXiv:2609.16921v1, Theorem 4.2(ii) and proof"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "In the balanced fully twisted Reed-Solomon family with \\(n=2k\\), subgroup evaluation set, hooks \\(h_i=i-1\\), twists \\(t_i=i\\), and nonzero coefficients, the Euclidean hull dimension is \\(\\mathbf1_{\\{\\eta_1^2=-1\\}}+\\#\\{i=2,\\ldots,k:\\eta_i+\\eta_{k+2-i}=0\\}\\), yielding the submitted closed hull enumerator and exact LCD twist-vector count.",
+  "limitations": [
+    "Mathematically correct but rejected because the source proof already displays the complete independent block structure that implies the hull spectrum.",
+    "Only the balanced subgroup-evaluation branch was assessed."
+  ],
+  "schema_version": 1
+}
