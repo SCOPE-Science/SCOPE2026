@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses exact rational arithmetic and sparse one-variable polynomial bookkeeping.
 
-It verifies the nonlinear cancellation in
-\[
-L\left(\frac12(x^2+y^2)\right)
-=(a+c)xy-a x^2-y^2.
-\]
+# Independent mathematical audit
 
-Writing \(a=s^2\) and \(c=2s-s^2\), it verifies the critical tangency identity
-\[
-\left.\frac{d}{dt}(y-sx)\right|_{y=sx}
-=(1+s^2)x\bigl(s(1-s)-z\bigr).
-\]
+## correctness
 
-It also checks that the nonzero-equilibrium height equation
-\[
-z^2-(c-a)z-a(c-1)=0
-\]
-has discriminant
-\[
-(a+c)^2-4a,
-\]
-and replays the rational threshold instance
-\[
-a=\frac14,\qquad b=2,\qquad c=\frac34,
-\]
-with equilibria
-\[
-(\pm1,\pm\tfrac12,\tfrac14).
-\]
+PASS
 
-The stored checker output in `verification_output.txt` is `VERIFY_OK`.
+For every compactly supported invariant probability measure, invariance of test functions of \(z\) gives \(\mathbb E[xy\mid z]=bz\). Invariance of \((x^2+y^2)/2\), followed by completing the square, gives exactly \(\mathbb E[(\sqrt a\,x-y)^2]=b(c-(2\sqrt a-a))\mathbb E[z]\). Below \(c_*=2\sqrt a-a\) the resulting quadratic dissipation is positive definite, forcing \((x,y)\to0\) and then \(z\to0\). At equality, zero defect forces support into \(y=\sqrt a\,x\); tangency and the \(z\)-equation reduce compact invariant support to the origin and the two stated equilibria. Above threshold, the same support/tangency argument rules out zero defect for any nonorigin compact invariant measure. The exact rational verifier was inspected and the key identities were independently reconstructed.
 
-The checker verifies the critical algebra. The invariant-measure conditional law uses arbitrary continuous test functions through antiderivatives on the compact \(z\)-range; global convergence and measure-support rigidity are analytic deductions stated in `RESULT.md`.
+## originality
+
+PASS
+
+Prior Qi-system work located in the audit covers local pitchfork/Hopf bifurcation, Poincare analysis, energy cycling, Casimir identities, and attractor bounds. The inspected literature does not state the conditional stationary identity, the exact square-defect law, the closed global no-recurrence side, or the threshold classification of all compact invariant probability measures. The analogous published SCOPE result for the Rossler system uses a similar invariant-measure strategy but concerns a different vector field and does not imply the Qi formulas.
+
+## value
+
+PASS
+
+The result turns a known local equilibrium/bifurcation threshold into a sharp global recurrence boundary and an exact stationary law for every compact invariant measure, including complete threshold rigidity. That is a natural structural statement about a canonical chaotic flow, not a recomputation of a local Jacobian or an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
