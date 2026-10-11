@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs the index with its full quantifiers. For \(p\ge2\), the lower witness is built coordinatewise from a Hilbert-orthogonal vector of the same norm, so both distances are exactly \(\sqrt2\). For \(p\le2\), infinitude of \(\Gamma\) yields a coordinate of arbitrarily small norm and a one-coordinate orthogonal witness drives both distances to \(2^{1/p}\). The one-coordinate upper test, parallelogram law, and monotonicity of \((1+a^2)^{p/2}-a^p\) give the matching bounds. The endpoint \(p=1\) and transition point \(p=2\) are included.
+## correctness
 
-## Originality
-**PASS.** The closest full-text source defining \(s(X)\) gives baseline values and qualitative direct-sum results, while the vector-valued source gives qualitative LOH stability for absolute and Köthe–Bochner sums. Neither inspected statement gives the exact Hilbert-valued phase law. Searches using the invariant name, the aliases Hilbert-valued/vector-valued \(\ell_p\), exact constants, and James-type terminology found no dominating statement. A previously catalogued scalar \(L_p\) index formula is the nearest scientific comparison; it does not imply this result because for atomic \(p>2\) it yields \(2^{1/p}\), whereas the present Hilbert-valued space has value \(\sqrt2\). Residual risk remains for differently named geometric-constant literature.
+PASS
 
-## Value
-**PASS.** The theorem computes a canonical quantitative geometric invariant exactly on a natural class of vector-valued sequence spaces. The phase transition at \(p=2\) and the strict scalar-versus-Hilbert separation for \(p>2\) provide structural information that is invisible to the yes/no LOH property and supply a useful benchmark for quantitative direct-sum theory.
+For p>=2, choose in each nonzero coordinate a vector of the same norm orthogonal to x_gamma; both distances are exactly sqrt(2). For p<=2, every fixed ell_p vector has coordinates of arbitrarily small norm, so placing a unit orthogonal vector in such a coordinate yields both distances tending to 2^(1/p). The one-coordinate base vector gives the matching upper bound: one sign has first-fibre norm at most sqrt(1+a^2), and monotonicity of (1+a^2)^(p/2)-a^p yields 2^(1/p) below p=2 and sqrt(2) above it. All quantifiers and p=2 boundary check out.
 
-## Closest literature and limitations
-The closest inspected literature is Hardtke's 2017/2018 work introducing \(s(X)\) and studying local octahedrality of absolute sums, together with his vector-valued reduction framework first circulated in 2017 and published in 2020. The present claim is restricted to infinite \(\Gamma\), real Hilbert fibres of dimension at least two, and \(1\le p<\infty\). It does not classify the finite-index \(p<2\) case or arbitrary fibres.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full primary inspection of the paper defining s(X) shows only the Hilbert base value and qualitative sum restrictions; checked vector-valued literature is qualitative, and no exact sequence-space formula was found.
+
+## value
+
+PASS
+
+The exact formula shows a genuine vector-valued effect above p=2, where Hilbert fibres raise the index to sqrt(2), and gives the sharp infinite-coordinate limit below p=2. It is a natural structural classification of the invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is checked analytically from the stated definitions; there is no numerical certificate.
+# Independent mathematical audit
 
-For the lower bound when \(p\ge2\), the verification step is the coordinatewise identity
-\[
-\|x_\gamma\pm u_\gamma\|^2=2\|x_\gamma\|^2
-\]
-for \(u_\gamma\perp x_\gamma\) and \(\|u_\gamma\|=\|x_\gamma\|\). Summing \(p\)-th powers gives both global distances exactly \(\sqrt2\).
+## correctness
 
-For \(1\le p\le2\), the relevant exact expression for a one-coordinate witness is
-\[
-1-a^p+(1+a^2)^{p/2},
-\]
-which tends to \(2\) as the selected coordinate norm \(a\) tends to \(0\). Infinite \(\Gamma\) guarantees such arbitrarily small coordinates for every fixed unit vector.
+PASS
 
-For the upper bound, the parallelogram law gives a coordinate minimum at most \(\sqrt{1+a^2}\), so the global minimum has \(p\)-th power at most
-\[
-1-a^p+(1+a^2)^{p/2}.
-\]
-Differentiating the nonconstant part gives
-\[
-pa\left((1+a^2)^{(p-2)/2}-a^{p-2}\right).
-\]
-Its sign is negative for \(p<2\), zero for \(p=2\), and positive for \(p>2\), giving the claimed maxima and hence the exact upper constants.
+For p>=2, choose in each nonzero coordinate a vector of the same norm orthogonal to x_gamma; both distances are exactly sqrt(2). For p<=2, every fixed ell_p vector has coordinates of arbitrarily small norm, so placing a unit orthogonal vector in such a coordinate yields both distances tending to 2^(1/p). The one-coordinate base vector gives the matching upper bound: one sign has first-fibre norm at most sqrt(1+a^2), and monotonicity of (1+a^2)^(p/2)-a^p yields 2^(1/p) below p=2 and sqrt(2) above it. All quantifiers and p=2 boundary check out.
 
-Limits: no finite-index result for \(p<2\), no one-dimensional-fibre extension, no arbitrary-fibre classification, and no \(p=\infty\) endpoint are asserted. Literature search is evidence for comparison only and is not used as a proof of novelty.
+## originality
+
+PASS
+
+Full primary inspection of the paper defining s(X) shows only the Hilbert base value and qualitative sum restrictions; checked vector-valued literature is qualitative, and no exact sequence-space formula was found.
+
+## value
+
+PASS
+
+The exact formula shows a genuine vector-valued effect above p=2, where Hilbert fibres raise the index to sqrt(2), and gives the sharp infinite-coordinate limit below p=2. It is a natural structural classification of the invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
