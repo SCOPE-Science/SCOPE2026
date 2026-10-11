@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_boston_common_priority_n3.py` is the executable finite certificate for the stated three-student classification.
 
-It implements Boston twice in separate code paths and checks agreement on every profile for \(n\le3\). It verifies directly that no profile is manipulable for \(n=1,2\). At \(n=3\), it enumerates every one of the \(6^3=216\) labeled truthful profiles and every nontruthful strict report for each student. It obtains exactly \(180\) nonmanipulable profiles, \(24\) profiles manipulable only by the middle-priority student, and \(12\) profiles manipulable only by the lowest-priority student.
+# Independent mathematical audit
 
-A second enumeration canonicalizes profiles under all six school relabelings. It verifies \(36\) classes, every orbit of size \(6\), with exactly six manipulable representatives split \(4+2\). For every bad profile it checks that the unique manipulator truthfully receives her third choice and that her profitable reports are exactly the two rankings placing her true second choice first.
+## correctness
 
-Replay:
+PASS
 
-`python3 verify_boston_common_priority_n3.py`
+Fresh independent implementation reproduced zero manipulable profiles for one and two students and the exact three-student histogram 180 nonmanipulable, 24 middle-priority-only and 12 lowest-priority-only. The packaged verifier separately checks all 216 profiles, all unilateral strict reports, two Boston implementations and the school-relabeling quotient. The structural claim follows because in each of the six bad classes the unique manipulator loses her true first choice, her true second fills before her truthful later round, and listing that second choice first obtains it.
 
-The first output line must be `VERIFY_OK`.
+## originality
 
-The computation is exhaustive only for the explicitly stated finite domain. It supplies no claim for larger markets or different priority structures.
+PASS
+
+General Boston manipulability and even three-student examples are classical, but the inspected primary literature does not give the exact common-priority minimal boundary, the 36-of-216 incidence, the 24-versus-12 priority-position split, uniqueness of the manipulator or the six school-relabeling classes. Resultary searches found no equivalent finite classification.
+
+## value
+
+PASS
+
+Common strict priority is the canonical homogeneous benchmark for immediate acceptance. The exact first manipulable market, incidence, priority asymmetry and six-class catalogue provide a motivated finite boundary rather than merely another manipulation example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

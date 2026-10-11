@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The domain, common-priority convention, Boston rounds, truthfulness benchmark, and profitable-deviation quantifier are explicit. The boundary \(n\le2\) is proved directly. At \(n=3\), school relabeling reduces the complete domain to \(36\) canonical profiles because the highest-priority student's strict ranking kills every nontrivial school stabilizer. The embedded verifier separately checks all \(216\) labeled profiles, all five nontruthful reports for each student, and a canonical-orbit enumeration. Two separately coded Boston implementations agree everywhere. It returns `VERIFY_OK`, with exact split \(180\) nonmanipulable, \(24\) middle-priority-only, and \(12\) lowest-priority-only.
+## correctness
 
-The finite computation is exhaustive, not a sample. No statement for \(n>3\) is inferred from it.
+PASS
 
-## Originality
-**PASS.** The closest inspected literature establishes general manipulability, empirical strategic behavior, equilibrium structure, and a three-student manipulation example under heterogeneous school priorities. Troyan--Morrill's three-by-three example already exhibits the qualitative third-to-second, second-choice-first manipulation, so that pattern itself is explicitly excluded from the novelty claim. The checked sources do not state the common-priority minimal boundary, \(36/216\) exact incidence, \(24+12\) priority split, uniqueness of the manipulator, or six-class quotient. published-finding corpus queries by all of these formulations returned unrelated records.
+Fresh independent implementation reproduced zero manipulable profiles for one and two students and the exact three-student histogram 180 nonmanipulable, 24 middle-priority-only and 12 lowest-priority-only. The packaged verifier separately checks all 216 profiles, all unilateral strict reports, two Boston implementations and the school-relabeling quotient. The structural claim follows because in each of the six bad classes the unique manipulator loses her true first choice, her true second fills before her truthful later round, and listing that second choice first obtains it.
 
-Residual risk: an unindexed thesis, exercise, course note, or software table may contain the same small finite census.
+## originality
 
-## Value
-**PASS.** Common strict priority is the canonical homogeneous-priority benchmark in school-choice theory. The result completely resolves the smallest market in which Boston becomes manipulable under that benchmark, quantifies how often vulnerability appears under uniform strict profiles, and reveals a sharp priority asymmetry: the top-priority student is protected, and the middle-priority student accounts for twice as many bad profiles as the lowest-priority student. The six normalized bad types are a compact structural catalogue, not an arbitrary parameter slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+General Boston manipulability and even three-student examples are classical, but the inspected primary literature does not give the exact common-priority minimal boundary, the 36-of-216 incidence, the 24-versus-12 priority-position split, uniqueness of the manipulator or the six school-relabeling classes. Resultary searches found no equivalent finite classification.
+
+## value
+
+PASS
+
+Common strict priority is the canonical homogeneous benchmark for immediate acceptance. The exact first manipulable market, incidence, priority asymmetry and six-class catalogue provide a motivated finite boundary rather than merely another manipulation example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
