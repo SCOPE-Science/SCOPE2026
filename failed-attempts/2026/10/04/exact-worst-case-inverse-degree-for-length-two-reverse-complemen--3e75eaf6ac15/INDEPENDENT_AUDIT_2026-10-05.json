@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:52:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "A. Lenz, A. Wachter-Zeh, E. Yaakobi, Duplication-Correcting Codes, arXiv:1712.09345; Designs, Codes and Cryptography 87 (2019); complete primary PDF inspected, including the palindromic deletion-sphere results (Lemmas 14–15).",
+        "A. L. Zabokritskiy (Yohananov), Coding for Multiple Reverse-Complement and Palindromic Duplications, arXiv:2609.00779v3 (2026-09-29); complete relevant primary pages obtained through authorized institutional access after open-access retrieval failed, including Theorem 4.1 and Corollary 4.2.",
+        "E. Ben-Tolila, M. Schwartz, On the Reverse-Complement String-Duplication System, arXiv:2112.11811 / IEEE TIT 68 (2022); primary full text inspected for the distinct odd-length uniqueness result.",
+        "Resultary searches for reverse-complement/palindromic length-two inverse degree and one-step parents.",
+        "Assigned RESULT.md and verify.py at tree 2b4a7f52ac3ad65db6d0912715c537c8cb98f9b7."
+      ],
+      "rationale": "The package's direct proof is valid: adjacent valid inverse starts necessarily yield the same parent, so selecting one start per distinct parent injects into an independent set of the path of n−1 starts, giving floor(n/2). The period-four complement-pair word has exactly every other start valid and those deletions produce distinct parents. This also agrees with the prior PAL2 deletion-sphere formula transported through the even-length channel conjugacy.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lenz et al. handle palindromic deletion spheres beyond this single extremum.",
+          "Zabokritskiy proves equivalence of the complete sequential RC/PAL channels for every even k."
+        ],
+        "reasoning": "These broader results jointly dominate the assigned k=2 worst-case parent count.",
+        "searches": [
+          "Lenz et al. duplication/deletion sphere theory",
+          "Zabokritskiy full sequential even-k channel equivalence"
+        ]
+      },
+      "checked_sources": [
+        "A. Lenz, A. Wachter-Zeh, E. Yaakobi, Duplication-Correcting Codes, arXiv:1712.09345; Designs, Codes and Cryptography 87 (2019); complete primary PDF inspected, including the palindromic deletion-sphere results (Lemmas 14–15).",
+        "A. L. Zabokritskiy (Yohananov), Coding for Multiple Reverse-Complement and Palindromic Duplications, arXiv:2609.00779v3 (2026-09-29); complete relevant primary pages obtained through authorized institutional access after open-access retrieval failed, including Theorem 4.1 and Corollary 4.2.",
+        "E. Ben-Tolila, M. Schwartz, On the Reverse-Complement String-Duplication System, arXiv:2112.11811 / IEEE TIT 68 (2022); primary full text inspected for the distinct odd-length uniqueness result.",
+        "Resultary searches for reverse-complement/palindromic length-two inverse degree and one-step parents.",
+        "Assigned RESULT.md and verify.py at tree 2b4a7f52ac3ad65db6d0912715c537c8cb98f9b7."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The PAL2 deletion-sphere formula/run bound has maximum ceil((n−1)/2)=floor(n/2) over the n−1 possible start positions.",
+          "The alternating-coordinate bijection maps RC2 parent relations to PAL2 parent relations exactly.",
+          "A two-symbol alternating/periodic pattern realizes the extremal separated-run pattern."
+        ],
+        "reasoning": "The assigned theorem is therefore a direct special-case extremization of prior sphere theory transported by a prior exact channel isomorphism.",
+        "searches": [
+          "Lenz et al. Lemmas 14–15",
+          "Zabokritskiy Theorem 4.1 and Corollary 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A one-step parent set of a received word is exactly its deletion sphere in the inverse channel.",
+          "The 2026 conjugacy is a word-space bijection preserving every even-k channel layer, so it preserves inverse degrees."
+        ],
+        "reasoning": "RC2 inverse degree and PAL2 deletion-sphere size are equivalent under the published conjugacy.",
+        "searches": [
+          "Resultary: reverse-complement duplication length two inverse parents palindromic deletion sphere",
+          "Lenz et al. palindromic deletion-sphere lemmas",
+          "Zabokritskiy even-length RC/PAL conjugacy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Even without a matching indexed RC table, the exact value follows from the primary PAL sphere formula plus channel conjugacy."
+        ],
+        "reasoning": "Database absence is irrelevant because theorem-level implication is decisive.",
+        "searches": [
+          "Resultary one-error inverse-degree searches",
+          "Primary exact sphere formulas"
+        ]
+      },
+      "rationale": "The exact worst-case inverse degree is covered by a direct combination of prior primary results. Lenz–Wachter-Zeh–Yaakobi already determine the length-two palindromic deletion sphere and give the general deletion-sphere run bound; maximizing the length-two run expression gives floor(n/2). Zabokritskiy's Theorem 4.1 and Corollary 4.2 give an exact bijective conjugacy between every even-length reverse-complement and palindromic channel, so at k=2 it transfers one-step inverse sphere cardinalities without loss. The package's period-four witness is a simple realization of the already implied extremum. Under the audit's corollary rule this is prior-covered despite the exact RC wording not appearing in one older paper.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES THE PAL2 INVERSE-SPHERE EXTREMAL MECHANISM",
+          "evidence": "The deletion sphere is controlled exactly/by zero-column run structure; maximizing separated runs across n−1 candidate positions gives floor(n/2).",
+          "identifier_or_url": "arXiv:1712.09345",
+          "material_read": "Complete primary PDF, including length-two palindromic deletion-sphere formula and general run bound.",
+          "method": "Open primary full-text inspection.",
+          "title": "Duplication-Correcting Codes",
+          "trigger": "Closest exact one-step palindromic inverse-sphere source."
+        },
+        {
+          "assessment": "EXACT EVEN-k CHANNEL CONJUGACY",
+          "evidence": "The alternating-coordinate involution conjugates every even-k RC step to the corresponding PAL step and transfers full channel layers bijectively.",
+          "identifier_or_url": "arXiv:2609.00779v3",
+          "material_read": "Relevant complete primary pages 1–24 after open-access full-text attempts failed; Theorem 4.1, Corollary 4.2 and inverse-parent discussion were read.",
+          "method": "Authorized institutional full-text access after OA failure.",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Even-length RC/PAL equivalence and strongest recent coverage."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "A. Lenz, A. Wachter-Zeh, E. Yaakobi, Duplication-Correcting Codes, arXiv:1712.09345; Designs, Codes and Cryptography 87 (2019); complete primary PDF inspected, including the palindromic deletion-sphere results (Lemmas 14–15).",
+        "A. L. Zabokritskiy (Yohananov), Coding for Multiple Reverse-Complement and Palindromic Duplications, arXiv:2609.00779v3 (2026-09-29); complete relevant primary pages obtained through authorized institutional access after open-access retrieval failed, including Theorem 4.1 and Corollary 4.2.",
+        "E. Ben-Tolila, M. Schwartz, On the Reverse-Complement String-Duplication System, arXiv:2112.11811 / IEEE TIT 68 (2022); primary full text inspected for the distinct odd-length uniqueness result.",
+        "Resultary searches for reverse-complement/palindromic length-two inverse degree and one-step parents.",
+        "Assigned RESULT.md and verify.py at tree 2b4a7f52ac3ad65db6d0912715c537c8cb98f9b7."
+      ],
+      "rationale": "As a standalone RC statement the value is a natural inverse-list parameter, but by September 2026 it is obtained by a one-line extremization of published palindromic deletion-sphere theory followed by a published exact even-length RC/PAL conjugacy. The package does not add a new structural lemma beyond that covered combination.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For one length-two reverse-complement duplication over any even alphabet with a fixed-point-free involution, the maximum number of distinct length-n parents of a received word is floor(n/2).",
+  "limitations": [
+    "The formula is mathematically correct.",
+    "Rejection is for direct prior implication; the authorized full-text access strengthened rather than caused the coverage conclusion."
+  ],
+  "schema_version": 1
+}
