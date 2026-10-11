@@ -1,0 +1,11 @@
+# Scientific review: cube–octahedron tetrahedral-volume profile
+
+**Correctness — PASS.** The claim is over all real parameters \(c\in[1,3]\) and all contained tetrahedra, including those with nonvertex points. The vertex classification and separate affinity of the signed determinant reduce this infinite optimization to exact polynomial inequalities. The supplied standard-library checker reconstructs and verifies all 63,756 Bernstein positivity assertions over continuous intervals and supplies sharp witness quadruples. The volume expressions follow by exact cap subtraction; polynomial factorizations establish uniqueness of the global normalized minimum. The derivative calculation establishes the secondary local minimum without numerical optimization assumptions.
+
+**Originality — PASS, subject to historical risk.** The primary works by Horváth–Lángi and Akopyan–Glazyrin were inspected in full and do not determine this fixed-polytope, parameter-dependent optimum. Related indexed work on the same intersection family addresses illumination or graph distance rather than maximal tetrahedral volumes. Searches for the exact parameter profile, its truncated-octahedron equality parameter, and its determinant reformulations did not uncover an implication proving this complete result. This search is not proof of historical priority; material on the indexed same-family source was limited to its public abstract, and earlier unindexed or differently worded treatments remain possible.
+
+**Value — PASS.** The question is geometrically natural: the family continuously connects the octahedron, regular truncated octahedron, cuboctahedron, and cube. The result determines a continuous sharp extremal profile, a unique globally least efficient shape for enclosing its largest tetrahedron, explicit witness phase transitions, and a nonmonotone secondary local extremum. These are not consequences of a routine special-case substitution into the cited results.
+
+**Scope and limitations.** This review does not classify every maximizing tetrahedron, assert a global inequality for all centrally symmetric convex bodies, or establish priority independently. Exact finite symbolic verification relies on the integrity of the accompanying source code; a separate independent audit has not occurred.
+
+Same-model review: passed. Independent audit: not yet performed.
