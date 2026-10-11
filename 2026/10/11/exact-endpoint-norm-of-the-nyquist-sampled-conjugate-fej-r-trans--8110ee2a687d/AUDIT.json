@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The multiplier is explicitly paired into a weighted sine kernel. A finite geometric-series derivative identity gives \\(2\\sum_{k=1}^{n-1}(1-k/n)\\sin(kt)=(\\sin t-n^{-1}\\sin(nt))/(1-\\cos t)\\). On the critical \\(t=\\pi r/n\\) grid, \\(\\sin(nt)=0\\), yielding the cotangent samples away from the two points where the original sine sum is exactly zero. The normalized absolute kernel mass is the endpoint convolution norm and is attained by a sign witness; duality gives the \\(\\ell^1\\) endpoint. Parity splitting proves the exact two-scale identity. After subtracting \\(2/(\\pi x)\\), Euler--Maclaurin and the harmonic-number expansion give the stated asymptotic and the coefficient \\(-\\pi/36\\). The packaged verifier independently checks the finite identities; it is corroborative rather than the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krasniqi, DOI 10.4418/2010.65.2.3, defines the conjugate Fejér kernel and proves continuous L1-convergence statements, not a sharp finite cyclic norm theorem.",
+        "Boche--Pohl, Dortmund 2015, study sampled conjugate Fejér means and strong divergence of Hilbert-transform approximations, but the inspected sampled-kernel section does not give the critical 2n-grid norm formula or dyadic identity."
+      ],
+      "reasoning": "The cited literature is broader in convergence and approximation purpose but does not contain a theorem that specializes to the exact all-scale endpoint invariant claimed here.",
+      "searches": [
+        "Cesaro conjugate Fourier kernel sharp L1 norm cyclic",
+        "finite cyclic Fourier multipliers sharp operator norms Hilbert Riesz projection",
+        "conjugate Fejer kernel cyclic exact L1 norm discrete"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4418/2010.65.2.3",
+      "https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Boche_Dortmund15.pdf",
+      "statement-level searches for sampled conjugate Fejér norms, cotangent sums, discrete Lebesgue constants, cyclic Hilbert multipliers, and Cesàro kernels"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The untapered cyclic Hilbert transform has a different sign multiplier; its endpoint cotangent sums do not determine the tapered multiplier without the new weighted-sine kernel calculation.",
+        "The de la Vallée Poussin and three-frequency projection results returned by the searches concern different kernels and different spectral weights.",
+        "The Boche--Pohl sampled approximation uses the conjugate Fejér kernel but gives divergence estimates rather than this exact operator norm."
+      ],
+      "reasoning": "The new theorem is not a corollary of an untapered Hilbert norm or of a projection norm because the multiplier weights differ. The exact critical-grid identity is the missing step that both determines the smoothed norm and creates the dyadic bridge.",
+      "searches": [
+        "finite cyclic Fourier multipliers sharp operator norms Hilbert Riesz projection",
+        "sampled conjugate Fejer means exact norm parity cotangent sum",
+        "de la Vallee Poussin conjugate kernel finite cyclic exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searched formulations cover the same invariant as a sampled conjugate-Fejér kernel mass, a finite cyclic endpoint convolution norm, and a cotangent absolute row sum.",
+        "No retrieved record stated \\(C_n=n^{-1}\\sum_{r=1}^{n-1}\\cot(\\pi r/(2n))\\) for this multiplier or the exact two-scale identity."
+      ],
+      "reasoning": "These are equivalent formulations because endpoint norms of a finite convolution operator equal the normalized absolute kernel mass, and the proof identifies the critical-grid kernel with cotangent samples. Searching all three descriptions reduces the risk that a wording change hides the same result.",
+      "searches": [
+        "sampled conjugate Fejer means exact norm parity cotangent sum",
+        "conjugate Fejer kernel discrete Lebesgue constant even odd sampling",
+        "cotangent tangent sums conjugate Fejer sampled operator norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved database record tabulated the all-n conjugate-Fejér endpoint constants or the cotangent formula.",
+        "The result is an infinite symbolic identity rather than a recomputation of a finite table."
+      ],
+      "reasoning": "A finite table, even if present, would not by itself imply the all-n kernel collapse, exact norm attainment, or two-scale relation. No such table was located in the searches.",
+      "searches": [
+        "sampled Fejer kernel finite cyclic endpoint norm derivative",
+        "strong divergence sampled conjugate Fejer exact amplification constant"
+      ]
+    },
+    "rationale": "The archive source and the closest sampled-Hilbert source establish the relevance and standardness of the conjugate Fejér object, but neither inspected statement evaluates this critical finite cyclic endpoint norm or its dyadic relation. Equivalent mathematical formulations were searched directly. No covering or dominating statement was located; a terminology-mismatch risk remains.",
+    "residual_risks": [
+      "An older equivalent finite cotangent-sum identity may be indexed under approximation theory, interpolation, numerical harmonic analysis, or digital-signal-processing terminology not retrieved by the searches.",
+      "The exact two-scale identity is elementary once the new critical-grid kernel formula is known, so its originality is tied to the combined operator theorem rather than to the parity split in isolation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the paper treats continuous L1-convergence and does not state the finite cyclic critical-grid endpoint norm or the two-scale identity.",
+        "evidence": "The publisher page records publication on 2011-03-11. The PDF lists AMS 2010 Subject Classification 42A20, 42A32 and defines the conjugate Fejér kernel near the proof of its main L1-convergence result.",
+        "identifier_or_url": "doi:10.4418/2010.65.2.3",
+        "material_read": "Publisher metadata and full-text PDF, including title page, AMS classification, conjugate Dirichlet kernel definition, and the passage defining the conjugate Fejér kernel as a Cesàro average.",
+        "method": "Full-text primary-source inspection.",
+        "title": "On L1-Convergence Of Rees-Stanojević's Sums With Coefficients From The Class K",
+        "trigger": "Archive source explicitly naming and defining the conjugate Fejér kernel."
+      },
+      {
+        "assessment": "NOT_COVERING: it motivates the sampled stability problem but does not state the exact \\(\\mathbb Z_{2n}\\) cotangent collapse, sharp endpoint norm, or dyadic bridge.",
+        "evidence": "The sampled-conjugate-Fejér section writes an explicit closed kernel and uses it in divergence estimates; the claimed all-n finite cyclic norm formula is absent from the inspected material.",
+        "identifier_or_url": "https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Boche_Dortmund15.pdf",
+        "material_read": "Presentation section titled Sampled Conjugate Fejer Means, including the sampled approximation operator, the displayed kernel formula, and the subsequent divergence statement.",
+        "method": "Full-page PDF inspection of the relevant section.",
+        "title": "On the Strong Divergence of Hilbert Transform Approximations and a Problem of Ul'yanov",
+        "trigger": "Highly relevant sampled conjugate-Fejér/Hilbert approximation source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8110ee2a-687d-4c07-8f60-c2ce8bcbb4c0",
+  "value": {
+    "rationale": "Conjugate Fejér means are a canonical regularization of conjugate Fourier/Hilbert summation, and their endpoint convolution norm is the exact worst-case stability factor. The result is an all-n structural theorem at the natural critical sampling rate, not a fixed-size computation. The exact parity decomposition connects the smoothed constant to the unsmoothed cyclic Hilbert constant, while the asymptotic gives both the logarithmic growth and the first finite-size correction.",
+    "status": "PASS"
+  }
+}
