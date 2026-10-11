@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The theorem is a complete finite classification. Every strict profile and every perfect matching for the stated market sizes is examined. Two independent stability tests agree profile by profile; all objective values are exact integers; the published three-pair stable-count marginal is reproduced; the symmetry-orbit statement and the explicit witness are separately checked.
+## correctness
 
-Risk: the three-pair theorem is computational rather than a symbolic case classification. Complete enumeration and independent replay make the finite claim exhaustive, but no larger-size generalization follows.
+PASS
 
-## Originality
-**PASS.** The closest primary literature defines and algorithmically treats minimum-regret and sex-equal stable marriage, while the closest small-instance enumeration literature tabulates stable counts and egalitarian costs. The inspected sources do not state the exact four-way relation between the two complete argmin sets at three pairs, the \(1/324\) disjointness incidence, or the two disjoint symmetry orbits. Exact-count and alias searches did not locate an equivalent result.
+Fresh exhaustive enumeration of every two- and three-pair profile and every perfect matching independently reproduces the stated relation counts and stable-count marginal. For the 144 disjoint profiles, a separate canonicalization under independent relabelings of men and women together with side exchange yields exactly two equivalence classes, each containing 72 labeled profiles. Every disjoint profile has two stable matchings realizing the opposite objective pairs (2,3) and (3,2), consistent with the claimed conflict geometry.
 
-Risk: failed search is not proof of novelty. An unindexed thesis, exercise, note, or software table could contain the same finite classification.
+## originality
 
-## Value
-**PASS.** The two objectives encode distinct canonical fairness principles: protecting the single worst-off participant versus balancing aggregate dissatisfaction across the two sides. The first market size where those principles can force mutually exclusive stable choices is a natural boundary. The exact census shows that outright conflict is rare, only \(1/324\) of labeled three-pair profiles, and the two-orbit classification explains the complete first-conflict geometry rather than reporting an arbitrary example.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The defining literature puts minimum regret and sex-equality in the same exact optimization framework, but it does not classify their joint optimum sets on the smallest markets. The closest complete small-instance paper does not tabulate either this pair of criteria or the two disjoint symmetry classes. Independent exhaustive replay confirms both the relation census and the two size-72 orbits.
+
+## value
+
+PASS
+
+Minimum regret protects the worst-off participant while sex-equality balances aggregate dissatisfaction across sides. Their first incompatible market size is a natural fairness boundary; the full census and orbit decomposition explain all first conflicts rather than selecting an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
