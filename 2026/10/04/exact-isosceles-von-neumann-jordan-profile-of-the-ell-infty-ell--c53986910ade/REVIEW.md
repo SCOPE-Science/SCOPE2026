@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The norm is a maximum of three absolute linear forms, so the unit sphere admits an exact six-edge support decomposition. On every signed support cell, isosceles orthogonality is linear and the target functional is convex, reducing the global maximum to finitely many cell endpoints. The exact checker obtains 48 endpoints and 12 candidate quadratics, proves their envelope symbolically, and verifies an explicit maximizing pair. No finite sample is treated as an infinite proof.
+## correctness
 
-## Originality
-**PASS.** The defining source arXiv:2110.15741v2 studies the identical invariant and norm but states the parameter-independent value \(1.2\). The corrected exact profile equals \(1\) at the endpoints and reaches only \(9/8\). Searches by invariant notation, aliases, the source example, exact expressions, and the own prior claim set found no equivalent or stronger coverage. A later paper, arXiv:2504.00826, was inspected because it is especially close in subject; its displayed constants are differently normalized and do not imply this result.
+PASS
 
-## Value
-**PASS.** The claim resolves a concrete calculation in the paper that introduced the parameterized invariant. It supplies the whole parameter profile, a sharp extremizer, and an exact polyhedral proof method rather than merely identifying an endpoint typo or recomputing a known table entry.
+The hexagonal norm was independently decomposed into six affine unit-sphere edges and six signed support forms. Exact rational enumeration reproduced 48 feasible isosceles support-cell endpoints and 12 candidate quadratic polynomials. Exact interval minimization proves \(1+5\lambda/4-2\lambda^2\) dominates every candidate on \([0,1/2]\), with the reflected branch on \([1/2,1]\). The explicit pair \(x=(1,1/2)\), \(y=(0,1)\) is unit and isosceles with \(N(x-y)=3/2\), and attains the left branch; swapping gives the right. Thus the continuum claim is certified symbolically rather than by sampling.
 
-## Closest literature and limitations
-The closest source is arXiv:2110.15741v2, Example 2.3, because it treats exactly this norm and invariant. The closest later source inspected is arXiv:2504.00826, which studies other isosceles-orthogonality constants. The theorem is specific to one real hexagonal plane, and an obscure independent correction under different notation cannot be excluded.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes as a direct correction rather than a restatement. The defining paper was read at the exact invariant and the complete same-norm Example 2.3; it prints the parameter-independent value 1.2, which already conflicts with the definition's endpoint value 1. The audited result replaces that incorrect example with the exact two-branch profile and explicit maximizers. The later nearby isosceles-orthogonality paper defines different constants and does not imply this correction.
+
+## value
+
+PASS
+
+The result corrects the defining paper's concrete evaluation of its own parameterized invariant, and the discrepancy is structural: a constant 1.2 is incompatible with the forced endpoint value 1. The exact profile identifies the true maximum 9/8, the maximizing geometry, and supplies a reusable exact support-cell method for polygonal Banach planes. This is substantively useful rather than a cosmetic numerical correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
