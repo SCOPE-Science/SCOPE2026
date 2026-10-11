@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:26:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b685fe8e0e8ad0b193adadd4c215ee0d533c6c59",
+        "artifacts/verify.py blob b8992f9e96e600f61e23735fb55851ac08a1c46c",
+        "Schmidt primary source",
+        "fresh profile/minimization reconstruction"
+      ],
+      "rationale": "Orthogonality gives M=Σ_d|R_d|^2 with R_0=4. Six unordered support pairs determine the positive difference-class multiplicities. Multiplicity three forces a length-four arithmetic progression. If no class has multiplicity three, a (2,2,2) profile would force after normalization A={0,1,2,t}; the only nondegenerate candidates t=4 or -2 require [4]=[3], which forces p=7, so p≥11 leaves exactly four profiles. Singleton classes contribute fixed 2 per class, while explicit unimodular sign choices cancel the doubled autocorrelations in the non-AP profiles, giving 28,24,20. For an AP, writing adjacent phase ratios and r=|1+z| reduces the variable part to (r-1)^2+r^2≥1/2, yielding 19; the displayed exact phases attain equality. The verifier exhausts profiles for seven primes and checks constructions; an independent profile replay for small p≥11 reproduced the four-profile classification.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior work studies consecutive full supports and asymptotic merit/L4 behavior or Fourier-zero counts.",
+          "None of those results determines minima for every additive four-point support geometry in Z_p."
+        ],
+        "reasoning": "The sparse support classification is not a special numerical case of the consecutive-support asymptotic theorems.",
+        "searches": [
+          "Schmidt 2013/2015 unimodular polynomial paper",
+          "Jedwab--Katz--Schmidt Littlewood-polynomial work",
+          "Resultary phase-only four-sparse uncertainty records"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.2766",
+        "DOI:10.1016/j.aim.2013.03.015",
+        "DOI:10.1080/00029890.1990.11995544",
+        "Resultary fourth-moment query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior identity reduces the objective but leaves the support geometry and phase optimization open.",
+          "The submitted proof rules out profile (2,2,2) for p≥11, constructs simultaneous cancellations for the doubled classes, and solves the AP profile exactly by a one-variable unit-circle minimization."
+        ],
+        "reasoning": "The four-valued phase diagram and AP extremal characterization are additional mathematics not implied by the identity alone.",
+        "searches": [
+          "standard autocorrelation identity from Schmidt",
+          "assigned difference-profile classification and phase minimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Character orthogonality turns the normalized fourth Fourier moment into the sum of squared cyclic autocorrelations.",
+          "Repeated-difference geometry determines how many phase terms occur in each nonzero autocorrelation."
+        ],
+        "reasoning": "The audited problem is the sparse-support finite-cyclic version of the standard L4/autocorrelation optimization, but the geometry-dependent exact minima are not stated in the checked literature.",
+        "searches": [
+          "Schmidt arXiv:1302.2766",
+          "Jedwab--Katz--Schmidt DOI:10.1016/j.aim.2013.03.015",
+          "Resultary query: four point support fourth Fourier moment unimodular prime cyclic 19 20 24 28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the audited record matched the exact four-valued classification among leading findings.",
+          "No prior table of the four difference profiles and minima was located."
+        ],
+        "reasoning": "The verifier's finite profile census supports a universal analytic classification rather than serving as a database.",
+        "searches": [
+          "Resultary exact fourth-moment search",
+          "targeted 19/20/24/28 and merit-factor searches"
+        ]
+      },
+      "rationale": "Schmidt and the Littlewood-polynomial literature provide the autocorrelation expression for the fourth norm and asymptotic/full-consecutive-support extremal questions. The inspected primary source does not classify arbitrary four-point supports in prime cyclic groups or give the four exact values 19,20,24,28. Resultary returned the audited theorem itself as the direct exact match; nearby published SCOPE results concern Fourier zeros rather than fourth moments.",
+      "residual_risks": [
+        "Older sequence-design literature could encode the same four-point calculation in correlation terminology without emphasizing sparse-support geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "AUTOCORRELATION_IDENTITY_PRIOR_SPARSE_GEOMETRY_CLASSIFICATION_NOT_COVERED",
+          "evidence": "The source expresses the fourth norm through autocorrelations for unimodular polynomials but does not classify arbitrary four-point prime-cyclic supports or their exact minima.",
+          "identifier_or_url": "arXiv:1302.2766",
+          "material_read": "Lawful full PDF around the fourth-norm/autocorrelation identity and stated consecutive-support asymptotic scope; PDF analysis included a screenshot attempt.",
+          "method": "Object/support-scope and implication comparison.",
+          "title": "On a problem due to Littlewood concerning polynomials with unimodular coefficients",
+          "trigger": "Primary analytic ancestor for the L4/autocorrelation identity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1302.2766",
+        "DOI:10.1016/j.aim.2013.03.015",
+        "DOI:10.1080/00029890.1990.11995544",
+        "Resultary fourth-moment query"
+      ],
+      "rationale": "The theorem gives a natural exact phase-only energy invariant controlled entirely by additive four-point geometry and identifies a sharp arithmetic-progression extremizer. This is a complete structural classification with a reusable correlation interpretation, not an arbitrary finite slice.",
+      "residual_risks": [
+        "Older sequence-design literature could encode the same four-point calculation in correlation terminology without emphasizing sparse-support geometry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1302.2766",
+    "DOI:10.1016/j.aim.2013.03.015",
+    "DOI:10.1080/00029890.1990.11995544",
+    "Resultary fourth-moment query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For prime p≥11 and any four-point support A⊂Z_p with unimodular coefficients, the minimum normalized fourth Fourier moment is exactly 19,20,24, or 28 according to the repeated-difference profile (3,2,1), (2,2,1,1), (2,1,1,1,1), or (1,1,1,1,1,1); the global minimum 19 occurs exactly for affine four-term arithmetic progressions.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older sequence-design literature could encode the same four-point calculation in correlation terminology without emphasizing sparse-support geometry.",
+    "No classification is asserted for p=5,7, composite cyclic groups, unequal magnitudes, or support sizes other than four."
+  ]
+}
