@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The positive predator fixed-point equation gives \(v=q(bu+c)\) with \(q=(\alpha-d)/a\). Substitution into the prey equation gives exactly \(P(u)=-KF(u)\) with the coefficients printed in the source. Since \(C_0>0\), Vieta's formulas and \(\Delta=C_1^2-4C_0C_2\) give an exhaustive zero/one/two-positive-root classification. The identity \(C_2=-K\gamma(1+kqc)\log\lambda_u\) follows by direct expansion from the published boundary multiplier. Exact-rational examples realize both two positive equilibria and no positive equilibrium.
+## correctness
 
-## Originality
-PASS. The primary source states unconditional uniqueness for \(\alpha>d\), while its displayed coefficients allow the other root configurations. The 2022 predecessor uses a different additive map whose positive fixed point has a different explicit formula. The 2021 alternative-food fear model imposes a separate existence condition. Searches by exact title, DOI, coefficient pattern, positive-root terminology, invasion multiplier, and coexistence wording found no correction or prior source-model classification matching this claim.
+PASS
 
-Closest literature: Du, Han, and Lei (2023), DOI 10.3934/math.20231221, which contains the model and the incorrect unconditional uniqueness statement; Lei, Han, and Wang (2022), DOI 10.3934/mbe.2022313, a different fear map; and Chen, He, and Chen (2021), DOI 10.3390/math9080865, a different alternative-food model.
+Solving the predator fixed-point equation gives \(v=q(bu+c)\) with \(q=(\alpha-d)/a\). Substitution into the prey equation independently reproduces exactly the published quadratic coefficients. Since \(C_0>0\), Vieta's formulas and the discriminant give the complete positive-root classification, including the boundary \(C_2=0\) case. Fresh symbolic expansion verifies the multiplier identity. At the rational witness \((r,K,\beta,\gamma,a,b,c,k,\alpha,d)=(1,10,1/5,1,1,1/10,5,1/100,3/2,1/2)\), the quadratic has coefficients \((5001/5000,-439/50,1/2)\), discriminant \(9386/125\), and two positive roots approximately \(0.05732\) and \(8.72092\).
 
-Residual risk: a later unindexed note could contain the same algebraic observation. The claim is restricted to the exact source map and does not assert a new general theorem for fear-modulated predator-prey systems.
+## originality
 
-## Value
-PASS. The correction changes the equilibrium geometry used by the source's subsequent local-stability and bifurcation analysis: \(\alpha>d\) alone permits absence of coexistence or a pair of coexistence equilibria. The exact link to the predator-only invasion multiplier also identifies a biologically interpretable two-coexistence region on the no-invasion side, making the correction structural rather than a numerical edge case.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The initiating paper explicitly asserts in Proposition 1(iii) that the displayed quadratic has a unique positive root whenever \(\alpha>d\). The audited theorem shows that this is false and gives the complete zero/one/two-positive-root classification for the same quadratic, plus an identity tying the constant term to the invasion multiplier. Fresh Resultary search did not locate a prior correction of this exact proposition.
+
+## value
+
+PASS
+
+This directly corrects the equilibrium count underlying the source paper's subsequent local dynamics and exposes a genuine two-coexistence regime and invasion/coexistence mismatch. Correcting the global fixed-point diagram of a published ecological map is substantively useful even though the algebra is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

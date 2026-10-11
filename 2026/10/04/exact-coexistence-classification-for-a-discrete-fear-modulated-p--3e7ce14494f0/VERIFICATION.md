@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic verification reduces the positive fixed-point equations to \(v=q(bu+c)\) and \(P(u)=-KF(u)\), then checks the complete quadratic sign/discriminant classification.
 
-`verify.py` uses exact rational arithmetic for both counterexamples. For the two-equilibrium case it verifies \(C_0=5001/5000\), \(C_1=-439/50\), \(C_2=1/2\), \(\Delta=9386/125\), and \(\log\lambda_u=-1/21\); it also substitutes both roots into the original exponential map numerically. For the zero-equilibrium case it verifies \(P(u)=6(u+1)^2/5\).
+# Independent mathematical audit
 
-The finite substitutions are consistency checks only. The accepted equilibrium-count classification and the boundary-multiplier identity are established algebraically. No claim is made about local stability of both coexistence branches or global dynamics.
+## correctness
+
+PASS
+
+Solving the predator fixed-point equation gives \(v=q(bu+c)\) with \(q=(\alpha-d)/a\). Substitution into the prey equation independently reproduces exactly the published quadratic coefficients. Since \(C_0>0\), Vieta's formulas and the discriminant give the complete positive-root classification, including the boundary \(C_2=0\) case. Fresh symbolic expansion verifies the multiplier identity. At the rational witness \((r,K,\beta,\gamma,a,b,c,k,\alpha,d)=(1,10,1/5,1,1,1/10,5,1/100,3/2,1/2)\), the quadratic has coefficients \((5001/5000,-439/50,1/2)\), discriminant \(9386/125\), and two positive roots approximately \(0.05732\) and \(8.72092\).
+
+## originality
+
+PASS
+
+The initiating paper explicitly asserts in Proposition 1(iii) that the displayed quadratic has a unique positive root whenever \(\alpha>d\). The audited theorem shows that this is false and gives the complete zero/one/two-positive-root classification for the same quadratic, plus an identity tying the constant term to the invasion multiplier. Fresh Resultary search did not locate a prior correction of this exact proposition.
+
+## value
+
+PASS
+
+This directly corrects the equilibrium count underlying the source paper's subsequent local dynamics and exposes a genuine two-coexistence regime and invasion/coexistence mismatch. Correcting the global fixed-point diagram of a published ecological map is substantively useful even though the algebra is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
