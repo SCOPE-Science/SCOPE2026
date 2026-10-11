@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For each order, parity gives exact one-half identity diagonal blocks. The Sturm--Liouville Lagrange identity gives the cross block as nonzero diagonal scalings of a rectangular Cauchy matrix with distinct nodes, hence full rank. Singular-value symmetry then yields the exact half-energy nullity and paired spectrum. The global and contiguous-band counts follow by exact parity counting. Numerical quadrature on 1298 blocks independently corroborates the formulas but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simons--Dahlen--Wieczorek treat the standard low-pass Slepian problem and a general polar cap, including numerical and commuting-operator machinery.",
+        "Beggan--Saarimäki--Whaler--Simons state that low degrees may be omitted to form bandpass Slepian functions and adapt dimensions/Shannon number, but do not derive hemisphere spectral multiplicities.",
+        "Ramamoorthi considers upper-hemisphere restriction but with Lambertian spectral weights and truncated PCA approximations."
+      ],
+      "reasoning": "None of the inspected broader frameworks states or implies by an already-proved rank theorem that the arbitrary-mask hemisphere cross-parity block has full Cauchy rank. The accepted claim is the exact threshold multiplicity for every finite degree mask, with low-pass and bandpass formulas as consequences.",
+      "searches": [
+        "arXiv:math/0408424v1 full text: low-pass concentration, complement, fixed-order and polar-cap sections",
+        "DOI:10.1093/gji/ggs122 full text: bandpass Slepian functions, omitted degrees",
+        "Ramamoorthi 2002 PDF: upper-hemisphere orthogonality matrix and Table 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0408424v1",
+      "DOI:10.1093/gji/ggs122",
+      "IEEE TPAMI 24(10), 2002, 1322-1335",
+      "current/prior private ledger through generation g000071",
+      "published semantic index searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2004 source defines low-pass Slepian concentration and gives general machinery, but not arbitrary degree masks or a Cauchy-rank theorem at a hemisphere.",
+        "The 2013 source authorizes a contiguous bandpass degree deletion but provides no exact hemisphere eigenspace classification.",
+        "The current and prior own ledger contains no Slepian, hemisphere, bandpass, or spherical-concentration finding."
+      ],
+      "reasoning": "The claim is not a special case of a previously stated exact multiplicity theorem. Its proof adds a boundary Lagrange identity and full-rank Cauchy argument that is absent from the inspected Slepian sources; the arbitrary-mask statement is also strictly broader than the contiguous bandpass setup.",
+      "searches": [
+        "arXiv:math/0408424v1 sections defining the localization matrix and polar-cap theory",
+        "DOI:10.1093/gji/ggs122 bandpass construction and Shannon number",
+        "own-ledger search: slepian; hemisphere; bandpass; spherical concentration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0408424v1 gives the spherical concentration eigenproblem and polar-cap framework but no hemisphere/Cauchy threshold law.",
+        "Ramamoorthi (IEEE TPAMI 24, 2002) computes an upper-hemisphere spherical-harmonic orthogonality matrix for a weighted Lambertian PCA problem and only low finite orders."
+      ],
+      "reasoning": "The same object can be described as a hemisphere Gram matrix, a spherical Slepian localization operator, or a restriction-orthogonality matrix. Searches across those aliases did not locate the arbitrary-degree-mask half-eigenvalue multiplicity or the Cauchy rank decomposition.",
+      "searches": [
+        "hemisphere Slepian concentration operator eigenvalues symmetric one half spherical harmonics",
+        "spherical concentration hemisphere spectrum lambda 1-lambda antipodal",
+        "spatiospectral concentration hemisphere half eigenvalue spherical harmonics",
+        "hemisphere spherical Slepian arbitrary degree set parity Cauchy matrix half eigenvalue",
+        "bandpass spherical Slepian hemisphere exact eigenvalue one half multiplicity parity",
+        "associated Legendre hemisphere concentration matrix Cauchy singular values",
+        "web: \"hemisphere\" \"spherical Slepian\" \"1/2\" eigenvalue",
+        "web: \"associated Legendre\" \"hemisphere\" \"Cauchy\" matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed result returned a table or theorem giving the multiplicity formula.",
+        "The closest numerical table found is Ramamoorthi 2002 Table 1, which reports a nine-mode weighted PCA example rather than unweighted arbitrary-mask Slepian spectra."
+      ],
+      "reasoning": "There is no identified database/table from which the claimed all-mask formula can be read off or recomputed as a known tabulation.",
+      "searches": [
+        "semantic index: hemisphere spherical Slepian arbitrary degree set parity Cauchy matrix half eigenvalue",
+        "semantic index: bandpass spherical Slepian hemisphere exact eigenvalue one half multiplicity parity",
+        "web formula-fingerprint searches for Cauchy/associated-Legendre hemisphere concentration"
+      ]
+    },
+    "rationale": "The inspected low-pass Slepian source, later bandpass implementation, hemisphere PCA calculation, semantic-index searches, formula-fingerprint searches, and own ledger do not contain a theorem implying the arbitrary-degree-mask half-energy multiplicity. The new ingredient is the full-rank Cauchy factorization of the opposite-parity hemisphere block.",
+    "residual_risks": [
+      "An equivalent Cauchy-rank identity may exist in older special-function, approximation-theory, or hemisphere-restriction literature under terminology not captured by the searches.",
+      "The claim does not assert novelty for the general spherical Slepian eigenproblem, the Shannon trace, complement symmetry by itself, or the existence of bandpass Slepian bases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "First public 2004-08-31; MSC includes primary 42B05. The source develops low-pass spherical Slepian theory and polar caps but does not state the arbitrary-mask hemisphere Cauchy factorization or exact 1/2 multiplicity law.",
+        "identifier_or_url": "arXiv:math/0408424v1",
+        "material_read": "Abstract/metadata plus full-text portions defining the bandlimited space, fixed-order concentration problem, complement relation, polar-cap commuting operator, and tridiagonal representation; searches for hemisphere terminology.",
+        "method": "Public arXiv HTML and metadata inspection.",
+        "title": "Spatiospectral concentration on a sphere",
+        "trigger": "Primary spherical Slepian source and MSC owner."
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "evidence": "The paper explicitly forms bandpass Slepian functions by omitting degrees and says dimensional changes are straightforward, but it gives no hemispherical parity/Cauchy decomposition or threshold multiplicity.",
+        "identifier_or_url": "DOI:10.1093/gji/ggs122",
+        "material_read": "Methodology around omitted low degrees, modified Shannon number, bandpass basis, and stated prior-work scope.",
+        "method": "Oxford Academic full text.",
+        "title": "Spectral and spatial decomposition of lithospheric magnetic field models using spherical Slepian functions",
+        "trigger": "Direct bandpass Slepian extension."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "It studies weighted Lambertian PCA and low-order/truncated numerical eigensystems. It does not state arbitrary degree masks, Cauchy full rank, or exact 1/2 Slepian multiplicities.",
+        "identifier_or_url": "IEEE TPAMI 24(10), 2002, pp. 1322-1335",
+        "material_read": "PDF abstract, upper-hemisphere matrix derivation, same-order grouping, and Table 1 on page 1328.",
+        "method": "Public PDF text plus page-image inspection.",
+        "title": "Analytic PCA Construction for Theoretical Analysis of Lighting Variability in Images of a Lambertian Object",
+        "trigger": "Search revealed an upper-hemisphere spherical-harmonic orthogonality matrix, a plausible equivalent formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0284b88c-ef7a-4302-83af-82657f270a7f",
+  "value": {
+    "rationale": "The half-energy value is the natural inside/outside transition for a hemisphere. The theorem computes the exact threshold eigenspace for every finite degree mask without diagonalization, reveals parity as the governing invariant, and gives explicit low-pass and bandpass multiplicities. This is a structural classification rather than a single numerical example or routine normalization check.",
+    "status": "PASS"
+  }
+}
