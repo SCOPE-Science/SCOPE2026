@@ -1,33 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Lassak's regular spherical Reuleaux odd-gon is an intersection of radius-\(\omega\) disks and is a body of constant width \(\omega\) for \(\omega\le\pi/2\). Spherical trigonometry gives
-\[
-\sin\rho=\frac{\sin(\omega/2)}{\cos(\pi/(2n))}.
-\]
-The circumradius of the full curved body, rather than merely of its generating vertices, is established by two sharp bounds. The regular-vertex average forces every containing ball to have radius at least \(\rho\). Conversely,
-\[
-B_{\omega-\rho}(o)\subset W_{n,\omega},
-\]
-so Hou–Jin's identity \(r+R=\omega\) forces \(R\le\rho\). Hence \(R=\rho\), and direct substitution into the Hou–Jin definition proves the width-independent formula.
+PASS
 
-The packaged verifier reconstructs the vertices, farthest distances, inner-ball inclusion, asymmetry identity, monotonicity, and asymptotics for a finite grid. None of those finite checks substitutes for the analytic quantifiers.
+The spherical cosine law for a farthest vertex pair gives sin(rho)=sin(width/2)/cos(pi/(2n)). The generating vertices force any containing ball to have radius at least rho by averaging their Euclidean representatives. Conversely the ball of radius width-rho about the generating center lies in every defining radius-width disk, so the inradius is at least width-rho. Hou–Jin's exact relation r+R=width then gives R at most rho, hence equality. Substitution into their definition cancels the width. The verifier independently checks the spherical geometry over odd n through 63 and multiple widths; the all-parameter proof is analytic.
 
-## Originality
+## originality
 
-PASS with a stated older-geometry risk. Lassak's 2015 paper explicitly defines spherical Reuleaux odd-gons and proves their constant-width property. Lassak–Musielak 2018 develops the surrounding theory. Hou–Jin 2022 introduces the spherical Minkowski asymmetry and proves only the global bounds and the spherical Reuleaux-triangle endpoint in dimension two. No regular odd-\(n\) spherical profile appears in the inspected material.
+PASS
 
-The exact Euclidean expression
-\[
-\bigl(2\cos(\pi/(2n))-1\bigr)^{-1}
-\]
-is prior work of Guo–Jin and is not claimed as new. The originality claim is the spherical equality to that expression for every admissible width, including the proof that the spherical circumradius produces complete curvature cancellation.
+The full Hou–Jin publisher article was inspected through its definition, concentric in/circumsphere theorem and planar extremal corollary. It provides the invariant and the relation r+R=width but not the regular odd-gon profile. Lassak's open primary page supplies the spherical constant-width framework, while the Euclidean regular-Reuleaux formula is prior and is not claimed as new. Resultary returned the audited spherical formula as the exact hit and no distinct earlier spherical source.
 
-Targeted published-finding corpus and public searches used the invariant name, spherical Reuleaux odd-gon/polygon aliases, the exact denominator, circumradius, width independence, and regular odd-\(n\) language. No equivalent spherical statement or stronger result implying it was located.
+## value
 
-## Value
+PASS
 
-PASS. Hou–Jin's measure was introduced specifically to quantify asymmetry inside the spherical constant-width class, and their two-dimensional theorem singles out the Reuleaux triangle and disk as opposite endpoints. Regular Reuleaux odd-gons are the canonical finite-arc family connecting those endpoints. The theorem supplies the complete exact profile, shows that the measure ignores spherical scale on this family, and identifies an exact Euclidean–spherical universality that is not visible from the definition alone.
+Regular spherical Reuleaux odd-gons are the canonical finite-arc family between the spherical disk and Reuleaux-triangle endpoints singled out by Hou–Jin. The exact cancellation of width and exact match with the Euclidean profile is a natural benchmark for the new spherical invariant.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

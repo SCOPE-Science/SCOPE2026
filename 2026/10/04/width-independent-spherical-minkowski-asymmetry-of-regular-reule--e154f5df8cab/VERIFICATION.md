@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,50 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For a regular spherical odd-\(n\)-gon on a circle of radius \(\rho\), a farthest vertex pair has azimuth difference
-\[
-\pi-\frac{\pi}{n}.
-\]
-The spherical cosine law therefore gives
-\[
-\cos\omega
-=
-1-\left(1+\cos\frac{\pi}{n}\right)\sin^2\rho,
-\]
-hence
-\[
-\sin\rho
-=
-\frac{\sin(\omega/2)}{\cos(\pi/(2n))}.
-\]
+## correctness
 
-The complete curved Reuleaux body's circumradius is checked analytically by two opposite estimates. Since all generating vertices lie in the body, their vector average
-\[
-\frac1n\sum_jv_j=(\cos\rho)o
-\]
-forces every containing spherical ball to have radius at least \(\rho\). Conversely,
-\[
-B_{\omega-\rho}(o)\subset W_{n,\omega}
-\]
-by the triangle inequality. Hou–Jin's exact identity
-\[
-r(W)+R(W)=\omega
-\]
-then gives \(R(W)\le\rho\), so equality follows.
+PASS
 
-Substitution into the Hou–Jin definition produces
-\[
-\operatorname{as}_s(W_{n,\omega})
-=
-\frac{1}{2\cos(\pi/(2n))-1}.
-\]
+The spherical cosine law for a farthest vertex pair gives sin(rho)=sin(width/2)/cos(pi/(2n)). The generating vertices force any containing ball to have radius at least rho by averaging their Euclidean representatives. Conversely the ball of radius width-rho about the generating center lies in every defining radius-width disk, so the inradius is at least width-rho. Hou–Jin's exact relation r+R=width then gives R at most rho, hence equality. Substitution into their definition cancels the width. The verifier independently checks the spherical geometry over odd n through 63 and multiple widths; the all-parameter proof is analytic.
 
-The embedded `verify.py` was replayed from its actual package path. It reconstructs regular vertex sets for odd \(3\le n\le63\) at several admissible widths, checks the farthest-distance relation, the vertex-average identity, sampled inner-ball inclusion, the asymmetry cancellation, strict monotonicity, the triangle endpoint, and the asymptotic coefficients.
+## originality
 
-The replay output was:
+PASS
 
-`VERIFY_OK spherical Reuleaux asymmetry profile`
+The full Hou–Jin publisher article was inspected through its definition, concentric in/circumsphere theorem and planar extremal corollary. It provides the invariant and the relation r+R=width but not the regular odd-gon profile. Lassak's open primary page supplies the spherical constant-width framework, while the Euclidean regular-Reuleaux formula is prior and is not claimed as new. Resultary returned the audited spherical formula as the exact hit and no distinct earlier spherical source.
 
-The finite replay is a consistency check only. It is not used to establish the quantified theorem.
+## value
+
+PASS
+
+Regular spherical Reuleaux odd-gons are the canonical finite-arc family between the spherical disk and Reuleaux-triangle endpoints singled out by Hou–Jin. The exact cancellation of width and exact match with the Euclidean profile is a natural benchmark for the new spherical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
