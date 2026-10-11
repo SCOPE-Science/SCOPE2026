@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:40:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6badeb7254bfad3c7bec7dd573c4ac0094a9dd85",
+        "artifacts/verify.py blob 69fd7b5571b7a5339fe7154a37733af0defd815e",
+        "Li--Cao--Li DOI:10.3934/amc.2026041",
+        "Meng--Liu--Liu--Wang--Zheng DOI:10.3934/amc.2026016"
+      ],
+      "rationale": "I independently rebuilt \\(\\mathbb F_{25}=\\mathbb F_5(u)\\) with \\(u^2=3\\), verified that \\(1+u\\) has the required order, closed the defining set to \\(\\{0,1,\\ldots,17,20,21,22\\}\\), formed the degree-21 generator polynomial and its three shifts, and checked the Gram matrix is zero. Exhausting all \\(5^3\\) words reproduced the exact weight distribution. The 24 generator columns are all nonzero and represent 24 distinct projective points, so \\(d_2=24-1=23\\) and \\(d_3=24\\); \\(d_1=19\\). The 96 minimum words collapse to 24 supports modulo four nonzero scalars, and the complements form the claimed cyclic orbit.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact-source paper stops at ordinary parameters.",
+          "The hierarchy paper treats different algebraic families in its accessible material and does not expose this exact code."
+        ],
+        "reasoning": "No checked theorem mechanically supplies all four audited invariants for Example 4.13.",
+        "searches": [
+          "Li--Cao--Li 2026",
+          "Meng et al. 2026",
+          "general cyclic-code hierarchy literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/amc.2026041",
+        "DOI:10.3934/amc.2026016",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's ordinary distance does not imply projectivity or the full weight distribution.",
+          "Once projectivity is newly established, \\(d_2=23\\) is routine; establishing projectivity for this code is part of the audited computation."
+        ],
+        "reasoning": "The full result is not a mere restatement of the source parameters.",
+        "searches": [
+          "source BCH/defining-set construction",
+          "standard projective-code formula for \\(d_2\\) in dimension three"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li--Cao--Li Table II Example 4.13 gives the exact defining set and \\([24,3,19]\\) parameters.",
+          "The related hierarchy paper's accessible article record has no exact \\([24,3,19]\\) occurrence."
+        ],
+        "reasoning": "The hierarchy, projectivity and projective minimum-word supports were compared with the defining-set and weight-distribution formulations.",
+        "searches": [
+          "Resultary query: quinary cyclic \\([24,3,19]\\) self-orthogonal weight hierarchy",
+          "Li--Cao--Li DOI:10.3934/amc.2026041 full primary HTML",
+          "Meng et al. DOI:10.3934/amc.2026016 exact-parameter searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table II contains only defining set, ordinary parameters and optimality.",
+          "No prior exact hierarchy/support table was located."
+        ],
+        "reasoning": "The audited code is fixed unambiguously by the source table, making exact-value searches meaningful.",
+        "searches": [
+          "Li--Cao--Li Table II",
+          "Resultary exact \\([24,3,19]\\) query",
+          "exact web searches for the hierarchy \\((19,23,24)\\)"
+        ]
+      },
+      "rationale": "Li--Cao--Li's complete primary article identifies the exact defining set and records only the ordinary parameters \\([24,3,19]\\), optimality and BCH lower bound; it does not provide the weight enumerator, projectivity, generalized hierarchy or minimum-support orbit. A separate 2026 article explicitly studies weight distributions and hierarchies for two self-orthogonal code classes, so it was treated as a serious comparison: its accessible primary article page and exact searches contain no \\([24,3,19]\\) match. A verified full PDF could not be obtained through the authorized fallback, so possible hidden specialization is retained as residual risk rather than assumed absent.",
+      "residual_risks": [
+        "The inaccessible theorem body of Meng et al. 2026 may contain a parameter specialization equivalent to the Example 4.13 code."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CODE_ORDINARY_PARAMETERS_ONLY",
+          "evidence": "The table gives the defining set, dimension and minimum distance but no weight enumerator or generalized hierarchy.",
+          "identifier_or_url": "DOI:10.3934/amc.2026041",
+          "material_read": "Complete accessible primary HTML, including the construction discussion and Table II row defining the optimal quinary \\([24,3,19]\\) code.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "The construction of two classes of self-orthogonal cyclic codes",
+          "trigger": "Exact source of Example 4.13."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_OVERLAP_NO_EXACT_PARAMETER_MATCH_FOUND",
+          "evidence": "No accessible occurrence of \\([24,3,19]\\) or the audited hierarchy was found.",
+          "identifier_or_url": "DOI:10.3934/amc.2026016",
+          "material_read": "Accessible primary article record, abstract, displayed weight-distribution table, references and exact-parameter searches; its web full-text route did not expose the complete theorem body, and a verified PDF was not found through the authorized fallback.",
+          "method": "Lawful web inspection followed by one authorized retrieval attempt.",
+          "title": "The weight distributions and weight hierarchies of two classes of self-orthogonal codes",
+          "trigger": "Highly relevant same-year paper whose title directly threatens originality."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li--Cao--Li 2026",
+        "generalized Hamming-weight literature"
+      ],
+      "rationale": "The source advertises the code because it is optimal, while the audited result determines its entire three-dimensional support geometry: exact weights, projectivity, generalized hierarchy and cyclic structure of every minimum support. These are natural structural invariants of an optimal code rather than arbitrary extra statistics.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Li--Cao--Li's optimal quinary self-orthogonal cyclic \\([24,3,19]_5\\) code, the exact weight enumerator is \\(1+96z^{19}+24z^{20}+4z^{24}\\), the generalized Hamming weights are \\((19,23,24)\\), the code is projective, and the \\(24\\) supports of minimum-weight words modulo nonzero scalars form one full cyclic orbit with complement representative \\(\\{0,1,3,11,20\\}\\).",
+  "limitations": [
+    "The result concerns the specific Example 4.13 cyclic code, not all optimal quinary \\([24,3,19]\\) codes.",
+    "The related 2026 paper on weight hierarchies of two self-orthogonal code classes could not be obtained as a verified full PDF after its lawful web text failed to expose the theorem body; exact-parameter searches there were negative, but this remains a residual literature risk."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source defining set was reconstructed by exact \(5\)-cyclotomic closure modulo \(24\). A primitive \(24\)-th root in \(\mathbb F_{25}\) yields a degree-\(21\) generator polynomial over \(\mathbb F_5\) dividing \(x^{24}-1\). The three generator shifts are mutually orthogonal. Exhaustion of all \(125\) codewords gives \(1+96z^{19}+24z^{20}+4z^{24}\). The \(24\) generator columns are nonzero and pairwise nonproportional, which gives generalized weights \((19,23,24)\). The \(24\) minimum-support complements are checked to be one cyclic orbit.
+PASS
 
-## Originality
+I independently rebuilt \(\mathbb F_{25}=\mathbb F_5(u)\) with \(u^2=3\), verified that \(1+u\) has the required order, closed the defining set to \(\{0,1,\ldots,17,20,21,22\}\), formed the degree-21 generator polynomial and its three shifts, and checked the Gram matrix is zero. Exhausting all \(5^3\) words reproduced the exact weight distribution. The 24 generator columns are all nonzero and represent 24 distinct projective points, so \(d_2=24-1=23\) and \(d_3=24\); \(d_1=19\). The 96 minimum words collapse to 24 supports modulo four nonzero scalars, and the complements form the claimed cyclic orbit.
 
-PASS. The closest source gives only the defining set and ordinary \([24,3,19]\) parameters. Exact-parameter, coefficient-level, three-weight, projective, generalized-Hamming-weight, and Griesmer searches found no prior statement of the new invariants. Residual risk remains that an equivalent code appears in an unindexed table or under a different generator presentation.
+## originality
 
-## Value
+PASS
 
-PASS. The source identifies this as an optimal self-orthogonal cyclic code. Its complete weight enumerator reveals a three-weight structure, the generalized hierarchy gives the full higher-support profile, and the single minimum-support orbit describes the extremal geometry. These are standard and reusable structural invariants of a distinguished optimal construction.
+Li--Cao--Li's complete primary article identifies the exact defining set and records only the ordinary parameters \([24,3,19]\), optimality and BCH lower bound; it does not provide the weight enumerator, projectivity, generalized hierarchy or minimum-support orbit. A separate 2026 article explicitly studies weight distributions and hierarchies for two self-orthogonal code classes, so it was treated as a serious comparison: its accessible primary article page and exact searches contain no \([24,3,19]\) match. A verified full PDF could not be obtained through the authorized fallback, so possible hidden specialization is retained as residual risk rather than assumed absent.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The source advertises the code because it is optimal, while the audited result determines its entire three-dimensional support geometry: exact weights, projectivity, generalized hierarchy and cyclic structure of every minimum support. These are natural structural invariants of an optimal code rather than arbitrary extra statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
