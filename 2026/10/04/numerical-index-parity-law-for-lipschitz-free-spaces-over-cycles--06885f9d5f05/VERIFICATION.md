@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked at the level of definitions, quantifiers, quotient normalization, duality, extreme points, and the extremal operator.
+# Independent mathematical audit
 
-1. **Cycle quotient model.** Edge increments identify \(\operatorname{Lip}_0(C_n)\) with the zero-sum hyperplane \(H_n\subset\ell_\infty^n\). An increment vector has Lipschitz norm equal to its maximum edge increment because shortest paths are sums of unit edges. The preannihilator of \(H_n\) is exactly \(\operatorname{span}\{\mathbf1\}\), so \(\mathcal F(C_n)\cong\ell_1^n/\operatorname{span}\{\mathbf1\}\).
+## correctness
 
-2. **Extreme points.** The primal quotient ball is the convex hull of \(\pm q(e_i)\), and each is exposed. In the dual cube section, an extreme point has at most one coordinate not equal to \(\pm1\). Parity forces balanced all-sign vectors for even \(n\), and exactly one zero plus balanced signs for odd \(n\).
+PASS
 
-3. **Numerical-radius reduction.** For finite-dimensional polytopes, maximizing \(|x^*(Tx)|\) over norming pairs reduces first to an extreme point of the primal norming face and then to an extreme point of the dual norming face. This yields the coordinate formula used in the proof.
+Edge increments identify \(\mathcal F(C_n)\) isometrically with \(\ell_1^n/\operatorname{span}\{\mathbf1\}\), whose dual is the zero-sum section of the \(\ell_\infty^n\) cube. The primal extreme points are \(\pm q(e_i)\). For even \(n\), every norming balanced-sign dual extreme can be globally reversed to have the prescribed coordinate \(+1\), forcing numerical radius to equal operator norm. For odd \(n\), dual extremes have one zero coordinate; median centering gives the lower bound \((n-2)/(n-1)\), and the only exceptional norming-coordinate case loses at most the smallest of the \(n-1\) nonzero coordinates. The cyclic-shift witness has norm one, satisfies the sole quotient compatibility relation, and attains equality. The checker confirms small cases but the all-\(n\) conclusion is proved symbolically.
 
-4. **Odd lower bound.** After shifting a representative by its median, the quotient norm is its \(\ell_1\)-mass. The only case in which a norming dual extreme must vanish at the prescribed coordinate is a unique zero median with exactly \((n-1)/2\) positive and \((n-1)/2\) negative coordinates. Moving the unique dual zero to a smallest-magnitude nonzero coordinate loses at most \(1/(n-1)\) of the norm.
+## originality
 
-5. **Sharp witness.** For odd \(n\), the cyclic shifts of \((0,1,\ldots,1,-1,\ldots,-1)/(n-1)\) each have quotient norm one and sum to zero, so they define a linear operator on the quotient. Every admissible extreme norming functional omits one nonzero coordinate, giving numerical radius exactly \((n-2)/(n-1)\).
+PASS
 
-The standalone script `verify_cycle_index.py` uses exact rational arithmetic. Its replay output is:
+The directly relevant literature treats two-dimensional Lipschitz-free spaces or general polyhedral methods, not this cycle family. A same-snapshot SCOPE theorem characterizing numerical index one for finite graph metrics covers the even-cycle half via bipartiteness but not the exact odd values. No earlier all-odd-cycle formula was found.
 
-`WITNESS_OK n=6..10`
+## value
 
-`LOWER_STRESS_OK n=7 coefficients={-1,0,1}`
+PASS
 
-The second line is an exhaustive finite stress test over all vectors in \(\{-1,0,1\}^7\) and all distinguished coordinates. These computations corroborate the formulas but do not prove the infinite family; the symbolic argument does.
+Cycles are canonical graph metrics and the numerical index is a standard Banach-space invariant. The exact parity law gives a natural infinite-family classification with explicit odd extremizers.
 
-The verification does not establish a complex-scalar analogue and does not eliminate the stated residual bibliographic risk.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

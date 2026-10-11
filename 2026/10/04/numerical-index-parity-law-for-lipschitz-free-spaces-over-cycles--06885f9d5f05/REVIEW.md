@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cycle dual is derived directly from edge increments, giving the isometry \(\mathcal F(C_n)\cong\ell_1^n/\operatorname{span}\{\mathbf1\}\). The primal and dual extreme points are characterized explicitly. The numerical-radius reduction to extreme norming pairs is justified by face extremality. In the even case a balanced sign functional norms every quotient vector while meeting any prescribed coordinate after a global sign change. In the odd case the only obstruction is the unique median coordinate; deleting the smallest-magnitude nonzero coordinate loses at most a \(1/(n-1)\) fraction. The cyclic witness has norm one, respects the single quotient relation, and attains numerical radius \((n-2)/(n-1)\). Exact-rational finite checks reproduce the witness and stress-test the lower inequality for \(n=7\).
+## correctness
 
-## Originality
-PASS, subject to the stated residual bibliographic risk. The 2023 primary source computes all two-dimensional Lipschitz-free spaces, hence three-point metrics, but does not cover cycles of dimension at least five. The inspected 2018 polyhedral numerical-index paper supplies a general extreme-point method and low-dimensional families, not this zero-sum quotient parity law. The inspected 2024 graph-metric Lipschitz-free paper studies cycle relations and isometries but not numerical index. Targeted searches for the cycle formula and for the isometric models \(\ell_1^n/\operatorname{span}\{\mathbf1\}\) and the zero-sum hyperplane of \(\ell_\infty^n\) did not locate an equivalent theorem. Previously known low-cycle cases are outside the stated domain \(n\ge6\).
+PASS
 
-## Value
-PASS. Cycles are a canonical graph-metric family, and the theorem determines a natural Banach-space invariant exactly in every dimension arising from \(C_n\) for \(n\ge6\). The result exposes a structural parity phenomenon—maximal numerical index for every even cycle versus the sharp rational deficit \(1/(n-1)\) for every odd cycle—and gives explicit extremal operators. This is a complete family law rather than an arbitrary finite parameter slice.
+Edge increments identify \(\mathcal F(C_n)\) isometrically with \(\ell_1^n/\operatorname{span}\{\mathbf1\}\), whose dual is the zero-sum section of the \(\ell_\infty^n\) cube. The primal extreme points are \(\pm q(e_i)\). For even \(n\), every norming balanced-sign dual extreme can be globally reversed to have the prescribed coordinate \(+1\), forcing numerical radius to equal operator norm. For odd \(n\), dual extremes have one zero coordinate; median centering gives the lower bound \((n-2)/(n-1)\), and the only exceptional norming-coordinate case loses at most the smallest of the \(n-1\) nonzero coordinates. The cyclic-shift witness has norm one, satisfies the sole quotient compatibility relation, and attains equality. The checker confirms small cases but the all-\(n\) conclusion is proved symbolically.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The directly relevant literature treats two-dimensional Lipschitz-free spaces or general polyhedral methods, not this cycle family. A same-snapshot SCOPE theorem characterizing numerical index one for finite graph metrics covers the even-cycle half via bipartiteness but not the exact odd values. No earlier all-odd-cycle formula was found.
+
+## value
+
+PASS
+
+Cycles are canonical graph metrics and the numerical index is a standard Banach-space invariant. The exact parity law gives a natural infinite-family classification with explicit odd extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

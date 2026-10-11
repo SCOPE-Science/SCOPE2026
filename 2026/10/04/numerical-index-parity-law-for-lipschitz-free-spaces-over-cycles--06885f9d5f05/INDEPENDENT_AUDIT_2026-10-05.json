@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:46:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 49c707d5812d0e935bae0d8e4cf0e7023ca8b341",
+        "verify_cycle_index.py a6a53fa00695dbd6e394e30476d05512399408e4",
+        "arXiv:2304.13183",
+        "arXiv:1809.04778"
+      ],
+      "rationale": "Edge increments identify \\(\\mathcal F(C_n)\\) isometrically with \\(\\ell_1^n/\\operatorname{span}\\{\\mathbf1\\}\\), whose dual is the zero-sum section of the \\(\\ell_\\infty^n\\) cube. The primal extreme points are \\(\\pm q(e_i)\\). For even \\(n\\), every norming balanced-sign dual extreme can be globally reversed to have the prescribed coordinate \\(+1\\), forcing numerical radius to equal operator norm. For odd \\(n\\), dual extremes have one zero coordinate; median centering gives the lower bound \\((n-2)/(n-1)\\), and the only exceptional norming-coordinate case loses at most the smallest of the \\(n-1\\) nonzero coordinates. The cyclic-shift witness has norm one, satisfies the sole quotient compatibility relation, and attains equality. The checker confirms small cases but the all-\\(n\\) conclusion is proved symbolically.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader graph theorem gives index one exactly for bipartite graphs, hence even cycles, but no numerical value for odd cycles."
+        ],
+        "reasoning": "The odd exact formula remains uncovered.",
+        "searches": [
+          "Resultary:2026/10/4/SCOPE-bipartiteness-exactly-characterizes-numerical-index-one-for-fini--1ca1185831c4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13183",
+        "arXiv:1809.04778",
+        "Resultary:2026/10/4/SCOPE-bipartiteness-exactly-characterizes-numerical-index-one-for-fini--1ca1185831c4",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither source implies \\((n-2)/(n-1)\\) for odd \\(n\\ge7\\)."
+        ],
+        "reasoning": "The odd half requires additional dual-extreme geometry and an attaining operator.",
+        "searches": [
+          "Cobollo--Guirao--Montesinos 2023",
+          "same-snapshot bipartiteness theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cycle free space is the one-relation \\(\\ell_1\\) quotient; the two-dimensional paper does not reach dimensions \\(n-1\\ge5\\)."
+        ],
+        "reasoning": "Cycle metrics, the \\(\\ell_1\\)-quotient, and the zero-sum cube section were compared as aliases.",
+        "searches": [
+          "Resultary: numerical index Lipschitz-free cycle parity quotient",
+          "arXiv:2304.13183",
+          "arXiv:1809.04778"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older exact table/formula for the odd cycle family was returned."
+        ],
+        "reasoning": "The direct Resultary hits were the assigned family, the separate \\(C_5\\) record, and related graph-metric results.",
+        "searches": [
+          "Resultary exact cycle numerical-index search"
+        ]
+      },
+      "rationale": "The directly relevant literature treats two-dimensional Lipschitz-free spaces or general polyhedral methods, not this cycle family. A same-snapshot SCOPE theorem characterizing numerical index one for finite graph metrics covers the even-cycle half via bipartiteness but not the exact odd values. No earlier all-odd-cycle formula was found.",
+      "residual_risks": [
+        "An older isometric computation under different Banach-space terminology could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LOWER_DIMENSION_ONLY",
+          "evidence": "Its scope is two-dimensional.",
+          "identifier_or_url": "arXiv:2304.13183",
+          "material_read": "Accessible primary arXiv theorem/full-text material; targeted inspection found no higher-cycle theorem.",
+          "method": "Open-access primary-source inspection.",
+          "title": "The numerical index of 2-dimensional Lipschitz-free spaces",
+          "trigger": "Closest primary Lipschitz-free numerical-index theorem."
+        },
+        {
+          "assessment": "METHOD_ONLY",
+          "evidence": "No cycle quotient formula is stated.",
+          "identifier_or_url": "arXiv:1809.04778",
+          "material_read": "Primary theorem/abstract-level material on the method and computed low-dimensional examples.",
+          "method": "Primary-source comparison.",
+          "title": "On the numerical index of polyhedral Banach spaces",
+          "trigger": "General extreme-point method."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lipschitz-free numerical-index literature",
+        "finite graph-metric comparison"
+      ],
+      "rationale": "Cycles are canonical graph metrics and the numerical index is a standard Banach-space invariant. The exact parity law gives a natural infinite-family classification with explicit odd extremizers.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every real unit-edge cycle \\(C_n\\) with \\(n\\ge6\\), \\(n(\\mathcal F(C_n))=1\\) when \\(n\\) is even and \\(n(\\mathcal F(C_n))=(n-2)/(n-1)\\) when \\(n\\) is odd.",
+  "limitations": [
+    "Real scalars and unit-edge shortest-path cycles only.",
+    "The theorem is stated only for \\(n\\ge6\\)."
+  ],
+  "schema_version": 1
+}
