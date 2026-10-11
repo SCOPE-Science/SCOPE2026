@@ -1,12 +1,21 @@
-# Review of Weight enumerator of total Roman \{2\}-domination on complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. In a complete multipartite graph, every vertex in part \(X_i\) has precisely the vertices outside \(X_i\) as neighbors. Therefore zero-defense is exactly \(W-w_i\ge2\), and totality is exactly the requirement that positive support meet at least two parts. The generating-function proof first counts all support-valid labelings, then subtracts the only possible Roman-condition failures: a mixed part with exactly one outside label \(1\). Pairwise bad-event intersections occur only for two mixed non-singleton parts each carrying one label \(1\), producing the single quadratic inclusion-exclusion correction. Exhaustive direct adjacency verification matches every coefficient through order nine.
+## correctness
 
-## Originality
-PASS. The 2019 foundational paper defines the parameter and proves general theory but has no complete-multipartite section. The 2021 reinforcement paper is stronger overlap evidence because Proposition 9 already gives the exact complete-multipartite minimum and Theorem 6 gives the reinforcement number. Those results are explicitly treated as prior coverage. Full-text searches in that paper return no polynomial or enumeration treatment. The surviving claim classifies every feasible labeling and determines every weight multiplicity, information that neither the minimum number nor the reinforcement number implies. Targeted semantic-database and exact-phrase searches found no equivalent all-function theorem.
+PASS
 
-## Value
-PASS. Total Roman \{2\}-domination is an established NP-hard domination variant, and complete multipartite graphs are already a published benchmark family for its minimum and reinforcement numbers. Replacing a single optimum value by an exact classification of every feasible function and a closed weight polynomial is a natural strengthening: it records the entire solution space and immediately gives all weight counts, total counts, and the known minimum as a lowest-degree consequence.
+For a vertex in part Xi, the open-neighborhood label sum is exactly total weight minus the Xi weight, and a positive vertex has a positive neighbor exactly when positive support meets another part. Starting from all labelings supported on at least two parts, the only Roman {2} failure at Xi is a mixed Xi assignment with outside weight exactly one. Two such bad events intersect only in a weight-two labeling with one label-one vertex in each of two non-singleton parts, and no three bad events intersect. This proves the inclusion-exclusion formula. A fresh independent enumeration through order seven matched every coefficient for all 37 complete multipartite isomorphism types tested; the arbitrary-order proof is symbolic.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The published complete-multipartite source gives the minimum total Roman {2}-domination number and reinforcement parameter, not an enumeration of every feasible labeling. The audited theorem supplies an all-function structural criterion and an exact weight polynomial, which is strictly stronger than a minimum value. Resultary returned neighboring Roman, total Roman, restrained and other domination enumerators but no prior total Roman {2} all-function polynomial covering this claim.
+
+## value
+
+PASS
+
+The full weight distribution is a natural strengthening of a previously studied domination parameter: it records all feasible configurations rather than only the minimum, supports exact counting questions, and exposes the precise partwise obstruction. This is more than a known-table recomputation because the polynomial follows from a new all-labeling characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
