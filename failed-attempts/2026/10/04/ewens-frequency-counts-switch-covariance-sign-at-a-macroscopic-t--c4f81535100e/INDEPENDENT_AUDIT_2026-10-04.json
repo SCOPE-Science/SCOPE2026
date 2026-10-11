@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:52:01.100767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e5fa566bbd3e42e635fee57be2599f092332e21e",
+        "verify_ewens_frequency_covariance.py blob 232c0b45627d430d22f2a9e59b80d92fa0649aec",
+        "independent exact permutation enumeration through order six"
+      ],
+      "rationale": "The marked-cycle identity, expectation, covariance formula, uniqueness of the sign threshold, and macroscopic limit were reconstructed independently. Direct exact enumeration of every permutation through order six for Ewens parameters \\(1/2\\), \\(1\\), and \\(2\\) reproduced the package expectation and covariance identities for every cycle length. Analytically, deleting a marked \\(r\\)-cycle leaves the Ewens law on \\(n-r\\), the Chinese-restaurant Bernoulli representation gives the mean total-cycle count, the tail sum is strictly increasing in \\(r\\), and the stated threshold and scaled covariance follow from harmonic/Riemann-sum and gamma-ratio limits.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full Bakšajeva--Manstavičius text states the exact Ewens joint cycle-count law and its conditioned independent-Poisson representation.",
+          "The same paper develops exact factorial moments for additive cycle statistics; Tavaré restates the exact joint law and rising-factorial normalization."
+        ],
+        "reasoning": "These known formulas contain strictly more distributional information than the claimed mixed moment. Multiplying the exact joint mass by the count of \\(r\\)-cycles and reindexing that coordinate directly yields the package Palm law.",
+        "searches": [
+          "Bakšajeva--Manstavičius, arXiv:1303.4540, full text equations (1)--(2) and Section 2",
+          "Tavaré, The magical Ewens sampling formula, DOI 10.1112/blms.12537"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.4540",
+        "DOI:10.1017/S0963548314000376",
+        "DOI:10.2307/3214473",
+        "DOI:10.1112/blms.12537",
+        "Resultary semantic query for Ewens frequency-count covariance/sign threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After reindexing one \\(r\\)-cycle, the residual law is exactly Ewens on \\(n-r\\), so the mixed moment identity follows without an additional nonstandard lemma.",
+          "Taking \\(f(k)=k\\) gives the covariance as the expectation of the frequency count times one minus a contiguous harmonic tail.",
+          "Strict monotonicity of that positive tail gives the unique sign threshold, and its macroscopic limit is the elementary logarithmic Riemann-sum limit."
+        ],
+        "reasoning": "Under the required implication standard, the central structural identity is equivalent to a classical Ewens deletion/Palm fact and the advertised sign threshold is a routine consequence of that exact prior law. The absence of the final threshold wording in prior titles does not restore originality.",
+        "searches": [
+          "Derive the claimed Palm formula from Bakšajeva--Manstavičius equation (1)",
+          "Derive the covariance by taking the additive statistic to be total cycle count",
+          "Compare the sign condition with the standard mean \\(\\sum_{i=0}^{n-1}\\theta/(\\theta+i)\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hoppe's primary abstract states that a characteristic property of the Ewens sampling formula follows from invariance under size-biased sampling of the Poisson-Dirichlet law.",
+          "Conditioning a size-biased deleted block to have size \\(r\\) converts block-size bias to the same fixed factor on every \\(r\\)-block and is the finite-partition Palm formulation used by the package."
+        ],
+        "reasoning": "The package's Palm identity is not merely analogous to the classical deletion property; it is its fixed-block-size conditional form.",
+        "searches": [
+          "Hoppe, DOI 10.2307/3214473, size-biased filtering of Poisson-Dirichlet/Ewens partitions",
+          "Web search: Ewens size-biased filtering deletion cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate prior table of the package's threshold sequence was located."
+        ],
+        "reasoning": "There is no relevant finite database; the coverage issue is theorem-level, through the exact Ewens law and deletion property.",
+        "searches": [
+          "Resultary semantic search: Ewens sampling covariance total cycles frequency count macroscopic threshold",
+          "Web searches for exact covariance between total Ewens cycle count and fixed cycle-frequency count"
+        ]
+      },
+      "rationale": "The final claim is implication-covered by classical Ewens partition structure. The exact joint sampling formula already yields the package Palm identity by multiplying by the \\(r\\)-cycle count and reindexing, and classical size-biased deletion is the same structural statement in equivalent form. Once that identity is in hand, the covariance sign switch and macroscopic threshold use only the standard total-cycle mean, monotonicity of a contiguous harmonic tail, and a routine logarithmic limit. This is stronger coverage, not a failed-search novelty judgment.",
+      "residual_risks": [
+        "The Hoppe full article was not available on the open path; this is not needed for the failure because the complete open Bakšajeva--Manstavičius joint law independently implies the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_EXACT_LAW_COVERS_PALM_BY_DIRECT_REINDEXING",
+          "evidence": "Equations (1) and (2) give the full joint cycle-count distribution and conditioned Poisson representation from which the claimed mixed moment follows directly.",
+          "identifier_or_url": "arXiv:1303.4540; DOI:10.1017/S0963548314000376",
+          "material_read": "Complete arXiv HTML text at the definition of the Ewens cycle-structure law, conditioned independent-Poisson representation, Section 2 exact factorial moments, and later macroscopic restricted-cycle formulas.",
+          "method": "lawful open-access arXiv full text",
+          "title": "On statistics of permutations chosen from the Ewens distribution",
+          "trigger": "Primary exact-distribution/additive-statistics source for the same cycle-count variables."
+        },
+        {
+          "assessment": "EQUIVALENT_FORMULATION_WITH_FULL_TEXT_ACCESS_RISK",
+          "evidence": "The abstract explicitly identifies a characteristic Ewens sampling formula property derived from size-biased Poisson-Dirichlet filtering.",
+          "identifier_or_url": "DOI:10.2307/3214473",
+          "material_read": "Primary Cambridge abstract and bibliographic record; full article text was not available on the open path used in this run.",
+          "method": "primary abstract/public record",
+          "title": "Size-biased filtering of Poisson-Dirichlet samples with an application to partition structures in genetics",
+          "trigger": "Classical equivalent deletion/Palm formulation for the Ewens partition."
+        },
+        {
+          "assessment": "BROADER_EXACT_DISTRIBUTION",
+          "evidence": "The displayed joint mass is sufficient to derive the marked-cycle identity by one coordinate reindexing.",
+          "identifier_or_url": "DOI:10.1112/blms.12537",
+          "material_read": "Open web full-text section stating the exact joint Ewens sampling formula and normalization.",
+          "method": "lawful publisher web text",
+          "title": "The magical Ewens sampling formula",
+          "trigger": "Modern authoritative exposition of the exact Ewens joint cycle-count law."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Bakšajeva--Manstavičius full text",
+        "Hoppe primary record",
+        "assigned proof and independent replay"
+      ],
+      "rationale": "The sign reversal between a global Ewens statistic and macroscopic frequency counts is mathematically natural and interpretable, and an exact threshold/profile would be useful if it were not already a routine consequence of the classical exact law. The rejection is therefore originality-based rather than a claim that the probabilistic question is intrinsically unmotivated.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The Hoppe full article was not available on the open path; this is not needed for the failure because the complete open Bakšajeva--Manstavičius joint law independently implies the claim."
+  ],
+  "schema_version": 1
+}
