@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's Theorem 6.3 gives every shortest embedding in Example 7.5 as \(B=U^{-1}[D;E]\) with \(D\in \operatorname{GL}_2(R)\) and \(E\in R^{1\times2}\). There are exactly \(96\cdot16=1536\) such parameter pairs. The verifier exhausts all \(64\) codewords in every case, checks that all \(1536\) labeled embeddings are distinct, and recomputes ring distance, Gray distance, binary dimension, LCD Gram rank, and complete binary weight distributions. It reproduces the \(768/720/48\) census and the two optimal spectra with multiplicities \(32\) and \(16\).
+PASS
 
-## Originality
+Theorem 6.3 specializes exactly as claimed: Example 7.5 has radical dimension two, so every shortest LCD embedding is obtained from \(B=U^{-1}[D;E]\) with \(D\in\mathrm{GL}_2(R)\) and arbitrary \(E\in R^{1\times2}\). Reduction modulo \(u\) gives \(|\mathrm{GL}_2(R)|=6\cdot 2^4=96\), and there are \(4^2=16\) choices for \(E\), hence 1536 labeled embeddings. I independently reimplemented the finite enumeration from the actual package formulas: all 1536 distinct matrices were generated, all 64 codewords of each were checked, and the exact census \((3,6):768\), \((4,7):720\), \((4,8):48\) was reproduced. Every binary Gray generator had rank six and nonsingular Gram matrix. The 48 distance-eight images split exactly 32/16 between the two stated weight distributions.
 
-PASS. The public source says that all shortest embeddings were enumerated and displays one with the largest ring minimum distance, but it does not publish the total family size, the distance distribution, the universal binary-LCD property of the Gray images, or the two optimal weight spectra. published-finding corpus and exact web searches for the example number, arXiv identifier, ring notation, total count, optimal count, and weight-enumerator coefficients found no same-object statement. Grassl's table confirms only the optimal binary distance \(8\), while the classical length-\(20\) classification concerns self-orthogonal rather than LCD codes.
+## originality
 
-## Value
+PASS
 
-PASS. The example is presented as a computational optimization over all shortest LCD embeddings. The full census makes that optimization transparent and reproducible, showing that only \(48\) of \(1536\) embeddings reach the optimal Gray distance and that the optimal set is not spectrally unique. This is a natural complete finite classification of the exact search space underlying the paper's worked example rather than an arbitrary parameter slice.
+The complete An--Kim manuscript was inspected through Theorem 6.3 and Example 7.5. It explicitly says that all shortest embeddings were enumerated with MAGMA and then publishes one embedding having the largest minimum distance; for Example 7.5 it gives one ring-distance-four embedding whose Gray image is optimal \([20,6,8]\). It does not publish the total 1536 count, the full 768/720/48 ring/Gray-distance distribution, the fact that every Gray image in the family is binary LCD, or the two optimal weight-enumerator multiplicities. Those data are not implied by the existence of one maximizer or by the abstract parametrization without carrying out the finite classification.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a natural complete finite classification attached to a source example whose authors themselves optimize by exhaustive enumeration. It quantifies how rare the optimal Gray distance is, separates ring and Gray distance behavior, establishes LCD status uniformly, and proves at least two permutation-inequivalent optimal Gray-image types. Those are motivated exact invariants of the complete shortest-embedding family rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T08:54:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 6.3 specializes exactly as claimed: Example 7.5 has radical dimension two, so every shortest LCD embedding is obtained from \\(B=U^{-1}[D;E]\\) with \\(D\\in\\mathrm{GL}_2(R)\\) and arbitrary \\(E\\in R^{1\\times2}\\). Reduction modulo \\(u\\) gives \\(|\\mathrm{GL}_2(R)|=6\\cdot 2^4=96\\), and there are \\(4^2=16\\) choices for \\(E\\), hence 1536 labeled embeddings. I independently reimplemented the finite enumeration from the actual package formulas: all 1536 distinct matrices were generated, all 64 codewords of each were checked, and the exact census \\((3,6):768\\), \\((4,7):720\\), \\((4,8):48\\) was reproduced. Every binary Gray generator had rank six and nonsingular Gram matrix. The 48 distance-eight images split exactly 32/16 between the two stated weight distributions.",
+      "risks": [
+        "The census is for labeled embeddings with the source generator and coordinate order fixed; it does not classify equivalence classes within a shared weight enumerator."
+      ],
+      "sources": [
+        "Frozen RESULT.md, artifacts/certificate.json, and artifacts/verify.py at the assigned tree",
+        "J. An and J.-L. Kim, arXiv:2608.28222v1, complete 33-page manuscript, especially Theorem 6.3 and Example 7.5",
+        "Independent exact reimplementation of the 1536-by-64 census"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard code table fixes the optimal binary distance at eight but does not encode the ring-embedding family or its spectra."
+        ],
+        "reasoning": "A parameter optimum does not determine the number or weight distributions of shortest ring embeddings attaining it.",
+        "searches": [
+          "An--Kim complete manuscript",
+          "Grassl binary \\([20,6]\\) bounds cited by the source",
+          "Resultary semantic search above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.28222v1",
+        "Resultary published-finding corpus",
+        "Grassl code tables",
+        "Frozen exact verifier and certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6.3 gives all candidates; Example 7.5 identifies a maximizer but omits aggregate counts."
+        ],
+        "reasoning": "The theorem makes exhaustive computation finite, but its statement does not logically determine the submitted counts or two spectra without performing that computation.",
+        "searches": [
+          "arXiv:2608.28222v1 pp.23--31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The manuscript gives the same generator, matrix \\(U\\), full parametrization, one maximizing embedding and one optimal Gray image, but no published census or multiplicity table."
+        ],
+        "reasoning": "The submitted finite distribution is strictly more specific than the source's parametrization and existential optimum statement.",
+        "searches": [
+          "arXiv:2608.28222v1, Theorem 6.3 and Example 7.5",
+          "Resultary query: shortest LCD embedding Example 7.5 An Kim F2+uF2 length 20 binary Gray image census 1536 distance 8 weight enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected table gives the 1536-family distance census or the 32/16 split."
+        ],
+        "reasoning": "The exact finite table supplied here was not located elsewhere.",
+        "searches": [
+          "Resultary query above",
+          "Grassl code table for binary \\([20,6]\\)"
+        ]
+      },
+      "rationale": "The complete An--Kim manuscript was inspected through Theorem 6.3 and Example 7.5. It explicitly says that all shortest embeddings were enumerated with MAGMA and then publishes one embedding having the largest minimum distance; for Example 7.5 it gives one ring-distance-four embedding whose Gray image is optimal \\([20,6,8]\\). It does not publish the total 1536 count, the full 768/720/48 ring/Gray-distance distribution, the fact that every Gray image in the family is binary LCD, or the two optimal weight-enumerator multiplicities. Those data are not implied by the existence of one maximizer or by the abstract parametrization without carrying out the finite classification.",
+      "residual_risks": [
+        "The source authors' unpublished MAGMA files may contain the same census, but the public manuscript does not state it.",
+        "A nonindexed binary-LCD classification could contain one or both weight enumerators; that would not by itself cover the exact ring-embedding census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_NOT_CENSUS",
+          "evidence": [
+            "Theorem 6.3 gives the iff parametrization; Example 7.5 gives one optimal witness; the conclusion says the authors enumerated all embeddings but publishes only a selected maximizer."
+          ],
+          "identifier_or_url": "arXiv:2608.28222v1",
+          "material_read": "Complete 33-page manuscript; definitions, Theorems 6.1 and 6.3, Section 7 introduction, full Example 7.5 and conclusion were inspected.",
+          "method": "Lawful full-text manuscript inspection.",
+          "title": "Shortest self-orthogonal and LCD embeddings of linear codes over Fq+uFq",
+          "trigger": "Exact source code, complete shortest-LCD parametrization and Example 7.5."
+        },
+        {
+          "assessment": "NOT_COVERING_CENSUS",
+          "evidence": [
+            "It confirms distance eight is optimal but does not classify these ring-derived embeddings or their weight spectra."
+          ],
+          "identifier_or_url": "https://www.codetables.de/BKLC/BKLC.php?q=2&n=20&k=6",
+          "material_read": "Binary \\([20,6]\\) distance bounds entry as reported/cited in the source package.",
+          "method": "Database comparison.",
+          "title": "Bounds on the minimum distance of linear codes and quantum codes",
+          "trigger": "Potential exact table dominating the Gray-image optimum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural complete finite classification attached to a source example whose authors themselves optimize by exhaustive enumeration. It quantifies how rare the optimal Gray distance is, separates ring and Gray distance behavior, establishes LCD status uniformly, and proves at least two permutation-inequivalent optimal Gray-image types. Those are motivated exact invariants of the complete shortest-embedding family rather than an arbitrary slice.",
+      "risks": [
+        "The result intentionally stops short of full permutation-equivalence classification inside each weight-enumerator class."
+      ],
+      "sources": [
+        "An--Kim Example 7.5 and Theorem 6.3",
+        "Independent exact census"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 1536 count is for labeled embeddings with fixed source coordinates.",
+    "Different weight enumerators prove at least two permutation-inequivalent optimal images but do not classify all permutation orbits."
+  ],
+  "schema_version": 1
+}
