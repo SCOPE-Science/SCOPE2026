@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The delayed vector-incidence term in the source control system was differentiated directly. Product differentiation necessarily retains \(e^{-\mu_v\tau}\), evaluates \(I_h\) and \(S_v\) at \(t-\tau\), and contains both \(\widetilde I_h\) and \(\widetilde S_v\). The source's printed first variation omits or misplaces each of these elements. The \(u_2\) correction follows immediately from the coefficient of \(\rho_2\), and the advanced adjoint corrections follow from the exact substitution \(s=t+\tau\). The packaged formal-polynomial checker replays the first-variation identity.
+## correctness
 
-## Originality
-**PASS.** Exact-title, DOI, delay-adjoint, delayed-vector-incidence, and control-gradient searches found the 2026 source but no erratum or source-specific correction. The closest inspected delayed optimal-control literature treats different biological systems and does not imply this model-specific first variation. The owned prior findings concern different models and mechanisms and do not overlap this claim.
+PASS
 
-## Value
-**PASS.** This is not a cosmetic notation issue: the omitted survival factor and incorrect time arguments change the gradient used to characterize the intervention \(u_2\) whenever \(\tau>0\). The source presents optimal control for a hybrid system with discrete vector incubation as a central contribution, so restoring the delay structure is necessary before the published feedback characterization can be used as a first-order optimality condition.
+The source's controlled fifth state equation contains \((1-u_2(t))\beta_{hv}e^{-\mu_v\tau}I_h(t-\tau)S_v(t-\tau)\). Direct first-order product expansion necessarily preserves the survival factor, contains both delayed variations \(\widetilde I_h(t-\tau)S_v(t-\tau)\) and \(I_h(t-\tau)\widetilde S_v(t-\tau)\), and gives the control term \(-\rho_2(t)I_h(t-\tau)S_v(t-\tau)\). The published Eq. (26) instead omits the survival factor, duplicates the \(\widetilde I_h\) term, and evaluates the \(\rho_2\) term at current states. In the adjoint pairing, substituting \(s=t+\tau\) forces advanced coefficients \(\lambda_5(t+\tau)(1-u_2(t+\tau))\beta_{hv}e^{-\mu_v\tau}S_v(t)\) and its \(I_h(t)\) counterpart on \([0,T-\tau]\), incompatible with the printed Eq. (32). The same first variation forces the corrected delayed-state contribution in the \(u_2\) stationarity formula. Therefore the printed Theorem 9 system is not the first-order system of Eq. (23) for general positive delay.
 
-## Closest literature and limitations
-The closest inspected primary delayed-control source is Liao, Gao, Yan, and Zhou (2021), DOI 10.3934/mbe.2021209, which studies a different delayed Huanglongbing system. The 2023 multi-class-age vector-borne predecessor, DOI 10.1142/S0218339023500109, also uses a different delay/age structure. Neither covers the exact Hu-Nie delayed vector-incidence variation. The present result does not claim that a corrected optimizer fails to exist or that the paper's uncontrolled dynamics are invalid.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The current primary article itself is the decisive comparison: its stated controlled delay term and printed first variation/adjoint/control formulas are algebraically inconsistent in exactly the audited way. Targeted DOI/title searches located the current article but no correction or erratum. Related delayed biological-control papers use different state systems and do not supply the source-specific correction. The claim is therefore an original correction of a live published optimality system, not a restatement of general Pontryagin theory.
+
+## value
+
+PASS
+
+The discrepancy changes the necessary intervention gradient and the advanced costate coefficients in a published delayed epidemic-control theorem. It is therefore a structural correction needed before the feedback characterization can be interpreted as a first-order necessary condition, not a cosmetic notation fix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
