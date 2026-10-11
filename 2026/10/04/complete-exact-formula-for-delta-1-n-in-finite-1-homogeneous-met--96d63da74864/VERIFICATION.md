@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed as a chain of four explicit statements.
+# Independent mathematical audit
 
-1. A finite \(1\)-homogeneous metric space gives a vertex-transitive edge-coloring of the complete graph by positive distance values.
-2. Every positive singleton distance is a color of valency \(1\), hence one of the odd entries controlled by Edmonds' Theorem 1.4. For even \(n\), Edmonds' Theorem 1.2 gives at most \(n/2+n_2/2-1\) such positive singleton colors. Including the zero distance gives \(|S_X|\le n/2+n_2/2\).
-3. Observation 6.2 of Bargetz et al. then gives \(\delta(X)\le(n+|S_X|)/2\le(3n+n_2)/4\).
-4. If \(n=2^a(2k+1)\) with \(a\ge1\), Example 6.10 has exactly \(2^{a-1}(3k+2)=(3n+n_2)/4\) distances, proving sharpness. The odd case is already exact in Proposition 6.7.
+## correctness
 
-The bundled `verify.py` checks the arithmetic identity and integrality of the closed form for \(1\le n\le4096\), and checks that it reduces to the previously established odd, power-of-two, and \(2\)-adic-valuation-one formulas. This finite computation is only an arithmetic replay; the proof of the all-\(n\) theorem is the argument above.
+PASS
+
+Bargetz--Bartoš--Kubiś--Luggin identify 1-homogeneity with vertex-transitivity of the distance-colored complete graph, prove \(\delta(X)\le(n+|S_X|)/2\), give the exact odd case, and construct the even lower bound. Edmonds' Theorem 1.4 bounds the number of odd color valencies by the maximal number of involutions in a group of order \(n\); Theorem 1.2 gives that maximum as \(n/2+n_2/2-1\) for even \(n\). Every positive singleton distance has valency one, so including zero gives \(|S_X|\le n/2+n_2/2\), yielding the claimed upper bound. The source construction with \(n=2^a(2k+1)\) has \(2^{a-1}(3k+2)=(3n+n_2)/4\), so equality follows.
+
+## originality
+
+PASS
+
+The 2024 metric-space paper explicitly leaves remaining even values of \(\Delta_1\) open after proving the odd, power-of-two, and selected low-2-adic cases. Edmonds' older theorem supplies exactly the missing universal odd-valency bound but does not formulate the metric invariant. The audited result is the cross-application that closes the open formula; targeted Resultary searches did not locate a prior publication of the same closed expression.
+
+## value
+
+PASS
+
+The theorem closes an explicit exact-value problem for a natural invariant of finite homogeneous metric spaces in every cardinality. It turns a lower-bound family into a complete formula and reveals the precise dependence on the 2-adic part of \(n\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

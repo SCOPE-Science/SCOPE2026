@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The metric-to-coloring translation is explicit in Bargetz et al. A positive singleton distance is exactly a valency-one edge color. Edmonds bounds all odd valencies by \(\iota(n)\), and his exact formula \(\iota(n)=n/2+n_2/2-1\) therefore bounds the singleton distances. Substitution into Observation 6.2 yields \((3n+n_2)/4\), and Example 6.10 attains it for every even \(n\). The odd formula is already proved in the source paper.
+## correctness
 
-## Originality
-PASS. The 2024 source explicitly leaves these cases open and does not cite Edmonds. Edmonds proves the needed group/coloring theorem but does not state the metric invariant or its exact formula. Exact-formula searches, equivalent-formulation searches, targeted published-finding corpus searches, and the current local ledger found no prior result covering all even \(n\). The closest local result covers only the subfamily with \(2\)-adic valuation one.
+PASS
 
-## Value
-PASS. The result gives a closed formula for the natural extremal invariant for every finite cardinality and completely answers the paper's stated Question 1. It replaces a collection of partial cases by one exact expression and identifies the missing bridge to the vertex-transitive-coloring literature.
+Bargetz--Bartoš--Kubiś--Luggin identify 1-homogeneity with vertex-transitivity of the distance-colored complete graph, prove \(\delta(X)\le(n+|S_X|)/2\), give the exact odd case, and construct the even lower bound. Edmonds' Theorem 1.4 bounds the number of odd color valencies by the maximal number of involutions in a group of order \(n\); Theorem 1.2 gives that maximum as \(n/2+n_2/2-1\) for even \(n\). Every positive singleton distance has valency one, so including zero gives \(|S_X|\le n/2+n_2/2\), yielding the claimed upper bound. The source construction with \(n=2^a(2k+1)\) has \(2^{a-1}(3k+2)=(3n+n_2)/4\), so equality follows.
 
-## Limitations and residual risk
-The result does not classify extremizers. The group-theoretic theorem is cited rather than reproved. Because the final argument is concise once Edmonds' theorem is brought in, an unindexed independent observation or folklore solution remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2024 metric-space paper explicitly leaves remaining even values of \(\Delta_1\) open after proving the odd, power-of-two, and selected low-2-adic cases. Edmonds' older theorem supplies exactly the missing universal odd-valency bound but does not formulate the metric invariant. The audited result is the cross-application that closes the open formula; targeted Resultary searches did not locate a prior publication of the same closed expression.
+
+## value
+
+PASS
+
+The theorem closes an explicit exact-value problem for a natural invariant of finite homogeneous metric spaces in every cardinality. It turns a lower-bound family into a complete formula and reveals the precise dependence on the 2-adic part of \(n\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

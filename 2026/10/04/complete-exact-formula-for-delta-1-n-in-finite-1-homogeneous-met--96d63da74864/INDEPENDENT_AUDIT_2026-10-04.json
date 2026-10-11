@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:01:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bargetz--Bartoš--Kubiś--Luggin identify 1-homogeneity with vertex-transitivity of the distance-colored complete graph, prove \\(\\delta(X)\\le(n+|S_X|)/2\\), give the exact odd case, and construct the even lower bound. Edmonds' Theorem 1.4 bounds the number of odd color valencies by the maximal number of involutions in a group of order \\(n\\); Theorem 1.2 gives that maximum as \\(n/2+n_2/2-1\\) for even \\(n\\). Every positive singleton distance has valency one, so including zero gives \\(|S_X|\\le n/2+n_2/2\\), yielding the claimed upper bound. The source construction with \\(n=2^a(2k+1)\\) has \\(2^{a-1}(3k+2)=(3n+n_2)/4\\), so equality follows.",
+      "risk": "The proof imports Edmonds' published finite-group extremum rather than reproving it.",
+      "sources": [
+        "Bargetz et al., Homogeneous isosceles-free spaces, arXiv:2305.03163 / DOI 10.1007/s13398-024-01587-y",
+        "A. L. Edmonds, The Partition Problem for Equifacetal Simplices, Beiträge Algebra Geom. 50 (2009), Theorems 1.2 and 1.4"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Edmonds is broader on color partitions but does not connect his bound to the metric extremum or its sharp construction.",
+          "Bargetz et al. have the metric setup and lower construction but explicitly lack the general upper bound."
+        ],
+        "reasoning": "No single checked theorem dominates the final metric statement; the combination is required.",
+        "searches": [
+          "Edmonds 2009 vertex-transitive coloring theorem",
+          "Bargetz et al. 2024 Section 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.03163",
+        "DOI:10.1007/s13398-024-01587-y",
+        "Edmonds 2009 Beiträge Algebra Geom. 50",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once the two papers are connected, the upper and lower bounds meet exactly.",
+          "This is a short but nontrivial cross-literature implication resolving an explicit open problem, not a restatement from either paper alone."
+        ],
+        "reasoning": "The claim is implied by the combination of two previously disconnected published theorem chains; the originality is the recognized cross-application and closed resolution.",
+        "searches": [
+          "Bargetz Observation 6.2, Proposition 6.7, Example 6.10, Remark 6.14",
+          "Edmonds Theorems 1.2 and 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bargetz et al. formulate the metric invariant and ask for remaining exact values; Edmonds formulates an odd-valency partition bound for vertex-transitive edge colorings.",
+          "Neither checked source states the formula \\((3n+n_2)/4\\) for all even \\(n\\)."
+        ],
+        "reasoning": "The two formulations become equivalent only after the submitted bridge identifying singleton distances with valency-one odd parts.",
+        "searches": [
+          "Resultary: Delta_1 finite 1-homogeneous metric exact formula odd valencies",
+          "Bargetz et al. Question 1 / Remark 6.14",
+          "Edmonds Theorems 1.2 and 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or database gives all remaining even values; the source poses them as an open question."
+        ],
+        "reasoning": "The result is an all-n closed formula rather than a finite census.",
+        "searches": [
+          "Resultary semantic corpus",
+          "Bargetz finite examples"
+        ]
+      },
+      "rationale": "The 2024 metric-space paper explicitly leaves remaining even values of \\(\\Delta_1\\) open after proving the odd, power-of-two, and selected low-2-adic cases. Edmonds' older theorem supplies exactly the missing universal odd-valency bound but does not formulate the metric invariant. The audited result is the cross-application that closes the open formula; targeted Resultary searches did not locate a prior publication of the same closed expression.",
+      "residual_risks": [
+        "Because the final proof is short once the two literatures are juxtaposed, an unindexed independent observation is plausible; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_RESULTS_AND_EXPLICIT_OPEN_PROBLEM",
+          "evidence": "The paper gives the exact odd case and even lower construction but leaves remaining exact values open.",
+          "identifier_or_url": "arXiv:2305.03163 / DOI:10.1007/s13398-024-01587-y",
+          "material_read": "Full Springer text in Section 6, including Observation 6.2, Proposition 6.7, Example 6.10, the open Question 1 discussion, and Remark 6.14.",
+          "method": "lawful publisher full text",
+          "title": "Homogeneous isosceles-free spaces",
+          "trigger": "Primary source defining \\(\\Delta_1\\), giving the lower construction, and posing the remaining exact-value problem."
+        },
+        {
+          "assessment": "SUPPLIES_MISSING_BOUND_NOT_METRIC_FORMULA",
+          "evidence": "Theorem 1.2 gives the exact maximal involution count; Theorem 1.4 bounds the number of odd entries in every vertex-transitive coloring partition by that count.",
+          "identifier_or_url": "Beiträge Algebra Geom. 50 (2009), 195--213",
+          "material_read": "Primary PDF theorem statements for Theorems 1.2 and 1.4 via text extraction; a visual screenshot retrieval was attempted but the legacy host returned 404.",
+          "method": "lawful public primary PDF text",
+          "title": "The Partition Problem for Equifacetal Simplices",
+          "trigger": "Potentially dominating theorem on odd parts of vertex-transitive edge-coloring partitions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem closes an explicit exact-value problem for a natural invariant of finite homogeneous metric spaces in every cardinality. It turns a lower-bound family into a complete formula and reveals the precise dependence on the 2-adic part of \\(n\\).",
+      "risk": "It determines the extremal count but does not classify all extremal metric spaces.",
+      "sources": [
+        "DOI:10.1007/s13398-024-01587-y",
+        "Edmonds 2009"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Let \\(\\Delta_1(n)\\) be the maximum number of attained distances, including zero, in an \\(n\\)-point finite \\(1\\)-homogeneous metric space. If \\(n\\) is odd then \\(\\Delta_1(n)=(n+1)/2\\). If \\(n\\) is even and \\(n_2\\) is the largest power of two dividing \\(n\\), then \\(\\Delta_1(n)=(3n+n_2)/4\\).",
+  "limitations": [
+    "No classification of all spaces attaining the maximum is claimed."
+  ],
+  "schema_version": 1
+}
