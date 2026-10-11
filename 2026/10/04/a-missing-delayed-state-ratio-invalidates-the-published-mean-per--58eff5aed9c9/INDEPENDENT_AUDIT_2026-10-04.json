@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:54:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary paper's Theorem 4.2 proof was reconstructed from the displayed generator. At the AM--GM step the three factors are \\(aA/S(t)\\), \\(b\beta e^{-\\lambda\tau}S(t-\tau)/(1+\\kappa I(t-\tau))\\), and \\(1+\\kappa I(t)\\), whose product contains the omitted factor \\(\rho(t)=\frac{S(t-\tau)}{S(t)}\frac{1+\\kappa I(t)}{1+\\kappa I(t-\tau)}\\). The theorem's initial-history domain supplies no lower bound \\(\rho(t)\\ge1\\). For the submitted exact history, \\(I(t-\tau)=I(t)\\), so an earlier dropped infected-state ratio in the paper is neutralized; direct rational reconstruction gives \\(a=80/9\\), \\(b=16/3\\), \\(\\widetilde{\\mathcal R}_0^S=80/21>1\\), \\(\\mathcal LU=2486393/90900\\), and the printed state-independent post-AM--GM expression \\(-8761/900\\). Thus the asserted upper bound is false on an admissible positive history. The final claim correctly stops at proof failure and does not infer that the persistence theorem itself is false.",
+      "risks": [
+        "The source proof also suppresses an \\(I(t-\tau)/I(t)\\) factor one line earlier; the submitted witness sets those infected values equal, so its counterexample remains valid but is not an exhaustive catalogue of proof defects.",
+        "The audit establishes failure of the displayed estimate, not failure of long-time persistence."
+      ],
+      "sources": [
+        "Frozen RESULT.md, AUDIT.json and VERIFICATION.md",
+        "X. Bao and X. Han, DOI:10.3934/dcdss.2024209, complete primary article, especially model (3), initial histories (4), and Theorem 4.2",
+        "Independent exact-rational reconstruction of the submitted witness"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The final claim concerns falsity of one displayed drift inequality, not a new general persistence theorem."
+        ],
+        "reasoning": "Broader epidemic results for different models or proofs do not dominate this source-specific counterexample to a printed inequality.",
+        "searches": [
+          "DOI:10.3934/dcdss.2024209, model and persistence section",
+          "searches for delayed stochastic SIRS persistence corrections"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/dcdss.2024209",
+        "AIMS bibliographic/article record",
+        "Resultary published-finding search for the exact correction",
+        "Fresh DOI/title/erratum searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source assumptions allow arbitrary positive continuous initial histories.",
+          "The submitted history satisfies those assumptions and makes the claimed upper bound lie strictly below the exact generator value."
+        ],
+        "reasoning": "No prior theorem implication can rescue this specific upper-bound statement; a different proof could still rescue the persistence conclusion, which the final claim explicitly leaves open.",
+        "searches": [
+          "DOI:10.3934/dcdss.2024209, equations (17)--(19) and Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary article prints the state-independent cube-root term after multiplying factors that still contain delayed/current state dependence.",
+          "No searched correction states the submitted ratio or exact counterexample."
+        ],
+        "reasoning": "The correction is mathematically equivalent to restoring the omitted product factor and checking the theorem's stated history domain; no prior correction located does so.",
+        "searches": [
+          "DOI:10.3934/dcdss.2024209, Theorem 4.2",
+          "Resultary: missing delayed state ratio stochastic delayed SIRS persistence AM-GM Bao Han",
+          "web/literature search: 10.3934/dcdss.2024209 correction erratum delayed ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed correction or duplicate finding was located."
+        ],
+        "reasoning": "This is not a known table value; the exact published theorem/proof is the relevant database object.",
+        "searches": [
+          "Resultary exact DOI/title/delay-ratio search",
+          "publisher bibliographic record for DOI:10.3934/dcdss.2024209"
+        ]
+      },
+      "rationale": "The final claim is a source-specific correction to a concrete printed inequality. Full inspection of the primary article confirms the exact AM--GM step and the unrestricted positive-history domain. Fresh DOI/title/erratum and Resultary searches found the article and unrelated delay results but no published correction of the omitted ratio. General delayed-epidemic persistence theorems are inapplicable to originality of this statement-level correction because they cannot make this displayed inequality valid. Best-of-knowledge originality therefore passes, while an unindexed erratum remains a residual risk.",
+      "residual_risks": [
+        "An unindexed author correction or informal note could exist.",
+        "The theorem may admit a different proof; this audit does not claim otherwise."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_SOURCE_WITH_DEFECT",
+          "evidence": [
+            "The article permits arbitrary positive continuous histories.",
+            "Its displayed AM--GM product drops the delayed/current susceptible and saturation ratio before deriving the state-independent drift bound."
+          ],
+          "identifier_or_url": "doi:10.3934/dcdss.2024209",
+          "material_read": "Complete article through the model, positive-history hypothesis, extinction section, and Theorem 4.2 Lyapunov calculation including the AM--GM line and resulting mean-persistence bound.",
+          "method": "Authorized lawful full-text PDF inspection after public full-text routes were checked.",
+          "title": "Dynamic behavior and numerical simulation of stochastic epidemic models with time delay",
+          "trigger": "Exact paper and persistence proof being corrected."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The omitted factor is structurally tied to the delay and occurs at the step producing the theorem's state-independent negative drift. The exact admissible history reverses the claimed upper-bound ordering while the stated threshold exceeds one, so the correction materially affects the proof of a headline persistence result rather than only notation or a numerical example.",
+      "risks": [
+        "Consequences are limited to the displayed proof route; the persistence theorem itself is not refuted."
+      ],
+      "sources": [
+        "Primary Theorem 4.2 calculation",
+        "Exact rational witness in the frozen package"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The result invalidates the displayed Lyapunov/AM--GM estimate, not the persistence theorem as an abstract statement.",
+    "No claim is made about the paper's extinction theorem or numerical simulations."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstruction keeps the theorem's quantifiers and positive-history domain. The critical product is recomputed symbolically, and the exact counterexample is replayed with rational arithmetic. The counterexample establishes failure of the published generator upper bound; it is not used to infer failure of the long-time persistence conclusion.
+## correctness
 
-## Originality
-PASS. Exact-title, DOI, theorem, delayed-state-ratio, and Lyapunov/AM–GM searches were compared against published records. The closest same-author delayed-SIRS article uses a different persistence proof and does not imply the challenged estimate. No checked source stated the same omitted-ratio correction.
+PASS
 
-## Value
-PASS. The missing factor is mathematically tied to the model's delay and occurs in the step producing the threshold-dependent negative drift. An exact admissible history shows that the advertised state-independent bound can reverse sign, so the correction is consequential for the theorem's proof rather than cosmetic.
+The primary paper's Theorem 4.2 proof was reconstructed from the displayed generator. At the AM--GM step the three factors are \(aA/S(t)\), \(beta e^{-\lambda	au}S(t-	au)/(1+\kappa I(t-	au))\), and \(1+\kappa I(t)\), whose product contains the omitted factor \(ho(t)=rac{S(t-	au)}{S(t)}rac{1+\kappa I(t)}{1+\kappa I(t-	au)}\). The theorem's initial-history domain supplies no lower bound \(ho(t)\ge1\). For the submitted exact history, \(I(t-	au)=I(t)\), so an earlier dropped infected-state ratio in the paper is neutralized; direct rational reconstruction gives \(a=80/9\), \(b=16/3\), \(\widetilde{\mathcal R}_0^S=80/21>1\), \(\mathcal LU=2486393/90900\), and the printed state-independent post-AM--GM expression \(-8761/900\). Thus the asserted upper bound is false on an admissible positive history. The final claim correctly stops at proof failure and does not infer that the persistence theorem itself is false.
 
-## Closest literature and limitations
-The closest inspected source is Bao and Han's earlier delayed stochastic SIRS article, DOI 10.1080/15326349.2024.2401410. Its persistence proof is structurally different and does not repair the later AM–GM step. The present result does not prove the persistence theorem false and does not rule out a different proof under the same hypotheses.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The final claim is a source-specific correction to a concrete printed inequality. Full inspection of the primary article confirms the exact AM--GM step and the unrestricted positive-history domain. Fresh DOI/title/erratum and Resultary searches found the article and unrelated delay results but no published correction of the omitted ratio. General delayed-epidemic persistence theorems are inapplicable to originality of this statement-level correction because they cannot make this displayed inequality valid. Best-of-knowledge originality therefore passes, while an unindexed erratum remains a residual risk.
+
+## value
+
+PASS
+
+The omitted factor is structurally tied to the delay and occurs at the step producing the theorem's state-independent negative drift. The exact admissible history reverses the claimed upper-bound ordering while the stated threshold exceeds one, so the correction materially affects the proof of a headline persistence result rather than only notation or a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
