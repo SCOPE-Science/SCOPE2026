@@ -1,0 +1,12 @@
+# Review of the circular-ladder symmetry theorem
+
+## Correctness (PASS)
+The assertion is for every integer \(n\ge3\), with the natural graph action and rational reduced homology. Agarwal--Basak's full v2 Main Theorem 2(a) and Theorem 15, page 10, provide exact homology degree concentration and rank, including the three-sphere case. The proof independently establishes the signed fixed-face Lefschetz formula, exactly evaluates rotations via a three-state circular transfer, computes the layer-swap trace from forbidden rung orbits, and folds reflection-fixed simplices onto explicit open transfer paths. These give complete traces of the three generating automorphisms and enough character data to determine all rational irreducible constituents. The residual risk is any error in the cited prior homotopy classification; the mathematical steps used here are fully stated and independently checked on 9 finite widths, though finite checks cannot establish a uniform theorem.
+
+## Originality (PASS)
+The primary 19-page arXiv:2608.30601v2 was inspected through its Main Theorem 2(a), Theorem 15, their proofs, and its later sections. It computes nonequivariant homotopy but no group character or representation. Its earlier v1 contains no circular ladder theorem. Published relevant comparison results for Möbius ladder independence complexes concern different graph families, and a triangular-prism Morse-complex record concerns a different simplicial construction. Searches using equivalent names (prism, circular ladder, Cartesian cycle product), induced reflection/rotation characters, and stronger symmetry coverage revealed no equivalent classification. The closest own circular/dihedral findings concern Möbius-ladder homology and cyclic-power cut complexes, which do not imply the present representation. Unindexed or unpublished equivalent work remains possible; a negative search cannot establish logical uniqueness.
+
+## Value (PASS)
+This yields a complete rational module classification for the full natural dihedral-plus-layer-swap group on an infinite family. Its mod-four transition distinguishes the quarter-turn representation from the layer-antisymmetric line, information absent from the already-known ranks and sphere degrees. This is a structurally motivated equivariant refinement, not a routine numerical deduction. The scope is rational homology, not integral modules or equivariant wedge splittings.
+
+Same-model review: passed. Independent audit: not yet performed.
