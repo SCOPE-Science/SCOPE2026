@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verify.py` uses only exact rational arithmetic. It checks the following consequences of the printed moment system and Figure 5 labels:
+# Independent mathematical audit
 
-1. With \(r=113/100\), the positive-variance feasibility endpoint is \(a=1-1/r=13/113\).
-2. The positive-term upper bound for the quartic part is
-\[
-2r^3a^4+3r(r^2-1)a^2=\frac{292201}{22600000}.
-\]
-3. The printed noise level gives
-\[
-rv=\frac{226}{15625},\qquad
-rv-\frac{292201}{22600000}=\frac{173427}{113000000}>0.
-\]
-Hence the quartic equilibrium equation cannot vanish anywhere in the biologically feasible interval.
-4. At the rounded reported point \((\mu,s)=(33/100,3/5000)\), the first moment update is \(49833/200000\), giving residual \(-16167/200000\neq0\).
+## correctness
 
-Running `python verify.py` returns `VERIFY_OK` when all exact assertions hold.
+PASS
 
-Limits: this verifies the printed equations and labels only. It does not reconstruct unavailable simulation code or infer an intended alternative parameter pair.
+At a positive fixed point of the printed Gaussian moment map, the first component gives s=mu(1-1/r-mu), so at r=113/100 biological feasibility requires 0<mu<13/113, immediately excluding the reported value near 0.33. The source's quartic equilibrium equation can be bounded uniformly on that whole interval: dropping the negative terms and maximizing the positive monomials at the endpoint gives H below 292201/22600000, while rv=226/15625 exceeds this by the exact positive gap 173427/113000000. Thus no feasible positive fixed point exists at the printed pair, not merely the rounded displayed one. An independent exact-rational replay also reproduces the rounded-point mean residual -16167/200000.
+
+## originality
+
+PASS
+
+The 2026 source itself states the feasible positive-equilibrium quartic and prints Figure 5 at r=1.13, v=0.0128, but no correction of that incompatible validation point was located. Related stochastic-logistic papers use different multiplicative-noise models or general moment-closure theory and do not imply the exact additive-noise contradiction. Targeted Resultary and web correction searches returned no prior equivalent source-specific finding.
+
+## value
+
+PASS
+
+The point is presented as Monte Carlo validation of the analytical equilibrium theory, yet the printed parameters admit no biologically feasible positive moment equilibrium at all. The exact global certificate therefore materially changes how the validation figures can be interpreted and is more than a rounded-number discrepancy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
