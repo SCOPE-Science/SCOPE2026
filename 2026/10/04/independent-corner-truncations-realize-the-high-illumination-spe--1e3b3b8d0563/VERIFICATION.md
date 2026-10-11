@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,49 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For an independent set \(T\) of cube vertices, define
-\[
-K(T,\tau)
-=
-[-1,1]^n\cap
-\bigcap_{t\in T}
-\{x:\langle t,x\rangle\le n-\tau_t\},
-\qquad 0<\tau_t<1.
-\]
+## correctness
 
-The analytic verification has four steps.
+PASS
 
-First, two truncating hyperplanes cannot meet in the cube. If \(t\ne s\) are selected, then their Hamming distance is at least two and
-\[
-\langle t+s,x\rangle\le2n-4
-\]
-for \(x\in[-1,1]^n\), whereas simultaneous equality in both cuts would force a value greater than \(2n-2\).
+Two truncation hyperplanes from distinct selected vertices cannot meet inside the cube because selected corners have Hamming distance at least two and all depths are below one. Thus the vertices are exactly the untruncated cube vertices together with the \(n\) new edge-cut vertices at each selected corner. Every untruncated cube vertex retains its original tangent orthant, so distinct such vertices require distinct illumination directions, giving the lower bound \(2^n-|T|\). For the matching upper bound, use the negatives of all untruncated cube vertices. At a new cut vertex, independence guarantees that the neighboring original cube corner obtained by flipping the cut coordinate is untruncated; its negative direction strictly enters all active coordinate facets and decreases the active cut inequality by \(n-2>0\). The scaled-cube sandwich gives the Banach--Mazur estimate, and a parity class supplies independent sets of every size through \(2^{n-1}\). The package verifier checks all local inequalities exactly in representative dimensions; the theorem is analytic.
 
-Second, every surviving cube vertex \(w\) keeps the full cube tangent cone, so its illuminating directions satisfy
-\[
-w_i d_i<0
-\]
-for every coordinate. Distinct surviving vertices therefore require distinct directions.
+## originality
 
-Third, a new cut vertex on the \(i\)-th edge from \(t\) has the untruncated neighbor obtained by flipping coordinate \(i\). The negative of that neighbor strictly decreases all active coordinate inequalities and the truncation inequality by
-\[
--(n-2)<0.
-\]
-Thus all new vertices are illuminated by directions already assigned to surviving cube vertices.
+PASS
 
-Fourth, with \(\tau_{\max}\) the largest depth,
-\[
-\left(1-\frac{\tau_{\max}}n\right)[-1,1]^n
-\subset K(T,\tau)\subset[-1,1]^n,
-\]
-which gives the stated Banach--Mazur estimate.
+Livshyts--Tikhomirov prove the general near-cube upper bound \(2^n-1\) for nonparallelotopes and give a sharp one-corner perturbation with exactly that value. That does not determine simultaneous truncations or any smaller exact value. The audited independent-set construction gives an all-dimensional exact law and realizes the entire high-half spectrum down to \(2^{n-1}\). Targeted Resultary and web searches found no equivalent simultaneous-corner theorem.
 
-The embedded `verify.py` was replayed from its actual package path. It uses exact rational arithmetic, exhausts all subsets of a parity class in dimensions three and four, checks full parity-class constructions through dimension eight, and replays the local facet and sandwich inequalities.
+## value
 
-The replay output was:
+PASS
 
-`VERIFY_OK independent cube-corner illumination spectrum`
+The cube is a central extremal object in the illumination problem, and the cited local theorem leaves open how far exact illumination values can fall under structured arbitrarily small perturbations. The construction gives a complete high-half spectrum near the cube and a sharp combinatorial mechanism controlling it, including the dramatic drop from eight to four in dimension three.
 
-Finite enumeration is not used as a proof of the all-dimensional theorem.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For an independent truncation set \(T\), distinct truncating hyperplanes cannot meet inside the cube, and each cut creates exactly the \(n\) expected edge vertices. Every surviving cube vertex retains its full cube tangent cone, so distinct surviving vertices require disjoint illuminating sign orthants and give the lower bound \(2^n-|T|\). Conversely, for a cut vertex on the edge from \(t\) toward its neighbor \(w\), independence guarantees \(w\notin T\). The direction \(-w\) strictly enters every active coordinate facet and the cut facet, since its derivative there is \(-(n-2)\). Thus the \(2^n-|T|\) directions attached to surviving vertices illuminate every polytope vertex and hence the whole boundary.
+PASS
 
-The exact cube sandwich proves the metric-nearness claim. The packaged checker replays all local inequalities with rational arithmetic and exhausts substantial finite subfamilies. The all-dimensional statement rests on the analytic proof, not the finite checks.
+Two truncation hyperplanes from distinct selected vertices cannot meet inside the cube because selected corners have Hamming distance at least two and all depths are below one. Thus the vertices are exactly the untruncated cube vertices together with the \(n\) new edge-cut vertices at each selected corner. Every untruncated cube vertex retains its original tangent orthant, so distinct such vertices require distinct illumination directions, giving the lower bound \(2^n-|T|\). For the matching upper bound, use the negatives of all untruncated cube vertices. At a new cut vertex, independence guarantees that the neighboring original cube corner obtained by flipping the cut coordinate is untruncated; its negative direction strictly enters all active coordinate facets and decreases the active cut inequality by \(n-2>0\). The scaled-cube sandwich gives the Banach--Mazur estimate, and a parity class supplies independent sets of every size through \(2^{n-1}\). The package verifier checks all local inequalities exactly in representative dimensions; the theorem is analytic.
 
-## Originality
+## originality
 
-PASS with a specific prior-covered endpoint. Livshyts--Tikhomirov's full primary text proves the common near-cube upper bound \(2^n-1\) and, in Remark 1.2, constructs a one-corner perturbation with exact illumination number \(2^n-1\). That endpoint is explicitly treated as prior work.
+PASS
 
-The same full text contains no corner-truncation family or illumination spectrum, and its general theorem does not imply exact values below \(2^n-1\). Targeted searches for simultaneous cube-corner truncation, deleted/truncated vertex families, parity classes, independent sets, and the exact count \(2^n-|T|\) did not locate an equivalent statement. The closest published indexed computation concerns isolated three-dimensional parallelohedron representatives, not an all-dimensional family arbitrarily close to the cube.
+Livshyts--Tikhomirov prove the general near-cube upper bound \(2^n-1\) for nonparallelotopes and give a sharp one-corner perturbation with exactly that value. That does not determine simultaneous truncations or any smaller exact value. The audited independent-set construction gives an all-dimensional exact law and realizes the entire high-half spectrum down to \(2^{n-1}\). Targeted Resultary and web searches found no equivalent simultaneous-corner theorem.
 
-## Value
+## value
 
-PASS. The primary source emphasizes that illumination is highly discontinuous under small boundary perturbations while proving only the first strict drop from the cube. The present family quantifies that discontinuity much more sharply: arbitrarily close to the cube, every illumination number in the entire interval from \(2^{n-1}\) to \(2^n\) occurs. The result also exposes a clean graph-geometric mechanism—independent cube corners correspond exactly to directions that can be removed while neighboring surviving directions illuminate the new cut vertices. This is a structural spectrum theorem rather than a routine one-parameter increment.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The cube is a central extremal object in the illumination problem, and the cited local theorem leaves open how far exact illumination values can fall under structured arbitrarily small perturbations. The construction gives a complete high-half spectrum near the cube and a sharp combinatorial mechanism controlling it, including the dramatic drop from eight to four in dimension three.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

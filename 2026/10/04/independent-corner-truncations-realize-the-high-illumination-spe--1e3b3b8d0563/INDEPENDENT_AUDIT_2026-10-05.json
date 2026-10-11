@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:50:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 9728a60641c72ef232556dfb0c7541d05a06f55c",
+        "assigned verify.py blob 678aaf98c024986aca3df2976aabf52a8c7693cd",
+        "Livshyts--Tikhomirov, Cube is a strict local maximizer for the illumination number, arXiv:1710.05070; DOI:10.1007/s00454-019-00115-9"
+      ],
+      "rationale": "Two truncation hyperplanes from distinct selected vertices cannot meet inside the cube because selected corners have Hamming distance at least two and all depths are below one. Thus the vertices are exactly the untruncated cube vertices together with the \\(n\\) new edge-cut vertices at each selected corner. Every untruncated cube vertex retains its original tangent orthant, so distinct such vertices require distinct illumination directions, giving the lower bound \\(2^n-|T|\\). For the matching upper bound, use the negatives of all untruncated cube vertices. At a new cut vertex, independence guarantees that the neighboring original cube corner obtained by flipping the cut coordinate is untruncated; its negative direction strictly enters all active coordinate facets and decreases the active cut inequality by \\(n-2>0\\). The scaled-cube sandwich gives the Banach--Mazur estimate, and a parity class supplies independent sets of every size through \\(2^{n-1}\\). The package verifier checks all local inequalities exactly in representative dimensions; the theorem is analytic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The near-cube theorem provides only a universal upper bound and the one-corner sharpness case.",
+          "Isolated three-dimensional exact values do not imply the all-dimensional independent-set law."
+        ],
+        "reasoning": "No checked broader theorem fixes the exact illumination number for these simultaneous truncations.",
+        "searches": [
+          "Livshyts--Tikhomirov arXiv:1710.05070 full relevant proof and Remark 1.2",
+          "published exact illumination values for selected three-dimensional parallelohedra"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.05070",
+        "DOI:10.1007/s00454-019-00115-9",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An upper bound of \\(2^n-1\\) cannot imply exact values down to \\(2^{n-1}\\).",
+          "The multiple-corner upper construction depends on matching every new cut vertex to an untruncated cube neighbor, a mechanism absent from the one-corner statement."
+        ],
+        "reasoning": "The simultaneous exact law is genuinely additional implication-level information.",
+        "searches": [
+          "arXiv:1710.05070 near-cube upper bound and one-corner example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source covers one truncated/modified corner and a common upper bound, not several independent corners.",
+          "The audited formula yields exact values strictly below \\(2^n-1\\), including the dimension-three minimum four."
+        ],
+        "reasoning": "Simultaneous independent corner truncation, deleting cube-vertex tangent orthants, and the high-half near-cube illumination spectrum were compared.",
+        "searches": [
+          "Resultary query: independent corner truncations cube illumination spectrum near cube Livshyts Tikhomirov",
+          "arXiv:1710.05070 main theorem and one-corner sharpness remark",
+          "web searches for truncated cube vertices independent sets illumination \\(2^n-|T|\\)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned record and related three-dimensional illumination records, but no prior high-half spectrum theorem."
+        ],
+        "reasoning": "The result is parametric in dimension and the independent set, so an exact table would need to encode the same formula.",
+        "searches": [
+          "Resultary exact spectrum query"
+        ]
+      },
+      "rationale": "Livshyts--Tikhomirov prove the general near-cube upper bound \\(2^n-1\\) for nonparallelotopes and give a sharp one-corner perturbation with exactly that value. That does not determine simultaneous truncations or any smaller exact value. The audited independent-set construction gives an all-dimensional exact law and realizes the entire high-half spectrum down to \\(2^{n-1}\\). Targeted Resultary and web searches found no equivalent simultaneous-corner theorem.",
+      "residual_risks": [
+        "Because the construction is elementary once formulated, an unindexed convex-geometry observation could contain the same independent-corner law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_ONE_CORNER_ONLY",
+          "evidence": "The paper does not state an exact simultaneous-corner formula or realize the full interval from \\(2^{n-1}\\) through \\(2^n\\).",
+          "identifier_or_url": "arXiv:1710.05070; DOI:10.1007/s00454-019-00115-9",
+          "material_read": "Primary full-text main theorem and the remark/construction showing one-corner sharpness at \\(2^n-1\\).",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Cube is a strict local maximizer for the illumination number",
+          "trigger": "Closest primary theorem on illumination numbers of bodies arbitrarily close to the cube."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Livshyts--Tikhomirov near-cube illumination theorem",
+        "related exact three-dimensional illumination records"
+      ],
+      "rationale": "The cube is a central extremal object in the illumination problem, and the cited local theorem leaves open how far exact illumination values can fall under structured arbitrarily small perturbations. The construction gives a complete high-half spectrum near the cube and a sharp combinatorial mechanism controlling it, including the dramatic drop from eight to four in dimension three.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "If an independent set \\(T\\) of vertices of the \\(n\\)-cube, \\(n\\ge3\\), is shallowly truncated at arbitrary depths in \\((0,1)\\), the resulting polytope has illumination number exactly \\(2^n-|T|\\); consequently every value from \\(2^{n-1}\\) through \\(2^n\\) occurs arbitrarily close to the cube.",
+  "limitations": [
+    "The exact formula is proved for an independent set of truncated corners; adjacent simultaneous truncations are not classified.",
+    "Only classical real illumination is considered."
+  ],
+  "schema_version": 1
+}
