@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The reduction \(\rho=0\iff (r+1)(g-D+r)=g\) is exact, with \(a=r+1\), \(b=g-D+r\), and \(D=(a-1)(b+1)\). The Griffiths--Harris multiplicity-one theorem and class coefficient give the Castelnuovo count. Its denominator is exactly the hook product of an \(a\times b\) rectangle. The new strict inequality is proved by a complete cumulative-distribution comparison of the two hook multisets; all threshold ranges and endpoint inequalities are treated. Transposition gives the stated Serre-dual pair. The exact checker independently verifies the algebraic identities and all divisor-pair comparisons through genus 300.
+## correctness
 
-## Originality
-PASS, with a stated literature risk. Searches for fixed-genus maxima of Castelnuovo numbers, balancing of Brill--Noether rectangles, closest-divisor formulations, and fixed-area rectangular tableau maxima did not locate the claimed cross-type extremal theorem. Griffiths--Harris establish the classical count; Farkas--Lian restate it as a Grassmannian degree; Anderson--Chen--Tarasca recover it in a determinantal framework. None of the inspected passages compares all \(\rho=0\) numerical types for a fixed genus or derives the closest-divisor extremizer. A standalone combinatorial equivalent could exist under different terminology, which remains the principal residual risk.
+PASS
 
-## Value
-PASS. Zero-dimensional Brill--Noether problems are a classical enumerative family, but their counts vary sharply with rank and degree. The theorem gives a complete fixed-genus extremal classification in one arithmetic datum: the factor of \(g\) closest to \(\sqrt g\). It also explains the exact twofold ambiguity by Serre duality. This is a structural cross-parameter statement rather than a recomputation of an individual Castelnuovo number.
+For \(\rho=0\), setting \(a=r+1\) and \(b=g-D+r\) gives \(ab=g\) and the classical Castelnuovo count \(N_g(a,b)=g!\prod_{i=0}^{a-1} i!/(b+i)!\). Its denominator is the hook product of the \(a\times b\) rectangle. The package's cumulative hook-count formula is correct in each threshold range. For \(1\le a<c\le e<b\) with \(ab=ce\), the more balanced rectangle has at least as many hooks below every threshold and strictly more at some threshold, so after sorting its hooks coordinatewise they are no larger and at least one is smaller. Hence its hook product is strictly smaller and its tableau/Castelnuovo count is strictly larger. Iterating over divisor pairs proves the closest-divisor maximizer, while transposition gives exactly the Serre-dual tie. The finite genus-300 checker is corroborative only and is not needed for the quantified proof.
 
-## Closest literature and limitations
-The closest literature supplies the classical enumerative formula and its modern geometric/combinatorial interpretations, not the fixed-genus maximization. The theorem assumes a general complex curve and \(\rho=0\). It does not address special curves, ramification conditions, or positive-dimensional Brill--Noether loci. Finite verification is supplementary only.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The classical and modern Brill–Noether sources inspected this round give the pointwise zero-dimensional count for a fixed numerical type, not a fixed-genus ordering across all divisor rectangles. Resultary returned the assigned record as the only exact fixed-genus balancing hit, and targeted searches under rectangular standard-tableau, hook-product, fixed-area, balance, and closest-divisor formulations did not locate an earlier theorem. The balancing lemma is not mechanically implied by merely knowing the hook-length formula: it supplies a new strict comparison across distinct factor shapes. Best-of-knowledge originality therefore passes, with an explicit risk that an equivalent rectangle-monotonicity theorem may exist under older algebraic-combinatorics terminology.
+
+## value
+
+PASS
+
+The result gives a complete fixed-genus extremal classification for a classical zero-dimensional enumerative invariant and identifies the only tie as Serre duality. It compares a natural family of all \(\rho=0\) linear-series problems rather than an arbitrary slice, and the cross-shape balancing lemma is independently meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
