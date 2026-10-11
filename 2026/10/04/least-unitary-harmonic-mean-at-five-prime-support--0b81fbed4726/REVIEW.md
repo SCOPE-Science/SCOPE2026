@@ -1,46 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Hagis and Lord's lower bound gives
-\[
-H^*(n)>\frac{64}{7}
-\]
-for five distinct prime factors, so an integral mean is at least \(10\). For a
-fixed target \(h\), writing the ordered prime-power components as
-\(x_1<\cdots<x_5\) converts the equation to
-\[
-\prod_i\frac{x_i}{x_i+1}=\frac{h}{32}.
-\]
-At every prefix, monotonicity of \(x/(x+1)\) yields an exact finite upper bound
-for the next component; after four components the fifth is forced by a rational
-formula. This proves the recursion exhaustive rather than heuristic. The
-packaged exact replay gives no solutions for \(h=10,11,12\) and exactly the two
-claimed solutions for \(h=13\), both of which are checked directly.
+## correctness
 
-The principal correctness risk is completeness of the finite recursion. That
-risk is controlled by the proved monotone branch bound and by solving, rather
-than searching, the final component.
+PASS
 
-## Originality
-PASS. The closest primary source, Hagis and Lord, proves fixed-support
-finiteness and classifies support through three primes, but does not determine
-the minimum at five-prime support. Wall proves the complete classification only
-through four prime factors. His bounded table through \(10^6\) contains the two
-minimizers, but a bounded table cannot exclude larger five-prime-support
-solutions with means \(10\), \(11\), or \(12\). The exact OEIS sequences also
-list the same examples and means without proving the unrestricted extremal
-statement. Semantic searches for the minimum-mean, exact-\(13\), and
-no-\(10,11,12\) formulations found no covering theorem.
+Hagis--Lord's lower bound reduces the five-prime minimum to integer targets \(10,11,12,13\). For a fixed target, monotonicity of \(x/(x+1)\) gives a proved finite upper bound on each ordered prime-power component. After four choices, the fifth component is forced by \(Px/(x+1)=h/32\), so exact integrality, prime-power, order, and distinct-base checks are necessary and sufficient. The bundled exact rational recursion therefore exhausts all cases: none for 10--12 and exactly the two stated component sets for 13.
 
-Residual risk remains that a poorly indexed source may contain the same short
-five-prime-support classification.
+## originality
 
-## Value
-PASS. Five prime factors are the first support size beyond Wall's complete
-support classification. Determining the exact minimum mean and all minimizers
-is therefore a natural first invariant of the unresolved next layer. The result
-is a complete extremal classification, not an arbitrary numerical cutoff: it
-proves that every possible five-prime-support object lies above \(13\) in the
-mean parameter except the two explicitly identified minimizers.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Prior sources establish fixed-support finiteness, lower bounds, the at-most-four-prime classification, and bounded tables. OEIS already contains \(5460\) and \(8190\), so their existence is not new. What is new is the unrestricted exclusion of every larger five-prime number with mean 10, 11, or 12. Resultary returned the assigned theorem as the exact hit and no stronger five-prime classification. Full older paper text was not available through the web routes used here, so that access risk is retained.
+
+## value
+
+PASS
+
+Exact support five is the first layer beyond the published small-support classification, and the least attainable unitary harmonic mean is a natural extremal invariant. The result turns known candidate values into a rigorous unrestricted classification with exactly two minimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

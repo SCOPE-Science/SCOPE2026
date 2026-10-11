@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,52 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` reduces the unrestricted minimum problem to four exact
-target equations.
+# Independent mathematical audit
 
-For five distinct prime factors, Hagis--Lord's inequality gives
-\[
-H^*(n)>\frac{64}{7},
-\]
-so an integral unitary harmonic mean is at least \(10\). The verifier therefore
-checks only
-\[
-h\in\{10,11,12,13\}.
-\]
+## correctness
 
-For a fixed target, it represents the ordered exact prime-power components by
-\[
-x_1<\cdots<x_5
-\]
-and maintains the exact prefix product
-\[
-P=\prod \frac{x_i}{x_i+1}.
-\]
-If \(r\) components remain and \(x\) is the next one, monotonicity gives the
-necessary inequality
-\[
-P\left(\frac{x}{x+1}\right)^r\le\frac{h}{32}.
-\]
-This yields a finite next-component bound. The implementation tests the
-cleared-denominator form with integers, so it introduces no floating-point
-rounding. Only genuine prime powers with unused prime bases are admitted.
+PASS
 
-When one component remains, the verifier solves it exactly from
-\[
-x=\frac{T}{P-T},\qquad T=\frac{h}{32}.
-\]
-Every returned component tuple is then substituted back into the defining
-product and its prime bases are checked to be pairwise distinct.
+Hagis--Lord's lower bound reduces the five-prime minimum to integer targets \(10,11,12,13\). For a fixed target, monotonicity of \(x/(x+1)\) gives a proved finite upper bound on each ordered prime-power component. After four choices, the fifth component is forced by \(Px/(x+1)=h/32\), so exact integrality, prime-power, order, and distinct-base checks are necessary and sufficient. The bundled exact rational recursion therefore exhausts all cases: none for 10--12 and exactly the two stated component sets for 13.
 
-Expected complete output:
-- mean \(10\): no solution;
-- mean \(11\): no solution;
-- mean \(12\): no solution;
-- mean \(13\): exactly the component tuples
-  \((2,5,7,9,13)\) and \((3,4,5,7,13)\), whose products are \(8190\) and \(5460\).
+## originality
 
-The finite recursion is exhaustive because the branch inequality is proved
-before enumeration and its left side is strictly increasing in the candidate
-component.
+PASS
+
+Prior sources establish fixed-support finiteness, lower bounds, the at-most-four-prime classification, and bounded tables. OEIS already contains \(5460\) and \(8190\), so their existence is not new. What is new is the unrestricted exclusion of every larger five-prime number with mean 10, 11, or 12. Resultary returned the assigned theorem as the exact hit and no stronger five-prime classification. Full older paper text was not available through the web routes used here, so that access risk is retained.
+
+## value
+
+PASS
+
+Exact support five is the first layer beyond the published small-support classification, and the least attainable unitary harmonic mean is a natural extremal invariant. The result turns known candidate values into a rigorous unrestricted classification with exactly two minimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
