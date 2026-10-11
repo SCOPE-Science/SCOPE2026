@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The algebraic certificate is finite and exact. `verify.py` uses Python's standard-library `Fraction` type and checks:
+# Independent mathematical audit
 
-1. \(F_{1m}=1/3\) and \(F_{3m}=1\) are realized by \(I_x:I_y:I_z=3:2:1\).
-2. The printed middle inertial term yields \(F_{2m}=+1\), while Table 1 yields \(F_{2m}=-1\).
-3. The cubic coefficient in \(\dot H\) is \(0\) for the table sign and \(4\) for the literal printed sign.
-4. The rounded linear gyroscopic coefficients satisfy \(3b_{13}=b_{31}\) exactly at the printed precision and \(3b_{12}-2b_{21}=-10^{-4}\), consistent with decimal rounding.
+## correctness
 
-The proof concerns the equations as printed and does not require numerical trajectory integration. It does not certify the source's basin, Lyapunov, Poincaré, or synchronization computations. Independent audit has not been performed.
+PASS
+
+Table 1 values \(F_{1m}=1/3\) and \(F_{3m}=1\) force \(I_x:I_y:I_z=3:2:1\). Literal normalization of the printed middle inertial term \((I_x-I_z)xz\) therefore gives \(F_{2m}=+1\), while the table defines \((I_z-I_x)/I_y=-1\). For \(H=(3x_1^2+2x_2^2+x_3^2)/2\), the cubic inertial coefficient is exactly 0 for the table sign and 4 for the printed sign. Independent rational arithmetic reproduced these identities.
+
+## originality
+
+PASS
+
+Direct inspection of the 2022 paper and fresh semantic searches found no prior published statement of the equation-to-table sign inconsistency or the exact energy-cancellation consequence. The 2019 gyrostat energy source motivates the structural check but does not cover the later paper’s mismatch.
+
+## value
+
+PASS
+
+The sign changes the nonlinear vector field and destroys exact inertial energy cancellation by adding \(4x_1x_2x_3\). Since the paper’s basin, Lyapunov, Poincare and synchronization calculations are tied to System (2)/Table 1, the distinction is materially important for reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
