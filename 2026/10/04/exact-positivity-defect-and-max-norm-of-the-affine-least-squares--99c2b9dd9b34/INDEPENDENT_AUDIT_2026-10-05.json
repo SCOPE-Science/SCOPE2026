@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:08:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4b0346cbc5cac9f66c9750f331e082a306ed1160",
+        "assigned verify.py blob 37b44b9f69b0f2177115fe105db6ccd62ca416f6",
+        "Białas-Cież et al. DOI 10.1553/etna_vol60s428 primary PDF",
+        "Duan-Lin-Saikrishnan-Tan DOI 10.1137/040613573"
+      ],
+      "rationale": "In barycentric coordinates the affine basis Gram matrix is \\(G=|T|((d+1)(d+2))^{-1}(I+J)\\), whose inverse gives the projector kernel \\(K(x,y)=\\frac{d+1}{|T|}((d+2)\\sum_i\\lambda_i(x)\\lambda_i(y)-1)\\). For fixed \\(x\\), minimizing over \\(0\\le f\\le M\\) puts mass exactly on the negative part of the kernel. With \\(a_i=\\lambda_i(x)\\) and uniform Dirichlet barycentric coordinates \\(B\\), the negative mass is \\(c(a)=(d+1)E[(1-(d+2)\\sum_i a_iB_i)_+]\\). The positive-part function is convex, so Jensen in the convex combination of coordinates gives \\(c(a)\\le\\sum_i a_i c(e_i)=c(e_0)\\), proving the sharp vertex location. The marginal \\(B_0\\sim\\mathrm{Beta}(1,d)\\) integrates to \\(C_d=(d+1)((d+1)/(d+2))^d-1\\). Since the kernel integrates to one, its absolute integral is \\(1+2c(a)\\), giving the exact \\(L^\\infty\\) norm. The strictly-positive perturbation and the asymptotics follow directly. Exact-rational package checks through many dimensions verify the Gram inverse and integral formula, while the convexity argument proves all dimensions.",
+      "residual_risks": [
+        "The theorem is local to degree-one projection on one simplex and does not describe globally coupled finite-element projections."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crouzeix-Thomée provide stability of global finite-element projection under mesh hypotheses rather than an exact one-cell constant.",
+          "Duan et al. identify local linear \\(L^2\\) projection as a standard operation.",
+          "The current Lebesgue-constant paper gives a broad computational framework, not the displayed closed norm/positivity defect."
+        ],
+        "reasoning": "The broad projector literature motivates the question but no inspected theorem mechanically specializes to the audited all-dimensional value.",
+        "searches": [
+          "Crouzeix-Thomée DOI 10.1090/S0025-5718-1987-0878688-2",
+          "Duan-Lin-Saikrishnan-Tan DOI 10.1137/040613573",
+          "Białas-Cież et al. DOI 10.1553/etna_vol60s428"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1553/etna_vol60s428",
+        "DOI 10.1137/040613573",
+        "DOI 10.1090/S0025-5718-1987-0878688-2",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform stability bounds do not identify the sharp dimension-dependent constant or the negative extremizing region.",
+          "A numerical Lebesgue-function framework does not imply that convexity forces the maximum negative mass to a simplex vertex."
+        ],
+        "reasoning": "The vertex convexity reduction and Beta integral supply additional exact structure.",
+        "searches": [
+          "general \\(L^p\\)-stability bounds versus exact one-simplex kernel norm",
+          "general simplex Lebesgue-function algorithms versus analytic degree-one extremizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For an integral orthogonal projector the \\(L^\\infty\\) norm is the supremum of the absolute reproducing-kernel integral, i.e. a Lebesgue-function problem.",
+          "The inspected recent simplex paper treats discrete fitting operators and rigorous numerical norm evaluation, not this closed continuous degree-one formula."
+        ],
+        "reasoning": "Lebesgue-constant and finite-element max-norm terminology were searched as aliases of the operator-norm part of the claim.",
+        "searches": [
+          "Resultary query: exact L infinity norm L2 orthogonal projector affine functions simplex barycentric kernel positivity defect",
+          "web search: L2 orthogonal projector simplex Lebesgue function affine exact norm",
+          "Białas-Cież et al. DOI 10.1553/etna_vol60s428"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact same-object formula or table was retrieved."
+        ],
+        "reasoning": "Exact-expression absence is not treated as proof; it supplements the comparison with the primary projector literature.",
+        "searches": [
+          "Resultary current corpus searches for affine-simplex projector max norm and positivity loss",
+          "web exact-formula searches for \\(2(d+1)((d+1)/(d+2))^d-1\\) and low-dimensional value \\(131/125\\)"
+        ]
+      },
+      "rationale": "The surrounding literature establishes \\(L^p\\) stability of finite-element \\(L^2\\) projection and studies Lebesgue constants of polynomial projectors on simplices, but targeted searches for the continuous uniform-measure degree-one simplex projector found no all-dimensional closed norm or sharp positivity-defect formula. The 2024 primary paper on simplex Lebesgue constants develops rigorous numerical evaluation for interpolation, discrete weighted least squares and hyperinterpolation; it does not state the audited continuous projector constant. Duan et al. use local or almost local linear \\(L^2\\) projectors as a finite-element ingredient rather than solve this sharp kernel problem. Current Resultary queries returned no stronger same-object formula.",
+      "residual_risks": [
+        "Classical multivariate orthogonal-polynomial literature is extensive, and an equivalent continuous simplex Lebesgue constant could be hidden under approximation-theory terminology.",
+        "The complete 1987 Crouzeix-Thomée body was not reread in this run; its accessible scope is global finite-element stability rather than this local exact problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROAD_PROJECTOR_NORM_FRAMEWORK_NOT_CONTINUOUS_P1_CLOSED_FORM",
+          "evidence": "The paper evaluates norms of discrete polynomial fitting operators with rigorous mesh bounds; it does not state the audited continuous uniform-measure affine projector constant.",
+          "identifier_or_url": "https://doi.org/10.1553/etna_vol60s428",
+          "material_read": "open primary PDF, including the Lebesgue-function framework, least-squares reproducing-kernel formulas, and simplex section",
+          "method": "primary full-text PDF inspection with a relevant page visually checked",
+          "title": "Evaluating Lebesgue constants by Chebyshev polynomial meshes on cube, simplex, and ball",
+          "trigger": "recent primary work explicitly covering polynomial projector norms on simplices and least-squares operators"
+        },
+        {
+          "assessment": "APPLICATION_CONTEXT_NOT_SHARP_CONSTANT",
+          "evidence": "The paper uses local/almost-local projection as a method ingredient and does not advertise an exact positivity defect or max norm.",
+          "identifier_or_url": "https://doi.org/10.1137/040613573",
+          "material_read": "primary abstract, article scope and bibliographic material; full body was not required for the decisive comparison",
+          "method": "primary-source scope inspection",
+          "title": "L2-Projected Least-Squares Finite Element Methods for the Stokes Equations",
+          "trigger": "primary finite-element source explicitly using local linear \\(L^2\\) projection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Białas-Cież et al. 2024",
+        "finite-element projection literature",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Local affine \\(L^2\\) projection on a simplex is a standard finite-element building block. Quantifying exactly how far it can violate positivity, locating the extremizing region, and giving the exact max norm in every dimension turns a qualitative stability issue into a sharp analytic benchmark. The linear-in-dimension growth is structurally informative, not a finite recomputation.",
+      "residual_risks": [
+        "The contribution is deliberately degree-one and local."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is local to degree-one projection on one simplex and does not describe globally coupled finite-element projections.",
+    "Classical multivariate orthogonal-polynomial literature is extensive, and an equivalent continuous simplex Lebesgue constant could be hidden under approximation-theory terminology.",
+    "The complete 1987 Crouzeix-Thomée body was not reread in this run; its accessible scope is global finite-element stability rather than this local exact problem.",
+    "The contribution is deliberately degree-one and local."
+  ]
+}
