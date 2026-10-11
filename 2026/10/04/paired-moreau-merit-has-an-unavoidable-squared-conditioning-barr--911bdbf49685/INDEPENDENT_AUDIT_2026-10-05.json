@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:57:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f2e6c88547f3eb402b40a42fe0ca126696503ccc",
+        "verify_paired_merit.py blob 7fa1a378ad18ac5d8f3749484b55116f37a39a77",
+        "fresh independent spectral calculation"
+      ],
+      "rationale": "The positive and negative signed proximal displacements on one eigenmode are lambda/(Lambda_+-lambda) and -lambda/(Lambda_-+lambda). With the centered weights Lambda_+/(Lambda_++Lambda_-) and Lambda_-/(Lambda_++Lambda_-), their weighted sum simplifies exactly to h(lambda). All four values are positive. Since max{h(L),h(-L)} divided by min{h(mu),h(-mu)} dominates the ratio of geometric means, kappa_V is at least kappa^2 times the displayed square-root factor; each factor is strictly greater than one for finite admissible parameters. As both regularizations diverge, h(lambda) is a common scale times lambda^2(1+o(1)), proving the sharp infimum. The standard SPD-quadratic minimax scalar step gives (kappa_V-1)/(kappa_V+1). Fresh independent numerical algebra on four parameter tuples reproduced every strict inequality. The proof is symbolic for all parameters.",
+      "residual_risks": [
+        "Because the defining preprint full text was inaccessible, source-convention fidelity was checked against the frozen scientific package and accessible abstract rather than a complete independent rereading of every source definition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining source advertises a smooth paired merit and dimension-free linear convergence but the accessible material does not state the exact balanced four-mode parameter infimum.",
+          "Squared-residual methods explain why A^2 naturally has condition number kappa^2, but do not by themselves prove that every finite paired-Moreau parameter choice is strictly worse."
+        ],
+        "reasoning": "No inspected broader source was found that mechanically implies the strict all-finite-parameter lower bound.",
+        "searches": [
+          "arXiv:2609.06946 primary abstract/metadata",
+          "Abernethy--Lai--Wibisono, Hamiltonian gradient descent / squared-residual context",
+          "Resultary conditioning-obstruction searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.06946",
+        "Abernethy--Lai--Wibisono, PMLR 132 (2021)",
+        "Resultary paired-Moreau conditioning query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two weighted signed proximal displacements simplify to h(lambda)=lambda^2/((Lambda_+-lambda)(Lambda_-+lambda)).",
+          "Pairing h(t)h(-t) yields a strict multiplicative factor above (L/mu)^4 at every finite admissible parameter pair, while simultaneous large-parameter limits recover kappa^2."
+        ],
+        "reasoning": "The sharp lower bound and infimum require this additional spectral calculation; no decisive prior implication was found.",
+        "searches": [
+          "paired signed-Moreau definition in arXiv:2609.06946 as represented in accessible source metadata and the frozen package",
+          "squared-residual comparison literature",
+          "fresh four-eigenvalue algebra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a diagonal quadratic the paired merit decouples by eigenmode and its Hessian is a rational spectral filter.",
+          "For the balanced spectrum {-L,-mu,mu,L}, the claim is equivalently a lower bound on the condition number of this four-point rational filter."
+        ],
+        "reasoning": "This formulation isolates the precise spectral obstruction rather than restating the source's general convergence theorem.",
+        "searches": [
+          "Su--Zhang--Zhao, arXiv:2609.06946, paired signed-Moreau construction",
+          "Resultary query: paired signed Moreau merit condition number balanced indefinite quadratic squared conditioning barrier Lambda plus minus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned Resultary records concern other conditioning/stability obstructions and do not state the audited rational-filter formula.",
+          "No exact parameter table or pre-existing four-mode theorem was located."
+        ],
+        "reasoning": "Search absence is not treated as novelty proof; the residual inaccessible-source risk is retained.",
+        "searches": [
+          "Resultary semantic search for the exact squared-conditioning barrier",
+          "targeted searches for arXiv:2609.06946 plus condition number, kappa squared and signed Moreau"
+        ]
+      },
+      "rationale": "The defining Su--Zhang--Zhao preprint introduces the paired signed-Moreau merit and advertises global linear first-order convergence under uniform nondegeneracy. Available primary abstract/metadata and targeted searches did not expose the submitted exact four-mode lower bound, sharp parameter infimum, or fixed-step contraction obstruction. The full preprint could not be materially retrieved through the available arXiv/OA routes, and the authorized institutional retrieval attempt was unavailable, so this same-source comparison remains an explicit residual risk rather than grounds for failure. Resultary searches found no covering theorem under merit-conditioning, rational-filter, or squared-residual formulations.",
+      "residual_risks": [
+        "The complete defining preprint was inaccessible in this run; an unadvertised equivalent quadratic conditioning calculation in that full text remains the principal originality risk.",
+        "An older proximal-average or rational-filter source may contain an equivalent calculation under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_SOURCE_NO_DECISIVE_COVERAGE_FROM_AVAILABLE_MATERIAL",
+          "evidence": "Accessible source material states construction of a paired signed-Moreau smooth merit and global linear convergence, but does not state the audited balanced four-mode condition-number lower bound or sharp infimum.",
+          "identifier_or_url": "arXiv:2609.06946",
+          "material_read": "Primary abstract and accessible metadata were read. Full primary text could not be lawfully retrieved through the available arXiv/OA routes, and the authorized institutional route was unavailable.",
+          "method": "Access-limited same-construction comparison.",
+          "title": "First-Order Optimization under Uniform Nondegeneracy: Geometry, Computation, and Information",
+          "trigger": "Defining primary source for the paired signed-Moreau merit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.06946",
+        "Abernethy--Lai--Wibisono, PMLR 132 (2021)",
+        "Resultary paired-Moreau conditioning query"
+      ],
+      "rationale": "This is a motivated structural obstruction for the new merit construction: it shows that parameter tuning cannot beat squared conditioning even on a four-mode balanced witness and identifies the exact unattained parameter infimum. That directly informs the gap between merit-based fixed-step descent and better-conditioned aspirations, and is more than a routine evaluation of one parameter choice.",
+      "residual_risks": [
+        "The complete defining preprint was inaccessible in this run; an unadvertised equivalent quadratic conditioning calculation in that full text remains the principal originality risk.",
+        "An older proximal-average or rational-filter source may contain an equivalent calculation under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.06946",
+    "Abernethy--Lai--Wibisono, PMLR 132 (2021)",
+    "Resultary paired-Moreau conditioning query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the balanced quadratic with eigenvalues -L,-mu,mu,L and arbitrary admissible signed-Moreau parameters Lambda_+,Lambda_->L, the paired merit has Hessian eigenvalue h(lambda)=lambda^2/((Lambda_+-lambda)(Lambda_-+lambda)), condition number strictly larger than (L/mu)^2 with infimum exactly (L/mu)^2, and hence the best fixed scalar gradient step has the stated unavoidable squared-conditioning contraction barrier.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete defining preprint was inaccessible in this run; an unadvertised equivalent quadratic conditioning calculation in that full text remains the principal originality risk.",
+    "An older proximal-average or rational-filter source may contain an equivalent calculation under different terminology.",
+    "The obstruction is for the balanced four-mode quadratic and fixed scalar gradient descent on the exact merit; it does not rule out acceleration, preconditioning, adaptive steps or asymmetric constructions."
+  ]
+}

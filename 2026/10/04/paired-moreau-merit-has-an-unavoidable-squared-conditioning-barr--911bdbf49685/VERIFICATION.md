@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic verification follows four exact steps.
+## correctness
 
-1. On each eigenmode \(A u=\lambda u\), solve the two signed proximal first-order equations exactly. Their displacements are \(\lambda/(\Lambda_+-\lambda)\) and \(-\lambda/(\Lambda_-+\lambda)\) times the current coordinate.
-2. Insert the symmetric-endpoint paired-merit weights \(\Lambda_+/(\Lambda_++\Lambda_-)\) and \(\Lambda_-/(\Lambda_++\Lambda_-)\). Simplification gives the Hessian eigenvalue \(h(\lambda)=\lambda^2/((\Lambda_+-\lambda)(\Lambda_-+\lambda))\).
-3. Pair \(\lambda=t\) with \(\lambda=-t\). Their product is \(t^4/((\Lambda_+^2-t^2)(\Lambda_-^2-t^2))\). The maximum at the outer pair divided by the minimum at the inner pair is at least the ratio of the corresponding geometric means, yielding the strict \(\kappa^2\) lower bound. Sending both regularization parameters to infinity proves sharpness of the infimum.
-4. Apply the exact scalar-step minimax formula for an SPD quadratic to obtain \(q_*=(\kappa_V-1)/(\kappa_V+1)\).
+PASS
 
-`verify_paired_merit.py` replays the mode formulas and inequalities for representative admissible parameter pairs. It is finite numerical corroboration, not the proof of the universally quantified statement.
+The positive and negative signed proximal displacements on one eigenmode are lambda/(Lambda_+-lambda) and -lambda/(Lambda_-+lambda). With the centered weights Lambda_+/(Lambda_++Lambda_-) and Lambda_-/(Lambda_++Lambda_-), their weighted sum simplifies exactly to h(lambda). All four values are positive. Since max{h(L),h(-L)} divided by min{h(mu),h(-mu)} dominates the ratio of geometric means, kappa_V is at least kappa^2 times the displayed square-root factor; each factor is strictly greater than one for finite admissible parameters. As both regularizations diverge, h(lambda) is a common scale times lambda^2(1+o(1)), proving the sharp infimum. The standard SPD-quadratic minimax scalar step gives (kappa_V-1)/(kappa_V+1). Fresh independent numerical algebra on four parameter tuples reproduced every strict inequality. The proof is symbolic for all parameters.
 
-Unproved limits: no claim is made for accelerated or preconditioned outer methods, asymmetric spectral endpoint classes, inexact inner solves, or general nonlinear objectives.
+## originality
+
+PASS
+
+The defining Su--Zhang--Zhao preprint introduces the paired signed-Moreau merit and advertises global linear first-order convergence under uniform nondegeneracy. Available primary abstract/metadata and targeted searches did not expose the submitted exact four-mode lower bound, sharp parameter infimum, or fixed-step contraction obstruction. The full preprint could not be materially retrieved through the available arXiv/OA routes, and the authorized institutional retrieval attempt was unavailable, so this same-source comparison remains an explicit residual risk rather than grounds for failure. Resultary searches found no covering theorem under merit-conditioning, rational-filter, or squared-residual formulations.
+
+## value
+
+PASS
+
+This is a motivated structural obstruction for the new merit construction: it shows that parameter tuning cannot beat squared conditioning even on a four-mode balanced witness and identifies the exact unattained parameter infimum. That directly informs the gap between merit-based fixed-step descent and better-conditioned aspirations, and is more than a routine evaluation of one parameter choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
