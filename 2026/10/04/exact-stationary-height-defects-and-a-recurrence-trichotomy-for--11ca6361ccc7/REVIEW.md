@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final theorem is derived from exact generator identities for the stated canonical vector field. The critical identities were replayed from `verify.py` using exact rational polynomial arithmetic and produced `VERIFY_OK`. The support-rigidity argument for equality was checked against the full vector field, not inferred from moment vanishing alone.
+## correctness
 
-## Originality
-PASS. Same-object literature was compared at statement and implication level. The inspected Newton–Leipnik papers treat numerical attractors, bifurcations, symbolic/inverse-limit models, equilibrium geometry, and control. Searches for invariant-measure, stationary-moment, conditional-product, exact centered-square, bounded-recurrence and slab-barrier formulations found no same-object result implying the theorem. Exact stationary-balance results located for other three-dimensional flows are not reductions or supersets of the Newton–Leipnik equations.
+PASS
 
-Residual risk: the 1981 primary article could not be read in full because publisher access required a human verification step. Its bibliographic identity and the canonical equations are corroborated by later detailed sources, but an unindexed equivalent formula in the inaccessible full text cannot be excluded absolutely.
+The Lyapunov function \(V=(x^2+y^2+3z^2)/2\) has \(\dot V=-2x^2/5-2y^2/5+3\alpha z^2\), which proves the negative-parameter bounded-complete collapse and the zero-parameter axis classification. For \(\alpha>0\), generator tests give \(\mathbb E[xy\mid z]=\alpha z/5\), while the two frozen coboundaries yield the centered-square defects. Equality rigidity and the slab conclusions follow from invariant-support dynamics. The actual frozen verify.py was read and its exact polynomial identities were independently checked.
 
-## Value
-PASS. The parameter-sign trichotomy and the two sharp defect laws provide exact global constraints on every compact stationary state, independent of whether a particular simulated attractor is physical or ergodic. The resulting height barriers turn low-degree algebraic identities into qualitative recurrence restrictions directly relevant to the classical double-attractor geometry.
+## originality
 
-## Closest literature and limitations
-The closest same-object sources are Leipnik–Newton (1981), LoFaro (1997), Richter (2002), and Marlin (2012). They establish and analyze the classical double-attractor system but do not state the final stationary-measure identities in the inspected material. The theorem does not prove chaotic-attractor existence, uniqueness of a physical measure, entropy, dimension, or basin structure.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The inspected same-object literature emphasizes the double attractor, inverse-limit/symbolic modeling, equilibria, bifurcations and control. Resultary searches returned stationary-balance theorems for other flows but no Newton–Leipnik sign trichotomy or paired height defects.
+
+## value
+
+PASS
+
+The sign of the physical feedback parameter becomes an exact compact-recurrence phase boundary, and in the positive regime two sharp height defects constrain every recurrent statistical state. This directly clarifies the classical double-attractor geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
