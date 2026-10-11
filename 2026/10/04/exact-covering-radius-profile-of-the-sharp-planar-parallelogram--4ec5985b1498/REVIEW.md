@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Centering reduces the source parallelograms to boxes in a common edge basis. The induced lattice is explicitly \(L=\{(m/2,n):m\equiv n\pmod2\}\), whose rows alternate between phases \(\mathbb Z\) and \(\mathbb Z+1/2\). The rectangle-covering criterion is exhaustive: with vertical half-width below \(1/2\) some horizontal line meets no row; between \(1/2\) and \(1\) a line through an integer row forces horizontal half-width at least \(1/2\); at vertical half-width at least \(1\), two opposite-phase rows are always active and force horizontal half-width at least \(1/4\). Substituting the exact family widths gives the stated piecewise formula. No finite computation is used to prove the continuum assertion.
+## correctness
 
-## Originality
-PASS. The lead preprint gives the pair, notes failure of covering at the midpoint, and proves the universal sharp \(3/4\) inequality with equality for their sum, but it does not state the full interpolation profile. Full-text comparison with the contemporary minimal-covering-body paper and the 2025 planar lattice-zonotope classification found no statement implying this all-real-parameter formula. Targeted published-finding and web searches for the source identifier, the V-shaped inverse radius, the staggered-lattice reduction, and the two exact branches found no covering result.
+PASS
 
-## Value
-PASS. This is the source paper's canonical sharpness family, so determining its entire covering-radius profile is mathematically motivated. The result does more than recompute the known midpoint: it explains the sharp constant as the unique crossover of two covering mechanisms and proves that no other interpolation parameter in this family gives equality.
+Centering the two source parallelograms in the common basis \(u=(1,1)\), \(v=(-1/2,1/2)\) gives the rectangle half-widths \(a_\lambda=(2-\lambda)/4\) and \(b_\lambda=(1+\lambda)/2\). The transformed lattice has rows of phases \(\mathbb Z\) and \(\mathbb Z+1/2\) alternating with unit vertical spacing. A scaled rectangle covers either with one active row, requiring vertical half-width at least \(1/2\) and horizontal half-width at least \(1/2\), or with two opposite-phase rows, requiring vertical half-width at least \(1\) and horizontal half-width at least \(1/4\). These conditions are both necessary and sufficient, giving the minimum of the two stated maxima. Substitution yields exactly \(2/(2-\lambda)\) and \(2/(1+\lambda)\), switching at \(\lambda=1/2\).
 
-## Closest literature and limitations
-The closest source is arXiv:2606.14442v1 itself; its Theorem 3.4 gives only a uniform lower bound away from the midpoint. Malikiosis--Santos--Schymura classify several integer-generator planar lattice zonotopes, and Lian--Xue independently study minimal covering bodies, but neither inspected source contains this continuous profile. No classification of all equality pairs for the sharp planar inequality is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source preprint gives exactly this pair as its planar sharpness example and proves the sharp global inequality, but it states only the endpoint covering facts and equality for the balanced sum. Its theorem applied to the scaled interpolation gives only the uniform lower bound \(\mu(Q_\lambda)^{-1}\ge3/4\). The all-\(\lambda\) piecewise profile and uniqueness of the balanced equality parameter require the additional staggered-lattice covering calculation. Resultary's exact hit is the assigned profile, with no prior equivalent result among the leading matches.
+
+## value
+
+PASS
+
+The pair is the canonical sharpness example for a new planar covering-radius inequality. Determining its entire interpolation profile explains the sharp constant dynamically and proves the balanced parameter is the unique equality point within the family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

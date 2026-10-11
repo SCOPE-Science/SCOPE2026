@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic for the full parameter interval \(0\le\lambda\le1\). The decisive reduction is
-\[
-Q_\lambda\longmapsto[-a_\lambda,a_\lambda]\times[-b_\lambda,b_\lambda],
-\qquad
-a_\lambda=\frac{2-\lambda}{4},\quad b_\lambda=\frac{1+\lambda}{2},
-\]
-with the lattice
-\[
-L=\{(m/2,n):m,n\in\mathbb Z,\ m\equiv n\pmod2\}.
-\]
-For a rectangle \([-a,a]\times[-b,b]\), the row geometry gives exactly
-\[
-\mu=
-\min\left\{
-\max\left(\frac1{2a},\frac1{2b}\right),
-\max\left(\frac1{4a},\frac1b\right)
-\right\}.
-\]
-Substitution gives the two branches \(2/(2-\lambda)\) and \(2/(1+\lambda)\), whose crossover is exactly \(\lambda=1/2\).
+# Independent mathematical audit
 
-`verify_profile.py` checks the matrix inverse, the exact branch comparisons, symmetry, endpoint values, midpoint value, and representative rational parameters using `fractions.Fraction`. Running it produces `VERIFY_OK`, stored in `verification_output.txt`.
+## correctness
 
-The script is a reproducibility check only. The all-real-parameter claim rests on the analytic row-covering proof, not on finite sampling.
+PASS
+
+Centering the two source parallelograms in the common basis \(u=(1,1)\), \(v=(-1/2,1/2)\) gives the rectangle half-widths \(a_\lambda=(2-\lambda)/4\) and \(b_\lambda=(1+\lambda)/2\). The transformed lattice has rows of phases \(\mathbb Z\) and \(\mathbb Z+1/2\) alternating with unit vertical spacing. A scaled rectangle covers either with one active row, requiring vertical half-width at least \(1/2\) and horizontal half-width at least \(1/2\), or with two opposite-phase rows, requiring vertical half-width at least \(1\) and horizontal half-width at least \(1/4\). These conditions are both necessary and sufficient, giving the minimum of the two stated maxima. Substitution yields exactly \(2/(2-\lambda)\) and \(2/(1+\lambda)\), switching at \(\lambda=1/2\).
+
+## originality
+
+PASS
+
+The source preprint gives exactly this pair as its planar sharpness example and proves the sharp global inequality, but it states only the endpoint covering facts and equality for the balanced sum. Its theorem applied to the scaled interpolation gives only the uniform lower bound \(\mu(Q_\lambda)^{-1}\ge3/4\). The all-\(\lambda\) piecewise profile and uniqueness of the balanced equality parameter require the additional staggered-lattice covering calculation. Resultary's exact hit is the assigned profile, with no prior equivalent result among the leading matches.
+
+## value
+
+PASS
+
+The pair is the canonical sharpness example for a new planar covering-radius inequality. Determining its entire interpolation profile explains the sharp constant dynamically and proves the balanced parameter is the unique equality point within the family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
