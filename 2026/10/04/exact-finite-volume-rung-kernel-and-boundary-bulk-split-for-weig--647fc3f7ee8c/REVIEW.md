@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim reduces the weighted rung transfer-current matrix to \(2cB_n^{-1}\), where \(B_n\) is an explicitly stated symmetric tridiagonal difference-mode matrix. Its determinant recurrence and inverse minors are reconstructed in closed form, and substitution of \(2c=(1-\alpha)^2/\alpha\) gives the displayed kernel. The transfer-current theorem then supplies all joint inclusion determinants, while the covariance, marginal monotonicity, and two thermodynamic limits follow algebraically. Exact rational enumeration for all rung subsets through \(n=5\) at three independent rung weights agrees with the formula.
+PASS
 
-## Originality
+The rung-current reduction was reconstructed from electrical antisymmetry: one unit injected across rung \(j\) gives the difference-mode system \(B_nd=2e_j\), hence the rung kernel is \(2cB_n^{-1}\). Solving the endpoint-modified tridiagonal recurrence gives the stated leading minors and determinant; the standard inverse formula then simplifies to the displayed \(\alpha\)-kernel. Independent direct matrix inversion for sizes through ten and multiple positive weights matched every entry. Transfer-current principal minors give the joint law, and the covariance and boundary/bulk limits follow directly. The finite checks supplement, rather than replace, the all-size recurrence proof.
 
-**PASS, narrowly scoped.** Panova--Wilson gives general exact spanning-tree probability machinery in primary MSC \(82B20\). Klenke's full text gives the infinite stationary simple-ladder kernel \(\rho\alpha^{|i-j|}\), the finite weighted tree count, and an infinite-network electrical proof. Lyons--Peres gives the finite unweighted endpoint marginal sequence and its limit. Those results are explicitly credited. Searches for the finite weighted rung kernel, finite transfer-current boundary correction, rung covariance, and finite-volume determinantal formula did not locate the exact statement. The accepted originality claim is only the closed finite-volume kernel and the exact reconciliation of endpoint and bulk limits.
+## originality
 
-Residual risk: an equivalent finite formula may occur in notes, exercises, or literature not indexed by the searches. The result should therefore be cited as an exact derived finite-volume identity rather than as a priority claim about all literature.
+PASS
 
-## Value
+The closest ladder source was inspected at its finite weighted counting and infinite stationary determinantal results. Klenke gives the infinite rung kernel \(\rho\alpha^{|i-j|}\) and finite total tree-weight recurrences, while Lyons--Peres give the unweighted endpoint sequence and limit. Burton--Pemantle supplies the general transfer-current theorem. None of the inspected sources states an algebraically equivalent finite non-Toeplitz rung kernel with both endpoint factors, all finite joint rung probabilities, or the simultaneous endpoint-versus-bulk limits. Fresh Resultary and web searches did not locate such a statement.
 
-**PASS.** This is not a single numerical special case: it gives the full \(n\times n\) rung kernel for every finite size and every common positive rung weight, hence every joint rung inclusion probability. It also exposes a finite-size boundary effect that cleanly reconciles two different familiar constants in the unweighted ladder, \(\sqrt3-1\) at a fixed endpoint and \(1/\sqrt3\) in the bulk. The formula is directly reusable for finite-size statistical-mechanics calculations, covariance estimates, and checks of simulations.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+This is a natural complete finite-volume invariant of a canonical weighted spanning-tree model: one formula gives every rung marginal, covariance and higher inclusion determinant for every size and common positive rung weight. The nonstationary boundary factors explain why the classical endpoint limit \(\sqrt3-1\) differs from the infinite bulk density \(1/\sqrt3\). That complete finite joint law is more than a single textbook effective-resistance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

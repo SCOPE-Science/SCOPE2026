@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:54:37.675168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0a8d0ed37ff81c4efe4b6dabc8b303d867304530",
+        "verify_ladder_kernel.py blob 840a7055277d875d2df9338b652e3db6f5ce14b7",
+        "independent direct inverse checks for sizes through ten and five rung weights"
+      ],
+      "rationale": "The rung-current reduction was reconstructed from electrical antisymmetry: one unit injected across rung \\(j\\) gives the difference-mode system \\(B_nd=2e_j\\), hence the rung kernel is \\(2cB_n^{-1}\\). Solving the endpoint-modified tridiagonal recurrence gives the stated leading minors and determinant; the standard inverse formula then simplifies to the displayed \\(\\alpha\\)-kernel. Independent direct matrix inversion for sizes through ten and multiple positive weights matched every entry. Transfer-current principal minors give the joint law, and the covariance and boundary/bulk limits follow directly. The finite checks supplement, rather than replace, the all-size recurrence proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General transfer-current theory implies that a finite spanning-tree edge process is determinantal but does not state the ladder-specific inverse in closed form.",
+          "The later biased-walk paper uses the two-sided infinite weighted ladder and its renewal environment rather than a finite two-boundary kernel."
+        ],
+        "reasoning": "The broader theorems provide machinery or limiting laws; obtaining the exact finite common-rung-weight Green function requires the model-specific tridiagonal inversion and does not follow as a named special case with the final formula already supplied.",
+        "searches": [
+          "Burton--Pemantle transfer-current theorem",
+          "Gantert--Klenke 2023 infinite weighted ladder model",
+          "Klenke 2017 finite count and infinite rung process"
+        ]
+      },
+      "checked_sources": [
+        "Klenke, The Random Spanning Tree on Ladder-like Graphs, arXiv:1704.00182",
+        "Lyons and Peres, Probability on Trees and Networks, DOI:10.1017/9781316672815",
+        "Burton and Pemantle, Local Characteristics, Entropy and Limit Theorems for Spanning Trees and Domino Tilings Via Transfer-Impedances, DOI:10.1214/aop/1176989121",
+        "Gantert and Klenke, Biased Random Walk on Spanning Trees of the Ladder Graph, DOI:10.1007/s10955-023-03091-w",
+        "Resultary semantic search: finite weighted ladder spanning tree rung determinantal kernel boundary bulk transfer current"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent matrix inversion for \\(1\\le n\\le10\\) and five positive rung weights matched the displayed closed formula to machine precision.",
+          "The exact recurrence yields the two factors \\((1+\\alpha^{2i-1})(1+\\alpha^{2(n-j)+1})\\), which disappear in the stationary bulk limit.",
+          "The formula simultaneously recovers the known endpoint limit and Klenke's infinite bulk density."
+        ],
+        "reasoning": "Prior general machinery does not print the finite answer; the explicit boundary Green function and complete finite rung DPP are the surviving original claim.",
+        "searches": [
+          "derive the rung transfer-current block as \\(2cB_n^{-1}\\)",
+          "solve the endpoint-modified tridiagonal determinant recurrence",
+          "compare endpoint and bulk limits with Lyons--Peres and Klenke"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klenke's infinite simple-ladder kernel is stationary and geometric.",
+          "The audited finite kernel contains two explicit boundary factors and is not the stationary kernel.",
+          "Lyons--Peres list the first unweighted endpoint probabilities and the limit \\(\\sqrt3-1\\), not the full weighted finite joint law."
+        ],
+        "reasoning": "Equivalent formulations via transfer impedance, Green functions, rung renewal laws and determinantal kernels were checked; no finite-volume formula matching the audited matrix was found.",
+        "searches": [
+          "arXiv:1704.00182 full text: simple-ladder determinantal kernel and finite counting",
+          "DOI:10.1017/9781316672815 ladder example",
+          "Resultary query: finite weighted ladder spanning tree rung determinantal kernel boundary bulk transfer current"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known unweighted endpoint sequence \\(1,3/4,11/15,41/56,\\ldots\\) is reproduced but is only one diagonal entry.",
+          "No exact database/table of all finite weighted kernel entries or joint rung probabilities was located."
+        ],
+        "reasoning": "The audited result strictly extends a familiar one-marginal table to an all-size, all-common-weight joint law.",
+        "searches": [
+          "Lyons--Peres finite unweighted ladder endpoint probabilities",
+          "search for finite ladder rung inclusion covariance exact kernel",
+          "Resultary search for the displayed boundary-corrected kernel"
+        ]
+      },
+      "rationale": "The closest ladder source was inspected at its finite weighted counting and infinite stationary determinantal results. Klenke gives the infinite rung kernel \\(\\rho\\alpha^{|i-j|}\\) and finite total tree-weight recurrences, while Lyons--Peres give the unweighted endpoint sequence and limit. Burton--Pemantle supplies the general transfer-current theorem. None of the inspected sources states an algebraically equivalent finite non-Toeplitz rung kernel with both endpoint factors, all finite joint rung probabilities, or the simultaneous endpoint-versus-bulk limits. Fresh Resultary and web searches did not locate such a statement.",
+      "residual_risks": [
+        "The finite formula uses standard transfer-current and tridiagonal Green-function tools, so an equivalent unpublished exercise or differently normalized formula could exist.",
+        "The originality claim is only the explicit finite-volume common-rung-weight kernel and boundary/bulk reconciliation, not the general determinantal theorem or infinite stationary kernel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INFINITE_KERNEL_AND_FINITE_COUNT_NOT_FINITE_KERNEL",
+          "evidence": "The paper states the stationary geometric rung kernel and finite counting ingredients, but no inspected statement gives the audited finite two-boundary matrix.",
+          "identifier_or_url": "arXiv:1704.00182",
+          "material_read": "Full text portions giving the simple-ladder weighted parameterization, stationary infinite determinantal rung kernel, finite ladder counting recurrence/total weight, and electrical-network derivations.",
+          "method": "lawful open full-text inspection",
+          "title": "The Random Spanning Tree on Ladder-like Graphs",
+          "trigger": "Closest direct ladder source."
+        },
+        {
+          "assessment": "ONE_MARGINAL_LIMIT_ONLY",
+          "evidence": "It records the endpoint sequence and limit but not the weighted full kernel or joint determinantal law.",
+          "identifier_or_url": "DOI:10.1017/9781316672815",
+          "material_read": "Official/free chapter excerpt listing the bottom-rung probabilities \\(1,3/4,11/15,41/56\\) and their limit \\(\\sqrt3-1\\).",
+          "method": "lawful author/publisher full-text excerpt",
+          "title": "Probability on Trees and Networks",
+          "trigger": "Classical finite unweighted ladder endpoint example."
+        },
+        {
+          "assessment": "GENERAL_MACHINERY_NOT_EXPLICIT_LADDER_EVALUATION",
+          "evidence": "It establishes the general determinantal framework but not the audited closed finite ladder Green function.",
+          "identifier_or_url": "DOI:10.1214/aop/1176989121",
+          "material_read": "The transfer-current determinantal theorem as cited/reproduced in the inspected ladder literature and bibliographic primary record.",
+          "method": "primary theorem comparison",
+          "title": "Local Characteristics, Entropy and Limit Theorems for Spanning Trees and Domino Tilings Via Transfer-Impedances",
+          "trigger": "Foundational transfer-current coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Klenke 2017",
+        "Lyons--Peres",
+        "Burton--Pemantle",
+        "independent finite-matrix reconstruction"
+      ],
+      "rationale": "This is a natural complete finite-volume invariant of a canonical weighted spanning-tree model: one formula gives every rung marginal, covariance and higher inclusion determinant for every size and common positive rung weight. The nonstationary boundary factors explain why the classical endpoint limit \\(\\sqrt3-1\\) differs from the infinite bulk density \\(1/\\sqrt3\\). That complete finite joint law is more than a single textbook effective-resistance calculation.",
+      "residual_risks": [
+        "The method is standard enough that priority should remain narrowly phrased around the explicit finite formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The finite formula uses standard transfer-current and tridiagonal Green-function tools, so an equivalent unpublished exercise or differently normalized formula could exist.",
+    "The originality claim is only the explicit finite-volume common-rung-weight kernel and boundary/bulk reconciliation, not the general determinantal theorem or infinite stationary kernel."
+  ],
+  "schema_version": 1
+}
