@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic. The accompanying `verify.py` performs independent arithmetic checks of the formulas used in the statement.
+## correctness
 
-It verifies exactly that the first-cell coefficient is \(8/105\), evaluates the exact polynomial cell-integral formula at high precision, confirms the convergent coefficient \(C\) lies in the stated decimal interval, and checks numerically that \(j^6c_j\) and the scaled energy tail approach the proved constants \(1/196830\) and \(1/984150\).
+PASS
 
-The numerical checks do not replace the infinite proof. Convergence of the series follows from the analytic \(O(j^{-6})\) bound, and the sharp correction follows from the uniform Taylor expansion \(c_j=rac1{196830}j^{-6}+O(j^{-7})\).
+On cell x=(j+s)/n, u_n=n^(-1/3)p_j and u_n'=n^(2/3)d_j, so the defect-square, derivative-sixth-power and dx factors combine to exactly n c_j. The chord error for t^(1/3) gives c_j=O(j^-6). Expanding d_j and p_j^3-(j+s) uniformly gives d_j^6=(1/729)j^-4(1+O(j^-1)) and defect=s(s-1)/(3j)+O(j^-2), hence c_j=(1/196830)j^-6+O(j^-7). The p-series tail then gives the stated n^-4 correction. The exact first cell is 8/105. The bundled high-precision verifier independently matches C and the asymptotic constants but is only corroborative.
+
+## originality
+
+PASS
+
+Prior work already covers the divergence phenomenon and even matching finite-mesh values, but the exact all-cell decomposition, convergent coefficient C, and sharp tail term were not found and are not implied by those prior statements.
+
+## value
+
+PASS
+
+The exact growth law quantifies a canonical finite-element manifestation of the Lavrentiev gap beyond the already-known fact of divergence. The coefficient and tail provide a natural benchmark for numerical schemes and explain the published finite-mesh values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
