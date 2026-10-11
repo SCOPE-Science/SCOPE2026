@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:00:21Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob d591729a05cecbc28f0e6d818045960cd64f310d",
+        "verify.py blob 544b5c327a119d351512d34b33a71af3ec221f14",
+        "Fresh exact Fubini/Stirling computation through n=80.",
+        "Cameron--Gewurz--Merola, Product action, Discrete Mathematics 308 (2008), DOI:10.1016/j.disc.2006.11.054.",
+        "Cameron--Prellberg--Stark, EJC 13 (2006) R85, DOI:10.37236/1111."
+      ],
+      "rationale": "Cameron--Gewurz--Merola's product-action formalism gives all-tuple orbit count F_n^d and inverse Stirling transform for distinct tuples; weak orders give the same model directly. For d>=3, a prescribed pair is tied in all coordinates with probability (F_{n-1}/F_n)^d, so the expected number of common-tie pairs is asymptotic to (log 2)^d n^(2-d)/2. Any two distinct pair events, overlapping or disjoint, collapse exactly two degrees of freedom and have probability (F_{n-2}/F_n)^d; summing O(n^4) such intersections is o(n^(2-d)). Bonferroni therefore gives the stated first deficit. A fresh exact Stirling replay through n=80 produced scaled deficits approaching the constants for d=3,4,5. The d=2 constant is the prior incidence-matrix asymptotic.",
+      "risks": [
+        "Dimension d is fixed as n tends to infinity; no uniform growing-d regime is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Product action gives the exact enumeration machinery for A×A and its iterated-product setting.",
+          "Asymptotics for Incidence Matrix Classes gives the critical d=2 asymptotic only."
+        ],
+        "reasoning": "These sources supply the exact counts and critical case, but do not dominate the d>=3 asymptotic.",
+        "searches": [
+          "Cameron--Gewurz--Merola DOI:10.1016/j.disc.2006.11.054",
+          "Cameron--Prellberg--Stark DOI:10.37236/1111"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "DOI:10.1016/j.disc.2006.11.054",
+        "DOI:10.37236/1111",
+        "Braunfeld arXiv:1710.05138"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact formula plus the standard ordered-Bell asymptotic makes the question accessible but does not itself state the rare-event estimate; controlling multiple common ties is the additional step.",
+          "The d=2 incidence theorem has a nonvanishing collision density and cannot be extrapolated to d>=3 by parameter substitution."
+        ],
+        "reasoning": "The Bonferroni argument supplies a distinct higher-dimensional implication and its exact first constant.",
+        "searches": [
+          "Full Product action preprint, especially the A×A example and general direct-product orbit formula",
+          "Incidence-matrix asymptotic paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No separate Resultary finding with the d>=3 deficit constant appeared.",
+          "The primary Product action paper contains exact orbit correspondences and weak-order formulas but no higher-dimensional asymptotic statement in the inspected full text."
+        ],
+        "reasoning": "Weak-order meet, product-action orbit, labelled incidence-array and common-tie formulations were checked.",
+        "searches": [
+          "Resultary: ordered Bell product action injective tuple orbit collision asymptotic dimension three weak orders",
+          "Searches for d-tuples of weak orders with discrete meet asymptotics",
+          "Searches for higher-dimensional ordered incidence arrays collision probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The d=2 set-orbit sequence is classical; no indexed d=3 first-deficit asymptotic was found."
+        ],
+        "reasoning": "Novelty is not assigned to the exact d=2 sequence or exact Stirling formula, only to the higher-dimensional asymptotic.",
+        "searches": [
+          "Resultary exact d=3 sequence/asymptotic search",
+          "OEIS/product-action sequence searches"
+        ]
+      },
+      "rationale": "The exact product-action orbit formulas are prior work and are not claimed as new. Cameron--Gewurz--Merola's full preprint explicitly discusses A, A×A, A×A×A,... and the weak-order/Stirling machinery; Cameron--Prellberg--Stark supply the d=2 incidence-matrix asymptotic. Neither inspected source states the d>=3 rare-common-tie asymptotic or phase-transition law. Resultary searches found no equivalent higher-dimensional first-deficit theorem.",
+      "residual_risks": [
+        "The d>=3 estimate is a short rare-event consequence once the exact product model is recognized; an unindexed combinatorics note may have observed it.",
+        "No claim of novelty is made for the exact orbit formulas or d=2 constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OWNS_EXACT_ENUMERATION_FRAMEWORK_NOT_HIGHER_DIMENSIONAL_COLLISION_ASYMPTOTIC",
+          "evidence": [
+            "The preprint states that all-tuple orbits multiply under product action and develops weak-order/Stirling enumeration for A×A."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.disc.2006.11.054",
+          "material_read": "Full author-hosted preprint, including the product-action section, Stirling transform/inversion, and the A×A example discussing A, A×A, A×A×A,..., weak orders, matrices and ordered partitions.",
+          "method": "Public full-PDF text and rendered-page inspection.",
+          "title": "Product action",
+          "trigger": "Direct prior source for exact tuple-orbit formulas."
+        },
+        {
+          "assessment": "CRITICAL_D2_CASE_ONLY",
+          "evidence": [
+            "The paper derives asymptotics for incidence-matrix classes with n ones; this supplies the d=2 constant used as prior work."
+          ],
+          "identifier_or_url": "DOI:10.37236/1111; arXiv:math/0510155",
+          "material_read": "Primary abstract/article scope describing zero-one incidence matrices with n ones and their asymptotics; compared with the d=2 matrix correspondence in Product action.",
+          "method": "Publisher/arXiv primary-source inspection.",
+          "title": "Asymptotics for Incidence Matrix Classes",
+          "trigger": "Exact d=2 critical asymptotic source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete fixed-d phase description at d=1,2 and d>=3; new contribution isolated to the d>=3 first deficit and phase interpretation."
+      ],
+      "rationale": "The theorem gives the sharp first collision scale across the full fixed-dimensional family and identifies d=2 as the unique critical dimension. The invariant is natural in oligomorphic product actions and weak-order intersections, and the explicit d>=3 constant is useful for comparing asymptotic orbit geometry.",
+      "risks": [
+        "The proof is short and does not address second-order corrections or growing dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the d-fold ordered full product, the injective-to-all ordered-tuple orbit ratio has a dimension-two collision transition: it tends to exp(-(log 2)^2/2) for d=2, while for every fixed d>=3 its deficit is asymptotic to (log 2)^d/(2 n^(d-2)).",
+  "limitations": [
+    "Fixed dimension as n grows.",
+    "Exact product-action formulas and d=2 asymptotic are prior work."
+  ],
+  "schema_version": 1
+}

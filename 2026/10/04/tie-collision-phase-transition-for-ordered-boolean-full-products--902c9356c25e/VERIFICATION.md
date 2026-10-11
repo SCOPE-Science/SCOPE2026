@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The bundled `verify.py` uses only the Python standard library. It computes ordered Bell numbers, signed and unsigned Stirling tables, the all-tuple profile \(T_d(n)=F_n^d\), and the inverse-Stirling injective profile \(I_d(n)\).
+# Independent mathematical audit
 
-It verifies the forward Stirling transform for \(d\le5\), checks \(I_1(n)=n!\), and reproduces OEIS A101370 exactly from \(I_2(n)/n!\) through ten terms. It records the first ten \(d=3\) set-orbit values. As an independent finite route, it generates every weak order as a surjective rank vector for \(n\le4\), forms all Cartesian powers for \(d\le3\), tests directly whether any pair of indices is tied in all coordinates, and checks that these direct counts equal the inverse-Stirling formula.
+## correctness
 
-Finally, for \(d=2,3,4,5\) it prints numerical ratios or scaled deficits through \(n=30\), showing the expected approach to \(e^{-(\log2)^2/2}\) at \(d=2\) and to \((\log2)^d/2\) after multiplying the \(d\ge3\) deficit by \(n^{d-2}\). These numerical checks are not used as a proof of the asymptotic theorem; that proof is the Bonferroni calculation in `RESULT.md`.
+PASS
 
-Replay command: `python3 verify.py`. Expected final line: `VERIFY_OK`.
+Cameron--Gewurz--Merola's product-action formalism gives all-tuple orbit count F_n^d and inverse Stirling transform for distinct tuples; weak orders give the same model directly. For d>=3, a prescribed pair is tied in all coordinates with probability (F_{n-1}/F_n)^d, so the expected number of common-tie pairs is asymptotic to (log 2)^d n^(2-d)/2. Any two distinct pair events, overlapping or disjoint, collapse exactly two degrees of freedom and have probability (F_{n-2}/F_n)^d; summing O(n^4) such intersections is o(n^(2-d)). Bonferroni therefore gives the stated first deficit. A fresh exact Stirling replay through n=80 produced scaled deficits approaching the constants for d=3,4,5. The d=2 constant is the prior incidence-matrix asymptotic.
+
+## originality
+
+PASS
+
+The exact product-action orbit formulas are prior work and are not claimed as new. Cameron--Gewurz--Merola's full preprint explicitly discusses A, A×A, A×A×A,... and the weak-order/Stirling machinery; Cameron--Prellberg--Stark supply the d=2 incidence-matrix asymptotic. Neither inspected source states the d>=3 rare-common-tie asymptotic or phase-transition law. Resultary searches found no equivalent higher-dimensional first-deficit theorem.
+
+## value
+
+PASS
+
+The theorem gives the sharp first collision scale across the full fixed-dimensional family and identifies d=2 as the unique critical dimension. The invariant is natural in oligomorphic product actions and weak-order intersections, and the explicit d>=3 constant is useful for comparing asymptotic orbit geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
