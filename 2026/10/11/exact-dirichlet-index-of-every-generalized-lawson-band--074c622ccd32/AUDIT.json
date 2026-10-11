@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The source's separated operator has H=1+(4k^2-1)sin^2(x), b=1/H and weight sqrt(2H). For n=2k-1, direct differentiation gives L(sin x)/sin x = [(2k-1)(2k+1)(4k-1)sin^2(x)+8k^2+4k-1]/H^2, which is strictly positive for k>=1; integration by parts therefore gives a negative Dirichlet Rayleigh value. Monotonicity in n^2 makes all smaller positive odd modes negative as well. At n=2k+1 the positive function u_+=[1+(2k-1)sin^2(x)]/sqrt(H) solves L u_+=0 exactly. The ground-state transform expresses the Dirichlet energy as the integral of sqrt(2H) u_+^2 |(f/u_+)'|^2, strictly positive for nonzero Dirichlet f; higher odd modes are even more positive. Combining this exact sign threshold with the source's proved parity/nodal reduction leaves precisely k negative odd frequencies, each of multiplicity two, and only the n=0 Jacobi null mode.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Morozov-Penskoi explicitly compute the closed Klein bottle tau_{2,1} and state that other tau-surfaces require separate treatment.",
+        "Literature on generalized or bipolar Lawson surfaces located by search concerns extremal Laplace-Beltrami metrics rather than the Dirichlet Jacobi spectrum of the half-bands.",
+        "The primary paper itself treats the exact Dirichlet problem and still records only the first two values, which rules out coverage by the source's cited standard results."
+      ],
+      "reasoning": "Closed-surface index formulas and Laplace-Beltrami extremality do not imply the boundary-fixed odd-sector Dirichlet index. The new theorem depends on the boundary-mode threshold specific to the band.",
+      "searches": [
+        "Lawson surfaces tau 1 2k index nullity",
+        "Morse index Lawson Klein bottles general tau 2k 1",
+        "indices of Lawson tau surfaces 2k 1",
+        "Morse index generalized Lawson band minimal surface S3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00247v1",
+      "Russian Mathematical Surveys 78 (2023), 396-398",
+      "SIGMA 12 (2016), 009 on generalized and bipolar Lawson surfaces",
+      "Targeted published-literature searches for generalized Lawson bands, bar tau_{1,2k}, Dirichlet Morse index, nullity, and the 2k±1 Fourier threshold"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition B.1 bounds ind_D+null_D and proves exact values only for bar tau_{1,2} and bar tau_{1,4}.",
+        "The source proves that only the lowest radial state in each admissible odd mode can contribute, but does not determine its sign for all k.",
+        "Morozov-Penskoi's theorem is for the closed Lawson Klein bottle tau_{2,1}, with a different periodic spectral problem."
+      ],
+      "reasoning": "The prior source reduces the all-k problem to signs of finitely many one-dimensional ground states but does not settle those signs. The two explicit comparison functions in the new proof supply exactly that missing implication.",
+      "searches": [
+        "arXiv:2610.00247 Proposition B.1 generalized Lawson bands",
+        "Morozov Penskoi Index of minimal surfaces in the 3-sphere tau 2,1",
+        "generalized Lawson bands exact index 2k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper's Appendix B states only a general index-plus-nullity bound, nullity in {1,3}, and exact k=1 and k=2 cases.",
+        "Searches using the exact 2k index formula, bar-tau notation, generalized-Lawson-band language, and radial-threshold language produced no equivalent published statement.",
+        "The closest indexed findings returned by semantic search concern unrelated algebraic or spectral problems and do not share the geometric object."
+      ],
+      "reasoning": "An equivalent formulation would determine the sign of every admissible Fourier ground state or otherwise imply exact index 2k and nullity 1 for every k. Neither the inspected primary source nor the targeted search results provide that implication.",
+      "searches": [
+        "generalized Lawson band tau 1 2k Dirichlet Morse index exact 2k",
+        "Lawson tau_1,2k half band Dirichlet Morse index 2k nullity 1",
+        "generalized Lawson band Sturm Liouville 2k+1 Neumann Jacobi",
+        "\"generalized Lawson bands\" \"index\" \"nullity\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed finding or search result contained the formula ind_D(bar tau_{1,2k})=2k for arbitrary k.",
+        "No checked result contained the exact transition between the 2k-1 and 2k+1 Fourier modes.",
+        "The primary source gives a table-free analytic bound and only two exact instances."
+      ],
+      "reasoning": "There is no located table or database from which the all-k formula follows by lookup. The exact symbolic fingerprints of the theorem were absent from the checked records.",
+      "searches": [
+        "arXiv 2610.00247 generalized Lawson band index",
+        "Minimal equatorial fillings generalized Lawson bands exact Dirichlet index nullity tau 1 2k",
+        "Dirichlet index Lawson band minimal surface S3"
+      ]
+    },
+    "rationale": "The primary 2026 paper derives the same separated family but stops at a general upper bound and exact calculations for k=1 and k=2. Its full text does not state the all-k index 2k/nullity 1 formula or the 2k±1 sign threshold. The 2023 Morozov-Penskoi result concerns the closed Lawson Klein bottle tau_{2,1}, not the Dirichlet half-band family. Targeted indexed and web searches for the exact family, formula, aliases, and separated-mode threshold found no covering statement.",
+    "residual_risks": [
+      "A later or differently indexed computation of the same half-band Dirichlet spectrum could exist under notation not captured by the searches.",
+      "The theorem uses the primary paper's mode-reduction lemma; an error in that published reduction would affect the count, although the new threshold identities themselves are independently checked.",
+      "The result does not address the periodic closed-surface spectrum for arbitrary Lawson tau-surfaces."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: it supplies the reduction needed here but states only nullity in {1,3}, an all-k upper bound, and exact cases k=1 and k=2.",
+        "evidence": "Appendix B explicitly says the generalized bands satisfy a bound, then separately computes bar tau_{1,2} and bar tau_{1,4}; the proof ends the general analysis at a frequency cutoff rather than an exact sign classification.",
+        "identifier_or_url": "arXiv:2610.00247v1",
+        "material_read": "Full text, especially Appendix B: Proposition B.1; parameterization of the oriented double cover; coefficients a_k, b_k, V_k and w_k; Fourier parity rule; the n=0 null Jacobi field; exclusion of even modes; odd-mode nodal reduction; n=1 eigenfunction; the general frequency cutoff; the k=1 exact calculation; and the computer-assisted k=2 calculation.",
+        "method": "Full-text arXiv HTML inspection with line-level review of the separated spectral argument.",
+        "title": "Minimal equatorial fillings of low index",
+        "trigger": "Primary recent paper introducing the exact generalized-Lawson-band Dirichlet Sturm-Liouville family and leaving only bounds beyond k=2."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: it computes the closed tau_{2,1} index and nullity; it does not state the boundary-fixed generalized-band formula.",
+        "evidence": "The article states ind(tau_{2,1})=7 and null(tau_{2,1})=5 and notes that other tau_{m,k} require separate consideration.",
+        "identifier_or_url": "Russian Mathematical Surveys 78 (2023), 396-398",
+        "material_read": "Published article page and theorem text identifying the closed Lawson Klein bottle tau_{2,1} as the treated tau-surface and describing its periodic separated spectral problem.",
+        "method": "Publisher-indexed article text and bibliographic page inspection.",
+        "title": "Index of minimal surfaces in the 3-sphere",
+        "trigger": "Closest named prior index computation for Lawson tau-surfaces cited by the primary paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "074c622c-cd32-4e8b-9e0b-49b3a56c1cbf",
+  "value": {
+    "rationale": "The primary paper singles out the generalized Lawson bands as a canonical explicit family, derives their separated stability problem, and computes only the first two exact indices. The all-k formula converts the source's upper bound into a complete spectral count and shows exact linear index growth. The threshold proof is structural rather than a table extension: one rotational Jacobi profile identifies the first positive odd mode for every k, while one universal test function identifies the last negative odd mode. This exact family is directly relevant to the source's broader program on low-index equatorial fillings and index growth.",
+    "status": "PASS"
+  }
+}
