@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exponent classification was reconstructed from the definitions and Euler's totient factorization. The two residue obstructions used in the density calculation are distinct for every prime, and the convergent reciprocal-square tail justifies passing from finite CRT densities to the infinite Euler product. A standalone definition-level checker agreed with the criterion on 13005 exponent pairs and with all displayed two-prime-support OEIS terms through 135000. Finite checking is corroborative only.
+## correctness
 
-## Originality
-PASS. The original problem, OEIS sequence entry, a broad public mathematical solution, focused exact-phrase searches, fixed-support searches, and implication comparisons were checked. Prior material supplies the general exponent test and therefore covers the fixed-support classification after specialization. The originality PASS is based on the additional support-wise asymptotic and explicit Euler-product constants, which were not located in the inspected sources or implication searches. Residual risk remains from unindexed recreational derivations.
+PASS
 
-## Value
-PASS. The theorem converts an enumeration-oriented definition into a complete structural statement for a natural minimal support and determines not only existence but quantitative abundance. The dependence on the odd-exponent pattern of \(p-1\) gives a reusable support filter and explicit local-density law.
+For \(n=2^ap^b\), powerfulness and non-perfect-power reduce to \(a,b\ge2\) and \(\gcd(a,b)=1\). The totient has exponent vector \((a+t-1,b-1,c_1,\ldots,c_r)\), so its Achilles condition gives exactly \(b\ge3\), all \(c_j\ge2\), and the second gcd condition. For fixed \(p\), exponent pairs lie in a logarithmic triangle. At a prime \(\ell\nmid g\), only the residue pair \((0,0)\) is excluded; at \(\ell\mid g\), the distinct pair \((1-t,1)\) is additionally excluded, producing the stated Euler product. When the odd part is absent, both exclusions occur at every prime. A fresh computation of the universal product through primes below \(100000\) gave \(0.322634616605\), consistent with the submitted constant.
 
-## Closest literature and limitations
-The closest inspected material is the general exponent-vector treatment of Project Euler Problem 302 and OEIS A194085. The result is limited to exact support \(\{2,p\}\), keeps \(p\) fixed in the asymptotic, and makes no global-density or historical-priority claim beyond searched sources.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exponent-vector criterion is standard and is not credited as new. The originality-bearing part is the fixed-support existence criterion together with the support-wise \((\log X)^2\) asymptotic and explicit Euler-product constant. OEIS A194085 and Project Euler provide the sequence, definitions, benchmark counts and programs, while the inspected detailed solution explains general exponent bookkeeping; none states a fixed-prime support density. Resultary likewise found no stronger strong-Achilles support-wise theorem.
+
+## value
+
+PASS
+
+For a fixed support, exponent space is the natural way to analyze Achilles-type conditions. The theorem gives a complete existence criterion and a quantitative infinitude law with an explicit density constant, replacing raw sequence enumeration by a closed support-wise asymptotic. That is a natural classification/counting result for the stated arithmetic object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:14:05.499388Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 9926730a6434c585d3ec3615abb4a23a53686765",
+        "assigned verifier source blob 202a7e7bd0b0d81ef8a74a55f4a5cfcf6b8ca3be, inspected but not executed",
+        "Project Euler Problem 302",
+        "OEIS A194085",
+        "EulerSolve Problem 302 mathematical exposition"
+      ],
+      "rationale": "For \\(n=2^ap^b\\), powerfulness and non-perfect-power reduce to \\(a,b\\ge2\\) and \\(\\gcd(a,b)=1\\). The totient has exponent vector \\((a+t-1,b-1,c_1,\\ldots,c_r)\\), so its Achilles condition gives exactly \\(b\\ge3\\), all \\(c_j\\ge2\\), and the second gcd condition. For fixed \\(p\\), exponent pairs lie in a logarithmic triangle. At a prime \\(\\ell\\nmid g\\), only the residue pair \\((0,0)\\) is excluded; at \\(\\ell\\mid g\\), the distinct pair \\((1-t,1)\\) is additionally excluded, producing the stated Euler product. When the odd part is absent, both exclusions occur at every prime. A fresh computation of the universal product through primes below \\(100000\\) gave \\(0.322634616605\\), consistent with the submitted constant.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Project Euler defines strong Achilles numbers and gives global benchmark counts.",
+          "EulerSolve gives the general exponent criterion for Achilles numbers and totient exponent bookkeeping.",
+          "The Resultary Achilles asymptotic concerns ordinary Achilles numbers with a fixed number of varying prime factors, not strong Achilles numbers on a fixed support."
+        ],
+        "reasoning": "These broader sources motivate and partly imply the classification component, but do not determine the fixed-support strong-Achilles density constant.",
+        "searches": [
+          "Project Euler Problem 302",
+          "EulerSolve Problem 302",
+          "Resultary hit: Fixed-prime-factor asymptotics for Achilles numbers"
+        ]
+      },
+      "checked_sources": [
+        "https://projecteuler.net/problem=302",
+        "https://oeis.org/A194085",
+        "https://eulersolve.org/problem/302/",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The support classification follows readily after specializing known exponent bookkeeping and is not treated as independent novelty.",
+          "The two local gcd exclusions and their Euler product require an additional lattice-density argument not present in the inspected sources."
+        ],
+        "reasoning": "The final combined claim retains an originality-bearing asymptotic component not mechanically implied by the located prior materials.",
+        "searches": [
+          "comparison with EulerSolve's exponent-vector criterion",
+          "comparison with OEIS A194085 programs and table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent support-wise asymptotic was located.",
+          "Project Euler and OEIS record global counts/sequence data rather than a fixed-support law."
+        ],
+        "reasoning": "Support language, exponent-vector language and fixed-prime logarithmic lattice-count formulations were checked.",
+        "searches": [
+          "Resultary query: strong Achilles numbers fixed prime support 2^a p^b asymptotic density Euler product",
+          "web search: Strong Achilles Numbers asymptotic fixed support 2^a p^b Euler product",
+          "OEIS A194085 inspection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists strong Achilles numbers and programs, including the displayed prefix used for a finite check.",
+          "Neither OEIS nor Project Euler tabulates the support-wise asymptotic constant."
+        ],
+        "reasoning": "The finite sequence is known, but the claimed theorem is not a table recomputation; it is an asymptotic law on one fixed support.",
+        "searches": [
+          "OEIS A194085",
+          "Project Euler benchmark counts"
+        ]
+      },
+      "rationale": "The exponent-vector criterion is standard and is not credited as new. The originality-bearing part is the fixed-support existence criterion together with the support-wise \\((\\log X)^2\\) asymptotic and explicit Euler-product constant. OEIS A194085 and Project Euler provide the sequence, definitions, benchmark counts and programs, while the inspected detailed solution explains general exponent bookkeeping; none states a fixed-prime support density. Resultary likewise found no stronger strong-Achilles support-wise theorem.",
+      "residual_risks": [
+        "Strong Achilles numbers have substantial recreational-programming discussion, so an equivalent unindexed fixed-support density derivation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_BENCHMARKS_ONLY",
+          "evidence": "The page defines the object and reports counts below two global bounds; it contains no fixed-support asymptotic.",
+          "identifier_or_url": "https://projecteuler.net/problem=302",
+          "material_read": "Complete problem statement.",
+          "method": "Lawful public page inspection.",
+          "title": "Strong Achilles Numbers, Problem 302",
+          "trigger": "Original public problem defining strong Achilles numbers and giving benchmark counts."
+        },
+        {
+          "assessment": "FINITE_TABLE_NOT_ASYMPTOTIC",
+          "evidence": "The entry gives values/programs but no support-wise density or Euler-product law.",
+          "identifier_or_url": "https://oeis.org/A194085",
+          "material_read": "Complete current OEIS entry, including sequence prefix, links and definition-level programs.",
+          "method": "Lawful public database inspection.",
+          "title": "OEIS A194085",
+          "trigger": "Exact sequence/database most likely to contain finite or formula coverage."
+        },
+        {
+          "assessment": "GENERAL_CRITERION_NOT_FIXED_SUPPORT_DENSITY",
+          "evidence": "It supplies the exponent and totient bookkeeping that makes the classification component routine, but not the audited support-wise asymptotic.",
+          "identifier_or_url": "https://eulersolve.org/problem/302/",
+          "material_read": "Full mathematical-approach section exposed by the public page.",
+          "method": "Lawful public solution inspection.",
+          "title": "Problem 302: Strong Achilles Numbers",
+          "trigger": "Detailed public derivation of the general exponent conditions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Project Euler 302",
+        "OEIS A194085",
+        "EulerSolve exposition"
+      ],
+      "rationale": "For a fixed support, exponent space is the natural way to analyze Achilles-type conditions. The theorem gives a complete existence criterion and a quantitative infinitude law with an explicit density constant, replacing raw sequence enumeration by a closed support-wise asymptotic. That is a natural classification/counting result for the stated arithmetic object.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://projecteuler.net/problem=302",
+    "https://oeis.org/A194085",
+    "https://eulersolve.org/problem/302/",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only exact support \\(\\{2,p\\}\\) with fixed odd prime \\(p\\) is treated.",
+    "The asymptotic is not uniform in \\(p\\) and does not determine the global density of strong Achilles numbers."
+  ],
+  "residual_risks": [
+    "Strong Achilles numbers have substantial recreational-programming discussion, so an equivalent unindexed fixed-support density derivation may exist."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DEFINITION_AND_BENCHMARKS_ONLY",
+      "evidence": "The page defines the object and reports counts below two global bounds; it contains no fixed-support asymptotic.",
+      "identifier_or_url": "https://projecteuler.net/problem=302",
+      "material_read": "Complete problem statement.",
+      "method": "Lawful public page inspection.",
+      "title": "Strong Achilles Numbers, Problem 302",
+      "trigger": "Original public problem defining strong Achilles numbers and giving benchmark counts."
+    },
+    {
+      "assessment": "FINITE_TABLE_NOT_ASYMPTOTIC",
+      "evidence": "The entry gives values/programs but no support-wise density or Euler-product law.",
+      "identifier_or_url": "https://oeis.org/A194085",
+      "material_read": "Complete current OEIS entry, including sequence prefix, links and definition-level programs.",
+      "method": "Lawful public database inspection.",
+      "title": "OEIS A194085",
+      "trigger": "Exact sequence/database most likely to contain finite or formula coverage."
+    },
+    {
+      "assessment": "GENERAL_CRITERION_NOT_FIXED_SUPPORT_DENSITY",
+      "evidence": "It supplies the exponent and totient bookkeeping that makes the classification component routine, but not the audited support-wise asymptotic.",
+      "identifier_or_url": "https://eulersolve.org/problem/302/",
+      "material_read": "Full mathematical-approach section exposed by the public page.",
+      "method": "Lawful public solution inspection.",
+      "title": "Problem 302: Strong Achilles Numbers",
+      "trigger": "Detailed public derivation of the general exponent conditions."
+    }
+  ]
+}
