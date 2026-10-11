@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Connectedness gives an \\((n-1)\\)-simplex in \\(\\mathbf1^\\perp\\) with centroid zero. Regularity gives every vertex squared norm \\(k(k+1)\\), and the centroid average of squared distances proves the unique circumcenter and radius. For every \\(x\\in\\mathbf1^\\perp\\), \\(L^+x+\\mathbf1/n\\) is exactly the barycentric-coordinate vector, so the opposite-facet normal is \\(L^+e_i\\). Vertex transitivity makes these normal norms equal; the Frobenius/spectral trace gives their exact common square. Summing all barycentric clearances proves the inradius bound and forces the unique center at equality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Braun--Meyer establish the simplex, origin interior, normalized volume, reflexivity, and Ehrhart theory, but not Euclidean center geometry.",
+        "Meyer--Pllaha develop coding-theoretic invariants of the same lattice simplices and do not compute Euclidean radii.",
+        "The Laplacian-lattice metric paper uses a simplex-induced polyhedral distance on an infinite lattice, not the Euclidean metric on the finite Laplacian simplex."
+      ],
+      "reasoning": "The closest broader sources either concern lattice/Ehrhart invariants or a different distance on the Laplacian lattice. Neither supplies the Euclidean pseudoinverse facet normal or the reciprocal-square spectral moment controlling the inradius.",
+      "searches": [
+        "Braun--Meyer arXiv:1706.07085 Sections 1--3 and graph-Laplacian background",
+        "Meyer--Pllaha arXiv:1809.02960 preliminaries and Laplacian-simplex coding construction",
+        "Manjunath--Sturmfels, Laplacian lattice under a simplicial distance function",
+        "literature query: graph Laplacian lattice Euclidean covering radius simplex"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1706.07085v1",
+      "doi:10.1016/j.aam.2019.101976",
+      "arXiv:1809.02960v1",
+      "doi:10.1016/j.ejc.2013.01.010",
+      "published-result database searches for Laplacian-simplex inradius, circumradius, pseudoinverse, and Chebyshev-center formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source normalized volume is governed by spanning-tree data and does not determine the reciprocal-square spectral moment in the inradius.",
+        "The source special graph sections study reflexivity, triangulations, and \\(h^*\\)-vectors rather than Euclidean center geometry.",
+        "Coding data are invariant under lattice equivalence, while the claimed Euclidean radii depend on the fixed full-Laplacian realization.",
+        "Simplicial-distance covering radii of the infinite Laplacian lattice use a non-Euclidean gauge and do not imply the claimed Euclidean ball formulas."
+      ],
+      "reasoning": "The new implication requires constructing barycentric coordinates with \\(L^+\\), reading intrinsic facet normals from those coordinates, and using vertex transitivity plus the spectral trace of \\((L^+)^2\\). These steps are absent from the compared prior statements.",
+      "searches": [
+        "Braun--Meyer normalized-volume theorem versus Euclidean inradius/circumradius",
+        "Braun--Meyer complete-graph and cycle sections versus the all-vertex-transitive theorem",
+        "Meyer--Pllaha coding-theoretic invariants versus Euclidean facet distances",
+        "Laplacian-lattice simplicial-distance covering results versus the finite Euclidean simplex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located statement gives the spectral inradius \\(r=(n\\sum_{j=2}^{n}\\lambda_j^{-2})^{-1/2}\\), the degree-controlled circumradius, or the pseudoinverse facet equations.",
+        "The direct full-text term checks in the primary and sequel found no inradius/radius theorem and no pseudoinverse or vertex-transitive treatment."
+      ],
+      "reasoning": "The theorem could appear as a Chebyshev-center formula, a pseudoinverse description of simplex facets, a vertex-transitive tangentiality theorem, or a graph-spectral radius identity. These formulations were searched separately without finding a statement that implies the final claim.",
+      "searches": [
+        "published-result database query: Laplacian simplex inradius pseudoinverse vertex transitive graph",
+        "published-result database query: Laplacian simplex circumradius regular graph",
+        "published-result database query: graph Laplacian simplex Chebyshev center spectrum",
+        "published-result database query: Laplacian simplex regular graph circumradius Euclidean",
+        "literature query: \"Laplacian simplex\" pseudoinverse inradius",
+        "literature query: \"Laplacian simplex\" vertex-transitive graph inradius",
+        "literature query: \"Laplacian simplex\" circumradius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records concern graph Laplacian spectra, unrelated Euclidean simplex-center questions, and regular-graph spectral tables rather than Laplacian-simplex Euclidean radii.",
+        "No exact Laplacian-simplex inradius table or symbolic radius formula was returned."
+      ],
+      "reasoning": "The final statement is a closed spectral formula, so a small-graph table or a symbolic identity would be decisive prior coverage. The exact-object searches returned neither.",
+      "searches": [
+        "published-result database query: Laplacian simplex inradius pseudoinverse vertex transitive graph",
+        "published-result database query: Laplacian simplex circumradius regular graph",
+        "published-result database query: graph Laplacian simplex Chebyshev center spectrum"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the introduction, graph-Laplacian facts, Laplacian-simplex definition, normalized-volume theorem, and origin-interior proof. Targeted full-text searches found no radius, sphere, inradius, vertex-transitive, or pseudoinverse treatment. The coding-theoretic sequel was also inspected and contains no radius or vertex-transitive result. Published-result and literature searches under direct Euclidean-center, pseudoinverse, and spectral formulations did not locate a covering theorem.",
+    "residual_risks": [
+      "A general simplex theorem expressed directly in terms of a singular vertex matrix and its pseudoinverse could specialize to the facet formula without using Laplacian-simplex terminology.",
+      "The Euclidean theorem is realization-sensitive, whereas much of the Laplacian-simplex literature works only up to unimodular equivalence.",
+      "The primary coordinate formula makes the circumradius calculation short for regular graphs once the Euclidean realization is fixed.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source introduces and studies the simplex and proves its lattice/basic properties, but does not state Euclidean inradii, circumradii, Chebyshev centers, or pseudoinverse facet normals.",
+        "evidence": "The first public version is dated 2017-06-21 and the source lists 52B20 first among its primary MSC classes. The introduction defines the object from the columns of \\(L(G)\\); Proposition 3.4 proves the origin lies in the interior.",
+        "identifier_or_url": "arXiv:1706.07085v1; DOI 10.1016/j.aam.2019.101976",
+        "material_read": "ArXiv metadata and MSC; Introduction Sections 1.1--1.2; graph-Laplacian facts in Section 2.4; Definition 3.3 and Proposition 3.4 with its origin-interior proof; targeted full-text searches for radius, sphere, inradius, Euclidean, vertex-transitive, and pseudoinverse.",
+        "method": "Open-access arXiv full-text HTML inspection.",
+        "title": "Laplacian Simplices",
+        "trigger": "Primary source introducing the exact graph-Laplacian simplex family and the canonical column construction."
+      },
+      {
+        "assessment": "The sequel studies reflexive simplices through finite abelian groups and codes; it does not state the Euclidean metric theorem.",
+        "evidence": "No radius, vertex-transitive, or pseudoinverse occurrence was found in the inspected full text.",
+        "identifier_or_url": "arXiv:1809.02960v1",
+        "material_read": "Preliminaries on lattice simplices and vertex matrices; the Laplacian-simplex coding construction; targeted searches for radius, Euclidean metric, vertex-transitive, and pseudoinverse.",
+        "method": "Open-access arXiv full-text HTML inspection.",
+        "title": "Laplacian Simplices II: A Coding Theoretic Approach",
+        "trigger": "Strong same-object follow-up that could plausibly contain a more structural facet or dual description."
+      },
+      {
+        "assessment": "The paper studies an infinite Laplacian lattice under a non-Euclidean simplex-induced gauge, not the standard-Euclidean inball or circumball of the finite Laplacian simplex.",
+        "evidence": "The source explicitly contrasts its simplicial distance with Euclidean distance and formulates packing/covering for the lattice rather than the Laplacian simplex.",
+        "identifier_or_url": "DOI 10.1016/j.ejc.2013.01.010",
+        "material_read": "Abstract and scope description of Voronoi, Delaunay, packing, and covering results under the simplicial distance function.",
+        "method": "Publisher full-text/abstract inspection.",
+        "title": "The Laplacian lattice of a graph under a simplicial distance function",
+        "trigger": "Closest pre-existing metric literature involving graph Laplacians and simplex geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "841b2398-0b76-419e-8342-e46e67163d01",
+  "value": {
+    "rationale": "Laplacian simplices are a natural graph-polytope family whose established invariants are primarily lattice and Ehrhart theoretic. The result supplies an all-vertex-transitive Euclidean metric theorem with two complementary graph controls: degree alone fixes the circumradius, while the reciprocal fourth Laplacian spectral moment fixes the inradius. The pseudoinverse facet equation also gives a reusable bridge between graph spectral data and simplex metric geometry, applicable to broad families such as cycles, complete graphs, hypercubes, Cayley graphs, and distance-transitive graphs.",
+    "status": "PASS"
+  }
+}
