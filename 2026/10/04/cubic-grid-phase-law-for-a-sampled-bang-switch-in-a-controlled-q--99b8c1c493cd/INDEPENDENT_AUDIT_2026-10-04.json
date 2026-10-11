@@ -1,0 +1,86 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:07:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source equations and continuous bang switch were checked. Expanding the exact endpoint map gives the leading interior value from the second-order normal defect, the amplitude correction at the next order, and the r(1-r)/3 time correction from the third-order tangential defect; the scaled Jacobian is nonzero away from r=0,1. Independent endpoint solves at multiple N reproduced the stated normalized coefficients.",
+      "risk": "This proves a local endpoint branch, not global sampled-time optimality for every N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper establishes sampled quantum speed limits numerically/algorithmically and gives an N^-2 analytic law only for a separate linearized system."
+        ],
+        "reasoning": "No broader inspected theorem supplied this nonlinear local coefficient.",
+        "searches": [
+          "Dionis-Sugny 2023 full text",
+          "general bang-bang discretization searches"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1103/PhysRevA.107.032613",
+        "arXiv:2211.09167",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source supplies the system, continuous switch and sampled-control structure but not the third-order switch-defect calculation."
+        ],
+        "reasoning": "The cubic coefficient requires a new local expansion and implicit-function argument.",
+        "searches": [
+          "DOI:10.1103/PhysRevA.107.032613 Section IV and Appendix B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper identifies the one-interior-cell structure but gives no r(1-r) or cubic time-defect law."
+        ],
+        "reasoning": "No equivalent local switch-phase formula was found.",
+        "searches": [
+          "DOI:10.1103/PhysRevA.107.032613 Section IV",
+          "web: r(1-r) two-level quantum control sampling bang",
+          "web: N^{-3} piecewise constant quantum control bang-bang"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact phase-indexed coefficient table was located."
+        ],
+        "reasoning": "The result is a symbolic endpoint expansion, not a fit to numerical data.",
+        "searches": [
+          "Resultary sampled-qubit search",
+          "Dionis-Sugny numerical figures"
+        ]
+      },
+      "rationale": "The full Dionis-Sugny article studies the identical one-control qubit and describes sampled optima with blocks -1, one interior amplitude, +1, but calls the interior dependence on N complex and does not derive the submitted grid-phase asymptotic.",
+      "residual_risks": [
+        "An equivalent control-discretization expansion under different switching-time terminology may exist; none was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_NOT_COVERING",
+          "evidence": "The source states the three-part sampled control and approximate exponential convergence, but no cubic grid-phase law.",
+          "identifier_or_url": "DOI:10.1103/PhysRevA.107.032613",
+          "material_read": "Full article, especially Section IV A-B and the sampled-control discussion.",
+          "method": "full publisher text",
+          "title": "Time-optimal control of two-level quantum systems by piecewise constant pulses",
+          "trigger": "Same system and sampled bang-switch branch."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The phase of a bang switch relative to a hardware sampling grid is a natural control quantity. The result turns the source's opaque one-cell correction into a precise oscillatory cubic law and separates it from the source's N^-2 linearized behavior.",
+      "risk": "Its value is local-branch geometry rather than a complete sampled-QSL theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the local three-block endpoint branch of the one-control sampled qubit, if \\(r=\\{N\\alpha\\}\\) stays away from 0 and 1 then \\(t_N=\\tau+\\frac{r(1-r)}3(\\tau/N)^3+O(N^{-4})\\) and \\(u_N=1-2r-\\frac{\\Delta^2r(1-r)}{\\sqrt{1-\\Delta^2}}(\\tau/N)+O(N^{-2})\\); exact grid alignment realizes the continuous switch.",
+  "limitations": [
+    "Uniformity excludes fractional phases approaching 0 or 1; exact alignment is separate.",
+    "No global-optimality claim is made."
+  ],
+  "schema_version": 1
+}

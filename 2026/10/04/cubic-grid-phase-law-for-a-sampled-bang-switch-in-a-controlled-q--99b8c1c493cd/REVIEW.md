@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The continuous switch state and the sampled three-block factorization are explicit. Expanding the local defect gives a second-order endpoint equation that uniquely fixes the first correction to the middle amplitude, followed by an independent third-order tangent equation that uniquely fixes the time coefficient \(r(1-r)/3\). The relevant leading derivatives are nonzero for \(0<\Delta<1\), so the implicit-function argument is nondegenerate away from phase endpoints. The standalone replay solves the exact endpoint equations numerically and reproduces the predicted coefficient.
+PASS
 
-## Originality
+The source equations and continuous bang switch were checked. Expanding the exact endpoint map gives the leading interior value from the second-order normal defect, the amplitude correction at the next order, and the r(1-r)/3 time correction from the third-order tangential defect; the scaled Jacobian is nonzero away from r=0,1. Independent endpoint solves at multiple N reproduced the stated normalized coefficients.
 
-PASS, with residual risk. The 2022/2023 source states the three-part \(-1,\omega_0,+1\) structure for most sampled optima and describes an approximate exponential trend, but it does not state a cubic grid-phase expansion. The general sampled-data PMP of Bourdin–Trélat does not supply an error coefficient. Scarinci–Veliov study a different higher-order discretization for linear-quadratic bang-bang problems and prove a generic second-order estimate, not this qubit branch or coefficient. Dedicated semantic searches returned no matching published finding.
+## originality
 
-## Value
+PASS
 
-PASS. The source explicitly highlights the unexpectedly fast convergence of sampled quantum speed limits and the numerical cloud in the one-control case. The finding gives a closed-form explanation for that cloud, identifies a phase-dependent cubic scale, and exhibits exact zero-error grid alignments. This directly sharpens the interpretation of a natural discretization effect in a basic quantum-control model.
+The full Dionis-Sugny article studies the identical one-control qubit and describes sampled optima with blocks -1, one interior amplitude, +1, but calls the interior dependence on N complex and does not derive the submitted grid-phase asymptotic.
 
-## Closest literature and limitations
+## value
 
-The closest primary source is Dionis–Sugny itself. The closest general numerical-control comparison found is Scarinci–Veliov's bang-bang discretization analysis; the closest general sampled-data theory is Bourdin–Trélat. The result is deliberately limited to the local three-block endpoint branch and does not certify global optimality for every sample count.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The phase of a bang switch relative to a hardware sampling grid is a natural control quantity. The result turns the source's opaque one-cell correction into a precise oscillatory cubic law and separates it from the source's N^-2 linearized behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

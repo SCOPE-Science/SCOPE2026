@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof was checked by expanding the exact SO(3) generators through third order around the continuous switch. The second-order endpoint defect fixes the \(O(h)\) correction to the middle pulse, and the next independent tangent equation fixes the \(O(h^3)\) excess-time coefficient.
+# Independent mathematical audit
 
-`verify.py` independently composes Rodrigues rotations and solves the exact two endpoint equations for representative sample counts using only the Python standard library. It checks convergence of the recovered cubic coefficient and verifies an exact-alignment case. The expected terminal output is `VERIFY_OK`.
+## correctness
 
-The computation is a finite replay and is not a proof of global optimality of the sampled branch.
+PASS
+
+The source equations and continuous bang switch were checked. Expanding the exact endpoint map gives the leading interior value from the second-order normal defect, the amplitude correction at the next order, and the r(1-r)/3 time correction from the third-order tangential defect; the scaled Jacobian is nonzero away from r=0,1. Independent endpoint solves at multiple N reproduced the stated normalized coefficients.
+
+## originality
+
+PASS
+
+The full Dionis-Sugny article studies the identical one-control qubit and describes sampled optima with blocks -1, one interior amplitude, +1, but calls the interior dependence on N complex and does not derive the submitted grid-phase asymptotic.
+
+## value
+
+PASS
+
+The phase of a bang switch relative to a hardware sampling grid is a natural control quantity. The result turns the source's opaque one-cell correction into a precise oscillatory cubic law and separates it from the source's N^-2 linearized behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
