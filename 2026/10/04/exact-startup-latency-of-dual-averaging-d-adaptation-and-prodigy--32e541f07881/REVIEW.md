@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Under the common constant-subgradient premise, the two published dual-averaging recurrences reduce to closed forms. D-Adaptation yields \(R_n\), Prodigy yields \(P_n\), and exact rational square-root enclosures certify the strict cutoff inequalities. The common condition \(D>d_0\sqrt8\) guarantees that the gradients used in both calculations genuinely come from one fixed convex Lipschitz objective.
+PASS
 
-Risk: only the pre-activation phase and the first strict growth index are classified.
+Under the stated one-dimensional objective and \(D>d_0\sqrt8\), all gradients entering the cutoff computations equal \(-G\). For dual-averaging D-Adaptation, assuming the estimate has not yet moved gives \(s_n=-nd_0G\), \(\gamma_n=(G\sqrt n)^{-1}\), and the published proposal reduces to \(R_n=(n^{3/2}-1-\sum_{i=1}^{n-1}i^{-1/2})/(2n)\). Exact radical enclosures give \(R_1,\ldots,R_7<1<R_8\). For dual-averaging Prodigy with \(\lambda_k=d_k^2\), the analogous proposal is \(P_n=n^{-1}\sum_{i=1}^{n-1}i/\sqrt{i+1}\), with \(P_1,\ldots,P_4<1<P_5\). The assigned verifier replays the published recurrences and certifies the cutoff signs with rational square-root bounds.
 
-## Originality
+## originality
 
-PASS. The D-Adaptation paper gives the learned-distance recurrence, while Prodigy explicitly modifies it for faster adaptation and proves improved rate dependence. The inspected full texts do not state the exact constant-subgradient first-growth indices \(8\) and \(5\). Focused published-record searches found no implication-equivalent cutoff theorem.
+PASS
 
-Residual risk: an equivalent short calculation may occur in unindexed implementation notes.
+The defining D-Adaptation and Prodigy papers contain the exact recurrences used here and motivate Prodigy as faster adapting, but the inspected full texts do not state the constant-subgradient startup cutoffs eight and five. The result is not merely a numerical replay: the cutoff follows from exact symbolic recurrences plus certified radical inequalities. Resultary searches for startup latency, first distance-estimate growth, and constant-subgradient dynamics returned no implication-equivalent prior theorem.
 
-## Value
+## value
 
-PASS. Distance-estimate growth is the mechanism by which these methods escape a conservative initialization. An exact startup latency directly measures that mechanism, and the three-update reduction supplies a concrete finite-time explanation for Prodigy's faster-adaptation motivation without overclaiming a universal convergence advantage.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Startup adaptation is the central advertised distinction between these learning-rate-free methods. The constant-subgradient objective isolates the estimator dynamics without confounding curvature or noise, and exact first-growth cutoffs are a meaningful finite boundary rather than an arbitrary iteration census. The eight-versus-five comparison gives a reproducible structural benchmark for the claimed acceleration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

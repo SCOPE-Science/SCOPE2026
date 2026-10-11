@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:18:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3d3862bb2894388edffeb26767d91e9f614e7bfd",
+        "assigned verify.py blob 915180e954476505a3e85fe7a57aed85485bd1f1",
+        "Defazio--Mishchenko, Learning-Rate-Free Learning by D-Adaptation, arXiv:2301.07733",
+        "Mishchenko--Defazio, Prodigy: An Expeditiously Adaptive Parameter-Free Learner, arXiv:2306.06101"
+      ],
+      "rationale": "Under the stated one-dimensional objective and \\(D>d_0\\sqrt8\\), all gradients entering the cutoff computations equal \\(-G\\). For dual-averaging D-Adaptation, assuming the estimate has not yet moved gives \\(s_n=-nd_0G\\), \\(\\gamma_n=(G\\sqrt n)^{-1}\\), and the published proposal reduces to \\(R_n=(n^{3/2}-1-\\sum_{i=1}^{n-1}i^{-1/2})/(2n)\\). Exact radical enclosures give \\(R_1,\\ldots,R_7<1<R_8\\). For dual-averaging Prodigy with \\(\\lambda_k=d_k^2\\), the analogous proposal is \\(P_n=n^{-1}\\sum_{i=1}^{n-1}i/\\sqrt{i+1}\\), with \\(P_1,\\ldots,P_4<1<P_5\\). The assigned verifier replays the published recurrences and certifies the cutoff signs with rational square-root bounds.",
+      "residual_risks": [
+        "The cutoffs concern the dual-averaging variants and only the first increase of the distance estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source papers establish convergence and qualitative adaptation behavior.",
+          "Those asymptotic guarantees do not determine the first discrete iteration at which the learned distance estimate escapes its initialization."
+        ],
+        "reasoning": "No broader theorem located fixes the exact finite startup latency for either recurrence.",
+        "searches": [
+          "full D-Adaptation paper",
+          "full Prodigy arXiv/PMLR materials",
+          "Resultary learning-rate-free optimization corpus"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.07733",
+        "arXiv:2306.06101",
+        "PMLR Prodigy version",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deriving the cutoff requires solving the recurrence while the estimate is frozen and certifying several radical inequalities.",
+          "A qualitative faster-adaptation claim does not imply first growth at updates five and eight on the same objective."
+        ],
+        "reasoning": "The final finite-time statement is an additional exact property of the published algorithms.",
+        "searches": [
+          "published recurrence definitions versus exact first-update cutoff",
+          "Prodigy's qualitative faster-adaptation motivation versus the exact three-update difference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source algorithms use the same distance-estimate recurrences and Prodigy's weights \\(\\lambda_k=d_k^2\\).",
+          "Neither inspected source states exact first-growth indices on a constant-gradient objective."
+        ],
+        "reasoning": "The audit specializes the exact published recurrences to the cleanest persistent-signal regime.",
+        "searches": [
+          "Resultary query: D-Adaptation Prodigy dual averaging constant subgradient first update distance estimate startup latency",
+          "Defazio--Mishchenko arXiv:2301.07733, dual-averaging Algorithm 1",
+          "Mishchenko--Defazio arXiv:2306.06101, dual-averaging Prodigy Algorithm 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table or same-result record was retrieved."
+        ],
+        "reasoning": "The finite indices were checked from the primary algorithms rather than inferred from search absence.",
+        "searches": [
+          "Resultary exact search for the eight-versus-five startup cutoff"
+        ]
+      },
+      "rationale": "The defining D-Adaptation and Prodigy papers contain the exact recurrences used here and motivate Prodigy as faster adapting, but the inspected full texts do not state the constant-subgradient startup cutoffs eight and five. The result is not merely a numerical replay: the cutoff follows from exact symbolic recurrences plus certified radical inequalities. Resultary searches for startup latency, first distance-estimate growth, and constant-subgradient dynamics returned no implication-equivalent prior theorem.",
+      "residual_risks": [
+        "A workshop note or implementation discussion could have observed the same finite startup indices without a formal theorem.",
+        "One OpenReview access route presented a human-verification challenge; no bypass was attempted because arXiv/PMLR provided the needed primary content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RECURRENCE_PRIOR_NOT_EXACT_STARTUP_CUTOFF",
+          "evidence": "The algorithm supplies the recurrence but not the audited eight-update first increase.",
+          "identifier_or_url": "arXiv:2301.07733",
+          "material_read": "complete primary paper with Algorithm 1 and the distance-estimate derivation inspected",
+          "method": "primary full-text/PDF inspection",
+          "title": "Learning-Rate-Free Learning by D-Adaptation",
+          "trigger": "defining source of the first dual-averaging recurrence"
+        },
+        {
+          "assessment": "RECURRENCE_PRIOR_NOT_EXACT_STARTUP_CUTOFF",
+          "evidence": "The source motivates faster adaptation and gives the recurrence but not the audited five-update first increase.",
+          "identifier_or_url": "arXiv:2306.06101",
+          "material_read": "open arXiv and PMLR primary material containing Algorithm 2 and its weights inspected; an OpenReview route required human verification and was not retried or bypassed",
+          "method": "primary full-text inspection",
+          "title": "Prodigy: An Expeditiously Adaptive Parameter-Free Learner",
+          "trigger": "defining source of the weighted dual-averaging modification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Defazio--Mishchenko 2023",
+        "Mishchenko--Defazio 2023",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Startup adaptation is the central advertised distinction between these learning-rate-free methods. The constant-subgradient objective isolates the estimator dynamics without confounding curvature or noise, and exact first-growth cutoffs are a meaningful finite boundary rather than an arbitrary iteration census. The eight-versus-five comparison gives a reproducible structural benchmark for the claimed acceleration.",
+      "residual_risks": [
+        "The result does not establish that Prodigy has a uniformly better optimization transient after activation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The cutoffs concern the dual-averaging variants and only the first increase of the distance estimate.",
+    "A workshop note or implementation discussion could have observed the same finite startup indices without a formal theorem.",
+    "One OpenReview access route presented a human-verification challenge; no bypass was attempted because arXiv/PMLR provided the needed primary content.",
+    "The result does not establish that Prodigy has a uniformly better optimization transient after activation."
+  ]
+}
