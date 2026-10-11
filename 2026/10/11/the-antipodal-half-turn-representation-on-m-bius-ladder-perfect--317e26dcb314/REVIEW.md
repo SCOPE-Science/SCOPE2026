@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Invariant simplicial faces correspond bijectively to disjoint spoke monomers and rim-orbit dimers on the antipodal columns. The determinant sign of the permutation on an oriented face is the parity of its two-edge rim orbits. Alternating over all monomer subsets forces complete dimer tilings, which exist twice in the even case and not at all in the odd case, including the two-orbit degeneracy when the number of columns is two. Rational eigenspace multiplicities then follow from the known one-degree free homology and the fact that the half-turn squares to the identity. A standalone checker exhaustively reconstructs the signed simplex trace for the first eight values of the parameter and checks mod-two Betti dimensions for seven values. The universal assertion uses the proof rather than extrapolation.
+
+**Originality — PASS, with residual risk.** Agarwal–Basak (arXiv:2608.30601v2, Main Theorem 1 and the inspected perfect-matching proof) determine the underlying nonequivariant sphere wedges, which do not specify the half-turn action. Search comparisons considered signed Lefschetz numbers, involution eigenvalues, rational character, equivalent fixed-simplex sums, a hypothetical stronger dihedral result, and indexed matching-complex computations on nonidentical graphs. The directly inspected primary result does not imply the new equivariant statement. A differently named or unindexed equivalent calculation remains possible.
+
+**Value — PASS.** The central antipodal symmetry is intrinsic to the Möbius ladder, and its induced action is a concrete missing topological invariant. The parity switch from an identity representation to balanced regular representations yields information strictly stronger than the published homotopy ranks. The proof isolates a cancellation mechanism on column packings rather than an arbitrary small-case enumeration.
+
+Limitations: the source theorem supplies nonequivariant ranks; full dihedral representations, odd-case integral lattices, and equivariant homotopy types are unresolved here. The finite checker does not prove the all-parameter theorem.
+
+Same-model review: passed. Independent audit: not yet performed.
