@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "A direct elementary-collapse proof covers all finite triangle-free graphs with pairwise edge-disjoint squares. The dual complex contains complete one-skeleton, one induced two-path triangle per connected triple, and one tetrahedron per square. Each nonsquare triangle has a unique free long edge; each square removes one tetrahedron and three more triangles by local collapses, with no interference thanks to edge-disjointness. The resulting connected graph has the stated first Betti number. Alexander duality yields integral homology concentrated in degree n-4; a full two-skeleton for n>=8 gives simple connectivity and Hurewicz-Whitehead upgrades the integral homology statement to the claimed homotopy wedge. Four complete finite mod-two reconstructions match the formula; finite checks are not treated as the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bayer et al. arXiv:2304.13675, Corollary 5.3 establishes shellability for chordal graphs, not the given generally nonchordal class.",
+        "Theorem 6.1 assumes a complete codimension-one skeleton, which a graph with a square lacks; Proposition 7.12 concerns forests, Proposition 7.13 cycles.",
+        "Bayer et al. arXiv:2407.08158 covers squared paths, grids, disjoint unions and representations."
+      ],
+      "reasoning": "These results do not imply a homotopy classification for all triangle-free graphs with pairwise edge-disjoint squares. Some low-connectivity special cases can be deduced from prior shellability theorems; they do not cover the unrestricted structural statement.",
+      "searches": [
+        "\"cut complexes\" \"4-cycle\" Alexander dual exact",
+        "\"cut complex\" \"one 4-cycle\" homology",
+        "arXiv:2304.13675 Section 6 Theorem 6.1, Proposition 6.9",
+        "arXiv:2407.08158 introduction and grid sections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.13675v1, 2023-04-26",
+      "arXiv:2407.08158v1, 2024-07-11",
+      "arXiv:2603.23155, 2026-03-24 (abstract only; cycle-power specialization)",
+      "published-finding corpus published semantic searches for graph cut complexes, square interactions and Alexander duals"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known square-free formula is the q=0 special case; it has no implication in graphs containing four-cycles.",
+        "The foundational forest and cycle homotopy results cover overlapping examples but not the pairwise edge-disjoint-square domain.",
+        "A 4-cycle contributes a 3-simplex to the Alexander dual and makes the complete codimension-one-skeleton criterion of Theorem 6.1 inapplicable."
+      ],
+      "reasoning": "The implication goes from this theorem to the earlier q=0 special case, not conversely. General forest/cycle statements do not determine graph families containing several edge-disjoint squares and arbitrary other edges. No stronger coverage was identified.",
+      "searches": [
+        "arXiv:2304.13675 Theorems 6.1,7.11 and Proposition 7.12, 7.13",
+        "arXiv:2407.08158 table of contents and Sections 3-6",
+        "published-finding corpus target edge-disjoint 4-cycles three-cut complex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No same-formula published-finding corpus hit among closest returned results; closest results concern total cut complexes or individual graphs.",
+        "Original arXiv:2304.13675, Sections 6-7, discusses forests and cycles rather than the edge-disjoint-square class."
+      ],
+      "reasoning": "The relevant equivalent object is the Alexander dual of the ordinary three-cut complex; its one- and two-simplices encode connected triples and tetrahedra encode four-cycles. This dual is proved to collapse to a graph by an explicit argument, unlike prior isolated cycle calculations.",
+      "searches": [
+        "Three-cut complexes of triangle-free cactus graphs with four-cycles, wedge of spheres with multiplicity binomial(n-1,2) - sum binomial(deg(v),2) + number of four-cycles",
+        "Cut complex of unicyclic graphs containing a single square and trees, homology formula induced two-path triangles and tetrahedra Alexander dual",
+        "For every triangle-free graph with pairwise edge-disjoint 4-cycles, the three-cut complex is homotopy equivalent to a wedge of spheres of dimension n-4, with multiplicity binomial(n-1,2)-sum over vertices binomial(degree,2)+number of 4-cycles; Alexander dual collapses to a graph",
+        "\"cut complexes\" cactus graph 3-cut homotopy",
+        "\"cut complex\" triangle-free cactus graph 4-cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact parameter-wide table matching the formula was returned in published-finding corpus.",
+        "The 2023 primary paper contains tables for complete multipartite, cycle, tree, squared-cycle and prism-over-clique families, none equal to the entire new graph class."
+      ],
+      "reasoning": "The new result is an arbitrary graph-class theorem, not a recomputation of a single graph or a finite table. Its q-term vanishes on square-free instances and is not an old parameter substitution.",
+      "searches": [
+        "\"cut complexes\" cactus graph 3-cut homotopy",
+        "\"cut complex\" triangle-free cactus graph 4-cycle",
+        "For every triangle-free graph with pairwise edge-disjoint 4-cycles, the three-cut complex is homotopy equivalent to a wedge of spheres of dimension n-4, with multiplicity binomial(n-1,2)-sum over vertices binomial(degree,2)+number of 4-cycles; Alexander dual collapses to a graph"
+      ]
+    },
+    "rationale": "The original cut-complex paper classifies forests, cycles, complete multipartite graphs, and particular graph operations, but not the full class of triangle-free graphs with edge-disjoint four-cycles. Its complete codimension-one skeleton hypothesis is false here because each square yields a missing face. The square-free case is a strict special case, not a covering statement. A constructive collapse proves an exact additive correction for every allowed square. No exact equivalent or stronger published theorem was found in targeted searches; possible uncatalogued hypergraph formulations remain a genuine risk.",
+    "residual_risks": [
+      "Unindexed preprints, theses or hypergraph formulations might contain an equivalent square-packing result.",
+      "The second primary paper was inspected selectively rather than exhaustively; no unpublished or inaccessible work can be ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_THE_FULL_NEW_CLASS",
+        "evidence": [
+          "Corollary 5.3 and Theorem 6.1 and Propositions 7.12-7.13; published table of families does not assert the edge-disjoint-square theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+        "material_read": "Title, abstract, introduction/table; Section 5 chordal result; Section 6 face-lattice hypothesis and wedge operations; Section 7 forest/cycle results, via extracted primary text and page-image inspection",
+        "method": "open primary arXiv PDF and inspect relevant numbered statements and page images",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "Original same-object paper with graph families and general face-lattice result"
+      },
+      {
+        "assessment": "NO_APPARENT_DOMINATING_STATEMENT_IN_INSPECTED_SECTIONS; residual risk for uninspected details",
+        "evidence": [
+          "Introduction identifies disjoint unions, squared paths, grids, and particular representations; no general edge-disjoint-square graph theorem is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+        "material_read": "Abstract, first-page contents and introduction through overview of Sections 3-6; primary page-image inspected",
+        "method": "open arXiv PDF and inspect title-page/contents and stated scope",
+        "title": "Topology of Cut Complexes II",
+        "trigger": "Primary sequel potentially covering larger graph classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8ca83028-4420-44a6-afc8-5ab8137b9783",
+  "value": {
+    "rationale": "This treats a broad natural graph class at the exact girth-four boundary of the square-free classification. Any number of non-overlapping squares is allowed, including configurations where they share vertices and where the rest of the graph has arbitrary longer cycles; the theorem identifies the exact additive correction per square and derives an entire homotopy type rather than a numerical experiment. The disjointness condition has a structural role, ensuring a global sequence of elementary collapses, and overlapping squares require new methods.",
+    "status": "PASS"
+  }
+}
