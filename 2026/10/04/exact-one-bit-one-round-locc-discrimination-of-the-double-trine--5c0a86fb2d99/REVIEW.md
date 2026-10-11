@@ -1,15 +1,21 @@
-# Review of Exact one-bit one-round LOCC discrimination of the double trine
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced from arbitrary binary Alice POVMs to rank-one projectors by convexity and the extreme-point characterization of qubit effects. A second convexity argument puts the projector axis in the trine plane. The remaining one-parameter problem is solved through the exact qubit Helstrom dual, interpreted as an additively weighted smallest-enclosing-circle problem. Both possible active-set regimes are treated analytically and shown to decrease away from the maximizing symmetry direction. At the maximizer, the stated radical follows from the binary Helstrom formula and the trine overlap \(1/4\). The standalone verifier independently reconstructs the dual candidates and checks the formulas numerically, but the finite scan is not used as the proof.
+## correctness
 
-## Originality
-PASS. The closest source is Dutra–Ohst–Nguyen–Gühne, whose double-trine table gives only \(0.8976\le P\le0.905\) for a two-symbol message. Chitambar–Hsieh analytically solve unrestricted one-way LOCC but use a three-outcome Alice measurement and therefore do not imply the one-bit optimum. Achenbach–Leppäjärvi–Lee–Heinosaari later repeats the numerical one-bit interval. Exact-formula, one-bit, binary-POVM, projective-sender, and alias searches in the published-finding database returned no covering result. A residual risk remains that the same two-symbol calculation appears under older communication-complexity terminology not found by these searches.
+PASS
 
-## Value
-PASS. The result closes a certified numerical gap in a recent communication-bounded LOCC benchmark with an exact analytic constant, identifies the optimal sender measurement and receiver decision structure, and cleanly quantifies the performance loss caused solely by restricting the sender from three outcomes to one transmitted bit. This is a natural operational invariant of the canonical double-trine example, not an arbitrary parameter slice.
+The binary-effect reduction is valid because each branch's optimal Bob success is a supremum of linear functionals of Alice's effect, so the two-branch objective is convex on the qubit effect interval and has a maximizing projection. The dependence on the out-of-trine-plane component can be removed and radial convexity pushes the remaining Bloch vector to the unit circle; trine symmetry reduces the projective axis to one sector. For each posterior weighted trine, the qubit Helstrom dual is exactly a smallest additively weighted enclosing-circle problem, with only pair-active and three-active possibilities. Substitution of the two branch posteriors gives the stated piecewise analytic score and shows the sector maximum occurs at the symmetry axis. At that point the active pair formula reduces to the displayed radical. Independently, a fresh 5001-point scan of the full symmetry sector using the pair/triple Helstrom-dual formulas attained 0.8975940487368783 only at the symmetry axis, agreeing with the closed value to machine precision; the scan is corroborative, not the proof.
 
-## Closest literature and limitations
-The 2025/2026 communication-bounded LOCC work supplies the explicit unresolved interval. The 2013 paper supplies the unrestricted one-way benchmark \(1/2+\sqrt3/4\), while the 2026 multi-copy paper independently records the bounded-message interval. The theorem here is limited to equal priors, the double trine, one round, Alice-to-Bob communication, and a two-symbol message.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest current primary benchmark computes only a certified numerical interval for the exact same one-bit problem: its \(m=2\) row gives a 0.8976 see-saw lower bound and 0.905 SDP upper bound. The classical double-trine paper solves unrestricted one-way LOCC using a three-outcome Alice POVM and obtains the larger success \(1/2+\sqrt3/4\), so that theorem does not determine the binary-message optimum. Targeted Resultary searches using the exact decimal/radical and one-bit aliases returned no prior implication-equivalent published finding.
+
+## value
+
+PASS
+
+This closes an explicitly visible certified numerical gap in a canonical nonlocal state-discrimination benchmark and quantifies exactly the operational cost of restricting Alice to one communicated bit. The result also identifies a simple optimal projective protocol and cleanly separates the \(m=2\) optimum from the known three-outcome one-way optimum, so it is a motivated exact communication-constrained invariant rather than an arbitrary finite optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:37:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3db540cf6b70cde4f1cb6f57259809b05fd492c1",
+        "assigned artifacts/verify.py blob 8d0dbf553fba697e87e06f2249da19e192f50fc2",
+        "fresh independent weighted-trine Helstrom-dual sector scan",
+        "Dutra et al., arXiv:2510.09381v2, Section 4.2",
+        "Chitambar--Hsieh, arXiv:1304.1555v1, Section C"
+      ],
+      "rationale": "The binary-effect reduction is valid because each branch's optimal Bob success is a supremum of linear functionals of Alice's effect, so the two-branch objective is convex on the qubit effect interval and has a maximizing projection. The dependence on the out-of-trine-plane component can be removed and radial convexity pushes the remaining Bloch vector to the unit circle; trine symmetry reduces the projective axis to one sector. For each posterior weighted trine, the qubit Helstrom dual is exactly a smallest additively weighted enclosing-circle problem, with only pair-active and three-active possibilities. Substitution of the two branch posteriors gives the stated piecewise analytic score and shows the sector maximum occurs at the symmetry axis. At that point the active pair formula reduces to the displayed radical. Independently, a fresh 5001-point scan of the full symmetry sector using the pair/triple Helstrom-dual formulas attained 0.8975940487368783 only at the symmetry axis, agreeing with the closed value to machine precision; the scan is corroborative, not the proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chitambar--Hsieh prove unrestricted one-way optimum error \\(1/2-\\sqrt3/4\\) using a three-outcome Alice POVM.",
+          "Dutra et al. show \\(m=3\\) already reaches a 0.9330 lower bound, separating the larger message class from the binary one."
+        ],
+        "reasoning": "Unrestricted one-way LOCC is a broader protocol class but its optimum does not imply the constrained two-outcome optimum; the recent hierarchy leaves a nonzero numerical gap precisely at \\(m=2\\).",
+        "searches": [
+          "arXiv:1304.1555v1 Section C",
+          "arXiv:2510.09381v2 full double-trine discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.09381v2",
+        "arXiv:1304.1555v1",
+        "arXiv:2604.26647 abstract/metadata",
+        "Resultary semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The certified interval 0.8976--0.905 contains but does not imply the exact audited value.",
+          "The three-outcome one-way optimum is strictly larger and requires a message alphabet excluded by the final claim."
+        ],
+        "reasoning": "The audited result closes a genuine constrained optimization gap rather than restating either prior theorem.",
+        "searches": [
+          "arXiv:2510.09381v2 Table 1",
+          "arXiv:1304.1555v1 one-way optimum proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dutra et al. define the same equiprobable double-trine ensemble and their \\(m=2\\) one-round hierarchy is exactly the binary-message Alice-to-Bob constraint relevant here.",
+          "Their Table 1 reports only \\(0.8976\\le P_{\\mathrm{succ}}\\le0.905\\) for \\(m=2\\)."
+        ],
+        "reasoning": "Equivalent descriptions as a two-outcome Alice POVM, one communicated classical bit, or the \\(m=2\\) one-round LOCC hierarchy were checked.",
+        "searches": [
+          "Resultary query: double trine one bit one round LOCC two outcome Alice exact success probability",
+          "Resultary query: double trine 0.897594048736878 sqrt(15+6sqrt3) one-bit LOCC",
+          "arXiv:2510.09381v2 Section 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior published finding with the exact radical or decimal was returned; nearby results were unrelated finite optimization records."
+        ],
+        "reasoning": "The benchmark is numerical in the closest source, so an exact-value table or published finding was a plausible coverage route and was explicitly checked.",
+        "searches": [
+          "Resultary exact-decimal/radical query above",
+          "Resultary one-bit double-trine benchmark query"
+        ]
+      },
+      "rationale": "The closest current primary benchmark computes only a certified numerical interval for the exact same one-bit problem: its \\(m=2\\) row gives a 0.8976 see-saw lower bound and 0.905 SDP upper bound. The classical double-trine paper solves unrestricted one-way LOCC using a three-outcome Alice POVM and obtains the larger success \\(1/2+\\sqrt3/4\\), so that theorem does not determine the binary-message optimum. Targeted Resultary searches using the exact decimal/radical and one-bit aliases returned no prior implication-equivalent published finding.",
+      "residual_risks": [
+        "A very recent unindexed follow-up could conceivably close the \\(m=2\\) hierarchy gap independently; none was located in the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_NUMERICAL_BOUNDS_NOT_COVERING_EXACT_VALUE",
+          "evidence": "For \\(m=2\\) the paper reports 0.8976 lower and 0.905 upper, leaving the exact optimum unresolved.",
+          "identifier_or_url": "arXiv:2510.09381v2",
+          "material_read": "Full primary HTML around Section 4.2, including the ensemble definition, \\(m=2\\) interpretation, and Table 1 certified lower/upper bounds.",
+          "method": "Open-access full-text inspection.",
+          "title": "Structure of quantum measurements implementable with one round of classical communication",
+          "trigger": "Exact same double-trine ensemble and one-round message-budget hierarchy."
+        },
+        {
+          "assessment": "BROADER_MESSAGE_CLASS_NOT_COVERING_BINARY_OPTIMUM",
+          "evidence": "The exact one-way optimum uses three Alice outcomes and has success \\(1/2+\\sqrt3/4\\), so it does not determine the one-bit optimum.",
+          "identifier_or_url": "arXiv:1304.1555v1",
+          "material_read": "Full primary HTML Section C, including the branch posterior reduction and the optimal three-outcome Alice POVM.",
+          "method": "Open-access full-text inspection.",
+          "title": "A Return to the Optimal Detection of Quantum Information",
+          "trigger": "Foundational exact minimum-error treatment of the double trine under one-way LOCC."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dutra et al. arXiv:2510.09381v2",
+        "Chitambar--Hsieh arXiv:1304.1555v1"
+      ],
+      "rationale": "This closes an explicitly visible certified numerical gap in a canonical nonlocal state-discrimination benchmark and quantifies exactly the operational cost of restricting Alice to one communicated bit. The result also identifies a simple optimal projective protocol and cleanly separates the \\(m=2\\) optimum from the known three-outcome one-way optimum, so it is a motivated exact communication-constrained invariant rather than an arbitrary finite optimization.",
+      "residual_risks": [
+        "The exact calculation is special to trine symmetry and two Alice outcomes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the equiprobable double-trine ensemble \\(\\{|s_i\\rangle\\otimes|s_i\\rangle\\}_{i=0}^2\\), among one-round Alice-to-Bob LOCC protocols in which Alice has exactly two outcomes (one communicated bit) and Bob may use an arbitrary qubit POVM, the exact minimum-error success probability is \\[\\frac{4+\\sqrt3+\\sqrt{15+6\\sqrt3}}{12}=0.897594048736878\\ldots.\\] An optimal protocol has Alice measure an in-plane Pauli observable aligned with a trine symmetry axis, after which Bob performs the optimal binary Helstrom measurement on the two active posterior states.",
+  "limitations": [
+    "Exactly the double-trine ensemble, one Alice-to-Bob round, and a binary Alice message are covered.",
+    "Bob is unrestricted to arbitrary qubit POVMs; the result is not a statement about non-adaptive LOCC, two-way LOCC, or unrestricted one-way LOCC with more than two Alice outcomes.",
+    "The proof optimizes average minimum-error success, not unambiguous discrimination."
+  ],
+  "schema_version": 1
+}
