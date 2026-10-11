@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every affine minorant of the scalar quadratic is dominated, at fixed slope, by the tangent minorant with the same slope. This reduces the full extremal problem to one tangent parameter. For targets below the true gap, the exact identity
-\[
-d_{y_\star}-d_y=\frac{(y-y_\star)^2}{2y}
-\]
-proves the unique global maximizer. The exact-gap case is handled separately and gives a finite but nonattained supremum; targets above the gap give infinite descent-slowness through the zero minorant. Substitution into the source W inequality yields necessary-and-sufficient certificate thresholds, including the strict inequality at the nonattained boundary.
+PASS
 
-The bundled exact-arithmetic replay checks the algebra on several rational parameter families. It is supporting verification only; the quantified proof is analytic.
+Any affine h(x)=cx+d minorizing a x^2/2 satisfies d<=-c^2/(2a); for fixed c the tangent envelope maximizes distance to the target sublevel, reducing the supremum to tangents h_y. For 0<Delta<G and u>0 the relevant slopes are y>0, with target distance d_y=u-y/2-y_*^2/(2y) and exact loss d_{y_*}-d_y=(y-y_*)^2/(2y), proving the unique optimizer y_*=u sqrt(1-r). At Delta=G, y->0+ approaches but never attains the supremum; at Delta>G, h=0 has empty target and infinite slowness under the source convention. Substitution into the W inequality gives the stated necessary-and-sufficient trial-modulus frontier. Symmetry restores |u|.
 
-## Originality
+## originality
 
-PASS. The recent primary paper was inspected through the full certificate section and its quadratic experiment. It introduces affine descent-slowness and proves a one-way gap bound, but no exact scalar optimization over all affine minorants, modulus-inflation law, or exact-gap nonattainment statement was found.
+PASS
 
-The closest prior W-stationarity paper was inspected in full around its certificate and search subroutine. Its W-gap/radius construction is materially different. The foundational accelerated bundle-level paper was also inspected and contains the level-set architecture but neither descent-slowness nor this quadratic-growth certificate. Targeted semantic and exact-form searches found no equivalent statement.
+The 2026 primary paper introduces descent-slowness and the affine W-certificate and proves how a certificate controls the gap, but its inspected certificate section and quadratic experiments do not optimize slowness over all affine minorants of a scalar quadratic or state the modulus-inflation/nonattainment frontier. The earlier W-stationarity paper uses a different radius/W-gap construction, and Lan's bundle-level paper predates this certificate. Three targeted Resultary searches returned no equivalent published SCOPE result.
 
-Residual risk remains that an older elementary bundle/error-bound calculation under different notation contains the same scalar envelope.
+## value
 
-## Value
+PASS
 
-PASS. The trial growth modulus is a central adaptive quantity in the new W-certificate framework, and the scalar quadratic is the canonical exact quadratic-growth test. The result gives a complete calibration of certificate existence, not just a numerical example: it quantifies the precise inflation required for an under-target gap and exposes a nonattainment phenomenon exactly at the true gap and true modulus. This clarifies what certificate failure means geometrically and can inform analysis of trial-modulus search rules.
+The trial growth modulus is a central adaptive quantity of the new W-certificate framework, and the scalar strongly convex quadratic is its canonical exact-growth benchmark. A complete necessary-and-sufficient inflation frontier, including the sharp nonattainment at the true gap/modulus, gives a motivated boundary fact about what the certificate can geometrically achieve; it is more than a numerical example or routine verification of a single parameter choice.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

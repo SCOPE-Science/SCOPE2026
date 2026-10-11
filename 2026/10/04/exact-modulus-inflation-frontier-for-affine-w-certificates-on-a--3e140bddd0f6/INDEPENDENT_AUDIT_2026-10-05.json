@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:01:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any affine h(x)=cx+d minorizing a x^2/2 satisfies d<=-c^2/(2a); for fixed c the tangent envelope maximizes distance to the target sublevel, reducing the supremum to tangents h_y. For 0<Delta<G and u>0 the relevant slopes are y>0, with target distance d_y=u-y/2-y_*^2/(2y) and exact loss d_{y_*}-d_y=(y-y_*)^2/(2y), proving the unique optimizer y_*=u sqrt(1-r). At Delta=G, y->0+ approaches but never attains the supremum; at Delta>G, h=0 has empty target and infinite slowness under the source convention. Substitution into the W inequality gives the stated necessary-and-sufficient trial-modulus frontier. Symmetry restores |u|.",
+      "risks": [
+        "One-dimensional unconstrained geometry only; no claim that a bundle algorithm generates the globally optimal affine minorant."
+      ],
+      "sources": [
+        "RESULT.md blob cb7ed66d493f7ec6ceb2145aca56a2f32a654a67",
+        "artifacts/verify_w_certificate_quadratic.py blob c55d480843c4fb212ee451cea18703d1789e782b",
+        "arXiv:2607.11878"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The new source gives general one-way consequences of any W-certificate but does not solve the extremal affine-minorant geometry.",
+          "The older papers provide broader algorithmic contexts without the submitted exact scalar calibration."
+        ],
+        "reasoning": "General certificate theory does not imply the optimal slowness envelope without the candidate optimization over all minorants.",
+        "searches": [
+          "arXiv:2607.11878 full certificate section and quadratic experiment",
+          "arXiv:2507.19465 W-stationarity/search construction",
+          "arXiv:1309.5547 bundle-level framework"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.11878",
+        "arXiv:2507.19465",
+        "arXiv:1309.5547",
+        "Resultary W-certificate searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper supplies the inequality s^2>=2/(mu Delta) and its consequences, but not sup_h s(h,u,Delta).",
+          "The candidate proves tangent domination, a unique optimizer for r<1, and nonattainment at r=1; these are additional extremal statements needed before the explicit modulus threshold follows."
+        ],
+        "reasoning": "The final frontier is not a mere restatement of the source definition; it requires solving a new sharp optimization problem over every affine minorant.",
+        "searches": [
+          "Definition 2.1 and Definition 2.4 / Corollary 2.5 of arXiv:2607.11878",
+          "Comparison with arXiv:2507.19465 certificate mechanics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source definition matches the candidate slowness/W inequality exactly, but no exact scalar envelope or trial-modulus threshold is stated.",
+          "Older W-stationarity uses a materially different local-support/radius certificate."
+        ],
+        "reasoning": "The natural certificate, gap-ratio, tangent-support, and trial-modulus aliases were searched; no equivalent formulation was located.",
+        "searches": [
+          "Resultary query: affine W-certificate scalar quadratic descent-slowness modulus inflation",
+          "Resultary query: affine W certificate modulus inflation quadratic gap",
+          "Resultary query: descent slowness W certificate exact gap tangent quadratic",
+          "Resultary query: trial modulus W-certificate scalar strongly convex quadratic",
+          "arXiv:2607.11878"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or published SCOPE record with the r-dependent modulus-inflation factor or exact-gap nonattainment was returned.",
+          "The source experiments are conditioned quadratics and do not tabulate this scalar envelope."
+        ],
+        "reasoning": "The result is an analytic continuum frontier, not a recomputation of an existing table.",
+        "searches": [
+          "Three Resultary W-certificate queries listed above",
+          "Primary paper quadratic experiment search"
+        ]
+      },
+      "rationale": "The 2026 primary paper introduces descent-slowness and the affine W-certificate and proves how a certificate controls the gap, but its inspected certificate section and quadratic experiments do not optimize slowness over all affine minorants of a scalar quadratic or state the modulus-inflation/nonattainment frontier. The earlier W-stationarity paper uses a different radius/W-gap construction, and Lan's bundle-level paper predates this certificate. Three targeted Resultary searches returned no equivalent published SCOPE result.",
+      "residual_risks": [
+        "Because the derivation becomes elementary once the 2026 certificate is defined, an equivalent calibration may exist in older bundle/error-bound literature under unrelated notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Defines the certificate and proves one-way gap consequences; does not state the scalar all-minorant envelope, inflation law, or exact-gap nonattainment."
+          ],
+          "identifier_or_url": "arXiv:2607.11878",
+          "material_read": "Full accessible certificate section: descent distance/slowness definition including empty-set convention, gap bound, W-certificate inequality/corollary, and quadratic experiment material.",
+          "method": "Direct full-text definition/theorem comparison.",
+          "title": "Optimal Parameter-Free First-Order Methods for Convex Optimization with Unknown Growth and Smoothness",
+          "trigger": "Primary source introducing affine descent-slowness and W-certificates."
+        },
+        {
+          "assessment": "NOT_EQUIVALENT",
+          "evidence": [
+            "Uses a different certificate built from multiple local support models and a radius parameter."
+          ],
+          "identifier_or_url": "arXiv:2507.19465",
+          "material_read": "Full material around the W-gap/radius certificate and its search subroutine.",
+          "method": "Direct structural comparison.",
+          "title": "Linearly Convergent Algorithms for Nonsmooth Problems with Unknown Smooth Pieces",
+          "trigger": "Closest earlier W-stationarity terminology."
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": [
+            "Predates descent-slowness and contains no W-certificate or scalar modulus-inflation frontier."
+          ],
+          "identifier_or_url": "arXiv:1309.5547",
+          "material_read": "Relevant algorithmic sections on level sets, lower/upper bounds, and projections.",
+          "method": "Direct terminology/mechanism comparison.",
+          "title": "Bundle-Level Type Methods Uniformly Optimal for Smooth and Nonsmooth Convex Optimization",
+          "trigger": "Foundational level-set/prox architecture."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The trial growth modulus is a central adaptive quantity of the new W-certificate framework, and the scalar strongly convex quadratic is its canonical exact-growth benchmark. A complete necessary-and-sufficient inflation frontier, including the sharp nonattainment at the true gap/modulus, gives a motivated boundary fact about what the certificate can geometrically achieve; it is more than a numerical example or routine verification of a single parameter choice.",
+      "risks": [
+        "The scientific value is calibration of a new certificate, not a general multidimensional optimization theorem."
+      ],
+      "sources": [
+        "arXiv:2607.11878",
+        "RESULT.md blob cb7ed66d493f7ec6ceb2145aca56a2f32a654a67"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional unconstrained scalar quadratic only; higher-dimensional anisotropy, constraints, and actual bundle-generation dynamics remain open."
+  ],
+  "schema_version": 1
+}
