@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof is analytic. The bundled `verify.py` is an independent finite stress test, not a substitute for the quantified proof.
+# Independent mathematical audit
 
-It checks: (1) absence of beat points for six no-singleton level vectors; (2) the full mod-two simplicial homology of their order complexes by explicit boundary-matrix rank computation; (3) the pointwise inequalities and order preservation in the explicit singleton-level contraction; and (4) the example \(W(2,4,2)\), \(W(2,2,4)\).
+## correctness
 
-The replay output on the packaged script ends with `VERIFY_OK`. The tested top Betti ranks are \(1,4,1,3,3,4\), matching \(\prod_i(r_i-1)\). No claim of exhaustive verification over all parameter values is made.
+PASS
 
-The decisive infinite steps are the structural arguments in `RESULT.md`: intrinsic level decomposition, beat-point exclusion, the exact join description, the cone-quotient join identity, Stong core rigidity, and McCord's weak-equivalence correspondence.
+A singleton level c gives an explicit pointwise-comparison contraction id <= u >= const_c. If every level has at least two points, no point has a unique strict upper minimum or strict lower maximum, so the finite space is a Stong core. Its order complex is the join D_{r_1}*...*D_{r_h}; iterating D_r*X homotopy equivalent to a wedge of r-1 suspensions of X gives the stated wedge of spheres. Homotopy-equivalent finite cores are homeomorphic, and the intrinsic incomparability classes of a weak order are exactly its linearly ordered levels, so homeomorphism preserves the ordered size vector. McCord reduces weak homotopy type to the order-complex type; positive wedges of spheres are classified here by sphere dimension h-1 and top reduced homology rank product_i(r_i-1). The frozen verifier independently stress-tests beat points, mod-2 Betti ranks and singleton contractions on several boundary examples, including W(2,4,2) versus W(2,2,4).
+
+## originality
+
+PASS
+
+Classical finite-space core theory and McCord provide the ingredients, and Barmak--Minian identify two-point-level sphere models. Mosquera-Lois studies the current Whitehead problem for minimal finite models and constructs different weakly equivalent non-homotopy-equivalent examples. Fresh Resultary searches found several same-family map-classification theorems but no theorem classifying the spaces themselves by ordinary versus weak homotopy for arbitrary antichain level sizes. The assigned theorem gives the complete family-wide space classification, including singleton levels and the exact loss of ordered level data.
+
+## value
+
+PASS
+
+This is a complete natural classification for a standard family of finite spaces and gives a transparent family-wide answer to how much information weak homotopy forgets relative to finite-space homotopy. The explicit eight-point pair is a motivated Whitehead-type witness, while the theorem applies to all level vectors including the contractible boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
