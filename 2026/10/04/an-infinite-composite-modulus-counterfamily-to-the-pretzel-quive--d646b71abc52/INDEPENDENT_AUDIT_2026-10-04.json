@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:48:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Primary source: Q. Meng, X. Liu, B. Zhou, Quandle coloring quivers of pretzel links, arXiv:2609.29127v1 (2026), especially Theorems 20, 29, and 30.",
+        "Primary source: Y. Taniguchi, Quandle coloring quivers of links using dihedral quandles, arXiv:2004.12437v1 / J. Knot Theory Ramifications 30 (2021), especially Lemma 3.4 and Section 4.",
+        "Resultary semantic query: pretzel quiver composite modulus P(p,p,p) R_2p projective blocks Theorem 29 counterexample.",
+        "Fresh exhaustive full-quiver replay for \\(p=5\\): 250 colorings, 10 constants, six nontrivial projective blocks of size 40, with exact affine-map multiplicities."
+      ],
+      "rationale": "The source coloring equations reduce modulo \\(2p\\) to \\(p(c-a)\\equiv p(c-b)\\equiv0\\), so every coloring is a same-parity triple and can be written as a parity bit plus a triple over \\(\\mathbb F_p\\). Taniguchi's independently inspected Lemma 3.4 makes every endomorphism affine; therefore a nonzero normalized difference vector is only scalar-multiplied and its point of \\(\\mathbb P^1(\\mathbb F_p)\\) is invariant until collapse to a constant. Counting gives \\(p+1\\) blocks of size \\(2p(p-1)\\), and CRT gives exactly two affine maps between any ordered pair within one nontrivial block and two maps to each prescribed constant. Fresh exhaustive replay at \\(p=5\\) reproduces six size-40 blocks plus 10 constants, contradicting the printed size multiset. The finite replay corroborates the symbolic all-prime proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taniguchi gives the affine endomorphism classification for arbitrary dihedral-quandle order and composite-order comparison tools.",
+          "Meng--Liu--Zhou Theorem 30 treats prime modulus, not the composite modulus \\(2p\\)."
+        ],
+        "reasoning": "These broader tools supply ingredients but do not state the exact \\(P(p,p,p),R_{2p}\\) decomposition or the refutation of Theorem 29.",
+        "searches": [
+          "arXiv:2004.12437v1 Lemma 3.4 and Section 4",
+          "arXiv:2609.29127v1 Theorem 30"
+        ]
+      },
+      "checked_sources": [
+        "Primary source: Q. Meng, X. Liu, B. Zhou, Quandle coloring quivers of pretzel links, arXiv:2609.29127v1 (2026), especially Theorems 20, 29, and 30.",
+        "Primary source: Y. Taniguchi, Quandle coloring quivers of links using dihedral quandles, arXiv:2004.12437v1 / J. Knot Theory Ramifications 30 (2021), especially Lemma 3.4 and Section 4.",
+        "Resultary semantic query: pretzel quiver composite modulus P(p,p,p) R_2p projective blocks Theorem 29 counterexample.",
+        "Fresh exhaustive full-quiver replay for \\(p=5\\): 250 colorings, 10 constants, six nontrivial projective blocks of size 40, with exact affine-map multiplicities."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 29 predicts three small nontrivial blocks plus one block of size \\(2p(p-1)(p-2)\\).",
+          "Theorem 20's congruences reduce to same-parity triples, and affine endomorphisms scale the two normalized difference coordinates over \\(\\mathbb F_p\\), preserving their projective class."
+        ],
+        "reasoning": "The inspected prior inputs imply the assigned counterexample rather than the published theorem: the claimed large block must split into \\(p-2\\) additional projective components.",
+        "searches": [
+          "Meng--Liu--Zhou Theorem 20 and Theorem 29",
+          "Taniguchi Lemma 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary exact hit is the assigned counterfamily.",
+          "The source's current searchable version still contains the composite-modulus theorem statement; no indexed v2 correction was found."
+        ],
+        "reasoning": "Equivalent formulations as SCC splitting, failure of completeness of \\(G_4\\), or projective-line preservation under affine endomorphisms were compared; no prior correction was located.",
+        "searches": [
+          "Resultary query: pretzel quiver composite modulus P(p,p,p) R_2p projective blocks Theorem 29 counterexample",
+          "Current arXiv 2609.29127 title/theorem searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior database/table entry with the SCC pattern was located.",
+          "The finite \\(p=5\\) replay is a witness, while the all-prime claim follows symbolically."
+        ],
+        "reasoning": "The result is not inferred from finite enumeration; projective invariance and CRT map counts prove the infinite family.",
+        "searches": [
+          "Resultary query above",
+          "Exact smallest-witness comparison at \\(p=5\\)"
+        ]
+      },
+      "rationale": "The current inspected pretzel-quiver source prints Theorem 29 with one \\(G_4\\) complete block under prime \\(d_1,d_2\\), and its Theorem 20 supplies the congruences used here. For \\(p_1=p_2=p_3=p\\), \\(n=2p\\), the hypotheses give \\(d_1=d_2=p\\). Taniguchi's full primary Lemma 3.4 independently proves every dihedral-quandle endomorphism is affine for every \\(n>1\\). These inputs force projective-line invariance and contradict the printed block merger; no prior correction or equivalent counterfamily was located.",
+      "residual_risks": [
+        "A later revision after the frozen source snapshot could repair Theorem 29; the audit assesses the inspected current source available during this run.",
+        "The corrected projective decomposition is proved only for the stated \\(P(p,p,p),R_{2p}\\) family, not every composite modulus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_THEOREM_REFUTED",
+          "evidence": "Theorem 29 states \\(G_4=\\overleftrightarrow K_{(d_1-1)(d_2-2)n}\\) with constant edge weight \\(n/[d_1,d_2]\\), while the assigned subfamily has \\(d_1=d_2=p\\).",
+          "identifier_or_url": "arXiv:2609.29127v1",
+          "material_read": "Primary full text through authorized extraction: pages containing Theorem 20 and its coloring equations, Theorem 29 and its proof including the \\(G_4\\) block, Theorem 30, and Example 31.",
+          "method": "ArXiv/OA retrieval was attempted first; after full-text retrieval failed, authorized institutional extraction was used.",
+          "title": "Quandle coloring quivers of pretzel links",
+          "trigger": "Exact fresh theorem being tested"
+        },
+        {
+          "assessment": "SUPPLIES_CRITICAL_LEMMA_NOT_FINAL_CLAIM",
+          "evidence": "Lemma 3.4 states that every quandle endomorphism of \\(R_n\\), for every \\(n>1\\), has unique affine form \\(f(x)=ax+b\\).",
+          "identifier_or_url": "arXiv:2004.12437v1",
+          "material_read": "Primary full PDF through Lemma 3.4 and the composite-order Section 4.",
+          "method": "Open-access primary PDF text plus rendered-page inspection",
+          "title": "Quandle coloring quivers of links using dihedral quandles",
+          "trigger": "Critical endomorphism classification needed for the counterfamily"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary source: Q. Meng, X. Liu, B. Zhou, Quandle coloring quivers of pretzel links, arXiv:2609.29127v1 (2026), especially Theorems 20, 29, and 30.",
+        "Primary source: Y. Taniguchi, Quandle coloring quivers of links using dihedral quandles, arXiv:2004.12437v1 / J. Knot Theory Ramifications 30 (2021), especially Lemma 3.4 and Section 4.",
+        "Resultary semantic query: pretzel quiver composite modulus P(p,p,p) R_2p projective blocks Theorem 29 counterexample.",
+        "Fresh exhaustive full-quiver replay for \\(p=5\\): 250 colorings, 10 constants, six nontrivial projective blocks of size 40, with exact affine-map multiplicities."
+      ],
+      "rationale": "The finding corrects a structural theorem in a new primary source on an infinite family and identifies the exact mechanism of failure: projective classes cannot be merged by dihedral-quandle endomorphisms. The smallest explicit witness and all-prime repair are directly useful constraints on any corrected composite-modulus theorem.",
+      "residual_risks": [
+        "A later revision after the frozen source snapshot could repair Theorem 29; the audit assesses the inspected current source available during this run.",
+        "The corrected projective decomposition is proved only for the stated \\(P(p,p,p),R_{2p}\\) family, not every composite modulus."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every odd prime \\(p\\ge5\\), the full \\(R_{2p}\\)-coloring quiver of the pretzel knot \\(P(p,p,p)\\) has \\(2p\\) trivial vertices and exactly \\(p+1\\) nontrivial strongly connected projective blocks, each of size \\(2p(p-1)\\) and internal edge multiplicity two; hence the composite-modulus block formula printed as Theorem 29 in arXiv:2609.29127v1 is false on this infinite family.",
+  "limitations": [
+    "No complete corrected theorem is claimed for arbitrary composite modulus or arbitrary pretzel parameters.",
+    "A later revision after the frozen source snapshot could repair Theorem 29; the audit assesses the inspected current source available during this run.",
+    "The corrected projective decomposition is proved only for the stated \\(P(p,p,p),R_{2p}\\) family, not every composite modulus."
+  ],
+  "schema_version": 1
+}

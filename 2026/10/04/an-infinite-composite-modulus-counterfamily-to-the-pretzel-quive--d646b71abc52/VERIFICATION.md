@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-p_1=p_2=p_3=p,\qquad n=2p,
-\]
-with \(p\) an odd prime,
-\[
-P=3p^2,\qquad Q=p,\qquad d_1=d_2=p.
-\]
-Thus Theorem 29 applies exactly as printed.
+# Independent mathematical audit
 
-Its coloring equations reduce to
-\[
-p(c-a)\equiv0\pmod{2p},
-\qquad
-p(c-b)\equiv0\pmod{2p},
-\]
-so \(a,b,c\) have the same parity. Writing
-\[
-(a,b,c)=(e+2A,e+2B,e+2C)
-\]
-identifies the coloring set with \(\mathbb F_2\times\mathbb F_p^3\).
+## correctness
 
-Every endomorphism of \(R_{2p}\) is affine:
-\[
-x\longmapsto rx+s.
-\]
-For a nontrivial coloring the vector
-\[
-(B-A,C-A)\in\mathbb F_p^2\setminus\{0\}
-\]
-therefore changes only by scalar multiplication. Its projective class is invariant until the coloring collapses to a constant.
+PASS
 
-There are \(p+1\) projective classes, each containing
-\[
-2p(p-1)
-\]
-colorings. Chinese-remainder counting gives exactly two endomorphisms between any ordered pair in one nontrivial block and exactly two from a nontrivial coloring to a prescribed constant coloring. Distinct projective classes have no directed edges between them.
+The source coloring equations reduce modulo \(2p\) to \(p(c-a)\equiv p(c-b)\equiv0\), so every coloring is a same-parity triple and can be written as a parity bit plus a triple over \(\mathbb F_p\). Taniguchi's independently inspected Lemma 3.4 makes every endomorphism affine; therefore a nonzero normalized difference vector is only scalar-multiplied and its point of \(\mathbb P^1(\mathbb F_p)\) is invariant until collapse to a constant. Counting gives \(p+1\) blocks of size \(2p(p-1)\), and CRT gives exactly two affine maps between any ordered pair within one nontrivial block and two maps to each prescribed constant. Fresh exhaustive replay at \(p=5\) reproduces six size-40 blocks plus 10 constants, contradicting the printed size multiset. The finite replay corroborates the symbolic all-prime proof.
 
-The bundled regression script prints:
+## originality
 
-`VERIFY_OK primes=5,7,11 p5_actual=10+40+40+40+40+40+40 p5_theorem29=10+40+40+40+120 projective_block_pattern=true`
+PASS
 
-It constructs the complete coloring sets and affine endomorphism actions for \(p=5,7,11\). The finite replay is not the infinite proof.
+The current inspected pretzel-quiver source prints Theorem 29 with one \(G_4\) complete block under prime \(d_1,d_2\), and its Theorem 20 supplies the congruences used here. For \(p_1=p_2=p_3=p\), \(n=2p\), the hypotheses give \(d_1=d_2=p\). Taniguchi's full primary Lemma 3.4 independently proves every dihedral-quandle endomorphism is affine for every \(n>1\). These inputs force projective-line invariance and contradict the printed block merger; no prior correction or equivalent counterfamily was located.
 
-The independent-audit channel has not been performed.
+## value
+
+PASS
+
+The finding corrects a structural theorem in a new primary source on an infinite family and identifies the exact mechanism of failure: projective classes cannot be merged by dihedral-quandle endomorphisms. The smallest explicit witness and all-prime repair are directly useful constraints on any corrected composite-modulus theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

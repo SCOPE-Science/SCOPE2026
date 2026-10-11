@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source equations reduce exactly to same-parity triples for \(P(p,p,p)\) modulo \(2p\). Taniguchi's affine-endomorphism lemma applies to every dihedral quandle order. The two normalized differences therefore transform by one scalar in \(\mathbb F_p\), so their projective class is invariant under every nonconstant image. Counting projective lines, base colors and parity gives \(p+1\) nontrivial components of size \(2p(p-1)\). Chinese-remainder counting gives edge multiplicity \(2\) inside each nontrivial component and toward each constant coloring, while the constant component has multiplicity \(2p\). This contradicts the component profile printed in Theorem 29 for every \(p\ge5\).
+## correctness
 
-## Originality
-PASS. The primary source contains the theorem being refuted but no repair of its composite-modulus \(G_4\) block. Its Theorem 30 is prime-modulus only. Taniguchi's earlier paper supplies the affine lemma and comparison principles but does not state this pretzel-family decomposition or the counterexample. Searches by theorem number, source title, smallest witness, composite modulus, and projective splitting found no equivalent published correction. The principal residual risk is a very recent unindexed comment or later source revision.
+PASS
 
-## Value
-PASS. This is an infinite counterfamily to a main quiver-structure theorem, together with the exact mechanism and corrected block decomposition on that family. It changes the connectivity invariant rather than only a displayed arithmetic value: the source merges \(p-2\) genuinely disconnected projective classes. The explicit \(p=5\) witness makes the defect immediately testable.
+The source coloring equations reduce modulo \(2p\) to \(p(c-a)\equiv p(c-b)\equiv0\), so every coloring is a same-parity triple and can be written as a parity bit plus a triple over \(\mathbb F_p\). Taniguchi's independently inspected Lemma 3.4 makes every endomorphism affine; therefore a nonzero normalized difference vector is only scalar-multiplied and its point of \(\mathbb P^1(\mathbb F_p)\) is invariant until collapse to a constant. Counting gives \(p+1\) blocks of size \(2p(p-1)\), and CRT gives exactly two affine maps between any ordered pair within one nontrivial block and two maps to each prescribed constant. Fresh exhaustive replay at \(p=5\) reproduces six size-40 blocks plus 10 constants, contradicting the printed size multiset. The finite replay corroborates the symbolic all-prime proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The current inspected pretzel-quiver source prints Theorem 29 with one \(G_4\) complete block under prime \(d_1,d_2\), and its Theorem 20 supplies the congruences used here. For \(p_1=p_2=p_3=p\), \(n=2p\), the hypotheses give \(d_1=d_2=p\). Taniguchi's full primary Lemma 3.4 independently proves every dihedral-quandle endomorphism is affine for every \(n>1\). These inputs force projective-line invariance and contradict the printed block merger; no prior correction or equivalent counterfamily was located.
+
+## value
+
+PASS
+
+The finding corrects a structural theorem in a new primary source on an infinite family and identifies the exact mechanism of failure: projective classes cannot be merged by dihedral-quandle endomorphisms. The smallest explicit witness and all-prime repair are directly useful constraints on any corrected composite-modulus theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
