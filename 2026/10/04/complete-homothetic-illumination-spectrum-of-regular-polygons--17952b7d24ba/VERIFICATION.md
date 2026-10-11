@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,64 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The structural input is the published polygon theorem that characterizes homothetic illumination bodies by balanced \((k,l)\)-extensions. Its hypotheses are matched as follows:
-\[
-k,l\ge1,\qquad
-k+l\ \text{even},\qquad
-k+l+1<\frac m2.
-\]
-Writing
-\[
-q=k+l+1
-\]
-therefore gives exactly the odd indices
-\[
-3\le q<\frac m2.
-\]
+## correctness
 
-For a regular polygon of circumradius \(R\), the inradius is \(R\cos(\pi/m)\). Two sidelines whose outward normals differ by \(2q\pi/m\) intersect on their angular bisector at radius
-\[
-R\frac{\cos(\pi/m)}{\cos(q\pi/m)}.
-\]
-This verifies the homothety ratio and shows that every admissible balanced extension is a concentric regular polygon.
+PASS
 
-At one extension vertex, the two tangent vertices of the original polygon occur at angles
-\[
-\pm(q-1)\frac{\pi}{m}.
-\]
-Subtracting the intervening polygonal cap from the tangent triangle gives
-\[
-\delta
-=
-R^2
-\left(
-\mu\sin\!\left((q-1)\frac{\pi}{m}\right)
--
-\frac{q-1}{2}\sin\!\left(\frac{2\pi}{m}\right)
-\right).
-\]
-Substitution of
-\[
-\mu=\frac{\cos(\pi/m)}{\cos(q\pi/m)}
-\]
-reduces this exactly to
-\[
-\delta
-=
-R^2
-\left(
-\cos^2\!\left(\frac{\pi}{m}\right)
-\tan\!\left(\frac{q\pi}{m}\right)
--
-q\sin\!\left(\frac{\pi}{m}\right)
-\cos\!\left(\frac{\pi}{m}\right)
-\right).
-\]
+The completeness reduction follows from Horváth–Lángi's polygon theorem: a homothetic illumination body must arise from a \((k,l)\)-extension with \(k,l\ge1\), even \(k+l\), and \(k+l+1<m/2\). For a regular \(m\)-gon, rotational symmetry centers the homothety and sideline intersections with normal separation \(2q\alpha\), \(q=k+l+1\), give \(\mu=\cos\alpha/\cos(q\alpha)\). Choosing \(k=l=(q-1)/2\) realizes every admissible odd \(q\). The triangle-minus-polygon-cap area calculation reconstructs \(\delta=R^2(\cos^2\alpha\tan(q\alpha)-q\sin\alpha\cos\alpha)\). I independently checked the algebraic equivalence of the two area expressions and the count \(\lfloor(m-3)/4\rfloor\) for all \(3\le m\le60\); those finite checks are corroborative, while completeness for all \(m\) comes from the source theorem plus exact regular-polygon geometry.
 
-The embedded `verify.py` was replayed from its actual package path before packaging. It constructs convex hulls directly and checks all admissible indices for every \(3\le m\le60\), including five points on each predicted level edge. Its output was:
+## originality
 
-`VERIFY_OK regular polygon illumination spectrum m=3..60`
+PASS
 
-The finite replay is not used to prove completeness or the all-\(m\) formulas.
+Horváth–Lángi's full accessible article was inspected around the polygon characterization. Their theorem gives the structural \((k,l)\)-extension criterion for arbitrary convex polygons and identifies the extension as an illumination level curve, but it does not state the regular-polygon homothety ratios, area levels, or complete count of homothetic levels. Resultary search returns the audited spectrum and a separate equiangular-rigidity result; the latter concerns when homothety forces regularity, not the spectrum once regularity is assumed. No inspected primary or indexed result implies the explicit \(q\)-indexed spectrum.
+
+## value
+
+PASS
+
+The source work explicitly motivates homothetic illumination bodies for polygons. For the fundamental regular family, the audited theorem completely resolves the discrete spectrum of possible homothetic illumination bodies, including exact ratios, area levels, onset, and count, and transfers the result affinely. This is a natural complete classification tied directly to the motivating structural problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:16:55.576953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The completeness reduction follows from Horváth–Lángi's polygon theorem: a homothetic illumination body must arise from a \\((k,l)\\)-extension with \\(k,l\\ge1\\), even \\(k+l\\), and \\(k+l+1<m/2\\). For a regular \\(m\\)-gon, rotational symmetry centers the homothety and sideline intersections with normal separation \\(2q\\alpha\\), \\(q=k+l+1\\), give \\(\\mu=\\cos\\alpha/\\cos(q\\alpha)\\). Choosing \\(k=l=(q-1)/2\\) realizes every admissible odd \\(q\\). The triangle-minus-polygon-cap area calculation reconstructs \\(\\delta=R^2(\\cos^2\\alpha\\tan(q\\alpha)-q\\sin\\alpha\\cos\\alpha)\\). I independently checked the algebraic equivalence of the two area expressions and the count \\(\\lfloor(m-3)/4\\rfloor\\) for all \\(3\\le m\\le60\\); those finite checks are corroborative, while completeness for all \\(m\\) comes from the source theorem plus exact regular-polygon geometry.",
+      "risks": [
+        "The result depends on the cited structural characterization and is restricted to regular polygons, with affine transfer to affinely regular polygons."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "assigned verify.py",
+        "Horváth–Lángi arXiv:2012.08955 / DOI 10.1007/s10711-022-00673-y",
+        "independent formula/count check"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general structural theorem reduces the regular case but leaves the explicit sideline and area computation to be done.",
+          "No stronger inspected illumination-body theorem gives the \\(\\lfloor(m-3)/4\\rfloor\\) spectrum with the stated \\(\\mu_{m,q}\\) and \\(\\delta_{m,q}\\)."
+        ],
+        "reasoning": "The source theorem is broader in object class but not stronger in conclusion for the regular specialization.",
+        "searches": [
+          "Horváth–Lángi Theorem 8",
+          "current Resultary illumination-body corpus",
+          "Assouline–Besau–Werner arXiv:2605.25122"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.08955",
+        "DOI 10.1007/s10711-022-00673-y",
+        "arXiv:2605.25122",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The structural extension criterion does not itself compute the regular extension's homothety ratio or the corresponding added area.",
+          "The audited theorem additionally proves every admissible odd q is realized and counts all levels."
+        ],
+        "reasoning": "The final spectrum is a nontrivial explicit specialization/completion of the prior structural reduction, not merely a renaming of its statement.",
+        "searches": [
+          "direct theorem comparison with Horváth–Lángi"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horváth–Lángi Theorem 8 supplies the admissible extension pattern but not the regular-polygon trigonometric spectrum.",
+          "The related Resultary equiangular-rigidity theorem is a converse-type rigidity result, not a formula for all regular-polygon levels."
+        ],
+        "reasoning": "Equivalent formulations as homothetic illumination bodies, \\((k,l)\\)-extensions, sideline-intersection homothety ratios, and illumination-area level spectra were compared.",
+        "searches": [
+          "Resultary query: regular polygon illumination body homothetic spectrum delta mu cos alpha cos q alpha",
+          "arXiv:2012.08955",
+          "DOI 10.1007/s10711-022-00673-y",
+          "arXiv:2605.25122"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database of the full regular-polygon homothetic illumination spectrum was located."
+        ],
+        "reasoning": "This is a symbolic all-m classification rather than a finite database recomputation.",
+        "searches": [
+          "current Resultary exact-formula search",
+          "targeted web search for regular polygon illumination body homothetic cos(q pi/m)"
+        ]
+      },
+      "rationale": "Horváth–Lángi's full accessible article was inspected around the polygon characterization. Their theorem gives the structural \\((k,l)\\)-extension criterion for arbitrary convex polygons and identifies the extension as an illumination level curve, but it does not state the regular-polygon homothety ratios, area levels, or complete count of homothetic levels. Resultary search returns the audited spectrum and a separate equiangular-rigidity result; the latter concerns when homothety forces regularity, not the spectrum once regularity is assumed. No inspected primary or indexed result implies the explicit \\(q\\)-indexed spectrum.",
+      "residual_risks": [
+        "Because the final trigonometric specialization is elementary once the structural theorem is known, an equivalent calculation could exist in a weakly indexed note or follow-up."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL INPUT, NOT THE REGULAR-POLYGON SPECTRUM.",
+          "evidence": "The theorem characterizes admissible polygon extensions but does not state the audited trigonometric homothety ratios, area parameters, or number of regular-polygon levels.",
+          "identifier_or_url": "https://doi.org/10.1007/s10711-022-00673-y",
+          "material_read": "Full accessible Springer HTML around the polygon section, Problem 2, and Theorem 8 with its \\((k,l)\\)-extension conditions and level-curve conclusion.",
+          "method": "Primary full-text theorem and implication comparison.",
+          "title": "On the convex hull and homothetic convex hull functions of a convex body",
+          "trigger": "Primary source for the polygon illumination-body extension characterization used in the proof."
+        },
+        {
+          "assessment": "NO DECISIVE COVERAGE located.",
+          "evidence": "The accessible scope concerns projective-geometric extensions rather than the explicit Euclidean regular-polygon spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.25122",
+          "material_read": "Accessible arXiv abstract/scope material.",
+          "method": "Scope comparison.",
+          "title": "Illumination Bodies in Projective Geometries",
+          "trigger": "Recent broader illumination-body development potentially containing polygon specializations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source work explicitly motivates homothetic illumination bodies for polygons. For the fundamental regular family, the audited theorem completely resolves the discrete spectrum of possible homothetic illumination bodies, including exact ratios, area levels, onset, and count, and transfers the result affinely. This is a natural complete classification tied directly to the motivating structural problem.",
+      "risks": [
+        "It does not settle the converse characterization for arbitrary convex polygons."
+      ],
+      "sources": [
+        "Horváth–Lángi polygon illumination problem",
+        "explicit regular-polygon spectrum"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Regular polygons and their affine images only.",
+    "Relies on the published \\((k,l)\\)-extension characterization as structural input.",
+    "Originality is best-of-knowledge; weakly indexed follow-up calculations remain a residual risk."
+  ],
+  "schema_version": 1
+}
