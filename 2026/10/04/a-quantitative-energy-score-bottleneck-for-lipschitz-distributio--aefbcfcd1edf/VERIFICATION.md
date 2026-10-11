@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The theorem is analytic. No simulation, finite enumeration, or numerical optimizer is used to establish it.
 
-The following checks were reconstructed from the stated assumptions.
+# Independent mathematical audit
 
-1. **Translation separation.** For \(P_x=\operatorname{Law}(x+Z)\), direct cancellation of the two within-law terms gives
-\[
-\mathcal D^2(P_{Ru},P_{-Ru})=2\mathbb E\!\left[\|Z-Z'+2Ru\|-\|Z-Z'\|\right].
-\]
-The triangle inequality yields the upper bound \(4R\). Energy distance is a metric, and no finite probability law can be invariant under a nonzero translation, so every direction has positive separation; continuity on the compact sphere gives \(\Delta_\mu(R)>0\).
+## correctness
 
-2. **Topological collision.** Since \(q<p\), padding the encoder with zero coordinates if necessary gives a continuous map from \(S_R^{p-1}\) to \(\mathbb R^{p-1}\). Borsuk--Ulam supplies \(x\) with \(e(x)=e(-x)\).
+PASS
 
-3. **Endpoint score regret.** The common predictive law at that pair is \(Q\). The metric triangle inequality for \(\mathcal D\) implies one endpoint has energy-score regret at least \(\Delta_\mu(R)/8\).
+The translation identity for energy distance is correct and gives continuity, positivity of the compact antipodal minimum, and \(\Delta_\mu(R)\le4R\). Borsuk--Ulam applies because \(q<p\), producing an antipodal encoder collision. The energy-distance triangle inequality forces one endpoint regret at least \(\Delta/8\). Same-noise coupling plus target translation makes the regret \((1+2L_eL_d)\)-Lipschitz in the covariate, so a cap of chord radius \(\Delta/[16(1+2L_eL_d)]\) has regret at least \(\Delta/16\). The beta-function cap formula and its \(t^{p-1}\) expansion have the stated constants.
 
-4. **Lipschitz propagation.** Same-noise coupling gives
-\[
-W_1(Q_z,Q_x)\le L_eL_d\|z-x\|.
-\]
-The target--prediction cross term changes by at most \((1+L_eL_d)\|z-x\|\), while the predictive self-distance contributes at most another \(L_eL_d\|z-x\|\). Thus regret changes by at most \((1+2L_eL_d)\|z-x\|\).
+## originality
 
-5. **Cap integration.** With \(\rho=\Delta_\mu(R)/(16(1+2L_eL_d))\), the regret stays at least \(\Delta_\mu(R)/16\) on the chordal cap of radius \(\rho\). Its normalized surface mass is
-\[
-\frac12 I_{(\rho/R)^2-(\rho/R)^4/4}\!\left(\frac{p-1}{2},\frac12\right),
-\]
-which is exactly the factor in the theorem.
+PASS
 
-6. **Boundary normalization.** If \(\mu=\delta_0\), then \(\mathcal D^2(\delta_x,\delta_{-x})=4R\), recovering the stated noiseless formula. The small-cap expansion has exponent \(p-1\), yielding the necessary \((1+2L_eL_d)^{-(p-1)}\) order.
+Henzi--Liu--Shen characterize distributional sufficiency through proper scoring rules, permit measurable one-dimensional encodings abstractly, and impose Lipschitz regularity in their consistency theory; they do not provide a quantitative impossibility floor for choosing \(q<p\). Classical nonlinear-width and topological-autoencoder results provide qualitative Borsuk--Ulam reconstruction obstructions in other losses. Fresh searches found no prior cap-integrated energy-score lower bound with a stochastic decoder and the explicit \((1+2L_eL_d)^{-(p-1)}\) scaling.
 
-Scientific limits: the lower-bound constant is not asserted minimax-optimal, and the proof does not certify any claim outside the stated sphere/translation/Lipschitz setting.
+## value
+
+PASS
+
+The theorem gives a quantitative feasibility barrier for a current distributional-regression dimension-reduction framework: subambient continuous representations can approach zero population energy-score regret only by unbounded encoder-decoder Lipschitz complexity on a canonical full-dimensional family. The explicit positive-risk scaling is a motivated structural obstruction rather than a routine dimension-count check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
