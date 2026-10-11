@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is all-parameter. The published two-deletion run formula is reconstructed from deletion assignments and singleton-run collisions. For a uniform binary word, the boundary vector is independent Bernoulli\((1/2)\); after substitution, the sphere size is a quadratic polynomial. Its complete Walsh spectrum has \(m\) equal linear coefficients \((m-1)/4\) and \(\binom m2\) quadratic coefficients of magnitude \(1/4\), so orthogonality yields \(\operatorname{Var}(B_n)=(n-1)(n-2)(2n-3)/32\). The bundled exhaustive checker verifies every binary center through \(n=12\) but is not used as the infinite proof.
+## correctness
 
-## Originality
-PASS. The closest direct source, Swart and Ferreira, gives the per-word cardinality formula for exactly two deletions but no variance. Pham--Goyal--Kiah study deletion-ball maxima and intersections, and Alon et al. study the nonregular deletion graph and triangle sparsity. Targeted searches under variance, second moment, deletion sphere, deletion ball, and distinct-subsequence aliases found no exact random-center variance. Residual risk remains for unindexed or differently phrased derivations.
+PASS
 
-## Value
-PASS. The number of distinct deletion outputs is a fundamental local statistic of deletion channels. At radius two, its exact variance quantifies how strongly local ambiguity varies across binary centers and gives the precise fluctuation scale \(n^{3/2}/4\). This is a natural global invariant of the nonregular deletion geometry, not a routine isolated parameter computation.
+The exact two-deletion sphere identity in run statistics was checked independently against literal deletion sets for every binary word through length nine. Writing transition bits as independent Bernoulli variables gives a quadratic polynomial whose Walsh expansion has every linear coefficient \((m-1)/4\) and every quadratic coefficient of magnitude \(1/4\); orthogonality then gives \(m(m-1)(2m-1)/32\), i.e. \((n-1)(n-2)(2n-3)/32\). The package verifier independently checks the per-word run formula through length twelve and the closed Walsh variance through \(n=200\).
 
-The main limitation is scope: uniform binary inputs and exactly two deletions only. No higher-radius, nonbinary, or full-distribution theorem is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. Swart and Ferreira's full primary paper supplies the exact per-word two-deletion subsequence count in run statistics, which is the necessary starting identity, but it does not study the random-center mean/variance distribution. The submitted Walsh calculation converts that structural formula into an exact variance law. Resultary searches returned nearby random-string and deletion-code work, not this moment formula.
+
+## value
+
+PASS
+
+The variance of a deletion-sphere size is a natural quantitative measure of channel irregularity. The exact cubic polynomial gives a clean fluctuation scale and the Walsh proof exposes a reusable structural simplification, rather than merely enumerating a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:02:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact two-deletion sphere identity in run statistics was checked independently against literal deletion sets for every binary word through length nine. Writing transition bits as independent Bernoulli variables gives a quadratic polynomial whose Walsh expansion has every linear coefficient \\((m-1)/4\\) and every quadratic coefficient of magnitude \\(1/4\\); orthogonality then gives \\(m(m-1)(2m-1)/32\\), i.e. \\((n-1)(n-2)(2n-3)/32\\). The package verifier independently checks the per-word run formula through length twelve and the closed Walsh variance through \\(n=200\\).",
+      "risks": [
+        "The theorem concerns uniform binary centers and exactly two deletions."
+      ],
+      "sources": [
+        "RESULT.md blob 04ae0446af853cd7001a5dff16d2215bb2cacd68",
+        "verify.py blob 5a46699e19effd5c7411d1edf1dd893b3f4b26a0",
+        "Swart and Ferreira, DOI 10.1109/TIT.2002.806155, Proposition 3.1"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source formula determines each center but does not itself state the exact aggregate second moment; deriving it requires exploiting independence of transition bits and Walsh orthogonality."
+        ],
+        "reasoning": "The prior per-word classification is important partial coverage but does not dominate the final variance statement.",
+        "searches": [
+          "Swart–Ferreira full paper",
+          "Resultary deletion/subsequence searches"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1109/TIT.2002.806155",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proposition is an exact deterministic identity. The submitted claim is a probabilistic second-moment theorem over all \\(2^n\\) centers; it is not stated or tabulated in the source."
+        ],
+        "reasoning": "The deterministic formula enables but does not itself contain the exact variance result.",
+        "searches": [
+          "Statement comparison with Swart–Ferreira Proposition 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3.1 of the 2003 paper gives the exact two-deletion sphere size in run data.",
+          "No variance/random-center theorem appears in the inspected paper."
+        ],
+        "reasoning": "The sphere-size and distinct-subsequence formulations are equivalent; the new statistic is the distribution over a uniform binary center.",
+        "searches": [
+          "Resultary: double deletion subsequence sphere exact variance binary random word",
+          "DOI 10.1109/TIT.2002.806155 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published table for this variance was returned."
+        ],
+        "reasoning": "No-table evidence is supplementary only.",
+        "searches": [
+          "Resultary exact-variance and deletion-sphere queries"
+        ]
+      },
+      "rationale": "PASS. Swart and Ferreira's full primary paper supplies the exact per-word two-deletion subsequence count in run statistics, which is the necessary starting identity, but it does not study the random-center mean/variance distribution. The submitted Walsh calculation converts that structural formula into an exact variance law. Resultary searches returned nearby random-string and deletion-code work, not this moment formula.",
+      "residual_risks": [
+        "Older coding-theory tables may contain moments not indexed by title/abstract; no such table was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DETERMINISTIC_FORMULA_PARTIAL_COVERAGE",
+          "evidence": [
+            "The paper proves the exact per-word two-deletion count and does not present a random-center variance law."
+          ],
+          "identifier_or_url": "DOI:10.1109/TIT.2002.806155",
+          "material_read": "Full five-page article, including Proposition 3.1 and the run-based derivation.",
+          "method": "Authorized institutional full-text inspection after open-access routes did not supply the article text.",
+          "title": "A formula for the number of distinct subsequences obtained by deleting two symbols",
+          "trigger": "Primary source for the exact two-deletion run formula used in the proof."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The variance of a deletion-sphere size is a natural quantitative measure of channel irregularity. The exact cubic polynomial gives a clean fluctuation scale and the Walsh proof exposes a reusable structural simplification, rather than merely enumerating a finite census.",
+      "risks": [
+        "The result is specialized to binary words and two deletions."
+      ],
+      "sources": [
+        "DOI:10.1109/TIT.2002.806155",
+        "RESULT.md blob 04ae0446af853cd7001a5dff16d2215bb2cacd68"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No higher-deletion or nonuniform-source moment law is claimed."
+  ],
+  "schema_version": 1
+}
