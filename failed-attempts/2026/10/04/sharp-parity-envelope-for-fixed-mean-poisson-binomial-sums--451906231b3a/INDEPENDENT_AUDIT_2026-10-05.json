@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:09:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After setting \\(x_i=1-2p_i\\), fixing the number of negative factors and their total magnitude reduces each sign class to two AM--GM blocks. The product magnitude is monotone in the transferred magnitude, so the optimum lies at the stated endpoint and yields exactly the displayed \\(M_r\\). The small-mean lower bound follows from \\(\\prod_i(1-2p_i)\\ge1-2\\sum_i p_i\\), and complementing trials handles \\(\\lambda>n/2\\). The discrete phase monotonicity follows from differentiating the logarithm of the candidate expression. A fresh exact grid replay over \\(3905\\) small parameter vectors found every bias inside the claimed interval.",
+      "risk": "The exact endpoint formulas rely on independence; exchangeable but dependent trials can have a wider range.",
+      "sources": [
+        "Hoeffding, DOI:10.1214/AOMS/1177728178",
+        "frozen RESULT.md and verify_parity_envelope.py",
+        "fresh exact-rational grid replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior theorem permits arbitrary real-valued objectives, strictly broader than parity.",
+          "It already supplies the exact structural form of at least one maximum and minimum."
+        ],
+        "reasoning": "The submitted AM--GM classification refines the parameters of a prior extremal normal form rather than escaping that coverage.",
+        "searches": [
+          "Hoeffding 1956 arbitrary-function extremum theorem",
+          "Columbia prophet-secretary paper generalization of the \\(\\{0,p,1\\}\\) extremizer theorem"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1214/AOMS/1177728178",
+        "UNC Institute of Statistics mimeograph repository",
+        "Columbia prophet-secretary paper",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take \\(g(s)=(-1)^s\\); any extremum may be chosen with a block of deterministic zeros, a block of deterministic ones, and one common interior success probability.",
+          "The fixed-mean constraint then fixes the interior probability, and elementary monotonicity in the block size yields the submitted finite competition and deterministic/homogeneous extremizers."
+        ],
+        "reasoning": "The final claim is a direct special-case computation from the established arbitrary-\\(g\\) theorem.",
+        "searches": [
+          "Hoeffding Corollary 2.1 as indexed in the primary repository text",
+          "later direct restatement of Hoeffding Corollary 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hoeffding considers maxima and minima of \\(E g(S)\\) for arbitrary \\(g\\) under fixed \\(ES\\).",
+          "His Corollary 2.1 states an extremizer exists with every \\(p_i\\in\\{0,p,1\\}\\).",
+          "A later theorem explicitly restates that Hoeffding result as saying the optimum is a constant plus a binomial random variable."
+        ],
+        "reasoning": "Parity probability, parity bias and product-of-sign factors are all the same objective after choosing \\(g(s)=(-1)^s\\).",
+        "searches": [
+          "Resultary query: Poisson binomial fixed mean parity probability extrema product (1-2p_i) sharp envelope",
+          "Hoeffding 1956 DOI:10.1214/AOMS/1177728178",
+          "later restatement: Columbia prophet-secretary paper, Theorem 4 discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior source with the same \\(M_r\\) notation was located.",
+          "Exact notation or numbers are immaterial because the stronger prior theorem reduces the parity case to finitely many elementary candidate evaluations."
+        ],
+        "reasoning": "Failure of exact-string search cannot establish novelty against implication by a broader theorem.",
+        "searches": [
+          "Resultary exact semantic search for parity envelopes",
+          "Hoeffding's structural extremizer theorem"
+        ]
+      },
+      "rationale": "Hoeffding's 1956 theorem is decisively broader: for an arbitrary real-valued function \\(g(S)\\) of a Poisson-binomial sum at fixed mean, Corollary 2.1 states that both extrema are attained with the Bernoulli probabilities taking at most three values, only one of them different from \\(0\\) and \\(1\\). Parity is the specialization \\(g(s)=(-1)^s\\). Evaluating that published extremal normal form gives a deterministic shift plus a homogeneous binomial block; the submitted \\(M_r\\) candidates are exactly those evaluations after elementary one-variable monotonicity. Under the required implication rule, the exact displayed parity formulas are therefore a routine corollary of a theorem that already covers every objective \\(g\\), not an original extremal principle.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_THEOREM_COVERS_PARITY_SPECIALIZATION",
+          "evidence": "The source says the maximum and minimum of \\(Eg(S)\\) are attained when the probabilities take at most three values, only one distinct from \\(0\\) and \\(1\\).",
+          "identifier_or_url": "DOI:10.1214/AOMS/1177728178; UNC Institute of Statistics Mimeograph Series No. 128",
+          "material_read": "Indexed primary repository text reproducing the introduction/summary and the decisive Corollary 2.1 statement; direct repository PDF endpoint was bot-blocked.",
+          "method": "Lawful repository/search-text inspection; no access bypass.",
+          "title": "On the Distribution of the Number of Successes in Independent Trials",
+          "trigger": "Exact optimization problem: arbitrary function of an independent Bernoulli sum with fixed mean."
+        },
+        {
+          "assessment": "CONFIRMS_HOEFFDING_NORMAL_FORM",
+          "evidence": "It states that Hoeffding's corollary for fixed mean gives an optimal vector with every \\(p_i\\in\\{0,p,1\\}\\), equivalently a constant plus a binomial variable.",
+          "identifier_or_url": "Columbia-hosted paper, theorem discussion found in public full-text index",
+          "material_read": "Public full-text indexed theorem statement and discussion.",
+          "method": "Lawful public-source inspection.",
+          "title": "Prophet Secretary through Blind Strategies",
+          "trigger": "Independent modern restatement of Hoeffding Corollary 2.1."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Parity is a natural statistic, but once Hoeffding's arbitrary-objective extremizer theorem is applied, the remaining work is evaluation of a one-parameter binomial block and elementary monotonicity. Under the common value bar this is a useful worked specialization rather than a new structural lemma, boundary phenomenon, or classification beyond the stronger prior framework.",
+      "risk": "The explicit formulas may still be useful for exposition or computation, but that is below the audit's scientific-value threshold.",
+      "sources": [
+        "DOI:10.1214/AOMS/1177728178"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For independent Bernoulli trials with fixed total mean \\(\\lambda\\), the exact extrema of the parity bias \\(\\mathbb E(-1)^S=\\prod_i(1-2p_i)\\) are the finite even/odd competitions \\(M_r\\) stated in the package, with deterministic-plus-homogeneous extremizers and the stated nearest-index phase rule.",
+  "limitations": [
+    "Independent Bernoulli trials only.",
+    "This rejection is for prior implication and value, not correctness."
+  ],
+  "schema_version": 1
+}
