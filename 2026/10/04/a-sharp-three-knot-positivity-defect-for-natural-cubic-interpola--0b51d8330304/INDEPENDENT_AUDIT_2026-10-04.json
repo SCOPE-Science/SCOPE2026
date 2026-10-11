@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:27:24.564554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md tree a30a272a1460bd92589c17e97830c6d7011c1136",
+        "audited verify.py blob 4aea7e58df4a2ac3b7d170eb9a0cdb81fc2a86b0",
+        "Fischer–Opfer–Puri natural-spline setup"
+      ],
+      "rationale": "The natural three-knot equations leave one interior second derivative. Substitution gives the stated left and right cardinal coefficients. On the left, two coefficients are nonnegative and \\(A_2=-t(1-t^2)/(2r(1+r))\\le0\\), so the data-cube minimum is attained at \\((0,0,M)\\); maximizing \\(t-t^3\\) gives \\(2/(3\\sqrt3)\\). The right interval is the reflected calculation with only \\(B_0\\le0\\), giving the \\(r^2\\) branch. Comparing the two branches yields \\(C(r)=\\max\\{r^{-1},r^2\\}/(3\\sqrt3(1+r))\\), uniquely minimized at \\(r=1\\) and divergent for skew meshes. Independent rational checks reproduced the basis identities/signs.",
+      "residual_risks": [
+        "The theorem covers exactly three knots and ordinary natural cubic interpolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1991 paper begins from the fact that positive data can have a negative natural interpolant and constructs local nonnegative replacements by extra knots.",
+          "Its optimization problem is a repair problem on intervals where the original natural spline is negative, not a worst-case bound over three bounded ordinates."
+        ],
+        "reasoning": "The qualitative positivity failure is prior, but it neither bounds nor implies the sharp three-knot defect as a function of adjacent mesh ratio.",
+        "searches": [
+          "Fischer–Opfer–Puri 1991 DOI 10.1016/0021-9045(91)90082-L",
+          "classical natural cubic spline shape-preservation literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/0021-9045(91)90082-L full text pages 1–12",
+        "Resultary published-result search",
+        "direct literature searches on three-knot spline positivity and Lebesgue constants"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard spline formulas provide the starting representation but do not identify the global data-cube minimizer or sharp mesh-ratio dependence.",
+          "The audited sign pattern proves that at each point exactly one endpoint cardinal coefficient can be negative and then optimizes its cubic shape exactly."
+        ],
+        "reasoning": "The result requires a separate extremal analysis and is not a corollary of the prior repair algorithm.",
+        "searches": [
+          "Natural-spline cardinal basis formulas",
+          "Fischer–Opfer–Puri positivity-repair theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent published SCOPE finding was returned.",
+          "Direct searches surfaced general shape-preserving and nonnegative-spline literature but not the displayed constant."
+        ],
+        "reasoning": "The equivalent interpolation-operator formulation \\(\\Lambda(r)=1+2C(r)\\) was also considered; no exact three-node formula was found.",
+        "searches": [
+          "Resultary: three-knot natural cubic spline exact positivity undershoot mesh ratio Lebesgue constant",
+          "web search: three knots natural cubic spline positivity undershoot"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact constant or three-node table was found.",
+          "The primary paper contains test cubics and repair splines, not a database of three-knot natural-interpolant minima."
+        ],
+        "reasoning": "The claim is a closed-form all-\\(r\\) optimization, not a finite tabulation.",
+        "searches": [
+          "Resultary exact search for \\(C(r)\\) / three-point spline positivity defect",
+          "Fischer–Opfer–Puri explicit examples"
+        ]
+      },
+      "rationale": "Prior spline literature establishes only the qualitative failure of positivity and methods that repair negative natural splines by adding knots. The closest Fischer–Opfer–Puri primary paper was inspected through its setup and optimization construction; it does not state an exact three-knot worst undershoot, mesh-ratio constant, or equivalent Lebesgue constant. Resultary and direct exact searches found no matching formula.",
+      "residual_risks": [
+        "Classical spline-stability or cardinal-function literature not indexed by positivity terminology could contain an equivalent operator-norm formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_PRIOR_NOT_COVERING",
+          "evidence": "The paper confirms qualitative positivity loss and develops local repair; it does not state the audited sharp three-knot constant or extremizers.",
+          "identifier_or_url": "DOI:10.1016/0021-9045(91)90082-L",
+          "material_read": "Pages 1–12 of the 16-page article, covering the motivation, natural-spline preliminaries, local negativity setup, feasible/best-spline construction, and knot-selection theory.",
+          "method": "Authorized institutional full-text retrieval after lawful open-access search yielded only bibliographic/abstract material.",
+          "title": "A Local Algorithm for Constructing Non-negative Cubic Splines",
+          "trigger": "Closest primary source explicitly starting from negative natural interpolants of positive data."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fischer–Opfer–Puri 1991"
+      ],
+      "rationale": "This gives a natural minimal-size exact positivity defect, identifies the extremizing data and locations, and quantifies how mesh skew destroys positivity. The qualitative defect is known, but the sharp minimal-knot constant is independently useful for shape-preservation analysis.",
+      "residual_risks": [
+        "No sharp result for longer grids is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1016/0021-9045(91)90082-L full text pages 1–12",
+    "Resultary published-result search",
+    "direct literature searches on three-knot spline positivity and Lebesgue constants"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three knots.",
+    "No claim for Hermite, constrained, rational, or shape-preserving cubic schemes."
+  ],
+  "residual_risks": [
+    "Classical spline-stability or cardinal-function literature not indexed by positivity terminology could contain an equivalent operator-norm formula."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "QUALITATIVE_PRIOR_NOT_COVERING",
+      "evidence": "The paper confirms qualitative positivity loss and develops local repair; it does not state the audited sharp three-knot constant or extremizers.",
+      "identifier_or_url": "DOI:10.1016/0021-9045(91)90082-L",
+      "material_read": "Pages 1–12 of the 16-page article, covering the motivation, natural-spline preliminaries, local negativity setup, feasible/best-spline construction, and knot-selection theory.",
+      "method": "Authorized institutional full-text retrieval after lawful open-access search yielded only bibliographic/abstract material.",
+      "title": "A Local Algorithm for Constructing Non-negative Cubic Splines",
+      "trigger": "Closest primary source explicitly starting from negative natural interpolants of positive data."
+    }
+  ]
+}

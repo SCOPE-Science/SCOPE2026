@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The natural-spline equations leave one interior second derivative, and substituting it yields explicit cardinal coefficients on both subintervals. On each interval exactly one coefficient is nonpositive and the other two are nonnegative. Minimization over the data cube therefore reduces to one vertex, after which a single cubic shape factor has the exact maximum \(2/(3\sqrt3)\). Reflection gives the right-interval formula. The two branches cross only at \(r=1\), and elementary derivatives establish the unique equal-spacing minimum and skew-mesh divergence. The strictly positive variant follows from the partition of unity. The packaged exact-rational replay checks the algebraic identities and direct spline evaluations.
+## correctness
 
-## Originality
-PASS with explicit residual risk. Prior work already establishes that ordinary cubic interpolation can lose monotonicity and that a natural cubic spline through positive data can become negative; those facts are excluded from the novelty claim. Targeted semantic searches for three-knot natural splines, positivity defects, mesh-ratio bounds, cardinal-basis negativity, and the equivalent Lebesgue-constant formulation returned no implication-equivalent result. The inspected sources do not state the exact sharp function \(C(r)\), the extremizing cube vertices and locations, the unique equal-spacing minimizer, or the unbounded skew-mesh law. The strongest residual risk is the inaccessible full text of Fischer--Opfer--Puri and older spline-stability literature, either of which could contain an equivalent three-node operator-norm calculation.
+PASS
 
-## Value
-PASS. Positivity is a fundamental shape constraint in interpolation, and three knots are the first nontrivial natural-spline case. The theorem does more than exhibit a counterexample: it gives the complete worst-case positivity defect as an explicit function of the mesh ratio, identifies exactly how mesh geometry controls the failure, and shows that bounded positive samples can produce arbitrarily large negative excursions. The equal-spacing optimum and the equivalent three-node Lebesgue constant provide concrete design and regression-test information.
+The natural three-knot equations leave one interior second derivative. Substitution gives the stated left and right cardinal coefficients. On the left, two coefficients are nonnegative and \(A_2=-t(1-t^2)/(2r(1+r))\le0\), so the data-cube minimum is attained at \((0,0,M)\); maximizing \(t-t^3\) gives \(2/(3\sqrt3)\). The right interval is the reflected calculation with only \(B_0\le0\), giving the \(r^2\) branch. Comparing the two branches yields \(C(r)=\max\{r^{-1},r^2\}/(3\sqrt3(1+r))\), uniquely minimized at \(r=1\) and divergent for skew meshes. Independent rational checks reproduced the basis identities/signs.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior spline literature establishes only the qualitative failure of positivity and methods that repair negative natural splines by adding knots. The closest Fischer–Opfer–Puri primary paper was inspected through its setup and optimization construction; it does not state an exact three-knot worst undershoot, mesh-ratio constant, or equivalent Lebesgue constant. Resultary and direct exact searches found no matching formula.
+
+## value
+
+PASS
+
+This gives a natural minimal-size exact positivity defect, identifies the extremizing data and locations, and quantifies how mesh skew destroys positivity. The qualitative defect is known, but the sharp minimal-knot constant is independently useful for shape-preservation analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
