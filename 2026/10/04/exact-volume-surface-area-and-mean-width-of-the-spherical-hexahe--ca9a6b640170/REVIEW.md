@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The six defining ball inequalities reduce exactly to \(\lVert x\rVert^2+\sqrt2\lVert x\rVert_\infty\le1/2\). From that representation the eight vertices and their separation follow algebraically. The edge circle has radius \(\sqrt3/2\), and the endpoint dot product gives \(\cos\alpha=23/27\). Spherical Gauss--Bonnet gives the face area, the divergence theorem plus a boundary vector-area integral gives the volume, and the standard smooth-face/edge curvature decomposition gives the mean width. The packaged verifier replays these identities and independently checks the volume by radial quadrature. The quadrature is diagnostic only.
+## correctness
 
-## Originality
-The closest source is Finch, arXiv:1301.5515v1, which displays the same six spheres and explicitly asks for exact volume, surface area, and mean width. Targeted published-finding corpus searches covered the spherical-hexahedron name, the six-ball octahedral-center formulation, the exact angle \(\arccos(23/27)\), the resulting constants, and intrinsic-volume aliases; no covering finding was retrieved. Chkhartishvili--Narasimhan's 2015 six-sphere calculation was inspected and concerns coplanar regular-hexagon centers. Dodd--Theodorou's 1991 abstract supplies a general analytical volume/surface-area algorithm but not these closed forms or mean width. Lustig's 1985 full text remained inaccessible after bounded lawful attempts and is recorded as a residual risk rather than treated as negative evidence.
+PASS
 
-## Value
-Finch presented the exact evaluation of this spherical hexahedron as an unanswered question. The result gives a complete closed-form answer for all three requested measures and resolves the source's inconsistent printed adjacent-vertex distance by deriving \(\sqrt2/3\) directly from the six defining equations. The object is canonical and the result is structural rather than a narrow numerical slice.
+The intersection inequality reduces exactly to \(\|x\|^2+\sqrt2\|x\|_\infty\le1/2\), giving vertices \((\pm1/(3\sqrt2),\pm1/(3\sqrt2),\pm1/(3\sqrt2))\) and adjacent distance \(\sqrt2/3\). The three active unit-sphere normals along an edge give \(\cos\alpha=23/27\). Gauss-Bonnet on one congruent spherical face, followed by symmetry, yields \(S=4\pi-20\alpha\). The divergence-theorem/vector-area calculation gives \(V=4\pi/3+2/(3\sqrt2)-49\alpha/6\), while the standard face-curvature plus edge contribution gives the stated Finch-normalized mean width. Fresh numerical evaluation reproduces \(V=0.158029005045087\), \(S=1.540658645708557\), \(W=0.722630772064860\), and an independent spherical radial quadrature gave \(V=0.1580223742\), consistent at the expected grid error.
 
-## Closest literature and limitations
-The 1991 general sphere-body algorithm is broader methodologically for volume and exposed surface area, while the 2015 six-sphere paper treats a different center arrangement. No algorithmic novelty is claimed. The result does not address the spherical dodecahedron or arbitrary six-ball intersections. An unindexed historical formula remains possible, especially because the full text of Lustig (1985) was not available for page-level comparison.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Finch explicitly ends his 2013 paper by asking for exact \(V\), surface area, and mean width of this spherical hexahedron and supplies only a numerical normalized volume. Dodd and Theodorou give a general analytical algorithm for volume and exposed surface area of arbitrary intersecting spheres, so the volume and area components are in principle covered by a broader computational framework and should not be treated as conceptually new by themselves. That framework does not address mean width, and Finch's later explicit open question, after citing the sphere-intersection literature, confirms the missing same-object exact evaluation. Current exact-formula searches for the \(23/27\) angle and the displayed mean width found no prior source.
+
+## value
+
+PASS
+
+The record answers a named exact-evaluation question for a canonical six-sphere intersection and supplies all three intrinsic measures in one normalization, including mean width, which is not covered by the general volume/surface algorithms. The correction of the adjacent-vertex scale and the consistency of the three measures make this a useful convex-geometry reference result rather than a gratuitous symbolic simplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

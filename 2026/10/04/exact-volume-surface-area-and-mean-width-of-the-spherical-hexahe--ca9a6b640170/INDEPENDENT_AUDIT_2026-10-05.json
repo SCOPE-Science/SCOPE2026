@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:11:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 64087e0b0c4a1e2a1b705aeb9a2c799e59ae0a29",
+        "assigned verify.py blob f994f849aa59559f81b60338cd3004b19e0a2722",
+        "Finch, Mutually Equidistant Spheres that Intersect, arXiv:1301.5515",
+        "Dodd--Theodorou DOI 10.1080/00268979100100941"
+      ],
+      "rationale": "The intersection inequality reduces exactly to \\(\\|x\\|^2+\\sqrt2\\|x\\|_\\infty\\le1/2\\), giving vertices \\((\\pm1/(3\\sqrt2),\\pm1/(3\\sqrt2),\\pm1/(3\\sqrt2))\\) and adjacent distance \\(\\sqrt2/3\\). The three active unit-sphere normals along an edge give \\(\\cos\\alpha=23/27\\). Gauss-Bonnet on one congruent spherical face, followed by symmetry, yields \\(S=4\\pi-20\\alpha\\). The divergence-theorem/vector-area calculation gives \\(V=4\\pi/3+2/(3\\sqrt2)-49\\alpha/6\\), while the standard face-curvature plus edge contribution gives the stated Finch-normalized mean width. Fresh numerical evaluation reproduces \\(V=0.158029005045087\\), \\(S=1.540658645708557\\), \\(W=0.722630772064860\\), and an independent spherical radial quadrature gave \\(V=0.1580223742\\), consistent at the expected grid error.",
+      "residual_risks": [
+        "The formulas are specific to this six-ball octahedral-center intersection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dodd--Theodorou cover volume and exposed surface area for arbitrary sphere intersections but not mean width.",
+          "Lustig's cited six-sphere work concerns fused hard-sphere molecular bodies; accessible descriptions do not identify Finch's common intersection or a mean-width formula."
+        ],
+        "reasoning": "The final three-invariant claim is not fully covered; its mean-width component and simple same-object closed evaluation remain outside the inspected broader results.",
+        "searches": [
+          "Dodd--Theodorou 1991 general intersecting-sphere algorithm",
+          "Lustig 1985 fused hard-sphere literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.5515",
+        "DOI 10.1080/00268979100100941",
+        "Lustig, Molecular Physics 55 (1985), 305--317 accessible abstract descriptions",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A volume/surface algorithm does not determine the edge-curvature term required for mean width.",
+          "The audited proof supplies the explicit spherical-face and edge geometry Finch left unresolved."
+        ],
+        "reasoning": "The complete triple is not mechanically implied by the inspected prior literature.",
+        "searches": [
+          "general sphere-intersection volume/area algorithms versus mean width",
+          "Finch open question versus audited curvature/edge calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch lines 68--70 explicitly ask for exact expressions for all three measures of the same six-sphere intersection.",
+          "The audited adjacent length \\(\\sqrt2/3\\) also resolves the inconsistency between Finch's printed length and his numerical normalized-volume ratio."
+        ],
+        "reasoning": "The object is identical after translating Finch's six centers to the stated octahedral coordinates.",
+        "searches": [
+          "Resultary query: spherical hexahedron octahedral six unit sphere intersection volume surface area mean width Finch",
+          "web exact searches for arccos(23/27), spherical hexahedron, mean width",
+          "Finch arXiv:1301.5515"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent prior exact same-object formula was retrieved."
+        ],
+        "reasoning": "Search absence supplements Finch's explicit open question.",
+        "searches": [
+          "Resultary exact spherical-hexahedron query",
+          "web exact searches for the numerical value 0.722630772 and angle 23/27"
+        ]
+      },
+      "rationale": "Finch explicitly ends his 2013 paper by asking for exact \\(V\\), surface area, and mean width of this spherical hexahedron and supplies only a numerical normalized volume. Dodd and Theodorou give a general analytical algorithm for volume and exposed surface area of arbitrary intersecting spheres, so the volume and area components are in principle covered by a broader computational framework and should not be treated as conceptually new by themselves. That framework does not address mean width, and Finch's later explicit open question, after citing the sphere-intersection literature, confirms the missing same-object exact evaluation. Current exact-formula searches for the \\(23/27\\) angle and the displayed mean width found no prior source.",
+      "residual_risks": [
+        "An older closed evaluation of the volume or area may be embedded in molecular-geometry literature even though Finch still listed the same object as open in 2013.",
+        "Dodd--Theodorou full text was not available in the inspected open routes; its abstract establishes broad volume/area coverage but not mean width."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_QUESTION",
+          "evidence": "The paper asks for exact volume, surface area, and mean width and reports only a numerical normalized volume for this object.",
+          "identifier_or_url": "arXiv:1301.5515",
+          "material_read": "complete short primary article, including its literature survey and closing spherical-hexahedron question",
+          "method": "primary full-text inspection",
+          "title": "Mutually Equidistant Spheres that Intersect",
+          "trigger": "same spherical hexahedron and explicit unanswered question"
+        },
+        {
+          "assessment": "BROADER_VOLUME_AREA_METHOD_NO_MEAN_WIDTH",
+          "evidence": "The abstract explicitly covers volume and exposed surface area, not mean width.",
+          "identifier_or_url": "https://doi.org/10.1080/00268979100100941",
+          "material_read": "primary abstract and bibliographic scope; no open full text was available from the inspected repository routes",
+          "method": "primary-source scope inspection with access limitation",
+          "title": "Analytical treatment of the volume and surface area of molecules formed by an arbitrary collection of unequal spheres intersected by planes",
+          "trigger": "broad analytical sphere-intersection method cited by Finch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finch 2013",
+        "Dodd--Theodorou 1991",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The record answers a named exact-evaluation question for a canonical six-sphere intersection and supplies all three intrinsic measures in one normalization, including mean width, which is not covered by the general volume/surface algorithms. The correction of the adjacent-vertex scale and the consistency of the three measures make this a useful convex-geometry reference result rather than a gratuitous symbolic simplification.",
+      "residual_risks": [
+        "The volume and area portions have less independent novelty than the mean-width portion because general analytical algorithms predate Finch."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The formulas are specific to this six-ball octahedral-center intersection.",
+    "An older closed evaluation of the volume or area may be embedded in molecular-geometry literature even though Finch still listed the same object as open in 2013.",
+    "Dodd--Theodorou full text was not available in the inspected open routes; its abstract establishes broad volume/area coverage but not mean width.",
+    "The volume and area portions have less independent novelty than the mean-width portion because general analytical algorithms predate Finch."
+  ]
+}
