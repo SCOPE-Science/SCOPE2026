@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:03:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Vertices with a fixed coordinate support form false-twin classes, so any resolving set must contain all but at most one vertex of every nonempty proper support class, giving the base term \\(N-(2^n-2)\\). For a binary coordinate, the class of support \\([n]\\setminus\\{i\\}\\) is a singleton whose sole neighbor class of support \\(\\{i\\}\\) is also singleton; domination therefore forces exactly one additional landmark for each binary factor, and these forced pairs are disjoint for \\(n\\ge3\\). The matching upper construction chooses all but one per support class and includes the required binary singleton vertices; coordinate singleton landmarks then separate every pair of omitted vertices. Fresh exhaustive searches for \\((2,2,3)\\) and \\((2,3,3)\\) independently returned the formula values \\(5\\) and \\(8\\). The frozen verifier was read and checks a wider bounded grid.",
+      "risk": "The proof uses \\(n\\ge3\\); two-factor products have separate complete-bipartite behavior.",
+      "sources": [
+        "DOI:10.17654/0972555523016",
+        "arXiv:2312.16005 / DOI:10.1016/j.heliyon.2024.e30989",
+        "arXiv:2308.00796 / DOI:10.61091/ars168-03",
+        "frozen RESULT.md and artifacts/verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The endpoint theorems do not imply how binary and nonbinary coordinates interact in one product.",
+          "The later papers do not state a stronger mixed resolving-domination formula."
+        ],
+        "reasoning": "The submitted theorem interpolates the two published endpoint regimes with a coordinatewise surcharge that is not present in prior statements.",
+        "searches": [
+          "2023 Theorems 2.5-2.6",
+          "2024 Heliyon dominant-metric paper",
+          "2026 semisimple metric-dimension paper"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.17654/0972555523016",
+        "arXiv:2312.16005",
+        "DOI:10.1016/j.heliyon.2024.e30989",
+        "arXiv:2308.00796",
+        "DOI:10.61091/ars168-03",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorems assume every factor has order two or every factor has order at least three.",
+          "Neither hypothesis applies to mixed products, and the extra \\(t\\) term cannot be obtained by specializing either endpoint theorem."
+        ],
+        "reasoning": "A new support-twin domination analysis is needed to combine both factor types.",
+        "searches": [
+          "DOI:10.17654/0972555523016 full text around Section 2.2 and Theorems 2.5-2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 paper states only the all-binary and all-at-least-three endpoint regimes for resolving domination.",
+          "Later semisimple work addresses metric/determining dimension rather than the mixed resolving-domination number."
+        ],
+        "reasoning": "Support classes, zero-coordinate sets, dominant metric dimension and resolving-domination formulations were compared.",
+        "searches": [
+          "Resultary query: resolving domination zero divisor graph mixed direct product finite fields binary factors",
+          "DOI:10.17654/0972555523016 full text",
+          "arXiv:2312.16005",
+          "arXiv:2308.00796"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited record was the only exact mixed-product resolving-domination formula among leading results."
+        ],
+        "reasoning": "Search absence supports, but does not replace, the direct theorem comparison.",
+        "searches": [
+          "Resultary exact semantic query for mixed finite-field factors and binary surcharge"
+        ]
+      },
+      "rationale": "The 2023 primary full text was read. Its resolving-domination theorems split into two homogeneous regimes: all field orders two give \\(\\gamma_r=n\\), while all field orders at least three give \\(\\gamma_r=N-(2^n-2)\\). It does not state the mixed-order formula. The later dominant-metric paper studies other rings and general bounds; the 2026 semisimple-ring work treats determining number and metric dimension, not resolving domination. Fresh Resultary search returned the audited record as the exact mixed-product hit.",
+      "residual_risks": [
+        "Terminology varies between resolving domination and dominant metric dimension, so an unindexed mixed semisimple formula under the latter name remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ENDPOINT_REGIMES_ONLY_NOT_MIXED_FORMULA",
+          "evidence": "The paper proves the all-binary value and the all-fields-at-least-three value in separate theorems.",
+          "identifier_or_url": "DOI:10.17654/0972555523016",
+          "material_read": "Open licensed full text, including the metric-dimension section and resolving-domination Section 2.2 with Theorems 2.5 and 2.6.",
+          "method": "Lawful public full-text inspection.",
+          "title": "On metric dimension and resolving-domination number of zero-divisor graphs of direct product of finite fields",
+          "trigger": "Direct same-invariant source for products of finite fields."
+        },
+        {
+          "assessment": "OTHER_RING_FAMILIES_AND_BOUNDS_NOT_COVERING",
+          "evidence": "The paper focuses on integer, Gaussian-integer and quotient-polynomial rings and general bounds, not the exact mixed product formula.",
+          "identifier_or_url": "arXiv:2312.16005; DOI:10.1016/j.heliyon.2024.e30989",
+          "material_read": "Full open PMC article scope and conclusions plus primary abstract.",
+          "method": "Lawful open full-text inspection.",
+          "title": "A graph-theoretic approach to ring analysis: Dominant metric dimensions in zero-divisor graphs",
+          "trigger": "Later work on the same combined resolving/domination invariant family."
+        },
+        {
+          "assessment": "METRIC_AND_DETERMINING_DIMENSION_NOT_RESOLVING_DOMINATION",
+          "evidence": "The stated contribution gives determining number and metric dimension for non-Boolean semisimple rings, not resolving domination.",
+          "identifier_or_url": "arXiv:2308.00796; DOI:10.61091/ars168-03",
+          "material_read": "Open article sections and abstract for semisimple rings.",
+          "method": "Lawful open-source inspection.",
+          "title": "On determining number and metric dimension of zero-divisor graph of semisimple rings",
+          "trigger": "Recent same product-of-fields graph structure work."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula completes the natural mixed regime left between two published endpoint theorems and identifies exactly why \\(\\mathbf F_2\\) is exceptional: each binary coordinate creates one unavoidable domination surcharge beyond the twin-class resolving bound. That structural explanation is reusable for related support-class graph invariants.",
+      "risk": "The theorem does not address nonreduced finite rings or products with local nilpotents.",
+      "sources": [
+        "DOI:10.17654/0972555523016"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(R=\\prod_{i=1}^n\\mathbf F_{q_i}\\) with \\(n\\ge3\\), the zero-divisor graph has resolving-domination number \\(N-(2^n-2)+t\\), where \\(N\\) is the number of nonzero zero-divisors and \\(t\\) is the number of binary field factors.",
+  "limitations": [
+    "At least three field factors.",
+    "Finite direct products of fields only."
+  ],
+  "schema_version": 1
+}

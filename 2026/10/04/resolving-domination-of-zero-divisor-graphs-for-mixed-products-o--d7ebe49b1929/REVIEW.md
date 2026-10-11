@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the graph to support classes \(C_S\). Same-support vertices are false twins, forcing all but one vertex per class. For every binary coordinate \(i\), the complement-support class has the unique neighbor supported on \(\{i\}\), so domination forces one additional selection beyond the twin bound. Since \(n\ge3\), these charging pairs are disjoint. The matching construction has a selected singleton-support vertex for every coordinate, which simultaneously resolves omitted support representatives by a symmetric-difference coordinate and dominates every omitted proper support by a coordinate outside it.
+## correctness
 
-## Originality
-PASS. The decisive 2023 paper was read in full: its resolving-domination section proves only the all-binary and all-field-orders-at-least-three cases. Targeted searches under both resolving-domination and dominant-metric terminology found no general mixed-field formula. The 2024 dominant-metric paper gives selected ring families rather than arbitrary mixed products, and the 2026 semisimple paper treats determining and ordinary metric dimensions, not domination.
+PASS
 
-## Value
-PASS. This closes the explicit structural gap between the two endpoint regimes in the main prior product-of-fields paper. The correction term \(t\) has a direct algebraic meaning--the number of \(\mathbb F_2\) factors--and yields a uniform exact classification for every mixed product with at least three field factors.
+Vertices with a fixed coordinate support form false-twin classes, so any resolving set must contain all but at most one vertex of every nonempty proper support class, giving the base term \(N-(2^n-2)\). For a binary coordinate, the class of support \([n]\setminus\{i\}\) is a singleton whose sole neighbor class of support \(\{i\}\) is also singleton; domination therefore forces exactly one additional landmark for each binary factor, and these forced pairs are disjoint for \(n\ge3\). The matching upper construction chooses all but one per support class and includes the required binary singleton vertices; coordinate singleton landmarks then separate every pair of omitted vertices. Fresh exhaustive searches for \((2,2,3)\) and \((2,3,3)\) independently returned the formula values \(5\) and \(8\). The frozen verifier was read and checks a wider bounded grid.
 
-Residual bibliographic risk remains because the invariant also appears under the name dominant metric dimension.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 primary full text was read. Its resolving-domination theorems split into two homogeneous regimes: all field orders two give \(\gamma_r=n\), while all field orders at least three give \(\gamma_r=N-(2^n-2)\). It does not state the mixed-order formula. The later dominant-metric paper studies other rings and general bounds; the 2026 semisimple-ring work treats determining number and metric dimension, not resolving domination. Fresh Resultary search returned the audited record as the exact mixed-product hit.
+
+## value
+
+PASS
+
+The formula completes the natural mixed regime left between two published endpoint theorems and identifies exactly why \(\mathbf F_2\) is exceptional: each binary coordinate creates one unavoidable domination surcharge beyond the twin-class resolving bound. That structural explanation is reusable for related support-class graph invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
