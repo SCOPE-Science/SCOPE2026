@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the prime graph of \(\mathbb Z_n\) to zero-product adjacency, uses the universal zero vertex to show that every nonedge is at distance two, counts ordered zero-product pairs exactly by \(\sum_{x\bmod n}\gcd(x,n)\), evaluates that gcd sum multiplicatively, and removes precisely the square-zero diagonal solutions before dividing by two. Every boundary case, including square-free exponents and \(n=2\), is covered. Direct replay for \(2\le n\le300\) agrees exactly.
+## correctness
 
-## Originality
-PASS. The closest primary paper, published in 2024, gives formulas only for \(p^2\), \(p^3\), \(pq\), \(p^2q\), \(p^2q^2\), and \(pqr\), and its conclusion explicitly asks for higher prime powers, higher mixed exponents, and arbitrary square-free products. The new product formula covers every prime factorization. published-finding corpus and web searches for equivalent prime-graph, gcd-sum, divisor-sum, and zero-product formulations found no all-\(n\) published formula. A 2025 prime-graph paper checked afterward treats diameter and girth instead.
+PASS
 
-## Value
-PASS. This is not a routine single-case increment: one theorem closes all four infinite families posed by the 2024 paper and subsumes all of its displayed special cases. It also provides the complete two-level distance distribution and Hosoya polynomial, making the Wiener formula an immediate corollary of a structural count.
+For a fixed residue \(x\bmod n\), the congruence \(xy\equiv0\pmod n\) has exactly \(\gcd(x,n)\) solutions. Summing by gcd classes gives \(T(n)=n\sum_{e\mid n}\varphi(e)/e\), whose prime-power factors are \(p^{a-1}((a+1)p-a)\). The diagonal zero-product solutions satisfy \(x^2\equiv0\), giving \(S(n)=\prod p^{\lfloor a/2\rfloor}\) by CRT. Deleting those loops and halving gives the edge count. Since zero is universal, every remaining distinct nonedge is at distance two, so the Hosoya and Wiener formulas follow. An independent brute-force check for every \(2\le n\le100\) matched the edge, annihilator-sum, and square-zero counts; the bundled verifier extends this check further.
 
-The main residual risk is bibliographic: an equivalent edge-count identity could exist under a different graph name without using the phrase “prime graph.”
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2024 primary paper was inspected through its full PDF and explicitly ends by asking for higher prime powers, \(p^kq\), \(p^kq^h\), and square-free products with arbitrarily many primes. It treats only special families and does not give the annihilator-sum product formula. Searches under prime graph, zero-product graph, annihilator sum, and gcd terminology found no published all-\(n\) Wiener formula. The audited theorem therefore genuinely dominates the special cases and answers all four stated infinite-family questions.
+
+## value
+
+PASS
+
+A single multiplicative formula replacing several case-by-case distance calculations and closing four explicit infinite families is a natural complete classification for this graph invariant. The proof is elementary, but the source itself left precisely these extensions open; shortness does not make the uniform result valueless.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

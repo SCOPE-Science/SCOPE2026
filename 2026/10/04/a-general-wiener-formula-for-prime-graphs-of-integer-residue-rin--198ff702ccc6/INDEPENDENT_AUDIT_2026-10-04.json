@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:17:06.501468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed residue \\(x\\bmod n\\), the congruence \\(xy\\equiv0\\pmod n\\) has exactly \\(\\gcd(x,n)\\) solutions. Summing by gcd classes gives \\(T(n)=n\\sum_{e\\mid n}\\varphi(e)/e\\), whose prime-power factors are \\(p^{a-1}((a+1)p-a)\\). The diagonal zero-product solutions satisfy \\(x^2\\equiv0\\), giving \\(S(n)=\\prod p^{\\lfloor a/2\\rfloor}\\) by CRT. Deleting those loops and halving gives the edge count. Since zero is universal, every remaining distinct nonedge is at distance two, so the Hosoya and Wiener formulas follow. An independent brute-force check for every \\(2\\le n\\le100\\) matched the edge, annihilator-sum, and square-zero counts; the bundled verifier extends this check further.",
+      "risks": [
+        "The product formula is specific to \\(\\mathbb Z_n\\); the general finite-ring annihilator identity need not factor without additional structure."
+      ],
+      "sources": [
+        "assigned RESULT.md blob bba869027caa2dacbe685ba62f311cd6b05a8093",
+        "artifacts/verify.py blob 7cf85693c137f1e4c37f74109ece9e923cdc3727",
+        "Hidayat et al. 2024 DOI 10.29020/nybg.ejpam.v17i3.5166"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior prime-graph literature gives definitions and special cases, not the multiplicative all-\\(n\\) count."
+        ],
+        "reasoning": "The audited result has broader parameter coverage than the inspected prior formulas.",
+        "searches": [
+          "Hidayat–Krisnawati–Khuluq–Fatimah–Musyarrofah 2024 full PDF",
+          "Asir et al. 2022 survey",
+          "Patra–Kalita 2014"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.29020/nybg.ejpam.v17i3.5166",
+        "DOI 10.1080/09728600.2022.2140088",
+        "DOI 10.11113/matematika.v30.n.663",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution into the audited product reproduces the source's \\(p^2,p^3,pq,p^2q,p^2q^2,pqr\\) formulas while also covering every exponent vector.",
+          "The source explicitly asks for the four families the product formula resolves."
+        ],
+        "reasoning": "The final theorem is strictly stronger than the inspected prior statements.",
+        "searches": [
+          "formula comparison with the 2024 special cases and stated open problems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact all-\\(n\\) formula is the only matching current Resultary record.",
+          "The 2024 paper's conclusion lists the four broader families as open."
+        ],
+        "reasoning": "Equivalent formulations via zero-product ordered pairs, annihilator sizes, gcd sums, and distance-two graphs were all searched.",
+        "searches": [
+          "Resultary: Wiener index prime graph Zn arbitrary n gcd zero product",
+          "web: prime graph Z_n Wiener gcd annihilator sum zero-product graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-\\(n\\) database/table or edge formula was located."
+        ],
+        "reasoning": "A table of small cases would not imply the multiplicative theorem.",
+        "searches": [
+          "searches for edge counts of zero-product/prime graphs of \\(\\mathbb Z_n\\)",
+          "current Resultary ring-graph findings"
+        ]
+      },
+      "rationale": "The 2024 primary paper was inspected through its full PDF and explicitly ends by asking for higher prime powers, \\(p^kq\\), \\(p^kq^h\\), and square-free products with arbitrarily many primes. It treats only special families and does not give the annihilator-sum product formula. Searches under prime graph, zero-product graph, annihilator sum, and gcd terminology found no published all-\\(n\\) Wiener formula. The audited theorem therefore genuinely dominates the special cases and answers all four stated infinite-family questions.",
+      "residual_risks": [
+        "The same annihilator-sum edge formula could conceivably appear under older zero-product graph terminology; targeted searches found no specific covering source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the all-\\(n\\) formula.",
+          "evidence": "Its conclusion explicitly asks for higher prime powers, mixed higher powers, and arbitrary square-free products.",
+          "identifier_or_url": "https://doi.org/10.29020/nybg.ejpam.v17i3.5166",
+          "material_read": "Full 15-page PDF, including graph definition, distance observations, special-case formulas, and conclusion/open problems; representative PDF pages were visually inspected as well.",
+          "method": "Primary full-text theorem and scope comparison.",
+          "title": "The Wiener Index of Prime Graph PG(Z_n)",
+          "trigger": "Closest primary source and explicit open-problem source."
+        },
+        {
+          "assessment": "Correct corroboration.",
+          "evidence": "Direct modular multiplication agrees with the product edge and Wiener formulas.",
+          "identifier_or_url": "artifacts/verify.py at the assigned tree",
+          "material_read": "Complete source.",
+          "method": "Line-by-line inspection plus independent brute force for \\(2\\le n\\le100\\).",
+          "title": "Assigned artifacts/verify.py",
+          "trigger": "Finite consistency check."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single multiplicative formula replacing several case-by-case distance calculations and closing four explicit infinite families is a natural complete classification for this graph invariant. The proof is elementary, but the source itself left precisely these extensions open; shortness does not make the uniform result valueless.",
+      "risks": [
+        "The result is not a general classification for arbitrary finite commutative rings."
+      ],
+      "sources": [
+        "2024 primary open-problem list",
+        "assigned universal divisor-counting theorem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific to the ring prime graph of \\(\\mathbb Z_n\\).",
+    "General finite-ring edge identity is stated, but no universal product evaluation is claimed.",
+    "Residual terminology risk remains for older zero-product graph literature."
+  ],
+  "schema_version": 1
+}
