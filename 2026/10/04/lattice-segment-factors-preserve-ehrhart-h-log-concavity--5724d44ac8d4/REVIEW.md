@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The generating-function derivation and coefficient transform were reconstructed directly. The key inequality is reduced to input log-concavity plus the exact affine identity \(C_i^2-C_{i-1}C_{i+1}=m^2(h_i-h_{i-1})^2\). Endpoint and support cases were checked separately. The code is supplementary and is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. Ferroni–Higashitani Question 3.4(a) and Liu–Tao–Xin's 2026 concluding remarks both leave ordinary \(h^*\)-log-concavity under Cartesian products open. Wagner's real-rootedness theorem and Brändén–Ferroni–Jochemko's ultra-log-concavity theorem require stronger hypotheses and do not imply the segment-factor result from ordinary log-concavity. Exact segment/box and equivalent Hadamard/Segre searches did not locate a covering statement.
+PASS
 
-Residual risk: an equivalent special-factor lemma may exist under different terminology in poorly indexed literature; no such result was found in the inspected primary and closely related sources.
+Multiplying the Ehrhart count \(L_P(n)\) by \(mn+1\) gives \(m tF'(t)+F(t)\) and therefore the stated two-term transform for \(g_i\). Log-concavity bounds the neighboring \(h\)-terms, reducing each output inequality to the affine sequence \(C_j\), for which \(C_i^2-C_{i-1}C_{i+1}=m^2(y-x)^2\ge0\). The nonnegative weights preserve consecutive support. Iteration proves the box statement. The package verifier checks the transform and identity exactly on finite tests but the proof is universal.
 
-## Value
-PASS. A lattice segment is the simplest nontrivial Cartesian factor, and the theorem supplies an explicit preserving operator under the exact hypothesis of the open problem. Iteration extends the result to all lattice boxes, giving a broad, geometrically natural solved subclass rather than an isolated example.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ferroni--Higashitani frame the general Ehrhart log-concavity problem, while Brändén--Ferroni--Jochemko preserve the stronger ultra-log-concavity property under Hadamard products. That stronger-input theorem does not imply ordinary log-concavity preservation. The audited segment factor uses a special first-order transform and a new affine square identity. Resultary returned the assigned theorem as the exact hit and no earlier ordinary-log-concavity segment theorem.
+
+## value
+
+PASS
+
+This resolves a natural subclass of an explicit Cartesian-product problem and extends immediately to lattice boxes. The proof exposes a structural coefficient transform rather than merely checking examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
