@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published \(d=1\) weight formula gives the uniform weights \((-1,2,-2,1)\). Rewriting monotone data by nonnegative increments converts the range problem exactly into optimization of four rational coefficient functions over \([0,3]\). Sign analysis reduces the global defect to a single edge coefficient \(g(x)\); its derivative has a quartic numerator that is strictly decreasing on \([0,1]\), so the maximizer is unique. A separate analytic bound proves that the middle-cell defect is strictly smaller. Exact arithmetic replay checks all stated rational identities, the algebraic brackets, and the strict witness.
+## correctness
 
-## Originality
-PASS with residual shape-preserving-literature risk. The primary Floater–Hormann paper covers construction, pole-freeness, approximation order, and barycentric weights. Later work covers Lebesgue constants and numerical stability. Searches for monotonicity, shape preservation, range preservation, overshoot, positive-data behavior, and equivalent cardinal-coefficient formulations did not locate the exact four-node monotone-range theorem or its algebraic sharp constant. The original full text was searched directly for the most plausible aliases and contains no matching shape-preservation statement.
+PASS
 
-## Value
-PASS. Floater–Hormann interpolation is specifically attractive on equispaced data because it avoids real poles and high-degree polynomial oscillation. The result shows quantitatively that this does not control an independent practical failure mode: a bounded increasing data table can produce a value more than \(18\%\) outside its range. The theorem gives a complete sharp guardrail for the smallest genuinely rational uniform \(d=1\) stencil, including an exact extremizer and a strict-data witness.
+The original \(d=1\) uniform Floater--Hormann weights are proportional to \((-1,2,-2,1)\), and the audited cardinal functions follow by direct barycentric simplification. Passing to monotone increments turns the data constraints into a simplex, so for fixed \(x\) the exact attainable interval is obtained from the five increment coefficients \(0,1,c_1,c_2,c_3\). On the left cell only \(c_2\) is negative; maximizing its magnitude reduces to a one-variable rational function whose derivative numerator is the stated strictly decreasing quartic on \([0,1]\), giving one critical point. Reflection gives the right-cell overshoot, and the elementary middle-cell bound is strictly smaller. Elimination yields the displayed quartic polynomial for \(\delta\), with a unique positive root. A fresh dense-grid replay of the exact monotone-simplex extrema reproduced \(-0.1844131164\ldots\) and \(1.1844131164\ldots\) at the reflected locations, consistent with the exact verifier.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Floater and Hormann's complete primary paper supplies the exact barycentric construction, pole-freeness, and the \(d=1\) weight formula; those are prior inputs. The inspected source analyzes approximation error and uniform-grid weights but does not formulate monotone-data range preservation or the four-node defect. Targeted searches for Floater--Hormann monotonicity, positivity, shape preservation, range defect, and overshoot found later conditioning/generalization work but no theorem giving this constrained sharp constant or sign-reversal witness.
+
+## value
+
+PASS
+
+Range and sign preservation are central shape questions for interpolation, and the four-node uniform \(d=1\) stencil is the smallest genuinely rational Floater--Hormann configuration. The exact worst monotone-data defect, algebraic extremizer, and strictly increasing positive sign-reversal example form a natural benchmark for deciding when a pole-free interpolant nevertheless violates data bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

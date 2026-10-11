@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-The checker uses only the Python standard library and exact rational arithmetic.
 
-It rebuilds the uniform four-node, degree-one Floater–Hormann weights from the published formula and checks the cardinal basis at selected rational points. It verifies the monotone-increment representation and the exact midpoint identities
-\[
-g(1/2)=7/38
-\]
-and
-\[
-R[(1,2,98,99)/100](1/2)=-4/25.
-\]
+# Independent mathematical audit
 
-Rational bisection brackets the unique edge critical point near
-\[
-0.516232808495147
-\]
-and the sharp defect near
-\[
-0.18441311642853.
-\]
-The checker confirms opposite signs of the critical quartic across the point bracket and opposite signs of
-\[
-15z^4+30z^3+671z^2+656z-144
-\]
-across the defect bracket.
+## correctness
 
-The proof that these brackets correspond to the global extrema is analytic in RESULT.md. Finite computation is not used as a substitute for the sign and uniqueness arguments.
+PASS
+
+The original \(d=1\) uniform Floater--Hormann weights are proportional to \((-1,2,-2,1)\), and the audited cardinal functions follow by direct barycentric simplification. Passing to monotone increments turns the data constraints into a simplex, so for fixed \(x\) the exact attainable interval is obtained from the five increment coefficients \(0,1,c_1,c_2,c_3\). On the left cell only \(c_2\) is negative; maximizing its magnitude reduces to a one-variable rational function whose derivative numerator is the stated strictly decreasing quartic on \([0,1]\), giving one critical point. Reflection gives the right-cell overshoot, and the elementary middle-cell bound is strictly smaller. Elimination yields the displayed quartic polynomial for \(\delta\), with a unique positive root. A fresh dense-grid replay of the exact monotone-simplex extrema reproduced \(-0.1844131164\ldots\) and \(1.1844131164\ldots\) at the reflected locations, consistent with the exact verifier.
+
+## originality
+
+PASS
+
+Floater and Hormann's complete primary paper supplies the exact barycentric construction, pole-freeness, and the \(d=1\) weight formula; those are prior inputs. The inspected source analyzes approximation error and uniform-grid weights but does not formulate monotone-data range preservation or the four-node defect. Targeted searches for Floater--Hormann monotonicity, positivity, shape preservation, range defect, and overshoot found later conditioning/generalization work but no theorem giving this constrained sharp constant or sign-reversal witness.
+
+## value
+
+PASS
+
+Range and sign preservation are central shape questions for interpolation, and the four-node uniform \(d=1\) stencil is the smallest genuinely rational Floater--Hormann configuration. The exact worst monotone-data defect, algebraic extremizer, and strictly increasing positive sign-reversal example form a natural benchmark for deciding when a pole-free interpolant nevertheless violates data bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

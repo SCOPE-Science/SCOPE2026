@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:01:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 697832fbd445da407a76570b9a74f831ed25c532",
+        "assigned verify.py blob b1f2758e71d2c376b1a6572e8a6b6f12fde81ffd",
+        "Floater--Hormann, DOI 10.1007/s00211-007-0093-y full author-hosted primary PDF",
+        "fresh independent cardinal/simplex replay"
+      ],
+      "rationale": "The original \\(d=1\\) uniform Floater--Hormann weights are proportional to \\((-1,2,-2,1)\\), and the audited cardinal functions follow by direct barycentric simplification. Passing to monotone increments turns the data constraints into a simplex, so for fixed \\(x\\) the exact attainable interval is obtained from the five increment coefficients \\(0,1,c_1,c_2,c_3\\). On the left cell only \\(c_2\\) is negative; maximizing its magnitude reduces to a one-variable rational function whose derivative numerator is the stated strictly decreasing quartic on \\([0,1]\\), giving one critical point. Reflection gives the right-cell overshoot, and the elementary middle-cell bound is strictly smaller. Elimination yields the displayed quartic polynomial for \\(\\delta\\), with a unique positive root. A fresh dense-grid replay of the exact monotone-simplex extrema reproduced \\(-0.1844131164\\ldots\\) and \\(1.1844131164\\ldots\\) at the reflected locations, consistent with the exact verifier.",
+      "residual_risks": [
+        "Only four equally spaced nodes and blending degree one are classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources study approximation order, poles, Lebesgue constants, conditioning, and generalized families.",
+          "No inspected statement bounds the image of the monotone data cone for the exact four-node \\(d=1\\) stencil."
+        ],
+        "reasoning": "General stability bounds do not mechanically determine the constrained sharp range defect.",
+        "searches": [
+          "Floater--Hormann 2007",
+          "Themistoclakis--Van Barel 2024/2025 generalized Floater--Hormann paper",
+          "Floater--Hormann conditioning/Lebesgue literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s00211-007-0093-y",
+        "arXiv:2307.05345",
+        "Floater--Hormann conditioning literature",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weights determine the rational interpolant but do not themselves state which monotone bounded data vector maximizes range violation over all \\(x\\).",
+          "The audited proof adds constrained linear optimization in data space and a global rational one-variable optimization over three cells."
+        ],
+        "reasoning": "The final algebraic constant is not a printed or immediate scalar theorem of the prior interpolation analysis.",
+        "searches": [
+          "published \\(d=1\\) weights versus monotone-simplex sharp defect"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's uniform \\(d=1\\) absolute weights are \\(1,2,2,1\\) with alternating signs, exactly the audited stencil.",
+          "Pole-freeness and polynomial reproduction do not imply nonnegative cardinal functions or range preservation."
+        ],
+        "reasoning": "The object is identical, while the audited constrained image problem is a separate shape invariant.",
+        "searches": [
+          "Resultary: sharp monotone range defect four point degree one Floater Hormann",
+          "Floater--Hormann 2007 full primary PDF, barycentric-form section",
+          "web searches for Floater--Hormann monotonicity/shape/positivity preservation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact defect value, polynomial, or four-node monotone table was retrieved."
+        ],
+        "reasoning": "Exact-search absence is corroborative only.",
+        "searches": [
+          "Resultary current search for the algebraic defect \\(0.1844131164\\ldots\\)",
+          "web exact searches for the defect decimal and quartic polynomial"
+        ]
+      },
+      "rationale": "Floater and Hormann's complete primary paper supplies the exact barycentric construction, pole-freeness, and the \\(d=1\\) weight formula; those are prior inputs. The inspected source analyzes approximation error and uniform-grid weights but does not formulate monotone-data range preservation or the four-node defect. Targeted searches for Floater--Hormann monotonicity, positivity, shape preservation, range defect, and overshoot found later conditioning/generalization work but no theorem giving this constrained sharp constant or sign-reversal witness.",
+      "residual_risks": [
+        "Shape-preserving rational interpolation is a broad literature, and an equivalent four-point calculation could exist under different terminology.",
+        "The invariant is low-dimensional and algebraically extractable once the published weights are known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_WEIGHTS_PRIOR_SHAPE_DEFECT_NOT_STATED",
+          "evidence": "The source supplies the exact weights but studies pole-freeness and approximation rather than monotone-data range preservation.",
+          "identifier_or_url": "DOI 10.1007/s00211-007-0093-y",
+          "material_read": "complete author-hosted 11-page primary PDF, including the barycentric-form section and the \\(d=1\\) and uniform-grid weight formulas; the relevant page was visually inspected",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Barycentric rational interpolation with no poles and high rates of approximation",
+          "trigger": "defining source of the exact interpolation stencil"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Floater--Hormann 2007",
+        "later FH generalization/conditioning literature",
+        "assigned exact verifier"
+      ],
+      "rationale": "Range and sign preservation are central shape questions for interpolation, and the four-node uniform \\(d=1\\) stencil is the smallest genuinely rational Floater--Hormann configuration. The exact worst monotone-data defect, algebraic extremizer, and strictly increasing positive sign-reversal example form a natural benchmark for deciding when a pole-free interpolant nevertheless violates data bounds.",
+      "residual_risks": [
+        "The result is a canonical finite-stencil benchmark rather than a general shape-preservation theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only four equally spaced nodes and blending degree one are classified.",
+    "Shape-preserving rational interpolation is a broad literature, and an equivalent four-point calculation could exist under different terminology.",
+    "The invariant is low-dimensional and algebraically extractable once the published weights are known.",
+    "The result is a canonical finite-stencil benchmark rather than a general shape-preservation theorem."
+  ]
+}
