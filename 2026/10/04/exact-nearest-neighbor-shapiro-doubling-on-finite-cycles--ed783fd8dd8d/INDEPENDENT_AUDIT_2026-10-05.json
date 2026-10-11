@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:11:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob d05437e91afe34e3df2b5946d12cb4b9ae3441a0",
+        "assigned verify.py blob c2c5faab525a3892a5062a804025571ad7897cee",
+        "Gaál--Révész arXiv:1803.06409v2 full primary HTML"
+      ],
+      "rationale": "With \\(c_n=1\\) for even \\(n\\) and \\(c_n=\\cos(\\pi/n)\\) for odd \\(n\\), set \\(C_n=4c_n-1\\) and \\(h=C_n1_U-1_{2U}\\). The decomposition used in the package is exact: the pointwise nonnegative measure \\(\\sigma=(6c_n-4)(\\delta_1+\\delta_{-1})\\) has nonnegative coefficient because \\(n\\ge5\\), and the remainder \\(\tau=h-\\sigma\\) has Fourier transform \\(4(1-x_k)(x_k+c_n)\\), where \\(x_k=\\cos(2\\pi k/n)\\). The smallest sampled cosine is \\(-c_n\\), so \\(\tau\\) is of positive type. Pairing an admissible nonnegative positive-definite \\(f\\) with \\(\\sigma\\) and \\(\tau\\) proves the upper bound. The explicit witness \\(f_*(j)=(c_n+\\cos(2\\pi\\lfloor n/2\rfloor j/n))/(1+c_n)\\) has nonnegative Fourier coefficients and is pointwise nonnegative; it vanishes at the two neighbors and takes value \\(2c_n-1\\) at distance two, attaining \\(C_n\\). This gives three on even cycles and \\(4\\cos(\\pi/n)-1\\) on odd cycles. The verifier checks the primal and dual formulas through \\(n=400\\), but the closed dual certificate proves every \\(n\\ge5\\).",
+      "residual_risks": [
+        "The theorem is only the nearest-neighbor set \\(U=\\{0,\\pm1\\}\\) and two-fold dilation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The LCA theorem characterizes admissible comparison constants abstractly but does not evaluate the optimum for this atomic pair.",
+          "The Euclidean work treats convex-body dilation rather than this finite cycle.",
+          "Odd-cycle theta uses different zero constraints and objective."
+        ],
+        "reasoning": "None of the broader results states or mechanically supplies \\(4\\cos(\\pi/n)-1\\) for this local Shapiro ratio without the new explicit certificate.",
+        "searches": [
+          "Gaál--Révész Theorem 1 dual decomposition and Section 5 extremal problems",
+          "Gorbachev--Tikhonov arXiv:1612.08637 Euclidean doubling constants",
+          "Lovász 1979 odd-cycle theta formula"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.06409v2",
+        "arXiv:1612.08637",
+        "Lovász 1979 odd-cycle theta theorem",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abstract theorem reduces sharpness to finding a valid decomposition but does not choose the optimal coefficient.",
+          "The audited factorization \\(4(1-x)(x+c_n)\\) and matching witness certify optimality directly.",
+          "The theta formula cannot be substituted because its feasible set includes edge-zero constraints absent here and its objective is global."
+        ],
+        "reasoning": "The exact parity law requires an object-specific extremal construction.",
+        "searches": [
+          "general dual cone theorem versus the specific signed measure \\(h\\)",
+          "Lovász theta of odd cycles versus local positive-definite mass ratio"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaál--Révész define \\(Q(U,k)=S(U,kU)\\), exactly the audited ratio in counting-measure form.",
+          "The finite cyclic problem is therefore a direct specialization of their general extremal setup, not a new definition."
+        ],
+        "reasoning": "The local mass-ratio and Shapiro terminology refer to the same invariant.",
+        "searches": [
+          "Resultary query: finite cyclic Shapiro doubling nearest neighbor positive definite exact",
+          "Gaál--Révész arXiv:1803.06409v2 Section 5 definition of \\(Q(U,k)\\)",
+          "searches under doubly positive functions, finite cyclic groups, local doubling and positive-type trigonometric polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the leading exact same-object hit; neighboring hits concern Hamming balls or other finite harmonic-analysis constants."
+        ],
+        "reasoning": "No prior independent finite-cycle table/formula was surfaced.",
+        "searches": [
+          "Resultary current exact semantic search for nearest-neighbor Shapiro doubling on finite cycles"
+        ]
+      },
+      "rationale": "Gaál and Révész define exactly the Shapiro-type extremal quantity \\(Q(U,k)=S(U,kU)\\) for doubly positive functions on general LCA groups and prove a general dual decomposition theorem. Their full primary text develops the abstract cone duality and variants of the extremal problem but does not state the nearest-neighbor finite-cycle parity formula. The audited result is an explicit primal/dual solution of one natural finite-group instance; the general dual theorem provides the framework but not the optimal coefficient. The classical Lovász theta value for odd cycles concerns an edge-zero semidefinite optimization and does not imply this local five-point/three-point mass ratio. Current Resultary search returns the assigned record as the exact leading same-object result and no independent stronger finite-cycle formula.",
+      "residual_risks": [
+        "Finite harmonic-analysis literature may contain the same five-point/three-point inequality under Turán or positive trigonometric polynomial terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_DUALITY_NOT_FINITE_CYCLE_VALUE",
+          "evidence": "The source defines \\(Q(U,k)\\) and proves general equivalences/duality, but no nearest-neighbor \\(\\mathbb Z/n\\mathbb Z\\) parity evaluation is stated in the inspected text.",
+          "identifier_or_url": "arXiv:1803.06409v2",
+          "material_read": "full experimental HTML with the introduction, Theorem 1 and Section 5 definitions of \\(S,Q,T\\) inspected",
+          "method": "primary full-text inspection",
+          "title": "Integral comparisons of nonnegative positive definite functions on LCA groups",
+          "trigger": "defining source for the exact Shapiro-type extremal framework"
+        },
+        {
+          "assessment": "DIFFERENT_SEMIDEFINITE_PROBLEM",
+          "evidence": "The familiar odd-cycle theta constant has a different feasible set and objective and does not imply the Shapiro mass ratio.",
+          "identifier_or_url": "DOI 10.1109/TIT.1979.1055985",
+          "material_read": "classical theorem-level odd-cycle theta formula and its edge-zero graph optimization compared",
+          "method": "primary theorem comparison",
+          "title": "On the Shannon capacity of a graph",
+          "trigger": "plausible odd-cycle cosine formula with similar appearance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gaál--Révész 2018/2019",
+        "Gorbachev--Tikhonov 2016",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The nearest-neighbor ball is the canonical local set on a finite cycle, and two-fold Shapiro doubling is a standard extremal invariant in the Gaál--Révész framework. The exact parity split, sharp witness and explicit positive-type dual certificate give a useful solvable finite-group benchmark and expose a genuine \\(n^{-2}\\) odd-cycle defect, rather than merely evaluating a random small instance.",
+      "residual_risks": [
+        "The result does not classify every extremizer or higher dilations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is only the nearest-neighbor set \\(U=\\{0,\\pm1\\}\\) and two-fold dilation.",
+    "Finite harmonic-analysis literature may contain the same five-point/three-point inequality under Turán or positive trigonometric polynomial terminology.",
+    "The result does not classify every extremizer or higher dilations."
+  ]
+}
