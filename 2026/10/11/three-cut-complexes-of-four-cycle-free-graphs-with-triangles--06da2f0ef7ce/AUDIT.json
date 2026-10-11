@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For C4-free G, any set of four vertices with all triples connected would have minimum induced degree two and hence contain a four-cycle. The Alexander dual therefore has a complete 1-skeleton, connected triples as its only 2-faces and no higher faces. Every induced P3 is collapsed along its unique nonadjacent endpoint pair; every remaining graph triangle has a graph edge belonging to no other triangle, so it too collapses. The connected residual graph has cycle rank C(n-1,2)-sum_v C(deg(v),2)+2t. Integral combinatorial Alexander duality yields top homology only; the complete (n-5)-skeleton plus Hurewicz and Whitehead gives a wedge of (n-4)-spheres. This exact argument establishes the all-graph quantifier, supplemented by directly replayed collapse and mod-two checks on triangle-containing examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bayer et al., arXiv:2304.13675v2, Theorem 6.1 describes complete-skeleton/Euler conditions and two possible homological degrees; Theorem 6.4 addresses two-cut complexes; chordality implies shellability of three-cut complexes but does not cover arbitrary nonchordal examples.",
+        "Chauhan and Shukla, arXiv:2603.23155 abstract concerns powers of cycles; for power at least two, those graphs have four-cycles in the relevant range."
+      ],
+      "reasoning": "The general source does not identify the collapse of all connected-triple faces for four-cycle-free graphs that contain triangles. Specific families and shellability results cannot imply the asserted theorem for arbitrary nonchordal graphs of this class.",
+      "searches": [
+        "3-cut complex graph maximum degree condition n>3(Delta+1) Alexander dual homology triangles connected triples path counts",
+        "3-cut complexes of sparse graphs triangle squares forbidden comparison graph degree diameter",
+        "Alexander dual of k-cut complex 2-skeleton all triangles except connected triples H1 vanishing high order",
+        "2023 2025 3 cut complex graph no four cycle wedge spheres triangles",
+        "\"3-cut complexes\" \"triangles\" girth no squares"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.13675v2",
+      "doi:10.1137/23M1569034",
+      "arXiv:2603.23155 (abstract)",
+      "arXiv:2512.21755 (abstract)",
+      "published-finding corpus hits for total 3-cut complexes, distinctly defined",
+      "Own finding 868c7d2a-a0e7-4780-915d-0cacf598b398",
+      "Own finding 8ca83028-4420-44a6-afc8-5ab8137b9783"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own earlier claim 868c7d2a-a0e7-4780-915d-0cacf598b398 explicitly assumes no triangles and no four-cycles.",
+        "Own earlier claim 8ca83028-4420-44a6-afc8-5ab8137b9783 explicitly assumes triangle-free graphs (with edge-disjoint squares).",
+        "Bayer et al. arXiv:2304.13675v2: Section 6 general Euler and face-lattice structure, Section 7 specialized families; no statement applying to all nonchordal C4-free triangle-bearing graphs."
+      ],
+      "reasoning": "The new claim deliberately requires a triangle; neither previous triangle-free statement implies it. Known chordal-graph theorems cover some examples but not the arbitrary nonchordal truncated-tetrahedral family, and broad Euler formulas do not force the claimed homotopy type without the new private-edge collapse.",
+      "searches": [
+        "ordinary 3-cut complex C4-free graphs triangles integral top homology sum binomial degrees triangle count",
+        "3-cut complex graph maximum degree condition n>3(Delta+1) Alexander dual homology triangles connected triples path counts",
+        "Bayer Denker 3 cut complex K4-free graph C4-free 3-cut homology",
+        "\"3-cut\" \"square-free\" graphs homotopy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bayer et al., arXiv:2304.13675v2, pp. 2, 17-20: family table and Theorem 6.1 do not state the no-four-cycle, triangle-allowing wedge formula.",
+        "Targeted published-finding corpus hits are dominated by total three-cut complexes (different definition), small exceptional graph computations, and unrelated graph-topology results."
+      ],
+      "reasoning": "Rephrase as a collapse of the Alexander dual complex of all connected triples, allowing graph triangles. Matching search terms square-free/C4-free/four-cycle-free and the rank formula did not locate equivalent coverage. Negative searches alone do not establish novelty.",
+      "searches": [
+        "ordinary 3-cut complex C4-free graphs triangles integral top homology sum binomial degrees triangle count",
+        "3-cut complex no four cycles top degree homology graph triangles",
+        "truncated tetrahedron 3-cut complex homology 27 8 sphere",
+        "3-cut complexes C4-free graphs all triangles simplicial Alexander dual",
+        "\"3-cut\" \"C4-free\" homotopy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked graph-family table in arXiv:2304.13675v2, p. 2, lists complete multipartite graphs, cycles, squared cycles, prisms, trees and chordal/triangle-free classes, not the truncated tetrahedral three-cut complex.",
+        "published-finding corpus search for the precise truncated tetrahedral formula returned a graph-metric Rips filtration, a distinct construction."
+      ],
+      "reasoning": "Neither a tabulated Betti count for the truncated tetrahedron nor a comprehensive all-C4-free triangle-allowing table was identified. A single numerical coincidence would not itself settle implication coverage.",
+      "searches": [
+        "truncated tetrahedron 3-cut complex homology 27 8 sphere",
+        "topological cut complex complete multipartite graph homotopy type Alexander dual",
+        "cut complex 3-cut square-free graph no 4 cycle homology triangles connected triples",
+        "\"cut complexes\" \"4-cycle-free\" graph"
+      ]
+    },
+    "rationale": "The closest primary source gives the definition, generic face-lattice/Euler information, chordal shellability and specified graph families, not a four-cycle-free triangle-allowing all-graph homotopy classification. Previous related published records in the own ledger require triangle-freeness, so their conclusions do not imply the present theorem. Searches of published-finding corpus, aliases and subsequent cut-complex work found no covering statement. Risk remains from unindexed or implicit stronger results.",
+    "residual_risks": [
+      "An unpublished or unindexed C4-free ordinary 3-cut theorem may exist.",
+      "Some general published homology or dual-complex theorems could imply the collapse without stating this formulation.",
+      "Later specialized papers were compared at abstract level where full text was not necessary to resolve their explicit restricted scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found general framework, special classes and Euler criterion, but not the precise graph-class wedge statement",
+        "evidence": [
+          "arXiv:2304.13675v2 pp.1-2,17-20, Theorem 6.1, Theorem 6.4, Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+        "material_read": "abstract, introduction and family table pp.1-2; Section 6 theorem and discussion pp.17-20; cut-complex and shellability summaries",
+        "method": "online full-text PDF text and page image",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "same construction and primary owning source"
+      },
+      {
+        "assessment": "Restricted to powers of cycles, not arbitrary four-cycle-free graphs with triangles",
+        "evidence": [
+          "arXiv:2603.23155 abstract; shellability for cycle powers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.23155",
+        "material_read": "abstract only",
+        "method": "arXiv abstract comparison; no claim of full-text inspection",
+        "title": "Shellability of 3-cut complexes of powers of cycle graphs",
+        "trigger": "potential later stronger theorem for ordinary 3-cut complexes"
+      },
+      {
+        "assessment": "Hexagonal grids lack triangles and are a special class; cannot cover asserted triangle-bearing class",
+        "evidence": [
+          "arXiv:2512.21755 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.21755",
+        "material_read": "abstract only",
+        "method": "arXiv abstract comparison",
+        "title": "On Shellability of 3-Cut Complexes of Hexagonal Grid Graphs",
+        "trigger": "possible alternative sparse-graph coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "06da2f0e-f7ce-48ae-89f8-aaf12a3ce618",
+  "value": {
+    "rationale": "The result gives a full integral and homotopy classification for an infinite natural graph class permitting triangles and arbitrary nonchordal structure, rather than an Euler number or finite census. The nonchordal truncated tetrahedral graph has 27 top-dimensional spheres in dimension eight. The new triangle correction and uniform two-stage collapse identify a structural boundary precisely at the first possible four-cycle. The conclusion is not confined to an arbitrary small slice.",
+    "status": "PASS"
+  }
+}
