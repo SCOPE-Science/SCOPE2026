@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:21:10.857423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formula and asymptotics are correct. The primary 2010 paper gives the resonant Lorentzian amplitude, the threshold \\(\\gamma_0=\\Gamma/2\\), zero local minima, the optimized trace distance \\(|b(t)|\\), and the BLP measure as the sum over its local maxima. Direct differentiation gives stationary times \\(2\\pi n/\\kappa\\) and heights \\(e^{-\\pi\\Gamma n/\\kappa}\\); summing the geometric series gives the claimed closed form. The hyperbolic/boundary amplitude is monotone on the closed Markovian side. Substitution \\(\\kappa=\\Gamma\\sqrt\\varepsilon\\) gives the flat exponential onset, and the Bernoulli expansion of \\((e^x-1)^{-1}\\) gives the stated strong-coupling series. The inspected checker independently confirms derivative, revival, sum, and asymptotic calculations.",
+      "risks": [
+        "Exact resonance, zero-temperature Lorentzian spectrum, and infinite observation time only."
+      ],
+      "sources": [
+        "assigned RESULT.md blob d23dcdb4a66e14c969193d672eda853b52d70e57",
+        "assigned verify_blp_lorentzian.py blob 28f8983a4a1e03c10751c915e4ed059499b3356b",
+        "Xu--Yang--Feng, DOI 10.1103/PhysRevA.81.044105",
+        "Breuer--Laine--Piilo, arXiv:0908.0238"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The focal primary source already contains sufficient premises; later broader optimization work is not needed to derive the result."
+        ],
+        "reasoning": "No gap remains once the source's explicit amplitude and sum-over-maxima representation are combined.",
+        "searches": [
+          "Xu--Yang--Feng 2010 full paper",
+          "He--Zou--Li--Shao 2011 amplitude-damping optimization literature",
+          "current Resultary query"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1103/PhysRevA.81.044105",
+        "arXiv:0912.2879",
+        "current Resultary semantic search",
+        "assigned proof/checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The derivative is proportional to \\(\\sin(\\kappa t/2)\\), so maxima and their geometric heights follow immediately.",
+          "The threshold flatness is the standard property of \\(e^{-c/\\sqrt\\varepsilon}\\), and the strong-coupling expansion is the standard Bernoulli series."
+        ],
+        "reasoning": "Every asserted new component is a routine calculus/asymptotic consequence of published exact formulas.",
+        "searches": [
+          "direct calculus from Xu--Yang--Feng equations for \\(b(t)\\) and \\(\\mathcal N\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source's equations give \\(b(t)\\), zero minima, optimizer \\(|b(t)|\\), and \\(\\mathcal N=\\sum_n |b(\\tau_n^{\\max})|\\).",
+          "The audited formula is the elementary evaluation of that sum."
+        ],
+        "reasoning": "Equivalent formulations as a geometric revival series, Bose-factor-like closed form, and flat threshold function all follow from the same source equation.",
+        "searches": [
+          "DOI 10.1103/PhysRevA.81.044105 full text",
+          "Resultary query: resonant Lorentzian BLP non-Markovianity closed geometric sum threshold exp(-pi/sqrt epsilon)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source numerically evaluates the same total non-Markovianity as bandwidth varies; the closed form is an analytic simplification of its exact representation, not a new data value."
+        ],
+        "reasoning": "No external table is needed; all values are determined by the published formula.",
+        "searches": [
+          "primary source Figure 1/numerical evaluation",
+          "current Resultary query"
+        ]
+      },
+      "rationale": "Full primary text of Xu--Yang--Feng was obtained and read. It already gives the explicit resonant trigonometric amplitude, proves that all relevant minima are zero, proves the optimizing trace distance is \\(|b(t)|\\), and writes the BLP non-Markovianity as the sum of \\(|b|\\) over all local maxima. Differentiating that displayed elementary function identifies a geometric progression of maxima; summing it and taking standard asymptotics are routine consequences. Under implication-based originality, the fact that the closed sum and flat-onset wording are not printed in the source does not make them independent discoveries.",
+      "residual_risks": [
+        "A later source may print the same closed form explicitly, but that is unnecessary for the coverage verdict because the 2010 source already implies it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PRIOR_COVERAGE",
+          "evidence": "The source supplies every nonstandard premise; only differentiation, geometric summation, and standard asymptotics remain.",
+          "identifier_or_url": "DOI 10.1103/PhysRevA.81.044105",
+          "material_read": "Complete four-page publisher PDF text, especially equations (7)--(12), the Lorentzian amplitude, zero-minimum formula, optimizer theorem, and sum-over-maxima expression.",
+          "method": "Authorized primary full-text inspection and equation-by-equation implication comparison.",
+          "title": "Proposed method for direct measurement of the non-Markovian character of the qubits coupled to bosonic reservoirs",
+          "trigger": "Primary source for the resonant Lorentzian model and BLP optimization."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The closed calibration and threshold description are convenient, but once the primary paper has reduced the measure to local maxima of an explicit elementary amplitude, the remaining geometric sum and standard asymptotics are routine exercises. They do not clear the required standalone mathematical-value bar.",
+      "risks": [
+        "The physical interpretation may be useful pedagogically, but convenience alone does not establish independent mathematical value."
+      ],
+      "sources": [
+        "Xu--Yang--Feng exact amplitude and BLP sum",
+        "standard geometric/Bernoulli expansions"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Exact resonance and the stated Lorentzian/RWA model only.",
+    "Scientific rejection is for originality/value, not correctness."
+  ],
+  "schema_version": 1
+}
