@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The probability law is represented by exact integer masses summing to \(86\). The verification script generates all finite upper sets from the product order rather than hard-coding the NRD inequalities. It then enumerates all disjoint nonempty output/conditioning coordinate blocks and all comparable conditioning values.
+# Independent mathematical audit
 
-The enumeration contains \(74\) formal upper-set comparisons. Exactly \(64\) have positive mass on both conditioning values and hence belong to the conditional stochastic-order definition. Every applicable cross-product slack is nonnegative; \(57\) are positive, \(7\) are zero, and the smallest positive integer slack is \(6\).
+## correctness
 
-The NRTD witness is checked separately and exactly:
-\[
-\Pr(X_1=1\mid X_3\ge1)=\frac7{24},\qquad
-\Pr(X_1=1\mid X_2=1,X_3\ge1)=\frac25,
-\]
-with cross-product difference \(-13\).
+PASS
 
-Reproduce with `python3 verify_sparse_nrd.py`; a successful run ends with `VERIFY_OK`.
+The conditional stochastic-order definition on a finite product reduces to increasing upper sets for each pair of positive-mass comparable conditioning values. Independent exact enumeration gives 64 applicable inequalities, all nonnegative with 57 strict and seven equal. The displayed right-tail conditioning probabilities are 7/24 and 2/5, so the stronger conditioning increases the success probability and the exact cross-product slack is -13. This proves the witness while making no inference from zero-mass conditionings.
 
-The verification establishes the displayed seven-atom example only. It does not prove that smaller supports are impossible and does not use failed searches, timeouts or random sampling as mathematical evidence.
+## originality
+
+PASS
+
+Su and Hu prove sharp minimal rectangular state-space size using a strictly positive 12-cell example, and explicitly distinguish that result from support sparsity, making no claim about the sparsest witness inside the 2-by-2-by-3 grid. The audited seven-atom law is therefore a genuinely different support-size improvement, and full NRD must be reverified because deleting atoms can invalidate conditional stochastic inequalities.
+
+## value
+
+PASS
+
+The source explicitly leaves support sparsity separate from its rectangular minimality result. Reducing a canonical exact counterexample from twelve positive cells to seven is a motivated finite boundary improvement, and the full set of dependence inequalities is independently certified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
