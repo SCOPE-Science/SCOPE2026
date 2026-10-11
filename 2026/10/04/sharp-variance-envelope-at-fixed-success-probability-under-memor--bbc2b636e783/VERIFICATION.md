@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-The finding was checked analytically from the stated definitions.
 
-The published input used is
-\[
-\operatorname{Var}(T)=
-\frac{(1-p)(1+ps)-2q\,s g'(s)}{p^2q^2}.
-\]
-The new proof independently establishes the exact feasible range of \(M=s g'(s)\) subject to \(g(s)=p\) for positive-integer \(T_0\).
+# Independent mathematical audit
 
-Critical checks:
-- \(X=s^{T_0}\) lies on the discrete geometric lattice and has mean \(p\).
-- \(\phi(x)=x\log(x)/\log(s)\) is strictly concave because \(\log(s)<0\).
-- The polygonal interpolation through consecutive lattice points is concave and agrees with \(T_0s^{T_0}\) on the support.
-- Jensen therefore gives the adjacent-support maximum.
-- The pointwise inequality \(T_0s^{T_0}\ge s^{T_0}\) gives the lower bound.
-- The explicit \(\{1,N\}\) family preserves \(p\) and approaches the lower endpoint because \(Ns^N\to0\).
-- Convex mixtures preserving \(p\) fill the full intermediate interval.
-- The variance formula is strictly decreasing in \(M\), so its interval endpoints reverse.
-- At \(p=s\), \(s^{T_0}\le s\) with equality only at \(T_0=1\), forcing the boundary law.
+## correctness
 
-Finite numerical evaluations for several \(s,p\) pairs were used only as stress checks of the closed forms; they are not part of the proof.
+PASS
 
-No claim is made about higher moments, full stochastic order, non-memoryless catastrophe, or non-integer base completion times.
+With \(s=1-q\), set \(X=s^{T_0}\) and \(\phi(x)=x\log x/\log s\). The lattice points satisfy \(\phi(s^t)=ts^t\), and their piecewise-linear interpolant through \((0,0)\) is concave because \(\phi\) is strictly concave. Therefore at fixed \(E X=p\), Jensen gives the sharp maximum \(M_+=L(p)\), attained exactly by the two adjacent lattice points \(s^k,s^{k+1}\). Pointwise \(T_0s^{T_0}\ge s^{T_0}\) gives \(M\ge p\), with equality only at the boundary \(T_0=1\); a law on \(\{1,N\}\) with its mixing weight chosen to preserve \(p\) makes \(M\downarrow p\). Convex mixing of fixed-p laws fills the interval. Substitution into the published affine variance identity reverses the endpoints and gives the complete variance envelope.
+
+## originality
+
+PASS
+
+The accessible Wang--Lu primary record establishes the same memoryless-catastrophe setting and advertises distributional/PGF formulas; the assigned theorem uses its exact variance identity but solves an additional discrete moment problem at fixed success probability. Targeted Resultary search found no earlier exact feasible interval for \(sg'(s)\), adjacent-support minimizer or nonattained opposite endpoint. Full text of Wang--Lu was unavailable after ordinary arXiv/open-access attempts, and the authorized institutional retrieval returned an operational error, so any hidden equivalent optimization in that paper is retained explicitly as a residual risk rather than converted into failure.
+
+## value
+
+PASS
+
+Fixing one-attempt success probability fixes the mean but not the variance, so the exact remaining fluctuation range is a natural question for restart/catastrophe models. The theorem solves that support-constrained moment problem completely, identifies both extremal mechanisms and shows the discrete lattice changes the Jensen envelope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
