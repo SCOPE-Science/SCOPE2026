@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof converts the eight Walsh samples into all signed sums of four unit vectors and identifies their maximum norm with the circumradius of the zonogon \(Z=\sum_j[-u_j,u_j]\). The zonogon has perimeter \(16\) and at most eight sides. The sharp perimeter bound for an \(m\)-gon in a radius-
-\(R\) disk gives \(16\le16R\sin(\pi/8)\), hence \(R^2\ge4+2\sqrt2\). Equality in the polygon bound forces a regular octagon, and the edge directions of a four-generator zonogon give the stated complete phase classification. The exact verifier confirms the displayed equality case but is not used to infer the theorem.
+## correctness
 
-## Originality
-**PASS.** Neuwirth's full text treats maximum-modulus and Sidon-constant questions for three continuous Fourier characters and explicitly frames phase variation and unimodular multipliers. Seigner's full text treats finite Rademacher sums inside the proof that the infinite Rademacher Sidon constant is \(\pi/2\), including equal-modulus root-of-unity phases for asymptotic sharpness. Neither inspected source states or implies the exact four-term equal-modulus minimax \(4+2\sqrt2\) with the regular-octagon equality classification. published-finding corpus searches using Walsh, Rademacher, Sidon, unimodular-phase, and regular-octagon formulations returned no covering finding. The remaining risk is an equivalent older convex-geometry statement about circumradii of four-generator unit zonogons.
+PASS
 
-## Value
-**PASS.** The equal-modulus problem is the natural phase-flatness slice of a classical Sidon/unconditionality question. The four-character affine Walsh basis is the first case in which four independent coefficient directions can realize an eight-sided zonogon, and the theorem gives both the exact peak floor and all equality cases. The regular-octagon mechanism is structural rather than a finite table or isolated numerical optimization.
+The eight Walsh samples give, up to a global sign, all sixteen signed sums of four planar unit vectors. Their convex hull is the four-generator centrally symmetric zonogon \(Z\), whose perimeter is exactly 16 and which has at most eight vertices. Any convex \(m\)-gon in a radius-\(R\) disk satisfies \(P\le2mR\sin(\pi/m)\), hence with \(m\le8\), \(R\ge\csc(\pi/8)\). Equality forces an eight-vertex regular octagon, which in a four-generator zonogon is equivalent to the four generator directions being equally spaced modulo \(\pi\). The inspected exact verifier confirms the displayed extremizer has four samples at each of \(4\pm2\sqrt2\).
 
-## Closest literature and limitations
-The closest harmonic-analysis references are Neuwirth's exact three-frequency maximum-modulus theory and Seigner's Rademacher Sidon-constant argument. The theorem does not claim the unrestricted four-character Sidon constant or any result for larger Walsh spectra. Equivalent convex-geometric prior art under different terminology remains the main residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted Walsh/Rademacher, trigonometric-polynomial and vector-balancing searches did not locate the four-character discrete minimax or its equality class. Neuwirth's primary work treats continuous trigonometric spectra (three frequencies in the 2007 paper, and the still-open unrestricted Sidon problem for \{0,1,2,3\} in a 2026 preprint), while Seigner determines the infinite Rademacher Sidon constant rather than this equal-modulus four-coordinate finite problem. The proof is short because classical polygon geometry solves the reduced convex problem, but no checked source states the signed-sum specialization or equality classification.
+
+## value
+
+PASS
+
+This is a natural finite phase-flatness problem for the basic four-character affine Walsh spectrum, with an exact optimum and complete equality geometry. The regular-octagon extremizers provide a reusable bridge between Walsh phase design and planar zonogons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
