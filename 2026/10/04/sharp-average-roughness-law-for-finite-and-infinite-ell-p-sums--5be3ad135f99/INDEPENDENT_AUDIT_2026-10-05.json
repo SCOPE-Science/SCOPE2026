@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:02:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source's equivalent weighted formulation of average roughness applies to arbitrary vectors and convex weights. For a finite sum, the positive \\(\\ell_q\\)-norming coefficients \\(c_{ij}=\\|x_{ij}\\|^{p-1}\\) satisfy \\(\\sum_j c_j\\ge1\\); choosing equal-size perturbations in each factor and combining them with Minkowski gives the lower constant \\(m^{-1/p}\\). For the upper bound, the \\(m\\) coordinate-axis unit vectors and the uniform expansion \\(((1+a)^p+\\eta^p-a^p)^{1/p}=1+a+o(\\eta)\\) reduce the first-order average to \\(2m^{-1}\\sum a_j\\), and Hölder gives \\(2m^{-1/p}\\). In an infinite sum the same test works for arbitrary finite \\(m\\), forcing every positive modulus to zero. This is an actual infinite argument, not extrapolation from a finite experiment.",
+      "risk": "The exact positive finite value requires octahedrality of every factor; for merely \\(\\delta\\)-average rough factors only the lower bound is asserted.",
+      "sources": [
+        "arXiv:1702.03140, Proposition 2.1, Theorem 2.4, Corollary 2.6, Proposition 2.7",
+        "RESULT.md",
+        "VERIFICATION.md"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.4 gives the binary lower factor and Proposition 2.7 the binary upper constant.",
+          "No inspected broader theorem controls arbitrarily many coordinates with the sharp cardinality dependence."
+        ],
+        "reasoning": "Binary stability does not imply the sharp multiway lower constant by naïve iteration, and one fixed binary upper bound cannot imply zero modulus for an infinite sum.",
+        "searches": [
+          "arXiv:1702.03140 Proposition 2.1 and Theorem 2.4",
+          "arXiv:1702.03140 Proposition 2.7",
+          "finite absolute-sum diameter-two literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1702.03140",
+        "DOI:10.1215/17358787-2017-0040",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At \\(m=2\\) the final theorem specializes to the published result.",
+          "For \\(m>2\\), the proof requires simultaneous norming across all coordinates; for infinite index it uses arbitrarily large finite axis tests."
+        ],
+        "reasoning": "The prior two-summand theorem is a boundary case, not a dominating statement.",
+        "searches": [
+          "Haller--Langemets--Nadel two-summand theorem and upper bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record as the only matching exact law.",
+          "The primary source states only two-space absolute-sum theorems."
+        ],
+        "reasoning": "Norm-perturbation and dual slice formulations were compared; neither inspected source stated the multi-summand law.",
+        "searches": [
+          "Resultary query: average roughness l_p sums m summands exact constant 2 m^{-1/p} infinite direct sum zero",
+          "arXiv:1702.03140 full text",
+          "web exact searches for m^{-1/p} average roughness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact formula or table was located."
+        ],
+        "reasoning": "The claim is a structural all-cardinality theorem rather than a computed table.",
+        "searches": [
+          "Resultary exact search for 2 m^{-1/p} and infinite l_p average roughness zero"
+        ]
+      },
+      "rationale": "Haller--Langemets--Nadel prove the sharp two-summand \\(\\ell_p\\) constant and formulate the argument for two spaces. The submitted simultaneous \\(m\\)-coordinate norming argument gives the sharp \\(m^{-1/p}\\) dependence, which is generally stronger than iterating the binary lower bound, and the arbitrary-axis upper test yields the infinite-index collapse. Resultary and exact web searches found no prior finite-cardinality law or infinite zero-modulus theorem.",
+      "residual_risks": [
+        "An unindexed later Banach-space paper may contain an equivalent arbitrary-cardinality extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BINARY_SPECIALIZATION_NOT_MULTI_SUM_OR_INFINITE_COLLAPSE",
+          "evidence": "The paper proves the sharp two-space constant \\(2^{1-1/p}\\) but its stated results do not give the \\(m\\)-summand law or zero modulus for infinite \\(\\ell_p\\)-sums.",
+          "identifier_or_url": "arXiv:1702.03140; DOI:10.1215/17358787-2017-0040",
+          "material_read": "Full open arXiv PDF including the definition, Proposition 2.1 with weighted variant, Theorem 2.4, Corollary 2.6 and Proposition 2.7.",
+          "method": "Lawful open full-text inspection with PDF page inspection.",
+          "title": "Stability of average roughness, octahedrality, and strong diameter two properties of Banach spaces with respect to absolute sums",
+          "trigger": "Exact same invariant and \\(\\ell_p\\)-sum setting."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem identifies the exact degradation of a quantitative octahedrality invariant with the number of transverse \\(\\ell_p\\) coordinates and a sharp finite-to-infinite phase change. This is a motivated structural extension of the binary theory, not merely repeated substitution.",
+      "risk": "It does not classify other roughness moduli or endpoint exponents \\(p=1,\\infty\\).",
+      "sources": [
+        "arXiv:1702.03140"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(1<p<\\infty\\), an \\(m\\)-fold \\(\\ell_p\\)-sum of \\(\\delta\\)-average-rough spaces is \\(\\delta m^{-1/p}\\)-average rough, every such finite sum has average-roughness modulus at most \\(2m^{-1/p}\\), octahedral factors attain equality, and every infinite \\(\\ell_p\\)-sum of nonzero spaces has average-roughness modulus zero.",
+  "limitations": [
+    "Real Banach spaces and \\(1<p<\\infty\\).",
+    "Exact finite equality is asserted for octahedral factors.",
+    "Infinite conclusion concerns average-roughness modulus only."
+  ],
+  "schema_version": 1
+}

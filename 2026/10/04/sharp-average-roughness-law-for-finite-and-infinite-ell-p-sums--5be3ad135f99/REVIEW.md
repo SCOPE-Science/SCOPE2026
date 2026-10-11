@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite lower bound directly generalizes the published two-summand support-functional argument to \(m\) coordinates. For each test point the positive \(\ell_q^m\)-norming vector is explicit, the weighted factorwise average-roughness inequalities are legitimate, and \(\sum_j c_j\ge1\) supplies the sharp \(m^{-1/p}\) normalization. The universal upper bound uses the \(m\) coordinate-axis test family, a uniform \(o(\eta)\) scalar expansion, and Hölder's inequality. The infinite case repeats that test for arbitrary \(m\), forcing every positive candidate constant to vanish. The proof keeps finite and infinite quantifiers separate.
+## correctness
 
-## Originality
-PASS. The closest primary source proves the \(m=2\) lower and upper constants and formulates its absolute-sum theorem for two spaces. The new statement gives the sharp general finite law and the infinite-index collapse. Direct binary iteration does not recover the sharp \(2m^{-1/p}\) constant for general \(m\), and no searched published record or indexed prior finding stated the multi-summand or infinite collapse result. Residual risk remains that an unindexed source contains an equivalent theorem.
+PASS
 
-## Value
-PASS. The result identifies the exact loss of average roughness as the number of transverse \(\ell_p\)-summands grows and exposes a qualitative cardinality transition: finitely many octahedral summands retain a sharp positive modulus, whereas infinitely many nonzero summands force the modulus to zero. This is a structural stability boundary for a standard Banach-space geometric invariant, rather than a parameter substitution in the two-summand theorem.
+The source's equivalent weighted formulation of average roughness applies to arbitrary vectors and convex weights. For a finite sum, the positive \(\ell_q\)-norming coefficients \(c_{ij}=\|x_{ij}\|^{p-1}\) satisfy \(\sum_j c_j\ge1\); choosing equal-size perturbations in each factor and combining them with Minkowski gives the lower constant \(m^{-1/p}\). For the upper bound, the \(m\) coordinate-axis unit vectors and the uniform expansion \(((1+a)^p+\eta^p-a^p)^{1/p}=1+a+o(\eta)\) reduce the first-order average to \(2m^{-1}\sum a_j\), and Hölder gives \(2m^{-1/p}\). In an infinite sum the same test works for arbitrary finite \(m\), forcing every positive modulus to zero. This is an actual infinite argument, not extrapolation from a finite experiment.
 
-The closest literature is Haller--Langemets--Nadel, arXiv:1702.03140v1 (2017), whose Section 2 contains the two-summand lower and upper estimates. The main limitation is possible coverage by literature not surfaced by the searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Haller--Langemets--Nadel prove the sharp two-summand \(\ell_p\) constant and formulate the argument for two spaces. The submitted simultaneous \(m\)-coordinate norming argument gives the sharp \(m^{-1/p}\) dependence, which is generally stronger than iterating the binary lower bound, and the arbitrary-axis upper test yields the infinite-index collapse. Resultary and exact web searches found no prior finite-cardinality law or infinite zero-modulus theorem.
+
+## value
+
+PASS
+
+The theorem identifies the exact degradation of a quantitative octahedrality invariant with the number of transverse \(\ell_p\) coordinates and a sharp finite-to-infinite phase change. This is a motivated structural extension of the binary theory, not merely repeated substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
