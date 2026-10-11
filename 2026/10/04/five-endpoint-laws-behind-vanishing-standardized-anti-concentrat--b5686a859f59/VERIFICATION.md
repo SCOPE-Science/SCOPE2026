@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The analytic proof reduces every statement to an exact distribution formula before applying a standard asymptotic expansion. No finite enumeration is used to infer an infinite limit.
 
-`verify_endpoint_rates.py` evaluates the exact formulas for \(y\in\{0.3,1,2.5\}\). It checks Gamma and Beta at parameter \(10^{-6}\), Pareto at \(\varepsilon=10^{-8}\), log-normal at \(\sigma=12\), and Weibull at shape \(0.005\). The acceptance tolerances are intentionally loose enough to test the predicted limiting scale rather than accidental decimal agreement.
+# Independent mathematical audit
 
-Limitations: the script depends on `mpmath`; it is a consistency check, not a certificate. The theorem is pointwise for fixed \(y>0\), and the Beta statement is restricted to the \(\operatorname{Beta}(1,q)\) witness path.
+## correctness
+
+PASS
+
+Each law was reconstructed from the exact standardized event. Gamma uses the small-threshold expansion of the upper incomplete gamma ratio: with threshold \(\alpha+y\sqrt\alpha\), \(1/\Gamma(\alpha)=\alpha+O(\alpha^2)\) and \(-\log(\alpha+y\sqrt\alpha)=\frac12\log(1/\alpha)-\log y+o(1)\), giving the displayed Euler-constant correction. The exact Pareto tail gives \(\varepsilon/(2y^2)\). For Weibull, the standard deviation dominates the mean and Stirling gives \(\alpha(\mu+y\sigma)^{\alpha}\to2/e\). The log-normal threshold is \(\sigma+(\log y)/\sigma+o(1/\sigma)\), and Mills' ratio yields the stated Gaussian-in-log-scale equivalent. For \(\operatorname{Beta}(1,q)\), the exact survival expression expands to the claimed half-logarithmic term. Independent high-precision checks for several fixed positive \(y\) values approach each asymptotic ratio as predicted.
+
+## originality
+
+PASS
+
+Originality passes for the five sharp standardized endpoint laws. The motivating primary paper was read through the complete Gamma, Pareto, Weibull, log-normal and Beta propositions: it proves that the corresponding anti-concentration infima are zero and exhibits endpoint witnesses, but it stops at qualitative convergence or deliberately simplifying bounds. It does not state the audited leading coefficients, the log-normal equivalent, or the normalized Weibull exponent. Fresh semantic and exact-constant searches found nearby endpoint asymptotics for different objects but no theorem covering this five-family package.
+
+## value
+
+PASS
+
+The motivating paper's qualitative zero result leaves the speed of collapse completely unresolved, and its simplifying bounds lose sharp constants on multiple families. The five exact laws distinguish logarithmic, linear, essential-exponential and Gaussian-in-log-scale regimes and quantify precisely how the standardized witnesses degenerate. This is a natural quantitative completion of a published anti-concentration classification rather than a random collection of endpoint exercises.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
