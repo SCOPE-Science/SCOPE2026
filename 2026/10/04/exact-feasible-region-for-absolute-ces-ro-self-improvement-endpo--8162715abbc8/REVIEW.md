@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The necessary lower boundary is exactly the published self-improvement theorem. For a finite target \(Q\), the weighted shift with weights \((j/(j-1))^{{1/Q}}\) has exact \(p\)-Cesàro constant \(Q/(Q-p)\), and its endpoint orbit on \(e_j\) produces the harmonic sum, so its supremal exponent is exactly \(Q\). The positive square-zero block has exact \(p\)-constant \(K\) and every finite self-improvement exponent. On their \(\ell^p\)-direct sum the exact \(p\)-constant is the maximum, while finite \(q\)-absolute Cesàro estimates pass to the sum by \((a^p+b^p)^{{q/p}}\le2^{{q/p-1}}(a^q+b^q)\). Restriction to the weighted-shift summand preserves endpoint failure.
+## correctness
 
-## Originality — PASS
-The closest source, arXiv:2610.00271v1, defines \(q_*(T)\), proves the lower threshold, and gives only the two extreme examples \(q_*=pK/(K-1)\) and \(q_*=\infty\) at fixed \(K\). The present result fills the entire interval and proves that it is the exact feasible set. Targeted source-ID, invariant, weighted-shift, direct-sum, and implication searches found no covering result. The companion weighted-shift paper supplies ingredients but does not state this two-invariant classification in the inspected material.
+PASS
 
-Residual originality risk remains that the short direct-sum realization may have appeared previously under different notation.
+Arnold's Theorem 3.1 gives the necessary lower threshold and contractivity when \(K=1\). For finite \(Q\), setting \(\beta=p/Q\) in the same weighted-shift family gives exact constant \(K_Q=Q/(Q-p)\le K\) and endpoint failure via the harmonic orbit sum. The square-zero block has exact \(p\)-constant \(K\) and every finite exponent. On the \(\ell^p\)-sum, \(p\)-orbit sums add exactly, so the optimal constant is \(K\); finite \(q\)-bounds transfer by \((a^p+b^p)^{q/p}\le2^{q/p-1}(a^q+b^q)\), while the invariant shift summand preserves failure at \(Q\). Thus the full interval and \(\infty\) are realized.
 
-## Value — PASS
-This is a natural complete classification prompted directly by the focal paper's observation that the optimal Cesàro constant does not determine the self-improvement endpoint. It identifies the full parameter space rather than adding another isolated example: at fixed \(K>1\), positivity on \(\ell^p\) allows every endpoint permitted by the universal theorem and no others.
+## originality
 
-## Closest literature and limitations
-The result builds on Arnold's optimal threshold and on the weighted-shift characterization of Abbar–Arnold–Coine. It classifies only the supremal exponent, not endpoint membership, and its realizations are reducible; no claim is made for irreducible or invertible subclasses.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Fresh full-text reading of Arnold shows that the paper defines \(q_*\), proves the lower threshold, and at fixed \(K\) exhibits only the extremal values \(pK/(K-1)\) and \(\infty\). It does not state that every intermediate endpoint occurs. The companion shift paper provides ingredients but no located fixed-constant two-invariant realization theorem. Resultary returned the submitted record itself plus a distinct weak-endpoint result for the extremal shift, not a covering feasible-region classification.
+
+## value
+
+PASS
+
+The focal paper itself elevates \(q_*\) as an invariant not determined by the optimal Cesaro constant. Determining the entire feasible region at fixed \(K\), with no extra restriction even under positivity on a classical space, is a natural complete classification rather than another isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
