@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:05:43.910207Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4a5d4ef7fab97cec974dfaaf728b489bfb18b61a",
+        "assigned verify.cpp blob ceb0f5c1f541311c876f4ef15e74fd99dd43a7f6",
+        "assigned cycles.txt blob 32878d5719f7d950eb67d066ef1d49acd68d8e36",
+        "Das, arXiv:2312.06629v1, Lemma 2.2, Theorem 2.7 and Open Issues"
+      ],
+      "rationale": "Das's Lemma 2.2 implies that an odd-k cycle must contain a prime at most k, so it suffices to start from all primes p<=k. From those starts the dynamics stays in the finite interval 2 through 2k+2, making the census exhaustive. The inspected C++ verifier constructs the exact largest-prime-factor table through 41472, scans every odd k through 20735 and every prime start, canonicalizes directed cycles, rejects any earlier k with at least 36 cycles, and verifies exactly 36 cycles at 20735 with period histogram 4:6, 6:14, 8:10, 10:5, 12:1. An independent implementation reproduced the same strict record sequence, final count and histogram.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader periodicity/boundedness results establish eventual loops but do not enumerate L(20735).",
+          "Das's finiteness theorem supplies the setting rather than the exact later record."
+        ],
+        "reasoning": "A general periodicity theorem cannot imply the exact number, periods and first odd attainment without a separate census.",
+        "searches": [
+          "Dubickas, A Class of Bounded Iterative Sequences of Integers, DOI:10.3390/axioms13020107",
+          "Das arXiv:2312.06629v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.06629v1",
+        "DOI:10.3390/axioms13020107",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finiteness and eventual periodicity do not determine L(k).",
+          "The published finite census does not reach any of the new record parameters above 5000."
+        ],
+        "reasoning": "The exhaustive odd-k computation supplies genuinely new exact finite information.",
+        "searches": [
+          "Comparison with Das Lemma 2.2, Theorem 2.7 and the k<=5000 computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses the same map and the same notion of distinct eventual loops.",
+          "Its published computation stops at k=5000 with maximum 14."
+        ],
+        "reasoning": "Cycle, loop and eventual-period terminology were compared on the exact same arithmetic dynamical map.",
+        "searches": [
+          "Resultary: Das map 20735 36 loops largest prime divisor x plus k",
+          "Das arXiv:2312.06629v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct prior database/table entry with L(20735)=36 or the stated period histogram was returned."
+        ],
+        "reasoning": "The exact finite record and histogram were independently recomputed rather than inferred from a source table.",
+        "searches": [
+          "Resultary semantic search using 20735, 36 loops, largest-prime-divisor and Das map"
+        ]
+      },
+      "rationale": "Das proves eventual periodicity and finiteness and reports a computation only through k=5000, where the maximum loop count is 14 at k=4479; the paper then asks whether loop counts are unbounded. Dubickas studies a broader bounded-iteration class but does not state the exact 20735 record in the inspected material. The targeted Resultary search for the map definition, k=20735 and 36 loops returned the audited finding as the direct exact hit and no earlier equivalent census.",
+      "residual_risks": [
+        "An unindexed or private computation could already contain the same record sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_RECORD_ONLY_THROUGH_5000",
+          "evidence": "The source reports maximum 14 at k=4479 over its scanned range and contains no 20735/36-loop result.",
+          "identifier_or_url": "arXiv:2312.06629v1",
+          "material_read": "Full primary text around Lemma 2.2, Theorem 2.7, the reported k<=5000 computation and the open issue asking whether loop counts are unbounded.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "A Family of Iterated Maps on Natural Numbers",
+          "trigger": "Exact defining paper and prior finite record."
+        },
+        {
+          "assessment": "BROADER_PERIODICITY_NOT_EXACT_CENSUS",
+          "evidence": "No exact updated Das-map loop record was located.",
+          "identifier_or_url": "DOI:10.3390/axioms13020107",
+          "material_read": "Primary bibliographic/accessible theorem-scope material on periodicity and boundedness.",
+          "method": "Lawful public-source inspection.",
+          "title": "A Class of Bounded Iterative Sequences of Integers",
+          "trigger": "Broader later work on bounded integer iteration including largest-prime-divisor behavior."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Das 2023",
+        "Dubickas 2024"
+      ],
+      "rationale": "This exact census advances a numerical frontier explicitly tied to Das's open unboundedness question: it more than doubles the published attainable loop count from 14 to 36 and records the complete optimum-cycle period profile. The strict record sequence and exact cycle list provide a reusable benchmark for future arithmetic-dynamics searches even though they do not prove unboundedness.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2312.06629v1",
+    "DOI:10.3390/axioms13020107",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite exact census over odd k only, through 20735.",
+    "It does not establish first attainment among all positive k and does not prove unboundedness."
+  ],
+  "residual_risks": [
+    "An unindexed or private computation could already contain the same record sequence."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR_RECORD_ONLY_THROUGH_5000",
+      "evidence": "The source reports maximum 14 at k=4479 over its scanned range and contains no 20735/36-loop result.",
+      "identifier_or_url": "arXiv:2312.06629v1",
+      "material_read": "Full primary text around Lemma 2.2, Theorem 2.7, the reported k<=5000 computation and the open issue asking whether loop counts are unbounded.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "A Family of Iterated Maps on Natural Numbers",
+      "trigger": "Exact defining paper and prior finite record."
+    },
+    {
+      "assessment": "BROADER_PERIODICITY_NOT_EXACT_CENSUS",
+      "evidence": "No exact updated Das-map loop record was located.",
+      "identifier_or_url": "DOI:10.3390/axioms13020107",
+      "material_read": "Primary bibliographic/accessible theorem-scope material on periodicity and boundedness.",
+      "method": "Lawful public-source inspection.",
+      "title": "A Class of Bounded Iterative Sequences of Integers",
+      "trigger": "Broader later work on bounded integer iteration including largest-prime-divisor behavior."
+    }
+  ]
+}
