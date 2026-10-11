@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The general theorem is proved symbolically in `RESULT.md`; the executable check is supplementary.
+# Independent mathematical audit
 
-`verify.py` exhaustively enumerates all order-preserving maps for \((m,n)=(2,3),(3,2),(3,3),(4,2),(4,3)\). It computes winding degree from lifted increments, connects maps by valid single-coordinate comparable changes, and verifies the theorem's component count and isolated extremal components.
+## correctness
 
-Expected totals are \(48/1\), \(200/3\), \(234/7\), \(1156/7\), and \(1248/3\), where each pair is maps/components in the order listed above. These checks include shorter-to-longer, unequal-size, diagonal, divisibility, nondivisibility, and higher-degree cases. They do not certify the infinite parameter family.
+PASS
+
+Lifting a monotone crown map to the infinite alternating fence gives increments in {-1,0,1} whose total is 2n times the degree and bounds absolute degree by floor(m/n). Between nonzero increments every zero run has even length. Comparable-map moves cancel adjacent opposite signs and slide zero pairs, reducing every nonextremal fixed-degree map to a common sign-pure normal form and using a spare zero pair to connect target phases. At maximal degree when n divides m, every increment has the same sign, leaving n target phases for each sign and no comparable perturbation, hence isolated maps. Fresh exhaustive mapping-poset replay gives map/component totals 48/1, 200/3, 234/7, 1156/7, and 1248/3 for the five representative pairs, with degree-resolved component sizes exactly as predicted.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with a substantial close-analogy risk. Cavallo-Sattler define the same crown winding number and prove only the shorter-to-longer zero-degree bound. Cukic-Kozlov classify connected components of graph-Hom complexes between ordinary cycles by wrap data and isolate maximal wraps, but graph homomorphisms forbid collapsing a source edge, whereas monotone crown-poset maps may collapse comparable pairs; their complex is therefore not the finite-space mapping poset. The assigned cancellation/zero-pair argument is the missing bridge that classifies all monotone maps. The older Farley and Currie-Visentin papers explicitly enumerate raw order-preserving maps but their full text was inaccessible in this run; authorized institutional attempts after OA failure were unavailable, so no whole-document noncoverage claim is made.
+
+## value
+
+PASS
+
+This is a complete two-parameter classification for the standard finite T0 models of the circle. It identifies every realizable degree, a sharp divisibility boundary, and the exact rigid maximal-winding multiplicity, providing concrete finite-space information that ordinary topological homotopy and graph-Hom analogues do not by themselves supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
