@@ -1,0 +1,15 @@
+# Scientific review: Petersen symmetric edge polytope
+
+## Correctness — PASS
+The graph is defined exactly as \(KG(5,2)\) on ten two-element subsets, and the metric is explicitly the inherited Euclidean metric on the nine-dimensional zero-sum space. Polar vertices are integral unit-Lipschitz labelings with connected tight graph. Cross-intersection of the extreme label classes bounds their sizes, and the centered variance identity has sharp maximum \(28/5\) only for the disjoint-pair versus four-cross labeling. Those thirty labelings have connected tight graphs and thus are actual polar vertices, giving the inradius and complete contact-facet orbit. The exact Gram decomposition is positive definite on the zero-sum space, so any maximum-radius ball has center zero. The accompanying standalone exact-arithmetic verifier reproduces the complete finite enumeration and rank certificate.
+
+## Originality — PASS, with residual source risk
+D’Alì–Delucchi–Michałek (arXiv:1910.05193) covers the underlying symmetric edge polytope and metric duality. Chen–Davis–Korchevskaia (arXiv:2107.12315), and the Higashitani–Jochemko–Michałek criterion as cited in Braun–Bruegge (arXiv:2201.13303), cover the general face/facet mechanisms. Material checked in the public full texts does not state the Petersen graph's exact maximum centered potential norm, thirty nearest facets or maximum-ball center uniqueness. The graph-spread formulation gives the equivalent sharp \(1\)-Lipschitz variance \(14/25\), for which a targeted search did not locate a dominating Petersen-specific result. Yancey's 2020 work on Lipschitz variance was found and its abstract read, but complete text was not available; an alternative equivalent result remains a genuine risk, not evidence of absence. Other published work on Petersen \(L_1\) distortion concerns a distinct invariant.
+
+## Value — PASS
+The Petersen graph is the canonical ten-vertex cubic distance-regular nonbipartite graph. Its nine-dimensional symmetric edge polytope is a natural geometric object, not a tuned arbitrary slice. The theorem computes a previously nontrivial natural Euclidean invariant and classifies **all** nearest facets and **all** largest-ball centers, including a nontrivial span certificate. The precise equality orbit provides a useful finite benchmark connecting graph-Lipschitz variance, discrete geometry and facet theory; it is not merely a software-computed number.
+
+## Closest sources and limitations
+Primary full texts: arXiv:1910.05193 (sections on symmetric edge polytopes and metric duality); arXiv:2107.12315 (Theorem 3, general facet-subgraph theorem); arXiv:2201.13303 (Theorem 2.3, integral label criterion). Related literature: DOI:10.1002/jgt.22545 (graph-spread maximal variance, abstract only). The result covers this graph with this normalization and does not assert an all-Kneser-graphs extension. Exact finite enumeration supports but does not substitute for the combinatorial proof. No independent external validation has been carried out.
+
+Same-model review: passed. Independent audit: not yet performed.
