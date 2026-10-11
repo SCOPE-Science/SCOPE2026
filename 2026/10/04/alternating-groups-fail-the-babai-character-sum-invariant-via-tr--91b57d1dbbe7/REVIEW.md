@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two connection elements lie in \(A_n\) and have order \(3\). A Cayley graph on \(\{g,g^{-1}\}\) for an element of order \(3\) is a disjoint union of \(3\)-cycles, so the two witness graphs are isomorphic. The standard character is fixed-points minus one, giving character sums \(2(n-4)\) and \(2(n-7)\). For \(n\ge7\) the degree-\(n-1\) irreducible character of \(A_n\) is unique, so the relevant BI invariant sets are unequal singletons. The package independently reconstructs uniqueness for \(n=7,8\) and explicitly checks both Cayley graphs in those boundary cases.
+## correctness
 
-## Originality
-PASS. The closest primary paper defines BI-groups and asks which finite groups are BI-groups. Its predecessor gives symmetric groups as a non-BI family, but that conclusion does not transfer automatically to the index-two alternating subgroup. The accepted proof supplies a uniform witness wholly inside \(A_n\). Targeted searches under BI, Babai-invariant, character-sum, Cayley, and alternating-group terminology found no equivalent theorem. The main residual risk is the inaccessible full text of the 2015 predecessor article.
+PASS
 
-## Value
-PASS. The result settles every \(A_n\) with \(n\ge7\), hence an infinite family of nonabelian simple groups, in a natural classification problem. The witness uses only valency-two triangle Cayley graphs and the canonical standard character, making the obstruction both structural and reusable.
+For any order-three element \(g\), \(\operatorname{Cay}(G,\{g,g^{-1}\})\) is a disjoint union of right cosets of \(\langle g\rangle\), each a triangle. Thus the two witnesses in \(A_n\) give isomorphic graphs. The standard character has value \(|\mathrm{Fix}(g)|-1\), giving sums \(2(n-4)\) for a 3-cycle and \(2(n-7)\) for two disjoint 3-cycles. For \(n\ge7\) the standard irreducible is the unique degree-\(n-1\) character, so the degree-\(n-1\) character-sum sets are unequal. The low boundaries \(n=7,8\) were independently recomputed from the hook-length restriction/splitting rule; the general uniqueness is the classical small-degree character fact.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2015 primary paper proves non-invariance for symmetric groups and some additional groups, then ends by asking which nonabelian groups have the invariant; the accessible author-uploaded text and targeted searches did not reveal an alternating-group family. Non-BI status does not pass automatically from \(S_n\) to the index-two subgroup \(A_n\). Resultary returned the assigned \(A_n\) theorem as the exact hit, with the nearest BI result concerning \(\operatorname{AGL}(1,q)\), a different family. The explicit two-triangle witness inside \(A_n\) therefore survives implication comparison.
+
+## value
+
+PASS
+
+The 2015 paper explicitly leaves BI-group classification open. A uniform counterfamily covering all alternating groups from \(A_7\) onward, witnessed by two size-two connection sets and a single natural character, is a motivated structural classification result even though the final construction is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
