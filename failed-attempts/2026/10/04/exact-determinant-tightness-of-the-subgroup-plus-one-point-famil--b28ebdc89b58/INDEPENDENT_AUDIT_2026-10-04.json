@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:52:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 9ae8bd55d9b5de1023e185fee50d35ec90f50cdf",
+        "assigned verify.py blob c1b16b81529ed3c187e3617f6d2c8a258cb968b0",
+        "arXiv:1904.04487 determinant-tightness definition",
+        "independent spectrum evaluation for m=4,5,6"
+      ],
+      "rationale": "The basis-by-basis determinant derivation is correct, but the final set-level invariant uses the wrong extremization. The cited primary definition is D(E)=inf over exponential bases of |det T(E,B)|, whereas the proof maximizes over k. Since every nonzero k occurs, the correct infimum is 2 m^(m/2) sin(pi/m), not the displayed maximum-chord formulas. For m=4 the spectrum has minimum 16 sqrt(2) and maximum 32, while the package claims 32 for D(E_4). The headline exact D(E_m) statement is therefore false.",
+      "residual_risks": [],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-family prior work treats Riesz constants and the companion treats Gram spectra, not determinant values for every basis partner."
+        ],
+        "reasoning": "Those broader results do not state the chord-length determinant spectrum.",
+        "searches": [
+          "arXiv:1904.04487 Example 4.19",
+          "published SCOPE exact Riesz-ratio companion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.04487",
+        "Resultary subgroup-plus-one-point determinant query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The per-basis formula is consistent, but taking the infimum selects k=1 or m-1; the package instead takes the maximum chord."
+        ],
+        "reasoning": "The exact spectrum is not prior-implied by an inspected theorem, but the submitted set-level formula is not the correct consequence.",
+        "searches": [
+          "Primary definition D(E)=inf_B |det T(E,B)|",
+          "audited formula m^(m/2)|1-exp(2 pi i k/m)|"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source defines D(E) as an infimum over exponential bases and treats the same family; it does not state the audited all-k determinant spectrum."
+        ],
+        "reasoning": "The repeated restriction-class difference k parametrizes all basis determinants, so comparing this spectrum is the correct equivalent formulation.",
+        "searches": [
+          "Ferguson--Mayeli--Sothanaphan arXiv:1904.04487, determinant-tightness definition and Example 4.19",
+          "Resultary query: subgroup plus one point finite abelian determinant tightness E_m Z_m^2 determinant spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact determinant table/formula for all k was located."
+        ],
+        "reasoning": "This is theorem-level rather than a standard database lookup.",
+        "searches": [
+          "Resultary same-family corpus search",
+          "targeted exact determinant-spectrum search"
+        ]
+      },
+      "rationale": "Ferguson--Mayeli--Sothanaphan study exactly this subgroup-plus-one-point family and define determinant tightness, but no inspected source gives the full basis-by-basis chord-length determinant spectrum. Resultary found the audited determinant result and a later exact-Riesz-ratio companion, not an earlier determinant-spectrum theorem. The spectrum itself remains best-of-knowledge original even though the package applies the wrong extremization to obtain its set-level D(E_m).",
+      "residual_risks": [
+        "An unindexed source may have independently written the same per-basis spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_CONTRADICTS_PACKAGE_OPTIMIZATION_DIRECTION",
+          "evidence": "The source defines D(E) by an infimum, while the package explicitly maximizes its correct basis-by-basis determinant spectrum.",
+          "identifier_or_url": "arXiv:1904.04487",
+          "material_read": "Accessible primary full-text material around the determinant-tightness definition and Example 4.19.",
+          "method": "Direct definition and same-family theorem comparison.",
+          "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+          "trigger": "Primary source defining determinant tightness and studying the same family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1904.04487",
+        "Resultary same-family search"
+      ],
+      "rationale": "The correct per-basis determinant spectrum for this canonical family is a motivated quantitative refinement of the source's Riesz example. That independent value does not rescue the false final set-level extremization.",
+      "residual_risks": [
+        "An unindexed source may have independently written the same per-basis spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1904.04487",
+    "Resultary subgroup-plus-one-point determinant query"
+  ],
+  "disposition": "failed",
+  "final_claim": "The package correctly derives every basis-partner determinant as m^(m/2)|1-exp(2 pi i k/m)|, then claims set-level determinant tightness D(E_m) is the maximum of that spectrum, giving the parity-dependent largest chord and normalized tightness tending to one.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The submitted set-level determinant tightness uses a maximum where the cited invariant is defined by an infimum."
+  ]
+}
