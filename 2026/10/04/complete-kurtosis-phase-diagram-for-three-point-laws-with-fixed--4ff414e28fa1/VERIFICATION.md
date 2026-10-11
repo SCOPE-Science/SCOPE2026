@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic.
+# Independent mathematical audit
 
-For random positive rational triples \(a,b,c\) and rational \(t\in(0,1)\), it independently differentiates
-\[
-\kappa(t)=\frac{M_4(t)}{V(t)^2}
-\]
-through the central moments and verifies the exact identity
-\[
-\kappa'(t)
-=
-\frac{4abc\,t(1-t)}{V(t)^3}
-\left[(3b-1)t+(3c-1)\right].
-\]
+## correctness
 
-It checks the two exact boundary formulas
-\[
-\kappa(0)=h(c),
-\qquad
-\kappa(1)=h(a),
-\]
-the uniform identity
-\[
-\kappa(t)=\frac32,
-\]
-and, whenever the stationary point is interior, the identities
-\[
-t_*=\frac{1-3c}{3b-1}
-\]
-and
-\[
-\kappa(t_*)=
-\frac{1-3(ab+bc+ca)}
-{ab+bc+ca-9abc}.
-\]
+PASS
 
-The script also verifies the derivative sign reversal in the minimum and maximum regimes and monotonicity samples in the remaining regime.
+After affine normalization to atoms \(0,t,1\) with masses \(a,b,c\), direct symbolic differentiation of the exact second and fourth central moments gives \(\kappa'(t)=4abc\,t(1-t)((3b-1)t+(3c-1))/V(t)^3\). Hence a nonuniform interior critical point exists exactly when the endpoint masses \(a,c\) lie on the same side of \(1/3\), at \(t_*=(1-3c)/(3b-1)\). Substitution gives \(\kappa_*=(1-3(ab+bc+ca))/(ab+bc+ca-9abc)\). The derivative sign yields the minimum, maximum, and monotone phase cases, while the limits at \(t\downarrow0\) and \(t\uparrow1\) are \(1/(c(1-c))-3\) and \(1/(a(1-a))-3\). For \(a=b=c=1/3\), the kurtosis simplifies identically to \(3/2\). An independent symbolic reconstruction re-derived the derivative factorization, the critical-value identity, and the uniform case.
 
-Finite replay checks the algebra; it is not used to infer the universal theorem.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK derivative_checks=30000 boundary_checks=60000 uniform_checks=55 stationary_checks=23630 phase_checks=9701 monotone_checks=20286`.
+Targeted searches found broad skewness-kurtosis inequalities and general multivariate moment theory, but no prior theorem optimizing Pearson kurtosis over the support geometry of a three-atom law with all three masses fixed. The full Móri-Rohatgi-Székely paper proves general inequalities between skewness and kurtosis rather than this fixed-mass support phase diagram. Resultary returned no equivalent fixed-mass three-point classification in the leading semantic matches.
+
+## value
+
+PASS
+
+For a three-atom distribution with fixed masses, optimizing standardized fourth moment over support geometry is a natural exact invariant. The result gives the complete minimum/maximum/monotone phase diagram, a sharp \(1/3\) transition, the exact stationary support, and the full attainable interval for every mass triple.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
