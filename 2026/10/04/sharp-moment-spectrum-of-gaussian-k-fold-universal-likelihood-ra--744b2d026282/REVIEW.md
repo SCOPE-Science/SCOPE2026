@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the exact foldwise likelihood ratio from normalized Gaussian fold means, evaluates its \(q\)-moment by a one-dimensional Gaussian-square integral, and transfers the sharp boundary to the positive fold average. The strict boundary cases are handled: equality makes the Gaussian-square integral diverge. The unequal-split and log-moment corollaries follow from the same normalization and elementary inequalities. `verify.py` independently checks the determinant and threshold algebra.
+## correctness
 
-## Originality
-PASS, with residual risk. The closest inspected direct source is Tse and Davison (2022), whose Section 5 studies variance of the cross-fit and \(K\)-fold likelihood-ratio statistics. Wasserman, Ramdas, and Balakrishnan (2023) explicitly note the infinite variance of the Gaussian cross-fit statistic and say its consequences are unclear, while recommending the log statistic as an object of study. The foundational and Gaussian universal-inference papers define and analyze the relevant statistics but do not state the all-real-order moment boundary located here. Targeted searches found no equivalent statement. The publisher-hosted supporting-information file for Tse and Davison was inaccessible, and generic Gaussian quadratic-form theory can abstractly imply the component calculation, so historical-priority risk remains.
+PASS
 
-## Value
-PASS. The result turns an isolated infinite-variance phenomenon into an exact moment phase diagram: \(K\ge p(p-1)+2\) is necessary and sufficient for the integer \(p\)-th moment, two-fold cross-fitting has the golden-ratio critical exponent, balanced splitting uniquely maximizes the two-way exponent, and the logarithm remains polynomially well behaved. These facts directly inform stability diagnostics for universal likelihood-ratio averaging without claiming that larger \(K\) improves power.
+With standardized held-out and training fold means \(A_j,B_j\), the log e-value is \(A_jB_j/\sqrt{K-1}-B_j^2/[2(K-1)]\) with independent standard Gaussians. Conditioning on \(B_j\) gives an exponential-square integral with coefficient \(q(q-1)/[2(K-1)]\), hence \(\mathbb E E_j^q=(1-q(q-1)/(K-1))^{-1/2}\) exactly when \(q(q-1)<K-1\), with divergence at and beyond the boundary. For \(q\ge1\), convexity gives finiteness of the average from component finiteness, while positivity of one summand gives the converse; \(0\le q\le1\) follows from \(x^q\le1+x\). The integer thresholds and two-way unbalanced formula follow by solving the same quadratic condition in the fold-size ratio. The log-moment claim follows because each component log is a Gaussian quadratic polynomial and \(\log\bar E_K\) is trapped between component log extrema.
 
-## Closest literature and limitations
-The scientific comparison is to arXiv:1912.11436, arXiv:2104.14676, DOI:10.1002/sta4.501, and DOI:10.1002/sta4.573. The theorem is restricted to a simple Gaussian mean null with known unit variance and disjoint folds. The inaccessible supporting information is retained as an originality risk rather than treated as negative evidence.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Tse and Davison already study the same Gaussian cross-fit and \(K\)-fold averaged likelihood ratios and derive their variance, so the variance subclaim is prior context rather than novel content. Their complete main article explicitly says the \(K\)-fold variance derivation is in supporting information. The 2023 discussion likewise emphasizes the known infinite cross-fit variance and suggests studying logarithms. Neither inspected main article nor current searches state the all-real-order moment spectrum, the exact integer-\(p\) threshold \(K\ge p(p-1)+2\), or the unbalanced two-way critical exponent and balanced golden-ratio optimum. Those claims follow from a fresh Gaussian quadratic-form calculation rather than from the published variance statement.
+
+## value
+
+PASS
+
+Moment robustness is directly motivated by the published discovery of infinite variance for cross-fit universal likelihood ratios. The exact spectrum explains how many folds are needed for each moment, identifies the sharp variance boundary, and shows that balanced two-way splitting uniquely maximizes integrability. These are natural exact diagnostics for a current inference construction, not arbitrary Gaussian moment calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

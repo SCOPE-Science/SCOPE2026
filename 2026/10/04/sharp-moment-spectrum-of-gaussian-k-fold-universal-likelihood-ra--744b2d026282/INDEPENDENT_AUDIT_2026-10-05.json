@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:01:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob b0a7e883cd7f19f277ad836065118a627b8eb4e8",
+        "assigned verify.py blob 27659ed66e2ca6a66a7f0348ba99d451b4da2649",
+        "Tse--Davison, DOI 10.1002/sta4.501 full primary article",
+        "Wasserman--Ramdas--Balakrishnan, DOI 10.1002/sta4.573",
+        "fresh independent Gaussian normalization/algebra check"
+      ],
+      "rationale": "With standardized held-out and training fold means \\(A_j,B_j\\), the log e-value is \\(A_jB_j/\\sqrt{K-1}-B_j^2/[2(K-1)]\\) with independent standard Gaussians. Conditioning on \\(B_j\\) gives an exponential-square integral with coefficient \\(q(q-1)/[2(K-1)]\\), hence \\(\\mathbb E E_j^q=(1-q(q-1)/(K-1))^{-1/2}\\) exactly when \\(q(q-1)<K-1\\), with divergence at and beyond the boundary. For \\(q\\ge1\\), convexity gives finiteness of the average from component finiteness, while positivity of one summand gives the converse; \\(0\\le q\\le1\\) follows from \\(x^q\\le1+x\\). The integer thresholds and two-way unbalanced formula follow by solving the same quadratic condition in the fold-size ratio. The log-moment claim follows because each component log is a Gaussian quadratic polynomial and \\(\\log\\bar E_K\\) is trapped between component log extrema.",
+      "residual_risks": [
+        "The result is exact only for the known-unit-variance simple Gaussian mean model and the stated disjoint-fold construction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources establish the universal-inference framework and detailed Gaussian power/variance behavior.",
+          "The inspected material does not state finiteness for arbitrary real moments of the raw averaged e-value."
+        ],
+        "reasoning": "The general framework does not by itself determine the exact quadratic moment boundary.",
+        "searches": [
+          "Universal Inference, arXiv:1912.11436",
+          "Gaussian Universal Likelihood Ratio Testing, arXiv:2104.14676",
+          "Tse--Davison 2022 full article"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1002/sta4.501",
+        "DOI 10.1002/sta4.573",
+        "arXiv:1912.11436",
+        "arXiv:2104.14676",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A second-moment formula supplies only the \\(q=2\\) slice and cannot determine the full critical exponent.",
+          "The two-way unbalanced optimum requires tracking both oriented likelihood-ratio square-integrability coefficients as functions of the fold-size ratio."
+        ],
+        "reasoning": "The final spectrum is not mechanically implied by the published variance statement.",
+        "searches": [
+          "published variance formula versus all-real-q moment integrability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tse--Davison define exactly the same K-fold averaging scheme and call the two-fold case cross-fit.",
+          "Their public main article computes cross-fit/K-fold variance rather than a full Rényi-like moment spectrum."
+        ],
+        "reasoning": "The audited statistic is identical; novelty is limited to the full moment-integrability boundary and split-ratio optimization.",
+        "searches": [
+          "Resultary: Gaussian universal inference K-fold cross-fit likelihood ratio moments variance golden ratio",
+          "Tse--Davison DOI 10.1002/sta4.501, Section 5",
+          "Wasserman--Ramdas--Balakrishnan DOI 10.1002/sta4.573"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact all-real-order moment spectrum or unbalanced-split table was retrieved."
+        ],
+        "reasoning": "Search absence is supporting evidence only.",
+        "searches": [
+          "Resultary current searches for Gaussian K-fold e-value moment spectrum and golden-ratio integrability",
+          "targeted web search for all-q cross-fit likelihood-ratio moments"
+        ]
+      },
+      "rationale": "Tse and Davison already study the same Gaussian cross-fit and \\(K\\)-fold averaged likelihood ratios and derive their variance, so the variance subclaim is prior context rather than novel content. Their complete main article explicitly says the \\(K\\)-fold variance derivation is in supporting information. The 2023 discussion likewise emphasizes the known infinite cross-fit variance and suggests studying logarithms. Neither inspected main article nor current searches state the all-real-order moment spectrum, the exact integer-\\(p\\) threshold \\(K\\ge p(p-1)+2\\), or the unbalanced two-way critical exponent and balanced golden-ratio optimum. Those claims follow from a fresh Gaussian quadratic-form calculation rather than from the published variance statement.",
+      "residual_risks": [
+        "The Tse--Davison supporting-information PDF was not retrievable through the inspected web route; the main article describes it as a variance derivation, but it could contain additional moment calculations.",
+        "Standard Gaussian quadratic-form literature implies the integration step abstractly, though no same-statistic all-q theorem was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "VARIANCE_PRIOR_FULL_MOMENT_SPECTRUM_NOT_STATED_IN_MAIN_ARTICLE",
+          "evidence": "The article treats variance and power for the exact same K-fold scheme; its supporting information is described as deriving the K-fold variance.",
+          "identifier_or_url": "DOI 10.1002/sta4.501",
+          "material_read": "complete open primary HTML, especially Section 5 on variance of cross-fit and K-fold likelihood-ratio averages and the supporting-information pointer",
+          "method": "primary full-text HTML inspection",
+          "title": "A note on universal inference",
+          "trigger": "closest same-statistic primary predecessor"
+        },
+        {
+          "assessment": "INFINITE_VARIANCE_CONTEXT_PRIOR",
+          "evidence": "The discussion says infinite Gaussian cross-fit variance is known and that consequences are unclear, while pointing toward the logarithmic statistic.",
+          "identifier_or_url": "DOI 10.1002/sta4.573",
+          "material_read": "complete open discussion text",
+          "method": "primary full-text HTML inspection",
+          "title": "A Discussion of A Note on Universal Inference by Tse and Davison",
+          "trigger": "follow-up explicitly interpreting infinite cross-fit variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tse--Davison 2022",
+        "Wasserman--Ramdas--Balakrishnan 2023",
+        "assigned proof/verifier"
+      ],
+      "rationale": "Moment robustness is directly motivated by the published discovery of infinite variance for cross-fit universal likelihood ratios. The exact spectrum explains how many folds are needed for each moment, identifies the sharp variance boundary, and shows that balanced two-way splitting uniquely maximizes integrability. These are natural exact diagnostics for a current inference construction, not arbitrary Gaussian moment calculations.",
+      "residual_risks": [
+        "Moment integrability does not by itself measure test power, and prior work warns that larger K can reduce power."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is exact only for the known-unit-variance simple Gaussian mean model and the stated disjoint-fold construction.",
+    "The Tse--Davison supporting-information PDF was not retrievable through the inspected web route; the main article describes it as a variance derivation, but it could contain additional moment calculations.",
+    "Standard Gaussian quadratic-form literature implies the integration step abstractly, though no same-statistic all-q theorem was located.",
+    "Moment integrability does not by itself measure test power, and prior work warns that larger K can reduce power."
+  ]
+}
