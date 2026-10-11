@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The package checks the exact additive SM3-I and SM3-II recurrences on finite covers.
 
-`verify.py` reproduces the two-round poisoning construction, compares the target update with singleton-cover AdaGrad, exhaustively proves the one-spike impossibility for a matrix row-column cover, and checks two-spike transversals for tensor slice covers through rank five.
+# Independent mathematical audit
 
-The finite checks are implementation and transcription guards. The arbitrary-cover necessity and sufficiency are proved symbolically by the transversal argument in `RESULT.md`.
+## correctness
+
+PASS
+
+For SM3-I, an off-target poisoning support hits every cover set containing target \(i\) iff every corresponding accumulator receives the increment \(M^2\); after the target-only gradient, each such accumulator is exactly \(M^2+\delta^2\). For SM3-II, the first-round local statistics are \(M^2\) on the activated support and zero elsewhere, so the same hitting condition makes every target-cover accumulator exactly \(M^2\); the second round again gives \(M^2+\delta^2\). If any target-cover set is missed, its accumulator stays zero, proving sharpness of the transversal number. A fresh independent matrix replay reproduced target statistic 53 for \(M=7,\delta=2\). The row-column and codimension-one tensor covers have transversal number two under the stated nondegeneracy conditions.
+
+## originality
+
+PASS
+
+The defining SM3 paper introduces arbitrary covers, proves that SM3 statistics upper-bound coordinatewise accumulated squares, recommends row-column and codimension-one tensor covers, and explicitly says worst-case behavior can be worse than AdaGrad while arguing informally that compatible activation patterns should perform well. It does not formulate a hitting/transversal invariant, the exact minimum off-target poisoning support, the universal value two for the standard matrix/tensor covers, or the exact attenuation factor. Current published-finding search found no same-result theorem.
+
+## value
+
+PASS
+
+The result isolates an exact combinatorial cost of compressing per-coordinate adaptive history and gives sharp two-spike witnesses for the standard covers used by the algorithm. It quantitatively explains when an untouched coordinate can have its first update arbitrarily suppressed, which is a motivated optimizer-structure question rather than an arbitrary adversarial sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

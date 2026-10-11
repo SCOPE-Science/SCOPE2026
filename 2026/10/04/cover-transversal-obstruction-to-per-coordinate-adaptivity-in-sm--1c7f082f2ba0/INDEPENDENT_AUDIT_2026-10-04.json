@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:01:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob fe09124058dde14248ac8daa1cccaeb2c89e01a4",
+        "assigned verify.py blob 3b8f2a40c5a2919ed1c9a020dede1aed80640351",
+        "Anil-Gupta-Koren-Singer arXiv:1901.11150 primary full text"
+      ],
+      "rationale": "For SM3-I, an off-target poisoning support hits every cover set containing target \\(i\\) iff every corresponding accumulator receives the increment \\(M^2\\); after the target-only gradient, each such accumulator is exactly \\(M^2+\\delta^2\\). For SM3-II, the first-round local statistics are \\(M^2\\) on the activated support and zero elsewhere, so the same hitting condition makes every target-cover accumulator exactly \\(M^2\\); the second round again gives \\(M^2+\\delta^2\\). If any target-cover set is missed, its accumulator stays zero, proving sharpness of the transversal number. A fresh independent matrix replay reproduced target statistic 53 for \\(M=7,\\delta=2\\). The row-column and codimension-one tensor covers have transversal number two under the stated nondegeneracy conditions.",
+      "residual_risks": [
+        "The exact attenuation statement is for the original additive SM3-I/II without epsilon regularization, momentum, clipping or EMA variants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SM3 Proposition 3 compares its statistics to AdaGrad but does not quantify cross-coordinate contamination.",
+          "The implementation warning that a column accumulator can overestimate gradient squares is qualitative and specific to sparse handling."
+        ],
+        "reasoning": "The prior framework motivates the issue but does not dominate the exact sharp obstruction.",
+        "searches": [
+          "Anil et al. SM3-I/II propositions and Discussion",
+          "Google Research SM3 sparse-implementation warning",
+          "memory-efficient adaptive-optimizer literature search"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1901.11150",
+        "Google Research SM3 implementation context",
+        "Resultary current corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The update definitions are inputs, but deriving the exact minimal poisoning support requires recognizing and proving the transversal iff condition.",
+          "The exact arbitrarily strong first-update attenuation and sharp matrix/tensor value are not consequences stated by the qualitative discussion."
+        ],
+        "reasoning": "The final claim adds a reusable combinatorial characterization rather than merely evaluating one source example.",
+        "searches": [
+          "SM3 update definitions plus arbitrary cover",
+          "source qualitative activation-pattern compatibility"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target contamination condition is exactly a transversal of \\(\\{S_r\\setminus\\{i\\}: i\\in S_r\\}\\).",
+          "The source discusses cover compatibility qualitatively but does not identify this combinatorial parameter."
+        ],
+        "reasoning": "The optimizer and hypergraph-hitting-set formulations were matched exactly.",
+        "searches": [
+          "Resultary: SM3 optimizer cover transversal contamination coordinate adaptivity row column tensor slices",
+          "arXiv:1901.11150 cover/activation-pattern discussion",
+          "hitting-set/transversal formulation for target-cover sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact same-result record was retrieved."
+        ],
+        "reasoning": "This is not a finite database invariant; the check sought prior theorem-level formulations.",
+        "searches": [
+          "Resultary semantic search for SM3 hitting set/transversal and exact attenuation"
+        ]
+      },
+      "rationale": "The defining SM3 paper introduces arbitrary covers, proves that SM3 statistics upper-bound coordinatewise accumulated squares, recommends row-column and codimension-one tensor covers, and explicitly says worst-case behavior can be worse than AdaGrad while arguing informally that compatible activation patterns should perform well. It does not formulate a hitting/transversal invariant, the exact minimum off-target poisoning support, the universal value two for the standard matrix/tensor covers, or the exact attenuation factor. Current published-finding search found no same-result theorem.",
+      "residual_risks": [
+        "A later engineering analysis of SM3 may describe the same contamination phenomenon without using transversal terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_COVER_COMPATIBILITY_NOT_TRANSVERSAL_THEOREM",
+          "evidence": "The source states that worst-case SM3 may be worse than AdaGrad and informally ties performance to cover-compatible activation patterns, but gives no exact off-target support threshold or attenuation law.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.11150",
+          "material_read": "full primary arXiv text through SM3-I, SM3-II, Proposition 3 and the Discussion on activation patterns and row/column or tensor-slice covers",
+          "method": "primary full-text inspection",
+          "title": "Memory-Efficient Adaptive Optimization",
+          "trigger": "defining SM3 paper and closest source for cover behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Anil et al. 2019",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The result isolates an exact combinatorial cost of compressing per-coordinate adaptive history and gives sharp two-spike witnesses for the standard covers used by the algorithm. It quantitatively explains when an untouched coordinate can have its first update arbitrarily suppressed, which is a motivated optimizer-structure question rather than an arbitrary adversarial sequence.",
+      "residual_risks": [
+        "It is a worst-case local obstruction and does not quantify frequency or training impact on real workloads."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The exact attenuation statement is for the original additive SM3-I/II without epsilon regularization, momentum, clipping or EMA variants.",
+    "A later engineering analysis of SM3 may describe the same contamination phenomenon without using transversal terminology.",
+    "It is a worst-case local obstruction and does not quantify frequency or training impact on real workloads."
+  ]
+}
