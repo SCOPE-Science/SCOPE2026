@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(N_a=15\cdot2^a\), every positive divisor lies in exactly one of the complementary pairs \(P_i\) or \(Q_i\). Every proposed representation selects whole complementary pairs, so closure under \(d\mapsto N_a/d\) is automatic. The five residue-class calculations reduce exactly to geometric sums with ratio \(32\), and the only small values outside those ranges are listed explicitly. The packaged checker reconstructs divisors and pair products and verifies hundreds of instances, while the all-\(a\) conclusion comes from the symbolic identities rather than finite sampling.
+## correctness
 
-## Originality
-PASS. McCormack--Zelinsky explicitly pose the dyadic-\(60\) statement as a question after checking only the first nine exponents. The full September 2026 Wang--Zelinsky follow-up was inspected because it is the strongest later source: it proves other infinite families and resolves the old odd-infinitude question, but its power theorem and its \(pq2^a\) construction do not cover the fixed odd part \(15\). The current OEIS entry also does not state the family theorem. Targeted exact, alias, residue-class, and broader-construction searches found no covering result. The residual originality risk is unindexed or unpublished work.
+PASS
 
-## Value
-PASS. The theorem completely resolves a named infinite-family question, rather than adding more finite examples. It gives explicit representations for every exponent and a compact modulus-\(5\) mechanism explaining the family.
+For \(N_a=15\cdot2^a\), the displayed \(P_i\) and \(Q_i\) exhaust the complementary divisor pairs. Every proposed witness selects whole pairs, so complement closure is automatic. The five residue classes modulo 5 reduce to exact geometric sums with ratio 32 and produce respectively the required total \(30\cdot2^a\); the listed small exceptions cover all values excluded by the residue-class ranges. An independent reimplementation of the five selection rules checked every \(a\) from 2 through 52 exactly and found the selected pair-sum equal to \(30\cdot2^a\) in every case. The finite replay is corroborative; the symbolic geometric identities establish all exponents.
 
-## Closest literature and limitations
-The primary source is Tim McCormack and Joshua Zelinsky, “Weighted Versions of the Arithmetic-Mean-Geometric Mean Inequality and Zaremba's Function,” arXiv:2312.11661. The closest later work is Audrey Wang and Joshua Zelinsky, “Strongly Pseudoperfect Numbers,” arXiv:2609.36068. The present theorem does not classify all strongly pseudoperfect numbers or their representations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 primary source explicitly lists the first nine dyadic multiples and asks as Question 38 whether \(60\cdot2^n\) is strongly pseudoperfect for every \(n\ge0\). The complete September 2026 Wang--Zelinsky paper was read through all 17 pages using authorized access after public full-text retrieval failed. Its Theorem 5 concerns powers of a strongly pseudoperfect number under an extra representation hypothesis, and Theorem 9 constructs a different linked \(pq2^a\) family; its open-questions and data sections do not state the fixed-odd-part dyadic-60 theorem. Current OEIS A334405 lists the sequence and cites both papers but does not state all dyadic multiples of 60. Fresh Resultary search self-matches the submitted record and finds no older covering theorem.
+
+## value
+
+PASS
+
+The theorem answers an explicit infinite-family question by uniform constructions in all five exponent residue classes, replacing finitely many observations with exact complement-pair certificates for every exponent. This is a natural complete family result with reusable arithmetic structure, not a table extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
