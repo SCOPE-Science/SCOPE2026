@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 verify.py`.
+# Independent mathematical audit
 
-The verifier uses exact finite-field arithmetic for orders \(2,3,4,5,7,8,9,11\). It constructs \(\mathbb F_4\), \(\mathbb F_8\), and \(\mathbb F_9\) from explicit irreducible polynomials and exhaustively checks the ring and inverse identities needed for field arithmetic.
+## correctness
 
-For each field it forms every point of \(\mathrm{PG}(2,q)\), fixes the standard projective frame, and enumerates every possible unordered pair of additional points compatible with the ordinary MDS condition against that frame. The candidate counts for \(q=2,3,4,5,7,8,9,11\) are \(0,0,2,6,20,30,42,72\), respectively.
+PASS
 
-Each resulting six-point configuration is tested by exact determinants: all \(20\) point triples must be noncollinear, and for each of the \(15\) perfect matchings the three joining lines must be nonconcurrent. There are \(1502\) normalized unordered pairs over all field orders below \(11\), and none passes. Over \(\mathbb F_{11}\), exactly \(72\) normalized pairs pass; one is \((1,2,3),(1,7,4)\), together with the four frame points.
+Using the published projective characterization for \([n,3]\)-\(\mathrm{MDS}(3)\), every six-point ordinary-MDS configuration can be normalized by an ordered projective frame. The inspected verifier constructs each finite field of order below eleven, enumerates all normalized candidate pairs, checks all twenty collinearity determinants and all fifteen perfect-matching concurrence determinants, and exhausts exactly 1502 normalized pairs below eleven with no survivor. Over \(\mathbb F_{11}\) it checks the displayed witness and finds 72 good normalized pairs. The normalization is symmetry-complete, so this is an exhaustive finite proof rather than a sample.
 
-The projective-frame normalization is complete because every ordinary-MDS six-point configuration has four points in general position and every ordered projective frame is carried to the standard frame by a projective transformation. Projective transformations preserve both properties tested.
+## originality
 
-The finite calculation does not by itself prove the published characterization equating these projective conditions with the general \(\mathrm{MDS}(3)\) subspace-intersection definition; that equivalence is a stated premise from the cited literature.
+PASS
+
+The higher-order MDS literature identifies the \((n,3)\)-\(\mathrm{MDS}(3)\) case as the smallest nontrivial one and gives asymptotic field-size lower and upper bounds plus explicit constructions. For \((n,k)=(6,3)\), the general lower bound reaches only a field-size lower bound of five, while the audited exhaustive finite-geometry classification closes the exact threshold at eleven. Current Resultary and targeted searches did not reveal an earlier six-point threshold theorem.
+
+## value
+
+PASS
+
+This is the first length where the order-three condition adds a genuinely new projective constraint in dimension three, and exact small-field thresholds are natural benchmark data for a current coding-theory construction problem. The exhaustive symmetry-reduced proof closes every smaller finite field and gives an explicit minimal witness, so the finite result is mathematically motivated and complete.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

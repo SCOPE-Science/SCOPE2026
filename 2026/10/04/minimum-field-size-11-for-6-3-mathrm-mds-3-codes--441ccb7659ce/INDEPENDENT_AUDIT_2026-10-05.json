@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:18:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 33985f2c67f0f9ec69bba5e59dbbf6034df947f6",
+        "assigned verify.py blob 7e2ac79703a0236b041c779647f404511c48609f",
+        "Brakensiek--Gopi--Makam arXiv:2206.05256",
+        "Brakensiek--Dhar--Gopi arXiv:2212.11262"
+      ],
+      "rationale": "Using the published projective characterization for \\([n,3]\\)-\\(\\mathrm{MDS}(3)\\), every six-point ordinary-MDS configuration can be normalized by an ordered projective frame. The inspected verifier constructs each finite field of order below eleven, enumerates all normalized candidate pairs, checks all twenty collinearity determinants and all fifteen perfect-matching concurrence determinants, and exhausts exactly 1502 normalized pairs below eleven with no survivor. Over \\(\\mathbb F_{11}\\) it checks the displayed witness and finds 72 good normalized pairs. The normalization is symmetry-complete, so this is an exhaustive finite proof rather than a sample.",
+      "residual_risks": [
+        "The projective characterization is taken from the higher-order MDS literature rather than reproved from first principles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general lower bound is weaker at \\(n=6\\).",
+          "Asymptotic constructions do not determine the minimum finite field at this specific first nontrivial length."
+        ],
+        "reasoning": "No inspected broader theorem specializes to the exact value eleven.",
+        "searches": [
+          "general higher-order MDS lower bounds",
+          "general explicit \\(O(n^3)\\) constructions for dimension three"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.05256",
+        "arXiv:2212.11262",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A lower bound of five and an \\(O(n^3)\\) construction leave the field orders 5,7,8,9 unresolved."
+        ],
+        "reasoning": "The exact exclusion requires the additional symmetry-complete finite search.",
+        "searches": [
+          "general lower bound versus exact normalized finite-geometry exhaustion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projective no-three-collinear plus nonconcurrent-disjoint-secants criterion is the same higher-order MDS condition.",
+          "The 2022 field-size paper explicitly calls \\((n,3)\\)-\\(\\mathrm{MDS}(3)\\) the smallest nontrivial construction problem."
+        ],
+        "reasoning": "The audited result resolves one exact finite parameter not fixed by the asymptotic theory.",
+        "searches": [
+          "Resultary: [6,3] MDS(3) minimum field size 11 projective six points nonconcurrent disjoint secants",
+          "Brakensiek--Gopi--Makam arXiv:2206.05256",
+          "Brakensiek--Dhar--Gopi arXiv:2212.11262"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact same-parameter table or theorem was retrieved."
+        ],
+        "reasoning": "Search absence is supporting evidence only.",
+        "searches": [
+          "Resultary current minimum-field search",
+          "targeted current web search for six-point higher-order MDS field thresholds"
+        ]
+      },
+      "rationale": "The higher-order MDS literature identifies the \\((n,3)\\)-\\(\\mathrm{MDS}(3)\\) case as the smallest nontrivial one and gives asymptotic field-size lower and upper bounds plus explicit constructions. For \\((n,k)=(6,3)\\), the general lower bound reaches only a field-size lower bound of five, while the audited exhaustive finite-geometry classification closes the exact threshold at eleven. Current Resultary and targeted searches did not reveal an earlier six-point threshold theorem.",
+      "residual_risks": [
+        "Older finite-geometry literature may encode the same six-point configuration under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_N6_THRESHOLD",
+          "evidence": "The source gives asymptotic bounds and constructions, not the exact field threshold at length six.",
+          "identifier_or_url": "arXiv:2212.11262",
+          "material_read": "current primary abstract describing the \\((n,3)\\)-\\(\\mathrm{MDS}(3)\\) lower/upper bounds and explicit-construction gap",
+          "method": "primary-source abstract inspection",
+          "title": "Improved Field Size Bounds for Higher Order MDS Codes",
+          "trigger": "closest general field-size theorem"
+        },
+        {
+          "assessment": "DEFINING_HIGHER_ORDER_MDS_FRAMEWORK",
+          "evidence": "The characterization is treated as prior input rather than an originality claim.",
+          "identifier_or_url": "arXiv:2206.05256",
+          "material_read": "current bibliographic/source identification and audited source comparison; direct arXiv HTML retrieval failed during this run",
+          "method": "best-of-knowledge primary-source comparison with access limitation",
+          "title": "Generic Reed-Solomon Codes Achieve List-decoding Capacity",
+          "trigger": "source of higher-order MDS/projective characterization used by the audit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "higher-order MDS literature",
+        "assigned exact verifier"
+      ],
+      "rationale": "This is the first length where the order-three condition adds a genuinely new projective constraint in dimension three, and exact small-field thresholds are natural benchmark data for a current coding-theory construction problem. The exhaustive symmetry-reduced proof closes every smaller finite field and gives an explicit minimal witness, so the finite result is mathematically motivated and complete.",
+      "residual_risks": [
+        "The result is one finite parameter rather than a general field-size formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The projective characterization is taken from the higher-order MDS literature rather than reproved from first principles.",
+    "Older finite-geometry literature may encode the same six-point configuration under different terminology.",
+    "The result is one finite parameter rather than a general field-size formula."
+  ]
+}

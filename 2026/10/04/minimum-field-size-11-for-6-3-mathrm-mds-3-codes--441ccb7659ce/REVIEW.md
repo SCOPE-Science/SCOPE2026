@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof rests on the published exact projective characterization of \([n,3]\)-\(\mathrm{MDS}(3)\). After fixing a projective frame, the remaining search is exhaustive over every finite field of order below \(11\). The verifier checks the arithmetic of the extension fields, all candidate projective points, every one of the \(20\) collinearity determinants, and all \(15\) disjoint-pair concurrence determinants. The explicit \(\mathbb F_{11}\) witness is checked by the same test.
+## correctness
 
-The only non-replayed mathematical premise is the general equivalence between the higher-order MDS definition and the cited projective criterion in dimension three.
+PASS
 
-## Originality
-PASS. The direct 2022 source gives the criterion and asks for small-field constructions, while the 2022 field-size paper proves only the general lower bound \(|\mathbb F|\ge5\) at \((n,k)=(6,3)\) and an asymptotic construction. Searches under coding and finite-geometric aliases found no exact six-column threshold. The closest historical record has different PIR parameters and no implication for higher-order MDS codes.
+Using the published projective characterization for \([n,3]\)-\(\mathrm{MDS}(3)\), every six-point ordinary-MDS configuration can be normalized by an ordered projective frame. The inspected verifier constructs each finite field of order below eleven, enumerates all normalized candidate pairs, checks all twenty collinearity determinants and all fifteen perfect-matching concurrence determinants, and exhausts exactly 1502 normalized pairs below eleven with no survivor. Over \(\mathbb F_{11}\) it checks the displayed witness and finds 72 good normalized pairs. The normalization is symmetry-complete, so this is an exhaustive finite proof rather than a sample.
 
-A residual risk remains that an older finite-geometry source states the same six-point classification under terminology not reached by the checked aliases.
+## originality
 
-## Value
-PASS. Six columns form the first genuinely higher-order dimension-three instance because three disjoint pairs require six points. An exact field threshold at this boundary is therefore a natural base case for the central small-field construction problem, not an arbitrary parameter slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The higher-order MDS literature identifies the \((n,3)\)-\(\mathrm{MDS}(3)\) case as the smallest nontrivial one and gives asymptotic field-size lower and upper bounds plus explicit constructions. For \((n,k)=(6,3)\), the general lower bound reaches only a field-size lower bound of five, while the audited exhaustive finite-geometry classification closes the exact threshold at eleven. Current Resultary and targeted searches did not reveal an earlier six-point threshold theorem.
+
+## value
+
+PASS
+
+This is the first length where the order-three condition adds a genuinely new projective constraint in dimension three, and exact small-field thresholds are natural benchmark data for a current coding-theory construction problem. The exhaustive symmetry-reduced proof closes every smaller finite field and gives an explicit minimal witness, so the finite result is mathematically motivated and complete.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
