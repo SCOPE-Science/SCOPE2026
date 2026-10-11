@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:07:49.190953Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f2bea4dfbed14ef85370e730b47ffd5ef60388d5",
+        "Nguyen et al. PMLR 70 (2017) complete primary PDF",
+        "Li--Ma--Giannakis arXiv:1906.02351",
+        "Li--Wang--Giannakis arXiv:1908.09345",
+        "independent finite path enumeration"
+      ],
+      "rationale": "On the two scalar quadratics, the SARAH recursion is exactly multiplicative: \\(v_t=v_{t-1}[1-\\alpha(1+\\sigma_t h)]\\). This gives the stated mean-square factor \\(q=(1-\\alpha)^2+\\alpha^2h^2\\) and exact stability interval. Writing \\(x_t=x_0[1-\\alpha\\sum_{j<t}P_j]\\), the condition \\(q<1\\) makes the product series absolutely summable in L1 and L2; the perpetuity identity gives the stated residual second moment. At \\(\\alpha=1\\), the cumulative sign products are iid Rademachers, and the \\(h=1/2\\) signed binary expansion is uniform on [-1,1]. Independent finite path enumeration reproduced the multiplier second moments for several parameter choices.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen et al. prove linear decay of the recursive step in a single inner loop and use finite m with outer resets.",
+          "Li--Ma--Giannakis prove linear convergence of the last iteration in the finite/restarted algorithmic regime.",
+          "Almost Tune-Free SARAH studies weighted averaging and loop-length tuning."
+        ],
+        "reasoning": "These results do not dominate the no-restart infinite-loop random-limit law.",
+        "searches": [
+          "Nguyen et al. PMLR 70 (2017) complete PDF",
+          "Li--Ma--Giannakis arXiv:1906.02351",
+          "Li--Wang--Giannakis arXiv:1908.09345"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v70/nguyen17b.html",
+        "https://arxiv.org/abs/1906.02351",
+        "https://arxiv.org/abs/1908.09345",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published decay \\(E\\|v_t\\|^2\\to0\\) alone does not imply \\(x_t\\to x^\\star\\); the audited example shows the implication fails.",
+          "Finite-loop last-iterate convergence across restarted outer loops is a different process."
+        ],
+        "reasoning": "The final claim supplies a counterexample to an intuitive but invalid inference from the established step-decay theorem.",
+        "searches": [
+          "PMLR SARAH Theorem 1a/1b and algorithm structure",
+          "arXiv:1906.02351 last-iterate statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No implication-equivalent Resultary finding was returned.",
+          "The SARAH source proves inner-loop decay of \\(\\|v_t\\|^2\\), not convergence of an infinitely continued iterate to the optimizer."
+        ],
+        "reasoning": "Random affine perpetuity and Bernoulli-convolution formulations were considered alongside optimization terminology.",
+        "searches": [
+          "Resultary: SARAH infinite inner loop random limit residual quadratic Bernoulli convolution",
+          "searches for SARAH random limit, infinite inner loop, residual floor, scalar quadratic, Bernoulli convolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact residual-floor formula or Bernoulli-convolution law for SARAH was located."
+        ],
+        "reasoning": "The result is an analytic stochastic limit theorem, not a table.",
+        "searches": [
+          "Resultary semantic search",
+          "targeted searches for the residual formula and uniform limit"
+        ]
+      },
+      "rationale": "The defining SARAH paper proves that the recursive direction decays in a single inner loop and explicitly presents that behavior as a stability advantage; its algorithm still uses finite inner loops and outer full-gradient resets. Later work proves last-iterate convergence for finite/restarted SARAH and studies averaging/tuning. None of the inspected sources gives the almost-sure random limit of one inner loop run forever, its exact positive residual floor, or the Bernoulli-convolution/uniform slice. The audited theorem exposes a distinction not resolved by the published direction-decay theory.",
+      "residual_risks": [
+        "A stochastic-recursion paper may contain the same perpetuity calculation without SARAH terminology, but no source-specific implication was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_DECAY_NOT_RANDOM_LIMIT",
+          "evidence": "The paper proves step-direction decay within a single inner loop but uses finite inner loops and does not derive the infinite-loop iterate limit.",
+          "identifier_or_url": "https://proceedings.mlr.press/v70/nguyen17b.html",
+          "material_read": "Complete nine-page primary PDF, especially Algorithm 1, Section 3.1 and Theorem 1a/1b showing linear decay of the stochastic recursive step.",
+          "method": "Lawful PMLR full-PDF inspection including rendered page 4.",
+          "title": "SARAH: A Novel Method for Machine Learning Problems Using Stochastic Recursive Gradient",
+          "trigger": "Defining source for the exact recursion and inner-loop stability claim."
+        },
+        {
+          "assessment": "FINITE_RESTARTED_SETTING",
+          "evidence": "It does not analyze one indefinitely continued inner loop.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.02351",
+          "material_read": "Primary abstract/theorem-level statement that the last iteration of SARAH converges linearly in the strongly convex finite/restarted setting.",
+          "method": "Lawful arXiv primary-source inspection.",
+          "title": "On the Convergence of SARAH and Beyond",
+          "trigger": "Closest last-iterate convergence result."
+        },
+        {
+          "assessment": "DIFFERENT_QUESTION",
+          "evidence": "It optimizes finite-loop averaging/tuning rather than the no-restart random limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.09345",
+          "material_read": "Primary abstract and accessible theorem-level material on averaging, BB steps and loop-length tuning.",
+          "method": "Lawful arXiv/PMLR inspection.",
+          "title": "Almost Tune-Free Variance Reduction",
+          "trigger": "Potential broader treatment of long inner loops and estimator bias."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Nguyen et al. SARAH",
+        "Li--Ma--Giannakis",
+        "Li--Wang--Giannakis"
+      ],
+      "rationale": "The result directly qualifies a published selling point of SARAH: vanishing recursive directions need not certify that a single long inner-loop iterate approaches the optimizer. The exact residual floor and uniform limiting example provide a sharp, reusable boundary case for variance-reduced optimization theory.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://proceedings.mlr.press/v70/nguyen17b.html",
+    "https://arxiv.org/abs/1906.02351",
+    "https://arxiv.org/abs/1908.09345",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Single infinite inner loop with two scalar quadratics sharing a minimizer.",
+    "Does not claim failure of standard SARAH with periodic full-gradient resets."
+  ],
+  "residual_risks": [
+    "A stochastic-recursion paper may contain the same perpetuity calculation without SARAH terminology, but no source-specific implication was found."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DEFINES_DECAY_NOT_RANDOM_LIMIT",
+      "evidence": "The paper proves step-direction decay within a single inner loop but uses finite inner loops and does not derive the infinite-loop iterate limit.",
+      "identifier_or_url": "https://proceedings.mlr.press/v70/nguyen17b.html",
+      "material_read": "Complete nine-page primary PDF, especially Algorithm 1, Section 3.1 and Theorem 1a/1b showing linear decay of the stochastic recursive step.",
+      "method": "Lawful PMLR full-PDF inspection including rendered page 4.",
+      "title": "SARAH: A Novel Method for Machine Learning Problems Using Stochastic Recursive Gradient",
+      "trigger": "Defining source for the exact recursion and inner-loop stability claim."
+    },
+    {
+      "assessment": "FINITE_RESTARTED_SETTING",
+      "evidence": "It does not analyze one indefinitely continued inner loop.",
+      "identifier_or_url": "https://arxiv.org/abs/1906.02351",
+      "material_read": "Primary abstract/theorem-level statement that the last iteration of SARAH converges linearly in the strongly convex finite/restarted setting.",
+      "method": "Lawful arXiv primary-source inspection.",
+      "title": "On the Convergence of SARAH and Beyond",
+      "trigger": "Closest last-iterate convergence result."
+    },
+    {
+      "assessment": "DIFFERENT_QUESTION",
+      "evidence": "It optimizes finite-loop averaging/tuning rather than the no-restart random limit.",
+      "identifier_or_url": "https://arxiv.org/abs/1908.09345",
+      "material_read": "Primary abstract and accessible theorem-level material on averaging, BB steps and loop-length tuning.",
+      "method": "Lawful arXiv/PMLR inspection.",
+      "title": "Almost Tune-Free Variance Reduction",
+      "trigger": "Potential broader treatment of long inner loops and estimator bias."
+    }
+  ]
+}
