@@ -1,0 +1,15 @@
+# Same-model scientific review
+
+## Correctness
+**PASS.** The equilibrium fold condition follows from the scalar cubic, with its Jacobian having one simple zero eigenvalue and a Hurwitz-stable quadratic factor for every positive finite \(k,\varepsilon,\delta\). An actual order-three center-manifold computation determines the nonzero quadratic drift \(A=-3r/H\), cubic drift \(B=(-1+2kA^2S)/H\), and hence the invariant logarithmic ratio \(L=B/A\). The proof of \(1/u=-At+(B/A)\log t+C+o(1)\) integrates an explicitly integrable residual, and stable-fiber exponential tracking preserves it. All seven symbolic coefficient identities were checked from the packaged script; a separate integration checks behavior but is not evidence for the infinite-time theorem. The uniqueness and positivity of \(\varepsilon_*\) follow from a strict parameter inequality. Risks: only local trajectories away from the strong-stable manifold; no global or singular-limit conclusions.
+
+## Originality
+**PASS subject to listed residual literature risk.** Direct statement-to-statement comparisons examined the original 23-page Koper (1995) article (equilibrium fold and near-Hopf bifurcations), the same-family 2015 Shilnikov study (homoclinic return dynamics and singular folded-saddle-node geometry), and the complete 2022 mixed-mode study (singular limit and fold geometry). None presents the exact finite-time-scale center-drift coefficient, the reciprocal logarithmic expansion, or the sign-changing surface \(\varepsilon_*\). Published adjacent topics and targeted published-finding corpus record searches returned other-system critical laws, not stronger Koper coverage; generic saddle-node normal forms imply the expansion's *type*, not its explicit parameter boundary. Searches are not proof of global uniqueness. Risks: an unindexed applied-dynamics calculation could imply the same surface, and generic theory provides the method.
+
+## Value
+**PASS.** The original literature emphasizes oscillatory regimes, while the full-system ordinary equilibrium saddle-node governs bistable onset on the positive-coupling side. Its slow algebraic relaxation is quantitatively distinguishable from exponentially stable directions. The exact cancellation surface, valid at arbitrary finite time-scale parameters, is a structural sign partition of a natural asymptotic invariant rather than a contrived numerical instance; it gives a testable finite-time phase of the logarithmic drift. The result does not assert global bifurcation contributions or paper-scale novelty.
+
+## Closest literature and limits
+The most relevant direct sources are Koper (1995), Guckenheimer–Lizarraga (2015), and Kaklamanos–Popović–Kristiansen (2022), all of which concern the Koper model, but study saddle-node loci, singular folded structures or global oscillatory/homoclinic behavior rather than the precise finite-parameter logarithmic cancellation law. All statements depend on \(k,\varepsilon,\delta>0\) and local convergence to the equilibrium fold off its strong-stable manifold. Independent assessment has not been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
