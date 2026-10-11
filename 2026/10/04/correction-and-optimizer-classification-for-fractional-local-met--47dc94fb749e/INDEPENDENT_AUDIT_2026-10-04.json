@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a cross-part edge xy with x in V_i and y in V_j, a vertex resolves x,y exactly when it lies in V_i union V_j, so every local-resolving constraint is s_i+s_j>=1 for the part totals s_i. For k=2 there is one constraint and optimum 1. For k>=3, summing all pair constraints gives (k-1) sum_i s_i >= k(k-1)/2, hence objective at least k/2; s_i=1/2 attains it. At equality every pair constraint is tight, and for k>=3 these equations force every s_i=1/2. Thus the optimizer face is exactly as claimed. An independent direct-distance replay verified every local neighborhood through order eight, and the inspected package verifier blob afc61af0042b0b689b4b6fc518ad5d2622b9d050 solves the vertex LP through order ten.",
+      "risks": [
+        "The optimizer classification is by part totals; within each part any nonnegative vertex weights summing to the required total are allowed."
+      ],
+      "sources": [
+        "Frozen source tree 237bf8d46bb0623b52e16a8711da512e6226e1c2",
+        "Benish--Murtaza--Javaid, arXiv:1810.02882 / DOI:10.55016/ojs/cdm.v19i3.62807, Lemma 2.11 and Theorem 2.3",
+        "Independent part-sum LP derivation and direct-distance replay; package verify.py blob afc61af0042b0b689b4b6fc518ad5d2622b9d050 inspected"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.11 states ldim_f(K_{a1,...,ak})=k-1 for k>2 while also stating L(xy)=V_i union V_j.",
+          "Theorem 2.3 says ldim_f(G)=n/2 iff every vertex has a true twin, supplying an internal K_3 contradiction to Lemma 2.11."
+        ],
+        "reasoning": "The source does not contain the corrected general value/optimizer theorem; instead it contains a false theorem and enough structure to expose it.",
+        "searches": [
+          "Full primary text around Theorem 2.3 and Lemma 2.11",
+          "Search for later citations/errata of the complete k-partite lemma"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.02882 / published full text",
+        "Resultary semantic search",
+        "Exact formula/erratum web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For K_3, the source Lemma 2.11 gives 2 while Theorem 2.3 gives 3/2 because every vertex is a true twin.",
+          "The all-k pair-sum LP gives k/2 and uniquely fixes all optimal part totals at 1/2 for k>=3."
+        ],
+        "reasoning": "The final theorem resolves an internal contradiction and is not implied by a correct prior complete-multipartite statement.",
+        "searches": [
+          "Statement comparison with Lemma 2.11 and Theorem 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned related complete-multipartite parameters but no prior fractional-local correction.",
+          "The 2018/2024 paper is the direct match and Lemma 2.11 states k-1."
+        ],
+        "reasoning": "Searches separated fractional local metric dimension from ordinary/fractional metric variants and from other multipartite resolving parameters.",
+        "searches": [
+          "Resultary semantic query: fractional local metric dimension complete multipartite k over 2 optimizer classification",
+          "Web search: Fractional Local Metric Dimension of Graphs Lemma 2.11 complete k-partite",
+          "Web search: fractional local metric dimension complete multipartite k/2 correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external exact table or corrected lemma was located."
+        ],
+        "reasoning": "A correct later table would cover the claim; none was found.",
+        "searches": [
+          "Exact k/2 complete multipartite fractional local metric dimension searches",
+          "Resultary semantic search"
+        ]
+      },
+      "rationale": "The foundational paper explicitly states the conflicting value k-1 in Lemma 2.11 even though its own preceding definitions and local-neighborhood identity lead to the corrected LP. Exact lemma-number/formula searches, correction/erratum searches, and Resultary queries found no later repair or equivalent optimizer classification.",
+      "residual_risks": [
+        "A later correction outside the queried indexes may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_HAS_INTERNAL_CONTRADICTION",
+          "evidence": [
+            "Lemma 2.11 states k-1; Theorem 2.3 forces 3/2 on K_3; the lemma itself identifies L(xy)=V_i union V_j."
+          ],
+          "identifier_or_url": "arXiv:1810.02882; DOI:10.55016/ojs/cdm.v19i3.62807",
+          "material_read": "Full text around Theorem 2.3, Theorem 2.10, and Lemma 2.11, including the displayed local-neighborhood identity and proof.",
+          "method": "Primary full-text theorem/proof comparison.",
+          "title": "The Fractional Local Metric Dimension of Graphs",
+          "trigger": "Foundational source containing the complete k-partite claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The claim repairs an infinite-family formula in the foundational paper for the parameter, fixes an internal contradiction already visible on K_3, and gives the full optimal part-total face. This is a natural structural correction, not an arbitrary numerical slice.",
+      "risks": [
+        "Once reduced to part totals, the optimization is elementary."
+      ],
+      "sources": [
+        "Foundational Lemma 2.11 and Theorem 2.3",
+        "Exact pair-sum LP classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The statement classifies optimal part totals, not individual within-part weight allocations."
+  ],
+  "schema_version": 1
+}
