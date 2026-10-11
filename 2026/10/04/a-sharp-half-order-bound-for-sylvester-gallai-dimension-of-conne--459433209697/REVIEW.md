@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The edge-special lines of any connected realization form a connected intersection system covering all vertices. The first line contains at least three points; thereafter a line that can add one new affine dimension must meet the previous union in exactly one configuration point and therefore contributes at least two new points. This gives \(n\ge3+2(d-1)\). For trees, a diametral endpoint reduction always removes either a pendant two-vertex path or two sibling leaves, and restoring those two vertices on a new line through the attachment vertex adds exactly one dimension. The base cases and floor arithmetic are exact. A finite checker stress-tests the reduction on all \(985\) nonisomorphic trees through order \(12\); the infinite statement rests on the proof.
+## correctness
 
-## Originality
-PASS. The full initiating source gives the matching forest expression only as a lower bound and does not state the connected half-order upper bound or exact tree equality. Its quantitative minimum-degree upper bound is much weaker under connectedness alone. The closest exact published database result, on \(K_{2,n}\), was inspected in full and is family-specific; it neither implies nor contains the connected/tree theorem. Focused semantic and web searches under equivalent formulations found no covering result. Residual risk is limited to very recent or poorly indexed follow-up work because the parameter itself is new.
+PASS
 
-## Value
-PASS. Exact determination on all trees is a natural first structural benchmark for a new graph dimension, and the universal connected upper bound is stronger than the tree corollary: it identifies a simple geometric cost of connectivity, namely at least two new configuration points for every affine dimension after the first. The theorem is infinite, structural, and sharp at every order rather than a routine finite computation.
+Deduplicate the special lines arising from edges. Graph connectedness makes their line-intersection incidence graph connected, so they can be ordered with each new line meeting the previous union at a configuration point. The first special line consumes at least three vertices and contributes affine dimension one. Any later line that increases affine dimension by one has exactly one previously used configuration point and therefore contributes at least two new vertices; a line with two old points lies in the old affine span. Hence \(n\ge3+2(d-1)\), giving \(d\le\lfloor(n-1)/2\rfloor\). For every tree, the diameter-end reduction removes two vertices while preserving a tree, either as a pendant two-edge path or as two sibling leaves; restoring them on a fresh line through the surviving anchor adds exactly one affine dimension and preserves all special-edge conditions. Induction from orders three and four attains the upper bound. The bundled finite tree enumeration checks the reduction logic only; it is not used as the infinite proof.
 
-## Closest literature and limitations
-Dvir's 2026 paper defines the parameter, supplies the forest lower bound \(\lfloor(n-1)/2\rfloor\), and gives a general minimum-degree upper bound, but it does not close trees. A published exact result for \(K_{2,n}\) is the closest family-level follow-up and uses a different two-hub incidence mechanism. The present theorem does not classify all connected graphs attaining equality and does not provide exact values for general connected graphs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Dvir’s 2026 paper introduces the graph parameter and the accessible primary abstract states lower bounds for sparse/bounded-degree/minor-free graphs and a random-graph upper bound. A detailed secondary synopsis of the paper likewise lists those results and no deterministic sharp half-order upper bound for every connected graph or exact classification of every tree. The published SCOPE \(K_{2,n}\) formula is a separate family result and does not imply the universal connected bound or all-tree equality. The primary PDF itself was not retrievable through the available lawful route in this run, so possible unindexed text beyond the abstract remains a stated residual risk rather than being treated as absent.
+
+## value
+
+PASS
+
+A sharp extremal bound for every connected graph and a complete exact value for the entire natural class of trees are central structural facts for a newly introduced graph invariant. The proof identifies the precise two-new-vertices-per-dimension mechanism and is not an arbitrary finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
