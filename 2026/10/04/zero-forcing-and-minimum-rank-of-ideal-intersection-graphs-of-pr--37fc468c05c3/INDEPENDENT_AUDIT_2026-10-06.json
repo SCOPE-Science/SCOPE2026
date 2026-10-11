@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:01:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every nonzero proper ideal is indexed by a nonempty proper support \\(S\\subsetneq[r]\\), and adjacency is exactly \\(S\\cap T\\ne\\varnothing\\). The incidence matrix \\(B\\) has rank \\(r\\) because the singleton-support columns are the standard basis; therefore \\(B^\\mathsf{T}B\\) is a rank-\\(r\\) real symmetric pattern matrix with off-diagonal entry \\(|S\\cap T|\\), giving \\(M\\ge(2^r-2)-r\\). Independently replaying the stated white family \\(\\{1,2\\},\\{2,\\ldots,r\\},\\ldots,\\{r\\}\\) gives exactly \\(r\\) successive forces, hence \\(Z\\le(2^r-2)-r\\). The standard inequality \\(M\\le Z\\) closes both bounds and yields \\(\\operatorname{mr}=r\\). A fresh rational reconstruction in this audit reproduced ranks and forcing sizes for \\(r=3,4,5\\); those finite checks are corroborative only.",
+      "risk": "The minimum-rank statement is over the real symmetric pattern model; characteristic-dependent minimum rank is not claimed.",
+      "sources": [
+        "AIM Minimum Rank--Special Graphs Work Group, DOI:10.1016/j.laa.2007.10.009",
+        "Abu Osba--Al-Addasi--Abughneim, DOI:10.1155/2014/952371",
+        "frozen RESULT.md and verify.py",
+        "fresh exact rational reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2014 principal-ideal-ring paper is broader in ring class but studies different invariants; for products of fields it gives a support model and ordinary domination number two.",
+          "The genus paper studies embeddings of the same ideal-intersection construction and gives no inverse-eigenvalue theorem.",
+          "The AIM theorem gives \\(M(G)\\le Z(G)\\), only one ingredient."
+        ],
+        "reasoning": "No inspected broader theorem specializes to the claimed exact values; the rank-\\(r\\) Gram witness and forcing chain are family-specific.",
+        "searches": [
+          "DOI:10.1155/2014/952371 full primary HTML",
+          "DOI:10.1142/S0219498813501557 primary abstract/full-text metadata",
+          "DOI:10.1016/j.laa.2007.10.009"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1155/2014/952371",
+        "DOI:10.1142/S0219498813501557",
+        "DOI:10.1016/j.laa.2007.10.009",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The support description does not determine the inverse-eigenvalue parameters without an explicit rank witness and a matching forcing construction.",
+          "The general inequality alone cannot give equality or the value of either side."
+        ],
+        "reasoning": "The final theorem requires two additional sharp constructions absent from the inspected prior statements.",
+        "searches": [
+          "Abu Osba et al. Theorem 1 and product-of-fields discussion",
+          "AIM maximum-nullity/zero-forcing inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abu Osba et al. identify the product-of-fields graph through binary support ideals and study domination, radius, independence, geodetic/hull numbers, chordality, and complement properties, not zero forcing or minimum rank.",
+          "The AIM paper introduces zero forcing as a minimum-rank bound but does not specialize to this graph family.",
+          "No Resultary hit other than the assigned record states the formula."
+        ],
+        "reasoning": "Ring-ideal, Boolean support, set-intersection, zero-forcing, maximum-nullity, and real minimum-rank aliases were compared.",
+        "searches": [
+          "Resultary: zero forcing minimum rank intersection graph ideals product of fields subset intersection graph",
+          "Web: zero forcing intersection graph ideals product of fields",
+          "Web: minimum rank subset-intersection graph nonempty proper subsets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact parameter table was located; Resultary's exact hit is the assigned record itself."
+        ],
+        "reasoning": "The database comparison targeted both the algebraic family name and the equivalent nonempty-proper-subset intersection graph.",
+        "searches": [
+          "Resultary exact semantic search for zero forcing/minimum rank of product-of-fields ideal intersection graphs",
+          "Targeted exact-value searches for \\(2^r-r-2\\) with ideal intersection graph"
+        ]
+      },
+      "rationale": "The closest primary paper on the same ideal-intersection graph explicitly analyzes products of fields and several classical graph invariants, but does not state zero forcing, maximum nullity, or minimum rank. The foundational zero-forcing paper supplies only the general inequality. Fresh Resultary comparison under both ring and subset-intersection formulations returned the assigned record as the exact match and no broader published theorem that determines these three parameters for the whole Boolean-intersection family.",
+      "residual_risks": [
+        "The same combinatorial graph may occur under a poorly indexed set-intersection or Boolean-intersection name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_GRAPH_AND_PRODUCT_OF_FIELDS_MODEL_NOT_ZERO_FORCING_OR_MINIMUM_RANK",
+          "evidence": "The paper explicitly treats products of fields but its stated parameters are radius, eccentricity, domination, independence, geodetic/hull numbers, chordality, and complement properties.",
+          "identifier_or_url": "DOI:10.1155/2014/952371",
+          "material_read": "Open full primary HTML including the graph definition, product decomposition, n-cube support theorem, domination theorem, and subsequent invariant sections.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Some Properties of the Intersection Graph for Finite Commutative Principal Ideal Rings",
+          "trigger": "Exact graph family and explicit product-of-fields specialization."
+        },
+        {
+          "assessment": "GEOMETRIC_GRAPH_INVARIANTS_NOT_COVERING",
+          "evidence": "Its stated results concern genus and graph embeddings, not zero forcing or graph minimum rank.",
+          "identifier_or_url": "DOI:10.1142/S0219498813501557",
+          "material_read": "Primary abstract and repository bibliographic record plus accessible author-provided preview.",
+          "method": "Lawful public-source inspection.",
+          "title": "On the genus of the intersection graph of ideals of a commutative ring",
+          "trigger": "Earlier primary source for the same ideal-intersection construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem exactly recovers the number of field factors from a standard inverse-eigenvalue invariant and simultaneously determines zero forcing and maximum nullity for the entire family. The result is a natural structural invariant of a canonical algebraic graph, not an arbitrary finite computation.",
+      "risk": "The proof is short once the support model is recognized, and it does not address products of nonfields.",
+      "sources": [
+        "DOI:10.1155/2014/952371",
+        "DOI:10.1016/j.laa.2007.10.009"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(R=F_1\\times\\cdots\\times F_r\\), a product of \\(r\\ge3\\) fields, the intersection graph of nonzero proper ideals has real symmetric minimum rank \\(r\\), maximum nullity and zero forcing number \\(2^r-r-2\\), with the explicit \\(r\\)-white-vertex forcing construction stated in the package.",
+  "limitations": [
+    "Products of at least three fields only; the two-field graph is two isolated vertices.",
+    "Real symmetric minimum rank only."
+  ],
+  "schema_version": 1
+}

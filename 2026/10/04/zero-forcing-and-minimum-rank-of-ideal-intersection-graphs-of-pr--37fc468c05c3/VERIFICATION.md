@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,43 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-For each
-\[
-3\le r\le10,
-\]
-the checker builds all nonempty proper subsets of \([r]\), joins two vertices exactly when they intersect, initializes the theorem's \(r\) white vertices, and replays zero forcing until all vertices are blue.
+## correctness
 
-It also constructs the matrix
-\[
-A_{S,T}=|S\cap T|
-\]
-and checks that every off-diagonal zero/nonzero entry agrees exactly with graph nonadjacency/adjacency. For
-\[
-3\le r\le6,
-\]
-its rank is computed exactly over rational arithmetic and equals \(r\).
+PASS
 
-For \(r=3\) and \(r=4\), every vertex subset is exhaustively tested, independently confirming
-\[
-Z(G)=2^r-r-2.
-\]
+Every nonzero proper ideal is indexed by a nonempty proper support \(S\subsetneq[r]\), and adjacency is exactly \(S\cap T\ne\varnothing\). The incidence matrix \(B\) has rank \(r\) because the singleton-support columns are the standard basis; therefore \(B^\mathsf{T}B\) is a rank-\(r\) real symmetric pattern matrix with off-diagonal entry \(|S\cap T|\), giving \(M\ge(2^r-2)-r\). Independently replaying the stated white family \(\{1,2\},\{2,\ldots,r\},\ldots,\{r\}\) gives exactly \(r\) successive forces, hence \(Z\le(2^r-2)-r\). The standard inequality \(M\le Z\) closes both bounds and yields \(\operatorname{mr}=r\). A fresh rational reconstruction in this audit reproduced ranks and forcing sizes for \(r=3,4,5\); those finite checks are corroborative only.
 
-Exact replay output:
+## originality
 
-```text
-r=3: n=6, constructed ZFS size=3, forces=3, Gram pattern OK
-r=4: n=14, constructed ZFS size=10, forces=4, Gram pattern OK
-r=5: n=30, constructed ZFS size=25, forces=5, Gram pattern OK
-r=6: n=62, constructed ZFS size=56, forces=6, Gram pattern OK
-r=7: n=126, constructed ZFS size=119, forces=7, Gram pattern OK
-r=8: n=254, constructed ZFS size=246, forces=8, Gram pattern OK
-r=9: n=510, constructed ZFS size=501, forces=9, Gram pattern OK
-r=10: n=1022, constructed ZFS size=1012, forces=10, Gram pattern OK
-r=3: exhaustive Z=3, minimum ZFS count=15
-r=4: exhaustive Z=10, minimum ZFS count=442
-VERIFY_OK
-```
+PASS
 
-The finite checks do not prove the arbitrary-\(r\) lower bound. That bound follows from the exact rank-\(r\) Gram construction together with the general inequality \(M(G)\le Z(G)\).
+The closest primary paper on the same ideal-intersection graph explicitly analyzes products of fields and several classical graph invariants, but does not state zero forcing, maximum nullity, or minimum rank. The foundational zero-forcing paper supplies only the general inequality. Fresh Resultary comparison under both ring and subset-intersection formulations returned the assigned record as the exact match and no broader published theorem that determines these three parameters for the whole Boolean-intersection family.
+
+## value
+
+PASS
+
+The theorem exactly recovers the number of field factors from a standard inverse-eigenvalue invariant and simultaneously determines zero forcing and maximum nullity for the entire family. The result is a natural structural invariant of a canonical algebraic graph, not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
