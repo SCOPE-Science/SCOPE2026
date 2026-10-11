@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:56:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Specializing the source's constant-momentum scalar quadratic recurrence at lambda/L=5/8 and beta=1/3 gives x_{k+1}=x_k/2-x_{k-1}/8 with x_1=3x_0/8. The characteristic roots (1±i)/4 have fourth power -1/64, so x_{k+4}=-x_k/64 for every k. The first block (1,3/8,1/16,-1/64,-1/64)x_0 yields the permanent magnitude-ratio cycle 3/8,1/6,1/4,1; hence the quadratic objective never strictly increases. Since x_{k+1}=(3/8)y_k, the gradient-restart sign is the sign of x_{k+1}(x_{k+1}-x_k), negative for the first two updates and positive for the update producing x_3. Independent exact-rational replay verified the block, four-step identity, objective inequalities and trigger sign.",
+      "risks": [
+        "The result is for the constant-momentum quadratic model used in the source analysis, not the full varying-momentum scheme."
+      ],
+      "sources": [
+        "Frozen source tree ae54a550cd9e1a1715e440c4b2dbe1cc637c8eb8",
+        "O'Donoghue-Candes, arXiv:1204.3982, Sections 3-4",
+        "Independent characteristic-root reconstruction and rational replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2012 paper provides the broader quadratic-mode framework and approximate restart timing.",
+          "Fercoq-Qu provide broader restart safeguards and an empirical long non-trigger phenomenon."
+        ],
+        "reasoning": "Those broader analyses do not imply the exact permanent resonance at the submitted parameter pair.",
+        "searches": [
+          "arXiv:1204.3982",
+          "arXiv:1609.07358"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1204.3982",
+        "DOI:10.1007/s10208-013-9150-3",
+        "arXiv:1609.07358",
+        "Fresh Resultary semantic search for the exact detector-separation claim"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source only predicts restart after an approximate quarter-period under either criterion; that heuristic does not imply strict function-trigger activation in the equality-resonant orbit.",
+          "Forced-restart theory is compatible with, but does not derive, the submitted exact blind spot."
+        ],
+        "reasoning": "The final claim refines a heuristic boundary rather than restating a theorem.",
+        "searches": [
+          "O'Donoghue-Candes quadratic high-momentum analysis",
+          "Fercoq-Qu restart discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source states strict function and gradient triggers and derives under-damped oscillations, but not the exact no-trigger resonance.",
+          "No Resultary hit stated the ratio cycle or permanent function-restart blindness."
+        ],
+        "reasoning": "Equivalent coverage would require a strict-objective restart detector that never fires on an under-damped scalar mode while the gradient detector does; no inspected source states that.",
+        "searches": [
+          "arXiv:1204.3982 Sections 3.2 and 4",
+          "Resultary query: accelerated gradient adaptive restart scalar quadratic underdamped function restart never fires gradient restart"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior published-finding record with the four-step scaling -1/64 or ratio cycle 3/8,1/6,1/4,1 was located."
+        ],
+        "reasoning": "The parameters arise from an exact phase resonance, not from a known table.",
+        "searches": [
+          "Resultary query above",
+          "exact parameter search lambda/L=5/8 beta=1/3 adaptive restart"
+        ]
+      },
+      "rationale": "O'Donoghue-Candes introduce the strict function and gradient restart rules and analyze the same fixed-step constant-beta quadratic mode, but their high-momentum timing discussion is phase-approximate and does not state this exact rational-phase blind spot. Fercoq-Qu later emphasize the heuristic nature of adaptive restart and report a long non-trigger episode, but do not supply this permanent scalar mechanism. Fresh Resultary search returned nearby acceleration/counterexample records but no implication-equivalent scalar no-function-restart theorem. Best-of-knowledge originality therefore passes.",
+      "residual_risks": [
+        "An unindexed implementation note, thesis or lecture note may contain the same rational-phase scalar resonance.",
+        "A non-strict objective trigger behaves differently at the equality transitions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_RESONANCE_NOT_STATED",
+          "evidence": [
+            "The function rule uses a strict objective increase.",
+            "The source's high-momentum analysis uses approximate phase information and does not exclude equality transitions that prevent a strict trigger."
+          ],
+          "identifier_or_url": "arXiv:1204.3982; DOI:10.1007/s10208-013-9150-3",
+          "material_read": "Full relevant material: strict restart definitions in Section 3.2; scalar/quadratic constant-step and constant-beta recurrence; high-momentum complex-root analysis and approximate timing discussion in Section 4.",
+          "method": "Lawful arXiv PDF inspection with rendered-page checks.",
+          "title": "Adaptive Restart for Accelerated Gradient Schemes",
+          "trigger": "Primary source for both restart rules and the constant-momentum quadratic model."
+        },
+        {
+          "assessment": "RELATED_NONTRIGGER_PHENOMENON_NOT_THE_SCALAR_PROOF",
+          "evidence": [
+            "The paper motivates bounded/forced restart windows but does not derive the submitted one-dimensional exact recurrence."
+          ],
+          "identifier_or_url": "arXiv:1609.07358",
+          "material_read": "Abstract/introduction and restart/numerical discussion, including the reported failure of an adaptive condition to occur for more than 10,000 iterations in an experiment.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Restarting accelerated gradient methods with a rough strong convexity estimate",
+          "trigger": "Closest later primary work discussing reliability of adaptive restart."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies a concrete structural distinction between two widely used restart detectors in the simplest strongly convex setting: genuine oscillation can be permanently invisible to strict objective increase while immediately visible to the gradient sign. This supplies a motivated boundary mechanism for later forced-restart safeguards and is more than a numerical curiosity.",
+      "risks": [
+        "The scope is deliberately the constant-momentum model and not all accelerated-gradient variants."
+      ],
+      "sources": [
+        "O'Donoghue-Candes arXiv:1204.3982",
+        "Fercoq-Qu arXiv:1609.07358",
+        "Frozen exact recurrence"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the fixed-step, fixed-momentum scalar quadratic model is claimed.",
+    "Using a non-strict function trigger would restart at equality transitions.",
+    "No nearby-parameter delay bound is claimed."
+  ],
+  "schema_version": 1
+}

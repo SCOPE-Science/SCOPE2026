@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's scalar constant-momentum quadratic recurrence specializes exactly at \(\lambda/L=5/8\) and \(\beta=1/3\) to \(x^{k+1}=\tfrac12x^k-\tfrac18x^{k-1}\), with \(x^1=3x^0/8\). Its roots are \((1\pm i)/4\), so the four-step scaling \(x^{k+4}=-x^k/64\) is exact. The first block gives magnitude ratios \(3/8,1/6,1/4,1\); hence the quadratic objective never strictly rises. The scalar gradient-restart sign is exactly the sign of \(x^{k+1}(x^{k+1}-x^k)\), which first becomes positive for the update producing \(x^3\). Exact-arithmetic replay agrees.
+## correctness
 
-## Originality
-PASS with stated residual risk. O'Donoghue--Candes analyze the same constant-momentum model but explicitly make phase/frequency approximations and say that either adaptive rule is expected to trigger after approximately one quarter period; they do not state this exact resonant blind spot. Fercoq--Qu later report that an adaptive restart condition can fail to occur for more than 10,000 iterations and therefore use bounded/forced restart intervals, but the inspected material does not derive the one-dimensional closed-form mechanism here. Targeted published-finding corpus searches found no implication-equivalent item; the closest indexed Nesterov result concerns three-dimensional objective spikes rather than a scalar monotone under-damped orbit.
+PASS
 
-Residual risk: an implementation note, thesis, lecture note, or unindexed discussion may contain this exact \(\lambda/L=5/8\), \(\beta=1/3\) resonance or an equivalent rational-phase construction.
+Specializing the source's constant-momentum scalar quadratic recurrence at lambda/L=5/8 and beta=1/3 gives x_{k+1}=x_k/2-x_{k-1}/8 with x_1=3x_0/8. The characteristic roots (1±i)/4 have fourth power -1/64, so x_{k+4}=-x_k/64 for every k. The first block (1,3/8,1/16,-1/64,-1/64)x_0 yields the permanent magnitude-ratio cycle 3/8,1/6,1/4,1; hence the quadratic objective never strictly increases. Since x_{k+1}=(3/8)y_k, the gradient-restart sign is the sign of x_{k+1}(x_{k+1}-x_k), negative for the first two updates and positive for the update producing x_3. Independent exact-rational replay verified the block, four-step identity, objective inequalities and trigger sign.
 
-## Value
-PASS. Function-based and gradient-based restart are widely presented as comparable oscillation detectors. This exact one-dimensional strongly convex quadratic shows a structural distinction at the simplest possible level: strict objective increase can be completely blind to a genuinely oscillatory under-damped mode, while the gradient detector fires immediately after the sign crossing. It also supplies a concrete mechanism consistent with later empirical observations that adaptive conditions can fail to activate, and it identifies strict-versus-nonstrict comparison as a mathematically relevant implementation boundary.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+O'Donoghue-Candes introduce the strict function and gradient restart rules and analyze the same fixed-step constant-beta quadratic mode, but their high-momentum timing discussion is phase-approximate and does not state this exact rational-phase blind spot. Fercoq-Qu later emphasize the heuristic nature of adaptive restart and report a long non-trigger episode, but do not supply this permanent scalar mechanism. Fresh Resultary search returned nearby acceleration/counterexample records but no implication-equivalent scalar no-function-restart theorem. Best-of-knowledge originality therefore passes.
+
+## value
+
+PASS
+
+The result identifies a concrete structural distinction between two widely used restart detectors in the simplest strongly convex setting: genuine oscillation can be permanently invisible to strict objective increase while immediately visible to the gradient sign. This supplies a motivated boundary mechanism for later forced-restart safeguards and is more than a numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
