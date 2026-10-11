@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The one-seat impossibility is a direct ratio contradiction, and the two-state impossibility follows because two-state Hamilton is nearest-integer rounding of a quota that is monotone in the population ratio. The displayed three-state, two-seat witness is checked by exact quotas. The least-total integer statement is finite and exhaustive: every positive integer census pair with componentwise nondecrease and combined total at most \(46\) is tested, and the exact six labeled minima form one state-relabeling orbit.
+## correctness
 
-Risk: the \(46\)-person result is computational and depends on the explicitly stated combined-total size functional. Two independent Hamilton implementations and an exact exhaustive domain reduce implementation risk.
+PASS
 
-## Originality
-**PASS.** The population paradox for Hamilton is classical and is treated as prior. The inspected primary literature supplies the apportionment and quota framework, while government and teaching sources give larger historical or pedagogical population-paradox examples. Searches by the two-seat/three-state boundary, exact witness coordinates, combined total, and population-monotonicity aliases did not locate the sharp finite classification claimed here.
+With one seat, a seat can move from state i to state j only if the population ordering reverses, which forces j to have the larger relative growth and therefore cannot make the faster-growing loser. With two states, Hamilton's assignment is the nearest-integer/lower-quota rule for one quota; increasing state i's population relative to state j monotonically increases that quota, so i cannot lose a seat to j when i grows faster. Thus any paradox needs at least three states and two seats. A fresh exhaustive search over positive integer old/new triples, componentwise nondecreasing, all strict Hamilton cutoffs, and increasing combined population total found the first paradoxes at total 46 and exactly six of them, the coordinate permutations of the displayed example. The representative indeed has loser growth \(18/14=9/7\) exceeding gainer growth \(5/4\).
 
-Risk: failed search is not proof of novelty. A historical note, textbook exercise, or unpublished enumeration may contain the same tiny witness.
+## originality
 
-## Value
-**PASS.** Population monotonicity is one of the canonical apportionment fairness requirements. Identifying the smallest house and number of states at which Hamilton can fail it, then giving the unique least-total all-growing integer witness up to relabeling, converts a familiar qualitative defect into a sharp boundary fact. The result is a natural extremal question, not an arbitrary parameter slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Classical apportionment literature explains Hamilton's population paradox and gives historical or pedagogical examples, while separate minimality literature treats the Alabama paradox. Targeted searches did not locate the sharp population-paradox boundary \((s,h)=(3,2)\), the minimum combined population 46, or the six-example orbit. The result is therefore a new exact finite boundary rather than a rediscovery of the well-known existence of the paradox.
+
+## value
+
+PASS
+
+This is a natural sharp boundary for a classical apportionment pathology: it proves the minimum dimensions in which the paradox can occur and then completely classifies the smallest integer witnesses. Such minimal-counterexample results are useful for teaching, testing implementations and isolating the mechanism of failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

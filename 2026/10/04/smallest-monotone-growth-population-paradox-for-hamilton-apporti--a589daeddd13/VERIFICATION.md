@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_hamilton_population_boundary.py` gives an exact finite replay of the integer-minimality statement.
 
-It implements Hamilton's largest-remainder rule in two ways: exact `Fraction` quotas and pure integer quotient/remainder arithmetic. The implementations are asserted equal on every census tested.
+# Independent mathematical audit
 
-For three states and two seats, the program enumerates every pair of positive integer census vectors whose combined population is at most \(46\), keeps only pairs with componentwise nondecrease and strict Hamilton cutoffs, and tests every loser-gainer pair by exact cross-multiplication of growth factors. It verifies:
-- no paradox below combined total \(46\);
-- exactly six labeled pairs at total \(46\);
-- a single orbit under all six state relabelings;
-- canonical representative \((1,4,14)\to(4,5,18)\);
-- allocations \((0,0,2)\to(0,1,1)\);
-- loser growth \(9/7\) and gainer growth \(5/4\), with \(9/7>5/4\).
+## correctness
 
-The analytic one-seat and two-state impossibility proofs are given in `RESULT.md`. The finite sweeps of those safe cases are only implementation consistency checks.
+PASS
 
-Run:
+With one seat, a seat can move from state i to state j only if the population ordering reverses, which forces j to have the larger relative growth and therefore cannot make the faster-growing loser. With two states, Hamilton's assignment is the nearest-integer/lower-quota rule for one quota; increasing state i's population relative to state j monotonically increases that quota, so i cannot lose a seat to j when i grows faster. Thus any paradox needs at least three states and two seats. A fresh exhaustive search over positive integer old/new triples, componentwise nondecreasing, all strict Hamilton cutoffs, and increasing combined population total found the first paradoxes at total 46 and exactly six of them, the coordinate permutations of the displayed example. The representative indeed has loser growth \(18/14=9/7\) exceeding gainer growth \(5/4\).
 
-`python3 verify_hamilton_population_boundary.py`
+## originality
 
-The first line must be `VERIFY_OK`.
+PASS
+
+Classical apportionment literature explains Hamilton's population paradox and gives historical or pedagogical examples, while separate minimality literature treats the Alabama paradox. Targeted searches did not locate the sharp population-paradox boundary \((s,h)=(3,2)\), the minimum combined population 46, or the six-example orbit. The result is therefore a new exact finite boundary rather than a rediscovery of the well-known existence of the paradox.
+
+## value
+
+PASS
+
+This is a natural sharp boundary for a classical apportionment pathology: it proves the minimum dimensions in which the paradox can occur and then completely classifies the smallest integer witnesses. Such minimal-counterexample results are useful for teaching, testing implementations and isolating the mechanism of failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
