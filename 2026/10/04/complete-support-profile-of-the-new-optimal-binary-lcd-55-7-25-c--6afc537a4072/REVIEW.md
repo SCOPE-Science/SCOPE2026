@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published hexadecimal generator was decoded with the source's padding convention. The resulting binary matrix has rank \(7\), full-rank Gram matrix, and exactly the claimed distribution across all \(128\) codewords. Every subspace of \(\mathbb F_2^7\) in dimensions \(0\) through \(6\) was enumerated in unique reduced-row-echelon form. The exact maximum contained-column counts are \((0,2,4,6,10,17,30)\), which gives generalized Hamming weights \((25,38,45,49,51,53,55)\).
+PASS
 
-## Originality
+Fresh independent decoding of the seven hexadecimal generator rows and enumeration of all 128 codewords reproduced the complete weight enumerator: weights 25 through 36 occur with multiplicities 20,34,29,17,7,1,1,6,1,1,6,4 respectively, plus the zero word. Independent enumeration of every subspace of F2 dimension seven gave subspace counts 1,127,2667,11811,11811,2667,127 and maximum contained-column counts 0,2,4,6,10,17,30, hence generalized Hamming weights (25,38,45,49,51,53,55).
 
-PASS. The primary 2026 paper publishes this exact new optimal LCD \([55,7,25]\) code and its hexadecimal generator but does not state a complete Hamming weight distribution or generalized Hamming hierarchy. Searches using the exact parameters, exact coefficient prefix, exact generalized-weight sequence, weight-hierarchy terminology, and the source title found no covering result. Residual risk remains that an equivalent code has been analyzed in an unindexed source.
+## originality
 
-## Value
+PASS
 
-PASS. Generalized Hamming weights are the canonical higher-support refinement of minimum distance, and the complete weight enumerator is a standard performance and structural invariant. Computing both for a newly reported optimal LCD representative supplies its full support profile beyond the published parameter triple and creates a natural benchmark for comparison with future inequivalent constructions.
+The complete 18-page Lim-An-Kim paper was read under authorized access after ordinary open full-text routes failed. It prints the exact generator and proves that [55,7,25] is one of the new optimal LCD codes, but its fitness uses only minimum distance and the number of minimum-weight words. The article does not state the complete weight enumerator or generalized Hamming hierarchy. Targeted Resultary and web searches found no prior exact profile.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a newly published optimal code, the complete weight distribution and full generalized-Hamming hierarchy are canonical support invariants not determined by the code parameters alone and are plausibly reusable in structural and support-security comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
