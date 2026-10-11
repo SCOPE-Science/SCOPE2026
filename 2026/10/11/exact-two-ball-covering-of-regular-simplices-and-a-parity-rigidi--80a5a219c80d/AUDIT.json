@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Proof checked in five steps: variance identity for radius and uniqueness of any regular face vertex enclosing ball; pigeonhole lower bound; exact halfspace cross-edge midpoint cut cells with squared distance s²/4 and convex-ball upper bound; odd-dimensional k/k covering cardinality forces complementary centers; even-dimensional k/(k−1) cut cell has strict slack r_k−r_{k−1}. Correct quantifiers d≥3, s>0, arbitrary centers, entire simplex. Unit-edge independent exact rational checker (verify.py) returned VERIFY_OK with 16571 cut-vertex evaluations and 4650 reproducible barycentric probes, 3≤d≤40. Finite checks are supplementary, not proof of all dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general 3D algorithm in arXiv:1012.2694v1 solves a computational task but does not give an all-dimension closed formula for regular simplices.",
+        "The full PDF doi:10.1007/s10998-006-0024-1 solves the same number-of-balls problem for regular crosspolytopes, not for all regular simplices.",
+        "Cambridge 2004 book chapter 8 §8.6 accessible abstract concerns finite ball coverings of convex sets, but the full chapter was not materially inspected."
+      ],
+      "reasoning": "Neither general algorithmic solvability of finite 3D point sets nor crosspolytope-specific closed results imply the full-body regular-simplex formula and optimizer parity. The partially accessible book chapter is a residual historic-coverage risk; lack of access is not evidence that the book does not contain this result.",
+      "searches": [
+        "a regular d-simplex edge length s is covered by two equal Euclidean balls radius s sqrt((ceil((d+1)/2)-1)/(2 ceil((d+1)/2))) optimal complementary face centroids",
+        "two facility covering regular simplex by balls odd even dimension infinitely many optima",
+        "two equal-radius Euclidean balls covering regular simplex vertices vs full body dimension d",
+        "geometric k-center regular simplex two facility covering radius balanced vertex partition",
+        "arXiv:1012.2694v1",
+        "doi:10.1007/s10998-006-0024-1",
+        "Packings and Coverings by Unit Balls Finite Packing and Covering 2004 Section 8.6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1012.2694v1",
+      "doi:10.1007/s10998-006-0024-1",
+      "https://arxiv.org/abs/1012.2694",
+      "https://www.renyi.hu/~carlos/octcover.pdf",
+      "https://www.cambridge.org/core/books/abs/finite-packing-and-covering/packings-and-coverings-by-unit-balls/49046EDCC158F374443B75C15BE75522",
+      "2026/10/4/SCOPE-facet-distance-coordinates-are-a-scaled-euclidean-isometry-in-re--047a0e8f0d0c",
+      "2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of doi:10.1007/s10998-006-0024-1 states the 3D crosspolytope full-body optimum √11/4, whereas its vertex-only optimum is √(2/3); the exact inequality contradicts a universal vertex-to-convex-hull shortcut.",
+        "The 2010 preprint arXiv:1012.2694v1 is restricted to 3D finite point sets; its algorithmic bounds do not state the regular-simplex radius or arbitrary-dimensional parity rigidity.",
+        "The planar regular-even-polygon result 2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939 computes a disk-cover radius for a convex polygon instead of a d≥3 simplex."
+      ],
+      "reasoning": "Our claim is not a corollary of cited explicit theorems: the covered bodies or objects differ, and the essential whole-simplex cut-cell argument and parity classification are absent from the accessible primary statements. Classical face circumradii and point-set lower bounds are credited as elementary inputs rather than as new contributions.",
+      "searches": [
+        "arXiv:1012.2694v1",
+        "doi:10.1007/s10998-006-0024-1",
+        "2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939",
+        "2026/10/4/SCOPE-facet-distance-coordinates-are-a-scaled-euclidean-isometry-in-re--047a0e8f0d0c",
+        "two-center vertices versus full convex hull of regular simplex sharp k halfspace midpoint",
+        "continuous Euclidean two-center of a regular simplex radius ceil((d+1)/2) circumradius halfspace barycentric"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest inspected Euclidean two-center formulation, arXiv:1012.2694v1, operates on a finite set of 3-dimensional points (abstract and §§1–2), while the final statement asserts coverage of every point of each regular simplex across all dimensions.",
+        "The author-hosted doi:10.1007/s10998-006-0024-1 full PDF studies the crosspolytope, not a regular simplex; Theorem 1 states two-ball radii for the crosspolytope."
+      ],
+      "reasoning": "Aliases include two-center, 2-ball covering, equal-radius body cover, vertex 2-center, and balanced face centroids. There is no matching complete statement in accessible compared source text. A finite point-set algorithm can calculate the vertex lower bound but does not imply that the two balls cover the convex hull: the 2006 crosspolytope case provides a counterexample to that inference.",
+      "searches": [
+        "2-ball continuous cover regular tetrahedron 1/2 edge complementary edge midpoints optimal",
+        "two-center vertices versus full convex hull of regular simplex sharp k halfspace midpoint",
+        "continuous Euclidean two-center of a regular simplex radius ceil((d+1)/2) circumradius halfspace barycentric",
+        "regular tetrahedron cover entire simplex two congruent balls at opposite edge midpoints",
+        "\"regular simplex\" \"2-center\" Euclidean continuous",
+        "\"covering the simplex by two balls\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A semantic research-record search returned 2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939, an exact planar even-regular-polygon two-disk covering result, and 2026/10/4/SCOPE-facet-distance-coordinates-are-a-scaled-euclidean-isometry-in-re--047a0e8f0d0c, a facet-distance coordinate identity.",
+        "No exact all-dimensional simplex-covering table or matching formula appeared among the inspected ranked titles and summaries."
+      ],
+      "reasoning": "The published polygon table evaluates a different family in dimension two, and the coordinate identity alone does not assert the global two-ball covering property. This limited search is not a comprehensive census or proof of absence.",
+      "searches": [
+        "a regular d-simplex edge length s is covered by two equal Euclidean balls radius s sqrt((ceil((d+1)/2)-1)/(2 ceil((d+1)/2))) optimal complementary face centroids",
+        "2-ball continuous cover regular tetrahedron 1/2 edge complementary edge midpoints optimal",
+        "two-center vertices versus full convex hull of regular simplex sharp k halfspace midpoint",
+        "\"two balls\" \"regular simplex\" \"cover\"",
+        "2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939",
+        "2026/10/4/SCOPE-facet-distance-coordinates-are-a-scaled-euclidean-isometry-in-re--047a0e8f0d0c"
+      ]
+    },
+    "rationale": "Directly compared the proved two-ball full regular-simplex statement to both materially inspected primary full-text sources. The 2006 theorem computes coverings of crosspolytopes, which are different convex bodies, and explicitly shows a vertex/full-body covering distinction in dimension three. The 2010 theorem is a finite-set Euclidean three-dimensional 2-center algorithm, with no all-dimensional continuum simplex formula or optimizer parity. Multiple actual mathematical-record and web searches for exact formula, equivalent geometric formulations, aliases and dominance did not identify an implication-equivalent source. Published coordinate-isometry and planar-regular-polygon records do not determine full-simplex two-ball covering. Remaining risk is explicit and independent literature validation remains unperformed.",
+    "residual_risks": [
+      "A general theorem under earlier covering, partition, k-center or circumradius terminology may imply this formula without identical wording.",
+      "The 2004 convex-ball-covering monograph chapter was accessible only by abstract; it is not classified as NOT_COVERING.",
+      "Two close published mathematical-record entries were searchable by summaries but their full pages were not accessible; their complete proofs were not materially inspected.",
+      "The 2006 crosspolytope article has a year/month publication record but no day-verified first public posting, so the precise source-date evidence is the original 2010-12-13 arXiv record; earlier print timing remains historical context, not a fabricated first-posting date.",
+      "No independent expert or full historical bibliographic audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING of the regular-simplex claim; the investigated polytope is the crosspolytope, whose 3D vertex/body covering distinction motivates the need for a whole-body proof.",
+        "evidence": [
+          "The article explicitly defines its polytope as conv(±v_1,...,±v_d).",
+          "Theorem 1 evaluates R_2^3=√11/4 for the 3D crosspolytope and R_2^d=√(1−1/d) for d≥4, with crosspolytope centers.",
+          "The word simplex appears in generic centroid notation and triangulation arguments, not a two-ball theorem for a regular simplex."
+        ],
+        "identifier_or_url": "https://www.renyi.hu/~carlos/octcover.pdf",
+        "material_read": "Full author-hosted eleven-page article text was located and searched for simplex and covering claims; the abstract, introduction, three main theorem statements, dimension-three proof of Theorem 1 and detailed higher-dimensional arguments were inspected.",
+        "method": "Full lawful author-hosted PDF: text extraction, term search, and inspected original page images.",
+        "title": "Covering the crosspolytope by equal balls",
+        "trigger": "Same two-ball convex-polytope covering problem with exact radii; possibility of a stronger general result."
+      },
+      {
+        "assessment": "NOT_COVERING of the full d-simplex claim: algorithms cover given finite point sets in R^3, not the continuum of a regular simplex for every dimension.",
+        "evidence": [
+          "Its abstract defines a finite n-point input in R^3 and gives computational complexity bounds for the 2-center algorithm.",
+          "The arXiv page records 2010-12-13 11:17:35 UTC as the first public submission of v1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1012.2694",
+        "material_read": "The 27-page arXiv full PDF was accessed. Title/abstract, introduction, main algorithmic results, geometry of planar partition, and section structure were read; the entire technical data-structure analysis was not read.",
+        "method": "Lawful open-access arXiv PDF text and a visual inspection of its first page; original arXiv abstract and dated version history.",
+        "title": "The 2-Center Problem in Three Dimensions",
+        "trigger": "Earliest day-verified publicly posted primary mathematical 2-center paper in this direction; potentially broader point-set solver."
+      },
+      {
+        "assessment": "UNCERTAIN: could contain a relevant overlooked special case; not used to certify noncoverage.",
+        "evidence": [
+          "Chapter overview includes section 8.6 on covering convex sets by finitely many balls."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/books/abs/finite-packing-and-covering/packings-and-coverings-by-unit-balls/49046EDCC158F374443B75C15BE75522",
+        "material_read": "Accessible publisher chapter summary and contents only; full chapter not inspected.",
+        "method": "Publisher metadata and abstract, without a complete PDF.",
+        "title": "Packings and Coverings by Unit Balls (Finite Packing and Covering, Chapter 8)",
+        "trigger": "Potential historical broader coverage in monograph material."
+      },
+      {
+        "assessment": "Different results according to published summaries; cannot certify their full text as NOT_COVERING.",
+        "evidence": [
+          "The facet-distance record proves a coordinate isometry; the even-polygon record determines a planar polygon radius.",
+          "These short summaries do not state the continuum regular-simplex two-ball theorem."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-facet-distance-coordinates-are-a-scaled-euclidean-isometry-in-re--047a0e8f0d0c ; 2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939",
+        "material_read": "Published searchable titles and short summaries only; attempt to open the full text was unsuccessful.",
+        "method": "Semantic mathematical-record search and URL retrieval attempt.",
+        "title": "Published mathematical records on simplex facet-distance isometry and regular-even-polygon two-disk covering",
+        "trigger": "Ranked close records for simplex coordinates and planar two-ball coverings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "80a5a219-c80d-4e79-9bf1-5933433bd87e",
+  "value": {
+    "rationale": "Motivated by finite Euclidean 2-center optimization and the known failure for the 3D crosspolytope of lifting vertex-only covering to a full polytope. This theorem proves the lift exactly for an entire natural higher-dimensional convex-body family, determines a sharp scale-invariant radius in all dimensions, and gives a complete odd-dimensional optimizer classification with exact counts and positive-dimensional even-dimensional optimality. This structural parity contrast is not implied merely by computing finite face circumradii or by a general algorithm.",
+    "status": "PASS"
+  }
+}
