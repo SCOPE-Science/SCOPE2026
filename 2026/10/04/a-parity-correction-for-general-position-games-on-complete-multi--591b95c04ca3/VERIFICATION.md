@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof shows that after the first move in a part \(X\), B can force one of exactly two terminal lengths: \(n_X\) by replying inside \(X\), or \(k\) by replying in a different part. This yields the normal-play and misere parity criteria directly.
+# Independent mathematical audit
 
-`verify.py` independently constructs shortest-path distances, tests general-position legality without using the symbolic characterization, and solves both games by recursive minimax. The recorded output is:
+## correctness
 
-```text
-VERIFY_OK
-checked 32 complete multipartite isomorphism types of order at most 10
-K_{3,3}: B wins both games
-K_{2,2,2}: B wins both games
-```
+PASS
 
-The finite computation checks all admissible complete multipartite isomorphism types of order at most ten. It is corroboration only; the theorem for arbitrary part sizes follows from the proof.
+After A starts in a part X, B choosing X forces all future play inside X and terminal length n_X; B choosing a different part forces at most one vertex per part and terminal length k. Thus A wins achievement iff k is odd and some n_i is odd, and wins avoidance iff k is even and some n_i is even. Combining these criteria gives the four-case correction and the order-six minimal examples.
 
-The source comparison was performed against the primary statements in arXiv:2111.07425 and arXiv:2205.03526. The two propositions are retained; the correction concerns only the subsequent claimed equivalence.
+## originality
+
+PASS
+
+The full avoidance paper states the correct avoidance criterion and immediately afterward asserts the false achievement/avoidance equivalence. The audited result is the exact correction from the two published parity propositions; targeted Resultary searches found no prior correction.
+
+## value
+
+PASS
+
+Correcting a published false equivalence with the exact joint outcome table and minimal counterexamples is independently useful and prevents propagation of an error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
