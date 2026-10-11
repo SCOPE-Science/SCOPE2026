@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:35:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 9b6f1d7b3e2740a0cf0a87358b31e287bb9e00b5",
+        "verify_unanimity.py blob 3b2270f4793e4eeb58ce71cbd9f3f926116b91da",
+        "Peled--Yadin--Yehudayoff DOI:10.1002/rsa.20329",
+        "Berend--Ernst--Kontorovich--Kumar DOI:10.1007/s10959-026-01487-4",
+        "Kwerel DOI:10.1080/01621459.1975.10479893"
+      ],
+      "rationale": "Permutation averaging preserves the two factorial moments and the unanimity event, so the problem reduces exactly to a probability law for \\(K=\\sum_iX_i\\) with \\(EK=np\\) and \\(E[K(K-1)]=n(n-1)p^2\\). On the outer branch the consecutive-root quadratic \\((k-r)(k-r-1)/(r(r+1))\\) majorizes the indicator of \\(\\{0,n\\}\\) on the integer support, and the displayed three-point law on \\(\\{0,r,r+1\\}\\) attains equality. For even \\(n=2m\\), the centered quadratic \\((k-m)^2/m^2\\) is the sharp majorant on the central interval and the law on \\(\\{0,m,n\\}\\) attains equality. The branch interval and all weights follow by the two moment equations. The inspected exact-rational verifier independently enumerates every three-support LP vertex in 693 bounded parameter cases and matches the symbolic formula; the proof itself is the integer quadratic majorant argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general polynomial-sandwich frameworks explain how to formulate the LP but do not state the solved two-endpoint envelope.",
+          "Kwerel's accessible scope includes exact-count and union-type events but no located theorem whose statement specializes to this sum of opposite endpoints."
+        ],
+        "reasoning": "No checked stronger theorem mechanically outputs the piecewise formula.",
+        "searches": [
+          "Kwerel 1975 aggregated-probability moment bounds",
+          "Benjamini--Gurel-Gurevich--Peled arXiv:1201.3261",
+          "Peled--Yadin--Yehudayoff 2011"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1002/rsa.20329",
+        "DOI:10.1007/s10959-026-01487-4",
+        "DOI:10.1080/01621459.1975.10479893",
+        "arXiv:1201.3261",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding separately optimal endpoint bounds is not sharp for their sum, and their extremizers need not be jointly feasible.",
+          "The even central regime is specifically a two-ended phenomenon requiring the midpoint-supported extremizer."
+        ],
+        "reasoning": "The checked prior statements therefore do not imply the final claim.",
+        "searches": [
+          "single-endpoint all-ones exact formulas",
+          "classical two-moment probability bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pairwise-independent identical Bernoulli laws reduce after symmetrization to a discrete two-moment problem for \\(K\\).",
+          "The checked modern exact results optimize only \\(\\Pr(K=n)\\), not \\(\\Pr(K=0)+\\Pr(K=n)\\)."
+        ],
+        "reasoning": "Unanimity and the two-endpoint success-count moment problem were treated as equivalent formulations.",
+        "searches": [
+          "Resultary: pairwise independent Bernoulli trials sharp unanimity probability both endpoints K=0 or n common p exact",
+          "Peled--Yadin--Yehudayoff DOI:10.1002/rsa.20329",
+          "Berend--Ernst--Kontorovich--Kumar DOI:10.1007/s10959-026-01487-4",
+          "Kwerel DOI:10.1080/01621459.1975.10479893"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact Resultary record or published table with the same parity-resolved unanimity formula was located."
+        ],
+        "reasoning": "The finite LP is solved parametrically, not inferred from a table.",
+        "searches": [
+          "Resultary exact unanimity/two-endpoint query",
+          "formula searches for the fair values 1/n versus 1/(n+1) under pairwise independence"
+        ]
+      },
+      "rationale": "The closest bounded-independence papers optimize the single endpoint that all bits equal one. Kwerel's classical aggregated-probability work gives sharp moment bounds for individual exact-count probabilities and other standard aggregates, but the accessible statement does not identify the simultaneous two-endpoint objective. Separate sharp bounds for \\(K=0\\) and \\(K=n\\) do not imply the maximum of their sum: on the even central branch the optimizer assigns positive mass to both endpoints and uses a different centered quadratic. Targeted Resultary search found no earlier theorem with this two-ended envelope or parity transition.",
+      "residual_risks": [
+        "Older discrete moment-problem literature, especially Kwerel/Boros--Prékopa style aggregated-probability results, may contain the same two-endpoint LP under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SINGLE_ENDPOINT_ONLY",
+          "evidence": "The optimized event is that all bits are one, not the sum of the all-zero and all-one events.",
+          "identifier_or_url": "DOI:10.1007/s10959-026-01487-4",
+          "material_read": "Accessible open primary article material covering the definition of the single-endpoint extremal probability and the exact pairwise-independent case.",
+          "method": "Open primary full-text web inspection.",
+          "title": "Exact expressions for the maximal probability that all k-wise independent bits are 1",
+          "trigger": "Most recent exact bounded-independence endpoint result."
+        },
+        {
+          "assessment": "PLAUSIBLE_GENERAL_BACKGROUND_NOT_DECISIVE_COVERAGE",
+          "evidence": "The accessible statement does not identify the opposite-endpoint sum or its even central branch.",
+          "identifier_or_url": "DOI:10.1080/01621459.1975.10479893",
+          "material_read": "Primary publisher abstract describing sharp bounds for exact-count and union-type aggregated probabilities; full theorem text was not available in this run.",
+          "method": "Primary abstract inspection with access limitation.",
+          "title": "Most stringent bounds on aggregated probabilities of partially specified dependent probability systems",
+          "trigger": "Classical two-moment event-probability bounds potentially covering the discrete LP."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "bounded-independence extremal-probability literature",
+        "classical two-moment probability bounds"
+      ],
+      "rationale": "Unanimity is a canonical symmetric event under limited independence, and the theorem gives its complete sharp two-moment envelope, explicit extremizers, and an exact parity phase transition. It is a natural completion of the well-studied all-ones endpoint problem rather than an arbitrary finite slice.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(n\\ge2\\), among Bernoulli vectors with common marginal \\(p\\) and pairwise independence, the sharp unanimity probability \\(\\Pr(X_1=\\cdots=X_n)\\) is the stated piecewise formula: an outer branch with \\(r=\\lceil(n-1)\\min(p,1-p)\\rceil\\), and for even \\(n\\) a central quadratic branch; in particular the fair value is \\(1/(n+1)\\) for odd \\(n\\) and \\(1/n\\) for even \\(n\\).",
+  "limitations": [
+    "Identical Bernoulli marginals and pairwise independence only.",
+    "The event is two-ended unanimity; no heterogeneous-marginal or higher-wise-independence formula is claimed."
+  ],
+  "schema_version": 1
+}
