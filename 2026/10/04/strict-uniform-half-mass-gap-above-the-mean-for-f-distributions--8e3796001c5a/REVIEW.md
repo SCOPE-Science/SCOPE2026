@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the exact beta threshold for the \(F\) CDF and exhausts every subsequential way the discrete degree parameters can remain bounded or escape. The two one-coordinate boundary limits are beta-to-gamma limits at continuity points. In the two-coordinate escape, the exact standardized threshold separation grows without bound, so Chebyshev gives probability tending to one. The published \(\kappa=1\) pointwise inequality is used only as a premise and was checked in the lead source's theorem and Section 2.1.
+## correctness
 
-## Originality
-PASS. The closest source is arXiv:2409.09420v1, which proves only the non-strict uniform bound for \(\kappa>1\) and explicitly states the strict version as Remark 2.4's conjecture. Searches by source identifier, functional form, half-mass phrasing, and related Gamma/F-distribution terms found no theorem implying the claim. Related Gamma-infimum and one-standard-deviation results do not dominate this statement. Residual risk remains that a later proof could be unindexed or phrased differently.
+PASS
 
-## Value
-PASS. This closes an explicit full-family conjecture, not a finite numerical slice. The proof identifies the structural reason pointwise strictness becomes uniform: all parameter-boundary limits stay strictly above one half, and the joint large-degree regime tends to one.
+The central \(F\) CDF at \(\kappa\mathbb EX\) is exactly \(I_{q_\kappa}(a,b)\) with \(q_\kappa=\kappa a/(\kappa a+b-1)\). Assuming an infimum of one half produces a sequence on a discrete half-integer lattice; after subselection, each coordinate is constant or tends to infinity. The fixed/fixed case contradicts the published pointwise strict inequality. With fixed \(a\) and \(b\to\infty\), beta-to-gamma convergence and the positive gamma density make the \(\kappa>1\) limit strictly larger than the corresponding \(\kappa=1\) limit, which is at least one half; the reflected fixed-\(b\) case is analogous. When both parameters diverge, the exact threshold-minus-mean calculation gives a squared standardized separation bounded below by \(((\kappa-1)^2/(2\kappa^2))\min(a,b)\), so Chebyshev forces the CDF to one. These four cases exhaust all escape patterns. I independently checked the exact separation inequality on a representative half-integer lattice, while the package verifier checks the same algebra without substituting for the limit proof.
 
-## Closest literature and limitations
-The lead preprint's Table 1 numerically suggests the strict gap but cannot exclude escaping degree sequences; Remark 2.4 explicitly says the proof was unavailable. The present theorem is qualitative and does not identify the sharp gap, minimizing degrees, or the \(\kappa\downarrow1\) rate. It does not address real-valued degrees or noncentral \(F\) laws.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete Zhou--Lu--Hu primary paper was read at Theorem 1.1, the proof sections and Remark 2.4. It proves the finite-parameter strict inequality at \(\kappa=1\), the non-strict uniform lower bound for \(\kappa>1\), and then explicitly conjectures the strict uniform inequality, stating that a proof was unavailable. The submitted compactness/boundary-regime argument proves exactly that conjecture. The related gamma-family infimum paper concerns a one-parameter gamma problem and does not imply the two-parameter \(F\)-lattice escape analysis.
+
+## value
+
+PASS
+
+The result closes an explicit conjecture in the exact source and resolves the only obstruction left by pointwise strictness: escape to infinity in the two degree parameters. The beta-to-gamma boundary classification is a motivated structural proof rather than a finite numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
