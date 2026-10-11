@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The blockwise Hilbert comparison gives the bound sqrt(2) and Hilbert isomorphism; ℓ2 sum of two-dimensional smooth strictly convex blocks and their Hölder duals is smooth, LUR and reflexive. The LUR local-symmetry lemma is proved by norming-functionals, midpoint convergence, and the norm-distance >=1 imposed by Birkhoff orthogonality. Explicit vectors in each ℓp block satisfy exact j(u)(v)=0 and j(v)(u)=r_p; exponential estimates give sqrt(p)(1-r_p)->1. Because X and X* are strictly convex, no Birkhoff pair has reverse residual 1. Reflexive smooth duality transfers the same residual to X*. The checker reproduces exact rational cancellations and inequalities, but analytic arguments supply the infinite statements. The separate nonuniform-convexity claim follows from pairs 2^{-1/p_n}(1,±1) on the p_n-block: distances tend to 2 and midpoint norms to 1.",
+    "risks": [
+      "The arithmetic checker tests finite exponents only; infinite claims are established by the support formula and LUR proof, not enumeration.",
+      "The Hilbert equivalence is at most sqrt(2); optimal Banach-Mazur distance is not claimed."
+    ],
+    "sources": [
+      "arXiv:2012.08162v1, §1 definitions, §3 local/global distinction",
+      "doi:10.1016/j.laa.2017.06.001 Theorem 2.3",
+      "Embedded RESULT.md proof and verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 Example 3.7 establishes smooth infinite-dimensional non-C-symmetry and therefore covers a strict weakening of our conclusion.",
+        "The 2020 arXiv paper Theorem 3.12 establishes compact-set C symmetry for uniformly smooth spaces, not a global uniform parameter for LUR spaces.",
+        "The 2018 full text could not be verified and remains a substantive originality risk.",
+        "The published 2026 Zero Birkhoff saturation without an extremal pair in a reflexive strictly convex space operates on precisely the space \\(X^*\\) by shifting the block indices; it establishes a different orthogonality-constrained James supremum, without controlling the Chmieliński reverse support-functional residual."
+      ],
+      "reasoning": "The LUR, dual-LUR and quantitative local-uniform components are not consequences of merely smooth failure of global C-symmetry; no stronger theorem covering all these features was located in inspected primary material, but the missing original Example 3.7 prevents an absolute-novelty claim.",
+      "searches": [
+        "separable reflexive smooth strictly convex weakly or locally uniformly convex space fails approximate Birkhoff symmetry",
+        "reflexive smooth strictly convex Banach space no uniform approximate Birkhoff James symmetry constant one nonattainment",
+        "smooth strictly convex non C approximately symmetric Birkhoff-James 2018",
+        "doi:10.1016/j.jmaa.2018.01.031",
+        "arXiv:2012.08162v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.08162v1",
+      "doi:10.1007/s00025-021-01437-y",
+      "doi:10.1016/j.jmaa.2018.01.031 (abstract and cited example only)",
+      "doi:10.1016/j.laa.2017.06.001 (full text pages 2--6)",
+      "https://studmath.uken.krakow.pl/article/view/12413 (abstract)",
+      "“Zero Birkhoff saturation without an extremal pair in a reflexive strictly convex space” (published 2026; original full RESULT.md)",
+      "“Exact Dragomir-symmetry constant for the Hölder-dual planes” (published 2026; distinct approximation relation)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known smooth failure of global C symmetry does not imply LUR at every point, local uniform left/right C bounds, Hilbert equivalence, and simultaneous failure on the dual.",
+        "The Dragomir approximation is defined by a different primal norm inequality and is not equivalent to Chmieliński reverse support residual.",
+        "The exact Birkhoff-saturation constant concerns different extremal two-vector norm sums and cannot imply the support-residual identity.",
+        "The same-isometry identification \\(X^*\\cong (\\bigoplus_{k\\ge2}\\ell_{1+1/k}^2)_{\\ell_2}\\) was checked. The prior paper uses \\(e_1,e_2\\) in each block, which are mutually Birkhoff-orthogonal and have reverse C-defect zero; its norm-sum saturation does not imply the proposed asymmetric witness family."
+      ],
+      "reasoning": "Isolated the claim added beyond known smooth counterexamples and compared it with both approximate-orthogonality variants and neighboring saturation invariants. The target 2018 full text is the main unresolved stronger-coverage comparison. The isometric identification of the 2026 James-saturation space with this exact dual was checked against the complete published proof; the invariants and witness pairs are not interchangeable.",
+      "searches": [
+        "Chmielinski global C approximate Birkhoff James orthogonality failed while every point left right locally approximate symmetric reflexive LUR smooth",
+        "C approximate Birkhoff James symmetry locally symmetric every point not globally symmetric ℓ2 sum of ℓp planes",
+        "arXiv:2012.08162v1 §3 and the cited Example 3.7",
+        "Zero Birkhoff saturation without an extremal pair in a reflexive strictly convex space — original published RESULT.md; complete proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim is equivalent to sigma_C=1 with every reverse residual strictly below 1 and both pointwise local left/right suprema below 1.",
+        "The original full-text 2020 paper defines C-symmetry via support functionals, and explicitly points to an earlier generic smooth counterexample.",
+        "No identified published claim states the simultaneous primal-dual LUR local/global property.",
+        "The exact same dual normed space appears in a 2026 James-saturation result, but its optimized expression is min(norm(u+v), norm(u-v)), not the minimum reverse support-functional evaluation required here."
+      ],
+      "reasoning": "Tested the original C-symmetry wording and its sup-of-reverse-duality-residual form; generic smooth non-C-symmetry is explicitly treated as covered, so only the stronger structural conjunction is claimed.",
+      "searches": [
+        "Chmielinski global C approximate Birkhoff James orthogonality failed while every point left right locally approximate symmetric reflexive LUR smooth",
+        "local uniformly rotund smooth Hilbert renorming fails global approximate Birkhoff James symmetry",
+        "C approximate Birkhoff James symmetry locally symmetric every point not globally symmetric ℓ2 sum of ℓp planes",
+        "arXiv:2012.08162v1 §3 Definition 1.1 and Theorem 3.12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published 2026 James-saturation calculation in a space isometric to the present dual concerns a different extremal expression and uses coordinate-vector witnesses with zero reverse C-defect.",
+        "No indexed tabulation or matching nonattained C-support formula was found."
+      ],
+      "reasoning": "Searched both generic continuum obstruction and the explicit Hilbert-renorming dual-sum family, as well as parameter aliases and closest exact indexed invariant; numeric coincidence of a limiting value would not by itself cover the structural theorem.",
+      "searches": [
+        "Birkhoff James orthogonality approximate symmetry constant one no extremal pair",
+        "Chmielinski C approximate Birkhoff symmetry infinite dimensional smooth strictly convex l2 sum ellp blocks asymmetry",
+        "LUR C approximate Birkhoff global asymmetry dual support functional constant",
+        "Zero Birkhoff saturation without an extremal pair in a reflexive strictly convex space — published RESULT.md, exact sequence-space construction"
+      ]
+    },
+    "rationale": "The claim deliberately excludes novelty of a smooth infinite-dimensional failure of global C approximate symmetry: Chmieliński--Wójcik 2018 Example 3.7 already contains that, as directly acknowledged by the original 2020 arXiv full text. The finer phenomenon verified here is a specific Hilbert-equivalent primal/dual LUR and smooth pair, with both uniform local direction bounds at every nonzero point, exact nonattained maximal support defect, and a quantified explicit asymptotic sequence. Neither the full 2020 text nor the indexed comparable results gives this conjunction. The 2018 full text remained inaccessible and is named as a serious residual risk rather than declared not covering. The complete public proof of “Zero Birkhoff saturation without an extremal pair in a reflexive strictly convex space” has been inspected. Its \\(\\ell_2\\) sum of \\(\\ell_{1+1/k}^2\\) is isometric to the dual in this finding, but it proves James-type saturation with coordinate witnesses, not C-approximate support-functional asymmetry; thus same-space overlap has been explicitly compared at statement/implication level.",
+    "residual_risks": [
+      "The full 2018 Chmieliński--Wójcik Example 3.7 could already use a Hilbert-equivalent LUR norm or otherwise imply the strengthened configuration; the original source was not fully accessible for decisive exclusion.",
+      "Earlier but unindexed formulations may express the same local-versus-global phenomenon using support functional angles or James orthogonality.",
+      "No independent human originality assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY_COVERING: explicitly reports earlier infinite-dimensional smooth non-C-symmetric example; the inspected material does not establish the combined LUR Hilbert renorming, both locally uniform direction bounds, dual pathology and rate.",
+        "evidence": "Definition 1.1 defines global C-symmetry; lines on Section 3 say Chmieliński--Wójcik Example 3.7 already builds an infinite-dimensional smooth non-C-symmetric space and establish compact-set symmetry in uniformly smooth spaces. The first public arXiv version is dated 2020-12-15 and lists primary MSC 46B20.",
+        "identifier_or_url": "arXiv:2012.08162v1; https://arxiv.org/html/2012.08162v1",
+        "material_read": "Full public HTML: introduction and Definitions 1.1--1.3, Section 3 Lemma 3.4, Theorems 3.7, 3.10 and 3.12, the explicit reference to the 2018 Example 3.7, and corresponding proof portions.",
+        "method": "Read original arXiv HTML, not merely abstract.",
+        "title": "Local approximate symmetry of Birkhoff-James orthogonality in normed linear spaces",
+        "trigger": "The defining source for the C-approximate relation and direct global/local symmetry precedent."
+      },
+      {
+        "assessment": "PLAUSIBLE_AND_PARTIALLY_COVERING: the generic smooth counterexample is known; possible LUR, Hilbert-equivalent, dual, or local-uniform strengthening in its inaccessible example remains unresolved.",
+        "evidence": "J. Math. Anal. Appl. 461 (2018), 625--640; original 2020 full text identifies Example 3.7 as an infinite-dimensional smooth counterexample, but gives no stronger hypotheses there.",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2018.01.031",
+        "material_read": "Abstract and publication metadata, plus the specific description of Example 3.7 in the 2020 original; target 2018 full text was not recovered.",
+        "method": "Publisher-indexed bibliographic material and primary-paper secondary discussion; full-text institutional retrieval did not provide a verified target document.",
+        "title": "Approximate symmetry of Birkhoff orthogonality",
+        "trigger": "The original 2018 paper cited by the defining 2020 source as containing the smooth infinite-dimensional non-C-symmetry example."
+      },
+      {
+        "assessment": "DEFINING_EQUIVALENCE: Theorem 2.3 establishes C-approximate orthogonality iff some norming functional evaluates the second vector at magnitude at most epsilon times its norm; it does not address the new infinite-dimensional LUR example.",
+        "evidence": "Theorem 2.3 of Linear Algebra Appl. 531 (2017) 305--317, DOI 10.1016/j.laa.2017.06.001.",
+        "identifier_or_url": "doi:10.1016/j.laa.2017.06.001",
+        "material_read": "Pages 2--6 from a separate legitimate full-text extract of the actual 2017 article, including Theorem 2.3 and its proof on page 6.",
+        "method": "Institutionally accessible original full text.",
+        "title": "Approximate orthogonality in normed spaces and its applications",
+        "trigger": "Original support-functional criterion used to represent the reverse approximate orthogonality defect."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_PROBLEM: studies smoothness, approximate smoothness and exact pointwise Birkhoff symmetry, not an identified sharp global C-asymmetry defect or the joint local-global counterexample.",
+        "evidence": "2025 abstract explicitly identifies direct sum support-functionals and pointwise symmetry as topics; full theorem statements were not read.",
+        "identifier_or_url": "https://studmath.uken.krakow.pl/article/view/12413",
+        "material_read": "The abstract, authorship, date and complete displayed reference list; its PDF was not inspected.",
+        "method": "Publisher-hosted bibliographic and abstract HTML.",
+        "title": "Geometry of ℓp-direct sums of normed linear spaces",
+        "trigger": "Nearby work on support functionals and pointwise Birkhoff symmetry of direct sums."
+      },
+      {
+        "assessment": "SAME_SPACE_DIFFERENT_INVARIANT: the published space is isometric to this theorem’s dual via \\(k=n+1\\). Its theorem says the approximate Birkhoff-James *James-type norm-sum* supremum equals 2 and is not attained. Its orthogonal coordinate pairs have zero reverse C support-defect. Nothing in its statement implies the present local left/right C-symmetry bounds, the global C-defect 1, or its asymptotic witnesses.",
+        "evidence": "That RESULT.md sets \\(p_k=1+1/k\\), uses \\(e_1\\perp_Be_2\\), and computes the norm sums as \\(2^{1/p_k}\\to2\\); no C-approximate reverse support-functional quantity is computed.",
+        "identifier_or_url": "Published 2026 result “Zero Birkhoff saturation without an extremal pair in a reflexive strictly convex space” (full public RESULT.md inspected)",
+        "material_read": "Complete published RESULT.md, including hypotheses, construction, full proof and references.",
+        "method": "Original publicly accessible scientific RESULT.md read in full using read-only repository file retrieval.",
+        "title": "Zero Birkhoff saturation without an extremal pair in a reflexive strictly convex space",
+        "trigger": "Relevant indexed construction of a reflexive strictly convex \\(\\ell_2\\) sum of finite-dimensional \\(\\ell_p\\) planes; potential stronger same-space coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1c0da142-1dcd-47c1-bf69-90e565ef3e19",
+  "value": {
+    "rationale": "Global C-approximate symmetry is guaranteed by uniform convexity but fails here on a Hilbert-renormable, separable reflexive LUR/smooth space and its LUR/smooth dual, even though every vector in both spaces enjoys both locally uniform directional C-bounds. This structurally separates local rotundity from global uniformity. The exact support defects approach the maximal boundary nonattained at rate p^{-1/2}, giving a reusable asymptotic witness rather than a negative statement without mechanism.",
+    "risks": [
+      "The construction is not uniformly convex in the chosen equivalent norm; it does not refute the established uniformly convex positive theorem.",
+      "Significance of the strengthened example depends on whether an equivalent construction appears in the inaccessible 2018 predecessor."
+    ],
+    "sources": [
+      "arXiv:2012.08162v1 §1 and §3",
+      "Bundled RESULT.md and verify.py"
+    ],
+    "status": "PASS"
+  }
+}
