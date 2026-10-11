@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:01:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the frozen exact quartic Bloch condition, solving linearly for \\(Q=\\cos\\theta_1+\\cos\\theta_2\\) is legitimate away from \\(k=N_n\\), and spectral membership is exactly \\(|Q(k)|\\le2\\). With \\(k=N_n+x/N_n\\) and \\(y=\\ell x\\), direct dominant-balance expansion gives \\(Q=(-1)^n(\\sin(2\\mu)y/2-2\\sin(2\\mu)/y-2\\cos(2\\mu))+O(N_n^{-2})\\). The limiting quotient is strictly increasing on each half-line; its four simple crossings with \\(\\pm2\\) are exactly the submitted half-angle expressions. The central point is nonspectral, so the two half-line allowed intervals remain separated for large \\(n\\). Squaring \\(k\\) doubles the limiting momentum shifts and leaves an \\(O(n^{-2})\\) energy-edge error. A fresh symbolic leading-order expansion in this audit reproduced the singular \\(-2\\sin(2\\mu)/y\\) term; the frozen verifier independently checks the four edges and second-order convergence at several parameter values.",
+      "risk": "The theorem is for fixed interior \\(\\mu\\); the asymptotics are nonuniform as \\(\\mu\\to0\\) or \\(\\mu\\to\\pi/2\\).",
+      "sources": [
+        "Exner--Tater, arXiv:2108.04708 / Physics Letters A 416 (2021), equations (20)--(25)",
+        "frozen RESULT.md",
+        "frozen verify.py",
+        "fresh symbolic dominant-balance replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 source bounds the high-energy displacement and total width but does not give a matching lower description or central gap.",
+          "The endpoint paper concerns the unrotated/cyclic coupling regime rather than fixed interior phase."
+        ],
+        "reasoning": "The prior statements do not dominate the singular matched scaling; the coarse source range actually bridges the gap that the audited theorem resolves.",
+        "searches": [
+          "Exner--Tater arXiv:2108.04708 full text, equations (20)--(25)",
+          "Exner--Tater endpoint square-lattice work arXiv:1710.02664"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.04708",
+        "Physics Letters A 416 (2021) 127669",
+        "arXiv:1710.02664",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (24) supplies an asymptotic upper width scale but not exact local spectral occupancy.",
+          "Obtaining the final claim requires rescaling the exact equation in a regime where the paper's coarse expansion loses the reciprocal term, then solving the two monotone limiting branches."
+        ],
+        "reasoning": "The exact secular equation is an input, but the published asymptotic theorem does not imply the two-band topology or four sharp constants without the new singular analysis.",
+        "searches": [
+          "Exner--Tater high-energy paragraph and equation (24)",
+          "Exner--Tater exact Bloch coefficients (20)--(21)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives the same exact Bloch polynomial and only a coarse high-energy interval/width estimate.",
+          "No independent source located states the two disjoint local spectral intervals or the four limiting edges."
+        ],
+        "reasoning": "The comparison covered Bloch-band, Fermi-surface, local Hausdorff-spectrum, momentum-edge and energy-edge formulations.",
+        "searches": [
+          "Resultary: phase-rotated square quantum graph two-band high-energy scaling sec tan cot edges",
+          "Web: cot(mu/2) tan(mu/2) Exner Tater square lattice high energy",
+          "arXiv:2108.04708 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact four-edge table was found."
+        ],
+        "reasoning": "The verifier's numerical edge table is corroborative only; novelty rests on comparison with the primary statements.",
+        "searches": [
+          "Resultary semantic search for the four half-angle edge constants",
+          "Web exact searches for sec(mu)+tan(mu), tan(mu/2), cot(mu/2) with the square quantum graph"
+        ]
+      },
+      "rationale": "The defining Exner--Tater paper gives the exact Bloch polynomial and a coarse high-energy localization/width estimate, but its displayed \\(k=N_n+\\delta\\) expansion is not uniform on the singular \\(\\delta\\asymp N_n^{-1}\\) scale: it yields only an outer range and does not see the central gap. The audited scaling retains a reciprocal term of the same leading order and thereby resolves two separated local bands and all four sharp edges. The older endpoint-oriented square-lattice paper treats a different coupling limit. Resultary and exact-formula web searches did not locate a prior two-band scaling theorem.",
+      "residual_risks": [
+        "A later spectral-asymptotics paper could rederive the same singular local scaling under different quantum-graph terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_EXACT_DISPERSION_AND_COARSE_ASYMPTOTICS_NOT_SHARP_TWO_BAND_SCALING",
+          "evidence": "The paper gives \\(|\\delta_n|\\) and band-width upper scales but does not state the two separated \\(N_n^{-1}\\)-scale bands or their four edge constants.",
+          "identifier_or_url": "arXiv:2108.04708; Physics Letters A 416 (2021) 127669",
+          "material_read": "Primary full text around equations (20)--(26), including the Bloch coefficients, high-energy localization, width estimate and endpoint discussion.",
+          "method": "Lawful open full-text inspection, including the relevant PDF pages.",
+          "title": "Quantum graphs: self-adjoint, and yet exhibiting a nontrivial PT-symmetry",
+          "trigger": "Defines the exact phase-rotated square-lattice model and its high-energy bands."
+        },
+        {
+          "assessment": "ENDPOINT_REGIME_NOT_COVERING_INTERIOR_PHASE_SCALING",
+          "evidence": "It studies the endpoint coupling rather than fixed \\(0<\\mu<\\pi/2\\).",
+          "identifier_or_url": "arXiv:1710.02664",
+          "material_read": "Accessible primary abstract/source material on the oriented square lattice and its high-energy behavior.",
+          "method": "Lawful open-source inspection.",
+          "title": "A square-lattice quantum graph with a preferred orientation",
+          "trigger": "Closest earlier square-lattice coupling at the phase endpoint."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem upgrades a coarse high-energy width estimate to the complete local spectral geometry: it identifies the missing central gap, the two-band topology, four sharp edge constants, and parity-independent translated limit. That is a natural spectral refinement of the primary model rather than an arbitrary extra Taylor coefficient.",
+      "risk": "The result is local near the high-energy lattice points and does not describe endpoint-phase transitions uniformly.",
+      "sources": [
+        "arXiv:2108.04708"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the phase-rotated square quantum graph with \\(U=e^{i\\mu}R\\), \\(0<\\mu<\\pi/2\\), and common edge length \\(\\ell\\), the spectrum in an \\(O(N_n^{-1})\\) momentum window around \\(N_n=n\\pi/\\ell\\) consists asymptotically of exactly two bands, whose four energy-edge shifts converge to the stated \\(\\sec\\mu\\), \\(\\tan(\\mu/2)\\), and \\(\\cot(\\mu/2)\\) constants with \\(O(n^{-2})\\) error.",
+  "limitations": [
+    "Fixed \\(0<\\mu<\\pi/2\\) and fixed \\(\\ell>0\\).",
+    "Local high-energy scaling near \\(N_n=n\\pi/\\ell\\) only.",
+    "No uniform claim as the phase approaches either endpoint."
+  ],
+  "schema_version": 1
+}

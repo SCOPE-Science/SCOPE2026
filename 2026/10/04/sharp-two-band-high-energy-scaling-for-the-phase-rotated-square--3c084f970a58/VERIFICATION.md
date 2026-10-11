@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the exact Bloch secular coefficients published in arXiv:2108.04708v1. The standalone `verify.py` reconstructs the exact quotient \(Q(k)\), then solves \(Q(k)=\pm2\) near each predicted local edge by bisection. No external packages are required.
+# Independent mathematical audit
 
-The replay checks three representative interior phase values and three increasing band indices for each. For every case it verifies that all four exact edge equations are bracketed and solved, that the energy-edge errors decrease at the expected second-order rate, and that the central point \(k=N_n\) is nonspectral because the exact secular polynomial equals \(4\sin(2\mu)N_n^2\ne0\).
+## correctness
 
-The numerical checks are finite and do not establish the asymptotic theorem by themselves. The infinite-index conclusion comes from the uniform expansion of the exact quotient on compact sets away from \(x=0\), strict monotonicity of the limiting function on both half-lines, and simplicity of all four boundary roots. Endpoint regimes \(\mu=0\) and \(\mu=\pi/2\) are not tested or claimed.
+PASS
+
+Starting from the frozen exact quartic Bloch condition, solving linearly for \(Q=\cos\theta_1+\cos\theta_2\) is legitimate away from \(k=N_n\), and spectral membership is exactly \(|Q(k)|\le2\). With \(k=N_n+x/N_n\) and \(y=\ell x\), direct dominant-balance expansion gives \(Q=(-1)^n(\sin(2\mu)y/2-2\sin(2\mu)/y-2\cos(2\mu))+O(N_n^{-2})\). The limiting quotient is strictly increasing on each half-line; its four simple crossings with \(\pm2\) are exactly the submitted half-angle expressions. The central point is nonspectral, so the two half-line allowed intervals remain separated for large \(n\). Squaring \(k\) doubles the limiting momentum shifts and leaves an \(O(n^{-2})\) energy-edge error. A fresh symbolic leading-order expansion in this audit reproduced the singular \(-2\sin(2\mu)/y\) term; the frozen verifier independently checks the four edges and second-order convergence at several parameter values.
+
+## originality
+
+PASS
+
+The defining Exner--Tater paper gives the exact Bloch polynomial and a coarse high-energy localization/width estimate, but its displayed \(k=N_n+\delta\) expansion is not uniform on the singular \(\delta\asymp N_n^{-1}\) scale: it yields only an outer range and does not see the central gap. The audited scaling retains a reciprocal term of the same leading order and thereby resolves two separated local bands and all four sharp edges. The older endpoint-oriented square-lattice paper treats a different coupling limit. Resultary and exact-formula web searches did not locate a prior two-band scaling theorem.
+
+## value
+
+PASS
+
+The theorem upgrades a coarse high-energy width estimate to the complete local spectral geometry: it identifies the missing central gap, the two-band topology, four sharp edge constants, and parity-independent translated limit. That is a natural spectral refinement of the primary model rather than an arbitrary extra Taylor coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
