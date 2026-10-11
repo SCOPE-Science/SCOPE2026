@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:15:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 5e8cd5117069b767689688d8e6cde0f4b7376f98",
+        "assigned verify.py blob d918d9b70d07316f2c4c4bb82562c6a7527f11bd",
+        "Ferme--Mesarič Štesl, arXiv:2508.08691v2 full primary HTML",
+        "Ferme--Hedžet--Melicharova--Mesarič Štesl, arXiv:2609.10107 abstract"
+      ],
+      "rationale": "The total graph of a connected complete multipartite graph has diameter at most two, so every packing-total color above color one is unique and \\(\\chi''_\\rho(G)=|V(G)|+|E(G)|-\\alpha(T(G))+1\\). A total-graph independent set is exactly a vertex set \\(P\\) together with a matching in \\(G-P\\); replacing any competing part by a largest part does not decrease the objective, yielding \\(\\alpha(T(G))=n_1+\\nu(G-V_1)\\) and the displayed closed formula. For edge deletion, the proof constructs a maximum such independent set avoiding any chosen edge except when the graph is \\(K_{n,1,1}\\) and the deleted edge joins the singleton parts. In that exceptional case deleting the edge produces \\(K_{n,2}\\) and the formula gives equality of the packing-total chromatic numbers. Monotonicity then upgrades edge-deletion strictness to all proper subgraphs. The assigned exhaustive verifier checks all complete multipartite types through order eight and isolates exactly the claimed exceptions.",
+      "residual_risks": [
+        "The theorem concerns ordinary packing-total coloring, not arbitrary \\(S\\)-packing total colorings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 paper studies paths, cycles, degree bounds, and small chromatic values, then leaves critical graphs open.",
+          "The 2026 abstract studies \\(S\\)-packing total bounds, small values, complete bipartite graphs, paths, and cycles, without a complete-multipartite critical theorem."
+        ],
+        "reasoning": "No inspected broader result subsumes the final classification.",
+        "searches": [
+          "complete primary HTML of arXiv:2508.08691v2",
+          "arXiv:2609.10107 accessible abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.08691v2",
+        "arXiv:2609.10107",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The definition alone does not determine which edge deletions preserve a maximum color-one class.",
+          "The audited total-graph matching formula and edge-avoidance argument are additional."
+        ],
+        "reasoning": "The final exceptional family is not a routine parameter substitution.",
+        "searches": [
+          "packing-total definition and hereditary monotonicity versus complete-multipartite criticality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source defines criticality by strict decrease for every proper subgraph exactly as in the audit.",
+          "It states that these critical graphs had not yet been studied."
+        ],
+        "reasoning": "The audited invariant and criticality notion are exactly the source's open problem.",
+        "searches": [
+          "Resultary query: packing total chromatic critical complete multipartite graphs",
+          "Ferme--Mesarič Štesl arXiv:2508.08691v2, open-problems section",
+          "Ferme et al. arXiv:2609.10107"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact classification was retrieved."
+        ],
+        "reasoning": "The explicit open problem in the primary source is stronger evidence than database absence.",
+        "searches": [
+          "Resultary current critical/complete-multipartite query"
+        ]
+      },
+      "rationale": "The paper introducing packing-total coloring explicitly defines packing-total chromatic critical graphs near its conclusion, states that they had not yet been studied, and asks which graphs belong to the class. The later \\(S\\)-packing-total paper treats complete bipartite graphs among its model families but does not, in the accessible abstract, advertise a criticality classification. The audited result therefore answers the published critical-graph question for the full complete-multipartite family and identifies the unique infinite exceptional shape.",
+      "residual_risks": [
+        "The full body of the very recent \\(S\\)-packing-total paper was not available through the inspected route."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_CRITICAL_CLASS",
+          "evidence": "The source states that packing-total chromatic critical graphs had not yet been studied and asks which graphs belong.",
+          "identifier_or_url": "arXiv:2508.08691v2",
+          "material_read": "complete primary arXiv HTML, especially the total-graph equivalence and open-problems section",
+          "method": "primary full-text HTML inspection",
+          "title": "On packing total coloring",
+          "trigger": "defining primary source and explicit critical-graph problem"
+        },
+        {
+          "assessment": "RELATED_EXTENSION_NO_CRITICAL_CLASS_IN_ACCESSIBLE_MATERIAL",
+          "evidence": "The accessible abstract does not state a complete-multipartite criticality theorem.",
+          "identifier_or_url": "arXiv:2609.10107",
+          "material_read": "current primary abstract describing general bounds and the investigated complete-bipartite/path/cycle families",
+          "method": "primary-source abstract inspection",
+          "title": "On S-packing total colorings",
+          "trigger": "closest newer extension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ferme--Mesarič Štesl 2026",
+        "assigned proof/verifier"
+      ],
+      "rationale": "The theorem answers an explicitly posed structural question for a canonical graph family and finds a sharp infinite exceptional family. The same calculation also yields a closed packing-total chromatic formula for complete multipartite graphs. This is a natural criticality classification, not a routine small-case table.",
+      "residual_risks": [
+        "The classification does not extend automatically to the general \\(S\\)-packing setting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem concerns ordinary packing-total coloring, not arbitrary \\(S\\)-packing total colorings.",
+    "The full body of the very recent \\(S\\)-packing-total paper was not available through the inspected route.",
+    "The classification does not extend automatically to the general \\(S\\)-packing setting."
+  ]
+}

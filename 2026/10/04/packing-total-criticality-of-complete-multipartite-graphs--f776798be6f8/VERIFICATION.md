@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is analytic. The bundled `verify.py` is an independent finite stress test of the definitions. It constructs each graph, constructs its total graph directly from incidence and adjacency, computes all total-graph distances, and determines the exact packing total chromatic number for every complete multipartite type through order \(8\) and for every one-edge deletion.
+# Independent mathematical audit
 
-For connected total-graph components of diameter at most two it computes the exact independence number recursively and uses the elementary diameter-two packing-coloring identity. For diameter-three components it enumerates every admissible color-2 packing and, on the remaining vertices, computes an exact maximum independent color-1 set; colors at least \(3\) are then forced to be unique. Disconnected underlying graphs are handled componentwise. The checker asserts if a tested component falls outside these conditions.
+## correctness
 
-Replay command:
+PASS
 
-`python3 verify.py`
+The total graph of a connected complete multipartite graph has diameter at most two, so every packing-total color above color one is unique and \(\chi''_\rho(G)=|V(G)|+|E(G)|-\alpha(T(G))+1\). A total-graph independent set is exactly a vertex set \(P\) together with a matching in \(G-P\); replacing any competing part by a largest part does not decrease the objective, yielding \(\alpha(T(G))=n_1+\nu(G-V_1)\) and the displayed closed formula. For edge deletion, the proof constructs a maximum such independent set avoiding any chosen edge except when the graph is \(K_{n,1,1}\) and the deleted edge joins the singleton parts. In that exceptional case deleting the edge produces \(K_{n,2}\) and the formula gives equality of the packing-total chromatic numbers. Monotonicity then upgrades edge-deletion strictness to all proper subgraphs. The assigned exhaustive verifier checks all complete multipartite types through order eight and isolates exactly the claimed exceptions.
 
-Expected and observed output:
+## originality
 
-`ALL CHECKS PASSED; multipartite_types=58; edge_deletions=813; max_order=8; exceptional_equalities=5`
+PASS
 
-The five equalities are exactly the exceptional singleton-part edge deletions in \(K_{n,1,1}\) for the tested values \(2\le n\le6\). The computation does not establish the infinite theorem and no such claim is made.
+The paper introducing packing-total coloring explicitly defines packing-total chromatic critical graphs near its conclusion, states that they had not yet been studied, and asks which graphs belong to the class. The later \(S\)-packing-total paper treats complete bipartite graphs among its model families but does not, in the accessible abstract, advertise a criticality classification. The audited result therefore answers the published critical-graph question for the full complete-multipartite family and identifies the unique infinite exceptional shape.
+
+## value
+
+PASS
+
+The theorem answers an explicitly posed structural question for a canonical graph family and finds a sharp infinite exceptional family. The same calculation also yields a closed packing-total chromatic formula for complete multipartite graphs. This is a natural criticality classification, not a routine small-case table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
