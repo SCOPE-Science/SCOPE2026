@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim follows from the published global \(\ell_p\) James-type profile, exact unit-vector witnesses, monotonicity of power means, and strict Clarkson inequality. The coordinate-vector reduction is exact and turns the only strict comparison into a continuous one-variable problem on \([0,1]\).
+## correctness
 
-## Originality
-PASS. The defining 2023 pointwise paper was inspected in full. It proves constancy under transitivity hypotheses and records the global \(\ell_p\) formula, but does not state the exact pointwise constancy threshold. The earlier 2012 paper treats the global James type constant, not the based profile. Targeted searches for the pointwise \(\ell_p\) threshold and equivalent formulations found no stronger coverage.
+PASS
 
-## Value
-PASS. The parameter \(t=p\) is not an arbitrary slice: it is the phase boundary already present in the global \(\ell_p\) profile. Showing that the same value is exactly the threshold for base-point independence clarifies how much pointwise information survives beyond global optimization and supplies a sharp boundary for a classical model space.
+For \(t\ge p\), taking \(y=x\) at any unit base point gives the value \(M_t(0,2)=2^{1-1/t}\), which is already the published global \(\ell_p\) James-type maximum, so every base point has exactly that value. For \(t<p\), the balanced vector \(u=2^{-1/p}(e_1+e_2)\) with the Hanner partner \(v=2^{-1/p}(e_1-e_2)\) attains the global branch \(2^{1-1/p}\). At \(e_1\), writing \(a=|y_1|\) reduces the two chord lengths to \(A(a)^p=(1+a)^p+1-a^p\) and \(B(a)^p=(1-a)^p+1-a^p\). Strict Clarkson inequality gives \(M_p(A(a),B(a))<2^{1-1/p}\) for every \(a<1\); monotonicity of power means gives the same strict inequality for every \(t<p\), while the endpoint \(a=1\) gives \(M_t(2,0)<2^{1-1/p}\). Continuity on the compact interval makes the pointwise supremum at \(e_1\) strictly smaller, proving nonconstancy. The packaged sampler agrees with the reduction but is not used as an infinite proof.
 
-## Closest literature and limitations
-The closest source is Rincón-Villamizar (2023), especially Example 3.7 and the section on constancy of the pointwise map. Yang--Wang (2012) supplies the global high-parameter branch. The result is limited to real infinite-dimensional \(\ell_p\) with \(p>2\); no claim is made for \(p<2\), finite-dimensional spaces, or arbitrary \(L_p\) spaces.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete 2023 primary paper defines the pointwise James-type profile, proves orbit invariance, continuity and constancy on almost/convex-transitive spaces, and in Example 3.7 records the global \(\ell_p\) profile. It does not classify pointwise constancy on non-Hilbert \(\ell_p\). The audited threshold is not a title-level restatement: below \(p\), \(\ell_p\) is not covered by the transitivity theorems and the strict coordinate-versus-balanced comparison is required. Current Resultary searches returned the assigned statement as the exact pointwise threshold hit and neighboring generalized/global James constants, but no stronger pointwise theorem containing it.
+
+## value
+
+PASS
+
+The pointwise James profile was introduced specifically to distinguish base-point geometry from the usual global constant. Determining exactly when that dependence disappears in the canonical non-Hilbert \(\ell_p\) family is a natural structural classification. The low-side strict separation shows a genuine pointwise phenomenon rather than merely rewriting the global constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

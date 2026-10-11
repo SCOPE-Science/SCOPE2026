@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof uses two published inputs: the exact global James type profile of real \(\ell_p\) for \(p>2\), and Clarkson's inequality. No finite experiment is used to infer the infinite-dimensional statement.
+## correctness
 
-For the nonconstancy branch, a unit vector \(y\) paired with \(e_1\) is reduced exactly to \(a=|y_1|\). The two chord lengths satisfy
-\[
-A(a)^p=(1+a)^p+1-a^p,
-\qquad
-B(a)^p=(1-a)^p+1-a^p.
-\]
-Strict Clarkson inequality gives a strict \(p\)-mean bound for \(0\le a<1\); the endpoint \(a=1\) is checked directly. Compactness then converts pointwise strictness into a strict supremum bound.
+PASS
 
-The script `artifacts/verify.py` was replayed from the packaged path and returned `VERIFY_OK`. It samples representative reduced profiles and checks the exact witness formula at \(t\ge p\). Those checks are supplementary only.
+For \(t\ge p\), taking \(y=x\) at any unit base point gives the value \(M_t(0,2)=2^{1-1/t}\), which is already the published global \(\ell_p\) James-type maximum, so every base point has exactly that value. For \(t<p\), the balanced vector \(u=2^{-1/p}(e_1+e_2)\) with the Hanner partner \(v=2^{-1/p}(e_1-e_2)\) attains the global branch \(2^{1-1/p}\). At \(e_1\), writing \(a=|y_1|\) reduces the two chord lengths to \(A(a)^p=(1+a)^p+1-a^p\) and \(B(a)^p=(1-a)^p+1-a^p\). Strict Clarkson inequality gives \(M_p(A(a),B(a))<2^{1-1/p}\) for every \(a<1\); monotonicity of power means gives the same strict inequality for every \(t<p\), while the endpoint \(a=1\) gives \(M_t(2,0)<2^{1-1/p}\). Continuity on the compact interval makes the pointwise supremum at \(e_1\) strictly smaller, proving nonconstancy. The packaged sampler agrees with the reduction but is not used as an infinite proof.
 
-Unproved limits: the package does not classify \(1\le p<2\), finite-dimensional \(\ell_p^n\), or general \(L_p(\mu)\) spaces.
+## originality
+
+PASS
+
+The complete 2023 primary paper defines the pointwise James-type profile, proves orbit invariance, continuity and constancy on almost/convex-transitive spaces, and in Example 3.7 records the global \(\ell_p\) profile. It does not classify pointwise constancy on non-Hilbert \(\ell_p\). The audited threshold is not a title-level restatement: below \(p\), \(\ell_p\) is not covered by the transitivity theorems and the strict coordinate-versus-balanced comparison is required. Current Resultary searches returned the assigned statement as the exact pointwise threshold hit and neighboring generalized/global James constants, but no stronger pointwise theorem containing it.
+
+## value
+
+PASS
+
+The pointwise James profile was introduced specifically to distinguish base-point geometry from the usual global constant. Determining exactly when that dependence disappears in the canonical non-Hilbert \(\ell_p\) family is a natural structural classification. The low-side strict separation shows a genuine pointwise phenomenon rather than merely rewriting the global constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
