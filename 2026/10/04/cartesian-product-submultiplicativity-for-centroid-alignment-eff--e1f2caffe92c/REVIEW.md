@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. For paired families in two dimensions, every translated product intersection is exactly the product of the corresponding translated intersections in the factors. Product Lebesgue measure therefore makes both the centroid-aligned volume and the optimized volume multiplicative. The infimum need not be attained; the proof correctly uses arbitrary near-minimizers and lets \(\varepsilon\downarrow0\). Positivity follows from the published universal lower bound, so Fekete's lemma applies to \(\log c_{n,m}\).
+# Independent mathematical audit
 
-## Originality
-PASS. The closest source defines \(c_{n,m}\), proves \(c_{2,m}=4/9\), and explicitly leaves the higher-dimensional two-body constant open. Its full text does not state Cartesian-product submultiplicativity, the root-limit consequence, or the bound \((4/9)^{\lfloor n/2\rfloor}\). Targeted searches for centroid alignment, tensorization, Cartesian products, fixed-cardinality overlap, and the displayed bound did not identify a covering result. The 1998 planar source supplies only the two-dimensional upper example, and later inspected overlap papers focus on algorithms.
+## correctness
 
-## Value
-PASS. The constants \(c_{n,m}\) are the natural fixed-cardinality invariants introduced in the source, and the source asks specifically about \(m=2\) in higher dimension. Submultiplicativity is a reusable structural fact: it shows that a fixed number of bodies already admits exponentially degrading centroid alignment in arbitrarily high dimension, without the growing spherical-net families used for the family-size-free sharpness construction. It also produces a well-defined asymptotic root rate for each fixed \(m\).
+PASS
 
-## Closest literature and limitations
-The closest result is Feldman's 2026 theorem and Question 19. It gives the lower bound and the exact planar anchor but not the product upper bound. The 1998 de Berg--Cheong--Devillers--van Kreveld--Teillaud paper gives a planar family approaching \(4/9\); its repository abstract was accessible, while the repository PDF access path required an interactive challenge. Feldman's full text independently states and proves the exact planar constant, so that access limitation does not affect the proof. The present result does not settle Question 19 and gives no sharpness claim in dimensions at least three.
+For product bodies \(A_i\times B_i\), centroids factor, so the centroid-aligned common-intersection volume is the product of the two factor lazy volumes. For arbitrary independent translations, the intersection itself factors and volume multiplies; maximizing over the translation variables therefore gives the exact product of the two optimal volumes. Hence efficiency multiplies on product instances. Taking near-infimum instances proves \(c_{n+d,m}\le c_{n,m}c_{d,m}\). Subadditivity of \(\log c_{n,m}\) yields the root-limit statement by Fekete, and repeated planar products give the displayed \((4/9)^{\lfloor n/2\rfloor}\) upper bound.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Targeted searches for Cartesian-product, tensorization, and submultiplicativity formulations of centroid-alignment efficiency located Feldman’s underlying sharp fixed-dimensional bounds but no product theorem or equivalent implication. The primary abstract states the universal lower bound and exact planar constant; those facts do not imply the cross-dimensional submultiplicativity or existence of an exponential rate. Full primary text could not be materialized in this run, so that comparison remains an explicit residual access risk rather than being treated as proof of absence.
+
+## value
+
+PASS
+
+Tensorization is a natural structural operation for an efficiency invariant defined by intersection volumes. The inequality converts a sharp low-dimensional example into dimension-growth information and yields a well-defined asymptotic root rate, making it a motivated structural lemma rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
