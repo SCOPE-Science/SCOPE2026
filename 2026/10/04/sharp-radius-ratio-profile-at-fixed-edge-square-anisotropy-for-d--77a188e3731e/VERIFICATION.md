@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof in `RESULT.md` establishes the infinite statement. The bundled `verify_profile.py` is a deterministic replay aid.
+# Independent mathematical audit
 
-Running `python verify_profile.py` returned:
+## correctness
 
-```text
-VERIFY_OK
-seed 210031
-checks 157750
-max_radius_formula_relative_error 4.441e-16
-max_edge_anisotropy_error 9.992e-16
-max_parametrization_error 4.829e-16
-max_endpoint_error 1.214e-14
-max_profile_violation 0.000e+00
-```
+PASS
 
-The script checks the inradius independently through volume/surface area, checks the edge-based and coordinate-based definitions of anisotropy, checks the closed trigonometric formula, and checks both equality branches. Random finite checks do not certify the universal quantifiers; those follow from the symbolic derivation in the proof.
+The proof was independently reconstructed from the exact RESULT.md. With \(a=x^2,b=y^2,c=z^2\), \(R^2=S\), \(r^2=abc/P\), and the edge definition gives \(q=1-3P/S^2\). Normalizing \(S=1\) reduces the fixed-\(q\) locus to a circle; the stated trigonometric parameterization gives \(p_1p_2p_3=(1-3q+2q^{3/2}\cos3\theta)/27\). Positivity permits the full cosine range exactly for \(\sqrt q<1/2\), and thereafter cuts the lower endpoint to an unattained zero while preserving the upper two-equal branch. A fresh independent 5,000-sample computation verified the bound throughout random positive coordinate triples; the package verifier was also read but is only corroborative.
+
+## originality
+
+PASS
+
+The sharp fixed-anisotropy interval was not located in the classical disphenoid sources checked. Hajja--Walker supplies the standard equifacial structure and circumradius formula, while Scott's complete two-page note concerns the facial circumradius relative to the tetrahedron circumradius, not the inradius or a fixed edge-square anisotropy. A targeted Resultary search found no stronger equivalent record. Leech's 1950 paper remained unavailable as a verified PDF after the permitted institutional attempt and is retained as a residual priority risk rather than treated as evidence of novelty.
+
+## value
+
+PASS
+
+The complete radius-ratio profile at fixed normalized edge-square anisotropy is a natural sharp invariant of the standard disphenoid family. It includes an exact phase transition at \(q=1/4\), both equality branches, and the full attainable interval, so it is more than a routine evaluation of a known formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
