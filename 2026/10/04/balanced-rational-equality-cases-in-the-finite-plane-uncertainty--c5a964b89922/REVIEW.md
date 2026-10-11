@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Balanced equality first forces both support sizes to equal \(2(p-1)\). Rationality makes the nonzero Fourier support a union of full cyclotomic scalar orbits; divisibility excludes the principal character and leaves exactly two punctured dual lines. Fourier inversion reduces the problem to \(f(x,y)=U(x)+V(y)\). The zero set has the maximum possible size \((p-1)^2+1\), and a proved multiplicity lemma forces both one-variable functions to have value pattern \((p-1,1)\). Mean-zero normalization then gives exactly a scaled difference of two nonparallel affine-line indicators. The converse and the projective count are direct and complete.
+## correctness
 
-## Originality
-PASS relative to the checked literature. Biró--Lev state nonparallel-line differences as equality examples but do not assert that every balanced rational equality case has this form. Bonami--Ghobber classify minimal-Fourier-support equality and do not cover the balanced point \((2p-2,2p-2)\), because at spatial support \(2p-2\) their minimum Fourier-support size is only \(p\). Lev's later finite-plane paper again uses the line difference as a sharp example without classifying all weighted equality cases. Exact-form, alias, broader-coverage, and implication searches did not locate a covering theorem.
+PASS
 
-## Value
-PASS. Equality cases are the natural rigidity question attached to a sharp uncertainty inequality. The result converts a previously exhibited family of sharp examples into a complete geometric classification on a motivated arithmetic slice, identifies the mechanism through Galois-orbit rigidity, and gives the exact number \(p^3(p+1)/2\) of projective rational balanced extremizers.
+Balanced equality forces \(|S|=|X|=2(p-1)\). For rational-valued \(f\), cyclotomic Galois symmetry makes \(X\setminus\{0\}\) a union of punctured dual lines; the principal character cannot occur because \(2p-3\) is not divisible by \(p-1\). Thus \(X\) is exactly two punctured one-dimensional subspaces. After a linear coordinate change, Fourier inversion gives \(f(x,y)=U(x)+V(y)\) with both means zero. The zero-set size is \((p-1)^2+1\). The multiplicity rearrangement bound \(\#\{U+V=0\}\le(p-1)^2+1\) is correct, and equality forces the two value-multiplicity patterns to be \((p-1,1)\). The mean-zero equations then force opposite values on two affine coordinate lines, giving exactly a scalar difference of two nonparallel affine-line indicators. The converse Fourier-support calculation and the projective count \(\binom{p+1}{2}p^2\) are correct. The finite verifier is supplementary only.
 
-## Closest literature and limitations
-The closest source is Biró--Lev, arXiv:1808.07424. The classification is restricted to rational-valued balanced equality cases; arbitrary complex-valued and unequal-support equality cases remain outside its scope. Literature non-detection is not a proof of absolute novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Biró–Lev prove the sharp finite-plane inequalities, use the same rational Galois invariance, and explicitly exhibit differences of nonparallel line indicators as sharp examples; the inspected material does not classify all balanced rational sharp cases. Bonami–Ghobber classify functions attaining the minimum possible Fourier support at a prescribed spatial support size, a different extremality problem: for \(|S|=2(p-1)\) the balanced case has \(|X|=2(p-1)\), not the minimal spectrum size addressed by their theorem. Resultary returned only the assigned record as the exact balanced-rational rigidity hit. The multiplicity-rigidity step is therefore not covered by the closest primary results.
+
+## value
+
+PASS
+
+Rigidity of all rational balanced extremizers for a sharp two-dimensional uncertainty inequality is a natural equality-classification problem. The result upgrades a known construction to a complete all-prime theorem and gives an exact projective census, so it is more than a routine restatement of the inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
