@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically from the stated assumptions.
+# Independent mathematical audit
 
-For the sufficient direction, with \(Y=\log(1+T)\), finite \(\mathbb EY\) implies
-\[
-\sum_{k\ge1}\Pr(Y\ge ck)<\infty
-\]
-for every \(c>0\). Geometric sampling and the first Borel--Cantelli lemma therefore give sublinear age on \(n_k=\lceil a^k\rceil\). The bounded-growth inequality fills each interval \([n_k,n_{k+1})\), and the countable choice \(a=1+1/j\) makes the resulting upper bound tend to zero.
+## correctness
 
-For the converse, the identity
-\[
-\sum_{k\ge1}\Pr(T\ge2^k-1)=\infty
-\]
-follows from the tail-sum formula for \(\log_2(1+T)\). Independent dyadic activation blocks then obey both the unit-growth age condition and pointwise stochastic domination by \(T\). The second Borel--Cantelli lemma forces infinitely many active blocks, and their endpoints have age ratio tending to \(1/2\).
+PASS
 
-For the harmonic-window consequence, once \(\tau_n/n\to0\),
-\[
-\sum_{m=n-\tau_n}^{n-1}\frac1{m+1}
-\le
-\frac1{n-\tau_n+1}
-+
-\log\!\left(\frac{n}{n-\tau_n}\right),
-\]
-and the right side tends to zero.
+The sufficient direction is a valid geometric-subsequence Borel-Cantelli argument: finite logarithmic moment makes the sampled tail probabilities summable, while bounded upward growth fills gaps and letting the ratio tend to one forces tau_n/n to zero. For sharpness, divergence of the dyadic log-tail sum and independent block activations yield infinitely many active blocks; the constructed process respects unit upward growth, nondecreasing timestamps, and pointwise domination by T, with endpoint ratios tending to 1/2. The harmonic-window bound follows from tau_n/n to zero.
 
-No numerical computation, exhaustive enumeration, or unproved asymptotic approximation is used. The literature comparison was performed against the full relevant parts of the 2026 preprint, its 2023 predecessor, and the corresponding 2024 dissertation treatment. The 2022 comparison was limited to its accessible published statement and is recorded as a residual literature risk.
+## originality
+
+PASS
+
+The motivating 2026 AoI paper and its 2023 predecessor use stronger positive-power moment assumptions for sublinear delay. Resultary found no equivalent logarithmic-moment threshold. The submitted theorem both weakens sufficiency and supplies a matching universal converse.
+
+## value
+
+PASS
+
+This identifies a sharp structural threshold for a mechanism central to heavy-tailed asynchronous stochastic approximation, admits dominators with no finite positive moment, and gives a matching failure construction. It is a substantive boundary theorem rather than a routine weakening.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
