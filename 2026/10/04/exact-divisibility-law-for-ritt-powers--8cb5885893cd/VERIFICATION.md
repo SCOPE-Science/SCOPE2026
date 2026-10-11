@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked directly from the standard discrete-derivative characterization of Ritt operators.
+# Independent mathematical audit
 
-1. If \(T^N\) is Ritt, then \(T\) is power bounded by writing every exponent modulo \(N\).
-2. Spectral mapping gives \(\lambda^N=1\) for each \(\lambda\in\sigma(T)\cap\mathbb T\), so the peripheral set is finite and the lcm \(d\) is defined.
-3. Any Ritt exponent must be divisible by \(d\).
-4. For \(S=T^d\) and \(a=N/d\), the spectrum of \(S\) contains no nontrivial \(a\)-th root of unity. Hence \(Q_a(S)\), with \(Q_a(z)=1+z+\cdots+z^{{a-1}}\), is invertible.
-5. The identity \(I-S^a=(I-S)Q_a(S)\) transfers the Ritt derivative estimate from \(S^a\) to \(S\).
-6. A telescoping sum proves that every positive power of a Ritt operator is Ritt.
+## correctness
 
-No numerical computation, finite enumeration, or external certificate is required. The proof does not establish existence of a Ritt power when none is assumed, and it does not optimize the quantitative Ritt constant.
+PASS
+
+A Ritt power \(T^N\) is power bounded, hence so is \(T\). Spectral mapping then forces every peripheral point of \(T\) to be an \(N\)-th root of unity, making the least common multiple \(d\) finite and necessary for every Ritt exponent. For sufficiency, set \(S=T^d\) and \(a=N/d\). The only possible peripheral point of \(S\) is \(1\), so \(Q_a(z)=1+z+\cdots+z^{a-1}\) has no zero on \(\sigma(S)\) and \(Q_a(S)\) is invertible. The identity \(I-S^a=(I-S)Q_a(S)\) transfers the discrete derivative estimate from the Ritt operator \(S^a\) to \(S\). Positive powers of a Ritt operator are Ritt by a finite telescoping argument. This proves necessity and sufficiency, including \(d=1\).
+
+## originality
+
+PASS
+
+Bouabdillah–Le Merdy provide the finite-peripheral Ritt\(_E\) framework and derivative criteria, but the inspected theorem statements do not classify all ordinary-Ritt powers of one operator. Badea's 2026 abstract gives universal Ritt powers under displacement hypotheses and characterizes odd Ritt powers in uniformly convex settings, not the exact operator-specific divisibility ray under the sole assumption that one Ritt power exists. Its full PDF was not accessible in this run, so that plausible source is recorded as a residual risk rather than treated as noncoverage evidence.
+
+## value
+
+PASS
+
+Once existence of one Ritt power is known, the theorem completely determines every Ritt exponent from the peripheral spectrum, gives the unique least exponent, and yields gcd closure. This is a natural reusable structural completion of the power question rather than a routine estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review: Exact divisibility law for Ritt powers
+# Independent mathematical audit
 
-## Correctness
-**PASS.** If one power \(T^N\) is Ritt, then \(T\) is power bounded. Spectral mapping forces every peripheral spectral point of \(T\) to be an \(N\)-th root of unity, so the least common multiple \(d\) of their orders is finite and divides \(N\). For \(S=T^d\) and \(a=N/d\), the polynomial \(Q_a(z)=1+z+\cdots+z^{a-1}\) has no zero on \(\sigma(S)\), hence \(Q_a(S)\) is invertible. Factoring \(I-S^a=(I-S)Q_a(S)\) transfers the Ritt discrete-derivative estimate from \(S^a\) to \(S\). Necessity follows from peripheral spectral mapping, and positive powers preserve the Ritt property.
+## correctness
 
-## Originality
-**PASS, with a stated residual literature risk.** The focal 2026 paper provides universal exponents arising from displacement bounds and finite root-of-unity peripheral spectra, but the inspected statements do not classify all Ritt exponents for one fixed operator. The 2022/2025 finite-peripheral-spectrum paper develops Ritt\(_E\) theory and the relevant derivative characterization, but the inspected definitions, Theorem 2.10, and power-related passages do not state the exact set \(d\mathbb N_{\ge1}\). Meaning-based published-record searches for the exact divisibility, least-exponent, root-of-unity, and \(\gcd\) formulations returned no covering result. The remaining risk is an older equivalent lemma under different terminology.
+PASS
 
-## Value
-**PASS.** Badea's work makes the existence and choice of Ritt powers a central structural issue. The present theorem turns existence of one Ritt power into a complete arithmetic classification, identifies a canonical operator-specific Ritt period from the peripheral spectrum, and yields the non-obvious \(\gcd\)-closure consequence. It sharpens a universal-exponent viewpoint to an exact fixed-operator invariant without extra geometric hypotheses.
+A Ritt power \(T^N\) is power bounded, hence so is \(T\). Spectral mapping then forces every peripheral point of \(T\) to be an \(N\)-th root of unity, making the least common multiple \(d\) finite and necessary for every Ritt exponent. For sufficiency, set \(S=T^d\) and \(a=N/d\). The only possible peripheral point of \(S\) is \(1\), so \(Q_a(z)=1+z+\cdots+z^{a-1}\) has no zero on \(\sigma(S)\) and \(Q_a(S)\) is invertible. The identity \(I-S^a=(I-S)Q_a(S)\) transfers the discrete derivative estimate from the Ritt operator \(S^a\) to \(S\). Positive powers of a Ritt operator are Ritt by a finite telescoping argument. This proves necessity and sufficiency, including \(d=1\).
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.27458v1, which studies powers forced to be Ritt from displacement hypotheses, and arXiv:2203.05373v2, which develops Ritt\(_E\) operators for finite peripheral spectra. The theorem assumes existence of a Ritt power, is formulated over complex Banach spaces, and does not optimize quantitative Ritt constants.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bouabdillah–Le Merdy provide the finite-peripheral Ritt\(_E\) framework and derivative criteria, but the inspected theorem statements do not classify all ordinary-Ritt powers of one operator. Badea's 2026 abstract gives universal Ritt powers under displacement hypotheses and characterizes odd Ritt powers in uniformly convex settings, not the exact operator-specific divisibility ray under the sole assumption that one Ritt power exists. Its full PDF was not accessible in this run, so that plausible source is recorded as a residual risk rather than treated as noncoverage evidence.
+
+## value
+
+PASS
+
+Once existence of one Ritt power is known, the theorem completely determines every Ritt exponent from the peripheral spectrum, gives the unique least exponent, and yields gcd closure. This is a natural reusable structural completion of the power question rather than a routine estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
