@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced exactly to minimizing \(M(q)/m(q)\) over positive-definite quadratic forms. The lower bound uses the identity
-\[
-\frac4{13}v_1v_1^{\mathsf T}+\frac9{13}v_2v_2^{\mathsf T}
-=
-\frac{13}9\cdot\frac12(z_1z_1^{\mathsf T}+z_2z_2^{\mathsf T}),
-\]
-with \(v_1,v_2\) vertices and \(z_1,z_2\) boundary points, so it applies to every quadratic pullback without a symmetry assumption. The candidate form \(q_*(x,y)=x^2+(10/13)xy+y^2\) is positive definite; exact vertex evaluation and exact one-variable minimization on all eight edges give \(M=16/13\) and \(m=144/169\). The checker reproduces these identities with rational arithmetic.
+## correctness
 
-## Originality
-PASS. The 2006 primary source introduces exactly this nonabsolute octagon and studies James-constant geometry, not its Euclidean Banach--Mazur distance. The 2011 generalized Day--James classification supplies the relevant MSC 46B20 ownership but no affine-distance computation. The inspected 2017 Day--James Banach--Mazur theorem is restricted to classical \(\ell_p-\ell_q\) spaces and does not cover the piecewise-linear nonabsolute example. published-finding corpus semantic searches and web searches using the exact coefficients, the octagon description, “Banach--Mazur,” and equivalent affine-distance phrasing produced no matching statement. The closest own-ledger octagonal result is the regular absolute octagon and concerns a different norm and invariant.
+PASS
 
-## Value
-PASS. The source deliberately constructed this octagon as a canonical witness that generalized Day--James geometry goes beyond absolute normalized norms. Its exact Euclidean Banach--Mazur distance therefore gives a natural affine-Hilbertian invariant of a literature-selected counterexample, not an arbitrary polygon computation. The sharp value and optimal ellipse make the example quantitatively reusable in comparisons of planar norm geometry.
+The 2006 primary source defines exactly the piecewise function used in the record and states that the corresponding generalized Day--James unit sphere is an octagon. For an arbitrary positive-definite quadratic pullback \(q\), the matrix certificate in the package expresses a convex combination of \(q\) at two unit-ball vertices as \(13/9\) times the average at two unit-sphere edge points. Therefore \(M(q)\ge(13/9)m(q)\) for every pullback. Fresh exact rational replay of the assigned verifier reproduced the certificate, the candidate maximum \(16/13\), the boundary minimum \(144/169\), and the ratio \(13/9\). Thus the claimed distance \(\sqrt{13}/3\) and the displayed optimal quadratic form are correct.
 
-## Closest literature and limitations
-The principal sources are Nilsrakoo--Saejung (2006) for the exact octagon, Alonso (2011) for generalized Day--James classification and MSC 46B20, and Mitani--Saito--Takahashi (2017) for nearby but classical \(\ell_p-\ell_q\) Banach--Mazur formulas. The main residual originality risk is an unindexed convex-geometry table or specialist note containing the same affine invariant. The theorem itself is only for this octagon and does not generalize automatically to all generalized Day--James spaces.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact primary source was read at Proposition 2.4: it supplies the same piecewise function and octagonal sphere, but its topic is the James constant and uniform nonsquareness, not Banach--Mazur distance. The PDF contains no Banach--Mazur discussion. Current Resultary searches returned the assigned record and nearby exact Euclidean-distance records for different polygonal or Day--James families, but no stronger theorem whose parameter specialization gives this irregular octagon. The current general distance-ellipsoid literature supplies an optimality framework rather than this octagon's numerical invariant.
+
+## value
+
+PASS
+
+The object is a canonical published example designed to separate generalized Day--James geometry from absolute norms, and Euclidean Banach--Mazur distance is a standard affine invariant. An exact sharp value with a universal matrix certificate and optimal ellipse is therefore a natural reference fact rather than an arbitrary coordinate computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
