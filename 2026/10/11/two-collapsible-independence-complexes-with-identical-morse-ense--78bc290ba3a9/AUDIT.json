@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The two explicit edge sets are connected ten-edge graphs on eleven vertices and hence trees. Clique complexes of trees equal the trees; therefore the independence complexes of their complements are the trees. The forest/root enumeration reconstructs all acyclic matchings, yielding \\(z_1^{-1}\\det(z_0z_1 I+L)\\) and no missing critical-cell normalization. An exact Newton-identity checker and independent \\(2^{10}\\) weighted-forest census give a shared Laplacian characteristic polynomial (1,-20,169,-788,2223,-3916,4295,-2838,1051,-188,11,0). Exact \\(2^{10}\\) matching-mask enumerations give (1,10,34,46,23,2) and (1,10,34,46,23,3). The partition-into-tree-cliques formula for coloring complements yields \\(\\chi(G_B;q)-\\chi(G_A;q)=(q)_6\\); independent backtracking verifies six-coloring counts 1440 and 2160. All quantifiers and graph conventions are explicit. The proof does not infer an infinite claim from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zheng v3 Theorem 6.4 proves that the independence Morse ensemble determines the ordinary graph Morse ensemble (hence Laplacian spectrum), not that it determines the chromatic polynomial; the chromatic question remains open there.",
+        "Zheng v3 Theorems 6.2–6.3 give pairs with unequal independence Morse ensembles, i.e. the opposite implication pattern.",
+        "Earlier Laplacian tree and chromatic-polynomial theory concern spectral and coloring data without the newly defined independence Morse ensemble."
+      ],
+      "reasoning": "A theorem recovering the chromatic polynomial from the independence Morse ensemble would contradict the explicit witness, but the relevant strongest published recovery theorem recovers only Laplacian spectral information. Generic existence of cospectral trees is not a broader coverage of the new implication unless matching counts and the independence Morse-ensemble equality are also connected.",
+      "searches": [
+        "Chong Zheng Morse ensemble polynomial open problem recovery chromatic polynomial 2026",
+        "isospectral tree complexes same discrete Morse vector distribution different graph chromatic",
+        "web: Laplacian cospectral trees complements chromatic polynomials different matching numbers",
+        "arXiv:2605.24689v3, §6.4 and §7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.24689v1",
+      "arXiv:2605.24689v3",
+      "arXiv:math/0011234v1 (PDF pages and proof inspected)",
+      "arXiv:2105.05388 (abstract and originating-paper comparison)",
+      "published generalized-spectral tree census, identifier 2026/9/8/SCOPE045 (scope-level comparison)",
+      "the exact tree-pair certificate verify.py"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior graph-rooted-forest formulas plus equal Laplacian characteristic polynomials imply equal Morse ensembles on the tree independence complexes.",
+        "Neither Zheng’s displayed witness with equal Laplacian ordinary graph ensembles but unequal independence ensembles, nor Chari–Joswig’s rooted-forest formula, asserts a pair with equal independence ensembles and unequal chromatic polynomials.",
+        "The explicit matching-count difference implies \\(\\chi(G_B;q)-\\chi(G_A;q)=(q)_6\\) and a six-coloring count difference 720."
+      ],
+      "reasoning": "The prior graph Morse enumeration is used as a lemma with its full implication acknowledged. The added exact co-spectral/comatching distinction between the two tree complements witnesses failure of the proposed recovery. In particular, identical Laplacian spectra do not force identical matchings. The proposition answers the explicitly posed question, rather than renaming a published theorem or presenting a special case of its stronger stated conclusion.",
+      "searches": [
+        "counterexample to chromatic polynomial determined by Morse ensemble Phi independence complex Laplacian cospectral trees",
+        "Morse ensemble polynomial fails to recover chromatic polynomial clique cover matching polynomial",
+        "Chong Zheng Morse ensemble polynomial open problem recovery chromatic polynomial 2026",
+        "arXiv:2605.24689v1 Theorem 4.2, Theorems 7.2–7.4, §8",
+        "arXiv:2605.24689v3 Theorems 4.2, 6.2–6.4, §7",
+        "arXiv:math/0011234v1 Corollary 3.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zheng v3, §7(4) still asks whether the chromatic polynomial is recoverable from the independence Morse ensemble; v1 §8(1) posed the same question.",
+        "Chari–Joswig (2000), §3, identifies graph Morse matchings with rooted forests and its f-polynomial with the Laplacian characteristic polynomial; no independence-complex chromatic counterexample was found in the inspected primary text.",
+        "The new explicit graphs have matching vectors (1,10,34,46,23,2) versus (1,10,34,46,23,3), despite equal Laplacian polynomial."
+      ],
+      "reasoning": "Equality of graph Morse-ensemble polynomials is the known Laplacian-cospectral equivalence, not the new result. The new implication compares the independence Morse ensemble with the chromatic polynomial of its graph. Since the independence complexes are the two trees, equality follows from their Laplacian spectra, while their different near-perfect matching counts yield distinct chromatic polynomials. The older graph Morse formula does not by itself state this negative answer to Zheng’s newer recovery question.",
+      "searches": [
+        "arXiv:2605.24689v1, sections 4 and 7–8, terms chromatic, color, Morse ensemble",
+        "arXiv:2605.24689v3, sections 4, 6, 7(4), terms chromatic, recovery",
+        "arXiv:math/0011234v1, Proposition 3.1 and Corollary 3.3",
+        "counterexample to chromatic polynomial determined by Morse ensemble Phi independence complex Laplacian cospectral trees",
+        "Morse ensemble polynomial fails to recover chromatic polynomial clique cover matching polynomial",
+        "web: \"Morse ensemble polynomial\" \"chromatic\" \"cospectral\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact new eleven-vertex adjacency lists, common Laplacian coefficient vector, distinct matching vectors, and six-coloring counts are independently reproduced by verify.py.",
+        "The closest indexed generalized-cospectral tree census (identifier 2026/9/8/SCOPE045) concerns the joint adjacency and complement adjacency spectra and an order-twelve coincidence; it does not state equality of independence Morse ensembles or unequal chromatic polynomials at the order-eleven witness."
+      ],
+      "reasoning": "Historical tree-spectrum tables could contain this pair or an equivalent pair. An uncredited claim of novelty for the tree-spectrum pair alone is therefore not made. The new finding is the exact independence-Morse/chromatic nonrecoverability counterexample attached to the 2026 invariant. A previously published exact table with the same full implication was not found.",
+      "searches": [
+        "11 vertex tree pair Laplacian cospectral different maximum matchings perfect coloring complement",
+        "web: Laplacian cospectral trees 11 vertices matching polynomial chromatic complements",
+        "published-finding corpus identifier 2026/9/8/SCOPE045"
+      ]
+    },
+    "rationale": "The originating May 2026 study explicitly poses the chromatic-recovery question (v1 §8, retained in v3 §7(4)) and proves only Laplacian recovery, while the earlier 2000 Chari–Joswig paper covers rooted-forest enumeration and not the 2026 independence invariant. The exact new witness connects equal independence Morse ensembles to unequal chromatic polynomials, unlike Zheng’s opposite-direction separation examples. Relevant scientific literature, versioned full texts, indexed records, and historical title/claim deduplication were compared at the implication level. An unindexed contemporaneous counterexample remains a residual novelty risk rather than a claimed logical impossibility.",
+    "residual_risks": [
+      "An unindexed answer to Zheng’s very recent chromatic-recovery question might exist outside accessible indexed literature.",
+      "The exact eleven-vertex Laplacian-cospectral tree pair may already be tabulated; no independent novelty is attributed to that pair alone.",
+      "No claim that this is the smallest counterexample or that all spectral/coloring invariants fail.",
+      "The new proof is a same-model review only, not an independent referee report."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS foundational definitions and spectral identity but not the negative chromatic recovery result; asks for precisely that comparison.",
+        "evidence": [
+          "Public May 23, 2026 v1; Theorem 4.2; Theorems 7.2–7.4; §8(1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.24689v1",
+        "material_read": "Definitions 1.1, 7.1; forest expansion and Laplacian formula §4; Theorems 7.2–7.4; Remark 7.5; open problems §8; primary reference list.",
+        "method": "Full-text primary HTML inspected by sections and relevant theorem/proof passages.",
+        "title": "On the Morse Ensemble Polynomial of Simplicial Complexes (first version)",
+        "trigger": "Introduces the invariant and poses the chromatic-recovery question."
+      },
+      {
+        "assessment": "The updated paper retains the chromatic-recovery question; existing separation examples have unequal independence Morse ensembles and do not imply the present equality/inequality pairing.",
+        "evidence": [
+          "Theorem 6.4 recovers only Laplacian spectral information; §7(4) asks whether the chromatic polynomial is recoverable."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.24689v3",
+        "material_read": "§§2,4,6 and 7, including Theorems 4.2, 6.2–6.4 and open problem §7(4).",
+        "method": "Direct primary full-text HTML, version-specific sections and proofs inspected.",
+        "title": "On the Morse Ensemble Polynomial of Simplicial Complexes (third version)",
+        "trigger": "Potential stronger post-v1 coverage."
+      },
+      {
+        "assessment": "Provides the known one-dimensional correspondence and Laplacian formula which are used, not a chromatic-recovery assertion for the later independence ensemble.",
+        "evidence": [
+          "Proposition 3.1: matching/rooted forest bijection; Corollary 3.3: Morse-complex face enumerator from graph Laplacian characteristic polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0011234",
+        "material_read": "Primary PDF pp. 1–4, including Proposition 3.1 and Corollary 3.3; additional section headings and mathematical scope.",
+        "method": "Full-text PDF page text with direct rendering inspection of pp. 3–4.",
+        "title": "Discrete Morse Complexes",
+        "trigger": "Foundational rooted-forest enumeration might subsume the Morse-ensemble equality."
+      },
+      {
+        "assessment": "Consistent earlier spectral enumeration in dimension one, without an identified comparison to chromatic recovery of the 2026 independence ensemble.",
+        "evidence": [
+          "Primary abstract says Laplacian characteristic polynomials generate discrete gradient vector fields; Zheng v1 Remark 4.3 delineates overlap."
+        ],
+        "identifier_or_url": "arXiv:2105.05388",
+        "material_read": "Abstract and publication metadata; the original paper [1] discussion at its Theorem 4.2 and Remark 4.3 describes the precise relation.",
+        "method": "Primary abstract and explicit comparison in source paper; no unsupported full-text coverage verdict.",
+        "title": "On discrete gradient vector fields and Laplacians of simplicial complexes",
+        "trigger": "Close earlier graph-gradient spectral enumerator."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "78bc290b-a3a9-4db3-8828-9ed6ab5c13af",
+  "value": {
+    "rationale": "Zheng explicitly asks whether the independence Morse-ensemble polynomial determines chromatic polynomials. The negative witness is a precise boundary on that new topological-combinatorial invariant: even with contractible one-dimensional independence complexes, a *complete* distribution of Morse critical vectors misses the number of optimal six-colorings. This is a motivated response to a named open structural question, not a data-table recomputation for its own sake. The finite witness and its exact polynomial identity have interpretable mathematical consequences without claiming an unproved general classification.",
+    "status": "PASS"
+  }
+}
