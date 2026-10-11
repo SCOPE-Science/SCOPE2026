@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:47:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "X. Chen and X. Ma, Quantum Change Interval: Exact Asymptotics for Minimum Error Localization, arXiv:2608.24543v2; primary full PDF inspected at the exact Gram formula, fixed-length asymptotic theorem, i=1 finite-size corollary and numerical section.",
+        "N. Dalla Pozza and G. Pierobon, On the Optimality of Square Root Measurements in Quantum State Discrimination, arXiv:1504.04908 / Physical Review A 91 (2015) 042334; primary full text inspected at Theorems 2 and 3.",
+        "Resultary query: quantum change interval i 2 N 3 square root measurement SRM suboptimal returning interval; no independent returning-interval hit was returned.",
+        "Assigned RESULT.md, VERIFICATION.md and artifacts/verify.py from exact tree c523864c2ee311376bb35c3dcfb68b5fe5bcb746.",
+        "Fresh independent algebraic replay confirmed the stated positive first-rotation derivative for representative points and the symbolic sign argument."
+      ],
+      "rationale": "For 0<r<1 the Gram determinant is positive. Reflection decomposition gives the exact positive square root with S12=r/D>0 and S11-S22=(s/2)(1-(1+s)/D)>0 because D squared minus (1+s) squared equals 2r squared. Rotating the first two SRM vectors therefore has positive derivative (2/3)S12(S11-S22), proving a strict measurement improvement. Chen and Ma cover i=1, and equal-prior discrimination between at most two pure states has optimal SRM, establishing the stated parameter minimality.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem applies to arbitrary irreducible positive Gram matrices and is strictly broader than this three-state Toeplitz instance.",
+          "Chen and Ma provide the exact matrix to which that criterion is applied."
+        ],
+        "reasoning": "The broader prior theorem dominates the central strict-suboptimality statement after a short square-root calculation.",
+        "searches": [
+          "Dalla Pozza–Pierobon general independent-pure-state SRM optimality criterion",
+          "Chen–Ma fixed-length returning-interval model"
+        ]
+      },
+      "checked_sources": [
+        "X. Chen and X. Ma, Quantum Change Interval: Exact Asymptotics for Minimum Error Localization, arXiv:2608.24543v2; primary full PDF inspected at the exact Gram formula, fixed-length asymptotic theorem, i=1 finite-size corollary and numerical section.",
+        "N. Dalla Pozza and G. Pierobon, On the Optimality of Square Root Measurements in Quantum State Discrimination, arXiv:1504.04908 / Physical Review A 91 (2015) 042334; primary full text inspected at Theorems 2 and 3.",
+        "Resultary query: quantum change interval i 2 N 3 square root measurement SRM suboptimal returning interval; no independent returning-interval hit was returned.",
+        "Assigned RESULT.md, VERIFICATION.md and artifacts/verify.py from exact tree c523864c2ee311376bb35c3dcfb68b5fe5bcb746.",
+        "Fresh independent algebraic replay confirmed the stated positive first-rotation derivative for representative points and the symbolic sign argument."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Computing the diagonal inequality in the 3 by 3 square root invokes the published iff criterion directly.",
+          "Minimality in i follows from Chen–Ma's i=1 theorem; minimality in N follows from the standard equal-prior binary pure-state case."
+        ],
+        "reasoning": "The final claim is therefore a natural but direct special case of existing general theory plus the source model's boundary results.",
+        "searches": [
+          "Dalla Pozza–Pierobon Theorem 3",
+          "Chen–Ma exact Gram matrix and i=1 optimality corollary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3 states an if-and-only-if criterion: within each irreducible Gram block, SRM optimality is equivalent to equal diagonal entries of the square root.",
+          "For 0<r<1 the audited Gram matrix is irreducible, and the package derives S11-S22>0."
+        ],
+        "reasoning": "The rotated-measurement derivative is an explicit witness to the same failure already characterized by the general optimality theorem.",
+        "searches": [
+          "Dalla Pozza–Pierobon arXiv:1504.04908 Theorem 3",
+          "Chen–Ma arXiv:2608.24543v2 exact Gram formula",
+          "Resultary query: quantum change interval i 2 N 3 square root measurement SRM suboptimal returning interval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database row for the parameter pair was located, and Chen–Ma's finite numerics are presented as diagnostics rather than an exact proof."
+        ],
+        "reasoning": "Lack of an exact table entry does not restore originality because theorem-level prior coverage is decisive.",
+        "searches": [
+          "Resultary exact returning-interval query",
+          "Chen–Ma small-size numerical section"
+        ]
+      },
+      "rationale": "The strict SRM suboptimality is mathematically correct, but it is directly covered by a published necessary-and-sufficient SRM criterion. Dalla Pozza and Pierobon prove for an irreducible Gram block that the SRM is optimal if and only if the diagonal entries of its positive square root are equal. Chen and Ma supply the exact returning-interval Gram matrix. The audited computation itself proves S11 differs from S22 for every nontrivial overlap, so the strict failure is an immediate specialization of that prior theorem. The first-parameter boundary combines this with Chen and Ma's i=1 result and the standard binary case; it does not escape the implication-level coverage.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "MODEL AND ONE-SITE BOUNDARY COVERED; NO EXACT N=3 STRICTNESS THEOREM",
+          "evidence": "The paper gives G_ab=r^{min(|a-b|,i)} and exact finite SRM optimality at i=1, while its general i result is asymptotic.",
+          "identifier_or_url": "arXiv:2608.24543v2",
+          "material_read": "Primary full PDF covering the exact known-length Gram entries, fixed-i asymptotic theorem, i=1 finite-size SRM-optimality corollary, i=2 asymptotic formula and numerical section.",
+          "method": "Open primary PDF text plus rendered-page inspection.",
+          "title": "Quantum Change Interval: Exact Asymptotics for Minimum Error Localization",
+          "trigger": "Exact source of the returning-interval Gram matrix and claimed smallest boundary."
+        },
+        {
+          "assessment": "DECISIVE BROADER COVERAGE",
+          "evidence": "Theorem 3 gives SRM optimality iff each irreducible Gram block has a square root with equal diagonal entries; the audited instance violates exactly that condition.",
+          "identifier_or_url": "arXiv:1504.04908; DOI:10.1103/PhysRevA.91.042334",
+          "material_read": "Primary full text at Theorems 2 and 3 and their proof.",
+          "method": "Open primary arXiv full-text inspection.",
+          "title": "On the Optimality of Square Root Measurements in Quantum State Discrimination",
+          "trigger": "Strongest general SRM optimality criterion relevant to the audited Gram matrix."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "X. Chen and X. Ma, Quantum Change Interval: Exact Asymptotics for Minimum Error Localization, arXiv:2608.24543v2; primary full PDF inspected at the exact Gram formula, fixed-length asymptotic theorem, i=1 finite-size corollary and numerical section.",
+        "N. Dalla Pozza and G. Pierobon, On the Optimality of Square Root Measurements in Quantum State Discrimination, arXiv:1504.04908 / Physical Review A 91 (2015) 042334; primary full text inspected at Theorems 2 and 3.",
+        "Resultary query: quantum change interval i 2 N 3 square root measurement SRM suboptimal returning interval; no independent returning-interval hit was returned.",
+        "Assigned RESULT.md, VERIFICATION.md and artifacts/verify.py from exact tree c523864c2ee311376bb35c3dcfb68b5fe5bcb746.",
+        "Fresh independent algebraic replay confirmed the stated positive first-rotation derivative for representative points and the symbolic sign argument."
+      ],
+      "rationale": "The boundary is natural, but once the exact three-state Gram matrix is written down, the central conclusion is a routine specialization of the published necessary-and-sufficient equal-diagonal square-root criterion. Under the common value bar this does not supply an independently substantive mathematical advance beyond applying known general theory to the smallest parameter.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the returning quantum change-interval model with interval length two and three translations, the square-root measurement is strictly suboptimal for every nontrivial local overlap; this is the coordinatewise smallest returning-interval parameter pair where strict SRM failure occurs.",
+  "limitations": [
+    "The strict inequality is correct; rejection is for direct prior implication and routine special-case value, not for a correctness or access problem."
+  ],
+  "schema_version": 1
+}
