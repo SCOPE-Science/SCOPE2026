@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The general theorem is verified at the proof level rather than inferred from computation.
+# Independent mathematical audit
 
-1. If \(G\) is transitive on \(2m\) points and has \(c\) orbits on unordered pairs, the corresponding orbital graphs have positive valencies \(d_1,\ldots,d_c\) summing to \(2m-1\).
-2. If \(s\) of those valencies equal \(1\), then \(2m-1\ge2c-s\).
-3. Every valency-one orbital graph is a \(G\)-invariant perfect matching. Its mate map is an involution commuting with \(G\), and distinct matchings give distinct involutions.
-4. The centralizer of a transitive permutation group is semiregular: fixing one point forces a centralizing permutation to fix the whole transitive orbit. Hence its order divides \(2m\).
-5. For odd \(m\), a group whose order divides \(2m\) has 2-part at most \(2\). Its involutions are in bijection with its Sylow \(2\)-subgroups, whose number divides the odd part of the group order, so there are at most \(m\) involutions. Thus \(s\le m\).
-6. Therefore \(c\le(3m-1)/2\), and the number of distances is at most \(1+c=(3m+1)/2\).
-7. The published construction \(D_m\) has \(2m\) points and \(\lfloor m/2\rfloor+1+m=(3m+1)/2\) distances when \(m\) is odd, so the upper bound is attained.
+## correctness
 
-A separate finite sanity check used the standard degree-18 transitive-group catalog. Orbit enumeration on all \(153\) unordered pairs for all \(983\) transitive groups found maximum pair-orbit count \(13\), attained by 18T4 and 18T5. This independently agrees with the theorem's \(\Delta_1(18)=14\), but it is not used to prove the infinite family.
+PASS
 
-No independent audit has yet been performed.
+Let \(c\) be the number of orbits of the transitive isometry group on unordered distinct pairs, and let \(s\) be the number of those orbital graphs with valency one. Regularity gives \(2m-1=\sum d_i\ge2c-s\). Each valency-one orbital is an invariant perfect matching whose mate map is a fixed-point-free involution in the centralizer. The centralizer of a transitive action is semiregular, hence its order divides \(2m\); since \(m\) is odd, its Sylow \(2\)-subgroups have order at most two, so it has at most \(m\) involutions. Thus \(s\le m\), \(c\le(3m-1)/2\), and \(\delta(X)\le(3m+1)/2\). The published construction \(D_m\) attains this value for every odd \(m\).
+
+## originality
+
+PASS
+
+The primary paper gives the same lower construction for all odd \(m\), proves the matching upper bound only when the odd factor is prime, and explicitly asks for the composite odd-factor cases. The new centralizer-involution bound removes that primality hypothesis. Resultary and repository searches did not locate a published stronger all-even SCOPE theorem or a prime-free primary statement; a broader unpublished or newly indexed result remains a residual risk rather than negative evidence.
+
+## value
+
+PASS
+
+The result exactly closes an explicit open family in the source paper, including every composite odd factor at order \(4k+2\), and does so with a short reusable permutation-group mechanism. This is a natural complete classification on one full parity stratum, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:13:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let \\(c\\) be the number of orbits of the transitive isometry group on unordered distinct pairs, and let \\(s\\) be the number of those orbital graphs with valency one. Regularity gives \\(2m-1=\\sum d_i\\ge2c-s\\). Each valency-one orbital is an invariant perfect matching whose mate map is a fixed-point-free involution in the centralizer. The centralizer of a transitive action is semiregular, hence its order divides \\(2m\\); since \\(m\\) is odd, its Sylow \\(2\\)-subgroups have order at most two, so it has at most \\(m\\) involutions. Thus \\(s\\le m\\), \\(c\\le(3m-1)/2\\), and \\(\\delta(X)\\le(3m+1)/2\\). The published construction \\(D_m\\) attains this value for every odd \\(m\\).",
+      "risk": "The proof settles exactly the one-factor-of-two family; it does not address orders with \\(2\\)-adic valuation at least two.",
+      "sources": [
+        "arXiv:2305.03163 / DOI:10.1007/s13398-024-01587-y",
+        "standard Sylow theorem and semiregularity of the centralizer of a transitive permutation group"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 6.11 proves the exact formula only when \\(2k+1\\) is prime.",
+          "Question 1 explicitly leaves \\(m=1\\) with composite odd factor open in the paper's notation.",
+          "Example 6.8 supplies the lower construction for every odd factor."
+        ],
+        "reasoning": "The submitted centralizer argument supplies a new uniform upper bound on exactly the open composite family.",
+        "searches": [
+          "Bargetz–Bartoš–Kubiś–Luggin Proposition 6.11, Example 6.8, Question 1",
+          "search for transitive-group orbital bounds at degree twice an odd integer"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.03163 / DOI:10.1007/s13398-024-01587-y",
+        "Resultary semantic corpus",
+        "current SCOPE repository text search for stronger exact formulas"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published upper bound uses primality and therefore does not imply the composite cases.",
+          "The new proof bounds the number of valency-one orbitals through the semiregular centralizer and Sylow counting, a mechanism absent from the inspected source statement."
+        ],
+        "reasoning": "The submitted result closes a stated open subfamily rather than restating the source's prime case.",
+        "searches": [
+          "DOI:10.1007/s13398-024-01587-y Proposition 6.11 and Question 1",
+          "centralizer-involution orbital comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper itself identifies the equivalent vertex-transitive colored-complete-graph formulation.",
+          "No checked published result states the prime-free \\(3k+2\\) maximum in either metric or pair-orbit language."
+        ],
+        "reasoning": "Both metric and permutation-group formulations were searched because a covering theorem need not mention metric spaces.",
+        "searches": [
+          "Resultary: exact distance maximum every 1-homogeneous metric space order \\(4k+2\\)",
+          "vertex-transitive edge coloring maximum colors order \\(4k+2\\)",
+          "transitive permutation group unordered-pair orbits valency-one orbitals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published SCOPE record with the submitted exact family was returned by the bounded checks.",
+          "The primary source's small-order table/open question is consistent with the claim being beyond its published exact cases."
+        ],
+        "reasoning": "The degree-18 finite catalog cited by the package is only a sanity check and does not prove the infinite theorem.",
+        "searches": [
+          "Resultary exact-title/formula queries for \\(\\Delta_1(4k+2)=3k+2\\)",
+          "repository search for \\(\\Delta_1(18)=14\\), \\(3n+n_2\\), and homogeneous-isosceles-free composite extensions"
+        ]
+      },
+      "rationale": "The primary paper gives the same lower construction for all odd \\(m\\), proves the matching upper bound only when the odd factor is prime, and explicitly asks for the composite odd-factor cases. The new centralizer-involution bound removes that primality hypothesis. Resultary and repository searches did not locate a published stronger all-even SCOPE theorem or a prime-free primary statement; a broader unpublished or newly indexed result remains a residual risk rather than negative evidence.",
+      "residual_risks": [
+        "A recent unpublished or not-yet-indexed theorem could subsume the same composite family.",
+        "The centralizer involution bound may be known in permutation-group folklore without having been connected to this metric invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_COMPOSITE_CASE",
+          "evidence": "Example 6.8 gives the lower construction; Proposition 6.11 assumes the odd factor is prime; Question 1 explicitly asks for the remaining composite odd-factor case when the degree has exactly one factor of two.",
+          "identifier_or_url": "arXiv:2305.03163 / DOI:10.1007/s13398-024-01587-y",
+          "material_read": "Open full article around Example 6.8, Proposition 6.11, Proposition 6.12, the summary table and Question 1.",
+          "method": "Primary full-text inspection.",
+          "title": "Homogeneous isosceles-free spaces",
+          "trigger": "Defining paper for \\(\\Delta_1\\), lower construction, prime-case theorem and open question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result exactly closes an explicit open family in the source paper, including every composite odd factor at order \\(4k+2\\), and does so with a short reusable permutation-group mechanism. This is a natural complete classification on one full parity stratum, not an arbitrary finite slice.",
+      "risk": "Orders divisible by four with a nontrivial odd factor remain outside the theorem.",
+      "sources": [
+        "arXiv:2305.03163 / DOI:10.1007/s13398-024-01587-y"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every odd positive integer \\(m\\), the maximum number of distances in a \\(1\\)-homogeneous metric space on \\(2m\\) points is \\((3m+1)/2\\), equivalently \\(\\Delta_1(4k+2)=3k+2\\) for every \\(k\\ge0\\).",
+  "limitations": [
+    "The result treats only \\(n\\equiv2\\pmod4\\).",
+    "No claim is made for orders with \\(2\\)-adic valuation at least two."
+  ],
+  "schema_version": 1
+}
