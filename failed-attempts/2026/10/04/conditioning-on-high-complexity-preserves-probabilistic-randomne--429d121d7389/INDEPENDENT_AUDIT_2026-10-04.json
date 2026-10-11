@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:06:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Vovk's Theorem 2 gives the numerator bound \\(m(B_a)\\le c_3\\sum_{k\\ge a}2^{-g(k)}\\). In the same primary paper, Proposition 1 gives \\(m(H_a)=\\Theta(\\tau(a))\\). The companion paper proves that \\(\\tau(a)/f(a)\\to\\infty\\) for every computable positive decreasing \\(f\\to0\\). Taking \\(f=1/h\\) (after a monotone computable normalization if needed) yields \\(1/m(H_a)=o(h(a))\\), so division proves the master conditional bound. The four displayed regimes follow from the same series estimates used by Vovk for Corollaries 3--6. The statement is mathematically sound.",
+      "risk": "The formulation assumes the chosen diverging computable \\(h\\) is handled in a way compatible with the monotone-tail lemma; this is available by replacing it with a computable monotone minorant/divergence schedule.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source already establishes the exact four unconditioned rate regimes and the denominator tail's slower-than-computable decay."
+        ],
+        "reasoning": "The audited specializations add conditioning notation, not new scientific coverage.",
+        "searches": [
+          "Working Paper 71, Corollaries 3--6",
+          "Working Paper 70, Lemma 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.13513 / Working Paper 71",
+        "arXiv:2608.27098 / Working Paper 70",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Divide the Theorem 2 numerator bound by the Proposition 1 denominator and use Lemma 5 with \\(f=1/h\\)."
+        ],
+        "reasoning": "This is exactly the submitted proof. Under the audit rule that prior implications and corollaries count as coverage, originality fails.",
+        "searches": [
+          "Working Paper 71, Proposition 1 + Theorem 2",
+          "Working Paper 70, Lemma 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 1 states \\(m(H_a)=\\Theta(\\tau(a))\\); Theorem 2 bounds the bad numerator by \\(\\sum_{k\\ge a}2^{-g(k)}\\); Lemma 5 states \\(\\tau/f\\to\\infty\\) for every computable decreasing \\(f\\to0\\)."
+        ],
+        "reasoning": "These three published statements algebraically imply the submitted normalized theorem.",
+        "searches": [
+          "Vovk, arXiv:2609.13513 / Working Paper 71, Proposition 1 and Theorem 2",
+          "Vovk, arXiv:2608.27098 / Working Paper 70, Lemma 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database issue is relevant; the decisive coverage comes from primary theorems."
+        ],
+        "reasoning": "This check is inapplicable to a theorem-level implication rather than a tabulated invariant.",
+        "searches": [
+          "Resultary query: Vovk high complexity probabilistically nonrandom conditional universal measure normalized share"
+        ]
+      },
+      "rationale": "The final claim is a direct normalization corollary of results already stated in Vovk's two 2026 papers. The main paper itself places Proposition 1 immediately before Theorem 2 and says that the 'vast majority' of high-complexity objects are probabilistically random; its Corollaries 3--6 already give the four raw decay regimes. The companion paper's slow-tail lemma supplies exactly the missing denominator estimate. No new comparison, invariant, or theorem is needed beyond dividing the published numerator by the published high-complexity mass and choosing a computable slow factor.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERAGE",
+          "evidence": "Proposition 1 and Theorem 2 are the two inequalities whose quotient is the submitted conditional share; the paper already interprets them as saying the vast majority of high-complexity objects are probabilistically random.",
+          "identifier_or_url": "arXiv:2609.13513; https://www.gtfp.cs.rhul.ac.uk/articles/71.pdf",
+          "material_read": "Full primary PDF around Proposition 1, Theorem 2, and Corollaries 3--6.",
+          "method": "lawful author-hosted full text",
+          "title": "The universal measure of probabilistically nonrandom objects",
+          "trigger": "Direct source of the numerator theorem and high-complexity denominator comparison."
+        },
+        {
+          "assessment": "DECISIVE_COVERAGE",
+          "evidence": "Lemma 5 proves \\(\\tau(n)/f(n)\\to\\infty\\) for every computable decreasing \\(f\\to0\\), exactly the extra fact used to introduce arbitrary computable diverging \\(h\\).",
+          "identifier_or_url": "arXiv:2608.27098; https://www.gtfp.cs.rhul.ac.uk/articles/70.pdf",
+          "material_read": "Full primary PDF around Theorem 4 and Lemma 5.",
+          "method": "lawful author-hosted full text",
+          "title": "The universal measure of nonstochastic objects",
+          "trigger": "Source of the slow-tail denominator lemma."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The normalized conditional statement is useful exposition, but scientifically it is a routine quotient of adjacent published estimates, and each named rate is already computed in the source paper. It introduces no new structural lemma, sharp boundary, exact invariant, or nontrivial comparison under the stated value standard.",
+      "risk": "Readers may find the conditional interpretation clearer, but expository convenience does not meet the required mathematical-value threshold.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the universal semimeasure conditioned on objects with prefix complexity at least \\(a\\), the conditional share of objects whose best-fit deficiency at scale \\(g(K)\\) exceeds a fixed constant is \\(o(h(a)\\sum_{k\\ge a}2^{-g(k)})\\) for every computable diverging \\(h\\), with the stated exponential, stretched-exponential, superpolynomial and polynomial specializations.",
+  "limitations": [
+    "Scientific rejection is for originality and value, not correctness.",
+    "The source theorems themselves remain unaffected."
+  ],
+  "schema_version": 1
+}
