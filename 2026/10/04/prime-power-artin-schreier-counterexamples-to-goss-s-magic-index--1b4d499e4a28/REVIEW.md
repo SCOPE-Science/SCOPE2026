@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For every root \(\theta\) of \(U^q-U-a\), the \(q\)-Frobenius orbit is \(\theta,\theta+a,\ldots,\theta+(p-1)a\), so every irreducible factor has degree exactly \(p\). The key recurrence is obtained by decomposing monic polynomials as \(Yh+c\), applying \(\sum_{c\in\mathbb F_q}(z+c)^{-1}=-(z^q-z)^{-1}\), and reindexing through the bijection \(h\mapsto\Delta_a(Yh)/(ma)\) for \(m<p\). This gives \(T_m(na)=(-1)^m\binom nm\) and hence the exact binomial reduction. The standard even-character reduction then gives \(\deg_X g=n-1\). Exact arithmetic at \(q=25\) independently reproduces all five coefficients for \(n=3\).
+## correctness
 
-## Originality
-PASS. Anglès works over general \(\mathbb F_q\) but only states the magic-index framework and Goss's conjecture. The 2026 counterexample preprint explicitly specializes to \(q=p\) and uses the irreducible polynomial \(T^p-T-a\). Its abstract and inspected proof do not state the extension to \(q=p^s\), where \(U^q-U-a\) instead splits into \(q/p\) degree-\(p\) factors. Targeted searches for the prime-power formulation, the Artin–Schreier factor family, the exact binomial reduction, and equivalent degree statements found no covering result.
+PASS
 
-## Value
-PASS. The result moves the newly discovered counterexample mechanism from prime fields to every finite base field of characteristic at least five. It also identifies the precise replacement for the prime-field irreducibility input and counts the resulting counterexample primes: \(q(q-1)/p\) for each index \(q^n-1\). This is a structural extension of the source theorem rather than a parameter substitution, because the defining Artin–Schreier polynomial changes factorization type when the base field is enlarged.
+The \(q\)-Frobenius orbit of a root has length exactly \(p\), giving \(q/p\) distinct degree-\(p\) factors. The finite-field reciprocal-sum identity and the normalized finite-difference bijection give \(T_m(b+a)=T_m(b)-T_{m-1}(b)\); Pascal induction yields \(T_m(na)=(-1)^m\binom nm\), hence \((1-X)^n\). The standard even-character reduction then gives \(\deg g=n-1\). Distinct \(a\) give disjoint factor sets. The inspected verifier checks the genuinely nonprime case \(q=25\) exactly.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.37466v1, which proves the prime-field family. Anglès's earlier paper supplies the general-\(q\) cyclotomic and magic-index setting but no such counterexample family. The result is confined to factors of \(U^q-U-a\) and indices \(q^n-1\); it does not classify all magic-index failures or all degree-\(p\) primes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Giraudin's full paper explicitly assumes \(q=p\) prime. The audited result treats arbitrary prime-power base size, where \(U^q-U-a\) is reducible and needs a new factor-orbit analysis and \(\mathbb F_q\) recursion. No prior prime-power extension was found.
+
+## value
+
+PASS
+
+Extending the new counterexample mechanism from prime fields to every prime-power base is structurally nontrivial because irreducibility fails; the exact factor count makes the extension quantitatively useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

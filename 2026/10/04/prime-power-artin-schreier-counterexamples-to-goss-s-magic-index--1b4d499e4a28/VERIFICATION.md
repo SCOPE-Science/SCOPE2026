@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is uniform in \(q=p^s\); the finite computation below is only an independent check of a non-prime base field.
+# Independent mathematical audit
 
-Run `python3 verify.py`. The script implements exact arithmetic in
-\[
-\mathbb F_{25}=\mathbb F_5[u]/(u^2-3)
-\]
-and then in
-\[
-K=\mathbb F_{25}[\theta]/(\theta^5-\theta-3).
-\]
-It verifies the five-step Frobenius orbit \(\theta^{25}=\theta+1\), checks the finite-field reciprocal-sum identity exactly at \(z=\theta\), and exhaustively verifies that the normalized finite-difference map \(h\mapsto\Delta_1(Yh)/m\) is a bijection on every monic degree-\(m-1\) polynomial for \(1\le m\le4\). The verified bijections force the Pascal recurrence, whose \(n=3\) coefficient vector is exactly \((1,2,3,4,0)\), the coefficient vector of \((1-X)^3\) in characteristic \(5\).
+## correctness
 
-Expected terminal line:
+PASS
 
-`VERIFY_OK q=25 p=5 n=3 frobenius_orbit=5 reciprocal_sum=exact phi_sizes=1,25,625,15625 coefficients=1,2,3,4,0`
+The \(q\)-Frobenius orbit of a root has length exactly \(p\), giving \(q/p\) distinct degree-\(p\) factors. The finite-field reciprocal-sum identity and the normalized finite-difference bijection give \(T_m(b+a)=T_m(b)-T_{m-1}(b)\); Pascal induction yields \(T_m(na)=(-1)^m\binom nm\), hence \((1-X)^n\). The standard even-character reduction then gives \(\deg g=n-1\). Distinct \(a\) give disjoint factor sets. The inspected verifier checks the genuinely nonprime case \(q=25\) exactly.
 
-These finite checks corroborate every algebraic ingredient of the non-prime example. The infinite statement is proved by the symbolic Frobenius-orbit argument, the reciprocal-sum identity over \(\mathbb F_q\), and the finite-difference bijection for every \(1\le m<p\).
+## originality
+
+PASS
+
+Giraudin's full paper explicitly assumes \(q=p\) prime. The audited result treats arbitrary prime-power base size, where \(U^q-U-a\) is reducible and needs a new factor-orbit analysis and \(\mathbb F_q\) recursion. No prior prime-power extension was found.
+
+## value
+
+PASS
+
+Extending the new counterexample mechanism from prime fields to every prime-power base is structurally nontrivial because irreducibility fails; the exact factor count makes the extension quantitatively useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

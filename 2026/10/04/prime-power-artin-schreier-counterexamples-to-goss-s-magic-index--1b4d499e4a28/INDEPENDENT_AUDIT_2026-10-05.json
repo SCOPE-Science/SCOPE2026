@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:38:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 7215e7077a9f3b75ef25dced87f671935486c64f",
+        "verify.py 422f5cc63817586e1a3083220ccac1933f75d549",
+        "Giraudin arXiv:2609.37466",
+        "Anglès arXiv:math/0502130"
+      ],
+      "rationale": "The \\(q\\)-Frobenius orbit of a root has length exactly \\(p\\), giving \\(q/p\\) distinct degree-\\(p\\) factors. The finite-field reciprocal-sum identity and the normalized finite-difference bijection give \\(T_m(b+a)=T_m(b)-T_{m-1}(b)\\); Pascal induction yields \\(T_m(na)=(-1)^m\\binom nm\\), hence \\((1-X)^n\\). The standard even-character reduction then gives \\(\\deg g=n-1\\). Distinct \\(a\\) give disjoint factor sets. The inspected verifier checks the genuinely nonprime case \\(q=25\\) exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anglès supplies the framework but not this counterexample family; Giraudin supplies the family only for \\(q=p\\)."
+        ],
+        "reasoning": "Neither checked source covers the reducible prime-power-base construction.",
+        "searches": [
+          "Anglès 2006 general \\(q\\) cyclotomic setup",
+          "Giraudin 2026 prime-field counterexamples"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37466",
+        "arXiv:math/0502130",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A theorem restricted to \\(q=p\\) does not imply the extension to \\(q=p^s\\), where the defining polynomial ceases to be irreducible."
+        ],
+        "reasoning": "The new factorization and recursion are necessary implication steps.",
+        "searches": [
+          "Giraudin Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Giraudin states 'Throughout we take q=p prime' and proves only the prime-field Artin--Schreier polynomial case."
+        ],
+        "reasoning": "Prime-power fields and degree-\\(p\\) factors were compared directly with the prime-field theorem.",
+        "searches": [
+          "Resultary Artin-Schreier Goss prime-power search",
+          "Giraudin arXiv:2609.37466"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the assigned exact finding was returned."
+        ],
+        "reasoning": "No independent formula/table with the claimed prime-power extension was located.",
+        "searches": [
+          "Resultary exact prime-power Goss query"
+        ]
+      },
+      "rationale": "Giraudin's full paper explicitly assumes \\(q=p\\) prime. The audited result treats arbitrary prime-power base size, where \\(U^q-U-a\\) is reducible and needs a new factor-orbit analysis and \\(\\mathbb F_q\\) recursion. No prior prime-power extension was found.",
+      "residual_risks": [
+        "A near-simultaneous unindexed extension may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIME_FIELD_ONLY",
+          "evidence": "The paper explicitly fixes \\(q=p\\) prime.",
+          "identifier_or_url": "arXiv:2609.37466",
+          "material_read": "Full primary HTML through the theorem, proof, reduction-to-g proposition, numerical confirmation and relation-to-existing-work section.",
+          "method": "Open-access full-text inspection.",
+          "title": "An infinite family of counterexamples to Goss's conjecture on L-functions of cyclotomic function fields",
+          "trigger": "Exact predecessor construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Giraudin 2026",
+        "Anglès 2006"
+      ],
+      "rationale": "Extending the new counterexample mechanism from prime fields to every prime-power base is structurally nontrivial because irreducibility fails; the exact factor count makes the extension quantitatively useful.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(q=p^s\\), \\(p\\ge5\\), every degree-\\(p\\) factor \\(P\\) of \\(U^q-U-a\\), \\(a\\ne0\\), and \\(1\\le n\\le p-1\\), one has \\(D_{P,q^n-1}(X)=(1-X)^n\\) and \\(\\deg_X g=n-1\\); for \\(3\\le n\\le p-1\\) the construction supplies exactly \\(q(q-1)/p\\) degree-\\(p\\) counterexample primes.",
+  "limitations": [
+    "Specific Artin--Schreier family and magic indices \\(q^n-1\\) only.",
+    "The prime count is only for this construction."
+  ],
+  "schema_version": 1
+}
