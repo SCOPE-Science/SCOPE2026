@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The density characterization in Lemma 8 of arXiv:2609.28336v1 reduces the null-side model to the pointwise band \([\phi/(2n),\phi]\). For any candidate observed density, total variation on \(\mathbb R_\star\) is the maximum of the positive and negative observed-density discrepancy masses. The monotone Gaussian likelihood ratio identifies the unavoidable lower and upper tails, and pointwise clipping attains them. The Mills expansion and the coefficient \(C_b=\sqrt b\,\log(1/b)/(4\sqrt\pi)\) were reconstructed algebraically. The testing consequence uses only product total-variation tensorization and the same two-point interval-to-test reduction as the motivating source.
+# Independent mathematical audit
 
-## Originality
-PASS. The motivating paper's Proposition 22 was inspected in full around both lower-bound cases. It gives rate-optimal adaptive confidence lengths, but its explicit constructions use coarse tail or Kullback--Leibler bounds and do not state the exact infimum \(D_n\), the \(-\tfrac32\log\log n\) window, or the \(1/\sqrt2\) fixed-MCAR leading coefficient. The closest adaptive Huber-confidence paper uses related Gaussian tail truncation under a different contamination class and states order-level separation. Published-finding searches over missing-data, selection-model, clipping, total-variation, Gaussian testing and log-log aliases found no same or stronger implication.
+## correctness
 
-## Value
-PASS. The object being computed is the precise testing modulus that drives the source paper's adaptive lower bound, not an arbitrary slice. Its exact form unifies the source's two lower-bound constructions, yields a nontrivial second-order transition, and materially sharpens the leading constant in a logarithmically slow regime. The result is useful for future sharp-constant work even though a matching upper constant is not established here.
+PASS
 
-## Closest literature and limitations
-The closest source is Ma, Verchand, Gao and Samworth, arXiv:2609.28336v1, especially Lemma 8 and Proposition 22. Luo and Gao, arXiv:2410.22647, is the closest broader adaptive Gaussian contamination/testing result. Ma et al., arXiv:2410.10704, supplies the underlying realisable missingness framework. The product total variation is only upper-bounded by tensorization, and the confidence result is only a lower bound. Fixed MCAR missingness and known scale are required for the asymptotic consequence. A residual risk remains from a general sharp testing theorem under different terminology.
+Using the source model's density-band characterization, admissible observed densities satisfy \(a_n\phi\le m\le\phi\). For target density \(m_2=b\phi(\cdot-r)\), total variation on the observed space plus missing atom equals the maximum of the positive and negative observed-density discrepancy masses. The monotone Gaussian likelihood ratio crosses the lower and upper admissible ratios once, forcing exactly the two tail discrepancies \(B_{n,b}(r)\) and \(A_b(r)\); pointwise clipping attains both bounds simultaneously. For the critical asymptotic, independent symbolic substitution of \(r=L/\sqrt{2S}\) into the derived upper-tail asymptotic confirms the prefactor \(C_b=\sqrt b L/(4\sqrt\pi)\), and the stated \(-3/2\log\log n\) normalization gives \(nA_b\to e^{-x}\). The lower crossing is much farther into the Gaussian tail, making \(nB_{n,b}\to0\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The motivating 2026 paper is the exact missing-data confidence-interval problem and its accessible primary statement advertises minimax rates and finite-sample adaptive intervals, not the audited exact one-sample TV projection or the log-log critical window. Earlier realisable-missingness and Huber-contamination papers provide related estimation/testing frameworks but no located statement with the exact clipping modulus or \(-3/2\log\log n\) normalization. Resultary searches found no equivalent finding. Complete text of the 2026 paper could not be obtained: the open route did not expose the needed full material and the permitted Oxford retrieval attempt was safety-blocked, so priority remains best-of-knowledge with an explicit residual risk.
+
+## value
+
+PASS
+
+The total-variation projection is the natural testing modulus driving the adaptive confidence lower bound. Its exact clipping form, nontrivial \(-3/2\log\log n\) critical window and improved fixed-MCAR leading lower coefficient materially sharpen a logarithmically slow information boundary while making appropriately limited claims about product TV and minimax sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

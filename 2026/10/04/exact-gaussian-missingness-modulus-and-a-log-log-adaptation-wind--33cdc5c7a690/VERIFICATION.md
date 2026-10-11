@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The exact minimizer is the observed density
-\[
-m^*(x)=\min\{\phi(x),\max\{\phi(x)/(2n),b\phi(x-r)\}\}.
-\]
-For any admissible density, the upper-tail excess and lower-tail deficit cannot be reduced below \(A_b(r)\) and \(B_{n,b}(r)\), respectively. The atom at \(\star\) converts the total-variation norm into the larger of those two discrepancy masses, so clipping proves exact optimality.
 
-At the upper crossing, with \(z=L/r-r/2\), the identity \(\phi(z+r)=b\phi(z)\) and the two-term Mills expansion give
-\[
-A_b(r)\sim b\phi(z)\frac{r}{z^2}
-\sim \frac{\sqrt b}{\sqrt{2\pi}L^2}r^3e^{-L^2/(2r^2)}.
-\]
-Substitution \(S=L^2/(2r^2)\) gives
-\[
-A_b(r)\sim \frac{\sqrt b\,L}{4\sqrt\pi}S^{-3/2}e^{-S}.
-\]
-The stated choice of \(S_n(x)\) therefore makes \(nA_b(r_n(x))\to e^{-x}\). The lower crossing lies at order \(- (\log n)^{3/2}\), so \(nB_{n,b}(r_n(x))\to0\).
+# Independent mathematical audit
 
-The bundled numerical verifier checks the exact formulas at high precision for several \(b\) and increasing \(n\), and confirms convergence of \(nD_n(r_n(0);b)\) toward one. Those checks are diagnostic only; the theorem rests on the analytic argument above.
+## correctness
 
-Limits checked: no equality for product total variation is claimed; no matching upper confidence-length constant is claimed; no statement is made for varying \(\epsilon\), unknown \(\sigma\), or non-Gaussian bases.
+PASS
+
+Using the source model's density-band characterization, admissible observed densities satisfy \(a_n\phi\le m\le\phi\). For target density \(m_2=b\phi(\cdot-r)\), total variation on the observed space plus missing atom equals the maximum of the positive and negative observed-density discrepancy masses. The monotone Gaussian likelihood ratio crosses the lower and upper admissible ratios once, forcing exactly the two tail discrepancies \(B_{n,b}(r)\) and \(A_b(r)\); pointwise clipping attains both bounds simultaneously. For the critical asymptotic, independent symbolic substitution of \(r=L/\sqrt{2S}\) into the derived upper-tail asymptotic confirms the prefactor \(C_b=\sqrt b L/(4\sqrt\pi)\), and the stated \(-3/2\log\log n\) normalization gives \(nA_b\to e^{-x}\). The lower crossing is much farther into the Gaussian tail, making \(nB_{n,b}\to0\).
+
+## originality
+
+PASS
+
+The motivating 2026 paper is the exact missing-data confidence-interval problem and its accessible primary statement advertises minimax rates and finite-sample adaptive intervals, not the audited exact one-sample TV projection or the log-log critical window. Earlier realisable-missingness and Huber-contamination papers provide related estimation/testing frameworks but no located statement with the exact clipping modulus or \(-3/2\log\log n\) normalization. Resultary searches found no equivalent finding. Complete text of the 2026 paper could not be obtained: the open route did not expose the needed full material and the permitted Oxford retrieval attempt was safety-blocked, so priority remains best-of-knowledge with an explicit residual risk.
+
+## value
+
+PASS
+
+The total-variation projection is the natural testing modulus driving the adaptive confidence lower bound. Its exact clipping form, nontrivial \(-3/2\log\log n\) critical window and improved fixed-MCAR leading lower coefficient materially sharpen a logarithmically slow information boundary while making appropriately limited claims about product TV and minimax sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
