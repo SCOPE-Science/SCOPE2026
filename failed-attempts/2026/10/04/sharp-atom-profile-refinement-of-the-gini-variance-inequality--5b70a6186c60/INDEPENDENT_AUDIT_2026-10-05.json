@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:02:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the randomized probability integral transform, conditional expectation given \\(X\\) is the mid-distribution value \\(M\\), and total variance gives \\(\\operatorname{Var}(M)=(1-S_3)/12\\). Exchangeability gives \\(\\Delta=4\\operatorname{Cov}(X,M)\\); Cauchy--Schwarz yields the inequality and its equality condition forces \\(X\\) to be affine in \\(M\\). Convexity gives the support-cardinality bound. For two iid draws, \\(YZ=X_1X_2\\) and \\(Y+Z=X_1+X_2\\); under reflection symmetry these identities give the stated correlation transform. I independently checked the inequality and equality construction on exact rational examples, and the frozen exact-rational verifier was read.",
+      "risk": "The order-statistic corollary requires reflection symmetry outside the equal-mass special case.",
+      "sources": [
+        "Parzen, DOI:10.1214/088342304000000387",
+        "arXiv:2205.14360",
+        "arXiv:1406.2275",
+        "RESULT.md",
+        "verify_gini_atom_profile.py",
+        "fresh exact-rational spot checks"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parzen states the exact variance of the mid-distribution transform.",
+          "Papadatos proves the equal-weight min--max bound and arithmetic-lattice equality case.",
+          "Čiginas--Pumputis develop exact finite-population Gini formulas; La Haye--Zizler's accessible abstract confirms a sharpened Gini--variance program."
+        ],
+        "reasoning": "The arbitrary-profile coefficient is obtained by combining the established rank representation with the established midrank variance.",
+        "searches": [
+          "Parzen, Quantile Probability and Statistical Data Modeling",
+          "arXiv:2205.14360 full text",
+          "arXiv:1406.2275 full text",
+          "DOI:10.1007/s40300-019-00149-2"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1214/088342304000000387",
+        "arXiv:2205.14360",
+        "arXiv:1406.2275",
+        "DOI:10.1007/s40300-019-00149-2",
+        "standard Gini covariance literature",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known \\(\\operatorname{Var}(M)\\) plus \\(\\Delta=4\\operatorname{Cov}(X,M)\\) immediately yields the submitted constant by Cauchy--Schwarz.",
+          "Cauchy--Schwarz equality immediately gives the affine-midrank support geometry.",
+          "Papadatos already supplies the uniform-probability min--max specialization."
+        ],
+        "reasoning": "The new formulas do not require a nonstandard lemma once these prior identities are placed together.",
+        "searches": [
+          "Parzen mid-distribution theorem",
+          "standard Gini covariance/rank identity",
+          "Papadatos arXiv:2205.14360 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parzen's mid-distribution formula explicitly gives the cubic tie correction.",
+          "Standard Gini covariance literature gives the rank-covariance representation; replacing ties by midranks is the discrete form used here."
+        ],
+        "reasoning": "The submitted inequality is the Cauchy--Schwarz bound for the covariance representation normalized by the known variance of the midrank transform.",
+        "searches": [
+          "Resultary query: Gini variance atom profile S3 sum p cubed mid-distribution support geometry",
+          "Web: Gini mean difference covariance mid-distribution discrete",
+          "Parzen mid-distribution variance formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separately indexed copy of the final displayed inequality was found."
+        ],
+        "reasoning": "Failure to find the same displayed formula does not overcome the direct implication from known identities.",
+        "searches": [
+          "Resultary exact semantic search for the cubic atom term",
+          "Web search for \"1 - sum p_i^3\" with Gini and variance"
+        ]
+      },
+      "rationale": "The decisive ingredients are already standard and published: the mid-distribution literature gives \\(E[M]=1/2\\) and \\(\\operatorname{Var}(M)=(1-\\sum p_i^3)/12\\), while the Gini methodology expresses Gini mean difference as covariance with rank; the discrete midrank version follows directly from the same pairwise-sign identity. The submitted inequality and support equality condition are then exactly one Cauchy--Schwarz step and its equality criterion. Papadatos already gives the equal-mass min--max constant and arithmetic-progression equality case. Thus the package is a clean synthesis, but under implication-based originality the main theorem is covered by established identities plus routine linear-algebraic inequality.",
+      "residual_risks": [
+        "The inaccessible La Haye--Zizler full text could contain an even closer discrete sharpening, but the rejection does not depend on that access-limited source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES_DECISIVE_CUBIC_IDENTITY",
+          "evidence": "The exact atom-cubic variance correction used in the submitted proof is already stated.",
+          "identifier_or_url": "DOI:10.1214/088342304000000387",
+          "material_read": "Accessible primary/repository material stating \\(E[F_{mid}(X)]=1/2\\) and \\(\\operatorname{Var}(F_{mid}(X))=(1-\\sum p_i^3)/12\\).",
+          "method": "Lawful open-source inspection.",
+          "title": "Quantile Probability and Statistical Data Modeling",
+          "trigger": "Primary mid-distribution source for the exact tie variance."
+        },
+        {
+          "assessment": "COVERS_EQUAL_WEIGHT_ORDER_STATISTIC_SPECIALIZATION",
+          "evidence": "The theorem gives the \\((1-N^{-2})/(2+N^{-2})\\) bound and arithmetic-lattice equality for uniform finite populations.",
+          "identifier_or_url": "arXiv:2205.14360",
+          "material_read": "Full open arXiv PDF including Theorem 1.2 and its setup.",
+          "method": "Lawful open full-text inspection with PDF page inspection.",
+          "title": "A discrete analogue of Terrell's characterization of rectangular distributions",
+          "trigger": "Exact two-sample min--max correlation comparison."
+        },
+        {
+          "assessment": "SUPPORTING_DISCRETE_GINI_FORMULAS",
+          "evidence": "The source treats Gini mean difference and variance for finite populations but does not need the submitted profile formula to establish the standard pairwise representation.",
+          "identifier_or_url": "arXiv:1406.2275",
+          "material_read": "Full open arXiv PDF including definitions, exact finite-population Gini formulas and literature context.",
+          "method": "Lawful open full-text inspection with PDF page inspection.",
+          "title": "Gini's mean difference and variance as measures of finite populations scales",
+          "trigger": "Primary same-invariant discrete finite-population source."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_SOURCE",
+          "evidence": "The abstract states that the classical Gini--variance inequality is sharpened and generalized, but inaccessible details were not used to claim coverage.",
+          "identifier_or_url": "DOI:10.1007/s40300-019-00149-2",
+          "material_read": "Public abstract only; lawful open full text was unavailable and the authorized institutional retrieval returned an operational error.",
+          "method": "OA attempt followed by authorized institutional attempt; no retry or bypass.",
+          "title": "The Gini mean difference and variance",
+          "trigger": "Potential direct Gini--variance sharpening."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The profile-sensitive constant and equality geometry are mathematically neat, but after the published mid-distribution variance and standard Gini rank-covariance identity are in hand, the main theorem is a routine Cauchy--Schwarz deduction and equality check; the equal-mass order-statistic endpoint is already published. Under the common bar this is not enough additional mathematical structure.",
+      "risk": "The synthesis is potentially useful pedagogically or statistically, but usefulness of presentation is distinct from the audit's scientific-value threshold.",
+      "sources": [
+        "DOI:10.1214/088342304000000387",
+        "arXiv:2205.14360"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a finite discrete law with masses \\(p_i\\), Gini mean difference \\(\\Delta\\), variance \\(\\sigma^2\\), and \\(S_3=\\sum_i p_i^3\\), one has \\(\\Delta^2\\le \\frac43(1-S_3)\\sigma^2\\), with equality exactly when the support is a positive affine image of the mid-distribution values; the corresponding cardinality and reflection-symmetric two-sample min--max correlation bounds are sharp.",
+  "limitations": [
+    "Finite discrete distributions for the cubic atom formula.",
+    "The min--max corollary is restricted to reflection-symmetric profiles/supports.",
+    "This rejection is for implication/value, not correctness."
+  ],
+  "schema_version": 1
+}
