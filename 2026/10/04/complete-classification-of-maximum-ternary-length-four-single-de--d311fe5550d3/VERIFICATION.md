@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite object is the compatibility graph on all \(81\) words in \(\{0,1,2\}^4\), where two words are adjacent exactly when their distinct one-deletion shadows are disjoint. `artifacts/verify.py` reconstructs this graph from the deletion definition rather than loading a precomputed adjacency table.
+# Independent mathematical audit
 
-The target-size enumerator is exhaustive. It maintains candidates in increasing word order; choosing a word removes all earlier choices permanently and intersects the remaining candidates with its compatibility neighborhood. A branch is pruned only if the number of candidates left is smaller than the number of words still required. Therefore every target-size compatible subset is visited exactly once.
+## correctness
 
-Replay with `python3 artifacts/verify.py` produces:
+PASS
 
-`VERIFY_OK maximum=11 labeled_maxima=6 orbits=1 orbit_size=6 stabilizer=2 nodes11=668442 nodes12=485745`
+A fresh exact reconstruction of all \(81\) words and their distinct length-three deletion shadows reduced codes to cliques in the compatibility graph. An ordered exhaustive target-size recursion independently reproduced six cliques of size \(11\) and none of size \(12\) (668442 and 485745 recursion nodes respectively). Direct intersection of the six maxima gives the stated nine-word core, the six remainder words induce exactly a cycle, and exhaustive traversal of the 12 natural channel symmetries gives one orbit of size six with stabilizer two.
 
-The verifier checks all six embedded maximum codes, verifies that no size-
-\(12\) code exists, confirms the common nine-word core, reconstructs the six-cycle on the remaining six words from deletion-shadow compatibility, and traverses all \(12\) global-symbol/reversal symmetries. It also verifies that every maximum code has deletion-shadow union size \(23\).
+## originality
 
-Limits: this is a finite exhaustive proof for ternary length four only. It does not establish any asymptotic statement or general classification for odd alphabet sizes. The independent-audit channel has not been performed.
+PASS
+
+The closest primary deletion-code papers inspected cover sharp length-four results for even alphabet size or general upper bounds, not the ternary extremizer census. Fresh Resultary search found the known quinary exact-size record and general q-ary deletion results, but no prior six-code ternary classification. The inaccessible 2011 ternary thesis remains an explicit residual priority risk.
+
+## value
+
+PASS
+
+This is a natural complete finite classification at the smallest odd-alphabet length-four case left outside the sharp even-alphabet theory. It determines not just the maximum size but every extremizer and its symmetry/core structure, which is mathematically more informative than recomputing a known table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
