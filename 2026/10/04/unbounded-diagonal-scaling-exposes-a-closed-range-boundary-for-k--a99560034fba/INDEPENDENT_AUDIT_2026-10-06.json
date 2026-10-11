@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T07:58:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 4af35bfd10c926bc3f1361abf52f4da3ccf209d8",
+        "Ramesan–Ravindran Theorems 3.8–3.9",
+        "Douglas range theorem",
+        "fresh coordinate witness replay"
+      ],
+      "rationale": "The coordinate inequalities give \\(\\|K^*x\\|^2=|x_1|^2\\le\\sum|\\langle x,f_n\\rangle|^2\\le\\|x\\|^2\\), so \\(F\\) is a \\(K\\)-frame, while the scaling produces the canonical orthonormal basis. Since \\(R(T_F)=D(D_a)\\) and \\(D_aT_F=I\\), the composition is bounded, but for \\(y_m=e_m/m\\) the ratio \\(\\|D_ay_m\\|/\\|y_m\\|=m\\) is unbounded. The general equivalence follows because a Bessel scaled family has analysis operator \\(A\\), and Douglas converts its lower \\(K\\)-frame inequality to \\(R(K)\\subset R(A^*)\\). If \\(R(T_F)\\) is closed, the bounded Moore–Penrose inverse on \\(\\ker(T_F)^\\perp\\) gives \\(D_a|_{R(T_F)}=T_GT_F^\\dagger\\). Fresh coordinate checks reproduced the unbounded ratio for arbitrary tested coordinates.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 Matematicki Vesnik theorem is the exact target being corrected.",
+          "The earlier same-author paper contains the same scaling framework.",
+          "The 2024 K-g-frame paper develops a broader generalized setting and includes an analogous bounded diagonal restriction condition."
+        ],
+        "reasoning": "Broader generalized-frame machinery does not rescue the disputed scalar \\(K\\)-frame implication; the submitted counterexample has closed-range rank-one \\(K\\), so even that common strengthening is already present.",
+        "searches": [
+          "DOI:10.57016/MV-7942HXLN full open primary PDF",
+          "PJM 12(1) (2023), Scalability and K-Frames",
+          "DOI:10.1155/2024/8358987 full publisher HTML"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.57016/MV-7942HXLN",
+        "PJM 12(1) (2023) Scalability and K-Frames",
+        "DOI:10.1155/2024/8358987",
+        "Douglas 1966 range theorem",
+        "Resultary K-frame scaling search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For \\(f_1=e_1\\), \\(f_n=e_n/n\\), the analysis map is \\(T_Fx=(x_1,x_2/2,\\ldots)\\), while scaling by \\(a_n=n\\) gives \\(D_aT_F=I\\).",
+          "The vectors \\(T_Fe_m=e_m/m\\) show that \\(D_a\\) is unbounded on \\(R(T_F)\\) even though the scaled family is an orthonormal basis and \\(K\\) is an orthogonal rank-one projection.",
+          "For a general scaling, the \\(K\\)-frame lower inequality for \\(A=D_aT_F\\) is equivalent by Douglas to \\(R(K)\\subset R(A^*)\\)."
+        ],
+        "reasoning": "The contradiction attacks the source theorem's exact implication, and the composition-plus-range criterion supplies a genuine corrected characterization rather than merely noting a proof gap.",
+        "searches": [
+          "Ramesan–Ravindran Theorem 3.8 and proof",
+          "Douglas range theorem",
+          "audited diagonal example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The false assertion can be phrased either as boundedness of the maximal coordinate multiplier on \\(R(T_F)\\) or as continuity of the scaling map with the ambient \\(\\ell^2\\)-norm on that range.",
+          "The correct invariant is instead boundedness of the everywhere-defined composition \\(D_aT_F\\), together with the Douglas range condition for the lower \\(K\\)-frame inequality."
+        ],
+        "reasoning": "These operator formulations are equivalent to the submitted statement; the inspected source theorem asserts the stronger and false range-boundedness property.",
+        "searches": [
+          "Ramesan–Ravindran, Some Results on Scalable K-Frames, DOI:10.57016/MV-7942HXLN, Theorems 3.8–3.9",
+          "Kumar, Scalability of Generalized Frames for Operators, DOI:10.1155/2024/8358987, Theorem 23",
+          "Resultary query: scalable K-frame diagonal multiplier analysis range bounded unbounded Ramesan Ravindran"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact Resultary hit is the audited record itself; no distinct erratum or earlier published counterexample was located.",
+          "The publisher page continues to present the 2023 article without an identified correction in the checked search results."
+        ],
+        "reasoning": "This is a theorem-correction problem rather than a parameter table; the database check tests for an already-known erratum or counterexample.",
+        "searches": [
+          "Resultary K-frame scaling query, top 12 results",
+          "web exact search: \"Some Results on Scalable K-Frames\" Theorem 3.8 counterexample erratum"
+        ]
+      },
+      "rationale": "The primary 2023 paper materially inspected in full states in Theorem 3.8 that if a coordinate-scaled family is a \\(K\\)-frame then the diagonal operator restricted to the original analysis range is bounded, and Theorem 3.9 builds a characterization on that assertion. Its proof explicitly estimates using an inverse of the original analysis map. The rank-one projection example directly falsifies that implication. A 2024 generalized-frame paper repeats an analogous bounded-range step, showing the distinction remains scientifically live. A fresh Resultary search returned the audited correction itself as the exact hit and no distinct earlier correction.",
+      "residual_risks": [
+        "An unindexed erratum, thesis comment, or private note may already observe the same defect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_FALSE_PRIOR_ASSERTION",
+          "evidence": "Theorem 3.8 asserts boundedness of the diagonal restriction on the analysis range from scaled \\(K\\)-frame status, and the proof estimates through an inverse of the original analysis operator.",
+          "identifier_or_url": "DOI:10.57016/MV-7942HXLN",
+          "material_read": "Complete open primary PDF, especially Theorems 3.8–3.9 and their proofs; the relevant theorem page was visually inspected.",
+          "method": "Full-text theorem/proof reconstruction against the counterexample.",
+          "title": "Some Results on Scalable K-Frames",
+          "trigger": "Exact primary theorem being corrected."
+        },
+        {
+          "assessment": "ANALOGOUS_RANGE_BOUNDEDNESS_STEP_NOT_A_CORRECTION",
+          "evidence": "The generalized theorem likewise formulates a bounded diagonal restriction condition, so it does not provide a prior repair of the scalar counterexample.",
+          "identifier_or_url": "DOI:10.1155/2024/8358987",
+          "material_read": "Full publisher HTML through the definitions and Theorem 23 scaling characterization.",
+          "method": "Broader-theorem comparison.",
+          "title": "Scalability of Generalized Frames for Operators",
+          "trigger": "Recent broader framework potentially superseding or correcting the scalar theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.57016/MV-7942HXLN",
+        "PJM 12(1) (2023) Scalability and K-Frames",
+        "DOI:10.1155/2024/8358987",
+        "Douglas 1966 range theorem",
+        "Resultary K-frame scaling search"
+      ],
+      "rationale": "The result corrects a published necessary condition and the characterization built on it, gives a counterexample under the strong closed-range hypothesis on \\(K\\), and replaces the false condition by the exact composition/range criterion. The distinction also appears in a later generalized-frame treatment, so it is a substantive operator-theoretic correction rather than a cosmetic edge case.",
+      "residual_risks": [
+        "An unindexed erratum, thesis comment, or private note may already observe the same defect."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.57016/MV-7942HXLN",
+    "PJM 12(1) (2023) Scalability and K-Frames",
+    "DOI:10.1155/2024/8358987",
+    "Douglas 1966 range theorem",
+    "Resultary K-frame scaling search"
+  ],
+  "disposition": "passed",
+  "final_claim": "A rank-one closed-range \\(K\\) and the \\(K\\)-frame \\(f_1=e_1,\\ f_n=e_n/n\\) admit the unbounded scaling \\(a_1=1,\\ a_n=n\\) to the orthonormal basis, so boundedness of \\(D_a\\) on \\(R(T_F)\\) is not necessary for the scaled family to be a \\(K\\)-frame. In general the exact criterion is \\(R(T_F)\\subset D(D_a)\\), boundedness of \\(A=D_aT_F\\), and \\(R(K)\\subset R(A^*)\\); if \\(R(T_F)\\) is closed then the disputed range-boundedness conclusion does hold.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed erratum, thesis comment, or private note may already observe the same defect.",
+    "The theorem gives a sufficient closed-analysis-range repair but does not classify every nonclosed analysis range on which the diagonal restriction may nevertheless be bounded."
+  ]
+}

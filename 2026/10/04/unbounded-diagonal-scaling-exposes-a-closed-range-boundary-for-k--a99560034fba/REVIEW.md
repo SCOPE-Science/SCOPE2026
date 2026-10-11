@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The counterexample is an exact coordinate calculation on \(\ell^2\): \(F\) satisfies the \(K\)-frame inequalities, the scaled family is the canonical orthonormal basis, and \(D_a|_{{R(T_F)}}\) has norm ratios equal to \(m\) on \(m^{-1}e_m\). The corrected equivalence follows from the bounded analysis operator of the scaled family and the Douglas range theorem. The closed-range repair follows from the bounded inverse of \(T_F\) on \(\ker(T_F)^\perp\).
+## correctness
 
-## Originality
-PASS. Exact-source and alias searches were run for the theorem numbers, unbounded diagonal scaling, nonclosed analysis range, rank-one closed-range \(K\), and correction/erratum terminology. The earlier 2023 paper by the same authors repeats the disputed bounded-on-range step; the 2021 g-frame result works in the stronger setting where the analysis range is closed; the 2024 K-g-frame generalization repeats an analogous boundedness inference. None of the materially inspected sources contains this counterexample or the closed-analysis-range repair.
+PASS
 
-## Value
-PASS. The finding separates two operator properties that coincide for ordinary frames but not for general \(K\)-frames: boundedness of the composition \(D_aT_F\) versus boundedness of \(D_a\) on \(R(T_F)\) in the ambient sequence norm. It corrects a published characterization, survives the strong assumption that \(K\) has closed range, and supplies both an exact replacement and a natural sufficient repair.
+The coordinate inequalities give \(\|K^*x\|^2=|x_1|^2\le\sum|\langle x,f_n\rangle|^2\le\|x\|^2\), so \(F\) is a \(K\)-frame, while the scaling produces the canonical orthonormal basis. Since \(R(T_F)=D(D_a)\) and \(D_aT_F=I\), the composition is bounded, but for \(y_m=e_m/m\) the ratio \(\|D_ay_m\|/\|y_m\|=m\) is unbounded. The general equivalence follows because a Bessel scaled family has analysis operator \(A\), and Douglas converts its lower \(K\)-frame inequality to \(R(K)\subset R(A^*)\). If \(R(T_F)\) is closed, the bounded Moore–Penrose inverse on \(\ker(T_F)^\perp\) gives \(D_a|_{R(T_F)}=T_GT_F^\dagger\). Fresh coordinate checks reproduced the unbounded ratio for arbitrary tested coordinates.
 
-## Closest literature and limitations
-The closest predecessor is Ahmadi--Rahimi's g-frame scaling theorem, whose analysis operator is bounded below and therefore has closed range. Ramesan--Ravindran's earlier *Scalability and K-Frames* contains the same disputed implication, and Kumar's later K-g-frame paper contains an analogous one. The remaining novelty risk is an unindexed correction or informal observation. The result does not claim that every special case with nonclosed analysis range fails, nor does it challenge later theorems that impose hypotheses forcing bounded scaling.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2023 paper materially inspected in full states in Theorem 3.8 that if a coordinate-scaled family is a \(K\)-frame then the diagonal operator restricted to the original analysis range is bounded, and Theorem 3.9 builds a characterization on that assertion. Its proof explicitly estimates using an inverse of the original analysis map. The rank-one projection example directly falsifies that implication. A 2024 generalized-frame paper repeats an analogous bounded-range step, showing the distinction remains scientifically live. A fresh Resultary search returned the audited correction itself as the exact hit and no distinct earlier correction.
+
+## value
+
+PASS
+
+The result corrects a published necessary condition and the characterization built on it, gives a counterexample under the strong closed-range hypothesis on \(K\), and replaces the false condition by the exact composition/range criterion. The distinction also appears in a later generalized-frame treatment, so it is a substantive operator-theoretic correction rather than a cosmetic edge case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
