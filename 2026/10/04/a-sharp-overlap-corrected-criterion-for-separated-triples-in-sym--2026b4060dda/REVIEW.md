@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the problem to the union of the \(\lambda\) blocks through a fixed point-pair. The first and second multiplicity moments are exact, and the pointwise inequality \(2inom{m}{2}\le\lambda(m-1)\) gives the claimed union bound. The symmetric-design block-intersection identity is proved from the incidence matrix. The \(\mathrm{PG}(3,q)\) parameter substitution gives equality, and the projective-span argument proves that no separated triple exists there.
+## correctness
 
-## Originality
-PASS with residual literature risk. The motivating 24 Sep 2026 paper gives only \(v-2>\lambda(k-2)\) for \(p=3\). Focused searches of the source paper, general web literature, and the published finding database found no result stating or implying the overlap-corrected criterion \(v-2>\lambda(k-2)-(\lambda-1)(\lambda-2)\). The closest database hits concern unrelated triple packings, code constructions, and symmetric-design code censuses. A classical design-theory source could still contain an equivalent union bound under different terminology.
+PASS
 
-## Value
-PASS. The new inequality directly narrows the parameter region in which the recent storage paper's unresolved no-pairwise-separated-set regime can occur. The improvement is structural rather than a parameter substitution: it exploits the forced intersections of the blocks through a pair, and the infinite \(\mathrm{PG}(3,q)\) family shows the correction term is best possible for this form of criterion.
+For a fixed point pair, the \(\lambda\) blocks through it contribute \(\lambda(k-2)\) incidences outside the pair. Symmetric-design block intersections give exactly \(\lambda-2\) common outside points for every pair of these blocks, hence \(\sum_z\binom{m_z}{2}=\binom\lambda2(\lambda-2)\). Since \(m(m-1)\le\lambda(m-1)\), the union is at most \(\lambda(k-2)-(\lambda-1)(\lambda-2)\). A point outside this union gives the separated triple. In \(\mathrm{PG}(3,q)\), every three points lie in a hyperplane and direct substitution gives equality. The actual verifier was inspected and independently checks the projective examples for \(q=2,3\), but the proof is symbolic.
 
-## Closest literature and limitations
-The closest primary source is Luo--Li--Zhang--Wang, arXiv:2609.29149v1, especially Definition 6, Proposition IV.4, and Proposition V.1. Standard symmetric-design literature supplies the block-intersection property. The result does not classify equality cases and does not determine the replica threshold on the no-separated side.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating paper's Proposition V.1 gives for triples only the weaker union bound \(v-2>\lambda(k-2)\). Its complete Section V was inspected and it explicitly presents \(\mathrm{PG}(3,q)\) as a no-separated-triple family, but it does not make the mandatory-overlap correction. Resultary and targeted literature searches found no earlier statement of the corrected bound.
+
+## value
+
+PASS
+
+The theorem sharpens the exact sufficient condition used in an open storage-design regime by a positive term for \(\lambda\ge3\), and an infinite projective family certifies the boundary. It is a natural structural lemma with a sharp extremal family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

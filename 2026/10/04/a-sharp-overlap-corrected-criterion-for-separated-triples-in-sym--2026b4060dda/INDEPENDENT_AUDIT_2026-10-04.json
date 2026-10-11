@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:40:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a8cd636103e1ab6336f17616459f171a81ba4f05",
+        "verify_separated_triples.py blob f4bf0bed098b9c09c56f74cdf19e2367b4e864ea",
+        "Luo--Li--Zhang--Wang, arXiv:2609.29149v1, complete 23-page primary paper"
+      ],
+      "rationale": "For a fixed point pair, the \\(\\lambda\\) blocks through it contribute \\(\\lambda(k-2)\\) incidences outside the pair. Symmetric-design block intersections give exactly \\(\\lambda-2\\) common outside points for every pair of these blocks, hence \\(\\sum_z\\binom{m_z}{2}=\\binom\\lambda2(\\lambda-2)\\). Since \\(m(m-1)\\le\\lambda(m-1)\\), the union is at most \\(\\lambda(k-2)-(\\lambda-1)(\\lambda-2)\\). A point outside this union gives the separated triple. In \\(\\mathrm{PG}(3,q)\\), every three points lie in a hyperplane and direct substitution gives equality. The actual verifier was inspected and independently checks the projective examples for \\(q=2,3\\), but the proof is symbolic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distinct blocks in a symmetric design meet in exactly \\(\\lambda\\) points.",
+          "That general fact supplies an ingredient but not the optimized union estimate or its sharp projective boundary."
+        ],
+        "reasoning": "No broader checked theorem directly dominates the corrected criterion.",
+        "searches": [
+          "standard symmetric-design block intersection theorem",
+          "Luo--Li--Zhang--Wang sufficient condition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.29149v1",
+        "symmetric-design block-intersection literature",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source uses a first-order excluded-point union bound.",
+          "The audited proof additionally uses the forced pairwise overlaps among all \\(\\lambda\\) blocks through the fixed point pair."
+        ],
+        "reasoning": "The corrected term is not a mechanical restatement of the source proposition; it is a sharper second-order incidence argument.",
+        "searches": [
+          "source Proposition V.1 versus overlap-corrected estimate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition V.1 specializes to \\(v-2>\\lambda(k-2)\\) for three points.",
+          "The full source discusses the projective obstruction without the corrected inequality."
+        ],
+        "reasoning": "Equivalent formulations as a union-of-blocks-through-a-pair bound and as a no-common-block triple criterion were checked.",
+        "searches": [
+          "arXiv:2609.29149v1 Proposition V.1 and Section V",
+          "Resultary: symmetric design separated triple overlap correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published-finding entry implying the displayed correction was returned."
+        ],
+        "reasoning": "A finite table is inapplicable because the claim is a uniform design inequality.",
+        "searches": [
+          "Resultary published corpus for the exact overlap correction",
+          "projective-design parameter searches"
+        ]
+      },
+      "rationale": "The motivating paper's Proposition V.1 gives for triples only the weaker union bound \\(v-2>\\lambda(k-2)\\). Its complete Section V was inspected and it explicitly presents \\(\\mathrm{PG}(3,q)\\) as a no-separated-triple family, but it does not make the mandatory-overlap correction. Resultary and targeted literature searches found no earlier statement of the corrected bound.",
+      "residual_risks": [
+        "The incidence estimate is short enough that an equivalent older design-theory lemma may exist under unrelated terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING.",
+          "evidence": "For \\(p=3\\), Proposition V.1 states only \\(v-2>\\lambda(k-2)\\); the paper gives projective no-separated examples but not the overlap-corrected bound.",
+          "identifier_or_url": "arXiv:2609.29149v1",
+          "material_read": "Complete 23-page primary paper via authorized retrieval, including Proposition V.1, Section V.A, the \\(\\mathrm{PG}(3,\\rho)\\) obstruction, discussion, conclusion, and appendices.",
+          "method": "Primary full-text inspection after direct open access fetch failed.",
+          "title": "Replica Thresholds for Stripeless Erasure Coding Based on Symmetric Block Designs",
+          "trigger": "Exact motivating separated-set criterion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Luo--Li--Zhang--Wang 2026",
+        "standard symmetric design theory"
+      ],
+      "rationale": "The theorem sharpens the exact sufficient condition used in an open storage-design regime by a positive term for \\(\\lambda\\ge3\\), and an infinite projective family certifies the boundary. It is a natural structural lemma with a sharp extremal family.",
+      "residual_risks": [
+        "It does not classify the no-separated side or solve the remaining replica-threshold problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every symmetric \\(2\\!-\\!(v,k,\\lambda)\\) design satisfying \\(v-2>\\lambda(k-2)-(\\lambda-1)(\\lambda-2)\\) contains three points in no common block, and the strict inequality is sharp for the point-hyperplane designs of \\(\\mathrm{PG}(3,q)\\).",
+  "limitations": [
+    "The condition is sufficient, not a classification of designs without separated triples.",
+    "Equality examples need not be unique."
+  ],
+  "schema_version": 1
+}
