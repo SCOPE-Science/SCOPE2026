@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The marked complete graph splits exactly into one antisymmetric eigenstate and a two-dimensional symmetric block. Perfect transfer first forces the symmetric block to return to its initial line, hence \(t=2\pi k/\alpha\). The remaining phase condition is exactly \(e^{-i\pi k\beta}=(-1)^{k+1}\). Reducing \(\beta=p/q\) shows that transfer is possible exactly when \(p,q\) have opposite parity, and then \(k/q\) must be odd. The inverse parametrization follows from \(\alpha^2=(\Delta-2n)^2+16\Delta\), while strict monotonicity of \(\beta(\Delta)\) proves the density statement. A standalone checker replays the reduced dynamics for many parameters.
+PASS
 
-## Originality
+The antisymmetric marked state is an eigenvector with eigenvalue \(\Delta-2\); the symmetric marked state and uniform unmarked state form the stated two-dimensional block. Leakage vanishes exactly at \(t=2\pi k/\alpha\). At those times the phase condition reduces to \(e^{-i\pi k\beta}=(-1)^{k+1}\), which for reduced \(p/q\) is solvable exactly when \(p\) and \(q\) have opposite parity, with \(k=q(2s+1)\). The map \(\Delta\mapsto\beta\) is strictly increasing from \((-1,1)\), since its derivative has numerator \(8\Delta+16n>0\), and solving the resulting quadratic in \(\sqrt\Delta\) gives the displayed inverse formula. Fresh numerical substitution over several \(n,p,q\) ranges reproduced \(\beta=p/q\) and the phase identity; those finite checks support, but do not replace, the symbolic proof.
 
-**PASS, narrowly scoped.** The direct source gives the exact spectrum and transition amplitudes and exhibits \(\Delta=2n\), but does not state a classification of all positive equal shifts. The weighted-join paper gives sufficient rational/parity constructions while allowing several weights to vary simultaneously, not the iff classification with every edge coupling fixed at \(2\). Later graph-potential work proves broad existence results in a larger potential space and likewise does not state this arithmetic one-parameter spectrum.
+## originality
 
-Targeted semantic-database and web searches for equal potentials on complete graphs, weighted self-loops, the Casaccino tuning, rational eigenphase conditions, and necessary-and-sufficient transfer conditions did not locate the displayed classification. The residual literature risk is that it may be an unstated specialization of a later general criterion.
+PASS
 
-## Value
+The 2009 source establishes that local energy shifts can create perfect transfer on all-to-all networks, while the weighted-join paper gives a broad transition-amplitude identity and an existence construction that varies graph weights. The inspected weighted-join theorem does not assert the fixed-edge-weight necessary-and-sufficient shift spectrum, its complete positive-time classification, or density. Specializing its amplitude identity is relevant background, but obtaining the audited iff requires the additional leakage/phase arithmetic and inversion above. No published SCOPE record located by the targeted semantic query gives an equivalent or stronger fixed-coupling classification.
 
-**PASS.** The result changes the design picture of the source family: the published tuning is one simple member of a countable dense exact-transfer set. The theorem gives every admissible positive shift, every exact transfer time, and the minimum time, while keeping all physical couplings fixed. This is a natural complete classification of the source's one-parameter control problem rather than a routine recomputation of one fidelity value.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+This is a natural exact control question for a canonical spin network: it classifies every positive equal energy shift at fixed coupling, not merely one working shift, and gives all transfer times. The arithmetic parity law and dense spectrum distinguish it from a routine parameter substitution and provide a reusable boundary between exact transfer and failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
