@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:02:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From \\(J^{T}=-J\\) and \\(J^{T}J=I\\), one gets \\(J^2=-I\\), \\(\\langle v,Jv\\rangle=0\\), and \\(\\|Jv\\|=\\|v\\|\\). Writing \\(e=x-x_\\star\\) and \\(s=L\\gamma\\), the extrapolated point is \\(\\hat e=(I-sJ)e\\), \\(F(\\hat x)=L(J+sI)e\\), and the Polyak projection coefficient is exactly \\(\\alpha=\\gamma/(1+s^2)\\). Hence \\(e^+=(I-sJ)e/(1+s^2)\\) and \\(\\|e^+\\|^2=\\|e\\|^2/(1+s^2)\\). The source critical-condition ratio is exactly \\(s\\), so admissibility is \\(s\\le A\\). For bounded positive \\(s_k\\), the infinite product tends to zero exactly when \\(\\sum_k s_k^2=\\infty\\). The package exact-rational verifier independently reproduces the one-step identity and finite products in the canonical quarter-turn model.",
+      "risks": [
+        "The theorem is intentionally restricted to skew isometries; general skew operators with unequal singular values are outside scope."
+      ],
+      "sources": [
+        "RESULT.md blob cb8440bc09ee53a498637fe0236492edeea9a627",
+        "artifacts/verify_skew_isometry.py blob 45a3ec7066ff8d163ef38d96bc1e25a3ec6f1f62",
+        "Yoon et al., arXiv:2609.26581v1, Definition 3.1 and Theorem 3.4"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source's Theorem 3.4 is broader in operator class but weaker in conclusion: it does not imply the exact norm factor or exact product without the submitted specialization calculation."
+        ],
+        "reasoning": "Generic convergence estimates do not dominate the submitted equality-level law.",
+        "searches": [
+          "arXiv:2609.26581v1 full PDF",
+          "Resultary skew-rotation and Polyak searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.26581v1",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary theorem controls residuals under the critical condition and obtains linear convergence under strong monotonicity; the audited skew operator is monotone but not strongly monotone and the submitted exact product is not a corollary of those stated rates."
+        ],
+        "reasoning": "The final claim adds an equality-level trajectory and an exact variable-step convergence criterion not supplied by the inspected source.",
+        "searches": [
+          "Statement comparison with Definition 3.1 and Theorem 3.4 of arXiv:2609.26581v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper defines PolyakEG and the same critical condition \\(\\|F(\\hat x)-F(x)\\|\\le A\\|F(x)\\|\\).",
+          "Its general theorem gives residual/convergence bounds, not the exact trajectory on \\(F(x)=LJ(x-x_\\star)\\).",
+          "The Resultary FRB/RFB hit concerns another extragradient-type algorithm."
+        ],
+        "reasoning": "The skew-isometry formulation is a canonical linear specialization, but no equivalent exact PolyakEG law was found.",
+        "searches": [
+          "Resultary: PolyakEG exact skew rotation product variable steps square summability",
+          "arXiv:2609.26581v1 full PDF, rotation example, Definition 3.1, Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published SCOPE/database entry for this PolyakEG law was returned."
+        ],
+        "reasoning": "Search noncoverage is only supporting evidence; the decisive comparison is to the complete primary paper.",
+        "searches": [
+          "Resultary semantic search for PolyakEG/skew/isometry/exact product"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The 2026 PolyakEG paper supplies the algorithm, the local critical condition, and general convergence bounds, and mentions planar rotation as a canonical monotone example, but its inspected full text does not give the exact skew-isometry update matrix, variable-step product law, or the square-summability if-and-only-if criterion. Resultary returned related exact skew-rotation rates for FRB/RFB, a different method, not PolyakEG.",
+      "residual_risks": [
+        "A very recent follow-up or unindexed note could independently derive the same canonical rotation law; none was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE_NOT_FINAL_CLAIM",
+          "evidence": [
+            "The paper states the critical condition and general convergence theorem, but no exact skew-isometry trajectory/product theorem was found."
+          ],
+          "identifier_or_url": "arXiv:2609.26581v1",
+          "material_read": "Full public PDF sections introducing rotation, PolyakEG, the critical condition, and the unified deterministic convergence theorem.",
+          "method": "Public full-text PDF plus rendered-page inspection.",
+          "title": "Polyak-Type Extragradient Methods for Monotone Root-Finding Problems",
+          "trigger": "The audited result is an exact specialization of this newly introduced PolyakEG method."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact skew-isometry family is a mathematically motivated stress test for rotational monotone problems. The equality identifies the sharp admissible step, the exact contraction factor, and a nontrivial variable-step convergence boundary \\(\\sum s_k^2=\\infty\\), which is more informative than a finite experiment or generic big-O bound.",
+      "risks": [
+        "It remains a special structured family rather than a general operator theorem."
+      ],
+      "sources": [
+        "arXiv:2609.26581v1",
+        "RESULT.md blob cb8440bc09ee53a498637fe0236492edeea9a627"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim is made for non-isometric skew operators or for stochastic PolyakEG."
+  ],
+  "schema_version": 1
+}

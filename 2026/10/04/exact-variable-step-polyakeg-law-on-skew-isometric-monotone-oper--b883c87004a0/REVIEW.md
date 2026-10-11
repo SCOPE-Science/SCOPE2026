@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses only the defining PolyakEG formulas and the identities \(J^T=-J\), \(J^TJ=I\), hence \(J^2=-I\). The projection step-size, update matrix, norm factor, critical-condition ratio, finite product, and the square-summability criterion are all derived explicitly. The only infinite-step implication is reduced to the elementary two-sided comparison between \(\log(1+u)\) and \(u\) on a bounded interval.
+PASS
 
-The bundled exact-rational checker verifies representative canonical-block instances and a multi-step product. Those computations are supporting checks; the quantified proof is algebraic and does not rely on finite experimentation.
+From \(J^{T}=-J\) and \(J^{T}J=I\), one gets \(J^2=-I\), \(\langle v,Jv\rangle=0\), and \(\|Jv\|=\|v\|\). Writing \(e=x-x_\star\) and \(s=L\gamma\), the extrapolated point is \(\hat e=(I-sJ)e\), \(F(\hat x)=L(J+sI)e\), and the Polyak projection coefficient is exactly \(\alpha=\gamma/(1+s^2)\). Hence \(e^+=(I-sJ)e/(1+s^2)\) and \(\|e^+\|^2=\|e\|^2/(1+s^2)\). The source critical-condition ratio is exactly \(s\), so admissibility is \(s\le A\). For bounded positive \(s_k\), the infinite product tends to zero exactly when \(\sum_k s_k^2=\infty\). The package exact-rational verifier independently reproduces the one-step identity and finite products in the canonical quarter-turn model.
 
-## Originality
+## originality
 
-PASS. The primary 2026 PolyakEG paper was inspected in full. It defines the update and gives generic sublinear best-iterate residual bounds for merely monotone problems, with linear convergence derived under strong monotonicity. Its introduction uses a planar rotation as the canonical example of rotational difficulty, but no exact PolyakEG trajectory law, product formula, or square-summability criterion was found.
+PASS
 
-The known projection correction predates the paper. Publisher material for Solodov--Svaiter and a bibliographic/abstract record for Tseng's linear-convergence work were checked as broader prior coverage. Those sources establish general projection-method convergence principles, not the exact variable-step formula claimed here.
+Best-of-knowledge PASS. The 2026 PolyakEG paper supplies the algorithm, the local critical condition, and general convergence bounds, and mentions planar rotation as a canonical monotone example, but its inspected full text does not give the exact skew-isometry update matrix, variable-step product law, or the square-summability if-and-only-if criterion. Resultary returned related exact skew-rotation rates for FRB/RFB, a different method, not PolyakEG.
 
-The two closest published-finding corpus records were inspected in full. One solves a degree-two minimax problem for unequal-step classical extragradient on normal strongly monotone systems; the other optimizes a reflected forward-backward recurrence on skew rotations. Their update maps and implications are different and do not subsume this claim.
+## value
 
-Residual risk: specialized older linear-operator literature may contain an equivalent formula, and full theorem-level text of every historical projection-method paper was not available.
+PASS
 
-## Value
+The exact skew-isometry family is a mathematically motivated stress test for rotational monotone problems. The equality identifies the sharp admissible step, the exact contraction factor, and a nontrivial variable-step convergence boundary \(\sum s_k^2=\infty\), which is more informative than a finite experiment or generic big-O bound.
 
-PASS. The skew-isometry class is the natural higher-dimensional form of the planar rotation used throughout monotone root-finding as the canonical non-gradient mode. The finding gives a complete exact trajectory law at this non-strongly-monotone boundary and identifies the sharp variable-step convergence threshold. It also distinguishes nonsummable from square-nonsummable decay schedules, which is directly relevant to adaptive and decreasing-step designs.
-
-The result is not presented as a worst-case theorem for all monotone operators, nor as a replacement for the general source theorem. Its value is a sharp structural benchmark that exposes behavior hidden by the generic \(O(1/K)\) best-iterate estimate.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
