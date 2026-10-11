@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal proof is independent of finite enumeration.
 
-Direct multiplication gives
-\[
-[(x,y,z),(x',y',z')]=(0,0,x\cdot y'-x'\cdot y).
-\]
-For every nonzero symplectic vector \(v\), the map
-\[
-u\longmapsto B(u,v)
-\]
-is a surjective linear functional. Therefore noncentral conjugacy classes are exactly the \(q\)-element fibers indexed by nonzero vectors, and adjacency is exactly orthogonality.
+# Independent mathematical audit
 
-The packaged checker `artifacts/verify.py` constructs the groups for
-\[
-(n,q)=(1,4),(2,2),(2,3),(2,4),(3,2).
-\]
-It verifies the center, all predicted conjugacy orbits, all commuting-class adjacencies, the projective clique blocks, degrees, diameter, a Lagrangian clique witness, common-neighbor counts, spectral multiplicities, and the first two spectral moments. The \(\mathbf F_4\) arithmetic is implemented directly as
-\[
-\mathbf F_2[t]/(t^2+t+1).
-\]
+## correctness
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite computation is not used to prove the theorem.
+The group commutator is the alternating form B on the 2n-dimensional quotient. For every nonzero quotient vector v, conjugation changes the central coordinate by the nonzero functional u->B(u,v), which is surjective, so each noncentral conjugacy class is exactly the q-element fiber C_v and CCC adjacency is B(v,w)=0. Partitioning nonzero vectors into projective lines gives K_{q-1} blocks and the complement of Tang--Wan Sp(2n,q) between blocks. Orthogonal-space dimensions give degree, diameter and the q=2 versus q>2 common-neighbor counts; a clique spans a totally isotropic subspace of dimension at most n, with equality from a Lagrangian. Applying the standard K_{q-1} lexicographic eigenvalue transform to the inspected projective spectrum yields the displayed spectrum and multiplicities.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives for the exact Heisenberg CCC realization and consequences. Prior finite geometry gives the projective spectrum, and prior CCC work covers a center-index-p^2 boundary, but neither implies the q-1 clique blow-up for n>=2.
+
+## value
+
+PASS
+
+The theorem gives a complete structural and spectral description for a standard infinite family of finite Heisenberg groups, translating group conjugacy into symplectic geometry. Exact diameter, clique number, integral spectrum and the sharp q=2 versus q>2 strong-regularity transition are natural reusable consequences, not a tiny isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
