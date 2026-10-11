@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-Run `python3 artifacts/verify.py`. The script uses exact integer sparse-polynomial arithmetic and no numerical approximation. It reconstructs Cayley's quartic in each of the eight coordinate \(2\times2\times2\) slices after the local substitution at \(T\), checks that the first nonzero homogeneous degree is \(2\), and checks that each degree-\(2\) part is exactly the expected square in a distinct Hamming-weight \(1\) or \(3\) coordinate. It then checks that there are eight independent square initial forms in fifteen variables, giving codimension \(8\), local dimension \(7\), and multiplicity \(2^8=256\). Successful replay ends with `VERIFY_OK`.
 
-The script verifies the nonstandard symbolic input to the proof. The implication from a regular sequence of initial forms to the associated graded quotient is proved in RESULT.md rather than delegated to the script. No statement is made about the reduced structure of the underlying zero set, and no independent audit has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Fresh exact sparse-polynomial reconstruction of Cayley's quartic in all eight coordinate slices reproduced order exactly two and the eight claimed quadratic initial forms, each the square of a distinct Hamming-weight-one or Hamming-weight-three coordinate. These monomials form a regular sequence in the regular associated-graded chart, so the filtered regular-sequence argument gives the displayed tangent cone, codimension \(8\), local dimension \(7\), tangent dimension \(15\), Hilbert series \((1+t)^8/(1-t)^7\), and multiplicity \(2^8=256\).
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. Seigal--Sturmfels prove that the hyperdeterminantal zero condition is too large for order at least four and use the canonical interior phenomenon; Oeding gives broader set-theoretic equations for the true tangential Segre variety via larger invariant modules. Neither inspected source determines the local eight-generator associated graded ring or multiplicity at the diagonal tensor.
+
+## value
+
+PASS
+
+The point is the canonical published witness that coordinate sub-hyperdeterminants fail to characterize the rank-two boundary. The exact eight-square tangent cone and multiplicity \(256\) explain that failure structurally at second order and give a natural local invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
