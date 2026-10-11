@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:56:32.923307Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 7a79efbc17a440dfabf2d419eb83a0e0e07ca045",
+        "artifacts/verify.py blob 51b80d06cc7e2c6842de8216912f85e2ec93d329",
+        "independent exact SymPy witness/algebra replay"
+      ],
+      "rationale": "For an admissible equilateral triple write u=v+w with u,v,w unit and set R=sum v_i^2 w_i^2 and T=sum v_i w_i(v_i^2+w_i^2). Expanding ||v+w||_4^4=1 gives T=-(1+6R)/4; Cauchy--Schwarz gives (1+6R)^2<=32R(1+R), hence R>=5/2-sqrt6. The real quartic identity then gives A^4+B^4=24-12R<=2(6sqrt6-3). Power mean and Cauchy--Schwarz yield the M1 and M2 bounds. Independent exact symbolic evaluation of the stated two-coordinate witness verified all three unit constraints, R=5/2-sqrt6 and A^4=B^4=6sqrt6-3, so both bounds are attained. Absolute convergence of the coordinate sums follows from v^2,w^2 in ell_2, so the argument applies to arbitrary index sets with at least two coordinates.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source's general bounds 3/2<=M1<=2 and related smoothness/geometric inequalities are not sharp enough to determine the ell_4 value.",
+          "Nearby Resultary hits concern different geometric constants on ell_4."
+        ],
+        "reasoning": "No broader inspected theorem parameterized by p or by a standard modulus yields the exact two displayed values as a mechanical specialization.",
+        "searches": [
+          "DOI:10.3390/sym14020348 Sections 3--5",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "Chen--Yang--Liu--Li, Some Geometric Constants Related to the Midline of Equilateral Triangles in Banach Spaces, DOI:10.3390/sym14020348, complete open full text",
+        "Resultary query: midline constants M1 M2 real ell_4 exact value 6 sqrt 6 minus 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining paper's generic bounds do not imply the sharp quartic lower bound R>=5/2-sqrt6 or its equality geometry.",
+          "The audited proof uses a model-specific quartic expansion and explicit two-coordinate extremizer."
+        ],
+        "reasoning": "The claim is a genuine exact evaluation of a natural model space rather than a parameter substitution into a published closed formula.",
+        "searches": [
+          "DOI:10.3390/sym14020348 definitions and bounds",
+          "independent quartic optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definitions 5 and 6 in the source are exactly the audited optimizations.",
+          "The source gives general inequalities, the Hilbert M2 value and examples such as ell_infinity, not the real ell_4 formulas."
+        ],
+        "reasoning": "Equivalent formulations under the invariant names, equilateral-midline geometry and the exact radical were compared directly to the defining source.",
+        "searches": [
+          "DOI:10.3390/sym14020348 complete publisher full text",
+          "Resultary query: midline constants M1 M2 real ell_4 exact value 6 sqrt 6 minus 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact-value table or database hit supplied (6 sqrt 6-3)^(1/4) or its square for these invariants."
+        ],
+        "reasoning": "Database absence is supporting evidence only; direct source inspection is the primary noncoverage evidence.",
+        "searches": [
+          "Resultary query above",
+          "exact radical/source full-text comparison"
+        ]
+      },
+      "rationale": "Originality passes. The defining paper was read in full-text publisher form: it introduces exactly M1 and M2, proves general bounds and selected examples, but does not evaluate real ell_4. Fresh Resultary search returns the present record as the exact match and nearby distinct ell_4 geometric constants, not a covering theorem.",
+      "residual_risks": [
+        "A differently notated or unindexed Banach-space geometry source could contain the same exact ell_4 evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_INVARIANTS_NOT_ELL4_EXACT_VALUES",
+          "evidence": "The paper introduces M1 and M2 and gives general geometric results but no real ell_4 evaluation.",
+          "identifier_or_url": "DOI:10.3390/sym14020348",
+          "material_read": "Complete open publisher article, including introduction, Definitions 5 and 6, general bounds/examples in Sections 3--4 and conclusion.",
+          "method": "lawful open-access publisher full text",
+          "title": "Some Geometric Constants Related to the Midline of Equilateral Triangles in Banach Spaces",
+          "trigger": "Defining source for both invariants."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "defining Chen--Yang--Liu--Li paper",
+        "independent quartic proof"
+      ],
+      "rationale": "M1 and M2 were introduced as geometric invariants of equilateral midlines, and exact values on canonical sequence spaces are natural benchmarks. Real ell_4 is structurally singled out by a quartic identity that closes the optimization and produces an explicit extremizing triangle. The result is an exact natural invariant, not a finite table recomputation.",
+      "residual_risks": [
+        "The proof is specific to the real quartic norm and does not settle other p or generalized variants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A differently notated or unindexed Banach-space geometry source could contain the same exact ell_4 evaluation.",
+    "The current read connector exposed exact file blobs at the frozen commit but no read action that enumerates a directory Git tree object by SHA. The assignment tree SHA is preserved exactly, and reviewed blobs were fetched at the frozen commit, but the tree SHA was not independently recomputed from a complete enumerated tree.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

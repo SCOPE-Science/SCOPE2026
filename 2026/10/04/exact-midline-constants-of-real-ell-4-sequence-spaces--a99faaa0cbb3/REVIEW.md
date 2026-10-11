@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Writing an admissible equilateral triple as \(u=v+w\) with all three vectors unit reduces both constants to two lengths \(A=\|u+v\|_4\) and \(B=\|u+w\|_4\). The quartic expansion is exact coordinatewise. The condition \(\|v+w\|_4=1\) gives \(T=-(1+6R)/4\), and Cauchy--Schwarz forces \(R\ge5/2-\sqrt6\). This yields the sharp bound on \(A^4+B^4\). The explicit two-coordinate vectors satisfy all unit constraints, achieve the lower endpoint for \(R\), and make \(A=B\), so every inequality used in both constants is sharp.
+## correctness
 
-## Originality
-PASS. The defining 2022 article was inspected for the definitions, general bounds, stated exact cases, examples, and conclusion. It does not state the exact \(\ell_4\) evaluations. Targeted web and published-finding corpus searches covered the invariant names, \(\ell_4\), equilateral-midline wording, and the resulting radical. The closest published-finding corpus item concerns equilateral perimeters in regular polygonal norms, a different invariant with no implication for \(M_1\) or \(M_2\). The available prior ledger was also checked; its equilateral item concerns numerical index of Lipschitz-free spaces and is unrelated.
+PASS
 
-## Value
-PASS. \(\ell_4\) is the first canonical non-Hilbert sequence space where the defining quartic algebra can close exactly. The result supplies sharp benchmark values for both newly introduced midline invariants, including an explicit extremizing equilateral triangle, rather than a generic inequality, a renamed known constant, or an arbitrary finite computation.
+For an admissible equilateral triple write u=v+w with u,v,w unit and set R=sum v_i^2 w_i^2 and T=sum v_i w_i(v_i^2+w_i^2). Expanding ||v+w||_4^4=1 gives T=-(1+6R)/4; Cauchy--Schwarz gives (1+6R)^2<=32R(1+R), hence R>=5/2-sqrt6. The real quartic identity then gives A^4+B^4=24-12R<=2(6sqrt6-3). Power mean and Cauchy--Schwarz yield the M1 and M2 bounds. Independent exact symbolic evaluation of the stated two-coordinate witness verified all three unit constraints, R=5/2-sqrt6 and A^4=B^4=6sqrt6-3, so both bounds are attained. Absolute convergence of the coordinate sums follows from v^2,w^2 in ell_2, so the argument applies to arbitrary index sets with at least two coordinates.
 
-## Closest literature and limitations
-The closest source is the paper that introduced \(M_1\) and \(M_2\), which supplies general bounds but not these values. The proof is specific to the real quartic norm, and unindexed or differently worded duplicate literature remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The defining paper was read in full-text publisher form: it introduces exactly M1 and M2, proves general bounds and selected examples, but does not evaluate real ell_4. Fresh Resultary search returns the present record as the exact match and nearby distinct ell_4 geometric constants, not a covering theorem.
+
+## value
+
+PASS
+
+M1 and M2 were introduced as geometric invariants of equilateral midlines, and exact values on canonical sequence spaces are natural benchmarks. Real ell_4 is structurally singled out by a quartic identity that closes the optimization and produces an explicit extremizing triangle. The result is an exact natural invariant, not a finite table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
