@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:33:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ea6ca2715188890ca1a30a9098b8178b8757eeac",
+        "assigned verify.py blob 1809cfd23107fa39c2d2db62831aca8abdbaa9c2",
+        "Brown--Hoshino, The Ehrenfeucht-Fraisse Game for Paths and Cycles, Ars Combinatoria 83 (2007)",
+        "independent exact EF-game replay on 144 bounded cases"
+      ],
+      "rationale": "The lower bound follows because undirected adjacency is quantifier-free definable by \\(S(x,y)\\lor S(y,x)\\), so Brown--Hoshino's exact undirected separating sentences transfer without increasing rank. For the upper bound, their cycle proof cuts at the first chosen vertex and invokes an endpoint-preserving path strategy; inspection of the primary proof shows that its coordinate responses preserve signed displacement and corresponding left/right endpoint gaps, hence preserve successor orientation as well as undirected adjacency. The q=1 and q=2 cases are checked directly. A fresh independent exact EF-game solver agreed with the formula on 144 cycle pairs over \\(1\\le q\\le4\\), \\(3\\le m\\le n\\le10\\); this is corroboration only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brown--Hoshino's exact theorem is numerically stronger than Pichler's coarse \\(2^q\\) threshold.",
+          "Pichler supplies the already-known directed applicability of the cycle composition idea."
+        ],
+        "reasoning": "Combining the exact Brown--Hoshino strategy with the already-recognized directed-cycle transfer leaves no new nonstandard lemma.",
+        "searches": [
+          "Brown--Hoshino full primary PDF",
+          "Pichler directed-cycle EF-game theorem"
+        ]
+      },
+      "checked_sources": [
+        "Brown--Hoshino 2007",
+        "Pichler 2011 lecture notes",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower direction is a quantifier-free reduct argument.",
+          "The upper direction uses the same signed-coordinate responses already present in the primary proof."
+        ],
+        "reasoning": "Once those published ingredients are read together, the directed result follows by a routine signature check; it is therefore covered even without verbatim wording.",
+        "searches": [
+          "Brown--Hoshino pp. 197--209, especially the signed path responses and cycle cut argument",
+          "Pichler directed-cycle composition discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brown--Hoshino give exactly \\(g(1)=1,g(2)=4,g(q)=2^{q-1}+3\\) for cycles.",
+          "Their response rules copy signed coordinate displacement and corresponding endpoint gaps.",
+          "Pichler explicitly treats isolated directed cycles and notes that the composition argument applies to directed or undirected cycles."
+        ],
+        "reasoning": "Directed-cycle q-equivalence, successor-preserving pebble games, and orientation-preserving reuse of the undirected cycle strategy are mathematically equivalent formulations of the audited upper bound.",
+        "searches": [
+          "Resultary query: exact Ehrenfeucht Fraisse directed cycles quantifier rank threshold 2^{q-1}+3 Brown Hoshino",
+          "Brown--Hoshino 2007 Theorem 4.1 and endpoint-preserving cycle reduction",
+          "Pichler 2011 Database Theory lecture notes, directed-cycle discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate Resultary entry with the exact directed formula was returned."
+        ],
+        "reasoning": "The absence of a separate table or indexed statement does not restore originality because implication-level coverage is decisive.",
+        "searches": [
+          "Resultary directed-cycle exact-threshold search"
+        ]
+      },
+      "rationale": "The exact numerical threshold is already Brown--Hoshino's cycle threshold, and the only extra step for the directed signature is to observe that the published coordinate/endpoint strategy preserves signed orientation. Pichler's later finite-model-theory notes explicitly state that the same cycle-composition method works for directed as well as undirected cycles, albeit with a coarser stated sufficient bound. Thus the final directed theorem is an implication-level transfer of prior machinery rather than a surviving new theorem under the audit rule.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "The exact threshold is published and the response strategy already preserves signed coordinates/endpoints, so it is successor-preserving.",
+          "identifier_or_url": "Ars Combinatoria 83 (2007), 193--212",
+          "material_read": "Full primary PDF, especially the path response strategy and Theorem 4.1 cycle reduction; relevant pages were visually inspected.",
+          "method": "Open-access full-PDF inspection.",
+          "title": "The Ehrenfeucht-Fraisse Game for Paths and Cycles",
+          "trigger": "Exact threshold source and the proof whose orientation behavior is decisive."
+        },
+        {
+          "assessment": "DIRECTED_CONTEXT_ALREADY_KNOWN",
+          "evidence": "The notes explicitly say the cycle composition argument works for directed or undirected cycles.",
+          "identifier_or_url": "Reinhard Pichler lecture notes, 24 May 2011",
+          "material_read": "Directed-cycle section around the stated \\(n\\ge2^q\\) sufficient equivalence theorem and composition argument.",
+          "method": "Open public PDF/text inspection.",
+          "title": "Database Theory: Ehrenfeucht-Fraisse Games",
+          "trigger": "Prior source explicitly discussing directed cycles."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Brown--Hoshino 2007",
+        "Pichler 2011"
+      ],
+      "rationale": "The exact quantifier-rank profile of the canonical directed cycle family is a natural finite-model-theoretic invariant and would be useful as a benchmark. The record is rejected because that invariant is already mechanically supplied by prior methods, not because the question is unmotivated.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For directed successor cycles \\(\\vec C_n\\), Duplicator wins the \\(q\\)-round Ehrenfeucht--Fraisse game on \\(\\vec C_m,\\vec C_n\\) exactly when \\(m=n\\) or both lengths are at least \\(g(q)\\), where \\(g(1)=1\\), \\(g(2)=4\\), and \\(g(q)=2^{q-1}+3\\) for \\(q\\ge3\\).",
+  "limitations": [
+    "Single consistently oriented finite cycles only, in the successor-only relational language.",
+    "No counting logic, named vertices, arbitrary orientations, or disjoint unions are covered."
+  ],
+  "schema_version": 1
+}
