@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker is `verify.py` and uses only the Python standard library. It implements the odd-characteristic criterion of Proposition 2.9 for every character exponent at every odd prime \(p<50\). A deterministic subset of unit multipliers is used only to form a coarse partition; because equality requires agreement for every unit, separating at this stage is logically conclusive. Every cell that still contains more than one Frobenius orbit is then checked against the complete unit group.
+# Independent mathematical audit
 
-The recorded replay output is in `verify_output.txt` and states:
+## correctness
 
-`VERIFY_OK primes=14 total_characters=385032 exceptional_primes=[11, 23, 37] p37_classes=5 p37_orders=[[14, 14, 2], [42, 42], [28, 28], [42, 42], [28, 28]] order28_digits=[45,45,63,63]`
+PASS
 
-The computation proves only the finite range stated. It does not numerically approximate Gauss sums and does not infer anything beyond the published exact criterion.
+Proposition 2.9 gives equality iff all unit-multiple p-adic digit sums agree and the factorial-product residues agree mod p. I independently replayed the complete exact-integer enumeration for all fourteen odd primes below 50; the exceptional primes and every p=37 orbit/order class matched the record. The source independently confirms the p=11 f=3 exception.
+
+## originality
+
+PASS
+
+The 2026 full preprint supplies the exact necessary-and-sufficient odd-p equality test in Proposition 2.9. Its f=3 sample lists the p=11 pure exception but not a complete p<50 census. Resultary and targeted searches found no earlier table containing the p=23 and p=37 classifications.
+
+## value
+
+PASS
+
+The converse problem is central to the cited primary work. A complete low-characteristic cubic census is a natural structural test of the new criterion, and the p=37 order-28/order-42 classes go beyond the source's displayed pure example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
