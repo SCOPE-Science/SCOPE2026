@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact elimination reduces the nonzero-equilibrium branch to one quintic together with an explicit sign admissibility condition. An exact Sturm sequence proves the full real-root count, and `verify.py` reproduces the polynomial, interval counts, admissibility partition, equilibrium residuals, and the characteristic polynomial of the displayed equilibrium.
+## correctness
 
-## Originality
-PASS. The introducing article was inspected in full at the relevant equations and discussion. Exact DOI/title/equation searches, semantic searches, downstream citation searches, and comparison with previously published findings found no source stating this five-equilibrium classification or the corrected exact spectrum for the same system. The closest results concern different vector fields and do not imply the claim.
+PASS
 
-## Value
-PASS. Replacing a published one-equilibrium phase portrait by five equilibria, while also correcting the number of unstable directions at the displayed equilibrium, materially changes the local phase-space structure that underlies basin and hidden-attractor analysis. The result is exact and parameter-specific, not a routine numerical recomputation.
+The equilibrium equations were eliminated independently. Besides \(E_0=(-1/30,0,0,0)\), every nonzero branch satisfies \(s=|y|=(x^2-360)/(10x)>0\) and the quintic \(x^5+9x^4-720x^3-492480x^2+113400x+1166400=0\). Exact Sturm counting gives precisely three real roots, numerically near \(-1.4295404143\), \(1.6562987482\), and \(78.9241446448\); the middle root violates the admissibility sign condition, while the other two each give two sign-related equilibria, for exactly five total. At \(E_0\), \(w|y|\) is differentiable with zero derivative and the characteristic polynomial is \((\lambda+12)(\lambda-1)(\lambda^2+37\lambda-323999/900)\), whose remaining roots are about 7.999979 and -44.999979. Thus the displayed point has two positive and two negative eigenvalues. The finite numerical root values are witnesses to an exact Sturm/factorization proof, not a substitute for it.
 
-## Closest literature and limitations
-The closest source is the introducing paper itself: Zhao, Wang and Zhang, *Information* 14 (2023), 150, DOI 10.3390/info14030150. It prints the ODE and parameter vector but gives the conflicting equilibrium count and eigenvalue list. No claim is made here about the existence, basin geometry, or cryptographic security of the plotted attractor, and a non-indexed prior correction remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes as a source correction. The complete open primary article prints the exact audited four-dimensional system, asserts that the new system has only one equilibrium, displays the point \((-1/30,0,0,0)\), and lists an eigenvalue zero. The source's own characteristic polynomial is incompatible with that zero eigenvalue. Fresh exact-system and semantic searches found no prior correction giving all five equilibria or the corrected local spectrum.
+
+## value
+
+PASS
+
+Equilibria and their local indices are basic structural data for a chaotic system used as the dynamical engine of an encryption scheme. Missing four equilibria invalidates the published equilibrium classification, and the zero-eigenvalue error misidentifies the displayed point's local type. The correction is therefore substantive dynamical information, not a cosmetic numerical adjustment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
