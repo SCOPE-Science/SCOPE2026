@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:01:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 7f31cbc8246df50fc0168d40f55468cfed73d839",
+        "assigned verify_descent_precision.py blob 4865305ad3502cf944aabb9b78e738c41d13c23b",
+        "Borodin--Diaconis--Fulman, arXiv:0904.3740",
+        "Usmani, DOI 10.1016/0898-1221(94)90066-3"
+      ],
+      "rationale": "For a uniform permutation, each descent indicator has variance \\(1/4\\), adjacent descents occur with probability \\(1/6\\), and nonadjacent indicators are independent, so \\(12C\\) is exactly the Jacobi Toeplitz matrix with diagonal three and off-diagonal minus one. Its continuant determinants satisfy \\(d_r=3d_{r-1}-d_{r-2}\\), hence \\(d_r=F_{2r+2}\\). The standard tridiagonal inverse cofactor formula then gives the stated Fibonacci entries. Normalizing negative precision entries gives the stated full-order linear partial correlations, and Binet ratios give the bulk limit. Fresh exact enumeration of all permutations through \\(N=7\\) reproduced the covariance matrix. No correctness defect is present.",
+      "residual_risks": [
+        "No correctness defect is asserted; rejection is implication/value based."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source gives stronger process-level distributional information than covariance alone.",
+          "The second covers arbitrary Jacobi tridiagonal matrices, strictly broader than the audited constant-coefficient matrix."
+        ],
+        "reasoning": "Combining the two published ingredients leaves only routine recurrence simplification.",
+        "searches": [
+          "Borodin--Diaconis--Fulman complete primary article",
+          "Usmani 1994 tridiagonal inversion article"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0904.3740",
+        "DOI 10.1016/0898-1221(94)90066-3",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "These ingredients determine \\(C\\), \\(\\det C\\), and \\(C^{-1}\\) by substitution.",
+          "The linear partial correlations are then a standard algebraic normalization of the precision matrix."
+        ],
+        "reasoning": "No additional nonstandard lemma or difficult optimization remains.",
+        "searches": [
+          "one-dependent uniform descent process plus exact local probabilities",
+          "general Jacobi tridiagonal inverse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.1 identifies uniform-permutation descents as a stationary one-dependent determinantal process and provides exact correlation data.",
+          "Usmani's primary paper gives an explicit inverse algorithm for a general Jacobi tridiagonal matrix."
+        ],
+        "reasoning": "The audited precision matrix is exactly a fixed Toeplitz instance of the classical Jacobi inverse once the known descent covariance is written down.",
+        "searches": [
+          "Resultary query: random permutation descent indicators inverse covariance precision matrix Fibonacci partial correlation",
+          "Borodin--Diaconis--Fulman arXiv:0904.3740, Section 5 and Theorem 5.1",
+          "Usmani DOI 10.1016/0898-1221(94)90066-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independently indexed same formula was returned."
+        ],
+        "reasoning": "Exact-string absence does not restore originality when the formula is a direct specialization of broader published machinery.",
+        "searches": [
+          "Resultary current exact query for descent-indicator Fibonacci precision entries"
+        ]
+      },
+      "rationale": "The same-object descent process is already published as a stationary one-dependent determinantal process, with exact finite descent-set probabilities. The local covariance matrix follows immediately from the standard one-, two-, and one-dependence probabilities. Explicit inversion of a general Jacobi tridiagonal matrix is classical and published; the audited inverse is its constant-coefficient Toeplitz specialization, while the Fibonacci form is just the solution of the resulting second-order continuant recurrence. The partial-correlation formula is the standard negative normalized precision entry. Thus every novelty-bearing clause is mechanically implied by known same-object second-order data plus classical matrix inversion, even though the combined formula was not located verbatim.",
+      "residual_risks": [
+        "No literature-access uncertainty affects the implication-based rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_SAME_OBJECT_PROCESS_COVERAGE",
+          "evidence": "The source establishes the exact one-dependent descent process from which the tridiagonal covariance follows immediately.",
+          "identifier_or_url": "arXiv:0904.3740",
+          "material_read": "complete primary HTML, especially Section 5, Example 11, Theorem 5.1, and the exact finite descent-set formula",
+          "method": "primary full-text inspection",
+          "title": "On adding a list of numbers (and other one-dependent determinantal processes)",
+          "trigger": "same uniform-permutation descent process"
+        },
+        {
+          "assessment": "DECISIVE_GENERAL_MATRIX_METHOD",
+          "evidence": "The article explicitly supplies an inverse algorithm for general Jacobi tridiagonal matrices; the audited matrix is a special case.",
+          "identifier_or_url": "https://doi.org/10.1016/0898-1221(94)90066-3",
+          "material_read": "primary abstract, bibliographic record, and scope statement",
+          "method": "primary-source scope inspection",
+          "title": "Inversion of Jacobi's tridiagonal matrix",
+          "trigger": "general explicit inverse used by the audited specialization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Borodin--Diaconis--Fulman",
+        "Usmani",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The sign reversal between marginal independence and negative linear partial correlation is a neat statistical observation, but after the known descent covariance is written as a Toeplitz tridiagonal matrix, the determinant, inverse, Fibonacci simplification, and partial correlations are standard linear-algebra consequences. Under the common value bar this is a textbook-level specialization rather than an independently motivated mathematical gap.",
+      "residual_risks": [
+        "The formulas may still be useful pedagogically."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No correctness defect is asserted; rejection is implication/value based.",
+    "No literature-access uncertainty affects the implication-based rejection.",
+    "The formulas may still be useful pedagogically."
+  ]
+}
