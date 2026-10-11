@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For a simplicial \\(d\\)-polytope, the classical Lower Bound Theorem gives the stacked-polytope lower face numbers \\(f_j\\ge\binom d j f_0-j\binom{d+1}{j+1}\\) for \\(1\\le j\\le d-2\\) and \\(f_{d-1}\\ge(d-1)f_0-(d+1)(d-2)\\). Solving these inequalities gives exactly \\(f_0\\le\\Lambda_{d,j}(f_j)\\). The lead source endpoint theorems depend monotonically on the number of vertices or facets through a negative power, so substitution of that upper bound preserves the inequality. Polarity converts a simple circumscribed polytope to a simplicial polar with \\(f_k(Q)=f_{d-1-k}(Q^\\circ)\\), giving the circumscribed statement. No finite computation is used to prove an infinite case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The classical Lower Bound Theorem gives the stronger all-k combinatorial inequality used here, but it is a face-enumeration theorem and contains no dual-volume approximation conclusion.",
+        "Hinman gives sharp linear face-number inequalities for arbitrary polytopes only over the ranges where the relevant binomial coefficient is nonzero; those general inequalities are exactly the mechanism already used in the lead source for half of the f-vector.",
+        "The approximation sources supply the geometric endpoint estimates but do not combine them with the full simplicial Lower Bound Theorem."
+      ],
+      "reasoning": "Neither the broad combinatorial theorem nor the broad approximation theorem alone covers the final statement. The new implication uses the stronger simplicial face-vector structure to bridge the missing geometric ranges.",
+      "searches": [
+        "Lower Bound Theorem simplicial polytope approximation Euclidean ball fixed k-faces",
+        "stacked fixed number of k-faces Euclidean ball approximation",
+        "simplicial all k Euclidean ball f_k approximation polytope",
+        "Lower Bounds on Face Numbers Hinman dual volume approximation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.02554v1",
+      "arXiv:2510.22771 and DOI:10.1093/imrn/rnag186",
+      "DOI:10.1093/imrn/rnz277 and arXiv:1905.08862",
+      "Kalai survey and classical Lower Bound Theorem literature",
+      "Hinman, Lower Bounds on Face Numbers of Polytopes with m Facets, Electronic Journal of Combinatorics 32 (2025)",
+      "Targeted public searches for all-k simplicial/simple dual-volume approximation and equivalent face-vector reductions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The lead Theorem 3.7 endpoint \\(k=0\\) and Theorem 3.8 endpoint \\(k=d-1\\) provide the exact geometric estimates used after the reduction.",
+        "The older approximation papers restrict their simplicial consequences to ranges obtained from weaker monotonicity properties of the f-vector.",
+        "The classical Lower Bound Theorem gives \\(f_j(P)\\ge\\phi_{d,j}(f_0(P))\\), whose explicit inversion is precisely \\(f_0(P)\\le\\Lambda_{d,j}(f_j(P))\\)."
+      ],
+      "reasoning": "The prior approximation results do not imply the claim without importing and inverting the full simplicial Lower Bound Theorem. Once that nontrivial combinatorial bridge is supplied, the endpoint estimates apply monotonically and yield every k in the subclass.",
+      "searches": [
+        "arXiv:2608.02554 Theorem 3.7 Theorem 3.8 Section 6 all k",
+        "arXiv:2510.22771 simplicial asymptotic k faces",
+        "DOI:10.1093/imrn/rnz277 Corollary 2 simplicial k faces",
+        "stacked d-polytope phi_k lower bound theorem formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The lead source states its arbitrary-polytope ranges as the lower half for inscribed polytopes and upper half for circumscribed polytopes, and Section 6 explicitly asks for the missing k values.",
+        "The 2026 intrinsic-volume paper states analogous half-vector ranges and, in its relevant full-text discussion, recalls only restricted-range simplicial predecessors.",
+        "Targeted searches did not locate an all-face simplicial/simple dual-volume corollary with an explicit effective endpoint complexity."
+      ],
+      "reasoning": "An equivalent result must cover every face dimension under the stated simplicial/simple hypotheses and give a valid reduction to the endpoint vertex/facet theorem. The inspected approximation papers do not state that implication.",
+      "searches": [
+        "arXiv:2608.02554 simplicial all k nonasymptotic dual volume",
+        "simplicial polytope all k dual volume approximation fixed number k-faces Euclidean ball",
+        "fixed k-faces simplicial inscribed dual volume nonasymptotic all k",
+        "simple circumscribed polytope all k dual volume approximation Euclidean ball"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched public record or result table returned the formula for the effective complexity \\(\\Lambda_{d,k}(M)\\) in this approximation problem.",
+        "The lead source itself lists the unrestricted all-k extension as open rather than tabulating a simplicial/simple all-k specialization."
+      ],
+      "reasoning": "The exact claimed all-k subclass theorem and its constants were not present in the checked public records.",
+      "searches": [
+        "2608.02554 simplicial all k nonasymptotic dual volume",
+        "dual volume approximation stacked polytope k faces",
+        "all-face dual volume lower bound simplicial simple polytope"
+      ]
+    },
+    "rationale": "The lead 2026 paper proves the dual-volume estimates only over half of the f-vector for arbitrary polytopes and explicitly poses the remaining all-k range as open. The 2026 intrinsic-volume predecessor and the 2021 Besau--Hoehner--Kur paper likewise state only restricted-range simplicial consequences. The classical Lower Bound Theorem supplies the missing combinatorial bridge but contains no approximation theorem. Targeted source-specific, alias, implication, and broader-coverage searches found no published statement combining these ingredients into the claimed all-k simplicial/simple nonasymptotic theorem.",
+    "residual_risks": [
+      "The combination may have appeared as an unstated or poorly indexed corollary in approximation or polytope-combinatorics literature.",
+      "The result does not address arbitrary nonsimplicial or nonsimple polytopes in the missing half-vector ranges."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: exact endpoint constants and half-vector arbitrary-polytope results are present; the missing all-k range is explicitly posed as an open problem.",
+        "evidence": "Theorem 3.7 is restricted to \\(k\\le\\lfloor d/2\rfloor\\); Theorem 3.8 to \\(k\\ge\\lceil d/2\rceil-1\\); Section 6 asks whether the analytic dual-volume estimate holds for all \\(k\\).",
+        "identifier_or_url": "arXiv:2608.02554v1",
+        "material_read": "Full arXiv HTML through the introduction, definitions, Theorems 3.1, 3.3, 3.7 and 3.8, the endpoint proof structure, and Section 6 discussion/open problem.",
+        "method": "Primary full-text inspection.",
+        "title": "Dual volume approximation of the Euclidean ball by polytopes with a fixed number of k-faces",
+        "trigger": "Lead recent source and exact geometric endpoint estimates."
+      },
+      {
+        "assessment": "NOT_COVERING: it upgrades to arbitrary polytopes over half-vector ranges and explicitly describes the earlier simplicial bounds only over restricted ranges.",
+        "evidence": "The inspected text states inscribed coverage through \\(\\lfloor d/2\rfloor\\) and circumscribed coverage from \\(\\lceil d/2\rceil-1\\), not an all-k simplicial/simple theorem.",
+        "identifier_or_url": "arXiv:2510.22771; DOI:10.1093/imrn/rnag186",
+        "material_read": "Relevant full-text sections defining simplicial classes, Lemma 2.7, the discussion of earlier simplicial ranges, Corollary 2.8, and the proof strategy for the main intrinsic-volume theorem.",
+        "method": "Public full-text preprint inspection plus journal metadata.",
+        "title": "Approximation of the Euclidean ball by polytopes with a fixed number of k-faces",
+        "trigger": "Closest newer intrinsic-volume paper by the same authors, plausibly capable of containing an all-k combinatorial reduction."
+      },
+      {
+        "assessment": "NOT_COVERING: its simplicial approximation consequences use 75-percent unimodality and cover only restricted k-ranges.",
+        "evidence": "Corollary 2 treats simplicial inscribed \\(k\\le\\lfloor d/2\rfloor\\) and a terminal circumscribed range; no full Lower-Bound-Theorem inversion or all-k dual-volume result is stated.",
+        "identifier_or_url": "DOI:10.1093/imrn/rnz277; arXiv:1905.08862",
+        "material_read": "Section 2.2 on bounded numbers of k-faces, equations (9)--(10), Corollaries 2--3, and the simple-polytope remark.",
+        "method": "Primary journal full-text inspection.",
+        "title": "Intrinsic and Dual Volume Deviations of Convex Bodies and Polytopes",
+        "trigger": "Earlier paper containing the cited simplicial k-face approximation results."
+      },
+      {
+        "assessment": "FOUNDATIONAL_BACKGROUND: supplies the classical all-k face-number inequality but no Euclidean-ball approximation consequence.",
+        "evidence": "The stacked formulas match the inverted definition of \\(\\Lambda_{d,k}\\) used in the proof.",
+        "identifier_or_url": "Gil Kalai survey; Invent. Math. 88 (1987), 125--151",
+        "material_read": "Survey section giving the stacked-polytope face formulas \\(\\phi_j(v,d)\\) and the statement \\(f_j(P)\\ge\\phi_j(v,d)\\) for simplicial polytopes.",
+        "method": "Author-hosted mathematical survey inspection.",
+        "title": "The combinatorial theory of convex polytopes / Lower Bound Theorem discussion",
+        "trigger": "Critical combinatorial lemma used to bridge arbitrary face counts to vertex counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8c1e191f-0df9-44a1-9964-691052684bb0",
+  "value": {
+    "rationale": "The lead source explicitly highlights the missing face dimensions as the natural open extension of its radial theory. On two central combinatorial subclasses, the theorem closes that entire range nonasymptotically for every analytic dual-volume deviation, with explicit constants and a sharp combinatorial complexity conversion. This is a structural partial resolution of the source problem rather than a routine parameter substitution: the full simplicial Lower Bound Theorem is strictly stronger than the half-vector inequalities used in the source and its predecessors.",
+    "status": "PASS"
+  }
+}
