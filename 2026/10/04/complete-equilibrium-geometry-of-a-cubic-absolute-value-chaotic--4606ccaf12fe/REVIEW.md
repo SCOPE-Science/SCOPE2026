@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct equilibrium elimination gives the complete real equilibrium set. The isolated-point Jacobian is smooth despite the absolute value because each isolated point has nonzero \(x\). Substitution of the equilibrium relation gives the stated cubic characteristic polynomial, and the Routh–Hurwitz sign analysis yields the exact stability partition. A symbolic checker reproduces the polynomial, the source-parameter roots, and the critical factorization.
+## correctness
 
-## Originality
-PASS. The 2020 conference paper and expanded journal paper were inspected and both present the system as having a line equilibrium without the isolated equilibria derived here. Targeted published-finding corpus searches and exact public-literature searches found no correction or equivalent stability classification for this vector field. Closest database findings analyze different systems and do not imply this result. Residual risk remains for unindexed commentary or literature under substantially different notation.
+PASS
 
-## Value
-PASS. The correction changes a structural property used by the source to motivate its hidden-attractor classification. It also gives a complete parameter-dependent equilibrium count and an exact stability partition, including a stable isolated branch on \(2/9<ab<1/4\) and the critical imaginary-pair boundary at \(ab=2/9\). This is directly relevant to any basin-based hidden/self-excited classification of the flow.
+Over the reals, \(x^3-y^3=0\) forces \(x=y\), and then \(xz=0\). The nonzero branch has \(z=0\) and reduces separately on \(x>0\) and \(x<0\) to two quadratics with the stated discriminants. Independent symbolic reconstruction of the Jacobian, followed by the equilibrium relation, reproduces the stated cubic. Routh--Hurwitz gives two right-half-plane roots on the positive branch, one on the more-negative branch, and stability on the less-negative branch exactly when \(-3br>1\), equivalent to \(ab>2/9\) within its existence interval.
 
-The finding does not claim that the reported chaotic attractor is self-excited; that requires a separate basin analysis.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The introducing conference/journal work explicitly says the equilibria lie on \((0,0,z)\) and uses that assertion in describing the attractor as hidden. Direct elimination shows omitted isolated equilibria and an exact stability phase that is absent from the checked source. Searches found no prior correction of this system.
+
+## value
+
+PASS
+
+The result corrects the equilibrium census behind a published hidden-attractor argument and supplies the exact local stability partition of every omitted isolated branch. It also carefully limits the consequence: omitted equilibria make the line-only hiddenness argument insufficient, but do not themselves prove the attractor self-excited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

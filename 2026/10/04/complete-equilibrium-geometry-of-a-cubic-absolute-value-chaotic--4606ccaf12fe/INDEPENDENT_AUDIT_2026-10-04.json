@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:01:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over the reals, \\(x^3-y^3=0\\) forces \\(x=y\\), and then \\(xz=0\\). The nonzero branch has \\(z=0\\) and reduces separately on \\(x>0\\) and \\(x<0\\) to two quadratics with the stated discriminants. Independent symbolic reconstruction of the Jacobian, followed by the equilibrium relation, reproduces the stated cubic. Routh--Hurwitz gives two right-half-plane roots on the positive branch, one on the more-negative branch, and stability on the less-negative branch exactly when \\(-3br>1\\), equivalent to \\(ab>2/9\\) within its existence interval.",
+      "risk": "At the nondifferentiable equilibrium line ordinary linearization at \\(x=0\\) is not asserted; the stability classification concerns the isolated smooth equilibria.",
+      "sources": [
+        "Moysis et al., Telecom 1 (2020), 283--296, DOI 10.3390/telecom1030019",
+        "assigned RESULT.md blob 23ef3683e75752de75405b53781de83ed0dd8ae8"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related hidden-attractor papers study other systems; none contains a theorem that specializes to this absolute-value cubic flow."
+        ],
+        "reasoning": "No checked broader theorem dominates the source-specific Routh partition.",
+        "searches": [
+          "Resultary equilibrium-correction/hidden-attractor searches",
+          "public citation searches"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/telecom1030019",
+        "DOI:10.1109/MOCAST49295.2020.9200286",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior work supplies the exact vector field and explicitly asserts line-only equilibria; it does not derive or imply the omitted roots.",
+          "The new conclusion follows from correcting the source's equilibrium elimination and then applying Routh--Hurwitz."
+        ],
+        "reasoning": "The final claim contradicts, rather than follows from, the source's equilibrium census.",
+        "searches": [
+          "Moysis et al. 2020 conference and Telecom article"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The publisher full text states that the equilibria lie on the line \\((0,0,z)\\).",
+          "No located result gives the isolated branches or the \\(ab=2/9\\) stability boundary."
+        ],
+        "reasoning": "The source's line-only statement is mathematically incompatible with the audited equilibrium equations, so it is not equivalent coverage.",
+        "searches": [
+          "Resultary: Moysis Volos cubic absolute value hidden attractor omitted equilibria",
+          "public search by DOI 10.3390/telecom1030019 and exact nonlinearities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact equilibrium/stability table for this two-parameter family was found."
+        ],
+        "reasoning": "The classification is symbolic, not a known table recomputation.",
+        "searches": [
+          "Resultary corpus",
+          "public DOI/title searches"
+        ]
+      },
+      "rationale": "The introducing conference/journal work explicitly says the equilibria lie on \\((0,0,z)\\) and uses that assertion in describing the attractor as hidden. Direct elimination shows omitted isolated equilibria and an exact stability phase that is absent from the checked source. Searches found no prior correction of this system.",
+      "residual_risks": [
+        "A later unindexed erratum could duplicate the correction; none was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_OF_LINE_ONLY_ERROR",
+          "evidence": "The article explicitly says the equilibria of system (1) lie in the line \\((0,0,z)\\), whereas direct substitution produces nonzero isolated equilibria.",
+          "identifier_or_url": "DOI:10.3390/telecom1030019",
+          "material_read": "Publisher full-text HTML including the abstract, system discussion, the statement that equilibria lie on \\((0,0,z)\\), and the hidden-attractor definition/context.",
+          "method": "lawful publisher full text",
+          "title": "A Novel Chaotic System with a Line Equilibrium: Analysis and Its Applications to Secure Communication and Random Bit Generation",
+          "trigger": "Primary journal source for the exact vector field and hidden-attractor inference."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result corrects the equilibrium census behind a published hidden-attractor argument and supplies the exact local stability partition of every omitted isolated branch. It also carefully limits the consequence: omitted equilibria make the line-only hiddenness argument insufficient, but do not themselves prove the attractor self-excited.",
+      "risk": "A basin analysis is still required to reclassify the reported attractor.",
+      "sources": [
+        "DOI:10.3390/telecom1030019"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(\\dot x=yz,\\ \\dot y=x^3-y^3,\\ \\dot z=a|x|-by^3-xy\\) with \\(a,b>0\\), the equilibrium set is the full line \\((0,0,z)\\), one positive isolated equilibrium for every parameter pair, and additionally two negative isolated equilibria when \\(0<4ab<1\\) (coalescing at \\(4ab=1\\)). The isolated-equilibrium characteristic polynomial is \\(\\lambda^3+3r^2\\lambda^2-br^3\\lambda+3r^4(1+2br)\\); the less-negative branch is asymptotically stable exactly for \\(2/9<ab<1/4\\), with a zero-Hopf boundary at \\(ab=2/9\\).",
+  "limitations": [
+    "The hidden-attractor basin condition is not resolved."
+  ],
+  "schema_version": 1
+}
