@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:48:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 447136eb0a64284522ce0a5d4b5eb5ed465141b3",
+        "arXiv:2609.28592v1 full Section 5",
+        "independent symbolic/numerical strict-convexity check"
+      ],
+      "rationale": "The channel output determinant separates into the pure-state value plus a nonnegative input-mixedness term, so equality at the entropy roof forces purity. The exact scalar roof \\(g_p(q)\\) is strictly convex for \\(0<p<1\\), hence equality in Jensen forces every signal excitation to equal \\(q_*\\). Proposition 5.6 fixes the ensemble average to the diagonal state \\(\\tau_*\\), which is equivalent to weighted phasor balance. Conversely those conditions give the required average and each signal has entropy \\(g_p(q_*)\\), so the Holevo value is capacity. A finite set of positive weights closes to a zero phasor polygon iff the largest weight is at most half the total.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang et al. prove capacity, identify the optimizing scalar \\(q_*\\), give the opposite-phase binary optimizer, and uniquely determine the optimal average input."
+        ],
+        "reasoning": "These stronger fixed-input and average-input statements leave only equality conditions and a planar polygon closure to obtain the full finite-ensemble classification.",
+        "searches": [
+          "arXiv:2609.28592v1 full HTML, Section 5.2--5.3",
+          "Giovannetti--Fazio optimal binary ensemble as cited by Tang et al."
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.28592v1",
+        "Resultary amplitude-damping ensemble-classification query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves every optimal average is \\(\\tau_*\\), and at fixed excitation the roof is attained by pure fixed-latitude states. Strict convexity makes equality in Jensen force equal excitation; diagonal averaging is \\(\\sum_j\\pi_j e^{i\\phi_j}=0\\)."
+        ],
+        "reasoning": "The final iff statement is mechanically implied by the prior source plus routine strict-equality and polygon-closing facts.",
+        "searches": [
+          "arXiv:2609.28592v1 Lemma 5.4 lines 388--396; Proposition 5.6 lines 431--456",
+          "assigned symbolic strict-convexity/equality calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 5.4 gives the exact fixed-input roof and an attaining fixed-excitation pure decomposition.",
+          "Proposition 5.6 gives the unique optimal average input and expressly says the uniqueness concerns the average and allows different optimal ensembles."
+        ],
+        "reasoning": "The audited latitude/phase formulation is exactly an equality-case reformulation of the prior convex-roof and unique-average statements.",
+        "searches": [
+          "arXiv:2609.28592v1, Lemma 5.4, Theorem 5.5, Proposition 5.6",
+          "Resultary query: qubit amplitude damping channel capacity achieving ensembles all finite optimal signal ensembles phase balance latitude max probability one half"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate earlier database record was needed to decide coverage because the 2026 primary source itself contains the dominating premises."
+        ],
+        "reasoning": "The novelty decision is implication-based rather than title-based; the source's Section 5 statements dominate the audited conclusion.",
+        "searches": [
+          "Resultary published-finding corpus query for amplitude-damping optimal ensemble classification",
+          "arXiv:2609.28592v1"
+        ]
+      },
+      "rationale": "Tang--Zhu--Bai--Wang already prove the fixed-input roof \\(\\widehat S_{\\mathcal A_p}(\\tau)=g_p(q)\\), exhibit a fixed-excitation pure decomposition attaining it, prove the binary capacity formula, and prove the unique optimal average input \\(\\tau_*\\) for \\(p<1\\), while explicitly noting that different optimal ensembles are allowed. The audited classification follows by equality analysis of these results: strict convexity of the displayed scalar roof forces every pure signal in an optimal decomposition to have excitation \\(q_*\\); purity/equality fixes the latitude; averaging to diagonal \\(\\tau_*\\) is exactly the weighted phasor-balance equation. The probability criterion is the standard polygon-closing condition. Under the required implication standard this is a direct corollary of prior results, not an original theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PRIOR_COVERAGE_BY_DIRECT_COROLLARY",
+          "evidence": "Lemma 5.4 gives \\(\\widehat S=g_p(q)\\) and a fixed-excitation pure decomposition; Proposition 5.6 makes \\(\\tau_*\\) the unique optimal average and explicitly leaves only ensemble nonuniqueness.",
+          "identifier_or_url": "arXiv:2609.28592v1",
+          "material_read": "Full arXiv HTML around Lemma 5.4, Theorem 5.5, Section 5.3, Proposition 5.6, and the paragraph noting that different optimal ensembles are allowed.",
+          "method": "Primary full-text implication and equality-case comparison.",
+          "title": "Classical Capacity and Entanglement Cost of the Amplitude Damping Channel",
+          "trigger": "Same channel, exact capacity, fixed-input convex roof, and uniqueness of the optimal average input."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.28592v1"
+      ],
+      "rationale": "As a mathematical statement, the complete equality-case classification is useful: it describes all finite optimal alphabets and gives an exact feasibility criterion for prescribed probabilities. Its value survives even though it is not original under the required implication standard.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.28592v1",
+    "Resultary amplitude-damping ensemble-classification query"
+  ],
+  "disposition": "failed",
+  "final_claim": "For \\(0<p<1\\), every finite positive-probability capacity-achieving ensemble for the qubit amplitude-damping channel consists of pure states on the unique optimal latitude \\(q_*\\) with weighted phase balance \\(\\sum_j\\pi_j e^{i\\phi_j}=0\\); prescribed positive weights are feasible exactly when \\(\\max_j\\pi_j\\le 1/2\\), with the two-signal case necessarily equiprobable and antipodal in phase.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for decisive prior implication, not for correctness."
+  ]
+}
