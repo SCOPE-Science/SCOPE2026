@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The proof was checked symbolically from the defining norm. For an arbitrary positive-definite quadratic form, finite-group averaging keeps the same lower and upper comparison constants and reduces the form to a scalar multiple of the Euclidean quadratic form. This establishes global optimality without a numerical optimizer.
+# Independent mathematical audit
 
-On the Euclidean unit circle, the exact identity
-\[
-N_\beta(x,y)^4=1+2(\beta-1)x^2y^2
-\]
-reduces the remaining calculation to the interval \(0\le x^2y^2\le1/4\). Axes and diagonals provide the exact extrema, yielding the two displayed branches.
+## correctness
 
-The bundled `verify.py` uses rational arithmetic only as a supplementary consistency check. It checks representative branch values and verifies exactly that the source transformation \(\gamma=(3-\beta)/(1+\beta)\) carries the upper branch into the lower one. Its output is `VERIFY_OK`. Finite replay is not used as proof of the continuum statement.
+PASS
 
-Limit: no independent audit has been performed, and no claim is made about nonsymmetric cubic-index-zero planes or classification of every optimal linear map.
+For any positive-definite quadratic form \(q\), averaging \(q\) over the eight sign/swap isometries preserves the same lower and upper comparison constants against \(N_\beta^2\) and yields \(c(x^2+y^2)\); hence no tilted ellipse improves the Euclidean pullback. On \(x^2+y^2=1\), \(N_\beta^4=1+2(\beta-1)s\) with \(0\le s=x^2y^2\le1/4\), so the extrema are exactly at axes and diagonals and give the two branches. Endpoints \(\beta=0,1,3\) and representative interior parameters were independently replayed.
+
+## originality
+
+PASS
+
+The primary source classifies exactly the quartic family and its admissible parameter range, but its complete inspected text contains no Banach--Mazur discussion. Resultary returned the assigned finding as the exact same-object profile and otherwise only different Banach-plane computations. General symmetry principles explain why a group-invariant ellipse is natural, but they do not state the parameter-dependent radial extrema. Best-of-knowledge originality therefore passes for the exact all-parameter profile.
+
+## value
+
+PASS
+
+Banach--Mazur distance is a canonical quantitative Hilbertianity invariant, and the family is not an arbitrary slice: it is the complete normalized absolute symmetric real two-dimensional family singled out by the cubic polynomial numerical-index classification. The exact profile and optimal-ellipse statement therefore provide a reusable structural benchmark for that classified family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
