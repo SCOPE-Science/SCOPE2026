@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:53:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual RESULT.md proof reconstructs correctly. For an arbitrary centered ellipse E_Q inside the cut-square octagon, the four strip support inequalities give tr(Q)<=2 min{1,(1+w)^2/2}. Averaging v v^T over the eight vertices gives ((1+w^2)/2)I, so K_w subset lambda E_Q implies lambda^2 >= (1+w^2) tr(Q^{-1})/2 >= (1+w^2)/q_* by tr(Q^{-1})>=4/tr(Q). The circle sqrt(q_*) B_2 attains equality. The two branches meet at w=sqrt(2)-1 and their derivatives give the claimed unique minimum.",
+      "risks": [
+        "The statement is only for the real two-dimensional family and 0<w<1."
+      ],
+      "sources": [
+        "RESULT.md blob f541860a4319195c872b83ef8e56ec49c96ab3f4",
+        "Assigned tree 4fda6b3fa627581d558822d21e1c583c8d7eb7cf",
+        "Independent algebraic reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 2.11 states that the pair of distance ellipsoids is unique for any planar symmetric convex body."
+        ],
+        "reasoning": "For a D4-symmetric planar body, every symmetry sends a distance ellipse to another one; uniqueness therefore forces rotational/reflection invariance, hence a circle. This broader theorem reduces the submitted result to elementary radii.",
+        "searches": [
+          "Grundbacher DOI 10.1112/mtk.70062, Corollary 2.11",
+          "Resultary search for planar symmetric distance ellipsoid and octagonal Banach–Mazur distance"
+        ]
+      },
+      "checked_sources": [
+        "Stefan Grundbacher, “On certain extremal Banach–Mazur distances and Ader's characterization of distance ellipsoids,” Mathematika (2026), DOI 10.1112/mtk.70062, especially Corollary 2.11.",
+        "S. G. Kim, DOI 10.5666/KMJ.2013.53.2.295",
+        "Resultary semantic searches for Euclidean Banach–Mazur distance, the named space, equivalent norm descriptions, and symmetry/distance-ellipsoid formulations (2026-10-04 UTC)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Planar uniqueness + D4 symmetry determines the optimizing ellipse to be circular.",
+          "For K_w, the relevant radial data are the vertex radius sqrt(1+w^2) and the smaller of the axial and diagonal strip inradii."
+        ],
+        "reasoning": "These prior/general facts imply the claimed formula after only elementary support/radius arithmetic, so the final claim is a covered corollary even though Kim did not state it.",
+        "searches": [
+          "Statement-level comparison with Grundbacher Corollary 2.11",
+          "Full-text comparison with Kim 2013 exact-object paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim's exact-object paper uses the same d_*(1,w)^2 octagonal geometry and the same threshold but contains no Banach–Mazur statement in full-text search.",
+          "Grundbacher proves uniqueness of planar distance ellipsoids."
+        ],
+        "reasoning": "The Lorentz-predual notation and the equivalent cut-square octagon were both checked. The stronger distance-ellipsoid theorem applies to the latter directly, and D4 invariance forces a circle.",
+        "searches": [
+          "Resultary: Banach Mazur distance Euclidean octagonal Lorentz predual d_*(1,w)^2 sqrt2-1",
+          "Web/full-text: S. G. Kim, The Unit Ball of L_s(^2 d_*(1,w)^2), DOI 10.5666/KMJ.2013.53.2.295",
+          "Grundbacher DOI 10.1112/mtk.70062"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent table with the displayed formula was located; Resultary's matching record is the assigned finding itself."
+        ],
+        "reasoning": "The lack of an exact table does not rescue originality because the formula is already a routine implication of broader prior coverage.",
+        "searches": [
+          "Resultary exact-object and octagonal-norm searches",
+          "Web exact-phrase searches for d_*(1,w)^2 and Banach–Mazur"
+        ]
+      },
+      "rationale": "The exact numeric formula is not printed in the exact-object papers inspected, but the final claim is implication-level covered by a stronger 2026 planar distance-ellipsoid theorem plus routine symmetry and radial geometry. Grundbacher's Corollary 2.11 proves uniqueness of the distance-ellipsoid pair for every planar symmetric convex body. Because K_w has the full signed-permutation symmetry, uniqueness forces its distance ellipse to be a Euclidean circle. The Banach–Mazur distance is then only the ratio of the octagon's Euclidean circumradius to its Euclidean inradius, whose two strip families immediately give exactly the submitted two branches and the junction w=sqrt(2)-1. Under the required corollary/special-case standard, absence of the same displayed formula is not originality.",
+      "residual_risks": [
+        "Older convex-geometry literature may contain the same radial formula explicitly, but this is not needed for the rejection because stronger implication-level coverage already suffices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOMINATING_COVERAGE",
+          "evidence": [
+            "Corollary 2.11: the distance-ellipsoid pair is unique for every planar symmetric convex body."
+          ],
+          "identifier_or_url": "DOI:10.1112/mtk.70062",
+          "material_read": "Full article portions containing the definition, Ader characterization, uniqueness discussion, and Corollary 2.11.",
+          "method": "Lawful publisher full-text inspection.",
+          "title": "On certain extremal Banach–Mazur distances and Ader's characterization of distance ellipsoids",
+          "trigger": "Potentially dominating planar Banach–Mazur theorem."
+        },
+        {
+          "assessment": "SAME_OBJECT_NOT_DIRECT_BM",
+          "evidence": [
+            "The paper treats the same octagonal plane and threshold but has no Banach–Mazur occurrence."
+          ],
+          "identifier_or_url": "DOI:10.5666/KMJ.2013.53.2.295",
+          "material_read": "Full accessible article with targeted searches around the norm, extremal geometry, and threshold sqrt(2)-1.",
+          "method": "Lawful full-text inspection.",
+          "title": "The Unit Ball of L_s(^2 d_*(1,w)^2)",
+          "trigger": "Same exact Lorentz-predual object and same threshold."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Once the general planar uniqueness theorem is applied, this is a routine radius computation for an elementary D4-symmetric octagon. The exact family is named and motivated, but the submitted contribution does not add a nonroutine structural lemma, boundary phenomenon beyond the immediate strip crossover, or an independently difficult invariant computation.",
+      "risks": [],
+      "sources": [
+        "Stefan Grundbacher, “On certain extremal Banach–Mazur distances and Ader's characterization of distance ellipsoids,” Mathematika (2026), DOI 10.1112/mtk.70062, especially Corollary 2.11.",
+        "RESULT.md blob f541860a4319195c872b83ef8e56ec49c96ab3f4"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The exact formula is correct, but the final claim is rejected for implication-level originality and value."
+  ],
+  "schema_version": 1
+}
