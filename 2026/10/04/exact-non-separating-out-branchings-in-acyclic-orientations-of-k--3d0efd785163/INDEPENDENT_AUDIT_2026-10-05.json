@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:56:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4cd6520629df723a53adb89e8eea00b458bfaec1",
+        "assigned verify_k3n.py blob e5de703c887949ccfba6987046d541178af53bc4",
+        "Carballosa--Reyes--Khera unique-source theorem",
+        "independent reconstruction of all four positive construction cases"
+      ],
+      "rationale": "A first block of size greater than one gives multiple sources and therefore no out-branching. In each listed exception the orientation forces every edge incident to one distinguished vertex into every possible branching, so deleting the branching isolates that vertex. For every other singleton-first code, the four constructive cases in the package choose one earlier opposite-part parent for every non-source vertex and exhibit explicit paths in the unused-edge complement connecting all three vertices of the small part and all remaining vertices of the large part. Rechecking the boundary case \\(n=4\\) confirms that every auxiliary choice of distinct large-part vertices still exists. The frozen verifier exhausts all block words through \\(n=7\\) by parent enumeration and tests the constructive schemes through \\(n=30\\); those checks support the explicit all-n proof rather than replacing it.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The decision algorithm applies to each fixed orientation but gives no symbolic all-n classification.",
+          "The complete-multipartite enumeration counts orientations with a directed spanning tree but does not impose connectivity after removing its arcs."
+        ],
+        "reasoning": "Neither broader theorem mechanically yields the four forbidden block families.",
+        "searches": [
+          "Bang-Jensen--Yeo 2026",
+          "Carballosa--Reyes--Khera 2025",
+          "Bang-Jensen--Bessy--Yeo 2022 on other non-separating digraph settings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.32403",
+        "DOI:10.61091/um125-02",
+        "arXiv:2303.09021",
+        "Resultary K_{3,n} non-separating query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A unique source only guarantees some out-branching; it does not ensure a branching whose deletion remains connected.",
+          "The assigned proof identifies four forced-edge obstructions and explicitly constructs complement-connected branchings for every other block type."
+        ],
+        "reasoning": "The prior encoding/decision results do not imply the stated iff classification without the new case analysis.",
+        "searches": [
+          "unique-source characterization versus assigned complement-connectivity constructions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bang-Jensen--Yeo state a polynomial algorithm for deciding whether an acyclic digraph has an out-branching whose deletion leaves the underlying graph connected.",
+          "Carballosa--Reyes--Khera prove that a directed spanning tree in an acyclic orientation is equivalent to a unique source and encode complete multipartite orientations by alternating blocks."
+        ],
+        "reasoning": "The assigned source-removal block word is the complete-bipartite specialization of the published encoding; the new issue is exactly which unique-source words also admit a non-separating branching.",
+        "searches": [
+          "Bang-Jensen--Yeo, arXiv:2609.32403, non-separating out-branching decision problem",
+          "Carballosa--Reyes--Khera, DOI:10.61091/um125-02 / arXiv:2303.09021, complete-multipartite source-removal encoding",
+          "Resultary query: acyclic K_3,n non-separating out-branching source-removal block code"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact theorem/table matching the four-obstruction family was located."
+        ],
+        "reasoning": "The result is a structural infinite-family classification, not a finite database lookup.",
+        "searches": [
+          "Resultary published-finding corpus for non-separating out-branchings and K_{3,n}",
+          "targeted searches for the four block patterns"
+        ]
+      },
+      "rationale": "Bang-Jensen--Yeo give a polynomial decision algorithm for a fixed acyclic digraph and pose the mixed-orientation completion problem; Carballosa--Reyes--Khera give the complete-multipartite source-removal encoding and characterize directed-spanning-tree existence by a unique source. Neither source classifies the additional complement-connectivity condition orientation by orientation on \\(K_{3,n}\\). Resultary returned no competing exact four-obstruction classification.",
+      "residual_risks": [
+        "The full Bang-Jensen--Yeo manuscript was not materially retrievable in this run; a special example there could overlap part of the classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHMIC_FIXED_ORIENTATION_RESULT_NOT_K3N_CLASSIFICATION",
+          "evidence": "The source states a polynomial algorithm for the fixed acyclic-digraph decision problem and poses the mixed completion problem.",
+          "identifier_or_url": "arXiv:2609.32403",
+          "material_read": "Public primary abstract/statement; the arXiv full-text route was unavailable in this run.",
+          "method": "Problem-scope and implication comparison.",
+          "title": "Acyclic orientations of mixed graphs",
+          "trigger": "Primary current source introducing the non-separating out-branching orientation-completion direction."
+        },
+        {
+          "assessment": "BLOCK_ENCODING_AND_UNIQUE_SOURCE_PRIOR_NONSEPARATING_CONDITION_NOT_COVERED",
+          "evidence": "Corollary 2.3 equates a directed spanning tree with a unique source, but the paper does not require the complement of that tree to remain connected.",
+          "identifier_or_url": "DOI:10.61091/um125-02; arXiv:2303.09021",
+          "material_read": "Full public PDF around Section 2, Lemma 2.1, Corollary 2.3, and the source-removal/unique-source encoding discussion.",
+          "method": "Full-text object and theorem-scope comparison.",
+          "title": "Encoding and enumerating acyclic orientations of graphs",
+          "trigger": "Primary encoding source for complete multipartite acyclic orientations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bang-Jensen--Yeo",
+        "Carballosa--Reyes--Khera",
+        "Resultary search"
+      ],
+      "rationale": "The family is the first complete-bipartite case with enough edges to support two edge-disjoint spanning trees, and the theorem gives a complete orientation-by-orientation classification rather than an algorithmic decision black box. Four exact obstruction codes are a natural structural answer to the motivating non-separating branching problem.",
+      "residual_risks": [
+        "The full Bang-Jensen--Yeo manuscript was not materially retrievable in this run; a special example there could overlap part of the classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.32403",
+    "DOI:10.61091/um125-02",
+    "arXiv:2303.09021",
+    "Resultary K_{3,n} non-separating query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every \\(n\\ge4\\), an acyclic orientation of \\(K_{3,n}\\) has a non-separating out-branching exactly when its canonical alternating source-removal code starts with a singleton and is not one of the four displayed obstruction families \\(A^1B^nA^2\\), \\(A^1B^1A^2B^{n-1}\\), \\(B^1A^3B^{n-1}\\), or \\(B^1A^1B^{n-1}A^2\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The full Bang-Jensen--Yeo manuscript was not materially retrievable in this run; a special example there could overlap part of the classification."
+  ]
+}

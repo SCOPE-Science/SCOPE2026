@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two logically separate parts. The four negative block codes are certified by forced-edge arguments: a specific vertex has every incident edge in every out-branching, so its deletion complement is disconnected. The positive part is constructive and gives one parent for each non-source vertex in four cases; the unused edges exhibited in the proof form a connected spanning subgraph.
+# Independent mathematical audit
 
-`verify_k3n.py` implements the canonical block-word model directly. For \(4\le n\le30\), it instantiates every positive block word and checks that the stated parent construction uses only forward arcs, has exactly \(|V|-1\) edges, forms a spanning tree, and leaves a connected complement. For \(4\le n\le7\), it separately enumerates every possible parent choice for every non-source vertex and checks whether any resulting out-branching has connected complement. This exhaustive computation covers both positive and negative orientations in that finite range.
+## correctness
 
-Replay output:
+PASS
 
-```
-ALL CHECKS PASSED; constructed_cases=9792; exhaustive_cases=295; exhaustive_n=4..7; construction_n=4..30
-```
+A first block of size greater than one gives multiple sources and therefore no out-branching. In each listed exception the orientation forces every edge incident to one distinguished vertex into every possible branching, so deleting the branching isolates that vertex. For every other singleton-first code, the four constructive cases in the package choose one earlier opposite-part parent for every non-source vertex and exhibit explicit paths in the unused-edge complement connecting all three vertices of the small part and all remaining vertices of the large part. Rechecking the boundary case \(n=4\) confirms that every auxiliary choice of distinct large-part vertices still exists. The frozen verifier exhausts all block words through \(n=7\) by parent enumeration and tests the constructive schemes through \(n=30\); those checks support the explicit all-n proof rather than replacing it.
 
-Limits: exhaustive search is finite, and the construction replay through \(n=30\) is also finite. Neither is used to infer the theorem for all \(n\); the general proof in `RESULT.md` supplies the infinite quantifier. The computation does not count all valid non-separating out-branchings and makes no claim about \(K_{m,n}\) with \(m\ge4\).
+## originality
+
+PASS
+
+Bang-Jensen--Yeo give a polynomial decision algorithm for a fixed acyclic digraph and pose the mixed-orientation completion problem; Carballosa--Reyes--Khera give the complete-multipartite source-removal encoding and characterize directed-spanning-tree existence by a unique source. Neither source classifies the additional complement-connectivity condition orientation by orientation on \(K_{3,n}\). Resultary returned no competing exact four-obstruction classification.
+
+## value
+
+PASS
+
+The family is the first complete-bipartite case with enough edges to support two edge-disjoint spanning trees, and the theorem gives a complete orientation-by-orientation classification rather than an algorithmic decision black box. Four exact obstruction codes are a natural structural answer to the motivating non-separating branching problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
