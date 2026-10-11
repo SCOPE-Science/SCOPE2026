@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "For an arbitrary center z=t*1+w with w orthogonal to 1, averaging squared distances over the complete weight-s layer gives q_s(t)+||w||^2, where q_s(t)=d*t^2+s(1-2t). A diagonal center attains q_s(t) exactly on that layer, so the full MEB problem reduces without relaxation to minimizing max_s q_s(t). Because q_s is affine in s, only a=min S and b=max S can control the maximum. The resulting two-piece convex objective has the unique minimizer stated in the claim. Exact differences between the controlling extreme layer and every other layer give the contact classification, while the positive ||w||^2 term proves uniqueness off the diagonal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper develops faces, dissections, triangulations, and monotone path polytopes rather than Euclidean enclosing balls.",
+        "The graph-metric result concerns shortest-path distances in the one-skeleton and only consecutive selected layers.",
+        "The ordinary single-layer hypersimplex is a constant-weight orbit, but that observation does not supply the arbitrary-union phase classification."
+      ],
+      "reasoning": "The broader same-family literature provides the vertex set and combinatorial geometry. The new implication requires averaging over all constant-weight orbits and optimizing their Euclidean squared-distance envelopes; neither the graph metric nor the face structure determines that optimization.",
+      "searches": [
+        "Manecke--Sanyal--So, arXiv:1812.07491, definition and Section 2 vertex description",
+        "Manecke--Sanyal--So, full-text searches for circumradius, radius, sphere, Euclidean",
+        "published-result record: Exact graph metric of consecutive-layer S-hypersimplices",
+        "literature searches for ordinary hypersimplex circumradius"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1812.07491v1",
+      "doi:10.37236/8457",
+      "published-result database searches for S-hypersimplex circumradius and Chebyshev-center formulations",
+      "general literature searches for S-hypersimplex and ordinary-hypersimplex circumradius formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source identifies the vertices but does not optimize any Euclidean enclosing ball.",
+        "One-skeleton shortest-path diameter does not determine ambient Euclidean circumradius or center.",
+        "The singleton-layer radius is a special case and does not imply how different Hamming layers compete in one enclosing ball.",
+        "An inradius theorem for consecutive layers concerns facet clearances and does not imply the outer minimum-enclosing sphere, especially for nonconsecutive S."
+      ],
+      "reasoning": "The final theorem needs a new orbit-average lower bound valid for arbitrary centers, reduction to the two extreme selected cardinalities, and a breakpoint analysis at d/2. Those steps are absent from the compared prior statements.",
+      "searches": [
+        "primary source: S-hypersimplex vertex and face descriptions",
+        "published-result record: Exact graph metric of consecutive-layer S-hypersimplices",
+        "ordinary hypersimplex constant-weight circumradius comparison",
+        "consecutive-layer S-hypersimplex inradius comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located result states the endpoint-only center/radius formula or the three-way contact classification.",
+        "The direct primary full-text searches for circumradius, radius, sphere, and Euclidean terminology returned no matches."
+      ],
+      "reasoning": "A covering statement could naturally be phrased as a circumradius theorem, a minimum-enclosing-ball theorem, a Chebyshev-center computation, or a radial classification of unions of Hamming layers. All of these formulations were searched without locating an implication of the final claim.",
+      "searches": [
+        "published-result database query: S-hypersimplex Euclidean circumradius minimum enclosing sphere",
+        "published-result database query: S-hypersimplex Chebyshev center vertex shells",
+        "published-result database query: hypersimplex circumradius center S subset layers",
+        "literature query: \"S-hypersimplex\" circumradius",
+        "literature query: \"S-hypersimplex\" \"minimum enclosing\"",
+        "literature query: hypersimplex circumradius Euclidean center"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed table or symbolic formula for minimum enclosing radii of arbitrary S-hypersimplices was returned.",
+        "The closest exact same-family record computes graph distances rather than Euclidean enclosing radii."
+      ],
+      "reasoning": "Since the theorem gives a closed formula for every nonempty S, a small-dimensional radius table or a symbolic endpoint formula would constitute strong coverage. The exact-object database searches returned neither.",
+      "searches": [
+        "published-result database query: S-hypersimplex Euclidean circumradius minimum enclosing sphere",
+        "published-result database query: S-hypersimplex Chebyshev center vertex shells",
+        "published-result database query: hypersimplex circumradius center S subset layers"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the definition and vertex description of S-hypersimplices, and targeted full-text searches found no occurrences of circumradius, radius, sphere, or Euclidean metric terminology. Published-result and literature searches covered minimum-enclosing, Chebyshev-center, shell, and ordinary-hypersimplex formulations. The closest published same-family result concerns the graph metric of consecutive-layer S-hypersimplices, which has no implication for the ambient Euclidean minimum enclosing ball.",
+    "residual_risks": [
+      "The ordinary singleton-layer case is elementary and likely appears implicitly in classical hypersimplex literature.",
+      "A coding-theoretic or Hamming-scheme source could contain an equivalent enclosing-ball statement without polytope terminology.",
+      "The proof becomes short after orbit averaging, so independent folklore rediscovery is plausible.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the exact 0/1 vertex realization used in the proof but does not state a Euclidean minimum-enclosing-sphere theorem or radial classification.",
+        "evidence": "The paper lists Mathematics Subject Classifications 52B20 and 52B12. It defines Delta(d,S) as the convex hull of 0/1 vectors with coordinate sum in S and states that its vertices are exactly the corresponding selected Hamming layers.",
+        "identifier_or_url": "arXiv:1812.07491v1; DOI 10.37236/8457",
+        "material_read": "Title page and MSC; introduction; definition of Delta(d,S); Section 2 vertex identification and vertex count; opening edge/Cayley-decomposition discussion; targeted full-text searches for circumradius, radius, sphere, and Euclidean.",
+        "method": "Open-access journal PDF text plus direct page-image inspection.",
+        "title": "S-hypersimplices, pulling triangulations, and monotone paths",
+        "trigger": "Exact primary source introducing the S-hypersimplex notation and standard vertex realization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6b8d598a-6173-447c-9022-57e9ef3e0cfa",
+  "value": {
+    "rationale": "S-hypersimplices are a named geometry family encompassing cubes, simplices, ordinary hypersimplices, crosspolytopes, and halfcubes. The theorem gives a complete natural Euclidean invariant for every member: center, radius, uniqueness, and contact set. The endpoint-only dependence is structurally informative because arbitrary insertion or deletion of intermediate Hamming layers leaves the MEB unchanged, and the exact midpoint transition distinguishes an extreme-layer-controlled regime from an all-vertex cospherical regime.",
+    "status": "PASS"
+  }
+}
