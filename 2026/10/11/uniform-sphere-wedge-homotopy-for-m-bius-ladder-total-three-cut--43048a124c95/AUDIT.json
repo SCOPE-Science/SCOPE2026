@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Proof over Z, not just field computations: for every connected G the spanning-tree inclusion BI_3(T)⊂BI_3(G) gives π1=0 and an explicit relative 3-chain telescoping for every added 2-face gives H2=0. For n≥5 no triangle/5-cycle ensures dimension 3, exact face counts (2n,C(2n,2),6n(n−2),C(3n,2)−7n), and free H3 of rank 1+C(n+1,2). Alexander duality shifts the group to degree 2n−6; an independent-set/degree bound shows the dual has complete 2-skeleton; Hurewicz–Whitehead yields an integral sphere wedge. Exact full simplicial GF2 ranks for all n=5..14, relative telescopes and full dual GF2 ranks for n=5,6 replay via attached verify.py. No finite tests used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carnero Bravo, arXiv:2602.21427v3, Introduction, §5.3 and §5.4: homotopy types for graph powers of cycles and certain Cartesian products, and in §4 an independence-number connectivity bound.",
+        "Agarwal and Basak, arXiv:2608.30601v2, Main Theorems 1 and 2 concern independence and perfect-matching complexes; §6 Problem 26 explicitly proposes homotopy study of total cut complexes of Möbius and circular ladders."
+      ],
+      "reasoning": "A Möbius ladder has antipodal chords and for n>=5 is not a fixed power of the cycle covered by Carnero Bravo. Agarwal–Basak compute other functors of the same graph; an independence-complex wedge neither determines the total three-cut Alexander dual nor its Betti rank. Neither inspected source contains a theorem with hypotheses implying the displayed infinite-family formula.",
+      "searches": [
+        "Möbius ladder total 3-cut complex wedge 1+binomial(n+1,2) spheres of dimension 2n-6",
+        "Möbius ladder total cut complexes topology for n greater than four Alexander dual bounded independence",
+        "arXiv:2602.21427v3 §5 cycles, powers, complete multipartite, cartesian products",
+        "arXiv:2608.30601v2 §6 Problem 26"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.21427v3, §§3–5, Proposition 15, Proposition 21, full primary text",
+      "arXiv:2608.30601v2, Main Theorem 1 and §6 Problem 26, full primary text",
+      "arXiv:1912.12605, Kim–Lew abstract and publicly accessible theorem summary",
+      "published-finding corpus indexed M_8 three-cut result 2026/10/4/SCOPE-the-total-3-cut-complex-of-the-wagner-graph-is-a-wedge-of-three--7df6214f631f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carnero Bravo proves a contractible chordal/tree subcomplex and simple connectivity of BI_3 for connected graphs; the article does not supply this family’s vanishing second integral homology or four-cycle face count.",
+        "Agarwal–Basak §6 Problem 26 asks to determine the homotopy types of cut and total-cut complexes of Möbius ladders.",
+        "The indexed Wagner graph finding gives only n=4 and its homotopy type differs from a naive n=4 extension."
+      ],
+      "reasoning": "The proof needs the 2-connectedness of BI_3(M_{2n}) and exact 3-face enumeration. Neither follows from merely simple connectivity or bounds on collapsibility; without these, Euler characteristic alone cannot determine full homotopy. The result is therefore not a relabeling, numerical substitution, corollary of the cited general statements, or continuation of a different complex’s half-turn action.",
+      "searches": [
+        "arXiv:2602.21427v3 Proposition 15 Proposition 21 Theorem 22 and §5",
+        "arXiv:2608.30601v2 Problem 26",
+        "Möbius ladder M_{2n} total 3-cut complex complete integral homology for all n, Alexander dual independence number two, wedge rank n(n+1)/2+1",
+        "Möbius ladder total cut complex k=3 Homology n>=5 wedge spheres"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carnero Bravo, arXiv:2602.21427v3, §3, defines Δ_3^t as the Alexander dual of BI_3, also called the robust clique complex; §4 Proposition 21 establishes only simple connectivity for arbitrary connected graphs.",
+        "Kim and Lew, arXiv:1912.12605, study I_3(G) under the synonymous bounded-independence terminology and focus on collapsibility bounds, not an explicit all-n Möbius homotopy statement."
+      ],
+      "reasoning": "The exact equivalent formulations include the Alexander dual BI_3(M_{2n}), the robust-clique description (all vertex subsets containing no independent triple), and the cut facet description (complements of independent triples). Comparisons were performed using these aliases, not title matching; the located general theorems do not give the third integral Betti number or the Möbius-ladder homotopy family.",
+      "searches": [
+        "Möbius ladder robust clique complex no independent triple dimension 3 homotopy total 3 cut",
+        "I_3(M_{2n}) independence number less than 3 homology sphere wedge",
+        "bounded independence complex BI_3 for connected graphs 2-connected H2 vanishes spanning tree relative homology",
+        "Complexes of graphs with bounded independence number arXiv:1912.12605",
+        "arXiv:2602.21427, sections 3-5, robust clique and bounded independence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest directly related indexed total three-cut result is 2026/10/4/SCOPE-the-total-3-cut-complex-of-the-wagner-graph-is-a-wedge-of-three--7df6214f631f: for M_8 (n=4), Δ_3^t(M_8) is a wedge of three two-spheres.",
+        "Direct independent enumeration for n=5,...,14 in verify.py gives reduced mod-two ranks 16,22,29,37,46,56,67,79,92,106 in the third degree of the bounded-independence dual, with the listed exact face counts."
+      ],
+      "reasoning": "The indexed M_8 table is an isolated exceptional parameter and cannot subsume the n>=5 formula; in fact, substituting n=4 into the new expression gives 11 rather than 3, showing why the boundary is substantive. Numerical verification in the attached code is not evidence that a literature/database search proves novelty; exact external database coverage beyond the checked hits remains possible.",
+      "searches": [
+        "Möbius ladder total 3-cut complex wedge 1+binomial(n+1,2) spheres of dimension 2n-6",
+        "I_3(M_{2n}) independence number less than 3 homology sphere wedge",
+        "published-finding corpus hit 2026/10/4/SCOPE-the-total-3-cut-complex-of-the-wagner-graph-is-a-wedge-of-three--7df6214f631f",
+        "Möbius ladder total 3 cut complex homotopy type cut complexes n 2026"
+      ]
+    },
+    "rationale": "Materially read Carnero Bravo 2026 full HTML §3–5, which proves duality, chordal contractibility and π1 for BI_3, but not the needed H2 or Möbius family; read Agarwal–Basak 2026 full-text main theorems and §6 Problem 26, which explicitly leaves total cut complexes as a research direction. Queried indexed published-finding corpus by exact formula, aliases I_3/robust clique, graph family and cut parameters; closest same-family published finding treats exceptional M_8 only and does not imply n≥5. Historical equivalence or unindexed independent work is a residual risk, not a proof of uniqueness.",
+    "residual_risks": [
+      "Indexed published-finding corpus search cannot exclude unindexed or unpublished equivalent theorems.",
+      "Kim–Lew (arXiv:1912.12605) complete manuscript not inspected: its abstract and poster emphasize collapsibility, not an explicit Möbius-ladder calculation.",
+      "A separate n=4 total-cut calculation exists but does not cover n>=5."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the uniform Möbius-ladder n>=5 claim; supplies general duality, tree contractibility, and connected-graph simple connectivity only.",
+        "evidence": [
+          "§3 equations defining Δ_d^t and BI_d and duality",
+          "Proposition 15: chordal graphs have contractible BI_d",
+          "Proposition 21: connected BI_3 simply connected",
+          "§5: powers of cycles and selected products; no Möbius-ladder classification"
+        ],
+        "identifier_or_url": "arXiv:2602.21427v3 | https://arxiv.org/html/2602.21427v3",
+        "material_read": "Full HTML table of contents and Introduction; definitions and Alexander duality in §3, Lemma 14, Proposition 15, Proposition 21, Theorem 22; descriptions and scope of §5 homotopy classifications.",
+        "method": "Full-text arXiv HTML, inspected theorem statements, relevant proofs, and classified graph families.",
+        "title": "Total cut complexes and their duals",
+        "trigger": "Same dual objects BI_3 and Δ_3^t and possible structural implications from homotopy theorems"
+      },
+      {
+        "assessment": "NOT_COVERING: its classified complexes are ordinary independence and perfect matching, whereas §6 Problem 26 asks for the total-cut complex homotopy of Möbius ladders.",
+        "evidence": [
+          "Main Theorem 1 gives Ind(M_2n) and M_p(M_2n), not Δ_3^t",
+          "§6 Problem 26 explicitly identifies total cut complex as further work"
+        ],
+        "identifier_or_url": "arXiv:2608.30601v2 | https://arxiv.org/abs/2608.30601",
+        "material_read": "Full-text pages 1–3 (abstract and Main Theorems), page 14 (perfect-matching classification proof), pages 17–19 (Problem 26 and references), plus title/index headings across pages 1–19.",
+        "method": "Read extracted full text of the 19-page version 2, with attention to the exact mathematical objects, classifications, and future-directions question.",
+        "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+        "trigger": "Same infinite graph family and explicit open problem on total-cut homotopy."
+      },
+      {
+        "assessment": "Coverage not proved from abstract alone: the identified theorems are collapsibility bounds, not exact homotopy of Möbius ladders; residual risk retained.",
+        "evidence": [
+          "Kim–Lew abstract concerns bounded-independence complexes and collapsibility numbers for graph classes; no Möbius-ladder homotopy formula stated in the inspected material."
+        ],
+        "identifier_or_url": "arXiv:1912.12605 | https://arxiv.org/abs/1912.12605",
+        "material_read": "Abstract, publicly accessible summary of main results and author poster statement on d-collapsibility.",
+        "method": "Read abstract and public summary/poster; full manuscript not inspected.",
+        "title": "Complexes of graphs with bounded independence number",
+        "trigger": "Original robust-clique/BI_d object under alternate nomenclature, possibly broader theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43048a12-4c95-4051-851e-145f22e7b1d8",
+  "value": {
+    "rationale": "This resolves the total-three-cut portion of the explicit Möbius-ladder homotopy direction in Agarwal–Basak 2026 §6 Problem 26 for every n>=5, with an exact integral homotopy classification and quadratic sphere multiplicity. It is an infinite, natural graph-family theorem rather than a routine new finite case. The argument identifies why 2-connectivity of the bounded-independence dual and its simple four-cycle count control all higher homotopy information. The n=4 exception and the absence of equivariant claims clarify scope and motivation.",
+    "status": "PASS"
+  }
+}
