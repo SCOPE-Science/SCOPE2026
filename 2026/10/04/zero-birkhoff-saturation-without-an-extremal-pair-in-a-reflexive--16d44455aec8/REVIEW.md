@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The block witnesses are exact Birkhoff--James-orthogonal coordinate pairs, their endpoint values converge monotonically to \(2\), and the universal triangle-inequality upper bound forces the complete profile to equal \(2\). Reflexivity and strict convexity of the countable \(\ell_2\)-sum are standard and can be checked coordinatewise. Strict convexity then excludes an attained pair at value \(2\).
+# Independent mathematical audit
 
-## Originality
-PASS. The closest source is arXiv:2609.37502v1, which introduces the profile and saturation parameter. Its finite-dimensional theorem uses an attained maximum, and its classical examples supply exact finite-block witnesses; it does not state the infinite-dimensional reflexive strictly convex nonattainment construction. Searches for nonattainment, direct sums, exact Birkhoff--James witnesses, and saturation aliases found no implication-level coverage. Residual risk remains from older James-constant nonattainment literature under unrelated terminology.
+## correctness
 
-## Value
-PASS. The construction gives a clean structural boundary for the new saturation parameter: zero saturation can be a limit phenomenon with no extremal witness, even in a reflexive strictly convex space. This is a natural warning for attempts to extend the finite-dimensional witness formula.
+PASS
 
-## Closest literature and limitations
-The focal 2026 preprint is the closest literature because it defines the parameter and proves the finite-dimensional formula being tested. The 2022 Baronti--Papini paper supplies the exact-orthogonality endpoint background. The result does not classify all zero-saturation spaces or address stronger hypotheses such as uniform convexity.
+Every block is finite-dimensional, reflexive and strictly convex, and the Hilbert sum preserves reflexivity and strict convexity. In block n, the coordinate vectors are exactly Birkhoff–James orthogonal and both sum/difference norms equal 2^(1/p_n), which tends to two as p_n decreases to one. Hence the orthogonal profile is at least two in the supremum and cannot exceed the classical triangle-inequality bound two; all approximate profiles are squeezed to the same value. If a unit pair attained James value two, both sum and difference norms would equal two; strict convexity would force simultaneously x=y and x=-y, impossible.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The newly introduced approximate Birkhoff–James profile is documented in the September 2026 Fang–Xu–Liu–Gu–Li preprint; its current abstract confirms interpolation between the orthogonal and classical James constants. The submitted direct-sum construction is not present in the abstract-level material inspected this run, and Resultary returned only the audited exact record plus unrelated James-constant findings. The older Baronti–Papini paper predates the new saturation parameter.
+
+## value
+
+PASS
+
+The example isolates an infinite-dimensional boundary of a newly introduced saturation invariant: zero saturation need not correspond to an attained extremal pair even under reflexivity and strict convexity. This is a conceptually useful warning for extending finite-dimensional witness formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
