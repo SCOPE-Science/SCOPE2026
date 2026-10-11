@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T13:00:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh derivation confirms the boundary law. Yeo's standard-teleportation criterion is sinh x>cosh(ηx); equality rearranges exactly to tanh((1−η)x/2)=exp(−(1+η)x), with a unique positive root because the two sides are strictly increasing/decreasing. Setting δ=1−η, u=δx/2 and κ=(1+η)/δ gives \\(\\tanh u=e^{-2\\kappa u}\\). As κ→∞, u→0, so \\(2\\kappa u\\,e^{2\\kappa u}=2\\kappa(1+o(1))\\) and (1+η)x~W(2κ). Substituting the equality into the source concurrence yields \\(C_r=\\frac12-e^{-x}-\\frac12e^{-2x}\\). Since \\(e^{-(1+\\eta)x}\\sim \\delta(1+\\eta)x/4\\) and \\(\\delta(1+\\eta)x\\to0\\), the concurrence gap has the claimed (1/2)sqrt(δ W(4/δ)) scale. Independent numerical roots at η=.9,.99,.999,.9999 show the temperature asymptotic ratio tending to 1 (about 1.000446, 1.0000077, 1.00000012, 1.000000002) and the gap ratio tending to 1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yeo supplies the exact source model, formulas and finite critical-temperature table.",
+          "Later papers treat impurity or XXZ generalizations rather than the same η↑1 singular law."
+        ],
+        "reasoning": "The broader model literature does not dominate the precise unprocessed XX-dimer endpoint claim found here.",
+        "searches": [
+          "Yeo, arXiv:quant-ph/0205014 / DOI:10.1103/PhysRevA.66.062312",
+          "Li–Xu arXiv:quant-ph/0312125",
+          "Qin–Tao–Tian DOI:10.1088/1674-1137/32/9/007"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0205014",
+        "DOI:10.1103/PhysRevA.66.062312",
+        "arXiv:quant-ph/0312125",
+        "DOI:10.1088/1674-1137/32/9/007",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source inequality determines the threshold implicitly.",
+          "The Lambert-W scale requires a singular rescaling u=δx/2 and asymptotic inversion of \\(\\tanh u=e^{-2\\kappa u}\\); the concurrence gap then needs a second asymptotic transfer."
+        ],
+        "reasoning": "The result is a consequence of the source equation, but not a mere substitution or finite-parameter special case; it extracts a nontrivial singular boundary regime not quantified by the source.",
+        "searches": [
+          "Direct comparison: Yeo threshold equation -> endpoint asymptotic inversion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit directly covered the Lambert-W boundary law.",
+          "Yeo's primary text gives sinh(J/T)>cosh(B_m/T), fidelity and concurrence, but not Lambert-W endpoint asymptotics in the inspected material."
+        ],
+        "reasoning": "The searches targeted both the named special function and equivalent magnetic-field/critical-temperature endpoint wording.",
+        "searches": [
+          "Resultary: XX chain teleportation threshold Lambert W magnetic field boundary concurrence",
+          "web: Lambert W XX chain teleportation thermal concurrence magnetic field Yeo",
+          "web: teleportation thermally entangled state Lambert XX"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Yeo's table covers only finitely many interior parameter values and is reproduced by the checker.",
+          "A finite table cannot imply the η↑1 asymptotic or the exact threshold-concurrence formula."
+        ],
+        "reasoning": "The published numbers are useful regression evidence but do not constitute the infinite endpoint theorem.",
+        "searches": [
+          "Yeo published table η=0.1,...,0.9",
+          "targeted web table/formula search"
+        ]
+      },
+      "rationale": "Yeo already gives the exact fidelity/concurrence formulas, the threshold inequality and a finite table through η=.9; those are expressly prior. The audited contribution is the singular η↑1 analysis: the monotone tanh form, Lambert-W collapse scale and limiting concurrence/gap law. Targeted searches combining the XX thermal teleportation model, magnetic-field boundary and Lambert W found Yeo and later XX/XXZ/impurity papers but no matching endpoint theorem.",
+      "residual_risks": [
+        "A specialized later paper might have extracted the same implicit-equation asymptotic without using 'Lambert W' in its title/abstract.",
+        "The result is protocol-specific and does not address filtering/distillation or other Hamiltonians."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_EQUATION_NOT_ENDPOINT_ASYMPTOTIC",
+          "evidence": "The source records the finite threshold behavior but does not state the tanh/Lambert-W endpoint law or limiting threshold concurrence in the inspected text.",
+          "identifier_or_url": "arXiv:quant-ph/0205014; DOI:10.1103/PhysRevA.66.062312",
+          "material_read": "Primary full-text rendering containing the concurrence formula, standard-teleportation fidelity, criterion sinh βJ>cosh βB_m and the critical-temperature/concurrence table.",
+          "method": "Direct primary full-text inspection.",
+          "title": "Teleportation via thermally entangled state of a two-qubit Heisenberg XX chain",
+          "trigger": "Exact primary model and threshold source."
+        },
+        {
+          "assessment": "DIFFERENT_MODEL_EXTENSION_NO_ENDPOINT_COVERAGE_FOUND",
+          "evidence": "The accessible statement concerns magnetic impurity/field effects, not the same unprocessed Yeo η↑1 boundary law.",
+          "identifier_or_url": "arXiv:quant-ph/0312125",
+          "material_read": "Primary abstract/metadata available in search.",
+          "method": "Statement-level comparison.",
+          "title": "Magnetic field effects on the optimal fidelity of standard teleportation via the two qubits Heisenberg XX chain in thermal equilibrium",
+          "trigger": "Closest named magnetic-field extension."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The η↑1 point is a natural physical boundary where the useful standard-teleportation temperature window collapses. The exact asymptotic separates two effects that a finite table obscures: inverse-logarithmic temperature collapse and a residual concurrence tending to 1/2. This is a motivated boundary law, not an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Standard Bell-measurement/Pauli-correction protocol only, with J>0 and 0≤B_m/J<1.",
+    "Lambert-W formulas are leading asymptotics rather than exact finite-η closed forms."
+  ],
+  "schema_version": 1
+}
