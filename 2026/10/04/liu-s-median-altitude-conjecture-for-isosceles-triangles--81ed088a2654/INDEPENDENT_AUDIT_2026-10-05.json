@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:51:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 258a4e92793594705280feca17ac02af244ba99a",
+        "verify.py blob 9635d55b2979652032c8c7bff9094ce98f37fe88",
+        "fresh reconstruction of normalization, sign intervals and factor argument"
+      ],
+      "rationale": "After normalizing the equal sides to one and base to x in (0,2), direct median/altitude/inradius formulas reduce the claim to G(x)>=0. On [4/7,(3sqrt(3)-4)/2] the rationalized defect has the correct sign termwise. On the two outer intervals, sign-preserving squaring reduces to S=U-Vsqrt(1+2x^2), with U^2-V^2(1+2x^2)=784(x-1)^2(x-4/7)^2(x+2)^2Q(x). On the left interval Q is strictly increasing by the exact positive Bernstein coefficients of Q'((4/7)u) and Q(4/7)<0, so S<0 with the required original sign. On the right interval the shifted Q has a positive low block and a positive quadratic high block of discriminant -10, while shifted U has all positive coefficients, giving S>=0 and equality only at x=1. The frozen verifier reconstructs these identities exactly in Q(sqrt(3)); it corroborates the symbolic proof rather than replacing it.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected 2023 full text proves different acute-triangle inequalities and states Lemma 2: a pointwise lower bound for m_a-h_a.",
+          "The package evaluates the sum of that pointwise lower bound at the isosceles triangle a=1/2,b=c=1 and obtains a value strictly below the right-hand side required by Conjecture 4.",
+          "The Monthly problem concerns the sum of medians alone and does not control the median-minus-altitude defect."
+        ],
+        "reasoning": "None of the inspected broader inequalities implies the required lower bound on the complete isosceles family.",
+        "searches": [
+          "Jian Liu, Two inequalities involving circumradius, inradius and medians of an acute triangle, DOI:10.28919/aia/8232",
+          "Jian Liu, Proof of a double inequality in triangles, DOI:10.7153/jmi-2021-15-92",
+          "Alt and Knop / Smith, Sum of Medians of a Triangle, Amer. Math. Monthly 124(2) (2017)"
+        ]
+      },
+      "checked_sources": [
+        "Liu 2012 Conjecture 4 primary PDF",
+        "DOI:10.28919/aia/8232",
+        "DOI:10.7153/jmi-2021-15-92",
+        "Amer. Math. Monthly 124(2) (2017), Problem 11790 solution",
+        "Resultary exact-query results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2012 source is explicitly conjectural at this point, not a proof.",
+          "The 2023 pointwise lower bound is quantitatively insufficient on a concrete isosceles member.",
+          "The submitted proof supplies a new sign-preserving two-squaring reduction, exact factorization, Bernstein monotonicity certificate on the left interval, and positive shifted-coefficient certificate on the right interval."
+        ],
+        "reasoning": "The final isosceles theorem is not a corollary of the checked prior results.",
+        "searches": [
+          "Liu 2012 Conjecture 4 statement",
+          "Liu 2023 Lemma 2",
+          "assigned exact Q(sqrt(3)) factorization and sign certificates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2012 primary PDF states m_a+m_b+m_c-(h_a+h_b+h_c)>=s-3sqrt(3)r as Conjecture 4 for arbitrary triangles.",
+          "After similarity normalization b=c=1, the isosceles case is exactly the scalar defect G(x)>=0 for 0<x<2 used in the package."
+        ],
+        "reasoning": "The normalized scalar inequality is equivalent to the source conjecture on the full isosceles locus, not a weakened endpoint or finite sample.",
+        "searches": [
+          "Jian Liu, On an inequality for the medians of a triangle, J. Science and Arts 12(2)(19) (2012), Conjecture 4 / Eq. (4.7)",
+          "Resultary query: Jian Liu median altitude conjecture isosceles triangles m_a+m_b+m_c minus altitudes s-3sqrt3 r Conjecture 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact Resultary hit is the audited finding; nearby Liu-isosceles findings concern different conjectures.",
+          "No external table or previously proved isosceles theorem with this exact defect was located."
+        ],
+        "reasoning": "Originality rests on theorem-scope comparison with the primary sources; absence from search is supporting evidence only.",
+        "searches": [
+          "Resultary semantic search for the exact Conjecture 4 isosceles specialization",
+          "targeted searches for Liu 2012 Conjecture 4 and later median-altitude inequalities"
+        ]
+      },
+      "rationale": "The 2012 primary source states exactly this inequality as Conjecture 4 for all triangles. The submitted theorem resolves the entire nondegenerate isosceles subclass by a global one-variable sign proof. Liu's later 2023 article gives a pointwise lower bound for individual median-minus-altitude differences, but its summed bound is strictly weaker on an explicit isosceles triangle and therefore does not imply the claim. Resultary returned the audited result as the direct exact match and no covering isosceles proof.",
+      "residual_risks": [
+        "An unindexed or differently phrased prior proof of the isosceles specialization could exist outside the checked triangle-inequality literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CLAIM_CONJECTURAL_IN_SOURCE",
+          "evidence": "The source labels the inequality Conjecture 4 for every triangle and gives no proof there.",
+          "identifier_or_url": "J. Science and Arts 12(2)(19) (2012), 127-136; Conjecture 4, Eq. (4.7)",
+          "material_read": "Primary PDF around printed page 135 was text-read and visually inspected; the displayed Conjecture 4 is exactly the audited inequality.",
+          "method": "Exact statement and proof-status comparison.",
+          "title": "On an inequality for the medians of a triangle",
+          "trigger": "Defining source for the exact conjecture."
+        },
+        {
+          "assessment": "RELEVANT_POINTWISE_BOUND_DOES_NOT_COVER",
+          "evidence": "Lemma 2 gives an individual lower bound for m_a-h_a; summing it is strictly too weak for the audited right-hand side on the package's explicit isosceles test triangle.",
+          "identifier_or_url": "DOI:10.28919/aia/8232",
+          "material_read": "Open full text around the introduction and Lemma 2 was inspected.",
+          "method": "Implication and quantitative-strength comparison.",
+          "title": "Two inequalities involving circumradius, inradius and medians of an acute triangle",
+          "trigger": "Later same-author primary article with a directly relevant median-altitude lemma."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu 2012 Conjecture 4 primary PDF",
+        "DOI:10.28919/aia/8232",
+        "DOI:10.7153/jmi-2021-15-92",
+        "Amer. Math. Monthly 124(2) (2017), Problem 11790 solution",
+        "Resultary exact-query results"
+      ],
+      "rationale": "This proves an explicitly published open triangle inequality on the complete one-parameter isosceles subclass, including uniqueness of equality, with an exact global certificate rather than numerical evidence. A full symmetry-class resolution of an open conjecture is a motivated mathematical advance even though the scalene case remains open.",
+      "residual_risks": [
+        "An unindexed or differently phrased prior proof of the isosceles specialization could exist outside the checked triangle-inequality literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Liu 2012 Conjecture 4 primary PDF",
+    "DOI:10.28919/aia/8232",
+    "DOI:10.7153/jmi-2021-15-92",
+    "Amer. Math. Monthly 124(2) (2017), Problem 11790 solution",
+    "Resultary exact-query results"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every nondegenerate Euclidean isosceles triangle, m_a+m_b+m_c-(h_a+h_b+h_c)>=s-3sqrt(3)r, with equality if and only if the triangle is equilateral.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed or differently phrased prior proof of the isosceles specialization could exist outside the checked triangle-inequality literature.",
+    "No claim is made for scalene triangles."
+  ]
+}
