@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:57:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Homogeneity identifies injective ordered tuple orbits with labeled finite induced \\(C/D\\) structures. The published \\(C\\)-relation model is a finite rooted binary-tree leaf structure; standard labeled rooted binary trees number \\((2n-3)!!\\), independently orienting the \\(n-1\\) internal vertices gives the plane count \\(2^{n-1}(2n-3)!!=n!C_{n-1}\\), and the unrooted labeled binary-tree count is \\((2n-5)!!\\) for \\(n\\ge3\\). Root insertion has \\(2n-3\\) choices and equality patterns give the Stirling transform. The displayed sequences and ratios were independently replayed.",
+      "risks": [
+        "The reduction uses the cited homogeneous C/D finite-tree correspondences."
+      ],
+      "sources": [
+        "RESULT.md blob d9424069818443d60c3c83ec323652615bcc8e53",
+        "verify.py blob a37ce2f27ddf8354f4d0c87abeba8f23da25a810",
+        "Assari--Hosseinzadeh--Macpherson DOI:10.1112/jlms.12796",
+        "Bodirsky--Jonsson--Van Pham DOI:10.4230/LIPIcs.STACS.2016.20"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hypergraph paper supplies the exact automorphism groups/reduct chain.",
+          "The phylogeny paper supplies the finite rooted binary-tree leaf model."
+        ],
+        "reasoning": "Together these broader results reduce the orbit profile to standard tree enumeration.",
+        "searches": [
+          "Assari et al. DOI:10.1112/jlms.12796 full text",
+          "Bodirsky et al. DOI:10.4230/LIPIcs.STACS.2016.20 full PDF",
+          "Bodirsky et al. JSL 2016 reducts paper"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1112/jlms.12796",
+        "arXiv:2202.09613",
+        "DOI:10.4230/LIPIcs.STACS.2016.20",
+        "arXiv:1503.07310",
+        "Fresh Resultary/web searches",
+        "Source tree fd67655c41acc1c1a2501bba6140bd09e7f330a5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No nonstandard lemma remains beyond the cited identifications and elementary tree counts; \\(2n-3\\) is the root-insertion edge count and \\(2^{n-1}\\) the internal plane-orientation count."
+        ],
+        "reasoning": "Every component of the final claim is a routine corollary of prior structure plus standard enumeration.",
+        "searches": [
+          "Statement-level comparison of the submitted proof with Assari et al. and Bodirsky--Jonsson--Van Pham"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted sequences are classical labeled rooted/plane-rooted/unrooted binary-tree counts after the published group identifications."
+        ],
+        "reasoning": "Tuple-orbit language is equivalent here to isomorphism types of finite induced leaf structures by homogeneity.",
+        "searches": [
+          "Resultary: orbit counts homogeneous C-relation D-relation rooted unrooted binary trees M3 M4 M6 set-homogeneous hypergraphs Catalan double factorial",
+          "Web: binary branching C-relation orbit count tuples (2n-3)!!",
+          "Web: D-relation orbit count tuples (2n-5)!!",
+          "Web: Set-homogeneous hypergraphs M3 M4 M6 Aut C D relation orbit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A table labelled M3/M4/M6 is unnecessary because the structural equivalence already identifies the counted species."
+        ],
+        "reasoning": "Coverage is by implication, not wording.",
+        "searches": [
+          "Web/Resultary searches for the displayed sequences and collapse factors"
+        ]
+      },
+      "rationale": "The orbit formulas are direct consequences of prior structural identifications plus classical labeled-tree enumeration. Assari--Hosseinzadeh--Macpherson explicitly identify Aut(M4)=Aut(M,C), construct M6 from the homogeneous D-set with Aut(M6)=Aut(M,D), and record the strict M3<M4<M6 reduct chain. Bodirsky--Jonsson--Van Pham state that finite substructures of the homogeneous binary-branching C-relation are exactly leaf structures of finite rooted binary trees and that the underlying rooted tree is determined by its leaf relation. The remaining Catalan/double-factorial counts, two ratios, and Stirling transform are routine enumeration. Under the implication rule, an unstated corollary is covered.",
+      "residual_risks": [
+        "Older oligomorphic-group literature may state the profiles explicitly, which would only strengthen rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_BROADER_STRUCTURAL_COVERAGE",
+          "evidence": [
+            "Aut(M4)=Aut(M,C); M6 uses the homogeneous D-set with Aut(M6)=Aut(M,D); the strict chain is recorded."
+          ],
+          "identifier_or_url": "DOI:10.1112/jlms.12796; arXiv:2202.09613",
+          "material_read": "Full open publisher text, especially the M3 construction, Sections 4.2/4.3 and reduct-chain discussion.",
+          "method": "Extracted exact group identifications and compared to the package reduction.",
+          "title": "Set-homogeneous hypergraphs",
+          "trigger": "Defines M3, M4, M6 and their groups."
+        },
+        {
+          "assessment": "DECISIVE_FINITE_TREE_MODEL",
+          "evidence": [
+            "Finite substructures are rooted-binary-tree leaf structures and the underlying rooted tree is uniquely determined."
+          ],
+          "identifier_or_url": "DOI:10.4230/LIPIcs.STACS.2016.20; arXiv:1503.07310",
+          "material_read": "Open full PDF text around Definition 1 and Proposition 7; screenshot access was attempted on the relevant rendering.",
+          "method": "Compared finite C-substructures with the tree species counted by the package.",
+          "title": "The Complexity of Phylogeny Constraint Satisfaction",
+          "trigger": "Canonical finite C-relation tree model."
+        },
+        {
+          "assessment": "SUPPORTING_BACKGROUND",
+          "evidence": [
+            "The relevant homogeneous D-structure is the standard tree-separation object."
+          ],
+          "identifier_or_url": "DOI:10.1515/jgth-2020-0083",
+          "material_read": "Repository metadata/abstract plus D-relation structural discussion cross-checked in Assari et al.",
+          "method": "Used as supporting background only.",
+          "title": "Jordan permutation groups and limits of D-relations",
+          "trigger": "D-relation tree background."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "After prior work has identified the groups with standard tree structures, the quantitative theorem is a textbook enumeration plus bookkeeping. The ratios and Stirling transform do not add a motivated new structural lemma or boundary phenomenon.",
+      "risks": [
+        "The integrated table is convenient but convenience alone does not meet the value bar."
+      ],
+      "sources": [
+        "Prior automorphism-group identifications",
+        "Classical labeled binary-tree counts"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Correct but scientifically rejected on originality and value."
+  ],
+  "schema_version": 1
+}
