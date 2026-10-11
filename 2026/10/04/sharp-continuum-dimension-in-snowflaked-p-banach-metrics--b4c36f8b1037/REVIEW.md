@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is proved directly from point separation, connectedness of scalar images, and the Hausdorff-cover inequality for Hölder maps. The exponent is checked carefully: a continuous linear functional is \(1/p\)-Hölder for \(d_p\), hence \(1\le p\dim_H K\). Affine segments give exact equality. The \(L_p[0,1]\) boundary example is an exact isometry of the ordinary interval.
+## correctness
 
-Risk: none of the steps depends on numerical evidence or an unverified classification. The positive theorem requires point separation and \(0<p<1\), both explicitly retained.
+PASS
 
-## Originality — PASS
-The closest same-object source, arXiv:2609.26992v1, proves only the Lipschitz-curve rigidity statement under point separation and supplies the non-point-separating \(L_p\) counterexample. Targeted searches for connected-subset Hausdorff dimension, snowflake reformulations, the exact \(1/p\) threshold, and broader implications did not locate a covering theorem. General snowflake and Hölder-equivalence literature was checked as background but not treated as whole-document negative evidence when only abstracts or summaries were available.
+For any distinct a,b in a connected set K, point separation gives a continuous real-linear scalar functional f with f(a) != f(b). Continuity yields |f(x)-f(y)| <= C||x-y|| = C d_p(x,y)^(1/p), so f|K is 1/p-Hölder. The connected nonconstant image f(K) contains a nondegenerate interval and therefore has Hausdorff dimension at least one; the standard Hölder covering inequality gives dim_H f(K) <= p dim_H K, hence dim_H K >= 1/p. Every nontrivial affine segment has metric equal, up to scale, to |s-t|^p and therefore has dimension exactly 1/p. In L_p[0,1], t -> 1_[0,t] has d_p-distance exactly |s-t|, so it realizes dimension one, while every nondegenerate connected metric space has Hausdorff dimension at least one. The complete relevant metric-rigidity section of the primary p-Banach source was independently read and confirms the point-separating snowflake setting and the contrasting L_p indicator path.
 
-Risk: the argument is concise, so an equivalent observation could exist under different terminology in older metric-geometry literature.
+## originality
 
-## Value — PASS
-The theorem gives an exact, natural geometric invariant rather than another isolated curve obstruction: the minimum Hausdorff dimension of any nondegenerate connected subset. It also identifies affine segments as sharp witnesses and shows the point-separation hypothesis is structurally necessary by an exact phase change to dimension \(1\) in \(L_p[0,1]\).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Albiac--Ansorena--Wald prove that every interval-Lipschitz map into the snowflaked metric of a point-separating p-Banach space is constant and explicitly contrast this with the L_p indicator path. The inspected primary text does not state a Hausdorff-dimension lower bound for arbitrary connected subsets, the exact continuum minimum 1/p, or affine segments as sharp minimizers. Targeted Resultary comparison found the assigned theorem as the direct match and no prior equivalent continuum-dimension theorem. Best-of-knowledge originality is bounded because the proof combines standard Hausdorff-dimension facts with point separation, so an older metric-geometry observation under different terminology remains possible.
+
+## value
+
+PASS
+
+The result turns the source's qualitative curve rigidity into a sharp quantitative continuum invariant: it determines the least Hausdorff dimension of every nondegenerate connected subset and exhibits affine extremizers, while the standard non-point-separating L_p model has a sharp drop to one. This is a natural metric-geometric boundary attached to the same p-Banach snowflake structure rather than an arbitrary finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
