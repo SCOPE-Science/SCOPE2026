@@ -1,15 +1,21 @@
-# Same-model review: The extremal four-cuspidal quintic has projective automorphism group \(C_3\)
+# Independent mathematical audit
 
-## Correctness
-PASS. Every projective automorphism lifts faithfully to the normalization. The published local analytic types force the unique \(A_6\) cusp preimage to be fixed and allow only permutations of the three \(A_2\) preimages. After scaling those four marked points to \(0,1,\omega,\omega^2\), exact cross-ratio comparison leaves only the three even permutations. The displayed diagonal order-three transformation is equivariant with the published parametrization, so the upper bound is attained. The exact checker independently replays both the cross-ratio split and equivariance weights.
+## correctness
 
-## Originality
-PASS, with an explicit historical-literature risk. Targeted published-finding corpus searches for the exact curve and for stabilizer/automorphism/symmetry aliases returned no covering finding. The lead source gives the unique curve, equation, normalization and cusp types but its searchable full text contains no automorphism, stabilizer or symmetry statement. Moe's four-cusp work does not state this plane stabilizer in the inspected material. Field's 1924 paper is historically close, but only its metadata and references were available, so no whole-document non-coverage claim is made for it.
+PASS
 
-## Value
-PASS. The object is the unique projective class attaining the sharp four-cusp bound. Its ambient projective stabilizer is therefore a canonical isotropy invariant of the extremal classification point. Determining that the apparent permutation freedom of the three equal-type cusps is exactly cyclic, rather than all of \(S_3\), is structurally meaningful for quotient and moduli-isotropy questions.
+Every ambient projective automorphism lifts faithfully to the normalization. The published cusp types force the unique \(A_6\) cusp preimage to be fixed and permit only permutations of the three \(A_2\) preimages. Scaling the four marked normalization points to \(0,1,\omega,\omega^2\), a fresh exact cross-ratio reconstruction shows precisely the three even permutations preserve the marked cross-ratio. Thus the stabilizer has order at most three. The explicit map \([s:t]\mapsto[\omega s:t]\) has the displayed coordinate characters and induces \([x:y:z]\mapsto[\omega x:\omega^2y:z]\), giving the matching subgroup.
 
-## Closest literature and limitations
-Koras--Palka provide the classification endpoint and all premises used here; Moe provides nearby four-cusp constructions; Field is the closest older title found. The claim is restricted to the ambient projective stabilizer over \(\mathbb C\). Historical sources not exposed by searchable full text remain a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Koras--Palka provide the unique projective class, equation, normalization and cusp types; full-text inspection of the relevant example did not expose an automorphism/stabilizer computation. Resultary search returned the assigned exact stabilizer and unrelated symmetry records. The historically close 1924 Field article is publicly indexed but its body was not exposed by the inspected interface, so it remains a named residual risk rather than a reason to fail originality.
+
+## value
+
+PASS
+
+The curve is the unique projective class attaining the sharp four-cusp bound, so its ambient stabilizer is a canonical isotropy invariant. Distinguishing the actual cyclic symmetry from the a priori \(S_3\) permutation freedom of the three equal-type cusps is structurally meaningful for quotient and moduli questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
