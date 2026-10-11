@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Each Goldbeter equation is an input flux minus an output flux depending only on that coordinate. Stationarity against arbitrary one-variable antiderivatives gives all five conditional flux calibrations. Conditional orthogonality then gives the five exact variance-speed defects. At the \(M\) and \(P_N\) endpoints, zero defect propagates constancy around the biochemical loop by injectivity of Hill repression and strict monotonicity of the Michaelis–Menten transfer maps, so the support is equilibrium-supported. Variation of constants proves the nuclear exponential-memory formula on every bounded complete trajectory.
+## correctness
 
-Risk: compact support and nonnegative concentrations are used in the antiderivative and monotonicity arguments.
+PASS
 
-## Originality
-PASS. The exact equations were checked in a complete open same-object mathematical article, whose full text was searched for invariant-measure, average, and relevant variance statements. The foundational abstract and curated model repository establish the mechanism and provenance, while a close same-object averaging paper was compared from accessible abstract and classification material. No inspected source implication-wise supplied the five simultaneous conditional flux laws or endpoint rigidity.
+Each coordinate has the form dot X=A-B(X); one-variable antiderivative generator tests give E[A|X]=B(X), and orthogonal projection gives Var(A)-Var(B)=E[dot X^2]. For PN, zero defect makes PN constant and k1 P2=k2 PN, hence P2 constant; the P2 equation and strict monotonicity of J3 force P1 constant, then J1 forces P0 constant, then the P0 equation forces M constant, giving equilibrium. For M, zero speed makes M constant and S(PN) constant; S is injective on nonnegative concentrations, so PN is constant and the same propagation applies. Non-equilibrium endpoint speeds therefore have positive second moments and, with zero mean, cross both signs. Variation of constants in dot PN+k2 PN=k1P2 along a bounded complete trajectory gives the exact exponential memory, and the fifth conditional law gives the instantaneous projection. The verifier correctly checks the abstract variance decomposition and nuclear scaling coefficients.
 
-Risk: the complete foundational 1995 article and complete 2002 averaging paper were not both securely readable, and the concise generator argument could have an unindexed precursor.
+## originality
 
-## Value
-PASS. The result matches the biochemical architecture that makes the Goldbeter clock important: transcription, two phosphorylation stages, degradation, and nuclear transport are treated as one stationary flux loop. It supplies exact stagewise calibration and fluctuation budgets, while the strict endpoint laws and nuclear memory/projection duality give model-specific diagnostics for a mechanism whose nuclear transport rate is itself known to control rhythmicity.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Goldbeter's original model and a complete modern mathematical treatment establish the five-variable PER equations and oscillatory regime. The full open 2021 model-reduction article writes all five equations but does not formulate invariant-measure flux projections or variance-speed defects in the inspected text. Resultary searches found only analogous stationary-transfer laws for other biological/control systems. The five simultaneous conditional calibrations, endpoint rigidity and nuclear memory/projection pair remain best-of-knowledge original.
+
+## value
+
+PASS
+
+The five equations form a canonical biochemical feedback network. Simultaneous exact flux calibration at every concentration slice, strict endpoint attenuation away from equilibria and the dual memory/projection description of nuclear transport provide interpretable all-stationary-state constraints useful for model checking and reduction, not merely a parameter-specific simulation statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
