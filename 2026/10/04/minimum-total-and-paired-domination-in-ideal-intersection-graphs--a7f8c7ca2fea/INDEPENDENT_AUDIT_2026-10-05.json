@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:53:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 67f92825df0f0bab7d57b3c30c25e28420bf207f",
+        "verify.py blob aee7e2a8070e1e81b8302f88ef5e2e9255ad2796",
+        "fresh active-support and counting reconstruction",
+        "fresh representative formula recomputation"
+      ],
+      "rationale": "In each chain factor, powers of the maximal ideal are nested, so two product ideals meet nontrivially exactly when their active supports intersect. A two-set can be total dominating only if the selected ideals are adjacent and their active supports cover every coordinate, because the socle-like singleton-support ideal in any omitted coordinate meets neither. These conditions are sufficient for every nonzero ideal to meet at least one selected ideal. Whenever such a pair exists it is also paired, so both minima are two; direct support choices give exactly the three stated obstructions. For the count, P=prod ell_i(ell_i+2) counts ordered ideal pairs with full support union before vertex exclusions, L=prod ell_i and B=prod(ell_i+1) account for zero/ring cases, L(2^r-2) removes disjoint active-support bipartitions, and L-1 removes proper full-support diagonals. The remainder is even and division by swap gives the displayed formula. Independent arithmetic checks reproduce representative values, including 3 for lengths (1,1,1), 18 for (1,1,1,1), 15 for (2,2) and 40 for (3,1,1). The verifier additionally checks exponent-vector graphs and Z/n through 120; the proof is arbitrary-rank.",
+      "residual_risks": [
+        "The finding display contains a pre-existing malformed LaTeX brace in one occurrence of the gamma_pr equality; the mathematical statement is repeated unambiguously and correctly in prose, proof and slogan, so this is a non-substantive typesetting defect rather than a correctness defect."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-module theorem proves gamma_t=2 for every finite nonhomogeneous/nonsemisimple module of composition length at least three, but gives no all-minimum-set count and no paired-domination classification.",
+          "The 2014 finite-PIR paper explicitly develops ordinary domination, radius, center, geodetic/hull, independence and chordality; its domination theorem gives gamma=1 except products of fields, where gamma=2."
+        ],
+        "reasoning": "The scalar total-domination value has broader prior coverage, while the exact minimizer structure, paired equality at the minimum, and product count survive as additional content.",
+        "searches": [
+          "Resultary/2026 record f360c995e592, complete public RESULT.md inspected",
+          "Abu Osba--Al-Addasi--Abughneim 2014 full publisher text",
+          "Jafari--Jafari Rad 2011 ordinary-domination paper"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1155/2014/952371",
+        "Resultary/2026 record f360c995e592",
+        "Italian Journal of Pure and Applied Mathematics 28 (2011), 17-20",
+        "Resultary finite-PIR total/paired query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theory implies the minimum total-domination number in most cases but does not determine which pairs are total dominating.",
+          "The submitted singleton-support witnesses prove a pair must cover every coordinate, while adjacency forces intersecting active supports; these conditions are also sufficient.",
+          "Counting all exponent-vector pairs with full union, removing disjoint pairs and diagonals, then quotienting by swap yields the closed product formula; this information is not encoded in gamma_t alone."
+        ],
+        "reasoning": "The complete final claim is not mechanically implied by the broader scalar theorem because its exact all-minimum-set classification and count remain undetermined there.",
+        "searches": [
+          "published finite-module total-domination theorem",
+          "Abu Osba et al. finite-PIR ideal structure",
+          "assigned active-support pair classification and counting argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a product of chain rings, ideal intersection is nonzero exactly when the active supports intersect.",
+          "The published module theorem, applied to R as its regular module, explains the same total-domination existence boundary and gamma_t=2 outside the exceptional length-two/field cases."
+        ],
+        "reasoning": "The new content can be equivalently stated as the complete classification and enumeration of all adjacent support-covering two-ideal sets, refining the prior scalar total-domination classification.",
+        "searches": [
+          "Abu Osba--Al-Addasi--Abughneim, DOI:10.1155/2014/952371 full text",
+          "Resultary published record f360c995e592: total domination of finite-module intersection graphs",
+          "Resultary query: total paired domination finite principal ideal ring intersection graph nilpotency lengths minimum sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited record is the direct exact Resultary hit; other returned records concern different ideal-derived graphs or the scalar finite-module total-domination theorem.",
+          "No external table of the stated nilpotency-length multiplicities was located."
+        ],
+        "reasoning": "The exact multiplicity is derived from a coordinatewise support count rather than inferred from absent tables.",
+        "searches": [
+          "Resultary exact finite-PIR total/paired domination search",
+          "targeted web search for total or paired domination of ideal-intersection graphs"
+        ]
+      },
+      "rationale": "A broader published finite-module theorem already determines the total-domination number and length-two obstruction, so the scalar gamma_t=2 part is not new. However, that theorem neither treats paired domination nor classifies/counts every minimum pair. Abu Osba--Al-Addasi--Abughneim's full same-family paper treats ordinary domination and other graph invariants, not total or paired domination. The audited active-support criterion and exact product multiplicity are therefore a substantive refinement not implied by the checked literature.",
+      "residual_risks": [
+        "A specialized total- or paired-domination paper using different algebraic-graph terminology could contain an equivalent minimum-pair count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORDINARY_DOMINATION_PRIOR_TOTAL_PAIRED_MINIMUM_ENUMERATION_NOT_STATED",
+          "evidence": "The paper defines ordinary dominating sets and proves gamma=1 except for products of fields, where gamma=2; the inspected text does not define or classify total or paired dominating sets.",
+          "identifier_or_url": "DOI:10.1155/2014/952371",
+          "material_read": "Open full publisher text was inspected through the ring decomposition and domination section, including Theorem 2 and surrounding graph-invariant results.",
+          "method": "Same-object invariant and theorem-scope comparison.",
+          "title": "Some Properties of the Intersection Graph for Finite Commutative Principal Ideal Rings",
+          "trigger": "Primary paper on exactly the same finite-PIR ideal-intersection graphs."
+        },
+        {
+          "assessment": "COVERS_SCALAR_TOTAL_DOMINATION_NOT_ALL_MINIMUM_PAIRS_OR_COUNTS",
+          "evidence": "The module theorem gives total-domination existence and gamma_t, but its finding/proof do not enumerate all minimum sets or paired domination for finite PIRs.",
+          "identifier_or_url": "Resultary/2026 record f360c995e592",
+          "material_read": "Complete public RESULT.md was read, including the length-two obstruction and the gamma_t classification.",
+          "method": "Broader-theorem implication and residual-content comparison.",
+          "title": "Total domination of finite-module intersection graphs has a complete length-and-type classification",
+          "trigger": "Broader published SCOPE theorem on the same intersection construction for finite modules."
+        },
+        {
+          "assessment": "ORDINARY_DOMINATION_ONLY",
+          "evidence": "The article states that it obtains domination numbers for ring/module intersection graphs, not strengthened total/paired all-minimum classifications.",
+          "identifier_or_url": "Italian Journal of Pure and Applied Mathematics 28 (2011), 17-20",
+          "material_read": "Publisher article metadata/abstract and stated scope were inspected.",
+          "method": "Historical invariant-scope comparison.",
+          "title": "Domination in the intersection graphs of rings and modules",
+          "trigger": "Foundational same-graph domination source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1155/2014/952371",
+        "Resultary/2026 record f360c995e592",
+        "Italian Journal of Pure and Applied Mathematics 28 (2011), 17-20",
+        "Resultary finite-PIR total/paired query"
+      ],
+      "rationale": "Although the scalar total-domination value now has broader module-theoretic coverage, classifying and counting every minimum strengthened dominating pair across all finite principal ideal rings is a natural exact refinement. The closed product formula records the full local nilpotency-length dependence and simultaneously resolves paired domination, making the surviving content more than a renamed scalar corollary.",
+      "residual_risks": [
+        "A specialized total- or paired-domination paper using different algebraic-graph terminology could contain an equivalent minimum-pair count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1155/2014/952371",
+    "Resultary/2026 record f360c995e592",
+    "Italian Journal of Pure and Applied Mathematics 28 (2011), 17-20",
+    "Resultary finite-PIR total/paired query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a finite commutative principal ideal ring decomposed into chain-ring factors of nilpotency lengths ell_i, a two-ideal set is total dominating exactly when its active supports intersect and cover all factors; outside the field, local-length-two and two-field obstructions this gives gamma_t=gamma_pr=2, all minimum total and paired sets coincide, and their exact number is one half of [prod ell_i(ell_i+2) - (2^r+1)prod ell_i - 2prod(ell_i+1) + 4].",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A specialized total- or paired-domination paper using different algebraic-graph terminology could contain an equivalent minimum-pair count.",
+    "The ring is assumed finite, commutative and principal; arbitrary local ideal lattices need not reduce to active supports.",
+    "Only minimum total/paired dominating sets are counted, not all larger such sets."
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was inspected at its packaged path before replay.
+# Independent mathematical audit
 
-The first layer constructs the graph directly from local nilpotency lengths, using exponent vectors for ideals and active-support intersection for adjacency. It exhaustively checks every two-vertex subset against the literal total-domination definition, verifies that exactly the support-intersection/full-union pairs qualify, checks the three existence obstructions, and compares the number of qualifying pairs with the closed formula.
+## correctness
 
-The second layer independently constructs ideal-intersection graphs of \(\mathbb Z/n\mathbb Z\) from divisors. Ideals are represented by divisors \(d\mid n\), and two nonzero proper ideals intersect nontrivially exactly when their least common multiple is less than \(n\). Every composite \(4\le n\le120\) is checked against the prime-exponent specialization.
+PASS
 
-Tail of the exact replay output:
+In each chain factor, powers of the maximal ideal are nested, so two product ideals meet nontrivially exactly when their active supports intersect. A two-set can be total dominating only if the selected ideals are adjacent and their active supports cover every coordinate, because the socle-like singleton-support ideal in any omitted coordinate meets neither. These conditions are sufficient for every nonzero ideal to meet at least one selected ideal. Whenever such a pair exists it is also paired, so both minima are two; direct support choices give exactly the three stated obstructions. For the count, P=prod ell_i(ell_i+2) counts ordered ideal pairs with full support union before vertex exclusions, L=prod ell_i and B=prod(ell_i+1) account for zero/ring cases, L(2^r-2) removes disjoint active-support bipartitions, and L-1 removes proper full-support diagonals. The remainder is even and division by swap gives the displayed formula. Independent arithmetic checks reproduce representative values, including 3 for lengths (1,1,1), 18 for (1,1,1,1), 15 for (2,2) and 40 for (3,1,1). The verifier additionally checks exponent-vector graphs and Z/n through 120; the proof is arbitrary-rank.
 
-```text
-Z/108Z exponents=(2, 3) vertices=10 min_pairs=35
-Z/110Z exponents=(1, 1, 1) vertices=6 min_pairs=3
-Z/111Z exponents=(1, 1) vertices=2 min_pairs=0
-Z/112Z exponents=(4, 1) vertices=8 min_pairs=18
-Z/114Z exponents=(1, 1, 1) vertices=6 min_pairs=3
-Z/115Z exponents=(1, 1) vertices=2 min_pairs=0
-Z/116Z exponents=(2, 1) vertices=4 min_pairs=3
-Z/117Z exponents=(2, 1) vertices=4 min_pairs=3
-Z/118Z exponents=(1, 1) vertices=2 min_pairs=0
-Z/119Z exponents=(1, 1) vertices=2 min_pairs=0
-Z/120Z exponents=(3, 1, 1) vertices=14 min_pairs=40
-VERIFY_OK
-```
+## originality
 
-These finite tests are corroborative. The arbitrary-ring theorem follows from the chain-ring ideal decomposition, the singleton-support witness argument, and the exact ordered-pair count in `RESULT.md`.
+PASS
+
+A broader published finite-module theorem already determines the total-domination number and length-two obstruction, so the scalar gamma_t=2 part is not new. However, that theorem neither treats paired domination nor classifies/counts every minimum pair. Abu Osba--Al-Addasi--Abughneim's full same-family paper treats ordinary domination and other graph invariants, not total or paired domination. The audited active-support criterion and exact product multiplicity are therefore a substantive refinement not implied by the checked literature.
+
+## value
+
+PASS
+
+Although the scalar total-domination value now has broader module-theoretic coverage, classifying and counting every minimum strengthened dominating pair across all finite principal ideal rings is a natural exact refinement. The closed product formula records the full local nilpotency-length dependence and simultaneously resolves paired domination, making the surviving content more than a renamed scalar corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
