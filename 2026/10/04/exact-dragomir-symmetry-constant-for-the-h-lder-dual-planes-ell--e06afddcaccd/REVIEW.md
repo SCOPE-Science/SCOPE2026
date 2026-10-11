@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof normalizes an arbitrary nonzero Birkhoff--James orthogonal pair in \(\ell_p^2\), uses the unique norming functional to parameterize the orthogonal direction, and uses the exact functional criterion for \(\perp_D^\varepsilon\) to identify the best reverse threshold. For \(p=3\) and \(p=3/2\), the problem reduces to maximizing \(F(w)=(1+2w)(1-2w^2)\) on \([0,1/2]\). The derivative has one interior zero, its sign changes from positive to negative there, and both endpoints have value \(1\), so the radical value follows globally. The standalone checker confirms the algebra but is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, with stated bibliographic risk.** The closest same-notion source, arXiv:2012.08162, proves only existence of some global D-approximate symmetry parameter for every finite-dimensional Banach space and does not compute the optimal constant for \(\ell_p^2\). The earlier 2018 approximate-symmetry work is explicitly identified by that paper as using the distinct C-approximation. The full arXiv text of arXiv:2205.11586 treats exact local symmetry in \(\ell_p\) sequence spaces and contains no approximate-symmetry parameter. Targeted database and literature searches for the exact radical, Dragomir/D-symmetry aliases, and \(\ell_3^2\) did not locate a covering statement. Residual risk remains from older or differently indexed terminology and from the 2025 minimal-width paper whose full text was not available in the inspected lawful sources.
+PASS
 
-## Value
-**PASS.** The 2020 theorem leaves the finite-dimensional D-symmetry parameter qualitative. Computing its optimum on the simplest smooth non-Hilbert integer-exponent plane supplies a sharp benchmark for that theorem. The Hölder-dual coincidence \(p=3\) and \(p=3/2\), together with an interior worst configuration, is structural rather than a table lookup or routine axis test, and gives a concrete target for broader \(\ell_p\) investigations.
+For a smooth \(\ell_p^2\) unit vector \(x=(a,b)\), Birkhoff--James orthogonality fixes the tangent direction \(y\) up to scale. The functional characterization of Dragomir approximate orthogonality reduces the best reverse threshold to the norm-one functional annihilating \(x\), producing the scalar factor \(c_p(u)\) in RESULT.md. For \(p=3\) and \(p=3/2\) the dual formulas coincide. With \(w=\sqrt{u(1-u)}\), the reciprocal cube is \((1+2w)(1-2w^2)\); its derivative has the unique interior maximum at \((\sqrt7-1)/6\), and substitution gives \((17+7\sqrt7)/27\). The stated \(\varepsilon_D\) follows exactly. An independent 200001-point scan of \(w\in[0,1/2]\) located the same unique maximizer and reproduced \(0.4087812568462646\), while the radical identity was checked symbolically/numerically.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest full primary paper proves qualitative global Dragomir approximate symmetry in every finite-dimensional Banach space and gives the functional machinery used by the audited proof, but full-text search found no \(\ell_p\) computation and no exact global constant. The earlier 2018 approximate-symmetry paper is identified by the 2020 primary source as concerning the distinct Chmieliński notion in the relevant smooth-space result. Resultary found the current exact constant and nearby but different Banach-space invariants, not a prior implication-equivalent value.
+
+## value
+
+PASS
+
+The parameter is the sharp global quantitative version of a standard asymmetry question for Birkhoff--James orthogonality. Computing it exactly for a canonical smooth conjugate pair of non-Hilbert planes, and showing the extremum is genuinely interior rather than axial or diagonal, gives a meaningful benchmark for the general qualitative theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

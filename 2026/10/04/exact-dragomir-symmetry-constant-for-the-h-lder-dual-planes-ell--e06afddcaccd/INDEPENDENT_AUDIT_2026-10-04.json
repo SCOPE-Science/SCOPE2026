@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:38:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ca0c6d5fd55fe12d2539fdc5e20144952fd569de",
+        "assigned verify_dragomir_constant.py blob 65fe2cbae19371ce0bec4527ff03fc1bb5d00e5d",
+        "Chmieliński--Khurana--Sain, arXiv:2012.08162, full primary PDF",
+        "independent scalar optimization of the reduced one-variable function"
+      ],
+      "rationale": "For a smooth \\(\\ell_p^2\\) unit vector \\(x=(a,b)\\), Birkhoff--James orthogonality fixes the tangent direction \\(y\\) up to scale. The functional characterization of Dragomir approximate orthogonality reduces the best reverse threshold to the norm-one functional annihilating \\(x\\), producing the scalar factor \\(c_p(u)\\) in RESULT.md. For \\(p=3\\) and \\(p=3/2\\) the dual formulas coincide. With \\(w=\\sqrt{u(1-u)}\\), the reciprocal cube is \\((1+2w)(1-2w^2)\\); its derivative has the unique interior maximum at \\((\\sqrt7-1)/6\\), and substitution gives \\((17+7\\sqrt7)/27\\). The stated \\(\\varepsilon_D\\) follows exactly. An independent 200001-point scan of \\(w\\in[0,1/2]\\) located the same unique maximizer and reproduced \\(0.4087812568462646\\), while the radical identity was checked symbolically/numerically.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.3 in the 2020 paper is qualitative: finite-dimensional spaces are Dragomir-approximately symmetric, with the proof defining a compactness-based supremum/infimum rather than evaluating this plane.",
+          "The same paper explicitly distinguishes its Dragomir section from the Chmieliński approximate-symmetry results attributed to the earlier work."
+        ],
+        "reasoning": "The general existence theorem does not supply the exact sharp constant or the interior extremizer for these Hölder-dual planes.",
+        "searches": [
+          "arXiv:2012.08162 Theorem 2.3 and Section 2",
+          "DOI:10.1016/j.jmaa.2018.01.031 bibliographic comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.08162",
+        "DOI:10.1016/j.jmaa.2018.01.031",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary theorem ensures a parameter exists but leaves its optimal value space-dependent.",
+          "The published \\(T_\\perp\\) record concerns a different Birkhoff-orthogonal geometric constant and does not determine the Dragomir symmetry parameter."
+        ],
+        "reasoning": "The audited scalar optimization is necessary to turn qualitative approximate symmetry into the exact sharp constant.",
+        "searches": [
+          "arXiv:2012.08162 full Section 2",
+          "Resultary ID 2026/10/4/SCOPE-exact-t-perpendicular-constant-of-the-real-ell-3-2-plane--eeaceac82101"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2020 paper states the Dragomir functional characterization and proves existence of some reverse parameter in every finite-dimensional Banach space.",
+          "Full-text searches for \\(l_p\\), \\(ell\\), and sequence-space specializations found no exact \\(\\ell_3^2\\) or \\(\\ell_{3/2}^2\\) evaluation."
+        ],
+        "reasoning": "Equivalent formulations as the infimum reverse Dragomir parameter, the minimum annihilating-functional value along Birkhoff tangents, and the scalar minimum of \\(c_p(u)\\) were compared.",
+        "searches": [
+          "Resultary query: Dragomir approximate Birkhoff-James symmetry constant ell_3^2 ell_{3/2}^2 exact",
+          "arXiv:2012.08162 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior database or published exact-value table containing the radical constant was located.",
+          "Resultary returned the assigned record and different invariants such as the \\(T_\\perp\\) constant."
+        ],
+        "reasoning": "The exact-value search directly targeted both the radical and the two spaces, so a matching tabulated value would have been visible if indexed.",
+        "searches": [
+          "Resultary exact radical/space query",
+          "web exact search for 27/(17+7 sqrt(7)) with Dragomir/Birkhoff terminology"
+        ]
+      },
+      "rationale": "The closest full primary paper proves qualitative global Dragomir approximate symmetry in every finite-dimensional Banach space and gives the functional machinery used by the audited proof, but full-text search found no \\(\\ell_p\\) computation and no exact global constant. The earlier 2018 approximate-symmetry paper is identified by the 2020 primary source as concerning the distinct Chmieliński notion in the relevant smooth-space result. Resultary found the current exact constant and nearby but different Banach-space invariants, not a prior implication-equivalent value.",
+      "residual_risks": [
+        "The 2018 JMAA paper itself was not successfully obtained in full during this run; the comparison relies on the later full primary paper's characterization of that prior result.",
+        "An unindexed exact two-dimensional computation could exist under a different geometric-constant name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_FRAMEWORK_ONLY",
+          "evidence": "The paper proves global existence for finite-dimensional spaces but contains no exact \\(\\ell_3^2\\)/\\(\\ell_{3/2}^2\\) constant.",
+          "identifier_or_url": "arXiv:2012.08162",
+          "material_read": "Full 23-page primary PDF, with focused reading of the Dragomir definition, functional characterization, Section 2 global-symmetry theorem, and later examples; relevant pages were visually inspected.",
+          "method": "Open-access full-PDF inspection and full-text term searches.",
+          "title": "Local approximate symmetry of Birkhoff-James orthogonality in normed linear spaces",
+          "trigger": "Closest source on global Dragomir approximate symmetry and the exact functional characterization."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_AND_NOT_USED_FOR_NONCOVERAGE",
+          "evidence": "The 2020 full primary paper attributes the earlier smooth-space result to the distinct Chmieliński approximate relation, so no strong coverage inference was drawn from inaccessible text.",
+          "identifier_or_url": "DOI:10.1016/j.jmaa.2018.01.031",
+          "material_read": "Bibliographic record plus the 2020 primary paper's explicit discussion of what that earlier result establishes.",
+          "method": "Open-web bibliographic inspection; an authorized institutional retrieval attempt resolved to a different 2017 article and therefore was not used as scientific evidence.",
+          "title": "Approximate symmetry of Birkhoff orthogonality",
+          "trigger": "Earlier plausible title on approximate symmetry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chmieliński--Khurana--Sain arXiv:2012.08162",
+        "nearby exact Banach-space geometric-constant records"
+      ],
+      "rationale": "The parameter is the sharp global quantitative version of a standard asymmetry question for Birkhoff--James orthogonality. Computing it exactly for a canonical smooth conjugate pair of non-Hilbert planes, and showing the extremum is genuinely interior rather than axial or diagonal, gives a meaningful benchmark for the general qualitative theorem.",
+      "residual_risks": [
+        "The result treats only one Hölder-dual pair and does not give \\(\\varepsilon_D(\\ell_p^2)\\) for general \\(p\\)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the real Hölder-dual Banach planes \\(\\ell_3^2\\) and \\(\\ell_{3/2}^2\\), the optimal global Dragomir approximate-symmetry parameter for Birkhoff--James orthogonality is \\[\\varepsilon_D=\\sqrt{1-\\left(\\frac{27}{17+7\\sqrt7}\\right)^{2/3}}=0.408781256846\\ldots,\\] and the worst reverse-orthogonality configuration is attained at the unique interior ratio corresponding to \\(w=(\\sqrt7-1)/6\\).",
+  "limitations": [
+    "Real two-dimensional \\(\\ell_p\\) spaces only for \\(p=3\\) and \\(p=3/2\\).",
+    "The result concerns Dragomir's approximate orthogonality, not the distinct Chmieliński approximate relation."
+  ],
+  "schema_version": 1
+}
