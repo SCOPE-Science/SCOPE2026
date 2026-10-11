@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:10:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 01b77a786d9dd4c5db9c7c70feb2295b2a30b722",
+        "assigned verify.py blob de23d1df0a01cc5e289343330094dd41e210fb71",
+        "Xu--Wang, DOI 10.3934/math.20251254, complete open primary article",
+        "fresh endpoint-integrability reconstruction"
+      ],
+      "rationale": "For the density printed in Lemma 4.1, the factor multiplying the power of \\(z\\) tends to a finite positive constant at zero, so \\(\\pi(z)\\asymp z^{-2+2r/\\sigma_{11}^2}\\) there. The endpoint integral is finite exactly when \\(-2+2r/\\sigma_{11}^2>-1\\), equivalently \\(r>\\sigma_{11}^2/2\\). At equality the divergence is logarithmic and below it is a power divergence. At infinity the two algebraic exponents add exactly to \\(-4\\) and the exponential tends to one, so the tail is always integrable. Thus the displayed density is normalizable if and only if \\(r>\\sigma_{11}^2/2\\). The source then defines its extinction threshold by integrating against that density, so the condition is required for the threshold and Theorem 4.2 as printed. A fresh exact check reproduced the exponent sum \\(-4\\), the critical exponent \\(-1\\), and the source example's safe inequality \\(1/2>9/50\\).",
+      "residual_risks": [
+        "The result diagnoses the printed invariant-density domain and does not classify the boundary diffusion when the condition fails.",
+        "It does not claim that epidemic extinction itself is impossible outside the repaired domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.3 has a stronger condition but belongs to an earlier stationary-distribution result and is not assumed by the printed extinction theorem.",
+          "Accessible predecessor metadata establish related nonlinear stochastic logistic theory but did not expose the exact source-specific omission."
+        ],
+        "reasoning": "No inspected broader statement repairs Theorem 4.2 as printed.",
+        "searches": [
+          "Xu--Wang Theorem 3.3 stationary-distribution condition",
+          "Liu--Jiang--Hayat--Ahmad 2018 predecessor metadata",
+          "Zhang--Yang 2022 nonlinear stochastic predator-prey boundary literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3934/math.20251254",
+        "DOI 10.1016/j.amc.2017.09.030 metadata",
+        "DOI 10.3934/dcdsb.2021177",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The correction follows from an endpoint integrability test, but it reverses the unconditional normalization assertion printed in Lemma 4.1 and changes the stated domain of the threshold theorem.",
+          "The source's numerical example lies inside the repaired domain, so the audit does not manufacture a contradictory example outside the theorem's stated use."
+        ],
+        "reasoning": "The novelty is the source-specific theorem-domain correction and exact if-and-only-if boundary, not the textbook power-integrability criterion by itself.",
+        "searches": [
+          "printed density and threshold definition versus the normalizability domain"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 4.1 prints exactly the density audited here and says a constant normalizes it on \\((0,\\infty)\\).",
+          "Theorem 4.2 uses the resulting threshold with no displayed condition \\(r>\\sigma_{11}^2/2\\)."
+        ],
+        "reasoning": "The audited statement is the exact missing domain condition for the source's displayed probability density and threshold.",
+        "searches": [
+          "Resultary query: SEI invariant density normalization r sigma11 squared over 2 theorem 4.2 Xu Wang",
+          "Xu--Wang DOI 10.3934/math.20251254 full primary article",
+          "web search for the cited Liu--Jiang--Hayat--Ahmad 2018 predecessor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published correction of the missing condition was retrieved."
+        ],
+        "reasoning": "Search absence supplements the direct inspection of the current open article.",
+        "searches": [
+          "Resultary current search for the source title plus boundary-noise normalization",
+          "web searches for an erratum, correction and the inequality r greater than sigma11 squared over 2"
+        ]
+      },
+      "rationale": "The open primary article states Lemma 4.1 with a normalizing constant for the displayed density, then immediately uses that law to define the extinction threshold and states Theorem 4.2 without the required boundary integrability condition. The stronger stationary-distribution hypothesis appearing earlier in Theorem 3.3 is not restated in the separate extinction theorem. Current Resultary and targeted searches found no erratum or source-specific correction. The cited 2018 predecessor could not be obtained from public full-text routes; an authorized institutional retrieval attempt was interrupted by an expired verification tab and was not retried. That access limitation is retained as a residual risk rather than converted into a failure.",
+      "residual_risks": [
+        "The inaccessible 2018 predecessor could state the same boundary condition explicitly.",
+        "No access limitation affects the direct conclusion that the 2025 theorem omits the condition as printed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MISSING_DOMAIN_CONDITION_CONFIRMED",
+          "evidence": "The density is asserted normalizable and then used in the extinction threshold without the boundary condition required by its zero-endpoint power.",
+          "identifier_or_url": "DOI 10.3934/math.20251254",
+          "material_read": "complete open article, including Theorem 3.3, Lemma 4.1, the threshold definition and Theorem 4.2",
+          "method": "primary full-text HTML/PDF inspection",
+          "title": "Stationary distribution and extinction of a stochastic SEI epidemic model with logistic growth and nonlinear perturbation",
+          "trigger": "exact source of the invariant density and extinction theorem"
+        },
+        {
+          "assessment": "FULL_TEXT_ACCESS_INTERRUPTED",
+          "evidence": "The institutional retrieval route stopped at an expired verification tab; no retry or bypass was attempted.",
+          "identifier_or_url": "DOI 10.1016/j.amc.2017.09.030",
+          "material_read": "public bibliographic/abstract material only; full text was unavailable through checked open routes",
+          "method": "metadata inspection followed by one authorized institutional retrieval attempt",
+          "title": "Stationary distribution and extinction of a stochastic predator-prey model with additional food and nonlinear perturbation",
+          "trigger": "cited predecessor for Lemma 4.1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Xu--Wang 2025",
+        "assigned endpoint proof"
+      ],
+      "rationale": "Normalizability is not cosmetic here: the extinction threshold is defined by integration against the asserted invariant probability density. Identifying the exact missing boundary \\(r>\\sigma_{11}^2/2\\) therefore repairs the mathematical domain of a published theorem. Although the endpoint calculation is elementary, its consequence for the theorem statement supplies the substantive motivation required for a normalization check.",
+      "residual_risks": [
+        "The correction leaves the excluded stochastic regime unclassified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result diagnoses the printed invariant-density domain and does not classify the boundary diffusion when the condition fails.",
+    "It does not claim that epidemic extinction itself is impossible outside the repaired domain.",
+    "The inaccessible 2018 predecessor could state the same boundary condition explicitly.",
+    "No access limitation affects the direct conclusion that the 2025 theorem omits the condition as printed.",
+    "The correction leaves the excluded stochastic regime unclassified."
+  ]
+}
