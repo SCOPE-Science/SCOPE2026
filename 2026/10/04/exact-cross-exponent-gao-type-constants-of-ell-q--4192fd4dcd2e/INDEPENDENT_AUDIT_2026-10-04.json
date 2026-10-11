@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:57:03.443784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ed75bde80020b2fc850365b621e3481a84a28c4c",
+        "verify_gao_phase.py blob d6b69b3658634760186938c389320f7913d6995c",
+        "independent Clarkson/power-mean reconstruction"
+      ],
+      "rationale": "The complete proof was reconstructed. For unit vectors, the sharp Clarkson estimate at \\(s=\\min\\{q,q'\\}\\) gives \\(\\|x+y\\|_q^s+\\|x-y\\|_q^s\\ge2^s\\). For \\(r\\le s\\), two-dimensional power-mean monotonicity yields the lower bound one, attained by \\(y=x\\). For \\(r\\ge s\\), the sharp \\(\\ell_r^2\\)-to-\\(\\ell_s^2\\) comparison gives \\(2^{1-r/s}\\), attained by the stated two-coordinate pairs. Endpoint cases \\(q=1\\) and \\(q=\\infty\\) were checked separately. Independent numerical evaluations of all extremizer regimes matched the formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Clarkson inequalities supply the sharp lower estimates used in the proof but do not themselves tabulate the Gao infimum for all cross-exponent pairs.",
+          "The 2022 method's printed \\(\\ell_p\\) example keeps the two exponents equal."
+        ],
+        "reasoning": "The prior inequalities are ingredients rather than a published theorem with the final two-parameter value.",
+        "searches": [
+          "Clarkson 1936 inequalities for \\(\\ell_q\\)",
+          "DOI:10.3390/math10234591 general method for absolute normalized norms",
+          "web search for generalized von Neumann-Jordan constants of \\(L_q\\) with independent power parameter"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math10234591",
+        "Asif Ahmad et al., Some von Neumann-Jordan type and Gao type constants related to minimum in Banach Spaces, Res. Commun. Math. Math. Sci. 14 (2022), 121-134",
+        "J. A. Clarkson, Uniformly convex spaces, Trans. AMS 40 (1936), 396-414",
+        "Resultary semantic query: Gao-type constant c_NJ^(r) ell_q cross exponent exact formula phase transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At \\(r=q\\), the audited formula recovers the published diagonal values, so those are genuine prior special cases.",
+          "The diagonal values and universal bounds do not determine \\(r\\ne q\\); the proof requires choosing the sharp Clarkson exponent \\(s=\\min\\{q,q'\\}\\) and a separate power-mean step."
+        ],
+        "reasoning": "The new statement strictly extends a known slice rather than merely renaming it.",
+        "searches": [
+          "Specialized the audited formula to \\(r=q\\) and compared it with the 2022 Example 1",
+          "tested whether the Asif universal bounds determine the cross-exponent value"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2022 paper defines the identical infimum invariant and Example 1 evaluates only \\(c_{\\mathrm{NJ}}^{(p)}(\\ell_p)\\).",
+          "The Asif paper establishes \\(2^{1-p}\\le c_{\\mathrm{NJ}}^{(p)}(X)\\le1\\) and equality for \\(\\ell_1^2\\), but no general \\((q,r)\\) law."
+        ],
+        "reasoning": "Equivalent notation and the original introducing paper were checked; neither states the phase transition at \\(\\min\\{q,q'\\}\\) for independent ambient and Gao exponents.",
+        "searches": [
+          "DOI:10.3390/math10234591 full-text search under Gao-type and \\(c_{\\mathrm{NJ}}^{(p)}\\)",
+          "Asif et al. 2022 full-text inspection",
+          "web searches: Gao-type constant ell_q exponent r exact Clarkson",
+          "Resultary semantic query for cross-exponent Gao constants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available exact-value table is diagonal in the ambient and Gao exponent.",
+          "No retrieved database entry supplied the complete cross-exponent table."
+        ],
+        "reasoning": "A prior exact table would directly cover the claim; none was found among the checked sources.",
+        "searches": [
+          "2022 Gao-type paper Example 1 and exact-value examples",
+          "Resultary exact/semantic query for the displayed phase law"
+        ]
+      },
+      "rationale": "The exact cross-exponent law was not found in the primary Gao-type literature checked. The 2022 open-access paper computes only the diagonal case where the Gao exponent equals the ambient \\(\\ell_p\\) exponent. The earlier Asif paper gives universal bounds and the exact \\(\\ell_1^2\\) case, not the full ambient/exponent separation. The audited theorem is a complete two-parameter classification with a transition at the Clarkson exponent.",
+      "residual_risks": [
+        "An older source could encode the same two-parameter formula in generalized von Neumann-Jordan terminology; direct invariant-name, formula, and Clarkson-exponent searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_DIAGONAL_SLICE_ONLY",
+          "evidence": "Example 1 gives the matching-exponent values but does not state an independent ambient exponent \\(q\\) and Gao exponent \\(r\\).",
+          "identifier_or_url": "DOI:10.3390/math10234591",
+          "material_read": "Open-access full text including the invariant definition, main method, Example 1 for ordinary \\(\\ell_p^2\\), discussion of Asif et al., and conclusions.",
+          "method": "lawful open-access HTML/full text",
+          "title": "The Gao-Type Constant of Absolute Normalized Norms on R2",
+          "trigger": "Same invariant and strongest exact-value source."
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_AND_ENDPOINT_SPECIAL_CASE_NOT_FULL_CLASSIFICATION",
+          "evidence": "It gives universal bounds and the \\(\\ell_1^2\\) sharp case, but not the two-parameter \\(\\ell_q\\) formula.",
+          "identifier_or_url": "Research and Communications in Mathematics and Mathematical Sciences 14 (2022), 121-134",
+          "material_read": "Public author-uploaded full text around Proposition 2.1, Example 2.3, and the Gao-type definitions/results.",
+          "method": "lawful public author full-text inspection",
+          "title": "Some von Neumann-Jordan type and Gao type constants related to minimum in Banach Spaces",
+          "trigger": "Earlier paper introducing/studying the same infimum-type Gao constants."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2022 Gao-type exact-value paper",
+        "Asif et al. 2022",
+        "Clarkson inequality"
+      ],
+      "rationale": "This is a natural exact classification of a named geometric constant on the classical \\(\\ell_q\\) family. It separates two parameters that prior examples identify, gives the exact transition exponent, and recovers the known diagonal values as a slice. Although the proof uses classical inequalities, the final two-parameter invariant is not a mere symbol substitution or a known table recomputation.",
+      "residual_risks": [
+        "The result is restricted to real \\(\\ell_q\\) spaces with at least two coordinates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older source could encode the same two-parameter formula in generalized von Neumann-Jordan terminology; direct invariant-name, formula, and Clarkson-exponent searches did not locate one."
+  ],
+  "schema_version": 1
+}

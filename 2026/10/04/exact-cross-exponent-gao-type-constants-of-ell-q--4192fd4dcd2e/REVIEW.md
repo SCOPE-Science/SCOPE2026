@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(s=\min\{q,q'\}\), the proof establishes \(\|x+y\|_q^s+\|x-y\|_q^s\ge2^s\) for all unit vectors. The cases \(q\le2\) use Clarkson directly, the cases \(q>2\) use norming functionals plus the dual Clarkson inequality, and the endpoints use the triangle inequality. Sharp norm comparison gives the lower branch, and explicit two-coordinate pairs attain every branch. The checker is corroborative only.
+## correctness
 
-## Originality
-PASS. The 2022 primary source was inspected through its definition, Example 1, Remark 1, and references. It computes only the diagonal choice where the Gao exponent equals the ambient exponent; the cross-exponent phase law is not stated there. Targeted claim, alias, exponent, and exact-formula searches found no statement implying the complete \((q,r)\) classification. The 2023 generalized-Gao paper concerns a distinct supremum invariant. Residual risk: an obscure later source could state the same law under different terminology.
+PASS
 
-## Value
-PASS. The result is a complete classification of a natural geometric invariant on the canonical \(\ell_q\) scale, decouples two previously conflated exponents, and explains the published diagonal formula as the intersection of a sharper two-parameter phase diagram. The threshold \(\min\{q,q'\}\) is structurally tied to Clarkson geometry rather than to an arbitrary slice.
+The complete proof was reconstructed. For unit vectors, the sharp Clarkson estimate at \(s=\min\{q,q'\}\) gives \(\|x+y\|_q^s+\|x-y\|_q^s\ge2^s\). For \(r\le s\), two-dimensional power-mean monotonicity yields the lower bound one, attained by \(y=x\). For \(r\ge s\), the sharp \(\ell_r^2\)-to-\(\ell_s^2\) comparison gives \(2^{1-r/s}\), attained by the stated two-coordinate pairs. Endpoint cases \(q=1\) and \(q=\infty\) were checked separately. Independent numerical evaluations of all extremizer regimes matched the formula.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact cross-exponent law was not found in the primary Gao-type literature checked. The 2022 open-access paper computes only the diagonal case where the Gao exponent equals the ambient \(\ell_p\) exponent. The earlier Asif paper gives universal bounds and the exact \(\ell_1^2\) case, not the full ambient/exponent separation. The audited theorem is a complete two-parameter classification with a transition at the Clarkson exponent.
+
+## value
+
+PASS
+
+This is a natural exact classification of a named geometric constant on the classical \(\ell_q\) family. It separates two parameters that prior examples identify, gives the exact transition exponent, and recovers the known diagonal values as a slice. Although the proof uses classical inequalities, the final two-parameter invariant is not a mere symbol substitution or a known table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
