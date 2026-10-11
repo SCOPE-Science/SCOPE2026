@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:12:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 7d696ee09912ab3847627a58e4c2a71b4ff763b8",
+        "assigned verify.py blob 2bedbd2aa231d1d376fcc80483573735960c245b",
+        "Peters, Positive semidefinite maximum nullity and zero forcing number, DOI 10.13001/1081-3810.1559"
+      ],
+      "rationale": "The structural criterion follows exactly from the positive-semidefinite component rule. If all white vertices lie in one part, the white graph is independent and each white vertex is a singleton component, so forcing succeeds. If whites occupy at least two parts, the white graph is connected. A blue vertex in white-support part \\(i\\) has exactly \\(|W|-w_i\\) white neighbors, so an initial force exists precisely when all white vertices outside that part consist of one vertex and that part contains a blue vertex. Thus three or more white-support parts stall, while two parts succeed exactly under the displayed asymmetric one-white condition; one force then reduces to the one-part case. The generating polynomial counts these disjoint support cases with one inclusion-exclusion correction for the one-white/one-white overlap. Its least exponent is \\(N-\\max_i n_i\\). The assigned verifier independently recomputes white components and exhausts every initial subset for all complete-multipartite types through order ten.",
+      "residual_risks": [
+        "The classification is specific to connected complete multipartite graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational/general theory defines and bounds \\(Z_+\\).",
+          "No inspected theorem characterizes every initial set for complete multipartite graphs."
+        ],
+        "reasoning": "General positive-semidefinite forcing theory does not mechanically supply the complete feasible-set enumeration.",
+        "searches": [
+          "Peters complete 16-page primary paper",
+          "Barioli et al. arXiv:1003.2028"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.13001/1081-3810.1559",
+        "arXiv:1003.2028",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the minimum cardinality does not determine which larger initial sets force, nor their count by size."
+        ],
+        "reasoning": "The all-set classification needs the additional white-component analysis.",
+        "searches": [
+          "known minimum \\(N-\\max_i n_i\\) versus the all-set iff criterion and coefficient polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peters uses the same positive-semidefinite color-change rule and the same complete-multipartite family.",
+          "Proposition 3.4 states the minimum number only."
+        ],
+        "reasoning": "The audited polynomial strictly refines the scalar invariant on the identical graph family.",
+        "searches": [
+          "Resultary query: positive semidefinite zero forcing complete multipartite all sets polynomial",
+          "Peters DOI 10.13001/1081-3810.1559, Proposition 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact polynomial/table was retrieved."
+        ],
+        "reasoning": "The search result is corroborative to the direct primary-paper comparison.",
+        "searches": [
+          "Resultary current semantic search for the complete-multipartite \\(Z_+\\) polynomial"
+        ]
+      },
+      "rationale": "Peters proves only the scalar value \\(Z_+(K_{n_1,\\ldots,n_k})=n_2+\\cdots+n_k\\) for ordered part sizes and does not enumerate all positive-semidefinite zero-forcing sets. The audited result refines that number to an iff classification of every initial set and a complete size-generating polynomial. Current Resultary search surfaced ordinary zero-forcing polynomials and other complete-multipartite domination polynomials but no prior positive-semidefinite all-set polynomial.",
+      "residual_risks": [
+        "A later specialized zero-forcing-polynomial paper could contain the same enumeration under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MINIMUM_VALUE_PRIOR_ALL_SET_POLYNOMIAL_NOT_STATED",
+          "evidence": "Proposition 3.4 gives \\(Z_+=n_2+\\cdots+n_k\\) and the corresponding maximum-nullity statement.",
+          "identifier_or_url": "DOI 10.13001/1081-3810.1559",
+          "material_read": "complete 16-page primary PDF, especially the PSD color-change definition and Proposition 3.4; the proposition page was visually inspected",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Positive Semidefinite Maximum Nullity and Zero Forcing Number",
+          "trigger": "exact prior complete-multipartite scalar theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Peters 2012",
+        "foundational PSD zero-forcing literature",
+        "assigned RESULT/verifier"
+      ],
+      "rationale": "Positive-semidefinite zero forcing is an established minimum-rank invariant, and complete multipartite graphs are a canonical family. Classifying every forcing set and its cardinality distribution is a natural exact refinement of Peters's minimum theorem, useful for probabilistic and polynomial versions of forcing rather than a routine recomputation of the minimum.",
+      "residual_risks": [
+        "The family geometry makes the proof elementary once the component rule is written in white-count coordinates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The classification is specific to connected complete multipartite graphs.",
+    "A later specialized zero-forcing-polynomial paper could contain the same enumeration under different terminology.",
+    "The family geometry makes the proof elementary once the component rule is written in white-count coordinates."
+  ]
+}
