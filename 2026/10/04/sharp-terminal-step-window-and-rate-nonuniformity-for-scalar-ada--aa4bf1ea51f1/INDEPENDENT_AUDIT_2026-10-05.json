@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:43:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Ward, Wu and Bottou, AdaGrad stepsizes: Sharp convergence over nonconvex landscapes, arXiv:1806.01811; primary source inspected for the AdaGrad-Norm update and arbitrary-positive-hyperparameter robustness.",
+        "Xie, Wu and Ward, Linear Convergence of Adaptive Stochastic Gradient Descent, arXiv:1908.10525; primary source inspected for the strongly convex linear-convergence and two-stage stabilization framework.",
+        "Traoré and Pauwels, Sequential convergence of AdaGrad algorithm for smooth convex optimization, arXiv:2011.12341; primary source inspected for scalar AdaGrad sequential convergence.",
+        "Resultary searches for scalar AdaGrad-Norm terminal accumulator, limiting normalized effective step, sharp stability endpoints and uniform asymptotic contraction.",
+        "Assigned RESULT.md, REVIEW.md, VERIFICATION.md, metadata, audit record and verify.py from exact tree 13f11a611ffd6193885f0a00d3e20b1b98e5df17.",
+        "Fresh independent recurrence replay and an additional proof of the previously omitted converse \\(\\theta_\\infty=1\\Rightarrow\\) finite annihilation."
+      ],
+      "rationale": "The normalized recurrence is exact. A telescoping comparison after \\(r_t\\) reaches one proves boundedness of the accumulator; convergence then forces \\(z_t\\to0\\), while a terminal value at or below one half would make \\(|z_t|\\) nondecreasing. The ratio formula and startup count follow directly. Both terminal endpoints are approached by explicit initialization families. Fresh review identified one omitted converse in the source proof: if a nonterminating trajectory had \\(r_\\infty=1\\), then eventually \\(r_t>(\\sqrt5-1)/2\\); monotonicity makes the multipliers \\(q_t=1/r_{t+1}-1\\) decrease, so the remaining square-sum is at most \\(q_t^2/(1-q_t^2)\\), contradicting \\(1-r_{t+1}^2>(1-r_{t+1})^2/(2r_{t+1}-1)\\). The repaired RESULT.md supplies this missing proof and leaves the claim unchanged.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources prove broader convergence statements for AdaGrad or AdaGrad-Norm.",
+          "Their broader function classes do not determine the sharp set of scalar terminal effective steps."
+        ],
+        "reasoning": "General convergence and even a linear-rate theorem do not imply a hyperparameter-uniform terminal contraction factor or classify its sharp failure.",
+        "searches": [
+          "arXiv:1806.01811",
+          "arXiv:1908.10525",
+          "arXiv:2011.12341"
+        ]
+      },
+      "checked_sources": [
+        "Ward, Wu and Bottou, AdaGrad stepsizes: Sharp convergence over nonconvex landscapes, arXiv:1806.01811; primary source inspected for the AdaGrad-Norm update and arbitrary-positive-hyperparameter robustness.",
+        "Xie, Wu and Ward, Linear Convergence of Adaptive Stochastic Gradient Descent, arXiv:1908.10525; primary source inspected for the strongly convex linear-convergence and two-stage stabilization framework.",
+        "Traoré and Pauwels, Sequential convergence of AdaGrad algorithm for smooth convex optimization, arXiv:2011.12341; primary source inspected for scalar AdaGrad sequential convergence.",
+        "Resultary searches for scalar AdaGrad-Norm terminal accumulator, limiting normalized effective step, sharp stability endpoints and uniform asymptotic contraction.",
+        "Assigned RESULT.md, REVIEW.md, VERIFICATION.md, metadata, audit record and verify.py from exact tree 13f11a611ffd6193885f0a00d3e20b1b98e5df17.",
+        "Fresh independent recurrence replay and an additional proof of the previously omitted converse \\(\\theta_\\infty=1\\Rightarrow\\) finite annihilation."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior convergence implies neither \\(\\inf\\theta_\\infty=0\\) nor \\(\\sup\\theta_\\infty=2\\).",
+          "The upper-edge construction requires a small-amplitude trajectory near the half-threshold; the lower edge uses arbitrarily large normalized initial accumulator.",
+          "The startup-count inequality is a separate exact consequence of monotonic accumulator growth while \\(r_{t+1}\\le1/2\\)."
+        ],
+        "reasoning": "The final theorem needs boundary constructions and an exact transient estimate that are not mechanical substitutions into the inspected prior theorems.",
+        "searches": [
+          "Ward–Wu–Bottou algorithm and robustness theorem",
+          "Xie–Wu–Ward two-stage convergence framework",
+          "Traoré–Pauwels scalar sequential convergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit stated the exact terminal interval \\((0,2)\\) for the normalized step.",
+          "Ward–Wu–Bottou state robustness to positive hyperparameters, not the terminal phase portrait."
+        ],
+        "reasoning": "The normalized recurrence \\(r_{t+1}^2=r_t^2+z_t^2\\) makes terminal-accumulator, terminal-step and asymptotic-factor formulations equivalent, but the exact endpoint classification is additional.",
+        "searches": [
+          "Resultary: scalar AdaGrad-Norm quadratic terminal accumulator limiting effective step sharp interval no uniform asymptotic contraction",
+          "Search aliases: terminal stepsize, limiting accumulator, scalar quadratic AdaGrad-Norm phase portrait"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact scalar terminal-step table or endpoint theorem was located."
+        ],
+        "reasoning": "The claim is an analytic all-parameter theorem rather than a finite table.",
+        "searches": [
+          "Resultary exact-title and terminal-step searches"
+        ]
+      },
+      "rationale": "The inspected AdaGrad-Norm literature establishes robust convergence, bounded/evolving accumulators and linear convergence regimes, but it does not state the exact closure of scalar terminal normalized steps, the two endpoint constructions, the exact terminal contraction factor over all initializations, or the explicit noncontractive-startup count. The audited scalar phase portrait therefore survives best-of-knowledge originality.",
+      "residual_risks": [
+        "Equivalent endpoint constructions may exist in older adaptive-filter or stochastic-approximation literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL ROBUST CONVERGENCE; NO SHARP SCALAR TERMINAL PHASE PORTRAIT",
+          "evidence": "The source gives convergence guarantees but does not classify the limiting normalized scalar step or construct both stability-edge limits.",
+          "identifier_or_url": "arXiv:1806.01811",
+          "material_read": "Primary arXiv statement and algorithm material defining the norm accumulator update and emphasizing robustness to arbitrary positive hyperparameters.",
+          "method": "Open primary-source inspection.",
+          "title": "AdaGrad stepsizes: Sharp convergence over nonconvex landscapes",
+          "trigger": "Defining AdaGrad-Norm source and strongest robust-convergence predecessor."
+        },
+        {
+          "assessment": "COVERS LINEAR CONVERGENCE FRAMEWORK, NOT EXACT TERMINAL ENDPOINTS",
+          "evidence": "The source establishes a rate framework but not the sharp closure of the terminal effective step over initializations.",
+          "identifier_or_url": "arXiv:1908.10525",
+          "material_read": "Primary arXiv abstract and available theorem/scope material describing linear convergence and the two-stage framework.",
+          "method": "Primary source inspection.",
+          "title": "Linear Convergence of Adaptive Stochastic Gradient Descent",
+          "trigger": "Closest source on strongly convex rates and two-stage AdaGrad-Norm behavior."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ward, Wu and Bottou, AdaGrad stepsizes: Sharp convergence over nonconvex landscapes, arXiv:1806.01811; primary source inspected for the AdaGrad-Norm update and arbitrary-positive-hyperparameter robustness.",
+        "Xie, Wu and Ward, Linear Convergence of Adaptive Stochastic Gradient Descent, arXiv:1908.10525; primary source inspected for the strongly convex linear-convergence and two-stage stabilization framework.",
+        "Traoré and Pauwels, Sequential convergence of AdaGrad algorithm for smooth convex optimization, arXiv:2011.12341; primary source inspected for scalar AdaGrad sequential convergence.",
+        "Resultary searches for scalar AdaGrad-Norm terminal accumulator, limiting normalized effective step, sharp stability endpoints and uniform asymptotic contraction.",
+        "Assigned RESULT.md, REVIEW.md, VERIFICATION.md, metadata, audit record and verify.py from exact tree 13f11a611ffd6193885f0a00d3e20b1b98e5df17.",
+        "Fresh independent recurrence replay and an additional proof of the previously omitted converse \\(\\theta_\\infty=1\\Rightarrow\\) finite annihilation."
+      ],
+      "rationale": "AdaGrad-Norm is explicitly motivated by hyperparameter robustness. The exact scalar result separates stability robustness from rate robustness and quantifies the finite startup before strict contraction, providing a natural sharp benchmark for adaptive-step behavior.",
+      "residual_risks": [
+        "Equivalent endpoint constructions may exist in older adaptive-filter or stochastic-approximation literature under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "For deterministic scalar AdaGrad-Norm on a positive quadratic, the normalized terminal effective step lies strictly in \\((0,2)\\), both endpoints are approachable, the exact nonterminating tail factor is \\(|1-\\theta_\\infty|\\), \\(\\theta_\\infty=1\\) occurs exactly by finite annihilation, and the pre-half-threshold noncontractive phase has the stated explicit finite count bound.",
+  "limitations": [
+    "Deterministic one-dimensional positive quadratics only.",
+    "The terminal accumulator remains history dependent and has no general closed form.",
+    "The repair adds the missing converse proof for the central terminal step; it does not change the theorem statement, scope or prior-work comparison.",
+    "Equivalent endpoint constructions may exist in older adaptive-filter or stochastic-approximation literature under different terminology."
+  ],
+  "schema_version": 1
+}

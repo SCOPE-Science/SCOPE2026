@@ -267,6 +267,43 @@ which is exactly
 b_0^2+\lambda^2x_0^2=\eta^2\lambda^2.
 \]
 
+Conversely, \(r_\infty=1\) cannot occur without finite termination. Indeed, if a nonterminating trajectory had \(r_\infty=1\), monotonicity would force \(r_t<1\) for every \(t\). For all sufficiently large \(t\), put
+\[
+q_t=\frac1{r_{t+1}}-1\in(0,1).
+\]
+Since \(r_t\) increases, \(q_t\) decreases, and therefore
+\[
+|z_{t+k}|\le q_t^k|z_t|,
+\qquad k\ge1.
+\]
+Using
+\[
+1-r_{t+1}^2=\sum_{s=t+1}^{\infty}z_s^2
+\]
+and \(z_t^2<1\), we obtain
+\[
+1-r_{t+1}^2
+\le
+\frac{q_t^2z_t^2}{1-q_t^2}
+<
+\frac{q_t^2}{1-q_t^2}.
+\]
+Writing \(r=r_{t+1}\), the right-hand side is
+\[
+\frac{(1-r)^2}{2r-1}.
+\]
+But for
+\[
+r>\frac{\sqrt5-1}{2},
+\]
+one has
+\[
+1-r^2
+>
+\frac{(1-r)^2}{2r-1},
+\]
+a contradiction. Since \(r_t\to1\), such \(t\) must occur. Thus \(\theta_\infty=1\), equivalently \(r_\infty=1\), occurs exactly when the trajectory annihilates in finite time.
+
 To bound the startup phase, observe that whenever
 \[
 r_{t+1}\le\frac12,

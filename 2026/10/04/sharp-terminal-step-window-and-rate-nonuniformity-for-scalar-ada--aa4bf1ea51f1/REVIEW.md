@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. After scaling, the recurrence is
-\[
-r_{t+1}^2=r_t^2+z_t^2,
-\qquad
-z_{t+1}=(1-r_{t+1}^{-1})z_t.
-\]
-If the accumulator never reaches \(1\), it is automatically bounded. After it reaches \(1\), the decrease in \(z_t^2\) dominates the increase in \(r_t\), so the accumulator remains bounded. Its convergence forces \(z_t\to0\). A terminal value at or below \(1/2\) would make \(|z_t|\) nondecreasing, giving a contradiction. The exact tail ratio and the finite startup-count bound then follow directly. Explicit initialization families prove sharpness of both terminal-step endpoints.
+PASS
 
-Risk: the terminal accumulator itself has no closed-form expression for general initial data.
+The normalized recurrence is exact. A telescoping comparison after \(r_t\) reaches one proves boundedness of the accumulator; convergence then forces \(z_t\to0\), while a terminal value at or below one half would make \(|z_t|\) nondecreasing. The ratio formula and startup count follow directly. Both terminal endpoints are approached by explicit initialization families. Fresh review identified one omitted converse in the source proof: if a nonterminating trajectory had \(r_\infty=1\), then eventually \(r_t>(\sqrt5-1)/2\); monotonicity makes the multipliers \(q_t=1/r_{t+1}-1\) decrease, so the remaining square-sum is at most \(q_t^2/(1-q_t^2)\), contradicting \(1-r_{t+1}^2>(1-r_{t+1})^2/(2r_{t+1}-1)\). The repaired RESULT.md supplies this missing proof and leaves the claim unchanged.
 
-## Originality
+## originality
 
-PASS. Prior AdaGrad-Norm theory already covers robust convergence, bounded accumulation, eventual descent, and linear convergence; those facts are explicitly treated as prior coverage. The surviving claim is sharper and different: the closure of possible terminal normalized steps is exactly \([0,2]\), neither stability endpoint is attained by a nontrivial trajectory, both are approachable, the exact asymptotic factor is determined by the terminal accumulator, and therefore no hyperparameter-uniform contraction factor exists. The inspected full texts do not state or imply the explicit endpoint constructions or the startup-count bound.
+PASS
 
-Focused semantic searches over terminal accumulators, limiting effective steps, scalar quadratic phase behavior, and exact asymptotic factors returned no matching AdaGrad-Norm theorem.
+The inspected AdaGrad-Norm literature establishes robust convergence, bounded/evolving accumulators and linear convergence regimes, but it does not state the exact closure of scalar terminal normalized steps, the two endpoint constructions, the exact terminal contraction factor over all initializations, or the explicit noncontractive-startup count. The audited scalar phase portrait therefore survives best-of-knowledge originality.
 
-## Value
+## value
 
-PASS. AdaGrad-Norm is motivated by robustness to unknown smoothness and arbitrary hyperparameter initialization. The result distinguishes stability robustness from rate robustness: the algorithm automatically enters the right scalar stability interval, yet can settle arbitrarily close to either unstable boundary. This gives a precise benchmark for what “self-tuning” does and does not guarantee, and the finite startup bound quantifies the transient before monotone contraction.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+AdaGrad-Norm is explicitly motivated by hyperparameter robustness. The exact scalar result separates stability robustness from rate robustness and quantifies the finite startup before strict contraction, providing a natural sharp benchmark for adaptive-step behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
