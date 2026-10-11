@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:39:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 7710f593bbde4677a8e6d96fda250200d09a099b",
+        "assigned verify.py blob bf7c5b959ec43efff3184cbfc80855a3c352c424",
+        "Iosevich--Koh, arXiv:0804.4505 / Illinois J. Math. 52 (2008)",
+        "González-Riquelme--Oliveira e Silva, arXiv:2405.16647",
+        "Ronda, arXiv:2609.13023"
+      ],
+      "rationale": "The trace pairing is nondegenerate, so Fourier orthogonality converts the fourth norm to weighted additive energy. For every nonzero sum \\(s\\), the two conic equations for \\(a\\) and \\(s-a\\) intersect in at most two points and the existing pair \\(a,b\\) exhausts that fiber up to swapping; the zero fiber consists of all \\(q+1\\) ordered antipodal pairs. Hence the package's exact identity \\(\\mathcal Q=2S^2-P_4-2R+|B_0|^2\\) is correct. Grouping antipodal pairs, phase alignment and then equalizing the two moduli within each pair and the pair masses globally gives \\(\\mathcal Q\\le3qS^2/(q+1)\\), with equality exactly at constant modulus and common antipodal product phase. Substitution of the normalized \\(L^2\\) norm yields the stated constant. Independent brute-force reconstruction over prime fields \\(q=3,5,7,11,13\\) reproduced \\(|T|=q+1\\), zero-fiber size \\(q+1\\), nonzero-fiber maximum two, and energy \\(3q(q+1)\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest same-dimensional predecessor gives the correct exponent range but not a numerical best constant or extremizers.",
+          "The later sharp programs checked concern different surfaces or ambient dimension."
+        ],
+        "reasoning": "No broader checked theorem mechanically specializes to the claimed exact constant.",
+        "searches": [
+          "Iosevich--Koh full 2008 primary paper",
+          "González-Riquelme--Oliveira e Silva 2024",
+          "Ronda 2026"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0804.4505",
+        "arXiv:2405.16647",
+        "arXiv:2609.13023",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A uniform upper bound with unspecified constant cannot imply the exact best constant.",
+          "The source's Hölder estimate loses precisely the zero-fiber and phase information that determine sharpness."
+        ],
+        "reasoning": "The audited collision identity and equality optimization are additional mathematical content.",
+        "searches": [
+          "Iosevich--Koh Theorem 2 and proof of Lemma 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Iosevich--Koh Theorem 2 states only \\(R^*(2\\to4)\\lesssim1\\).",
+          "Their proof shows a nonzero pair-sum bound but does not preserve the zero fiber or equality cases.",
+          "Ronda's stated scope is a large class of quadratic surfaces in \\(\\mathbb F^3\\)."
+        ],
+        "reasoning": "The norm-one torus is an anisotropic nondegenerate affine conic, so general two-dimensional quadratic-curve extension results were treated as the relevant equivalent formulation.",
+        "searches": [
+          "Resultary: finite-field anisotropic norm-one conic sharp L2 L4 extension constant extremizers",
+          "Iosevich--Koh arXiv:0804.4505 full PDF",
+          "Ronda arXiv:2609.13023 abstract",
+          "González-Riquelme--Oliveira e Silva arXiv:2405.16647"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact conic constant matching \\(3q^3/(q+1)^3\\) was returned."
+        ],
+        "reasoning": "The separate small-field anisotropic-sphere record concerns three-dimensional spheres and therefore does not cover this planar conic.",
+        "searches": [
+          "Resultary exact anisotropic conic extension query",
+          "Resultary searches for all-conic sharp fourth moments"
+        ]
+      },
+      "rationale": "Iosevich--Koh's full primary paper proves only a field-size-uniform \\(L^2\\to L^4\\) bound for every nondegenerate quadratic curve: their theorem is written with an unspecified \\(O(1)\\) constant and their proof bounds each nonzero pair-sum fiber by two while discarding equality information through Hölder. It neither resolves the exceptional zero-sum fiber sharply nor optimizes weighted energy or classifies equality. The 2024 sharp finite-field extension program covers other named surfaces, and Ronda's 2026 sharp theorem is for quadratic surfaces in three dimensions, not planar conics. No checked source gives this exact constant/extremizer classification.",
+      "residual_risks": [
+        "A recent sharp-conic result may be indexed under a general quadratic-curve title not found in the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPONENT_SHARP_BUT_CONSTANT_NONSHARP",
+          "evidence": "The theorem states only a uniform \\(R^*(2\\to4)\\lesssim1\\) estimate and bounds nonzero sum fibers by at most two without an exact zero-fiber/equality analysis.",
+          "identifier_or_url": "arXiv:0804.4505; DOI:10.1215/ijm/1248355353",
+          "material_read": "Full primary PDF around Theorem 2 and the complete \\(L^2\\to L^4\\) proof. The proof page containing the nonzero pair-sum bound was visually inspected.",
+          "method": "Open full-PDF text and page-image inspection.",
+          "title": "Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields",
+          "trigger": "Strongest same-dimensional primary predecessor; its abstract calls the two-dimensional exponent range sharp."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Iosevich--Koh 2008",
+        "recent sharp finite-field extension literature"
+      ],
+      "rationale": "The exact endpoint norm and complete equality classification are canonical sharp invariants of a basic finite-field conic, improving a long-known exponent-sharp but constant-nonsharp theorem. The exceptional zero-sum fiber produces genuinely surface-specific extremizer geometry.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the anisotropic norm-one conic \\(T=\\{z\\in\\mathbb F_{q^2}:N(z)=1\\}\\) over every odd \\(q\\), with normalized surface measure and counting measure on the ambient additive plane, the exact sharp fourth-moment extension constant is \\(R_T^*(2\\to4)^4=3q^3/(q+1)^3\\); nonzero extremizers are exactly the constant-modulus functions whose antipodal products have one common argument.",
+  "limitations": [
+    "Odd characteristic and this anisotropic norm-one conic only.",
+    "The theorem concerns the \\(L^2\\to L^4\\) endpoint with the stated measure normalization."
+  ],
+  "schema_version": 1
+}

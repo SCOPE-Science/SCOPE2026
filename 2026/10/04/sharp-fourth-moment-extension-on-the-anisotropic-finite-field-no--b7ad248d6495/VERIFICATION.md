@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic for every odd prime power. The bundled `verify.py` is a corroborative finite check: for each odd prime \(q\le101\), it chooses a quadratic nonresidue \(d\), realizes the anisotropic norm conic as \(x^2-dy^2=1\), and checks:
+# Independent mathematical audit
 
-1. the conic has exactly \(q+1\) points;
-2. the zero pair-sum has multiplicity \(q+1\), while every nonzero pair-sum has multiplicity at most two;
-3. the exact constant-function collision energy is \(3q(q+1)\), matching the sharp formula.
+## correctness
 
-Run with `python3 verify.py`. Finite testing is not used to justify prime-power generality or uniqueness of extremizers; those follow from the proof in `RESULT.md`.
+PASS
+
+The trace pairing is nondegenerate, so Fourier orthogonality converts the fourth norm to weighted additive energy. For every nonzero sum \(s\), the two conic equations for \(a\) and \(s-a\) intersect in at most two points and the existing pair \(a,b\) exhausts that fiber up to swapping; the zero fiber consists of all \(q+1\) ordered antipodal pairs. Hence the package's exact identity \(\mathcal Q=2S^2-P_4-2R+|B_0|^2\) is correct. Grouping antipodal pairs, phase alignment and then equalizing the two moduli within each pair and the pair masses globally gives \(\mathcal Q\le3qS^2/(q+1)\), with equality exactly at constant modulus and common antipodal product phase. Substitution of the normalized \(L^2\) norm yields the stated constant. Independent brute-force reconstruction over prime fields \(q=3,5,7,11,13\) reproduced \(|T|=q+1\), zero-fiber size \(q+1\), nonzero-fiber maximum two, and energy \(3q(q+1)\).
+
+## originality
+
+PASS
+
+Iosevich--Koh's full primary paper proves only a field-size-uniform \(L^2\to L^4\) bound for every nondegenerate quadratic curve: their theorem is written with an unspecified \(O(1)\) constant and their proof bounds each nonzero pair-sum fiber by two while discarding equality information through Hölder. It neither resolves the exceptional zero-sum fiber sharply nor optimizes weighted energy or classifies equality. The 2024 sharp finite-field extension program covers other named surfaces, and Ronda's 2026 sharp theorem is for quadratic surfaces in three dimensions, not planar conics. No checked source gives this exact constant/extremizer classification.
+
+## value
+
+PASS
+
+The exact endpoint norm and complete equality classification are canonical sharp invariants of a basic finite-field conic, improving a long-known exponent-sharp but constant-nonsharp theorem. The exceptional zero-sum fiber produces genuinely surface-specific extremizer geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
