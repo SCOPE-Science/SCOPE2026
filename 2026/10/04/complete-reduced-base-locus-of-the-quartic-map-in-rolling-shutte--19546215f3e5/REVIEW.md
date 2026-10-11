@@ -1,18 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim reduces the complete reduced base set to two exhaustive cases using the exact identity \(F_2=d^2q\). On \(d=0\), exact restriction gives \(-2X_0X_1^3\), producing exactly \(K\cup L_\infty\). On the smooth quadric \(q=0\), an explicit Segre isomorphism converts the remaining condition to \(16s^3(u^2+2v^2)h=0\); the pullbacks of the source's three twisted-cubic equations show that \(h=0\) is exactly \(\mathcal C\), while the other factors give \(K\) and the two stated conjugate lines. The \(I_K\)-adic expansion proves exact generic order three. The bundled verifier replays every critical polynomial identity with exact integer arithmetic.
+## correctness
 
-Risk: the proof concerns reduced support and generic base order only. It intentionally does not infer a primary decomposition or component multiplicities from the factorizations.
+PASS
 
-## Originality
-PASS. The primary paper prints the quartics and identifies \(\mathcal C\) and \(K\) as base-locus subsets, but the inspected full text does not give the complete reduced base locus, the additional line at infinity, the two conjugate lines, or the order-three calculation. published-finding corpus searches for the source, aliases, complete base-locus language, and quartic-camera base ideals returned no statement implying the claim; the closest hit on quartic plane Cremona maps concerns a different map over a finite field. The broader rational-camera source inspected does not specialize to this example.
+The exact quartic identities were reconstructed independently from the frozen RESULT: F0=X1*d*q and F2=d^2*q, so every base point lies on d=0 or q=0. On d=0, F1=-2 X0 X1^3 gives exactly K union L_infty. On the Segre parametrization of q=0, F1 factors as 16 s^3 (u^2+2v^2) h and the two source twisted-cubic quadrics pull back to -2sh and -2th, so h=0 is C, s=0 is K, and u^2+2v^2=0 gives exactly the two conjugate lines. Substitution X3=X0-d shows minimum (X1,d)-degree three in F1, with a nonzero degree-three term at the generic point of K.
 
-Risk: semantic and full-text searches cannot prove universal absence from all literature. The originality conclusion is the statement-level comparison supported by the named sources and searches, not a claim of exhaustive bibliographic omniscience.
+## originality
 
-## Value
-PASS. A complete indeterminacy support is structurally relevant for a rational camera map because it identifies which projective loci are excluded before any resolution or reconstruction argument. Here the calculation changes the geometric picture materially: beyond the two base components highlighted in the source, the displayed map has another real base line at infinity and two nonreal conjugate lines, while the rolling-plane line carries order-three base vanishing. These facts are natural invariants of the explicit map rather than an arbitrary parameter slice or a recomputation of a published table.
+PASS
 
-Risk: the result is deliberately local to this explicit benchmark map and does not assert a general theorem for all order-one rolling-shutter cameras.
+The primary rolling-shutter paper prints the same twisted cubic, line K, and quartic map and notes those named objects in its geometry, but the checked material does not identify the full five-component reduced base support or generic base order three. The submitted decomposition is not implied by the source’s degree-four/no-common-factor statements.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The indeterminacy locus and base order are natural projective invariants of the explicit rational camera map. Identifying an additional real line, two nonreal conjugate lines, and exact generic multiplicity along K materially refines the source geometry and is useful for resolution/exceptional-set analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
