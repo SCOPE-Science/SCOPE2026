@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof expands the normalized Gibbs state at \(\beta=0\), applies the exact second differential of von Neumann entropy at the maximally mixed state, and uses a Hilbert--Schmidt orthogonal decomposition into \(A\)-local, \(B\)-local, and genuine interaction components. All dimensions and normalization factors were reconstructed explicitly. The zero-coefficient case is stronger than an asymptotic statement: vanishing interaction projection makes the Hamiltonian a sum of commuting one-sided terms plus a scalar, hence the Gibbs state factorizes for every \(\beta\). The disjoint-Ising witness is evaluated exactly. The bundled numerical checker independently reproduces the coefficient for a noncommuting two-qubit Hamiltonian and the exact witness formula.
+## correctness
 
-Risk: the \(O(\beta^3)\) remainder is asserted only for each fixed finite-dimensional Hamiltonian; no uniform volume-independent remainder is claimed. This is consistent with the recent source's warning about higher-order volume dependence.
+PASS
 
-## Originality
-PASS. The closest recent source, arXiv:2609.32329, explicitly states only that perturbation theory suggests an \(O(\beta^2)\) leading term and then develops a nonperturbative upper bound; it does not state the exact coefficient \(\operatorname{Tr}(H_{\mathrm{int}}^2)/(2d)\), the interaction-projection characterization of the zero Hessian, the Pauli crossing-string formula, or the exact disjoint-bond sharpness witness. Earlier high-temperature lattice series are model-specific, while harmonic/QFT expansions use different infinite-dimensional settings. Semantic database searches for coefficient, Hessian, interaction-projection, Pauli-crossing, and disjoint-Ising formulations returned no equivalent or stronger claim.
+The normalized Gibbs state has tangent \(-h/d\) at the maximally mixed state, with h the centered Hamiltonian. Applying the entropy Hessian \(S(I/n+\varepsilon X)=\log n-(n\varepsilon^2/2)\operatorname{Tr}(X^2)+O(\varepsilon^3)\) to the joint state and both marginals yields the difference of three squared Hilbert--Schmidt norms. Orthogonally decomposing h into A-only, B-only, and interaction components leaves exactly \(\operatorname{Tr}(H_{\mathrm{int}}^2)/d\). Vanishing interaction is equivalent to a commuting local-plus-scalar decomposition and hence exact Gibbs factorization. Pauli orthogonality gives the crossing-string form. For disjoint Ising bonds the state factorizes over bonds and the exact one-bond mutual information is \(x\tanh x-\log\cosh x\), giving the claimed sharpness. The inspected verifier independently checks the projection algebra, a noncommuting two-qubit numerical Hessian, the Pauli form, and the Ising formula.
 
-Residual risk: the entropy Hessian at the maximally mixed state is standard, and an equivalent coefficient identity may have appeared under different information-geometric or statistical-mechanics terminology. The search evidence supports, but cannot logically prove, uniqueness.
+## originality
 
-## Value
-PASS. The result answers the precise perturbative gap highlighted by the recent \(\beta^2\) area-law paper: it identifies the complete second-order coefficient, shows that bulk-only Hamiltonian directions cancel exactly at leading order, gives a directly computable Pauli formula, and supplies an exact family showing simultaneous sharpness of the temperature exponent and boundary-size order. This is a structural statement rather than a numerical reoptimization or arbitrary slice.
+PASS
 
-## Closest literature and limitations
-The recent nonperturbative area law controls finite temperatures below a clustering threshold and is broader in temperature range; the present result is complementary and sharper only at the infinite-temperature Hessian level. The 2011 high-temperature-series work is closer in perturbative spirit but model-specific. The 2019--2020 harmonic/QFT work is not a covering result because its infinite-dimensional high-temperature regime behaves differently. No thermodynamic-limit uniformity, finite-temperature lower bound, or optimal nonperturbative prefactor is claimed.
+The recent exact-area-law source explicitly notes that perturbation suggests an \(O(\beta^2)\) leading term but does not extract a basis-free Hessian coefficient; its proof is nonperturbative and designed to control higher orders. Older high-temperature mutual-information papers inspected through the source trail are model-specific. A targeted Resultary search for the interaction-projection Hessian returned no implication-equivalent published finding. Because the entropy Hessian itself is standard, best-of-knowledge originality is assigned specifically to the universal Gibbs interaction-projection formula together with the Pauli crossing interpretation and sharp boundary witness, with the standard-information-geometry residual risk recorded.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact coefficient answers a natural question left behind by a current nonperturbative area-law result: which Hamiltonian components contribute at the first nonzero high-temperature order. It cleanly removes all bulk-only directions, gives a directly computable Pauli formula, and supplies an exact family saturating both quadratic temperature dependence and linear boundary scaling. This is a motivated structural refinement rather than an arbitrary Taylor coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

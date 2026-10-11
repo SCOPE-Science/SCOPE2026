@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:42:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ad3b21a9eedb566bb690f1b684b690d69378720f",
+        "assigned verify.py blob c8f44c5c1eb34e0d12e5e7bd444983cb2bbc8824",
+        "Yousefi--Rezakhani, Exact High-Temperature Quantum Area Law, arXiv:2609.32329"
+      ],
+      "rationale": "The normalized Gibbs state has tangent \\(-h/d\\) at the maximally mixed state, with h the centered Hamiltonian. Applying the entropy Hessian \\(S(I/n+\\varepsilon X)=\\log n-(n\\varepsilon^2/2)\\operatorname{Tr}(X^2)+O(\\varepsilon^3)\\) to the joint state and both marginals yields the difference of three squared Hilbert--Schmidt norms. Orthogonally decomposing h into A-only, B-only, and interaction components leaves exactly \\(\\operatorname{Tr}(H_{\\mathrm{int}}^2)/d\\). Vanishing interaction is equivalent to a commuting local-plus-scalar decomposition and hence exact Gibbs factorization. Pauli orthogonality gives the crossing-string form. For disjoint Ising bonds the state factorizes over bonds and the exact one-bond mutual information is \\(x\\tanh x-\\log\\cosh x\\), giving the claimed sharpness. The inspected verifier independently checks the projection algebra, a noncommuting two-qubit numerical Hessian, the Pauli form, and the Ising formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recent general area-law theorem controls mutual information by clustering/locality but does not give the exact coefficient.",
+          "The older cited expansions are for particular lattice/QFT models rather than arbitrary finite bipartite Hamiltonians."
+        ],
+        "reasoning": "No checked broader theorem was found that already states the full object-independent coefficient plus exact vanishing criterion and sharp disjoint-bond witness.",
+        "searches": [
+          "arXiv:2609.32329 full short primary paper",
+          "model-specific high-temperature mutual-information series cited there"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.32329",
+        "Singh et al. 2011",
+        "Katsinis--Pastras 2019/2020",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's statement that perturbation suggests \\(O(\\beta^2)\\) does not determine its coefficient or prove cancellation of every one-sided Hamiltonian direction.",
+          "The exact Ising witness additionally certifies simultaneous boundary and temperature sharpness."
+        ],
+        "reasoning": "The final theorem is not implied by the checked area-law statement; it supplies the explicit local Hessian data that source leaves implicit.",
+        "searches": [
+          "arXiv:2609.32329 perturbative discussion versus the audited entropy calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yousefi--Rezakhani state only the perturbative expectation of quadratic order before developing a separate nonperturbative area-law proof.",
+          "The audited theorem identifies the exact coefficient for arbitrary finite bipartite H and its null space."
+        ],
+        "reasoning": "Equivalent formulations as the entropy/relative-entropy Hessian along a Gibbs tangent, squared interaction projection, or the quadratic Pauli crossing energy were compared.",
+        "searches": [
+          "Resultary query: Gibbs mutual information high temperature Hessian interaction Hilbert Schmidt projection Pauli crossing",
+          "arXiv:2609.32329",
+          "Singh--Hastings--Kallin--Melko 2011 high-temperature mutual-information work"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published SCOPE database entry matching the Hilbert--Schmidt interaction projection coefficient or Pauli crossing-square formula was returned."
+        ],
+        "reasoning": "A database hit would need a theorem-level equivalent, not merely the standard entropy Hessian ingredient.",
+        "searches": [
+          "Resultary exact Hessian/projection search"
+        ]
+      },
+      "rationale": "The recent exact-area-law source explicitly notes that perturbation suggests an \\(O(\\beta^2)\\) leading term but does not extract a basis-free Hessian coefficient; its proof is nonperturbative and designed to control higher orders. Older high-temperature mutual-information papers inspected through the source trail are model-specific. A targeted Resultary search for the interaction-projection Hessian returned no implication-equivalent published finding. Because the entropy Hessian itself is standard, best-of-knowledge originality is assigned specifically to the universal Gibbs interaction-projection formula together with the Pauli crossing interpretation and sharp boundary witness, with the standard-information-geometry residual risk recorded.",
+      "residual_risks": [
+        "The entropy Hessian at the maximally mixed state is classical; an older quantum-information-geometry source may contain an algebraically equivalent interaction-tangent formula under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_SCALING_ORDER_ONLY",
+          "evidence": "The paper notes a perturbative quadratic leading order but does not state the arbitrary-H interaction-projection Hessian or its Pauli/sharpness corollaries.",
+          "identifier_or_url": "arXiv:2609.32329",
+          "material_read": "Full primary paper, including the introduction's perturbative discussion and the nonperturbative area-law statement/proof strategy.",
+          "method": "Open-access primary PDF inspection with the relevant page visually checked.",
+          "title": "Exact High-Temperature Quantum Area Law",
+          "trigger": "Closest general recent theorem on the same Gibbs mutual information and high-temperature \\(\\beta^2\\) scaling."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yousefi--Rezakhani arXiv:2609.32329",
+        "assigned exact/numerical checks"
+      ],
+      "rationale": "The exact coefficient answers a natural question left behind by a current nonperturbative area-law result: which Hamiltonian components contribute at the first nonzero high-temperature order. It cleanly removes all bulk-only directions, gives a directly computable Pauli formula, and supplies an exact family saturating both quadratic temperature dependence and linear boundary scaling. This is a motivated structural refinement rather than an arbitrary Taylor coefficient.",
+      "residual_risks": [
+        "The coefficient alone does not control higher-order volume dependence at fixed positive temperature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite-dimensional bipartite Hamiltonian, the Gibbs mutual information has the infinite-temperature expansion \\(I(A:B)_{\\rho_\\beta}=\\beta^2\\operatorname{Tr}(H_{\\mathrm{int}}^2)/(2d)+O(\\beta^3)\\), where \\(H_{\\mathrm{int}}\\) is the Hilbert--Schmidt projection orthogonal to all one-sided Hamiltonians. The coefficient vanishes exactly for local-plus-scalar Hamiltonians, in which case the Gibbs state factorizes at every temperature. For qubit Pauli expansions it is one half the sum of squared crossing coefficients, and disjoint Ising bonds give an exact witness showing simultaneous sharpness of quadratic temperature order and linear boundary scaling.",
+  "limitations": [
+    "Finite-dimensional systems only; the expansion is local at \\(\\beta=0\\) for each fixed Hamiltonian.",
+    "No finite-temperature area-law bound, thermodynamic-limit interchange, or optimal nonperturbative constant is claimed."
+  ],
+  "schema_version": 1
+}
