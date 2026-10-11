@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:47:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob a2e28d0462d9cbf332c32a46a6df712a76f0fd8b",
+        "artifacts/verify_finite_horizon.py blob 0cdb57f73f97d4c02a3c2d28a2baf78b7e18de50",
+        "Kim--Ryu--Das Gupta full primary PDF including visually inspected pages 17 and 45",
+        "fresh exact-rational replay"
+      ],
+      "rationale": "The comparison is equivalent to Omega_N>(N+2)^2/8. The source proves Omega_N>(N+1)^2/varpi^2 and an exact shooting sign test. An elementary 16-cell upper Riemann-style bound gives varpi<2.7, so for N=21+m the desired tail follows from 800(N+1)^2-729(N+2)^2=71m^2+1666m+1559>0. The only admissible even cases left are N=2,...,20. I independently replayed the exact rational interval algorithm from the frozen verifier and reproduced the strict crossing indices {2:1,4:3,6:4,8:6,10:8,12:9,14:11,16:13,18:14,20:16}, as well as the certified varpi upper bound 2.685341233...<2.7. Thus finite computation is exhaustive only for ten explicitly bounded cases, while the infinite tail is analytic. The ratio limit follows directly from the source asymptotic Omega_N/(N+1)^2 -> 1/varpi^2.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source gives stronger algorithmic convergence theorems but only says the lemniscate constant 47.27 improves the prior constant 64 asymptotically; page 17 states the chained finite formula without claiming strict finite dominance for every even N.",
+          "Corollary 2 supplies a lower bound sufficient only beyond a finite cutoff and an exact test for the remaining cases."
+        ],
+        "reasoning": "No inspected broader theorem removes the finite exceptional range automatically.",
+        "searches": [
+          "Kim--Ryu--Das Gupta full 66-page primary PDF",
+          "Kim--Fessler OGM-G literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.07407v1",
+        "arXiv:1803.06600",
+        "arXiv:1406.5468",
+        "Resultary finite-horizon LemniAcc search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source lower bound plus varpi<2.7 proves Omega_N>(N+2)^2/8 for all N>=21.",
+          "For N=2,4,...,20, exact rational interval propagation verifies the source's strict crossing condition at Omega=(N+2)^2/8.",
+          "The source's asymptotic comparison alone cannot decide these finitely many small horizons."
+        ],
+        "reasoning": "The all-even statement requires a genuine finite cutoff closure beyond the source's published asymptotic comparison and is not stated there.",
+        "searches": [
+          "Source lower bound Omega_N>(N+1)^2/varpi^2",
+          "source exact shooting criterion",
+          "submitted varpi<27/10 enclosure and ten rational interval certificates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite comparison is exactly Omega_N>(N+2)^2/8 after canceling the common L^2R^2 scale.",
+          "The source gives both exact certificate formulas and a one-dimensional shooting sign test for Omega_N."
+        ],
+        "reasoning": "The submitted theorem converts the source comparison into a precise all-finite-even inequality rather than only asymptotic constant comparison.",
+        "searches": [
+          "Kim--Ryu--Das Gupta arXiv:2608.07407v1, Theorem 1 and Corollary 2",
+          "Kim--Fessler arXiv:1803.06600",
+          "Resultary query: lemniscate acceleration finite horizon OGM OGM-G Omega_N comparison all even horizons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published finding asserting no even-horizon crossover appeared in the leading Resultary results.",
+          "The source numerical coefficient table is not itself an all-even proof."
+        ],
+        "reasoning": "The submitted finite certificates are exhaustive for the only ten horizons not handled by the analytic tail.",
+        "searches": [
+          "Resultary finite-horizon LemniAcc/OGM-G search",
+          "source Table 1 and shooting criterion"
+        ]
+      },
+      "rationale": "Kim--Ryu--Das Gupta prove the exact LemniAcc certificate, the strict lower bound Omega_N>(N+1)^2/varpi^2, and an exact shooting/bisection criterion. On the comparison page they state the even-horizon OGM--OGM-G bound 64/(N+2)^4 but compare only the leading asymptotic constants. The inspected full primary PDF does not state all-even finite-horizon dominance. The submitted result supplies the missing finite-horizon implication by combining a certified elementary bound on varpi for the tail with exact shooting certificates for the ten exceptional even horizons.",
+      "residual_risks": [
+        "A very recent follow-up or source-repository note could record the same no-crossover check outside the indexed paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_INPUTS_PRIOR_ALL_EVEN_FINITE_DOMINANCE_NOT_STATED",
+          "evidence": "The source states 64L^2R^2/(N+2)^4 for even N and compares it with varpi^4≈47.27 at the leading asymptotic-constant level, while Corollary 2 gives the strict Omega lower bound and exact shooting rule used to close finite N.",
+          "identifier_or_url": "arXiv:2608.07407v1",
+          "material_read": "Full primary PDF pages around Theorem 1 and the OGM--OGM-G comparison (printed page 17), plus Appendix A.1 Corollary 2 and its exact bisection rule (printed page 45); the relevant PDF pages were visually inspected.",
+          "method": "Primary full-text statement and finite-versus-asymptotic implication comparison.",
+          "title": "A Domain-Specific Harness for End-to-End Automation of Optimization Research",
+          "trigger": "Defining primary source for LemniAcc, Omega_N, the chained baseline and the shooting criterion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2608.07407v1",
+        "arXiv:1803.06600",
+        "arXiv:1406.5468",
+        "Resultary finite-horizon LemniAcc search"
+      ],
+      "rationale": "The source itself motivates the comparison but reports only the asymptotic constant improvement. Ruling out every finite even-horizon crossover is a natural guarantee-level boundary question, and the proof combines a meaningful finite cutoff with a rigorous analytic tail rather than extrapolating numerics.",
+      "residual_risks": [
+        "A very recent follow-up or source-repository note could record the same no-crossover check outside the indexed paper."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2608.07407v1",
+    "arXiv:1803.06600",
+    "arXiv:1406.5468",
+    "Resultary finite-horizon LemniAcc search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every even N>=2, the exact LemniAcc guarantee L^2R^2/Omega_N^2 is strictly smaller than the standard chained OGM--OGM-G guarantee 64L^2R^2/(N+2)^4; equivalently Omega_N>(N+2)^2/8, and the guarantee ratio tends to varpi^4/64.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A very recent follow-up or source-repository note could record the same no-crossover check outside the indexed paper.",
+    "This compares published worst-case certificates, not realized objective-by-objective trajectories or other horizon-dependent restart/chaining schemes."
+  ]
+}

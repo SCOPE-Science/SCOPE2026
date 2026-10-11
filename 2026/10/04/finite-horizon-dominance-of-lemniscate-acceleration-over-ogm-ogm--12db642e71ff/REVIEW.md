@@ -1,23 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim compares the two guarantee coefficients under identical smooth-convex and initial-distance normalization. Algebra reduces the comparison to
-\[
-\Omega_N>\frac{(N+2)^2}{8}.
-\]
-The analytic tail uses the source lower bound on \(\Omega_N\) plus a separately certified elementary upper bound \(\varpi<27/10\). The remaining ten even horizons are exhausted by exact rational interval propagation through the source's proved shooting map, with a strict source-criterion crossing in each case. No numerical floating-point sign decision is used in the certificate.
+PASS
 
-The asymptotic ratio follows from the source's proved limit for \(\Omega_N/(N+1)^2\). The proof distinguishes the theorem guarantees from realized trajectories.
+The comparison is equivalent to Omega_N>(N+2)^2/8. The source proves Omega_N>(N+1)^2/varpi^2 and an exact shooting sign test. An elementary 16-cell upper Riemann-style bound gives varpi<2.7, so for N=21+m the desired tail follows from 800(N+1)^2-729(N+2)^2=71m^2+1666m+1559>0. The only admissible even cases left are N=2,...,20. I independently replayed the exact rational interval algorithm from the frozen verifier and reproduced the strict crossing indices {2:1,4:3,6:4,8:6,10:8,12:9,14:11,16:13,18:14,20:16}, as well as the certified varpi upper bound 2.685341233...<2.7. Thus finite computation is exhaustive only for ten explicitly bounded cases, while the infinite tail is analytic. The ratio limit follows directly from the source asymptotic Omega_N/(N+1)^2 -> 1/varpi^2.
 
-## Originality
+## originality
 
-PASS. The recent source places the exact lemniscate coefficient next to the chained OGM--OGM-G certificate but concludes only that the leading asymptotic constant improves by about \(1.35\). That statement does not exclude a finite-horizon crossover. The inspected OGM and OGM-G primary literature predates the lemniscate recurrence.
+PASS
 
-Statement-level searches for finite-horizon dominance, crossover, exact \(\Omega_N\), and OGM--OGM-G aliases returned no equivalent theorem. The main residual risk is an informal observation under different wording, since the two formulas are naturally comparable.
+Kim--Ryu--Das Gupta prove the exact LemniAcc certificate, the strict lower bound Omega_N>(N+1)^2/varpi^2, and an exact shooting/bisection criterion. On the comparison page they state the even-horizon OGM--OGM-G bound 64/(N+2)^4 but compare only the leading asymptotic constants. The inspected full primary PDF does not state all-even finite-horizon dominance. The submitted result supplies the missing finite-horizon implication by combining a certified elementary bound on varpi for the tail with exact shooting certificates for the ten exceptional even horizons.
 
-## Value
+## value
 
-PASS. Finite-horizon comparison is mathematically and practically natural here because the source explicitly promotes a constant-factor improvement. Establishing that the exact guarantee wins at every even horizon strengthens that claim from asymptotic to uniform finite-horizon dominance and rules out the most immediate caveat to a constant-factor comparison.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The source itself motivates the comparison but reports only the asymptotic constant improvement. Ruling out every finite even-horizon crossover is a natural guarantee-level boundary question, and the proof combines a meaningful finite cutoff with a rigorous analytic tail rather than extrapolating numerics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
