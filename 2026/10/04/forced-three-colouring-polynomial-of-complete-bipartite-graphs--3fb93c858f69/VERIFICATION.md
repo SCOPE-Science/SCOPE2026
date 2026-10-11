@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and does not depend on computation. The executable check `verify_forced_biclique.py` independently implements the three-colour forcing rule on \(K_{m,n}\), compares forcing success against the claimed structural classification, and compares domain-size counts against the stated generating polynomial.
+# Independent mathematical audit
 
-The checked range is \(1\le m,n\le5\). The exhaustive run covers \(25\) biclique types and \(1,860,496\) partial assignments. Its exact output is recorded in `verification_output.txt` and is:
+## correctness
 
-`ALL CHECKS PASSED; biclique_types=25; partial_assignments=1860496; forcing_assignments=19494`
+PASS
 
-The finite range is a stress test only. It is not used to infer the theorem for larger parameters. The unrestricted result is justified by the structural proof in `RESULT.md`.
+If the first forced vertex lies on one side, its opposite side already displays exactly two colours. Any uncoloured vertex on that opposite side could never subsequently see two colours because properness restricts every coloured vertex on the first side to the unique third colour; therefore the opposite side must have been fully coloured initially. This yields the two symmetric non-total classes. Every total proper three-colouring has side colour-use pattern (2,1), (1,2), or (1,1), with the first two already counted and the last contributing six assignments. Direct independent enumeration for all 1<=m,n<=3 matched the closed coefficient formula exactly, including K1,2=6p^2(1-p).
+
+## originality
+
+PASS
+
+Farr's paper contains small palette-three examples and a general palette-two bipartite theorem, not an arbitrary K_m,n palette-three formula. Its displayed K1,2 palette-three value is inconsistent with the forcing definition: direct reconstruction gives 6p^2(1-p), while the paper prints the smaller expression missing the total monochromatic-bipartition class. The prior maximum-degree-two finding covers only the small biclique cells of maximum degree at most two. The audited theorem classifies every arbitrary biclique and corrects the source boundary example.
+
+## value
+
+PASS
+
+Complete bipartite graphs are the basic nontrivial family immediately beyond the source's palette-two theorem. The result gives the exact arbitrary-size palette-three law and repairs a printed source specialization, providing a useful correctness benchmark for the newly introduced polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
