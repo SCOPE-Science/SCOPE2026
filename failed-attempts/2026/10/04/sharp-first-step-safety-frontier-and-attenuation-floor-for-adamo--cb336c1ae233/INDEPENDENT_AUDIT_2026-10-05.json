@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:47:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "J. Ding, X. Ren, R. Luo and X. Sun, An Adaptive and Momental Bound Method for Stochastic Learning, arXiv:1910.12249v1; primary full PDF inspected around Algorithm 2, smoothing-state initialization, Adam bias corrections and minimum-based rate clipping.",
+        "Public AdaMod implementation documentation, used only for illustrative parameter scales.",
+        "Resultary semantic search for AdaMod attenuation floors and first-step scalar-quadratic stability.",
+        "Assigned RESULT.md and verify.py at exact tree 37186330184ed00a86143f68333a978c28f2225f.",
+        "Fresh independent scalar-algebra replay of the first-step objective ratio and frontier."
+      ],
+      "rationale": "Because the smoothing state is nonnegative, the published recurrence contains the current raw rate with coefficient \\(1-\\beta_3\\), so the clipping lower bound follows immediately and is attained at the first step. Standard first-step Adam bias correction makes the corrected moments exactly the current gradient and its square. Substitution into the scalar quadratic gives the package's objective ratio, and solving the elementary square inequality gives the necessary-and-sufficient threshold and neighborhood. Fresh numerical substitution confirms the boundary behavior.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source provides the complete update used by the audited theorem for arbitrary histories and objectives."
+        ],
+        "reasoning": "The audited first-step scalar case is a specialization of a broader published recurrence, not a new dynamical theorem.",
+        "searches": [
+          "AdaMod defining algorithm and Adam bias-correction formulas"
+        ]
+      },
+      "checked_sources": [
+        "J. Ding, X. Ren, R. Luo and X. Sun, An Adaptive and Momental Bound Method for Stochastic Learning, arXiv:1910.12249v1; primary full PDF inspected around Algorithm 2, smoothing-state initialization, Adam bias corrections and minimum-based rate clipping.",
+        "Public AdaMod implementation documentation, used only for illustrative parameter scales.",
+        "Resultary semantic search for AdaMod attenuation floors and first-step scalar-quadratic stability.",
+        "Assigned RESULT.md and verify.py at exact tree 37186330184ed00a86143f68333a978c28f2225f.",
+        "Fresh independent scalar-algebra replay of the first-step objective ratio and frontier."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence directly yields the lower rate fraction.",
+          "On \\(f(x)=hx^2/2\\), first-step bias correction gives the current gradient and its square exactly.",
+          "The objective ratio is then a one-variable square, and the claimed threshold is the elementary inequality \\((1-K)^2\\le1\\)."
+        ],
+        "reasoning": "Every substantive displayed formula follows by routine substitution and a one-line inequality from the published algorithm.",
+        "searches": [
+          "arXiv:1910.12249v1 Algorithm 2 and first-step Adam bias correction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 2 explicitly states the nonnegative exponential smoothing recurrence and the minimum-based clip.",
+          "The claimed attenuation floor is the immediate lower summand bound in that recurrence."
+        ],
+        "reasoning": "Relative clipping, attenuation floor and first-step equality are algebraically equivalent consequences of the published update.",
+        "searches": [
+          "Resultary query: AdaMod attenuation floor first-step scalar quadratic stability beta3 epsilon",
+          "arXiv:1910.12249v1 Algorithm 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separately indexed identical formula was found."
+        ],
+        "reasoning": "Absence of an identical table does not create originality because direct theorem-level algebra from the source is decisive.",
+        "searches": [
+          "Resultary exact AdaMod safety-frontier searches"
+        ]
+      },
+      "rationale": "The formulas are correct, but the mathematical content is mechanically implied by the defining published recurrence. Positivity gives \\(s_t\\ge(1-\\beta_3)\\eta_t\\) in one line, and at the first step equality is immediate from \\(s_0=0\\). Substituting the standard first-step Adam bias corrections into a scalar quadratic and solving \\((1-K)^2\\le1\\) gives the rest. Under the audit rule that direct corollaries are covered even without identical wording, this does not clear originality.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT PREMISES FOR THE ENTIRE CLAIM",
+          "evidence": "The source update immediately implies the relative attenuation bound; the scalar-quadratic frontier requires only standard first-step substitution.",
+          "identifier_or_url": "arXiv:1910.12249v1",
+          "material_read": "Primary full PDF around Algorithm 2, including moment bias correction, \\(s_0=0\\), the learning-rate smoothing recurrence and the final minimum-based clipping step.",
+          "method": "Open primary full-PDF text and rendered-page inspection.",
+          "title": "An Adaptive and Momental Bound Method for Stochastic Learning",
+          "trigger": "Defining source containing every update equation needed for the claim."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "J. Ding, X. Ren, R. Luo and X. Sun, An Adaptive and Momental Bound Method for Stochastic Learning, arXiv:1910.12249v1; primary full PDF inspected around Algorithm 2, smoothing-state initialization, Adam bias corrections and minimum-based rate clipping.",
+        "Public AdaMod implementation documentation, used only for illustrative parameter scales.",
+        "Resultary semantic search for AdaMod attenuation floors and first-step scalar-quadratic stability.",
+        "Assigned RESULT.md and verify.py at exact tree 37186330184ed00a86143f68333a978c28f2225f.",
+        "Fresh independent scalar-algebra replay of the first-step objective ratio and frontier."
+      ],
+      "rationale": "The safety interpretation is potentially useful pedagogically, but the attenuation theorem is a one-line positivity consequence of the defining recurrence and the quadratic frontier is routine first-step algebra. It does not add a nonstandard structural lemma, later-time dynamics, or a motivated nontrivial boundary beyond what the published update already mechanically determines.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "AdaMod's clipped coordinate rate is always at least the fraction \\(1-\\beta_3\\) of the current raw Adam rate, with equality at the first update; on a deterministic scalar quadratic this gives the stated exact first-step objective-nonincrease threshold, expanding neighborhood and amplification supremum.",
+  "limitations": [
+    "The mathematical formulas are correct.",
+    "Rejection is for direct prior implication and routine first-step value, not for access or reproducibility."
+  ],
+  "schema_version": 1
+}
