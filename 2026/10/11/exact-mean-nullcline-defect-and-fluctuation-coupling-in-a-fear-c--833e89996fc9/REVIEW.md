@@ -1,0 +1,15 @@
+# Review of Exact mean-nullcline defect and fluctuation coupling in a fear–crowding predator–prey flow
+
+## Correctness
+**PASS.** For compact support contained in the strict positive quadrant, \(\log v\) is a valid continuously differentiable observable and invariance gives the exact predator balance. The rational identity generating the defect is pointwise algebra and was replayed symbolically from the packaged checker. The covariance identity follows independently from invariance applied to \(v\). The equality case uses strict monotonicity of the prey vector-field component in \(v\) for fixed positive \(u\). Cauchy–Schwarz plus the \(q\)-Lipschitz property of \(qu/(1+cu)\) yields the stated variance bound. No finite numerical experiment is used as an infinite proof.
+
+## Originality
+**PASS, with residual literature risk.** The source full text states the deterministic system, proves positivity/boundedness, derives the positive-equilibrium nullcline, and develops local/global bifurcation numerics with stable limit cycles; it does not state the finite-amplitude invariant-measure defect or covariance law. Scientific searches using the article DOI, model terms, periodic-orbit time averages, covariance/variance language, Jensen defects, and nullcline aliases returned no statement implying the claim. The closest checked predecessor uses the same local reaction structure in a delayed diffusive system; a complete statement-level full-text comparison was unavailable, so possible unindexed coverage there remains the main risk. Later related literature reproducing the reaction structure was checked without finding the claimed identities.
+
+## Value
+**PASS.** The source emphasizes coexistence of equilibria and stable interior cycles, including equilibrium–cycle bistability, where local equilibrium geometry alone does not describe finite-amplitude recurrent averages. The exact defect converts the predator nullcline into a quantitative global constraint on every compact recurrent statistical state and measures the gap by prey fluctuations. The covariance law additionally ties predator variance to prey-dependent growth fluctuations and yields a parameter-explicit variance ratio. These are natural structural observables for the source's oscillatory regimes rather than an arbitrary parameter slice or a numerical recomputation.
+
+## Closest literature and limitations
+The closest primary source is DOI 10.3934/dcdsb.2022243 itself. The 2022 Journal of Mathematical Biology predecessor DOI 10.1007/s00285-022-01716-4 contains the same local predator crowding/Holling-II reaction mechanism in a spatial-delay setting and is therefore the principal unresolved comparison risk. A later open-access treatment, DOI 10.14232/ejqtde.2024.1.40, reproduces that reaction structure but focuses on delay, diffusion, steady states and Hopf bifurcation rather than finite-amplitude mean/covariance laws. The present result does not establish cycle existence, uniqueness, period, amplitude, or a stochastic analogue.
+
+Same-model review: passed. Independent audit: not yet performed.
