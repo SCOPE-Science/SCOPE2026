@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:18:14.801076Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "P. Manuel, R. Prabha, S. Klavžar, Generalization of edge general position problem, DOI 10.26493/2590-9770.1745.5f4",
+        "assigned RESULT.md and verify.py at commit cd76f0b741a81ebc64b2fc7846361df5d730832d"
+      ],
+      "rationale": "Every geodesic in a connected complete multipartite graph has at most two edges. A two-edge geodesic has endpoints in one part and its middle vertex in one other part, so both edges lie in a single complete bipartite block \\(E(X_i,X_j)\\). Therefore block \\((i,j)\\) needs at least \\(\\lceil n_i n_j/2\\rceil\\) geodesics. This bound is attained blockwise: if one side has even order, pair its incident edges at vertices of the other side; if both sides are odd, pair all but one edge per vertex and pair the remaining even number at a chosen opposite vertex, leaving one single edge. Thus cover and partition numbers equal the sum of the block ceilings. Exactly the odd-odd blocks contribute the parity excess, giving \\((|E|+\\binom{o}{2})/2\\). Since no geodesic contains three edges, the whole edge set is edge-general-position, so \\(\\operatorname{gp}_e=|E|\\) and dual equality holds exactly when \\(o\\le1\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 paper proves general dual inequalities and exact results for torus, hypercube, and Beneš families.",
+          "The 2018 survey reports vertex isometric-path covering/partitioning results, including complete multipartite contexts, but not edge-geodesic covering."
+        ],
+        "reasoning": "Neither broader source contains a theorem that specializes to the audited blockwise edge formula.",
+        "searches": [
+          "DOI 10.26493/2590-9770.1745.5f4, complete primary text",
+          "arXiv:1807.10613, complete survey text"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.26493/2590-9770.1745.5f4",
+        "https://arxiv.org/abs/1807.10613",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published inequality \\(\\operatorname{gp}_e\\le2\\operatorname{gcover}_e\\le2\\operatorname{gpart}_e\\) supplies only bounds.",
+          "The audited formula requires the additional observation that each geodesic is confined to one bipartite block and an optimal parity-sensitive block partition."
+        ],
+        "reasoning": "The framework inequality does not imply the complete-multipartite optimum or the \\(\\binom{o}{2}\\) defect.",
+        "searches": [
+          "Manuel--Prabha--Klavžar Lemma 2.4 and exact-family sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No implication-equivalent Resultary record was returned.",
+          "The exact searches found the framework literature and vertex path-cover literature, not the claimed edge-cover formula."
+        ],
+        "reasoning": "Both edge-geodesic and isometric-path-cover aliases were checked, with the vertex/edge distinction kept explicit.",
+        "searches": [
+          "Resultary: edge geodesic cover partition complete multipartite graph parity formula general position",
+          "literature search: edge geodesic cover complete bipartite K_mn ceil mn/2",
+          "literature search: edge isometric path cover complete multipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked database/table lists the claimed all-part-size formula."
+        ],
+        "reasoning": "The package's small-order optimization is corroboration only; the final theorem is symbolic for all part sizes.",
+        "searches": [
+          "Resultary and literature searches for complete-bipartite specialization and multipartite parity correction"
+        ]
+      },
+      "rationale": "The complete 2025 primary article defines the edge-geodesic cover/partition framework and its dual inequalities, but its exact families are torus graphs, hypercubes, and Beneš networks; its conclusion contains no complete-multipartite result. The earlier path-cover survey concerns vertex isometric-path covers, a different optimization object. Targeted Resultary and exact literature searches found no complete-bipartite or complete-multipartite edge-geodesic formula or parity correction.",
+      "residual_risks": [
+        "A differently named edge-cover invariant in older graph-decomposition literature may be poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_NOT_COVERING",
+          "evidence": "It defines the quantities and dual inequalities but does not solve complete bipartite or complete multipartite graphs.",
+          "identifier_or_url": "https://doi.org/10.26493/2590-9770.1745.5f4",
+          "material_read": "Complete 12-page journal article, including definitions, Lemma 2.4, torus/hypercube/Beneš sections, conclusion, and references.",
+          "method": "After arXiv and open-access browser retrieval did not yield usable complete text, the full article was read through authorized institutional access.",
+          "title": "Generalization of edge general position problem",
+          "trigger": "Defining primary source for the audited invariants and strongest plausible coverage."
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "Its complete-multipartite discussion is about covering vertices by isometric paths, not covering edges by geodesics.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.10613",
+          "material_read": "Full survey sections on isometric path covering and partitioning, with object definitions and family results.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "Revisiting path-type covering and partitioning problems",
+          "trigger": "Potential older source under isometric-path-cover terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI 10.26493/2590-9770.1745.5f4",
+        "arXiv:1807.10613"
+      ],
+      "rationale": "Complete multipartite graphs are a canonical family for a recently developed edge-geodesic duality. The theorem simultaneously gives exact cover and partition numbers, an explicit parity defect, and the precise condition for tightness of the edge-general-position dual bound. The classification is natural rather than an arbitrary slice.",
+      "residual_risks": [
+        "The result is specialized to complete multipartite graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.26493/2590-9770.1745.5f4",
+    "https://arxiv.org/abs/1807.10613",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The formula uses the diameter-two block structure of complete multipartite graphs and does not directly extend to arbitrary diameter-two graphs."
+  ],
+  "residual_risks": [
+    "A differently named edge-cover invariant in older graph-decomposition literature may be poorly indexed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "FRAMEWORK_NOT_COVERING",
+      "evidence": "It defines the quantities and dual inequalities but does not solve complete bipartite or complete multipartite graphs.",
+      "identifier_or_url": "https://doi.org/10.26493/2590-9770.1745.5f4",
+      "material_read": "Complete 12-page journal article, including definitions, Lemma 2.4, torus/hypercube/Beneš sections, conclusion, and references.",
+      "method": "After arXiv and open-access browser retrieval did not yield usable complete text, the full article was read through authorized institutional access.",
+      "title": "Generalization of edge general position problem",
+      "trigger": "Defining primary source for the audited invariants and strongest plausible coverage."
+    },
+    {
+      "assessment": "DIFFERENT_OBJECT",
+      "evidence": "Its complete-multipartite discussion is about covering vertices by isometric paths, not covering edges by geodesics.",
+      "identifier_or_url": "https://arxiv.org/abs/1807.10613",
+      "material_read": "Full survey sections on isometric path covering and partitioning, with object definitions and family results.",
+      "method": "Lawful arXiv full-text inspection.",
+      "title": "Revisiting path-type covering and partitioning problems",
+      "trigger": "Potential older source under isometric-path-cover terminology."
+    }
+  ]
+}
