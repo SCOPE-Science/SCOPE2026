@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses no finite enumeration to establish an infinite statement. The following checks were performed on the final package:
+# Independent mathematical audit
 
-- The regular-simplex cap is the exact homothetic copy with scale \(m/(m+1)\), hence its Euclidean volume fraction is \((m/(m+1))^m\).
-- The full-simplex second moment is \(m^2/(m+2)\).
-- The cap second moment differs from the full-simplex moment by
-  \[
-  -\frac{m^2(m-1)}{(m+1)^2(m+2)}.
-  \]
-- Combining this difference with the gnomonic density expansion \((1+\varepsilon^2\lVert y\rVert^2)^{-n/2}\) gives the normalized \(\varepsilon^2\) coefficient \(m^2(m-1)/(2(m+1)(m+2))\).
-- Since \(m\varepsilon=\tan\rho\), the normalized \(\tan^2\rho\) coefficient is \((n-2)/(2n(n+1))\).
-- `verify.py` replays these identities with exact rational arithmetic for dimensions \(3\) through \(80\) and prints `VERIFY_OK`.
+## correctness
 
-The finite replay is a sanity check only. The general proof is symbolic and is given in `RESULT.md`. No global spherical stability theorem or optimality among all shrinking families is verified or claimed.
+PASS
+
+The calculation was independently reconstructed. The centered Euclidean regular simplex has the required orthogonal symmetry, so its gnomonic lift has spherical centroid exactly at the north pole. The centroid halfspace cap is the exact homothetic simplex with scale \(m/(m+1)\), giving the sharp Euclidean ratio. Dirichlet barycentric moments give \(E\|X\|^2=m^2/(m+2)\); scaling covariance and adding the cap centroid gives a cap-minus-full second-moment difference \(-m^2(m-1)/[(m+1)^2(m+2)]\). Expanding the exact gnomonic density \((1+\varepsilon^2\|y\|^2)^{-n/2}\) therefore gives normalized coefficient \(m^2(m-1)/[2(m+1)(m+2)]\) in \(\varepsilon^2\). Since \(m\varepsilon=\tan\rho\), this is exactly \((n-2)/(2n(n+1))\). The remainder is uniform on the fixed compact simplex.
+
+## originality
+
+PASS
+
+The exact same primary paper was read in a public full-text copy. Its sharpness Step 7 specifies shrinking spherical simplices and proves only that the spherical/Euclidean sharpness discrepancy is \(O(\varepsilon_i^2)\); it neither selects this canonical regular-simplex normalization nor identifies the coefficient. Fresh Resultary searching returns the audited record itself as the only exact coefficient match. Euclidean Grünbaum stability results concern geometric closeness near equality and do not determine the spherical gnomonic second-moment correction.
+
+## value
+
+PASS
+
+The regular simplex is the canonical sharpness mechanism for the spherical Grünbaum constant. Resolving the first curvature penalty in every dimension supplies a natural quantitative benchmark for any future spherical stability theory, rather than an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

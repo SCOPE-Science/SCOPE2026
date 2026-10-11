@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:02:03Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md blob c93deec61cf9d8d1af1d3dbd9639680bb5fc38b4.",
+        "Frozen verify.py blob 35b11923e06c706cf7c1f2e01d51933079ea4af8; its rational identities were independently re-derived.",
+        "Myroshnychenko--Ryabogin--Tatarko--Yaskin, arXiv:2607.16924, public full-text Step 7 gives shrinking spherical simplices and only an \\(O(\\varepsilon_i^2)\\) sharpness comparison."
+      ],
+      "rationale": "The calculation was independently reconstructed. The centered Euclidean regular simplex has the required orthogonal symmetry, so its gnomonic lift has spherical centroid exactly at the north pole. The centroid halfspace cap is the exact homothetic simplex with scale \\(m/(m+1)\\), giving the sharp Euclidean ratio. Dirichlet barycentric moments give \\(E\\|X\\|^2=m^2/(m+2)\\); scaling covariance and adding the cap centroid gives a cap-minus-full second-moment difference \\(-m^2(m-1)/[(m+1)^2(m+2)]\\). Expanding the exact gnomonic density \\((1+\\varepsilon^2\\|y\\|^2)^{-n/2}\\) therefore gives normalized coefficient \\(m^2(m-1)/[2(m+1)(m+2)]\\) in \\(\\varepsilon^2\\). Since \\(m\\varepsilon=\\tan\\rho\\), this is exactly \\((n-2)/(2n(n+1))\\). The remainder is uniform on the fixed compact simplex.",
+      "risks": [
+        "No global stability modulus or optimality of this quadratic coefficient among all shrinking families is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The spherical source proves the sharp constant and asymptotic sharpness but leaves the quadratic term unresolved.",
+          "The Euclidean stability paper controls near-equality geometry, a different conclusion from the spherical curvature coefficient."
+        ],
+        "reasoning": "Neither broader theorem contains a statement whose specialization fixes the submitted coefficient.",
+        "searches": [
+          "arXiv:2607.16924 full text",
+          "Web query: improved stability Grünbaum inequality 2410.12072"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:2607.16924 public full text",
+        "arXiv:2410.12072 bibliographic/theorem-level comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An \\(O(\\rho^2)\\) estimate plus convergence to the sharp constant does not determine a nonzero normalized \\(\\rho^{-2}\\) limit.",
+          "The submitted result additionally uses exact regular-simplex second moments, which are not part of the source's stated sharpness conclusion."
+        ],
+        "reasoning": "The final coefficient is a genuine refinement of a big-O remainder rather than a parameter substitution into a stronger prior formula.",
+        "searches": [
+          "arXiv:2607.16924 Step 7 and equations around the \\(O(\\varepsilon_i^2)\\) comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The public primary full text states a \\(1+O(\\varepsilon_i^2)\\) comparison and then takes the limit; no coefficient is given.",
+          "Resultary's top exact hit is the assigned record; neighboring results concern other spherical Hessians/flows."
+        ],
+        "reasoning": "The search covered gnomonic scale, circumradius, halfspace mass, sharpness-rate, and the exact symbolic coefficient.",
+        "searches": [
+          "Resultary semantic query: spherical Grünbaum regular simplex gnomonic second-order curvature coefficient sharpness rho squared",
+          "Web exact-title/full-text search: The Spherical Grünbaum Inequality 2607.16924 Step 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior indexed result besides the current assigned record gives \\((n-2)/(2n(n+1))\\) for this spherical halfspace ratio."
+        ],
+        "reasoning": "There is no finite database dependency; the exact check targeted the symbolic coefficient and same sharpness family.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "The exact same primary paper was read in a public full-text copy. Its sharpness Step 7 specifies shrinking spherical simplices and proves only that the spherical/Euclidean sharpness discrepancy is \\(O(\\varepsilon_i^2)\\); it neither selects this canonical regular-simplex normalization nor identifies the coefficient. Fresh Resultary searching returns the audited record itself as the only exact coefficient match. Euclidean Grünbaum stability results concern geometric closeness near equality and do not determine the spherical gnomonic second-moment correction.",
+      "residual_risks": [
+        "An unindexed note could have expanded the same canonical family beyond the source's big-O statement; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_PRIMARY_SOURCE_NOT_COVERING_EXACT_QUADRATIC_COEFFICIENT",
+          "evidence": [
+            "Step 7 concludes the ratio tends to the sharp constant and explicitly retains only \\(O(\\varepsilon_i^2)\\) control."
+          ],
+          "identifier_or_url": "arXiv:2607.16924",
+          "material_read": "Public full-text copy, including the gnomonic measure formula, Step 6 estimates, and Step 7 optimality construction through the displayed \\(O(\\varepsilon_i^2)\\) ratio.",
+          "method": "Public CC BY full-text inspection.",
+          "title": "The Spherical Grünbaum Inequality",
+          "trigger": "Exact functional and sharpness family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "The coefficient is positive in every dimension \\(n\\ge3\\) and refines the exact sharpness degeneration.",
+        "The calculation isolates how the spherical gnomonic density changes the Euclidean extremal ratio."
+      ],
+      "rationale": "The regular simplex is the canonical sharpness mechanism for the spherical Grünbaum constant. Resolving the first curvature penalty in every dimension supplies a natural quantitative benchmark for any future spherical stability theory, rather than an arbitrary finite computation.",
+      "risks": [
+        "It is a family-specific benchmark, not a universal stability theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the canonical shrinking spherical regular-simplex sharpness family, the normalized spherical Grünbaum halfspace ratio has exact quadratic curvature correction \\((n-2)/(2n(n+1))\\tan^2\\rho\\), and hence the displayed positive \\(\\rho^2\\) limit for every \\(n\\ge3\\).",
+  "limitations": [
+    "Canonical regular-simplex shrinking family only; no global stability claim, no optimality among all shrinking families, no fourth-order coefficient."
+  ],
+  "schema_version": 1
+}

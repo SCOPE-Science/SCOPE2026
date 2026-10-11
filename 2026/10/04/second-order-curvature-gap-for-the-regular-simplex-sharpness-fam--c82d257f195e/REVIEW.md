@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed from the gnomonic Jacobian, exact simplex symmetry, an exact homothety description of the centroid halfspace cap, and exact second moments of a uniform regular simplex. The spherical centroid is exactly \(e_n\), not merely asymptotically so, because the full regular-simplex symmetry fixes only the vertical axis. The Taylor remainder is uniform on the fixed compact simplex. The packaged checker confirms the algebraic coefficient identities with exact rational arithmetic over many dimensions; finite replay is not used as the infinite-dimensional proof.
+## correctness
 
-## Originality
-PASS. The lead source arXiv:2607.16924v1 proves the sharp spherical Grünbaum inequality and its Step 7 obtains optimality from shrinking spherical simplices, but the displayed comparison is only \(O(\varepsilon_i^2)\) and no quadratic coefficient is stated. Searches using the spherical Grünbaum name, gnomonic/regular-simplex aliases, the exact coefficient, halfspace-mass terminology, and curvature-correction wording found no statement implying the present asymptotic. The closest public indexed result on a regular simplex concerns angular stability of *central sections*, a different functional. Euclidean Grünbaum stability results control near-cone geometry and do not determine this spherical curvature coefficient.
+PASS
 
-## Value
-PASS. The source theorem's sharp constant is attained only in a degeneration to Euclidean scale; the rate at which the canonical sharpness family approaches that constant is therefore a natural invariant of the spherical problem. The exact positive coefficient quantifies the first curvature penalty and supplies a benchmark for any future quantitative spherical stability theory. This is not an arbitrary numerical slice: regular simplices are the symmetry-canonical sharpness model and the coefficient is valid in every dimension \(n\ge3\).
+The calculation was independently reconstructed. The centered Euclidean regular simplex has the required orthogonal symmetry, so its gnomonic lift has spherical centroid exactly at the north pole. The centroid halfspace cap is the exact homothetic simplex with scale \(m/(m+1)\), giving the sharp Euclidean ratio. Dirichlet barycentric moments give \(E\|X\|^2=m^2/(m+2)\); scaling covariance and adding the cap centroid gives a cap-minus-full second-moment difference \(-m^2(m-1)/[(m+1)^2(m+2)]\). Expanding the exact gnomonic density \((1+\varepsilon^2\|y\|^2)^{-n/2}\) therefore gives normalized coefficient \(m^2(m-1)/[2(m+1)(m+2)]\) in \(\varepsilon^2\). Since \(m\varepsilon=\tan\rho\), this is exactly \((n-2)/(2n(n+1))\). The remainder is uniform on the fixed compact simplex.
 
-Closest literature and limitations are recorded in `AUDIT.json`. No global stability inequality, optimality among all shrinking families, or fourth-order coefficient is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same primary paper was read in a public full-text copy. Its sharpness Step 7 specifies shrinking spherical simplices and proves only that the spherical/Euclidean sharpness discrepancy is \(O(\varepsilon_i^2)\); it neither selects this canonical regular-simplex normalization nor identifies the coefficient. Fresh Resultary searching returns the audited record itself as the only exact coefficient match. Euclidean Grünbaum stability results concern geometric closeness near equality and do not determine the spherical gnomonic second-moment correction.
+
+## value
+
+PASS
+
+The regular simplex is the canonical sharpness mechanism for the spherical Grünbaum constant. Resolving the first curvature penalty in every dimension supplies a natural quantitative benchmark for any future spherical stability theory, rather than an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
