@@ -1,0 +1,162 @@
+{
+  "claim": "For each integer \\(n\\ge2\\), let \\(X_n\\) be the real normed plane whose unit ball is the regular Euclidean \\(2n\\)-gon with vertices\n\\[\nv_j=\\bigl(\\cos(j\\pi/n),\\sin(j\\pi/n)\\bigr),\\qquad 0\\le j<2n.\n\\]\nWrite \\(\\beta_n=\\pi/(2n)\\), and put \\(q_j=1\\) if \\(j\\) is even and \\(q_j=\\sec\\beta_n\\) if \\(j\\) is odd. For every real \\(t\\ge0\\), its classical modulus of smoothness is exactly\n\\[\n\\rho_{X_n}(t)=\\max_{0\\le j\\le n}\n\\left[q_j\\cos(j\\beta_n)+tq_{n-j}\\sin(j\\beta_n)\\right]-1.\n\\]\nMoreover, the same two unit vertices\n\\[\nx=v_0,\\qquad y=v_{\\lfloor n/2\\rfloor}\n\\]\nattain the defining supremum for every \\(t\\ge0\\); the maximizing pair need not change when the active affine branch changes. In particular, for the regular decagonal plane \\(X_5\\), let\n\\[\n\\varphi=\\frac{1+\\sqrt5}{2},\\quad\ns=\\frac{\\sqrt5-1}{4},\\quad\na=\\frac{1+\\sqrt5}{4},\\quad\nb=\\frac{\\sqrt5-1}{2}.\n\\]\nThen its complete scale profile is the sharp four-phase law\n\\[\n\\rho_{X_5}(t)=\n\\begin{cases}\ns t,&0\\le t\\le\\varphi^{-1},\\\\\na+b t-1,&\\varphi^{-1}\\le t\\le1,\\\\\nb+a t-1,&1\\le t\\le\\varphi,\\\\\nt+s-1,&t\\ge\\varphi.\n\\end{cases}\n\\]\nIn particular \\(\\rho_{X_5}(1)=(3\\sqrt5-5)/4\\), and the fixed pair \\((v_0,v_2)\\) attains the entire decagonal profile. This statement asserts existence of a universal maximizing vertex pair, not uniqueness or a complete classification of all maximizers.",
+  "correctness": {
+    "rationale": "For \\(B_n=\\operatorname{conv}\\{v_j\\}\\), its polar is the regular polygon with vertices \\(w_j=\\sec\\beta R_\\beta v_j\\). Taking independent norming functionals for the two terms in the definition and maximizing over both primal balls gives exactly \\(1+\\rho(t)=\\frac12\\max_{f,g\\in B_n^*}(N_n^*(f+g)+tN_n^*(f-g))\\). Separate convexity attains the maximum at polar vertices; the scalar-rotation identification of the polar with the primal then gives the two chord norms. Their directions have parity-dependent vertex/side-midpoint gauges, yielding the stated max of n+1 affine functions. The maximizing primal support directions for a polar vertex pair are orthogonal. The nearest vertices to such orthogonal rays can always be selected with mesh-step difference \\(\\lfloor n/2\\rfloor\\), proving that the same canonical vertex pair attains every scale. In the decagon the dominated end branches and the three consecutive exact crossings produce the stated four-phase law without inference from sampled data.",
+    "risks": [
+      "The existence argument for a fixed maximizer does not classify all equality pairs.",
+      "No conclusion for arbitrary nonregular polygonal norms or for dimension greater than two."
+    ],
+    "sources": [
+      "doi:10.68381/jca17031 for the classical modulus context and MSC 46B03/46B20",
+      "arxiv:1503.08912v1 for the classical definition of the same functional",
+      "doi:10.1007/s43037-023-00263-4 for independently published polar vertex formulas of regular 2n-gons"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2010 complete article classifies possible asymptotic equivalence classes through Orlicz-space constructions and proves squareness implications; no regular polygon profile occurs.",
+        "The 2015 complete preprint explicitly defines the Day modulus but develops supporting moduli, equivalence at zero, and metric projection estimates.",
+        "The 2023 complete same-polygon Section 4 supplies support functionals and diameters; no all-t Day modulus or fixed pair.",
+        "The 2024 open survey develops general smoothness comparisons but distinguishes a different midpoint-deficit modulus from the Day modulus."
+      ],
+      "reasoning": "The earlier general equivalence and local diameter results cannot determine finite-scale phase boundaries, and the same-polygon support functional computation lacks the two-vertex dual optimization needed here.",
+      "searches": [
+        "doi:10.68381/jca17031",
+        "arxiv:1503.08912v1",
+        "doi:10.1007/s43037-023-00263-4",
+        "doi:10.1007/s43034-023-00310-z",
+        "modulus of smoothness finite dimensional polyhedral Banach space compute extreme points vertex pairs formula",
+        "sharp modulus of smoothness regular 2n-gon Banach planes all scales"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.68381/jca17031",
+      "arxiv:1503.08912v1",
+      "https://emj.enu.kz/index.php/main/article/view/595",
+      "doi:10.1007/s43037-023-00263-4",
+      "doi:10.1007/s43034-023-00310-z",
+      "Targeted literature and semantic-index searches detailed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 explicit regular-polygon support-functional diameter implies only the classical modulus right derivative at the origin, not its values at every positive scale.",
+        "The 2010 smoothness-equivalence results do not specify which affine pieces occur in a particular regular polygon.",
+        "The 2015 supporting smoothness inequalities yield local comparisons but not the claimed global exact formula.",
+        "Nearby angle-constrained and quadratic-norm geometric constants have different optimization domains and do not imply the classical Day norm sum."
+      ],
+      "reasoning": "No displayed stronger theorem fixes all finite-scale Day-modulus values or the common maximizing vertex pair. The first-order slope and related but differently normalized geometric invariants are distinguished explicitly.",
+      "searches": [
+        "doi:10.1007/s43037-023-00263-4",
+        "doi:10.68381/jca17031",
+        "arxiv:1503.08912v1",
+        "polyhedral Banach plane modulus of smoothness exact all t fixed maximizing pair regular polygon",
+        "modulus of smoothness rho_X(t) exact regular octagonal plane max absolute norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Neither targeted semantic-search result sets nor available web source searches stated an exact four-phase classical Day modulus on the regular decagon.",
+        "The nearest named smoothness result uses an angle-constrained definition, not the two-sided Day modulus.",
+        "The checked 2023 same-polygon paper only calculates diameters of norming-functional sets, a first-order quantity."
+      ],
+      "reasoning": "Tests included original symbols rho_X, Day nomenclature, regular-2n notation, decagon, golden-ratio breakpoints, and the stronger fixed-maximizer geometry. Search nonappearance is not treated as uniqueness proof.",
+      "searches": [
+        "classical modulus of smoothness rho_X(t) regular decagon normed plane golden ratio phase transitions t=(sqrt5-1)/2",
+        "rho_X(t) modulus of smoothness affine regular ten-gon Banach norm",
+        "classical Day modulus of smoothness rho(t) of regular 2n-gon polygonal Banach norm exact trigonometric max with dual extreme points",
+        "four phase modulus of smoothness real regular decagon golden ratio breakpoints (sqrt5-1)/2 and (sqrt5+1)/2",
+        "web: \"modulus of smoothness\" \"regular decagon\" geometry",
+        "web: \"modulus of smoothness\" \"regular hexagon\" \"Banach\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact table contained the four affine decagonal branches or the three crossover parameters.",
+        "The 2023 table-like same-polygon formula instead concerns the support-functional diameter E(X), which at most determines the right derivative at the origin."
+      ],
+      "reasoning": "The proposed result is an all-scale function rather than a recomputation of a single known constant; a known endpoint slope is explicitly excluded from the novelty claim.",
+      "searches": [
+        "rho_X(t) modulus of smoothness affine regular ten-gon Banach norm",
+        "modulus of smoothness polygonal normed plane piecewise classical",
+        "regular polygon \"modulus of smoothness\" Minkowski normed plane",
+        "Day Nordlander regular decagonal norm modulus of smoothness all t",
+        "classical modulus of smoothness rho(t) regular decagon normed plane golden ratio phase transitions t=(sqrt5-1)/2"
+      ]
+    },
+    "rationale": "The same regular 2n-gons appear in complete 2023 primary work, but that work determines norming-functional diameter and therefore only the infinitesimal slope information of the classical modulus; its main statements do not yield an all-scale envelope or a permanent maximizer without a new independent dual maximization. Complete 2010 and 2015 primary papers treat general smoothness functions and supporting-modulus asymptotics, not exact polygon profiles. A 2024 survey treats the classical definition and a distinct midpoint-deficit modulus but has no regular-polygon computation. Targeted indexed and general searches for the entire regular decagon profile, golden-ratio breakpoints, dual formulations and aliases returned no stronger equivalent statement. This is evidence for noncoverage, not proof of universal novelty.",
+    "residual_risks": [
+      "A historical or unindexed formula for regular polygon Day moduli may exist with different terminology; negative search results are not a uniqueness theorem.",
+      "The 2010 paper has a year-resolved publication date in inspected records but no verified public day, so the first-public-date field uses the earliest verified day-resolved 2015 archival source instead of fabricating a 2010 calendar day."
+    ],
+    "risks": [
+      "A historical or unindexed formula for regular polygon Day moduli may exist with different terminology; negative search results are not a uniqueness theorem.",
+      "The 2010 paper has a year-resolved publication date in inspected records but no verified public day, so the first-public-date field uses the earliest verified day-resolved 2015 archival source instead of fabricating a 2010 calendar day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_ASYMPTOTIC_EQUIVALENCE_NOT_ALL_SCALE_POLYGON_COVERAGE",
+        "evidence": "Results concern equivalence classes, Orlicz constructions and squareness; no exact regular polygon Day-modulus profile or common maximizing vertex pair is stated.",
+        "identifier_or_url": "doi:10.68381/jca17031",
+        "material_read": "Complete nine-page open PDF, including abstract, introductory equivalence classes, Sections 2--4, key estimates and references; rendered pages 1 and 5 were visually inspected.",
+        "method": "Full-text PDF reading, within-document polygon/regular searches, theorem comparison.",
+        "title": "On Moduli of Smoothness and Squareness",
+        "trigger": "Archival general treatment of the same classical modulus and a plausible source of a broader polyhedral formula."
+      },
+      {
+        "assessment": "GENERAL_SUPPORTING_MODULI_NOT_POLYGON_PROFILE",
+        "evidence": "The introduction defines the classical rho_X and the results establish near-zero equivalences and Day--Nordlander bounds; no regular 2n-gon full profile appears.",
+        "identifier_or_url": "arxiv:1503.08912v1; https://emj.enu.kz/index.php/main/article/view/595",
+        "material_read": "Open full arXiv HTML, especially definitions, Sections 2--6, main theorems and references; journal article record for publication date.",
+        "method": "Full-text HTML inspection and relevant-term searches; publisher record for 2015-03-30 date.",
+        "title": "Modulus of Supporting Convexity and Supporting Smoothness",
+        "trigger": "Archive-period named primary source defining the classical Day modulus alongside related supporting moduli; contains earliest day-resolved anchor."
+      },
+      {
+        "assessment": "SAME_POLYGON_DIFFERENT_INVARIANT_ONLY_INFINITESIMAL_CONSEQUENCE",
+        "evidence": "Section 4 computes E(X_n)=2tan(beta) when n even and 2sin(beta) when n odd, equal to twice the Day-modulus right slope at 0, but gives no rho_X_n(t) at t>0 or scale-independent vertex-maximizer theorem.",
+        "identifier_or_url": "doi:10.1007/s43037-023-00263-4",
+        "material_read": "Publisher open HTML introduction and relevant definitions, detailed Section 4 Example 4.1 and its proof with exact regular-polygon polar vertices, and remaining section headings.",
+        "method": "Publisher open HTML full-text and direct statement/implication comparison.",
+        "title": "Approximate smoothness in normed linear spaces",
+        "trigger": "Highly relevant complete paper working explicitly with precisely the regular 2n-gonal unit spheres and their polar vertices."
+      },
+      {
+        "assessment": "GENERAL_SURVEY_DIFFERENT_MIDPOINT_MODULUS_NOT_COVERING",
+        "evidence": "Section 4 explicitly distinguishes the classical Day rho from the alternative bar-rho midpoint-deficit modulus; no regular polygon computation in the text.",
+        "identifier_or_url": "doi:10.1007/s43034-023-00310-z",
+        "material_read": "Publisher open HTML Sections 2--4 on smoothness definitions and comparison results; remaining structure inspected and complete-text searches checked for polygon/polyhedral terminology.",
+        "method": "Full-text HTML definition and main-statement inspection; within-document searches for polyhedral/regular polygon.",
+        "title": "On the smoothness of normed spaces",
+        "trigger": "Modern survey treats classical Day modulus and similarly named alternative modulus, hence plausible definitional equivalence or broader claim."
+      }
+    ],
+    "sources": [
+      "doi:10.68381/jca17031",
+      "arxiv:1503.08912v1",
+      "doi:10.1007/s43037-023-00263-4",
+      "doi:10.1007/s43034-023-00310-z"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bc87110e-aa4f-4b7d-bb23-c004fa966849",
+  "value": {
+    "rationale": "The classical Day modulus is a standard quantitative invariant governing uniform smoothness and its dual convexity relations. Regular even polygons form the canonical finite-dimensional approximation of the Euclidean circle, and the new formula supplies every scale for every polygon, not just a finite table or a single parameter slice. The additional existence of the same near-orthogonal vertex pair for all scales is a strong structural simplification of the global two-vector optimization. For the regular decagon the function has four distinct sharp affine regimes separated by golden-ratio parameters, demonstrating meaningful finite-scale behavior absent from the known first-order norming-functional diameter.",
+    "risks": [
+      "The general finite-envelope theorem does not give a compact four-phase form for every n; only the decagon case is fully expanded.",
+      "This is a sharp geometric profile, not a new downstream fixed-point theorem or a general renorming result."
+    ],
+    "sources": [
+      "doi:10.68381/jca17031 for the role of classical smoothness functions",
+      "arxiv:1503.08912v1 for relation to supporting smoothness and dual geometry",
+      "doi:10.1007/s43037-023-00263-4 for the classical regular 2n-gonal model and preexisting local smoothness information"
+    ],
+    "status": "PASS"
+  }
+}
