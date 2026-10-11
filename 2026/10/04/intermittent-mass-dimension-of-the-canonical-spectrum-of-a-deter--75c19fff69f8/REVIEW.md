@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the canonical mixed-radix spectrum from arXiv:2609.22772v1. Digit uniqueness gives exact stage cardinality; the explicit extremal digit sum gives a two-sided comparison between stage radius and the product scale; the source growth condition isolates completed stages by very large gaps; and the same condition converts the source ratio \(r_n/q_n\to s\) into the asserted limsup and the complementary ratio into liminf zero. The between-stage cluster estimate closes the only possible limsup gap. No finite experiment is promoted to an infinite proof.
+## correctness
 
-## Originality
-PASS. Searches were made for the source paper, canonical spectra of Moran measures, mass/counting dimensions, Beurling dimensions, lower discrete Hausdorff dimensions, and possible equivalent formulations. The closest literature concerns Beurling dimension or lower discrete Hausdorff dimension, which are not implication-equivalent to the centered counting liminf/limsup used here. The source paper itself constructs the spectrum but does not state this exact mass-dimension pair. Residual risk remains because some older Moran-spectrum papers were not fully open during comparison.
+PASS
 
-## Value
-PASS. The source construction gives the first singular Salem spectral measures on the real line. Determining that its canonical orthonormal basis has the exact centered mass-dimension pair \((0,s)\) reveals a structural intermittency invisible from the existence of the basis alone: the spectrum reaches the full geometric exponent along completed stages while having arbitrarily deep sparse logarithmic scales. This is a natural invariant of the newly constructed spectrum rather than an arbitrary parameter slice.
+The mixed-radix argument was reconstructed from the stated canonical spectrum. Digit differences are smaller than their base, so each completed level has exactly \(A_n=\prod_{j\le n}M_j\) points. Its radius satisfies \((4/9)P_n\le R_n<(27/52)P_n\), and the next nonzero cluster spacing \(G_{n+1}=P_nh_{n+1}>2R_n\), so \(C(R_n)=A_n\). Last-scale domination and \(r_n/q_n\to s\) give \(\log A_n/\log P_n\to s\). Immediately before the next cluster enters, the same count \(A_n\) persists to a radius comparable to \(P_nh_{n+1}\), and \(N_{n+1}>P_n^{n+1}\) with \(q_{n+1}-r_{n+1}\) a fixed positive proportion forces the exponent to zero. Between completed stages, a uniform cluster-count bound makes the logarithmic exponent maximal asymptotically at the next completed stage, ruling out limsup above \(s\). The proof is genuinely infinite; no finite experiment is used as a substitute.
 
-## Closest literature and limitations
-The source is Lai--Shi--Xie, arXiv:2609.22772v1. The closest dimension literature located is Li--Wu on Beurling dimensions of Moran spectra, Li--Zeng--Wu on lower discrete Hausdorff dimension, Wu--Yin--Zhang on Beurling dimension of frame spectra, and Glasscock on counting/mass dimensions of integer sets. The claim is restricted to \(0<s<1\), the canonical spectrum, and centered mass dimensions; no endpoint, Beurling-dimension, discrete-Hausdorff-dimension, or all-spectra statement is made.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes. Lai--Shi--Xie's primary record constructs the deterministic Salem spectral measure and an exponential orthonormal basis but does not expose the centered lower/upper mass-dimension pair. The closest published Moran-spectrum papers study Beurling dimension or lower discrete Hausdorff dimension, which are different translated-window invariants. Fresh Resultary search found no competing same-spectrum statement.
+
+## value
+
+PASS
+
+The canonical spectrum is a distinguished object in the first deterministic singular Salem spectral construction. Its centered mass growth reveals a strong intermittency invisible in the common Salem dimension: completed stages realize exponent \(s\) while enormous deterministic gaps force exponent zero. This is a natural exact invariant of the construction and clarifies the geometry of its orthonormal basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
