@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates lower and upper bounds cleanly. The lower bound for \(d\ge4\) is the Griesmer bound. Nine explicit base multisets in \(\mathrm{PG}(2,3)\) meet it for residues \(4\) through \(12\), and adding the full projective plane increases length by \(13\) and distance by \(9\) while retaining locality \(2\). The cases \(d\le3\) have explicit witnesses and independent lower-bound arguments. The bundled verifier reconstructs the projective plane and checks all base and lifted calculations through \(d=1000\); the infinite conclusion rests on the proved residue recurrence, not finite extrapolation.
+## correctness
 
-## Originality
-PASS. The closest direct source proves only eventual Griesmer equality in general and gives an exact ternary dimension-three table for locality \(1\). The earlier ternary Singleton-optimal classification overlaps with the initial locality-\(2\) cases through distance \(6\) but cannot imply the all-distance profile. Searches under the native invariant, all-symbol repair, Griesmer, and projective formulations found no complete formula. Residual risk remains for an unindexed equivalent projective-geometric observation.
+PASS
 
-## Value
-PASS. This closes the complete dimension-three ternary locality-\(2\) minimum-length function, identifies the sharp Griesmer-equality threshold \(d=4\), and gives a compact nine-residue construction. It is a natural exact invariant in the direct source's program, not an arbitrary finite slice.
+Fresh reconstruction in PG(2,3) verified all nine base multisets for distances 4 through 12: each spans dimension three, meets the Griesmer length, has the stated distance from maximum line multiplicity, and has locality two. Adding the full 13-point projective-plane multiset raises distance by 9 and length by 13, so every distance at least four meets Griesmer. The explicit small witnesses give lengths five and six at distances two and three, and the elementary lower bounds give the complete profile: length five at distances one and two, six at three, then Griesmer for every distance at least four.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kurz's full 23-page paper was read. It gives the same projective locality criterion, proves eventual Griesmer equality generally, and completely determines many binary locality-two cases. Its ternary exact tables in the later section are for locality one, not ternary dimension three with locality two. The older Hao-Xia-Chen ternary work concerns Singleton-like optimal LRCs. Current searches found no prior all-distance formula for n_3(3,d,2).
+
+## value
+
+PASS
+
+The minimum-length function is the central invariant of the primary LRC source. Determining the entire ternary dimension-three locality-two line, including the sharp Griesmer threshold at distance four and explicit residue-class base constructions, is a natural complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

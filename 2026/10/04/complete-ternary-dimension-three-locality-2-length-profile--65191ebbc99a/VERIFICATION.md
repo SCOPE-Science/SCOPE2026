@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`.
+# Independent mathematical audit
 
-The verifier constructs \(\mathrm{PG}(2,3)\) from normalized nonzero vectors over \(\mathbb F_3^3\), obtaining \(13\) points and \(13\) four-point lines. For each of the nine base multisets \(B_s\), \(4\le s\le12\), it checks spanning rank \(3\), exact Griesmer length, distance both from maximum line multiplicity and by enumerating all \(26\) nonzero messages, and the geometric locality-\(2\) condition.
+## correctness
 
-It separately checks the length-\(5\), distance-\(2\) and length-\(6\), distance-\(3\) witnesses and verifies that \(\mathbb F_3^2\) has exactly four projective one-spaces, the finite fact used to exclude a ternary \([5,3,3]\) code.
+PASS
 
-For every \(4\le d\le1000\), it then forms the claimed lifted multiset, verifies its length equals \(d+\lceil d/3\rceil+\lceil d/9\rceil\), verifies distance \(d\), and checks locality \(2\). This finite range is only a replay check. The proof for all \(d\) uses the explicit residue construction and the identity \(g_3(3,d+9)=g_3(3,d)+13\).
+Fresh reconstruction in PG(2,3) verified all nine base multisets for distances 4 through 12: each spans dimension three, meets the Griesmer length, has the stated distance from maximum line multiplicity, and has locality two. Adding the full 13-point projective-plane multiset raises distance by 9 and length by 13, so every distance at least four meets Griesmer. The explicit small witnesses give lengths five and six at distances two and three, and the elementary lower bounds give the complete profile: length five at distances one and two, six at three, then Griesmer for every distance at least four.
 
-The verifier does not search all codes or claim an independent literature audit. The Griesmer lower bound and the standard projective locality criterion are literature premises inspected in the cited source.
+## originality
+
+PASS
+
+Kurz's full 23-page paper was read. It gives the same projective locality criterion, proves eventual Griesmer equality generally, and completely determines many binary locality-two cases. Its ternary exact tables in the later section are for locality one, not ternary dimension three with locality two. The older Hao-Xia-Chen ternary work concerns Singleton-like optimal LRCs. Current searches found no prior all-distance formula for n_3(3,d,2).
+
+## value
+
+PASS
+
+The minimum-length function is the central invariant of the primary LRC source. Determining the entire ternary dimension-three locality-two line, including the sharp Griesmer threshold at distance four and explicit residue-class base constructions, is a natural complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
