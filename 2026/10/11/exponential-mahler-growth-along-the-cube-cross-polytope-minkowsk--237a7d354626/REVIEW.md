@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The exact primal volume comes from the coordinatewise \(\ell_1\)-distance to the cube; the polar volume comes from a unit-Jacobian ordering-chamber decomposition. The normalized ratio and its finite-dimensional boundary values follow algebraically. Uniform Laplace/Stirling estimates yield the dimension-scaled limit, a one-dimensional sign analysis gives the unique limiting maximizer, and the two complementary tail estimates exclude globally optimizing sequences from escaping to zero or infinity on the dimensional scale. The standalone finite verifier returned `VERIFY_OK 203`. No finite enumeration is used as proof of an infinite statement.
+
+**Originality: PASS, with priority risk.** The Kim–Zvavitch 2013 source establishes unconditional-body stability, not a global optimal Minkowski parameter. Fisikopoulos' 2013 presentation already tabulates the primal volumes for the parameter-one cube–cross-polytope sum in small dimensions; those values are explicitly not claimed new. A published five-dimensional Mahler calculation treats the polar-equivalent family and covers several fixed-dimensional formulas and local expansions; those are also not claimed new. The contribution is the global high-dimensional optimizing scale and its exact saddle-point exponent, which do not follow from the inspected finite-dimensional results or cited qualitative stability bounds. Specialized earlier Laguerre-quotient asymptotics could still be equivalent and warrant independent literature verification.
+
+**Value: PASS.** The exact global scaling law and exponential optimal-volume-product rate solve a natural one-parameter geometric optimization that is not addressed by local stability at a cube. The theorem converts existing finite-dimensional examples into a sharp high-dimensional structural benchmark without asserting a general volume-product extremum outside the interpolation.
+
+Scientific limitations: no finite-dimensional uniqueness claim, no convergence-rate bound, and no independent originality certification. The complete analytic proof and reproducible finite diagnostics are supplied separately.
+
+Same-model review: passed. Independent audit: not yet performed.
