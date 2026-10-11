@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The classical forest-extension formula counts trees containing a fixed forest by the product of component sizes times a power of \(n\). Applied first to a marked geodesic and then to the geodesic with selected extra endpoint edges, it gives every subset-inclusion probability of off-path neighbors. The resulting probability generating function factors exactly into a binomial and a Bernoulli term.
+PASS
 
-The stochastic regression follows from an explicit coupling that removes one Bernoulli trial and lowers a second Bernoulli success probability whenever the conditioned distance increases by one. The covariance inequalities and asymptotics then follow analytically.
+For a fixed ordered path of length \(k\) between the two marked vertices, Moon's forest-extension formula gives exactly \((k+1)n^{n-k-2}\) labeled trees containing that path; multiplying by the \((n-2)_{k-1}\) ordered intermediate lists yields the claimed distance law. Conditional on the path, requiring any fixed \(r\)-set of outside vertices to be additional neighbors of the endpoint enlarges the path component from \(k+1\) to \(k+1+r\), so the inclusion probability is \((k+1+r)/(k+1)n^{-r}\). Subset expansion of the degree probability generating function then factors exactly into a \(\operatorname{Bin}(n-k-2,1/n)\) term and an independent \(\operatorname{Bernoulli}(1/(k+1))\) term. Coupling deletes one Bernoulli trial and lowers the extra Bernoulli parameter as \(k\) increases, proving strict stochastic regression, including the terminal path case. Averaging the conditional mean against the Prüfer-code degree law gives \(E[1/(D+1)]=E[D]/n\), from which the covariance identity follows algebraically. The product representation of the distance law gives the Rayleigh scaling and uniform integrability of the first two scaled moments, yielding covariance limit \(-1\) and the stated correlation asymptotic. The verifier exhaustively enumerates Prüfer codes through \(n=8\) and checks stochastic tails through \(n=80\); these checks are supplementary to the exact counting proof.
 
-## Originality
+## originality
 
-PASS, with a residual classical-enumeration risk. Pitman's full paper was inspected at the unrooted forest-extension lemma. It supplies the counting engine but does not state the marked degree-distance conditional law.
+PASS
 
-Aldous's random-tree paper explicitly lists degree distribution and diameter as studied observables. Berzunza Ojeda--Janson's full open article treats distance profiles and root-degree conditioning in a general simply generated-tree framework. Neither inspected source states the binomial-plus-Bernoulli conditional law, strict stochastic regression, or covariance limit.
+Pitman records Moon's classical extension formula: an unrooted forest with component sizes \(n_1,\ldots,n_k\) lies in exactly \((\prod_i n_i)n^{k-2}\) labeled trees. That is the counting engine, but it does not state the endpoint-degree law conditional on marked distance. Aldous and later random-tree work treat degree marginals, distances and distance profiles broadly; targeted searches did not locate the factorized conditional distribution, strict stochastic regression, or covariance identity. Current Resultary search for uniform Cayley-tree degree conditional on distance returned no same-object result among its leading findings. The audited theorem is therefore an exact bivariate refinement derived from a classical tool, not a claim of originality for the forest formula itself.
 
-Targeted semantic-database and web searches for conditional degree given distance, degree-distance covariance, stochastic monotonicity, and equivalent Cayley-tree formulations found no matching theorem.
+## value
 
-## Value
+PASS
 
-PASS. Degree and distance are two of the most basic local/global observables of a random tree. The result gives a complete finite conditional distribution rather than a single moment, and upgrades the intuitive statement that farther marked vertices favor smaller endpoint degree to exact first-order stochastic regression.
+Degree and marked-vertex distance are two of the most basic statistics of a uniform Cayley tree. The exact conditional distribution is stronger than a covariance calculation: it gives strict stochastic regression for every finite \(n\), all monotone covariance inequalities, and transparent asymptotics. This is a natural structural joint law derived from a classical forest formula and is likely useful whenever local branching is conditioned on geodesic separation.
 
-The asymptotic \(\operatorname{Cov}(D,\Delta)\to-1\) together with vanishing correlation quantifies a useful scale-separation phenomenon: dependence remains order one even though distance fluctuations grow like \(\sqrt n\).
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK trees_enumerated=280392 distance_mass_checks=28 conditional_probability_checks=84 mean_checks=28 stochastic_tail_checks=85241 covariance_checks=7`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

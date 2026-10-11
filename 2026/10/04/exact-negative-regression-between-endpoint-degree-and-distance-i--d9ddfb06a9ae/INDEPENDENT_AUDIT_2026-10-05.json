@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:11:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob fbcc77603fd5a508d903e047cc6277e5e26ab8d1",
+        "assigned verify_cayley_degree_distance.py blob 3b8879e2a1a6867188f741377902e8f955a1a096",
+        "Pitman, Coalescent Random Forests, Lemma 3 (Moon) full primary PDF page containing the forest-extension formula"
+      ],
+      "rationale": "For a fixed ordered path of length \\(k\\) between the two marked vertices, Moon's forest-extension formula gives exactly \\((k+1)n^{n-k-2}\\) labeled trees containing that path; multiplying by the \\((n-2)_{k-1}\\) ordered intermediate lists yields the claimed distance law. Conditional on the path, requiring any fixed \\(r\\)-set of outside vertices to be additional neighbors of the endpoint enlarges the path component from \\(k+1\\) to \\(k+1+r\\), so the inclusion probability is \\((k+1+r)/(k+1)n^{-r}\\). Subset expansion of the degree probability generating function then factors exactly into a \\(\\operatorname{Bin}(n-k-2,1/n)\\) term and an independent \\(\\operatorname{Bernoulli}(1/(k+1))\\) term. Coupling deletes one Bernoulli trial and lowers the extra Bernoulli parameter as \\(k\\) increases, proving strict stochastic regression, including the terminal path case. Averaging the conditional mean against the Prüfer-code degree law gives \\(E[1/(D+1)]=E[D]/n\\), from which the covariance identity follows algebraically. The product representation of the distance law gives the Rayleigh scaling and uniform integrability of the first two scaled moments, yielding covariance limit \\(-1\\) and the stated correlation asymptotic. The verifier exhaustively enumerates Prüfer codes through \\(n=8\\) and checks stochastic tails through \\(n=80\\); these checks are supplementary to the exact counting proof.",
+      "residual_risks": [
+        "The result is specific to uniform labeled Cayley trees and fixed marked vertices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman supplies the exact forest containment count used in the proof.",
+          "Aldous studies uniform labeled trees and classical marginals by random-walk methods.",
+          "Berzunza Ojeda--Janson study distance profiles and root-degree conditioning asymptotically in broader simply generated trees.",
+          "None of the inspected statements gives the finite Cayley-tree endpoint-degree law conditioned on the distance to a fixed second vertex."
+        ],
+        "reasoning": "The broad random-tree literature provides ingredients and asymptotic context but not the exact bivariate theorem located here.",
+        "searches": [
+          "Pitman, Coalescent Random Forests",
+          "Aldous, The Random Walk Construction of Uniform Spanning Trees and Uniform Labelled Trees",
+          "Berzunza Ojeda--Janson, The distance profile of rooted and unrooted simply generated trees"
+        ]
+      },
+      "checked_sources": [
+        "Pitman 1999 / Berkeley Technical Report 457",
+        "DOI 10.1137/0403039",
+        "DOI 10.1017/S0963548321000304",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forest formula must be applied a second time to every subset of potential endpoint neighbors and then resummed to obtain the factorization.",
+          "The marginal Prüfer degree law alone contains no information about regression on distance.",
+          "The Rayleigh distance limit plus the exact covariance identity yields the asymptotic correlation, but the covariance identity itself is new content."
+        ],
+        "reasoning": "The final stochastic-regression theorem is not mechanically present in the cited classical ingredients.",
+        "searches": [
+          "Moon/Pitman forest-extension formula versus the conditional PGF",
+          "Prüfer degree law versus degree-distance covariance",
+          "Rayleigh distance limit versus correlation asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conditional-degree statement is equivalent to a bivariate law for one endpoint degree and the marked-pair distance.",
+          "No inspected source states the PGF factorization or stochastic ordering in that form."
+        ],
+        "reasoning": "Conditional degree, bivariate degree-distance generating functions and stochastic-regression aliases were searched.",
+        "searches": [
+          "Resultary query: uniform Cayley tree degree conditional distance stochastic regression",
+          "web searches for uniform labelled tree endpoint degree conditional distance and degree-distance covariance",
+          "Pitman 1999 Lemma 3 / Moon forest-extension formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-result table or formula was retrieved.",
+          "The package verifier independently reproduces the complete finite joint law through order eight."
+        ],
+        "reasoning": "Finite enumeration is supporting evidence only; originality is assessed by literature comparison rather than table absence.",
+        "searches": [
+          "Resultary current semantic search for the conditional Cayley-tree degree-distance law",
+          "targeted current web search for exact degree-distance covariance and conditional endpoint degree"
+        ]
+      },
+      "rationale": "Pitman records Moon's classical extension formula: an unrooted forest with component sizes \\(n_1,\\ldots,n_k\\) lies in exactly \\((\\prod_i n_i)n^{k-2}\\) labeled trees. That is the counting engine, but it does not state the endpoint-degree law conditional on marked distance. Aldous and later random-tree work treat degree marginals, distances and distance profiles broadly; targeted searches did not locate the factorized conditional distribution, strict stochastic regression, or covariance identity. Current Resultary search for uniform Cayley-tree degree conditional on distance returned no same-object result among its leading findings. The audited theorem is therefore an exact bivariate refinement derived from a classical tool, not a claim of originality for the forest formula itself.",
+      "residual_risks": [
+        "Older enumerative tree literature may encode the same bivariate law in a generating function not indexed by conditional-degree terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL_COUNTING_ENGINE_ONLY",
+          "evidence": "Lemma 3 states that a forest with component sizes \\(n_i\\) is contained in \\((\\prod_i n_i)n^{k-2}\\) labeled trees; it does not state the audited conditional degree law.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~pitman/457.pdf",
+          "material_read": "primary PDF text around Section 2.2 and Lemma 3 was read, and the page containing Moon's formula was inspected visually",
+          "method": "primary full-text targeted PDF inspection with page verification",
+          "title": "Coalescent Random Forests",
+          "trigger": "primary modern source for the forest-extension formula used in every finite count"
+        },
+        {
+          "assessment": "MARGINAL_CONTEXT",
+          "evidence": "The inspected scope covers classical tree properties but does not provide the audited finite bivariate law.",
+          "identifier_or_url": "DOI 10.1137/0403039",
+          "material_read": "primary bibliographic/abstract scope on uniform labeled trees, degree distribution and global distances",
+          "method": "primary-source scope comparison",
+          "title": "The Random Walk Construction of Uniform Spanning Trees and Uniform Labelled Trees",
+          "trigger": "classical broad source on uniform labeled tree structure"
+        },
+        {
+          "assessment": "ASYMPTOTIC_PROFILE_CONTEXT",
+          "evidence": "The source addresses profile limits for broader simply generated trees, not the exact finite endpoint-degree law claimed here.",
+          "identifier_or_url": "DOI 10.1017/S0963548321000304",
+          "material_read": "open primary text/theorem scope for distance profiles and root-degree conditioning",
+          "method": "primary-source theorem-scope comparison",
+          "title": "The distance profile of rooted and unrooted simply generated trees",
+          "trigger": "modern plausible source on distance profiles and degree conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pitman/Moon forest enumeration",
+        "Aldous random labeled tree context",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Degree and marked-vertex distance are two of the most basic statistics of a uniform Cayley tree. The exact conditional distribution is stronger than a covariance calculation: it gives strict stochastic regression for every finite \\(n\\), all monotone covariance inequalities, and transparent asymptotics. This is a natural structural joint law derived from a classical forest formula and is likely useful whenever local branching is conditioned on geodesic separation.",
+      "residual_risks": [
+        "The proof is specialized to the exact uniform Cayley weighting and does not automatically transfer to conditioned Galton--Watson models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is specific to uniform labeled Cayley trees and fixed marked vertices.",
+    "Older enumerative tree literature may encode the same bivariate law in a generating function not indexed by conditional-degree terminology.",
+    "The proof is specialized to the exact uniform Cayley weighting and does not automatically transfer to conditioned Galton--Watson models."
+  ]
+}
