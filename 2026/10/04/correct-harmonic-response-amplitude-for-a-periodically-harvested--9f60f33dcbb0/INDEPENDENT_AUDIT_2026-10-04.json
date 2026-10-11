@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:52.368764Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 48308636d6cdd3b60ff4951d3254b298435906be",
+        "verify.py blob ee10ef3d49180284c25a0fd305bb1922f486c4ff",
+        "primary PDF DOI:10.3934/math.2024430",
+        "independent harmonic-coefficient replay"
+      ],
+      "rationale": "On the stable branch the first-order equation tends to \\(n_1^{\\prime}+\\phi n_1=-\u0007lpha c_3\\sin(\\omega t)\\). Independent coefficient matching gives \\(A=\u0007lpha c_3\\omega/(\\phi^2+\\omega^2)\\) and \\(B=-\u0007lpha c_3\\phi/(\\phi^2+\\omega^2)\\); both cosine and sine residuals simplify exactly to zero. For \\(\\sigma=5,\u0007lpha=0.3,\\omega=1\\), independent recomputation gives \\(\\phi^2+1=9.39473319220205\\), matching the claimed correction factor. The primary PDF visually confirms the source inconsistency.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source restricts the displayed sinusoidal specialization to unit frequency but supplies the first-order equation from which the general fixed-frequency transfer law follows.",
+          "The checked searches did not reveal a stronger source-specific correction."
+        ],
+        "reasoning": "General forced-linear-response theory is background, but it does not by itself document this source-specific inconsistency or its magnitude for the published parameters.",
+        "searches": [
+          "Complete primary PDF around the first-order perturbation equation and Section 6",
+          "Related-model searches for periodic/slow harvesting and harmonic response"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2024430 (Alharbi, complete open primary PDF)",
+        "Resultary semantic search: periodically harvested Allee population model missing harmonic denominator phi squared plus one correction Alharbi 2024",
+        "Exact-title/DOI searches with erratum, correction, Eq. (6.1), and Eq. (6.4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The printed Eq. (6.1) already determines the required unit-frequency denominator, but the source then drops it in Eq. (6.4).",
+          "Independent coefficient matching gives amplitude \\(\u0007lpha c_3/\\sqrt{\\phi^2+\\omega^2}\\) and reproduces a factor \\(\\phi^2+1\u0007pprox9.3947331922\\) at the paper parameters."
+        ],
+        "reasoning": "The mathematical transfer function is elementary, but the claim is not presented as a new general ODE theorem. The surviving originality is the documented source correction and its explicit quantitative consequence for the formula used downstream.",
+        "searches": [
+          "Take the large-time limit of the printed Eq. (6.1)",
+          "Solve the limiting first-order ODE at arbitrary positive frequency"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The open PDF shows the denominator in Eq. (6.1) and its omission in the large-time line and Eq. (6.4).",
+          "No exact correction surfaced in the targeted searches or the inspected Resultary top results."
+        ],
+        "reasoning": "An equivalent prior statement would identify the missing harmonic transfer denominator or explicitly correct Eq. (6.4). The checked literature did not do so.",
+        "searches": [
+          "Exact title and DOI with “erratum”, “correction”, “Eq. (6.4)”, and “phi^2+1”",
+          "Resultary semantic query in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database or published correction entry containing the missing denominator was retrieved."
+        ],
+        "reasoning": "The relevant exact evidence is equation-level rather than a database table; no prior correction record was found.",
+        "searches": [
+          "Resultary semantic query in checked_sources",
+          "Exact-title and DOI correction searches"
+        ]
+      },
+      "rationale": "The source itself contains the ingredients of the corrected denominator but states an inconsistent large-time formula: Eq. (6.1) visibly carries \\((\\phi^2+1)^{-1}\\), whereas the following limit and Eq. (6.4) omit it. No indexed correction or same equation-level diagnosis was found. The general fixed-frequency response is a direct but useful extension of the corrected limiting linear equation.",
+      "residual_risks": [
+        "An informal or unindexed author correction may already note the missing divisor.",
+        "The theorem is first-order in the perturbation parameter and does not provide a uniform finite-perturbation error bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INTERNAL_DENOMINATOR_INCONSISTENCY",
+          "evidence": "Eq. (6.1) contains \\((\\phi^2+1)^{-1}\\); the displayed large-time limit and Eq. (6.4) omit it, and Figure 5 is said to use Eq. (6.4).",
+          "identifier_or_url": "DOI:10.3934/math.2024430",
+          "material_read": "Complete open PDF, including the perturbation setup and the page containing Eqs. (6.1)–(6.5), plus the Figure 5 statement that Eq. (6.4) was used.",
+          "method": "lawful open-access full PDF with rendered-page inspection",
+          "title": "Harvesting a population model with Allee effect in a periodically varying environment",
+          "trigger": "Exact primary source and strongest coverage risk."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Alharbi 2024 primary PDF",
+        "independent transfer-function replay"
+      ],
+      "rationale": "The missing divisor changes the first-order seasonal amplitude by roughly a factor of 9.39 in the paper’s displayed example, and the paper states that Eq. (6.4) was used for Figure 5. Correcting a quantitatively large error in a published response formula and exposing its general frequency dependence is materially useful.",
+      "residual_risks": [
+        "The result does not by itself recompute the published figures from raw source code."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An informal or unindexed author correction may already note the missing divisor.",
+    "The theorem is first-order in the perturbation parameter and does not provide a uniform finite-perturbation error bound."
+  ],
+  "schema_version": 1
+}
