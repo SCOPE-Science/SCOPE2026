@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-The proof was checked at four levels.
+# Independent mathematical audit
 
-1. **Adjacency reduction.** \(Ra+Rb=R\) is equivalent to no maximal ideal containing both \(a\) and \(b\).
-2. **Forcing vertices.** Chinese-remainder representatives with support at one maximal quotient force every total dominating set to meet the corresponding exclusive cell \(T_i\).
-3. **Sufficiency.** One chosen vertex from each \(T_i\) is a clique and dominates every vertex outside \(J(R)\), giving the exact lower/upper match.
-4. **Paired parity and polynomial.** Perfect matchings in the clique give the even case; one CRT-constructed extra vertex gives the odd case. The polynomial follows because every total dominating set is exactly an arbitrary superset meeting all \(T_i\).
+## correctness
 
-The standalone finite checker reports:
+PASS
 
-```text
-VERIFY_OK
-support_graph_exact_n=2..5
-structural_checks_n=2..9
-Z30_total_domination_classification=exact
-```
+CRT gives a vertex u_i whose neighborhood is exactly the exclusive cell T_i, forcing every total set to meet each T_i. Conversely one chosen vertex per T_i forms a clique and dominates every vertex outside the Jacobson radical. Parity plus this clique gives the paired minimum, with an extra CRT vertex in the odd case. The polynomial is the direct generating function of the all-set classification. Fresh support-union enumeration reproduces the minima through n=5.
 
-The exhaustive calculation is only a stress test. The general theorem rests on the symbolic maximal-ideal and Chinese-remainder arguments.
+## originality
+
+PASS
+
+The 2015 primary paper on exactly this reduced comaximal graph constructs a size-n clique and notes it is total dominating, but gives no lower bound for total domination and no all-set classification, paired parameter, or total-domination polynomial. The 2024 Boolean-blow-up paper gives compatible Artinian structure but studies other invariants. The submitted CRT forcing-cell argument supplies the missing lower bound and works for all semilocal rings.
+
+## value
+
+PASS
+
+This closes the exact-minimum gap left by the known total-dominating construction and strengthens it to every total set, a full polynomial for finite graphs, a paired formula, and semilocal rather than merely Artinian scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
