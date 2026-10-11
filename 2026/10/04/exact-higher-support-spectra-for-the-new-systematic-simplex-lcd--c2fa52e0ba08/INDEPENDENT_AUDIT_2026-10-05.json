@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:23:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 284d89c3c1848ad10d4eea9045c3e890d6f89db6",
+        "assigned verify.py blob d27f61c40c8a3a201908258e9e3900a4b9395762",
+        "assigned certificate.json blob e884bf9b30b547b1e6f67132bce5a24ccfeb5f68",
+        "Mondal--Lee full open source"
+      ],
+      "rationale": "For an \\(r\\)-dimensional message subspace \\(U\\), a nonzero simplex-block column vanishes on the whole subcode exactly when it lies in \\(U^\\perp\\). Thus that block has fixed support \\(q^m-q^{m-r}\\). The systematic block contributes exactly the ordinary coordinate support size \\(s(U)\\ge r\\), with equality on coordinate \\(r\\)-spaces, proving the hierarchy. For a fixed coordinate set of size \\(s\\), inclusion-exclusion over its coordinate hyperplanes counts the \\(r\\)-subspaces having full support there and gives the displayed Gaussian-binomial sum; summing over \\(s\\) recovers the total Gaussian binomial \\({m\\brack r}_q\\). The inspected verifier independently enumerates reduced-row-echelon subspaces for \\((q,m)=(2,3),(2,4),(3,2),(3,3)\\) and agrees with the certificate; the proof itself is exact for all parameters.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical simplex theory gives the fixed term \\(q^m-q^{m-r}\\).",
+          "The appended identity block changes the hierarchy and introduces a coordinate-support distribution not determined by the simplex hierarchy alone."
+        ],
+        "reasoning": "No inspected broader theorem directly provides the exact support multiplicities for these identity-augmented families.",
+        "searches": [
+          "classical generalized weights of simplex codes",
+          "finite-space/extended weight-enumerator literature",
+          "Mondal--Lee systematic LCD families"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00200-026-00756-3",
+        "Wei, IEEE TIT 37 (1991), generalized Hamming weights",
+        "Jurrius, Designs Codes Cryptography 63 (2012)",
+        "Resultary systematic-simplex higher-support query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The non-systematic block contributes exactly \\(q^m-q^{m-r}\\) for every \\(r\\)-subcode.",
+          "Inclusion-exclusion over coordinate hyperplanes is then required to count all possible systematic-support sizes."
+        ],
+        "reasoning": "The full hierarchy and complete support spectrum are not implied by the ordinary weight distribution alone.",
+        "searches": [
+          "Mondal--Lee ordinary-weight theorems versus the audited orthogonal-complement and coordinate-hyperplane count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.1(i) gives the binary generator \\([I_m:G]\\), its ordinary weight distribution and LCD optimality.",
+          "Theorem 3.7 gives the ternary generator \\([I_m:G]\\), length \\(m+3^m-1\\), ordinary weight distribution and LCD optimality.",
+          "No occurrence of 'generalized Hamming' was found in the full open source article."
+        ],
+        "reasoning": "Every \\(r\\)-dimensional subcode corresponds uniquely to an \\(r\\)-dimensional message subspace \\(U\\), and its support splits into a fixed simplex-block term plus the coordinate support of \\(U\\).",
+        "searches": [
+          "Mondal--Lee, DOI:10.1007/s00200-026-00756-3, Theorems 3.1(i) and 3.7",
+          "Wei 1991 generalized Hamming weights",
+          "Jurrius 2012 weight enumeration from finite spaces",
+          "Resultary query: Mondal Lee systematic simplex LCD generalized Hamming weights higher support spectra identity block"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact support-spectrum table or theorem for these two 2026 LCD families was located."
+        ],
+        "reasoning": "The source's ordinary weight tables are not a database for higher-dimensional subcode supports.",
+        "searches": [
+          "Resultary published-finding corpus for systematic/augmented simplex higher weights",
+          "targeted searches for the exact formula \\(q^m-q^{m-r}+r\\)"
+        ]
+      },
+      "rationale": "Mondal--Lee's full open article defines exactly the two identity-augmented simplex families and determines ordinary weight distributions and LCD optimality. Full-text search found no generalized-Hamming-weight discussion. Classical simplex higher weights determine the fixed non-systematic contribution, but not the coordinate-support contribution or its full multiplicity spectrum after adjoining \\(I_m\\).",
+      "residual_risks": [
+        "An equivalent identity-augmented simplex support spectrum may occur in extended-weight-enumerator literature under a different code name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORDINARY_WEIGHT_DISTRIBUTIONS_AND_LCD_OPTIMALITY_PRIOR_HIGHER_SUPPORTS_NOT_STATED",
+          "evidence": "The source explicitly gives \\([I_m:G]\\) families and ordinary weights; no generalized-Hamming-weight occurrence was found.",
+          "identifier_or_url": "DOI:10.1007/s00200-026-00756-3",
+          "material_read": "Full open Springer HTML around Theorems 3.1(i), 3.7, examples, proofs, conclusion, and full-text search for generalized-Hamming terminology.",
+          "method": "Primary full-text theorem and implication comparison.",
+          "title": "Infinite families of LCD codes and their weight distributions",
+          "trigger": "Primary same-family source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mondal--Lee 2026",
+        "Wei 1991",
+        "Jurrius 2012",
+        "Resultary search"
+      ],
+      "rationale": "Generalized weights and complete subcode-support spectra are standard structural invariants of a code family. For these newly introduced optimal LCD families, the result determines the full hierarchy and every support multiplicity rather than merely recomputing the minimum distance, providing a natural exact classification useful for higher-support applications.",
+      "residual_risks": [
+        "An equivalent identity-augmented simplex support spectrum may occur in extended-weight-enumerator literature under a different code name."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1007/s00200-026-00756-3",
+    "Wei, IEEE TIT 37 (1991), generalized Hamming weights",
+    "Jurrius, Designs Codes Cryptography 63 (2012)",
+    "Resultary systematic-simplex higher-support query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the binary and ternary LCD-optimal families generated by \\([I_m\\mid S_q(m)]\\), with \\(S_q(m)\\) containing every nonzero vector of \\(\\mathbb F_q^m\\), one has \\(d_r=q^m-q^{m-r}+r\\); moreover the number of \\(r\\)-subcodes with support \\(q^m-q^{m-r}+s\\) is \\(\\binom ms\\sum_{j=0}^s(-1)^j\\binom sj {s-j\\brack r}_q\\), and no other support sizes occur.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent identity-augmented simplex support spectrum may occur in extended-weight-enumerator literature under a different code name."
+  ]
+}
