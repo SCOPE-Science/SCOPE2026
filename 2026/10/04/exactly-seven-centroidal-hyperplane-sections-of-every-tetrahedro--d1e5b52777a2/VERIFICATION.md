@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,36 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact algebraic bottleneck is the \(2+2\) coefficient-sign case. With
-\[
-\alpha=\frac{1+u}{2},\quad
-\beta=\frac{1-u}{2},\quad
-\gamma=\frac{1-v}{2},\quad
-\delta=\frac{1+v}{2},
-\]
-where \(0\le u,v<1\), the projected section quadrilateral has vertices
-\[
-(0,0),\quad
-\left(\frac{1+v}{2+u+v},0\right),\quad
-\left(\frac{1-v}{2+u-v},\frac{1+u}{2+u-v}\right),\quad
-\left(0,\frac{1-u}{2-u-v}\right).
-\]
-The packaged `verify.py` computes its area centroid exactly and clears the denominators in the equations requiring both displayed coordinates to equal \(1/4\). It reconstructs the two polynomials used in the proof and then evaluates their exact symbolic resultant with respect to \(v\):
-\[
-16384u^3(u-1)^6(u+1)^9(3u^2-4).
-\]
-It verifies separately that
-\[
-P(0,v)=v^2(3v^2-4).
-\]
-Thus the admissible common zero is exactly \((u,v)=(0,0)\).
+## correctness
 
-The checker also verifies the scalar equation in the \(1+3\) case and the combinatorial count of four singleton-versus-triple partitions plus three pair-versus-pair partitions.
+PASS
 
-The replay output is:
+Affine invariance reduces to barycentric coordinates. A plane through the tetrahedron centroid has coefficient sum zero, so the exhaustive sign types are \(1+3\), \(2+2\), and boundary cases with zero coefficients. In the triangular \(1+3\) case, centroid coordinate \(1/4\) forces all three opposite coefficient magnitudes equal, yielding a facet-parallel plane. In the \(2+2\) case, the exact quadrilateral centroid equations reduce to polynomials \(P,Q\); a fresh independent SymPy reconstruction gives resultant \(16384u^3(u-1)^6(u+1)^9(3u^2-4)\), so the admissible common zero is \(u=0\), and then \(P(0,v)=v^2(3v^2-4)\) forces \(v=0\). Boundary sign cases cannot have all barycentric centroid coordinates equal to one quarter. Thus exactly four singleton/triple and three pair/pair partitions remain.
 
-`VERIFY_OK tetrahedron seven centroidal sections`
+## originality
 
-The checker uses exact symbolic arithmetic. It is not an exhaustive numerical search, and no finite sampling is used to justify the universal quantifier over planes.
+PASS
+
+The full open 2020 barycentric-cuts paper was inspected and discusses general existence plus a triangular bipyramid example, with no tetrahedron occurrence. The 2024 paper and the 2026 complete solution concern the minimum number over all convex bodies, which does not determine the object-level count for a tetrahedron. Fresh Resultary searches returned no distinct tetrahedral seven-plane classification.
+
+## value
+
+PASS
+
+The tetrahedron is the canonical nonsymmetric three-dimensional simplex, and the result completely determines a natural centroid-section invariant and all equality directions. The seven vertex bipartitions give a rigid combinatorial structure useful as a benchmark for higher-dimensional questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

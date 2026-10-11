@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:02:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Affine invariance reduces to barycentric coordinates. A plane through the tetrahedron centroid has coefficient sum zero, so the exhaustive sign types are \\(1+3\\), \\(2+2\\), and boundary cases with zero coefficients. In the triangular \\(1+3\\) case, centroid coordinate \\(1/4\\) forces all three opposite coefficient magnitudes equal, yielding a facet-parallel plane. In the \\(2+2\\) case, the exact quadrilateral centroid equations reduce to polynomials \\(P,Q\\); a fresh independent SymPy reconstruction gives resultant \\(16384u^3(u-1)^6(u+1)^9(3u^2-4)\\), so the admissible common zero is \\(u=0\\), and then \\(P(0,v)=v^2(3v^2-4)\\) forces \\(v=0\\). Boundary sign cases cannot have all barycentric centroid coordinates equal to one quarter. Thus exactly four singleton/triple and three pair/pair partitions remain.",
+      "risk": "The result is three-dimensional only; the exact algebraic bottleneck is the quadrilateral-centroid elimination, independently reproduced here.",
+      "sources": [
+        "Patáková-Tancer-Wagner, arXiv:2003.13536 / DOI:10.4230/LIPIcs.SoCG.2020.62",
+        "Myroshnychenko-Tatarko-Yaskin, arXiv:2404.15188",
+        "Ge-Yang, arXiv:2606.19865",
+        "fresh exact resultant reconstruction in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 paper gives general lower bounds and other examples.",
+          "Later work settles the minimum over the class of all convex bodies, not \\(\\mu(T)\\) for tetrahedra."
+        ],
+        "reasoning": "Class-level minima neither upper-bound nor determine the count for a fixed body.",
+        "searches": [
+          "Barycentric Cuts Through a Convex Body",
+          "Answers to questions of Grünbaum and Loewner",
+          "A complete solution to questions of Grünbaum and Loewner"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.13536",
+        "arXiv:2404.15188",
+        "arXiv:2606.19865",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "None of the inspected theorems states or implies a complete tetrahedron classification.",
+          "The accepted result requires a dedicated affine sign-pattern and centroid calculation."
+        ],
+        "reasoning": "The object-specific exact seven count is additional mathematical content.",
+        "searches": [
+          "arXiv:2003.13536",
+          "arXiv:2404.15188",
+          "arXiv:2606.19865"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full 2020 text has no tetrahedron occurrence and analyzes different three-dimensional bodies.",
+          "Global minimum results do not classify all centroidal sections of a fixed tetrahedron."
+        ],
+        "reasoning": "Barycentric hyperplane, centroidal section, critical section and simplex terminology were compared.",
+        "searches": [
+          "Resultary: tetrahedron centroid hyperplane section centroid exactly seven barycentric planes",
+          "arXiv:2003.13536 full HTML",
+          "arXiv:2404.15188",
+          "arXiv:2606.19865"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate indexed exact value or classification was located."
+        ],
+        "reasoning": "The novelty conclusion relies on implication comparison, not search failure alone.",
+        "searches": [
+          "Resultary exact seven-plane tetrahedron search",
+          "targeted simplex/barycentric hyperplane searches"
+        ]
+      },
+      "rationale": "The full open 2020 barycentric-cuts paper was inspected and discusses general existence plus a triangular bipyramid example, with no tetrahedron occurrence. The 2024 paper and the 2026 complete solution concern the minimum number over all convex bodies, which does not determine the object-level count for a tetrahedron. Fresh Resultary searches returned no distinct tetrahedral seven-plane classification.",
+      "residual_risks": [
+        "An equivalent elementary simplex theorem could exist in older unindexed geometry literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_AND_OTHER_3D_EXAMPLES_NOT_TETRAHEDRON",
+          "evidence": "The paper discusses a triangular bipyramid candidate and contains no tetrahedron occurrence.",
+          "identifier_or_url": "arXiv:2003.13536; DOI:10.4230/LIPIcs.SoCG.2020.62",
+          "material_read": "Full open arXiv HTML including definition, existence results and Section 5 three-dimensional examples; full-text search for tetrahedron.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Barycentric Cuts Through a Convex Body",
+          "trigger": "Closest earlier primary source for barycentric hyperplanes and explicit three-dimensional bodies."
+        },
+        {
+          "assessment": "GLOBAL_MINIMUM_NOT_OBJECT_SPECIFIC",
+          "evidence": "It constructs bodies with one centroidal section in dimensions at least five; this does not determine the tetrahedron count.",
+          "identifier_or_url": "arXiv:2404.15188",
+          "material_read": "Primary abstract/theorem scope and accessible source record.",
+          "method": "Lawful open-source inspection.",
+          "title": "Answers to questions of Grünbaum and Loewner",
+          "trigger": "Primary source for the modern centroid-section counting invariant."
+        },
+        {
+          "assessment": "GLOBAL_PROBLEM_NOT_FIXED_TETRAHEDRON",
+          "evidence": "The paper announces the complete global solution; no inspected statement supplies the tetrahedron seven-plane classification.",
+          "identifier_or_url": "arXiv:2606.19865",
+          "material_read": "Primary abstract and public source record.",
+          "method": "Lawful open-source inspection.",
+          "title": "A complete solution to questions of Grünbaum and Loewner",
+          "trigger": "Potential later dominating global result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The tetrahedron is the canonical nonsymmetric three-dimensional simplex, and the result completely determines a natural centroid-section invariant and all equality directions. The seven vertex bipartitions give a rigid combinatorial structure useful as a benchmark for higher-dimensional questions.",
+      "risk": "No higher-dimensional simplex extrapolation is claimed.",
+      "sources": [
+        "arXiv:2003.13536",
+        "arXiv:2404.15188"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every nondegenerate tetrahedron has exactly seven unoriented planes through its centroid whose planar-section centroid is the same point: in barycentric coordinates they are the four planes \\(\\lambda_i=1/4\\) and the three planes \\(\\lambda_i+\\lambda_j=1/2\\).",
+  "limitations": [
+    "Three-dimensional tetrahedra only.",
+    "No claim for arbitrary interior base points or higher-dimensional simplices."
+  ],
+  "schema_version": 1
+}
