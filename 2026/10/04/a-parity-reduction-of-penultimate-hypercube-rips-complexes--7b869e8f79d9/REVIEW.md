@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim follows from two elementary steps that were reconstructed independently: first, at scale \(n-2\) the Rips complex is the independence complex of the graph joining pairs at Hamming distance \(n-1\) or \(n\); second, that graph is a cubelike Cayley graph with connection set \(\{j,j+e_1,\ldots,j+e_n\}\). The displayed bases prove the even and odd Cayley-graph identifications. The finite verifier checks the induced vertex bijection and every adjacency for \(3\le n\le8\). The finite check is corroborative only; the proof is the all-\(n\) argument.
+## correctness
 
-## Originality
-**PASS, subject to the residual literature risk below.** The closest source paper, Adamaszek--Adams (arXiv:2103.01040), treats the hypercube Rips filtration and records unresolved larger-scale structure; Briggs--Feng--Wells (arXiv:2408.01288) studies facets at general scale. The folded-cube definition is standard in Mančinska--Pivotto--Roberson--Royle (arXiv:1808.02051). Targeted searches for combinations of “Vietoris--Rips”, “hypercube”, “folded cube”, “penultimate scale”, “near-antipodal”, and “independence complex”, together with searches for implication-equivalent descriptions, did not reveal the parity reduction stated here. A failed search is not a novelty theorem, so undiscovered prior occurrence remains a residual risk.
+PASS
 
-## Value
-**PASS.** For \(n\ge6\), the scale \(n-2\) belongs to the larger-scale range whose full topology is not covered by the small-scale classifications. The result replaces a metric clique-complex problem on \(2^n\) cube vertices by independence complexes of two standard graph families, exposing parity as the only distinction in the forbidden-pair graph. This is a reusable structural lemma: methods for independence complexes of folded cubes or graph products can now be applied directly to the penultimate Rips scale.
+At scale n-2, the forbidden differences are exactly the weight n-1 and n vectors, so the complex is the independence complex of Cay(F_2^n,{j,j+e_i}). For even n, {j+e_i} is a basis and maps j to the all-ones vector, giving FQ_{n+1}; for odd n, {j,j+e_1,...,j+e_{n-1}} is a basis and splits the generating set into one K2 direction plus the FQ_n directions. The actual verifier checks rank, generator images, bijectivity, and every adjacency for n=3,...,8, but the displayed basis argument proves all n.
 
-## Closest literature and limitations
-The 2021 source motivates the unresolved larger-scale problem; the 2024 facets paper demonstrates that arbitrary-scale structure remains nontrivial; the 2018 cubelike-graph paper fixes the folded-cube convention. The result does not solve the resulting independence complexes, and \(n=5\) is already within the scale-three literature. The originality assessment is therefore limited to the exact combinatorial reduction and its parity split.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The hypercube Rips literature determines small scales, the top scale n-1, homology lower bounds, and facet families, but the inspected sources do not identify the penultimate forbidden-pair graph with folded cubes by parity.
+
+## value
+
+PASS
+
+The penultimate scale is a natural extremal filtration stage, and identifying the entire complex with familiar graph independence complexes converts a high-scale Rips problem into a standard graph-topology object. This is useful structural information even without a complete homotopy computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

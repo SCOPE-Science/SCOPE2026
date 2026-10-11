@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:35:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 60dcf45877f88badaa09e8c0e7bf6c02e29be785",
+        "verify_folded_reduction.py blob 967c42cbc99fd1d586071c818090038113e9b5ed",
+        "Adamaszek--Adams arXiv:2103.01040",
+        "Briggs--Feng--Wells arXiv:2408.01288"
+      ],
+      "rationale": "At scale n-2, the forbidden differences are exactly the weight n-1 and n vectors, so the complex is the independence complex of Cay(F_2^n,{j,j+e_i}). For even n, {j+e_i} is a basis and maps j to the all-ones vector, giving FQ_{n+1}; for odd n, {j,j+e_1,...,j+e_{n-1}} is a basis and splits the generating set into one K2 direction plus the FQ_n directions. The actual verifier checks rank, generator images, bijectivity, and every adjacency for n=3,...,8, but the displayed basis argument proves all n.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later Rips papers give homology/facet information; Mančinska et al. define folded cubes in the same Cayley convention."
+        ],
+        "reasoning": "These broader results do not imply an isomorphism of the entire penultimate complex.",
+        "searches": [
+          "Adams--Virk arXiv:2309.06222",
+          "Briggs--Feng--Wells arXiv:2408.01288",
+          "Mančinska et al. arXiv:1808.02051"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2103.01040",
+        "arXiv:2309.06222",
+        "arXiv:2408.01288",
+        "arXiv:1808.02051",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier papers do not determine the forbidden Cayley graph at r=n-2."
+        ],
+        "reasoning": "The parity-dependent basis change is additional content and is not mechanically implied by the known homotopy results.",
+        "searches": [
+          "known r=2,3,n-1 Rips results versus r=n-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the assigned reduction as the exact match.",
+          "Adamaszek--Adams explicitly say many larger-scale cases remain open and their main exact results are at small scales."
+        ],
+        "reasoning": "No equivalent folded-cube parity identification was located.",
+        "searches": [
+          "Resultary: hypercube Vietoris Rips n-2 folded cube independence complex parity",
+          "Adamaszek--Adams arXiv:2103.01040"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact penultimate-scale parity table or theorem appeared."
+        ],
+        "reasoning": "This is an all-n structural identity, not a finite database lookup.",
+        "searches": [
+          "Resultary published corpus query above"
+        ]
+      },
+      "rationale": "The hypercube Rips literature determines small scales, the top scale n-1, homology lower bounds, and facet families, but the inspected sources do not identify the penultimate forbidden-pair graph with folded cubes by parity.",
+      "residual_risks": [
+        "A cubelike-graph folklore observation equivalent to the forbidden Cayley graph identification could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING.",
+          "evidence": "The exact results center on small scales; no folded-cube n-2 theorem is stated.",
+          "identifier_or_url": "arXiv:2103.01040",
+          "material_read": "Primary full-text/accessible paper material including the small-scale results and statement that many larger scales remain open.",
+          "method": "Primary-source inspection.",
+          "title": "On Vietoris--Rips complexes of hypercube graphs",
+          "trigger": "Foundational same-object paper."
+        },
+        {
+          "assessment": "NOT_COVERING.",
+          "evidence": "The paper studies facets and homology at general r but does not give the penultimate folded-cube reduction.",
+          "identifier_or_url": "arXiv:2408.01288",
+          "material_read": "Primary full-text material around its known-results survey, facet theorems, and later questions.",
+          "method": "Primary full-text inspection.",
+          "title": "Facets in the Vietoris--Rips complexes of hypercubes",
+          "trigger": "Most relevant later all-scale paper."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Adamaszek--Adams",
+        "Adams--Virk",
+        "Briggs--Feng--Wells"
+      ],
+      "rationale": "The penultimate scale is a natural extremal filtration stage, and identifying the entire complex with familiar graph independence complexes converts a high-scale Rips problem into a standard graph-topology object. This is useful structural information even without a complete homotopy computation.",
+      "residual_risks": [
+        "The resulting independence complexes still have unresolved topology in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every \\(n\\ge3\\), \\(\\mathrm{VR}(Q_n;n-2)\\) is combinatorially \\(\\mathrm{Ind}(FQ_{n+1})\\) when \\(n\\) is even and \\(\\mathrm{Ind}(K_2\\square FQ_n)\\) when \\(n\\) is odd.",
+  "limitations": [
+    "This is an exact combinatorial reduction, not a homotopy classification of the resulting independence complexes."
+  ],
+  "schema_version": 1
+}

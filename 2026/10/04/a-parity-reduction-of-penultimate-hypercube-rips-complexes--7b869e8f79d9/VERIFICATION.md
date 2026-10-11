@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed at two levels.
+# Independent mathematical audit
 
-1. **Symbolic check.** For the forbidden-pair Cayley set \(S_n=\{j,j+e_1,\ldots,j+e_n\}\), the even-\(n\) basis \(\{j+e_i\}_{i=1}^n\) and the odd-\(n\) basis \(\{j,j+e_1,\ldots,j+e_{n-1}\}\) were checked directly. Their transformed connection sets are respectively the folded-cube generators and one independent \(K_2\) generator plus the folded-cube generators.
+## correctness
 
-2. **Finite replay.** Running `python3 verify_folded_reduction.py` exhaustively checks all unordered vertex pairs for \(3\le n\le8\). It verifies basis rank, mapped connection sets, bijectivity, and equality between “Hamming distance at least \(n-1\)” and adjacency in the claimed target graph. The script terminates with `VERIFY_OK`.
+PASS
 
-The finite replay is not used to infer the theorem for larger \(n\); the all-\(n\) conclusion rests on the displayed algebraic proof. No independent audit has been performed.
+At scale n-2, the forbidden differences are exactly the weight n-1 and n vectors, so the complex is the independence complex of Cay(F_2^n,{j,j+e_i}). For even n, {j+e_i} is a basis and maps j to the all-ones vector, giving FQ_{n+1}; for odd n, {j,j+e_1,...,j+e_{n-1}} is a basis and splits the generating set into one K2 direction plus the FQ_n directions. The actual verifier checks rank, generator images, bijectivity, and every adjacency for n=3,...,8, but the displayed basis argument proves all n.
+
+## originality
+
+PASS
+
+The hypercube Rips literature determines small scales, the top scale n-1, homology lower bounds, and facet families, but the inspected sources do not identify the penultimate forbidden-pair graph with folded cubes by parity.
+
+## value
+
+PASS
+
+The penultimate scale is a natural extremal filtration stage, and identifying the entire complex with familiar graph independence complexes converts a high-scale Rips problem into a standard graph-topology object. This is useful structural information even without a complete homotopy computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
