@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof classifies every dissociation set from induced degrees and then applies exact binomial transfer identities.
+# Independent mathematical audit
 
-The included checker independently enumerates vertex subsets of complete multipartite graphs, computes induced degrees directly, and compares the observed coefficient vector with the formula. It also enumerates integer part partitions to test the coefficientwise extremizers.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-multipartite_types_bruteforced = 128
-vertex_subsets_checked = 64916
-coefficientwise_extremal_shapes_checked = 9270
-```
+The induced-degree classification is exhaustive: any selected set of size at least three meeting two parts gives a selected vertex at least two selected neighbors, while a subset contained in one part is independent. Counting gives coefficients 1, N, C(N,2), and for degree at least three the sum of C(n_i,k). Pascal transfer identities show that balancing decreases every such coefficient and concentrating increases it; the cubic coefficient changes strictly on every nontrivial transfer, giving uniqueness. Fresh exact arithmetic verified all 493 multipartite profiles through total order 14; this finite replay is corroborative only.
 
-The computation is finite corroboration only; the all-orders result follows from the proof.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. The closest primary dissociation-polynomial paper proves an occupancy extremal theorem only for cubic graphs. Its full PDF states the host restriction repeatedly, and full-text searches find no complete-multipartite or Turan statement. No Resultary or ordinary-literature search returned an implication-equivalent complete-multipartite formula or coefficientwise extremizer theorem.
+
+## value
+
+PASS
+
+This is a natural complete classification for a standard induced-degree constraint on a canonical graph family. It determines the entire polynomial and gives simultaneous, unique coefficientwise extremizers, which is stronger and more reusable than a dissociation-number calculation or one evaluation at z=1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

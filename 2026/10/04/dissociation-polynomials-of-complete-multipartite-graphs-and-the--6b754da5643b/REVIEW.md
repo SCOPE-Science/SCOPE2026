@@ -1,12 +1,21 @@
-# Review of Dissociation polynomials of complete multipartite graphs and their coefficientwise extremizers
+# Independent mathematical audit
 
-## Correctness
-PASS. The structural lemma is exhaustive: any three selected vertices meeting at least two parts force selected induced degree at least two. The polynomial then follows by exact counting. Pascal's identity gives the balancing and concentration transfers, and the cubic coefficient is strictly changed at each nontrivial transfer. The independent checker agrees on all tested graphs and part-size partitions.
+## correctness
 
-## Originality
-PASS. The inspected 2023 primary source defines the dissociation polynomial and proves a weighted extremal theorem for cubic graphs, not complete multipartite graphs. Targeted literature and database searches found no exact complete-multipartite formula or fixed-\((N,r)\) coefficientwise Turan/concentrated extremal theorem. Residual risk remains for differently phrased or unindexed results.
+PASS
 
-## Value
-PASS. The source literature studies dissociation polynomials as extremal counting objects. This result determines the entire size distribution on a canonical graph class and establishes unique simultaneous coefficientwise extremizers, substantially stronger than computing only the dissociation number or total count.
+The induced-degree classification is exhaustive: any selected set of size at least three meeting two parts gives a selected vertex at least two selected neighbors, while a subset contained in one part is independent. Counting gives coefficients 1, N, C(N,2), and for degree at least three the sum of C(n_i,k). Pascal transfer identities show that balancing decreases every such coefficient and concentrating increases it; the cubic coefficient changes strictly on every nontrivial transfer, giving uniqueness. Fresh exact arithmetic verified all 493 multipartite profiles through total order 14; this finite replay is corroborative only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. The closest primary dissociation-polynomial paper proves an occupancy extremal theorem only for cubic graphs. Its full PDF states the host restriction repeatedly, and full-text searches find no complete-multipartite or Turan statement. No Resultary or ordinary-literature search returned an implication-equivalent complete-multipartite formula or coefficientwise extremizer theorem.
+
+## value
+
+PASS
+
+This is a natural complete classification for a standard induced-degree constraint on a canonical graph family. It determines the entire polynomial and gives simultaneous, unique coefficientwise extremizers, which is stronger and more reusable than a dissociation-number calculation or one evaluation at z=1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
