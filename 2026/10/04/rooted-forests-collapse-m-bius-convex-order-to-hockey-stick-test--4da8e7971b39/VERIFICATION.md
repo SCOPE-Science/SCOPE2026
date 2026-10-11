@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof was checked symbolically from the incidence-algebra definitions. For a rooted forest, direct Möbius inversion reduces to the root identity \(Df(r)=f(r)\) and the unique-parent identity \(Df(v)=f(v)-f(p(v))\). Applying the same formula twice supplies the sign condition used in the convex-order implication.
+# Independent mathematical audit
 
-A direct matrix replay on several branching forests constructed the zeta and Möbius matrices and checked every indicator function. In each case the local derivative identity held and \(\lVert D^2\mathbf 1_A\rVert_\infty\le2\).
+## correctness
 
-For the three-element chain \(r<a<b\) with \(\mu=\delta_a\) and \(\nu=(\delta_r+\delta_b)/2\), the replay gives hockey-stick expectation differences \((0,0,\tfrac12)\), first-moment difference \(0\), second-moment difference \(1\), \(d_{\mathrm{TV}}=1\), and \(d_\zeta=\tfrac12\). This verifies sharpness.
+PASS
 
-Finite replay is not used as an infinite proof. The general result rests on the unique-parent Möbius formula and the hockey-stick representation. The proof does not cover posets containing merge points.
+For a rooted forest, Möbius inversion is local: Df(r)=f(r) and Df(v)=f(v)-f(p(v)). Thus Möbius convexity makes D^2f nonnegative at every nonroot. Hockey-stick domination supplies nonnegative gaps h_x; equal first moment and phi_1=sum over root Phi_r force all root gaps to zero, proving sufficiency, while testing Phi_x and plus/minus phi_1 proves necessity. For indicators, Df lies in {-1,0,1}, hence |D^2f|<=2 and TV<=2d_zeta. The three-chain witness attains equality.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with the access limitation retained. Accessible Jaramillo--Sigarreta material gives the chain characterization and a general finite-poset metric comparison, whereas the audited theorem extends the characterization to every branching rooted forest and sharpens total variation to the dimension-free constant two. Resultary found no matching rooted-forest theorem.
+
+## value
+
+PASS
+
+The theorem identifies the exact branching geometry where the new finite-poset convex-order characterization survives and replaces a size-dependent metric estimate by a sharp universal constant, with an equality witness. This is a motivated structural extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
