@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary integer n>=2 and k>=1, exact barycentric coordinates give a Euclidean separation of n*a/(n-1) for discrepancy a. All accessible grid heights 0,...,sum floor(k lambda_i) are realized exactly. Since the fractional-part sum is an integer at most n-1, every point has distance at most epsilon*min(1,(n-1)/k). For k<n, the centered top-facet point remains epsilon away from the entire average; for k>=n the explicitly constructed barycentric point has floor sum k-n+1 and every higher stratum is horizontally more than epsilon*(n-1)/k away under epsilon<1/(n-1)^2. The same-level witness attains equality. Schneider index n-1 follows from covering the top simplex by vertex-shifted copies at parameter s>=n-1 and overlapping height intervals. Exact-rational checker replayed the algebra and thirteen exhaustively enumerated instances. No finite experiment substitutes for the all-n,all-k proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "FMMZ 2018 Theorem 7.10: d(A^(k)) <= min(1,ceil(c(A))/k)d(A), and general c(A)<=n.",
+        "For this A, a direct top-face covering argument establishes c(A)=n-1.",
+        "Van Hintum Theorem 1.4: universal n-fold upper coefficient 1-(n-1)/(n(2n-1)), strictly weaker than 1-1/n."
+      ],
+      "reasoning": "FMMZ already implies the upper half of the resulting equality after c(A)=n-1 is established, but does not supply a matching lower bound or an all-k extremizer for this family. Van Hintum provides a different general upper bound and no evaluation for k>=n. The new lower witness survives both comparisons.",
+      "searches": [
+        "Schneider nonconvexity index exact equality Theorem 7.10 for compact set consisting of regular simplex facet and lifted vertices, Hausdorff distance Minkowski averaging",
+        "n-1 over k Hausdorff convexification upper lower bound simplex cap finite nonconvex sets",
+        "\"convexification effect of Minkowski summation\" \"d(A(n))\" \"n-1\"",
+        "\"Minkowski averages\" \"1-1/n\" \"Hausdorff\" convex hull"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.10815v1 (complete public text)",
+      "FMMZ 2018, especially Sections 7.2–7.4 (PDF text)",
+      "Schneider 1975 (index via secondary source)",
+      "Published research-record semantic search: raised simplex, Hausdorff convexification, index saturation",
+      "Published mathematical claims compared for matching objects and implications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Van Hintum Theorem 1.3: d(A^(k))=epsilon for 1<=k<=n-1.",
+        "Van Hintum Theorem 1.4: d(A^(n)) <= [1-(n-1)/(n(2n-1))]d(A) for all compact A.",
+        "FMMZ Theorem 7.10: the index-dependent upper bound already valid for all k.",
+        "New lower separation: for k>=n, x=(sum_i lambda_i v_i,epsilon) with lambda_1=[k-n+1+(n-1)/n]/k and lambda_i=(n-1)/(nk) has distance exactly (n-1)epsilon/k from A^(k)."
+      ],
+      "reasoning": "A prior upper inequality cannot imply equality without an extremizing lower construction. Previously established early-stage equality for k<=n-1 does not imply the value at any k>=n. The explicit all-order lower construction is logically necessary. This claims no improved universal upper coefficient.",
+      "searches": [
+        "Peter van Hintum sharp threshold Hausdorff convexification lifted simplex T union raised vertices exact d(A(n)) contraction factor (n-1)/n epsilon",
+        "exact Minkowski convexification distance d(A(k)) = epsilon min(1,(n-1)/k) for lifted simplex with raised vertices",
+        "\"Minkowski averages\" \"1-1/n\" \"Hausdorff\" convex hull",
+        "\"sharp threshold\" \"Hausdorff convexification\" \"optimal contraction\" 2026",
+        "\"sharp threshold\" \"Hausdorff convexification\" \"optimal contraction\" 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The initiating construction is T union n elevated simplex vertices; exact post-threshold distance equals epsilon times min(1,(n-1)/k).",
+        "Van Hintum, arXiv:2606.10815v1, §2 Theorem 1.3 only claims equality through k=n-1.",
+        "No inspected equivalent raised-simplex profile or Hausdorff-gap alias supplies equality for all k."
+      ],
+      "reasoning": "Minkowski averages, Shapley–Folkman convexification, distance to convex hull, prism-top witness, and elevated simplex vertices are aliases of the same object/problem. Existing source identifies the family but not the new all-order numerical equality. Search failure is treated as incomplete literature evidence, not novelty proof.",
+      "searches": [
+        "Peter van Hintum sharp threshold Hausdorff convexification lifted simplex T union raised vertices exact d(A(n)) contraction factor (n-1)/n epsilon",
+        "exact Minkowski convexification distance d(A(k)) = epsilon min(1,(n-1)/k) for lifted simplex with raised vertices",
+        "\"van Hintum\" \"1-1/n\" \"n-fold\" Minkowski average sharpness simplex 2026",
+        "\"lifted simplex\" \"Hausdorff convexification\" \"n\" distance 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical research-record searches returned related simplex and convexity studies but no exact raised-simplex averaged-distance table.",
+        "The examined 2018 survey contains an inequality, not a parameter table for the motivating 2026 family."
+      ],
+      "reasoning": "The new theorem specifies infinitely many exact integer orders rather than a finite known-table value. No inspected database or source supplied the whole function k -> d(A^(k)); indexing incompleteness remains a risk.",
+      "searches": [
+        "Peter van Hintum sharp threshold Hausdorff convexification lifted simplex T union raised vertices exact d(A(n)) contraction factor (n-1)/n epsilon",
+        "exact Minkowski convexification distance d(A(k)) = epsilon min(1,(n-1)/k) for lifted simplex with raised vertices",
+        "Schneider nonconvexity index exact equality Theorem 7.10 for compact set consisting of regular simplex facet and lifted vertices, Hausdorff distance Minkowski averaging",
+        "\"A(n)\" \"d(A)\" \"1-1/n\" simplex convexification"
+      ]
+    },
+    "rationale": "Source arXiv:2606.10815v1 explicitly has the same A_epsilon and already proves d(A(k))=epsilon for k<=n-1, but does not identify the exact post-threshold profile. FMMZ 2018 Theorem 7.10 supplies the general upper bound involving the Schneider index, not matching lower examples simultaneously for every k. The new bound establishes exact simultaneous saturation for one canonical family and the lower obstruction (n-1)/n to an improved universal first-contraction coefficient; neither is implied by the compared results without proving the new witness inequality.",
+    "residual_risks": [
+      "Equivalent detailed all-k computation could exist in unindexed earlier or later literature.",
+      "The FMMZ 2018 PDF page-image retrieval did not succeed; relevant indexed theorem text was inspected but not the entire 60-page document.",
+      "The 1975 foundational primary paper was not inspected in full; it is only used for the index definition.",
+      "The parameter range is sufficient rather than shown maximal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers source construction and early k<=n-1 profile but does not state full all-k equality or the matching all-k index-bound sharpness.",
+        "evidence": [
+          "Theorem 1.3 and proof at the source full text lines 153-448.",
+          "Theorem 1.4 and discussion at source lines 168-190 and 450-700."
+        ],
+        "identifier_or_url": "arXiv:2606.10815v1; https://www.researchgate.net/publication/406875078_The_sharp_threshold_for_Hausdorff_convexification_under_Minkowski_addition",
+        "material_read": "Complete accessible five-page public manuscript, introduction, Theorems 1.3 and 1.4, proofs and references; first submission dated 2026-06-09.",
+        "method": "Human-readable indexed full text of original preprint reproduced at public author-paper listing; checked source theorem statements and displayed proof algebra.",
+        "title": "The sharp threshold for Hausdorff convexification under Minkowski addition",
+        "trigger": "Same configuration and nearest possible statement."
+      },
+      {
+        "assessment": "Theorem 7.10 supplies the upper inequality exactly saturated by the proposed family; matching lower theorem is not stated in inspected material.",
+        "evidence": [
+          "Theorem 7.10 and proof, indexed PDF page 48 and following.",
+          "Corollary 7.8, indexed PDF page 47; discussed lack of full-document exclusion."
+        ],
+        "identifier_or_url": "https://people.clas.ufl.edu/amarsiglietti/files/FMMZ_Convexification_Effect.pdf",
+        "material_read": "Relevant Sections 7.2–7.4, including statements of Corollary 7.8 and Theorem 7.10 and neighboring monotonicity statements, via indexed PDF text.",
+        "method": "Inspected textual PDF page rendering and relevant theorem neighborhoods. Direct image retrieval was attempted but returned inaccessible; not claimed full-document exhaustive review.",
+        "title": "The convexification effect of Minkowski summation",
+        "trigger": "Potentially broader Hausdorff-gap inequalities, Schneider index, and exact sequence law."
+      },
+      {
+        "assessment": "Foundational notion, no claim that 1975 paper was read in full or excluded an exact future construction.",
+        "evidence": [
+          "Index c(A)=inf{s>=0:A+s conv(A) convex} used explicitly."
+        ],
+        "identifier_or_url": "R. Schneider, Pacific J. Math. 58 (1975), 617–625",
+        "material_read": "Definition and reference context as reproduced in FMMZ 2018, not original 1975 full text.",
+        "method": "Secondary citation and known definition only.",
+        "title": "A measure of convexity for compact sets",
+        "trigger": "Definition and foundation of Schneider nonconvexity index."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8d7ddad2-2ab3-4847-b0ad-61a3a5da8417",
+  "value": {
+    "rationale": "The exact all-order profile supplies the missing quantitative decrease at the first contracting stage of van Hintum’s canonical threshold example. It identifies one compact nonconvex family simultaneously saturating FMMZ’s structurally motivated Schneider-index inequality for every integer averaging order; this directly gives a lower obstruction (n-1)/n for any proposed universal n-fold contraction and shows the coefficient of the index bound cannot be improved in that regime. This solves a natural all-order invariant, not an arbitrary finite parameter recomputation. The universal upper conjecture and largest admissible height are not claimed.",
+    "status": "PASS"
+  }
+}

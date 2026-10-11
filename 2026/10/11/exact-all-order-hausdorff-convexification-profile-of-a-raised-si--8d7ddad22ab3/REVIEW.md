@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The quantified domain is every integer \(n\ge2\), every integer \(k\ge1\), and \(0<\varepsilon<1/(n-1)^2\), with Euclidean metric and normalized regular-simplex vertices. The nearest-point upper bound follows by exact barycentric rounding and all intermediate attainable height levels. Below \(k=n\), the centroid of the top facet is a sharp witness. At and above \(k=n\), a barycentric witness with precisely \(k-n+1\) available raised vertices forces the exact matching gap. The simplex coordinate-separation identity yields a strict inequality for every competing higher-height stratum. The top-face argument independently verifies \(c(A_\varepsilon)=n-1\). Exact rational computations test crucial finite instances, but the analytic argument supplies the infinite proof.
+
+## Originality — PASS (within inspected literature)
+Van Hintum (2026), Theorem 1.3, already proves equality for \(k\le n-1\) for a stricter height range and supplies the underlying set. Its Theorem 1.4 bounds the \(n\)th averaging step universally without evaluating this family's post-threshold gap. Fradelizi--Madiman--Marsiglietti--Zvavitch (2018), Theorem 7.10, supplies the general Schneider-index upper inequality; it is **not** the new upper inequality here. The new statement is the all-\(k\) matching lower construction and consequently the exact simultaneous saturation, not the pre-existing simplex or bound. Scientific records and aliases were searched without locating a matching all-order theorem. Equivalent unindexed or historical material remains a risk; the general universal coefficient is unresolved by this family.
+
+## Value — PASS
+The quantitative first post-threshold decrease was not determined by the motivating threshold theorem. Computing the exact full trajectory shows that the same geometric obstruction simultaneously saturates an established sharp-form index-dependent estimate at every averaging order. The coefficient \((n-1)/n\) supplies a concrete necessary lower bound for any improved universal first-contraction estimate and identifies why the exponent of the index cannot be lowered in that general estimate. The continuous base and discrete elevated vertices constitute a natural canonical extremal model, not an arbitrary numerical slice.
+
+## Boundaries and closest sources
+The interval in \(\varepsilon\) is only a sufficient range; norms other than Euclidean and optimal universal contractions are not settled. Primary comparisons: van Hintum arXiv:2606.10815v1, especially Theorems 1.3 and 1.4, proof and final open question; FMMZ (2018), Sections 7.2–7.4, especially Theorem 7.10; Schneider (1975) for the index's definition. The original 2026 paper was materially inspected in complete public text; relevant parts of the 2018 survey were inspected from indexed PDF text, while direct page-image retrieval did not succeed. This residual access limitation does not by itself establish novelty.
+
+Same-model review: passed. Independent audit: not yet performed.
