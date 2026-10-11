@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The source normalization and definitions of \(K^E\) and \(\rho_E\) were checked. Positive-series expansion plus sharp power-sum inequalities gives exact radial bounds and equality cases; support-function inclusion gives the claim.
+# Independent mathematical audit
 
-## Originality
-PASS. The primary source defines the anisotropic support norm and proves its role in decay but does not state these sharp Euclidean radii, equality directions, or anisotropy limits. Inspected broader Finsler and low-dimensional resolvent literature does not imply the claim; targeted formula and alias searches found no equivalent statement. Residual risk is an unindexed equivalent convex-body calculation.
+## correctness
 
-## Value
-PASS. These are the exact Euclidean inradius and circumradius of the optimal discrete Agmon body, identifying globally slowest and fastest decay directions and the energy-dependent anisotropy from \(1\) to \(\sqrt d\).
+PASS
 
-## Closest literature and limitations
-Kameoka is the direct source of the support norm; Klein–Rosenberger give a broader framework; Ito–Jensen analyze resolvents in low dimensions. The theorem does not claim eigenfunction realization of all extremal rates.
+Kameoka's primary PDF defines the same convex body through the sinh kinetic symbol and its support Finsler metric. At fixed Euclidean radius r, expanding q(xi)=2 sum(cosh xi_j-1) into positive even powers and applying the sharp power-sum bounds d^(1-m)r^(2m)<=sum_j xi_j^(2m)<=r^(2m) gives exact minimum and maximum q on the sphere. Inverting q=|E| gives the inner/outer Euclidean radii; support-function inclusions give the norm bounds, and strict equality cases of the power sums give the axis/diagonal classification. Independent numerical replay checked both boundary radii for d=2..7 and five energies.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest primary source introduces the exact body and proves anisotropic Agmon decay, but the inspected body-defining section does not give its best Euclidean inradius/circumradius, equality directions, or the energy-dependent ratio. Resultary and targeted formula/alias searches found no prior statement with these constants. The calculation is elementary once posed, but it is a natural sharp convex-geometric invariant rather than a mere renaming or normalization.
+
+## value
+
+PASS
+
+The best Euclidean constants are natural quantitative invariants of the optimal discrete Agmon norm. They identify the globally slowest and fastest directions and quantify the full energy-dependent anisotropy from the near-continuum regime to the deep-lattice regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

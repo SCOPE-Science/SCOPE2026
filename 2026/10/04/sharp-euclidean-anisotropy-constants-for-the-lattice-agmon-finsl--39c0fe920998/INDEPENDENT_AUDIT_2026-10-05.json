@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:57:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Kameoka, arXiv:2108.11078, primary PDF pp. 9–10 defining the sinh body K_x and support function.",
+        "RESULT.md blob 0e4382a01276286bbfd13df4599b00098e66af8a.",
+        "Independent boundary-radius replay during this audit."
+      ],
+      "rationale": "Kameoka's primary PDF defines the same convex body through the sinh kinetic symbol and its support Finsler metric. At fixed Euclidean radius r, expanding q(xi)=2 sum(cosh xi_j-1) into positive even powers and applying the sharp power-sum bounds d^(1-m)r^(2m)<=sum_j xi_j^(2m)<=r^(2m) gives exact minimum and maximum q on the sphere. Inverting q=|E| gives the inner/outer Euclidean radii; support-function inclusions give the norm bounds, and strict equality cases of the power sums give the axis/diagonal classification. Independent numerical replay checked both boundary radii for d=2..7 and five energies.",
+      "risks": [
+        "The result compares the constant-energy support norm to Euclidean distance; it does not assert that arbitrary potentials realize every extremal rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kameoka gives the same Finsler body/support construction.",
+          "The broader difference-operator Agmon framework and low-dimensional resolvent literature do not state the nearest-neighbor all-dimensional Euclidean extrema."
+        ],
+        "reasoning": "The broader sources control decay and Finsler geometry but do not dominate the exact sharp Euclidean comparison.",
+        "searches": [
+          "Kameoka arXiv:2108.11078",
+          "Klein–Rosenberger DOI:10.1007/s00023-008-0383-7",
+          "Ito–Jensen arXiv:2004.05866"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query above",
+        "arXiv:2108.11078",
+        "DOI:10.1007/s00023-008-0383-7",
+        "arXiv:2004.05866"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The body definition alone does not state which Euclidean directions maximize/minimize its radial function.",
+          "The submitted power-sum argument establishes the sharp radial optimization and equality cases."
+        ],
+        "reasoning": "No inspected stronger theorem already packages this exact norm comparison; the result requires a separate extremal calculation.",
+        "searches": [
+          "Kameoka primary PDF body definition and support metric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No returned published finding matched the lattice Agmon body or the stated constants.",
+          "Kameoka's abstract/primary body emphasizes optimal anisotropic decay without listing these Euclidean envelope constants."
+        ],
+        "reasoning": "Searches included Euclidean inradius/circumradius, best norm-equivalence constants, support-function extrema, and slowest/fastest lattice directions.",
+        "searches": [
+          "Resultary: sharp Euclidean anisotropy constants lattice Agmon Finsler norm K^E support norm arsinh",
+          "Web: rho_E 2 asinh discrete Schrödinger axis diagonal Agmon Finsler"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database row with these radii or equality directions was found."
+        ],
+        "reasoning": "This is a symbolic all-dimension formula, not a table recomputation.",
+        "searches": [
+          "Resultary exact Agmon-body anisotropy query"
+        ]
+      },
+      "rationale": "The closest primary source introduces the exact body and proves anisotropic Agmon decay, but the inspected body-defining section does not give its best Euclidean inradius/circumradius, equality directions, or the energy-dependent ratio. Resultary and targeted formula/alias searches found no prior statement with these constants. The calculation is elementary once posed, but it is a natural sharp convex-geometric invariant rather than a mere renaming or normalization.",
+      "residual_risks": [
+        "An equivalent Orlicz-norm or convex-body calculation may exist under terminology not indexed by the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_BODY_NOT_COVERING_SHARP_EUCLIDEAN_CONSTANTS",
+          "evidence": [
+            "The source defines K_x using sum sinh^2(xi_j/2) and defines the Finsler metric as its support function."
+          ],
+          "identifier_or_url": "arXiv:2108.11078 / DOI:10.3934/cpaa.2023024",
+          "material_read": "Primary arXiv PDF, Section 3.2 around the kinetic symbol, the sinh inequality, definition of K_x, and the support-function Finsler metric; abstract on optimal anisotropic decay.",
+          "method": "Public arXiv PDF text plus rendered-page inspection.",
+          "title": "Semiclassical analysis and the Agmon-Finsler metric for discrete Schrödinger operators",
+          "trigger": "Exact source of the lattice Agmon body and support metric."
+        },
+        {
+          "assessment": "BROADER_FRAMEWORK_WITHOUT_LOCATED_EXACT_CONSTANTS",
+          "evidence": [
+            "No inspected statement gives the submitted inverse-hyperbolic-sine Euclidean envelope."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00023-008-0383-7",
+          "material_read": "Bibliographic/abstract-level comparison from current search context; no exact nearest-neighbor constants located.",
+          "method": "Targeted source search and statement comparison.",
+          "title": "Agmon-Type Estimates for a Class of Difference Operators",
+          "trigger": "Broader Agmon-Finsler framework that could subsume the specialization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All dimensions d>=2 and all E<0 are covered.",
+        "Equality directions and limiting anisotropy ratio are classified exactly."
+      ],
+      "rationale": "The best Euclidean constants are natural quantitative invariants of the optimal discrete Agmon norm. They identify the globally slowest and fastest directions and quantify the full energy-dependent anisotropy from the near-continuum regime to the deep-lattice regime.",
+      "risks": [
+        "The theorem is about the support body, not a converse eigenfunction-realization theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the nearest-neighbor lattice Agmon body 4 sum_j sinh^2(xi_j/2)<=|E| in dimension d>=2, the support norm has the sharp Euclidean constants 2 asinh(sqrt(|E|)/2) and 2 sqrt(d) asinh(sqrt(|E|)/(2 sqrt(d))), with equality exactly on coordinate axes and equal-modulus diagonals respectively.",
+  "limitations": [
+    "d>=2 and E<0 under the nearest-neighbor normalization.",
+    "No arbitrary-potential saturation claim."
+  ],
+  "schema_version": 1
+}
