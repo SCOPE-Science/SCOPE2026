@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On a finite target chain, forward confluence can be tested against the largest point of each nonempty successor fiber. A nonempty fiber forces every later source fiber to be nonempty, and applying confluence to its maximum forces weakly increasing maxima. Conversely, the later maximum witnesses confluence for every element of an earlier fiber.
+PASS
 
-For fixed nonempty-row count \(k\), the source suffix is forced. A row with maximum \(m\) has exactly \(2^{m-1}\) choices, so weakly increasing maxima give the complete homogeneous polynomial \(h_k(1,2,\ldots,2^{n-1})\), equal to the Gaussian coefficient \(\begin{bmatrix}n+k-1\\k\end{bmatrix}_2\). The asymptotic follows from the Gaussian product formula, with the \(k=n\) term dominant and all lower-\(k\) terms exponentially smaller after normalization.
+On a finite chain, forward confluence forces empty rows to precede nonempty rows and forces maxima of successive nonempty fibers to be weakly increasing; conversely these two conditions are sufficient because any required refinement can be chosen at the later row maximum. For fixed weakly increasing maxima \(m_1\le\cdots\le m_k\), each nonempty row has \(2^{m_i-1}\) possible fibers, so summing gives the complete homogeneous polynomial \(h_k(1,2,\ldots,2^{n-1})={n+k-1\brack k}_2\). A fresh direct enumeration of every binary relation for \(n=1,2,3,4\) reproduced totals \(2,11,198,13377\) and agreed exactly with the Gaussian-binomial formula. The asymptotic is obtained by normalizing the \(k=n-j\) summands; fixed \(j>0\) is exponentially suppressed, while the top summand has the standard Gaussian-binomial product limit.
 
-Exhaustive relation-by-relation replay through four worlds agrees with the structural criterion and the closed count.
+## originality
 
-## Originality
+PASS
 
-PASS. The 2026 primary source states the forward-confluence condition, studies finite proof search, and proves an \(\mathsf{EXPSPACE}\) upper bound. The original FIK paper proves finite countermodel extraction. Neither checked source gives a chain normal form, an exact chain-frame census, or a Gaussian-binomial expression.
+The defining FIK paper was read in full at the semantic definition: it introduces forward confluence and develops axiomatization, proof theory, decision procedures and finite countermodel extraction, but full-text searches found no finite-chain relation census, Gaussian-binomial formula, or asymptotic enumeration. A targeted Resultary query for FIK forward-confluent finite-chain counts returned no matching published SCOPE result among its top relevant hits. The submitted row normal form and all-\(n\) Gaussian-binomial count therefore survive best-of-knowledge comparison. A separate 2026 FIK-complexity paper was a plausible same-logic source, but an authorized full-text retrieval request was safety-blocked; it was not retried or bypassed. Its accessible material concerns proof-system complexity, so the unread remainder is recorded as a residual risk rather than treated as a failure.
 
-Targeted semantic and literature searches for forward-confluent chain frames, Gaussian-binomial counts, and FIK relation enumeration found no equivalent statement. The closest prior chain-relation result in the existing record has different hypotheses and implications: it requires total nonempty rows with strict growth of both minima and maxima.
+## value
 
-## Value
+PASS
 
-PASS. Finite countermodel generation and proof-search complexity are central in the recent FIK literature. Chains are the canonical first family of finite intuitionistic preorders, so their exact admissible-relation search space is a natural baseline rather than an arbitrary slice. The result reduces a relational confluence condition to a one-dimensional row invariant, gives exact counts at every size, and quantifies asymptotically how restrictive forward confluence is among all modal relations.
+Finite chains are the canonical simplest nontrivial intuitionistic frames, and exact counts of admissible modal accessibility relations give a natural baseline for finite-model generation and proof-search complexity. The result is not a finite sample: it gives a complete structural normal form, an exact all-size Gaussian-binomial census, and an asymptotic density.
 
-## Closest literature and limitations
-
-Gao--Olivetti (2026) is the direct recent source for the FIK frame condition and complexity motivation. Balbiani--Gao--Gencer--Olivetti (2024) is the original FIK source and gives finite countermodels.
-
-The theorem does not extend its closed formula to branching intuitionistic preorders and does not turn the frame count into a decision-problem lower bound.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
