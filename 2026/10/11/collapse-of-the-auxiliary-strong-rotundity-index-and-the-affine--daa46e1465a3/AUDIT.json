@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For each y in the unit ball and each norming pair (x,x*), every point z of the hyperplane x*(z)=1 is at distance at least 1-x*(y) from y, while z_y=y+(1-x*(y))x lies on that hyperplane at exactly that distance. Taking the infimum proves eta=upsilon without compactness or attainment assumptions. Under symmetric Birkhoff orthogonality, w=y-x*(y)x is Birkhoff-orthogonal to x and hence ||w||<=||y||, yielding ||x-y||<=2-x*(y) and eta>=max(0,epsilon-1). For the affine-regular hexagon, the quarter-turn maps the dual hexagon onto the primal one, which directly gives Birkhoff symmetry; the two explicit y_epsilon families attain the lower bound on [0,1] and [1,2].",
+    "risks": [
+      "The general Radon lower bound requires symmetric Birkhoff orthogonality; it is not asserted for arbitrary Banach spaces.",
+      "The finite checker supports the hexagonal geometry only; the universal eta=upsilon identity is established analytically."
+    ],
+    "sources": [
+      "doi:10.3934/math.20231043 for the definitions of eta_X and upsilon_X",
+      "doi:10.3934/math.2024169 for the later eta_X/upsilon_X comparison framework",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 follow-up repeats the one-sided inequality and derives selected points where both quantities are zero or both equal two.",
+        "The defining source computes the Hilbert law eta_X(epsilon)=epsilon^2/2 but no Radon-plane lower envelope.",
+        "No broader theorem located implies eta_X=upsilon_X universally or the hexagonal max(0,epsilon-1) profile."
+      ],
+      "reasoning": "A universal equality would dominate all special equal-zero/equal-two cases, so the follow-up was inspected specifically for such a stronger statement. It continues to use only the one-sided comparison.",
+      "searches": [
+        "index of strong rotundity polyhedral Banach space",
+        "eta_X epsilon Radon plane strong rotundity",
+        "doi:10.3934/math.2024169 Theorem 3.4",
+        "doi:10.3934/math.2024169 Theorem 3.5"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20231043",
+      "doi:10.3934/math.2024169",
+      "2026/10/4/SCOPE-euclidean-banach-mazur-profile-of-a-classical-hexagonal-family--19a906569c60",
+      "2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade",
+      "2026/10/4/SCOPE-exact-angle-modulus-of-smoothness-at-unit-separation-for-the-reg--0bf7101b61a6",
+      "Current own ledger through generation g000055"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 Theorem 2.4 supplies only upsilon_X<=eta_X, so it does not imply equality without the new reverse inequality.",
+        "The Hilbert computation is a special smooth case and does not imply the polyhedral hexagon profile.",
+        "The 2024 special equalities at selected parameter situations do not imply equality for every norming pair and every epsilon.",
+        "Closest hexagonal published-finding corpus records optimize different invariants."
+      ],
+      "reasoning": "The decisive new implication is the missing reverse inequality eta_X<=upsilon_X, obtained pointwise by constructing a nearest point on the supporting hyperplane. Neither inspected paper states that construction as an identity for the indices.",
+      "searches": [
+        "doi:10.3934/math.20231043 Theorem 2.4",
+        "doi:10.3934/math.20231043 Corollary 2.1",
+        "doi:10.3934/math.2024169 Theorem 3.4",
+        "2026/10/4/SCOPE-euclidean-banach-mazur-profile-of-a-classical-hexagonal-family--19a906569c60",
+        "2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives eta_X as distance from the supporting hyperplane to the punctured unit ball and upsilon_X as the infimum of 1-x*(y).",
+        "For a norming pair, dist(y,(x*)^{-1}(1))=1-x*(y) by the explicit point y+(1-x*(y))x.",
+        "No published-finding corpus hit states eta_X=upsilon_X for all Banach spaces."
+      ],
+      "reasoning": "The distance formulation and scalar-deficit formulation are the exact equivalent forms that must be compared. The explicit nearest-point construction proves equivalence, while the searches checked whether that collapse was already stated under either notation.",
+      "searches": [
+        "index of strong rotundity v_X eta_X equality",
+        "García-Pacheco eta upsilon strong rotundity equality",
+        "strong rotundity auxiliary index local convexity v eta",
+        "doi:10.3934/math.20231043 Theorem 2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus result reports eta_X for the affine-regular hexagonal plane.",
+        "The nearest same-space records compute Banach--Mazur and isosceles von Neumann--Jordan quantities.",
+        "The own ledger through g000055 contains no strong-rotundity-index row."
+      ],
+      "reasoning": "Concrete object-and-formula searches were used in addition to semantic searches so that an exact table value or alternate hexagon normalization would be less likely to be missed.",
+      "searches": [
+        "index of strong rotundity affine regular hexagon",
+        "eta_X epsilon regular hexagonal Banach",
+        "strong rotundity index affine regular hexagon max epsilon minus one",
+        "García-Pacheco strong rotundity index hexagon"
+      ]
+    },
+    "rationale": "The defining 2023 full text was inspected at Definition 2.1, Theorem 2.3, the definition of upsilon_X, and Theorem 2.4. It states only 2 delta_X <= upsilon_X <= eta_X and does not state equality. The 2024 follow-up full text again records only 0<=upsilon_X<=eta_X<=2 and proves special zero/equal-two cases, not the universal collapse. published-finding corpus searches under exact index names, eta/upsilon equality language, Radon-plane aliases, and the affine-regular hexagon returned no covering statement. The current own ledger through generation g000055 contains no strong-rotundity or Garcia-Pacheco finding.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "The distance-to-affine-hyperplane formula is elementary and may be recorded elsewhere in approximation theory without reference to these named indices.",
+      "An equivalent hexagonal profile may exist under another affine normalization or under a different notation for the same supporting-hyperplane deficit."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: the paper introduces both quantities and proves upsilon_X<=eta_X, but does not state the universal equality or the affine-regular-hexagon profile.",
+        "evidence": "AIMS Mathematics 8 (2023), 20477–20486; PDF states published 25 June 2023; MSC 46B20.",
+        "identifier_or_url": "doi:10.3934/math.20231043",
+        "material_read": "Open-access full PDF: publication/MSC page; Definition 2.1; Lemma 2.2; Theorem 2.3 and Hilbert corollary; definition (2.4) of upsilon_X; Theorem 2.4 and its proof.",
+        "method": "Open-access publisher full-PDF text inspection with page-specific review of the definitions and comparison theorem.",
+        "title": "The index of strong rotundity",
+        "trigger": "Defining primary source for eta_X and upsilon_X and the exact prior comparison between them."
+      },
+      {
+        "assessment": "NOT_COVERING: it again records 0<=upsilon_X<=eta_X<=2 and proves special simultaneous values, not equality for all norming pairs and all epsilon.",
+        "evidence": "AIMS Mathematics 9 (2024), 3440–3452; MSC 46B20.",
+        "identifier_or_url": "doi:10.3934/math.2024169",
+        "material_read": "Open full PDF around the definitions of eta_X and upsilon_X, Theorem 3.4, and Theorem 3.5.",
+        "method": "Public full-PDF text inspection.",
+        "title": "The core of the unit sphere of a Banach space",
+        "trigger": "Later paper by García-Pacheco and coauthor reusing both eta_X and upsilon_X, checked for stronger coverage."
+      }
+    ],
+    "sources": [
+      "doi:10.3934/math.20231043",
+      "doi:10.3934/math.2024169",
+      "published-finding corpus records listed in the comparison checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "daa46e14-65a3-45aa-b6ad-1efd1a9616b2",
+  "value": {
+    "rationale": "The defining paper presents upsilon_X as a separate intermediate index between local convexity and eta_X. The universal identity shows that this auxiliary layer is redundant and converts the geometric distance definition of strong rotundity into an exact scalar support-deficit formula. That simplification applies to every real Banach space and directly sharpens how later results using both quantities can be read. The Radon lower bound then links the index to Birkhoff-symmetry geometry, and the affine-regular hexagon supplies a canonical exact non-Hilbert profile with a flat-to-linear phase change.",
+    "risks": [
+      "The universal identity is elementary once the correct affine-hyperplane point is written down; its value is structural simplification and its consequences rather than technical depth."
+    ],
+    "sources": [
+      "doi:10.3934/math.20231043",
+      "doi:10.3934/math.2024169",
+      "Bundled RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
