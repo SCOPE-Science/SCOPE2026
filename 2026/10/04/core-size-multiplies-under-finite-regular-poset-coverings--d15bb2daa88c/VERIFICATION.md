@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof uses only the explicit lifted Hasse-edge formula for the regular coloring cover and Stong beat-point deletion. The packaged `artifacts/verify.py` independently checks the concrete projective-plane application.
+# Independent mathematical audit
 
-The verifier reconstructs the 13-point height-two poset, solves the admissibility equations over \(\mathbf F_2\), chooses a cocycle outside the coboundary subspace, builds the connected double cover, and checks that immediate upper/lower Hasse degrees are preserved on every sheet. It then confirms zero beat points in both spaces, the base \(f\)-vector \((13,36,24)\), the cover \(f\)-vector \((26,72,48)\), closed-surface edge incidence, cycle vertex links, and Euler characteristics \(1\) and \(2\).
+## correctness
 
-The computation certifies only this concrete application. The all-cover core-scaling statement is proved symbolically in RESULT.md. No claim is made for nonregular or infinite-sheeted covers.
+PASS
+
+Barmak-Miniana's covering construction has underlying points \((x,g)\) and exactly one lifted Hasse edge over each base Hasse edge. Consequently the number and identity pattern of immediate successors and predecessors of \((x,g)\) is the same as for \(x\). Since a finite-poset beat point is exactly a point covered by one point or covering one point, beat type is preserved and reflected. If \(x\) is deleted from the base, its entire fiber consists of pairwise incomparable beat points with independent lifted witnesses, so that fiber can be removed by successive Stong strong deformation retracts. Iterating a base reduction to a core \(C\) leaves the induced regular cover over \(C\); reflection of beat points makes it beat-point-free. Its set is \(C\times G\), giving \(|\operatorname{core}E|=|G|\,|\operatorname{core}B|\). For the 13-point projective-plane core and the published connected \(\mathbb Z/2\)-coloring, this gives a 26-point core universal cover. The source-package incidence calculation gives a connected closed triangulated surface with Euler characteristic 2, hence weak type \(S^2\); differing core cardinalities exclude finite-space homotopy equivalence with the six-point minimal sphere model.
+
+## originality
+
+PASS
+
+The full G-colorings paper was inspected. It gives the explicit Hasse-edge cover, the Stong beat-point criterion, and the projective-plane universal-cover coloring, and even uses beat deletions in a different infinite example, but does not state fiberwise beat-point reflection or core-cardinality multiplication. Targeted searches for regular finite-poset coverings with Stong cores/beat points found no earlier theorem. The result is a short structural lemma assembled from the covering's local combinatorics, but it is not a parameter substitution or a special case of a located stronger core theorem; it produces a reusable exact core invariant.
+
+## value
+
+PASS
+
+The fiberwise beat-point lemma gives an exact, reusable structural law for Stong cores under a natural class of finite coverings. Its projective-plane application cleanly separates weak homotopy type from finite-space homotopy type by producing a 26-point beat-point-free universal cover of weak type \(S^2\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

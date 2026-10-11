@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the Barmak--Minian coloring construction, Hasse covers lift one-for-one above every sheet. For finite posets, up and down beat points are characterized by having exactly one immediate upper or lower neighbor, so beat status is equivalent between a base point and each lift. Whole fibers over a beat point can be deleted lift-by-lift because same-fiber points are incomparable, and the remaining poset is the restricted coloring cover. Iteration ends over a beat-point-free core, proving the core-cardinality formula. The packaged verifier independently reconstructs the projective-plane model and its connected double cover and checks the stated combinatorics.
+## correctness
 
-## Originality
-PASS. Barmak--Minian explicitly construct the universal cover of the 13-point projective-plane model, so that construction is treated as prior art rather than novelty. Full-text inspection of their covering paper found the covering formula and the projective-plane universal-cover example, plus beat-point preliminaries, but no statement about cover cores or core-cardinality multiplication. Cianci--Ottina supply the 13-point classification and beat-point-free property; Barmak--Minian supply the six-point minimal sphere model. Targeted published-finding corpus and web searches for combinations of regular coverings, beat points, cores, and core cardinality found no statement implying the theorem. The closest published-finding corpus item is an unrelated simplicial projective-plane torsion census.
+PASS
 
-## Value
-PASS. The core is the complete invariant for ordinary homotopy type of finite \(T_0\)-spaces, while covering theory is naturally expressed through finite-poset colorings. Showing that regular covers multiply core size gives a direct structural bridge between these two standard tools. The projective-plane corollary isolates a concrete boundary: a universal cover can have the weak type of a sphere while remaining a much larger irreducible finite-space core than the cardinality-minimal sphere model.
+Barmak-Miniana's covering construction has underlying points \((x,g)\) and exactly one lifted Hasse edge over each base Hasse edge. Consequently the number and identity pattern of immediate successors and predecessors of \((x,g)\) is the same as for \(x\). Since a finite-poset beat point is exactly a point covered by one point or covering one point, beat type is preserved and reflected. If \(x\) is deleted from the base, its entire fiber consists of pairwise incomparable beat points with independent lifted witnesses, so that fiber can be removed by successive Stong strong deformation retracts. Iterating a base reduction to a core \(C\) leaves the induced regular cover over \(C\); reflection of beat points makes it beat-point-free. Its set is \(C\times G\), giving \(|\operatorname{core}E|=|G|\,|\operatorname{core}B|\). For the 13-point projective-plane core and the published connected \(\mathbb Z/2\)-coloring, this gives a 26-point core universal cover. The source-package incidence calculation gives a connected closed triangulated surface with Euler characteristic 2, hence weak type \(S^2\); differing core cardinalities exclude finite-space homotopy equivalence with the six-point minimal sphere model.
 
-## Closest literature and limitations
-The closest source is Barmak--Minian's covering paper, especially Theorem 3.6 and Example 3.7. It covers the construction of the relevant universal cover but not the core statement. The theorem here is limited to finite regular covers in the finite-group coloring framework; nonregular and infinite-sheeted cases are not asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full G-colorings paper was inspected. It gives the explicit Hasse-edge cover, the Stong beat-point criterion, and the projective-plane universal-cover coloring, and even uses beat deletions in a different infinite example, but does not state fiberwise beat-point reflection or core-cardinality multiplication. Targeted searches for regular finite-poset coverings with Stong cores/beat points found no earlier theorem. The result is a short structural lemma assembled from the covering's local combinatorics, but it is not a parameter substitution or a special case of a located stronger core theorem; it produces a reusable exact core invariant.
+
+## value
+
+PASS
+
+The fiberwise beat-point lemma gives an exact, reusable structural law for Stong cores under a natural class of finite coverings. Its projective-plane application cleanly separates weak homotopy type from finite-space homotopy type by producing a 26-point beat-point-free universal cover of weak type \(S^2\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
