@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:21:21.298128Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 36f7ab692a770866c24897fc77c8ab4a3543351f",
+        "assigned artifacts/verify_opcgm_disk.py blob e8e8c4fe89079274d4725adb9bbfd41d307b97ce",
+        "Yao--Jolaoso--Shehu--Yao, arXiv:2609.32981v1",
+        "Zhang--He--Muehlebach, DOI:10.1007/s10107-025-02206-3"
+      ],
+      "rationale": "The exact QP correction is the Euclidean projection of u=(0,-1) onto the active linearized disk half-space. Writing s as the squared half-step norm and d as the squared distance to u gives lambda=1-d/(2s) and the corrected full step x-plus=c h with c=1-eta+eta d/(2s). The submitted polynomial bound proves the full step is strictly inside the disk, while direct expansion proves the next half-step is strictly outside, so induction gives persistent alternation. The exact ratio formula for d_{t+1}/d_t and the uniform bound on its bracket yield the stated contraction rho(eta)<1; geometric decay then gives both pointwise limits and O(1/T) convergence of the averaged half-step to the boundary point. The inspected rational-arithmetic checker is consistent with representative trajectories, and an independent numerical replay across several eta values reproduced the outside/inside alternation and contraction.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 work is broader algorithmically but the accessible statement does not give this exact witness trajectory.",
+          "The 2025 predecessor is a single-step method with different dynamics."
+        ],
+        "reasoning": "General convergence or lower-bound theorems do not mechanically imply the exact alternating trajectory and its average on this curved witness.",
+        "searches": [
+          "Yao--Jolaoso--Shehu--Yao, arXiv:2609.32981v1",
+          "Zhang--He--Muehlebach, DOI:10.1007/s10107-025-02206-3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.32981v1",
+        "DOI:10.1007/s10107-025-02206-3",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A proof that the first half-step is infeasible does not imply that every half-step is infeasible.",
+          "A general averaged-feasibility upper/lower tradeoff does not determine the exact behavior of this canonical witness.",
+          "The submitted projection recurrence and contraction supply the missing trajectory information."
+        ],
+        "reasoning": "No inspected prior theorem implies the full exact disk-witness conclusion.",
+        "searches": [
+          "statement comparison with the public abstract of arXiv:2609.32981v1",
+          "method comparison with DOI:10.1007/s10107-025-02206-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit stated the exact disk-witness trajectory or the simultaneous persistent pointwise infeasibility and O(1/T) averaged feasibility.",
+          "The public source abstract states only first-half-step infeasibility for the natural constant-step class and general feasibility tradeoffs."
+        ],
+        "reasoning": "Searches included half-step, averaged iterate, disk witness, exact QP, and asymptotic feasibility terminology.",
+        "searches": [
+          "Resultary: OPCGM Lipschitz disk witness averaged half-step feasibility exact trajectory",
+          "web search: arXiv:2609.32981 Theorem 4.5 Remark 4.6 averaged feasibility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching published finding was returned among the relevant optimization records."
+        ],
+        "reasoning": "The claim is an analytic all-iteration theorem rather than a finite database fact.",
+        "searches": [
+          "Resultary semantic search for the exact OPCGM disk-witness averaged-feasibility claim"
+        ]
+      },
+      "rationale": "The current OPCGM source publicly states the first-half-step infeasibility obstruction and a general averaged-iterate feasibility tradeoff, while the package's exact witness analysis proves the stronger and more specific phenomenon that every queried half-step stays infeasible even though the average converges to feasibility at rate O(1/T). Targeted Resultary search returned no equivalent exact trajectory theorem. The immediate predecessor studies a single-step primal constrained-gradient method and does not contain the two-QP OPCGM-Lipschitz trajectory law. A complete primary copy of the 2026 OPCGM paper was not obtained during this run after public and permitted institutional routes failed, so exact overlap with its internal Remark 4.6 remains an explicit residual risk; inaccessible literature alone is not treated as failure.",
+      "residual_risks": [
+        "Complete text of arXiv:2609.32981v1 was not obtained in this run after permitted access attempts, so an internal remark or appendix could contain part of the exact witness analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_SOURCE_WITH_ACCESS_RISK",
+          "evidence": "Accessible material does not state the submitted full trajectory theorem; unread portions remain a residual overlap risk.",
+          "identifier_or_url": "arXiv:2609.32981v1",
+          "material_read": "Public primary abstract and accessible theorem-level descriptions of OPCGM, the constant-step first-half-step infeasibility result, and averaged feasibility tradeoffs; complete full text was not obtained in this run.",
+          "method": "Public/arXiv routes were attempted first; an authorized institutional retrieval request returned an availability/request error and was not retried.",
+          "title": "Primal Methods for Constrained Variational Inequalities: Optimal Rates, Feasibility Trade-offs, and Lower Bounds",
+          "trigger": "Exact OPCGM-Lipschitz source and strongest priority candidate."
+        },
+        {
+          "assessment": "DIFFERENT_ALGORITHM",
+          "evidence": "The source lacks the two-QP OPCGM-Lipschitz half-step dynamics analyzed here.",
+          "identifier_or_url": "DOI:10.1007/s10107-025-02206-3",
+          "material_read": "Accessible primary article description of the single-step constrained-gradient framework and its convergence results.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Primal methods for variational inequality problems with functional constraints",
+          "trigger": "Immediate predecessor for purely primal local-linearization methods."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yao--Jolaoso--Shehu--Yao 2026",
+        "Zhang--He--Muehlebach 2025"
+      ],
+      "rationale": "The result resolves the behavior of the canonical curved-constraint witness used to motivate an averaged-feasibility obstruction: every sampled half-step remains infeasible, yet averaging removes the violation at an explicit O(1/T) rate. That distinction directly limits what this witness can prove about asymptotic averaged infeasibility and supplies a reusable exact trajectory benchmark for primal-QP extragradient methods.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.32981v1",
+    "DOI:10.1007/s10107-025-02206-3",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The theorem analyzes one canonical disk witness, exact QP solves, constant eta in (0,1), and an inactive safeguard.",
+    "It is not a universal averaged-feasibility theorem for all constrained variational inequalities or all primal methods.",
+    "Complete full-text comparison with the exact 2026 OPCGM paper was unavailable in this run."
+  ],
+  "residual_risks": [
+    "Complete text of arXiv:2609.32981v1 was not obtained in this run after permitted access attempts, so an internal remark or appendix could contain part of the exact witness analysis."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PLAUSIBLE_SOURCE_WITH_ACCESS_RISK",
+      "evidence": "Accessible material does not state the submitted full trajectory theorem; unread portions remain a residual overlap risk.",
+      "identifier_or_url": "arXiv:2609.32981v1",
+      "material_read": "Public primary abstract and accessible theorem-level descriptions of OPCGM, the constant-step first-half-step infeasibility result, and averaged feasibility tradeoffs; complete full text was not obtained in this run.",
+      "method": "Public/arXiv routes were attempted first; an authorized institutional retrieval request returned an availability/request error and was not retried.",
+      "title": "Primal Methods for Constrained Variational Inequalities: Optimal Rates, Feasibility Trade-offs, and Lower Bounds",
+      "trigger": "Exact OPCGM-Lipschitz source and strongest priority candidate."
+    },
+    {
+      "assessment": "DIFFERENT_ALGORITHM",
+      "evidence": "The source lacks the two-QP OPCGM-Lipschitz half-step dynamics analyzed here.",
+      "identifier_or_url": "DOI:10.1007/s10107-025-02206-3",
+      "material_read": "Accessible primary article description of the single-step constrained-gradient framework and its convergence results.",
+      "method": "Lawful open primary-source inspection.",
+      "title": "Primal methods for variational inequality problems with functional constraints",
+      "trigger": "Immediate predecessor for purely primal local-linearization methods."
+    }
+  ]
+}
