@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The denominator convention is explicit: each denominator is a product of two distinct primes and all denominators are distinct. Encoding denominators by edges gives a finite simple graph. Multiplication by the product of all support primes and reduction modulo a non-target vertex proves that every such vertex has degree at least two. This rules out lengths one and two and forces a three-edge representation to be a triangle. The triangle equality is exactly equivalent to \((q-1)(r-1)=p+1\), and the converse is immediate. The residue-class corollary follows from parity modulo four. Li's theorem is used only to know that the minimum length is finite.
+## correctness
 
-The exact-arithmetic verifier checks finite instances but is not used to infer the infinite theorem.
+PASS
 
-## Originality
-**PASS.** The closest source, arXiv:2609.32140v1, proves unrestricted existence for all squarefree rational denominators and explicitly uses a prime graph, but its result is existential and its full text contains no minimum-length discussion. The predecessor arXiv:2606.15159v2 and Butler--Erdős--Graham's three-prime-denominator paper likewise do not imply the claim. Exact published-findings database searches for the three-term triangle, shifted-prime factorization, minimum length, and leaf obstruction returned no covering finding. Web searches for the exact identity and factorization found no scholarly statement of the classification. An informal puzzle page has a related modular relation for integer targets; it does not cover this theorem.
+Encoding semiprime denominators as edges of a simple prime-support graph is exact. The target prime p must occur. Multiplication by the product of support primes and reduction modulo any other support prime excludes every non-p leaf. Hence one and two edges are impossible, while a three-edge graph containing p must be the triangle on p,q,r. Its unit-fraction identity reduces exactly to qr=q+r+p, or (q-1)(r-1)=p+1. For p=1 mod 4, the product is 2 mod 4, forcing one factor to be 1 and thus one auxiliary prime to be 2. A fresh finite exact-arithmetic replay on the first ten primes found nine three-edge hits, all and only triangle-factor cases, and no one- or two-edge hits.
 
-Residual risk remains that such an elementary classification could exist as unindexed folklore or a problem solution. The claim therefore does not assert novelty of the modular leaf lemma by itself; the reviewed claim is the complete three-term prime-reciprocal classification.
+## originality
 
-## Value
-**PASS.** The result gives a natural exact boundary immediately adjacent to a new existence theorem: it determines when the shortest possible semiprime Egyptian representation of \(1/p\) has three terms. It also yields the clean consequence that for \(p\equiv1\pmod4\), three terms occur exactly when \(p+2\) is prime. This supplies structural information about representation length, not merely another existence construction.
+PASS
 
-## Closest literature and limitations
-Li's September 2026 theorem supplies existence for all squarefree rational denominators but no quantitative minimum length. Li's June 2026 paper covers all natural numbers and rational targets above a threshold. Butler--Erdős--Graham concern products of three distinct primes. The present theorem does not determine the exact minimum when the three-term factorization fails; it proves only a lower bound of four in that case.
+Li's full primary text proves existence for every rational with squarefree reduced denominator and develops a large bipartite-graph construction, but does not classify minimum length for prime reciprocals. The earlier semiprime-unit-fraction paper is likewise existential/threshold-based. Resultary found no prior three-term triangle criterion or twin-prime specialization.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is the first nontrivial shortest-length question for the simplest squarefree targets not themselves allowable denominators. The exact triangle criterion and the twin-prime collapse on p=1 mod 4 give a clean arithmetic classification tied directly to the newly solved semiprime Egyptian-fraction problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

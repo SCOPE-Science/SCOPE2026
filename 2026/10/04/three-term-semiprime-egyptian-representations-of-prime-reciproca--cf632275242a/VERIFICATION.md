@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for every prime. Its critical steps are:
+# Independent mathematical audit
 
-1. A representation by distinct squarefree semiprimes is a finite simple graph on prime vertices.
-2. The target prime \(p\) must occur among those vertices.
-3. For every other vertex \(q\), multiplication by the product of all support primes and reduction modulo \(q\) rules out degree one.
-4. Therefore one and two edges are impossible, while three edges force a triangle.
-5. A triangle on \(p,q,r\) represents \(1/p\) exactly when \((q-1)(r-1)=p+1\).
-6. If \(p\equiv1\pmod4\), the product on the left can be \(2\pmod4\) only when one of \(q,r\) is \(2\), forcing the other to be \(p+2\).
+## correctness
 
-`verify.py` provides finite exact-arithmetic corroboration. It enumerates one-, two-, and three-edge subsets on a fixed finite prime set, checks every prime-reciprocal equality against the triangle criterion, tests the factorization criterion for every prime through \(5000\), and checks the twin-prime corollary on the same range. Its output is stored in `verification_output.txt`.
+PASS
 
-The finite range is not an exhaustive proof for arbitrary primes and is not presented as one. No external certificate or independent validation is claimed.
+Encoding semiprime denominators as edges of a simple prime-support graph is exact. The target prime p must occur. Multiplication by the product of support primes and reduction modulo any other support prime excludes every non-p leaf. Hence one and two edges are impossible, while a three-edge graph containing p must be the triangle on p,q,r. Its unit-fraction identity reduces exactly to qr=q+r+p, or (q-1)(r-1)=p+1. For p=1 mod 4, the product is 2 mod 4, forcing one factor to be 1 and thus one auxiliary prime to be 2. A fresh finite exact-arithmetic replay on the first ten primes found nine three-edge hits, all and only triangle-factor cases, and no one- or two-edge hits.
+
+## originality
+
+PASS
+
+Li's full primary text proves existence for every rational with squarefree reduced denominator and develops a large bipartite-graph construction, but does not classify minimum length for prime reciprocals. The earlier semiprime-unit-fraction paper is likewise existential/threshold-based. Resultary found no prior three-term triangle criterion or twin-prime specialization.
+
+## value
+
+PASS
+
+This is the first nontrivial shortest-length question for the simplest squarefree targets not themselves allowable denominators. The exact triangle criterion and the twin-prime collapse on p=1 mod 4 give a clean arithmetic classification tied directly to the newly solved semiprime Egyptian-fraction problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:00:21Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 93f36a668442fe585dc958d55ae22188f738fbfa",
+        "verify.py blob 3c393774ffec4cf296c0654022b0299bc939e186",
+        "Fresh independent exact enumeration of one-, two-, and three-edge subsets on primes through 29.",
+        "Shisheng Li, arXiv:2609.32140, Theorem 1.1."
+      ],
+      "rationale": "Encoding semiprime denominators as edges of a simple prime-support graph is exact. The target prime p must occur. Multiplication by the product of support primes and reduction modulo any other support prime excludes every non-p leaf. Hence one and two edges are impossible, while a three-edge graph containing p must be the triangle on p,q,r. Its unit-fraction identity reduces exactly to qr=q+r+p, or (q-1)(r-1)=p+1. For p=1 mod 4, the product is 2 mod 4, forcing one factor to be 1 and thus one auxiliary prime to be 2. A fresh finite exact-arithmetic replay on the first ten primes found nine three-edge hits, all and only triangle-factor cases, and no one- or two-edge hits.",
+      "risks": [
+        "When the factorization fails, the theorem gives only lambda(p)>=4; it does not determine the next possible length."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 theorem guarantees some finite semiprime expansion for squarefree denominators.",
+          "The earlier paper treats natural numbers and sufficiently large rationals.",
+          "Butler--Erdos--Graham use denominators with three distinct prime factors."
+        ],
+        "reasoning": "None of these stronger-looking existence results determines the shortest expansion of 1/p.",
+        "searches": [
+          "Li arXiv:2609.32140",
+          "Li arXiv:2606.15159",
+          "Butler--Erdos--Graham, Integers 15 (2015) A51"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:2609.32140",
+        "arXiv:2606.15159",
+        "Butler--Erdos--Graham 2015"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of a finite subgraph with a prescribed reciprocal sum does not bound its edge count by three.",
+          "The leaf obstruction and three-edge graph classification are additional arguments."
+        ],
+        "reasoning": "The three-term theorem is not a special case of the source's quantitative construction.",
+        "searches": [
+          "Li Theorem 1.1 and graph construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's direct hit is the audited record; no separate equivalent finding appeared.",
+          "Li's Theorem 1.1 is existential for arbitrary squarefree denominator and contains no minimum-length statement in the inspected full text."
+        ],
+        "reasoning": "Graph, factorization, Egyptian-fraction and twin-prime formulations were compared.",
+        "searches": [
+          "Resultary: semiprime Egyptian fractions prime reciprocal three terms triangle (q-1)(r-1)=p+1",
+          "arXiv:2609.32140 full-text search for minimum/short representations",
+          "Searches for exact triangle identity 1/p=1/(pq)+1/(pr)+1/(qr)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published table/database was found recording the same lambda(p)=3 classification."
+        ],
+        "reasoning": "The finite verifier is corroboration; the theorem is an all-prime structural classification.",
+        "searches": [
+          "Resultary exact factorization query",
+          "Exact web searches for the triangle identity and minimum length"
+        ]
+      },
+      "rationale": "Li's full primary text proves existence for every rational with squarefree reduced denominator and develops a large bipartite-graph construction, but does not classify minimum length for prime reciprocals. The earlier semiprime-unit-fraction paper is likewise existential/threshold-based. Resultary found no prior three-term triangle criterion or twin-prime specialization.",
+      "residual_risks": [
+        "Because the graph proof is elementary, an unindexed puzzle solution or folklore observation could duplicate it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_THEOREM_NOT_MINIMUM_LENGTH_CLASSIFICATION",
+          "evidence": [
+            "Theorem 1.1 guarantees a finite distinct-semiprime expansion for every positive rational with squarefree reduced denominator; the construction uses large complete bipartite graphs."
+          ],
+          "identifier_or_url": "arXiv:2609.32140",
+          "material_read": "Full public arXiv HTML through the introduction, Theorem 1.1, graph formulation, proof outline and relation-to-previous-work section.",
+          "method": "Public full-text inspection.",
+          "title": "Unit fractions with semiprime denominators: an elementary proof of Erdos Problem #306",
+          "trigger": "Exact semiprime-denominator existence theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete length-three classification for every prime target.",
+        "Exact connection to twin primes in one residue class."
+      ],
+      "rationale": "This is the first nontrivial shortest-length question for the simplest squarefree targets not themselves allowable denominators. The exact triangle criterion and the twin-prime collapse on p=1 mod 4 give a clean arithmetic classification tied directly to the newly solved semiprime Egyptian-fraction problem.",
+      "risks": [
+        "No density theorem for qualifying primes and no exact lambda(p) beyond length three."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a prime p, a distinct-squarefree-semiprime Egyptian representation of 1/p has minimum length three exactly when p+1=(q-1)(r-1) for distinct primes q,r different from p; every three-term representation is the triangle {pq,pr,qr}, and for p congruent to 1 modulo 4 this is equivalent to p+2 being prime.",
+  "limitations": [
+    "Distinct squarefree semiprime denominators only.",
+    "No exact larger minimum when the factorization fails."
+  ],
+  "schema_version": 1
+}
