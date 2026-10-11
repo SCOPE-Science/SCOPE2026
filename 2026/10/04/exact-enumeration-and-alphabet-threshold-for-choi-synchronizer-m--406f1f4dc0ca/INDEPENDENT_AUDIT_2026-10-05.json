@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:08:11.197281Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 58c8826904c5f2936e35035c88dafeae8a35783b",
+        "assigned verify_psi.py blob 7aa5b43800b051cd983bdf2234039c61dc518bfa",
+        "Choi, arXiv:2603.27271, Theorem 10 and Definition 11",
+        "independent cycle-coloring reconstruction and q=4 arithmetic check"
+      ],
+      "rationale": "Translation by \\((1,1)\\) partitions \\(\\mathbb F_q^2\\) into orbits of length \\(p\\). On one orbit write \\(\\psi(a_0+i,b_0+i)=z_i+i\\). The synchronizer condition becomes \\(z_{i+1}\\ne z_i\\) cyclically, while the two forbidden output values leave \\(q-1\\) available colors on diagonal orbits and \\(q-2\\) on off-diagonal orbits. The number of proper colorings of a \\(p\\)-cycle with \\(r\\) colors is \\(P_p(r)=(r-1)^p+(-1)^p(r-1)\\). There are \\(q/p\\) diagonal orbits and \\(q(q-1)/p\\) off-diagonal orbits, giving the stated product. Positivity of the off-diagonal factor yields existence exactly for \\(q\\ge4\\); at \\(q=4\\), the formula gives \\(2304\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The coding paper proves any such map produces the desired synchronizer construction.",
+          "Cycle coloring supplies a standard local count once the orbit reduction is discovered."
+        ],
+        "reasoning": "Neither ingredient alone classifies the global maps; the independent orbit decomposition is the substantive bridge.",
+        "searches": [
+          "Choi arXiv:2603.27271, Theorem 10 and Definition 11",
+          "standard chromatic polynomial of a cycle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.27271",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives sufficient map constraints but does not count their solutions.",
+          "The count requires recognizing independent length-p translation orbits and applying a cycle chromatic polynomial separately to diagonal and off-diagonal orbits."
+        ],
+        "reasoning": "The final enumeration and sharp alphabet threshold are additional consequences not stated or dominated by the source.",
+        "searches": [
+          "statement-level comparison with Choi Theorem 10 and Definition 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source states the two constraints and one quaternary example.",
+          "No exact enumeration formula or q>=4 iff theorem was located."
+        ],
+        "reasoning": "The finite-field constraint system and its translation-orbit coloring reformulation were both checked.",
+        "searches": [
+          "Resultary query: Choi synchronizer map finite field psi enumeration alphabet threshold cycle coloring",
+          "web search: Algorithms of self-synchronizing single-deletion-correcting codes Theorem 10 psi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Choi provides one table for one q=4 map, not a table of all 2304 maps."
+        ],
+        "reasoning": "The audited result is an all-prime-power formula rather than a known finite table.",
+        "searches": [
+          "searches for q=4 count 2304 and synchronizer map tables"
+        ]
+      },
+      "rationale": "Choi's primary paper states exactly the two pointwise conditions on \\(\\psi\\) in Theorem 10 and gives one explicit \\(q=4\\) construction in Definition 11. It does not enumerate all admissible maps, determine the exact alphabet threshold, or identify the translation-orbit/cycle-coloring factorization. Targeted Resultary and literature searches found no prior enumeration under synchronizer-map, finite-field translation-orbit, or cycle-coloring terminology.",
+      "residual_risks": [
+        "The orbit count is elementary enough that an unindexed note could independently contain it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_SINGLE_EXAMPLE_NOT_ENUMERATION",
+          "evidence": "The paper supplies the constraints and one q=4 example but not the number of maps or the alphabet threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.27271",
+          "material_read": "Primary text containing Theorem 10, Definition 11, Table 1 and the surrounding construction.",
+          "method": "Lawful open primary-text inspection.",
+          "title": "Algorithms of self-synchronizing single-deletion-correcting codes",
+          "trigger": "Exact motivating source defining the synchronizer-map constraints."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Choi primary paper"
+      ],
+      "rationale": "The map condition is a necessary design ingredient in a current self-synchronizing deletion-code construction. Determining exactly when such maps exist and how many there are over every prime-power alphabet is a natural complete classification of that ingredient, with a sharp smallest alphabet.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2603.27271",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The theorem enumerates the auxiliary synchronizer maps, not the resulting codes or their rates.",
+    "Only the specific translation condition used in Choi's construction is treated."
+  ],
+  "residual_risks": [
+    "The orbit count is elementary enough that an unindexed note could independently contain it."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DEFINITION_AND_SINGLE_EXAMPLE_NOT_ENUMERATION",
+      "evidence": "The paper supplies the constraints and one q=4 example but not the number of maps or the alphabet threshold.",
+      "identifier_or_url": "https://arxiv.org/abs/2603.27271",
+      "material_read": "Primary text containing Theorem 10, Definition 11, Table 1 and the surrounding construction.",
+      "method": "Lawful open primary-text inspection.",
+      "title": "Algorithms of self-synchronizing single-deletion-correcting codes",
+      "trigger": "Exact motivating source defining the synchronizer-map constraints."
+    }
+  ]
+}
