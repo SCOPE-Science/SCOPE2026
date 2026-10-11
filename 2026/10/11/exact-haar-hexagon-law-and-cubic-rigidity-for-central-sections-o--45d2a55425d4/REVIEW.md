@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The section-face equivalence reduces the event to three strict triangle inequalities in scaled normal coordinates. Their feasible octant directions are exactly a simplicial cone with the three displayed rays, whose determinant, scalar products, and lengths were recomputed symbolically. The standard spherical triangle formula produces the exact probability, and two arithmetic–geometric mean inequalities establish the global bound and uniqueness. The continuity argument supplies the full range. Spherical-excess calculations and Gaussian-direction simulations independently test the probability formula but are not substitutes for the proof.
+
+**Originality — PASS, subject to historical risk.** The closest direct result is Lonke's formula for expected cube sections; that formula already gives the equal-edge value. The motivating orthotope width paper establishes distributional results for a different random geometric functional and does not state the section-combinatorics formula or its optimization. Searching section-face counts, triangle-inequality Gaussian formulations, spherical solid angles, and unequal aspect ratios did not uncover stronger prior coverage. Standard solid-angle calculations themselves are prior work. A possible obscure early stereological derivation of the full box law remains a residual risk.
+
+**Value — PASS.** In a fundamental geometric-probability model, the full two-parameter aspect-ratio distribution is determined exactly, its sharp optimizing shape is classified with rigidity, and its exact range is identified. The general optimization statement does not follow from the known cube formula, because Haar-distributed planes are not affinely invariant. These provide a natural benchmark for orientation-sensitive section statistics complementary to orthotope random-width laws.
+
+**Limits.** Full-dimensional orthogonal boxes in three dimensions, centered Haar-random planes only; existing cube formula is not new, and no higher-dimensional or oblique analogue is claimed. An unindexed equivalent probability calculation may exist. The analytic proof, not finite sampling, supports the universal conclusion.
+
+Same-model review: passed. Independent audit: not yet performed.
