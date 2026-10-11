@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The distance computation was replayed symbolically from the unit ball.
+# Independent mathematical audit
 
-1. The unit ball is the intersection of the three symmetric strips with normals \(f_0=(0,1)\), \(f_+=(1,1-\gamma)\), and \(f_-=(1,-(1-\gamma))\), and its vertices are exactly \(\pm(1,0)\), \(\pm(\gamma,1)\), and \(\pm(\gamma,-1)\).
-2. For \(E_P=\{u:u^{\mathsf T}Pu\le1\}\), inner containment is exactly \(f^{\mathsf T}P^{-1}f\le1\), equivalently \(P\succeq ff^{\mathsf T}\). Outer containment at squared dilation \(R\) is exactly \(v^{\mathsf T}Pv\le R\) at all vertices.
-3. Averaging all coordinate-reflection conjugates of a feasible \(P\) preserves every constraint and produces a diagonal feasible matrix at the same \(R\). Thus the reduction to \(P=\operatorname{diag}(p,q)\) is exact.
-4. The diagonal constraints give \(q\ge1\) and \(p\ge q/(q-(1-\gamma)^2)\). At an optimum equality holds. The two outer bounds are \(p(q)\) and \(F(q)=\gamma^2p(q)+q\).
-5. The function \(p(q)\) decreases, while \(F(q)\) increases for \(q\ge1\). They cross at \(q=2(1-\gamma)\). This point is feasible exactly when \(\gamma\le1/2\), yielding squared distance \(2/(1+\gamma)\); otherwise the optimum is \(q=1\), yielding squared distance \(2/(2-\gamma)\).
-6. Both branches equal \(4/3\) at \(\gamma=1/2\), and monotonicity on either side gives the unique minimum \(2/\sqrt3\).
+## correctness
 
-No finite experiment, numerical optimization, or unproved contact-pattern assumption is used. The only unresolved issue is a literature-access residual, not a proof dependency.
+PASS
+
+The Banach--Mazur problem is correctly reduced to ellipsoid containment. Averaging a feasible positive-definite ellipse matrix with its reflection preserves both containment inequalities and removes the cross term, so a diagonal optimizer exists. With \(a=1-\gamma\), inner containment is exactly \(q\ge1\) and \(1/p+a^2/q\le1\); at optimum \(p=q/(q-a^2)\). Outer containment is controlled by the vertex maximum \(R(q)=\max\{p,\gamma^2p+q\}\). The first term decreases and the second increases, so the unique crossing gives \(q=2(1-\gamma)\) in the first regime; when that falls below the boundary \(q=1\), the boundary is optimal. This yields the two stated branches and correctly handles the square endpoints and the regular-affine midpoint.
+
+## originality
+
+PASS
+
+Fresh comparison confirmed that the exact hexagonal family is established in the numerical-index literature, but those papers compute numerical-index invariants rather than Euclidean Banach--Mazur distance. Praetorius gives general distance-ellipsoid theory and examples but no occurrence of this hexagonal family or its parameter, and targeted formula searches found no pre-existing piecewise profile. Thus the surviving claim is a new exact invariant for a classical family rather than a renamed known formula.
+
+## value
+
+PASS
+
+Euclidean Banach--Mazur distance is a central affine invariant, and the family is a previously studied canonical hexagonal deformation. The theorem gives its complete parameter profile, identifies the unique Hilbert-nearest member, and exposes a genuine optimizer phase transition at \(\gamma=1/2\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
