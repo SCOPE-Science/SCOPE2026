@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-Correctness: PASS. The source gives the finite-state process as a relational metric structure, defines embeddings by preservation of finite-dimensional distributions, and supplies a universal ultrahomogeneous limit. For an injective finite tuple, its full joint law determines every predicate on every subtuple. Hence equal full laws give a finite partial isomorphism and ultrahomogeneity gives an automorphism; automorphisms conversely preserve the law. The fixed-marginal affine space is exactly \(u+W^{\otimes n}\), so its dimension is \((q-1)^n\). Strict positivity of \(u\), universality, and separability then give the continuum lower and upper bounds.
+## correctness
 
-Originality: PASS, with an explicit priority caveat. Searches covered exact and broader formulations involving the universal ultrahomogeneous stochastic process, automorphism orbits, proper-subtuple reconstruction, parity or highest-order interactions, and fixed-marginal dimensions. The primary paper supplies the construction but not this orbit-fiber theorem. The closest indexed probability results exploit hidden higher-order dependence for statistical functionals, while the closest model-theoretic results compute orbit profiles for different homogeneous structures. None located implies the stated identification, dimension, and maximal cardinality together. The marginal-table dimension itself is not claimed as new.
+PASS
 
-Value: PASS. The result isolates a sharp local-to-global failure in a canonical model-theoretic object: every proper subtuple can have exactly the same orbit data while the full tuple varies over a positive-dimensional family and, in fact, continuum many automorphism orbits. The exact dimension \((q-1)^n\) quantifies the hidden interaction and the continuum bound is cardinally optimal.
+The source predicates record finite-dimensional probabilities, so two injective finite tuples with the same full joint law define a finite partial isomorphism and ultrahomogeneity extends it to an automorphism; conversely automorphisms preserve the predicates. Writing V=R^S=R1 direct-sum W, a perturbation of the uniform law has every (n-1)-marginal unchanged exactly when it lies in the kernel of coordinate summation in every tensor factor. The intersection is W^{tensor n}, of dimension (q-1)^n. The uniform table is strictly positive, so this affine space meets the probability simplex in a set with nonempty relative interior and continuum cardinality. Its pair marginals are independent uniform, hence the finite processes are nondegenerate and universality embeds them. Distinct full laws give distinct tuple orbits, while separability bounds every tuple set by continuum. Thus the fiber identification, dimension and maximal cardinality all follow. The rational nullity/parity verifier was inspected only as corroboration.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Originality passes at the model-theoretic level. Bryant--Nies--Tupper's complete relevant section constructs the unique separable universal ultrahomogeneous finite-state stochastic process and encodes finite-dimensional laws as relational predicates. Standard probability theory permits highest-order interactions invisible to all proper marginals. The audited theorem combines these ingredients to identify an entire proper-subtuple orbit fiber with the fixed-marginal polytope, compute its exact affine dimension (q-1)^n, and prove the fiber has the maximal possible continuum cardinality. No checked source or Resultary finding states that orbit-fiber theorem.
+
+## value
+
+PASS
+
+Reconstruction of a tuple orbit from all proper subtuple orbits is a natural homogeneity/reconstruction question. The theorem shows that the canonical universal stochastic process exhibits the largest possible ambiguity and quantifies the hidden highest-order interaction space exactly, giving a structural result rather than merely another parity example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

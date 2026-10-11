@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two logically separate components.
+# Independent mathematical audit
 
-First, the source-supported model-theoretic component says that the universal process is ultrahomogeneous and that its relational predicates are finite-dimensional probabilities. Therefore the full joint law of an injective finite tuple is a complete automorphism-orbit invariant.
+## correctness
 
-Second, the self-contained linear-algebra component fixes the independent uniform law \(u\) on \(S^n\), writes \(p=u+h\), and identifies the perturbation space with
-\[
-\bigcap_{i=1}^n\ker M_i=W^{\otimes n},
-\qquad
-W=\left\{v\in\mathbb R^S:\sum_{s\in S}v(s)=0\right\}.
-\]
-Thus the affine dimension is \((q-1)^n\). Because \(u\) is strictly positive, this affine space meets the simplex in a relative neighborhood of \(u\), hence in continuum many laws. Independent uniform pair marginals ensure non-degeneracy, universality realizes every such law, and separability supplies the matching continuum upper bound.
+PASS
 
-The accompanying `verify.py` is an independent finite replay of the linear constraints. It computes exact rational ranks for representative \((q,n)\) values and checks the binary parity family by exact rational marginalization. Its role is error detection only; the general theorem does not rely on extrapolation from those finite cases.
+The source predicates record finite-dimensional probabilities, so two injective finite tuples with the same full joint law define a finite partial isomorphism and ultrahomogeneity extends it to an automorphism; conversely automorphisms preserve the predicates. Writing V=R^S=R1 direct-sum W, a perturbation of the uniform law has every (n-1)-marginal unchanged exactly when it lies in the kernel of coordinate summation in every tensor factor. The intersection is W^{tensor n}, of dimension (q-1)^n. The uniform table is strictly positive, so this affine space meets the probability simplex in a set with nonempty relative interior and continuum cardinality. Its pair marginals are independent uniform, hence the finite processes are nondegenerate and universality embeds them. Distinct full laws give distinct tuple orbits, while separability bounds every tuple set by continuum. Thus the fiber identification, dimension and maximal cardinality all follow. The rational nullity/parity verifier was inspected only as corroboration.
+
+## originality
+
+PASS
+
+Originality passes at the model-theoretic level. Bryant--Nies--Tupper's complete relevant section constructs the unique separable universal ultrahomogeneous finite-state stochastic process and encodes finite-dimensional laws as relational predicates. Standard probability theory permits highest-order interactions invisible to all proper marginals. The audited theorem combines these ingredients to identify an entire proper-subtuple orbit fiber with the fixed-marginal polytope, compute its exact affine dimension (q-1)^n, and prove the fiber has the maximal possible continuum cardinality. No checked source or Resultary finding states that orbit-fiber theorem.
+
+## value
+
+PASS
+
+Reconstruction of a tuple orbit from all proper subtuple orbits is a natural homogeneity/reconstruction question. The theorem shows that the canonical universal stochastic process exhibits the largest possible ambiguity and quantifies the hidden highest-order interaction space exactly, giving a structural result rather than merely another parity example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
