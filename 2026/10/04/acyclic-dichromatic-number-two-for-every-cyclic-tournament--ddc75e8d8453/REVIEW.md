@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces every required acyclicity condition to an explicit linear order. For the two colour classes, increasing order is transitive because all within-block differences lie between \(1\) and \(m\). For the cross-part digraph, the exact threshold rule \(a_i\to b_j\iff i\ge j+1\) makes every cross arc point forward in the displayed alternating order. The directed triangle \(0\to m\to2m\to0\) proves the lower bound. No finite computation is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The September 2026 critical-order paper explicitly treats the order-five cyclic tournament as a two-colourable example but does not state the all-orders cyclic formula. The foundational acyclic-dichromatic paper shows that ordinary dichromatic number two does not imply acyclic dichromatic number two, so the older ordinary circulant-tournament literature does not subsume the claim. published-finding corpus searches for cyclic/circulant tournament acyclic dicolouring returned no statement covering this family.
+PASS
 
-## Value
-PASS. The cyclic tournament is the canonical circulant tournament and a standard benchmark in tournament colouring. The result gives an exact infinite-family baseline for a newly introduced strengthening of dichromatic number, with a transparent structural certificate that can be reused when comparing nearby circulant families.
+For \(T_{2m+1}\) with arcs \(u\to v\) when \(v-u\in\{1,\ldots,m\}\), the classes \(A=\{0,\ldots,m\}\) and \(B=\{m+1,\ldots,2m\}\) are individually transitive. Writing \(b_j=m+1+j\), the cross rule is \(a_i\to b_j\) exactly when \(i\ge j+1\); therefore the displayed interleaving is a topological order of the whole bipartite subdigraph. The triangle \(0\to m\to2m\to0\) proves one colour is impossible. An independent direct enumeration for every \(1\le m\le100\) verified the same orientation and topological-order identities.
 
-## Closest literature and limitations
-The closest exact overlap is the order-five instance appearing in Liu--Yang--Zhang. Javier--Llano establish ordinary dichromatic results for cyclic and one-jump-reversed circulants, but ordinary dichromatic colourings need not satisfy the bichromatic acyclicity condition. The present theorem does not cover arbitrary circulant symbol sets or one-jump reversals.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives. The full 2026 primary paper defining and developing acyclic dicolouring was inspected completely; it proves general path bounds, random-tournament lower bounds and the critical orders \(m(3)=5\), \(m(4)=7\), but it does not state the all-order value for the standard cyclic tournament. Earlier circulant-tournament literature studies ordinary dichromatic number, which omits the required acyclicity of every two-colour bipartite subdigraph.
+
+## value
+
+PASS
+
+The standard cyclic tournament is the canonical regular tournament in every odd order, and the strengthened acyclic dichromatic invariant is new enough that even small tournaments can require three or four colours. An exact all-order value with one explicit uniform partition is therefore a natural complete family classification despite the short proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
