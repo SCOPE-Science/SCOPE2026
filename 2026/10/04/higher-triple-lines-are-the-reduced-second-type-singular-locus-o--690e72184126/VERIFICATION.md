@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The final claim was checked in two layers.
+# Independent mathematical audit
 
-First, the geometric proof was reconstructed from the explicit reduced component decomposition of the Fermat second-type locus and Zhang's matrix criterion for higher triple lines. The key equivalence is that, on each disjoint-support component, the relevant second-order pencil is block diagonal and degenerates exactly when a Fermat block second fundamental form is singular. For a Fermat factor of size \(r\), its Hessian determinant is \(6^r\prod z_i\), so in block sizes \(3\) and \(4\) this is exactly the coordinate-vanishing condition that also characterizes overlap of distinct reduced components.
+## correctness
 
-Second, `artifacts/verify_fermat_htl.py` symbolically recomputes the two Hessian determinants and exhaustively checks the finite combinatorics. Its recorded output in `artifacts/verification_output.txt` is:
+PASS
 
-`HESSIAN_r3=216*x0*x1*x2`
+The published Fermat description gives 55 smooth reduced components indexed by 2+4 and 3+3 coordinate-support splittings. A point lies on multiple such components exactly when a coordinate vanishes on the represented line, so the reduced union is singular precisely on that coordinate-degeneration locus. On each block component, Zhang's higher-triple second-order matrix splits into the Fermat block second fundamental forms; their Hessians have determinant proportional to the product of block coordinates, so the higher-triple condition is the same coordinate-vanishing condition. The independent symbolic verifier confirms the r=3 and r=4 Hessian determinants and exhaustively verifies the finite counts 180 curves, 405 deep points, nine incidences per curve and four curves per deep point.
 
-`HESSIAN_r4=1296*x0*x1*x2*x3`
+## originality
 
-`CUBIC_COMPONENTS=45`
+PASS
 
-`PRODUCT_COMPONENTS=10`
+Zhang defines higher triple lines, records at least 45 one-parameter Fermat families and explicitly asks how higher triple lines relate to singularities of F2 in dimension at least four. Gounelas–Kouvidakis give the complete reduced Fermat second-type decomposition into 45 cubic surfaces and 10 products of Fermat plane cubics, but do not identify its singular locus with higher triple lines or give the 180/405 incidence refinement. The audited block-Hessian comparison joins those ingredients and answers Zhang's question for this canonical special fourfold. No independent Resultary theorem was found.
 
-`HTL_CURVES=180`
+## value
 
-`DEEP_POINTS=405`
+PASS
 
-`CURVES_PER_CUBIC_COMPONENT=4`
+The result answers an explicit recent question for a canonical highly symmetric cubic fourfold, identifies two independently defined geometric loci and upgrades the previously noted Fermat families to a complete elliptic-component and incidence classification. This is a natural structural special case rather than a gratuitous finite computation.
 
-`CURVES_PER_PRODUCT_COMPONENT=18`
-
-`DEEP_POINTS_PER_CURVE=9`
-
-`CURVES_THROUGH_DEEP_POINT=4`
-
-`VERIFY_OK`
-
-The script verifies finite Hessian algebra and incidence counts only. It is not used as evidence for any unbounded or scheme-theoretic claim. The result is limited to the set-theoretic singular locus of the reduced second-type locus; nonreduced multiplicities, local analytic types, and transversality are unproved here.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
