@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:01:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Applying the stated local Stinespring isometry to the entire extended-Werner state gives the displayed cavity X-state: the white-noise part evolves non-unitality, the 00--11 coherence scales by eta, and the two middle populations equal eta[A(2-eta)+rb(1-eta)]. X-state concurrence then factors as 2 eta (A+rb)[eta-alpha]_+. The complementary reservoir channel is obtained by eta -> 1-eta, so the unique finite thresholds are alpha and 1-alpha. Solving alpha=1/2 yields r_s=3/(3+8c-4b); alpha=0 yields the stated r_E. The printed-source alternative keeps I/4 fixed and is incompatible with amplitude damping for r<1.",
+      "risks": [
+        "Only the Phi_theta EWL family, independent vacuum reservoirs, and the specified zero-temperature amplitude-damping channel are covered."
+      ],
+      "sources": [
+        "RESULT.md blob 583a39a7189788cf4c1dc8ceaccb9205a36a2f64",
+        "verify_mixed_death_birth.py blob b459de038ff3701f515ac5fda63dbb156fcf1a93",
+        "DOI:10.1142/S0219749909004529",
+        "arXiv:0808.3690",
+        "arXiv:0802.1825"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pure theorem is broader in multipartite framing but narrower in initial-state purity.",
+          "The mixed Kraus paper covers several channels but only system-side entanglement dynamics, not cavity-versus-reservoir death/birth ordering."
+        ],
+        "reasoning": "No broader inspected theorem logically implies the corrected mixed two-reservoir phase boundaries.",
+        "searches": [
+          "arXiv:0802.1825 pure cavity-reservoir theorem",
+          "arXiv:0808.3690 mixed EWL noisy-channel treatment",
+          "DOI:10.1142/S0219749909004529 full article"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0802.1825",
+        "DOI:10.1142/S0219749909004529",
+        "arXiv:0808.3690",
+        "Resultary mixed-EWL/order searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pure simultaneous point tan(theta)=2 is prior and is explicitly credited.",
+          "The correct cavity evolution from Shan et al. plus channel complementarity is an ingredient, but the exact mixed reservoir thresholds, r_s, r_E, and the open sign-reversal wedge are not stated or proved there.",
+          "Zhang--Xia's printed mixed formulas imply a different boundary because they incorrectly keep the white-noise component invariant."
+        ],
+        "reasoning": "The final claim is not a corollary of any one inspected prior statement; it is a correction/completion built from the physical channel and exact threshold analysis.",
+        "searches": [
+          "Statement comparison with López et al. pure-state result",
+          "Statement comparison with Zhang--Xia printed mixed matrices",
+          "Statement comparison with Shan et al. correct system-side Kraus evolution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shan et al. use the same mixed EWL object and the correct amplitude-damping Kraus map on the system side.",
+          "No searched source states the complementary-reservoir exact ordering boundary in an equivalent sine/cosine or purity parameterization."
+        ],
+        "reasoning": "The natural EWL, Kraus-channel, purity, and event-order aliases were compared; the closest source supplies ingredients but not the final classification.",
+        "searches": [
+          "Resultary query: mixed extended Werner state amplitude damping cavity reservoir sudden death birth simultaneous boundary",
+          "Resultary query: two cavity amplitude damping mixed state death birth ordering purity theta simultaneous boundary",
+          "Resultary query: cavity reservoir entanglement sudden death sudden birth purity exact threshold theta",
+          "arXiv:0808.3690",
+          "DOI:10.1142/S0219749909004529"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary record or exact table with r_s(theta), r_E(theta), or the printed-versus-physical wedge was returned."
+        ],
+        "reasoning": "This is an analytic all-parameter classification, not a recomputation of a located table.",
+        "searches": [
+          "Resultary queries on mixed EWL death/birth ordering and simultaneous boundary",
+          "Searches for Zhang-Xia correction and purity threshold"
+        ]
+      },
+      "rationale": "López et al. cover the pure-state before/simultaneous/after phenomenon; Zhang--Xia pose the mixed problem but print a frozen-white-noise evolution inconsistent with their non-unital channel; Shan et al. give the correct mixed system-side amplitude-damping channel but do not classify the complementary reservoir event ordering. Fresh Resultary searches found no same theorem. The exact corrected two-reservoir complement, simultaneous boundary, no-finite-threshold boundary, and explicit misordering wedge are not implied by the inspected statements without carrying out the corrected channel and threshold elimination.",
+      "residual_risks": [
+        "A later paper may contain an equivalent two-reservoir threshold classification under a different Bell-state convention or channel parameterization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRICTLY_WEAKER",
+          "evidence": [
+            "Establishes the qualitative ordering for pure Bell-like initial states only."
+          ],
+          "identifier_or_url": "arXiv:0802.1825",
+          "material_read": "Full primary PDF sections giving the pure cavity/reservoir ordering and simultaneous condition.",
+          "method": "Direct PDF statement comparison.",
+          "title": "Sudden Birth versus Sudden Death of Entanglement in Multipartite Systems",
+          "trigger": "Foundational pure-state death/birth result."
+        },
+        {
+          "assessment": "CONFLICTING_PRINTED_FORMULAS",
+          "evidence": [
+            "The mixed printed matrices retain (1-r)/4 unchanged in diagonal entries, which is incompatible with the non-unital channel except at r=1."
+          ],
+          "identifier_or_url": "DOI:10.1142/S0219749909004529",
+          "material_read": "Full public article material containing the mixed cavity and reservoir density-matrix entries and the illustrative purity comparisons.",
+          "method": "Full-text formula comparison with the stated amplitude-damping channel.",
+          "title": "A study on the sudden death and sudden birth of entanglement in an open system",
+          "trigger": "Same mixed cavity-reservoir object and claimed dynamics."
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Confirms the corrected cavity-side evolution but does not give the complementary reservoir ordering phase diagram."
+          ],
+          "identifier_or_url": "arXiv:0808.3690",
+          "material_read": "Full primary PDF section defining the EWL state, amplitude-damping Kraus map, evolved X-state entries, and concurrence.",
+          "method": "Direct formula comparison after sine/cosine convention exchange.",
+          "title": "Entanglement dynamics of two-qubit system in different types of noisy channels",
+          "trigger": "Independent mixed EWL amplitude-damping calculation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result corrects a physically inconsistent mixed-state evolution in a source problem and shows that the error changes the qualitative event ordering on an open parameter wedge. Exact death/birth times, the simultaneous curve, and the no-finite-threshold boundary turn qualitative plots into a reusable phase classification.",
+      "risks": [
+        "Value is specific to the stated EWL family and zero-temperature independent-reservoir model."
+      ],
+      "sources": [
+        "DOI:10.1142/S0219749909004529",
+        "arXiv:0808.3690",
+        "RESULT.md blob 583a39a7189788cf4c1dc8ceaccb9205a36a2f64"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for the second EWL Bell family, finite temperature, correlated/non-Markovian reservoirs, driving, or direct cavity coupling."
+  ],
+  "schema_version": 1
+}
