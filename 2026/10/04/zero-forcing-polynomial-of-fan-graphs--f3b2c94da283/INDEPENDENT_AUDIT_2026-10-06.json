@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T08:41:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md fedb6b1b8a1088b5c4be8d59ab5ffc1e87e2aaf0",
+        "verify.py 24f2d8ea4237b5b3a9ef105f6cebca2720a77722",
+        "Boyer et al. arXiv:1801.08910",
+        "Menon--Singh DOI:10.1016/j.disc.2025.114516"
+      ],
+      "rationale": "With the cone blue, the path forcing process is unchanged, and a path-nonforcing set leaves every blue path vertex with at least two white path neighbors. With the cone white, no path-to-path force can occur first, so the first force must target the cone; this happens exactly at a blue endpoint pair or a blue length-three path window. Those triggers then contain a path forcing set. The inspected verifier exhaustively tests every subset for \\(2\\le m\\le17\\) and checks both recurrence and coefficient formula; independent brute force reproduced the minimum and minimum-set counts through \\(m=7\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later paper proves only coefficientwise path-extremal bounds for cones/outerplanar graphs.",
+          "No exact equality class or trigger language fixes the fan coefficients."
+        ],
+        "reasoning": "The broader operation results do not imply the assigned recurrence.",
+        "searches": [
+          "Boyer et al. full PDF",
+          "Menon--Singh full open article, cone Lemma 3.8 and outerplanar theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1801.08910",
+        "DOI:10.1016/j.disc.2025.114516",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing \\(\\mathcal Z(P_m)\\) and a coefficient inequality for the cone leaves the center-free contribution undetermined.",
+          "The assigned first-force analysis identifies that missing contribution exactly via forbidden binary words."
+        ],
+        "reasoning": "Prior statements do not imply the final formula.",
+        "searches": [
+          "Boyer path formula + Menon--Singh cone inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No same-object exact formula was returned.",
+          "Boyer full-text family coverage includes paths and wheels but not fans."
+        ],
+        "reasoning": "Fan, cone-over-path, and \\(K_1\\\\veeee P_m\\) formulations were compared.",
+        "searches": [
+          "Resultary: zero forcing polynomial fan graph K1 join path exact coefficients",
+          "web exact search: zero forcing polynomial fan graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact fan polynomial/table was found; returned nearby results concern other graph invariants or general zero-forcing bounds."
+        ],
+        "reasoning": "No database coverage was located.",
+        "searches": [
+          "Resultary exact fan query"
+        ]
+      },
+      "rationale": "Boyer et al. give the path polynomial and a wheel formula but no fan theorem. Menon--Singh explicitly cover outerplanar graphs and cones only through coefficient inequalities relevant to the path-extremal conjecture; their cone lemma does not determine the exact center-free trigger set. Resultary and exact searches found no prior fan zero-forcing polynomial. The binary-word recurrence is therefore additional exact information, not a direct parameter substitution into the checked sources.",
+      "residual_risks": [
+        "An unindexed exact fan enumeration may exist under a different naming convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PATH_AND_WHEEL_FORMULAS_NOT_FAN",
+          "evidence": "The paper provides \\(\\mathcal Z(P_m)\\) but no cone-over-path enumeration.",
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "Complete primary PDF with focused reading of path and wheel results and family coverage.",
+          "method": "Open primary full-PDF inspection.",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Foundational source with path and wheel formulas."
+        },
+        {
+          "assessment": "CONE_INEQUALITY_NOT_EXACT_FAN_FORMULA",
+          "evidence": "The source proves path-extremal coefficient inequalities, not equality formulas for fans.",
+          "identifier_or_url": "DOI:10.1016/j.disc.2025.114516",
+          "material_read": "Open primary article, including Theorem 1.2 and cone Lemma 3.8.",
+          "method": "Open primary full-text inspection.",
+          "title": "Exploring the influence of graph operations on zero forcing sets",
+          "trigger": "Closest broad cone/outerplanar counting source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Boyer et al. 2019",
+        "Menon--Singh 2025"
+      ],
+      "rationale": "Fans are canonical maximal outerplanar graphs and cones over paths, so an exact all-cardinality zero-forcing enumeration is a natural sharpening of the known outerplanar/cone inequalities. The trigger classification is compact, reusable, and yields a nontrivial finite-state recurrence.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the fan \\(F_m=K_1\\\\veeee P_m\\), a set containing the cone vertex is zero forcing exactly when its path part is zero forcing in \\(P_m\\); a center-free set is zero forcing exactly when it contains an endpoint pair or three consecutive path vertices. Hence \\(\\mathcal Z(F_m;x)=x\\mathcal Z(P_m;x)+(1+x)^m-B_m(x)\\) with the stated no-\\(111\\) recurrence and boundary corrections.",
+  "limitations": [
+    "Ordinary zero forcing on \\(K_1\\\\veeee P_m\\), \\(m\\ge2\\).",
+    "Finite checks are corroborative; the proof is the first-force classification."
+  ],
+  "schema_version": 1
+}

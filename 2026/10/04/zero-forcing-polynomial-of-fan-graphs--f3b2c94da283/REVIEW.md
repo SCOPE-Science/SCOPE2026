@@ -1,12 +1,21 @@
-# Review of Zero forcing polynomial of fan graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates sets by whether the cone vertex is initially blue. In the blue-center case, the path non-forcing characterization is exact. In the white-center case, no path-to-path force is initially possible, so the first force must color the center; this occurs exactly at an endpoint pair or a length-three blue run. Each trigger then guarantees completion after the center turns blue. The binary-string complement and inclusion-exclusion therefore count precisely the non-forcing center-free sets. Direct simulation of every subset through \\(m=17\\) matches every coefficient.
+## correctness
 
-## Originality
-PASS. The 2018 foundational full text gives path and wheel formulas but no fan formula. The 2024 full text treats outerplanar graphs and cones only through coefficient bounds sufficient for the path-extremal conjecture; its cone lemma is an inequality, not an exact fan enumeration. Exact-phrase, graph-name, cone-over-path, and semantic searches returned those sources and unrelated zero-forcing results, but no equivalent fan polynomial. The known path polynomial and general coefficient bounds are excluded from the originality claim.
+PASS
 
-## Value
-PASS. Fans are a standard maximal outerplanar family and the zero forcing polynomial is the established all-set refinement of the zero forcing number. The result gives the entire coefficient sequence from a short structural rule, exposes a boundary-tribonacci component not visible from the minimum value, and exactly counts the minimum sets. This is a natural family-level enumeration rather than a parameter slice chosen only for computability.
+With the cone blue, the path forcing process is unchanged, and a path-nonforcing set leaves every blue path vertex with at least two white path neighbors. With the cone white, no path-to-path force can occur first, so the first force must target the cone; this happens exactly at a blue endpoint pair or a blue length-three path window. Those triggers then contain a path forcing set. The inspected verifier exhaustively tests every subset for \(2\le m\le17\) and checks both recurrence and coefficient formula; independent brute force reproduced the minimum and minimum-set counts through \(m=7\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Boyer et al. give the path polynomial and a wheel formula but no fan theorem. Menon--Singh explicitly cover outerplanar graphs and cones only through coefficient inequalities relevant to the path-extremal conjecture; their cone lemma does not determine the exact center-free trigger set. Resultary and exact searches found no prior fan zero-forcing polynomial. The binary-word recurrence is therefore additional exact information, not a direct parameter substitution into the checked sources.
+
+## value
+
+PASS
+
+Fans are canonical maximal outerplanar graphs and cones over paths, so an exact all-cardinality zero-forcing enumeration is a natural sharpening of the known outerplanar/cone inequalities. The trigger classification is compact, reusable, and yields a nontrivial finite-state recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
