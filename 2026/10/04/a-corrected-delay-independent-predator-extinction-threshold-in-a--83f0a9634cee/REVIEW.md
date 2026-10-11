@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's asserted adult-predator differential inequality is directly contradicted by its exact equation because the delayed juvenile maturation term is positive and cannot be discarded. The corrected theorem follows from logistic control of the prey, an eventual linear upper bound on juvenile recruitment, and a Lyapunov-Krasovskii functional whose integral term cancels the delayed maturation flux exactly. The strict threshold makes both predator coefficients negative; boundedness plus Barbalat's lemma yields predator extinction, and scalar logistic comparison yields convergence of the prey.
+PASS
 
-## Originality
+The source's printed adult-predator upper bound is false because it omits the positive delayed maturation term c2 P2(t-tau2); the stated source parameters give exact values 0.68 versus 0.48. The corrected theorem follows from logistic control of prey, the inequalities P2'<=A_eps P3-qP2 and the exact adult equation, and the Lyapunov-Krasovskii functional L=P2+alpha P3+alpha c2 integral P2. Choosing A_eps/d3<alpha<q/c2 makes L' a strictly negative combination of P2, P3 and P3^2. Integrability plus bounded derivatives gives predator extinction, then scalar comparison gives P1->K. A fresh symbolic check reproduced the derivative cancellation.
 
-PASS. Reproduction-number threshold methods for stage-structured predator-prey systems are established prior art. The closest fully inspected Crowley-Martin predecessor proves extinction/permanence in a different maturation model, so the general idea is not claimed as new. The surviving contribution is the correction of the exact Kong-Shao equations, the source-parameter contradiction, and the explicit delay-independent threshold for that three-variable system. Exact DOI, title, extinction, adult-limit, and parameter-alias searches found no published correction of the source.
+## originality
 
-## Value
+PASS
 
-PASS. The flawed calculation concerns extinction of both predator stages, a biologically central qualitative outcome. The source's own stable coexistence example conflicts with its printed adult-predator limiting formula. The replacement theorem supplies a concrete condition that is mathematically valid for arbitrary delays and is less restrictive than the source's stated sufficient condition, so it changes what can rigorously be concluded from the model rather than merely repairing notation.
+The exact source contains the incorrect preliminary inequality and a Figure-3 stable coexistence equilibrium incompatible with the printed limiting formula. Related stage-structured predator-prey papers establish reproduction-threshold methodology in different maturation systems, but no inspected source states this model's corrected R_P threshold or Lyapunov-Krasovskii functional. Current Resultary search produced no same-result prior finding.
 
-## Closest literature and limitations
+## value
 
-Li, Sun, and Liu, DOI 10.3934/dcdsb.2022177, give the closest threshold result for a stage-structured Crowley-Martin model, but their maturation mechanism uses delayed recruitment with an explicit juvenile survival factor rather than the explicit juvenile compartment and delayed maturation input corrected here. Liu and Beretta, DOI 10.1137/050630003, provide broader stage-structured threshold precedent with a different functional response.
+PASS
 
-The theorem proves only the strict sufficient regime \(\mathcal R_P<1\). It does not assert sharpness at the boundary or re-audit the source's later bifurcation catalogue.
+The result corrects a concrete invalid argument and false limiting formula in a published delay model, while replacing them with a rigorous delay-independent criterion that is strictly less restrictive than the source's surviving qualitative condition. This is a useful source-specific stability correction with an exact parameter witness.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:01:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Kong-Shao 2023 primary full-text article",
+        "repository verify.py blob 02cfb7f2acbb95488ef941c48eb761d3930cd466"
+      ],
+      "rationale": "The source's printed adult-predator upper bound is false because it omits the positive delayed maturation term c2 P2(t-tau2); the stated source parameters give exact values 0.68 versus 0.48. The corrected theorem follows from logistic control of prey, the inequalities P2'<=A_eps P3-qP2 and the exact adult equation, and the Lyapunov-Krasovskii functional L=P2+alpha P3+alpha c2 integral P2. Choosing A_eps/d3<alpha<q/c2 makes L' a strictly negative combination of P2, P3 and P3^2. Integrability plus bounded derivatives gives predator extinction, then scalar comparison gives P1->K. A fresh symbolic check reproduced the derivative cancellation.",
+      "residual_risks": [
+        "Only the strict sufficient regime R_P<1 is proved; necessity and the critical equality case are not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Those models use different maturation/birth mechanisms and do not imply the present delayed explicit-juvenile Lyapunov identity.",
+          "No broader inspected theorem specializes directly to the Kong-Shao equations with this threshold."
+        ],
+        "reasoning": "The prior literature supplies methodology, not statement-level coverage.",
+        "searches": [
+          "Li-Sun-Liu 2023 stage-structured Crowley-Martin threshold",
+          "Liu-Beretta 2006 stage-structured threshold literature",
+          "Resultary current corpus search"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.20231498",
+        "related stage-structured threshold literature",
+        "Resultary current corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source condition implies but is not equivalent to R_P<1; an exact witness has R_P=1/11 while eta b2/b1>d3.",
+          "Different stage-structured models do not determine the present delay-independent functional."
+        ],
+        "reasoning": "The corrected theorem strictly enlarges the rigorously justified source regime and is not mechanically inherited from the neighboring models.",
+        "searches": [
+          "Source sufficient condition eta b2/b1<d3 versus corrected R_P<1",
+          "other stage-structured reproduction-number theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The corrected R_P is the spectral stage-reproduction product for the exact juvenile-to-adult chain linearized at the predator-free prey level.",
+          "The source's simpler eta b2/b1<d3 condition is strictly stronger and implies R_P<1."
+        ],
+        "reasoning": "The theorem is compared in both stage-reproduction and source-parameter forms.",
+        "searches": [
+          "Resultary search for Kong-Shao fear-stage extinction thresholds",
+          "Kong-Shao 2023 full-text model and preliminary extinction calculation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior published finding was retrieved."
+        ],
+        "reasoning": "This negative search is supporting only; originality primarily rests on direct source/model comparison.",
+        "searches": [
+          "Resultary exact semantic query for the Kong-Shao model, R_P, and adult-limit correction"
+        ]
+      },
+      "rationale": "The exact source contains the incorrect preliminary inequality and a Figure-3 stable coexistence equilibrium incompatible with the printed limiting formula. Related stage-structured predator-prey papers establish reproduction-threshold methodology in different maturation systems, but no inspected source states this model's corrected R_P threshold or Lyapunov-Krasovskii functional. Current Resultary search produced no same-result prior finding.",
+      "residual_risks": [
+        "A model-specific correction under different notation could be unindexed.",
+        "The theorem does not settle the exact extinction/permanence boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_ERROR_CONFIRMED",
+          "evidence": "The adult equation contains +c2 P2(t-tau2), while the preliminary claimed upper bound drops it; Figure 3 reports the coexistence adult level 4.2827.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20231498",
+          "material_read": "accessible primary full text, including the model/preliminary extinction calculation and Figure 3 coexistence data",
+          "method": "primary full-text HTML/PDF inspection",
+          "title": "The effects of fear and delay on a predator-prey model with Crowley-Martin functional response and stage structure for predator",
+          "trigger": "exact model and faulty extinction calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kong-Shao 2023",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The result corrects a concrete invalid argument and false limiting formula in a published delay model, while replacing them with a rigorous delay-independent criterion that is strictly less restrictive than the source's surviving qualitative condition. This is a useful source-specific stability correction with an exact parameter witness.",
+      "residual_risks": [
+        "Its contribution is a sufficient threshold, not a complete global bifurcation classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only the strict sufficient regime R_P<1 is proved; necessity and the critical equality case are not claimed.",
+    "A model-specific correction under different notation could be unindexed.",
+    "The theorem does not settle the exact extinction/permanence boundary.",
+    "Its contribution is a sufficient threshold, not a complete global bifurcation classification."
+  ]
+}
