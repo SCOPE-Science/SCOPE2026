@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:32:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 5f6dc9dac92e435b09c14c66258f2766630c6577",
+        "assigned verify.py blob e7722c9f6cbcefa611a342c74cbe2bae09a88461",
+        "Henning--Kazemi, arXiv:1603.02433",
+        "Brešar--Henning, DOI:10.1002/jgt.23095"
+      ],
+      "rationale": "For a vertex outside \\(S\\), having an outside neighbor is equivalent to the complement meeting another part, so restraint is exactly \\(c(S)\\ge2\\). Domination is automatic if \\(S\\) meets at least two parts, while one-part support dominates exactly when it is the whole part. Inclusion-exclusion over sets meeting at most one part and complements meeting at most one part gives the stated formulas, and the minimum/count cases follow immediately. I independently replayed the definition against the criterion on representative multipartite profiles, including \\((1,1)\\), \\((1,2)\\), \\((2,2)\\), \\((1,1,1)\\), \\((1,2,3)\\), and \\((2,2,2)\\); the inspected verifier exhausts all isomorphism types through order ten.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Minimum-number or general upper-bound theorems cannot recover the coefficient sequence of every restrained dominating set."
+        ],
+        "reasoning": "The full polynomial is not mechanically determined by the checked prior statements, even though its proof is elementary.",
+        "searches": [
+          "Henning--Kazemi complete multipartite minimum-number theorem",
+          "Brešar--Henning general restrained-domination bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1603.02433",
+        "DOI:10.1002/jgt.23095",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing only the minimum size for a complete multipartite graph does not determine which nonminimum sets are restrained dominating."
+        ],
+        "reasoning": "Best-of-knowledge originality survives at the enumerator/classification level.",
+        "searches": [
+          "Henning--Kazemi complete multipartite section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior complete-multipartite work concerns minimum \\(k\\)-tuple restrained domination rather than the full subset family.",
+          "The audited polynomial counts every feasible subset by size."
+        ],
+        "reasoning": "All-set restrained domination, support/complement part counts, and the size enumerator were compared.",
+        "searches": [
+          "Resultary query: restrained domination complete multipartite graph polynomial all sets",
+          "Henning--Kazemi arXiv:1603.02433 complete p-partite section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact coefficient table or polynomial for this parameter was returned."
+        ],
+        "reasoning": "The Resultary ecosystem contains many other complete-multipartite domination variants, but not this exact all-set polynomial.",
+        "searches": [
+          "Resultary exact complete-multipartite restrained-domination query"
+        ]
+      },
+      "rationale": "Henning--Kazemi already treat complete multipartite graphs for the minimum \\(k\\)-tuple restrained-domination number, so the scalar minimum side is not treated as wholly new. Their framework does not enumerate every ordinary restrained dominating set or give the displayed polynomial. Resultary searches likewise found related domination polynomials but no prior all-set restrained-domination formula for arbitrary complete multipartite part sizes.",
+      "residual_risks": [
+        "An older domination-polynomial source could record the elementary specialization under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MINIMUM_PARAMETER_NOT_ALL_SET_ENUMERATION",
+          "evidence": "The source formulates the minimum \\(k\\)-tuple restrained-domination number; it does not provide the audited all-subset size polynomial.",
+          "identifier_or_url": "arXiv:1603.02433",
+          "material_read": "Searchable primary arXiv text around Proposition 2.9 and the complete p-partite discussion, together with the bipartite section.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "k-Tuple Restrained Domination in Graphs",
+          "trigger": "Strongest same-class primary predecessor."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Henning--Kazemi complete multipartite work",
+        "general restrained-domination literature",
+        "related complete-multipartite domination-polynomial records"
+      ],
+      "rationale": "Although the full polynomial is apparently unpublished, the classification on a complete multipartite graph follows immediately from two definition-level observations: an outside vertex sees exactly the other parts, and a selected one-part set dominates only when it is the full part. The formulas are then routine inclusion-exclusion. Under the same value bar used for other complete-multipartite domination variants, this is a clean expository specialization rather than a substantive new structural gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every connected complete multipartite graph, a proper set is restrained dominating exactly when its complement meets at least two parts and the set itself either meets at least two parts or equals one entire part; the two closed size-enumerator formulas and the stated minimum values and counts follow.",
+  "limitations": [
+    "Connected complete multipartite graphs only.",
+    "The all-set formulas appear absent from the checked literature, but the classification is a direct definition-level specialization of multipartite adjacency."
+  ],
+  "schema_version": 1
+}
