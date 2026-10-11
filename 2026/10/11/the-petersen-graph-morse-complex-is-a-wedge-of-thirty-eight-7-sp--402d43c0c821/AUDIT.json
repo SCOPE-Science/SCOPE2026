@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "PASS. The graph has ten vertices and fifteen edges; a graph Morse face is exactly an acyclic partial orientation with at most one outgoing edge per vertex. The attached finite exhaustive enumeration reconstructs 314,928 faces, and its bitmask incidence face poset is validated against independent rooted-forest Laplacian counts. The explicitly ordered 157,259 augmented Morse pairs yield exactly 77 critical seven-cells and 333 critical eight-cells; unpairing the empty face creates one critical vertex, and an exhaustive topological sort checks acyclicity on 2,099,520 directed face incidences. The signed integral Morse boundary is 77-by-333, has 235 nonzero entries of absolute value one, and reduces by exactly 39 unit row/column pivots to a zero residual matrix. Since the critical seven-skeleton is a wedge of 77 seven-spheres and pi_7 equals Z^77, the unit diagonal form gives 39 homotopy cancellations, proving the wedge of 38 seven-spheres and 294 eight-spheres. Both extracted standalone verifiers were run. The finite statement asserts no family-wide theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Donovan-Lin-Scoville (arXiv:1909.11440, full-text results on graphs with shared leaves and caterpillars).",
+        "Scoville-Zaremsky (arXiv:2004.10481, connectivity bounds).",
+        "Kozlov (arXiv:math/0503613, simple-homotopy comparison of Hom, neighborhood, Lovasz, lattice complexes)."
+      ],
+      "reasoning": "Checked whether broader theorems cover all 3-regular graphs, all connected graphs, or all graphs with Petersen-like parameters. The leaf-based homotopy reductions cannot cover the cubic leafless Petersen graph, and connectivity bounds cannot imply exact integer degree matrices or sphere multiplicities. Kozlov compares different functorially defined complexes. None of the material inspected gives a general implication yielding this homotopy type.",
+      "searches": [
+        "\"Petersen graph\" \"Morse complex\" \"wedge\" spheres 38 294 integral homotopy",
+        "\"Petersen\" \"Morse complex\" all acyclic incidence matchings exact homotopy",
+        "acyclic matching Morse complex Petersen graph homotopy type integral homology discrete Morse Chari Joswig",
+        "\"Petersen\" \"discrete Morse\" \"directed forest\" \"H_7\" \"H_8\" 38 294"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0503613v1 (OA PDF, primary 57Q10)",
+      "arxiv:math/0011234v1 (OA PDF, §§2–3)",
+      "arxiv:1909.11440v1 (OA PDF, graph family theorems)",
+      "arxiv:2004.10481v1 (OA PDF, main connectivity results)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-mod-2-homology-of-the-petersen-graph-morse-complex--445405e72d9e (entire public RESULT.md and REVIEW.md, plus SLOGAN.txt)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The public published-finding corpus RESULT.md explicitly says it does not establish integral homology, torsion-freeness, attaching maps or wedge decomposition.",
+        "Chari-Joswig establish the graph-to-rooted-forest correspondence and Laplacian face counts, not the integral high-dimensional attachment.",
+        "The new verifier eliminates the full signed critical 8-to-7 matrix through 39 unit pivots with zero residual."
+      ],
+      "reasoning": "The new statement implies the older mod-two Betti ranks by reducing its integral homology mod two; the converse is false since mod-two Betti ranks can be shared by spaces with different torsion and/or attaching maps. The elementary reductions in other literature identify faces or give connectivity only. The new claim adds the specific signed boundary and 7-connected homotopy classification, not a restatement of a corollary.",
+      "searches": [
+        "\"Petersen graph\" \"Morse complex\" \"wedge\" spheres 38 294 integral homotopy",
+        "\"Petersen\" \"discrete Morse\" \"directed forest\" \"H_7\" \"H_8\" 38 294",
+        "Petersen graph rooted forest simplicial complex integral boundary torsion attaching maps sphere wedge",
+        "2026/10/4/SCOPE-mod-2-homology-of-the-petersen-graph-morse-complex--445405e72d9e",
+        "arxiv:math/0011234",
+        "arxiv:1909.11440",
+        "arxiv:2004.10481"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Graph Morse incidences are rooted oriented forests (Chari-Joswig, arXiv:math/0011234, §3).",
+        "The exact prior Petersen Morse-complex publication states only mod-two homology (https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-mod-2-homology-of-the-petersen-graph-morse-complex--445405e72d9e).",
+        "published-finding corpus exact searches locate Petersen 2-matching and Petersen total 3-cut computations on different simplicial complexes."
+      ],
+      "reasoning": "Compared rooted-forest, discrete-gradient, vertex-edge incidence, ordinary Morse complex and directed-forest aliases. The three constraints on arrows identify exactly the same ordinary Morse complex as the prior mod-two result. The 2-matching complex has edges rather than vertex-edge Hasse incidences as vertices, and the total cut complex has a different face condition; neither statement implies the new homotopy decomposition.",
+      "searches": [
+        "\"Petersen graph\" \"Morse complex\" \"wedge\" spheres 38 294 integral homotopy",
+        "\"Petersen\" \"discrete Morse\" \"directed forest\" \"H_7\" \"H_8\" 38 294",
+        "Petersen graph rooted forest simplicial complex integral boundary torsion attaching maps sphere wedge",
+        "\"Petersen\" \"Morse complex\" all acyclic incidence matchings exact homotopy",
+        "published-finding corpus: acyclic matching Morse complex Petersen graph homotopy type integral homology discrete Morse Chari Joswig"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact mod-two face and boundary-rank table for the identical graph and simplicial complex (https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-mod-2-homology-of-the-petersen-graph-morse-complex--445405e72d9e).",
+        "published-finding corpus results for Petersen 2-matching and 3-cut complexes have different domain definitions.",
+        "Full primary texts inspected: arXiv:math/0011234, arXiv:1909.11440, arXiv:2004.10481."
+      ],
+      "reasoning": "Compared numerical aliases 38/294, dimensions 7/8, 77-by-333 degree matrix, rooted forest and integral homotopy. The exact prior table gives mod-two ranks only, so even its identical face vector cannot certify torsion-freeness or the unit Smith invariants. No stronger checked table or exact homotopy decomposition matches this domain. Absence in the indexed searches is evidence of a gap, not proof of worldwide novelty.",
+      "searches": [
+        "\"Petersen graph\" \"Morse complex\" \"wedge\" spheres 38 294 integral homotopy",
+        "\"Petersen\" \"discrete Morse\" \"directed forest\" \"H_7\" \"H_8\" 38 294",
+        "\"Petersen graph\" \"Morse complex\" mod-2 homology 38 294",
+        "\"Petersen\" \"Morse complex\" mod-2 homology 38 294",
+        "published-finding corpus: acyclic matching Morse complex Petersen graph homotopy type integral homology discrete Morse Chari Joswig"
+      ]
+    },
+    "rationale": "PASS with specified residual risk. The closest exact public item concerns precisely the Petersen ordinary Morse complex but proves only reduced mod-two Betti numbers 38 and 294, explicitly not integral homology or homotopy. Finite Betti numbers over F_2 do not imply an integral wedge-of-spheres decomposition or control eight-cell attaching maps. The full-text checked Chari-Joswig foundational theorem, Donovan-Lin-Scoville leaf/family results, and Scoville-Zaremsky connectivity bounds do not determine the Petersen integral attaching matrix; Kozlov addresses related simple-homotopy graph complexes, not this exact object. Alternative constructions such as edge matching, 2-matching and strong Morse complexes were distinguished by definitions. No covering published statement was located; an unindexed or unpublished equivalent result remains possible.",
+    "residual_risks": [
+      "A mathematically equivalent integral homotopy computation may exist in unindexed, unpublished, or poorly indexed literature; no search can prove global originality.",
+      "A recent paper on strong discrete-Morse matchings, arXiv:2609.06844, could not be retrieved in full here, though its strongly restricted simplicial object differs from the ordinary Morse complex.",
+      "The finite integer computations have been reproduced locally, not independently audited by a third party; any implementation error in the verifiers would be a residual reproducibility risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: addresses Hom/neighborhood/poset comparisons and simple homotopy, not the Petersen ordinary discrete-Morse complex",
+        "evidence": [
+          "arxiv:math/0503613, §1 and main comparison theorems",
+          "first submission 2005-03-28, primary MSC 57Q10"
+        ],
+        "identifier_or_url": "arxiv:math/0503613v1",
+        "material_read": "arXiv abstract/submission metadata and PDF introductory and principal graph-complex theorem sections",
+        "method": "opened OA arXiv PDF, inspected pages and paper text",
+        "title": "Simple homotopy types of Hom-complexes, neighborhood complexes, Lovász complexes, and atom crosscut complexes",
+        "trigger": "Archive-era primary MSC 57Q10 topological methods on graph complexes"
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: supplies forest bijection and Laplacian enumeration but no integer Petersen attaching-degree classification",
+        "evidence": [
+          "Proposition 3.1 identifies graph Morse simplices with rooted forests",
+          "Corollary 3.3 applies graph Laplacian to Morse face enumeration"
+        ],
+        "identifier_or_url": "arxiv:math/0011234v1",
+        "material_read": "OA PDF twelve-page paper, especially §§2–3, Proposition 3.1, Corollary 3.3 and family examples",
+        "method": "opened and read relevant full-text passages and paper pages",
+        "title": "Discrete Morse Complexes",
+        "trigger": "Original definition and rooted forest correspondence for graph Morse complexes"
+      },
+      {
+        "assessment": "NOT_COVERING: no Petersen calculation; hypotheses of applicable leaf-based results fail for cubic leafless Petersen graph",
+        "evidence": [
+          "abstract and graph-family theorems for leaf-bearing graphs",
+          "text search showed no Petersen-specific theorem"
+        ],
+        "identifier_or_url": "arxiv:1909.11440v1",
+        "material_read": "OA PDF full relevant results and assumptions for graphs with shared leaves, caterpillars, and disjoint unions",
+        "method": "read PDF relevant theorem and graph-family statements; searched Petersen term",
+        "title": "On the homotopy and strong homotopy type of complexes of discrete Morse functions",
+        "trigger": "Plausible broader published graph-Morse homotopy theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: connectivity is a lower bound and does not compute high-dimensional cellular attaching degrees or wedge multiplicities",
+        "evidence": [
+          "connectivity theorem statements",
+          "no Petersen-specific integral homotopy decomposition"
+        ],
+        "identifier_or_url": "arxiv:2004.10481v1",
+        "material_read": "OA PDF main theorem sections and connectivity hypotheses",
+        "method": "opened OA PDF and inspected Theorem 4.3 and graph connectivity discussion",
+        "title": "Higher connectivity of the Morse complex",
+        "trigger": "General Morse-complex topology potentially implying a wedge"
+      },
+      {
+        "assessment": "PARTIAL_PRIOR: exactly the same ordinary graph Morse complex and mod-two ranks, but explicitly excludes integral homology, torsion, attaching maps and homotopy",
+        "evidence": [
+          "RESULT.md Finding, Proof, Limitations",
+          "REVIEW.md Correctness and Closest literature"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-mod-2-homology-of-the-petersen-graph-morse-complex--445405e72d9e",
+        "material_read": "entire public RESULT.md, REVIEW.md, and SLOGAN.txt",
+        "method": "retrieved and read public GitHub files via read-only repository connector",
+        "title": "Mod-2 homology of the Petersen graph Morse complex",
+        "trigger": "Closest exact published numerical statement on identical objects and parameters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "402d43c0-c821-41f7-bfec-e1127c852a9c",
+  "value": {
+    "rationale": "PASS. The Petersen graph is a canonical vertex-transitive cubic graph, and its full ordinary Morse complex is a natural rooted-forest topology object. An exact published mod-two computation left torsion and integral homotopy unresolved. The new 39-unit attaching-map cancellation settles both and gives a complete mixed-dimensional wedge type, a structurally meaningful classification distinct from known numerical Betti values and stronger than generic connectivity bounds.",
+    "status": "PASS"
+  }
+}
