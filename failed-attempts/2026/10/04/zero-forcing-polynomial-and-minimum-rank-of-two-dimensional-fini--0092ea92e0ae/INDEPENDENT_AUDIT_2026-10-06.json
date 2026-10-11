@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T08:41:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md d45220986c5c00d8c1499401d2012f665e2694d4",
+        "verify.py e241fafc190e003e7e8cbc7e5dac6ae500f21bcf",
+        "Abdulla--Badawi DOI:10.24330/ieja.768135",
+        "Boyer et al. DOI:10.1016/j.dam.2018.11.033"
+      ],
+      "rationale": "Projective orthogonal complementation partitions the nonzero vectors into components \\(K_{q-1}\\) on isotropic lines and \\(K_{q-1,q-1}\\) on two-cycles. Multiplying the component zero-forcing polynomials gives the displayed factorization, and minimum rank adds as one per clique and two per biclique. The equality cases omit exactly one vertex from each projective line. The inspected verifier constructs \\(\\mathbb F_2,\\mathbb F_3,\\mathbb F_4,\\mathbb F_5\\), exhaustively checks all subsets through \\(q=4\\), and independently checks exact-rational rank witnesses; an independent reconstruction also confirmed the component argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior sources determine each connected component, its zero-forcing polynomial, and its real minimum rank."
+        ],
+        "reasoning": "The combined prior coverage is stronger raw structural information than the assigned closed formula.",
+        "searches": [
+          "Abdulla--Badawi Theorems 2.1--2.2",
+          "Boyer et al. Propositions 3--4 and 13",
+          "Barrett--van der Holst--Loewy DOI:10.13001/1081-3810.1137"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.24330/ieja.768135",
+        "arXiv:1801.08910",
+        "DOI:10.13001/1081-3810.1137",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplication over \\(h\\) clique and \\(b\\) biclique components with \\(h+2b=q+1\\) cancels the orbit-type dependence immediately.",
+          "The component minimum-set equality cases independently omit one vertex per projective line."
+        ],
+        "reasoning": "The stated theorem follows by substitution and multiplication from the prior results.",
+        "searches": [
+          "published component decomposition + Boyer multiplicativity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite-field paper gives exactly the \\(K_{q-1}\\)/\\(K_{q-1,q-1}\\) decomposition by parity and isotropic-line type.",
+          "Boyer et al. give \\(\\mathcal Z(K_s)=u^{s-1}(u+s)\\), the corresponding complete-bipartite formula, and disjoint-union multiplicativity."
+        ],
+        "reasoning": "The dot-product statement is the direct specialization of those published graph decompositions and generic polynomial formulas.",
+        "searches": [
+          "Resultary: zero forcing polynomial total dot product graph finite field dimension two minimum rank projective orthogonality",
+          "Abdulla--Badawi DOI:10.24330/ieja.768135",
+          "Boyer et al. arXiv:1801.08910"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the direct exact hit; no older table is needed because the older component formulas already determine every coefficient."
+        ],
+        "reasoning": "Verbatim absence of the final polynomial does not restore originality under implication-level comparison.",
+        "searches": [
+          "Resultary exact same-object query"
+        ]
+      },
+      "rationale": "The final theorem is mechanically implied by previously published structure. Abdulla--Badawi already give the complete clique/biclique component decomposition of \\(TD_2(q)\\). Boyer et al. already give the zero-forcing polynomials of complete and complete bipartite graphs and multiplicativity over disjoint unions. Barrett--van der Holst--Loewy give the needed elementary minimum-rank facts for disconnected unions and complete bipartite graphs. Substituting the known component counts yields the polynomial, minimum forcing sets, and minimum rank with no new nonstandard lemma.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_COMPONENT_DECOMPOSITION_COVERS",
+          "evidence": "The source decomposes the graph into exactly the clique and balanced-biclique components used in the assigned proof.",
+          "identifier_or_url": "DOI:10.24330/ieja.768135",
+          "material_read": "Primary full PDF, especially Theorems 2.1 and 2.2 giving the characteristic-two and odd-characteristic component decompositions.",
+          "method": "Open primary full-PDF text and page inspection.",
+          "title": "On the Dot Product Graph of a Commutative Ring II",
+          "trigger": "Exact same two-dimensional finite-field graph."
+        },
+        {
+          "assessment": "GENERIC_POLYNOMIAL_FORMULAS_COMPLETE_THE_SPECIALIZATION",
+          "evidence": "The published component polynomials and multiplicativity turn the known dot-product decomposition directly into the assigned polynomial.",
+          "identifier_or_url": "arXiv:1801.08910; DOI:10.1016/j.dam.2018.11.033",
+          "material_read": "Complete primary PDF, including the complete/complete-bipartite formulas and Proposition 13 on disjoint-union multiplicativity.",
+          "method": "Open primary full-PDF text and page inspection.",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Foundational source for the exact counting invariant."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Abdulla--Badawi 2020",
+        "Boyer et al. 2019",
+        "Barrett--van der Holst--Loewy 2004"
+      ],
+      "rationale": "Although zero forcing and minimum rank are natural invariants, this exact result adds only a routine recombination of a published complete component classification with published component formulas and standard rank additivity. Under the required value standard for narrow exact invariants, the answer is already implied and supplies no additional motivated structural lemma.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For \\(q\\ge3\\), the two-dimensional finite-field total dot-product graph has zero-forcing polynomial \\(u^{(q+1)(q-2)}(u+q-1)^{q+1}\\), real minimum rank \\(q+1\\), and \\(Z=M=q^2-q-2\\); its minimum zero-forcing sets are exactly complements of projective transversals. The binary boundary is \\(K_1\\dot\\cup K_2\\) with polynomial \\(2u^2+u^3\\).",
+  "limitations": [
+    "Two-dimensional finite-field total dot-product graphs only.",
+    "Rejected for prior implication-level coverage, not correctness."
+  ],
+  "schema_version": 1
+}
