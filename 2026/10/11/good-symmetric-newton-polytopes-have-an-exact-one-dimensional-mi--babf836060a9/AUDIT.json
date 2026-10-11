@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The primary source explicitly reduces Newton(F) to the convex hull of at most m+1 Schur permutahedra determined by alpha and beta. Minimum-enclosing-center uniqueness plus coordinate-permutation symmetry forces a diagonal center. At a diagonal center c, the squared distance of layer i differs from layer i-1 by \\(2(\beta_i-\u0007lpha_i)(h_i-c)\\); monotonicity of the partition midpoints therefore makes the maximum layer radius equal the coordinatewise far-endpoint sum Phi(c). Phi is strongly convex. On each midpoint interval it is one explicit quadratic with mean c_i, yielding the stated finite scan. Strict convexity of the ball proves that the listed active source orbit points are exactly the contacts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source gives the convex-hull layer reduction but studies saturation and integer decomposition rather than Euclidean metric optimization.",
+        "The related 2020 paper studies IDP, reflexivity, Gorenstein properties, and Ehrhart data rather than enclosing spheres.",
+        "Generic minimum-enclosing-ball sources give existence, uniqueness, and algorithms but do not supply the endpoint-layer collapse for this family."
+      ],
+      "reasoning": "A single fixed-trace permutahedron is much simpler because all its vertices lie in one coordinate-permutation orbit. The new theorem handles an inhomogeneous stack of source orbit layers and proves that their maximum radial function is exactly a coordinatewise far-endpoint sum.",
+      "searches": [
+        "arXiv:2205.03903v1/v4, proof of Theorem 7 and endpoint-derived layer formula",
+        "arXiv:2005.09628v1/v3, Schur and inflated symmetric Grothendieck Newton polytopes",
+        "web: minimum enclosing ball permutahedron orbit polytope",
+        "web: circumradius permutahedron arbitrary vector permutation orbit"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.03903v1/v4",
+      "doi:10.5802/crmath.430",
+      "arXiv:2005.09628v1/v3",
+      "doi:10.37236/9621",
+      "published-result database searches for good-symmetric and Grothendieck Newton-polytope Euclidean radii",
+      "web literature searches for minimum-enclosing and circumradius formulations",
+      "current and prior geometry ledgers for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No same-object good-symmetric-polynomial Newton radius claim was present in the checked current or prior ledgers.",
+        "The current Schur-Horn result covers a single fixed-trace spectral orbit hull, whereas good symmetric Newton polytopes generally contain several total-degree layers.",
+        "The source layer theorem identifies the convex hull but does not optimize a Euclidean center across the different layers."
+      ],
+      "reasoning": "The final claim requires balancing several trace layers simultaneously. The proof introduces the midpoint-threshold identity for consecutive layers and the strongly convex one-dimensional far-endpoint objective; neither is implied by a fixed-orbit circumradius formula.",
+      "searches": [
+        "current geometry ledger: Newton polytope / Grothendieck / symmetric polynomial / minimum enclosing",
+        "prior geometry ledger: Newton polytope / Grothendieck / symmetric polynomial / minimum enclosing",
+        "current Schur-Horn orbitope radius theorem versus inhomogeneous good symmetric Newton polytopes",
+        "published source endpoint-layer theorem versus Euclidean minimum enclosing sphere"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located record states a minimum enclosing sphere for the good-symmetric-polynomial Newton family.",
+        "The primary full text contains no occurrence of inradius, circumradius, Euclidean, Chebyshev, or minimum enclosing.",
+        "The related Schur/Grothendieck full text likewise contains no inradius, circumradius, Euclidean, Chebyshev, or minimum-enclosing discussion."
+      ],
+      "reasoning": "Equivalent formulations include circumradius, smallest enclosing sphere, minimum enclosing ball, Euclidean 1-center, and Chebyshev center of the exponent polytope. The searches covered these formulations together with both the general good-polynomial name and the inflated Grothendieck specialization.",
+      "searches": [
+        "good symmetric polynomial Newton polytope minimum enclosing sphere Euclidean radius",
+        "Newton polytope good symmetric polynomials circumradius Chebyshev center",
+        "convex hull permutahedra different degrees minimum enclosing ball symmetric polynomial",
+        "inflated symmetric Grothendieck Newton polytope Euclidean radius",
+        "symmetric Newton polytope minimum enclosing ball permutation orbit layers",
+        "web: \"good symmetric polynomial\" \"minimum enclosing\" Newton polytope",
+        "web: \"Newton polytope\" \"minimum enclosing ball\" symmetric polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact radius table for good symmetric or inflated Grothendieck Newton polytopes was returned.",
+        "The closest indexed results concern unrelated Euclidean radius problems or nonmetric properties of generalized permutohedra."
+      ],
+      "reasoning": "The source includes explicit small Newton polytopes, so a same-object radius table would provide meaningful prior coverage. None was located.",
+      "searches": [
+        "good symmetric polynomial Newton polytope minimum enclosing sphere Euclidean radius",
+        "inflated symmetric Grothendieck Newton polytope Euclidean radius",
+        "Newton polytope good symmetric polynomials circumradius Chebyshev center"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the definition of good symmetric polynomials, Theorem 7, Proposition 11, Lemma 12, the proof reducing Newton(F) to endpoint-derived Schur Newton polytopes, and the inflated Grothendieck example. A closely related full paper on Schur and inflated symmetric Grothendieck Newton polytopes was also inspected. Neither source contains an inradius, circumradius, Euclidean, Chebyshev-center, or minimum-enclosing-ball treatment. Published-result and literature searches covered the direct object names, Grothendieck specializations, permutation-orbit layers, minimum enclosing balls, and circumradii. No statement implying the one-dimensional formula or scan was located.",
+    "residual_risks": [
+      "A general theorem on minimum enclosing balls of layered permutation orbitopes may specialize to the same scalar formula without using symmetric-polynomial terminology.",
+      "The high-dimensional optimization becomes short once the source's endpoint-derived layer reduction is combined with coordinate-permutation symmetry.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves the structural layer reduction used as the premise, but does not state a Euclidean minimum-enclosing sphere or scalar center formula.",
+        "evidence": "The arXiv first public version is dated 2022-05-08. The publication lists 52B20 first. The proof of Theorem 7 gives Newton(F) as the convex hull of the Schur Newton polytopes for the endpoint-derived partitions, and Lemma 12 identifies each such polytope with a permutation orbit hull.",
+        "identifier_or_url": "arXiv:2205.03903v1; DOI 10.5802/crmath.430",
+        "material_read": "Open-access full text: introduction and MSC; Section 4 definition of good symmetric polynomials; Theorem 7; Proposition 11; Lemma 12; proof of Theorem 7, especially equations identifying Newton(F) with the convex hull of the distinguished Schur Newton polytopes; Example 9 and Example 13; targeted full-text searches for inradius, circumradius, Euclidean, Chebyshev, and minimum enclosing.",
+        "method": "Open-access article full-text and rendered-page inspection.",
+        "title": "Newton polytope of good symmetric polynomials",
+        "trigger": "Primary source introducing the exact good-symmetric-polynomial family and proving the endpoint-derived Newton-polytope decomposition."
+      },
+      {
+        "assessment": "The paper studies lattice and Ehrhart properties of the relevant Newton polytopes but gives no Euclidean enclosing-ball theorem.",
+        "evidence": "The first public version is dated 2020-05-19. Full-text searches returned no occurrences of the Euclidean radius terminology relevant to the final claim.",
+        "identifier_or_url": "arXiv:2005.09628v1; DOI 10.37236/9621",
+        "material_read": "Open-access full text: introduction; Newton-polytope background; the Schur and inflated symmetric Grothendieck setup; stated IDP/reflexivity program; targeted searches for inradius, circumradius, Euclidean, Chebyshev, and minimum enclosing.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Lattice polytopes from Schur and symmetric Grothendieck polynomials",
+        "trigger": "Closest earlier literature on the major inflated symmetric Grothendieck specialization of the primary family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "babf8360-60a9-4a88-a7ac-962ae5293989",
+  "value": {
+    "rationale": "Good symmetric polynomials are a broad source family introduced to unify Newton-polytope saturation and IDP results for many symmetric-polynomial classes. Their Newton polytopes can have very large monomial supports and multiple total-degree layers. The theorem gives a complete exact minimum-sphere solution for every member from only the two endpoint partitions, reducing the problem to an O(m) scalar scan and explicitly identifying the contact layers. The inflated Grothendieck example shows a genuinely multilayer phenomenon: the top-degree endpoint is not a contact, while two lower layers jointly control the sphere.",
+    "status": "PASS"
+  }
+}
