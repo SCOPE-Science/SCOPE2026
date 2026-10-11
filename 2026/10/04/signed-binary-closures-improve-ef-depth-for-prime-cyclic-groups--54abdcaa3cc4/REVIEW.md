@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The construction uses only atomic addition relations among selected points. In either binary closure, preservation of the doubling and partial-sum relations forces the image of the first selected point \(y\) in a competing prime-order group to satisfy \(py=0\); since the competing prime is distinct, this forces \(y=0\), contradicting preservation of inequality from the named identity. The binary-weight lemma is exact and proves the stated uniform bound.
+## correctness
 
-## Originality
-PASS with residual priority risk. Gomaa's primary full text gives the \(n+1\) lower bound and \(2n\) upper bound and explicitly asks whether the bounds can be improved. published-finding corpus and public-web searches for improved cyclic-group EF bounds, signed/binary closures, and the \(3n/2\)-scale consequence did not locate the present statement or a stronger theorem covering it. Later group-descriptive-complexity sources found in search concern different logics or group classes.
+PASS
 
-## Value
-PASS. The claim directly improves the quantitative upper side of a named open direction in the prime cyclic case, from factor \(2\) above \(n\) to factor \(3/2\), while also identifying natural exact cases where the old lower bound is attained. The construction is short, reusable, and specific to the relational-language bottleneck rather than a formula-length trick.
+The signed-binary construction is correct. The selected doubling chain and partial-sum relations force every response to be the corresponding integer multiple of the first response, and either closing relation forces p times that response to be zero. In a distinct prime-order target this forces the first response to the identity, contradicting preservation of its source inequality. The popcount identity s2(a)+s2(2^n-a)=n-v2(a)+1 yields h(p)<=ceil(n/2). Gomaa's Theorem 3.3 independently supplies the n+1 lower bound for every prime p<q with 2^n<p<2^{n+1}. The package verifier was inspected and an independent finite replay confirmed the combinatorial inequality; the all-prime conclusion rests on the symbolic proof.
 
-## Closest literature and limitations
-The closest source is Walid Gomaa's 2007 dissertation (and its 2010 journal version), which establishes the lower/upper framework but not this signed-binary refinement. The result does not settle arbitrary composite cyclic groups or dihedral groups and makes no bounded-variable improvement.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The corrected final text narrows originality to the actual new part. Gomaa's dissertation gives the n+1 lower bound, the 2n upper bound, and explicitly asks whether the gap can be improved. It also already proves the Mersenne exact case in Theorem 3.5, and Theorem 3.6 covers the Fermat form p=2^n+1 as 2^n+2-1. Those endpoint exact cases are therefore treated as prior coverage, not novelty. No inspected primary, Resultary, or web source states the general n+h(p) signed-binary bound or its uniform n+ceil(n/2) consequence.
+
+## value
+
+PASS
+
+The surviving contribution directly improves the upper side of a named open quantitative gap for prime cyclic groups from 2n to at most n+ceil(n/2), using a reusable signed-binary closure choice. This is a substantive structural improvement even though the endpoint exact cases themselves were already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

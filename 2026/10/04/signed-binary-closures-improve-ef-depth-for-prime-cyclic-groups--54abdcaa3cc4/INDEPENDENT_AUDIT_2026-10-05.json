@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:13:41.148007Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 30e984f07bcef817393d72a6ccb1971557b91d6c",
+        "assigned verify.py blob 5aaad47da2d6e61345d8caeb783f9ef8e17cbfd4",
+        "Gomaa dissertation, UMD handle 1903/7227, Theorems 3.3--3.6"
+      ],
+      "rationale": "The signed-binary construction is correct. The selected doubling chain and partial-sum relations force every response to be the corresponding integer multiple of the first response, and either closing relation forces p times that response to be zero. In a distinct prime-order target this forces the first response to the identity, contradicting preservation of its source inequality. The popcount identity s2(a)+s2(2^n-a)=n-v2(a)+1 yields h(p)<=ceil(n/2). Gomaa's Theorem 3.3 independently supplies the n+1 lower bound for every prime p<q with 2^n<p<2^{n+1}. The package verifier was inspected and an independent finite replay confirmed the combinatorial inequality; the all-prime conclusion rests on the symbolic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published framework covers arbitrary finite cyclic/abelian groups with O(log size) bounds.",
+          "The detailed dissertation gives the prime lower/upper framework but not the submitted signed-gap optimization."
+        ],
+        "reasoning": "Broader scope does not imply the improved numerical bound in the prime interval.",
+        "searches": [
+          "Gomaa, Descriptive Complexity of Finite Abelian Groups, DOI:10.1142/S0218196710006047",
+          "Gomaa dissertation full Chapter 3"
+        ]
+      },
+      "checked_sources": [
+        "UMD handle:1903/7227",
+        "DOI:10.1142/S0218196710006047",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2n upper bound does not imply n+h(p).",
+          "Theorem 3.5 already proves the Mersenne endpoint; Theorem 3.6 includes the Fermat endpoint as a three-power relation.",
+          "Neither endpoint theorem supplies the uniform smaller-gap popcount bound for arbitrary p."
+        ],
+        "reasoning": "After correcting the prior-work prose, the surviving novelty is exactly the uniform signed-binary improvement.",
+        "searches": [
+          "Direct comparison with Gomaa Corollary 3.3, Theorem 3.5 and Theorem 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dissertation's standard closure has size at most 2n and the author explicitly asks whether the gap can be reduced.",
+          "No inspected source states selection of the smaller binary gap or the n+h(p) formula."
+        ],
+        "reasoning": "The EF-game, existential-sentence and closed-binder formulations were compared directly.",
+        "searches": [
+          "Resultary: Gomaa cyclic groups EF quantifier rank signed binary upper bound",
+          "UMD dissertation Chapter 3, Theorems 3.3--3.6",
+          "web searches for Gomaa cyclic groups binary closure quantifier depth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact published finding with these general bounds was returned."
+        ],
+        "reasoning": "The exact Mersenne/Fermat endpoint cases are explicitly excluded from the novelty claim because the dissertation already covers them.",
+        "searches": [
+          "Resultary exact semantic search for n+h(p), n+ceil(n/2), signed-binary cyclic EF"
+        ]
+      },
+      "rationale": "The corrected final text narrows originality to the actual new part. Gomaa's dissertation gives the n+1 lower bound, the 2n upper bound, and explicitly asks whether the gap can be improved. It also already proves the Mersenne exact case in Theorem 3.5, and Theorem 3.6 covers the Fermat form p=2^n+1 as 2^n+2-1. Those endpoint exact cases are therefore treated as prior coverage, not novelty. No inspected primary, Resultary, or web source states the general n+h(p) signed-binary bound or its uniform n+ceil(n/2) consequence.",
+      "residual_risks": [
+        "The journal full text could not be completed after the permitted retrieval reached a human-verification requirement.",
+        "Unindexed later work may have improved Gomaa's bounds under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_ENDPOINTS_BUT_NOT_GENERAL_SIGNED_BINARY_BOUND",
+          "evidence": "The source proves n+1<=qr<=2n, already covers Mersenne and the relevant Fermat endpoint, but does not state n+h(p) or n+ceil(n/2).",
+          "identifier_or_url": "UMD dissertation, handle:1903/7227",
+          "material_read": "Chapter 3 pages containing Theorem 3.3, Corollaries 3.2--3.3, the explicit open question after Corollary 3.3, Theorem 3.5 and Theorem 3.6; the key pages were also visually inspected.",
+          "method": "Lawful open repository full-text inspection.",
+          "title": "Model Theory and Complexity Theory",
+          "trigger": "Primary detailed source for the exact relational language, lower/upper bounds, open question, and special exact prime classes."
+        },
+        {
+          "assessment": "ACCESS_LIMIT_RETAINED",
+          "evidence": "The detailed dissertation supplies the relevant theorem proofs; unread journal-only material remains a bounded priority risk.",
+          "identifier_or_url": "DOI:10.1142/S0218196710006047",
+          "material_read": "Public abstract/metadata were inspected after open full-text routes failed. An authorized institutional retrieval was then attempted.",
+          "method": "The institutional retrieval reached a publisher verification/access requirement and was not retried or bypassed.",
+          "title": "Descriptive Complexity of Finite Abelian Groups",
+          "trigger": "Journal version / closest published comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gomaa dissertation Chapter 3"
+      ],
+      "rationale": "The surviving contribution directly improves the upper side of a named open quantitative gap for prime cyclic groups from 2n to at most n+ceil(n/2), using a reusable signed-binary closure choice. This is a substantive structural improvement even though the endpoint exact cases themselves were already known.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "UMD handle:1903/7227",
+    "DOI:10.1142/S0218196710006047",
+    "Resultary semantic search"
+  ],
+  "disposition": "repaired",
+  "limitations": [
+    "Prime-order cyclic groups only.",
+    "The exact Mersenne and Fermat endpoint cases are prior coverage and are not claimed as novel in the corrected text.",
+    "No improved lower bound or five-variable guarantee is claimed."
+  ],
+  "residual_risks": [
+    "The journal full text could not be completed after the permitted retrieval reached a human-verification requirement.",
+    "Unindexed later work may have improved Gomaa's bounds under different terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR_ENDPOINTS_BUT_NOT_GENERAL_SIGNED_BINARY_BOUND",
+      "evidence": "The source proves n+1<=qr<=2n, already covers Mersenne and the relevant Fermat endpoint, but does not state n+h(p) or n+ceil(n/2).",
+      "identifier_or_url": "UMD dissertation, handle:1903/7227",
+      "material_read": "Chapter 3 pages containing Theorem 3.3, Corollaries 3.2--3.3, the explicit open question after Corollary 3.3, Theorem 3.5 and Theorem 3.6; the key pages were also visually inspected.",
+      "method": "Lawful open repository full-text inspection.",
+      "title": "Model Theory and Complexity Theory",
+      "trigger": "Primary detailed source for the exact relational language, lower/upper bounds, open question, and special exact prime classes."
+    },
+    {
+      "assessment": "ACCESS_LIMIT_RETAINED",
+      "evidence": "The detailed dissertation supplies the relevant theorem proofs; unread journal-only material remains a bounded priority risk.",
+      "identifier_or_url": "DOI:10.1142/S0218196710006047",
+      "material_read": "Public abstract/metadata were inspected after open full-text routes failed. An authorized institutional retrieval was then attempted.",
+      "method": "The institutional retrieval reached a publisher verification/access requirement and was not retried or bypassed.",
+      "title": "Descriptive Complexity of Finite Abelian Groups",
+      "trigger": "Journal version / closest published comparison."
+    }
+  ]
+}

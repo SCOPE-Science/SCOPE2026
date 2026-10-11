@@ -67,9 +67,9 @@ The accompanying `verify.py` checks the binary-weight identity and constructs bo
 The computation is only a finite sanity check. The theorem follows from the symbolic argument above.
 
 ## Relationship to prior work
-Gomaa's dissertation and later paper study precisely this relational language and prove, for primes \(2^n<p<2^{n+1}<q\) in the relevant notation, a lower bound of \(n+1\) rounds and an upper bound of \(2n\) rounds. The dissertation's open-problem section explicitly asks whether the \(n/2n\) quantifier-rank bounds for residue-class and dihedral groups can be improved and states a belief that the upper bound is optimal.
+Gomaa's dissertation and later paper study precisely this relational language and prove, for primes \(2^n<p<2^{n+1}\) with \(p<q\), a lower bound of \(n+1\) rounds and an upper bound of \(2n\) rounds. The dissertation explicitly asks whether this gap can be improved. It also already proves the Mersenne exact case in Theorem 3.5, and Theorem 3.6 contains the Fermat form \(p=2^n+1=2^n+2-1\) as a special three-power relation. Those endpoint exact cases are therefore prior coverage and are included above only as consistency consequences of the new uniform construction.
 
-The present construction reuses the mandatory doubling chain but closes it using whichever of the two binary gaps to the adjacent powers of two has smaller Hamming weight. Searches of the primary source, the published-finding corpus finding database, and public web sources found no statement of the \(n+h(p)\) bound, the \(n+\lceil n/2\rceil\) uniform consequence, or the exact Mersenne/Fermat-prime cases.
+The new contribution is the signed-binary closure \(n+h(p)\) for every prime \(p\) in the interval, and hence the uniform \(n+\lceil n/2\rceil\) upper bound. Searches of the primary source, the published-finding corpus, and public web sources found no statement of either of these general bounds.
 
 ## Limitations
 This does not settle the worst-case optimum for arbitrary cyclic groups, nor does it improve the published lower bound beyond \(n+1\). It also does not retain Gomaa's separate five-variable guarantee; only quantifier rank and existentiality are claimed here.
