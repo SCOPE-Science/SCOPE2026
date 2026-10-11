@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-`verify.py` checks the package claim without external data.
 
-It performs four checks:
+# Independent mathematical audit
 
-1. Direct exact-rational enumeration of all grouped original-win/knockoff-win sequences for several small \((\kappa,r,d)\) cases, compared with the displayed Raney-number formula.
-2. Direct enumeration of first-hit paths compared with the ballot count \(r((r+1)b+r)^{-1}\binom{(r+1)b+r}{b}\).
-3. Boundary checks that the finite FDR is zero for \(d<r\) and changes only at \(d=(r+1)b+r\).
-4. Numerical bisection of the smaller root of \(f=(\kappa+1)^{-1}+\kappa(\kappa+1)^{-1}f^{r+1}\) for the three displayed \(q=0.1\) examples.
+## correctness
 
-A successful run prints `VERIFY_OK`.
+PASS
 
-The exhaustive checks are finite replay tests, not the proof of the infinite theorem. The proof of the finite formula is the first-passage/Raney argument in `RESULT.md`; the infinite limit follows from the bounded harmonic equation. The verifier does not test tied gap statistics, non-null mixtures, or misspecified knockoff generation, all of which are outside the claim.
+The primary multi-knockoff paper gives conditional iid uniform null winner labels on \(\{0,\ldots,\kappa\}\) and the exact FDP threshold. At \(q=1/(\kappa r)\), the threshold reduces to first passage of level \(r\) by iid increments \(+1\) with probability \(1/(\kappa+1)\) and \(-r\) with probability \(\kappa/(\kappa+1)\). Raney's cycle lemma gives the submitted first-hit count, and the bounded harmonic equation gives the smaller-root limit. A fresh independent exact-rational replay matched the formula to dynamic programming over several \(\kappa,r,d\) ranges and reproduced all three displayed \(q=0.1\) values.
+
+## originality
+
+PASS
+
+Gimenez-Zou provide the uniform winner law, threshold and generic FDR control, including the detection threshold, but do not evaluate the complete-null crossing probability. Emery-Keich use a different multiple-knockoff construction. The ordinary single-knockoff exact law is not sufficient because the winner probabilities change with \(\kappa\). Targeted Resultary and primary-literature searches found no source with the submitted \((\kappa,r)\) Raney staircase or calibration comparison.
+
+## value
+
+PASS
+
+The source explicitly motivates multi-knockoffs through the detection threshold. The exact staircase converts that design parameter into an attained complete-null error law and shows that different admissible \((\kappa,r)\) choices at the same nominal level can consume very different fractions of the FDR budget. That is a natural calibration question with direct theoretical and diagnostic use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

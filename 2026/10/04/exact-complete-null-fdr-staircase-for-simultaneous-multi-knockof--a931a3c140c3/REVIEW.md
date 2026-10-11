@@ -1,15 +1,21 @@
-# Review
-## Correctness
-PASS. The threshold algebra was reconstructed directly from the published simultaneous multi-knockoff FDP estimator. Under the complete null, the published conditional-uniformity lemma turns decreasing-gap winner labels into iid increments \(+1\) and \(-r\). Because the walk is upward skip-free, nonempty selection is exactly a first hit of level \(r\). The Raney count gives the finite formula, and the bounded harmonic equation gives the infinite-feature root law. Exact rational enumeration in `verify.py` independently checks finite cases and boundary locations.
+# Independent mathematical audit
 
-Risk: the formula assumes positive pairwise-distinct gaps. Ties can change which prefixes are reachable and are excluded from the claim.
+## correctness
 
-## Originality
-PASS. The closest source, Gimenez and Zou, supplies the uniform-label lemma, threshold, FDR-control proposition, and detection threshold, but its inspected main text and supplementary proof do not state an exact complete-null finite-feature FDR, a Raney/Catalan first-passage law, or the limiting root formula. Targeted searches using multi-knockoff, complete-null, exact FDR, first-passage, Catalan, Raney, and Selective SeqStep terminology found control theorems and related multiple-competition methods rather than this statement. Emery and Keich analyze a different multiple-knockoff construction.
+PASS
 
-Risk: the first-passage enumeration is classical once the procedure is reduced to a skip-free random walk, so an equivalent consequence could appear in competition-based multiple-testing work under different notation.
+The primary multi-knockoff paper gives conditional iid uniform null winner labels on \(\{0,\ldots,\kappa\}\) and the exact FDP threshold. At \(q=1/(\kappa r)\), the threshold reduces to first passage of level \(r\) by iid increments \(+1\) with probability \(1/(\kappa+1)\) and \(-r\) with probability \(\kappa/(\kappa+1)\). Raney's cycle lemma gives the submitted first-hit count, and the bounded harmonic equation gives the smaller-root limit. A fresh independent exact-rational replay matched the formula to dynamic programming over several \(\kappa,r,d\) ranges and reproduced all three displayed \(q=0.1\) values.
 
-## Value
-PASS. The source emphasizes that simultaneous knockoffs reduce the detection threshold from \(\lceil1/q\rceil\) to \(\lceil1/(q\kappa)\rceil\). The exact law quantifies the calibration consequence of that design choice: at fixed nominal level, detection threshold one can make the global-null FDR bound asymptotically sharp, while larger thresholds remain substantially conservative. This is a natural finite-sample invariant of the published procedure and supplies exact benchmarks for simulation, implementation checks, and comparisons of admissible \((\kappa,r)\) choices.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Gimenez-Zou provide the uniform winner law, threshold and generic FDR control, including the detection threshold, but do not evaluate the complete-null crossing probability. Emery-Keich use a different multiple-knockoff construction. The ordinary single-knockoff exact law is not sufficient because the winner probabilities change with \(\kappa\). Targeted Resultary and primary-literature searches found no source with the submitted \((\kappa,r)\) Raney staircase or calibration comparison.
+
+## value
+
+PASS
+
+The source explicitly motivates multi-knockoffs through the detection threshold. The exact staircase converts that design parameter into an attained complete-null error law and shows that different admissible \((\kappa,r)\) choices at the same nominal level can consume very different fractions of the FDR budget. That is a natural calibration question with direct theoretical and diagnostic use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

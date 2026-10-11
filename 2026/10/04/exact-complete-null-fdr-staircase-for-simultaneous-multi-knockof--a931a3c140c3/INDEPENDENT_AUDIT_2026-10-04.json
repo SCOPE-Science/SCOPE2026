@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:01:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary multi-knockoff paper gives conditional iid uniform null winner labels on \\(\\{0,\\ldots,\\kappa\\}\\) and the exact FDP threshold. At \\(q=1/(\\kappa r)\\), the threshold reduces to first passage of level \\(r\\) by iid increments \\(+1\\) with probability \\(1/(\\kappa+1)\\) and \\(-r\\) with probability \\(\\kappa/(\\kappa+1)\\). Raney's cycle lemma gives the submitted first-hit count, and the bounded harmonic equation gives the smaller-root limit. A fresh independent exact-rational replay matched the formula to dynamic programming over several \\(\\kappa,r,d\\) ranges and reproduced all three displayed \\(q=0.1\\) values.",
+      "risk": "The finite formula depends on the stated tie-free positive gap assumption; grouped ties are correctly excluded.",
+      "sources": [
+        "PMLR 89 (2019), Gimenez-Zou, Lemma 3.2, Algorithm 1, Proposition 3.3",
+        "arXiv:1911.09442",
+        "independent exact-rational replay performed in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gimenez-Zou prove generic FDR control and identify the minimum-detection threshold.",
+          "Emery-Keich develop a different multiple-competition construction and finite-sample control framework."
+        ],
+        "reasoning": "These broader validity frameworks do not determine the submitted exact all-null probabilities or limiting root.",
+        "searches": [
+          "PMLR 89 Gimenez-Zou Proposition 3.3",
+          "arXiv:1911.09442 multiple-knockoff FDR control"
+        ]
+      },
+      "checked_sources": [
+        "PMLR 89:gimenez19b / arXiv:1810.11378",
+        "arXiv:1911.09442",
+        "Barber-Candès Selective SeqStep+/knockoff framework",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source provides the stochastic input and threshold, but only an upper FDR guarantee.",
+          "The \\(\\kappa=1\\) fair-sign walk does not imply the \\(\\kappa\\ge2\\) probabilities because the increment law becomes biased."
+        ],
+        "reasoning": "A nontrivial procedure-specific first-passage calculation remains after all prior theorems are specialized.",
+        "searches": [
+          "PMLR 89 Lemma 3.2 / Algorithm 1 / Proposition 3.3",
+          "ordinary single-knockoff complete-null comparison",
+          "arXiv:1911.09442"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 3.2 gives iid uniform null labels and Algorithm 1 gives the same threshold, so the submitted problem is equivalently a biased skip-free first-passage problem.",
+          "No inspected source evaluates that first-passage law for this procedure."
+        ],
+        "reasoning": "The natural SeqStep+, random-walk and Raney aliases were compared rather than relying on title matching.",
+        "searches": [
+          "Resultary: simultaneous multi-knockoff complete null exact FDR Raney staircase",
+          "PMLR 89: multi-knockoff SeqStep+ reduction",
+          "searches for biased random walk / Catalan / Raney / complete-null multi-knockoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact table or published SCOPE result with the same \\((\\kappa,r,d)\\) staircase was returned among the leading hits."
+        ],
+        "reasoning": "The claimed object is an exact law derived from a published procedure, not a known-table recomputation.",
+        "searches": [
+          "Resultary semantic query for simultaneous multi-knockoff exact complete-null FDR"
+        ]
+      },
+      "rationale": "Gimenez-Zou provide the uniform winner law, threshold and generic FDR control, including the detection threshold, but do not evaluate the complete-null crossing probability. Emery-Keich use a different multiple-knockoff construction. The ordinary single-knockoff exact law is not sufficient because the winner probabilities change with \\(\\kappa\\). Targeted Resultary and primary-literature searches found no source with the submitted \\((\\kappa,r)\\) Raney staircase or calibration comparison.",
+      "residual_risks": [
+        "Competition-based FDR literature may contain the same biased first-passage calculation under different terminology; no such procedure-specific statement was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_INPUT_NOT_EXACT_LAW",
+          "evidence": "Null winner labels are iid uniform conditional on the gaps; the paper states generic FDR control and detection threshold but no complete-null Raney staircase.",
+          "identifier_or_url": "PMLR 89:gimenez19b / arXiv:1810.11378",
+          "material_read": "Full open PMLR PDF around Definition 3.2, Lemma 3.2, Algorithm 1, Proposition 3.3 and the detection-threshold discussion.",
+          "method": "Lawful open full-text inspection with page-level visual check.",
+          "title": "Improving the Stability of the Knockoff Procedure: Multiple Simultaneous Knockoffs and Entropy Maximization",
+          "trigger": "Direct source defining simultaneous multi-knockoffs and their selection rule."
+        },
+        {
+          "assessment": "DIFFERENT_METHOD_NOT_COVERING",
+          "evidence": "The paper develops a different multiple-knockoff construction; the inspected material does not state the simultaneous-winner complete-null staircase.",
+          "identifier_or_url": "arXiv:1911.09442",
+          "material_read": "Open primary PDF abstract and method scope, including the distinct multiple-competition construction and its finite-sample FDR-control claim.",
+          "method": "Lawful arXiv full-text access with visual inspection of the primary paper.",
+          "title": "Controlling the FDR in variable selection via multiple knockoffs",
+          "trigger": "Potential broader multiple-knockoff FDR result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source explicitly motivates multi-knockoffs through the detection threshold. The exact staircase converts that design parameter into an attained complete-null error law and shows that different admissible \\((\\kappa,r)\\) choices at the same nominal level can consume very different fractions of the FDR budget. That is a natural calibration question with direct theoretical and diagnostic use.",
+      "risk": "The Raney count is classical; value lies in the exact multi-knockoff calibration law.",
+      "sources": [
+        "PMLR 89:gimenez19b",
+        "arXiv:1911.09442"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For simultaneous multi-knockoffs with \\(\\kappa\\ge2\\) and \\(q=1/(\\kappa r)\\), complete-null iid uniform winner labels yield the stated exact Raney-number FDR staircase and limiting root law \\(f_{\\kappa,r}^r\\); at detection threshold one the limit equals \\(q\\), while for \\(r\\ge2\\) it is strictly smaller.",
+  "limitations": [
+    "Complete-null, tie-free positive gaps and fixed \\((q,\\kappa,r)\\) are essential.",
+    "No claim is made for alternative mixtures or data-dependent parameter choices."
+  ],
+  "schema_version": 1
+}
