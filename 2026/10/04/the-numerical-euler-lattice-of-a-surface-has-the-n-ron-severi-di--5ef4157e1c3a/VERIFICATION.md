@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs matrices of the form
-\[
-M=
-\begin{pmatrix}
--c&0&1\\
-k&-Q&0\\
-1&0&0
-\end{pmatrix}
-\]
-for several nonsingular integral intersection matrices \(Q\), canonical-intersection vectors \(k\), and integers \(c\).
+# Independent mathematical audit
 
-For each example it performs exactly the proof operations: reorder to \((e,p,f_1,\ldots,f_\rho)\), subtract \(k_i\) times the point row from each divisor row, and add \(c\) times the point column to the rank column. It checks that the result is
-\[
-H\oplus(-Q).
-\]
+## correctness
 
-It independently checks
-\[
-\det M=(-1)^{\rho+1}\det Q
-\]
-and verifies with exact Smith-normal-form arithmetic that the invariant factors of \(M\) are two unit factors plus those of \(Q\).
+PASS
 
-These finite examples are not the proof of the theorem for arbitrary Picard rank. The uniform integral operations in `RESULT.md` establish the general matrix equivalence; Riemann–Roch supplies the matrix and Hodge index supplies the determinant sign.
+Surface Riemann-Roch gives the displayed bilinear form in the invariants (rank,c1,chi). A closed point, the adjusted structure-sheaf class and adjusted line-bundle classes surject integrally onto the three summands; nondegeneracy of the target form makes the kernel exactly the numerical radical. In the resulting basis the Euler matrix has blocks (-c,1), canonical-intersection vector k, and -Q; reordering and the stated integral row and column operations transform it exactly to H direct-sum (-Q). The Hodge index sign then makes the determinant positive. Fresh symbolic checking of the formula and the packaged exact matrix reduction confirms the Smith-factor consequence on independent nonsingular test lattices.
 
-The saved replay output ends in `VERIFY_OK`.
+## originality
+
+PASS
+
+Liu-Shen-Zhang introduce the numerical Cartan determinant and prove positivity in broad geometric classes but their public primary statement does not give the all-surface integral determinant formula. Krah's full open article gives the surface Riemann-Roch Euler form and only a rational Chern-character identification K_num,Q with Q plus Pic_num,Q plus Q; it develops the Neron-Severi pseudolattice but does not state the integral Smith normal form. Vial's results relate maximal numerical exceptional collections to Neron-Severi unimodularity under additional hypotheses. Resultary search returned no distinct theorem with the full discriminant-group identification.
+
+## value
+
+PASS
+
+The current Cartan-determinant program asks for geometric control of the Euler determinant. In dimension two this theorem gives a complete answer and strengthens a single determinant to the entire finite cokernel, identifying exactly when numerical Euler theory is unimodular. That is a natural structural bridge between numerical K-theory and the classical Neron-Severi lattice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

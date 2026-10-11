@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Riemann–Roch gives the stated Euler formula in the integral coordinates \((\operatorname{rk},c_1,\chi)\). Point and line-bundle classes generate \(\mathbf Z\oplus N^1(X)\oplus\mathbf Z\), and nondegeneracy of the intersection form identifies the kernel with numerical equivalence. The resulting Euler matrix is transformed by explicit unimodular integral operations to \(H\oplus(-Q)\). This proves the Smith factors and cokernel. Hodge index fixes the determinant sign and gives the positive absolute discriminant.
+## correctness
 
-## Originality
-**PASS.** The initiating paper asks for determinant-one criteria and proves positivity but does not state the exact all-surface determinant. Krah gives the closest Riemann–Roch/pseudolattice framework; Vial gives related unimodularity consequences under exceptional-collection hypotheses. Searches for determinant equality, Smith form, discriminant group, and Euler-cokernel formulations located no covering theorem. An unindexed older lattice statement remains a residual risk because the final integral reduction is elementary once the correct coordinates are chosen.
+PASS
 
-## Value
-**PASS.** The theorem completely answers the initiating determinant-one question in dimension two and strengthens it to the entire Smith normal form. It identifies the categorical finite defect group with the classical Néron–Severi discriminant group and makes Euler unimodularity exactly equivalent to intersection-lattice unimodularity.
+Surface Riemann-Roch gives the displayed bilinear form in the invariants (rank,c1,chi). A closed point, the adjusted structure-sheaf class and adjusted line-bundle classes surject integrally onto the three summands; nondegeneracy of the target form makes the kernel exactly the numerical radical. In the resulting basis the Euler matrix has blocks (-c,1), canonical-intersection vector k, and -Q; reordering and the stated integral row and column operations transform it exactly to H direct-sum (-Q). The Hodge index sign then makes the determinant positive. Fresh symbolic checking of the formula and the packaged exact matrix reduction confirms the Smith-factor consequence on independent nonsingular test lattices.
 
-## Closest literature and limitations
-The closest sources are Liu–Shen–Zhang for the numerical Cartan determinant question, Krah for the surface Euler pseudolattice, and Vial for exceptional-collection/Néron–Severi unimodularity. The theorem is surface-specific and does not address higher-dimensional numerical cycle lattices.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Liu-Shen-Zhang introduce the numerical Cartan determinant and prove positivity in broad geometric classes but their public primary statement does not give the all-surface integral determinant formula. Krah's full open article gives the surface Riemann-Roch Euler form and only a rational Chern-character identification K_num,Q with Q plus Pic_num,Q plus Q; it develops the Neron-Severi pseudolattice but does not state the integral Smith normal form. Vial's results relate maximal numerical exceptional collections to Neron-Severi unimodularity under additional hypotheses. Resultary search returned no distinct theorem with the full discriminant-group identification.
+
+## value
+
+PASS
+
+The current Cartan-determinant program asks for geometric control of the Euler determinant. In dimension two this theorem gives a complete answer and strengthens a single determinant to the entire finite cokernel, identifying exactly when numerical Euler theory is unimodular. That is a natural structural bridge between numerical K-theory and the classical Neron-Severi lattice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
