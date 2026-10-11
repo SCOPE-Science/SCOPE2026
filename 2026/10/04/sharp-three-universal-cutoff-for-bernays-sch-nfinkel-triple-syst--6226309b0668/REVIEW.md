@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The upper bound has two exact pigeonhole/Ramsey layers. Outside the witness set there are at most \(2^{\binom{k}{2}}\) one-vertex profiles. Inside one such class, every pair has one of at most \(2^k\) profiles relative to the witnesses, so \(R_{2^k}(3)\) vertices force a triangle whose three pair profiles agree. Three universal variables can inspect at most three distinct cloned vertices, and the common one-vertex profile, common pair profile, and one triple value preserve every atomic pattern under an injection back to that triangle. The sharpness sentence is quantifier-free after the required prefix and makes every profile class a \(2^k\)-colored complete graph with no monochromatic triangle. A Ramsey-critical coloring attains the bound in every profile class simultaneously.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest general-vocabulary source located gives only the existence of a recursive eventual-model bound for Bernays–Schönfinkel sentences. The semantic-spectrum paper proves finite/cofinite behavior for broader relational classes, not this fixed-prefix extremal constant. The explicit graph proof uses a binary relation and diagonal two-color Ramsey homogeneity. The current ledger contains sharp graph cutoffs but no ternary-relation theorem. Targeted published-finding corpus and web searches for ternary/hypergraph Bernays–Schönfinkel spectra, multicolor triangle Ramsey formulations, and the exact expression \(R_{2^k}(3)\) found no matching statement. The remaining priority risk is an unindexed folklore derivation from Ramsey's original method.
+## correctness
 
-## Value
-PASS. This is an exact extremal invariant for a classical decidable first-order fragment over the next relational arity. It exposes a genuinely different Ramsey layer from the graph case: unary outside vertices are typed by witness pairs, while pairs of outside vertices are colored by witness incidences. The resulting optimal cutoff is controlled by the multicolor triangle Ramsey number, and the matching construction shows no universal improvement is possible.
+PASS
 
-## Closest literature and limitations
-Pikhurko, Spencer, and Verbitsky formulate the general Bernays–Schönfinkel Ramsey theorem for arbitrary fixed relational vocabularies but only with an unspecified recursive bound. Sankaran and Chakraborty study finite/cofinite spectra over relational vocabularies. Pikhurko and Verbitsky give an explicit graph-spectrum Ramsey argument. None of the inspected sources states the sharp ternary three-universal endpoint above. Exact numerical evaluation for larger \(k\) inherits the difficulty of multicolor triangle Ramsey numbers, and the result does not classify spectra below the endpoint.
+Fixing the existential witnesses yields at most \(2^{\binom{k}{2}}\) one-vertex profiles. A profile class above the stated size has a monochromatic triangle in the \(2^k\)-colored pair graph, and those three vertices have identical atomic types over the witnesses for every assignment using at most three outside vertices. Cloning that 3-type therefore preserves the universal matrix and yields all larger orders. Conversely, a triangle-free \(2^k\)-coloring of \(K_{R_{2^k}(3)-1}\) can be encoded independently in every one-vertex profile class, and a single quantifier-free implication forces the exact upper bound. Equality/repetition cases are controlled by irreflexivity. A fresh exhaustive replay independently confirmed every red/blue coloring of \(K_6\) has a monochromatic triangle and the endpoint values \(N_3(0)=2,N_3(1)=6\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical Bernays–Schönfinkel Ramsey theorem gives a vocabulary-dependent eventual-model bound, and the graph literature gives explicit but coarse cloning bounds. The inspected primary source states only the existence of a general recursive bound for each vocabulary, while the semantic-spectrum literature establishes finite-or-cofinite behavior. No checked source gives the exact ternary three-universal endpoint \(N_3(k)\) or its matching sharpness construction. Resultary search returned no covering published finding.
+
+## value
+
+PASS
+
+This converts a qualitative finite-model theorem into an optimal closed endpoint for a natural first non-binary hypergraph vocabulary and fixed universal width. The exact two-level Ramsey obstruction and matching endpoint sentence are reusable finite-model structure, not a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

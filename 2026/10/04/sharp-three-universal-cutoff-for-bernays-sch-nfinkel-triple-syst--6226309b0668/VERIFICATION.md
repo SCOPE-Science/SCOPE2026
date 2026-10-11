@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The mathematical proof is self-contained in `RESULT.md`. The attached script `artifacts/verify_small.py` is a supplementary calibration check, not a substitute for the proof.
 
-It performs three exact checks:
+# Independent mathematical audit
 
-1. exhaustive enumeration of all \(2^{15}=32768\) red-blue edge-colorings of \(K_6\), confirming that every coloring has a monochromatic triangle;
-2. verification that the standard red five-cycle / blue complementary five-cycle coloring of \(K_5\) has no monochromatic triangle, certifying \(R_2(3)=6\);
-3. arithmetic checks that the theorem specializes to \(N_3(0)=2\) and \(N_3(1)=6\).
+## correctness
 
-Expected output:
+PASS
 
-`VERIFY_OK R2_triangle=6 exhaustive_32768 C5_critical endpoints_k0_1=2_6`
+Fixing the existential witnesses yields at most \(2^{\binom{k}{2}}\) one-vertex profiles. A profile class above the stated size has a monochromatic triangle in the \(2^k\)-colored pair graph, and those three vertices have identical atomic types over the witnesses for every assignment using at most three outside vertices. Cloning that 3-type therefore preserves the universal matrix and yields all larger orders. Conversely, a triangle-free \(2^k\)-coloring of \(K_{R_{2^k}(3)-1}\) can be encoded independently in every one-vertex profile class, and a single quantifier-free implication forces the exact upper bound. Equality/repetition cases are controlled by irreflexivity. A fresh exhaustive replay independently confirmed every red/blue coloring of \(K_6\) has a monochromatic triangle and the endpoint values \(N_3(0)=2,N_3(1)=6\).
 
-The general cloning argument and the Ramsey-critical sharpness construction are symbolic and are reviewed directly in `RESULT.md` and `REVIEW.md`.
+## originality
+
+PASS
+
+The classical Bernays–Schönfinkel Ramsey theorem gives a vocabulary-dependent eventual-model bound, and the graph literature gives explicit but coarse cloning bounds. The inspected primary source states only the existence of a general recursive bound for each vocabulary, while the semantic-spectrum literature establishes finite-or-cofinite behavior. No checked source gives the exact ternary three-universal endpoint \(N_3(k)\) or its matching sharpness construction. Resultary search returned no covering published finding.
+
+## value
+
+PASS
+
+This converts a qualitative finite-model theorem into an optimal closed endpoint for a natural first non-binary hypergraph vocabulary and fixed universal width. The exact two-level Ramsey obstruction and matching endpoint sentence are reusable finite-model structure, not a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

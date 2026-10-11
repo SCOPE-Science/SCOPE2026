@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:51:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 97c1f3d08a0c844983cc30cf75c92e1574adf2cd",
+        "artifacts/verify_small.py blob 4386ebc53001db8678b0d9ab0c6f6a06e5b67ae4",
+        "fresh profile/cloning reconstruction and \\(K_6\\) exhaustive check"
+      ],
+      "rationale": "Fixing the existential witnesses yields at most \\(2^{\\binom{k}{2}}\\) one-vertex profiles. A profile class above the stated size has a monochromatic triangle in the \\(2^k\\)-colored pair graph, and those three vertices have identical atomic types over the witnesses for every assignment using at most three outside vertices. Cloning that 3-type therefore preserves the universal matrix and yields all larger orders. Conversely, a triangle-free \\(2^k\\)-coloring of \\(K_{R_{2^k}(3)-1}\\) can be encoded independently in every one-vertex profile class, and a single quantifier-free implication forces the exact upper bound. Equality/repetition cases are controlled by irreflexivity. A fresh exhaustive replay independently confirmed every red/blue coloring of \\(K_6\\) has a monochromatic triangle and the endpoint values \\(N_3(0)=2,N_3(1)=6\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary general theorem covers arbitrary finite relational vocabularies but deliberately leaves its threshold as a recursive function.",
+          "Graph cloning arguments concern a binary relation and do not encode the second witness-interaction level required by a ternary relation."
+        ],
+        "reasoning": "No inspected broader theorem supplies the optimal numeric expression or endpoint construction for this ternary class.",
+        "searches": [
+          "Pikhurko–Spencer–Verbitsky Proposition 2.5 full primary PDF",
+          "Pikhurko–Verbitsky graph logical-complexity survey",
+          "Sankaran–Chakraborty semantic BSR spectrum paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0401307",
+        "arXiv:1002.4334",
+        "Pikhurko–Verbitsky logical-complexity survey",
+        "Resultary BSR cutoff search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorem proves eventual model existence but does not determine a smallest threshold.",
+          "The submitted sharpness sentence forces every one-vertex profile class to carry a triangle-free \\(2^k\\)-edge-coloring, attaining the exact upper bound simultaneously in all classes."
+        ],
+        "reasoning": "The matching lower construction prevents the exact endpoint from being a mechanical corollary of the earlier existence theorem.",
+        "searches": [
+          "Pikhurko–Spencer–Verbitsky Proposition 2.5",
+          "audited two-level profile/Ramsey proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 2.5 says that for every relational vocabulary there is a recursive threshold beyond which a Bernays–Schönfinkel sentence has models in every larger cardinality.",
+          "For one symmetric irreflexive ternary relation with exactly three universal variables, the audited proof resolves that abstract threshold into one-vertex witness profiles and a \\(2^k\\)-color triangle Ramsey problem."
+        ],
+        "reasoning": "The exact formula is the optimal fixed-vocabulary/fixed-universal-width specialization of a general Ramsey phenomenon, not a restatement of the prior recursive bound.",
+        "searches": [
+          "Pikhurko–Spencer–Verbitsky, arXiv:math/0401307, Proposition 2.5",
+          "Sankaran–Chakraborty, arXiv:1002.4334",
+          "Resultary query: Bernays Schonfinkel triple systems three universal variables sharp finite spectrum cutoff multicolor Ramsey triangle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published Resultary entry or exact formula matching the claimed endpoint was located.",
+          "The verifier checks only \\(R_2(3)=6\\) and is not used as novelty evidence."
+        ],
+        "reasoning": "The originality comparison is theorem-level; no relevant exact database/table was found.",
+        "searches": [
+          "Resultary semantic search listed above",
+          "targeted search for \\(R_{2^k}(3)\\) Bernays–Schönfinkel spectrum cutoff"
+        ]
+      },
+      "rationale": "The classical Bernays–Schönfinkel Ramsey theorem gives a vocabulary-dependent eventual-model bound, and the graph literature gives explicit but coarse cloning bounds. The inspected primary source states only the existence of a general recursive bound for each vocabulary, while the semantic-spectrum literature establishes finite-or-cofinite behavior. No checked source gives the exact ternary three-universal endpoint \\(N_3(k)\\) or its matching sharpness construction. Resultary search returned no covering published finding.",
+      "residual_risks": [
+        "The proof is elementary once the two profile levels are isolated, so an unindexed finite-model-theory folklore statement could be equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_RECURSIVE_EVENTUAL_MODEL_BOUND_NOT_EXACT_TERNARY_CUTOFF",
+          "evidence": "Proposition 2.5 asserts existence of a recursive function depending on the vocabulary and quantifier rank, without the audited \\(R_{2^k}(3)\\) endpoint or sharpness.",
+          "identifier_or_url": "arXiv:math/0401307; DOI:10.1016/j.apal.2005.04.003",
+          "material_read": "Full primary PDF around Section 2.3.4; the page containing Proposition 2.5 was visually inspected.",
+          "method": "Theorem-strength and parameter-specificity comparison.",
+          "title": "Succinct definitions in the first order theory of graphs",
+          "trigger": "Primary source cited for the Bernays–Schönfinkel Ramsey theorem."
+        },
+        {
+          "assessment": "FINITE_OR_COFINITE_FRAMEWORK_NOT_SHARP_ENDPOINT",
+          "evidence": "The source concerns semantic extensions and finite/cofinite spectra, not the exact fixed ternary cutoff.",
+          "identifier_or_url": "arXiv:1002.4334",
+          "material_read": "Primary abstract and theorem scope were inspected.",
+          "method": "Spectrum-property versus exact-cutoff comparison.",
+          "title": "On Semantic Generalizations of the Bernays-Schönfinkel-Ramsey Class with Finite or Co-finite Spectra",
+          "trigger": "Closest spectrum-focused BSR source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:math/0401307",
+        "arXiv:1002.4334",
+        "Pikhurko–Verbitsky logical-complexity survey",
+        "Resultary BSR cutoff search"
+      ],
+      "rationale": "This converts a qualitative finite-model theorem into an optimal closed endpoint for a natural first non-binary hypergraph vocabulary and fixed universal width. The exact two-level Ramsey obstruction and matching endpoint sentence are reusable finite-model structure, not a finite census.",
+      "residual_risks": [
+        "The proof is elementary once the two profile levels are isolated, so an unindexed finite-model-theory folklore statement could be equivalent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0401307",
+    "arXiv:1002.4334",
+    "Pikhurko–Verbitsky logical-complexity survey",
+    "Resultary BSR cutoff search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For simple 3-uniform hypergraphs and sentences with \\(k\\) leading existentials followed by exactly three universals, every finite spectrum has maximum at most \\(N_3(k)=k+(R_{2^k}(3)-1)2^{\\binom{k}{2}}\\), and this bound is attained for every \\(k\\); any model above it implies models of every order at least \\(k+3\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The proof is elementary once the two profile levels are isolated, so an unindexed finite-model-theory folklore statement could be equivalent.",
+    "The theorem is restricted to one symmetric irreflexive ternary relation and exactly three universal variables; it inherits unknown multicolor Ramsey numbers."
+  ]
+}
