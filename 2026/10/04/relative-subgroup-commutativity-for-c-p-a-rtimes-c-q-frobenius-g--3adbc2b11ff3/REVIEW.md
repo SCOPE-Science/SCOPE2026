@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every subgroup is classified from the prime quotient and the chain of kernel subgroups. At level \(i\) there are exactly \(p^{a-i}\) subgroups containing \(q\)-elements. Two such subgroups permute exactly when they are comparable: if they are incomparable, their intersection has no \(q\)-part, so a hypothetical subgroup product would have order divisible by \(q^2\), impossible inside \(G\). This gives the exact partner count \(2a-j+1+S_j\), and summing those counts over \(L(H_{i,t})\) yields the displayed formula. The packaged replay verifies all subgroup products and all relative degrees in four explicit semidirect products.
+## correctness
 
-## Originality
-PASS. The 2018 primary source studies the same invariant but its closest explicit Frobenius family has prime kernel \(C_p\) and prime-power complement \(C_{q^n}\). The present family has cyclic prime-power kernel \(C_{p^a}\), \(a\ge2\), and develops nonnormal Frobenius subgroups at every kernel level. The later relative cyclic paper uses a different invariant restricted to cyclic subgroups. Targeted searches found no formula matching the all-subgroup level sum.
+PASS
 
-## Value
-PASS. The result gives a complete closed description of a published probabilistic group invariant on a natural infinite metacyclic family. The main mechanism is structural—permutability collapses to comparability among all \(q\)-containing subgroups—and the resulting theorem determines \(sd(H,G)\) for every subgroup \(H\).
+The faithful order-q action has multiplier minus one invertible modulo p, so it is fixed-point-free on the nonidentity cyclic kernel. Projection to the prime quotient shows every nonkernel subgroup has a kernel intersection P_i and a complement coset, with exactly p to the a-minus-i conjugates at level i. If two q-containing subgroups are incomparable, a common q-subgroup would force containment because the kernel subgroups form a chain; their intersection is therefore the smaller kernel part. Were they permutable, their product would be a subgroup whose order contains q squared, impossible inside the group. Thus permutability is exactly comparability. Counting contained lower-level subgroups and one supergroup at each higher level gives the partner count and the displayed relative-degree formula; every kernel subgroup is normal and has degree one. Independent arithmetic recomputation reproduced the formula values for the four verifier parameter families, while the frozen verifier checks set-product permutability directly.
 
-The principal residual risk is bibliographic: an equivalent formula may be hidden under ZM-group or subgroup-permutability notation not located by the searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lazorec–Tărnăuceanu compute relative subgroup commutativity degrees for families with a prime kernel and cyclic prime-power complement, including the one-nonnormal-class Frobenius direction. Their full primary text does not cover the reversed growth direction with a cyclic prime-power kernel and prime complement, whose subgroup lattice has nonnormal Frobenius subgroups at every kernel level. Resultary searches returned the audited theorem and related elementary-abelian or cyclic-subgroup variants, but no prior theorem implying the full displayed relative function.
+
+## value
+
+PASS
+
+The relative subgroup commutativity function is an established invariant, and this theorem resolves it on an infinite metacyclic Frobenius family whose subgroup lattice is materially richer than the previously computed prime-kernel direction. The comparability criterion is a reusable structural lemma and the resulting exact function is a natural complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
