@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each new three-support vertex the old-vertex link admits explicit domination reductions to a line-graph clique complex of K3 joined to a+1 isolated vertices, a wedge of a+1 two-spheres. The previously built complex remains two-connected so attaching cones adds (a+1) three-spheres; summing yields C(n+1,4). Coordinate projections supply independent signed three-coordinate sphere classes Λ³Qⁿ. The entire 15-vertex four-coordinate complex is exhaustively enumerated, with orientation-correct signed Lefschetz values (5,-3,1,2,-1) for S4; subtraction shows the quotient sign line. Independent four-subset projections yield Λ⁴Qⁿ as quotient, and Maschke splitting gives the claimed representation. The packaged standard-library program enumerates all simplices and coordinate permutations for n=3..6 and explicitly tests link reductions for n=3..7. Finite tests do not replace the uniform proof; only the n=4 finite Lefschetz certificate is a critical finite lemma.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamaszek–Adams arXiv:2103.01040 Lemma 7 implies the nonequivariant rank for binary-order initial segments.",
+        "Galetto–Montaño–Wellner arXiv:2606.20784 works over the full cube with a larger group, not over these sublevel sets."
+      ],
+      "reasoning": "The stronger nonequivariant wedge result does cover the sphere count but does not imply the S_n representation. The full-cube equivariant theorem has a larger symmetry group but different domain; a representation on the ambient full complex does not determine the homology module of a coordinate-stable truncated subcomplex.",
+      "searches": [
+        "rational S_n action on homology Vietoris Rips Hamming ball of binary vectors weight at most 3 scale two",
+        "Vietoris Rips of Hamming balls in hypercubes at distance 2 rank three homotopy binomial n+1 4",
+        "homology Vietoris Rips complexes hypercube group actions Galetto Montaño Wellner 2026",
+        "function Rips cubical weight sublevel filtration S3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2603.23460",
+      "https://arxiv.org/abs/2103.01040",
+      "https://arxiv.org/abs/2606.20784",
+      "https://arxiv.org/abs/2408.01288"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 link analysis controls homotopy multiplicity only.",
+        "The 2026 full-cube representation concerns all binary vectors and hyperoctahedral actions; taking a sublevel is not an exact functor on homology representations.",
+        "The 2026 function-Rips paper states general theory, not an evaluated symmetric-group action on this example."
+      ],
+      "reasoning": "Our result requires the projection-split coordinate three-subset generators, a sign quotient for four coordinates, and independent projections for four-subset classes. None of the inspected earlier results implies these module-level conclusions, although some imply the nonequivariant rank.",
+      "searches": [
+        "2606.20784 Galetto Montaño Wellner full hypercube equivariant representations sublevel",
+        "Adamaszek Adams Lemma 7 Hamming weight three coordinate symmetric group",
+        "Facets Vietoris Rips hypercubes exact Hamming-weight layers Briggs Feng Wells",
+        "2603.23460 Oudot Waas function Rips Hamming ball exterior powers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full-cube equivariant classification arXiv:2606.20784, Sections 4–5, concerns a different invariant complex.",
+        "The equal character formulation is sum of degree-3 and degree-4 coefficients of det(I+tP_g), searched alongside exterior-cube/exterior-fourth aliases."
+      ],
+      "reasoning": "Replacing a module decomposition with an S_n character or signed Lefschetz formula gives the same assertion. Searches using both character and exterior-power formulations found no equal sublevel theorem; failure to find one is not a proof of global uniqueness.",
+      "searches": [
+        "\"Vietoris Rips\" \"Hamming ball\" \"representation\" \"symmetric group\"",
+        "equivariant truncated hypercube Vietoris Rips Hamming weight three homology",
+        "rational symmetric group representation Hamming ball Vietoris Rips weight at most three exterior third fourth powers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finite S4 character (5,-3,1,2,-1) is reconstructed exhaustively in the provided verifier.",
+        "The full-cube facet classification of Briggs–Feng–Wells does not tabulate homology characters of weight≤3 cumulative sublevels."
+      ],
+      "reasoning": "No inspected exact table provided either the S4 quotient sign line or the uniform S_n character; separate layer enumerations and full-cube facet tables are not the same invariant.",
+      "searches": [
+        "finite Boolean Hamming ball Q_n weight at most three distance two Rips spheres",
+        "clique complexes of rank selected hypercube squares Hamming balls Vietoris Rips radius 3",
+        "weight three cumulative Hamming sublevel Rips exterior powers coordinate permutation character"
+      ]
+    },
+    "rationale": "The original claim is the complete rational coordinate-permutation representation Λ³Qⁿ⊕Λ⁴Qⁿ of a fixed-center weight≤3 Hamming-ball Rips complex; the nonequivariant wedge count is expressly credited to prior cube-link work. The examined 2021 paper covers the link mechanism but not equivariance; 2026 full-cube equivariance does not compute sublevel homology; 2024 facet and 2026 function-Rips results do not determine this module. No equivalent indexed assertion was identified in targeted searches. Residual unpublished or unindexed equivalence is possible.",
+    "residual_risks": [
+      "Unindexed or unpublished equivalent S_n character formula could exist.",
+      "Novelty of the underlying sphere count is explicitly excluded, because prior work already gives a link-based homotopy calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general framework/stability, not this discrete Boolean-ball S_n homology character.",
+        "evidence": "Fixed-scale Rips with function sublevel is defined, but no weight-three Boolean cube representation is characterized.",
+        "identifier_or_url": "https://arxiv.org/abs/2603.23460",
+        "material_read": "Abstract and introduction/definitions of function–Rips complexes; corresponding SoCG full HTML introduction and fixed-Rips-scale function-sublevel definitions.",
+        "method": "Read author full HTML/abstract; compare defining filtration, theorem statements and hypotheses.",
+        "title": "Function-Rips complexes in persistent homotopy theory: Stability and persistent Latschev theorems",
+        "trigger": "Defines the function–Rips weight-sublevel setting and qualifies the source-date and MSC scope."
+      },
+      {
+        "assessment": "Its link mechanism already gives the nonequivariant wedge rank; it does not supply the coordinate-permutation module decomposition. The new claim explicitly excludes rank novelty.",
+        "evidence": "Lemma 7 identifies lower-vertex links in a binary order and Theorem 1 analyzes full-cube Vietoris–Rips homotopy types; no stated S_n character for a distinguished-weight sublevel.",
+        "identifier_or_url": "https://arxiv.org/abs/2103.01040",
+        "material_read": "Full HTML introduction, Theorem 1 and Lemma 7 including vertex binary order/link decomposition.",
+        "method": "Compared vertex attachments and implications for the cumulative weight≤3 induced complex.",
+        "title": "On Vietoris–Rips complexes of hypercube graphs",
+        "trigger": "Closest nonequivariant link theorem and possible dominating special-case result."
+      },
+      {
+        "assessment": "Computes the full-cube representation, not the sublevel representation; an ambient representation does not determine the representation of an invariant subcomplex or its homology.",
+        "evidence": "The symmetry group includes translations that move the zero vector, so the fixed-center weight cutoff is not stable under the full group. Their filtration concerns full-cube complexes.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.20784",
+        "material_read": "Full HTML introduction and Sections 4–5 on group actions/character formulas, plus distinction of cube-dimension and Hamming-scale filtrations.",
+        "method": "Compared the domain of the hyperoctahedral group representation with induced weight≤3 sublevel under coordinate permutations.",
+        "title": "Homology of Vietoris–Rips complexes of hypercube graphs via group actions",
+        "trigger": "Plausibly stronger equivariant result on Hamming cubes."
+      },
+      {
+        "assessment": "Studies full-cube facets and individual exact-weight layers, not this cumulative sublevel representation.",
+        "evidence": "Facet classification by orbit and strata does not supply the alternating homology character or exterior-power decomposition.",
+        "identifier_or_url": "https://arxiv.org/abs/2408.01288",
+        "material_read": "Full HTML introductory facet results and Section 4.2 concerning Hamming-weight strata.",
+        "method": "Compared fixed exact Hamming-weight layers and maximal cliques against the cumulative-weight Rips sublevel and its S_n action.",
+        "title": "Facets in the Vietoris–Rips complexes of hypercubes",
+        "trigger": "Full-cube facet classification and weight-layer terminology could dominate this sublevel calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a0730d2d-2cdd-45a2-836f-5c7dc75a8de6",
+  "value": {
+    "rationale": "The recent function-Rips construction singles out natural sublevel complexes whose coordinate permutation symmetries survive although full-cube translations do not. The complete character across all dimensions n≥3, including the nontrivial additional Λ⁴ permutation module, is not determined by the known nonequivariant Betti number C(n+1,4), and gives a structural and computable invariant for a natural entire family rather than a finite arbitrary table. It is explicitly limited to one cutoff and rational coefficients.",
+    "status": "PASS"
+  }
+}
