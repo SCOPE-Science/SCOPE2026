@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:55:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e855484e53ed45b08d700337a08911a7191eec5a",
+        "Akibue--Miyazaki--Osaka full primary source",
+        "independent branch-inequality and effect-sum reconstruction"
+      ],
+      "rationale": "Rank-one purity of every successful output forces each contributing product Kraus A⊗B to map the three-dimensional antisymmetric support into the target line. A nonzero contributing branch has rank A=rank B=2 with a common one-dimensional kernel; otherwise an antisymmetric input involving a kernel vector would map to a nonzero product vector in an entangled target line. On the common two-plane, writing X=A†A and Y=B†B gives |alpha|^2=(TrX TrY-Tr(XY))/2. The matrix equation for the antisymmetric vector and Schatten Hölder gives TrX TrY>=2|alpha|^2(c+s)^2, hence Tr(XY)>=2 sin(2theta)|alpha|^2. Summing success effects E and using that the separable failure effect R=I-E has nonnegative trace pairing with the swap F yields 3=TrF>=Tr(FE)>=2 sin(2theta) sum|alpha|^2. Since each branch succeeds on P_-/3 with probability |alpha|^2/3, p<=1/[2 sin(2theta)]. The six explicit ordered-pair product Kraus operators in RESULT.md attain p=min{1,1/[2 sin(2theta)]}; their summed effect is diagonal with coefficients at most one and the diagonal complement is a separable failure effect. Boundary theta=pi/4 gives 1/2 and sin(2theta)=1/2 joins the deterministic branch continuously.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chitambar--Duan prove SEP can outperform LOCC for a different mixed state/pure target example.",
+          "PPT operations form a larger class and their distillation results do not imply this exact SEP frontier."
+        ],
+        "reasoning": "No inspected broader resource-theory theorem yields the submitted probability formula for this rank-three uniform antisymmetric state.",
+        "searches": [
+          "Chitambar--Duan, arXiv:0811.3739 / PRL 103, 110502",
+          "general PPT distillation literature cited by Akibue et al."
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s11005-026-02138-9",
+        "arXiv:2501.17394",
+        "arXiv:0811.3739",
+        "Resultary qutrit distillation query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves achievability but only numerically indicates optimality for theta_i=pi,q_i=1/3.",
+          "The audited proof derives a branchwise inequality Tr(XY)>=2 sin(2theta)|alpha|^2 and then uses separability of the failure effect with the swap block-positive witness to obtain the matching universal upper bound."
+        ],
+        "reasoning": "The analytic equality is not a corollary of the source's lower bound or numerical hierarchy.",
+        "searches": [
+          "Akibue et al. construction and MFLC/DPS numerical result",
+          "assigned swap-block-positive upper bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source's optimization p(psi_theta,tau) is exactly the success probability of the same one-copy SEP conversion.",
+          "At theta_i=pi and q_i=1/3, the source state is P_-/3."
+        ],
+        "reasoning": "The assigned theorem turns the source's same optimization problem from a lower bound plus numerical optimality indication into an analytic equality.",
+        "searches": [
+          "Akibue--Miyazaki--Osaka, DOI:10.1007/s11005-026-02138-9, Section 1.5 / Eq. (54)--(56)",
+          "Resultary query: uniform qutrit antisymmetric state separable distillation exact probability frontier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact published finding appeared among the leading Resultary matches.",
+          "The primary paper has a numerical tradeoff curve coincident with the analytical lower bound, explicitly described as numerical evidence of optimality rather than an exact theorem."
+        ],
+        "reasoning": "A numerically tight hierarchy plot is not an exact database theorem and does not cover the analytic upper bound.",
+        "searches": [
+          "Resultary semantic search for uniform qutrit antisymmetric SEP distillation",
+          "Akibue et al. Fig. 5(a) numerical hierarchy"
+        ]
+      },
+      "rationale": "Akibue--Miyazaki--Osaka study exactly this distillation family. Their full 2026 article constructs the same lower-bound protocol with success min{1,[2 sin(2theta)]^{-1}} for all phases/weights, formulates the exact SEP conic problem, and for the uniform antisymmetric benchmark reports that the strengthened numerical hierarchy indicates the protocol is optimal. It does not provide an analytic upper bound proving equality. Chitambar--Duan establish separable-operation advantages for different mixed-to-pure transformations. No checked source supplies the swap-witness analytic optimum for the uniform rank-three antisymmetric qutrit state.",
+      "residual_risks": [
+        "The primary source is very recent; a follow-up analytic proof could appear after the inspected publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACHIEVABILITY_AND_NUMERICAL_OPTIMALITY_PRIOR_ANALYTIC_UPPER_BOUND_ABSENT",
+          "evidence": "The paper constructs success min{1,1/(2 sin 2theta)} and states that the numerical result indicates optimality for theta_i=pi and q_i=1/3.",
+          "identifier_or_url": "DOI:10.1007/s11005-026-02138-9",
+          "material_read": "Full open Springer HTML around entanglement distillation, Eqs. (53)--(56), Proposition 5, the analytical lower bound and the numerical experiment.",
+          "method": "Same-object proof-status and implication comparison.",
+          "title": "Optimizing entanglement manipulation via algebraic-geometric decompositions and semi-definite programming hierarchies",
+          "trigger": "Primary same-state, same-target-family, same-SEP optimization source."
+        },
+        {
+          "assessment": "DIFFERENT_MIXED_STATE_TRANSFORMATION",
+          "evidence": "It establishes a general SEP-vs-LOCC separation and a different distillation example, not the uniform qutrit antisymmetric probability frontier.",
+          "identifier_or_url": "arXiv:0811.3739; DOI:10.1103/PhysRevLett.103.110502",
+          "material_read": "Primary arXiv/PRL abstract and scope.",
+          "method": "State/target and implication comparison.",
+          "title": "Nonlocal Entanglement Transformations Achievable by Separable Operations",
+          "trigger": "Prior mixed-to-pure SEP distillation source cited by the primary paper."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1007/s11005-026-02138-9",
+        "arXiv:2501.17394",
+        "arXiv:0811.3739",
+        "Resultary qutrit distillation query"
+      ],
+      "rationale": "The exact SEP frontier resolves a concrete benchmark for which the motivating 2026 paper supplied an achievable curve and strengthened numerical evidence but no analytic optimality proof. A closed one-copy conversion frontier for a canonical antisymmetric state is a natural resource-theory invariant and the swap-witness upper bound is reusable structural mathematics rather than a mere numerical certification.",
+      "residual_risks": [
+        "The primary source is very recent; a follow-up analytic proof could appear after the inspected publication."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1007/s11005-026-02138-9",
+    "arXiv:2501.17394",
+    "arXiv:0811.3739",
+    "Resultary qutrit distillation query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the uniform antisymmetric qutrit state tau_-=P_-/3 and target cos(theta)|00>+sin(theta)|11>, 0<theta<=pi/4, the optimal exact one-copy success probability under a bipartite separable instrument is min{1,[2 sin(2theta)]^{-1}}.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The primary source is very recent; a follow-up analytic proof could appear after the inspected publication.",
+    "The upper bound uses separability of the failure completion; it is not asserted for an isolated trace-nonincreasing success map with unrestricted completion.",
+    "No LOCC, PPT, multi-copy, catalytic or approximate-conversion optimum is claimed."
+  ]
+}
