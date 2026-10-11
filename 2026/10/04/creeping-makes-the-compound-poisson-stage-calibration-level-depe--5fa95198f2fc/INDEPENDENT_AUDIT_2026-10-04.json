@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:01:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3da2f220da9335b677f2e7107a44ce77cd3a3cb3",
+        "assigned verify.py blob 4eb710b68d65acb09ec21a38257462b7ef1a942c",
+        "Perçin et al. 2026 full Springer article",
+        "Coutin-Ngom arXiv:1603.02506 primary text"
+      ],
+      "rationale": "For the subordinator \\(X_t=ct+\\sum_{j\\le N_t}G_j\\), first passage at level \\(x\\) can occur continuously or by a jump. The creeping probability has Laplace transform \\(c/\\psi(s)\\) with \\(\\psi(s)=cs+\\lambda\\theta s/(1+\\theta s)\\), which decomposes into the stated constant plus exponential term and yields \\(q(x)=c/(c+\\lambda\\theta)+(\\lambda\\theta)/(c+\\lambda\\theta)e^{-\\kappa x}\\). Conditional on jump crossing, exponential memorylessness makes the overshoot exponential with mean \\(\\theta\\), so \\(E O_x=\\theta(1-q(x))\\). Since \\(\\tau_x\\le x/c\\), optional stopping of \\(X_t-(c+\\lambda\\theta)t\\) is justified and gives \\((c+\\lambda\\theta)E\\tau_x=x+EO_x\\). Subtracting levels gives the positive correction. A fresh independent numerical reconstruction at \\(c=\\lambda=\\theta=1,a=1,b=2\\) gives \\(E(\\tau_2-\\tau_1)=0.5292549110869696\\), matching the closed form.",
+      "residual_risks": [
+        "Closed forms use constant positive drift and exponential jump sizes; other jump laws or time-varying rates require different renewal/fluctuation analysis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General fluctuation theory contains joint first-passage/overshoot laws and the general phenomenon of creeping.",
+          "No inspected general source discusses or implies the erroneous cancellation in the 2026 stage-calibration derivation without specializing the model and evaluating the finite-level atom."
+        ],
+        "reasoning": "The stochastic-process machinery is prior; the exact finite-stage correction is the source-specific contribution.",
+        "searches": [
+          "Coutin-Ngom arXiv:1603.02506",
+          "Doney-Kyprianou overshoot/undershoot theory",
+          "mixed-exponential jump-process first-passage literature"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00285-026-02461-8",
+        "https://arxiv.org/abs/1603.02506",
+        "Doney-Kyprianou 2006",
+        "Resultary current corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 3.1 itself already says overshoot is zero under continuous crossing and exponential only under jump crossing, so setting its unconditional mean equal to \\(\theta\\) is invalid whenever creeping has positive probability.",
+          "General fluctuation theory supplies methods, but obtaining the explicit source correction requires evaluating the level-dependent creeping mass and carrying it through optional stopping."
+        ],
+        "reasoning": "The result is a concrete mathematical correction, not a restatement that overshoots can be level-dependent in general.",
+        "searches": [
+          "Perçin Lemma 3.1 conditional overshoot result versus unconditional mean",
+          "general Lévy first-passage laws versus biological calibration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper’s calibration error is exactly the replacement of unconditional \\(EO_x\\) by the conditional jump-crossing mean \\(\theta\\).",
+          "The correction can equivalently be written as the difference of level-dependent mean overshoots at consecutive stage thresholds."
+        ],
+        "reasoning": "Biological-calibration and classical first-passage formulations were aligned explicitly.",
+        "searches": [
+          "Resultary: compound Poisson drift exponential jumps creeping overshoot stage calibration level dependent",
+          "Perçin et al. 2026 equations (3.9)-(3.11)",
+          "dual risk/subordinator first-passage overshoot formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior same-result published-finding hit was retrieved."
+        ],
+        "reasoning": "There is no finite table; the search targeted the exact model/formula and calibration consequence.",
+        "searches": [
+          "Resultary exact semantic search for the pest-model DOI plus overshoot correction",
+          "searches for the displayed creeping probability and stage-duration correction"
+        ]
+      },
+      "rationale": "The motivating 2026 biological paper correctly distinguishes zero overshoot under continuous crossing from exponential overshoot conditional on jump crossing, but then explicitly replaces the unconditional mean overshoot at each boundary by \\(\theta\\) and cancels the two terms, producing its calibration equations (3.10)-(3.11). General Lévy first-passage literature already studies overshoot/undershoot and creeping, so no novelty is claimed for those concepts. The new scientific point is the source-specific finite-level atom/mean formula and the resulting positive level-dependent correction to the exact calibration identity. Current published-finding and literature searches found no prior statement of that correction for this model.",
+      "residual_risks": [
+        "A risk-theory source may already contain the same exponential-jump closed form; originality is therefore scoped to the explicit correction of the 2026 finite-stage calibration, not to general overshoot theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_UNCONDITIONAL_OVERSHOOT_ERROR_CONFIRMED",
+          "evidence": "The source says overshoot is zero for continuous passage and exponential conditional on jump passage, but then states \\(E[O_k]=\theta\\) unconditionally and cancels boundary overshoots in deriving the calibration formula.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02461-8",
+          "material_read": "full accessible Springer HTML around Section 3.2, Lemma 3.1 and equations (3.9)-(3.11), plus the applied calibration section",
+          "method": "primary full-text web inspection",
+          "title": "An analytical stochastic stage-structured model for pest population dynamics: a case study on Cydia pomonella in Italy",
+          "trigger": "exact model and calibration derivation being corrected"
+        },
+        {
+          "assessment": "GENERAL_FIRST_PASSAGE_CONTEXT",
+          "evidence": "The paper treats joint hitting-time/overshoot/undershoot laws for drifted Brownian plus compound-Poisson Lévy processes, confirming that finite-level overshoot is a structured random variable rather than a universal constant.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.02506",
+          "material_read": "full accessible primary arXiv text through the model, literature review and joint-law setup",
+          "method": "primary full-text inspection",
+          "title": "Joint law of the hitting time, overshoot and undershoot for a Lévy process",
+          "trigger": "broad primary first-passage/overshoot comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Perçin et al. 2026",
+        "general first-passage literature",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The correction changes the exact stage-duration calibration used to fit the biological model: the omitted term is strictly positive and depends on the absolute stage levels, so the source identity is not merely imprecise notation. Providing a closed-form correction for the paper’s own constant-temperature special case is a substantive model-validation result even though it does not re-fit the field data.",
+      "residual_risks": [
+        "The downstream empirical size of the correction for fitted field parameters is not assessed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Closed forms use constant positive drift and exponential jump sizes; other jump laws or time-varying rates require different renewal/fluctuation analysis.",
+    "A risk-theory source may already contain the same exponential-jump closed form; originality is therefore scoped to the explicit correction of the 2026 finite-stage calibration, not to general overshoot theory.",
+    "The downstream empirical size of the correction for fitted field parameters is not assessed."
+  ]
+}

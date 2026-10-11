@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For \(c,\lambda,\theta>0\), monotonicity gives the deterministic bound \(\tau_x\le x/c\), so optional stopping of \(X_t-(c+\lambda\theta)t\) is justified without a delicate limiting argument. First-jump conditioning gives a renewal equation for the continuous-passage probability. Its Laplace transform inverts to the displayed mixture of a constant term and one exponential. Exponential memorylessness then gives the unconditional overshoot mean, and subtracting the two one-level martingale identities proves the stage formula. The strict inequality follows for every finite \(0\le a<b\) when \(\lambda\theta>0\).
+## correctness
 
-## Originality
-**PASS, narrowly construed.** General Lévy overshoot theory is not claimed as new. The new statement is the explicit consequence for the Perçin et al. stage calibration: their conditional jump-overshoot mean cannot be substituted as the unconditional mean at both boundaries, because continuous crossing has positive probability and this probability depends on the level. Exact-title, source-identifier, overshoot, calibration, and parameter searches found no published correction of this source-specific identity. The closest broad literature treats Lévy overshoots but does not state this biological finite-stage calibration consequence.
+PASS
 
-## Value
-**PASS.** The omitted term is part of the parameter-identification equation used later in the source to connect mean stage durations to the combined deterministic and jump development rate. The correction is structural rather than cosmetic: for every nondegenerate jump component it has a fixed positive sign for finite consecutive boundaries, and the corrected equation is implicit in the drift because \(\kappa\) depends on \(c\). This changes the interpretation of a fitted development-rate decomposition even though no new empirical fit is attempted here.
+For the subordinator \(X_t=ct+\sum_{j\le N_t}G_j\), first passage at level \(x\) can occur continuously or by a jump. The creeping probability has Laplace transform \(c/\psi(s)\) with \(\psi(s)=cs+\lambda\theta s/(1+\theta s)\), which decomposes into the stated constant plus exponential term and yields \(q(x)=c/(c+\lambda\theta)+(\lambda\theta)/(c+\lambda\theta)e^{-\kappa x}\). Conditional on jump crossing, exponential memorylessness makes the overshoot exponential with mean \(\theta\), so \(E O_x=\theta(1-q(x))\). Since \(\tau_x\le x/c\), optional stopping of \(X_t-(c+\lambda\theta)t\) is justified and gives \((c+\lambda\theta)E\tau_x=x+EO_x\). Subtracting levels gives the positive correction. A fresh independent numerical reconstruction at \(c=\lambda=\theta=1,a=1,b=2\) gives \(E(\tau_2-\tau_1)=0.5292549110869696\), matching the closed form.
 
-## Closest literature and limitations
-Coutin–Ngom and Doney–Kyprianou provide general first-passage/overshoot theory, so the broad mechanism is classical. Pasquali's earlier stage model uses a different Gamma-process driver. A later or unindexed erratum to the motivating paper could reduce the originality of the source-specific correction; none was found in the searches performed. The accepted result is restricted to the constant-coefficient exponential-jump case and does not claim a complete reanalysis of the biological model.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating 2026 biological paper correctly distinguishes zero overshoot under continuous crossing from exponential overshoot conditional on jump crossing, but then explicitly replaces the unconditional mean overshoot at each boundary by \(	heta\) and cancels the two terms, producing its calibration equations (3.10)-(3.11). General Lévy first-passage literature already studies overshoot/undershoot and creeping, so no novelty is claimed for those concepts. The new scientific point is the source-specific finite-level atom/mean formula and the resulting positive level-dependent correction to the exact calibration identity. Current published-finding and literature searches found no prior statement of that correction for this model.
+
+## value
+
+PASS
+
+The correction changes the exact stage-duration calibration used to fit the biological model: the omitted term is strictly positive and depends on the absolute stage levels, so the source identity is not merely imprecise notation. Providing a closed-form correction for the paper’s own constant-temperature special case is a substantive model-validation result even though it does not re-fit the field data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
