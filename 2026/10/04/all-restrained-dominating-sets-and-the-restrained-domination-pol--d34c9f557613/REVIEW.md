@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For every nonempty complement \(T\), the minimum occupied \(A\)-class and maximum occupied \(B\)-class are unique. A vertex in the extremal \(A_a\) class forces the prefix \(B_1\cup\cdots\cup B_a\) to contain both an omitted and a selected vertex; nesting then gives both required neighbor types to every omitted \(A\)-vertex. The dual suffix argument handles omitted \(B\)-vertices. This proves necessity and sufficiency. The three relative orders of the two boundary indices count all choices without overlap. Direct definition checks agree with the structural test and polynomial on 687,124 subsets of 540 canonical chain-graph profiles through order \(11\).
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The closest inspected primary full text, Pandey and Panda's arXiv:1606.02340v1, has a dedicated chain-graph section but determines only the minimum restrained domination number and a linear-time minimum-set algorithm. The 2019 restrained-domination-polynomial paper is prior coverage for complete bipartite graphs, exactly the one-class specialization, and that specialization is excluded from the originality claim. Later cycle and join/corona polynomial work does not imply the general chain-graph boundary theorem. Searches under chain, Ferrers, difference-graph, polynomial, generating-function, and all-cardinality terminology found no equivalent statement. The inaccessible full text of the 2019 article and the unavailable 2020 study remain named risks rather than negative evidence.
+PASS
 
-## Value
-PASS. The result goes beyond recomputing the known minimum: it gives a complete feasible-set classification and every coefficient of a named domination polynomial for an arbitrary chain graph. The unique boundary pair is a reusable structural description, and the formula immediately supplies the restrained domination number, number of minimum solutions, and total count of restrained dominating sets.
+The proof was reconstructed directly. For a nonempty complement \(T\), restrained domination requires \(T\) to meet both bipartition sides. Let \(a\) be the least \(A\)-class met by \(T\) and \(b\) the greatest \(B\)-class met by \(T\). Nesting of neighborhoods makes the condition on every \(T\cap A\) vertex equivalent to the prefix \(B_1\cup\cdots\cup B_a\) containing at least one vertex of \(T\) and at least one of \(S\); dually, every \(T\cap B\) vertex is handled exactly by the corresponding suffix \(A_b\cup\cdots\cup A_p\). These are necessary and sufficient. Once \((a,b)\) is fixed, the two side choices are independent and the three relative-order cases \(b<a\), \(b=a\), \(a<b\) give exactly the stated \(E_m\) and \(P_m\) factors without double counting. I independently replayed exhaustive definition-versus-formula checking for all canonical profiles with \(p\le4\), class sizes in \(\{1,2,3\}\), and total order at most 11: 540 profiles and 687,124 subsets with no mismatch. The finite replay is supplementary only.
 
-## Closest literature and limitations
-The closest same-class source is arXiv:1606.02340v1, Section 8, whose Theorems 8.1-8.2 solve the minimum problem. The closest same-invariant polynomial source found is the 2019 paper DOI:10.1080/09720529.2019.1681693, which includes complete bipartite graphs but whose full text was not available from the located lawful source. The result here is limited to connected chain graphs and does not claim a formula for broader bipartite graph classes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Pandey--Panda's primary arXiv paper was inspected at its public full bibliographic/abstract material: it gives polynomial-time algorithms for the minimum restrained-dominating-set problem on chain graphs, so the minimum parameter is prior art. The 2019 restrained-domination-polynomial paper's accessible abstract lists complete graphs, complete bipartite graphs, paths, cycles, and certain \(K_2\)-products; the complete-bipartite case is the \(p=1\) specialization and is treated as prior. No checked source or Resultary record gives the all-set prefix/suffix classification or full polynomial for arbitrary chain graphs. Open routes did not expose the 2019 full body; one authorized institutional retrieval attempt returned an operational error and was not retried or bypassed, leaving an explicit bibliographic risk rather than causing failure.
+
+## value
+
+PASS
+
+The result upgrades a known minimum-optimization problem to a complete structural classification and full polynomial for a natural hereditary bipartite class. The prefix/suffix boundary description is reusable, and the formula gives every cardinality count, the minimum, and the number of minimum sets. This is a natural complete enumerative classification rather than an isolated coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

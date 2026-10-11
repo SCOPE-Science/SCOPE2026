@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:06:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof was reconstructed directly. For a nonempty complement \\(T\\), restrained domination requires \\(T\\) to meet both bipartition sides. Let \\(a\\) be the least \\(A\\)-class met by \\(T\\) and \\(b\\) the greatest \\(B\\)-class met by \\(T\\). Nesting of neighborhoods makes the condition on every \\(T\\cap A\\) vertex equivalent to the prefix \\(B_1\\cup\\cdots\\cup B_a\\) containing at least one vertex of \\(T\\) and at least one of \\(S\\); dually, every \\(T\\cap B\\) vertex is handled exactly by the corresponding suffix \\(A_b\\cup\\cdots\\cup A_p\\). These are necessary and sufficient. Once \\((a,b)\\) is fixed, the two side choices are independent and the three relative-order cases \\(b<a\\), \\(b=a\\), \\(a<b\\) give exactly the stated \\(E_m\\) and \\(P_m\\) factors without double counting. I independently replayed exhaustive definition-versus-formula checking for all canonical profiles with \\(p\\le4\\), class sizes in \\(\\{1,2,3\\}\\), and total order at most 11: 540 profiles and 687,124 subsets with no mismatch. The finite replay is supplementary only.",
+      "risk": "The formula assumes connected chain graphs in the stated canonical nesting orientation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pandey--Panda gives a polynomial-time algorithm for a minimum restrained dominating set on chain graphs.",
+          "The 2019 abstract explicitly includes complete bipartite graphs but not arbitrary chain graphs."
+        ],
+        "reasoning": "Minimum optimization and the \\(p=1\\) complete-bipartite specialization are covered, but neither dominates an exact all-cardinality polynomial on arbitrary nested-neighborhood depth.",
+        "searches": [
+          "A. Pandey, B. S. Panda, arXiv:1606.02340",
+          "K. Kanagavel, G. Kokilambal, DOI:10.1080/09720529.2019.1681693",
+          "later restrained-domination-polynomial searches for join/corona/cycle families"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1606.02340",
+        "DOI:10.1080/09720529.2019.1681693",
+        "DOI:10.1142/S179383092250118X",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimum restrained domination number is recoverable from the submitted polynomial but does not determine any of its higher coefficients.",
+          "A formula for complete bipartite graphs covers only canonical depth \\(p=1\\), while arbitrary chain graphs have unbounded nested twin-class depth."
+        ],
+        "reasoning": "The prior results are strict consequences/special cases of the audited enumerator rather than stronger premises from which it follows mechanically.",
+        "searches": [
+          "arXiv:1606.02340 minimum restrained domination on chain graphs",
+          "DOI:10.1080/09720529.2019.1681693 listed polynomial families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct Resultary match is the audited record; no independent chain-graph all-set polynomial theorem was located.",
+          "Pandey--Panda addresses the minimum problem rather than the full cardinality enumerator."
+        ],
+        "reasoning": "Searching both set-classification and domination-polynomial formulations did not locate an equivalent arbitrary-chain theorem.",
+        "searches": [
+          "Resultary semantic search: restrained domination polynomial chain graph all restrained dominating sets nested neighborhoods",
+          "Web search: restrained domination polynomial chain graphs prefix suffix complements"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table for arbitrary chain-graph twin-class profiles was located."
+        ],
+        "reasoning": "The submitted double-sum formula is symbolic for unbounded class depth and cannot be inferred from the known complete-bipartite special case.",
+        "searches": [
+          "Resultary restrained-domination and chain-graph searches",
+          "Searches for restrained-domination polynomial tables/families"
+        ]
+      },
+      "rationale": "Pandey--Panda's primary arXiv paper was inspected at its public full bibliographic/abstract material: it gives polynomial-time algorithms for the minimum restrained-dominating-set problem on chain graphs, so the minimum parameter is prior art. The 2019 restrained-domination-polynomial paper's accessible abstract lists complete graphs, complete bipartite graphs, paths, cycles, and certain \\(K_2\\)-products; the complete-bipartite case is the \\(p=1\\) specialization and is treated as prior. No checked source or Resultary record gives the all-set prefix/suffix classification or full polynomial for arbitrary chain graphs. Open routes did not expose the 2019 full body; one authorized institutional retrieval attempt returned an operational error and was not retried or bypassed, leaving an explicit bibliographic risk rather than causing failure.",
+      "residual_risks": [
+        "The 2019 polynomial paper's full body and a separately located 2020 restrained-domination-polynomial study were not fully readable in this run; an unindexed chain-graph formula inside those inaccessible bodies remains a bounded overlap risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MINIMUM_ONLY_PRIOR",
+          "evidence": "The stated objective is minimum restrained domination; no all-set polynomial appears in the material read.",
+          "identifier_or_url": "arXiv:1606.02340",
+          "material_read": "Public arXiv bibliographic page and abstract, including the statement that polynomial-time algorithms are given for minimum restrained domination on chain graphs.",
+          "method": "lawful arXiv source; the interface exposed the abstract and full-text links but not the body in this run",
+          "title": "Some Algorithmic Results on Restrained Domination in Graphs",
+          "trigger": "Primary source explicitly treating minimum restrained domination on chain graphs."
+        },
+        {
+          "assessment": "SPECIAL_CASE_WITH_ACCESS_RISK",
+          "evidence": "The accessible abstract lists complete and complete bipartite graphs, paths, cycles, and products involving \\(K_2\\), but not general chain graphs.",
+          "identifier_or_url": "DOI:10.1080/09720529.2019.1681693",
+          "material_read": "Accessible abstract/search metadata listing graph families for which the polynomial is determined.",
+          "method": "lawful public metadata; after OA/full-text routes failed, one authorized institutional retrieval attempt returned an operational error",
+          "title": "Restrained domination polynomial in graphs",
+          "trigger": "Closest source devoted to the exact polynomial invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result upgrades a known minimum-optimization problem to a complete structural classification and full polynomial for a natural hereditary bipartite class. The prefix/suffix boundary description is reusable, and the formula gives every cardinality count, the minimum, and the number of minimum sets. This is a natural complete enumerative classification rather than an isolated coefficient.",
+      "risk": "The expression is a double sum rather than a simpler factorization and is specific to chain graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite connected chain graph in canonical twin classes \\(A_1,\\ldots,A_p,B_1,\\ldots,B_p\\) with \\(A_i\\) adjacent to \\(B_j\\) exactly when \\(j\\le i\\), complements of restrained dominating sets are classified by a unique pair of extremal indices \\((a,b)\\) and two nonempty-proper prefix/suffix conditions. This yields the exact double-sum complement enumerator \\(Q_G(y)\\) and therefore the full restrained domination polynomial \\(D_r(G;x)=x^NQ_G(x^{-1})\\), including the minimum number and count as consequences.",
+  "limitations": [
+    "The 2019 polynomial paper and a 2020 related study were not available in full text; this is retained as a best-of-knowledge originality risk.",
+    "Finite verification through order 11 is corroborative only."
+  ],
+  "schema_version": 1
+}
