@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The operator norms reduce, using the molecular norm of a Lipschitz-free space, to images of ordered pairs of Cantor points. Each image has two positive and two negative unit atoms; its transport norm is exactly the lesser cost of the two possible matchings. Splitting coordinates into prefix, interval and tail gives a universal upper bound. A one-coordinate molecule and a common-full-block rectangular molecule attain the two competing bounds for every finite or infinite interval. Nested retractions, ranks and strong convergence follow directly from the summability assumption. Finite-cube linear programs crosscheck 48 interval cases; they are not used as infinite-dimensional proof.
+
+**Originality: PASS, subject to the stated literature risk.** Talimdjioski establishes residual approximation properties for Cantor metrics; Doucha–Kaufmann already establishes MAP for this compact invariant-metric group subclass. Lancien–Pernecká gives monotone decompositions over \(\ell_1\), while Cúth–Doucha studies compact-group-action projections. Those results do not state this exact family of weighted-coordinate interval norms or imply its sharp half-tail threshold from their stated estimates. Several targeted searches returned no equivalent quantitative result. A prior derivation embedded in unindexed metric transport or Banach-space literature is a residual risk.
+
+**Mathematical value: PASS.** The theorem supplies a complete sharp norm profile for every interval sum of a natural, explicitly given monotone finite-dimensional decomposition. The exact weight condition distinguishes bimonotonicity from contractivity of individual level projections. For geometric weights, this produces distinct sharp thresholds at \(r=1/3\) and \(r=1/2\), information absent from the qualitative MAP theorem and from the universal bound two on projection differences.
+
+**Limits.** Only this coordinate filtration, real scalars and the weighted binary-product metric are covered; there is no assertion about optimal decompositions over all choices. MAP itself is not an originality claim. Any equivalence in unindexed literature remains to be assessed independently.
+
+Same-model review: passed. Independent audit: not yet performed.

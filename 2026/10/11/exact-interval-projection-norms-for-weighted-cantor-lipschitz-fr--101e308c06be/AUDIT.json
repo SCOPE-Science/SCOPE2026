@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For every pair of binary sequences, the difference of two coordinate truncations sends the corresponding molecule to a four-atom signed measure. The two-by-two transportation formula gives the exact value min(a+b,2p+h), where p is weighted prefix disagreement, h block disagreement, and a,b individual block masses. This yields the universal ratio bound max(1,2 min(1,B/a_n)), attained by a block-only molecule and by a minimum-prefix-weight rectangle whose two block sequences are all ones. It also covers infinite upper endpoints because summability keeps all distances finite. Norm-one ranks and strong convergence of the coordinate projections follow from 1-Lipschitz retractions and uniform tail decay. check_intervals.py independently maximizes every finite molecule image via dual Lipschitz LP and matches all 48 finite-cube interval cases to 8.9e-16. Only the analytic proof establishes all infinite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2005.09785v2, Theorem 3.5: every compact group with a compatible invariant metric has MAP; the weighted binary product is included.",
+        "arXiv:1207.1583v1, Theorem 3.1: monotone finite-dimensional Schauder decompositions for free spaces over l1 and finite-dimensional l1.",
+        "arXiv:2104.11519v1, Theorem A: compact-group action quotient free spaces are complemented."
+      ],
+      "reasoning": "MAP is expressly not claimed new. MAP does not furnish norms of prescribed interval differences; even knowing each partial-sum projection is contractive yields only the bound 2. An FDD over the ambient l1 metric space need not be the induced coordinate-truncation FDD over its discrete Cantor subset. The group-action projection theorem concerns orbit averages rather than these deterministic differences.",
+      "searches": [
+        "Lipschitz free spaces weighted Cantor cubes coordinate retractions FDD 1 projection norm differences",
+        "free space binary product metric sum of summable coordinate weights exact norm P_n-P_{n-1} min previous weight",
+        "\"Lipschitz-free\" \"Cantor\" \"Schauder decomposition\" \"weighted\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.07591v1",
+      "arXiv:2005.09785v2",
+      "arXiv:1207.1583v1",
+      "arXiv:2104.11519v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "F. Talimdjioski, arXiv:2305.07591v1: residual MAP for varying Cantor metrics and dense meager AP failures; no prescribed interval-projection norms.",
+        "M. Doucha and P. L. Kaufmann, arXiv:2005.09785v2, Theorem 3.5 and its proof: covers MAP for the current compact invariant-metric group subclass, but not exact interval-difference norms.",
+        "G. Lancien and E. Pernecká, arXiv:1207.1583v1, Theorem 3.1: interpolated monotone FDD for l1 ambient spaces, not this weighted binary filtration.",
+        "M. Cúth and M. Doucha, arXiv:2104.11519v1, Theorem A: complemented orbit-space free spaces by group actions; no weight-tail half-threshold."
+      ],
+      "reasoning": "Qualitative MAP is subsumed by Doucha-Kaufmann and explicitly separated from the claimed contribution. None of the inspected primary theorem statements or relevant proofs yields the precise norm of P_m-P_n as a function of the interval weight and minimum prefix weight. No general FDD estimate stronger than 2 yields this exact formula without the additional geometric four-point calculation.",
+      "searches": [
+        "Projections in Lipschitz-free spaces induced by group actions arXiv:2104.11519",
+        "Approximation properties in Lipschitz-free spaces over groups Doucha Kaufmann arXiv 2005.09785",
+        "Approximation properties and Schauder decompositions in Lipschitz-free spaces arXiv 1207.1583",
+        "Lipschitz-free spaces over Cantor sets approximation properties Talimdjioski arXiv 2305.07591"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arXiv:1207.1583v1 Schauder decomposition theorem concerns free spaces over l1 and l1^N, not the exact weighted binary coordinate interval operators.",
+        "The two-source/two-sink Kantorovich transport identity is known but is only a lemma; it does not alone state the optimization over all molecules or the full filtration norm formula."
+      ],
+      "reasoning": "Searches included synonymous molecular, FDD, martingale-difference, and coordinate-retraction descriptions. No equivalent stated theorem was identified. The candidate uses a transport lemma, but the claimed new object is the sharp supremum over every coordinate interval. Absence of a match is not a proof of literature-wide novelty.",
+      "searches": [
+        "weighted Hamming Cantor cube Lipschitz-free space canonical truncation projections monotone finite dimensional Schauder decomposition exact norms of martingale difference projections alpha_n",
+        "Exact norms of coordinate truncation differences on Lipschitz-free weighted Hamming Cantor cubes and FDD block contractivity threshold",
+        "\"Lipschitz-free\" Cantor coordinate projections weighted Hamming norm differences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-results searches returned weighted-block operator thresholds on l_p-sums and an octahedrality calculation for a different Lipschitz-free family, not a table of weighted binary-Cantor interval projection norms.",
+        "The supplied 48 finite LP computations are new reproducibility crosschecks, not a claimed lookup table."
+      ],
+      "reasoning": "Neither a published table of these constants nor a stronger database formula was found. Related use of the words weighted, Hamming, or projection addresses mathematically different operators; the absence of a table is not itself evidence of novelty.",
+      "searches": [
+        "F(K) Lipschitz-free Cantor weighted l1 cube 1-unconditional FDD constants alpha_n Schauder difference operators",
+        "Lipschitz free space binary cube canonical FDD increment norm two times min weights",
+        "Exact norms of coordinate truncation differences on Lipschitz-free weighted Hamming Cantor cubes and FDD block contractivity threshold"
+      ]
+    },
+    "rationale": "The exact formula is a complete weighted interval-projection norm profile, not merely a metric approximation property or existence of a Schauder decomposition. The 2020 compact-group theorem already covers MAP here; the 2012 interpolation-based decomposition covers free spaces over ambient l1, not this explicit interval projection norm. The inspected Cantor metric paper and group projection article do not imply the quantitative threshold, and targeted searches located no equivalent result. A previously unnoticed application of four-point transport in unindexed literature remains a residual risk.",
+    "residual_risks": [
+      "A general transport-based computation or a thesis on canonical free-space filtrations not found by title, aliases or indexed searches might implicitly contain this formula.",
+      "No independent survey of all unavailable or unindexed literature has been performed; negative search outcomes do not prove universal originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact coordinate-interval norm; qualitative residual MAP and algebra isomorphism metrics are different results",
+        "evidence": "arXiv:2305.07591v1, first public 2023-05-12, Theorem 1.1, Proposition 1.2 and Section 4.",
+        "identifier_or_url": "https://arxiv.org/pdf/2305.07591",
+        "material_read": "Eleven-page preprint: abstract, definitions and introduction, main approximation-property results, final metric family and references",
+        "method": "Read open-access primary preprint text and inspected page layout and theorem context",
+        "title": "Lipschitz-free spaces over Cantor sets and approximation properties",
+        "trigger": "Same underlying Cantor product and the middle-cohort primary 46B20 source"
+      },
+      {
+        "assessment": "COVERS the MAP corollary; does NOT provide the exact norm of each deterministic coordinate interval projection or its bimonotonicity threshold",
+        "evidence": "arXiv:2005.09785v2, pages 2 and 10-13, Theorem 3.5 and proof.",
+        "identifier_or_url": "https://arxiv.org/pdf/2005.09785",
+        "material_read": "Twenty-three-page preprint; Theorem A, Section 2 free-space norms, Section 3 compact-group projections, Theorem 3.5 and its proof through finite quotients; related basis discussion",
+        "method": "Inspected full public arXiv text and relevant theorem-page images",
+        "title": "Approximation properties in Lipschitz-free spaces over groups",
+        "trigger": "Strongest apparent prior covering MAP of the precise weighted binary metric"
+      },
+      {
+        "assessment": "NOT_COVERING the specified weighted binary Cantor projections; its operators are interpolation maps on the ambient l1 free space",
+        "evidence": "arXiv:1207.1583v1, Theorem 3.1, Lemma 3.2, Section 3.",
+        "identifier_or_url": "https://arxiv.org/pdf/1207.1583",
+        "material_read": "Twelve-page primary preprint, especially introduction, multilinear cube interpolation, Theorem 3.1 and convergence estimates",
+        "method": "Read full public preprint text and relevant page images",
+        "title": "Approximation properties and Schauder decompositions in Lipschitz-free spaces",
+        "trigger": "Closest earlier monotone FDD construction for l1 geometry"
+      },
+      {
+        "assessment": "NOT_COVERING the exact coordinate interval differences; the article constructs projections associated with group orbits, a different operation",
+        "evidence": "arXiv:2104.11519v1, Theorem A and introduction.",
+        "identifier_or_url": "https://arxiv.org/pdf/2104.11519",
+        "material_read": "Twenty-two-page public preprint, abstract, Theorem A and orbit-quotient projection construction; searched terminology for coordinate, Cantor and binary settings",
+        "method": "Read relevant primary full-text sections and page images",
+        "title": "Projections in Lipschitz-free spaces induced by group actions",
+        "trigger": "Plausible general projection theorem over the same compact group"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "101e308c-06be-4f8e-8b57-5e850bdd4688",
+  "value": {
+    "rationale": "An explicitly specified monotone finite-dimensional Schauder decomposition is a natural tool for the approximation geometry of Cantor Lipschitz-free spaces. The exact interval norm of every consecutive block is an intrinsic, nontrivial operator invariant of that chosen decomposition. Its sharp 1-versus-2 behavior is controlled by the ratio of the entire interval mass to the minimum previously retained coordinate weight, yielding a complete bimonotonicity classification. The geometric example alpha_j=r^j has individual block contractivity up to r=1/2 but bimonotonicity only up to r=1/3, a substantive structural distinction not determined by qualitative MAP, code correctness or trivial norm estimates.",
+    "status": "PASS"
+  }
+}
