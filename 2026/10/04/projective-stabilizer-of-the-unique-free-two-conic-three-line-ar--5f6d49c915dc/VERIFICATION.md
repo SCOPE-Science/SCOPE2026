@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-The included `artifacts/verify.py` uses exact rational arithmetic to verify the matrices \(R\) and \(S\), the relations \(R^3=S^2=1\) and \(SRS=R^{-1}\), preservation of both conics, and permutation of the three line components. It checks the three inner-conic tangency points, the three outer-conic triple points with distinct tangent directions, the two conic intersections at infinity via the relation \(Y^2=-3x^2\), and the equality of the total pairwise Bézout count with the contributions of five tacnodes and three ordinary triple points.
 
-The verifier is a finite exact check of the displayed coordinates. The global upper bound on the automorphism group is a proof step rather than an exhaustive matrix search: every automorphism fixes the inner conic and therefore acts faithfully on its three intrinsic tangency points. No claim is made about automorphisms of the complement that do not extend projectively.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The projective stabilizer proof is correct. Degree preservation separates the two conic components from the three lines, and tangency versus secancy intrinsically distinguishes the two conics, so both conics are fixed individually. Restriction to the inner conic embeds the stabilizer into the permutation group of the three line-tangency points; the kernel is trivial because a conic automorphism fixing three points is identity and a plane projectivity fixing a nondegenerate conic pointwise is scalar. The displayed matrices R and S preserve both conics, cyclically permute or reflect the three lines, and satisfy the dihedral relations, so the upper bound S3 is attained. The exact verifier independently checks the matrix relations, conic preservation, line permutation, tangencies, ordinary triple transversality, the two conic intersections at infinity, their orbit behavior, and the complete Bezout count.
+
+## originality
+
+PASS
+
+The Dimca--Pokora article proves the unique projective-equivalence class with two conics, three lines, five tacnodes, and three ordinary triple points, and derives the equilateral geometry. The correction supplies the exact corrected equation used here. Neither inspected source gives the full PGL3 stabilizer or the three singular-orbit decomposition. A targeted Resultary search returned the audited stabilizer as the only direct match. Although the D3 symmetry is suggested by the equilateral realization, proving that there are no additional projective symmetries requires the intrinsic conic distinction and faithful action on three marked tangency points.
+
+## value
+
+PASS
+
+For a unique projective class of a distinguished free conic-line arrangement, the exact stabilizer and its singular-orbit action are natural structural invariants. The result upgrades visible equilateral symmetry to a complete no-hidden-symmetries theorem and records how the group acts on the three different singularity types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

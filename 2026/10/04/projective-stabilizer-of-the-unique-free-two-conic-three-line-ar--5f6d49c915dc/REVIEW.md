@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The argument has two independent halves: an intrinsic upper bound and explicit attainment. Component degree forces line/conic preservation; line-contact behavior fixes the two conics individually; restriction to the inner conic injects the stabilizer into the permutations of its three intrinsic tangency points. The exact matrices \(R\) and \(S\) preserve every component and satisfy the \(D_3\) relations, giving all six possible symmetries. Exact replay also checks the singular orbit representatives and the exhaustive Bézout count.
+## correctness
 
-## Originality
-PASS. The closest primary source, Dimca–Pokora (arXiv:2111.12349; DOI 10.1007/s10801-022-01116-3), proves that the arrangement is unique up to projective transformation and identifies its equilateral realization. Its CL7 discussion does not compute the full projective stabilizer, and full-text keyword checks did not locate an automorphism or symmetry analysis. The correction DOI 10.1007/s10801-022-01151-0 was inspected because it changes the printed line factors. Targeted searches for the exact equation, CL7 aliases, projective stabilizer, and automorphism group found no statement implying \(\operatorname{Aut}_{\mathbb P^2}(\mathcal{CL}_7)\cong S_3\).
+PASS
 
-## Value
-PASS. Projective uniqueness gives a single coarse moduli class, making its stabilizer the natural isotropy invariant needed to describe that class at stack level. The result completely determines that invariant and the induced singularity orbits; it is not an arbitrary finite computation or a rephrasing of equilateral symmetry, because the proof rules out all additional complex projective automorphisms.
+The projective stabilizer proof is correct. Degree preservation separates the two conic components from the three lines, and tangency versus secancy intrinsically distinguishes the two conics, so both conics are fixed individually. Restriction to the inner conic embeds the stabilizer into the permutation group of the three line-tangency points; the kernel is trivial because a conic automorphism fixing three points is identity and a plane projectivity fixing a nondegenerate conic pointwise is scalar. The displayed matrices R and S preserve both conics, cyclically permute or reflect the three lines, and satisfy the dihedral relations, so the upper bound S3 is attained. The exact verifier independently checks the matrix relations, conic preservation, line permutation, tangencies, ordinary triple transversality, the two conic intersections at infinity, their orbit behavior, and the complete Bezout count.
 
-The principal residual originality risk is differently indexed or unpublished literature using another name for the same configuration. The mathematical scope is limited to projective automorphisms of the divisor over \(\mathbb C\), not arbitrary automorphisms of the complement.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Dimca--Pokora article proves the unique projective-equivalence class with two conics, three lines, five tacnodes, and three ordinary triple points, and derives the equilateral geometry. The correction supplies the exact corrected equation used here. Neither inspected source gives the full PGL3 stabilizer or the three singular-orbit decomposition. A targeted Resultary search returned the audited stabilizer as the only direct match. Although the D3 symmetry is suggested by the equilateral realization, proving that there are no additional projective symmetries requires the intrinsic conic distinction and faithful action on three marked tangency points.
+
+## value
+
+PASS
+
+For a unique projective class of a distinguished free conic-line arrangement, the exact stabilizer and its singular-orbit action are natural structural invariants. The result upgrades visible equilateral symmetry to a complete no-hidden-symmetries theorem and records how the group acts on the three different singularity types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
