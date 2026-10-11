@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_rsd_cre_three_agents.py` provides an exact finite replay using only the Python standard library.
 
-Every one of the \(216\) strict three-agent preference profiles is evaluated under all six priority orders and all six initial endowments.
+# Independent mathematical audit
 
-Serial dictatorship is coded in two independent forms. Core from random endowments is also checked in two independent forms: top trading cycles and direct core enumeration. The direct core routine examines every deterministic matching, every nonempty coalition, and every reassignment of that coalition's endowed houses, rejecting a matching exactly when a coalition weakly improves all its members and strictly improves at least one.
+## correctness
 
-The replay verifies:
-- equality of the two serial-dictatorship implementations;
-- equality of TTC with the directly enumerated unique core for every initial endowment;
-- exact equality of RSD and CRE matching multiplicities at every profile;
-- structural-cell counts \(48,6,18,72,36,36\);
-- multiplicity-spectrum counts \((6):48\), \((3,3):36\), \((3,2,1):72\), \((2,2,1,1):54\), and \((1,1,1,1,1,1):6\);
-- support-size counts \(1:48,2:36,3:72,4:54,6:6\);
-- no support of size \(5\);
-- mean support size \(49/18\).
+PASS
 
-Run:
+A direct case split by first-choice occupancy and ranking repetition exhausts the 216 profiles, and each cell has an explicit six-priority computation. Fresh independent enumeration of all 216 profiles reproduces exactly the five spectra and counts: \((6):48\), \((3,3):36\), \((3,2,1):72\), \((2,2,1,1):54\), and six singleton multiplicities for 6 profiles. The CRE equality is independently justified by the stronger 1998 matching-frequency theorem.
 
-`python3 verify_rsd_cre_three_agents.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+The all-market RSD=CRE frequency identity is prior and excluded from the originality claim. Bogomolnaia--Moulin provide the classical ten three-agent profile types and characterize the random-priority marginal mechanism, but the inspected material does not state the canonical decomposition of the six priority orders into deterministic matching multiplicities, the five spectra, their labeled counts, or the support-five exclusion. Best-of-knowledge originality therefore passes for that finite matching-lottery classification, with the old ten-type table retained as a strong residual-coverage risk.
 
-No statement about markets with four or more agents is inferred from the finite replay.
+## value
+
+PASS
+
+The deterministic-matching support of RSD is a natural canonical decomposition, and the theorem gives its complete smallest-market geometry, including the non-obvious support-five exclusion and exact prevalence of every shape. Although the domain is finite and the classical ten-profile reduction is prior, this is a coherent complete classification of a standard mechanism rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
