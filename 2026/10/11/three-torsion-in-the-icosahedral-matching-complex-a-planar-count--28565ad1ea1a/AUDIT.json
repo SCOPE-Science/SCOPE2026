@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The two concrete independent standard-library source files were executed. The graph is a planar 12-vertex 30-edge 20-face triangulated sphere; enumeration gives 5887 nonempty simplices. A full 23130-incidence DAG acyclicity check establishes 2866 discrete-Morse pairs with exactly one critical vertex, 109 critical three-cells, 45 critical four-cells. Signed integer gradient-path reductions supply the 109x45 attaching-degree matrix. Its rank modulo three is 44 and a specified integer 45x45 minor has exact determinant 3. This forces Smith factors 1 forty-four times and 3 once. The three-skeleton is a wedge of 109 three-spheres, so the degree matrix classifies all four-cell attachments, giving 64 three-spheres plus a Moore space M(Z/3,3). A separately enumerated simplicial boundary calculation gives mod-two Betti=64 in H3 and mod-three Betti=65 in H3,1 in H4; compatible with exactly one Z/3 torsion summand. Finite checks do not assert infinite generalization, independence, or a minimum-size example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2411.04601v2 Theorem 2 applies to outerplanar graphs, not the 30-edge icosahedron; Conjecture 11 extends it to all planar graphs but is unproved.",
+        "arxiv:math/0512420 gives connectivity properties of claw-free independence complexes, not torsion-free homology or this CW type.",
+        "arxiv:math/0409054 proves torsion in complete-graph and chessboard matching complexes, not all planar subgraphs thereof."
+      ],
+      "reasoning": "No verified more general theorem computes the integral homology or homotopy type of all planar matching complexes. Known torsion in a larger matching complex does not imply torsion in a subcomplex.",
+      "searches": [
+        "\"planar\" \"matching complex\" \"torsion\" \"conjecture\"",
+        "\"counterexample\" \"planar\" \"matching complex\" spheres 2025 2026",
+        "\"Conjecture 11\" \"matching complex\" planar counterexample",
+        "Homotopy type of the ordinary matching complex of the icosahedral graph, including its integral homology, wedge of spheres and discrete Morse matching"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2411.04601v2 §2, §3, Conjecture 11",
+      "arxiv:math/0512420 abstract and main results",
+      "arxiv:math/0409054 intro and torsion statements",
+      "MathWorld Icosahedral Graph graph properties",
+      "Published result on the icosahedral Lovász neighborhood complex (different complex)",
+      "Published matching-complex results for the Heawood and Möbius–Kantor graphs (different graphs)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conjecture 11, arxiv:2411.04601v2 §3, lines 123–133: the matching complex of every planar graph is contractible or a wedge of spheres.",
+        "Theorem 2 of that article covers only outerplanar graphs; the icosahedron has 30 edges while a 12-vertex outerplanar graph has at most 21.",
+        "The integral reduction yields a nonzero Z/3 summand in reduced H3, impossible for either a contractible complex or a wedge of spheres."
+      ],
+      "reasoning": "The new assertion is a mathematically explicit counterexample to the conjecture, not a corollary or repackaging of its outerplanar theorem; complete-graph matching-complex torsion in Shareshian–Wachs cannot imply it for this planar subgraph.",
+      "searches": [
+        "\"Bayer\" \"Vega\" \"icosahedron\" matching",
+        "\"Conjecture 11\" \"matching complex\" planar counterexample",
+        "\"icosahedron\" \"matching complex\" \"3-torsion\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The matching complex is exactly the independence complex of the line graph, as Proposition 4 of arxiv:2411.04601v2 states.",
+        "The similarly named icosahedral Lovász neighborhood complex has vertices of the original graph and is not the matching complex on its 30 edges.",
+        "A search for the same icosahedral matching complex under graph and line-graph terminology did not retrieve an implication-equivalent statement."
+      ],
+      "reasoning": "Equivalence  M(I)=Ind(L(I)) was accounted for, and different complexes on the same graph were excluded by comparing their face definitions; no same-object result was located.",
+      "searches": [
+        "\"icosahedral\" \"matching complex\" homology",
+        "\"icosahedron\" \"matching complex\" \"3-torsion\"",
+        "\"icosahedron\" \"matching complexes\" torsion",
+        "Icosahedral graph matching complex 3-torsion H3 Z/3 and homotopy Moore space",
+        "Matching complex of icosahedron, icosahedral graph (12 vertices 30 edges), topological homotopy sphere wedge"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published records for matching complexes of the Heawood graph and Möbius–Kantor graph concern different edge sets.",
+        "An indexed exact computation of the icosahedral neighborhood complex is not an exact matching-complex homology table.",
+        "The present two programs enumerate the specified complex and give the complete signed integral matrix; no existing same-object table was identified."
+      ],
+      "reasoning": "Comparisons were made at the level of graph, edge-as-vertex face rule, homology coefficient ring and the statement implied; a matching numerical parameter on a different graph would not constitute coverage.",
+      "searches": [
+        "\"icosahedron\" \"matching complex\" \"torsion\"",
+        "\"matching complex\" \"planar\" \"3-torsion\" \"icosahedron\"",
+        "Counterexample to Bayer Jelic Milutinovic Vega conjecture planar matching complex wedge of spheres, torsion Z/3 in icosahedron matching complex"
+      ]
+    },
+    "rationale": "Exact published Conjecture 11 asserts all planar matching complexes are contractible or sphere wedges. Theorem 2 only covers outerplanar graphs; the icosahedron violates the outerplanar edge bound and has integral three-torsion. Shareshian–Wachs concerns complete-graph matching and chessboard complexes, with no exact icosahedral conclusion. Engström treats claw-free independence complexes, without the graph-specific calculation. A public-research record describing the icosahedral Lovász neighborhood complex studies a different simplicial complex. Targeted same-graph, alias, torsion and wider-theorem searches revealed no decisive covering statement; bibliographic uniqueness is not proven.",
+    "residual_risks": [
+      "Equivalent same-graph homotopy computations could appear in unindexed or unpublished sources.",
+      "No claim about smallest planar counterexample or minimal order is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; outerplanar theorem inapplicable and stated all-planar conjecture is contradicted by torsion.",
+        "evidence": [
+          "Theorem 2: outerplanar graph gives contractible or wedge of spheres.",
+          "Conjecture 11: all planar graph matching complexes are conjectured contractible or sphere wedges.",
+          "Conclusion also asks which graphs cause matching-complex torsion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2411.04601v2",
+        "material_read": "Full open-access HTML: abstract, Introduction, Theorem 2, Propositions 4–8, proof section and Conclusion, especially §3 Conjecture 11.",
+        "method": "Read article text and compare graph hypotheses, definitions of matching complex and conclusion.",
+        "title": "Matching Complexes of Outerplanar Graphs",
+        "trigger": "Exact publicly stated conjecture about planar matching complexes and possible dominating theorem"
+      },
+      {
+        "assessment": "NOT_COVERING; does not determine torsion or homotopy of this graph.",
+        "evidence": [
+          "First public 2005-12-17, primary MSC 57M15, secondary 05C15.",
+          "General connectivity bounds concern claw-free graph independence complexes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0512420",
+        "material_read": "Open-access full HTML, including introduction, primary connectivity statement and early graph-theoretic reductions; bibliographic arXiv submission and MSC fields.",
+        "method": "Read hypotheses and topological conclusions; distinguish connectivity bound from exact signed integral matching-complex homotopy decomposition.",
+        "title": "Independence complexes of claw-free graphs",
+        "trigger": "Earliest archival topological source with matching-complex implications through claw-free line graphs"
+      },
+      {
+        "assessment": "NOT_COVERING; complete and complete-bipartite matching-complex results do not compute this planar subgraph.",
+        "evidence": [
+          "Published results specify the complete-graph matching complex and chessboard complex.",
+          "Neither an icosahedral graph case nor an all-subgraph torsion inheritance statement occurs in the inspected text."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0409054",
+        "material_read": "Full arXiv HTML introduction, main statements about complete-graph and chessboard complexes and relevant later sections.",
+        "method": "Compared underlying graph domains and inclusions of matching complexes, and searched for the icosahedral graph.",
+        "title": "Torsion in the Matching Complex and Chessboard Complex",
+        "trigger": "Strongest classical positive three-torsion source that might cover the proposed torsion claim"
+      },
+      {
+        "assessment": "CONTEXT; graph identity agrees, not a matching-complex result.",
+        "evidence": [
+          "Icosahedral graph has twelve vertices and thirty edges."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/IcosahedralGraph.html",
+        "material_read": "Graph data and graph-property descriptions identifying its vertices and edges.",
+        "method": "Compare 12-vertex, 30-edge, 5-regular, 20-triangle construction with the explicit verifier graph.",
+        "title": "Icosahedral Graph",
+        "trigger": "Identify the finite graph canonically and independently of the matching-complex computation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "28565ad1-ea1a-47d6-b875-f65417c0d6f7",
+  "value": {
+    "rationale": "The example disproves a named, precisely quoted conjecture in arxiv:2411.04601v2: that all planar graphs have matching complexes contractible or wedges of spheres. The finite icosahedral graph is canonical, demonstrably planar, and its integrally detected Z/3 homology excludes both types. The full wedge-of-spheres-plus-Moore decomposition identifies genuine unstable attaching-map information and supplies an exact constructive obstruction, rather than a routine numerical invariant.",
+    "status": "PASS"
+  }
+}
