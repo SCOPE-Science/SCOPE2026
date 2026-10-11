@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Hodge duality identifies the stated Pieri summand with the determinant twist of the adjoint subspace inside \(\operatorname{End}(\wedge^2\mathbb C^n)\). The Hilbert--Schmidt scaling \(\|L(X)\|_{\mathrm{HS}}^2=(n-2)\|X\|_{\mathrm{HS}}^2\) is checked directly on diagonal and matrix-unit directions and follows globally by equivariance. Product-overlap duality reduces the extremal output eigenvalue to the norm of the projection of a rank-one operator. The transition estimate \(\|BA^*\|_{\mathrm{HS}}^2\le1+|\langle a,b\rangle|^2\) follows from skew-normal form and an explicit sum of squares. It yields the global bound \(2/n\), and a Slater two-form attains equality. The equality conditions give the maximizer classification for \(n\ge5\). Finite replay checks the formulas but is not used to infer the infinite theorem.
+## correctness
 
-## Originality
-PASS. arXiv:2609.33498v1 explicitly records only the \(n=5\) counterexample values \(1/3\) and \(2/5\) in its open-problem section; it does not prove that \(2/5\) is optimal or give the all-\(n\) formula. arXiv:1805.00364v2 proves exact largest-Schmidt bounds for a one-particle cut of Young-diagram subspaces, not the exterior-square cut here. Targeted published-finding corpus and web searches for the adjoint/exterior-square formulation, \(2/n\) constant, transition-density inequality, and equivalent Schmidt-overlap language found no statement implying this theorem. The remaining risk is terminology mismatch in representation-theory or geometric-entanglement literature.
+PASS
 
-## Value
-PASS. The result closes the quantitative question left open by the source's explicit exterior-square counterexample at the level of the largest eigenvalue: it turns a single witness into an exact optimum, identifies every maximizer, and shows the coherent failure persists as a natural infinite family with an explicit gap. The sharp transition inequality is also a reusable structural lemma for this bipartite representation.
+The representation-theoretic reduction and sharp norm estimate were independently reconstructed. After the Hodge/determinant identification the summand is the adjoint image under \(L(X)\) on \(\wedge^2V\), with Hilbert--Schmidt scaling \(n-2\). The product-vector projection formula reduces the maximum Schmidt coefficient to the traceless one-body transition matrix. In skew-normal form the package sum-of-squares identity proves \(\lVert BA^*\rVert_{HS}^2\le 1+|\langle a,b\rangle|^2\), hence the normalized maximum is \(2/n\). Equality forces a Slater two-form and therefore \(X=P-(2/n)I\); the coherent root vector has normalized largest squared singular value \(1/(n-2)\). Independent random matrix checks for dimensions five through seven stayed below the sharp value and the rank-two projection family attained it exactly.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.33498v1, because it defines the same exterior-square channel extension and gives the \(n=5\) witness. arXiv:1805.00364v2 supplies a related Young-diagram Schmidt-optimization framework but a different tensor cut. No claim is made about full majorization or entropy minimization for the exterior-square channels.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+No implication-equivalent prior theorem was found. Reuvers 2019 supplies the generic projection variational principle but not the exterior-square evaluation; the 2026 single-box theorem has a different retained tensor factor. The audited \(2/n\) optimum and complete rank-two-projection maximizer class therefore survive best-of-knowledge comparison. The most important residual risk is the inaccessible full text of the very recent 2026 paper and nearby representation-theoretic literature under different terminology.
+
+## value
+
+PASS
+
+The exact largest-output eigenvalue and equality classification resolve the natural obstruction exposed by moving beyond the defining-representation channel. They quantitatively separate coherent and noncoherent inputs throughout an infinite representation family and identify all pure maximizers, which is structural rather than a routine finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

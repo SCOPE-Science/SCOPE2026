@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:52:01.100767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 640183dc23d71d4d37fbcb011479390980ccfae5",
+        "artifacts/verify.py blob 3a77d0a5e6653f7caf58ababb047c3fc2777f273",
+        "independent wedge-square matrix construction and numerical singular-value checks"
+      ],
+      "rationale": "The representation-theoretic reduction and sharp norm estimate were independently reconstructed. After the Hodge/determinant identification the summand is the adjoint image under \\(L(X)\\) on \\(\\wedge^2V\\), with Hilbert--Schmidt scaling \\(n-2\\). The product-vector projection formula reduces the maximum Schmidt coefficient to the traceless one-body transition matrix. In skew-normal form the package sum-of-squares identity proves \\(\\lVert BA^*\\rVert_{HS}^2\\le 1+|\\langle a,b\\rangle|^2\\), hence the normalized maximum is \\(2/n\\). Equality forces a Slater two-form and therefore \\(X=P-(2/n)I\\); the coherent root vector has normalized largest squared singular value \\(1/(n-2)\\). Independent random matrix checks for dimensions five through seven stayed below the sharp value and the rank-two projection family attained it exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 paper proves general projection/Schmidt machinery and one-particle Young-subspace bounds; its full text explicitly notes that larger bipartitions are more complicated.",
+          "The 2026 paper's accessible primary abstract proves coherent majorization for single-box channels, a different tensor factor than the exterior-square family audited here."
+        ],
+        "reasoning": "The earlier projection theorem supplies a variational method but no exterior-square constant. The recent single-box theorem does not dominate the audited larger-factor family.",
+        "searches": [
+          "Reuvers, arXiv:1805.00364, complete primary text",
+          "Reuvers, arXiv:2609.33498, primary abstract/public record and targeted exact searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.00364",
+        "arXiv:2609.33498",
+        "Resultary semantic query for exterior-square adjoint largest-output eigenvalue",
+        "targeted web searches for adjoint/wedge-square maximal Schmidt coefficient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reuvers 2019 Theorem 9 states the generic equality between maximal Schmidt coefficient and maximal projected product-vector norm, which the package uses, but evaluating that projection on this adjoint subspace requires the new sharp two-form transition inequality.",
+          "The 2026 abstract covers channels where the changed tensor factor is the defining representation or its dual, not the audited exterior-square factor."
+        ],
+        "reasoning": "The prior machinery does not mechanically imply \\(2/n\\); the substantive step is the sharp adjoint/exterior-two-form overlap calculation and equality analysis.",
+        "searches": [
+          "Compare Reuvers 2019 Theorem 9 projection formulation with the package adjoint calculation",
+          "Compare the accessible scope of Reuvers 2026 single-box theorem with the \\(\\wedge^2V\\) tensor factor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No indexed source located the exact \\(2/n\\) subspace-overlap constant or the rank-two-projection maximizer classification under equivalent adjoint/geometric-entanglement terminology."
+        ],
+        "reasoning": "The claim was searched both as a covariant-channel largest-output-eigenvalue problem and as a maximal Schmidt/product-overlap problem for the adjoint subspace.",
+        "searches": [
+          "Web searches: exterior-square adjoint representation channel largest output eigenvalue two over n",
+          "Web searches: wedge-square adjoint subspace maximal Schmidt coefficient rank-two projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior Resultary finding or indexed exact table with the all-dimension value and maximizer class was found."
+        ],
+        "reasoning": "This is theorem-level representation theory rather than a database invariant; exact-value searches were used only as an overlap check.",
+        "searches": [
+          "Resultary semantic search: exterior square adjoint channel largest eigenvalue \\(2/n\\) coherent majorization Reuvers",
+          "Exact web searches combining arXiv:2609.33498 with the values \\(2/5\\) and \\(1/3\\)"
+        ]
+      },
+      "rationale": "No implication-equivalent prior theorem was found. Reuvers 2019 supplies the generic projection variational principle but not the exterior-square evaluation; the 2026 single-box theorem has a different retained tensor factor. The audited \\(2/n\\) optimum and complete rank-two-projection maximizer class therefore survive best-of-knowledge comparison. The most important residual risk is the inaccessible full text of the very recent 2026 paper and nearby representation-theoretic literature under different terminology.",
+      "residual_risks": [
+        "The full text of arXiv:2609.33498 could not be obtained through the open route in this run; the authorized institutional retrieval returned unavailable/invalid and was not retried. This access risk is retained rather than treated as evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_NOT_EXTERIOR_SQUARE_OPTIMUM",
+          "evidence": "Theorem 9 gives the variational projection principle, while the larger-cut discussion does not evaluate the audited adjoint exterior-square subspace.",
+          "identifier_or_url": "arXiv:1805.00364",
+          "material_read": "Complete arXiv HTML around Section IV.2 on Schmidt decompositions, Corollary 8 for larger cuts, and Theorem 9 giving the product-vector projection variational principle.",
+          "method": "lawful open-access arXiv full text",
+          "title": "Lower bound on entanglement in subspaces defined by Young diagrams",
+          "trigger": "Closest full-text source for the projection reformulation of maximal Schmidt coefficients and Young-subspace entanglement bounds."
+        },
+        {
+          "assessment": "PLAUSIBLE_CLOSE_SOURCE_INACCESSIBLE_IN_FULL",
+          "evidence": "The accessible abstract confines its theorem to four channels associated with adding/removing one box and retaining the defining representation or its dual; targeted searches did not surface the package all-dimension exterior-square theorem.",
+          "identifier_or_url": "arXiv:2609.33498",
+          "material_read": "Primary arXiv abstract/public record. Direct arXiv full-text access was disabled in this run; after open paths failed, the authorized institutional retrieval returned worker unavailable or request invalid and was not retried.",
+          "method": "primary abstract plus failed lawful full-text access",
+          "title": "Minimal output entropy for the channels that add or remove a box of a Young diagram, and a Pauli principle for every permutation symmetry",
+          "trigger": "Immediate recent source and explicit comparison target named by the package."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Reuvers 2019 full text",
+        "Reuvers 2026 primary record",
+        "assigned proof and independent matrix replay"
+      ],
+      "rationale": "The exact largest-output eigenvalue and equality classification resolve the natural obstruction exposed by moving beyond the defining-representation channel. They quantitatively separate coherent and noncoherent inputs throughout an infinite representation family and identify all pure maximizers, which is structural rather than a routine finite computation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full text of arXiv:2609.33498 could not be obtained through the open route in this run; the authorized institutional retrieval returned unavailable/invalid and was not retried. This access risk is retained rather than treated as evidence of novelty."
+  ],
+  "schema_version": 1
+}
