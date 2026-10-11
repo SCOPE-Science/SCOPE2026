@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The finite claim is checked by `artifacts/verify.cpp` using exact integer arithmetic. For \(X_n=n!/3\), the program maintains \(E_q=v_q(X_n)\) and \(T_q=v_q(	au(X_n))\), with
-\[
-T_q=\sum_p v_q(E_p+1).
-\]
-It updates the complete state for every successive \(n\) and fails immediately if any \(T_q>E_q\). Thus a successful traversal is exactly equivalent to \(	au(X_n)\mid X_n\) at every checked \(n\).
+# Independent mathematical audit
 
-The recorded full-range run is:
+## correctness
 
-`VERIFY_OK limit=100000000 checks=99999998 direct_samples=1002`
+PASS
 
-The 1002 direct samples reconstruct factorial prime exponents from Legendre's formula rather than trusting the incremental state. They are corroborative cross-checks; exhaustive coverage of the interval comes from the main loop.
+The exact incremental divisor-count algorithm maintains E_p=v_p(n!/3) and T_q=v_q(tau(n!/3)); each step removes the factor E_p+1 and inserts the updated factor E_p+c+1, so the maintained violation count is zero exactly when tau(n!/3) divides n!/3. The inspected C++17 implementation uses exact integer arithmetic and a linear SPF sieve. An independent full replay through n=100,000,000 returned VERIFY_OK with 99,999,998 checked values and 1,002 direct Legendre-formula cross-checks. This is exhaustive only on the claimed finite interval and proves nothing beyond it.
 
-Limits: this verifies only \(3\le n\le10^8\). It is not a proof for larger \(n\), and independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives for the certified cutoff. Zelinsky explicitly records Colton’s conjecture that n!/3 is a tau number for every n>2 and proves only fixed-prime eventual p-adic divisibility, not a simultaneous finite threshold. Exact-phrase/alias and Resultary searches found no earlier published verification reaching 10^8 or a stronger certified cutoff.
+
+## value
+
+PASS
+
+A deterministic exhaustive verification through one hundred million terms is a meaningful finite cutoff for an explicit published number-theoretic conjecture. It materially extends the verified range while clearly separating finite evidence from an infinite proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

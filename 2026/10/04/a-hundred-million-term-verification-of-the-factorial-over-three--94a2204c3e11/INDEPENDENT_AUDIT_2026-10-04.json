@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:50:07.561598Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and artifacts/verify.cpp at the frozen tree",
+        "Independent full C++17 replay through 100,000,000",
+        "Zelinsky 2002 primary PDF"
+      ],
+      "rationale": "The exact incremental divisor-count algorithm maintains E_p=v_p(n!/3) and T_q=v_q(tau(n!/3)); each step removes the factor E_p+1 and inserts the updated factor E_p+c+1, so the maintained violation count is zero exactly when tau(n!/3) divides n!/3. The inspected C++17 implementation uses exact integer arithmetic and a linear SPF sieve. An independent full replay through n=100,000,000 returned VERIFY_OK with 99,999,998 checked values and 1,002 direct Legendre-formula cross-checks. This is exhaustive only on the claimed finite interval and proves nothing beyond it.",
+      "residual_risks": [
+        "The result is a finite verification, not an infinite proof of Colton’s conjecture."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zelinsky’s theorem is prime-by-prime for each fixed p and therefore does not supply one N for all primes simultaneously.",
+          "General refactorable-number references do not imply the exhaustive factorial-over-three cutoff."
+        ],
+        "reasoning": "The known broader asymptotic statement does not dominate the simultaneous finite claim.",
+        "searches": [
+          "Zelinsky 2002 Theorem 51 and surrounding factorial discussion",
+          "Refactorable/tau-number literature and OEIS A033950"
+        ]
+      },
+      "checked_sources": [
+        "Zelinsky 2002 full primary PDF",
+        "OEIS A033950",
+        "Resultary semantic search",
+        "exact-phrase/alias web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A separate eventual threshold for every fixed prime need not have a uniform maximum over infinitely many primes relevant as n grows.",
+          "The finite checker simultaneously tests all prime inequalities for every n in the interval."
+        ],
+        "reasoning": "The 10^8 statement is not mechanically implied by the cited prior theorem.",
+        "searches": [
+          "Apply Zelinsky’s fixed-prime theorem to all primes",
+          "Compare conjecture statement with finite certification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact current record is the matching Resultary hit; no older cutoff theorem was returned.",
+          "Zelinsky records the infinite conjecture but no 10^8 verification."
+        ],
+        "reasoning": "No prior equivalent certified finite cutoff was located.",
+        "searches": [
+          "Resultary: factorial-over-three n!/3 tau refactorable verification 100000000 Zelinsky",
+          "Web searches for “factorial-over-three”, “n!/3”, tau/refactorable aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS records refactorable numbers but not the factorial-over-three all-n verification range.",
+          "No pre-existing cutoff table at or beyond 10^8 was found."
+        ],
+        "reasoning": "The package performs a new exhaustive traversal rather than reading a known table.",
+        "searches": [
+          "OEIS A033950",
+          "Resultary exact/semantic search for 10^8 cutoff"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives for the certified cutoff. Zelinsky explicitly records Colton’s conjecture that n!/3 is a tau number for every n>2 and proves only fixed-prime eventual p-adic divisibility, not a simultaneous finite threshold. Exact-phrase/alias and Resultary searches found no earlier published verification reaching 10^8 or a stronger certified cutoff.",
+      "residual_risks": [
+        "An unindexed or unpublished earlier computation could have reached a comparable cutoff."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_NOT_COVERING",
+          "evidence": "The source leaves the factorial assertion conjectural and gives no simultaneous 10^8 cutoff.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL5/Zelinsky/zelinsky9.pdf",
+          "material_read": "Complete 17-page primary PDF was opened; the passage recording Colton’s n!/3 conjecture and Theorem 51’s fixed-prime eventual valuation statement were read directly.",
+          "method": "lawful open-access full text",
+          "title": "Tau Numbers: A Partial Proof of a Conjecture and Other Results",
+          "trigger": "Primary source of the factorial-over-three conjecture and strongest plausible implication prior."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Published conjecture source",
+        "Independent exhaustive replay"
+      ],
+      "rationale": "A deterministic exhaustive verification through one hundred million terms is a meaningful finite cutoff for an explicit published number-theoretic conjecture. It materially extends the verified range while clearly separating finite evidence from an infinite proof.",
+      "residual_risks": [
+        "No structural proof beyond the cutoff is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The result is a finite verification, not an infinite proof of Colton’s conjecture.",
+    "An unindexed or unpublished earlier computation could have reached a comparable cutoff.",
+    "No structural proof beyond the cutoff is supplied."
+  ],
+  "schema_version": 1
+}
