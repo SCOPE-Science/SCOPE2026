@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Normalize the regular \\(N\\)-gon, \\(N=8k+4\\), to Euclidean inradius \\(1\\). Then \\(\\|z\\|_N\\le\\|z\\|_2\\) and every unit vector satisfies \\(\\|x\\|_2\\le\\sec(\\pi/N)\\). For \\(A=\\|x+y\\|_N\\) and \\(B=\\|x-y\\|_N\\), the Euclidean parallelogram identity gives \\(A^2+B^2\\le4\\sec^2(\\pi/N)\\), hence \\(\\min\\{A,B\\}\\le\\sqrt2\\sec(\\pi/N)\\). Equality is explicit: because \\((2k+1)/N=1/4\\), the polygon has a vertex at angle \\(\\pi/4\\); its quarter-turn is another vertex, while their sum and difference point along facet normals. Both polygonal norms therefore equal \\(\\sqrt2\\sec(\\pi/N)\\).",
+    "risks": [
+      "The script checks examples only; the universal quantifier over \\(k\\) is justified by the symbolic proof, not by computation.",
+      "The formula depends on regularity up to linear isometry; it is not asserted for arbitrary equiangular or centrally symmetric polygons."
+    ],
+    "sources": [
+      "doi:10.1007/s00010-022-00909-y for the James-constant definition and polyhedral context",
+      "RESULT.md",
+      "verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sain–Ghosh–Paul compute the regular octagon and prove a general polyhedral attainment reduction, but not a closed formula for regular polygons.",
+        "The public regular-\\(4n\\)-gon result located in the research index concerns equilateral-triangle perimeter, a different admissible configuration and objective.",
+        "The octagonal example \\(J(X_8)=\\sqrt2\\) shows that the displayed \\(8k+4\\) formula is not a disguised all-\\(4n\\) statement."
+      ],
+      "reasoning": "The available general polyhedral theorem is a computational reduction rather than a value theorem. No inspected broader result specializes to the \\(8k+4\\) secant formula.",
+      "searches": [
+        "James constant regular 4n polygon Minkowski norm",
+        "James constant regular polygon Banach",
+        "regular polygon James constant isosceles orthogonality"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s00010-022-00909-y",
+      "arXiv:2407.14475",
+      "2026/10/4/SCOPE-exact-parameterized-von-neumann-jordan-profile-of-the-regular-oc--f993e44c6cf5",
+      "2026/10/4/SCOPE-exact-orthogonal-james-constant-of-a-mixed-euclidean-taxicab-ban--d257b41cb57c",
+      "2026/9/20/SCOPE-constant-equilateral-perimeter-regular-4n-gons--1e63f7004e13"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem says a two-dimensional polyhedral James maximum can be found at a vertex; it does not supply the value for regular polygons.",
+        "The same source gives \\(J(X_8)=\\sqrt2\\), which is compatible with but does not imply the distinct \\(N\\equiv4\\pmod8\\) formula.",
+        "The indexed regular-polygon findings have different objectives and therefore do not dominate the classical James statement."
+      ],
+      "reasoning": "The new theorem needs both the sharp Euclidean upper envelope and the arithmetic alignment of vertex and facet-normal directions. Neither ingredient is supplied as a value theorem by the inspected prior statements.",
+      "searches": [
+        "doi:10.1007/s00010-022-00909-y regular octagon James constant",
+        "doi:10.1007/s00010-022-00909-y Theorem 2.13 James",
+        "2026/10/4/SCOPE-exact-parameterized-von-neumann-jordan-profile-of-the-regular-oc--f993e44c6cf5",
+        "2026/9/20/SCOPE-constant-equilateral-perimeter-regular-4n-gons--1e63f7004e13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining formula for \\(J(X)\\) was checked directly in the Sain–Ghosh–Paul paper.",
+        "The same source identifies maximizing James pairs with isosceles-orthogonal pairs, so the main natural equivalent formulation was inspected.",
+        "Searches using the dodecagonal specialization and the general secant formula returned no covering statement."
+      ],
+      "reasoning": "The isosceles-orthogonality reformulation and explicit radical specialization are the most plausible aliases for the claim. No located result states the same extremal value under either formulation.",
+      "searches": [
+        "James constant regular (8n+4)-gonal Banach plane",
+        "James constant regular polygon sec(pi/n) Banach",
+        "sqrt(2) sec(pi/N) James constant regular polygon",
+        "2(sqrt(3)-1) James constant regular dodecagon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No targeted public research-index hit reported the classical James constant for the regular dodecagon or the \\(8k+4\\) family.",
+        "The closest indexed James-named result uses Birkhoff-orthogonal admissibility on a different plane.",
+        "The closest indexed regular-polygon results concern von Neumann–Jordan, triangle-perimeter, Ptolemy, or Banach–Mazur quantities."
+      ],
+      "reasoning": "The exact radical specialization, polygon alias, and family parameterization were all queried. Database absence is not used alone; it is combined with primary full-text inspection and implication comparison.",
+      "searches": [
+        "James constant regular (8n+4)-gonal Banach plane",
+        "James constant regular dodecagonal Banach plane",
+        "James constant regular 12-gon norm",
+        "2(sqrt(3)-1) James constant regular dodecagon"
+      ]
+    },
+    "rationale": "Statement-level searches were made under the classical James notation, regular polygon and dodecagon aliases, the residue class \\(8k+4\\), and the candidate secant formula. The highly relevant Sain–Ghosh–Paul full text was inspected around the James definition, the regular-octagon example, the polyhedral attainment theorem, and its worked irregular-hexagon example. It contains no dodecagon or regular-polygon family formula. The closest public indexed results concern other invariants or other spaces and do not imply the theorem.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "An equivalent formula could exist under a different normalization or under local-James/isosceles-orthogonality terminology not captured by the checked aliases.",
+      "The theorem intentionally leaves the \\(N\\equiv0\\pmod8\\) regular-polygon family untreated."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_AND_CLOSEST_NOT_COVERING: it defines \\(J(X)\\), proves the polyhedral attainment reduction, and computes the regular octagon, but the inspected full text contains no dodecagon or regular-polygon family formula.",
+        "evidence": "Published online 1 September 2022; primary MSC 46B20. Example 2.9 gives the regular-octagonal value \\(\\sqrt2\\); Theorem 2.13 and Remark 2.14 give the vertex reduction.",
+        "identifier_or_url": "doi:10.1007/s00010-022-00909-y; arXiv:2407.14475",
+        "material_read": "Publisher preview with online-publication date and MSC; full arXiv text including Definition 1.1, Proposition 1.5, Theorem 2.7, Example 2.9, Theorem 2.13, Remark 2.14, and Example 2.15. The first and fifth PDF pages were also visually inspected.",
+        "method": "Publisher-preview inspection plus lawful full arXiv PDF text and page-image inspection.",
+        "title": "On isosceles orthogonality and some geometric constants in a normed space",
+        "trigger": "Direct primary literature on the classical James constant in two-dimensional polyhedral Banach spaces."
+      }
+    ],
+    "sources": [
+      "doi:10.1007/s00010-022-00909-y",
+      "arXiv:2407.14475",
+      "public research records listed in the comparison checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb5156cc-7c0f-45ea-a894-d6228cfaac55",
+  "value": {
+    "rationale": "The James constant is a standard quantitative measure of non-squareness, and the motivating source develops a vertex method precisely to make polyhedral examples computable. The theorem converts one residue class of all regular polygons into a closed exact family rather than another isolated table entry. The condition \\(N\\equiv4\\pmod8\\) is mathematically motivated by an exact vertex/facet alignment, and the octagonal counter-residue demonstrates that this structure is substantive. The dodecagonal value supplies the first nontrivial member and a natural benchmark for further regular-polygon comparisons.",
+    "risks": [
+      "The theorem gives one infinite residue class, not a complete classification of James constants for all regular even polygons."
+    ],
+    "sources": [
+      "doi:10.1007/s00010-022-00909-y",
+      "RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
