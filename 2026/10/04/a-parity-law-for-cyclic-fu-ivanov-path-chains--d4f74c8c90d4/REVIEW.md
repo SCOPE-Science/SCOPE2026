@@ -1,14 +1,21 @@
-# Same-model review
-## Correctness
-PASS. The proof directly classifies every allowed four-path and every forbidden boundary term. The resulting equations reduce to a single cyclic alternating parameter, giving the stated \(R\) versus \(R[2]\) dichotomy without division or unproved auxiliary lemmas. The replay program independently reconstructs the constraint matrices for \(3\le m\le24\) and confirms the predicted field nullities.
+# Independent mathematical audit
 
-## Originality
-PASS. Fu and Ivanov cover the width-three member only. Burfitt and Cutler later give a different family with arbitrary prime-sensitive behavior; their theorem is broader as an existence result but does not determine this cyclic family. Targeted indexed searches and full-text comparisons found no equivalent all-ring parity statement. Residual risk remains for unindexed prior work.
+## correctness
 
-## Value
-PASS. The result replaces an isolated characteristic-two example by a natural one-parameter classification and identifies the precise parity obstruction. This makes the coefficient sensitivity transparent and reusable, rather than merely adding another computed graph.
+PASS
 
-## Closest literature and limitations
-The closest source is Fu--Ivanov, arXiv:2407.17001, whose main example is exactly the \(m=3\) case. Burfitt--Cutler, arXiv:2411.09501, constructs a different family \(E_t\) with prescribed prime sensitivity. The present result does not classify the full path homology of \(G_m\), and it makes no minimality claim.
+The actual RESULT and verifier were inspected. The four allowed length-four paths per index and the five forbidden-face families give five linear equations. Three eliminate the auxiliary coefficients and the remaining equations reduce to the single recurrence alpha_i=-alpha_{i-1}; cyclic closure is exactly r=(-1)^m r. No division is used, so the ring-level R versus R[2] statement is valid. The verifier independently reconstructs these path-boundary matrices for widths 3 through 24 and matches the predicted nullities over characteristics 2,3,5; the finite replay is corroborative only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fu--Ivanov provide the width-three coefficient-sensitive example, while Burfitt--Cutler give a structurally different family with broader prime sensitivity. The inspected sources do not state or imply the exact cyclic-width all-ring module formula.
+
+## value
+
+PASS
+
+This replaces an isolated coefficient-sensitive example by a natural one-parameter classification and exposes the exact parity mechanism over arbitrary coefficient rings. That is a reusable structural family, not a tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof is symbolic and applies to every integer \(m\ge3\) and every commutative coefficient ring. The replay program is an independent finite consistency check: it constructs the graph from the definition, enumerates allowed four-paths, forms forbidden boundary constraints directly from the alternating path boundary, and checks the predicted nullities over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_5\) for every width from \(3\) through \(24\).
 
-Run:
+# Independent mathematical audit
 
-`python3 verify_cyclic_path_chain.py`
+## correctness
 
-Expected terminal line:
+PASS
 
-`CYCLIC_PATH_CHAIN_VERIFY_OK`
+The actual RESULT and verifier were inspected. The four allowed length-four paths per index and the five forbidden-face families give five linear equations. Three eliminate the auxiliary coefficients and the remaining equations reduce to the single recurrence alpha_i=-alpha_{i-1}; cyclic closure is exactly r=(-1)^m r. No division is used, so the ring-level R versus R[2] statement is valid. The verifier independently reconstructs these path-boundary matrices for widths 3 through 24 and matches the predicted nullities over characteristics 2,3,5; the finite replay is corroborative only.
 
-The finite-width replay is not used to infer the universal theorem; it only checks the implementation and the five-family boundary accounting against many instances. No claim is made here about \(PH_4(G_m;R)\) or about widths below \(3\).
+## originality
+
+PASS
+
+Fu--Ivanov provide the width-three coefficient-sensitive example, while Burfitt--Cutler give a structurally different family with broader prime sensitivity. The inspected sources do not state or imply the exact cyclic-width all-ring module formula.
+
+## value
+
+PASS
+
+This replaces an isolated coefficient-sensitive example by a natural one-parameter classification and exposes the exact parity mechanism over arbitrary coefficient rings. That is a reusable structural family, not a tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:35:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 92ce8ccf1fb2866bb5d612b9ff6680323585254f",
+        "verify_cyclic_path_chain.py blob d4df5a93a4b13e3a851e8e8338ad6b8c0caf27b0",
+        "Fu--Ivanov arXiv:2407.17001"
+      ],
+      "rationale": "The actual RESULT and verifier were inspected. The four allowed length-four paths per index and the five forbidden-face families give five linear equations. Three eliminate the auxiliary coefficients and the remaining equations reduce to the single recurrence alpha_i=-alpha_{i-1}; cyclic closure is exactly r=(-1)^m r. No division is used, so the ring-level R versus R[2] statement is valid. The verifier independently reconstructs these path-boundary matrices for widths 3 through 24 and matches the predicted nullities over characteristics 2,3,5; the finite replay is corroborative only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burfitt--Cutler construct a different inductive family detecting arbitrary prime divisors."
+        ],
+        "reasoning": "That broader existence theorem does not determine Omega_4 for this natural cyclic-width family.",
+        "searches": [
+          "Burfitt--Cutler arXiv:2411.09501",
+          "path homology characteristic-sensitive families"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.17001",
+        "arXiv:2411.09501",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source fixes three cyclic layers; it does not contain the recurrence closure for variable m."
+        ],
+        "reasoning": "The general recurrence and parity closure require the new family calculation and are not mechanically implied by the single source instance.",
+        "searches": [
+          "Fu--Ivanov m=3 example versus recurrence for arbitrary m"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the assigned result as the exact match.",
+          "Fu--Ivanov construct the Z/3-indexed source graph and characteristic-two phenomenon, i.e. the m=3 member."
+        ],
+        "reasoning": "The all-m parity formula is not a notation change of the m=3 computation.",
+        "searches": [
+          "Resultary: cyclic Fu Ivanov path homology Omega_4 parity width characteristic two",
+          "Fu--Ivanov arXiv:2407.17001 Sections 5.2--5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact cyclic-width formula appeared among the relevant hits."
+        ],
+        "reasoning": "No finite database/table governs the symbolic all-ring module theorem.",
+        "searches": [
+          "Resultary published corpus query above"
+        ]
+      },
+      "rationale": "Fu--Ivanov provide the width-three coefficient-sensitive example, while Burfitt--Cutler give a structurally different family with broader prime sensitivity. The inspected sources do not state or imply the exact cyclic-width all-ring module formula.",
+      "residual_risks": [
+        "An unindexed computation of the same cyclic family may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: exactly m=3 only.",
+          "evidence": "The source graph uses indices in Z/3 and proves the characteristic-two phenomenon for that fixed graph.",
+          "identifier_or_url": "arXiv:2407.17001",
+          "material_read": "Primary full-text sections defining the Z/3-indexed graph and the degree-four coefficient-sensitive computation.",
+          "method": "Primary full-text inspection.",
+          "title": "Path homology of digraphs without multisquares and its comparison with homology of spaces",
+          "trigger": "Exact source example extended by the record."
+        },
+        {
+          "assessment": "NOT_COVERING the cyclic family.",
+          "evidence": "The construction is a different multi-layer family designed for prescribed prime sensitivity.",
+          "identifier_or_url": "arXiv:2411.09501",
+          "material_read": "Primary abstract/theorem-level public material describing the E_t construction.",
+          "method": "Primary-source comparison.",
+          "title": "Inductive construction of path homology chains",
+          "trigger": "Potential stronger arbitrary-characteristic family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fu--Ivanov 2024",
+        "Burfitt--Cutler 2024"
+      ],
+      "rationale": "This replaces an isolated coefficient-sensitive example by a natural one-parameter classification and exposes the exact parity mechanism over arbitrary coefficient rings. That is a reusable structural family, not a tiny-instance computation.",
+      "residual_risks": [
+        "The result classifies chains rather than the full path-homology groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the cyclic width-\\(m\\) extension \\(G_m\\) of the Fu--Ivanov digraph, \\(\\Omega_4(G_m;R)\\cong R\\) for even \\(m\\) and \\(R[2]\\) for odd \\(m\\), for every commutative coefficient ring \\(R\\).",
+  "limitations": [
+    "This classifies the degree-four path-chain module, not the degree-four path homology group.",
+    "No minimality claim is made for the family."
+  ],
+  "schema_version": 1
+}
