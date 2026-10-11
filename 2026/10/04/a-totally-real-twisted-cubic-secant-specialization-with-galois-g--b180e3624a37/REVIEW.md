@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The package reconstructs the symmetric elimination polynomial exactly from the published matrix, verifies irreducibility modulo 19 and a squarefree irreducible \(7+3\) factorization modulo 17, and the group-theoretic deduction to \(S_{10}\) is valid. The total-reality half is explicitly sourced to the authors' independent certification of the exact same matrix.
+## correctness
 
-## Originality
-PASS. The closest primary source proves generic geometric monodromy \(S_{10}\), while the new statement is arithmetic Galois \(S_{10}\) for one fixed rational fiber. Full-text, repository, published-finding corpus, and web comparisons did not find that specialization claim. Residual risk is limited to unlocated or unpublished arithmetic notes.
+PASS
 
-## Value
-PASS. An explicit totally-real fiber retaining full symmetric arithmetic Galois group is a mathematically motivated bridge between real enumerative geometry and arithmetic specialization behavior, and gives a compact exact benchmark for the new 2026 secant problem.
+The assigned exact matrix is invertible. Reconstructing the subresultant condition in symmetric secant coordinates yields one genuine primitive degree-10 factor and only the stated cubic power of a linear leading-coefficient degeneration. Modulo \(19\) the degree-10 factor is irreducible, giving transitivity and a 10-cycle; modulo \(17\) it factors into irreducible degrees \(7\) and \(3\), giving a 7-cycle after cubing. A transitive degree-10 subgroup containing a 7-cycle is primitive; Jordan's theorem then gives \(A_{10}\), and the odd 10-cycle forces the full \(S_{10}\).
 
-Closest literature/limitations: Aslam et al., arXiv:2603.25003v1, owns the exact matrix, total-reality certification, and generic monodromy theorem; the present result does not claim a new generic monodromy theorem or solve the remaining real-triple classification problem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary work proves geometric monodromy \(S_{10}\) and total-reality existence, but the audited claim is the arithmetic Galois group of one exact rational fiber. That specialization-level statement needs new elimination and Frobenius data and was not located in the inspected literature or published-result corpus.
+
+## value
+
+PASS
+
+The same explicit rational specialization simultaneously exhibits maximal total reality and maximal symmetric arithmetic Galois behavior. That is a natural arithmetic refinement of the source's enumerative and real-geometry example and supplies an exact reproducible specialization rather than a generic existence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
