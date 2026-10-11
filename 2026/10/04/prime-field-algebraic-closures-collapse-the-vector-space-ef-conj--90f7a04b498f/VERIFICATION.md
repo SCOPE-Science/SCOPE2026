@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof was rechecked against the language actually defined in Scott's paper. In the scalar-free last-round case, closed scalar terms lie in the prime field, so equality of vector terms is exactly a prime-field linear-relation test on the selected vectors. This is the critical point allowing Duplicator to survive \(m+1\) rounds even though the smaller tuple may already be dependent over the full field.
+# Independent mathematical audit
 
-For the upper bound, the coefficients of one dependence relation generate a finite extension of the prime field because the common field is algebraic over that prime field. Such a finite extension is simple in both cases used here: number fields over \(\mathbb Q\), and finite fields over \(\mathbb F_p\). Scott's language includes scalar inverse, so every coefficient in that simple field is represented by a scalar term in the single named primitive element.
+## correctness
 
-`verify.py` was executed from the packaged path before assembly and returned:
+PASS
 
-`VERIFY_OK m=2..8 qlinear_independence_and_named_scalar_exposure`
+Scott's actual Definition 2.1 lists scalar addition/multiplication and constants in \(L_{VS}\), not scalar inverse. The submitted theorem is nevertheless correct after the supplied proof repair. Duplicator's \(m+1\)-round lower bound uses an \(F\)-linear partial isomorphism whenever a scalar has been named, and a \(P\)-linear partial isomorphism in the sole all-vector case. For the upper bound, the dependence coefficients generate a finite simple field \(P(\alpha)\). In finite characteristic they are polynomial terms in \(\alpha\); in characteristic zero a common denominator converts them to integer polynomials, and moving negative parts across the equality yields a legal atomic formula. The normalized coefficient gives a nonzero constant obstruction on the independent tuple. The bundled checker only corroborates the dependence-exposure mechanism for \(2\le m\le8\).
 
-That script is only a finite sanity check of the boundary mechanism. It does not certify the all-\(m\) theorem, which rests on the proof in `RESULT.md`.
+## originality
 
-Source inspection limitations: Scott's standalone PDF was read in full-text extraction around the definition of \(L_{VS}\), Theorems 4.1 and 4.2, and the open-problem statement; a rendered PDF page containing the end of the vector-space argument and open problems was also inspected. Public web and published-finding corpus searches can miss unindexed material.
+PASS
+
+Scott's full text was inspected at the language definition, vector-space upper/lower bounds and open-problem section. It gives an upper bound and only an \(m\)-round lower bound, then conjectures \(2m+1\) in the algebraically closed same-field case. Resultary search found no distinct later settlement of the prime-field algebraic-closure specialization.
+
+## value
+
+PASS
+
+The theorem exactly resolves a canonical infinite subfamily of an explicit EF-game conjecture and disproves the conjectured \(2m+1\) value for every \(m\ge2\) in two standard algebraically closed prime-field settings. The repair is syntactic/proof-level, not a weakening of the mathematical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

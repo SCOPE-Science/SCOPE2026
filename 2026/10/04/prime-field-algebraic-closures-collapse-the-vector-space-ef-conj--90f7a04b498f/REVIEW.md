@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound separates the only two possibilities in \(m+1\) rounds: if a scalar has been played then at most \(m\) vector moves occurred and an \(F\)-linear partial isomorphism can be maintained; if all \(m+1\) moves are vectors, atomic formulas contain only prime-field scalar constants, so preserving the \(P\)-linear relation space is sufficient. The upper bound uses an arbitrary nonzero dependence among \(m+1\) replies in \(F^m\), normalizes one coefficient to \(1\), places all coefficients in a finite extension of the prime field, and names one primitive element. The resulting atomic vector equation cannot hold on the independent tuple.
+## correctness
 
-## Originality
-PASS with residual priority risk. Scott's inspected full text states only the general upper bound and an \(m\)-round lower bound, then explicitly lists the exact algebraically-closed same-field problem with conjecture \(2m+1\). Searches for the exact conjecture, the prime-field-algebraic-closure specialization, and equivalent EF/vector-space formulations found Scott's work but no later settlement. No current or prior local ledger finding concerns vector spaces over algebraically closed fields.
+PASS
 
-## Value
-PASS. This is not a cosmetic special case: it gives an exact all-dimensions formula on two canonical algebraically closed fields and refutes the published open conjecture for every \(m\ge2\). The mechanism also identifies why transcendence can matter: the number of scalar rounds needed to expose a dependence is controlled by generators of the coefficient field.
+Scott's actual Definition 2.1 lists scalar addition/multiplication and constants in \(L_{VS}\), not scalar inverse. The submitted theorem is nevertheless correct after the supplied proof repair. Duplicator's \(m+1\)-round lower bound uses an \(F\)-linear partial isomorphism whenever a scalar has been named, and a \(P\)-linear partial isomorphism in the sole all-vector case. For the upper bound, the dependence coefficients generate a finite simple field \(P(\alpha)\). In finite characteristic they are polynomial terms in \(\alpha\); in characteristic zero a common denominator converts them to integer polynomials, and moving negative parts across the equality yields a legal atomic formula. The normalized coefficient gives a nonzero constant obstruction on the independent tuple. The bundled checker only corroborates the dependence-exposure mechanism for \(2\le m\le8\).
 
-## Closest literature and limitations
-The closest source is Scott's paper itself. Its language and game are exactly the setting used here, and its open-problem section supplies the conjecture being tested. The finding does not determine the exact game length over algebraically closed fields of positive transcendence degree. Unindexed later work remains a priority risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Scott's full text was inspected at the language definition, vector-space upper/lower bounds and open-problem section. It gives an upper bound and only an \(m\)-round lower bound, then conjectures \(2m+1\) in the algebraically closed same-field case. Resultary search found no distinct later settlement of the prime-field algebraic-closure specialization.
+
+## value
+
+PASS
+
+The theorem exactly resolves a canonical infinite subfamily of an explicit EF-game conjecture and disproves the conjectured \(2m+1\) value for every \(m\ge2\) in two standard algebraically closed prime-field settings. The repair is syntactic/proof-level, not a weakening of the mathematical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
