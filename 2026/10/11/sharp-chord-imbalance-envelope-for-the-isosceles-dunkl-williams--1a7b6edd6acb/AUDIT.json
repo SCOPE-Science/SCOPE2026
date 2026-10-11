@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "After a sign change, set a=||x+y||>=b=||x-y|| and r=b/a. The exact unit-pair integrand equals (a+b)/(2ab)||b(x+y)-a(x-y)||. The triangle inequality gives the bound (1+r)(2-r), since a<=2. For every 0<r<=1 the l_infinity^2 pair x_r=(1,1-2r), y=(1,1) has chord norms 2 and 2r and normalized-chord distance 2-r, hence attains the bound exactly. For global equality 9/4, equality in the quadratic maximum forces r=1/2, equality in a<=2 forces a=2, hence b=1, and equality in the first triangle step is exactly ||3y-x||=3 after the chosen sign. The converse follows by direct substitution.",
+    "risks": [
+      "The equality criterion is pairwise; it does not classify spaces when the supremum is not attained.",
+      "The finite checker validates the explicit sharpness family only and is supplementary to the analytic proof."
+    ],
+    "sources": [
+      "doi:10.2298/FIL2317601F, Proposition 3.4 for the unit-pair representation",
+      "published-finding corpus:3662102e718b for the already-published global upper-bound argument",
+      "RESULT.md and verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus:3662102e718b proves the broader global theorem DW_I<=9/4.",
+        "Its proof contains Phi<=2+r-r^2, but its stated finding only maximizes this bound over r.",
+        "Its Limitations section explicitly says that no classification of equality cases is claimed."
+      ],
+      "reasoning": "The prior global theorem covers the numerical supremum but not the new conditional optimization problem. A global maximum does not imply attainability of the intermediate envelope at every parameter, nor the necessary-and-sufficient pairwise equality conditions.",
+      "searches": [
+        "DWI(X) 9/4 Dunkl-Williams isosceles orthogonality",
+        "Dunkl-Williams constant isosceles orthogonality sharp upper bound 9/4",
+        "DW_I pointwise sharp inequality chord ratio",
+        "DW_I near equality stability chord ratio"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s00010-022-00909-y",
+      "doi:10.2298/FIL2317601F",
+      "published-finding corpus:3662102e718b",
+      "Current own ledger through generation g000062",
+      "Targeted web searches for DWI equality cases and chord-ratio profiles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fu--Xie--Li Proposition 3.4 supplies the representation but not the new fixed-ratio optimization.",
+        "Fu--Xie--Li Example 3.5 gives the single global value 9/4 in l_infinity^2.",
+        "The 2026 public result proves the upper polynomial but gives only one sharpness witness at r=1/2 and expressly disclaims equality classification.",
+        "The family x_r=(1,1-2r), y=(1,1) is needed to prove the missing lower bound at every r."
+      ],
+      "reasoning": "The accepted claim is not the already-covered inequality Phi<=2+r-r^2. It is the equality of the conditional supremum with that polynomial for every r, plus the necessary-and-sufficient conditions for attaining the global endpoint.",
+      "searches": [
+        "doi:10.2298/FIL2317601F Proposition 3.4",
+        "doi:10.2298/FIL2317601F Example 3.5",
+        "published-finding corpus:3662102e718b full RESULT.md",
+        "DW_I equality characterization 9/4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The natural parameter is invariant under swapping sum and difference: r=min{||x+y||,||x-y||}/max{||x+y||,||x-y||}.",
+        "The prior global proof uses the same ratio under the temporary name t=b/a and obtains the one-sided estimate 2+t-t^2.",
+        "The new l_infinity^2 family attains that estimate for every prescribed ratio, converting the one-sided inequality into an exact conditional supremum."
+      ],
+      "reasoning": "Searches covered both rho/t ratio language, the exact polynomial, stability wording, and the l_infinity sharpness family. No separate equivalent formulation of the exact fixed-ratio supremum was located.",
+      "searches": [
+        "isosceles Dunkl-Williams chord ratio profile 2+rho-rho^2",
+        "Dunkl-Williams isosceles normalized chord imbalance rho",
+        "DW_I 2+r-r^2 ell_infinity",
+        "Dunkl-Williams chord imbalance stability 9/4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit reports an exact fixed-ratio table or profile for DW_I.",
+        "The sole exact DW_I hit is the 9/4 global-bound record, whose full RESULT.md was inspected.",
+        "The own ledger through g000062 has no DWI fixed-ratio or equality-case record."
+      ],
+      "reasoning": "Both exact-formula and equality-language searches were used because a conditional profile could be catalogued independently from the global constant.",
+      "searches": [
+        "isosceles Dunkl-Williams equality cases 9/4",
+        "DW_I equality characterization 9/4",
+        "Dunkl-Williams isosceles sharp bound equality iff chord norms 2 1",
+        "DW_I 2+r-r^2 ell_infinity"
+      ]
+    },
+    "rationale": "The defining Filomat paper was inspected through Proposition 3.4 and Example 3.5. A highly relevant 2026 public record was then inspected in full. It proves the global 9/4 theorem and derives the same upper polynomial as an intermediate inequality, but explicitly states that it does not classify equality cases and does not establish pointwise sharpness of that polynomial at every chord ratio. Targeted published-finding corpus and web searches for the fixed-ratio envelope, the formula 2+r-r^2, equality cases, and stability returned no covering statement. The current own ledger through g000062 contains Singer Dunkl--Williams work but no isosceles fixed-ratio profile or equality classification.",
+    "residual_risks": [
+      "The upper polynomial itself is prior; originality rests only on proving its sharpness at every fixed ratio and on the equality/stability consequences.",
+      "Bibliographic and semantic-index searches cannot prove absolute novelty.",
+      "An equivalent pairwise equality criterion may exist under different angular-distance notation."
+    ],
+    "risks": [
+      "No independent literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: defines DW_I, proves the representation, and computes 9/4 in l_infinity^2, but not the fixed-ratio exact profile or equality criterion.",
+        "evidence": "Filomat 37 (2023), 5601-5622; primary MSC 46B20; Proposition 3.4 and Example 3.5.",
+        "identifier_or_url": "doi:10.2298/FIL2317601F",
+        "material_read": "Publisher PDF text at the title/MSC page, Proposition 3.4, Example 3.5, and the discussion immediately following Example 3.5.",
+        "method": "Publisher full-PDF searchable text; visual page rendering was unavailable during bounded inspection.",
+        "title": "The Dunkl-Williams constant related to the Singer orthogonality and red isosceles orthogonality in Banach spaces",
+        "trigger": "Defining source for DW_I and its unit-pair representation."
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: proves DW_I<=9/4 and derives the upper polynomial 2+r-r^2, but does not prove pointwise sharpness for every r and explicitly does not classify equality cases.",
+        "evidence": "The Proof derives 2+t-t^2; the Limitations section states that no classification of equality cases is claimed.",
+        "identifier_or_url": "published-finding corpus:3662102e718b",
+        "material_read": "Full public RESULT.md, including Finding, Proof, Relationship to prior work, and Limitations.",
+        "method": "Public repository full-text inspection.",
+        "title": "Sharp universal bound for the isosceles Dunkl-Williams constant",
+        "trigger": "Exact statement-level prior work on the global 9/4 conjecture."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING: studies isosceles orthogonality and geometric constants but predates DW_I.",
+        "evidence": "Published online 1 September 2022; primary MSC 46B20.",
+        "identifier_or_url": "doi:10.1007/s00010-022-00909-y",
+        "material_read": "Publisher preview bibliographic page, abstract, online-publication line, and primary MSC line.",
+        "method": "Public publisher preview / indexed full-text preview.",
+        "title": "On isosceles orthogonality and some geometric constants in a normed space",
+        "trigger": "Exactly dated middle-window background source for isosceles orthogonality and geometric constants."
+      }
+    ],
+    "sources": [
+      "doi:10.2298/FIL2317601F",
+      "published-finding corpus:3662102e718b",
+      "doi:10.1007/s00010-022-00909-y"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1a7b6edd-6acb-4983-a9f4-529128aafdf3",
+  "value": {
+    "rationale": "The chord ratio r is not an arbitrary slice: it is the intrinsic parameter that appears in the sharp proof of the recently resolved 9/4 conjecture. Showing that the proof's intermediate polynomial is attained for every r turns a global constant into a complete sharp stability profile. It quantifies exactly how chord imbalance forces a deficit below 9/4 and proves that the quadratic deficit cannot be improved using r alone. The accompanying equality criterion directly fills the explicit equality-case limitation of the prior sharp-bound result.",
+    "risks": [
+      "The sharpness family is elementary once identified, so the value is in the exact stability envelope and equality structure rather than technical difficulty."
+    ],
+    "sources": [
+      "doi:10.2298/FIL2317601F",
+      "published-finding corpus:3662102e718b",
+      "RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
