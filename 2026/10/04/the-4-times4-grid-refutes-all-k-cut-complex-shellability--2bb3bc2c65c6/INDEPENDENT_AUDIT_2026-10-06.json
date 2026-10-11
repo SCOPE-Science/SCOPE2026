@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:54:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 375711dfe205aec6c26afb221cf5a33b25553b21",
+        "verify_grid_4x4_k10.py blob 02ced2026e82467fd11f2362d1b2401c133202b5",
+        "fresh exact chain-complex replay"
+      ],
+      "rationale": "Fresh exact reconstruction enumerated all 8008 ten-vertex subsets, obtaining 5722 disconnected complements/facets, face vector (16,120,560,1820,4344,5722), boundary ranks (15,105,455,1365,2975), and Betti vector (1,0,0,0,4,2747), matching the frozen verifier. Since the complex is pure dimension five, nonzero reduced H4 over F2 rules out shellability. The computation exhausts the finite object and is not extrapolated.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024/2025 primary paper proves several grid cases and states the all-k conjecture, but not this parameter cell.",
+          "Subsequent rectangular-grid work concentrates on 2×n and 3×n families rather than G(4,4), k=10."
+        ],
+        "reasoning": "No inspected broader theorem covers this 4×4 cell; instead the source explicitly predicts the opposite conclusion.",
+        "searches": [
+          "arXiv:2407.08158v1 full primary PDF",
+          "arXiv:2408.07646 / DOI:10.1137/24M1687716"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.08158v1",
+        "DOI:10.1137/24M1676077",
+        "arXiv:2408.07646",
+        "Resultary 4×4 cut-complex search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results do not imply nonshellability; the initiating conjecture asserts shellability.",
+          "The audited mod-2 chain computation supplies a genuine counterexample."
+        ],
+        "reasoning": "This is not a corollary or specialization of a stronger prior theorem; it falsifies the prior universal claim.",
+        "searches": [
+          "arXiv:2407.08158v1 grid theorems and Conjecture 5.9",
+          "arXiv:2408.07646 scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonzero reduced homology below the top dimension of a pure complex is an obstruction to shellability.",
+          "The audited H4(F2)≠0 therefore directly negates the universal shellability conjecture."
+        ],
+        "reasoning": "The homology statement and the shellability counterexample are equivalent for the purpose of falsifying the conjecture once purity is fixed.",
+        "searches": [
+          "arXiv:2407.08158v1 Conjecture 5.9",
+          "Resultary query: 4x4 grid k=10 cut complex shellability homology counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier distinct published Resultary record gives the face vector, boundary ranks or Betti numbers."
+        ],
+        "reasoning": "The exact finite data are produced by exhaustive reconstruction rather than copied from a table.",
+        "searches": [
+          "Resultary exact semantic search for 4×4 k=10 cut complex"
+        ]
+      },
+      "rationale": "Bayer–Denker–Jelić Milutinović–Sundaram–Xue explicitly conjecture shellability for every rectangular grid cut complex in the range 3≤k≤mn−3. Their full primary PDF was materially inspected at Conjecture 5.9 and its grid section; it does not contain the G(4,4), k=10 computation. Later grid work treats 2×n and selected 3×n families. Resultary returned the assigned record as the exact counterexample and no earlier covering finding.",
+      "residual_risks": [
+        "An unpublished independent computation could have found the same counterexample before this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONJECTURES_SHELLABILITY_DOES_NOT_CONTAIN_COUNTEREXAMPLE",
+          "evidence": "Conjecture 5.9 asserts Δ_k(G(m,n)) shellable for every 3≤k≤mn−3; k=10 on 4×4 lies in this range.",
+          "identifier_or_url": "arXiv:2407.08158v1; DOI:10.1137/24M1676077",
+          "material_read": "Full primary PDF grid section and the page containing Conjecture 5.9 were materially read and visually inspected.",
+          "method": "Exact parameter/domain comparison.",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Primary source of the exact grid-shellability conjecture."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2407.08158v1",
+        "DOI:10.1137/24M1676077",
+        "arXiv:2408.07646",
+        "Resultary 4×4 cut-complex search"
+      ],
+      "rationale": "A concrete exact counterexample to a published universal shellability conjecture is intrinsically motivated. The lower-dimensional homology class supplies a decisive obstruction, not merely a large finite census.",
+      "residual_risks": [
+        "An unpublished independent computation could have found the same counterexample before this record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2407.08158v1",
+    "DOI:10.1137/24M1676077",
+    "arXiv:2408.07646",
+    "Resultary 4×4 cut-complex search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the 4×4 grid, the 10-cut complex is a pure 5-complex with reduced F2 Betti numbers β4=4 and β5=2747 and no other reduced homology; hence it is not shellable and is a counterexample to the published all-k grid-shellability conjecture.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unpublished independent computation could have found the same counterexample before this record.",
+    "Only mod-2 homology is claimed; no minimality, integral homology or homotopy type is asserted."
+  ]
+}
