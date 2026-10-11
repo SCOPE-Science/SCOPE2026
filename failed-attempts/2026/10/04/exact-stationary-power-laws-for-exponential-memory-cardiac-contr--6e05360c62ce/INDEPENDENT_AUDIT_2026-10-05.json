@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:47:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob aaadc922fd122065101ce27f13f740df7cf787a9",
+        "assigned SLOGAN.txt blob 9a5e6e90dbc93c711c2e0510cc7167d8815d095c",
+        "Yahalom--Puzanov 2024, DOI:10.3390/math12010158"
+      ],
+      "rationale": "The identity \\(\\langle uy\\rangle=\\beta\\langle u^2\\rangle\\) and the storage/energy balance are correct. However \\(\\langle G(x)\\rangle=0\\) as stated is not valid under the record's identity-level assumptions. Its proof uses that \\(\\dot\\theta=\\omega\\ne0\\) forces the phase marginal to be Haar and hence \\(\\langle\\sin\\theta\\rangle=0\\). When \\(\\omega=0\\), a compact invariant equilibrium may have fixed phase \\(\\theta_0\\) and satisfy \\(G(x)=A\\sin\\theta_0\\), so the asserted zero mean need not hold. Because the final claim explicitly says only \\(de\\ne0\\) is needed for the identities, the submitted theorem is false on its stated domain. A repair by adding \\(\\omega\\ne0\\) would fix correctness, but the surviving mathematical content does not pass originality/value below.",
+      "residual_risks": [],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source-specific filter is a textbook strictly passive first-order system; the claimed nonpositive average feedback power is its direct specialization."
+        ],
+        "reasoning": "The general dissipativity identity already covers the main sign law; the model-specific cubic-energy bookkeeping adds no independent nonstandard mechanism.",
+        "searches": [
+          "DOI:10.3390/math12010158 full article",
+          "standard passive linear-system theory"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math12010158",
+        "standard passivity/positive-real first-order-filter theory",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplying the filter equation by u and averaging produces the controller-power equality immediately; multiplying the cardiac acceleration equation by y and adding the filter storage produces the displayed energy balance."
+        ],
+        "reasoning": "The surviving corrected claim is a routine consequence of published equations plus standard passivity bookkeeping.",
+        "searches": [
+          "Yahalom--Puzanov equations (exponential-memory controller and cardiac system)",
+          "standard storage identity for \\(\\dot u=y-\\beta u\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives the exponential kernel and equivalent state equation \\(\\dot u=y-\\beta u\\).",
+          "For a stable one-pole filter, the storage derivative identity \\(u\\dot u=uy-\\beta u^2\\) is the standard dissipativity/passivity calculation."
+        ],
+        "reasoning": "Stationary mean controller power, time-average filter dissipation, and the invariant storage balance are equivalent formulations.",
+        "searches": [
+          "Resultary query: Yahalom Puzanov exponential memory cardiac controller mean power invariant measure exact stationary",
+          "DOI:10.3390/math12010158",
+          "standard passivity/positive-real first-order filter literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current assigned finding is the direct Resultary match; no earlier table was needed for the coverage conclusion."
+        ],
+        "reasoning": "This is not a database novelty question because implication from standard filter storage is decisive.",
+        "searches": [
+          "Resultary same-object query"
+        ]
+      },
+      "rationale": "After the needed \\(\\omega\\ne0\\) restriction, the core mean-power law is mechanically implied by the standard storage identity for the stable first-order filter \\(\\dot u=y-\\beta u\\): stationarity of \\(u^2/2\\) gives input-output power \\(\\langle uy\\rangle=\\beta\\langle u^2\\rangle\\). The remaining nonlinear balance is the routine source-system energy multiplication/cancellation, and \\(\\langle G(x)\\rangle=0\\) follows by averaging once the rotating phase has zero sine mean. The defining paper supplies exactly the controller state equation and cardiac oscillator. Under the implication-level rule, the source-specific repackaging does not survive as an original theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES_ALL_MODEL EQUATIONS; FINAL_IDENTITY_IS_ROUTINE_STORAGE_BOOKKEEPING",
+          "evidence": "The paper explicitly uses the one-pole exponential-memory state and the same forced cardiac oscillator; the audited mean-power identity follows by multiplying that state equation by u.",
+          "identifier_or_url": "DOI:10.3390/math12010158",
+          "material_read": "Full open MDPI article, including the exponential-memory reduction, cardiac oscillator, controller parameters, numerical stabilization, discussion, and conclusions.",
+          "method": "Open full-text inspection.",
+          "title": "Feedback Stabilization Applied to Heart Rhythm Dynamics Using an Integro-Differential Method",
+          "trigger": "Exact source model and controller."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Yahalom--Puzanov 2024",
+        "standard passive-filter identity"
+      ],
+      "rationale": "Quantifying controller power in the published cardiac example is motivated, but the claimed exact law is the elementary storage balance of a first-order stable filter, while the source-specific energy identity is obtained by one direct multiplication and cancellation. Once the incorrect frequency scope is repaired, the result does not expose a new boundary, nontrivial invariant, or structural obstruction beyond standard passivity bookkeeping.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The submitted claim states, for the phase-extended exponential-memory cardiac controller with only \\(de\\ne0\\) assumed for the identities, that every compact invariant probability measure satisfies \\(\\langle G(x)\\rangle=0\\), \\(\\langle uy\\rangle=\\beta\\langle u^2\\rangle\\), the displayed nonlinear power balance, and strict negative mean controller power when \\(A\\ne0\\), \\(\\omega\\ne0\\), \\(\\alpha,\\beta>0\\).",
+  "limitations": [
+    "The source cardiac parameter choice has nonzero forcing frequency, but the theorem as written says the identities themselves need only \\(de\\ne0\\).",
+    "The first-order-filter mean-power identity is a standard passivity/dissipativity consequence and is not by itself an original result."
+  ],
+  "schema_version": 1
+}
