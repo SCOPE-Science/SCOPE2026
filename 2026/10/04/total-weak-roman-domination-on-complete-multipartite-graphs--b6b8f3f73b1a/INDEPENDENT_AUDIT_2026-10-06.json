@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:34:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob fd1d6adc164ebfc5e70fe29526bc7a86636781c7",
+        "assigned verify.py blob e1a0ea694a73dc37a265d43d7a3bfd4f0ee67a21",
+        "Cabrera Martínez--Montejano--Rodríguez-Velázquez, DOI:10.3390/sym11060831",
+        "Cabrera Martínez--Rodríguez-Velázquez, DOI:10.7151/dmgt.2318"
+      ],
+      "rationale": "Total domination on a complete multipartite graph is equivalent to positive support meeting at least two parts. With at least three represented parts, moving one unit from any adjacent positive donor to a zero vertex can remove at most one represented part while preserving at least two. With exactly two represented parts, a zero in \\(X_i\\) is protected precisely when \\(X_i\\) has no zero or the donor side \\(X_j\\) retains positive weight after a unit transfer, equivalently \\(p_i=n_i\\) or \\(s_j\\ge2\\); the symmetric condition gives the criterion. The enumerator follows by subtracting one-part support and then the two bad two-part events, whose intersection is exactly the two weight-one non-full supports. The minimum-weight cases then follow by exhausting weights two, three and four. The actual verifier blob was inspected: it tests the definition vertex-by-vertex and donor-by-donor, the criterion, every enumerator coefficient, and the minimum formulas for every multipartite isomorphism type of orders two through nine.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lexicographic-product paper proves equality of two minimum domination parameters and closed minimum formulas/bounds.",
+          "Minimum-value results do not recover all feasible functions or their weight distribution."
+        ],
+        "reasoning": "The checked broader product theory covers part of the minimum-parameter story but not the assigned all-function theorem.",
+        "searches": [
+          "DOI:10.7151/dmgt.2318",
+          "Resultary search for total weak Roman complete multipartite and lexicographic-product results"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/sym11060831",
+        "DOI:10.7151/dmgt.2318",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A formula for \\(\\gamma_{tr}\\) or equality with secure total domination determines only the smallest weight, not the complete support-transfer criterion.",
+          "The assigned inclusion-exclusion polynomial contains strictly more information than the checked minimum-parameter theorems."
+        ],
+        "reasoning": "No checked prior statement mechanically implies the all-function classification.",
+        "searches": [
+          "2019 total weak Roman introduction",
+          "2022 total protection of lexicographic product graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary definition is exactly the transfer-to-total-domination condition used in the audit.",
+          "No theorem in the inspected 2019 article states the two-part support criterion or an all-weight polynomial for complete multipartite graphs."
+        ],
+        "reasoning": "The support-transfer criterion and the weight enumerator are equivalent descriptions of the complete feasible set, not merely of the minimum parameter.",
+        "searches": [
+          "Resultary query: total weak Roman domination complete multipartite weight enumerator all functions",
+          "DOI:10.3390/sym11060831 full open article"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned complete-multipartite polynomial records concerned Roman \\(\\{2\\}\\), weak Roman, total Roman, independent Roman and other distinct domination notions.",
+          "No prior exact total weak Roman enumerator was returned."
+        ],
+        "reasoning": "The nearby database entries are mathematically different feasibility conditions and do not tabulate the assigned object.",
+        "searches": [
+          "Resultary exact semantic query above"
+        ]
+      },
+      "rationale": "The 2019 primary article introduces total weak Roman domination, general inequalities, some family formulas and NP-hardness, but does not classify all labelings on arbitrary complete multipartite graphs or give their weight enumerator. The 2022 lexicographic-product paper compares minimum total weak Roman and secure-total parameters and supplies minimum formulas/bounds for product families; that does not determine the all-function classification or coefficient enumerator. Targeted Resultary search returned nearby complete-multipartite enumerators for other Roman variants, not an equivalent total weak Roman theorem.",
+      "residual_risks": [
+        "A differently titled domination-polynomial paper could contain an equivalent enumerator, although none was found in the targeted search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_PARAMETER_AND_MINIMUM_RESULTS_NOT_ALL_FUNCTION_ENUMERATOR",
+          "evidence": "The article defines \\(\\gamma_{tr}\\), develops bounds and selected family formulas, and proves NP-hardness; it does not state the assigned complete-multipartite weight polynomial.",
+          "identifier_or_url": "DOI:10.3390/sym11060831",
+          "material_read": "Complete open article scope, definitions, main-result summary and family/complexity discussion.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Total Weak Roman Domination in Graphs",
+          "trigger": "Foundational primary paper defining exactly the audited parameter."
+        },
+        {
+          "assessment": "MINIMUM_PARAMETER_COVERAGE_ONLY",
+          "evidence": "Its advertised results concern domination numbers, not enumeration of every total weak Roman labeling.",
+          "identifier_or_url": "DOI:10.7151/dmgt.2318",
+          "material_read": "Accessible primary article record and abstract describing equality of total weak Roman and secure total domination numbers and closed formulas/tight bounds for lexicographic products.",
+          "method": "Open-access primary-source comparison.",
+          "title": "Total Protection of Lexicographic Product Graphs",
+          "trigger": "Closest broader family paper that includes balanced complete multipartite product cases."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2019 foundational total weak Roman paper",
+        "2022 lexicographic-product total protection paper"
+      ],
+      "rationale": "Total weak Roman domination is an established graph-protection invariant. A closed all-function classification and weight enumerator on arbitrary complete multipartite graphs strictly refines the usual minimum-number results and gives exact counts at every weight, making it a natural reusable structural result.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every connected complete multipartite graph \\(G=K_{n_1,\\ldots,n_r}\\), \\(r\\ge2\\), a \\(\\{0,1,2\\}\\)-labeling is total weak Roman exactly when its positive support meets at least three parts, or it meets exactly two parts \\(X_i,X_j\\) and \\((p_i=n_i\\text{ or }s_j\\ge2)\\) and \\((p_j=n_j\\text{ or }s_i\\ge2)\\). This yields the stated closed weight enumerator for all total weak Roman functions and the stated exact minimum weights and minimum-function counts.",
+  "limitations": [
+    "Finite connected complete multipartite graphs only.",
+    "The finite verifier through order nine corroborates but does not prove the all-orders theorem; the proof is structural."
+  ],
+  "schema_version": 1
+}
