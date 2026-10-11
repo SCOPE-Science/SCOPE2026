@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:21:04.492813Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "D. Adamson, Ranking and Unranking k-subsequence universal words, arXiv:2304.04583 / CPM 2023",
+        "Barker–Fleischmann–Harwardt–Manea–Nowotka, Scattered Factor-Universality of Words, arXiv:2003.04629",
+        "Assigned RESULT.md and verifier at tree bdefd59a78252fe6162d40a0e4e9b173425bd134"
+      ],
+      "rationale": "Hébrard/arch factorization gives the universality index as the number of complete arches. Over a binary alphabet an arch has the unique form \\(a^r\\bar a\\) with \\(r\\ge1\\), so its ordinary generating function is \\(A(z)=2z^2/(1-z)\\); the terminal remainder is empty or a positive unary word, with \\(R(z)=(1+z)/(1-z)\\). Unique arch factorization therefore gives \\(F(z,u)=R(z)/(1-uA(z))=(1+z)/(1-z-2uz^2)\\). Coefficient extraction yields the stated \\(N_{n,j}\\) law and, after appending an arbitrary suffix after the \\(k\\)-th arch, the stated formula for the number of \\(k\\)-universal binary words. Differentiating \\(F\\) at \\(u=1\\) gives the claimed expectation and variance. An independent exhaustive enumeration of all binary words through length 10 matched every distribution coefficient and both moment formulas exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson handles arbitrary alphabet sizes algorithmically and explicitly leaves a general closed formula open.",
+          "Arch-factorization papers provide the characterization of universality and binary structural tools but not the audited counting law."
+        ],
+        "reasoning": "The general algorithms supply ingredients but do not dominate the exact binary closed form or moment identities.",
+        "searches": [
+          "Adamson arXiv:2304.04583 complete accessible full text",
+          "Barker et al. arXiv:2003.04629",
+          "Fleischmann–Höfer–Huch–Nowotka, DOI 10.1007/978-3-031-43587-4_14"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2304.04583",
+        "https://arxiv.org/abs/2003.04629",
+        "https://doi.org/10.1007/978-3-031-43587-4_14",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior criterion identifies the index of a given word; it does not enumerate all words by index.",
+          "Adamson explicitly asks whether a general counting formula exists."
+        ],
+        "reasoning": "The binary specialization is natural and requires a new complete generating-function enumeration, rather than substitution into an already published closed formula.",
+        "searches": [
+          "Direct comparison with Adamson's recursive counter and open-question paragraph",
+          "Direct comparison with the arch-factorization universality criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No prior exact generating function or moment law was located.",
+          "The 2023 binary Simon-congruence work concerns congruence classes/index, not the distribution of arch count over all words."
+        ],
+        "reasoning": "The distribution-of-universality-index formulation is stronger than a decision algorithm and distinct from the Simon-congruence class count.",
+        "searches": [
+          "Resultary query: binary subsequence universality arch factorization exact enumeration generating function moments",
+          "Web search: binary subsequence universal counting formula",
+          "Web search: universality index binary word generating function arches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source result is a symbolic formula for all \\(n,j,k\\), not a fitted or finite census."
+        ],
+        "reasoning": "Finite enumeration verifies small cases but is not the proof or originality basis.",
+        "searches": [
+          "Adamson Section 3 recursive counting machinery; no precomputed table used",
+          "Independent exhaustive check only for \\(n\\le10\\) as corroboration"
+        ]
+      },
+      "rationale": "Adamson gives an \\(O(nk\\sigma)\\) recursive counting algorithm for arbitrary alphabet size and explicitly asks for a general formula for the number of fixed-length \\(k\\)-subsequence-universal words. The audited result solves the complete binary distribution, not merely the threshold count: it gives a bivariate rational generating function, exact level counts, the exact \\(k\\)-universal count, and moments of the universality index. The binary Simon-congruence literature characterizes congruence classes but does not state this arch-count distribution. Targeted exact-formula and generating-function searches found no prior theorem implying these formulas.",
+      "residual_risks": [
+        "A combinatorial-sequences paper may contain the same rational generating function without using subsequence-universality terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHMIC_PRIOR_NOT_COVERING",
+          "evidence": "The paper gives an \\(O(nk\\sigma)\\) counter and explicitly asks for a general counting formula; it does not state the binary rational generating function or moments.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+          "material_read": "Accessible complete primary text, including the arch-factorization preliminaries, Section 3 recursive counter, and conclusion/open questions.",
+          "method": "Lawful author/public full-text inspection.",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Closest source for counting fixed-length k-universal words."
+        },
+        {
+          "assessment": "FOUNDATIONAL_INGREDIENT",
+          "evidence": "It provides universality machinery, not the audited distribution law.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "Primary abstract/metadata and theorem-level descriptions as cross-checked through Adamson's full-text citations.",
+          "method": "Lawful arXiv/public inspection.",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Foundational universality/arch-factorization source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Adamson 2023 complete primary text"
+      ],
+      "rationale": "This is a natural complete classification of the binary case of an explicitly posed counting problem, including the full universality-index law rather than a single count. The exact moments and rational bivariate generating function are reusable analytic summaries and go materially beyond a routine decision test or finite census.",
+      "residual_risks": [
+        "The result does not solve the general alphabet-size formula requested by Adamson."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2304.04583",
+    "https://arxiv.org/abs/2003.04629",
+    "https://doi.org/10.1007/978-3-031-43587-4_14",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The closed-form distribution is binary; no analogous formula is claimed for arbitrary alphabet size.",
+    "Small exhaustive computation is corroboration only, not the infinite proof."
+  ],
+  "residual_risks": [
+    "A combinatorial-sequences paper may contain the same rational generating function without using subsequence-universality terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "ALGORITHMIC_PRIOR_NOT_COVERING",
+      "evidence": "The paper gives an \\(O(nk\\sigma)\\) counter and explicitly asks for a general counting formula; it does not state the binary rational generating function or moments.",
+      "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+      "material_read": "Accessible complete primary text, including the arch-factorization preliminaries, Section 3 recursive counter, and conclusion/open questions.",
+      "method": "Lawful author/public full-text inspection.",
+      "title": "Ranking and Unranking k-subsequence universal words",
+      "trigger": "Closest source for counting fixed-length k-universal words."
+    },
+    {
+      "assessment": "FOUNDATIONAL_INGREDIENT",
+      "evidence": "It provides universality machinery, not the audited distribution law.",
+      "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+      "material_read": "Primary abstract/metadata and theorem-level descriptions as cross-checked through Adamson's full-text citations.",
+      "method": "Lawful arXiv/public inspection.",
+      "title": "Scattered Factor-Universality of Words",
+      "trigger": "Foundational universality/arch-factorization source."
+    }
+  ]
+}

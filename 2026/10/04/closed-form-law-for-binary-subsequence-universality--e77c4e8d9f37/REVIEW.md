@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces the binary arch factorization to uniquely concatenated blocks \(a^r\bar a\), derives the bivariate rational generating function, and extracts the exact coefficients. The cumulative \(k\)-universal count follows from the unique cut after the \(k\)-th arch, and the moment formulas follow from derivatives of the same generating function. The bundled verifier independently compares the arch definition to direct subsequence universality on all binary words through length \(10\), checks all exact distributions through length \(18\), and checks the generating-function recurrence through length \(80\). The finite replay corroborates, but does not replace, the all-length proof.
+## correctness
 
-## Originality
-**PASS.** The foundational universality paper establishes the arch framework rather than a fixed-length enumeration. Adamson's 2023 counting paper gives an \(O(nk\sigma)\) algorithm and explicitly leaves a general counting formula as an open direction. Full-text checks of the arch-factorization paper, the binary Simon-congruence paper, and the regular-language counting paper found algorithmic or congruence-class results rather than the displayed binary rational generating function, exact coefficient law, or moment identities. Targeted searches under the aliases subsequence universality, subword universality, scattered-factor universality, arch factorization, and binary Simon congruence did not locate an equivalent formula. Residual risk remains for an unindexed or differently phrased enumeration result.
+PASS
 
-## Value
-**PASS.** Fixed-length counting of \(k\)-subsequence-universal words is an explicit problem in the cited literature. The theorem gives the binary slice in closed form, resolves the entire distribution rather than one parameter value, and adds exact probabilistic information for a uniformly random binary word. The result is structural and all-length, not a finite table or routine recomputation.
+Hébrard/arch factorization gives the universality index as the number of complete arches. Over a binary alphabet an arch has the unique form \(a^r\bar a\) with \(r\ge1\), so its ordinary generating function is \(A(z)=2z^2/(1-z)\); the terminal remainder is empty or a positive unary word, with \(R(z)=(1+z)/(1-z)\). Unique arch factorization therefore gives \(F(z,u)=R(z)/(1-uA(z))=(1+z)/(1-z-2uz^2)\). Coefficient extraction yields the stated \(N_{n,j}\) law and, after appending an arbitrary suffix after the \(k\)-th arch, the stated formula for the number of \(k\)-universal binary words. Differentiating \(F\) at \(u=1\) gives the claimed expectation and variance. An independent exhaustive enumeration of all binary words through length 10 matched every distribution coefficient and both moment formulas exactly.
 
-## Closest literature and limitations
-The closest prior result is Adamson's dynamic-programming count for \(\mathcal U(n,k,\sigma)\); it establishes efficient computability but does not give the closed binary formula. The binary Simon-congruence paper is also close in vocabulary but counts congruence classes, not length-\(n\) words by universality index. The present argument is binary-specific and does not claim a comparable rational form for larger alphabets.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Adamson gives an \(O(nk\sigma)\) recursive counting algorithm for arbitrary alphabet size and explicitly asks for a general formula for the number of fixed-length \(k\)-subsequence-universal words. The audited result solves the complete binary distribution, not merely the threshold count: it gives a bivariate rational generating function, exact level counts, the exact \(k\)-universal count, and moments of the universality index. The binary Simon-congruence literature characterizes congruence classes but does not state this arch-count distribution. Targeted exact-formula and generating-function searches found no prior theorem implying these formulas.
+
+## value
+
+PASS
+
+This is a natural complete classification of the binary case of an explicitly posed counting problem, including the full universality-index law rather than a single count. The exact moments and rational bivariate generating function are reusable analytic summaries and go materially beyond a routine decision test or finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
