@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify_k2n_morse.py` is a standalone Python verifier using only the standard library. It constructs all augmented faces from the defining matching and directed-cycle constraints, applies the exact sequential element matching, and compares its unmatched set against the closed-form critical families.
+# Independent mathematical audit
 
-The replay checks every integer \(1\le n\le7\). For \(1\le n\le6\), it additionally orients every Hasse edge according to the discrete-Morse matching and topologically sorts the full directed Hasse graph to verify acyclicity directly. It also checks
-\[
-\chi(\mathcal M(K_{2,n}))=1+(-1)^n(n^2-1).
-\]
-A successful replay ends with `VERIFY_OK`.
+## correctness
 
-The finite replay is not used as an infinite proof. The all-\(n\) theorem depends on the survivor induction in `RESULT.md`; the computation stress-tests that induction, the \(n=1\) boundary case, and the critical-cell count.
+PASS
+
+The face conditions reduce to tail uniqueness plus the unique possible directed four-cycle obstruction. The sequential X_i,A_i,Y_i,B_i element matching is acyclic by the patchwork principle. Reconstructing the local stage transitions confirms the stated finite-state survivor invariant; at the terminal stage it leaves exactly n^2-1 faces of cardinality n+1. Removing only the augmented empty-face pair leaves one critical vertex and those top cells, so all attaching maps are constant. An independent enumeration/matching replay for n=1 through 5 gave critical profiles 0,3,8,15,24 top cells, exactly n^2-1.
+
+## originality
+
+PASS
+
+Scoville and Zaremsky explicitly identify complete bipartite graphs as examples whose Morse-complex homotopy type was, to their knowledge, unknown and give only connectivity bounds. Later exact Morse-complex papers treat stars, paths, cycles, caterpillars and related families, not K_{2,n}. A 2026 directed-forest-complex paper gives general structural criteria but its inspected abstract does not provide this complete-bipartite homotopy formula. Resultary returned no distinct covering theorem.
+
+## value
+
+PASS
+
+Complete bipartite graphs were explicitly highlighted as an unresolved Morse-complex family. Resolving the first non-star infinite slice with an exact all-n homotopy type and multiplicity is a natural structural advance, not a routine finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

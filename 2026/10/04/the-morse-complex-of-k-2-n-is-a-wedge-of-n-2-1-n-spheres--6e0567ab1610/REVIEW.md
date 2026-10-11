@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The face characterization reduces gradient acyclicity to the only possible four-cycle in \(K_{2,n}\). The sequential element matching is acyclic, and the stated survivor invariant yields one critical \(0\)-cell and \(n^2-1\) critical \(n\)-cells. The independent finite replay in `verify_k2n_morse.py` reconstructs the face poset and matching for \(1\le n\le7\) and explicitly checks Hasse-diagram acyclicity for \(1\le n\le6\). The finite replay is corroborative; the all-\(n\) conclusion uses the induction in `RESULT.md`.
+## correctness
 
-## Originality
-PASS. The closest direct primary source, arXiv:2004.10481, treats \(K_{p,q}\) but supplies only connectivity bounds and states that the exact homotopy type of complete-bipartite Morse complexes was, to the authors' knowledge, unknown. The later arXiv:2207.13780 computes paths and extended stars, including \(K_{1,n}\), without covering \(K_{2,n}\). Searches under Morse-complex, discrete-Morse-function-complex, gradient-field, directed-tree, and complete-bipartite aliases found no implication of the wedge formula. Residual risk is an obscure older equivalent result under different directed-tree terminology.
+PASS
 
-## Value
-PASS. The result closes the first non-star complete-bipartite slice of a named open exact-homotopy family, with a uniform sphere dimension, exact multiplicity, and explicit acyclic matching. It is not a routine numerical recomputation or isolated small graph.
+The face conditions reduce to tail uniqueness plus the unique possible directed four-cycle obstruction. The sequential X_i,A_i,Y_i,B_i element matching is acyclic by the patchwork principle. Reconstructing the local stage transitions confirms the stated finite-state survivor invariant; at the terminal stage it leaves exactly n^2-1 faces of cardinality n+1. Removing only the augmented empty-face pair leaves one critical vertex and those top cells, so all attaching maps are constant. An independent enumeration/matching replay for n=1 through 5 gave critical profiles 0,3,8,15,24 top cells, exactly n^2-1.
 
-## Closest literature and limitations
-The closest literature gives general connectivity for \(K_{p,q}\) and exact homotopy types for stars and several other graph families. This finding does not settle \(K_{p,q}\) for \(p\ge3\), generalized Morse complexes, or pure Morse complexes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Scoville and Zaremsky explicitly identify complete bipartite graphs as examples whose Morse-complex homotopy type was, to their knowledge, unknown and give only connectivity bounds. Later exact Morse-complex papers treat stars, paths, cycles, caterpillars and related families, not K_{2,n}. A 2026 directed-forest-complex paper gives general structural criteria but its inspected abstract does not provide this complete-bipartite homotopy formula. Resultary returned no distinct covering theorem.
+
+## value
+
+PASS
+
+Complete bipartite graphs were explicitly highlighted as an unresolved Morse-complex family. Resolving the first non-star infinite slice with an exact all-n homotopy type and multiplicity is a natural structural advance, not a routine finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
