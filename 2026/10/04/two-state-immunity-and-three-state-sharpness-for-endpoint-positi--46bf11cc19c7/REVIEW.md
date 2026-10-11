@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The method is reconstructed as two implicit-midpoint half-steps. For every two-state generator the spectral projector identity \(Q=-s(I-\Pi)\) reduces the endpoint map to \(\Pi+r^2(I-\Pi)\) with \(0\le r^2\le1\), which makes all entries explicitly nonnegative. The three-state pure-birth matrix is obtained by direct triangular inversion and has only one potentially negative entry, \(16h(4-h)/(h+4)^3\), proving the exact boundary. The packaged exact-rational checker independently reconstructs both maps and returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with stated residual risk. The full Ferracina--Spijker report proves the general SSP coefficient \(4\) and the full Bonaventura--Della Rocca report states the two-midpoint representation, but neither inspected full text states the endpoint-positivity classification by Markov state dimension. The general SSP converse concerns arbitrary convex functionals/problems and all Runge--Kutta stages, so it does not imply unconditional two-state endpoint positivity or a minimal three-state CTMC obstruction. Broad Horváth positivity papers are highly relevant; accessible abstracts were inspected, but their full texts were unavailable through the lawful routes checked, so an equivalent specialization there remains the main risk.
+PASS
 
-## Value
-PASS. Endpoint nonnegativity is the defining probabilistic requirement for a Markov transition update, and state dimension is intrinsic rather than an arbitrary parameter slice. The result exposes a concrete gap between stagewise SSP theory and external positivity: squaring the midpoint Cayley factor eliminates every two-state sign defect, but one additional transient state is enough to recover the sharp SSP threshold. This gives a minimal diagnostic example for positivity-sensitive time integration.
+For a two-state generator with exit-rate sum s, write \(Q=-s(I-\Pi)\) with stochastic rank-one projector \(\Pi\). One midpoint half-step is \(\Pi+r(I-\Pi)\), where \(r=(1-hs/4)/(1+hs/4)\); squaring replaces r by \(r^2\in[0,1]\), so every entry is nonnegative for all h and row sums stay one. For the three-state pure-birth generator, exact multiplication gives endpoint entry \(R_{12}=16h(4-h)/(h+4)^3\), while all other entries are nonnegative; therefore positivity holds exactly for \(0\le h\le4\) and fails for every larger h. Independent matrix replay reproduced the transition matrices and sign change.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical positivity/absolute-monotonicity theory gives a universal radius and the 2015 source records radius four for this method, but no inspected source classifies endpoint positivity by CTMC state dimension. The two-state unconditional cancellation is substantially stronger than the class-wide SSP guarantee, and the explicit three-state pure-birth family proves that three states are the first dimension where endpoint failure can occur. The nearby Resultary eight-state Padé barrier concerns a different rational map.
+
+## value
+
+PASS
+
+The result isolates a sharp low-dimensional exception hidden by class-wide SSP theory: two-state Markov dynamics are endpoint-immune at arbitrary steps, while one extra state is enough to realize the global radius sharply. This is a meaningful minimal-dimension boundary for positivity-preserving time integration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:46:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Bonaventura and Della Rocca, Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions, arXiv:1510.04303; primary full-text material inspected at Section 5.1, which identifies the SSP-optimal SDIRK2(2) method as two consecutive implicit-midpoint steps and gives absolute-monotonicity radius four.",
+        "Ferracina and Spijker, Strong Stability of Singly-Diagonally-Implicit Runge-Kutta Methods, Applied Numerical Mathematics 58 (2008); primary preprint metadata/abstract and the later full-text quotation in Bonaventura–Della Rocca checked for the optimal method context.",
+        "Horváth, Positivity of Runge-Kutta and diagonally split Runge-Kutta methods, Applied Numerical Mathematics 28 (1998), DOI 10.1016/S0168-9274(98)00050-6, and On the positivity step size threshold of Runge-Kutta methods, Applied Numerical Mathematics 53 (2005), DOI 10.1016/j.apnum.2004.08.026; primary publication abstracts inspected for general positivity-threshold theory.",
+        "Resultary query: SSP SDIRK2 two-state Markov positivity three-state pure-birth endpoint; no independent matching low-dimensional theorem was returned. A nearby Resultary record concerns the distinct [2/2] Padé/Gauss–Legendre map and an eight-state barrier.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree f49b2e9adf4fdf77f2cf6e0fbd2e93e52eee2292.",
+        "Fresh independent matrix replay of the two-midpoint endpoint map and the three-state pure-birth example at h=1,4,5,10."
+      ],
+      "rationale": "For a two-state generator with exit-rate sum s, write \\(Q=-s(I-\\Pi)\\) with stochastic rank-one projector \\(\\Pi\\). One midpoint half-step is \\(\\Pi+r(I-\\Pi)\\), where \\(r=(1-hs/4)/(1+hs/4)\\); squaring replaces r by \\(r^2\\in[0,1]\\), so every entry is nonnegative for all h and row sums stay one. For the three-state pure-birth generator, exact multiplication gives endpoint entry \\(R_{12}=16h(4-h)/(h+4)^3\\), while all other entries are nonnegative; therefore positivity holds exactly for \\(0\\le h\\le4\\) and fails for every larger h. Independent matrix replay reproduced the transition matrices and sign change.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These theories quantify guarantees over broad problem classes and establish the method's radius, but do not determine the low-dimensional Markov-generator exception.",
+          "The two-state statement holds for all h, beyond the finite SSP radius."
+        ],
+        "reasoning": "The audited dimension classification is not dominated by the general sufficient radius.",
+        "searches": [
+          "Horváth general positive-IVP threshold theory",
+          "Ferracina–Spijker/Bonaventura–Della Rocca SSP optimality theory"
+        ]
+      },
+      "checked_sources": [
+        "Bonaventura and Della Rocca, Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions, arXiv:1510.04303; primary full-text material inspected at Section 5.1, which identifies the SSP-optimal SDIRK2(2) method as two consecutive implicit-midpoint steps and gives absolute-monotonicity radius four.",
+        "Ferracina and Spijker, Strong Stability of Singly-Diagonally-Implicit Runge-Kutta Methods, Applied Numerical Mathematics 58 (2008); primary preprint metadata/abstract and the later full-text quotation in Bonaventura–Della Rocca checked for the optimal method context.",
+        "Horváth, Positivity of Runge-Kutta and diagonally split Runge-Kutta methods, Applied Numerical Mathematics 28 (1998), DOI 10.1016/S0168-9274(98)00050-6, and On the positivity step size threshold of Runge-Kutta methods, Applied Numerical Mathematics 53 (2005), DOI 10.1016/j.apnum.2004.08.026; primary publication abstracts inspected for general positivity-threshold theory.",
+        "Resultary query: SSP SDIRK2 two-state Markov positivity three-state pure-birth endpoint; no independent matching low-dimensional theorem was returned. A nearby Resultary record concerns the distinct [2/2] Padé/Gauss–Legendre map and an eight-state barrier.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree f49b2e9adf4fdf77f2cf6e0fbd2e93e52eee2292.",
+        "Fresh independent matrix replay of the two-midpoint endpoint map and the three-state pure-birth example at h=1,4,5,10."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a two-state generator, the spectral projector decomposition forces the squared midpoint factor to be \\(r^2\\in[0,1]\\) for every h, proving unconditional endpoint positivity.",
+          "The three-state pure-birth generator contains the repeated transient eigenvalue needed for the derivative term; its exact (1,2) entry changes sign at h=4."
+        ],
+        "reasoning": "The published radius alone neither proves two-state immunity nor establishes that dimension three is minimal among CTMC endpoint failures.",
+        "searches": [
+          "Known identity: SDIRK2(2) equals two implicit-midpoint steps and has radius four",
+          "general positivity-threshold theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The method is known to be two implicit-midpoint steps with absolute-monotonicity radius four.",
+          "No inspected source states that every two-state CTMC is safe for arbitrary step size or that a three-state CTMC is the minimal endpoint counterexample."
+        ],
+        "reasoning": "The endpoint matrix-entry condition for all generators of a fixed dimension is distinct from stagewise/class-wide SSP monotonicity.",
+        "searches": [
+          "Resultary: SSP SDIRK2 endpoint positivity Markov generator two states three states implicit midpoint square",
+          "Bonaventura–Della Rocca Section 5.1",
+          "Horváth general RK positivity-threshold publications"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact SDIRK2(2) two-state/three-state theorem was returned.",
+          "The eight-state result is for a fourth-order [2/2] Padé map, not the squared midpoint map."
+        ],
+        "reasoning": "The exact finite-dimensional boundary is not a known table value in the inspected sources.",
+        "searches": [
+          "Resultary exact low-dimensional CTMC query",
+          "Resultary nearby [2/2] Padé Markov positivity barrier"
+        ]
+      },
+      "rationale": "Classical positivity/absolute-monotonicity theory gives a universal radius and the 2015 source records radius four for this method, but no inspected source classifies endpoint positivity by CTMC state dimension. The two-state unconditional cancellation is substantially stronger than the class-wide SSP guarantee, and the explicit three-state pure-birth family proves that three states are the first dimension where endpoint failure can occur. The nearby Resultary eight-state Padé barrier concerns a different rational map.",
+      "residual_risks": [
+        "Older positivity-preserving RK literature may contain an equivalent low-dimensional Jordan-block observation without CTMC terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD AND GLOBAL SSP RADIUS COVERED; LOW-DIMENSIONAL CTMC ENDPOINT CLASSIFICATION NOT COVERED",
+          "evidence": "The source states the method structure and radius four but does not analyze two- versus three-state Markov generators.",
+          "identifier_or_url": "arXiv:1510.04303",
+          "material_read": "Primary full-text material at Section 5.1: the Butcher tableau, identification as two consecutive implicit midpoint applications, and radius of absolute monotonicity four.",
+          "method": "Open primary preprint/full-text inspection.",
+          "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+          "trigger": "Primary source explicitly displaying the exact SDIRK2(2) method and its radius."
+        },
+        {
+          "assessment": "GENERAL THRESHOLD THEORY; NO LOW-STATE CTMC MINIMALITY STATEMENT LOCATED",
+          "evidence": "The stated scope is positivity for arbitrary positive IVPs and invariant sets, not the endpoint map restricted to generators of a fixed Markov-state dimension.",
+          "identifier_or_url": "DOI:10.1016/j.apnum.2004.08.026",
+          "material_read": "Primary publication abstract and scope describing strict positivity thresholds for classes of positive IVPs and invariant positive sets.",
+          "method": "Primary publication-record inspection after no directly retrievable full text was obtained.",
+          "title": "On the positivity step size threshold of Runge-Kutta methods",
+          "trigger": "Broad primary positivity-threshold theory that could potentially dominate the claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bonaventura and Della Rocca, Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions, arXiv:1510.04303; primary full-text material inspected at Section 5.1, which identifies the SSP-optimal SDIRK2(2) method as two consecutive implicit-midpoint steps and gives absolute-monotonicity radius four.",
+        "Ferracina and Spijker, Strong Stability of Singly-Diagonally-Implicit Runge-Kutta Methods, Applied Numerical Mathematics 58 (2008); primary preprint metadata/abstract and the later full-text quotation in Bonaventura–Della Rocca checked for the optimal method context.",
+        "Horváth, Positivity of Runge-Kutta and diagonally split Runge-Kutta methods, Applied Numerical Mathematics 28 (1998), DOI 10.1016/S0168-9274(98)00050-6, and On the positivity step size threshold of Runge-Kutta methods, Applied Numerical Mathematics 53 (2005), DOI 10.1016/j.apnum.2004.08.026; primary publication abstracts inspected for general positivity-threshold theory.",
+        "Resultary query: SSP SDIRK2 two-state Markov positivity three-state pure-birth endpoint; no independent matching low-dimensional theorem was returned. A nearby Resultary record concerns the distinct [2/2] Padé/Gauss–Legendre map and an eight-state barrier.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree f49b2e9adf4fdf77f2cf6e0fbd2e93e52eee2292.",
+        "Fresh independent matrix replay of the two-midpoint endpoint map and the three-state pure-birth example at h=1,4,5,10."
+      ],
+      "rationale": "The result isolates a sharp low-dimensional exception hidden by class-wide SSP theory: two-state Markov dynamics are endpoint-immune at arbitrary steps, while one extra state is enough to realize the global radius sharply. This is a meaningful minimal-dimension boundary for positivity-preserving time integration.",
+      "residual_risks": [
+        "Older positivity-preserving RK literature may contain an equivalent low-dimensional Jordan-block observation without CTMC terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the two-stage SSP-optimal SDIRK2(2) method, equivalently two implicit-midpoint half steps, every two-state continuous-time Markov generator has a nonnegative stochastic endpoint matrix for every step size, whereas the three-state pure-birth generator already loses endpoint positivity exactly beyond \\(h=4\\); hence three states are minimal for endpoint failure and the SSP radius four is sharp inside three-state CTMCs.",
+  "limitations": [
+    "The claim is endpoint positivity only; internal RK stages need not be nonnegative beyond the SSP restriction.",
+    "It concerns the specific SSP-optimal SDIRK2(2) map, not all A-stable or SSP implicit methods.",
+    "Older positivity-preserving RK literature may contain an equivalent low-dimensional Jordan-block observation without CTMC terminology."
+  ],
+  "schema_version": 1
+}
