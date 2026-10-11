@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The verifier uses only exact binary polynomial arithmetic and Python integers. It checks that the chosen degree-nine quotient contains an element of order \(511\), hence all \(511\) nonzero residues are units and the quotient is a field. It constructs an element \(\theta\) of order \(73\), recomputes the two BCH syndrome coordinates, and verifies the dimension data.
 
-For distance, it exhausts all normalized pair signatures to exclude weight five; the BCH bound excludes smaller weights. For multiplicity, it enumerates all \(62196\) triples, counts exactly \(8760\) unordered disjoint equal-signature pairs, and verifies that each resulting six-support occurs in exactly ten partitions and satisfies both syndromes. It then recomputes the cyclic orbits and checks that there are twelve, each of size \(73\).
+# Independent mathematical audit
 
-The finite computation is exhaustive for the stated code; no inference is made about other BCH lengths or a complete weight enumerator.
+## correctness
+
+PASS
+
+I independently reran the exact finite-field/signature enumeration encoded by the inspected verifier: no normalized weight-5 support exists; all 62196 triples yield 8760 unordered disjoint equal-signature pairs; every six-support has multiplicity 10; hence there are 876 weight-6 supports. Canonical cyclic shifting gives exactly 12 free orbits of size 73. The BCH bound supplies d>=5, the exhaustive weight-5 exclusion gives d>=6, and the enumerated six-supports give d=6.
+
+## originality
+
+PASS
+
+The recent source determines minimum distances for the BCH family and, according to the frozen package comparison, records the s=3 length-73 case only at minimum-distance level. Exact Resultary and web searches found no independent A6=876 or twelve-orbit statement.
+
+## value
+
+PASS
+
+For an exceptional BCH counterexample singled out by current research, the exact minimum-word multiplicity and cyclic orbit structure are natural coding invariants relevant to error performance and structural classification. The complete finite census is not an arbitrary subset sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

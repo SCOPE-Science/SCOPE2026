@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The code dimension follows from the two size-nine defining cyclotomic cosets. The BCH bound gives distance at least five; the exact pair-signature certificate excludes weight five, and the triple-signature calculation constructs and counts all weight-six supports. Every support is directly syndrome-checked, and every one appears in exactly ten unordered triple partitions, giving \(8760/10=876\). Cyclic canonicalization independently yields twelve full size-73 orbits.
+PASS
 
-## Originality
+I independently reran the exact finite-field/signature enumeration encoded by the inspected verifier: no normalized weight-5 support exists; all 62196 triples yield 8760 unordered disjoint equal-signature pairs; every six-support has multiplicity 10; hence there are 876 weight-6 supports. Canonical cyclic shifting gives exactly 12 free orbits of size 73. The BCH bound supplies d>=5, the exhaustive weight-5 exclusion gives d>=6, and the enumerated six-supports give d=6.
 
-PASS. The closest recent source reports the exceptional code's minimum distance as six but does not count minimum words or give their cyclic orbits. Searches using the exact parameters, BCH notation, generator polynomial, and the value 876 found no statement of the coefficient. Broader weight-distribution literature inspected does not imply it. Residual risk remains that an unindexed computational table contains the same first coefficient.
+## originality
 
-## Value
+PASS
 
-PASS. The coefficient \(A_6\) is the first nonzero term of the weight enumerator, a standard invariant connected to decoding and error-probability analysis. For the exceptional finite member singled out by the recent family paper, the exact count and complete cyclic-orbit decomposition materially sharpen the previously reported distance-only information and provide a compact reusable benchmark.
+The recent source determines minimum distances for the BCH family and, according to the frozen package comparison, records the s=3 length-73 case only at minimum-distance level. Exact Resultary and web searches found no independent A6=876 or twelve-orbit statement.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For an exceptional BCH counterexample singled out by current research, the exact minimum-word multiplicity and cyclic orbit structure are natural coding invariants relevant to error performance and structural classification. The complete finite census is not an arbitrary subset sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

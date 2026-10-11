@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:56:48Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Fresh exact replay: 876 supports, 8760 triple-pair collisions, 12 cyclic orbits.",
+        "arXiv:2609.00532 current primary abstract establishes the same BCH family and exact-minimum-distance program."
+      ],
+      "rationale": "I independently reran the exact finite-field/signature enumeration encoded by the inspected verifier: no normalized weight-5 support exists; all 62196 triples yield 8760 unordered disjoint equal-signature pairs; every six-support has multiplicity 10; hence there are 876 weight-6 supports. Canonical cyclic shifting gives exactly 12 free orbits of size 73. The BCH bound supplies d>=5, the exhaustive weight-5 exclusion gives d>=6, and the enumerated six-supports give d=6.",
+      "risks": [
+        "Only the first nonzero weight coefficient is classified, not the full weight enumerator."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The current BCH paper's public statement concerns exact minimum distances, not the full minimum-word multiplicity.",
+          "General cyclic-code weight-distribution literature does not mechanically determine this defining set."
+        ],
+        "reasoning": "No inspected stronger theorem outputs A6 for this code.",
+        "searches": [
+          "arXiv:2609.00532",
+          "Dinh-Li-Yue 2015 survey on cyclic-code weight distributions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:2609.00532",
+        "Dinh-Li-Yue 2015 weight-distribution survey"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing d=6 does not determine A6 or the orbit structure.",
+          "The submitted exhaustive syndrome collision census supplies information not implied by minimum distance."
+        ],
+        "reasoning": "Prior distance results do not entail the count.",
+        "searches": [
+          "arXiv:2609.00532 minimum-distance result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned related BCH minimum-distance records but no multiplicity/orbit census.",
+          "Exact web searches did not surface 876 as a BCH weight coefficient."
+        ],
+        "reasoning": "Weight-enumerator coefficient, minimum-support count and cyclic-orbit formulations were checked.",
+        "searches": [
+          "Resultary: length 73 BCH exact A6 876 cyclic orbits",
+          "Web: C_(2,73,5,1), length 73 BCH minimum words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No code-table or database result with 876/12 was found in the searched sources."
+        ],
+        "reasoning": "The claim is a finite invariant, so exact-table duplication was specifically checked.",
+        "searches": [
+          "Resultary exact code/value search",
+          "Web exact-number search"
+        ]
+      },
+      "rationale": "The recent source determines minimum distances for the BCH family and, according to the frozen package comparison, records the s=3 length-73 case only at minimum-distance level. Exact Resultary and web searches found no independent A6=876 or twelve-orbit statement.",
+      "residual_risks": [
+        "An unindexed code table or source appendix could contain A6=876; the accessible primary statement did not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MINIMUM_DISTANCE_SOURCE_NOT_ACCESSIBLY_REPORTING_A6",
+          "evidence": [
+            "Primary statement focuses on exact minimum distances and counterexamples, not minimum-word multiplicities."
+          ],
+          "identifier_or_url": "arXiv:2609.00532",
+          "material_read": "Current primary arXiv abstract/submission page and family-level minimum-distance statement; full experimental HTML did not expose the length-73 remark in searchable text during this run.",
+          "method": "Public arXiv inspection plus independent exact verifier replay.",
+          "title": "Solutions to Three Conjectures and an Open Problem on Binary BCH Codes",
+          "trigger": "Exact family and exceptional length-73 case."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete classification of all minimum supports and their cyclic symmetry classes."
+      ],
+      "rationale": "For an exceptional BCH counterexample singled out by current research, the exact minimum-word multiplicity and cyclic orbit structure are natural coding invariants relevant to error performance and structural classification. The complete finite census is not an arbitrary subset sample.",
+      "risks": [
+        "No general formula for other s is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The binary narrow-sense BCH code C_(2,73,5,1) has parameters [73,55,6], exactly 876 minimum-weight words, and twelve cyclic-shift orbits of size 73.",
+  "limitations": [
+    "No complete weight enumerator.",
+    "Only s=3/length 73."
+  ],
+  "schema_version": 1
+}
