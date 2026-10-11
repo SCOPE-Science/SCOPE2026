@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact division in \(\mathbb Z_{169}[x]\) gives nonzero remainders for both printed component polynomials. Exact quotient-ring multiplication maps have image sizes \(13^9\) and \(13^8\), so the literal printed direct sum contains \(13^{17}\) words. The replacement polynomials divide \(x^7-1\) and \(x^7+1\), reduce to the printed factors modulo \(13\), and each generate exactly \(169^2\) words. Exhaustive enumeration gives component weight distribution \(1+1176z^6+27384z^7\), while unit Gram determinants prove both components LCD. Therefore the corrected additive code is ACD with \(13^8\) words, exact distance \(6\), and meets the Singleton equality for the \(\mathbb Z_{169}[i]\) alphabet.
+PASS
 
-## Originality
+For the printed \(p=13,n=7\) Table 1 component polynomials, exact division modulo \(169\) gives nonzero remainders \(26+13x+39x^2+117x^4\) from \(x^7-1\) and \(13x^3+13x^4\) from \(x^7+1\), so the literal printed coefficients are not valid \(t=2\) divisors. Exact multiplication-matrix reduction gives ideal cardinalities \(13^9\) and \(13^8\), hence \(13^{17}\) for the direct sum rather than the advertised \(13^8\). The corrected lifts \(\widehat f=(168,6,134,35,163,1)\) and \(\widehat g=(1,29,164,164,29,1)\) divide the two modulus polynomials with cofactors \((1,6,1)\) and \((1,140,1)\), reduce to the printed polynomials mod \(13\), and generate free rank-two components. Fresh exact enumeration reproduces the component weight distribution \(1+1176z^6+27384z^7\); the Gram determinants \(46\) and \(154\) are units modulo \(169\), proving LCD. Thus the corrected direct sum has size \(13^8\), distance \(6\), and meets the Singleton bound.
 
-PASS. The live 2026 source still prints the unchanged coefficient row as a generator polynomial family over \(\mathbb Z_{p^t}[i]\). The earlier 2024/2025 article gives the residue-field parameter family but not this \(t=2\) repair. Searches by article title, row parameters, the two printed polynomials, the two corrected polynomials, the \(\mathbb Z_{169}\) specialization, the \(13^{17}\) cardinality, and correction/corrigendum terminology found no prior statement of the discrepancy or corrected lift.
+## originality
 
-Residual risk: the table may have been intended as shorthand for residue-field representatives requiring an implicit new Hensel lift for every \(t\), despite its caption presenting generator polynomials over the prime-power rings. Under that reading the finding diagnoses an omitted explicit lift rather than a failure of the existence theorem.
+PASS
 
-## Value
+The current primary article's Table 1 explicitly labels the displayed objects as generator polynomials over \(\mathbb Z_{p^t}[i]\) and prints the \(p=13,n=7\) row with the coefficient strings audited here and parameters \((7,13^{4t},6)\). The paper invokes Hensel lifting generally but supplies no \(t\)-dependent corrected coefficients in that row. Targeted Resultary and web searches found no corrigendum, published corrected lift, or report of the \(13^{17}\) literal-generator cardinality. The earlier order-\(p^2\) Gaussian-code paper covers the \(t=1\) baseline, not this \(t=2\) lift. The audited correction therefore survives implication comparison.
 
-PASS. The issue changes the cardinality of the literal \(t=2\) code from the advertised \(13^8\) to \(13^{17}\), so the printed polynomial string cannot serve as the claimed explicit construction. The supplied lift repairs the example exactly and gives a reusable, independently checkable \(t=2\) generator while preserving the source's broader existence result.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The result corrects a concrete published generator for an advertised ACD MDS family and supplies an explicit valid Hensel lift restoring the claimed code, rather than merely flagging a typo. Exact generator data are essential for reproducibility in finite-ring coding theory, so this is a motivated finite correction with a complete replacement certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

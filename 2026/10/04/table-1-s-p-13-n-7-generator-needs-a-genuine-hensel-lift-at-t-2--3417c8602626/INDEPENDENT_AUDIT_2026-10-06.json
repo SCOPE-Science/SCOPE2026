@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:01:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob d8af3fac3a86dfb3eb45095bee56ba687d5e946e",
+        "assigned artifacts/verify.py blob 0e9ae7add3a3991115ec4046935d32961cfa9578",
+        "assigned certificate blob 96a9045d02db7f4931466c7b4caab3eebfaee482",
+        "Karbaski--Abualrub--Siap, DOI 10.3934/amc.2026.101089 current primary HTML",
+        "fresh exact polynomial/cardinality/weight replay"
+      ],
+      "rationale": "For the printed \\(p=13,n=7\\) Table 1 component polynomials, exact division modulo \\(169\\) gives nonzero remainders \\(26+13x+39x^2+117x^4\\) from \\(x^7-1\\) and \\(13x^3+13x^4\\) from \\(x^7+1\\), so the literal printed coefficients are not valid \\(t=2\\) divisors. Exact multiplication-matrix reduction gives ideal cardinalities \\(13^9\\) and \\(13^8\\), hence \\(13^{17}\\) for the direct sum rather than the advertised \\(13^8\\). The corrected lifts \\(\\widehat f=(168,6,134,35,163,1)\\) and \\(\\widehat g=(1,29,164,164,29,1)\\) divide the two modulus polynomials with cofactors \\((1,6,1)\\) and \\((1,140,1)\\), reduce to the printed polynomials mod \\(13\\), and generate free rank-two components. Fresh exact enumeration reproduces the component weight distribution \\(1+1176z^6+27384z^7\\); the Gram determinants \\(46\\) and \\(154\\) are units modulo \\(169\\), proving LCD. Thus the corrected direct sum has size \\(13^8\\), distance \\(6\\), and meets the Singleton bound.",
+      "residual_risks": [
+        "The correction addresses the literal \\(t=2\\) reading of one Table 1 row; no claim is made about the other rows.",
+        "The source may have intended the displayed coefficients only as residue-field representatives requiring an unstated fresh Hensel lift."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Hensel theory guarantees suitable lifts under its hypotheses but does not make unchanged residue coefficients valid modulo \\(p^2\\).",
+          "The audited exact lift and literal-row failure require the concrete coefficient calculation."
+        ],
+        "reasoning": "The general theory does not mechanically supply the printed-row correction without performing the lift.",
+        "searches": [
+          "current paper's general Hensel-lifting construction",
+          "earlier additive conjucyclic LCD/ACD theory"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3934/amc.2026.101089",
+        "DOI 10.3934/amc.2024041",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The printed polynomials fail the defining divisibility equations modulo \\(169\\).",
+          "The corrected coefficients are not obtained by merely reinterpreting the unchanged printed integers; they are a genuine nontrivial lift."
+        ],
+        "reasoning": "The concrete correction is not stated or implied as an explicit row by the current source.",
+        "searches": [
+          "published Table 1 row versus actual \\(t=2\\) divisibility",
+          "generic Hensel lifting versus the explicit corrected factors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The current source prints exactly the same coefficient strings and advertised parameter family.",
+          "The earlier source establishes the residue-field/order-\\(p^2\\) baseline but not the \\(t=2\\) coefficients over \\(\\mathbb Z_{169}\\)."
+        ],
+        "reasoning": "The audited claim is a correction of the literal current table, not a rephrasing of the earlier \\(t=1\\) construction.",
+        "searches": [
+          "Resultary query: conjucyclic Gaussian integers Table 1 p=13 n=7 Hensel lift 169",
+          "DOI 10.3934/amc.2026.101089 Table 1",
+          "DOI 10.3934/amc.2024041"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent correction or exact \\(t=2\\) replacement row was retrieved."
+        ],
+        "reasoning": "Search absence supports the direct comparison with the current table.",
+        "searches": [
+          "Resultary current search for the printed and corrected coefficient strings",
+          "targeted search for the \\(13^{17}\\) literal ideal size and a corrigendum"
+        ]
+      },
+      "rationale": "The current primary article's Table 1 explicitly labels the displayed objects as generator polynomials over \\(\\mathbb Z_{p^t}[i]\\) and prints the \\(p=13,n=7\\) row with the coefficient strings audited here and parameters \\((7,13^{4t},6)\\). The paper invokes Hensel lifting generally but supplies no \\(t\\)-dependent corrected coefficients in that row. Targeted Resultary and web searches found no corrigendum, published corrected lift, or report of the \\(13^{17}\\) literal-generator cardinality. The earlier order-\\(p^2\\) Gaussian-code paper covers the \\(t=1\\) baseline, not this \\(t=2\\) lift. The audited correction therefore survives implication comparison.",
+      "residual_risks": [
+        "A future corrigendum could supersede the current online table.",
+        "The intended-not-literal interpretation of Table 1 remains a presentation ambiguity, although the caption supports the literal reading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_T2_ROW_CONTRADICTED",
+          "evidence": "The table presents the audited coefficient pair as a generator over \\(\\mathbb Z_{p^t}[i]\\) for the advertised parameter family; exact \\(t=2\\) arithmetic disproves the literal row.",
+          "identifier_or_url": "DOI 10.3934/amc.2026.101089",
+          "material_read": "current primary full HTML at Table 1, its caption, the \\(p=13,n=7\\) row, and the surrounding construction context",
+          "method": "primary full-text HTML inspection",
+          "title": "Conjucyclic codes over the Gaussian integers",
+          "trigger": "exact source of the audited table row"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "current Karbaski--Abualrub--Siap article",
+        "earlier \\(t=1\\) article",
+        "exact package and fresh arithmetic"
+      ],
+      "rationale": "The result corrects a concrete published generator for an advertised ACD MDS family and supplies an explicit valid Hensel lift restoring the claimed code, rather than merely flagging a typo. Exact generator data are essential for reproducibility in finite-ring coding theory, so this is a motivated finite correction with a complete replacement certificate.",
+      "residual_risks": [
+        "Its scope is one published row and one lift level."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The correction addresses the literal \\(t=2\\) reading of one Table 1 row; no claim is made about the other rows.",
+    "The source may have intended the displayed coefficients only as residue-field representatives requiring an unstated fresh Hensel lift.",
+    "A future corrigendum could supersede the current online table.",
+    "The intended-not-literal interpretation of Table 1 remains a presentation ambiguity, although the caption supports the literal reading.",
+    "Its scope is one published row and one lift level."
+  ]
+}
