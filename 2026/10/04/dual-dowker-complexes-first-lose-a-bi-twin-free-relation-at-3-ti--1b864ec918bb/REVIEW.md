@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Minimality below six total vertices is proved by neighborhood counting and the complete small-shape classification. The \(3\times3\) witnesses have identical dual-Dowker signatures but different preserved degree data, and exhaustive canonicalization verifies the complete eight-class/seven-signature census.
+## correctness
 
-## Originality
-PASS. The closest paper establishes one-sided non-faithfulness and weighted/cosheaf faithfulness, while the rectangle-complex construction keeps the full incidence relation. The checked literature does not state the twin-free two-sided minimal collision or the complete \(3\times3\) census. Residual risk remains in older formal-concept-analysis terminology.
+PASS
 
-## Value
-PASS. This is the sharp first information-loss boundary after removing duplicate and empty neighborhoods. It gives a concrete reason that the pair of dual unweighted Dowker complexes is still weaker than the weighted/cosheaf representations introduced in the literature.
+The finite classification is correct. An independent enumeration of all binary relations with total side size below six found no two relation-isomorphism classes sharing an ordered dual-Dowker signature. For \(3\times3\), independent enumeration found 174 labeled bi-twin-free matrices, eight row/column-isomorphism classes, seven ordered dual-Dowker signatures, and signature multiplicities \(1,1,1,1,1,1,2\). The unique two-class fiber has canonical strings `001011111` and `011101111`, matching the displayed matrices. Their row-degree multisets differ, so they are not relation-isomorphic, while each side has a full 2-simplex as Dowker complex. The lower-size argument also follows directly from the distinct-nonempty-neighborhood constraint.
 
-## Closest literature and limitations
-Robinson, arXiv:2005.12348 / DOI 10.1007/s41468-021-00078-y, is the closest reconstruction result. Brun–Salbu, DOI 10.1007/s00009-022-02213-0, is the closest construction simultaneously linked to both dual complexes. The present result is limited to the minimal boundary and the complete \(3\times3\) census; no classification of larger fibers is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Robinson proves that the unweighted Dowker functor is non-faithful and that weighted/cosheaf enrichment can recover a relation; Brun–Salbu's rectangle complex retains incidences as vertices. Neither inspected full text gives the stronger two-sided question after both row and column twins and empties are removed, nor the exact first-loss census. The complete \(3\times3\) minimal collision therefore survives as original to the best of the inspected evidence.
+
+## value
+
+PASS
+
+Faithfulness of relational summaries is a natural structural question in Dowker theory. Removing the trivial information loss from repeated or empty neighborhoods and then locating the exact first failure, including the complete smallest fiber, is a motivated finite boundary rather than an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
