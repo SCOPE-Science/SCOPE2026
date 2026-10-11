@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:05:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 127d791549034f56ac9600a3d6574df65b6108d4",
+        "verify.py blob 858e0d105202700ae37ab982287382c5723f3571",
+        "Liu 2026 author-hosted full PDF"
+      ],
+      "rationale": "The singleton Möbius faces give the exact 1/t tail. Because rho_12=0, the (1,2) face is an independent two-Pareto convolution and contributes exactly 2 w_1 w_2 log(t)/t^2+O(t^-2). For each strictly negative Gaussian pair, simultaneous lower-tail extremes have exponent 2/(1+rho)>2; after separating the fixed-width boundary strips, conditional Gaussian tails give an integrable dominated-convergence bound on the cooperative core, so the whole pair face is O(t^-2). On the trivariate lower corner, R is a Stieltjes matrix, hence R^{-1} is entrywise nonnegative with diagonal at least one; for nonnegative Gaussian quantiles the copula density is therefore bounded, and the three-face reciprocal integral is O(t^-2). If one p-value is outside that corner, its reciprocal score is bounded and the triple increment is supported in fixed-width singleton/pair shells, also O(t^-2). Summing the faces yields the claimed expansion. Direct tail inversion gives the stated quantile shift and size correction. A fresh sanity check verified positive definiteness/inverse positivity for a representative mixed matrix and the coefficient subtraction; the infinite asymptotic proof is analytic.",
+      "residual_risks": [
+        "The argument is pointwise for fixed correlations; it does not provide a uniform transition theorem as negative correlations approach zero.",
+        "The theorem is trivariate with exactly one zero edge and two negative edges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu explicitly says one-sided nonpositive Gaussian second terms remain open and that mixed zero/negative coverage remains to be written.",
+          "Strict-negative Gaussian risk results do not include the zero-correlation critical pair responsible for the logarithm."
+        ],
+        "reasoning": "No inspected broader theorem supplies the mixed critical-edge coefficient and full weighted-sum remainder.",
+        "searches": [
+          "Liu, Copula Geometry and Second-Order Calibration of Heavily Right Aggregation, Sections 7 and A.11-A.12",
+          "Kortschak 2012 Gaussian-copula second-order risk-tail literature",
+          "current Resultary corpus"
+        ]
+      },
+      "checked_sources": [
+        "https://liutianle.com/assets/pdf/copula-geometry-second-order.pdf",
+        "Kortschak 2012 DOI 10.1007/s10687-011-0142-x",
+        "Resultary current corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly notes that the negative joint-extreme exponent alone does not identify the leading weighted-sum remainder because edge shells and higher faces remain.",
+          "The assigned proof supplies those missing controls and shows that only the exactly independent edge keeps the logarithmic term."
+        ],
+        "reasoning": "The final expansion is not a routine corollary of the prior pair-tail exponents.",
+        "searches": [
+          "Liu's bivariate negative-tail exponent calculation versus the assigned weighted-sum theorem",
+          "independent reciprocal expansion versus the mixed law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reciprocal score T_w in Liu is the same weighted reciprocal-p aggregate.",
+          "The independence boundary is the same zero-correlation edge, while the two other edges are strictly negative."
+        ],
+        "reasoning": "The assigned theorem is a concrete three-dimensional instance of the exact open nonpositive-Gaussian regime named by the source.",
+        "searches": [
+          "Resultary query: reciprocal p-value aggregation Gaussian copula zero correlation negative correlations second-order tail log coefficient",
+          "Liu 2026 Open Problem A.12 in the full PDF",
+          "searches under harmonic-mean/reciprocal aggregation and Gaussian copula risk tails"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier same-result published finding was returned."
+        ],
+        "reasoning": "The direct open-problem statement is the main originality evidence; database absence is secondary.",
+        "searches": [
+          "Resultary semantic search for the exact trivariate zero-negative correlation pattern and coefficient"
+        ]
+      },
+      "rationale": "Liu's full primary paper explicitly states Open Problem A.12 for one-sided nonpositive Gaussian dependence and says that a uniform theorem covering mixed zero and negative correlations remains to be written. The audited theorem solves the minimal genuinely mixed reciprocal case by proving the missing negative-edge and three-face remainder controls and identifies the surviving critical logarithm. Current Resultary and web searches found no earlier theorem with this exact mixed Gaussian coefficient. This is a direct positive open-problem comparison, not novelty inferred from search failure.",
+      "residual_risks": [
+        "A special case could exist in older risk-aggregation terminology not indexed by the p-value literature, although the 2026 source's own literature audit treats this regime as open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_PROBLEM_MATCH",
+          "evidence": "Open Problem A.12 states that one-sided nonpositive Gaussian dependence with at least one strict negative correlation remains open and specifically says a uniform theorem covering mixed zero and negative correlations remains to be written.",
+          "identifier_or_url": "https://liutianle.com/assets/pdf/copula-geometry-second-order.pdf",
+          "material_read": "full author-hosted 80-page PDF, especially Section 7, Appendix A.11, Open Problem A.12, and the conditional fixed-dimensional theorem A.13",
+          "method": "primary full-text PDF inspection",
+          "title": "Copula Geometry and Second-Order Calibration of Heavily Right Aggregation",
+          "trigger": "exact motivating open problem and closest general Gaussian theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu Open Problem A.12",
+        "assigned analytic proof"
+      ],
+      "rationale": "The theorem resolves a specifically identified open dependence regime at the smallest dimension where zero and strict-negative Gaussian edges coexist, and quantifies exactly how much logarithmic second-order inflation disappears relative to independence. This is a motivated calibration boundary result rather than a generic asymptotic exercise.",
+      "residual_risks": [
+        "It does not yet give the arbitrary-dimensional or correlation-to-zero uniform transition law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The argument is pointwise for fixed correlations; it does not provide a uniform transition theorem as negative correlations approach zero.",
+    "The theorem is trivariate with exactly one zero edge and two negative edges.",
+    "A special case could exist in older risk-aggregation terminology not indexed by the p-value literature, although the 2026 source's own literature audit treats this regime as open.",
+    "It does not yet give the arbitrary-dimensional or correlation-to-zero uniform transition law."
+  ]
+}
