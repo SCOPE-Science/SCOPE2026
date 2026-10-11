@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:19:58.249473Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Benoist's equidegree formula gives each partial coefficient degree as \\(\\binom{N+1}{c}d^{c-1}(d-1)^{N-c+1}\\); summing over the \\(c\\) equations gives the stated total degree. Using \\(c\\binom{N+1}{c}=(N+1)\\binom{N}{c-1}\\) and Legendre–Kummer, \\(\\nu_2\\binom{N}{c-1}\\) is exactly the number of binary carries in \\((c-1)+(N-c+1)=N\\), yielding the valuation formula. The oddness and universal mod-\\(4\\) statements follow by elementary case analysis; \\((N,c,d)=(2,2,2)\\) gives \\(12\\), so the factor \\(4\\) is sharp. The inspected verifier checks \\(204120\\) finite cases as regression evidence only.",
+      "risks": [
+        "The theorem is equidegree only and excludes the pure resultant case \\(c=N+1\\)."
+      ],
+      "sources": [
+        "assigned RESULT.md blob 3bf65a31caafb6f293d4d83ce7138829b71a1aea",
+        "artifacts/verify.py blob ed2d5232f3c9f1fe4c3712e98b1f2d9516128510",
+        "Benoist, DOI 10.5802/aif.2720, Example 1.10",
+        "Legendre/Kummer binomial valuation theorem"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kummer identifies the binomial valuation with the base-two carry count."
+        ],
+        "reasoning": "Combining two standard prior formulas gives the full claimed valuation without a new nonstandard lemma.",
+        "searches": [
+          "Benoist primary paper",
+          "classical Kummer theorem for \\(\\nu_2\\binom{N}{c-1}\\)"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.5802/aif.2720",
+        "arXiv:1009.0704",
+        "classical Kummer/Legendre binomial valuation",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The carry formula is one algebraic rewrite; oddness and mod-\\(4\\) are immediate zero/lower-bound case splits on its nonnegative summands."
+        ],
+        "reasoning": "All originality-bearing assertions are mechanically implied by established formulas.",
+        "searches": [
+          "statement-by-statement implication from Benoist Example 1.10 plus Kummer/Legendre"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benoist prints \\(\\deg_i=\\binom{N+1}{c}d^{c-1}(d-1)^{N-c+1}\\).",
+          "The total degree is the sum of the partial degrees, already recorded in the same paper."
+        ],
+        "reasoning": "The audited total-degree formula is already an immediate specialization of published formulas.",
+        "searches": [
+          "Benoist Example 1.10 equidegree discriminant degree",
+          "Resultary: complete-intersection discriminant 2-adic binary carries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database lookup is needed because theorem-level implication is already decisive."
+        ],
+        "reasoning": "The claim is not rescued by lack of a precomputed parity table.",
+        "searches": [
+          "current Resultary exact discriminant-degree search"
+        ]
+      },
+      "rationale": "Every asserted valuation and parity consequence is a direct mechanical corollary of Benoist's published closed degree formula and the classical Kummer/Legendre formula for binomial valuations. Benoist explicitly gives the equidegree partial degree, and the total degree is the sum of the equal partial degrees. Rewriting one binomial coefficient and applying Kummer immediately produces the audited carry term. Under the implication-based originality rule, absence of the exact wording in Benoist does not make this routine arithmetic corollary original.",
+      "residual_risks": [
+        "No historical-priority claim is made; the scientific originality failure is implication-based."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING ingredient that, with classical Kummer, mechanically implies the claim.",
+          "evidence": "Example 1.10 explicitly gives the equal partial degree \\(\\binom{N+1}{c}d^{c-1}(d-1)^{N-c+1}\\).",
+          "identifier_or_url": "https://doi.org/10.5802/aif.2720",
+          "material_read": "Primary PDF Theorem 1.3, the degree identities, and Example 1.10 with the equidegree formula.",
+          "method": "Primary formula and implication comparison.",
+          "title": "Degrés d'homogénéité de l'ensemble des intersections complètes singulières",
+          "trigger": "Primary source of the exact equidegree discriminant degree."
+        },
+        {
+          "assessment": "Correct corroboration only.",
+          "evidence": "It compares the degree and predicted valuation in \\(204120\\) exact integer cases and checks the sharp degree \\(12\\) example.",
+          "identifier_or_url": "artifacts/verify.py",
+          "material_read": "Complete source.",
+          "method": "Line-by-line inspection.",
+          "title": "Assigned arithmetic verifier",
+          "trigger": "Finite regression check."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The binary-carry expression is a clean reformulation and may be pedagogically useful, but it is a textbook-level substitution of a published degree formula into Kummer's theorem. The oddness and mod-\\(4\\) corollaries are then immediate case splits. This does not meet the stated value bar for a new structural lemma or nonmechanically determined natural invariant.",
+      "risks": [
+        "Failure of value does not question the correctness of the formulas."
+      ],
+      "sources": [
+        "Benoist Example 1.10",
+        "classical Kummer theorem"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Correctness passes.",
+    "Originality and value fail by direct implication from Benoist plus Kummer/Legendre.",
+    "Equidegree characteristic-zero total degree only; the resultant boundary is excluded."
+  ],
+  "schema_version": 1
+}
