@@ -1,0 +1,12 @@
+# Review
+
+## Correctness
+**PASS.** A generic tetrahedral projection loses at most one vertex, so triangle shadows are exactly the disjoint pairs of spherical tangent cones. On each cone the projected area is the absolute projected opposite-face area. The spherical Laplace identities for linear and centered quadratic coordinate functions, the outward face conormals, and the exact great-circle-arc integral prove the two area-weighted formulas without finite approximation. Cauchy's brightness identity and the two-direction absolute spherical kernel give the unconditional first two moments. Algebraic specialization gives all four regular-tetrahedron conditional values; a triple-angle inequality proves the strict difference between the means. The bundled independent Gauss--Legendre cone quadrature and projected convex-hull tests agree with those exact identities. The experiments are not substitutes for the analytic all-shape proof.
+
+## Originality
+**PASS, with historical-search limitations.** The full Feldman--Klain paper establishes only the unweighted cone-angle probability; this is quoted as prior work. Finch's full §2.1 states regular-tetrahedron unconditional area moments and silhouette probabilities, and his §5 specifies a directional area integrand, but neither section evaluates the conditional first and second area moments. The new calculation is an arbitrary-tetrahedron geometric finite-sum formula for those weighted probabilities and its canonical regular specialization. Black--Criado is about shadow vertex counts and edge projections rather than area-conditioned moments. Searches under weighted solid angles, silhouette-conditioned chorowidth, triangular/three-vertex shadow area, tetrahedral projection moments, and mechanical aliases revealed no dominating published formula. A possible older stereology calculation remains a residual risk.
+
+## Value
+**PASS.** Conditioning on silhouette type is natural in stereological inference from visible projected shapes; the class probabilities alone do not quantify area selection bias. The exact all-tetrahedra formulas make two conditional moments computable without simulation for arbitrary asymmetric shapes. The regular-tetrahedron calculation gives a strict and quantitatively meaningful bias (conditional means approximately \(3.2901\) versus \(3.5582\) at edge length \(2\sqrt2\)) and distinct conditional variances, extending two established but separate random-projection calculations.
+
+Same-model review: passed. Independent audit: not yet performed.

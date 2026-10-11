@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every full-dimensional tetrahedron, triangular shadow directions are exactly the disjoint four pairs of spherical vertex tangent cones. On each cone the projected area equals the area of the opposite face times its normal coordinate. Spherical integration by parts with Laplacians -2 and -6 for linear and traceless quadratic coordinate functions yields exact cone moment sums; the outward conormal and great-circle arc integrals are explicit. Cauchy brightness plus the exact correlated-Gaussian absolute-value kernel proves the unconditional moments, so the quadrilateral conditional moments follow by subtraction. For the regular tetrahedron, face areas, dot products, solid angles, and cone moments yield all four closed expressions and the strict selection bias. Independent deterministic cone quadrature and random convex-hull diagnostics match the proof formulas; they are not substituted for proof.",
+    "risks": [
+      "Numerical cone quadrature does not prove the all-tetrahedra claim; the analytical Green identities do.",
+      "The outward face-normal and spherical conormal orientation must be kept fixed and is explicitly specified."
+    ],
+    "sources": [
+      "arXiv:0809.3459v1",
+      "arXiv:1203.2464v1"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feldman--Klain works for all simplices and so dominates only the unweighted probability, not the weighted projected-area moments.",
+        "Finch covers the regular tetrahedron unconditioned on silhouette type. The general formulas in this finding apply to arbitrary asymmetric tetrahedra.",
+        "Black--Criado §2 studies projected edge lengths and expected combinatorial size of random shadows; not the conditional area moments."
+      ],
+      "reasoning": "A general cone-moment or conditional mixed-intrinsic-volume theorem might dominate the claim, but the strongest materially inspected papers supply geometric marginals or edge complexity rather than finite area-weighted cone integrals.",
+      "searches": [
+        "convex tetrahedron spherical tangent cone degree 1 degree 2 moments projection area",
+        "Haar random projection regular tetrahedron probability triangle versus quadrilateral silhouette solid angle projection 4 vertices",
+        "regular platonic solids shadow area variance tetrahedron exact 2012 Finch",
+        "Random Shadows of Fixed Polytopes 2024 Black Criado expected number vertices"
+      ]
+    },
+    "checked_sources": [
+      "Feldman and Klain, arXiv:0809.3459v1, full 4-page author text and Theorem 1.",
+      "Finch, arXiv:1203.2464v1, complete public HTML, especially §2.1 and §5.",
+      "Black and Criado, arXiv:2406.06936v1, public full HTML especially §2.",
+      "Keyword/alias searches for area-weighted triangular-shadow probability and tetrahedral conditional chorowidth moments.",
+      "Related current and prior local geometric statements, compared for implication rather than title equality."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of Feldman--Klain proves exactly the \\(k=0\\) part of the new cone-moment identity; it does not imply its \\(k=1,2\\) weighted integrals without additional geometric analysis.",
+        "Finch §2.1 gives \\(\\mathbb E B\\), \\(\\mathbb E B^2\\) and \\(\\mathbb P(N=3)\\) for the regular tetrahedron; these three marginal quantities leave the two conditional first and second moments underdetermined.",
+        "The closest pre-existing local finding is the unconditional orientation-variance spectrum of Platonic shadow areas (identifier 76ed33fc-3859-4e3f-a4ec-a95cfc1a5c43); it lacks silhouette conditioning.",
+        "Earlier tetrahedron vertex-distance and angle-profile records study different geometric functionals."
+      ],
+      "reasoning": "The new proof calculates \\(\\int_{C_i}(n_i\\cdot u)\\,d\\sigma\\) and \\(\\int_{C_i}(n_i\\cdot u)^2\\,d\\sigma\\) for all four arbitrary-shape cones, using nontrivial spherical boundary identities. The old unconditional probabilities and moments do not imply those separate weighted contributions, nor their all-tetrahedral geometric normal/edge-angle form.",
+      "searches": [
+        "arXiv:0809.3459v1 Theorem 1 spherical vertex cone projection simplex probability",
+        "arXiv:1203.2464v1 section 2.1 section 5 tetrahedron chorowidth moments piecewise",
+        "arXiv:2406.06936v1 section 2 projected edge length independent normal cone",
+        "area weighted probability regular tetrahedron random planar projection triangular shadow conditional projected area first second moments",
+        "current local records Platonic shadow area variance tetrahedron conditional moments",
+        "prior local records projection tetrahedron silhouette second area moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The conditional expectation is identical to the ratio of an area-weighted solid angle to the unweighted cone mass.",
+        "Finch calls projected planar area chorowidth; §2.1 gives its unconditional moments and shadow vertex-count probabilities separately, not the mixed moments.",
+        "Feldman--Klain Theorem 1 gives the sum of solid vertex angles but no area weighting."
+      ],
+      "reasoning": "Aliases include shadow, silhouette, chorowidth, projected area, mixed indicator moments, and weighted solid angles. The sought implication would require area times silhouette indicator, not merely one of its marginals.",
+      "searches": [
+        "tetrahedron silhouette triangle quadrilateral expected area conditional Haar projection",
+        "Feldman Klain angles as probabilities area weighted moments projected tetrahedron face cone",
+        "planar projected tetrahedron chorowidth area first second moments silhouette triangle conditional",
+        "regular tetrahedron shadow triangular silhouette area conditional variance",
+        "tetrahedron projected area conditioned triangular silhouette expected"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Finch §2.1 supplies an exact unconditional regular-tetrahedron second moment 0.188561220515812 at unit edge, not a pair of conditional values.",
+        "Feldman--Klain explicitly supply the unweighted probability, which is already known and is not claimed as new.",
+        "The inspected literature provides no tabulated split of the two projected-area moments by triangular versus quadrilateral silhouette."
+      ],
+      "reasoning": "The exact family formulas involve three finite cone-moment sums for any tetrahedron and four new regular conditional values; numerical unconditional tables cannot determine this split.",
+      "searches": [
+        "\"tetrahedron\" \"triangular shadow\" \"conditional\" \"area\"",
+        "tetrahedron projected area conditioned triangular silhouette expected",
+        "conditional expected area random projection tetrahedron triangle quadrilateral",
+        "tetrahedron projection triangular silhouette expected area variance",
+        "regular tetrahedron shadow triangular silhouette area conditional variance"
+      ]
+    },
+    "rationale": "Feldman--Klain prove the unweighted vertex-angle probability but not the first/second area-weighted cone masses. Finch evaluates unconditional regular-tetrahedron projected-area moments and the separate 3/4 vertex probabilities and presents a piecewise directional area integrand, but does not state the conditional first or second moment table or a finite angle formula for arbitrary asymmetric tetrahedra. Black--Criado focus on shadow size, edge lengths, and normal fans. Combining the older results does not by itself provide the independent weighted cone integrations and the arbitrary-shape formulas. Searches across mathematical aliases located no domination; historical unindexed coverage remains possible.",
+    "residual_risks": [
+      "An older or unindexed stereology or projection-shadow paper might contain an equivalent weighted cone-moment identity.",
+      "Finch provides a piecewise integrand from which some regular-tetrahedron conditional values could be recovered by additional integration, even though the evaluated conditional table is not stated.",
+      "The unconditional area moments and unweighted probability are explicitly prior-covered and are not part of the new contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_SHADOW_EVENTS_UNWEIGHTED_PROBABILITY_PRIOR",
+        "evidence": "Its equation (2) gives the probability that a projected simplex loses one vertex; it has no projected-area weighting or second area moment.",
+        "identifier_or_url": "arXiv:0809.3459v1",
+        "material_read": "Full author-provided HTML paper, including the definition of the spherical vertex-angle event and the proof of Theorem 1.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Angles as probabilities",
+        "trigger": "Exact origin of the triangular-shadow probability and the vertex-tangent-cone decomposition."
+      },
+      {
+        "assessment": "REGULAR_UNCONDITIONAL_MOMENTS_AND_SEPARATE_SHADOW_PROBABILITY_PRIOR",
+        "evidence": "Section 2.1 explicitly states unconditional first and second chorowidth moments and the 3/4 shadow-vertex probabilities; section 5 defines the directional area by cases. No conditional first/second area-moment table is given and no arbitrary tetrahedron weighted-cone formula is stated.",
+        "identifier_or_url": "arXiv:1203.2464v1",
+        "material_read": "Full open HTML; sections 1, 2.1, 5 and associated tetrahedral area/probability expressions, including the piecewise angular directional-area formula.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Planar Projections and Second Intrinsic Volume",
+        "trigger": "Potentially dominating exact regular-tetrahedron shadow area moments."
+      },
+      {
+        "assessment": "SHADOW_EDGE_COMPLEXITY_NOT_AREA_CONDITIONAL_MOMENTS",
+        "evidence": "Lemma 2.1 relates projected edge length to appearance of the edge in a shadow; the paper bounds expected number of edges, not the area moments conditioned on triangle versus quadrilateral shadow.",
+        "identifier_or_url": "arXiv:2406.06936v1",
+        "material_read": "Full HTML, abstract and §2, including Lemmas 2.1 and 2.2 and bounds on expected shadow vertex count.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Random Shadows of Fixed Polytopes",
+        "trigger": "Recent potentially broader shadow-complexity treatment with normal-cone geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ddfd7f3e-eb66-44ef-a7ed-aa38a909724e",
+  "value": {
+    "rationale": "Tetrahedral shadows are the first polyhedral family where random planar silhouettes have two possible vertex counts. Existing primary sources compute their frequencies and unconditional projected areas separately. In stereology and imaging, conditioning on a visible silhouette class changes the sampling distribution of areas. The new arbitrary-tetrahedron finite angle formulas are shape-sensitive yet require no probabilistic integration; they quantify first and second conditional area moments, and the regular example demonstrates a provable nonzero selection bias plus markedly different conditional variances. This is a motivated all-object invariant rather than a parameter-substitution exercise.",
+    "risks": [
+      "Results are specific to uniform orthogonal projections in three dimensions; analogous other shadow statistics remain open."
+    ],
+    "sources": [
+      "arXiv:0809.3459v1",
+      "arXiv:1203.2464v1",
+      "arXiv:2406.06936v1"
+    ],
+    "status": "PASS"
+  }
+}
