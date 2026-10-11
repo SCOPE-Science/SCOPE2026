@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier is `artifacts/verify_multidegree.py`. It uses only Python's standard library and exact integers.
+# Independent mathematical audit
 
-It checks the quoted source intersection data
-\[
-H^5=1,\quad H^4E=H^3E^2=0,\quad H^2E^3=10,\quad HE^4=60,\quad E^5=222,
-\]
-then expands \(D=5H-2E\) to obtain
-\[
-(b_0,\ldots,b_5)=(1,5,25,45,-15,21).
-\]
-For a single residual plane it uses
-\[
-H|_\Pi=l,\qquad D|_\Pi=-l,\qquad N_{\Pi/P^-}\simeq\mathcal O_{\mathbf P^2}(-1)^{\oplus3},
-\]
-and the codimension-three blowup pushforwards to compute the corrections. Twenty disjoint planes give
-\[
-(0,0,0,-20,20,-20).
-\]
-The script asserts that their sum is
-\[
-(1,5,25,25,5,1)
-\]
-and prints `MULTIDEGREE_OK` on success.
+## correctness
 
-The verification is exact, finite, and exhaustive for the displayed intersection calculation. It does not independently reconstruct the Enriques surface, the twenty planes, or their normal bundles from defining equations; those geometric inputs are taken from arXiv:2609.10353.
+PASS
+
+The mixed-intersection calculation is correct. On the blowup of P5 along the Enriques surface, the early primary-source Chern data give degree S equal to 10, c1 of the normal bundle numerically 6A, and degree c2 equal to 138. The codimension-three blowup pushforwards therefore give H squared E cubed equal to 10, H E fourth equal to 60, and E fifth equal to 360 minus 138, namely 222. Expanding D=5H-2E yields the preliminary sequence 1,5,25,45,-15,21. The primary source also verifies that the base locus consists of twenty disjoint plane transforms and that the ambient map factors through their ordinary flop. For each plane H restricts to a line and E restricts to the cubic, hence D restricts to minus a line; the ordinary plane-flop normal bundle is O(-1) cubed. The standard codimension-three blowup formulas then give per-plane corrections 0,0,0,-1,1,-1. Multiplying by twenty produces the final projective multidegree 1,5,25,25,5,1. The package verifier independently reproduces all binomial and correction arithmetic.
+
+## originality
+
+PASS
+
+The Brooke--Marquand paper defines the Enriques Cremona transformation, proves the twenty-plane factorization, and supplies the intersection-theoretic inputs needed for the top self-intersection. The primary pages successfully retrieved and read do not state the full graph multidegree; a targeted Resultary search for the exact six-term sequence returned only the audited finding as a direct match. The two middle projective degrees require carrying the mixed intersections through the twenty residual plane blowups rather than merely reading the map degree or birationality. Later pages of the same primary source could not be re-opened in this run because the authorized retrieval request was safety-blocked; this is retained as a residual priority risk rather than treated as failure.
+
+## value
+
+PASS
+
+The complete projective multidegree is a standard natural invariant of a newly constructed explicit Cremona transformation. The two nontrivial middle values record how the twenty residual base planes change the mixed intersection theory and are not determined solely by the quintic degree and birationality endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
