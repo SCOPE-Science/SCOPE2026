@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,94 +19,24 @@
 }
 ---
 
-The source theorem was checked in its full primary text and states
-\[
-\|R_v f\|_{L^{1,\infty}(\mu_v;\mathbb R^n)}
-\le2\|f\|_{L^1(\mu_v)}
-\]
-for real-valued \(f\), uniformly in \(n\) and \(v\).
+# Independent mathematical audit
 
-For the geometric transfer, let
-\[
-z=a+ib\in\mathbb C^n
-\]
-with \(|z|=1\). The Gram matrix of \(a\) and \(b\) has eigenvalues
-\[
-\lambda,\ 1-\lambda,
-\qquad
-1/2\le\lambda\le1.
-\]
-After an angular shift,
-\[
-|\operatorname{Re}(e^{-i\theta}z)|^2
-=
-\lambda\cos^2\theta+(1-\lambda)\sin^2\theta.
-\]
-For
-\[
-0<c\le2^{-1/2},
-\]
-the bad-angle threshold satisfies
-\[
-t_\lambda^2
-=
-\frac{c^2-(1-\lambda)}{2\lambda-1}
-\le c^2,
-\]
-because
-\[
-(1-\lambda)(1-2c^2)\ge0.
-\]
-Therefore at least
-\[
-4\arccos c
-\]
-radians of phase satisfy
-\[
-|\operatorname{Re}(e^{-i\theta}z)|>c|z|.
-\]
+## correctness
 
-Applying the real endpoint to
-\[
-f_\theta=\operatorname{Re}(e^{-i\theta}f)
-\]
-and using
-\[
-\int_0^{2\pi}
-|\operatorname{Re}(e^{-i\theta}w)|\,d\theta
-=
-4|w|
-\]
-gives
-\[
-\|R_v^{\mathbb C}f\|_{1,\infty}
-\le
-\frac{2}{c\arccos c}\|f\|_1.
-\]
+PASS
 
-With
-\[
-c=\cos\theta,
-\]
-the denominator is maximized when
-\[
-\theta\tan\theta=1.
-\]
-The unique solution in
-\[
-(\pi/4,\pi/2)
-\]
-is
-\[
-\theta_*=0.860333589019379\ldots,
-\]
-hence
-\[
-c_*=0.652184623909186\ldots
-\]
-and
-\[
-C_{\mathbb C}=3.564450280406266\ldots .
-\]
+For a complex vector \(z\), a phase rotation diagonalizes the real/imaginary Gram matrix, reducing \(|\operatorname{Re}(e^{-i\theta}z)|^2\) to \(\lambda\cos^2\theta+(1-\lambda)\sin^2\theta\) with \(\lambda\in[1/2,1]\). For \(0<c\le1/\sqrt2\), the angular set where the real projection exceeds \(c|z|\) has measure at least \(4\arccos c\), with the collinear case extremal. Averaging this indicator estimate and applying Mukherjee’s real-input weak constant \(2\) to \(\operatorname{Re}(e^{-i\theta}f)\), together with \(\int_0^{2\pi}|\operatorname{Re}(e^{-i\theta}w)|d\theta=4|w|\), gives \(2/(c\arccos c)\). Maximizing \(c\arccos c\) yields \(c=\cos\theta_*\) with \(\theta_*\tan\theta_*=1\). Fresh numerical solution gives \(c_*=0.65218462390919\) and \(C_\mathbb C=3.5644502804062665\), matching the claim.
 
-No numerical experiment is used as proof; the decimals only evaluate the exact optimizer equation.
+## originality
+
+PASS
+
+Mukherjee’s primary abstract explicitly states the dimension/drift-free constant \(2\) for real-valued inputs. The Euclidean predecessor supplies the same endpoint background. Targeted searches for a quantitative real-to-complex weak-\(L^1\) transfer with the angular constant, including searches under complexification and rotation terminology, did not locate an equivalent theorem; the published SCOPE corpus likewise returned the audited record rather than an earlier equivalent. Because the proof is an abstract rotation lemma, an older functional-analytic formulation under different terminology remains a genuine priority risk, but no inspected source implies the specific constant.
+
+## value
+
+PASS
+
+Extending a newly sharp real endpoint to complex data is a natural analytic gap, and the optimized rotation argument gives a universal constant strictly below the naive real/imaginary split value \(4\). The phase-measure lemma is reusable for Hilbert-valued complexifications and the optimization identifies the exact constant of this method. This is more than a notation change or routine componentwise estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

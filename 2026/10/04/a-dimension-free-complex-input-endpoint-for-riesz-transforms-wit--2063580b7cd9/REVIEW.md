@@ -1,43 +1,21 @@
-# Review of A dimension-free complex-input endpoint for Riesz transforms with constant drift
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The primary theorem gives
-\[
-\|R_v f\|_{L^{1,\infty}(\mu_v;\mathbb R^n)}
-\le2\|f\|_1
-\]
-for real-valued data. For a complex vector \(z=a+ib\), the squared norm of
-\[
-\operatorname{Re}(e^{-i\theta}z)
-\]
-is a two-dimensional quadratic form with eigenvalues \(\lambda\) and \(1-\lambda\). When \(c\le2^{-1/2}\), direct diagonalization proves that the set of phases for which the real projection exceeds \(c|z|\) has measure at least \(4\arccos c\). Applying the real theorem to every rotated real part of the input and integrating in the phase gives
-\[
-\|R_v^{\mathbb C}f\|_{1,\infty}
-\le
-\frac{2}{c\arccos c}\|f\|_1.
-\]
-The exact scalar identity
-\[
-\int_0^{2\pi}
-|\operatorname{Re}(e^{-i\theta}w)|\,d\theta
-=
-4|w|
-\]
-accounts for the input norm. The unique optimizer satisfies
-\[
-\theta\tan\theta=1
-\]
-with \(c=\cos\theta\), yielding the displayed constant.
+PASS
 
-## Originality
+For a complex vector \(z\), a phase rotation diagonalizes the real/imaginary Gram matrix, reducing \(|\operatorname{Re}(e^{-i\theta}z)|^2\) to \(\lambda\cos^2\theta+(1-\lambda)\sin^2\theta\) with \(\lambda\in[1/2,1]\). For \(0<c\le1/\sqrt2\), the angular set where the real projection exceeds \(c|z|\) has measure at least \(4\arccos c\), with the collinear case extremal. Averaging this indicator estimate and applying Mukherjee’s real-input weak constant \(2\) to \(\operatorname{Re}(e^{-i\theta}f)\), together with \(\int_0^{2\pi}|\operatorname{Re}(e^{-i\theta}w)|d\theta=4|w|\), gives \(2/(c\arccos c)\). Maximizing \(c\arccos c\) yields \(c=\cos\theta_*\) with \(\theta_*\tan\theta_*=1\). Fresh numerical solution gives \(c_*=0.65218462390919\) and \(C_\mathbb C=3.5644502804062665\), matching the claim.
 
-PASS. The motivating paper was inspected in full and explicitly restricts its endpoint theorem to real-valued data. Its obstacle construction is positivity-based, while the complex weighted \(L^2\) identity is separately recorded. The Euclidean predecessor was also inspected in full: its proof uses positive and negative parts and does not supply the constant-drift complex result. Earlier drift work is recorded by the motivating source as lacking a dimension-independent constant.
+## originality
 
-Targeted searches using the source identifier together with complex-valued input, complexification, rotational realification, dimension-free weak type, and constant drift found no covering statement. General real/complex operator-norm literature is a residual comparison risk because complexification constants are a classical topic, but no inspected source gave this weak-\(L^1\), Hilbert-target constant or the drift-Riesz consequence.
+PASS
 
-## Value
+Mukherjee’s primary abstract explicitly states the dimension/drift-free constant \(2\) for real-valued inputs. The Euclidean predecessor supplies the same endpoint background. Targeted searches for a quantitative real-to-complex weak-\(L^1\) transfer with the angular constant, including searches under complexification and rotation terminology, did not locate an equivalent theorem; the published SCOPE corpus likewise returned the audited record rather than an earlier equivalent. Because the proof is an abstract rotation lemma, an older functional-analytic formulation under different terminology remains a genuine priority risk, but no inspected source implies the specific constant.
 
-PASS. Complex scalars are the standard setting for Fourier and spectral harmonic analysis, yet the new endpoint theorem is stated only for real data because its obstacle mechanism is ordered. A separate real/imaginary argument preserves dimension independence but loses the constant from \(2\) to \(4\). The rotation argument gives a strictly better explicit universal constant and isolates a reusable geometric mechanism for complexifying Hilbert-valued weak-\(L^1\) estimates without coordinate losses.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Extending a newly sharp real endpoint to complex data is a natural analytic gap, and the optimized rotation argument gives a universal constant strictly below the naive real/imaginary split value \(4\). The phase-measure lemma is reusable for Hilbert-valued complexifications and the optimization identifies the exact constant of this method. This is more than a notation change or routine componentwise estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
