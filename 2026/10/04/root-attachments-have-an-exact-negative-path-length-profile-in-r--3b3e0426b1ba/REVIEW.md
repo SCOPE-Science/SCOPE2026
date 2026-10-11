@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning one arrival \(j\) on attaching to the root versus a nonroot predecessor admits an exact parent-array coupling. The descendant set of \(j\) is unchanged, and every vertex in that subtree gains exactly the alternative parent's pre-existing depth in the nonroot case. This proves strict stochastic ordering without relying on finite computation.
+PASS
 
-The expected subtree size is \(n/j\), and averaging the classical depth mean over a uniformly chosen nonroot predecessor gives the displayed harmonic factor. The Bernoulli covariance identity then yields the local formula. Exact telescoping gives the global covariance. The correlation asymptotic uses the classical \(L^2\) total-path-length limit and the independent-Bernoulli root-degree variance.
+Coupling the two conditional trees by changing only P_j leaves the eventual descendant set of j unchanged and gives T^(0)-T^(1)=S_{j,n}D(Q_j)>0 almost surely. Future subtree growth has mean n/j and is independent of Q_j; averaging the standard depth mean H_{q-1} over q=2,...,j-1 gives the conditional mean gap and Bernoulli covariance. Harmonic telescoping gives the global covariance. Independent root-attachment indicators give Var(R_n), and the classical L2 path-length limit gives the correlation asymptotic.
 
-## Originality
+## originality
 
-PASS, with a bounded residual risk from older bivariate increasing-tree enumeration. Dobrow--Fill's full article was inspected throughout its model setup, total-path-length limit theory, and second-moment discussion. It treats total path length but not root degree jointly.
+PASS
 
-Bergeron--Flajolet--Salvy's full open paper was inspected at the path-length and root-degree sections. Both statistics are classical there, but they are analyzed separately and no mixed covariance is stated.
+Best-of-knowledge originality passes. Classical recursive-tree work supplies path-length and root-degree marginal theory, but no inspected source or Resultary hit gives the arrival-indexed root-attachment covariance, conditional stochastic order, or exact root-degree/path-length covariance.
 
-A very recent power-weight path-length paper was also checked because it gives attachment-innovation formulas and recovers the uniform variance constant. Searches of its full text found no root-degree statement or covariance. The accepted novelty is therefore the root-attachment stochastic comparison, the exact harmonic local profile, and its global monotone-transform consequence, not the marginal laws of either statistic.
+## value
 
-## Value
+PASS
 
-PASS. Root degree is the most basic branching statistic at the distinguished vertex, while total path length is the canonical global search-cost statistic of a recursive tree. The result gives a causal-looking finite-sample decomposition: each direct root attachment shortens the final tree in stochastic order, and its exact contribution depends on insertion time.
+Root degree and total path length are canonical recursive-tree statistics. The theorem quantifies the path-shortening effect at every arrival, strengthens it to stochastic order and monotone-transform covariance, and explains linear covariance with only logarithmically vanishing correlation.
 
-The contrast with the positive root-degree/leaf covariance is mathematically informative: extra root branching simultaneously preserves more leaves and reduces aggregate search depth. The all-increasing-transform sign and the explicit asymptotic separation between linear covariance and vanishing correlation make the statement more structural than a single mixed moment.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK trees_enumerated=46233 local_cov_checks=36 conditional_mean_checks=28 stochastic_cdf_checks=490 global_cov_checks=8 marginal_moment_checks=24 telescoping_checks=499`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

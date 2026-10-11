@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:53:05.196228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 00fc260ab861fed7842ed5a8e06a1bba5413a1a4",
+        "verify_recursive_root_path_covariance.py blob a75abe984c9078480217481c1c98716642a1904d",
+        "Dobrow--Fill total-path-length limit"
+      ],
+      "rationale": "Coupling the two conditional trees by changing only P_j leaves the eventual descendant set of j unchanged and gives T^(0)-T^(1)=S_{j,n}D(Q_j)>0 almost surely. Future subtree growth has mean n/j and is independent of Q_j; averaging the standard depth mean H_{q-1} over q=2,...,j-1 gives the conditional mean gap and Bernoulli covariance. Harmonic telescoping gives the global covariance. Independent root-attachment indicators give Var(R_n), and the classical L2 path-length limit gives the correlation asymptotic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dobrow--Fill provide the path-length limit and variance coefficient used as prior input.",
+          "General increasing-tree theory is broader in model class but no inspected mixed theorem dominates the claim."
+        ],
+        "reasoning": "No stronger coverage was found.",
+        "searches": [
+          "Dobrow--Fill, Total Path Length for Random Recursive Trees, DOI:10.1017/S0963548399003855",
+          "Bergeron--Flajolet--Salvy, Varieties of Increasing Trees (1992)",
+          "Munsonius, On Tail Bounds for Random Recursive Trees, arXiv:1106.3865",
+          "Resultary query: random recursive tree root attachment covariance total path length stochastic order"
+        ]
+      },
+      "checked_sources": [
+        "Dobrow--Fill, Total Path Length for Random Recursive Trees, DOI:10.1017/S0963548399003855",
+        "Bergeron--Flajolet--Salvy, Varieties of Increasing Trees (1992)",
+        "Munsonius, On Tail Bounds for Random Recursive Trees, arXiv:1106.3865",
+        "Resultary query: random recursive tree root attachment covariance total path length stochastic order"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Changing P_j shifts every eventual descendant of j by D(Q_j).",
+          "The covariance additionally requires the subtree-size and conditioned-parent depth calculations."
+        ],
+        "reasoning": "The mixed result is not a corollary of the marginal path-length theorem.",
+        "searches": [
+          "Dobrow--Fill path-length theorem",
+          "edge-change coupling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local A_j statement is a mixed statistic, not a marginal moment.",
+          "Separate root-degree and path-length analyses do not imply the covariance."
+        ],
+        "reasoning": "Mixed generating-function and coupling aliases were searched.",
+        "searches": [
+          "Dobrow--Fill, Total Path Length for Random Recursive Trees, DOI:10.1017/S0963548399003855",
+          "Bergeron--Flajolet--Salvy, Varieties of Increasing Trees (1992)",
+          "Munsonius, On Tail Bounds for Random Recursive Trees, arXiv:1106.3865",
+          "Resultary query: random recursive tree root attachment covariance total path length stochastic order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked indexed formula matched the harmonic expression."
+        ],
+        "reasoning": "Search absence is supporting evidence; old bivariate literature remains a risk.",
+        "searches": [
+          "Resultary query: random recursive tree root attachment covariance total path length stochastic order",
+          "targeted root-degree total-path-length covariance searches"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. Classical recursive-tree work supplies path-length and root-degree marginal theory, but no inspected source or Resultary hit gives the arrival-indexed root-attachment covariance, conditional stochastic order, or exact root-degree/path-length covariance.",
+      "residual_risks": [
+        "Older bivariate generating-function work could encode the same mixed first moment under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PATH_LENGTH_PRIOR_NOT_MIXED_RESULT",
+          "evidence": "It supplies the limiting variance input, not the audited mixed covariance.",
+          "identifier_or_url": "DOI:10.1017/S0963548399003855",
+          "material_read": "Accessible primary result material on total path length and normalized limit.",
+          "method": "primary literature inspection",
+          "title": "Total Path Length for Random Recursive Trees",
+          "trigger": "Primary total-path-length source."
+        },
+        {
+          "assessment": "SEPARATE_MARGINAL_TREATMENT",
+          "evidence": "No inspected mixed covariance or stochastic order was found.",
+          "identifier_or_url": "DOI:10.1007/3-540-55251-0_2",
+          "material_read": "Relevant comparison of root-degree/path-length treatment.",
+          "method": "primary literature comparison",
+          "title": "Varieties of Increasing Trees",
+          "trigger": "Classical increasing-tree parameter framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dobrow--Fill, Total Path Length for Random Recursive Trees, DOI:10.1017/S0963548399003855",
+        "Bergeron--Flajolet--Salvy, Varieties of Increasing Trees (1992)",
+        "Munsonius, On Tail Bounds for Random Recursive Trees, arXiv:1106.3865",
+        "Resultary query: random recursive tree root attachment covariance total path length stochastic order"
+      ],
+      "rationale": "Root degree and total path length are canonical recursive-tree statistics. The theorem quantifies the path-shortening effect at every arrival, strengthens it to stochastic order and monotone-transform covariance, and explains linear covariance with only logarithmically vanishing correlation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older bivariate generating-function work could encode the same mixed first moment under different notation.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
