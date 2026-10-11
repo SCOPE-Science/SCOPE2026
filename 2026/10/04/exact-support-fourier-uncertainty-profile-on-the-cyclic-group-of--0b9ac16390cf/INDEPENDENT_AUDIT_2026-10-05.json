@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:04:26.475534Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 2b542cc97fdf67945320064c66fa98132604fd22",
+        "verify_z12_exact_support.py blob 0f39eeba5fbda235f070f3062cad8f301fb67612",
+        "independent exact cyclotomic rank/kernel reconstruction",
+        "Krahmer--Pfander--Rashkov Figure 3 as prior numerical consistency evidence"
+      ],
+      "rationale": "The twelve witnesses and the two exceptional lower bounds were independently reconstructed in exact arithmetic. For \\(k=5\\) and \\(k=7\\), a putative Fourier support at most three gives nine Fourier zeros. The exact-support kernel criterion is correct: a full-support kernel vector exists exactly when no coordinate functional vanishes identically on the kernel. Independent exact cyclotomic elimination reproduced the package census: after modular full-rank filters only 96 five-column and 1680 seven-column cases remain; every former has exact rank four, every latter exact rank six, and every one-dimensional kernel forces a zero time coordinate. Explicit exact witnesses attain Fourier support four. The other entries follow from the published monotone lower envelope and exact witnesses. Thus the finite classification is exhaustive, not sampled.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rank-deficient-submatrix literature gives structural lower bounds and rank constructions for Kronecker Fourier matrices.",
+          "Those results determine the monotone lower envelope used in the package but do not, in the inspected statements, prove the equality-constrained penalties at support sizes five and seven."
+        ],
+        "reasoning": "The broader uncertainty theorems provide the baseline lower profile; the two exact-support holes require additional equality-sensitive rank analysis.",
+        "searches": [
+          "Delvaux--Van Barel TW 477 / LAA 426 (2007)",
+          "Meshulam-style divisor interpolation as used in the package",
+          "Krahmer--Pfander--Rashkov Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Krahmer--Pfander--Rashkov, Uncertainty in time-frequency representations on finite Abelian groups and applications, arXiv:math/0611493, complete relevant Fourier-uncertainty section and Figures 2--3",
+        "Delvaux--Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices, Report TW 477 / Linear Algebra and its Applications 426 (2007), 349--367",
+        "Bonami--Ghobber, Equality cases for the uncertainty principle in finite Abelian groups, arXiv:1003.5060 / Acta Sci. Math. 79 (2013), 507--528",
+        "Resultary semantic query: exact support Fourier uncertainty Z12 equality support profile support size 5 7 Fourier support"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Floating singular-value/rank calculations do not imply exact rank over the cyclotomic field.",
+          "The exact theorem additionally requires that every nontrivial kernel vector lose at least one prescribed time coordinate, not merely a rank bound."
+        ],
+        "reasoning": "No checked prior theorem logically implies the exact exclusion at \\(k=5,7\\); the audited algebraic exhaustion closes precisely that gap.",
+        "searches": [
+          "Krahmer--Pfander--Rashkov numerical-rank discussion",
+          "Delvaux--Van Barel structural bounds",
+          "independent exact cyclotomic kernel criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krahmer--Pfander--Rashkov Figure 3 includes \\(\\mathbb Z_{12}\\) in a numerical pair-support diagram, while Figure 2 distinguishes proved from numerical cells and the surrounding text calls these numerical results.",
+          "Bonami--Ghobber list \\(\\mathbb Z_p^2\\), \\(\\mathbb Z_{p^2}\\), and \\(\\mathbb Z_p\\times\\mathbb Z_q\\) for distinct primes, not cyclic order twelve."
+        ],
+        "reasoning": "The same exact-support pair problem was compared directly. Prior numerical evidence is acknowledged, but numerical rank evidence does not logically imply the exact cyclotomic obstruction theorem.",
+        "searches": [
+          "arXiv:math/0611493, Section 3.2 and Figures 2--3",
+          "arXiv:1003.5060",
+          "Resultary query listed in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A prior published numerical diagram is a genuine database/table antecedent and is recorded here rather than omitted.",
+          "No inspected exact theorem or certified table proves the two critical impossible cells; the audited verifier resolves all corresponding algebraic matrices exactly over \\(\\mathbb Q(\\zeta_{12})\\)."
+        ],
+        "reasoning": "The result is not original as a numerical table, but it is original as a rigorous exact certification of the nontrivial cells; this distinction is material to both O and V.",
+        "searches": [
+          "Krahmer--Pfander--Rashkov Figure 3 \\(\\mathbb Z_{12}\\) numerical diagram",
+          "Resultary exact-support query",
+          "targeted searches for exact \\(\\mathbb Z_{12}\\) support five/seven obstruction"
+        ]
+      },
+      "rationale": "Originality passes with an important qualification. Krahmer--Pfander--Rashkov already display a numerical \\(\\mathbb Z_{12}\\) support-pair diagram and explicitly describe the underlying computations as numerical. That is prior numerical evidence for the same profile, so the values themselves are not a fresh numerical discovery. The audited result supplies a rigorous exact theorem: explicit exact witnesses plus a complete cyclotomic-rank obstruction proving that exact supports five and seven cannot have Fourier support at most three. No inspected primary source gives that exact proof. Bonami--Ghobber's proved equality classifications cover other group families, not \\(\\mathbb Z_{12}\\).",
+      "residual_risks": [
+        "Krahmer--Pfander--Rashkov already published a numerical support-pair diagram for \\(\\mathbb Z_{12}\\); the audited contribution is the rigorous exact certification of the two nonmonotone obstructions, not first numerical observation of their values.",
+        "A later exact proof of the same two \\(\\mathbb Z_{12}\\) gaps could exist under matrix-rank terminology, although none was located in the focused sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_NUMERICAL_PROFILE_NOT_EXACT_PROOF",
+          "evidence": "The source expressly labels the general composite-group diagram results as numerical and gives exact proofs only for selected cases such as \\(\\mathbb Z_6\\) and a \\(\\mathbb Z_{2p}\\) obstruction.",
+          "identifier_or_url": "arXiv:math/0611493",
+          "material_read": "Full relevant Fourier section, including the text explaining the numerical rank computations, Figure 2 color semantics, Figure 3 with the \\(\\mathbb Z_{12}\\) panel, and Proposition 3.11/3.12 context; the figure pages were visually inspected.",
+          "method": "lawful open-access arXiv full text and PDF page inspection",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "Direct prior numerical support-pair study including \\(\\mathbb Z_{12}\\)."
+        },
+        {
+          "assessment": "DIFFERENT_GROUP_FAMILIES",
+          "evidence": "Its classifications do not include cyclic order twelve.",
+          "identifier_or_url": "arXiv:1003.5060",
+          "material_read": "Primary abstract and stated scope identifying the group families treated.",
+          "method": "lawful open-access primary record",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Closest proved equality-classification paper for composite finite Abelian groups."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krahmer--Pfander--Rashkov, Uncertainty in time-frequency representations on finite Abelian groups and applications, arXiv:math/0611493, complete relevant Fourier-uncertainty section and Figures 2--3",
+        "Delvaux--Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices, Report TW 477 / Linear Algebra and its Applications 426 (2007), 349--367",
+        "Bonami--Ghobber, Equality cases for the uncertainty principle in finite Abelian groups, arXiv:1003.5060 / Acta Sci. Math. 79 (2013), 507--528",
+        "Resultary semantic query: exact support Fourier uncertainty Z12 equality support profile support size 5 7 Fourier support"
+      ],
+      "rationale": "The \\(\\mathbb Z_{12}\\) profile is a natural smallest mixed-prime-power composite benchmark. The critical cells had previously appeared only as numerical rank evidence, for which near-singularity cannot certify exact Fourier zeros. Replacing those observations by tolerance-free cyclotomic certificates for the two nonmonotone exact-support penalties is a meaningful finite certification, not merely rerunning a known exact table.",
+      "residual_risks": [
+        "The contribution is a finite exact certification and does not give a general composite-order formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Krahmer--Pfander--Rashkov already published a numerical support-pair diagram for \\(\\mathbb Z_{12}\\); the audited contribution is the rigorous exact certification of the two nonmonotone obstructions, not first numerical observation of their values.",
+    "A later exact proof of the same two \\(\\mathbb Z_{12}\\) gaps could exist under matrix-rank terminology, although none was located in the focused sources.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

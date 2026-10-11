@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published monotone profile supplies the baseline lower bound, explicit exact witnesses attain every claimed value, and the only exceptional lower bounds are proved by a complete support/zero-set census. Modular full-rank checks are one-way sound, while every unresolved case is recomputed exactly in \(\mathbb Q[\zeta_{12}]\). The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS. Meshulam gives the divisor-interpolation lower bound. Delvaux--Van Barel characterize the monotone Hamming number using support size at most \(k\), not exact support. Bonami--Ghobber explicitly study exact-support equality cases, but their complete families do not include \(\mathbb Z_{12}\cong\mathbb Z_4\times\mathbb Z_3\). Targeted published-finding corpus and web searches found no statement of the complete profile \((12,6,4,3,4,2,4,2,2,2,2,1)\). Residual risk remains for differently phrased or unindexed literature.
+PASS
 
-## Value
-PASS. Exact-support uncertainty is a natural refinement of the monotone Meshulam function. The order-\(12\) profile reveals strict penalties and nonmonotonicity at support sizes \(5\) and \(7\), phenomena hidden by the established Hamming profile.
+The twelve witnesses and the two exceptional lower bounds were independently reconstructed in exact arithmetic. For \(k=5\) and \(k=7\), a putative Fourier support at most three gives nine Fourier zeros. The exact-support kernel criterion is correct: a full-support kernel vector exists exactly when no coordinate functional vanishes identically on the kernel. Independent exact cyclotomic elimination reproduced the package census: after modular full-rank filters only 96 five-column and 1680 seven-column cases remain; every former has exact rank four, every latter exact rank six, and every one-dimensional kernel forces a zero time coordinate. Explicit exact witnesses attain Fourier support four. The other entries follow from the published monotone lower envelope and exact witnesses. Thus the finite classification is exhaustive, not sampled.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Originality passes with an important qualification. Krahmer--Pfander--Rashkov already display a numerical \(\mathbb Z_{12}\) support-pair diagram and explicitly describe the underlying computations as numerical. That is prior numerical evidence for the same profile, so the values themselves are not a fresh numerical discovery. The audited result supplies a rigorous exact theorem: explicit exact witnesses plus a complete cyclotomic-rank obstruction proving that exact supports five and seven cannot have Fourier support at most three. No inspected primary source gives that exact proof. Bonami--Ghobber's proved equality classifications cover other group families, not \(\mathbb Z_{12}\).
+
+## value
+
+PASS
+
+The \(\mathbb Z_{12}\) profile is a natural smallest mixed-prime-power composite benchmark. The critical cells had previously appeared only as numerical rank evidence, for which near-singularity cannot certify exact Fourier zeros. Replacing those observations by tolerance-free cyclotomic certificates for the two nonmonotone exact-support penalties is a meaningful finite certification, not merely rerunning a known exact table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
