@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:47:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at blob fd3407e8e488cc95147ca2eaced5448a8d5123b8",
+        "assigned verify.py at blob 7a432de59aae900a508b63a5ac1fcce6a711308b",
+        "Sprott primary Case S source",
+        "fresh independent symbolic generator calculation"
+      ],
+      "rationale": "Invariance of z and y gives E[x]=-b and E[z^2]=b. With v=x+b=z' and w=-x-ay=z'', direct symbolic differentiation of F=vw+v^2/2+a(z^3/3-bz) gives LF=w^2-a v^2. This classifies the sign regimes: b<0 is impossible; a=0,b>0 is impossible; a<0,b>0 forces v=w=0 and hence only the two equilibrium atoms; the b=0 cases follow by support tangency. For a>0,b>0, equality z^2=b almost surely also forces equilibrium mixtures. On a periodic orbit, Wirtinger's inequality applied to zero-mean z' gives P>=2pi/sqrt(a); the eliminated jerk equation rules out equality. Fresh symbolic differentiation independently reproduced the coboundary and eliminated jerk identity.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior work provides the vector field and numerical/analytical chaos context.",
+          "No inspected theorem gives the polynomial coboundary LF=w^2-a v^2 or its measure/period consequences."
+        ],
+        "reasoning": "No broader checked Sprott theorem dominates the exact all-parameter compact-invariant phase diagram.",
+        "searches": [
+          "Sprott 1994/2013",
+          "Erjaee--Alnasr 2009/2010",
+          "Panchev 2004"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1103/PhysRevE.50.R647",
+        "Sprott Dynamic Regions technical note",
+        "DOI:10.1155/2009/753746",
+        "DOI:10.1016/j.chaos.2003.12.054 metadata",
+        "Resultary Sprott S query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact certificate yields both a sign obstruction when a<0 and a Poincare/Wirtinger constraint when a>0.",
+          "Those consequences do not follow from numerical chaotic-region maps or synchronization eigenvalue calculations."
+        ],
+        "reasoning": "The final claim requires a new invariant identity and equality-case analysis.",
+        "searches": [
+          "Audited polynomial certificate versus prior Sprott-S synchronization/local-dynamics analyses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott's primary-author Case S listing gives the two-parameter equations and canonical a=4,b=1 regime.",
+          "Erjaee--Alnasr full text treats synchronization of coupled Sprott-S systems, not invariant measures or least-period bounds.",
+          "Panchev is a plausible analytical comparison but only bibliographic metadata was materially accessible."
+        ],
+        "reasoning": "The compact-recurrence statement was checked under invariant probability measures, bounded complete dynamics, and periodic-orbit formulations; these are related but not interchangeable without the measure argument.",
+        "searches": [
+          "J. C. Sprott, Some simple chaotic flows, DOI:10.1103/PhysRevE.50.R647",
+          "J. C. Sprott, Dynamic Regions in Simple Chaotic Flows, Case S",
+          "Erjaee--Alnasr, DOI:10.1155/2009/753746",
+          "Panchev, DOI:10.1016/j.chaos.2003.12.054",
+          "Resultary Sprott S invariant-measure/period query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only analogous exact recurrence laws for other flows were found; no same-system exact table or theorem appeared."
+        ],
+        "reasoning": "Analogue records on Genesio or Rossler flows are different vector fields and do not imply this theorem.",
+        "searches": [
+          "Resultary published-finding corpus for Sprott S recurrence/period bounds",
+          "targeted web searches for stationary z^2 law and derivative-energy balance"
+        ]
+      },
+      "rationale": "Sprott's primary-author materials define the Case S family/normalization and the literature studies its chaotic and synchronization behavior, but no checked source states the invariant-measure phase diagram, exact derivative-energy identity, shell-excursion theorem, or strict period floor. Panchev's analytically titled 2004 paper remains the main residual literature risk because only metadata, not full text, was accessible in this run.",
+      "residual_risks": [
+        "Panchev 2004 was not available in full text and may contain a related integral identity for the canonical Sprott-S flow.",
+        "The theorem does not establish existence of nontrivial compact recurrence throughout the a>0,b>0 quadrant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "VECTOR_FIELD_AND_NUMERICAL_REGIONS_NOT_RECURRENCE_THEOREM",
+          "evidence": "The note supplies the same two-parameter flow and canonical chaotic example but no invariant-measure identity or period lower bound.",
+          "identifier_or_url": "J. C. Sprott primary-author technical note (2013), Case S",
+          "material_read": "Full accessible HTML around the Case S equation and parameter-region discussion.",
+          "method": "Object/parameter verification and theorem-scope comparison.",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "Primary-author source for the exact generalized Case S normalization."
+        },
+        {
+          "assessment": "SYNCHRONIZATION_ANALYSIS_NOT_COMPACT_RECURRENCE_LAWS",
+          "evidence": "The paper studies coupled-system phase synchronization and fractional-order stability, not invariant probability measures or least periods of the uncoupled flow.",
+          "identifier_or_url": "DOI:10.1155/2009/753746",
+          "material_read": "Full accessible article, including the Sprott-S example and convergence criteria.",
+          "method": "Full-text theorem-scope comparison.",
+          "title": "Phase Synchronization in Coupled Sprott Chaotic Systems Presented by Fractional Differential Equations",
+          "trigger": "Same Sprott-S system in a full analytical paper."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_SOURCE",
+          "evidence": "The source is explicitly analytical and covers Sprott flows, so it remains a genuine residual originality risk.",
+          "identifier_or_url": "DOI:10.1016/j.chaos.2003.12.054",
+          "material_read": "Bibliographic/MSC metadata only; full text was not materially available in this run.",
+          "method": "Access-limited risk assessment.",
+          "title": "Analytical properties of the Sprott's chaotic flows",
+          "trigger": "Highly relevant analytical title covering Sprott flows."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sprott primary materials",
+        "Erjaee--Alnasr full text",
+        "Resultary Sprott S query"
+      ],
+      "rationale": "The theorem gives a global recurrence obstruction and sharp universal period information for a canonical chaotic-flow family, derived from an exact balance that is invisible in numerical phase diagrams. The full parameter phase diagram and equality cases are natural structural dynamics, not merely another simulation of the chaotic example.",
+      "residual_risks": [
+        "Panchev 2004 was not available in full text and may contain a related integral identity for the canonical Sprott-S flow.",
+        "The theorem does not establish existence of nontrivial compact recurrence throughout the a>0,b>0 quadrant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1103/PhysRevE.50.R647",
+    "Sprott Dynamic Regions technical note",
+    "DOI:10.1155/2009/753746",
+    "DOI:10.1016/j.chaos.2003.12.054 metadata",
+    "Resultary Sprott S query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the generalized Sprott-S flow x'=-x-ay, y'=x+z^2, z'=b+x, compactly supported invariant measures have the stated exact parameter phase diagram and, for a>0,b>0, satisfy E[(z'')^2]=aE[(z')^2] and E[z^2]=b; non-equilibrium compact stationary states cross both sides of |z|=sqrt(b), and every nonconstant periodic orbit has least period strictly greater than 2pi/sqrt(a).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Panchev 2004 was not available in full text and may contain a related integral identity for the canonical Sprott-S flow.",
+    "The theorem does not establish existence of nontrivial compact recurrence throughout the a>0,b>0 quadrant."
+  ]
+}
