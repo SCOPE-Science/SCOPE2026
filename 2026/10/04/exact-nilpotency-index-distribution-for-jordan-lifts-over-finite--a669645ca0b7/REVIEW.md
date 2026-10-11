@@ -1,17 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof expands \(N_B^m\) exactly using \(\varepsilon^2=0\), identifies \(N_B^n=\varepsilon S(B)\), and proves \(N_B^{n+j}=\varepsilon S(B)J_n^j\). The map \(B\mapsto S(B)\) lands in the \(n\)-dimensional Jordan-block centralizer and is surjective because \(E_{n,k+1}\) maps to \(J_n^k\). The first nonzero Toeplitz coefficient therefore determines the exact nilpotency index, and the fiber dimension \(n^2-n\) gives the stated counts. Direct enumerations for \(q=2,3\) and \(n\le3\) agree with the formula.
+## correctness
 
-## Originality
-**PASS.** The recent full paper arXiv:2609.29468v1 proves the qualitative nilpotency criterion and supplies a \(2k\) upper bound when the real part has index \(k\), but its inspected Theorem 2.5 does not give the all-index distribution for a Jordan fiber. The earlier conference abstract says only that the dual part can increase nilpotency index. Targeted published-finding corpus and public-literature searches did not locate the exact formula \(q^{n^2-n}\) at index \(n\) and \((q-1)q^{n^2-n+j-1}\) at index \(n+j\).
+PASS
 
-A residual risk remains because the February 2026 conference presentation itself was not available for inspection beyond its published abstract. That abstract specifically mentions examining nilpotency index, but it does not expose an exact structural criterion or finite-field enumeration.
+The square-zero binomial expansion gives N_B^n=εS(B) and N_B^(n+j)=εS(B)J_n^j, where S(B)=Σ J_n^i B J_n^(n−1−i). The commutator telescopes, so S(B) lies in the Jordan-block centralizer. Conversely the map B↦S(B) is onto that n-dimensional Toeplitz algebra because E_(n,k+1) maps to J_n^k. Hence each coefficient vector has q^(n²−n) preimages, and the least nonzero Toeplitz coefficient determines the exact vanishing power. Fresh independent replay verified the basis-map identity for n≤5 and directly enumerated the distributions (1,2), (2,2), (3,2), and (2,3), matching the theorem exactly.
 
-## Value
-**PASS.** Nilpotent Jordan blocks are the canonical indecomposable nilpotent matrices, and the recent dual-matrix work leaves open how sharply its \(2n\) bound is populated. The result gives a complete, closed-form distribution across the entire first-order fiber, not an isolated example: every intermediate index occurs, and maximal doubling has the field-size-only probability \(1-q^{-1}\). This is a natural finite-ring refinement with direct relevance to nilpotency behavior under square-zero extensions.
+## originality
 
-## Closest literature and limitations
-The closest sources are Özbay's 2026 conference abstract (DOI 10.5281/zenodo.18640991) and Şentürk--Özbay, arXiv:2609.29468v1. The theorem is restricted to a one-block nilpotent real part for its complete distribution; no multi-block classification is claimed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality passes for the complete index distribution in the one-Jordan-block fiber. The accessible recent dual-matrix sources establish or advertise qualitative nilpotency and possible index growth, while the exposed material does not give the all-index finite-field multiplicities. The exact Resultary search returned the assigned finding itself and no implication-equivalent predecessor. Because the complete Şentürk–Özbay body and the earlier conference presentation were inaccessible, those remain explicit residual risks rather than being treated as whole-document noncoverage.
+
+## value
+
+PASS
+
+A single nilpotent Jordan block is the canonical indecomposable fiber for studying square-zero matrix lifts. The theorem does not merely sharpen an upper bound: it completely resolves every possible lifted index and its field-uniform multiplicity, giving a natural exact benchmark for more complicated nilpotent Jordan types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

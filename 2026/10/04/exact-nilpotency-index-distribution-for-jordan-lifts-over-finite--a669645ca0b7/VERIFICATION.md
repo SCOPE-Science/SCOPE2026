@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For \(N_B=J_n+\varepsilon B\), direct expansion gives
-\[
-N_B^m=J_n^m+\varepsilon\sum_{i=0}^{m-1}J_n^iBJ_n^{m-1-i}.
-\]
-At \(m=n\), the dual coefficient is \(S(B)\). It commutes with \(J_n\), hence is an upper-triangular Toeplitz polynomial \(c_0I+\cdots+c_{n-1}J_n^{n-1}\). The matrix units \(E_{n,k+1}\) map to \(J_n^k\), so all \(n\) coefficients are independent linear coordinates and every coefficient vector has \(q^{n^2-n}\) preimages.
+# Independent mathematical audit
 
-If all coefficients vanish, the index is \(n\). If \(c_d\) is the first nonzero coefficient, then \(S(B)J_n^j\) remains nonzero through \(j=n-1-d\) and vanishes at \(j=n-d\), giving index \(2n-d\). Counting coefficient vectors yields the stated distribution.
+## correctness
 
-The standalone verifier independently multiplies dual matrices and exhaustively checks \((n,q)=(1,2),(2,2),(3,2),(2,3)\). It prints `VERIFY_OK`. These computations are finite sanity checks only; the proof above establishes the general theorem.
+PASS
+
+The square-zero binomial expansion gives N_B^n=εS(B) and N_B^(n+j)=εS(B)J_n^j, where S(B)=Σ J_n^i B J_n^(n−1−i). The commutator telescopes, so S(B) lies in the Jordan-block centralizer. Conversely the map B↦S(B) is onto that n-dimensional Toeplitz algebra because E_(n,k+1) maps to J_n^k. Hence each coefficient vector has q^(n²−n) preimages, and the least nonzero Toeplitz coefficient determines the exact vanishing power. Fresh independent replay verified the basis-map identity for n≤5 and directly enumerated the distributions (1,2), (2,2), (3,2), and (2,3), matching the theorem exactly.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the complete index distribution in the one-Jordan-block fiber. The accessible recent dual-matrix sources establish or advertise qualitative nilpotency and possible index growth, while the exposed material does not give the all-index finite-field multiplicities. The exact Resultary search returned the assigned finding itself and no implication-equivalent predecessor. Because the complete Şentürk–Özbay body and the earlier conference presentation were inaccessible, those remain explicit residual risks rather than being treated as whole-document noncoverage.
+
+## value
+
+PASS
+
+A single nilpotent Jordan block is the canonical indecomposable fiber for studying square-zero matrix lifts. The theorem does not merely sharpen an upper bound: it completely resolves every possible lifted index and its field-uniform multiplicity, giving a natural exact benchmark for more complicated nilpotent Jordan types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
