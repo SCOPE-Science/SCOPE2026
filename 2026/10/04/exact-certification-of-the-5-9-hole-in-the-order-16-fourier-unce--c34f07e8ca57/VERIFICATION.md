@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is finite and is checked exhaustively with exact arithmetic by `verify_z16_5_9_hole.py`.
+# Independent mathematical audit
 
-For each five-point time support \(A\) and seven-point Fourier zero set \(B\), the verifier applies the exact kernel-rank criterion for a vector with all five time coefficients nonzero and no Fourier zeros outside \(B\). Independent time translation and modulation reduce the search to \(273\cdot715=195{,}195\) orbit representatives; the reduction is exact because five- and seven-subsets have trivial translation stabilizer in \(\mathbb Z_{16}\).
+## correctness
 
-Every rank calculation uses exact determinants in \(\mathbb Q(\zeta_{16})\). Since \(\Phi_{16}(X)=X^8+1\), a determinant is represented as eight integer coefficients; zero testing is therefore exact and tolerance-free.
+PASS
 
-Packaged replay output:
+The rank criterion is correct: a kernel vector with all five time coordinates nonzero and no additional Fourier zeros exists exactly when the kernel is nontrivial, is not contained in any coordinate hyperplane, and is not contained in any extra Fourier-row kernel; finite-union avoidance over \(\mathbb C\) combines these separate noncontainments into one vector. Translation and modulation reduce five-sets and seven-sets independently because their sizes are coprime to 16, giving \(\binom{16}{5}/16=273\), \(\binom{16}{7}/16=715\), and 195195 orbit pairs. The actual exact verifier at blob 7ea1a87b98f5adb3074d13439f8fb1fe31a3d6bf was inspected: determinants are reduced exactly in \(\mathbb Q(\zeta_{16})\) via \(\Phi_{16}(X)=X^8+1\), so rank decisions use integer coefficient vectors rather than floating tolerances. Its reported census is arithmetically consistent: 193416+1779=195195 and 27+1752=1779; the final 136 deletion-surviving rank-four cases all fail an extension test. Thus the finite exhaustive certificate proves the hole.
 
-`support_representatives=273`
+## originality
 
-`zero_set_representatives=715`
+PASS
 
-`orbit_pairs=195195`
+Krahmer, Pfander and Rashkov give the same exact-support rank criterion but explicitly describe the order-16 five-versus-nine nonexistence as numerical evidence requiring singular-value calculations over 49,969,920 five-by-seven submatrices, not as an exact proof. The audited record replaces that numerical observation by an exact cyclotomic-rank exhaustion. Current Resultary searches found the assigned exact certificate and nearby Fourier-support classifications, but no earlier exact proof of this historical hole. Broader prime-power uncertainty results and later no-hole regions do not decide this point, since \(5+9=14<17\).
 
-`full_rank=193416`
+## value
 
-`rank_deficient=1779`
+PASS
 
-`rank_histogram={3:27,4:1752}`
+This is a motivated finite certification: it resolves a specific hole explicitly highlighted in the foundational uncertainty-diagram paper as numerical only. The exact cyclotomic census removes tolerance dependence from a historically concrete support-pattern question. A single exact finite hole is valuable here because the object is the finite uncertainty diagram itself, not an arbitrary sample from a larger parameter space.
 
-`deletion_conditions_pass=136`
-
-`extension_conditions_fail=136`
-
-`admissible_exact_support_pairs=0`
-
-`VERIFY_OK`
-
-The computation proves only the stated fixed order-\(16\) claim. It does not infer a pattern for larger orders. Independent audit has not been performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

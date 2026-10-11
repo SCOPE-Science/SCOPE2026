@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:06:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob b5383391c7b51f506b07658abfd6563b46c108b7",
+        "assigned exact verifier blob 7ea1a87b98f5adb3074d13439f8fb1fe31a3d6bf",
+        "Krahmer-Pfander-Rashkov arXiv:math/0611493 full primary PDF"
+      ],
+      "rationale": "The rank criterion is correct: a kernel vector with all five time coordinates nonzero and no additional Fourier zeros exists exactly when the kernel is nontrivial, is not contained in any coordinate hyperplane, and is not contained in any extra Fourier-row kernel; finite-union avoidance over \\(\\mathbb C\\) combines these separate noncontainments into one vector. Translation and modulation reduce five-sets and seven-sets independently because their sizes are coprime to 16, giving \\(\\binom{16}{5}/16=273\\), \\(\\binom{16}{7}/16=715\\), and 195195 orbit pairs. The actual exact verifier at blob 7ea1a87b98f5adb3074d13439f8fb1fe31a3d6bf was inspected: determinants are reduced exactly in \\(\\mathbb Q(\\zeta_{16})\\) via \\(\\Phi_{16}(X)=X^8+1\\), so rank decisions use integer coefficient vectors rather than floating tolerances. Its reported census is arithmetically consistent: 193416+1779=195195 and 27+1752=1779; the final 136 deletion-surviving rank-four cases all fail an extension test. Thus the finite exhaustive certificate proves the hole.",
+      "residual_risks": [
+        "The theorem certifies one exact support pair only; it is not a complete order-16 uncertainty diagram."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Fourier-minor literature controls ranks and uncertainty minima for prime-power orders but does not furnish the exact-support nonattainment certificate at (5,9) found here.",
+          "The 2023 no-hole theorem applies on or above the line where the two support sizes sum to 17; this point sums to 14 and is outside that coverage."
+        ],
+        "reasoning": "No inspected broader theorem implies the exact hole.",
+        "searches": [
+          "Delvaux-Van Barel, Rank-deficient submatrices of Fourier matrices, Linear Algebra Appl. 429 (2008)",
+          "Yang et al. arXiv:2303.17203 / Entropy 25 (2023) 1075"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0611493",
+        "Delvaux-Van Barel 2008",
+        "arXiv:2303.17203",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The criterion reduces the question to finitely many rank tests but does not establish their outcomes.",
+          "The source explicitly used floating singular values for the relevant scan.",
+          "The audited exact determinant arithmetic resolves all reduced cases without tolerance."
+        ],
+        "reasoning": "The new contribution is the exact exhaustion of a specific unresolved numerical hole, not the already-known rank criterion.",
+        "searches": [
+          "Krahmer-Pfander-Rashkov rank criterion versus their numerical order-16 scan",
+          "later Fourier uncertainty-region theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 3.4 gives the rank/noncontainment criterion used by the record.",
+          "The same paper explicitly says the order-16 five/nonzero-time and nine/nonzero-frequency observation rests on singular-value computations over 49,969,920 matrices."
+        ],
+        "reasoning": "The exact-support and zero-set formulations were compared directly; the historical source leaves this particular point numerically rather than rigorously certified.",
+        "searches": [
+          "Resultary query: order 16 Fourier uncertainty diagram support pair 5 9 exact hole Z16 Krahmer Pfander Rashkov",
+          "Krahmer-Pfander-Rashkov arXiv:math/0611493, Lemma 3.4 and order-16 numerical discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned record is the only matching proof-level finding returned; nearby records concern different groups, support sizes, or incidence refinements."
+        ],
+        "reasoning": "The historical numerical diagram is not an exact database proof; the new integer cyclotomic census supplies the missing certification.",
+        "searches": [
+          "Resultary current search for order-16 exact Fourier-support holes and the pair (5,9)"
+        ]
+      },
+      "rationale": "Krahmer, Pfander and Rashkov give the same exact-support rank criterion but explicitly describe the order-16 five-versus-nine nonexistence as numerical evidence requiring singular-value calculations over 49,969,920 five-by-seven submatrices, not as an exact proof. The audited record replaces that numerical observation by an exact cyclotomic-rank exhaustion. Current Resultary searches found the assigned exact certificate and nearby Fourier-support classifications, but no earlier exact proof of this historical hole. Broader prime-power uncertainty results and later no-hole regions do not decide this point, since \\(5+9=14<17\\).",
+      "residual_risks": [
+        "A later exact computation under different terminology could be poorly indexed, although none was located in the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HISTORICAL_NUMERICAL_GAP_NOT_EXACT_PROOF",
+          "evidence": "The paper supplies the criterion and explicitly characterizes this support pair as a numerical computation rather than a theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+          "material_read": "primary PDF pages containing Lemma 3.4, the figure legend distinguishing proved/numerical/conjectural entries, and the paragraph stating that the (5,9) evidence required singular values for 49,969,920 matrices",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "primary source that singled out the exact (5,9) order-16 case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krahmer-Pfander-Rashkov primary paper",
+        "assigned RESULT.md and exact verifier"
+      ],
+      "rationale": "This is a motivated finite certification: it resolves a specific hole explicitly highlighted in the foundational uncertainty-diagram paper as numerical only. The exact cyclotomic census removes tolerance dependence from a historically concrete support-pattern question. A single exact finite hole is valuable here because the object is the finite uncertainty diagram itself, not an arbitrary sample from a larger parameter space.",
+      "residual_risks": [
+        "The method is computational and order-specific, though fully exact."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem certifies one exact support pair only; it is not a complete order-16 uncertainty diagram.",
+    "A later exact computation under different terminology could be poorly indexed, although none was located in the targeted searches.",
+    "The method is computational and order-specific, though fully exact."
+  ]
+}
