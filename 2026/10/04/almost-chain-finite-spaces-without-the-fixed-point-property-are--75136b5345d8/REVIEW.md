@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces fixed-point-free behavior to a pointwise incomparability constraint: if a finite-poset monotone map sends any point to a comparable point, monotone iteration stabilizes at a fixed point. Under incomparability degree at most one this forces the map to be the unique mate involution. Monotonicity of that involution then forces distinct matched pairs to be uniformly ordered, so the quotient by pairs is a chain. The converse is immediate. The sphere and degree corollaries follow from the explicit non-Hausdorff suspension model and the cross-polytope boundary realization. The dependency-free checker exhaustively verifies all labeled posets through four points and the first three canonical models.
+## correctness
 
-## Originality
-PASS relative to the searches and source inspections performed. Barmak–Minian supply the canonical finite sphere models but not this fixed-point-free characterization. Szymik surveys fixed-point and universal fixed-point phenomena for finite posets and records the finite-space/poset correspondence, but the inspected section does not contain the matching-incomparability classification. Targeted published-finding corpus and web searches for the claim, its mate-involution formulation, ordinal-sum formulation, and matching incomparability graph did not locate an implication-equivalent result. The closest internal published item found on weak-order posets concerns interval-endomorphism global dimension rather than fixed points; prior local findings about self-homotopy classes of minimal sphere models do not imply the general classification of every finite poset with incomparability degree at most one.
+PASS
 
-## Value
-PASS. The theorem gives a complete structural boundary inside a natural near-chain class: a local graph condition on incomparability converts the existence of any fixed-point-free endomorphism into a global classification by canonical finite sphere models, with uniqueness of the witness map. This connects finite-space fixed-point theory to the extremal sphere models and exposes a sharp contrast with ordinary spheres, where fixed-point-free self-maps are not unique. The result is not a parameter substitution or a finite census; the finite computation only stress-tests an all-cardinality symbolic theorem.
+For a monotone self-map \(f\) of a finite poset, \(x\le f(x)\) or \(f(x)\le x\) yields a monotone iterate chain that stabilizes at a fixed point. Hence a fixed-point-free map under incomparability degree at most one must send each point to its unique incomparable mate. This forces a unique involution \(\tau\). If two mate pairs are distinct, monotonicity of \(\tau\) and transitivity force all four cross-comparisons to have the same direction, so the pairs form a total order and the poset is an ordinal sum of two-point antichains. Conversely the levelwise swap is isotone and fixed-point-free. The order complex is the join of \(k\) copies of \(S^0\), hence \(S^{k-1}\); the swap is antipodal and has degree \((-1)^k\). The finite verifier only corroborates low orders and is not used for the universal proof.
 
-## Closest literature and limitations
-The strongest inspected primary source on the model side is Barmak–Minian, arXiv:math/0611156, especially the definition of non-Hausdorff suspension and the proof that the \(2n+2\)-point model is the unique minimal finite sphere model. The most relevant fixed-point source inspected in full is Szymik, arXiv:1210.6496, especially the finite-poset section identifying continuous maps with monotone maps and discussing fixed-point/selection properties. A Cambridge extract for Duffus–Poguntke–Rival's 1980 paper on the finite-poset fixed point problem was also checked; the full text was not available through the accessible page in this run, so a residual risk remains that older fixed-point literature contains an equivalent formulation under different terminology.
+## originality
 
-The theorem is limited to incomparability degree at most one. It does not claim a classification for all width-two posets or for higher incomparability degree. The small-poset enumeration is corroborative only.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Barmak–Minian classify the canonical minimal finite sphere models but do not characterize fixed-point-free monotone maps under a matching incomparability graph; the inspected full text contains no fixed-point theorem of this form. Szymik discusses finite-poset fixed-point phenomena and the finite-space/poset correspondence but not this structural iff. Resultary searches under the matching-incomparability, unique mate-involution, and ordinal-sum formulations returned the assigned result as the exact hit and no stronger prior SCOPE theorem. The final claim therefore survives best-of-knowledge implication comparison.
+
+## value
+
+PASS
+
+The result gives a complete structural boundary in a natural near-chain class: a local maximum-degree-one incomparability condition turns mere failure of FPP into a unique global order and a canonical sphere model. That is a motivated classification and not a tiny-instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

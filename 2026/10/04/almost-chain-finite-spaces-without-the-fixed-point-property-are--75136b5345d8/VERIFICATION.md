@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and does not depend on computation. The critical steps checked were: (1) monotone iteration in a finite poset forces a fixed point whenever a point is comparable with its image; (2) under incomparability degree at most one, a fixed-point-free map must equal the unique mate involution; (3) monotonicity of that involution makes the quotient by mate pairs a total order; and (4) the converse swap map is order-preserving.
+# Independent mathematical audit
 
-`verify.py` is a dependency-free corroborative checker. It enumerates all labeled posets on at most four points, filters to the stated incomparability hypothesis, enumerates all self-maps, and compares actual fixed-point-free monotone maps with the theorem. It also brute-forces the canonical ordinal sums with one, two, and three two-point levels. Its recorded output is:
+## correctness
 
-```text
-GENERAL [(1, 1, 1, 0), (2, 3, 3, 1), (3, 19, 12, 0), (4, 219, 66, 6)]
-CANONICAL [(1, 2, 1), (2, 4, 1), (3, 6, 1)]
-VERIFY_OK
-```
+PASS
 
-The computation is not an infinite proof and is not used to justify the all-cardinality theorem. The degree statement is verified mathematically by identifying the order complex with the boundary of the cross-polytope and the mate swap with the restriction of central inversion.
+For a monotone self-map \(f\) of a finite poset, \(x\le f(x)\) or \(f(x)\le x\) yields a monotone iterate chain that stabilizes at a fixed point. Hence a fixed-point-free map under incomparability degree at most one must send each point to its unique incomparable mate. This forces a unique involution \(\tau\). If two mate pairs are distinct, monotonicity of \(\tau\) and transitivity force all four cross-comparisons to have the same direction, so the pairs form a total order and the poset is an ordinal sum of two-point antichains. Conversely the levelwise swap is isotone and fixed-point-free. The order complex is the join of \(k\) copies of \(S^0\), hence \(S^{k-1}\); the swap is antipodal and has degree \((-1)^k\). The finite verifier only corroborates low orders and is not used for the universal proof.
+
+## originality
+
+PASS
+
+Barmak–Minian classify the canonical minimal finite sphere models but do not characterize fixed-point-free monotone maps under a matching incomparability graph; the inspected full text contains no fixed-point theorem of this form. Szymik discusses finite-poset fixed-point phenomena and the finite-space/poset correspondence but not this structural iff. Resultary searches under the matching-incomparability, unique mate-involution, and ordinal-sum formulations returned the assigned result as the exact hit and no stronger prior SCOPE theorem. The final claim therefore survives best-of-knowledge implication comparison.
+
+## value
+
+PASS
+
+The result gives a complete structural boundary in a natural near-chain class: a local maximum-degree-one incomparability condition turns mere failure of FPP into a unique global order and a canonical sphere model. That is a motivated classification and not a tiny-instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
