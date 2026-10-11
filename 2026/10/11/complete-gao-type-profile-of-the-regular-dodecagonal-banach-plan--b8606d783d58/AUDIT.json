@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The proof separates the global geometry into two sharp inequalities. The Euclidean comparison cos(pi/12)||z||_2 <= N_12(z) <= ||z||_2 and the parallelogram identity give A^2+B^2 >= 2+sqrt(3). For min(A,B)<=1/2, exact edge separation forces the two unit points onto the same or adjacent dodecagon edges; the adjacent-edge coordinates then give A+(2-sqrt(3))B>=2 after swapping A,B if necessary. For 1<p<=2, minimizing the resulting convex one-variable function yields q_p=(2-sqrt(3))^(1/(p-1)); the complementary region min(A,B)>=1/2 is controlled by concavity on the fixed quadratic boundary and cannot improve it. For p>=2, the quadratic lower bound plus the power-mean inequality is sharp at x=(1,0), y=(0,1). Explicit adjacent-edge unit vectors attain the first branch.",
+    "risks": [
+      "The continuous local edge reduction is the nonstandard geometric step; the proof gives its exact support-functional argument and the checker independently verifies the finite edge-separation certificates.",
+      "The calculus branch contains the real exponent q_p and is verified analytically rather than by finite sampling."
+    ],
+    "sources": [
+      "Ahmad–Xie–Bi–Li, Research and Communications in Mathematics and Mathematical Sciences 14 (2022), 121–134, for the definition and universal bounds",
+      "doi:10.3390/math10234591 for the absolute-normalized-norm framework and primary MSC 46B20",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 MDPI full text gives general comparison bounds, several exact absolute-norm examples and an exact criterion for the classical p=2 Gao constant, but no regular-polygon theorem covering this profile.",
+        "The Ahmad–Xie–Bi–Li paper gives universal bounds and the l_1^2 example; it does not contain a dodecagonal all-exponent formula.",
+        "The MDPI conclusion explicitly notes that exact Gao-type values for further concrete spaces remain a problem."
+      ],
+      "reasoning": "The general published theorems do not determine the adjacent-edge optimizer q_p for 1<p<2 and do not show the optimizer switch at p=2. Therefore the profile is not a corollary of broader coverage inspected.",
+      "searches": [
+        "The Gao-Type Constant of Absolute Normalized Norms on R2 dodecagon",
+        "The Gao-Type Constant of Absolute Normalized Norms on R2 regular polygon",
+        "Some von Neumann-Jordan type and Gao type constants related to minimum in Banach spaces dodecagon",
+        "lower generalized von Neumann-Jordan Gao constant regular dodecagon"
+      ]
+    },
+    "checked_sources": [
+      "RCMMS:2022:14(1):121-134",
+      "doi:10.3390/math10234591",
+      "2026/10/4/SCOPE-exact-parameterized-von-neumann-jordan-profile-of-the-regular-oc--f993e44c6cf5",
+      "2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade",
+      "2026/10/4/SCOPE-exact-gao-constant-at-the-polyhedral-lorentz-endpoint--69884c029c36",
+      "Current own ledger through generation g000039"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The MDPI comparison theorem supplies upper and lower estimates through norm-comparison factors rather than an exact dodecagonal all-p formula.",
+        "Its exact lower-bound criterion concerns the classical exponent p=2, while the new claim has a nontrivial q_p branch for every 1<p<2.",
+        "The closest indexed octagon and Lorentz results change either the invariant, the domain, or the parameter being varied."
+      ],
+      "reasoning": "The p=2 junction value alone can be approached by known comparison machinery, so it is not presented as the novel unit. The accepted claim is the complete all-exponent profile, including the adjacent-edge branch and the sharp optimizer transition; none of the inspected prior implications yields that statement.",
+      "searches": [
+        "doi:10.3390/math10234591 Gao-type c_NJ^(p) Theorem 6 Theorem 7",
+        "Some von Neumann-Jordan type and Gao type constants related to minimum in Banach spaces c_NJ^(p)",
+        "2026/10/4/SCOPE-exact-parameterized-von-neumann-jordan-profile-of-the-regular-oc--f993e44c6cf5",
+        "2026/10/4/SCOPE-exact-gao-constant-at-the-polyhedral-lorentz-endpoint--69884c029c36"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 MDPI paper defines c_NJ^(p) exactly as the infimum of (||x+y||^p+||x-y||^p)/2^p over unit pairs.",
+        "Direct web searches under dodecagon, regular 12-gon and Gao-type aliases returned the defining/method papers but no dodecagonal profile.",
+        "The current own ledger contains a classical exponent-two Gao computation for the regular octagon, not this dodecagonal all-p profile."
+      ],
+      "reasoning": "Both notation and geometric aliases were checked. The all-p claim is stronger than the p=2 Gao constant and cannot be recovered from a title match or from a differently parameterized upper constant.",
+      "searches": [
+        "Gao-type constant regular dodecagonal Banach plane full p profile c_NJ^(p)",
+        "c_NJ^(p) regular 12-gon dodecagon Banach plane",
+        "\"Gao-type constant\" \"regular dodecagon\"",
+        "\"c_NJ^(p)\" dodecagon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked public research record reports the displayed dodecagonal c_NJ^(p) profile.",
+        "The closest indexed profile is 2026/10/4/SCOPE-exact-parameterized-von-neumann-jordan-profile-of-the-regular-oc--f993e44c6cf5 on the regular octagon and a different invariant.",
+        "The closest Gao-labelled indexed result is 2026/10/4/SCOPE-exact-gao-constant-at-the-polyhedral-lorentz-endpoint--69884c029c36, which varies a Lorentz norm parameter at exponent two."
+      ],
+      "reasoning": "Exact-value and profile searches were run with the invariant notation and polygon aliases. Absence from the index is not used alone; it is combined with primary full-text inspection and implication comparison.",
+      "searches": [
+        "Gao-type constant regular dodecagonal Banach plane full p profile c_NJ^(p)",
+        "c_NJ^(p) regular 12-gon dodecagon Banach plane",
+        "regular dodecagon Gao constant phase transition p=2"
+      ]
+    },
+    "rationale": "The defining 2022 paper and the 2022 absolute-normalized-norm paper were inspected for the exact constant, its all-p formulation, examples, bounds and open concrete-space computations. Neither contains a regular-dodecagon calculation. The latter paper's general comparison theorem gives bounds and its exact lower-bound criterion is an exponent-two result; neither statement implies the nonlinear 1<p<2 branch or the phase transition. Targeted public-research searches for dodecagon, regular 12-gon, Gao-type, c_NJ^(p), and p=2 phase-transition aliases returned no covering statement.",
+    "residual_risks": [
+      "Bibliographic and research-index searches cannot establish absolute novelty.",
+      "An equivalent regular-dodecagon computation may exist under a different polygonal normalization or alternate notation for the lower generalized von Neumann–Jordan constant.",
+      "The p=2 value is close to general comparison theory; originality rests on the complete all-p statement and its phase structure, not that isolated specialization."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: introduces the invariant and bounds but does not compute the regular dodecagon.",
+        "evidence": "Published online 27 September 2022; Research and Communications in Mathematics and Mathematical Sciences 14(1), 121–134.",
+        "identifier_or_url": "RCMMS 14 (2022), 121–134",
+        "material_read": "Title/abstract and publication metadata; introduction; definition of c_NJ^(p); Proposition 2.1 universal bounds; the l_1^2 sharpness example; surrounding discussion of lower von Neumann–Jordan/Gao constants.",
+        "method": "Public full-text rendering and targeted term inspection.",
+        "title": "Some von Neumann-Jordan type and Gao type constants related to minimum in Banach spaces",
+        "trigger": "Earliest verified public source defining the all-exponent lower Gao-type constant used in the claim."
+      },
+      {
+        "assessment": "NOT_COVERING: primary MSC 46B20; published 4 December 2022. The inspected text has no dodecagon or regular-polygon computation, and its general bounds do not imply the displayed all-p profile.",
+        "evidence": "Mathematics 10 (2022), 4591; doi:10.3390/math10234591.",
+        "identifier_or_url": "doi:10.3390/math10234591",
+        "material_read": "Title/MSC and publication page; definition and motivation of c_NJ^(p); Proposition 2; general comparison bounds; the exact p=2 criterion; concrete examples; conclusion and open concrete-space discussion.",
+        "method": "Open-access full-text HTML/search rendering; the public PDF landing text was also checked for title, MSC and publication metadata.",
+        "title": "The Gao-Type Constant of Absolute Normalized Norms on R2",
+        "trigger": "Highly relevant primary paper devoted to computing the same invariant on absolute normalized planar norms."
+      }
+    ],
+    "sources": [
+      "RCMMS:2022:14(1):121-134",
+      "doi:10.3390/math10234591",
+      "Public research records listed in the four comparison checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b8606d78-3d58-479a-bc31-44cd3cf9a7a2",
+  "value": {
+    "rationale": "The motivating literature explicitly treats exact values of c_NJ^(p) on concrete absolute normalized planes as a substantive problem. The regular dodecagon is a canonical symmetric polyhedral Banach plane, and the result gives its entire exponent profile rather than one isolated value. The sharp transition at p=2 has geometric content: subquadratic exponents prefer a continuously moving adjacent-edge pair, whereas superquadratic exponents force the balanced coordinate pair. The local edge lemma plus the Euclidean quadratic bound provides a reusable mechanism for other regular polygonal norms.",
+    "risks": [
+      "The finding is a complete canonical benchmark, not a classification of all regular polygons."
+    ],
+    "sources": [
+      "RCMMS:2022:14(1):121-134",
+      "doi:10.3390/math10234591, introduction and conclusion",
+      "Bundled RESULT.md and verify.py"
+    ],
+    "status": "PASS"
+  }
+}
