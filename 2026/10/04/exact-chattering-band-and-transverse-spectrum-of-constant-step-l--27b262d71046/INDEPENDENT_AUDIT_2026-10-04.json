@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:06:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f35c7c819baa861c4d757a5c5091d0e20ee74e6b",
+        "assigned verify.py blob e81365df5c15e47f3a16ab644a5ace6a2a7d6930",
+        "Chen et al. arXiv:2302.06675",
+        "Chen-Liu-Liang-Liu arXiv:2310.05898"
+      ],
+      "rationale": "Any strict alternating two-cycle must move by one \\(-\\eta\\) step and one \\(+\\eta\\) step, so its two parameter values are \\(a\\) and \\(a-\\eta\\). Solving the two linear momentum periodicity equations gives exactly the displayed \\(m_A,m_B\\). Substitution into the two sign inputs yields the open interval \\(\\beta_1\\eta/(1+\\beta_2)<a<(1-\\beta_1/(1+\\beta_2))\\eta\\), which is nonempty exactly when \\(2\\beta_1<1+\\beta_2\\). These equations also prove completeness of all strict alternating two-cycles. Inside a fixed sign sector the Jacobian is triangular with eigenvalues 1 and \\(\\beta_2\\), so the two-step multipliers are 1 and \\(\\beta_2^2\\). Completing the square gives the exact objective floor. The actual package verifier at blob e81365df5c15e47f3a16ab644a5ace6a2a7d6930 was inspected and checks representative cycles, margins, transverse contraction, and the default coefficients.",
+      "residual_risks": [
+        "The classification is for deterministic scalar quadratics, constant learning rate and zero decoupled weight decay; it does not describe global basins or higher-dimensional coupling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper motivates smaller learning rates for sign updates but does not provide the exact constant-step scalar dynamics.",
+          "The Lyapunov framework does not, in the material inspected, classify the strict alternating period-two family or its transverse spectrum."
+        ],
+        "reasoning": "The broader convergence analyses do not mechanically imply the cycle theorem.",
+        "searches": [
+          "Lion defining paper arXiv:2302.06675",
+          "Lion Lyapunov/constrained-optimization paper arXiv:2310.05898"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.06675",
+        "arXiv:2310.05898",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The update rule alone leaves a nonlinear piecewise-affine dynamical system to analyze.",
+          "Solving periodic momentum closure and both strict sign inequalities is the additional step that yields the sharp if-and-only-if band and multiplier."
+        ],
+        "reasoning": "The result is not a mere parameter substitution into a prior theorem.",
+        "searches": [
+          "published Lion update rule versus the period-two closure equations",
+          "general sign-optimizer intuition versus exact band condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original Lion recurrence exactly matches the record when weight decay is zero and the gradient is scalar linear.",
+          "No inspected source states the two-cycle interval or the normal multiplier."
+        ],
+        "reasoning": "Aliases involving limit cycles, chattering, oscillation and periodic orbits were compared with the Lion recurrence.",
+        "searches": [
+          "Resultary query: constant step Lion scalar quadratic period two cycle chattering beta1 beta2",
+          "Chen et al. arXiv:2302.06675 searches for periodic/cycle behavior",
+          "Chen-Liu-Liang-Liu arXiv:2310.05898"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-result record was returned."
+        ],
+        "reasoning": "The claim is an all-parameter classification, not a table lookup.",
+        "searches": [
+          "Resultary current published-finding search for Lion two-cycles and chattering bands"
+        ]
+      },
+      "rationale": "The defining Lion paper introduces the asymmetric two-coefficient sign/momentum recurrence and emphasizes the fixed update magnitude, while the later Lyapunov work gives convergence analysis in its stated regimes. Targeted full-text/record searches found no scalar-quadratic period-two classification, chattering band, or transverse Floquet multiplier. Current Resultary search for constant-step Lion cycles returned no matching published finding. The audited cycle family follows from a dedicated discrete periodicity analysis rather than from a published convergence theorem.",
+      "residual_risks": [
+        "Optimization folklore about sign-gradient chattering could contain related scalar two-cycle observations without Lion terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_ALGORITHM_NOT_CYCLE_CLASSIFICATION",
+          "evidence": "The source defines the exact recurrence ingredients but no matching periodic-orbit theorem was located.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.06675",
+          "material_read": "accessible primary text/record for the algorithm definition and sign-update discussion, together with targeted searches for periodic and cycle terminology",
+          "method": "primary-source targeted full-text inspection",
+          "title": "Symbolic Discovery of Optimization Algorithms",
+          "trigger": "defining primary source for Lion"
+        },
+        {
+          "assessment": "LYAPUNOV_CONTEXT_NOT_EXACT_CONSTANT_STEP_CYCLES",
+          "evidence": "The inspected scope does not supply the scalar period-two band or Floquet multiplier.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.05898",
+          "material_read": "primary abstract and theorem-scope material describing Lyapunov/constrained-optimization convergence analysis",
+          "method": "primary-source scope inspection",
+          "title": "Lion Secretly Solves Constrained Optimization: As Lyapunov Predicts",
+          "trigger": "closest later mathematical analysis of Lion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lion defining and Lyapunov papers",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The theorem isolates an exact nonconvergent constant-step regime of a widely used sign optimizer on the simplest strongly convex objective. The complete band, continuum of cycles, transverse multiplier and nonzero objective floor explain a concrete algorithmic boundary rather than an arbitrary numerical curiosity. This is a motivated structural dynamical result.",
+      "residual_risks": [
+        "Decaying learning rates or positive weight decay can remove the exact continuum, so the conclusion is not a general training-failure theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The classification is for deterministic scalar quadratics, constant learning rate and zero decoupled weight decay; it does not describe global basins or higher-dimensional coupling.",
+    "Optimization folklore about sign-gradient chattering could contain related scalar two-cycle observations without Lion terminology.",
+    "Decaying learning rates or positive weight decay can remove the exact continuum, so the conclusion is not a general training-failure theorem."
+  ]
+}
