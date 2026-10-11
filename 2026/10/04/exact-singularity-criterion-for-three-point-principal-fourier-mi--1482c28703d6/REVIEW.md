@@ -1,22 +1,21 @@
-# Review: Exact singularity criterion for three-point principal Fourier minors
+# Independent mathematical audit
 
-## Correctness
-**PASS.** After translation to \(K=\{0,a,b\}\), the determinant is exactly
-\[
-(\omega^{a^2}-1)(\omega^{b^2}-1)-(\omega^{ab}-1)^2.
-\]
-The proof separates \(N\mid ab\) from \(N\nmid ab\). In the first case, vanishing is exactly \(N\mid a^2\) or \(N\mid b^2\). In the second, the phase identity forces \(N\mid(b-a)^2\), after which the determinant factors as \(-X(R-1)^2\), giving exactly \(N\mid a(b-a)\). No implication is inferred from finite testing. The order-coset and valuation formulations follow algebraically from the same divisibilities. The packaged exact verifier independently checks all normalized triples for \(3\le N\le120\).
+## correctness
 
-Risk: the only mathematical risk identified is an algebraic transcription error; replay of the exact cyclotomic verifier and direct reconstruction of the factorization found none.
+PASS
 
-## Originality
-**PASS.** Tao and Frenkel cover prime-order all-minor nonvanishing. Caragea--Lee is the closest inspected source: it proves nonvanishing of all \(3\times3\) principal minors for square-free \(N\), and existence of zero principal minors for nonsquare-free \(N\). Its \(3\times3\) proof contains the same initial determinant identity and a necessary square-divisibility step, but the inspected theorem and proof do not state the exact local iff condition for each triple, the cross-divisibility condition, or the additive-order/coset characterization. Searches for those equivalent formulations did not locate a matching statement.
+The determinant proof reconstructs correctly. Translation reduces to \(K=\{0,a,b\}\) with \(D=(\omega^{a^2}-1)(\omega^{b^2}-1)-(\omega^{ab}-1)^2\). If \(N\mid ab\), vanishing is exactly \(N\mid a^2\) or \(N\mid b^2\). Otherwise the sine-phase identity forces \(N\mid(b-a)^2\); with \(c=b-a\), \(X=\omega^{a^2}\), \(R=\omega^{ac}\), the determinant factors as \(-X(R-1)^2\), so vanishing is exactly \(N\mid a(b-a)\). The order/coset formulation follows by writing \(d=gr\), \(q=N/g\). An independent direct complex-determinant check for every triple and every \(3\le N\le35\) found no discrepancy with the criterion.
 
-Risk: a local classification may exist under different terminology or outside the inspected indexed literature. This residual risk does not create an unresolved implication from a known stronger result.
+## originality
 
-## Value
-**PASS.** The result closes a natural local classification problem left open by the global square-free/nonsquare-free dichotomy: it tells exactly which individual three-point principal Fourier submatrices fail, not merely whether some failure exists. The additive-order formulation exposes the square-divisor mechanism geometrically and gives an immediate arithmetic filter for singular triples. It also explains why nonsquare-free moduli can contain many nonsingular triples even though a singular triple exists globally.
+PASS
 
-Risk: the result is intentionally limited to order three and does not address the harder larger-minor problem.
+Best-of-knowledge comparison distinguishes the local iff criterion from the published global square-free theorem. Caragea--Lee state that, for \(N>4\), all principal \(3\times3\) Fourier minors are nonzero iff \(N\) is square-free; this implies existence/nonexistence globally but does not identify which triples are singular for a general nonsquarefree composite modulus. Resultary returned the assigned local criterion as the exact semantic hit and nearby Fourier results address different objects. Complete primary text of Caragea--Lee could not be obtained in this run: open full-text retrieval was unavailable and the permitted institutional retrieval returned an Oxford worker error. That access limitation is retained as a residual priority risk rather than converted into a failure.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The singular locus of the smallest nontrivial principal Fourier minors is a natural exact invariant. The theorem upgrades a global square-free boundary to a complete local arithmetic classification for every composite modulus and supplies equivalent order/coset and valuation forms. That is a structural classification, not a tiny numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
