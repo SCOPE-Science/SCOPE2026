@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical verification is exact and has two layers.
+# Independent mathematical audit
 
-First, the primary-source reduction is applied only after checking that the standard axes make the real plane \(\ell_3^2\) a symmetric Minkowski plane. This gives the one-variable function \(F(t)\) on \([0,\infty)\). The identities \(U(1/t)=t^{-3}V(t)\), \(V(1/t)=t^{-3}U(t)\), and \(W(1/t)=t^{-3}W(t)\) imply \(F(1/t)=F(t)\), so no parameter outside \([0,1]\) is omitted.
+## correctness
 
-Second, the global bound on \([0,1]\) is analytic. Concavity of \(s\mapsto s^{2/3}\) reduces it to \(U+V\le9W\). On \([0,1/2]\) the difference is exactly \(18t^2\). On \([1/2,1]\) it is \(2(1-6t+21t^2-8t^3)\); writing the cubic as \(1+t(-8t^2+21t-6)\), the quadratic factor is increasing there and already equals \(5/2\) at \(t=1/2\). Hence the bound is global and strict away from the appropriate equality point.
+PASS
 
-The bundled script `verify_omega_l3.py` reconstructs these polynomial identities using integer arithmetic and performs rational-point checks of the reciprocal symmetry. A successful run prints `VERIFY_OK`. These computations are corroborative; they are not a finite substitute for the proof of the continuous supremum.
+The real \(\ell_3^2\) plane satisfies the symmetry hypothesis of the cited reduction. Reciprocal symmetry \(F(1/t)=F(t)\) reduces the domain to \([0,1]\). Independent symbolic expansion gives \(9W-(U+V)=18t^2\) on \([0,1/2]\) and \(2(1-6t+21t^2-8t^3)>0\) on \([1/2,1]\). Concavity of \(s^{2/3}\) then yields the global upper bound \(\sqrt[3]{162}/5\), and the coordinate pair \((1,0),(0,1)\) attains equality. The finite checker is corroborative only; the continuum supremum is proved analytically.
 
-No claim is made beyond the real plane \(\ell_3^2\).
+## originality
+
+PASS
+
+Originality passes. The defining full text introduces \(\Omega\), proves the symmetric-Minkowski-plane one-variable reduction, and computes other examples, but the inspected paper does not evaluate \(\ell_3^2\). Later nearby papers use different generalized constants or different spaces. Exact-value and semantic searches did not find a covering evaluation.
+
+## value
+
+PASS
+
+\(\Omega\) was introduced as a quantitative isosceles-orthogonality/Hilbert-space invariant and \(\ell_p^2\) is the canonical test family. The first non-Hilbert odd integer exponent gives a nonquadratic exact optimization with an explicit extremizing geometry and a reusable concavity-plus-polynomial mechanism. This is a natural exact benchmark, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

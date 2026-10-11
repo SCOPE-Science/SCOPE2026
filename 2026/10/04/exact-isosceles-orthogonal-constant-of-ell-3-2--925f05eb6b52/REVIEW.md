@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the exact definition and hypotheses, invokes the published symmetric-plane reduction only after verifying that \(\ell_3^2\) has the required axes, and then proves the remaining global maximum. Reciprocal symmetry reduces the parameter range to \([0,1]\); concavity and the exact piecewise identity \(U+V\le9W\) give the upper bound, and the coordinate axes attain it. The checker only verifies algebraic identities and is not used in place of the analytic supremum proof.
+## correctness
 
-## Originality
-PASS. The closest primary full text introduces \(\Omega\), proves its symmetric-plane reduction, and computes other normed-plane examples, but the inspected statement does not evaluate \(\ell_3^2\). Targeted published-finding corpus and web searches for the invariant, exact space, aliases, and stronger formulations did not find a covering claim. A 2026 related paper computes a distinct direct Takahashi-type invariant; a 2025 Morrey paper treats a different space class. The residual risk is an unindexed computation under unrelated notation.
+PASS
 
-## Value
-PASS. This is an exact sharp value for a recently introduced geometric invariant on the canonical first odd non-Hilbert \(\ell_p\) plane. It supplies an explicit benchmark and an analytic mechanism that can inform the broader \(\ell_p^2\) problem, rather than merely checking a random vector pair.
+The real \(\ell_3^2\) plane satisfies the symmetry hypothesis of the cited reduction. Reciprocal symmetry \(F(1/t)=F(t)\) reduces the domain to \([0,1]\). Independent symbolic expansion gives \(9W-(U+V)=18t^2\) on \([0,1/2]\) and \(2(1-6t+21t^2-8t^3)>0\) on \([1/2,1]\). Concavity of \(s^{2/3}\) then yields the global upper bound \(\sqrt[3]{162}/5\), and the coordinate pair \((1,0),(0,1)\) attains equality. The finite checker is corroborative only; the continuum supremum is proved analytically.
 
-## Closest literature and limitations
-The closest source is Liu--Yang--Li, arXiv:2111.08392, which supplies the reduction but not the exact \(\ell_3^2\) maximization. The claim is restricted to the real two-dimensional exponent-three space; no all-\(p\), higher-dimensional, or complex statement is made.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The defining full text introduces \(\Omega\), proves the symmetric-Minkowski-plane one-variable reduction, and computes other examples, but the inspected paper does not evaluate \(\ell_3^2\). Later nearby papers use different generalized constants or different spaces. Exact-value and semantic searches did not find a covering evaluation.
+
+## value
+
+PASS
+
+\(\Omega\) was introduced as a quantitative isosceles-orthogonality/Hilbert-space invariant and \(\ell_p^2\) is the canonical test family. The first non-Hilbert odd integer exponent gives a nonquadratic exact optimization with an explicit extremizing geometry and a reusable concavity-plus-polynomial mechanism. This is a natural exact benchmark, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
