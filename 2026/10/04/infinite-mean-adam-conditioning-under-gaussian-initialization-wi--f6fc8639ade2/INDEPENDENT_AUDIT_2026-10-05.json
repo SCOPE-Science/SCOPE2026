@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T13:30:29.587663Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2d96794800c15526dbbb0597cbdb67356a5d5142",
+        "assigned verify.py blob 17a0add88bd1b63e5da63aa91fcd8e9d625f9245",
+        "Zhang et al., Adam-mini: Use Fewer Learning Rates To Gain More, arXiv:2406.16793",
+        "Das et al., Towards Quantifying the Preconditioning Effect of Adam, arXiv:2402.07114",
+        "Demmel, Nearly Optimal Block-Jacobi Preconditioning, DOI:10.1137/22M1504901"
+      ],
+      "rationale": "For the two-dimensional deterministic envelope, surjectivity of the invertible map from initialization to gradient makes the positive ratio of gradient magnitudes arbitrary. After removing a common scalar, minimizing the condition number of the row-scaled matrix reduces to minimizing its Frobenius-squared norm divided by determinant magnitude. The unique arithmetic-geometric-mean minimum occurs when the two scaled row norms agree, and the determinant identity gives the stated closed form in the absolute row correlation. Independent numerical singular-value minimization on two generic positive-definite matrices matched the closed form and the predicted row-equilibrating ratio to numerical precision; the forty-five-degree rotation family reproduced the exact floor equal to the original spectral condition number for several values. For the Gaussian theorem, fixing a vector orthogonal to one row bounds the smallest singular value on a positive-density box where all other gradient coordinates stay away from zero, while the largest singular value grows at least inversely with the first gradient coordinate. The nonsingular Gaussian density is bounded below on that compact box, so integrating the reciprocal singularity gives an infinite first moment. This analytic integral, not finite simulation, proves the all-dimensional statement.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das et al. give broad quadratic convergence/preconditioning comparisons for Adam.",
+          "Classical diagonal-scaling work studies optimal one-sided scaling beyond two dimensions.",
+          "Adam-mini supplies the exact motivating diagnostic and empirical rotation phenomenon."
+        ],
+        "reasoning": "These broader theories do not directly yield the probabilistic infinite-mean theorem for the prescribed Gaussian initialization; the two-dimensional scaling formula is consistent with, but not located verbatim in, the classical theory.",
+        "searches": [
+          "arXiv:2402.07114",
+          "DOI:10.1137/22M1504901",
+          "arXiv:2406.16793"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.16793",
+        "arXiv:2402.07114",
+        "DOI:10.1137/22M1504901",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Empirical degradation under eigenvector rotation does not imply an infinite population mean under Gaussian initialization.",
+          "General diagonal-scaling results do not by themselves connect the attainable scaling to the random reciprocal gradient coordinates or their divergent first moment."
+        ],
+        "reasoning": "The Gaussian tail mechanism and its use to invalidate mean conditioning as a population diagnostic are additional mathematical conclusions not supplied by the inspected prior work.",
+        "searches": [
+          "statement-level comparison with Adam-mini dense-block experiments and appendix setup",
+          "statement-level comparison with Das et al. non-diagonal-Hessian results",
+          "comparison with classical one-sided diagonal scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Adam-mini diagnostic uses the same unregularized coordinatewise inverse-gradient scaling in its idealized analysis.",
+          "No inspected source states the infinite expected condition number under Gaussian initialization or the exact two-dimensional row-correlation floor."
+        ],
+        "reasoning": "Searches covered instantaneous Adam, Jacobi/row scaling, Gaussian gradient singularities and rotation/orientation aliases.",
+        "searches": [
+          "Resultary: Adam instantaneous diagonal preconditioner Gaussian initialization infinite expected condition number two dimensional diagonal scaling orientation",
+          "arXiv:2406.16793 dense-block condition-number diagnostic",
+          "arXiv:2402.07114 Adam quadratic preconditioning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact published finding with the same combined theorem appeared among the relevant results."
+        ],
+        "reasoning": "The theorem is analytic rather than a database value; the search checks for previously published exact formulas or counterexamples.",
+        "searches": [
+          "Resultary semantic query for infinite-mean Adam conditioning and two-dimensional row scaling"
+        ]
+      },
+      "rationale": "The Adam-mini source studies the same instantaneous diagonal preconditioner in random dense quadratic blocks and reports that rotated dense blocks can resist condition-number improvement, but it does not state a Gaussian-initialization infinite-mean law or the exact two-dimensional initialization envelope. Das et al. develop broader quadratic preconditioning analysis and show that non-diagonal Hessians can erase Adam's conditioning advantage, yet the inspected result statements use different condition quantities and do not imply the local reciprocal-coordinate tail or the exact orientation formula. Classical one-sided diagonal-scaling theory is a meaningful priority risk for the deterministic two-dimensional minimum, so originality is accepted primarily for the combined source-specific theorem: the exact attainable floor together with the infinite population mean under the unregularized Gaussian diagnostic.",
+      "residual_risks": [
+        "The deterministic two-dimensional one-sided scaling formula may be implicit in older matrix-scaling literature under different notation.",
+        "The accepted novelty is therefore bounded to the combined exact Adam diagnostic and Gaussian heavy-tail statement, not a claim that row equilibration itself is new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATING_DIAGNOSTIC_NOT_EXACT_THEOREM",
+          "evidence": "The source motivates the matrix quantity and orientation issue but contains no located infinite-mean theorem or exact two-dimensional floor.",
+          "identifier_or_url": "arXiv:2406.16793",
+          "material_read": "Primary full-text material around the random positive-definite dense-block experiment, the coordinatewise preconditioner setup and the discussion that rotations degrade condition-number reduction.",
+          "method": "Lawful open/author-provided primary-text inspection.",
+          "title": "Adam-mini: Use Fewer Learning Rates To Gain More",
+          "trigger": "Exact motivating source for the dense-block instantaneous conditioning diagnostic."
+        },
+        {
+          "assessment": "RELATED_BROADER_THEORY_NOT_SAME_RANDOM_DIAGNOSTIC",
+          "evidence": "The source does not state the reciprocal-Gaussian singularity result or the submitted exact two-dimensional envelope.",
+          "identifier_or_url": "arXiv:2402.07114",
+          "material_read": "Primary theorem/abstract material on quadratic objectives, diagonal and non-diagonal Hessians and conditioning guarantees/failures.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Towards Quantifying the Preconditioning Effect of Adam",
+          "trigger": "Strongest nearby theoretical Adam preconditioning source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2406.16793",
+        "arXiv:2402.07114"
+      ],
+      "rationale": "The infinite-mean theorem shows that an average condition-number summary for the unregularized Gaussian diagnostic has no finite population target, a direct methodological consequence for interpreting the motivating experiment. The exact two-dimensional floor separately identifies an orientation barrier and explains why diagonal eigenvectors can be perfectly equilibrated while a forty-five-degree rotation can preserve the original condition number. Together these are motivated structural limitations of the diagnostic rather than arbitrary matrix calculations.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2406.16793",
+    "arXiv:2402.07114",
+    "DOI:10.1137/22M1504901",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The infinite-mean statement concerns the unregularized instantaneous preconditioner with reciprocal gradient magnitudes, not full Adam or Adam-mini dynamics.",
+    "A positive denominator regularizer removes the literal reciprocal singularity.",
+    "The exact deterministic lower envelope is proved only in dimension two."
+  ],
+  "residual_risks": [
+    "The deterministic two-dimensional one-sided scaling formula may be implicit in older matrix-scaling literature under different notation.",
+    "The accepted novelty is therefore bounded to the combined exact Adam diagnostic and Gaussian heavy-tail statement, not a claim that row equilibration itself is new."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MOTIVATING_DIAGNOSTIC_NOT_EXACT_THEOREM",
+      "evidence": "The source motivates the matrix quantity and orientation issue but contains no located infinite-mean theorem or exact two-dimensional floor.",
+      "identifier_or_url": "arXiv:2406.16793",
+      "material_read": "Primary full-text material around the random positive-definite dense-block experiment, the coordinatewise preconditioner setup and the discussion that rotations degrade condition-number reduction.",
+      "method": "Lawful open/author-provided primary-text inspection.",
+      "title": "Adam-mini: Use Fewer Learning Rates To Gain More",
+      "trigger": "Exact motivating source for the dense-block instantaneous conditioning diagnostic."
+    },
+    {
+      "assessment": "RELATED_BROADER_THEORY_NOT_SAME_RANDOM_DIAGNOSTIC",
+      "evidence": "The source does not state the reciprocal-Gaussian singularity result or the submitted exact two-dimensional envelope.",
+      "identifier_or_url": "arXiv:2402.07114",
+      "material_read": "Primary theorem/abstract material on quadratic objectives, diagonal and non-diagonal Hessians and conditioning guarantees/failures.",
+      "method": "Lawful open primary-source inspection.",
+      "title": "Towards Quantifying the Preconditioning Effect of Adam",
+      "trigger": "Strongest nearby theoretical Adam preconditioning source."
+    }
+  ]
+}
