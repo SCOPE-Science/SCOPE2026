@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Koponen's tuple equivalence has exactly one global binary choice: preserve every tournament edge or reverse every edge. Triple overlap propagates that choice across any automorphism of the reduct, so its automorphism group is precisely the automorphism/anti-automorphism group of the random tournament. An anti-automorphism can be chosen to fix any single point, while no anti-automorphism can fix two distinct points; omega-categoricity then gives the exact two-parameter definability threshold. For type counting, the inclusion--exclusion formula counts equality patterns with exactly \(k\) new classes, the random-tournament extension property realizes all \(mk+\binom{k}{2}\) orientation bits, and the surviving reversal acts as a free complement involution exactly for parameter sets of size at most one.
+PASS
 
-## Originality
+Koponen's tuple equivalence records a tournament diagram exactly up to one global edge reversal, and overlapping triples force a single preserve-or-reverse mode for any automorphism of the reduct. Hence the automorphism group is the known automorphism/anti-automorphism group. An anti-automorphism can be arranged to fix zero or one named point, but none can fix two distinct points because their directed edge would have to reverse while both endpoints remain fixed. Omega-categoricity therefore gives the exact two-parameter definability threshold. For the type formula, equality patterns with k new classes are counted by inclusion-exclusion, every orientation bit is realized by the random-tournament extension property, and global complement halves the orientations exactly when at most one parameter is fixed. Fresh formula replay reproduces the displayed type counts.
 
-**PASS, with residual folklore risk.** Koponen constructs the four-relation reduct and proves its homogeneity but does not state the finite-parameter type spectrum or the two-parameter recovery threshold. Bennett's reduct classification, as summarized by Bodirsky--Pinsker--Pongrácz, makes the global-reversal group prior and is explicitly excluded from the novelty claim. published-finding corpus searches for random-tournament reversal reduct orbit/type profiles returned nearby random-poset and random-bipartite reduct findings but no matching theorem. Exact-sequence and web searches under both Koponen and \(\operatorname{Betw}_T\) terminology likewise found no equivalent formula.
+## originality
 
-## Value
+PASS
 
-**PASS.** The threshold pinpoints exactly when a ternary homogeneous reduct recovers its hidden binary random structure, and the same symmetry break yields a closed all-arity, all-finite-parameter type spectrum. The result gives a compact quantitative invariant of a classical reduct and a reusable template for analyzing hidden structures modulo finite symmetry groups.
+The global-reversal reduct and its automorphism group are prior and explicitly excluded from novelty. Koponen constructs the four ternary relations and proves homogeneity, while Bennett's reduct classification supplies the global group context. Neither inspected primary source states the two-parameter recovery threshold or the all-arity finite-parameter type spectrum. Resultary searches found only orbit-profile results for other random structures.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The theorem identifies the exact finite parameter threshold at which a canonical homogeneous reduct recovers its hidden binary orientation and packages the consequence into a closed complete-type spectrum. This is a natural invariant of a standard reduct, not an arbitrary small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

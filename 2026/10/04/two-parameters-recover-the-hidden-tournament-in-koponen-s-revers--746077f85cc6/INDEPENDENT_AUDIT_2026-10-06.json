@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:01:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Koponen Definition 7.5, Lemma 7.6 and Lemma 7.7.",
+        "Bodirsky--Pinsker--Pongracz summary of Bennett's global-reversal reduct.",
+        "Fresh independent type-count formula replay in this audit."
+      ],
+      "rationale": "Koponen's tuple equivalence records a tournament diagram exactly up to one global edge reversal, and overlapping triples force a single preserve-or-reverse mode for any automorphism of the reduct. Hence the automorphism group is the known automorphism/anti-automorphism group. An anti-automorphism can be arranged to fix zero or one named point, but none can fix two distinct points because their directed edge would have to reverse while both endpoints remain fixed. Omega-categoricity therefore gives the exact two-parameter definability threshold. For the type formula, equality patterns with k new classes are counted by inclusion-exclusion, every orientation bit is realized by the random-tournament extension property, and global complement halves the orientations exactly when at most one parameter is fixed. Fresh formula replay reproduces the displayed type counts.",
+      "risks": [
+        "The proof uses the standard omega-categorical orbit-definability correspondence; no formal proof assistant certificate is supplied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koponen proves homogeneity of the four-ternary-relation structure.",
+          "The reduct-classification source identifies the global reversal-generated group as prior."
+        ],
+        "reasoning": "Those broader structural results do not enumerate finite point-stabilizer orbits or state the exact parameter recovery threshold.",
+        "searches": [
+          "Koponen DOI:10.1017/jsl.2018.61 / arXiv:1707.05954",
+          "Bodirsky--Pinsker--Pongracz arXiv:1309.2165"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "DOI:10.1017/jsl.2018.61",
+        "arXiv:1707.05954",
+        "arXiv:1309.2165"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The global group description makes the stabilizer analysis short but does not itself state that one point still admits reversal while two fixed points do not, nor the resulting equality-pattern sum.",
+          "The exact all-arity type formula requires combining that stabilizer threshold with orbit counting."
+        ],
+        "reasoning": "The submitted theorem is a natural quantitative refinement of known structure rather than a renamed prior group classification.",
+        "searches": [
+          "Koponen Definition 7.5 and Lemmas 7.6-7.7",
+          "Bennett reduct-group classification as summarized in arXiv:1309.2165"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No returned finding stated the same threshold or formula.",
+          "The primary sources state the reduct construction/global group but not its finite-parameter type counts."
+        ],
+        "reasoning": "Model-theoretic type, permutation-group orbit and hidden-orientation formulations were compared.",
+        "searches": [
+          "Resultary: Koponen random tournament reversal reduct two parameters definability finite type spectrum automorphism anti-automorphism",
+          "Web searches for random tournament reversal reduct pointwise stabilizer, two-parameter definability and tuple orbit profile"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table with the submitted finite-parameter counts was located."
+        ],
+        "reasoning": "The fresh replay verifies the formula internally, while novelty rests on statement-level literature comparison rather than sequence non-detection alone.",
+        "searches": [
+          "Resultary exact initial-sequence/type-spectrum searches",
+          "Targeted searches for random-tournament reduct subdegrees and finite tuple orbits"
+        ]
+      },
+      "rationale": "The global-reversal reduct and its automorphism group are prior and explicitly excluded from novelty. Koponen constructs the four ternary relations and proves homogeneity, while Bennett's reduct classification supplies the global group context. Neither inspected primary source states the two-parameter recovery threshold or the all-arity finite-parameter type spectrum. Resultary searches found only orbit-profile results for other random structures.",
+      "residual_risks": [
+        "The two-parameter stabilizer observation is elementary once the reversal group is recognized and could exist as unpublished folklore.",
+        "A permutation-group source under subdegree terminology could contain an equivalent spectrum without using type language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_REDUCT_CONSTRUCTION_NOT_TYPE_SPECTRUM",
+          "evidence": [
+            "The tuple relation is equality-pattern agreement plus simultaneous preservation or reversal of every tournament edge; the resulting four-relation structure is homogeneous."
+          ],
+          "identifier_or_url": "DOI:10.1017/jsl.2018.61; arXiv:1707.05954",
+          "material_read": "Primary full text at Definition 7.5, Lemma 7.6, Lemma 7.7 and surrounding proof.",
+          "method": "Public full-PDF text plus rendered-page inspection.",
+          "title": "On constraints and dividing in ternary homogeneous structures",
+          "trigger": "Exact construction of the four-relation reduct."
+        },
+        {
+          "assessment": "GLOBAL_REVERSAL_GROUP_IS_PRIOR; FINITE_PARAMETER_SPECTRUM_NOT_STATED",
+          "evidence": [
+            "The source identifies the nontrivial random-tournament reduct generated by a global orientation reversal."
+          ],
+          "identifier_or_url": "arXiv:1309.2165",
+          "material_read": "Full primary preprint section on the random tournament and groups generated by global reversal.",
+          "method": "Public full-PDF inspection.",
+          "title": "The 42 reducts of the random ordered graph",
+          "trigger": "Broader source summarizing Bennett's random-tournament reduct classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact threshold 2 and all-arity finite-parameter orbit/type formula."
+      ],
+      "rationale": "The theorem identifies the exact finite parameter threshold at which a canonical homogeneous reduct recovers its hidden binary orientation and packages the consequence into a closed complete-type spectrum. This is a natural invariant of a standard reduct, not an arbitrary small computation.",
+      "risks": [
+        "Only the global-converse reduct is covered, not the switching reducts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Koponen's global-converse reduct of the countable random tournament, the hidden tournament orientation is not definable over zero or one parameter but is definable over every pair of distinct parameters; this symmetry break yields the stated exact finite-parameter complete-type formula and orbit profiles.",
+  "limitations": [
+    "Global-converse reduct only.",
+    "Real finite parameter sets only; no imaginary or infinite-parameter types."
+  ],
+  "schema_version": 1
+}
