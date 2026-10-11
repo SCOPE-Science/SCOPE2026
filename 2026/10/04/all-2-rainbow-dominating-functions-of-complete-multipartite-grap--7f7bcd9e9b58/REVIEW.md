@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The neighborhood of every vertex in part \(V_i\) is exactly the complement of \(V_i\), so the two support conditions are logically equivalent to the 2-rainbow domination rule. The multinomial sum counts every feasible function exactly once. The four cases for the minimum weight exhaust \(\min_i n_i=1,2,3\) and \(\min_i n_i\ge4\). Independent exhaustive replay through order \(8\) agrees with the structural characterization, every coefficient of the stated profile enumerator, and the minimum formula.
+## correctness
 
-## Originality
-PASS for the all-function structural classification and exact weight enumerator. The foundational full text inspected defines the parameter and proves general bounds, while the closest directly relevant 2018 source advertises scalar complete-multipartite bounds for a proper variant. No all-function ordinary complete-multipartite enumerator was located in the checked literature or semantic database searches. The inaccessible 2018 full text and alternate terminology remain explicit residual risks.
+PASS
 
-## Value
-PASS. The theorem upgrades a scalar domination invariant on a standard dense graph family to a complete description of every feasible function and its full weight distribution. The support criterion isolates the only obstruction, making exact coefficient extraction and random-function questions accessible without vertex-level search.
+The neighborhood of every vertex in part \(V_i\) is exactly the union of all other parts. Therefore an empty label is legal exactly when each color occurs outside \(V_i\), which is the stated support-set criterion. Partitioning labelings by the four per-part counts then gives the multinomial weight enumerator without omission or multiplicity. The minimum-weight cases \(m=1,2,3\) and \(m\ge4\) follow from explicit constructions and the necessary number of outside part-color incidences. As an independent bounded check, direct brute force on representative multipartite profiles including \((1,1),(1,3),(2,2),(3,4),(4,4),(5,2)\) reproduced \(\gamma_{r2}=\min\{4,\max\{2,m\}\}\). The finite check is corroborative only; the neighborhood argument proves the arbitrary-order statement.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives. The foundational 2010 paper defines the same invariant and proves general extremal bounds but does not treat complete multipartite graphs or an all-function generating polynomial. Fresh Resultary searches returned the audited record itself plus distinct Roman/rainbow-related domination records, not a prior theorem implying the exact profile criterion or weight enumerator. The scalar minimum could conceivably have appeared elsewhere; originality is attached to the stronger all-function classification and enumerator.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical dense family, and the theorem upgrades a minimum invariant to a complete feasible-function classification and exact weight distribution. That structural description supports counting and coefficient questions that are not recoverable from the scalar domination number alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
