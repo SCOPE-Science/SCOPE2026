@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:02:03Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md blob c4654fc98da38ec6723555ed05c6be461b6cf8b2.",
+        "Frozen verify.py blob d3b1e38cff02675b4c49971ed30688f9273d5ad7; its series and target-scale algebra were independently re-derived.",
+        "Gösgens, van Parys, Zwart, arXiv:2609.31127, current abstract: large/moderate deviations for Hill, second-order bias, and a bias-corrected estimator."
+      ],
+      "rationale": "The proof was reconstructed from the frozen package rather than accepted from its prior review. Under the exponential order-statistic representation, the exceedances above the kth exponential threshold are independent Exp(1), and the exact Hall increment is \\(Y+\\alpha\\ell_z(Y)\\). Integrating against Exp(1) gives \\(m(z)=-\\beta z/(1+\\beta)+\\beta z^2/(1+2\\beta)+O(z^3)\\). Since \\(A=-\\beta z\\), the oracle correction cancels the linear term and leaves the positive quadratic term for either sign of \\(c\\). The chosen threshold window has \\(r_n/\\delta_n\\to\\infty\\) and \\(|z_n|r_n=o(\\delta_n)\\); order-statistic concentration is therefore superexponentially negligible on the \\(k\\delta_n^2\\) scale. Centered Hall corrections are uniformly \\(O(|z_n|)\\), so Hoeffding likewise makes their \\(\\varepsilon\\delta_n\\) deviations negligible. What remains is the lower moderate deviation of a Gamma(k-1,1) average, whose rate is \\(k\\delta_n^2/2\\). The missing 1/k mean term is negligible because \\(k\\delta_n^2\\to\\infty\\).",
+      "risks": [
+        "The theorem is exact-Hall and oracle-only; a third-order tail term can modify the quadratic residual coefficient.",
+        "The recent motivating preprint's complete theorem body was not recoverable through public routes in this run; correctness does not rely on that paper because the submitted proof was independently reconstructed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Segers 2002 studies Hill bias under second-order regular variation, not the submitted one-sided moderate-deviation residual theorem.",
+          "The recent source is broader in large/moderate-deviation scope but accessible material does not expose a theorem dominating the exact-Hall \\(A^2\\) regime."
+        ],
+        "reasoning": "Broader bias theory and first-order bias correction do not by themselves determine the post-correction one-sided moderate-deviation exponent at scale \\(A^2\\).",
+        "searches": [
+          "Web query: Abelian and Tauberian Theorems on the Bias of the Hill Estimator",
+          "Web query: reduced-bias Hill estimator Hall class moderate deviations",
+          "arXiv:2609.31127 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search above",
+        "arXiv:2609.31127",
+        "DOI:10.1111/1467-9469.00301"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Accessible prior statements establish that bias correction and moderate deviations are studied, but do not expose an implication that fixes the submitted quadratic residual or zero-rescaling exponent.",
+          "The submitted proof needs a fresh exact-Hall expansion plus exponential-equivalence argument after first-order cancellation."
+        ],
+        "reasoning": "On material actually readable in this run, the final claim is not a direct specialization of a stronger stated theorem. The inaccessible theorem body remains the principal residual originality risk.",
+        "searches": [
+          "arXiv:2609.31127 current abstract and bibliographic record",
+          "Segers 2002 Hill-bias paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's returned high-similarity set contained no earlier Hall-specific finding stating the submitted residual/exponent theorem.",
+          "arXiv:2609.31127 is the same-statistic source; its accessible abstract states second-order bias and bias-corrected moderate-deviation analysis but not the submitted \\(A^2\\)-residual coefficient or zero-rescaling exponent."
+        ],
+        "reasoning": "Equivalent searches used Hall-class, bias-corrected Hill, reciprocal overestimation, quadratic residual, and fourth-order exponent language. Search absence is not itself novelty proof; the decision combines the searches with direct proof/source comparison and the explicit access residual.",
+        "searches": [
+          "Resultary semantic query: Hall class Hill estimator first-order bias correction residual A squared moderate deviations conservative tail-index overestimation k A fourth",
+          "Web query: arXiv 2609.31127 Large Moderate Deviations Conservative Tail-Index Estimation Theorem 3 Corollary 7 A(n/k) theta_n",
+          "Web query: 2609.31127 pdf theorem 3 bias-corrected Hill A(n/k) theta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate published SCOPE/Resultary record among the returned results tabulates or states the same Hall residual and \\(kA^4\\) exponent."
+        ],
+        "reasoning": "This is not a finite-table result; the database check asks whether the exact asymptotic theorem is already recorded.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives. Fresh semantic and web searches found the recent Gösgens--van Parys--Zwart paper as the uniquely close source and older Hill-bias literature, but no independently located statement of the sign-independent \\(A^2\\) residual combined with the \\(kA^4\\) one-sided exponent or target-decay threshold law. The accessible primary abstract confirms first-order second-order-bias and bias-corrected moderate-deviation coverage but does not state this residual regime. Full text of that very recent paper could not be obtained from arXiv/OA in this run, and the authorized institutional fallback was unavailable; under the owner rule this access limitation is retained as a material residual risk rather than treated as negative originality evidence.",
+      "residual_risks": [
+        "The inaccessible complete body of arXiv:2609.31127 is a highly relevant residual risk; the access failure alone is not treated as an originality failure.",
+        "An older higher-order reduced-bias Hill paper could contain the same Hall coefficient under different notation, though no such theorem was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_CLOSE_SOURCE; ACCESS_LIMITATION_RETAINED; NO_ACCESSIBLE_STATEMENT_DOMINATING_FINAL_CLAIM",
+          "evidence": [
+            "The abstract says the paper quantifies Hill bias, analyzes a bias-corrected estimator, and gives moderate-deviation conditions, but does not state the exact-Hall \\(A^2\\) residual or \\(kA^4\\) exponent."
+          ],
+          "identifier_or_url": "arXiv:2609.31127",
+          "material_read": "Current arXiv abstract and bibliographic/update record. Direct arXiv PDF/full-body retrieval and other public full-text routes did not yield readable theorem text in this run.",
+          "method": "Public arXiv/web search first; after public full text failed, one authorized institutional fallback was attempted and was unavailable. No retry or bypass.",
+          "title": "Large and Moderate Deviations for Conservative Tail-Index Estimation",
+          "trigger": "Exact same estimator, reliability objective, and second-order bias-correction setting."
+        },
+        {
+          "assessment": "BIAS_BACKGROUND_NOT_COVERING_ONE_SIDED_MODERATE_DEVIATION",
+          "evidence": [
+            "The paper characterizes convergence rates of the Hill bias; no one-sided conservative exponent is stated in the inspected material."
+          ],
+          "identifier_or_url": "DOI:10.1111/1467-9469.00301",
+          "material_read": "Publisher abstract and bibliographic description.",
+          "method": "Public publisher/web inspection.",
+          "title": "Abelian and Tauberian Theorems on the Bias of the Hill Estimator",
+          "trigger": "Primary older source on precise Hill bias under second-order regular variation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "The zero-rescaling regime is not addressed by merely knowing first-order Hill bias.",
+        "The theorem couples the residual coefficient to an exponentially small one-sided error probability and an explicit \\(k\\)-selection law."
+      ],
+      "rationale": "The result targets the precise reliability gap left after first-order bias cancellation in the motivating conservative tail-index problem. It identifies the next asymptotic safety scale, proves that the residual is conservative for both Hall signs, and converts that scale into a target-decay threshold law. This is a motivated probabilistic refinement, not a bare Taylor coefficient.",
+      "risks": [
+        "Its practical use is limited by oracle knowledge of \\(A(n/k)\\) and \\(\\beta\\)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the exact eventual Hall quantile \\(U(t)=t^{1/\\alpha}(1+c t^{-\\beta})\\), the oracle first-order bias-corrected Hill statistic has residual normalized bias \\(\\alpha A(n/k)^2/[\\beta(1+2\\beta)]\\); when \\(\\delta_n=\\theta_n+\\alpha A(n/k)^2/[\\beta(1+2\\beta)]\\to0\\) and \\(k\\delta_n^2\\to\\infty\\), the one-sided conservative error probability has logarithmic asymptotic \\(-\\log P\\{(1-\\theta_n)/\\widetilde H_{k,n}>\\alpha\\}\\sim k\\delta_n^2/2\\), including the zero-rescaling \\(kA(n/k)^4\\) regime and the stated target-decay \\(k\\)-scale.",
+  "limitations": [
+    "Exact eventual Hall quantile only; oracle correction; one-sided asymptotic statement; no finite-sample guarantee."
+  ],
+  "schema_version": 1
+}
