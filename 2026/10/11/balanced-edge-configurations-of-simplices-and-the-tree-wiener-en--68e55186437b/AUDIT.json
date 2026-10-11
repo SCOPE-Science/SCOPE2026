@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "In any n-vertex simplex, \\(n-1\\) equal-weight edge points averaging to its centroid must contribute \\((n-1)/n\\) to each vertex barycentric coordinate. This excludes all vertices. A disconnected support multigraph would have a component with k vertices containing \\(r=k(n-1)/n\\) selected points; coprimality forces a contradiction for \\(1\\le k<n\\). Thus the support is a spanning tree. Summing coordinates across each cut proves the unique \\((n-k)/n\\) and \\(k/n\\) edge coefficients; the partition of neighbor components proves the converse. Every tree gives a distinct configuration, counted by Cayley. For a regular simplex, the standard Gram realization gives squared displacement of each edge point; sum \\(k(n-k)\\) over tree cuts equals the Wiener index. The centering identity converts radial inertia to all-pairs squared-distance energy. Elementary sharp path/star Wiener bounds, with equality, yield the displayed energy interval. The actual included verifier reconstructs and checks the formulas using exact rational arithmetic, exhaustive \\(3\\le n\\le6\\) and finite additional samples; the general proof is analytic.",
+    "risks": [
+      "The all-dimensional assertion is mathematical rather than certified by bounded enumeration.",
+      "Wiener extremal results are classical external ingredients but their needed special case and equalities are proved in full."
+    ],
+    "sources": [
+      "arXiv:1312.4411v1",
+      "arXiv:0709.1679"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dobbins gives stronger ambient generality of existence, but not the configuration count or pairwise metric profile.",
+        "Balancing theorems for general skeletons and mixed face dimensions do not quantify the unique solutions at the vertex centroid of a simplex.",
+        "General graphical zonotope facts concern Minkowski sums and vertices; no inspected source gave this interior uniform-coordinate fiber bijection or its Wiener energy."
+      ],
+      "reasoning": "Broader applicability to arbitrary polytopes does not dominate the exact description of the solution fiber and the tree-index energy. Potential zonotope equivalences were investigated rather than dismissed by vocabulary.",
+      "searches": [
+        "arXiv:1312.4411v1 barycenter nd polytope n points edges constructive",
+        "arXiv:1511.04123 weight balancing boundaries skeletons barycenter points",
+        "arXiv:1809.01613 barycenters points polytope skeleta simplex",
+        "\"graphical zonotope\" \"spanning tree\" \"barycenter\" point",
+        "\"Minkowski sum\" \"simplex\" \"spanning trees\" skeleton"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1312.4411v1 full preprint (2013-12-16)",
+      "DOI:10.1145/2582112.2582142 conference record and arXiv:1511.04123 open full version",
+      "arXiv:1809.01613 full preprint",
+      "arXiv:0709.1679 bibliographic abstract and tree-index context",
+      "Open literature searches of simplex centroid, edge weights, spanning trees, Cayley counts, graphical zonotopes, and Wiener energy",
+      "Published record comparisons under barycenter/centroid, tree cuts, and regular-simplex dispersion aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From Dobbins existence one may infer at least one balanced configuration at the simplex centroid, not \\(n^{n-2}\\) distinct configurations, tree correspondence, or unique cut weights.",
+        "Barba et al. and Dobbins–Frick also yield existence under more general skeleton conditions, not a complete finite solution set.",
+        "Cayley enumeration counts labeled trees and classical Wiener inequalities order them, but neither has any geometrical implication until the new balancing-to-tree bijection and energy identity are established.",
+        "A prior local geometry result reconstructs regular-simplex point distances from facet-distance coordinates; it does not classify balanced edge configurations and does not contain the tree cut energy identity."
+      ],
+      "reasoning": "We checked logical implications, including whether the new theorem could be obtained as a direct specialization of each main prior theorem. Mere existence and graph-only extremal bounds do not imply the exact geometric fiber or universal dispersion formula.",
+      "searches": [
+        "arXiv:1312.4411v1 main theorem",
+        "DOI:10.1145/2582112.2582142 main theorems",
+        "arXiv:1809.01613 simplex and skeleta theorem",
+        "arXiv:0709.1679 extremal Wiener index",
+        "\"simplex\" \"spanning tree\" \"barycenter\" edge points"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A configuration is equivalently a choice of \\(n-1\\) two-support probability vectors with uniform average, or a zero-divergence point on a sum of oriented edge segments.",
+        "The complete full texts of Dobbins 2013, Barba et al. and Dobbins–Frick do not state the \\(n^{n-2}\\) solutions or the tree-cut uniqueness claim.",
+        "The additional record-search hits closest in simplex terminology concerned facet-distance coordinates and incenter/centroid coincidence rather than balancing edge masses."
+      ],
+      "reasoning": "We compared the full all-dimensional combinatorial object under barycenter, centroid, equal-mass, vertex-coordinate transport, cut flow, and spanning-tree formulations, not only title words.",
+      "searches": [
+        "simplex barycenter equal weights points edges spanning tree",
+        "barycentric balancing graph spanning trees simplex skeleton constructive unique points centroid",
+        "spanning trees simplex edge points barycenter centroid tree geometry",
+        "simplex centroid equal mass points edges spanning tree cut size n^(n-2) Wiener index dispersion",
+        "\"simplex\" \"spanning trees\" \"centroid\" edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A directly matching exact \\(n^{n-2}\\) count or parameter table for centroidal simplex edge configurations was not located.",
+        "The closest retrieved data are existence theorems on simplex skeletons and graph-index statements for trees separately.",
+        "The \\(n=4\\) instance is explicitly resolved into twelve path and four star configurations by the new formula, rather than extracted from a known table."
+      ],
+      "reasoning": "Specific formula, count, tree terminology, and the tetrahedral finite instance were cross-searched; negative search results contribute weak corroboration only and are not treated as a uniqueness proof.",
+      "searches": [
+        "\"barycenter of a simplex\" \"spanning trees\" edges points",
+        "\"simplex\" \"Wiener index\" \"barycenter\" edge",
+        "\"Cayley\" \"Minkowski sum of edges\" \"simplex\"",
+        "\"simplex skeleton\" \"spanning tree\" barycenter",
+        "\"tree\" \"balanced points\" \"simplex\" convex geometry"
+      ]
+    },
+    "rationale": "The initiating Dobbins paper proves skeleton-balance existence for any interior point, not the finite classification at a simplex centroid. The Barba et al. and Dobbins–Frick full texts contain related balancing constructions but no exact labeled-tree bijection or all-tree squared-distance/Wiener correspondence. Published searches and scientific record searches included equivalent centroid/center-of-mass, simplex one-skeleton, spanning-tree cut flow, graphical zonotope, Wiener dispersion, and exact \\(n^{n-2}\\) aliases; no source with a claim implying this complete classification was identified. Classically known Cayley and Wiener facts are explicitly excluded from new contributions.",
+    "residual_risks": [
+      "An earlier source in network-flow geometry, graphical zonotopes or unindexed simplex-centroid literature could encode an equivalent bijection.",
+      "The classical counting and Wiener extremal inputs are not claimed as independent results.",
+      "Graphical-zonotope sources found only as abstract/bibliographic material were not deemed noncovering without full text."
+    ],
+    "risks": [
+      "A differently indexed graph-flow or zonotope statement might encode the same centroidal configurations.",
+      "The exact labeled-tree classification is elementary once the graph support argument is found, so previously unpublished or obscure textbook exposition remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXISTENCE_THEOREM_NOT_EXACT_CENTROID_CLASSIFICATION_OR_ENERGY",
+        "evidence": "The author proves that every point of an m-polytope is an equal-weight barycenter of m edge points, and explicitly leaves their computational determination open. No labeled-tree enumeration, unique cut fractions, or squared-distance/Wiener identity is stated in the full text.",
+        "identifier_or_url": "arXiv:1312.4411v1; DOI:10.1007/s00222-014-0523-2",
+        "material_read": "Full four-page open preprint: title and classification, introduction and Theorem 1, proof, examples, and references; original first and final page images examined.",
+        "method": "Open arXiv manuscript, complete textual reading with relevant page images and searches for tree-related statements.",
+        "title": "A point in a nd-polytope is the barycenter of n points in its d-faces",
+        "trigger": "Initiating primary theorem on equal-weight polytope skeleton balancing, directly specializes to \\(n-1\\) edge points in an (\\(n-1\\))-simplex."
+      },
+      {
+        "assessment": "GENERAL_SKELETON_BALANCE_NOT_TREE_ENUMERATION",
+        "evidence": "The paper provides general skeleton balancing constructions and bounds. It does not state exactly \\(n^{n-2}\\) solutions at a simplex vertex centroid or an exact tree-index dispersion identity.",
+        "identifier_or_url": "DOI:10.1145/2582112.2582142; arXiv:1511.04123",
+        "material_read": "Full arXiv account was accessed and read at introduction, principal existence and balance theorems, examples, and later discussion; relevant initial and late pages were examined.",
+        "method": "Open full preprint with page images and text search for tree, spanning, barycenter and simplex case.",
+        "title": "Weight Balancing on Boundaries and Skeletons",
+        "trigger": "Closest follow-up balancing literature, including simultaneous equal-weight skeleton placements and related polytope results."
+      },
+      {
+        "assessment": "EXISTENCE_MIXED_SKELETON_DIMENSIONS_NOT_FINITE_TREE_CLASSIFICATION",
+        "evidence": "The paper treats existence of skeleton points in mixed dimensions and prescribed constraints. It contains no assertion about the complete labeled-tree correspondence or its squared-distance energy.",
+        "identifier_or_url": "arXiv:1809.01613",
+        "material_read": "Full accessible manuscript at abstract, main theorem, simplicial coordinate lemmas and proof discussion, including the first page image.",
+        "method": "Open arXiv full-text reading and keyword search through its text.",
+        "title": "Barycenters of points in polytope skeleta",
+        "trigger": "Same-author follow-up on simplex skeleta and barycentric placement could dominate a specialization."
+      },
+      {
+        "assessment": "CLASSICAL_GRAPH_INGREDIENT_NOT_GEOMETRIC_CORRESPONDENCE",
+        "evidence": "Wiener index is a graph distance sum and its tree extrema are prior mathematical knowledge; the new claim is the exact simplex balancing bijection and its geometric energy relation.",
+        "identifier_or_url": "arXiv:0709.1679",
+        "material_read": "Public abstract and publication metadata establishing the classical tree-index optimization context; the new paper independently proves the special unrestricted extrema.",
+        "method": "Public bibliographic and abstract inspection; no whole-document noncoverage claim.",
+        "title": "The extremal values of the Wiener index of a tree with given degree sequence",
+        "trigger": "Potential stronger classical coverage of star/path tree distance extremes used in the geometric theorem."
+      }
+    ],
+    "sources": [
+      "arXiv:1312.4411v1",
+      "DOI:10.1145/2582112.2582142",
+      "arXiv:1809.01613",
+      "arXiv:0709.1679"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68e55186-437b-4c88-a56b-6dc486e40440",
+  "value": {
+    "rationale": "Equal-mass edge placements that balance a simplex at its vertex centroid are a canonical finite-dimensional instance of the published skeleton barycenter problem. Exact classification for every dimension turns a general existence assertion into a constructive discrete parameterization of all configurations: the number is exactly \\(n^{n-2}\\), and each point coordinate is the size of a tree-cut component. The regular simplex supplies a natural invariant, summed squared pairwise separation of the balancing masses, and its exact reduction to the Wiener index supplies sharp geometrically meaningful rigidity, with paths and stars at the two ends. This is a full natural family classification and a nontrivial geometry/graph metric bridge; it is not a minor numeric example or renaming of Cayley alone.",
+    "risks": [
+      "The metric identity requires regular simplices and does not directly optimize arbitrary simplex Euclidean dispersion."
+    ],
+    "sources": [
+      "arXiv:1312.4411v1",
+      "DOI:10.1145/2582112.2582142",
+      "arXiv:0709.1679"
+    ],
+    "status": "PASS"
+  }
+}
