@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:46:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 5e38ecf038c8e7861af86c7c87e22e1942933f40",
+        "verify.py blob 8cbf512f9ea609fa6c9c8d51b05c90e30acf059f",
+        "PMC12084257 full primary equations and Eq. 19",
+        "fresh disease-free Jacobian and one-period Floquet reconstruction"
+      ],
+      "rationale": "In the infectious equation, every recovered-stage term is a product R_k times I. At S=N, I=0 and all R_k=0, its full first derivative is zero, whereas the susceptible infection term contributes beta(t) and recovery plus mortality contributes minus gamma plus mu. The exact scalar variational equation therefore has one-period multiplier equal to the exponential of the integral of beta(t) minus gamma plus mu. The cosine forcing has mean beta_0/2, giving the stated strict stability, neutrality and instability boundary. The case-study threshold 2.0003244 and the source's three fitted beta amplitudes were independently recomputed; the numerical checker only corroborates this analytic Jacobian argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Periodic epidemic theory determines invasion from the linearized infection process or next-generation operator.",
+          "Those general results are consistent with the scalar Floquet calculation but do not specifically identify the seasonal SIRn paper's Eq. 19 averaging error or its numerical threshold."
+        ],
+        "reasoning": "General theory supports the method without subsuming the source-specific correction as an already stated theorem.",
+        "searches": [
+          "Ma–Ma, DOI:10.3934/mbe.2006.3.161",
+          "Wesley–Allen, DOI:10.1080/17513750802304893",
+          "periodic epidemic threshold literature cited by the source"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s11538-025-01454-w",
+        "PMCID:PMC12084257",
+        "DOI:10.3934/mbe.2006.3.161",
+        "DOI:10.1080/17513750802304893",
+        "Resultary seasonal-SIRn threshold search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linearizing the paper's own Eq. 1 at S=N and all infected/recovered states zero deletes every R_k I term.",
+          "Integrating the sinusoidal beta over one period immediately gives mean beta equal to beta_0/2 and the threshold beta_0=2 times the removal rate."
+        ],
+        "reasoning": "The mathematical deduction is elementary but it contradicts a published interpretation and yields a concrete corrected invasion threshold not stated in the source.",
+        "searches": [
+          "PMC12084257 Eq. 1, Eq. 3, Eq. 4 and Eq. 19",
+          "standard scalar Floquet solution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary full text gives the infectious equation with susceptible term beta times S times I and recovered reinfection terms beta_k times R_k times I.",
+          "The same paper later defines Eq. 19 by uniformly averaging beta and every beta_k.",
+          "At the fully susceptible disease-free state all R_k vanish, so the recovered terms have zero first derivative in the infection direction."
+        ],
+        "reasoning": "The claim is equivalently the exact disease-free Floquet exponent of the published model; it directly tests whether the printed class-average quantity has the required threshold property.",
+        "searches": [
+          "Andreu-Vilarroig–González-Parra–Villanueva, DOI:10.1007/s11538-025-01454-w, Eq. 1 and Eq. 19",
+          "targeted search: exact title plus erratum/correction Eq. 19",
+          "Resultary query: seasonal SIRn recovered-stage averaging disease-free invasion threshold Floquet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current PMC article still prints Eq. 19 as the average of the susceptible and recovered-class infection rates.",
+          "No indexed correction or erratum addressing Eq. 19 was located."
+        ],
+        "reasoning": "This is not a database-derived numerical fact; the database check establishes the current published equation and absence of an identified correction.",
+        "searches": [
+          "PubMed PMID 40379989",
+          "PMC12084257 full text",
+          "searches for title/DOI plus correction, erratum and reproduction-number aliases"
+        ]
+      },
+      "rationale": "The 2025 seasonal SIRn paper itself prints a time-dependent reproduction number obtained by averaging the susceptible and recovered-stage transmission rates, while its own differential equations show that recovered-stage reinfection terms are bilinear in a recovered perturbation and the infectious perturbation. No correction or erratum resolving this discrepancy was found in targeted searches. General periodic epidemic threshold literature supports linearized/Floquet invasion analysis, but the source-specific corrected threshold and the diagnosis of Eq. 19 were not located elsewhere.",
+      "residual_risks": [
+        "A non-indexed author note or future correction could independently make the same source-specific observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_EQ19_INCOMPATIBLE_WITH_OWN_DISEASE_FREE_LINEARIZATION",
+          "evidence": "Eq. 1 makes each recovered reinfection contribution proportional to R_k times I, while Eq. 19 averages their beta_k coefficients into the stated reproduction number even though every R_k is zero at the disease-free state.",
+          "identifier_or_url": "DOI:10.1007/s11538-025-01454-w; PMCID:PMC12084257",
+          "material_read": "The open full primary article was inspected around the model system, recovered-stage rate definition, sinusoidal forcing and Eq. 19 reproduction-number discussion.",
+          "method": "Direct Jacobian and threshold-property comparison.",
+          "title": "Mathematical Modeling of Influenza Dynamics: Integrating Seasonality and Gradual Waning Immunity",
+          "trigger": "Defining primary source containing both the model equations and the disputed Eq. 19."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1007/s11538-025-01454-w",
+        "PMCID:PMC12084257",
+        "DOI:10.3934/mbe.2006.3.161",
+        "DOI:10.1080/17513750802304893",
+        "Resultary seasonal-SIRn threshold search"
+      ],
+      "rationale": "A basic reproduction or invasion threshold is a central interpretive quantity of an epidemic model. Showing from the published equations that a printed recovered-class average cannot be that threshold, and supplying the exact corrected Floquet boundary for the article's case study, is a substantively motivated correction rather than a cosmetic normalization check.",
+      "residual_risks": [
+        "A non-indexed author note or future correction could independently make the same source-specific observation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1007/s11538-025-01454-w",
+    "PMCID:PMC12084257",
+    "DOI:10.3934/mbe.2006.3.161",
+    "DOI:10.1080/17513750802304893",
+    "Resultary seasonal-SIRn threshold search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the published seasonal SIRn equations at the fully susceptible disease-free state, recovered-stage reinfection terms do not enter first-order invasion; the exact sinusoidal one-period threshold is beta_0 equal to twice gamma plus mu, independent of the recovered-stage number and susceptibility profile, so the class-averaged quantity printed in Eq. 19 is not the disease-free invasion threshold.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A non-indexed author note or future correction could independently make the same source-specific observation.",
+    "The result is local to disease-free invasion and does not establish nonlinear persistence, global extinction or correctness of the fitted trajectories themselves."
+  ]
+}

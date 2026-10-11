@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly against the displayed model equations. At the disease-free state, the first derivative of every recovered reinfection term \(R_k I\) is zero, leaving the scalar infectious variational equation \(\dot i=[\beta(t)-(\gamma+\mu)]i\).
+# Independent mathematical audit
 
-For the sinusoidal forcing, direct integration over a full period removes the cosine term and gives the one-period multiplier \(M=\exp(T[\beta_0/2-(\gamma+\mu)])\). Therefore the critical amplitude is \(2(\gamma+\mu)\).
+## correctness
 
-The standalone `verify.py` recomputes the case-study threshold from \(\gamma=1\) and \(\mu=1.622\times10^{-4}\) per week, checks the sign of the Floquet exponent for the three fitted amplitudes reported in rounded form by the article, and reconstructs the arithmetic class-average factors for the three stated susceptibility profiles on the 520-stage weekly partition. The script is a replay aid; the analytic Jacobian calculation is the proof.
+PASS
 
-No claim is made about global persistence, fitted-trajectory correctness, or a unique numerical convention for periodic \(\mathcal R_0\) beyond the exact threshold equivalence proved here.
+In the infectious equation, every recovered-stage term is a product R_k times I. At S=N, I=0 and all R_k=0, its full first derivative is zero, whereas the susceptible infection term contributes beta(t) and recovery plus mortality contributes minus gamma plus mu. The exact scalar variational equation therefore has one-period multiplier equal to the exponential of the integral of beta(t) minus gamma plus mu. The cosine forcing has mean beta_0/2, giving the stated strict stability, neutrality and instability boundary. The case-study threshold 2.0003244 and the source's three fitted beta amplitudes were independently recomputed; the numerical checker only corroborates this analytic Jacobian argument.
+
+## originality
+
+PASS
+
+The 2025 seasonal SIRn paper itself prints a time-dependent reproduction number obtained by averaging the susceptible and recovered-stage transmission rates, while its own differential equations show that recovered-stage reinfection terms are bilinear in a recovered perturbation and the infectious perturbation. No correction or erratum resolving this discrepancy was found in targeted searches. General periodic epidemic threshold literature supports linearized/Floquet invasion analysis, but the source-specific corrected threshold and the diagnosis of Eq. 19 were not located elsewhere.
+
+## value
+
+PASS
+
+A basic reproduction or invasion threshold is a central interpretive quantity of an epidemic model. Showing from the published equations that a printed recovered-class average cannot be that threshold, and supplying the exact corrected Floquet boundary for the article's case study, is a substantively motivated correction rather than a cosmetic normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
