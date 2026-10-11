@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "On the positive half-plane the first coordinate obeys an exact second-order recurrence until its first nonpositive value, after which two further iterates give precisely the origin. For \\(T^2<4D\\), a sine-phase argument bounds every first exit by \\(m=\\lceil\\pi/\\arccos(T/(2\\sqrt D))\\rceil\\); an explicit phase witness first vanishes at \\(m+2\\), proving minimality. The repeated-root and distinct-root closed forms give the exact extinction formula and persistent cone with switching boundaries included. Rational trajectory tests from the actual standalone script passed, but the infinite claims are analytic, not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simpson, arXiv:2408.04790v1, §4.1: explicitly states mu=0 dynamics will not concern the paper; §§5–6 analyze mu<0 and mu>0.",
+        "Simpson, arXiv:2408.04790v1, Introduction: discusses Banerjee and Grebogi (1999) as the nonzero-determinant dissipative orientation-preserving case, in contrast with a zero determinant.",
+        "Ohmori and Yamazaki, arXiv:2402.06230v1, §5.3: connects the generalized oscillator with a border-collision normal form."
+      ],
+      "reasoning": "The containing normal form is not itself a covering theorem about the zero-input slice. The most directly applicable later full primary source specifically excludes that slice, while an earlier general classification separates regions qualitatively without implying a sharp global finite-step annihilation exponent or the lifetime formulas.",
+      "searches": [
+        "border collision normal form homogeneous map A_L nilpotent and A_R planar rotation threshold survival time staircase",
+        "max-plus border collision normal form homogeneous singular half-plane 0 reset node focus global classification",
+        "\"The two-dimensional border-collision normal form with a zero determinant\" mu=0 globally nilpotent exact finite index"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.13292v1 (source family Eq. 11, Dec 2023)",
+      "arXiv:2402.06230v1 (same generalized family, Feb 2024)",
+      "arXiv:2305.05908v1 (T=0 negative feedback)",
+      "arXiv:2408.04790v1 (zero-determinant border-collision normal form)",
+      "DOI:10.1103/PhysRevE.59.4052 (abstract/secondary overview; full paper uninspected)",
+      "DOI:10.1063/5.0203186 (journal abstract/metadata; full edition uninspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yamazaki and Ohmori, arXiv:2312.13292v1, Eq. (11) and final paragraph, propose a general model but reserve its dynamics for later study.",
+        "Ohmori and Yamazaki, arXiv:2402.06230v1, §3.2 fixes B=±1, §4 fixes B=+1, §5.3 notes a border collision at B=0.",
+        "Yamazaki and Ohmori, arXiv:2312.13292v1, §4 derive a logarithmic delay for a nonzero-forcing phase-lock bottleneck, not initial-condition extinction at B=0.",
+        "Simpson, arXiv:2408.04790v1, §4.1 excludes mu=0 analysis."
+      ],
+      "reasoning": "The prior branch matrices and two-step reset supply ingredients, but the exact worst-case angular cutoff with a sharp witness, the full persistent cone, and the two distinct initial-condition threshold laws require the added recurrence and switching argument. A log bottleneck scaling for periodic phase drift is not a statement about the exact first arrival at the origin across the persistence separatrix.",
+      "searches": [
+        "\"Ultradiscretization in discrete limit cycles\" generalized max-plus model zero input R S persistent cone",
+        "Critical-node zero-input max-plus feedback persistence separatrix y=-lambda_plus x, algebraic versus logarithmic escape time",
+        "positive eigenvector separatrix critical lifetime logarithmic algebraic escape piecewise linear homogeneous feedback"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yamazaki and Ohmori, arXiv:2312.13292v1, Eq. (11), introduce independent coefficients R and S with arbitrary forcing B.",
+        "Ohmori and Yamazaki, arXiv:2402.06230v1, Eq. (1) and §3.1, use identical max-plus recurrences.",
+        "Simpson, arXiv:2408.04790v1, Eq. (1.2), contains this zero-input map at tau_L=delta_L=mu=0, tau_R=T, delta_R=D."
+      ],
+      "reasoning": "Exact substitutions identify the same object under different notations; comparison then concerns the mu=0 dynamics, not mere matching titles. The cited texts define this family and discuss other parameter regimes but do not state the full exact all-initial-condition classification.",
+      "searches": [
+        "arXiv:2312.13292 equation (11) generalized max-plus X(n+1)=Y(n)+max(0,R X(n)), Y(n+1)=B-max(0,S X(n)) B=0 finite-time extinction",
+        "arXiv:2402.06230 Ohmori Yamazaki 2024 generalized max-plus system B=0 finite-time nilpotence extinct trajectories discriminant T²<4D",
+        "Y_{n+1}=B-max(0,D X_n), X_{n+1}=Y_n+max(0,T X_n), border collision B=0 global exact extinction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ohmori and Yamazaki, arXiv:2402.06230v1, Tables 1–4 list B>0 limit-cycle periods and parameter windows, not B=0 nilpotency exponents.",
+        "The exact 4-step observation in Ohmori and Yamazaki, arXiv:2305.05908v1, Table 1 applies to the T=0, B<0 special case."
+      ],
+      "reasoning": "The claimed least uniform extinction index and all-initial-condition critical and overdamped threshold times are not recomputations of the listed cycle-period tables. The already-known T=0 reset case is explicitly excluded from the novelty argument.",
+      "searches": [
+        "Piecewise linear max plus negative feedback homogeneous zero offset critical discriminant nilpotent semigroup finite time global extinction sharp settling time",
+        "Nilpotency of two-dimensional homogeneous border-collision max-plus oscillator step function ceil(pi/arccos(T/2sqrtD))+2 underdamped",
+        "At zero forcing B=0 the max-plus map (X,Y) -> (Y+max(0,TX),-max(0,DX)) is globally nilpotent iff T^2<4D, with exact nilpotency index ceiling(pi / arccos(T/(2 sqrt D))) +2"
+      ]
+    },
+    "rationale": "The generalized family appears in arXiv:2312.13292v1 Eq. (11), but dynamics are reserved for later study. arXiv:2402.06230v1 analyzes the branch matrices, nonzero-forcing limit cycles and the B=0 collision, but does not classify all zero-input initial conditions or give a least nilpotency iterate and exact persistence-side delays. arXiv:2305.05908v1 covers the restricted T=0 negative-forcing four-step reset; that special case is credited. Simpson arXiv:2408.04790v1 studies the containing zero-determinant normal form and explicitly excludes mu=0 from the analysis (§4.1). Comparisons of mathematical implications and targeted searches did not reveal a dominating result; remaining priority risk is documented.",
+    "residual_risks": [
+      "An unlocated general theorem on homogeneous piecewise-linear reset maps could imply the result even without the same notation.",
+      "Full original 1999 Banerjee–Grebogi and revised 2024 journal editions were not materially inspected; the strongest accessible containing zero-determinant analysis explicitly omits mu=0.",
+      "No independent historical priority certification, peer review, or validation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the broader map but gives no global zero-input classification; its logarithmic bottleneck concerns a different quantity.",
+        "evidence": "Eq. (11), text immediately after Eq. (11), discussion of bottleneck near Figs. 4–5, conclusion.",
+        "identifier_or_url": "arXiv:2312.13292v1",
+        "material_read": "Full eight-page preprint sections containing Eq. (11), analysis of nonzero-forcing phase drift, and conclusion.",
+        "method": "Direct lawful arXiv PDF examination",
+        "title": "Ultradiscretization in discrete limit cycles of tropically discretized and max-plus Selkov models",
+        "trigger": "Earliest generalized family and logarithmic-delay alias"
+      },
+      {
+        "assessment": "Does not cover all-initial-condition dynamics at B=0, although it supplies essential model/branch facts.",
+        "evidence": "Eq. (1); Eqs. (2)–(3); B=±1 condition §3.2; B=+1 §4; §5.3 identifies border B=0.",
+        "identifier_or_url": "arXiv:2402.06230v1",
+        "material_read": "20-page arXiv v1, model §1, branch dynamics §§3–4, angle formulas §5.2, border §5.3, conclusion and references; rendered page 16 reviewed.",
+        "method": "Direct lawful arXiv full-PDF text and visual inspection",
+        "title": "A Generalization for Ultradiscrete Limit Cycles in a Certain Type of Max-Plus Dynamical Systems",
+        "trigger": "Primary detailed dynamical treatment of precisely the same map"
+      },
+      {
+        "assessment": "Covers the T=0 negative-forcing predecessor case, not the full T≥0 B=0 threshold.",
+        "evidence": "Eq. (9), §3, Table 1, 4-step conclusion for B<0.",
+        "identifier_or_url": "arXiv:2305.05908v1",
+        "material_read": "11-page lawful arXiv PDF including §§1–3 and Table 1; reviewed negative-feedback four-step theorem.",
+        "method": "Direct lawful arXiv full-PDF text examination",
+        "title": "Dynamical properties of discrete negative feedback models",
+        "trigger": "Potential covering four-step nilpotency special case"
+      },
+      {
+        "assessment": "Explicitly excludes the mu=0 slice in §4.1; its results concern forced/nonzero-mu dynamics.",
+        "evidence": "§1.1 model and parameter restrictions; §4.1 sentence explicitly excluding mu=0; headings §§5–6.",
+        "identifier_or_url": "arXiv:2408.04790v1",
+        "material_read": "Full lawful arXiv HTML, Introduction, equations (1.1)/(1.2), §4.1, §5–§6 scope and discussion.",
+        "method": "Direct arXiv original full-text HTML examination",
+        "title": "The two-dimensional border-collision normal form with a zero determinant",
+        "trigger": "Strongest broader zero-determinant normal-form coverage risk"
+      },
+      {
+        "assessment": "Not used to assert whole-document noncoverage. Simpson describes the treated dissipative invertible-determinant region; residual access/coverage risk remains.",
+        "evidence": "Publisher abstract; Simpson 2024 Introduction discussion of Banerjee–Grebogi (1999).",
+        "identifier_or_url": "DOI:10.1103/PhysRevE.59.4052",
+        "material_read": "Abstract and bibliographic evidence; complete original text inaccessible.",
+        "method": "Publisher abstract and comparison to Simpson 2024 primary introduction",
+        "title": "Border collision bifurcations in two-dimensional piecewise smooth maps",
+        "trigger": "Original qualitative parameter-space normal-form classification cited by main source"
+      },
+      {
+        "assessment": "Unresolved publication-version risk; no claim of full-text not-covering is made.",
+        "evidence": "Journal of Mathematical Physics 65(8), 082705, published 1 August 2024; abstract matches arXiv description.",
+        "identifier_or_url": "DOI:10.1063/5.0203186",
+        "material_read": "Journal bibliographic metadata and abstract only; full journal edition inaccessible in this check.",
+        "method": "Waseda bibliographic record and publisher link attempt after reading arXiv full text",
+        "title": "Published version of the Ohmori–Yamazaki generalized oscillator paper",
+        "trigger": "Possible additions beyond available original arXiv preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2b1d9a8-6864-4da4-aed1-5705408e1d1b",
+  "value": {
+    "rationale": "The exact unforced slice is a structurally natural bifurcation boundary explicitly singled out by the model introducers. It exhibits a genuine dichotomy: uniform finite-step annihilation for a complex-conjugate branch spectrum, versus a nonempty invariant strict-positive cone for real roots. The minimal extinction index has a sharp staircase with an inverse-square-root critical divergence. On the opposite side the complete persistent set and exact algebraic-versus-logarithmic settling-time crossover answer an all-initial-condition question not resolved by local eigenvalue stability or nonzero-forcing period tables. This is a natural full classification rather than an arbitrarily chosen finite computation.",
+    "status": "PASS"
+  }
+}
