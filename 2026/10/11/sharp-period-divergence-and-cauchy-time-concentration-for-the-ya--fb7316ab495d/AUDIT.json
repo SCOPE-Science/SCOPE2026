@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Fix \\(0<a<b<3a\\), \\(0<c<c_*\\). Exact coefficient arithmetic verifies \\(\\dot f=kf\\) for the complete five-variable canonical system. Substitution gives the two branch velocities \\(\\dot x=xR(4cR\\pm m)\\); the derivative \\(F'(x)=s(x-x_*)/(4R^3)\\) proves the unique interior minimum and both orientations. Exact branch integration yields the unrescaled period; its positive derivative gives global monotonicity and trigonometric partial fractions give the zero-parameter limit. The quadratic expansion at \\(x_*\\) produces the sharp \\((c_*-c)^{-1/2}\\) coefficient. A tail-controlled rescaling establishes the standard Cauchy occupation law. The stdlib checker proves the global cofactor polynomial identity and gives independent finite quadrature comparisons; the global limit and weak convergence are proved analytically rather than inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gasull–Giacomini 2022, Theorem 1.2 and Case 2, proves a bound on limit-cycle count for known invariant algebraic curves, not period asymptotics.",
+        "Giacomini–Grau 2005, abstract, pp. 8–10 and subsequent stability section, proves hyperbolicity of known algebraic cycles via integrated cofactor/divergence."
+      ],
+      "reasoning": "Existing broad qualitative theorems establish orbit existence, uniqueness or hyperbolicity, none of which implies a numerical original-time period, its strict parameter monotonicity, the coefficient of divergence, or the scaled Cauchy occupation. Normal-form analogies give at most a generic exponent, not the coefficient or exact distribution for this flow.",
+      "searches": [
+        "Yablonskii quadratic polynomial system algebraic quartic limit cycle exact physical time period P= -4abc x -(a+b)y +3(a+b)c x²+4xy, critical parameter c turning equilibrium period diverges square root",
+        "Yablonskii algebraic quartic limit cycle critical slowing square root period blow up finite constant Cauchy occupation at velocity arrest, 0<a<b<3a",
+        "arXiv:2210.15803v1 Theorem 1.2 Case 2",
+        "arXiv:math/0505027v1 Yablonskii period stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.15803v1, full relevant Section 4 Case 2 and intro",
+      "arXiv:1906.10171v1, Proposition 2 and Section 7.1",
+      "arXiv:math/0505027v1, Section 3 and Yablonskii example",
+      "J. Chavarriga–J. Llibre–J. Sorolla (2004), DOI 10.1016/j.jde.2004.01.003, only abstract/bibliography accessible",
+      "A. I. Yablonskii (1966), only bibliographic reference available"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yablonskii source and 2019 Proposition 2: parameter inequality and invariant quartic existence, already known.",
+        "2019 Section 7.1: birationally equivalent Qin oval, time transformation required.",
+        "2022 Case 2: cofactor and no other limit cycles, not the physical-time period.",
+        "2005 pp. 8–10: Yablonskii hyperbolicity follows from Qin birational equivalence, but no period coefficient."
+      ],
+      "reasoning": "The new claim includes an exact quadrature, strict monotonicity, evaluated endpoint constant and a weak Cauchy occupation limit in original time. Existence/uniqueness, the geometric Cremona map and hyperbolicity do not themselves entail these quantitative formulas. An older uninspected paper could nevertheless contain a time computation, so priority is explicitly qualified.",
+      "searches": [
+        "Yablonskii quadratic polynomial system algebraic quartic limit cycle exact physical time period P= -4abc x -(a+b)y +3(a+b)c x²+4xy, critical parameter c turning equilibrium period diverges square root",
+        "Yablonskii algebraic quartic limit cycle critical slowing square root period blow up finite constant Cauchy occupation at velocity arrest, 0<a<b<3a",
+        "Yablonskii 1966 quadratic limit cycle period function monotone c parameter and square root divergence as discriminant 4c²(b-a)² approaches (3a-b)(3b-a)",
+        "arXiv:1906.10171v1 Proposition 2 and Section 7.1",
+        "arXiv:2210.15803v1 Case 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2019 full text, Section 7.1, explicitly transforms Yablonskii into a Qin-type oval via a Cremona map; the construction includes time reparameterization and does not report the old physical-time period.",
+        "The 2005 full text, pp. 8–10, uses this relation for hyperbolicity but supplies no evaluated \\(T(c)\\) or phase occupation law."
+      ],
+      "reasoning": "The birational equivalence and its associated time change preserve orbit geometry but do not preserve physical-time periods or time-normalized probability distributions. The present quadrature reconstructs that lost factor explicitly. The existing equivalent-curve statement therefore does not logically imply the new quantitative statement without a missing calculation; possible uninspected older calculations remain a risk.",
+      "searches": [
+        "Gasull Giacomini 2022 2023 invariant algebraic curves Yablonskii degree 4 limit cycle perturbation rotation time parameter",
+        "Cremona Qin Yablonskii time reparameterization physical-time period algebraic oval asymptotic saddle node on invariant quartic",
+        "arXiv:1906.10171v1 Section 7.1 Cremona Qin Yablonskii"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gasull–Giacomini arXiv:2210.15803v1, Case 2, tabulates exact vector-field and cofactor polynomials, not a period table or its asymptotic coefficient.",
+        "Alberich-Carramiñana–Ferragut–Llibre arXiv:1906.10171v1, Proposition 2 and Section 7.1, give the quartic and transformed Qin oval but no evaluated original-time period table.",
+        "Giacomini–Grau arXiv:math/0505027v1, Section 3 Yablonskii example, presents a stability criterion rather than a numerical or symbolic period table."
+      ],
+      "reasoning": "Neither the inspected literature nor the searched primary mathematical literature provides an exact table of original-time Yablonskii periods or its Cauchy rescaling. The direct algebraic integral is computed here for the specified canonical vector field, not asserted to be absent from every possible table.",
+      "searches": [
+        "Yablonskii quartic algebraic limit cycle Floquet multiplier period threshold ab a+b 4x, period function and slowing",
+        "Yablonskii 1966 quadratic limit cycle period function monotone c parameter and square root divergence as discriminant 4c²(b-a)² approaches (3a-b)(3b-a)",
+        "Cremona Qin Yablonskii time reparameterization physical-time period algebraic oval asymptotic saddle node on invariant quartic"
+      ]
+    },
+    "rationale": "The source paper Gasull–Giacomini, arXiv:2210.15803v1 (public 2022-10-27; primary MSC 34C07), and earlier Yablonskii literature already establish the classical invariant quartic and parameter range, which are credited. Relevant full-text sections of that 2022 uniqueness paper, the 2019 Cremona/Qin equivalence paper and a 2005 cofactor/hyperbolicity paper were inspected; none states the combined original-time period formula, sharp coefficient and scaled Cauchy law in the examined material. Cremona equivalence entails a nonconstant time change and does not itself imply original-time measurements. Targeted source, alias and discriminant searches identified no covering statement in the accessible records. The 1966 and 2004 original full texts could not be inspected completely, so absolute historical priority is not asserted.",
+    "residual_risks": [
+      "Original 1966 Yablonskii article was only available through verified bibliographic references; a period formula there cannot be excluded.",
+      "Full JDE 2004 Chavarriga–Llibre–Sorolla article could not be read; public abstracts do not exclude implicit or explicit earlier time calculations.",
+      "Cremona/Qin parameter normalizations can hide an equivalent time-integral formula in a differently parameterized publication; searched equivalence but not exhaustive bibliographic certainty.",
+      "No independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes cofactor and exclusion of non-algebraic cycles; does not state the physical-time period or scaled occupation result in the inspected relevant material.",
+        "evidence": [
+          "Sections 1 and 4, Theorem 1.2 and Case 2; arXiv HTML lines 55–68 and 194–210"
+        ],
+        "identifier_or_url": "arXiv:2210.15803v1 | https://arxiv.org/html/2210.15803v1",
+        "material_read": "Full-text Introduction and Theorem 1.2 (lines 48–91), proof Case 2 (lines 193–211), searchable text for period and section contents; not every unrelated application line.",
+        "method": "arXiv lawful open HTML sections",
+        "title": "Number of limit cycles for planar systems with invariant algebraic curves",
+        "trigger": "Latest eligible primary source presenting canonical Yablonskii flow; possible prior stronger uniqueness or return-time result"
+      },
+      {
+        "assessment": "Explicitly states the Yablonskii/Qin Cremona correspondence; does not compute untransformed-time period or Cauchy occupation in inspected material.",
+        "evidence": [
+          "Proposition 2; Proposition 24 and Section 7.1"
+        ],
+        "identifier_or_url": "arXiv:1906.10171v1 | https://arxiv.org/html/1906.10171v1",
+        "material_read": "Full-text Proposition 2 and nearby classifications (lines 71–141), Section 7.1 (lines 737–764), introduction, and keyword period search.",
+        "method": "arXiv lawful open HTML sections and in-document find",
+        "title": "Quadratic planar differential systems with algebraic limit cycles via quadratic plane Cremona maps",
+        "trigger": "Exact same quartic, known parameter range and plausible equivalence to a simpler circular system"
+      },
+      {
+        "assessment": "Uses integration over a period to decide hyperbolicity, but does not evaluate \\(T(c)\\) or a normalized time occupation limit in the inspected relevant sections.",
+        "evidence": [
+          "PDF pages 8–10, especially displayed equations (10)–(11), Lemmas 8–9"
+        ],
+        "identifier_or_url": "arXiv:math/0505027v1 | https://arxiv.org/pdf/math/0505027",
+        "material_read": "PDF abstract and relevant pages 8–10, including Yablonskii equations and Cremona discussion; full-text text search for period.",
+        "method": "arXiv lawful open PDF with page-image inspection and parsed text search",
+        "title": "On the stability of limit cycles for planar differential systems",
+        "trigger": "Earlier primary Yablonskii paper on period integrals, cofactor and limit-cycle hyperbolicity"
+      },
+      {
+        "assessment": "UNCERTAIN_NOT_FULLY_INSPECTED; cannot rule out an older equivalent time calculation.",
+        "evidence": [
+          "JDE 200 (2004), pp. 206–244; DOI 10.1016/j.jde.2004.01.003"
+        ],
+        "identifier_or_url": "DOI:10.1016/j.jde.2004.01.003",
+        "material_read": "Public abstract and bibliographic source only; full journal text unavailable. Institutional PDF request was unavailable without manual network access.",
+        "method": "public publisher/university bibliographic page and bounded institutional retrieval attempt",
+        "title": "Algebraic limit cycles of degree 4 for quadratic systems",
+        "trigger": "Original plausible historical coverage for exactly the same quartic family"
+      },
+      {
+        "assessment": "UNCERTAIN_NOT_FULLY_INSPECTED; the invariant oval is definitely old and credited.",
+        "evidence": [
+          "arXiv:2210.15803v1 bibliography [41]; arXiv:1906.10171v1 Proposition 2"
+        ],
+        "identifier_or_url": "A. I. Yablonskii, Differential Equations 2 (1966), 164–168",
+        "material_read": "Bibliographic record and reproductions in the 2005, 2019 and 2022 primary papers; original article full text unavailable.",
+        "method": "cross-checked citations and source provenance",
+        "title": "On the limit cycles of a certain differential equation",
+        "trigger": "Original discovery and possible original timing statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb7316ab-495d-4699-91e6-bf460a825ca0",
+  "value": {
+    "rationale": "The known Yablonskii oval is a natural algebraic limit cycle; original-time period and occupation are fundamental observables not determined by its existence, counting, geometric equivalence, or hyperbolicity. Strict all-parameter response, the exact arrest coefficient, and a universal Cauchy concentration law distinguish a fixed-size oval developing a velocity zero from orbit shrinkage. This is a motivated dynamical classification across a natural continuous parameter family, not a renaming, an arbitrary finite slice or a numerical gain.",
+    "status": "PASS"
+  }
+}
