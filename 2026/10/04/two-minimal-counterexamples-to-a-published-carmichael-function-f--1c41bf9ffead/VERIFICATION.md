@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The exact arithmetic verification is supplied in `verify.py`.
 
-It checks that the printed first branch holds for every positive \(n<12\) to which that branch applies, then fails at \(n=12\). It separately checks that the printed second branch holds at every positive multiple of \(8\) below \(24\), then fails at \(n=24\).
+# Independent mathematical audit
 
-The proof that \(p-1\mid\lambda(m)\) whenever a prime \(p\mid m\) is not inferred from this finite check. It follows symbolically from the standard prime-power least-common-multiple formula and is the implication used in the published Lemma 3.
+## correctness
+
+PASS
+
+The primary paper prints the two-branch formula exactly. Direct reconstruction from the standard prime-power formula gives lambda(12)=2 versus phi(12)=4 and lambda(24)=2 versus phi(24)/2=4. Fresh exact enumeration confirmed 12 and 24 are the least failures in their respective branches. Reading the published proof of Theorem 3 shows its Carmichael-specific step is only the divisibility p-1 divides the common lambda value after selecting a prime divisor p; that divisibility follows from the correct lcm formula.
+
+## originality
+
+PASS
+
+The classical Carmichael formula is not claimed as new. The source-specific contribution is identifying the two branch-minimal counterexamples and checking that the main downstream proof survives. Exact-title, theorem-number, counterexample, correction and erratum searches, plus a Resultary search, found no indexed prior correction.
+
+## value
+
+PASS
+
+This corrects a named theorem retained in a peer-reviewed number-theory paper and resolves whether the paper's main displayed proof depends on the false formula. That is a motivated literature correction, not a routine table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

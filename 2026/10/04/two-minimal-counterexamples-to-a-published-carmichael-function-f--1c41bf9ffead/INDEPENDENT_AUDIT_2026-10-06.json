@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:01:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Primary published paper, Theorem 2 and proof of Theorem 3.",
+        "Fresh exact Carmichael-function enumeration in this audit.",
+        "RESULT.md blob f19880045ab407ace8f938808d9bfca05f18071d."
+      ],
+      "rationale": "The primary paper prints the two-branch formula exactly. Direct reconstruction from the standard prime-power formula gives lambda(12)=2 versus phi(12)=4 and lambda(24)=2 versus phi(24)/2=4. Fresh exact enumeration confirmed 12 and 24 are the least failures in their respective branches. Reading the published proof of Theorem 3 shows its Carmichael-specific step is only the divisibility p-1 divides the common lambda value after selecting a prime divisor p; that divisibility follows from the correct lcm formula.",
+      "risks": [
+        "The downstream check does not independently reprove the external analytic estimate used elsewhere in the paper."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard references give the correct lambda formula but do not identify this paper-specific misstatement or its downstream status."
+        ],
+        "reasoning": "The broader classical formula supplies the mathematical repair, not the publication-specific correction claim.",
+        "searches": [
+          "Standard Carmichael prime-power/lcm formula references",
+          "The paper's published Theorem 3 proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:2402.06832",
+        "Integers 24 (2024) A91",
+        "standard Carmichael-function references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published argument only needs p-1 divides lambda(m), a direct consequence of the correct prime-power lcm formula."
+        ],
+        "reasoning": "This establishes that correcting Theorem 2 does not invalidate the displayed proof of Theorem 3.",
+        "searches": [
+          "Published proof of Theorem 3, especially the step using p-1 divides the common lambda value"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's direct hit was the audited record; no independent correction appeared among the returned findings.",
+          "The peer-reviewed source itself retains the false two-branch theorem."
+        ],
+        "reasoning": "Searches covered the exact paper, theorem label, both witnesses and common correction terminology.",
+        "searches": [
+          "Resultary: published correction Carmichael function Theorem 2 lambda(n)=phi(n) if 8 does not divide n counterexample 12 24 Runs of integers with constant values of Carmichael function",
+          "Exact web searches for arXiv:2402.06832, Theorem 2, lambda(12), lambda(24), correction and erratum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh enumeration independently verifies branch minimality at 12 and 24.",
+          "No correction table or erratum covering these two minimal failures was located."
+        ],
+        "reasoning": "The finite exact check is appropriate because minimality is over bounded ranges below 12 and 24.",
+        "searches": [
+          "Exact Carmichael values and small-n enumeration",
+          "Resultary exact-title search"
+        ]
+      },
+      "rationale": "The classical Carmichael formula is not claimed as new. The source-specific contribution is identifying the two branch-minimal counterexamples and checking that the main downstream proof survives. Exact-title, theorem-number, counterexample, correction and erratum searches, plus a Resultary search, found no indexed prior correction.",
+      "residual_risks": [
+        "An unindexed author note or private correction could already record the error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_CONTAINS_FALSE_TWO_BRANCH_FORMULA; DOWNSTREAM_PROOF_USES_ONLY_WEAKER_TRUE_DIVISIBILITY",
+          "evidence": [
+            "Theorem 2 states the two-branch phi formula; the proof of Theorem 3 uses p-1 dividing the common Carmichael value."
+          ],
+          "identifier_or_url": "arXiv:2402.06832; Integers 24 (2024), A91",
+          "material_read": "Primary full text containing Definition 1, Theorem 2, Lemmas 1-3 and the proof of Theorem 3.",
+          "method": "Public full-text/PDF inspection, including rendered-page verification.",
+          "title": "Runs of integers with constant values of the Carmichael function",
+          "trigger": "Exact source of the false theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Two least counterexamples plus a precise downstream dependency audit."
+      ],
+      "rationale": "This corrects a named theorem retained in a peer-reviewed number-theory paper and resolves whether the paper's main displayed proof depends on the false formula. That is a motivated literature correction, not a routine table lookup.",
+      "risks": [
+        "The correction does not independently validate all other results in the source paper."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The published two-branch formula for the Carmichael function first fails at 12 in the branch where 8 does not divide n and first fails at 24 in the branch where 8 divides n; replacing it by the classical prime-power least-common-multiple formula leaves the displayed proof of the paper's Theorem 3 intact because that proof only needs that p-1 divides lambda(m) for primes p dividing m.",
+  "limitations": [
+    "The Carmichael formula itself is classical.",
+    "The downstream audit is limited to the displayed dependency in Theorem 3."
+  ],
+  "schema_version": 1
+}
