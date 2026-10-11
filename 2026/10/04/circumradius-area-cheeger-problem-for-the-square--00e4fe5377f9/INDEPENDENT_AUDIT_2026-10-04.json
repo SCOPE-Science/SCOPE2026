@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:21:10.857423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The global reduction is sound. For fixed radius \\(r\\), central symmetry and convexity give \\(\\tfrac12 K_c(r)+\\tfrac12 K_{-c}(r)\\subseteq K_0(r)\\); planar Brunn--Minkowski therefore makes the centered disk intersection area-maximal. An \\(\\varepsilon\\)-enclosing disk for an arbitrary measurable set transfers this bound to every positive-area subset. For \\(a\\le r\\le\\sqrt2a\\), differentiating the exact disk--square area gives \\(A'(r)=2r(\\pi-4\\theta)\\), and after \\(r=a\\sec\\theta\\), \\(x=\\pi/2-2\\theta\\), the derivative sign reduces to the unique zero of \\(\\cos x-x\\). The optimizer contains an antipodal pair at distance \\(2r_*\\), so its circumradius is exactly \\(r_*\\). Independent numerical recomputation gives \\(\\alpha=0.7390851332151607\\), \\(r_*/a=1.0931697449850168\\), and \\(\\mathcal C_R(Q_1)=0.3094268090583855\\), consistent with the analytic proof.",
+      "risks": [
+        "The proof establishes an exact value and one optimizer but does not classify all optimizers up to null sets.",
+        "The scalar profile after centering is square-specific."
+      ],
+      "sources": [
+        "assigned RESULT.md blob b8532c9a1115712aaac5000b3b3f24b949e2a9e8",
+        "assigned verify.py blob ba856f973ab4f2ab9ad1c823c32503c52f113b75",
+        "Cañete, DOI 10.1007/s00025-021-01539-7, Remark 11"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source provides the general question, not a theorem reducing the square to the same scalar optimization.",
+          "Nearby ordinary-Cheeger/circumradius inequalities vary a different object and do not determine this replacement-functional infimum."
+        ],
+        "reasoning": "No broader inspected theorem specializes to the claimed square value.",
+        "searches": [
+          "Cañete 2021/2022 full article",
+          "current Resultary geometric-optimization corpus"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s00025-021-01539-7",
+        "current Resultary semantic search",
+        "assigned exact proof and verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source asks the circumradius variant; it does not supply the Brunn--Minkowski centering lemma or the square area-profile minimization."
+        ],
+        "reasoning": "A posed problem does not imply the exact optimizer or constant; the audited proof supplies the substantive missing argument.",
+        "searches": [
+          "direct comparison with Cañete Remark 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source formulates minimizing \\(F(X)/A(X)\\) with \\(F\\) equal to circumradius as an open related question.",
+          "No earlier Resultary hit states the centered disk--square optimizer or the \\(\\alpha=\\cos\\alpha\\) constant."
+        ],
+        "reasoning": "Equivalent formulations as a generalized Cheeger quotient, fixed-square circumradius/area subset optimization, and a disk--square intersection problem were compared.",
+        "searches": [
+          "Resultary query: circumradius area Cheeger problem square minimize circumradius divided by area subset",
+          "DOI 10.1007/s00025-021-01539-7 Remark 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No standard table or database entry was found for this continuous optimization constant."
+        ],
+        "reasoning": "This is an all-measurable-subsets extremal theorem rather than a finite table computation.",
+        "searches": [
+          "current Resultary query above",
+          "Cañete references/open-problem discussion"
+        ]
+      },
+      "rationale": "Cañete's open-access primary article explicitly poses the replacement-functional problem with circumradius but does not solve the square case; its Remark 11 says no related reference was found there. Fresh Resultary search returned the audited record itself and nearby geometric optimization records, but no prior statement with the same fixed-square subset functional or fixed-point constant. The exact square solution is therefore original to the best of the inspected evidence.",
+      "residual_risks": [
+        "Older classical isoperimetric literature may contain an equivalent result under terminology not surfaced by the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATES_NOT_COVERING",
+          "evidence": "Remark 11 asks to minimize \\(F(X)/A(X)\\) for circumradius/minimal width/inradius and says no related reference was found; it gives no square solution.",
+          "identifier_or_url": "DOI 10.1007/s00025-021-01539-7",
+          "material_read": "Open-access full article with particular attention to Section 4 and Remark 11.",
+          "method": "Primary full-text inspection and statement comparison.",
+          "title": "Cheeger Sets for Rotationally Symmetric Planar Convex Bodies",
+          "trigger": "Direct source explicitly proposing circumradius in the Cheeger-type quotient."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exactly solves a named geometric-optimization variant on the canonical square and identifies a non-obvious optimizer strictly between the incircle and whole square. The centering reduction is reusable for centrally symmetric domains, while the square calculation supplies a sharp natural constant rather than an arbitrary numerical slice.",
+      "risks": [
+        "The result does not yet solve rectangles or general centrally symmetric bodies."
+      ],
+      "sources": [
+        "Cañete's explicit open variant",
+        "assigned exact Brunn--Minkowski and scalar minimization proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Square domain and Euclidean circumradius only.",
+    "No uniqueness classification of all minimizers.",
+    "Originality is best-of-knowledge."
+  ],
+  "schema_version": 1
+}

@@ -1,31 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The admissible set need not be convex. For any candidate of circumradius \(r\), an arbitrarily small enlargement is contained in some radius-\(r+\varepsilon\) disk. Brunn–Minkowski shows that, for a fixed radius, a centered disk has maximal intersection area with the centrally symmetric square. This reduces the full measurable-set problem to one scalar radius.
+PASS
 
-The disk–square intersection area is computed exactly. Its derivative has a cancellation that reduces the stationarity condition to
-\[
-x=\cos x.
-\]
-The function \(\cos x-x\) is strictly decreasing on \([0,\pi/2]\), so there is exactly one critical radius; the objective decreases before it and increases after it. Opposite diagonal points on the boundary of the optimal intersection prove that its circumradius is exactly the proposed radius.
+The global reduction is sound. For fixed radius \(r\), central symmetry and convexity give \(\tfrac12 K_c(r)+\tfrac12 K_{-c}(r)\subseteq K_0(r)\); planar Brunn--Minkowski therefore makes the centered disk intersection area-maximal. An \(\varepsilon\)-enclosing disk for an arbitrary measurable set transfers this bound to every positive-area subset. For \(a\le r\le\sqrt2a\), differentiating the exact disk--square area gives \(A'(r)=2r(\pi-4\theta)\), and after \(r=a\sec\theta\), \(x=\pi/2-2\theta\), the derivative sign reduces to the unique zero of \(\cos x-x\). The optimizer contains an antipodal pair at distance \(2r_*\), so its circumradius is exactly \(r_*\). Independent numerical recomputation gives \(\alpha=0.7390851332151607\), \(r_*/a=1.0931697449850168\), and \(\mathcal C_R(Q_1)=0.3094268090583855\), consistent with the analytic proof.
 
-The standalone checker reproduces the fixed-point, area, and objective identities and independently samples the one-dimensional objective densely. The finite scan is not used to establish the global theorem.
+## originality
 
-## Originality
+PASS
 
-PASS with a documented historical-search risk. Cañete’s 2021 paper explicitly names the circumradius replacement
-\[
-\inf_{E\subseteq\Omega}\frac{R(E)}{A(E)}
-\]
-as a Cheeger-type question and says that no related reference was found. The later 2022/2024 Ftouhi–Masiello–Paoli paper studies inequalities involving the ordinary perimeter-based Cheeger constant and circumradius, not the replacement functional itself.
+Cañete's open-access primary article explicitly poses the replacement-functional problem with circumradius but does not solve the square case; its Remark 11 says no related reference was found there. Fresh Resultary search returned the audited record itself and nearby geometric optimization records, but no prior statement with the same fixed-square subset functional or fixed-point constant. The exact square solution is therefore original to the best of the inspected evidence.
 
-Research-index searches for circumradius–area Cheeger problems, square subsets, disk–square intersections, fixed-point constants, and equivalent radius/area formulations returned no result implying the stated theorem. Web searches using the same aliases likewise did not locate a square formula.
+## value
 
-The residual risk is historical: Croft–Falconer–Guy Problem A23 predates the motivating paper, and older isoperimetric literature may use different terminology.
+PASS
 
-## Value
+This exactly solves a named geometric-optimization variant on the canonical square and identifies a non-obvious optimizer strictly between the incircle and whole square. The centering reduction is reusable for centrally symmetric domains, while the square calculation supplies a sharp natural constant rather than an arbitrary numerical slice.
 
-PASS. This is an exact solution of a named open-ended Cheeger-type variant for the most canonical non-round convex domain. The optimizer has a nontrivial interior transition radius rather than one of the obvious candidates, and the exact constant is governed by the classical fixed point \(\alpha=\cos\alpha\). The proof also isolates a reusable centering reduction for every centrally symmetric convex domain, reducing analogous circumradius–area problems to centered disk-intersection profiles.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,66 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof has two logically separate parts.
+## correctness
 
-First, for every radius \(r\), the centered disk maximizes
-\[
-A\!\left(Q_a\cap B(c,r)\right)
-\]
-over the center \(c\). This follows from
-\[
-\frac12K_c(r)+\frac12K_{-c}(r)\subseteq K_0(r)
-\]
-and Brunn–Minkowski, using \(K_{-c}(r)=-K_c(r)\). Therefore any measurable subset with circumradius \(r\) has area at most the centered radius-\(r\) intersection area.
+PASS
 
-Second, for \(a\le r\le\sqrt2\,a\),
-\[
-A(r)
-=
-\pi r^2
--
-4\left(
-r^2\arccos(a/r)
--
-a\sqrt{r^2-a^2}
-\right),
-\]
-and
-\[
-A'(r)
-=
-2r\left(\pi-4\arccos(a/r)\right).
-\]
-The sign of the derivative of \(r/A(r)\) reduces to the sign of
-\[
-\cos x-x,
-\qquad
-x=\frac{\pi}{2}-2\arccos(a/r).
-\]
-Since \(\cos x-x\) has exactly one zero \(\alpha\in(0,\pi/2)\), the minimizer is unique at the radius level:
-\[
-r_*
-=
-a\sec\!\left(\frac{\pi}{4}-\frac{\alpha}{2}\right).
-\]
+The global reduction is sound. For fixed radius \(r\), central symmetry and convexity give \(\tfrac12 K_c(r)+\tfrac12 K_{-c}(r)\subseteq K_0(r)\); planar Brunn--Minkowski therefore makes the centered disk intersection area-maximal. An \(\varepsilon\)-enclosing disk for an arbitrary measurable set transfers this bound to every positive-area subset. For \(a\le r\le\sqrt2a\), differentiating the exact disk--square area gives \(A'(r)=2r(\pi-4\theta)\), and after \(r=a\sec\theta\), \(x=\pi/2-2\theta\), the derivative sign reduces to the unique zero of \(\cos x-x\). The optimizer contains an antipodal pair at distance \(2r_*\), so its circumradius is exactly \(r_*\). Independent numerical recomputation gives \(\alpha=0.7390851332151607\), \(r_*/a=1.0931697449850168\), and \(\mathcal C_R(Q_1)=0.3094268090583855\), consistent with the analytic proof.
 
-At this radius,
-\[
-A(r_*)=4\alpha r_*^2,
-\]
-so
-\[
-\frac{r_*}{A(r_*)}
-=
-\frac{\cos(\pi/4-\alpha/2)}{4a\alpha}.
-\]
+## originality
 
-The embedded `verify.py` was replayed from its package path before packaging and returned:
+PASS
 
-`VERIFY_OK square circumradius-area constant`
+Cañete's open-access primary article explicitly poses the replacement-functional problem with circumradius but does not solve the square case; its Remark 11 says no related reference was found there. Fresh Resultary search returned the audited record itself and nearby geometric optimization records, but no prior statement with the same fixed-square subset functional or fixed-point constant. The exact square solution is therefore original to the best of the inspected evidence.
 
-It checks the fixed-point equation, the exact area identity numerically to floating-point precision, the closed-form ratio, a dense independent radius scan, and one-sided perturbations of the critical radius.
+## value
 
-The numerical replay is not used as an infinite proof and does not classify all equality cases.
+PASS
+
+This exactly solves a named geometric-optimization variant on the canonical square and identifies a non-obvious optimizer strictly between the incircle and whole square. The centering reduction is reusable for centrally symmetric domains, while the square calculation supplies a sharp natural constant rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
