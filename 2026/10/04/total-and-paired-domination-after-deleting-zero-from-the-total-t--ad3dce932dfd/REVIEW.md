@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The torsion and nontorsion parts are disconnected because the torsion set is a submodule. The nonzero torsion vertices induce \(K_{\alpha-1}\). For a nontorsion coset \(x+T(M)\), adjacency can occur only with its negative coset. If \(2\in Z(R)\), then \(2x\in T(M)\) for every \(x\), so every nonzero coset is a clique. If \(2\notin Z(R)\), then \(2x\notin T(M)\) for nontorsion \(x\), so inverse cosets are distinct independent sets joined completely. The isolated-vertex cases and the three numerical formulas then follow by counting components whose total and paired domination numbers are both two.
+PASS
 
-Risk: the finite verifier is corroborative only; the general statement depends on the torsion-submodule hypothesis and the direct coset proof.
+When \(T(M)\) is a submodule, the nonzero torsion vertices form \(K_{\alpha-1}\) and have no edges to nontorsion vertices. Nontorsion adjacency depends only on quotient cosets and pairs a coset with its negative. If \(2\in Z(R)\), every quotient coset equals its negative and each nonzero coset induces \(K_\alpha\); if \(2\notin Z(R)\), nonzero cosets pair into \(K_{\alpha,\alpha}\) components. Therefore isolated vertices occur exactly for \(\alpha=2\), or for \(\alpha=1\) with \(2\in Z(R)\). Every other nontrivial component has total and paired domination number two, so summing componentwise gives the three displayed formulas. The bundled exact checker realizes all boundary regimes over small \(\mathbb Z/n\mathbb Z\) examples and checks bounded abstract parameter profiles; the arbitrary finite-module theorem rests on the coset proof.
 
-## Originality
+## originality
 
-PASS. The archive-era paper defines the exact zero-deleted graph. The closest later full-text domination paper treats the full total torsion element graph and its torsion/nontorsion induced subgraphs; it states total-domination formulas for the full graph, but its searchable full text has no occurrence of “paired domination,” and it does not state the zero-deleted existence boundary or the paired formula. Exact searches for the zero-deleted graph with total/paired domination did not find a covering theorem.
+PASS
 
-Risk: the complete 2014 zero-deleted-graph article was inaccessible in the inspected path. Its abstract advertises basic properties and structures rather than domination, but theorem-level noncoverage cannot be certified from the abstract alone.
+Saraei's 2014 paper is the exact structural predecessor for the zero-deleted graph, while Goswami--Sarmah's complete 2023 paper studies domination for the full graph and its torsion/nontorsion induced subgraphs. The 2023 full text contains domination and bondage parameters but no total-domination terminology, and no paired-domination result was located. Deleting zero changes the torsion component from \(K_\alpha\) to \(K_{\alpha-1}\), creating the sharp new isolated-vertex obstruction at \(\alpha=2\). Current Resultary search returned the assigned record as the exact hit and no broader zero-deleted total/paired classification. The 2014 full body remained inaccessible after public routes and an authorized retrieval attempt timed out, so that overlap risk is explicit.
 
-## Value
+## value
 
-PASS. Deleting zero creates a sharp structural phase transition that is invisible from ordinary domination alone: \(|T(M)|=2\) creates an isolated torsion vertex, while the torsion-free case is governed by whether nonzero quotient cosets are fixed or paired by negation. The theorem gives the complete existence and exact-value classification for both total and paired domination on a natural algebraic graph already singled out in the literature.
+PASS
 
-Risk: once the component decomposition is established, the final componentwise domination count is short; the mathematical content is the exact zero-deletion boundary and its uniform algebraic classification.
+The exact zero-deleted graph is an established module invariant, and total and paired domination are natural strengthened domination parameters. The deletion creates a genuine existence boundary absent from the full graph, while the theorem gives a complete algebraic classification of both parameters in every finite submodule case.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

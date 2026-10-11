@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-The standalone `verify.py` was executed from the packaged path.
+# Independent mathematical audit
 
-It constructs \(T^0(\Gamma(M))\) directly for the regular modules \(M=R=\mathbb Z/n\mathbb Z\) with \(n=2,3,4,5,8,9\). Torsion elements are detected from the defining annihilation condition, not supplied as labels. Edges are then built from the condition that the sum of two distinct nonzero module elements is torsion.
+## correctness
 
-The checker exhaustively searches all subsets for total domination and all even subsets for paired domination, with a recursive perfect-matching test. It also replays the component-count formulas on a bounded grid of admissible parameter profiles.
+PASS
 
-Exact output:
+When \(T(M)\) is a submodule, the nonzero torsion vertices form \(K_{\alpha-1}\) and have no edges to nontorsion vertices. Nontorsion adjacency depends only on quotient cosets and pairs a coset with its negative. If \(2\in Z(R)\), every quotient coset equals its negative and each nonzero coset induces \(K_\alpha\); if \(2\notin Z(R)\), nonzero cosets pair into \(K_{\alpha,\alpha}\) components. Therefore isolated vertices occur exactly for \(\alpha=2\), or for \(\alpha=1\) with \(2\in Z(R)\). Every other nontrivial component has total and paired domination number two, so summing componentwise gives the three displayed formulas. The bundled exact checker realizes all boundary regimes over small \(\mathbb Z/n\mathbb Z\) examples and checks bounded abstract parameter profiles; the arbitrary finite-module theorem rests on the coset proof.
 
-```text
-VERIFY_OK
-Zmod_case=(2, 1, 2, True, None, None, [0])
-Zmod_case=(3, 1, 3, False, 2, 2, [1, 1])
-Zmod_case=(4, 2, 2, True, None, None, [0, 1, 1])
-Zmod_case=(5, 1, 5, False, 4, 4, [1, 1, 1, 1])
-Zmod_case=(8, 4, 2, True, 4, 4, [2, 2, 2, 3, 3, 3, 3])
-Zmod_case=(9, 3, 3, False, 4, 4, [1, 1, 3, 3, 3, 3, 3, 3])
-abstract_parameter_profiles_checked=110
-```
+## originality
 
-The finite checks realize the two nonexistence boundaries and all three finite-value branches. They do not replace the arbitrary-module proof, which is the torsion-coset argument in `RESULT.md`.
+PASS
+
+Saraei's 2014 paper is the exact structural predecessor for the zero-deleted graph, while Goswami--Sarmah's complete 2023 paper studies domination for the full graph and its torsion/nontorsion induced subgraphs. The 2023 full text contains domination and bondage parameters but no total-domination terminology, and no paired-domination result was located. Deleting zero changes the torsion component from \(K_\alpha\) to \(K_{\alpha-1}\), creating the sharp new isolated-vertex obstruction at \(\alpha=2\). Current Resultary search returned the assigned record as the exact hit and no broader zero-deleted total/paired classification. The 2014 full body remained inaccessible after public routes and an authorized retrieval attempt timed out, so that overlap risk is explicit.
+
+## value
+
+PASS
+
+The exact zero-deleted graph is an established module invariant, and total and paired domination are natural strengthened domination parameters. The deletion creates a genuine existence boundary absent from the full graph, while the theorem gives a complete algebraic classification of both parameters in every finite submodule case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
