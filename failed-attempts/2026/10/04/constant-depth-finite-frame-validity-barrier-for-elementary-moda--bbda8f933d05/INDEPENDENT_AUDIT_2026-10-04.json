@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:09:14.842716Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Takahashi's finite-reduction step supplies, for a finitely axiomatizable elementary modal logic, one fixed first-order sentence that agrees with the finite validating frames. On the labeled universe \\([n]\\), a fixed first-order sentence is evaluated by a constant-depth polynomial-size unbounded-fan-in circuit: relation atoms read adjacency bits, equality is hardwired, Boolean connectives add constant depth, and each quantifier expands to one unbounded AND/OR over \\([n]\\). Because the sentence, variable width, and quantifier nesting are fixed, the resulting family is nonuniform \\(\\mathsf{AC}^0\\). The contrapositive and the parity-hardness corollary then follow from closure under composition and the classical parity lower bound.",
+      "risks": [
+        "The circuit conclusion is encoding-sensitive and is only asserted for the canonical dense labeled adjacency matrix.",
+        "The parity corollary still requires a genuine AC0 many-one reduction for the target logic."
+      ],
+      "sources": [
+        "T. Takahashi, arXiv:2609.10872",
+        "fixed-first-order data-complexity/circuit translation",
+        "J. Håstad, STOC 1986"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic FO-to-AC0 result is broader than the modal application and directly covers it once the fixed sentence is known."
+        ],
+        "reasoning": "A broader generic theorem plus the source reduction dominates the claimed upper bound.",
+        "searches": [
+          "descriptive complexity of fixed first-order queries",
+          "Takahashi finite-frame theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.10872",
+        "Håstad 1986 parity lower bound",
+        "standard fixed-FO-to-AC0 data complexity",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every input frame satisfies the modal logic iff it satisfies the fixed FO sentence, so the standard circuit for that sentence decides the exact audited language.",
+          "Composing any AC0 reduction from parity with this circuit would put parity in AC0."
+        ],
+        "reasoning": "This is a routine corollary chain, which is decisive under the required implication-based originality test.",
+        "searches": [
+          "Takahashi fixed finite-frame FO description -> fixed-FO AC0 model checking -> modal finite-frame AC0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The focal source's finite-reduction argument produces a single fixed first-order condition on finite frames.",
+          "Fixed FO formulas have direct AC0 data-complexity circuits."
+        ],
+        "reasoning": "The modal claim is exactly the standard fixed-FO circuit theorem applied to the source's sentence; no nonstandard equivalence remains to establish.",
+        "searches": [
+          "Takahashi arXiv:2609.10872",
+          "fixed FO model checking AC0 adjacency-matrix structures",
+          "parity AC0 lower bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact indexed duplicate was located, but exact-wording absence cannot overcome the direct implication from known results."
+        ],
+        "reasoning": "No database table is material; coverage is theorem-level implication.",
+        "searches": [
+          "current Resultary modal-elementarity search",
+          "targeted web search for modal AC0 wording"
+        ]
+      },
+      "rationale": "The scientific statement is mechanically implied by two pre-existing ingredients: Takahashi's fixed first-order description of the finite validating frames and the standard theorem/construction placing fixed first-order model checking in \\(\\mathsf{AC}^0\\). Under implication-based originality, the fact that Takahashi phrases his advertised complexity consequence only as membership in P does not make the stronger AC0 corollary independent. The parity obstruction is then the standard composition with parity \\(\\notin\\mathsf{AC}^0\\).",
+      "residual_risks": [
+        "The exact modal corollary may be useful folklore even if not previously written explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the only modal-specific step needed by the audited theorem.",
+          "evidence": "The source reduces finite validation for such a logic to satisfaction of one fixed first-order condition and advertises the resulting P upper bound.",
+          "identifier_or_url": "arXiv:2609.10872",
+          "material_read": "Abstract plus the finite-reduction statement as reproduced in the frozen source package and its theorem-level consequence; the public arXiv abstract confirms the advertised P upper bound.",
+          "method": "Exact implication comparison with the fixed-sentence reduction.",
+          "title": "Non-elementary modal logics, assuming P != NP",
+          "trigger": "Primary source for the elementary/finitely-axiomatizable finite-frame reduction."
+        },
+        {
+          "assessment": "COVERS the entire complexity sharpening after Takahashi's reduction.",
+          "evidence": "Quantifiers become unbounded AND/OR layers over a fixed number of variables; fixed formula depth and width give constant depth and polynomial size.",
+          "identifier_or_url": "standard descriptive-complexity result",
+          "material_read": "Direct syntactic circuit construction reconstructed independently from the formula syntax.",
+          "method": "Independent theorem reconstruction.",
+          "title": "Fixed first-order model checking in constant-depth circuits",
+          "trigger": "Generic theorem immediately applicable to the fixed sentence."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although not original, the sharpened formulation is mathematically useful: it replaces a conditional P-versus-NP obstruction by a much stronger fixed-circuit upper bound, making unconditional circuit lower bounds such as parity reductions available as elementarity obstructions. The representation caveat is explicit.",
+      "risks": [
+        "Its utility depends on finding concrete modal validity problems admitting suitable AC0 lower-bound reductions."
+      ],
+      "sources": [
+        "Takahashi's finite-frame reduction",
+        "standard AC0 lower-bound theory"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Canonical labeled adjacency-matrix encoding only.",
+    "No application-specific parity reduction is supplied.",
+    "The theorem is a covered corollary rather than an independently original result."
+  ],
+  "schema_version": 1
+}
