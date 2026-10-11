@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:05:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 7e371a4377b65578746b532a5a61c19c0cc45299",
+        "assigned artifacts/verify_hard_lefschetz.py blob dbda4dfaf7f9f4d255a6aaefbaeee6fe8b154b94",
+        "Fernandez arXiv:math/0311026, Hard Lefschetz condition",
+        "Jiang arXiv:math/0304140, twisted sectors and degree shifting for weighted projective spaces",
+        "fresh exact inertia sweep for r=2..11 and weights below 20"
+      ],
+      "rationale": "The classification proof is correct. Fernandez's Hard Lefschetz condition is equality of the age of a sector and its inverse. Jiang's weighted-projective twisted-sector calculation gives \\(\\operatorname{age}(e^{2\\pi i\\theta})=r\\theta+\\{a\\theta\\}+\\{b\\theta\\}\\). If \\(a=b>1\\), the primitive \\(b\\)-th root fixes both heavy coordinates and has ages \\(r/b\\) and \\(r(b-1)/b\\), forcing \\(b=2\\). If \\(a<b\\), the primitive \\(b\\)-th root fixes only the \\(b\\)-coordinate and has age \\((r+a)/b\\) on a codimension-\\(r+1\\) sector, so symmetry forces \\(2(r+a)=b(r+1)\\). For \\(a\\ge2\\), positivity of \\(b-a\\) together with \\(b-a=(2r-a(r-1))/(r+1)\\) contradicts its being a positive integer; \\(a=1\\) gives \\(b=2\\). The three converse cases have only trivial isotropy or order-two isotropy and satisfy age symmetry. The actual exact checker exhausts \\(2\\le r\\le80\\), \\(1\\le a\\le b\\le80\\); a fresh independent exact inertia sweep for \\(2\\le r\\le11\\), \\(a,b<20\\) found exactly the same three pairs.",
+      "residual_risks": [
+        "The theorem is restricted to two heavy weights and \\(r\\ge2\\); the dimension-two case is intentionally excluded.",
+        "It concerns the smooth weighted projective stack and Fernandez age symmetry, not every later variant of orbifold Hard Lefschetz."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both sources apply to much broader classes of orbifolds/weights, but neither inspected statement solves the simultaneous age-equality constraints for all two-heavy weights.",
+          "Fernandez's order-two observation explains the surviving cases but does not prove that all higher orders fail in this family."
+        ],
+        "reasoning": "A general test is not the same as a closed classification; the primitive-sector obstruction is the additional structural step.",
+        "searches": [
+          "Fernandez general projective-orbifold Hard Lefschetz criterion",
+          "Jiang general weighted-projective Chen--Ruan sector calculation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0311026",
+        "arXiv:math/0304140",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formulas leave an infinite arithmetic family of sector constraints.",
+          "The audited proof isolates one primitive largest-weight sector whose equality equation alone forces \\(a=1,b=2\\) in the unequal case and \\(b=2\\) in the equal case."
+        ],
+        "reasoning": "This primitive-sector rigidity is a genuine classification argument rather than a mere renaming or fixed-parameter substitution.",
+        "searches": [
+          "Fernandez age symmetry plus Jiang age formula versus the complete weight-pair classification",
+          "order-two sufficient observation versus exclusion of all higher isotropy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernandez's condition \\(i_t=i_{I(t)}\\) is exactly the audited sectorwise age symmetry.",
+          "Jiang's degree-shifting calculation supplies the same fractional-weight ages used in the proof."
+        ],
+        "reasoning": "The formulations are aligned exactly; the novelty claim is the family-level solution set, not the criterion itself.",
+        "searches": [
+          "Resultary query: weighted projective stack P(1^r,a,b) Hard Lefschetz age symmetry classification two heavy weights",
+          "Fernandez arXiv:math/0311026, equation (4.2)",
+          "Jiang arXiv:math/0304140, weighted-projective twisted sectors and degree shifting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current exact hit is the assigned record; no earlier independent family table or theorem was retrieved.",
+          "Nearby indexed two-heavy results address different invariants and do not imply age symmetry."
+        ],
+        "reasoning": "The database check is corroborative; originality rests primarily on direct comparison with the general primary machinery.",
+        "searches": [
+          "Resultary exact-title query: Hard Lefschetz rigidity for two-heavy weighted projective stacks",
+          "Resultary semantic two-heavy weighted-projective Hard-Lefschetz query"
+        ]
+      },
+      "rationale": "Fernandez supplies the general age-symmetry criterion and notes that order-two local groups satisfy it, while Jiang supplies the full twisted-sector and degree-shifting machinery for arbitrary weighted projective spaces. Those general decision tools do not classify the infinite family \\(\\mathbb P(1^r,a,b)\\): the audited primitive-largest-weight sector argument turns them into a sharp Diophantine obstruction and proves that no isotropy order above two survives in this family. The inspected sources give general machinery and isolated examples, not the all-\\(r,a,b\\) classification. Current Resultary search returns the assigned Hard-Lefschetz classification itself as the exact hit; the nearby two-heavy weighted-projective records concern canonicality, Chern ratios, Gorenstein conditions, stabilizers, and other invariants rather than Hard Lefschetz.",
+      "residual_risks": [
+        "A weighted-projective-stack note not indexed under Hard Lefschetz could contain the same two-heavy classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CRITERION_NOT_TWO_HEAVY_CLASSIFICATION",
+          "evidence": "The source proves Hard Lefschetz under \\(i_t=i_{I(t)}\\) and notes a broad order-two sufficient case, but does not classify the audited family.",
+          "identifier_or_url": "arXiv:math/0311026",
+          "material_read": "complete relevant Section 4, including equation (4.2), Proposition 4.1, and the remark on order-two local groups; the page was visually inspected",
+          "method": "primary full-text PDF inspection with page verification",
+          "title": "Hodge structures for orbifold cohomology",
+          "trigger": "defining source of the Hard Lefschetz age-symmetry condition"
+        },
+        {
+          "assessment": "GENERAL_SECTOR_FORMULA_NOT_FAMILY_RIGIDITY",
+          "evidence": "The source gives a method to compute every weighted-projective degree shift, but no all-\\((r,a,b)\\) Hard-Lefschetz classification.",
+          "identifier_or_url": "arXiv:math/0304140",
+          "material_read": "primary full text at the twisted-sector classification and degree-shifting calculation; the degree-shifting page was visually inspected",
+          "method": "primary full-text PDF inspection with page verification",
+          "title": "The Chen-Ruan Cohomology of Weighted Projective Spaces",
+          "trigger": "primary source for twisted sectors and degree-shifting numbers of weighted projective spaces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fernandez 2006",
+        "Jiang 2003",
+        "assigned RESULT.md and exact verifier"
+      ],
+      "rationale": "Fernandez's condition is a central structural requirement in orbifold cohomology, and weighted projective stacks are canonical test objects. The theorem gives a complete infinite-family classification rather than checking isolated examples: one primitive sector rules out every higher stabilizer order and leaves exactly three weight pairs in every dimension covered. That is a natural rigidity boundary with a concise structural mechanism, so it clears the common value bar despite the short proof.",
+      "residual_risks": [
+        "The classification does not address three or more non-unit weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is restricted to two heavy weights and \\(r\\ge2\\); the dimension-two case is intentionally excluded.",
+    "It concerns the smooth weighted projective stack and Fernandez age symmetry, not every later variant of orbifold Hard Lefschetz.",
+    "A weighted-projective-stack note not indexed under Hard Lefschetz could contain the same two-heavy classification.",
+    "The classification does not address three or more non-unit weights."
+  ]
+}
