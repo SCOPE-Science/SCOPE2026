@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked against the defining edge-cover-time objective and against the equivalent prefix identity
-\[
-\operatorname{cost}(\sigma)=\sum_{k=0}^{N-1}|E(G_k)|.
-\]
-The critical inequality is the exact two-part transfer for maximizing the remaining-count squared sum under capacities. If remaining counts \(r_i,r_j\) with \(i<j\) are consolidated toward the larger-capacity part \(j\), the squared sum changes by either \(2r_ir_j\) or \(2(n_j-r_i)(n_j-r_j)\), both nonnegative. Repetition yields the largest-capacity-first remaining profile and therefore the smallest-part-first deletion profile.
+# Independent mathematical audit
 
-`verify_complete_multipartite_msvc.py` then performs an independent finite replay from the definition. It enumerates every integer multipartition of orders \(2\) through \(8\), every labeled vertex ordering, every cross-part edge, and every cover time. It checks \(58\) graph types and \(925310\) orderings. It also verifies the complete-bipartite specialization and the illustrative value \(\operatorname{msvc}(K_{1,2,4})=26\). The stored replay output ends with `ALL CHECKS PASSED`.
+## correctness
 
-The enumeration is finite and does not certify cases above order eight; those cases are covered by the proof, not by extrapolation from computation. Independent audit has not been performed.
+PASS
+
+Total cover time equals the sum, over every deleted prefix, of the number of edges remaining uncovered. With remaining part counts \(r_i\) and fixed total \(R\), the remaining edge count is \((R^2-\sum_i r_i^2)/2\), so each prefix is optimized by maximizing the convex squared sum subject to the part capacities. Moving remaining mass from a smaller-capacity part toward a larger-capacity part never decreases that squared sum, proving that larger parts should remain full first. One smallest-part-first block ordering attains these prefix minima simultaneously. Summing the positions of the vertices in each exhausted block gives the displayed formula. The exhaustive verifier through order eight is a stress test only.
+
+## originality
+
+PASS
+
+The 2006 source gives the exact complete-bipartite value, and the recent general MSVC paper gives broader algorithms, but neither inspected source states the arbitrary complete-multipartite closed form or its simultaneous prefix-majorization proof. Targeted searches including the cograph alias did not find a stronger theorem. The result is therefore a genuine natural-family extension rather than a recomputation of the two-part case.
+
+## value
+
+PASS
+
+Complete multipartite graphs are the natural many-part extension of the previously solved complete-bipartite family. The theorem gives a transparent optimal structure and exact closed form for every number of parts, providing a useful dense-family benchmark for current MSVC work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

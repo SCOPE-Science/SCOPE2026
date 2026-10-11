@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:19:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "A. Biniaz, J.-L. De Carufel, A. Maheshwari, S. Odak and M. Smid, Minimum Sum Vertex Cover via Minimum Vertex Cover, arXiv:2609.27117 (2026); primary full-text problem/algorithmic scope inspected.",
+        "R. Gera, C. Rasmussen, P. Stănică and S. Horton, Results on the min-sum vertex cover problem, Congressus Numerantium 178 (2006), 161–172; exact complete-bipartite theorem inspected through public PDF text.",
+        "A. Stankovic, Some Results on Approximability of Minimum Sum Vertex Cover, ACM Transactions on Computation Theory 17(2) (2025); broader approximation scope compared.",
+        "Resultary semantic searches for complete-multipartite minimum-sum vertex cover and cograph aliases.",
+        "Assigned RESULT.md and verify_complete_multipartite_msvc.py at tree 422b9f113df3ec45bc72cb8f56fba80ce0df0b4a."
+      ],
+      "rationale": "Total cover time equals the sum, over every deleted prefix, of the number of edges remaining uncovered. With remaining part counts \\(r_i\\) and fixed total \\(R\\), the remaining edge count is \\((R^2-\\sum_i r_i^2)/2\\), so each prefix is optimized by maximizing the convex squared sum subject to the part capacities. Moving remaining mass from a smaller-capacity part toward a larger-capacity part never decreases that squared sum, proving that larger parts should remain full first. One smallest-part-first block ordering attains these prefix minima simultaneously. Summing the positions of the vertices in each exhausted block gives the displayed formula. The exhaustive verifier through order eight is a stress test only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General algorithms can compute or approximate the invariant but do not state the closed complete-multipartite theorem.",
+          "No inspected cograph result supplies the formula."
+        ],
+        "reasoning": "Algorithmic generality does not imply the explicit optimal ordering and closed expression as a published structural theorem.",
+        "searches": [
+          "Biniaz et al. general algorithms for MSVC",
+          "Stankovic approximation results"
+        ]
+      },
+      "checked_sources": [
+        "A. Biniaz, J.-L. De Carufel, A. Maheshwari, S. Odak and M. Smid, Minimum Sum Vertex Cover via Minimum Vertex Cover, arXiv:2609.27117 (2026); primary full-text problem/algorithmic scope inspected.",
+        "R. Gera, C. Rasmussen, P. Stănică and S. Horton, Results on the min-sum vertex cover problem, Congressus Numerantium 178 (2006), 161–172; exact complete-bipartite theorem inspected through public PDF text.",
+        "A. Stankovic, Some Results on Approximability of Minimum Sum Vertex Cover, ACM Transactions on Computation Theory 17(2) (2025); broader approximation scope compared.",
+        "Resultary semantic searches for complete-multipartite minimum-sum vertex cover and cograph aliases.",
+        "Assigned RESULT.md and verify_complete_multipartite_msvc.py at tree 422b9f113df3ec45bc72cb8f56fba80ce0df0b4a."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-part value does not determine the many-part interaction.",
+          "The audited proof identifies a pointwise prefix minimization: for every remaining size, the sum of squared part occupancies is maximized by filling the largest capacities first."
+        ],
+        "reasoning": "The majorization/transfer argument is new structure not mechanically implied by either prior source.",
+        "searches": [
+          "2006 complete-bipartite formula",
+          "2026 general MSVC algorithmic framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No independent arbitrary-part formula was returned.",
+          "The 2006 theorem covers exactly the two-part specialization."
+        ],
+        "reasoning": "The ordering objective and prefix uncovered-edge sum are equivalent formulations of the same MSVC invariant.",
+        "searches": [
+          "Resultary: minimum sum vertex cover complete multipartite exact formula smallest parts first",
+          "Searches for min-sum vertex cover, edge cover-time ordering and cograph complete multipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact prior formula is only \\(\\operatorname{msvc}(K_{a,b})=ba(a+1)/2\\) for \\(a\\le b\\).",
+          "No arbitrary-part table or formula was located."
+        ],
+        "reasoning": "The theorem strictly extends the known exact two-part case.",
+        "searches": [
+          "Resultary exact multipartite formula searches",
+          "Gera–Rasmussen–Stănică–Horton complete-bipartite Corollary 5.3"
+        ]
+      },
+      "rationale": "The 2006 source gives the exact complete-bipartite value, and the recent general MSVC paper gives broader algorithms, but neither inspected source states the arbitrary complete-multipartite closed form or its simultaneous prefix-majorization proof. Targeted searches including the cograph alias did not find a stronger theorem. The result is therefore a genuine natural-family extension rather than a recomputation of the two-part case.",
+      "residual_risks": [
+        "An obscure older cograph or ordering result may contain the same complete-multipartite formula under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL ALGORITHMIC COVERAGE, NO LOCATED ARBITRARY COMPLETE-MULTIPARTITE FORMULA",
+          "evidence": "The inspected text develops algorithms/approximations and references structured cases but has no complete-multipartite theorem.",
+          "identifier_or_url": "arXiv:2609.27117",
+          "material_read": "Primary full-text problem formulation, algorithmic results and targeted searches for complete multipartite/cograph exact formulas.",
+          "method": "Open primary full-text inspection.",
+          "title": "Minimum Sum Vertex Cover via Minimum Vertex Cover",
+          "trigger": "Current primary source on the identical invariant and strongest broad coverage."
+        },
+        {
+          "assessment": "COVERS THE TWO-PART BOUNDARY ONLY",
+          "evidence": "Corollary 5.3 gives the exact \\(K_{a,b}\\) value, which matches the audited formula when \\(r=2\\).",
+          "identifier_or_url": "Congressus Numerantium 178 (2006), 161–172",
+          "material_read": "Public PDF text around the exact complete-bipartite theorem and surrounding definitions.",
+          "method": "Primary PDF text inspection.",
+          "title": "Results on the min-sum vertex cover problem",
+          "trigger": "Closest exact family result: complete bipartite graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "A. Biniaz, J.-L. De Carufel, A. Maheshwari, S. Odak and M. Smid, Minimum Sum Vertex Cover via Minimum Vertex Cover, arXiv:2609.27117 (2026); primary full-text problem/algorithmic scope inspected.",
+        "R. Gera, C. Rasmussen, P. Stănică and S. Horton, Results on the min-sum vertex cover problem, Congressus Numerantium 178 (2006), 161–172; exact complete-bipartite theorem inspected through public PDF text.",
+        "A. Stankovic, Some Results on Approximability of Minimum Sum Vertex Cover, ACM Transactions on Computation Theory 17(2) (2025); broader approximation scope compared.",
+        "Resultary semantic searches for complete-multipartite minimum-sum vertex cover and cograph aliases.",
+        "Assigned RESULT.md and verify_complete_multipartite_msvc.py at tree 422b9f113df3ec45bc72cb8f56fba80ce0df0b4a."
+      ],
+      "rationale": "Complete multipartite graphs are the natural many-part extension of the previously solved complete-bipartite family. The theorem gives a transparent optimal structure and exact closed form for every number of parts, providing a useful dense-family benchmark for current MSVC work.",
+      "residual_risks": [
+        "An obscure older cograph or ordering result may contain the same complete-multipartite formula under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite complete multipartite graph with part sizes in nondecreasing order, minimum-sum vertex cover is attained by exhausting parts from smallest to largest, and the exact closed formula is the stated sum over block contributions; it strictly extends the known complete-bipartite formula.",
+  "limitations": [
+    "Finite simple complete multipartite graphs only.",
+    "No analogous formula is claimed for multipartite graphs with missing cross-edges or arbitrary cographs.",
+    "An obscure older cograph or ordering result may contain the same complete-multipartite formula under different terminology."
+  ],
+  "schema_version": 1
+}
