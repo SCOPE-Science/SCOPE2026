@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining transform \\(f(t)=t/(1+t)\\) is continuous and strictly increasing, so for every admissible pair the minimum of the two transformed distances equals the transform of the smaller distance. Passing the supremum through \\(f\\) is justified by monotonicity and continuity, including when the James supremum is not attained. The contradiction to the printed Corollary 2 is immediate from \\(J_1(X)\\le2/3\\) and \\(\\rho_X(1)\\ge0\\).
+## correctness
 
-## Originality
-PASS. The defining 2022 paper was inspected in full text at the relevant locations. It gives Theorem 1's coarse two-sided comparison and Proposition 1's one-sided bound \\(J_1(X)\\le J(X)/(1+J(X))\\), plus exact \\(\\ell_p\\) values, but does not state the universal equality. Searches using the exact equality, inverse relation, metric-transform formulation, DOI, and the modulus-of-smoothness correction produced no covering result. The closest checked source is therefore the defining paper itself, which is strictly weaker at statement level.
+PASS
 
-## Value
-PASS. This is a structural collapse of a purportedly new geometric constant to a monotone reparameterization of the classical James constant, so every exact value and threshold for \\(J\\) transfers automatically to \\(J_1\\). It also detects a concrete published inconsistency: Corollary 2 has a negative universal right-hand side despite nonnegative \\(\\rho_X(1)\\). The value comes from removing a redundant invariant and isolating a correction point, not from computational difficulty.
+With \(f(t)=t/(1+t)\), strict monotonicity gives the pointwise identity \(\min\{f(a),f(b)\}=f(\min\{a,b\})\). Continuity and monotonicity give \(\sup f(m)=f(\sup m)\) even without attainment, proving the transform exactly. For the printed corollary, the source's bound \(J_1\le2/3\) makes its right-hand side negative, while the modulus of smoothness at one is nonnegative. No finite experiment is needed.
 
-## Closest literature and limitations
-Closest literature: Chen--Yang--Liu--Li, *Symmetry* 14 (2022), 405, DOI 10.3390/sym14020405, especially Section 2, Theorem 1, Proposition 1, Example 1, Proposition 2, Corollary 2, and the conclusion. Residual originality risk is an unindexed observation of the same elementary identity. No claim is made about uninspected later uses of \\(J_1\\), nor about optimal replacement bounds for \\(\\rho_X(1)\\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining paper introduces \(J_1\) as a new metric James-type constant and proves only inequalities in general, while the exact all-space identity is not stated in the inspected text. The identity is elementary but changes the interpretation of the published invariant: it is an invertible monotone reparameterization of the classical James constant, so every threshold and exact value transfers automatically. Resultary did not return an earlier all-space equality.
+
+## value
+
+PASS
+
+The proof is short, but the conclusion is structurally consequential rather than a cosmetic substitution: it collapses a published geometric invariant to an invertible transform of a classical one, transfers all numerical thresholds automatically, and exposes a concrete impossible corollary in the defining source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
