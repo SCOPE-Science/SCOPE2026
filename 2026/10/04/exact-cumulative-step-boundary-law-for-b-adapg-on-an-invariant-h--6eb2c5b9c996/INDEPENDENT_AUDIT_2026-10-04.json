@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:57:03.443791Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 823b7ce95dbdf8efd68417fbf8970b5e0171bc06",
+        "check_boundary_law.py blob 57c89cc0e6708c530cc7e16e4927c9f7187cb3bc",
+        "source Theorem 2.7 and independent scalar derivation"
+      ],
+      "rationale": "On the collinear ray, the Bregman optimality condition gives the exact dual recurrence \\(h(t_{k+1})=h(t_k)+\\gamma_{k+1}(c-t_k)\\), with \\(h(t)=t/\\sqrt{1-t^2}\\). Positive generated steps make \\(t_k\\) strictly increase. The source's objective-infimum result then forces the only possible limit to be the boundary minimizer \\(t=1\\). Since \\(h(t_k)\\to\\infty\\) while every increment is at most \\((c+1)\\gamma_k\\), bounded cumulative step mass is impossible. Weighted Cesaro convergence gives \\(h(t_k)/S_k\\to c-1\\), and inversion of \\(h\\) yields both stated \\(S_k^{-2}\\) asymptotics. An independent scalar replay on a divergent positive step schedule matched the leading constants; it was used only as a transcription check.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source theorem guarantees a solution subsequence/objective-infimum property while full iterate convergence otherwise uses an additional kernel assumption that fails for this example.",
+          "The 2026 unified framework advertises broad standard-BPM iterate convergence, but only its abstract was available in this run."
+        ],
+        "reasoning": "No fully inspected theorem dominates the complete claim including the exact endogenous cumulative-step asymptotic.",
+        "searches": [
+          "DOI:10.1007/s10957-026-03101-3 full publisher text",
+          "arXiv:2211.08043 full-text comparison",
+          "arXiv:2608.05536 abstract and failed direct-PDF attempt"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.01353v2; DOI:10.1007/s10957-026-03101-3",
+        "arXiv:2211.08043",
+        "arXiv:2608.05536",
+        "Resultary semantic query: B-adaPG Hellinger ball invariant ray cumulative step boundary convergence asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source objective-infimum theorem plus monotonicity proves the boundary limit only after exploiting the special invariant-ray recursion.",
+          "Older Hellinger rate theory does not force B-adaPG's own cumulative step mass to diverge under the unrestricted adaptive sequence used here.",
+          "Even a broader iterate-convergence theorem would not by itself imply \\(h(t_k)/S_k\\to c-1\\) and the two exact leading constants."
+        ],
+        "reasoning": "The final claim combines a source-specific non-stalling statement with exact asymptotics; those are not mechanical restatements of the general convergence results inspected.",
+        "searches": [
+          "Reconstructed Theorem 2.7 consequence on the invariant ray",
+          "compared Azizian--Iutzeler--Malick--Mertikopoulos Hellinger rate results",
+          "screened arXiv:2608.05536 for stronger convergence coverage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The initiating paper discusses the same kernel and boundary-active numerics but does not state the scalar invariant-ray recursion as a theorem.",
+          "The older Hellinger BPM paper has cumulative-step rate bounds under its framework but does not state automatic divergence of B-adaPG's generated step mass or the audited leading constants."
+        ],
+        "reasoning": "The most natural dual-coordinate and Hellinger formulations were compared; no equivalent method-specific theorem was found.",
+        "searches": [
+          "arXiv:2508.01353v2 source-specific searches for Hellinger kernel, invariant ray, and cumulative steps",
+          "arXiv:2211.08043 Hellinger Bregman boundary-rate comparison",
+          "Resultary semantic query for B-adaPG Hellinger cumulative-step laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source reports numerical proof-of-concept experiments but no exact table of the invariant-ray constants.",
+          "No matching published SCOPE record appeared in the focused Resultary results."
+        ],
+        "reasoning": "The claim is an analytic asymptotic law rather than a standard tabulated invariant; the source's numerical section was still checked for an exact counterpart.",
+        "searches": [
+          "Source paper boundary-active numerical section",
+          "Resultary semantic query for Hellinger B-adaPG boundary constants"
+        ]
+      },
+      "rationale": "The source paper supplies B-adaPG, the same Hellinger-ball kernel, failure of its Bregman-zone assumption, and the objective-infimum theorem, but not the invariant-ray full-sequence theorem or exact cumulative-step constants. Earlier Hellinger BPM theory explains the general boundary-rate phenomenon under its own step conditions. The recent broad convergence paper was only abstract-accessible here and remains a residual risk, not evidence of noncoverage.",
+      "residual_risks": [
+        "The recent arXiv:2608.05536 has an abstract claiming broad iterate convergence for standard Bregman proximal methods, but its full PDF could not be fetched in this run. It could cover the convergence portion, though the exact endogenous cumulative-step asymptotics remain a separate comparison risk.",
+        "Older Hellinger mirror-descent asymptotics may contain an equivalent scalar boundary law under different method terminology; targeted searches did not locate the B-adaPG-specific conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_EXACT_RAY_LAW",
+          "evidence": "The paper supplies the ingredients but not the invariant-ray convergence theorem or the exact cumulative-step asymptotics.",
+          "identifier_or_url": "arXiv:2508.01353v2; DOI:10.1007/s10957-026-03101-3",
+          "material_read": "Publisher full text and open preprint material around the Bregman update, Theorem 2.7, the proof discussion requiring Assumption 2.4 for full-sequence convergence, and the boundary-active experiments.",
+          "method": "lawful open/publisher full-text inspection",
+          "title": "Linesearch-Free Adaptive Bregman Proximal Gradient for Convex Minimization Under Local Relative Smoothness",
+          "trigger": "Same algorithm and exact Hellinger kernel."
+        },
+        {
+          "assessment": "COVERS_GENERAL_GEOMETRIC_MECHANISM_NOT_SOURCE_SPECIFIC_LAW",
+          "evidence": "It analyzes Hellinger boundary behavior but does not establish automatic divergence of the B-adaPG step mass or the audited exact constants.",
+          "identifier_or_url": "arXiv:2211.08043",
+          "material_read": "Full-text sections on BPM recursion, Hellinger examples, variable-step conditions, and cumulative-step rate statements.",
+          "method": "lawful open full-text comparison",
+          "title": "The Rate of Convergence of Bregman Proximal Methods: Local Geometry Versus Regularity Versus Sharpness",
+          "trigger": "Highly relevant Hellinger boundary-rate theory."
+        },
+        {
+          "assessment": "PLAUSIBLE_RECENT_SOURCE_ACCESS_RISK",
+          "evidence": "The abstract claims broad iterate convergence for standard BPMs but does not expose the exact invariant-ray cumulative-step law.",
+          "identifier_or_url": "arXiv:2608.05536",
+          "material_read": "Primary arXiv abstract and metadata. A direct full-PDF fetch failed in this run, so no whole-document noncoverage judgment was made.",
+          "method": "abstract screening only",
+          "title": "A Unified Framework for Iterate Convergence of Bregman Proximal Methods",
+          "trigger": "Recent broad iterate-convergence result with plausible coverage of the convergence portion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "B-adaPG primary paper",
+        "Hellinger BPM rate paper",
+        "independent recurrence analysis"
+      ],
+      "rationale": "The source explicitly highlights boundary-active least squares with this Hellinger kernel outside its Bregman-zone assumption. The audited invariant ray is a natural exactly solvable benchmark: it proves full-sequence boundary convergence, rules out finite cumulative step mass, and determines sharp leading behavior in the method's endogenous clock.",
+      "residual_risks": [
+        "The result does not control non-collinear perturbations or give an iteration-count rate without additional step-mass information."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The recent arXiv:2608.05536 has an abstract claiming broad iterate convergence for standard Bregman proximal methods, but its full PDF could not be fetched in this run. It could cover the convergence portion, though the exact endogenous cumulative-step asymptotics remain a separate comparison risk.",
+    "Older Hellinger mirror-descent asymptotics may contain an equivalent scalar boundary law under different method terminology; targeted searches did not locate the B-adaPG-specific conclusion."
+  ],
+  "schema_version": 1
+}

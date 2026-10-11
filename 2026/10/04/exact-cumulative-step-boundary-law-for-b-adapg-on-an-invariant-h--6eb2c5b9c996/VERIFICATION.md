@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof was reconstructed from the exact Bregman proximal-gradient optimality condition and checked against the primary source's assumptions and Theorem 2.7. The Hellinger gradient and inverse gradient were differentiated directly. The argument does not infer an infinite-dimensional or asymptotic theorem from numerical data.
+## correctness
 
-The standalone script `check_boundary_law.py` verifies, for an independent positive divergent step schedule, the scalar dual recursion's predicted limits: \(y_k/((c-1)S_k)\to1\), \(2(c-1)^2S_k^2(1-t_k)\to1\), and \(2(c-1)S_k^2(f(x^k)-f(u))\to1\). This is only a replay of the algebraic reduction; B-adaPG's convergence input is the analytically cited objective-infimum theorem.
+PASS
 
-Full-text checks were performed for arXiv:2508.01353v2 and arXiv:2211.08043. The first was checked for the basic assumptions, the nonseparable Hellinger-ball counterexample to the Bregman-zone condition, the B-adaPG convergence summary, and the boundary-active numerical section. The second was checked for Hellinger examples, multidimensional Hellinger topology, step assumptions, and cumulative-step rate bounds. The full text of arXiv:2608.05536 could not be retrieved during the comparison; only its abstract was available, and this limitation is carried as a residual risk.
+On the collinear ray, the Bregman optimality condition gives the exact dual recurrence \(h(t_{k+1})=h(t_k)+\gamma_{k+1}(c-t_k)\), with \(h(t)=t/\sqrt{1-t^2}\). Positive generated steps make \(t_k\) strictly increase. The source's objective-infimum result then forces the only possible limit to be the boundary minimizer \(t=1\). Since \(h(t_k)\to\infty\) while every increment is at most \((c+1)\gamma_k\), bounded cumulative step mass is impossible. Weighted Cesaro convergence gives \(h(t_k)/S_k\to c-1\), and inversion of \(h\) yields both stated \(S_k^{-2}\) asymptotics. An independent scalar replay on a divergent positive step schedule matched the leading constants; it was used only as a transcription check.
+
+## originality
+
+PASS
+
+The source paper supplies B-adaPG, the same Hellinger-ball kernel, failure of its Bregman-zone assumption, and the objective-infimum theorem, but not the invariant-ray full-sequence theorem or exact cumulative-step constants. Earlier Hellinger BPM theory explains the general boundary-rate phenomenon under its own step conditions. The recent broad convergence paper was only abstract-accessible here and remains a residual risk, not evidence of noncoverage.
+
+## value
+
+PASS
+
+The source explicitly highlights boundary-active least squares with this Hellinger kernel outside its Bregman-zone assumption. The audited invariant ray is a natural exactly solvable benchmark: it proves full-sequence boundary convergence, rules out finite cumulative step mass, and determines sharp leading behavior in the method's endogenous clock.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
