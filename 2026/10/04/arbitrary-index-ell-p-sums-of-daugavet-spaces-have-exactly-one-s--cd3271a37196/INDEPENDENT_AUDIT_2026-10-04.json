@@ -1,0 +1,86 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:10:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choose countably many distinct coordinates and slices forcing the selected coordinate norm above \\(1-1/K\\). For arbitrary selected points, the average of the off-coordinate remainders is at most \\((p/K)^{1/p}\\), while the average of the disjoint coordinate pieces is at most \\(K^{1/p-1}\\); both tend to zero, so the chosen countable slice family determines the origin even though points may have arbitrary support elsewhere. For uniqueness, regroup around any coordinate and apply Proposition 3.11 of Langemets--Lõo--Martín--Rueda Zoca, which forces the Daugavet coordinate of every SCD point to vanish.",
+      "risk": "The endpoints \\(p=1,\\infty\\) are excluded and the source explicitly records failure of the analogous existence statement in Daugavet examples there.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.11 already allows an arbitrary Banach complement in \\(E\\oplus_pY\\), which is sufficient for uniqueness coordinate by coordinate.",
+          "The origin-existence theorem itself is stated only for countable sequences."
+        ],
+        "reasoning": "The prior two-summand obstruction is broad enough to lift the uniqueness half, but it does not by itself provide the countable determining family for the origin in an uncountable sum.",
+        "searches": [
+          "arXiv:2311.03064v2 Theorem 3.6, Propositions 3.7 and 3.11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.03064v2",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The countable proof selects one functional from each coordinate of a sequence; the submitted argument instead selects any countable subset of an arbitrary \\(\\Gamma\\) and controls all off-selected support uniformly.",
+          "Proposition 3.11 then applies after regrouping around each arbitrary coordinate."
+        ],
+        "reasoning": "The extension is short but not a change of symbols only: the ambient unit ball can have arbitrary density, and the determining sequence must still control selected points with unrestricted support outside the chosen countable coordinates.",
+        "searches": [
+          "arXiv:2311.03064v2 Proposition 3.7 proof",
+          "arXiv:2311.03064v2 Proposition 3.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.6 states the result for a sequence \\(\\{X_n:n\\in\\mathbb N\\}\\).",
+          "The paper's notation for infinite direct sums is explicitly sequence-indexed."
+        ],
+        "reasoning": "Searches using arbitrary-index, uncountable, nonseparable and direct-sum aliases did not locate an equivalent cardinality-free theorem.",
+        "searches": [
+          "Resultary: arbitrary index ell_p sum Daugavet SCD points unique zero",
+          "arXiv:2311.03064v2 Sections 3.2--3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite database or classification table is relevant to this infinite-dimensional geometric statement."
+        ],
+        "reasoning": "This check is genuinely inapplicable as a table lookup; the searched corpus was used instead to look for an exact arbitrary-index theorem.",
+        "searches": [
+          "Resultary SCD/Daugavet corpus"
+        ]
+      },
+      "rationale": "The primary 2024 paper proves the countably indexed theorem and explicitly formulates its infinite sums as sequences indexed by \\(\\mathbb N\\). Its Proposition 3.7 gives the origin for countable \\(\\ell_p\\)-sums and Proposition 3.11 is a two-summand coordinate obstruction with an arbitrary complement. The submitted theorem extends the countable determining-family construction to an arbitrary index cardinality; no checked source or Resultary record stated that nonseparable arbitrary-index extension.",
+      "residual_risks": [
+        "Because the arbitrary-cardinality proof is a concise extension of the countable argument, an equivalent observation may exist informally or under general direct-sum notation even though no checked source states it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_PARTIAL_COVERAGE",
+          "evidence": "Theorem 3.6 and Proposition 3.7 are explicitly sequence-indexed; Proposition 3.11 allows a Daugavet factor with arbitrary complement.",
+          "identifier_or_url": "arXiv:2311.03064v2",
+          "material_read": "Full arXiv HTML for the direct-sum section, including Theorem 3.6 and Propositions 3.7 and 3.11 with their proof context.",
+          "method": "lawful arXiv full text",
+          "title": "Slicely countably determined points in Banach spaces",
+          "trigger": "Exact source of the countable result and the Daugavet coordinate obstruction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result shows a genuinely nonseparable phenomenon: a unit ball of arbitrarily large density has a single point determined by only countably many slices, while every coordinate space can itself have no SCD points. Removing countability from the index set is a natural structural extension of the paper's direct-sum theory.",
+      "risk": "The proof is elementary once the countable construction and two-summand obstruction are known, so the contribution is a focused cardinality extension rather than a new technique.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any infinite index set \\(\\Gamma\\) and \\(1<p<\\infty\\), the origin is an SCD point of the unit ball of every nontrivial arbitrary-index \\(\\ell_p\\)-sum; if every coordinate space has the Daugavet property then the origin is the unique SCD point.",
+  "limitations": [
+    "The result requires \\(1<p<\\infty\\) and nontrivial coordinate spaces.",
+    "No claim is made that arbitrary-index direct sums are SCD sets."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim was reconstructed from the definition of an SCD point. For the existence part, a countable subsystem of distinct coordinates is chosen inside the arbitrary infinite index set. If one point is selected from each coordinate slice, the equal-weight average of the first \(K\) selections splits into disjoint main coordinates and remainders. The two norms are bounded by \(K^{1/p-1}\) and \((p/K)^{1/p}\), respectively, so the averages converge to \(0\). This proves the determining property without assuming separability of the ambient sum.
+## correctness
 
-For uniqueness, each coordinate is isolated by the isometric decomposition \(X=X_\gamma\oplus_pY_\gamma\). Proposition 3.11 of arXiv:2311.03064 was checked in full text and applies because \(X_\gamma\) has the Daugavet property, \(Y_\gamma\) is arbitrary, and \(1<p<\infty\). It forces every coordinate of an SCD point to vanish. No computation, finite test, or timeout is used as a substitute for proof.
+PASS
 
-## Originality — PASS
-The closest source is Langemets--Lõo--Martín--Rueda Zoca, arXiv:2311.03064. Its formal direct-sum notation in Section 1 is for sequences, Proposition 3.7 treats a sequence of arbitrary nontrivial spaces, and Theorem 3.6 treats a sequence of Daugavet spaces. The full text was inspected through Section 3.3, including Proposition 3.11. The arbitrary-index statement was not found there. The present proof must add the observation that a countable coordinate subsystem still determines the origin inside an arbitrarily large \(\ell_p\)-sum, then combine it with the coordinatewise obstruction for every index.
+Choose countably many distinct coordinates and slices forcing the selected coordinate norm above \(1-1/K\). For arbitrary selected points, the average of the off-coordinate remainders is at most \((p/K)^{1/p}\), while the average of the disjoint coordinate pieces is at most \(K^{1/p-1}\); both tend to zero, so the chosen countable slice family determines the origin even though points may have arbitrary support elsewhere. For uniqueness, regroup around any coordinate and apply Proposition 3.11 of Langemets--Lõo--Martín--Rueda Zoca, which forces the Daugavet coordinate of every SCD point to vanish.
 
-Database searches for SCD points, uncountable or arbitrary-index \(\ell_p\)-sums, Daugavet factors, aliases, and direct-sum formulations returned no scientifically matching record. General web searches likewise returned the 2023 source and unrelated SCD literature rather than an arbitrary-index theorem. The residual risk is that this short extension may appear elsewhere as an unstated or differently named observation.
+## originality
 
-## Value — PASS
-The source introduces SCD points specifically to study nonseparable phenomena, but its central \(\ell_p\)-sum theorem is formally countably indexed. The extension closes that cardinality gap: the SCD locus for Daugavet-coordinate sums is independent of the density and remains exactly one point for every infinite index cardinal. The proof also exhibits why a countable notion can control a nonseparable ball: only countably many coordinates are needed to determine the origin. This is a natural structural classification rather than an arbitrary parameter slice.
+PASS
 
-## Closest literature and limitations
-The earliest verified public source in this line is the University of Tartu thesis record made available on 2023-07-03. The later article/preprint arXiv:2311.03064v1, submitted 2023-11-06, has primary MSC 46B20 and contains the formal countable statements and the Daugavet-coordinate obstruction used here. The endpoint exponents are excluded, and the source itself explains that the analogous existence result can fail for \(p=1\) and \(p=\infty\).
+The primary 2024 paper proves the countably indexed theorem and explicitly formulates its infinite sums as sequences indexed by \(\mathbb N\). Its Proposition 3.7 gives the origin for countable \(\ell_p\)-sums and Proposition 3.11 is a two-summand coordinate obstruction with an arbitrary complement. The submitted theorem extends the countable determining-family construction to an arbitrary index cardinality; no checked source or Resultary record stated that nonseparable arbitrary-index extension.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result shows a genuinely nonseparable phenomenon: a unit ball of arbitrarily large density has a single point determined by only countably many slices, while every coordinate space can itself have no SCD points. Removing countability from the index set is a natural structural extension of the paper's direct-sum theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

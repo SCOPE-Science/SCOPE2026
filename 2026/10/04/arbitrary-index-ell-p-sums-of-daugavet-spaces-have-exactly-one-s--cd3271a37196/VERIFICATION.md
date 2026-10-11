@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim has two parts and both were checked directly.
+# Independent mathematical audit
 
-For existence of the SCD origin, select countably many distinct coordinates from the infinite index set. For every integer \(K\ge2\), points chosen from the corresponding coordinate slices split into a distinguished-coordinate part and a remainder. The remainder has norm at most \((p/K)^{1/p}\) after averaging, while disjointness of the distinguished coordinates gives the second bound \(K^{1/p-1}\). Their sum tends to zero for \(1<p<\infty\). The selected points outside those countably many coordinates are included in the remainders, so no hidden countability or separability assumption on the ambient direct sum is used.
+## correctness
 
-For uniqueness under the Daugavet hypothesis, the full arXiv text of Proposition 3.11 in arXiv:2311.03064v2 was inspected. It applies to \(E\oplus_pY\) with \(E\) Daugavet and \(Y\) arbitrary, and forces the \(E\)-coordinate of every SCD point to be zero. Regrouping the arbitrary-index sum around each single coordinate therefore forces all coordinates to vanish.
+PASS
 
-The source's Proposition 3.7 and Theorem 3.6 were also inspected. They are formally stated for sequences indexed by \(\mathbb N\), so the proof above supplies the missing arbitrary-index existence step rather than merely renaming the source theorem.
+Choose countably many distinct coordinates and slices forcing the selected coordinate norm above \(1-1/K\). For arbitrary selected points, the average of the off-coordinate remainders is at most \((p/K)^{1/p}\), while the average of the disjoint coordinate pieces is at most \(K^{1/p-1}\); both tend to zero, so the chosen countable slice family determines the origin even though points may have arbitrary support elsewhere. For uniqueness, regroup around any coordinate and apply Proposition 3.11 of Langemets--Lõo--Martín--Rueda Zoca, which forces the Daugavet coordinate of every SCD point to vanish.
 
-No numerical experiment, finite enumeration, or external certificate is needed. The proof does not address \(p=1\) or \(p=\infty\), and it makes no claim about arbitrary-index sums whose coordinate spaces fail the Daugavet hypothesis beyond the existence of the SCD origin.
+## originality
+
+PASS
+
+The primary 2024 paper proves the countably indexed theorem and explicitly formulates its infinite sums as sequences indexed by \(\mathbb N\). Its Proposition 3.7 gives the origin for countable \(\ell_p\)-sums and Proposition 3.11 is a two-summand coordinate obstruction with an arbitrary complement. The submitted theorem extends the countable determining-family construction to an arbitrary index cardinality; no checked source or Resultary record stated that nonseparable arbitrary-index extension.
+
+## value
+
+PASS
+
+The result shows a genuinely nonseparable phenomenon: a unit ball of arbitrarily large density has a single point determined by only countably many slices, while every coordinate space can itself have no SCD points. Removing countability from the index set is a natural structural extension of the paper's direct-sum theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
