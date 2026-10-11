@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at source tree 618a3ab4cd9208d73754cdfa212d09fb227eedd9",
+        "DOI:10.1186/s13660-024-03081-w",
+        "NIST DLMF §8.12"
+      ],
+      "rationale": "A trial point \\(\\alpha=(3\\delta)^{-1}\\) gives an \\(O(\\sqrt\\delta)\\) excess above one half. Any minimizer must have \\(\\alpha\\to\\infty\\); the uniform first-order Gamma transition approximation then forces \\(z=\\delta\\sqrt\\alpha\\to0\\). The bound \\(h_\\kappa(\\alpha)-1/2\\ge c z-C/\\sqrt\\alpha\\), compared with the trial value, gives an upper bound on \\(r=\\delta\\alpha\\); the same expansion rules out \\(r\\to0\\), so minimizers localize in a compact subset of \\((0,\\infty)\\). There the supplied differentiable transition expansion is uniform. Writing \\(\\varepsilon=\\sqrt\\delta\\) gives \\(1/2+\\phi(0)\\varepsilon A(r)+\\phi(0)\\varepsilon^3B(r)+O(\\varepsilon^4)\\), with \\(A(r)=\\sqrt r+1/(3\\sqrt r)\\) uniquely minimized at \\(r=1/3\\). Independent symbolic differentiation reproduced \\(A(1/3)=2\\sqrt3/3\\), \\(A''(1/3)=3\\sqrt3/2\\), \\(B(1/3)=-71\\sqrt3/270\\), and \\(B'(1/3)=-7\\sqrt3/30\\), hence the shift \\(-B'/A''=7/45\\) and the stated minimum expansion. The package's \\(\\kappa=1.01\\) numerical check agrees but is only supporting evidence.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper proves the qualitative three-regime phase transition and supplies finite \\(\\kappa\\) numerical minimizers.",
+          "The transition literature supplies uniform incomplete-gamma expansions near the mean."
+        ],
+        "reasoning": "Neither source mechanically states the moving minimizer scale \\(\\alpha\\sim1/(3(\\kappa-1))\\) or the next coefficients; those arise from a new variational matching of the expansion.",
+        "searches": [
+          "Ping Sun, Ze-Chun Hu and Wei Sun, The infimum values of two probability functions for the Gamma distribution, Journal of Inequalities and Applications 2024:5",
+          "NIST DLMF §8.12 and the cited Temme large-parameter transition literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1186/s13660-024-03081-w",
+        "NIST DLMF §8.12",
+        "Resultary semantic query: Gamma mean phase transition minimizer critical scaling kappa to one shape one over three delta"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of a minimizer and a uniform CDF expansion do not by themselves determine where the minimizer lies; balancing the Gaussian displacement and Gamma skew terms produces the nontrivial scale \\(r=\\delta\\alpha\\to1/3\\).",
+          "Independent coefficient differentiation gives \\(A''(1/3)=3\\sqrt3/2\\), \\(B'(1/3)=-7\\sqrt3/30\\), hence the optimizer correction \\(7/45\\)."
+        ],
+        "reasoning": "The audited theorem is not a direct corollary of the qualitative phase-transition result; it requires localization and optimization of the transition expansion.",
+        "searches": [
+          "DOI:10.1186/s13660-024-03081-w, Section 2.2",
+          "DLMF §8.12 transition asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 primary paper calls \\(\\kappa=1\\) the critical point and reports numerical minima for \\(\\kappa>1\\), but gives no asymptotic law as \\(\\kappa\\downarrow1\\).",
+          "DLMF §8.12 records the uniform transition-expansion framework for incomplete gamma functions, not the minimization balance and its constants."
+        ],
+        "reasoning": "Equivalent searches used the incomplete-gamma ratio \\(P(\\alpha,\\kappa\\alpha)\\), the Gamma CDF at a multiple of the mean, and the source's notation \\(h_\\kappa(\\alpha)\\).",
+        "searches": [
+          "DOI:10.1186/s13660-024-03081-w, Section 2.2 and Remark 2.2",
+          "NIST DLMF §8.12, uniform large-parameter incomplete-gamma expansions",
+          "Resultary semantic query: Gamma mean phase transition minimizer critical scaling kappa to one shape one over three delta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact theorem or table with the critical exponents and constants was located; the primary table is numerical at fixed \\(\\kappa\\)."
+        ],
+        "reasoning": "The exact database comparison is against the source's numerical table and phase-transition theorem; it does not contain an asymptotic census.",
+        "searches": [
+          "Resultary published-finding corpus for Gamma mean-threshold critical scaling",
+          "primary-paper text search around the reported \\(\\kappa=1.01\\) minimizer"
+        ]
+      },
+      "rationale": "Sun--Hu--Sun identify the same \\(\\kappa=1\\) phase transition, prove existence of a strict minimum for every \\(\\kappa>1\\), and numerically report the minimizer and minimum (including \\(33.4871\\) and \\(0.545885\\) at \\(\\kappa=1.01\\)). Their full text does not state a critical scaling law, an optimizer asymptotic, or the displayed correction constants. Standard incomplete-gamma uniform asymptotics provide the analytic machinery but do not by themselves optimize the moving-parameter problem.",
+      "residual_risks": [
+        "A specialized asymptotic-statistics source could have optimized the same incomplete-gamma transition under different notation.",
+        "The theorem concerns the \\(\\kappa\\downarrow1\\) side only and relies on a differentiable uniform transition expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_PHASE_TRANSITION_AND_NUMERICS_NOT_CRITICAL_SCALING",
+          "evidence": "For \\(\\kappa>1\\) the paper proves the minimum is above one half and reports numerical minimizers, including \\(\\alpha=33.4871\\) at \\(\\kappa=1.01\\), but states no \\(\\kappa\\downarrow1\\) expansion.",
+          "identifier_or_url": "DOI:10.1186/s13660-024-03081-w",
+          "material_read": "Full open-access text around the definition of \\(h_\\kappa\\), the \\(\\kappa>1\\) analysis, numerical table, and Remark 2.2.",
+          "method": "Primary full-text statement and asymptotic-implication comparison.",
+          "title": "The infimum values of two probability functions for the Gamma distribution",
+          "trigger": "Primary same-object paper that discovered the phase transition and tabulated minimizers."
+        },
+        {
+          "assessment": "ASYMPTOTIC_TOOL_NOT_OPTIMIZER_THEOREM",
+          "evidence": "The reference supplies uniform incomplete-gamma asymptotics; it does not solve this moving minimization problem or state its constants.",
+          "identifier_or_url": "https://dlmf.nist.gov/8.12",
+          "material_read": "The large-parameter transition definitions and uniform expansion framework near \\(z/a=1\\).",
+          "method": "Framework/implication comparison.",
+          "title": "DLMF §8.12 Uniform Asymptotic Expansions for Large Parameter",
+          "trigger": "Standard primary reference framework for the uniform incomplete-gamma transition expansion used in the proof."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1186/s13660-024-03081-w",
+        "NIST DLMF §8.12"
+      ],
+      "rationale": "The source explicitly identifies \\(\\kappa=1\\) as a phase transition but only gives qualitative behavior and fixed-parameter numerics. Determining the critical exponent, the diverging optimizer scale, and two nontrivial correction constants resolves the natural quantitative question at that transition and explains the previously numerical \\(\\kappa=1.01\\) behavior.",
+      "residual_risks": [
+        "A specialized asymptotic-statistics source could have optimized the same incomplete-gamma transition under different notation.",
+        "The theorem concerns the \\(\\kappa\\downarrow1\\) side only and relies on a differentiable uniform transition expansion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1186/s13660-024-03081-w",
+    "NIST DLMF §8.12",
+    "Resultary semantic query: Gamma mean phase transition minimizer critical scaling kappa to one shape one over three delta"
+  ],
+  "disposition": "passed",
+  "final_claim": "As \\(\\delta=\\kappa-1\\downarrow0\\), every minimizer of \\(h_\\kappa(\\alpha)=P\\{\\Gamma(\\alpha,1)\\le\\kappa\\alpha\\}\\) satisfies \\(\\alpha_\\kappa=1/(3\\delta)+7/45+O(\\sqrt\\delta)\\), while the minimum equals \\(1/2+2\\sqrt\\delta/\\sqrt{6\\pi}-71\\sqrt3\\,\\delta^{3/2}/(270\\sqrt{2\\pi})+O(\\delta^2)\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A specialized asymptotic-statistics source could have optimized the same incomplete-gamma transition under different notation.",
+    "The theorem concerns the \\(\\kappa\\downarrow1\\) side only and relies on a differentiable uniform transition expansion."
+  ]
+}

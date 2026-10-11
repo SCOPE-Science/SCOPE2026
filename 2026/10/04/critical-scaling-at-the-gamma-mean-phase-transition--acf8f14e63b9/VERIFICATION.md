@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof is analytic. Its critical external input is the uniform large-parameter transition expansion for the normalized incomplete Gamma function. Temme's remainder estimates include a complex-variable extension; together with the DLMF transition expansion, analyticity and Cauchy estimates on a fixed complex neighborhood justify the one parameter derivative used for the next-order optimizer term. The coefficients used in the proof are also recovered by expanding the standardized Gamma density with Stirling's formula and integrating term by term.
+# Independent mathematical audit
 
-The global step is not inferred from a local expansion alone. A trial at \(r=1/3\) forces the minimum to approach \(1/2\); the published strict mean-tail inequality excludes bounded shapes; and the transition expansion separately rules out \(r\to0\) and \(r\to\infty\). Only after this localization is the compact-uniform expansion optimized.
+## correctness
 
-`verify.py` uses only the Python standard library. It checks the exact ratio producing the shape offset \(7/45\), evaluates the leading and cubic constants, and compares the two-term prediction at \(\kappa=1.01\) with the numerical values printed in the source. The actual run produced `VERIFY_OK`; the finite comparison is a stress test and is not an infinite-proof certificate.
+PASS
 
-Proved scope: every global minimizing shape as \(\kappa\downarrow1\) from above. Unproved scope: fixed-parameter uniqueness, explicit global error bounds away from the transition, and closed-form minimizers for general \(\kappa\).
+A trial point \(\alpha=(3\delta)^{-1}\) gives an \(O(\sqrt\delta)\) excess above one half. Any minimizer must have \(\alpha\to\infty\); the uniform first-order Gamma transition approximation then forces \(z=\delta\sqrt\alpha\to0\). The bound \(h_\kappa(\alpha)-1/2\ge c z-C/\sqrt\alpha\), compared with the trial value, gives an upper bound on \(r=\delta\alpha\); the same expansion rules out \(r\to0\), so minimizers localize in a compact subset of \((0,\infty)\). There the supplied differentiable transition expansion is uniform. Writing \(\varepsilon=\sqrt\delta\) gives \(1/2+\phi(0)\varepsilon A(r)+\phi(0)\varepsilon^3B(r)+O(\varepsilon^4)\), with \(A(r)=\sqrt r+1/(3\sqrt r)\) uniquely minimized at \(r=1/3\). Independent symbolic differentiation reproduced \(A(1/3)=2\sqrt3/3\), \(A''(1/3)=3\sqrt3/2\), \(B(1/3)=-71\sqrt3/270\), and \(B'(1/3)=-7\sqrt3/30\), hence the shift \(-B'/A''=7/45\) and the stated minimum expansion. The package's \(\kappa=1.01\) numerical check agrees but is only supporting evidence.
+
+## originality
+
+PASS
+
+Sun--Hu--Sun identify the same \(\kappa=1\) phase transition, prove existence of a strict minimum for every \(\kappa>1\), and numerically report the minimizer and minimum (including \(33.4871\) and \(0.545885\) at \(\kappa=1.01\)). Their full text does not state a critical scaling law, an optimizer asymptotic, or the displayed correction constants. Standard incomplete-gamma uniform asymptotics provide the analytic machinery but do not by themselves optimize the moving-parameter problem.
+
+## value
+
+PASS
+
+The source explicitly identifies \(\kappa=1\) as a phase transition but only gives qualitative behavior and fixed-parameter numerics. Determining the critical exponent, the diverging optimizer scale, and two nontrivial correction constants resolves the natural quantitative question at that transition and explains the previously numerical \(\kappa=1.01\) behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
