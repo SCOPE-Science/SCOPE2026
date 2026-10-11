@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:37:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f4b7ac30de42f7600be13ccb33f577289216f8f5",
+        "assigned verify.py blob e7e917227b62e1c52544e6829021f601f6ffd892",
+        "Cassano et al., arXiv:1910.10710v1, Theorem 5 and Eq. (5.1)",
+        "fresh independent singular-vector construction tests"
+      ],
+      "rationale": "For any one-site block v, the source's Birman--Schwinger/resolvent equation reduces exactly to \\((I+vT_0)x=0\\) for some nonzero x. Taking norms gives \\(1\\le\\|v\\|\\|T_0\\|\\). Conversely, if x is a top right singular vector of \\(T_0\\) and \\(T_0x=\\sigma e\\), the rank-one map sending e to \\(-x/\\sigma\\) has norm \\(1/\\sigma\\) and makes the matrix singular; an orthogonal second singular direction raises the block norm to any prescribed larger Q without disturbing the kernel. The boundary equivalence is then immediate from \\(Q\\max(\\|T_0\\|,\\|T_1\\|)=1\\). Fresh independent complex 2 by 2 random-matrix tests reproduced the threshold construction to about \\(10^{-15}\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cassano et al. already provide the general eigenvalue-resolvent framework and the exact free blocks T0,T1.",
+          "The scalar analogue shows the same point-potential sharpness mechanism without the matrix-valued block competition."
+        ],
+        "reasoning": "The audited minimization adds no nonstandard operator theorem beyond standard singular-value geometry to the source's general equation.",
+        "searches": [
+          "arXiv:1910.10710v1 Sections 3 and 5",
+          "Ibrogimov--Štampach arXiv:1903.08620 scalar lattice analogue"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.10710v1",
+        "DOI:10.1007/s00023-020-00916-2",
+        "arXiv:1903.08620v1",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source writes the one-site linear system explicitly and says its constructed boundary witnesses are restricted to the diagonal-dominance domain.",
+          "If \\(T_1\\) dominates on the improved boundary, then \\(Q\\|T_0\\|<1\\), which contradicts the one-site kernel equation by one operator-norm inequality."
+        ],
+        "reasoning": "The advertised impossibility outside the source's domain is therefore a direct norm corollary of the source's displayed equations.",
+        "searches": [
+          "arXiv:1910.10710v1 Theorem 5 proof and Remark 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source states the general resolvent equation and, for its one-site potential, the exact finite-dimensional condition \\((I+v_0T_0)\\phi_0=0\\).",
+          "The minimum operator norm of v making \\(I+vT_0\\) singular is the reciprocal top singular value of \\(T_0\\)."
+        ],
+        "reasoning": "Equivalent formulations as a one-site Birman--Schwinger threshold, distance-to-singularity problem, and rank-one perturbation budget were compared.",
+        "searches": [
+          "Resultary query: non self adjoint discrete Dirac one site potential exact eigenvalue threshold T0 norm",
+          "Resultary query: one-site Birman Schwinger minimum norm I+v T0 singular discrete Dirac",
+          "arXiv:1910.10710v1 Theorem 5 and Eq. (5.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate published SCOPE record with the reciprocal-norm formula was returned."
+        ],
+        "reasoning": "Absence of a verbatim database hit does not restore originality because the primary source equation already implies the claim.",
+        "searches": [
+          "Resultary exact one-site threshold searches above"
+        ]
+      },
+      "rationale": "The exact threshold is an implication-level corollary of the primary source's one-site Birman--Schwinger equation plus the standard operator-norm singular-vector fact. Cassano et al. explicitly reduce their one-site witness to \\((I+v_0T_0)\\phi_0=0\\) and define the improved boundary by the maximum of \\(\\|T_0\\|\\) and \\(\\|T_1\\|\\). For an arbitrary one-site block, the same support reduction is immediate from their general Eq. (5.1); the lower bound \\(\\|v_0\\|\\ge1/\\|T_0\\|\\) and rank-one equality case are textbook norm geometry. Therefore the claimed converse outside the diagonal-dominance region is mechanically implied even though the paper does not spell it out.",
+      "residual_risks": [
+        "The source does not state the reciprocal-norm minimum as a theorem, but verbatim absence is not relevant under the implication-level originality rule."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPLICATION_LEVEL_COVERING",
+          "evidence": "The source already supplies the general resolvent equation and explicit one-site kernel equation; the audited threshold is the standard minimum-norm solution of that displayed finite-dimensional condition.",
+          "identifier_or_url": "arXiv:1910.10710v1; DOI:10.1007/s00023-020-00916-2",
+          "material_read": "Full primary HTML around the improved \\(\\ell^1\\) boundary, diagonal-dominance domain, Theorem 5, Eq. (5.1), its one-site linear system, and Remark 7.",
+          "method": "Open-access full-text inspection.",
+          "title": "Location of eigenvalues of non-self-adjoint discrete Dirac operators",
+          "trigger": "Exact operator, resolvent blocks, improved boundary, and point-potential construction."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Cassano et al. arXiv:1910.10710v1",
+        "scalar point-potential sharpness analogue arXiv:1903.08620v1"
+      ],
+      "rationale": "Despite being implication-level covered, the conclusion is mathematically well motivated: it exactly classifies the full one-site witness class used in the source's partial-sharpness argument and proves that any boundary saturation outside diagonal dominance must use more support or another mechanism. This is a natural complete obstruction tied directly to an unresolved global-sharpness question, not an arbitrary parameter slice.",
+      "residual_risks": [
+        "Its proof is elementary singular-value geometry and it does not settle the global multi-site problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the Cassano--Ibrogimov--Krejčiřík--Štampach free discrete Dirac operator and any \\(\\lambda\\in\\rho(D_0)\\), the least \\(\\ell^1\\)-norm of an arbitrary one-site \\(2\\times2\\) block potential producing \\(\\lambda\\) as an eigenvalue is \\(1/\\|T_0(k)\\|\\). Hence a point of the improved \\(\\ell^1\\) boundary is attainable by a one-site potential exactly in the source paper's diagonal-dominance region \\(\\|T_0(k)\\|\\ge\\|T_1(k)\\|\\).",
+  "limitations": [
+    "Only arbitrary complex block potentials supported at one lattice site are classified.",
+    "Targets must lie in the free resolvent set.",
+    "The result does not settle multi-site attainability outside the diagonal-dominance region or Hermitian/scalar/diagonal subclasses."
+  ],
+  "schema_version": 1
+}
