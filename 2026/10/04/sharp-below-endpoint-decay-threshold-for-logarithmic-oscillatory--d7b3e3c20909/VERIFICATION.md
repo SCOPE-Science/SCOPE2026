@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,65 +19,24 @@
 }
 ---
 
-The verification uses an explicit annular test and uniform stationary phase.
+# Independent mathematical audit
 
-With
-\[
-s_R=\log R,
-\qquad
-\lambda_R=\gamma s_R^{\gamma-1},
-\]
-the scaled phase satisfies
-\[
-\psi_R(\eta)
-=
-\frac{
-L(R\eta)^\gamma-s_R^\gamma
-}{
-\lambda_R
-}
-\longrightarrow
-\log|\eta|
-\]
-in every fixed smooth norm on a compact annulus.
+## correctness
 
-The Hessian is
-\[
-\nabla^2\log|\eta|
-=
-|\eta|^{-2}I
--
-2|\eta|^{-4}\eta\eta^{\mathsf T},
-\]
-with determinant
-\[
--|\eta|^{-2d}.
-\]
-Hence stationary phase is uniformly nondegenerate for large \(R\).
+PASS
 
-For \(p>2\), the phase-canceling test has
-\[
-\|f_R\|_p
-\lesssim
-(\log R)^\beta
-\lambda_R^{-d/2+d/p},
-\]
-while the localized multiplier sends it to one fixed nonzero Schwartz function. Therefore
-\[
-\left\|
-T_{\chi_0(\cdot/R)m_{\gamma,\beta}}
-\right\|_{p\to p}
-\gtrsim
-(\log R)^{
-d(\gamma-1)(1/2-1/p)-\beta
-}.
-\]
-Adjoint duality gives the same estimate with
-\[
-|1/2-1/p|
-\]
-for \(p<2\).
+After annular rescaling, the phase has large parameter \(\lambda_R=\gamma(\log R)^{\gamma-1}\) multiplying a smooth phase converging in sufficiently high \(C^N\) to \(\log|\eta|\), whose Hessian is nondegenerate on the fixed annulus. Choosing Fourier data that cancels the multiplier phase and decay makes the output a fixed nonzero Schwartz function, while uniform stationary phase gives input \(L^p\)-norm at most \(C(\log R)^\beta\lambda_R^{-d/2+d/p}\) for \(p>2\). This yields the displayed lower norm power. For \(p<2\), duality applies to the conjugate multiplier with the same phase curvature and decay. Thus any negative logarithmic exponent of the localized norm contradicts uniform multiplier boundedness. The argument is scale-uniform and does not rely on finite experiments.
 
-If the global multiplier were bounded, smooth annular localization would have uniformly bounded operator norm by dilation. Thus a positive exponent is impossible.
+## originality
 
-The calculation does not establish strong \(L^p\) boundedness or unboundedness when the exponent is exactly zero. No finite experiment or numerical asymptotic fitting is used.
+PASS
+
+Vergara's complete accessible primary text proves sufficiency strictly above the same logarithmic line and explicitly says the equality endpoint is not addressed; it does not state the localized lower bound or a necessity theorem. Targeted searches for logarithmic oscillatory multiplier necessity and for general radial oscillatory multiplier results did not locate a theorem that specializes to this exact slowly varying phase. The package therefore supplies the missing converse below the line rather than restating the source's sufficient condition.
+
+## value
+
+PASS
+
+The motivating paper gives the natural sufficient logarithmic threshold but not sharpness from below. Proving the matching necessary exponent and a quantitative localized norm blow-up identifies the actual obstruction and narrows the unresolved issue to the equality line, which is a mathematically substantive endpoint refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

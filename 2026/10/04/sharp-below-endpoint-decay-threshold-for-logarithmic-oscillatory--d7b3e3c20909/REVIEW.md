@@ -1,58 +1,21 @@
-# Review of Sharp below-endpoint decay threshold for logarithmic oscillatory multipliers
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(p>2\), the proof localizes the multiplier to a fixed annular patch after frequency dilation and chooses an input whose Fourier transform contains the reciprocal logarithmic amplitude and opposite oscillatory phase. The localized multiplier therefore sends that input to one fixed nonzero Schwartz function.
+PASS
 
-On the same patch, after factoring out
-\[
-\lambda_R=\gamma(\log R)^{\gamma-1},
-\]
-the normalized phase converges in every fixed smooth norm to
-\[
-\log|\eta|.
-\]
-Its Hessian has eigenvalues
-\[
--|\eta|^{-2}
-\]
-in the radial direction and
-\[
-|\eta|^{-2}
-\]
-in all tangential directions, so uniform nondegenerate stationary phase applies. This gives the exact exponent
-\[
-\|f_R\|_p
-\lesssim
-(\log R)^\beta
-\lambda_R^{-d/2+d/p}.
-\]
-The resulting operator lower bound is
-\[
-(\log R)^{d(\gamma-1)(1/2-1/p)-\beta}.
-\]
-Uniform boundedness of smooth annular localization follows from dilation if the global multiplier is bounded, so positive growth is impossible. Duality gives the \(p<2\) half. The proof does not infer anything at equality beyond a constant lower bound.
+After annular rescaling, the phase has large parameter \(\lambda_R=\gamma(\log R)^{\gamma-1}\) multiplying a smooth phase converging in sufficiently high \(C^N\) to \(\log|\eta|\), whose Hessian is nondegenerate on the fixed annulus. Choosing Fourier data that cancels the multiplier phase and decay makes the output a fixed nonzero Schwartz function, while uniform stationary phase gives input \(L^p\)-norm at most \(C(\log R)^\beta\lambda_R^{-d/2+d/p}\) for \(p>2\). This yields the displayed lower norm power. For \(p<2\), duality applies to the conjugate multiplier with the same phase curvature and decay. Thus any negative logarithmic exponent of the localized norm contradicts uniform multiplier boundedness. The argument is scale-uniform and does not rely on finite experiments.
 
-## Originality
+## originality
 
-PASS. The current full text of the motivating source was inspected. It proves strong \(L^p\) boundedness strictly above the line
-\[
-\beta=d(\gamma-1)|1/2-1/p|
-\]
-and Lorentz endpoint estimates at equality. It also explicitly says that sharpness of its geometric maximal operator is not a necessity result for the full multiplier class. No multiplier lower bound below the line is stated there.
+PASS
 
-Stolyarov's full primary text was inspected as the closest sharp large-parameter multiplier result. It treats homogeneous angular phases
-\[
-e^{i\lambda\varphi(\xi/|\xi|)}
-\]
-and proves sharp \(\lambda\)-growth, but does not treat the radial logarithmic model or its decay threshold. Miyachi's classical paper is directly relevant background but its full text was not retrievable during this comparison; bibliographic and source-level references were checked, so it remains an explicit residual risk rather than being asserted not to cover the claim.
+Vergara's complete accessible primary text proves sufficiency strictly above the same logarithmic line and explicitly says the equality endpoint is not addressed; it does not state the localized lower bound or a necessity theorem. Targeted searches for logarithmic oscillatory multiplier necessity and for general radial oscillatory multiplier results did not locate a theorem that specializes to this exact slowly varying phase. The package therefore supplies the missing converse below the line rather than restating the source's sufficient condition.
 
-Targeted searches for the source identifier, radial logarithmic phase, stationary-phase lower bounds, necessary decay, and strong-\(L^p\) threshold found no covering published statement.
+## value
 
-## Value
+PASS
 
-PASS. The source introduces a new logarithmic oscillation geometry and obtains a sufficient strong-\(L^p\) decay line, while carefully noting that maximal-operator sharpness is not multiplier necessity. Proving that the model multiplier is actually unbounded everywhere strictly below that line turns the source threshold from a method-dependent sufficient exponent into a genuinely sharp boundary away from equality.
+The motivating paper gives the natural sufficient logarithmic threshold but not sharpness from below. Proving the matching necessary exponent and a quantitative localized norm blow-up identifies the actual obstruction and narrows the unresolved issue to the equality line, which is a mathematically substantive endpoint refinement.
 
-The result also isolates the only remaining strong-\(L^p\) uncertainty for the model to the single critical line, where the source already has Lorentz endpoint control. This is a motivated boundary theorem rather than a generic restatement of stationary phase.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
