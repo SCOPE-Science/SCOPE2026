@@ -1,0 +1,11 @@
+# Scientific review: polar-mean spectral-radius amplification
+
+**Correctness — PASS.** The spectral-radius identities come from the exact \(n\)-th powers of the periodic shifts. Weighted AM–GM establishes lower monotonicity. A strictly coordinate-convex log-product forces upper maximizers to use only the extreme allowed weights; the exact number of transition pairs on a cycle is at most \(\lfloor n/2\rfloor\). Maximally alternating patterns attain the calculated bound, and strictness classifies equality. The interpolation optimum follows from maximizing \(\lambda(1-\lambda)\). A standalone exact-rational checker tests finite instances; it is not substituted for the all-period argument.
+
+**Originality — PASS, with specific access risk.** Lee–Lee–Yoon's original 2014 full text gives the weighted-shift coefficient formula. Chabbabi–Curto–Mbekhta's inspected Section 4 already gives a period-two inflation example and unilateral shift spectral-radius monotonicity; these are explicitly credited. Neither result implies the exact universal contrast-constrained *upper* amplification or all-period equality classification. Das–Biswas–Nahak's 2026 publicly available abstract concerns general interpolation behavior but its unavailable full text could contain a stronger statement. Searches on exact operator parameters, alternative geometric-mean formulations, upper bound dominance, and published mathematical records found no overlapping identifiable result; this does not prove absolute priority.
+
+**Value — PASS.** The natural scale-invariant contrast budget asks how much a polar arithmetic mean can inflate spectral radius. The sharp period-dependent constant, equality configurations and odd-period parity deficit give an exact structural answer, not a cosmetic parameter specialization. The result may inform worst-case control of periodic mean-transform iterations; such further consequences are not claimed proved.
+
+**Scientific limitations and residual risk.** Claims cover strictly positive periodic weighted shifts and spectral radius, not general operator means or nonperiodic shifts. The complete 2026 manuscript could not be read, so equivalent coverage remains possible. Independent audit has not been undertaken.
+
+Same-model review: passed. Independent audit: not yet performed.
