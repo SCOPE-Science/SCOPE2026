@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The verification is exhaustive for the finite claim.
+# Independent mathematical audit
 
-First, the order-16 Sylvester character matrix is reconstructed from \(v_r(j)=(-1)^{r\cdot j}\) for row labels \(r\in\mathbb F_2^4\) and nonzero coordinate labels \(j\in\mathbb F_2^4\).  Every source-lattice point in \(P_{5,1}\) is a sign vector, so `verify.py` tests all \(2^{15}\) possibilities and finds exactly \(9552\) feasible summands.
+## correctness
 
-Second, every degree-two target is uniquely \(2q\) with \(q\in\{-1,0,1\}^{15}\).  The script tests all \(3^{15}\) such vectors against all sixteen inequalities and finds \(6350363\) feasible targets.  A carry-free base-three code marks every sum of two feasible source points; exactly \(6215123\) feasible ternary targets are decomposable.  The difference is \(135240\).
+PASS
 
-Third, the script applies generators consisting of three adjacent basis swaps, one elementary transvection, and four basis translations.  These generate \(\operatorname{AGL}(4,2)\).  Breadth-first traversal partitions the complete hole set into orbit sizes \(840,13440,26880,40320,53760\), whose sum is \(135240\).  The source paper's displayed hole is additionally checked to lie in the orbit of size \(26880\).
+The degree-two reduction is exact: source-lattice points are precisely feasible sign vectors, and every degree-two target is uniquely \(2q\) with \(q\in\{-1,0,1\}^{15}\). The carry-free base-three encoding converts decomposability into exact pair-sum membership. An independent implementation, written from the definitions rather than executing the repository verifier, exhaustively found 9552 feasible sign vectors, 6,350,363 feasible ternary targets, and 6,215,123 decomposable targets, hence exactly 135,240 holes. A separately implemented breadth-first action of the stated eight generators of \(\operatorname{AGL}(4,2)\) partitioned the hole set into orbit sizes 840, 13,440, 26,880, 40,320, and 53,760, summing to the full count. The algebraic action identity permutes the sixteen Walsh facet inequalities, so the orbit computation acts on the correct set.
 
-Run `python verify.py`.  A successful replay ends with `VERIFY_OK`.  The script requires Python 3 and NumPy.  Its computation proves only the finite degree-two census stated here; it does not test or certify higher degrees.
+## originality
+
+PASS
+
+Lebedev's current primary paper treats exactly \(P_{5,1}\), proves it integral and nonnormal, and exhibits one degree-two hole, but its full text does not enumerate the degree-two hole set or its affine-character orbits; an exact text search finds no occurrence of 135240. Section 5 explicitly says remaining normality parameters are not classified. Resultary returns the assigned census as the exact hit and no competing same-object census. Thus the complete 135,240-hole/five-orbit classification is not implied by the source's existence witness or normality bands.
+
+## value
+
+PASS
+
+Degree two is the first obstruction degree used to prove nonnormality for this canonical integral truncation. Replacing a single witness by the complete 135,240-element obstruction set and compressing it to five natural symmetry types is a motivated exact finite classification with clear semigroup/Hilbert-basis utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

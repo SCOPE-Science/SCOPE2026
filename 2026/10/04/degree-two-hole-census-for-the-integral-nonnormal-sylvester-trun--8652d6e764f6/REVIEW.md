@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining inequalities reduce every degree-two lattice target uniquely to \(z=2q\) with \(q\in\{-1,0,1\}^{15}\), and feasibility is exactly \(v_r\cdot q\ge -5\) for all sixteen Sylvester character rows. Source-lattice summands are exactly feasible sign vectors. The base-three identity \(C((x+y)/2)=E(x)+E(y)\) has no carries, so pair-sum marking decides decomposability without loss. The verifier exhausts all \(2^{15}\) sign vectors and all \(3^{15}\) ternary targets and obtains \(135240\) holes. The affine-character action is proved to permute the facet inequalities and degree lattices; generators of \(\operatorname{AGL}(4,2)\) then give five exhaustive orbits of sizes \(840,13440,26880,40320,53760\), whose sizes sum to \(135240\).
+## correctness
 
-## Originality
-PASS. The lead source treats the identical order-16 Sylvester truncation and gives one explicit degree-two hole, but not a complete degree-two count or symmetry-orbit classification. Its scope section says the remaining normality parameters are not classified. Santos's original report gives a different lower-region obstruction and leaves normality of the truncated family as a question. Semantic searches for the exact object, degree-two holes, Hilbert-basis aliases, pair-sum decompositions, the number \(135240\), and \(\operatorname{AGL}(4,2)\) orbit language found no statement implying the census. The residual risk is an unindexed ancillary computation or unpublished calculation containing the same finite census.
+PASS
 
-## Value
-PASS. The lead source's first explicit integral-but-nonnormal threshold example is represented there by a single witness. Replacing existence by the complete degree-two obstruction set, and compressing \(135240\) holes to five natural symmetry types, gives a reusable exact invariant of that canonical example. It separates the size and symmetry structure of the first obstruction from unresolved higher-degree behavior and provides a concrete basis for subsequent semigroup or Hilbert-basis analysis.
+The degree-two reduction is exact: source-lattice points are precisely feasible sign vectors, and every degree-two target is uniquely \(2q\) with \(q\in\{-1,0,1\}^{15}\). The carry-free base-three encoding converts decomposability into exact pair-sum membership. An independent implementation, written from the definitions rather than executing the repository verifier, exhaustively found 9552 feasible sign vectors, 6,350,363 feasible ternary targets, and 6,215,123 decomposable targets, hence exactly 135,240 holes. A separately implemented breadth-first action of the stated eight generators of \(\operatorname{AGL}(4,2)\) partitioned the hole set into orbit sizes 840, 13,440, 26,880, 40,320, and 53,760, summing to the full count. The algebraic action identity permutes the sixteen Walsh facet inequalities, so the orbit computation acts on the correct set.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.32950v1, Proposition 3.3: it proves the same polytope is nonnormal by one degree-two witness. Santos's 2007 report is the foundational predecessor but its lower-region condition does not include \(P_{5,1}\). The present result is limited to degree two and to the natural \(\operatorname{AGL}(4,2)\) action; it does not classify higher-degree holes or the full automorphism group.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lebedev's current primary paper treats exactly \(P_{5,1}\), proves it integral and nonnormal, and exhibits one degree-two hole, but its full text does not enumerate the degree-two hole set or its affine-character orbits; an exact text search finds no occurrence of 135240. Section 5 explicitly says remaining normality parameters are not classified. Resultary returns the assigned census as the exact hit and no competing same-object census. Thus the complete 135,240-hole/five-orbit classification is not implied by the source's existence witness or normality bands.
+
+## value
+
+PASS
+
+Degree two is the first obstruction degree used to prove nonnormality for this canonical integral truncation. Replacing a single witness by the complete 135,240-element obstruction set and compressing it to five natural symmetry types is a motivated exact finite classification with clear semigroup/Hilbert-basis utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
