@@ -1,0 +1,11 @@
+# Same-model mathematical review
+
+**Correctness — PASS.** The claim carefully distinguishes the new group-action character from the previously known nonequivariant wedge theorem in arXiv:2408.07646 (Theorems 1.1 and 3.3). The reduced Hopf trace including the empty simplex yields a signed orbit-complement formula. All invariant bad sets have at most four vertices by bipartiteness. The proof explicitly enumerates these sets for the identity, row exchange, horizontal reflection, and their product, with both parity cases, and compares to the square-pair permutation character. The general counting is exact; the bundled standalone verifier checks four complete formulas through forty rungs, direct oriented traces through seven rungs, and full mod-two boundary ranks through six rungs. Its finite computations are corroboration, not an infinite proof.
+
+**Originality — PASS with a residual indexing risk.** The full text of arXiv:2209.13503 develops total cut complexes but does not supply the displayed rational ladder character. ArXiv:2408.07646 explicitly proves the ladder's nonequivariant homotopy and Betti number, and that known information does not imply an action or its parity twist. ArXiv:2407.08158 studies equivariant homology for ordinary cut complexes of other graph families. ArXiv:2602.21427 §5.4 covers total two-cut Cartesian-path products, not the stated total three-cut representation. Related pre-existing calculations on finite square grids and ordinary ladder complexes do not imply the all-ladder total-three-cut representation. Targeted literature and published-result searches found no dominating or equivalent character calculation. An unindexed prior equivalent cannot be excluded.
+
+**Value — PASS.** This determines the full rational automorphism representation of a natural infinite graph family, including the non-obvious odd-rung sign and explicit positive/negative reversal eigenspaces. It extracts additional structural, symmetry-sensitive information that is not determined by the already-known homotopy type or Betti number.
+
+**Limits.** The representation isomorphism is noncanonical and rational; neither an integral equivariant lattice nor a stable equivariant homotopy refinement is claimed. Independent human audit has not been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
