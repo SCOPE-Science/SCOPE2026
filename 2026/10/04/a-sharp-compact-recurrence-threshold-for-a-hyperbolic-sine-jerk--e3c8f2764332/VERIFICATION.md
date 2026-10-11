@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checked vector field is
-\[
-\dot x=y,\qquad \dot y=z,\qquad \dot z=-a x-b^2y-cz+d\sinh x.
-\]
-For
-\[
-P=xz-\frac12y^2+cxy+\frac12b^2x^2,
-\]
-`verify.py` differentiates symbolically and obtains
-\[
-\dot P=-a x^2+c y^2+d\,x\sinh x
-       =c y^2+(d-a)x^2+d\,x(\sinh x-x).
-\]
-The script also checks cancellation of all \(xz\) and \(xy\) terms and verifies that an equilibrium satisfying \(d\sinh x=a x\) has zero vector-field residual.
+# Independent mathematical audit
 
-The infinite-time conclusions are verified analytically rather than by simulation. For \(d>0\) and \(a\le d\), the power series
-\[
-x(\sinh x-x)=\sum_{n=1}^{\infty}\frac{x^{2n+2}}{(2n+1)!}
-\]
-is nonnegative and is zero only at \(x=0\). Therefore the displayed defect is nonnegative and has zero set \(x=y=0\). On a bounded trajectory, \(P\) is bounded and monotone, so its defect is integrable. The defect has bounded derivative on the compact trajectory range; Barbalat's lemma therefore forces it to zero. This yields \(x,y\to0\), and the derivative form of Barbalat's lemma gives \(z=\dot y\to0\) because \(\dot z\) is bounded.
+## correctness
 
-For a bounded complete trajectory, the same integrability and uniform-continuity argument applies at both time ends. The monotone quantity \(P\) approaches zero at both ends, hence is constant and its defect vanishes identically. This proves complete-orbit rigidity and, consequently, compact-invariant-set rigidity.
+PASS
 
-For sharpness, \(r(x)=\sinh x/x\) is strictly increasing on \(x>0\) because
-\[
-x\cosh x-\sinh x>0
-\]
-there. Since \(r(0^+)=1\) and \(r(x)\to\infty\), \(a>d\) gives a unique positive equilibrium coordinate and its negative symmetric partner.
+Direct differentiation gives \(\dot P=c y^2+(d-a)x^2+d x(\sinh x-x)\) for \(P=xz-y^2/2+cxy+b^2x^2/2\). On \(a\le d\) all terms are nonnegative. Boundedness makes \(P\) bounded, so their time integrals are finite; uniform-continuity/Barbalat arguments force \(x,y,z\to0\). A bounded complete orbit has \(P\to0\) at both time ends, hence constant \(P\) and is the origin. Integrating the same coboundary against any compactly supported invariant probability measure forces support on the common zero set, again only the origin. For \(a>d\), strict monotonicity of \(\sinh x/x\) on \(x>0\) gives exactly one positive nonzero equilibrium and its negative. The symbolic differentiation was independently replayed.
 
-Limits: this verification does not establish boundedness of arbitrary solutions and does not classify the dynamics for \(a>d\) beyond the nonzero equilibria. The symbolic script is a check of exact algebra only; the analytic inequalities and infinite-time argument are part of the proof above, not inferred from computation.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the global compact-recurrence threshold. The 2022 initiating paper proves the equilibrium transition and local pitchfork/Hopf bifurcations, but its inspected primary PDF contains no bounded-orbit theorem or invariant-measure classification; a full-document text search found no occurrence of bounded. Resultary returned the assigned finding as the exact same-system record.
+
+## value
+
+PASS
+
+This converts a local pitchfork threshold into an exact global compact-recurrence boundary for a nonlinear jerk family and classifies every compact invariant probability measure on the closed side. The monotone coboundary is a reusable structural obstruction, not a numerical attractor check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
