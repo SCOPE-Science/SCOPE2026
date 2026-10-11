@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The argument was checked symbolically and against the full primary source.
+# Independent mathematical audit
 
-Checks performed:
+## correctness
 
-- Source hypothesis: arXiv:2609.10517v1 is primary MSC 52A40, first public on 9 September 2026, and Theorem 1.7 states that for the regular dodecagon the minimising directions are exactly the side-midpoint directions.
-- Fourier covariance: for \(A\in SL(2,\mathbb{R})\), direct change of variables gives \(\widehat{\chi_{AP}}(\xi)=\widehat{\chi_P}(A^T\xi)\), hence \(\mathcal{N}(AP)=A^{-T}\mathcal{N}(P)\).
-- Singular values: if \(s=\sigma_{\max}(A)\), then \(A^{-T}\) has singular values \(s\) and \(s^{-1}\) because \(\det A=1\).
-- Angular covering: twelve midpoint directions give six unoriented lines separated by \(\pi/6\), so one lies within \(\pi/12\) of the minor singular axis.
-- Exact norm bound: for angular distance \(\theta\), the squared norm is \(s^{-2}\cos^2\theta+s^2\sin^2\theta\), increasing in \(\theta\in[0,\pi/2]\) for \(s\ge1\).
-- Exact cutoff: with \(q=s^2\) and \(\delta=\pi/12\),
-  \[
-  q\bigl(q\sin^2\delta+q^{-1}\cos^2\delta-1\bigr)
-  =\sin^2\delta\,(q-1)(q-\cot^2\delta).
-  \]
-  Since \(\cot(\pi/12)=2+\sqrt3\), strict decrease holds exactly throughout \(1<s<2+\sqrt3\) for this witness inequality.
-- Witness sharpness: placing the minor singular axis halfway between adjacent midpoint lines makes the nearest angular distance exactly \(\pi/12\), so the finite-witness bound itself is attained.
+PASS
 
-Unproved limits and risks:
+Fourier covariance sends the source zero set to \(A^{-T}\mathcal N(P_{12})\). Using the twelve nearest source zeros in six unoriented midpoint lines spaced by \(\pi/6\), one line lies within \(\pi/12\) of the minor singular axis of \(A^{-T}\). Resolving that vector into singular directions gives the displayed factor. Factoring the comparison with one using \(q=s^2\) yields \(\sin^2(\pi/12)(q-1)(q-\cot^2(\pi/12))\), so strict decrease holds exactly for \(1<s<2+\sqrt3\) within this certificate. The endpoint/orientation sharpness is correctly limited to the twelve-zero witness method.
 
-- No claim is made that \(2+\sqrt3\) is the true affine-orbit threshold; it is the exact cutoff for the twelve-nearest-zero certificate.
-- The behaviour for stronger anisotropy may depend on farther Fourier zeros of the source dodecagon.
-- A prior equivalent affine-Fourier observation under different terminology cannot be completely excluded by targeted searches.
+## originality
+
+PASS
+
+The primary paper establishes the dodecagon's extremal role among regular centrally symmetric polygons and poses the global planar maximization problem. Fresh targeted and Resultary searches found no earlier determinant-one affine-orbit theorem, singular-value region, or occurrence of the exact cutoff \(7+4\sqrt3\). The result therefore survives best-of-knowledge originality with an explicit primary-access residual risk.
+
+## value
+
+PASS
+
+The theorem gives a substantial explicit area-preserving affine neighborhood in which the regular dodecagon strictly beats every nonrotational image, together with the exact limitation of the nearest-zero certificate. This is a natural quantitative partial result on a stated global extremal problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
