@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:01:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3058952ccaacd03efd47ecdd80dfbee1d6e3b158",
+        "assigned verify.py blob f8c41af4c1d5220b770db024dfb4779c413c1a1c",
+        "assigned census.c and census_22.txt from source tree 222066868af34c7ee796e316994b39dad10e1d2f",
+        "Kosche--Koß--Manea--Siemer, Absent Subsequences in Words, arXiv:2108.13968 / Fundamenta Informaticae 189"
+      ],
+      "rationale": "The proof correctly separates fixed universality from fixed word length. For binary universality index \\(k\\), monotonicity under taking a same-index subsequence reduces every extremal candidate to \\(k\\) two-letter arches. The two boundary matrices act on a row state by \\((x,y)\\mapsto(x+y,y)\\) or \\((x,x+y)\\), so sorting coordinates gives the sharp Fibonacci envelope and fixed-index maximum \\(F_{k+3}\\). For even length \\(2m\\), the largest feasible index is \\(m\\), yielding \\(F_{m+3}\\). For odd length \\(2m+1\\), exactly one extra symbol occurs at index \\(m\\); the interior exceptional block collapses the state to equal coordinates and the inequality \\(F_{j+1}F_{m-j+3}\\le 2F_{m+1}\\) controls every interior location, while the six terminal three-letter components give the same bound. Alternating arches plus the stated terminal block attain it. A fresh independent exhaustive reconstruction through length ten reproduced \\(1,3,2,5,4,8,6,13,10,21\\), matching the theorem; the all-length conclusion rests on the transfer and exceptional-block arguments.",
+      "residual_risks": [
+        "The theorem is binary and does not classify all extremizing words.",
+        "The finite replay is corroborative only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source supplies the strongest located fixed-universality theorem and general SAS algorithms.",
+          "No inspected broader statement gives the even/odd fixed-length Fibonacci profile."
+        ],
+        "reasoning": "The known framework is broad enough to motivate the calculation but does not mechanically yield the final length-constrained theorem.",
+        "searches": [
+          "Kosche--Koß--Manea--Siemer full primary paper",
+          "Resultary search for binary Simon-congruence and absent-subsequence extremals"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.13968 / DOI 10.46298/fi.9221",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed-universality maximizer does not determine which universality index wins under a fixed length constraint.",
+          "The inspected source's large-even-alphabet recurrence does not specialize within its stated hypotheses to alphabet size two, and it does not analyze the one-extra-symbol odd case."
+        ],
+        "reasoning": "The exact odd branch and parity split require additional optimization beyond the prior theorem.",
+        "searches": [
+          "Proposition 3.14 fixed-universality extremality versus the audited fixed-length maximum",
+          "Proposition 3.10 exponential count versus exact binary Fibonacci count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper identifies SAS length as \\(\\iota(w)+1\\), uses arch factorization, and supplies the concatenation/gluing framework.",
+          "Its fixed-universality extremal \\(A_k\\) result is stated under the section-wide assumption \\(\\sigma\\ge4\\), not for the binary alphabet."
+        ],
+        "reasoning": "The fixed-length problem is equivalent to maximizing the same SAS count under an additional length budget, but the binary specialization changes the transfer matrices and the odd budget creates a distinct exceptional-component optimization.",
+        "searches": [
+          "Resultary query: shortest absent subsequences binary fixed word length Fibonacci even odd universality",
+          "Kosche--Koß--Manea--Siemer arXiv:2108.13968, Theorem 3.4, Lemma 3.11, Propositions 3.10 and 3.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact same-result table or theorem was retrieved."
+        ],
+        "reasoning": "Search absence is supporting evidence only and is paired with full inspection of the closest primary source.",
+        "searches": [
+          "Resultary current corpus query for the exact binary parity profile",
+          "targeted literature search for fixed-length binary shortest-absent-subsequence maxima"
+        ]
+      },
+      "rationale": "The closest full primary source develops the same SAS/arch machinery, proves a gluing lemma, and proves that its alternating \\(A_k\\) words maximize the number of SAS at fixed universality. Crucially, that section explicitly assumes a large even alphabet with \\(\\sigma\\ge4\\), and its quantitative proposition establishes exponential growth rather than the binary Fibonacci count. It does not state the fixed-word-length binary extremal problem, where lower universality indices compete and the odd case has one unavoidable excess symbol. The audited odd-length analysis is therefore not a parameter substitution into the inspected theorem. Current Resultary searches for binary fixed-length SAS maxima returned no equivalent result.",
+      "residual_risks": [
+        "An older equivalent extremal statement may be hidden in subsequence-universality or Simon-congruence terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_AND_FIXED_UNIVERSALITY_NOT_BINARY_FIXED_LENGTH_PROFILE",
+          "evidence": "The source proves general/fixed-universality facts but not the audited binary fixed-word-length parity formula.",
+          "identifier_or_url": "arXiv:2108.13968; DOI 10.46298/fi.9221",
+          "material_read": "full primary PDF relevant combinatorial section, including Theorem 3.4, the section-wide alphabet assumption, Propositions 3.10 and 3.14, and Lemma 3.11; the relevant PDF pages were visually inspected",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Absent Subsequences in Words",
+          "trigger": "closest primary source for SAS, arch decomposition, gluing, and fixed-universality extremality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kosche--Koß--Manea--Siemer",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Fixed word length is the natural extremal parameter for absent-subsequence complexity, and the binary alphabet is the smallest nontrivial case. The sharp parity split, explicit extremizers, and one-extra-symbol obstruction turn the general SAS framework into a complete exact classification rather than an arbitrary finite computation.",
+      "residual_risks": [
+        "The result is alphabet-specific."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is binary and does not classify all extremizing words.",
+    "The finite replay is corroborative only.",
+    "An older equivalent extremal statement may be hidden in subsequence-universality or Simon-congruence terminology.",
+    "The result is alphabet-specific."
+  ]
+}

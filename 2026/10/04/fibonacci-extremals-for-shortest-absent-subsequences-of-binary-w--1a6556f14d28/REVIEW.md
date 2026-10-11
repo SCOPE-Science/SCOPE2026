@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces arbitrary two-symbol words at fixed universality index to two-letter arches using subsequence monotonicity, then evaluates the resulting boundary-matrix products exactly. The Fibonacci state bound is an induction with equality witnesses. For odd length, the length budget leaves exactly one three-letter component; every allowed interior and final component is enumerated, and the Fibonacci product inequality closes the upper bound. The explicit constructions attain both parity bounds. Independent Python enumeration through length \(14\) and a separate C census through length \(22\) reproduce the formulas.
+## correctness
 
-## Originality
-**PASS, with a stated residual risk.** Kosche–Koß–Manea–Siemer already give the fixed-universality extremal framework and the SAS gluing/monotonicity lemmas; that prior coverage is explicitly credited. Their inspected text does not give the binary Fibonacci evaluation or optimize under a fixed total word length. The later nearly-universal and binary Simon-congruence papers characterize related classes but likewise do not state the fixed-length parity law. published-finding corpus searches for binary shortest-absent-subsequence maxima, Fibonacci formulas, and fixed-length extremals returned no matching claim. The even-length formula is close to a specialization of prior fixed-universality work; the substantive surviving addition is the exact all-length theorem and the odd one-extra-symbol bound.
+PASS
 
-## Value
-**PASS.** The source literature emphasizes that SAS sets can be exponentially large and that exact structure matters for compact representation. A word-length extremal function is a natural quantitative invariant. The result replaces a qualitative/exponential picture, in the binary case, by an exact closed form for every length and exposes a nontrivial parity effect: one extra symbol does not reach the unconstrained fixed-index maximum. The proof is short, structural, and reusable as a transfer-matrix template.
+The proof correctly separates fixed universality from fixed word length. For binary universality index \(k\), monotonicity under taking a same-index subsequence reduces every extremal candidate to \(k\) two-letter arches. The two boundary matrices act on a row state by \((x,y)\mapsto(x+y,y)\) or \((x,x+y)\), so sorting coordinates gives the sharp Fibonacci envelope and fixed-index maximum \(F_{k+3}\). For even length \(2m\), the largest feasible index is \(m\), yielding \(F_{m+3}\). For odd length \(2m+1\), exactly one extra symbol occurs at index \(m\); the interior exceptional block collapses the state to equal coordinates and the inequality \(F_{j+1}F_{m-j+3}\le 2F_{m+1}\) controls every interior location, while the six terminal three-letter components give the same bound. Alternating arches plus the stated terminal block attain it. A fresh independent exhaustive reconstruction through length ten reproduced \(1,3,2,5,4,8,6,13,10,21\), matching the theorem; the all-length conclusion rests on the transfer and exceptional-block arguments.
 
-## Closest literature and limitations
-The closest source is *Absent Subsequences in Words* (arXiv:2108.13968), especially Lemmas 3.11 and 3.13 and Proposition 3.14. *m-Nearly k-Universal Words* (arXiv:2202.07981) provides a more detailed absent-subsequence class characterization, and *α-β-Factorization and the Binary Case of Simon's Congruence* (arXiv:2306.14192) treats the binary congruence structure. The present claim is limited to the binary alphabet, shortest absent subsequences, and the extremal count; it does not classify every extremizer.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest full primary source develops the same SAS/arch machinery, proves a gluing lemma, and proves that its alternating \(A_k\) words maximize the number of SAS at fixed universality. Crucially, that section explicitly assumes a large even alphabet with \(\sigma\ge4\), and its quantitative proposition establishes exponential growth rather than the binary Fibonacci count. It does not state the fixed-word-length binary extremal problem, where lower universality indices compete and the odd case has one unavoidable excess symbol. The audited odd-length analysis is therefore not a parameter substitution into the inspected theorem. Current Resultary searches for binary fixed-length SAS maxima returned no equivalent result.
+
+## value
+
+PASS
+
+Fixed word length is the natural extremal parameter for absent-subsequence complexity, and the binary alphabet is the smallest nontrivial case. The sharp parity split, explicit extremizers, and one-extra-symbol obstruction turn the general SAS framework into a complete exact classification rather than an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
