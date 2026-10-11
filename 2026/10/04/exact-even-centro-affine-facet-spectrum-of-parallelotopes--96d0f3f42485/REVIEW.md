@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof checks the precise Hu--Ivaki definitions, quantifiers, normalization, and boundary case \(n=2\). Under \(A\in GL(n,\mathbb R)\), the codimension-one and codimension-two Jacobian formulas scale every facet mass and ridge conductance by \(|\det A|\), so the generalized Rayleigh form is affine invariant. On a box, all facet masses equal \(2^{n-1}\prod_k a_k\), all ridges between distinct coordinate directions have conductance \(2^{n-2}\prod_k a_k\), and the complete-graph variance identity yields the factor \(n\) exactly. The finite exact-rational checker is consistent with the algebra but is not used to promote a finite experiment into an all-dimensional proof.
+## correctness
 
-## Originality
-**PASS.** The closest primary source is Hu--Ivaki, arXiv:2609.21670v1. It defines the facet-network spectrum and, in Remark 1.2, says that a global minimizer with even multiplicity \(n-1\) is a parallelotope. That is a one-way shape consequence under additional minimizing assumptions; it neither gives \(\lambda_{1,e}=n\) for every parallelotope nor the stronger identity for every even facet function. Targeted searches for the parallelotope/cube/box aliases, the exact value, multiplicity, affine invariance, and full even spectrum found no covering public statement. Smooth unconditional-body and zonoid lower bounds do not imply the discrete equality. Residual risk remains because the source notes that further details may appear elsewhere.
+PASS
 
-## Value
-**PASS.** Parallelotopes are the canonical family singled out by the source's extremal multiplicity discussion. Determining the entire even spectrum is a structural calibration of the newly introduced discrete operator, not a routine arbitrary parameter slice. It gives an exact equality benchmark and multiplicity for future extremal or stability work while making no unsupported characterization or minimization claim.
+The codimension-one and codimension-two Jacobian formulas show that an invertible linear map multiplies every facet mass and every ridge conductance by the common factor \(|\det A|\), so the generalized Rayleigh quotient is affine invariant. Every origin-symmetric parallelotope therefore reduces to a box. On a box, each signed facet has mass \(M=2^{n-1}V\), each ridge joining distinct coordinate directions has conductance \(C=2^{n-2}V\), and an even function is determined by \(n\) values \(x_i\). Thus the numerator is \(4C\sum_{i<j}(x_i-x_j)^2\), the variance is \(2M\sum_i(x_i-\bar x)^2\), and \(4C=2M\). The complete-graph identity supplies the factor \(n\). Fresh exact replay confirmed the algebra in dimensions 2 through 8.
 
-## Closest literature and limitations
-The closest source is Y. Hu and M. N. Ivaki, *Centro-affine spectral geometry of polytopes*, arXiv:2609.21670v1. Broader smooth comparisons include their arXiv:2607.20223 and van Handel's smooth zonoid inequality. The present statement is limited to full-dimensional origin-symmetric parallelotopes with the published facet-network normalization and does not prove local/global minimality or a converse characterization.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating paper defines the weighted facet graph and its primary abstract states a lower-bound theorem for local minimizers. Accessible same-paper rendering reports the multiplicity refinement and the one-way statement that a suitable global minimizer with maximal multiplicity must be a parallelotope. No inspected source states the converse exact spectrum for every parallelotope. Resultary returned the assigned finding as the exact match and no independent prior. The full primary body remained inaccessible, so the assessment retains that explicit bibliographic risk rather than asserting whole-document noncoverage.
+
+## value
+
+PASS
+
+Parallelotopes are explicitly singled out in the new facet-spectrum theory's extremal multiplicity discussion, so they are the canonical calibration family rather than an arbitrary example. Determining the entire even spectrum and its maximal nonconstant multiplicity supplies a natural exact benchmark for the new operator and future extremal/stability questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

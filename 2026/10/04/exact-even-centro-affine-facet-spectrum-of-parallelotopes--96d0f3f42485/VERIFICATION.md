@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked at the level of definitions and exact formulas. The critical steps are:
+# Independent mathematical audit
 
-1. For an invertible linear map \(A\), a facet normal \(u_i\) transforms through \(A^{-T}u_i\). The codimension-one Jacobian cancels the normalization of the transformed support value, giving \(m_i'=|\det A|m_i\).
-2. For a ridge with normals \(u_i,u_j\), the codimension-two Jacobian contains \(\lVert A^{-T}u_i\wedge A^{-T}u_j\rVert/\sin\theta_{ij}\), while the transformed sine angle contains the same wedge norm divided by the two transformed normal lengths. Together with the transformed support values, this gives \(c_{ij}'=|\det A|c_{ij}\).
-3. On \(\prod_k[-a_k,a_k]\), every signed facet has mass \(2^{n-1}\prod_k a_k\), and every ridge joining distinct coordinate directions has conductance \(2^{n-2}\prod_k a_k\).
-4. Even facet functions reduce to \(n\) coordinates. The exact identity
-\[
-\sum_{i<j}(x_i-x_j)^2=n\sum_i(x_i-\bar x)^2
-\]
-then proves the quadratic-form equality and the spectrum.
+## correctness
 
-`verify.py` uses exact rational arithmetic and independently checks the box formula for nonconstant test vectors in dimensions \(2,3,4,5\). The observed output is:
+PASS
 
-`VERIFY_OK exact box Rayleigh identity in dimensions [2, 3, 4, 5]`
+The codimension-one and codimension-two Jacobian formulas show that an invertible linear map multiplies every facet mass and every ridge conductance by the common factor \(|\det A|\), so the generalized Rayleigh quotient is affine invariant. Every origin-symmetric parallelotope therefore reduces to a box. On a box, each signed facet has mass \(M=2^{n-1}V\), each ridge joining distinct coordinate directions has conductance \(C=2^{n-2}V\), and an even function is determined by \(n\) values \(x_i\). Thus the numerator is \(4C\sum_{i<j}(x_i-x_j)^2\), the variance is \(2M\sum_i(x_i-\bar x)^2\), and \(4C=2M\). The complete-graph identity supplies the factor \(n\). Fresh exact replay confirmed the algebra in dimensions 2 through 8.
 
-The script does not certify the theorem for arbitrary dimension or arbitrary affine images; those parts are proved analytically above. No numerical approximation or finite enumeration is used to infer an infinite statement.
+## originality
+
+PASS
+
+The initiating paper defines the weighted facet graph and its primary abstract states a lower-bound theorem for local minimizers. Accessible same-paper rendering reports the multiplicity refinement and the one-way statement that a suitable global minimizer with maximal multiplicity must be a parallelotope. No inspected source states the converse exact spectrum for every parallelotope. Resultary returned the assigned finding as the exact match and no independent prior. The full primary body remained inaccessible, so the assessment retains that explicit bibliographic risk rather than asserting whole-document noncoverage.
+
+## value
+
+PASS
+
+Parallelotopes are explicitly singled out in the new facet-spectrum theory's extremal multiplicity discussion, so they are the canonical calibration family rather than an arbitrary example. Determining the entire even spectrum and its maximal nonconstant multiplicity supplies a natural exact benchmark for the new operator and future extremal/stability questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
