@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The verification target is the explicit family \(C_t\) at \(t=\frac12\), \(t=\frac23\), and \(t=\frac34\). Run `python3 artifacts/verify.py` from the package root. The script uses only the Python standard library and exact integer arithmetic.
+# Independent mathematical audit
 
-For each parameter it reconstructs the degree-eleven arrangement polynomial from its eleven linear factors, differentiates it, verifies one degree-five and two degree-six Jacobian syzygies, verifies their degree-seven relation, and computes modular ranks of the full syzygy coefficient matrices. The ranks force rational syzygy dimensions \(1\), \(5\), and \(11\) in degrees \(5\), \(6\), and \(7\). It then checks the intersections of the two linear relation entries and arrangement membership.
+## correctness
 
-The replay confirms \(P_{1/2}=[7:9:8]\notin C_{1/2}\), reproduces \(P_{2/3}=[4:5:4]\in C_{2/3}\), and reproduces the source's first printed matrix and point at \(t=\frac34\). Successful replay prints `VERIFY_OK`.
+PASS
 
-The computation does not prove a formula for arbitrary \(t\), does not classify all special parameter values, and does not assess any independent audit channel.
+The frozen arrangement was reconstructed from its eleven line factors. The actual package certificate artifacts/verify.py at blob c79b12f0da602bc3a2b0cec4adf1c7efd07b00de was read completely and then independently replayed from its exact integer syzygy data: for t=1/2, 2/3, 3/4 all three Jacobian syzygies and the degree-seven relation vanish identically; modular ranks at 1000003 are 62,79,97, giving syzygy dimensions 1,5,11. Cross-products of the two linear relation entries give projectively [7:9:8], [4:5:4], [17:21:16]. Direct substitution into every line factor shows only the t=2/3 point lies on its arrangement. This independently confirms the corrected t=1/2 certificate and that the paper's printed t=1/2 matrix is the t=3/4 data.
+
+## originality
+
+PASS
+
+The primary paper and its open copy print the uncorrected t=1/2 matrix and point [17:21:16]. Searches by exact coefficients, both projective points, source identifier, and t values found the uncorrected source and the current finding but no earlier erratum or parameter-shift correction.
+
+## value
+
+PASS
+
+Example 5.3 is an explicit reproducibility witness for a geometric phenomenon. Correcting the numerical certificate, preserving the qualitative conclusion, and locating the printed certificate at t=3/4 prevents propagation of a concrete error and makes the example reproducible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

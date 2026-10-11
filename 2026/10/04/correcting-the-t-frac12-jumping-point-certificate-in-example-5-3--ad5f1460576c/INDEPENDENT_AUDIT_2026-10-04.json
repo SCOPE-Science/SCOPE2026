@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen arrangement was reconstructed from its eleven line factors. The actual package certificate artifacts/verify.py at blob c79b12f0da602bc3a2b0cec4adf1c7efd07b00de was read completely and then independently replayed from its exact integer syzygy data: for t=1/2, 2/3, 3/4 all three Jacobian syzygies and the degree-seven relation vanish identically; modular ranks at 1000003 are 62,79,97, giving syzygy dimensions 1,5,11. Cross-products of the two linear relation entries give projectively [7:9:8], [4:5:4], [17:21:16]. Direct substitution into every line factor shows only the t=2/3 point lies on its arrangement. This independently confirms the corrected t=1/2 certificate and that the paper's printed t=1/2 matrix is the t=3/4 data.",
+      "risks": [
+        "The result checks the stated parameters t=1/2,2/3,3/4; it does not derive a general closed formula in t."
+      ],
+      "sources": [
+        "Frozen source tree ddd3193feca85772116d683ee4a8c64c6708cf66",
+        "Marchesi--Vallès, arXiv:1712.04867 / DOI:10.1017/S0305004119000318, Example 5.3",
+        "Independent exact replay of package blob c79b12f0da602bc3a2b0cec4adf1c7efd07b00de: syzygy identities, modular ranks, projective points, and line membership"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 5.3 explicitly assigns the matrix [-7x+11y-7z,14x-134y+161z,\\(4y^2-7yz\\)] and P=(17:21:16) to t=1/2 and gives the distinct t=2/3 data."
+        ],
+        "reasoning": "General theory of nearly free bundles does not determine these explicit family coefficients; the checked source itself contains the shifted datum.",
+        "searches": [
+          "Full Example 5.3 in arXiv:1712.04867 / author-hosted PDF",
+          "Searches for nearly-free-arrangement corrections and errata"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1712.04867 full PDF pp.20-21",
+        "Resultary semantic search",
+        "Exact coefficient/projective-point web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source states [17:21:16] at t=1/2; the exact syzygy computation instead gives [7:9:8], while t=3/4 reproduces the printed matrix."
+        ],
+        "reasoning": "The corrected certificate is not a corollary of a correct prior claim; it identifies an explicit source error and its parameter shift.",
+        "searches": [
+          "Statement comparison against Example 5.3 and the independent t=3/4 reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the current record as the only direct match.",
+          "Exact web searches returned the Marchesi--Vallès source but no earlier corrected certificate."
+        ],
+        "reasoning": "Coefficient, point, and parameter aliases were searched directly; no equivalent prior correction was located.",
+        "searches": [
+          "Resultary semantic query: nearly free curves Example 5.3 jumping point correction t one half",
+          "Web search: 17:21:16 Marchesi Vallès",
+          "Web search: 7:9:8 Marchesi Vallès",
+          "Web search: 3x-29y+30z arrangement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external table or erratum with [7:9:8] for this family was found."
+        ],
+        "reasoning": "The claim is coefficient-level, so exact source/point searches are the relevant database check.",
+        "searches": [
+          "Exact projective-point and matrix-coefficient searches",
+          "Resultary semantic search"
+        ]
+      },
+      "rationale": "The primary paper and its open copy print the uncorrected t=1/2 matrix and point [17:21:16]. Searches by exact coefficients, both projective points, source identifier, and t values found the uncorrected source and the current finding but no earlier erratum or parameter-shift correction.",
+      "residual_risks": [
+        "An unindexed author note or private correction could predate this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_HAS_SHIFTED_T_1_2_CERTIFICATE",
+          "evidence": [
+            "The source visibly prints the disputed matrix and P=(17:21:16) under t=1/2."
+          ],
+          "identifier_or_url": "arXiv:1712.04867; DOI:10.1017/S0305004119000318",
+          "material_read": "Full Example 5.3 on pp.20-21 of the author-hosted PDF, including the t=1/2 and t=2/3 matrices, points, and membership conclusion.",
+          "method": "Primary full-text and page-image inspection plus exact statement comparison.",
+          "title": "Nearly free curves and arrangements: a vector bundle point of view",
+          "trigger": "Primary source of Example 5.3."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Example 5.3 is an explicit reproducibility witness for a geometric phenomenon. Correcting the numerical certificate, preserving the qualitative conclusion, and locating the printed certificate at t=3/4 prevents propagation of a concrete error and makes the example reproducible.",
+      "risks": [
+        "The qualitative inside/outside phenomenon itself remains as in the source; value is in the exact correction."
+      ],
+      "sources": [
+        "Marchesi--Vallès Example 5.3",
+        "Exact syzygy/minimal-relation reconstruction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No general formula for the jumping point as a function of t is claimed."
+  ],
+  "schema_version": 1
+}

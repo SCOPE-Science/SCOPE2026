@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The arrangement is reconstructed directly from the eleven factors in Example 5.3. Exact Jacobian-syzygy identities produce the corrected \(t=\frac12\) relation, while modular rank certificates force the relevant rational syzygy dimensions to be \(1\), \(5\), and \(11\) in degrees \(5\), \(6\), and \(7\). This makes the minimal-generator pattern and its single degree-seven relation determined up to the standard rescalings and changes of generator basis. The resulting two linear entries meet at \([7:9:8]\), and direct substitution proves that this point is not on \(C_{1/2}\). The identical pipeline reproduces the source's \(t=\frac23\) certificate and recovers the source's first printed matrix at \(t=\frac34\).
+PASS
 
-## Originality
+The frozen arrangement was reconstructed from its eleven line factors. The actual package certificate artifacts/verify.py at blob c79b12f0da602bc3a2b0cec4adf1c7efd07b00de was read completely and then independently replayed from its exact integer syzygy data: for t=1/2, 2/3, 3/4 all three Jacobian syzygies and the degree-seven relation vanish identically; modular ranks at 1000003 are 62,79,97, giving syzygy dimensions 1,5,11. Cross-products of the two linear relation entries give projectively [7:9:8], [4:5:4], [17:21:16]. Direct substitution into every line factor shows only the t=2/3 point lies on its arrangement. This independently confirms the corrected t=1/2 certificate and that the paper's printed t=1/2 matrix is the t=3/4 data.
 
-PASS. Searches by source identifier, exact Example 5.3 coefficients, the printed point \([17:21:16]\), the corrected point \([7:9:8]\), and combinations of the parameters \(\frac12\) and \(\frac34\) found the uncorrected source copies but no erratum or prior statement of this parameter shift. The closest general literature concerns nearly free arrangements and logarithmic bundles, not this explicit coefficient correction. A residual risk remains that an unindexed note or private communication contains the same correction.
+## originality
 
-## Value
+PASS
 
-PASS. Example 5.3 is used to demonstrate a geometric phenomenon about the jumping point under fixed arrangement combinatorics. Its first printed matrix is a concrete reproducibility certificate for that phenomenon. Correcting the certificate while showing that the qualitative conclusion survives, and identifying precisely which family member the printed matrix belongs to, prevents propagation of a wrong explicit datum and makes the example exactly reproducible.
+The primary paper and its open copy print the uncorrected t=1/2 matrix and point [17:21:16]. Searches by exact coefficients, both projective points, source identifier, and t values found the uncorrected source and the current finding but no earlier erratum or parameter-shift correction.
 
-## Closest literature and limitations
+## value
 
-The closest source is the paper itself, arXiv:1712.04867 / DOI:10.1017/S0305004119000318; an open repository copy of the published article repeats the same Example 5.3 numbers. General papers on nearly free arrangements supply the surrounding theory but do not imply this coefficient-level correction. The claim is intentionally limited to the three checked parameters and does not propose a general \(t\)-formula.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Example 5.3 is an explicit reproducibility witness for a geometric phenomenon. Correcting the numerical certificate, preserving the qualitative conclusion, and locating the printed certificate at t=3/4 prevents propagation of a concrete error and makes the example reproducible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
