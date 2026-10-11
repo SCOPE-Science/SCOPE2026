@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:12:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4f3fb2815465c2f599d904e9e4e593fd68f752b9",
+        "assigned verify.py blob 4d8ef6f096e5d55fbbdd86008e1f9d393751149e",
+        "Brimkov--Patel--Suriyanarayana--Teich arXiv:1805.10984",
+        "Geethu--Parthiban DOI 10.47836/mjms.19.1.14"
+      ],
+      "rationale": "If an initial set contains a spine vertex \\(x\\) or \\(y\\), the domination step observes that spine and one internal vertex on every page, after which each page forces through. With no spine vertex selected, any touched page becomes fully observed and can ensure both spine vertices are observed. If at most one page is untouched, a spine vertex then has a unique unobserved neighbor in that page and propagation finishes; if at least two pages are untouched, each spine vertex has at least two unobserved page neighbors and the process stalls. Thus the iff criterion is correct. Counting a nonempty spine choice gives \\(q(x)(1+x)^{2r}\\) with \\(q(x)=x(x+2)\\); touching all pages gives \\(q(x)^r\\); omitting exactly one page gives \\(r q(x)^{r-1}\\). The package verifier independently simulates power domination on every subset for \\(2\\le r\\le8\\), checks every coefficient, the total count, and the minimum-set count.",
+      "residual_risks": [
+        "The formula is for the \\(C_4\\)-page book with a common edge and does not cover longer-cycle or triangular books."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general decomposition theorems do not directly identify the book's spine-free feasible sets.",
+          "The named-family list in Proposition 20 does not include books."
+        ],
+        "reasoning": "No inspected structural theorem makes the three-term book formula a direct substitution.",
+        "searches": [
+          "Brimkov et al. complete primary HTML, structural/decomposition Sections 3--4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.10984",
+        "DOI 10.47836/mjms.19.1.14",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The invariant definition and decomposition tools do not decide that a spine-free set succeeds exactly when at most one page is untouched."
+        ],
+        "reasoning": "The page-intersection classification is the new load-bearing step.",
+        "searches": [
+          "general power-domination polynomial framework versus the book page-touch criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2018 source uses the identical polynomial invariant.",
+          "The 2025 source defines the identical \\(r\\)-book graph but its book calculation is for ordinary domination entropy."
+        ],
+        "reasoning": "The audited formula is the power-domination enumerator of that exact book family.",
+        "searches": [
+          "Resultary query: power domination polynomial book graph C4 pages common edge",
+          "Brimkov et al. arXiv:1805.10984",
+          "Geethu--Parthiban DOI 10.47836/mjms.19.1.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact same-family formula was retrieved."
+        ],
+        "reasoning": "Search absence is corroborative to the complete primary-text inspection.",
+        "searches": [
+          "Resultary current search for book power-domination polynomial and all-set counts"
+        ]
+      },
+      "rationale": "The complete 2018 primary article defines the power-domination polynomial, gives structural decompositions, and computes paths, cycles, wheels, stars, complete graphs, and selected coronas, but contains no book-graph treatment. Its concluding questions explicitly call for counting power-dominating sets of further nontrivial families. The 2025 graph-entropy paper defines the same \\(C_4\\)-book and computes domination entropy for it, while its power-domination section treats other named families; the inspected book section does not supply the audited power-domination polynomial. Resultary search likewise returned no prior book power-domination polynomial.",
+      "residual_risks": [
+        "A specialized book-graph power-domination note could be poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NO_BOOK_FORMULA",
+          "evidence": "The source computes several standard families and explicitly asks for further nontrivial family counts.",
+          "identifier_or_url": "arXiv:1805.10984",
+          "material_read": "complete primary arXiv HTML, including decomposition results, Proposition 20 named families, and concluding questions",
+          "method": "primary full-text HTML inspection",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "defining and closest general polynomial source"
+        },
+        {
+          "assessment": "BOOK_DOMINATION_NOT_BOOK_POWER_DOMINATION",
+          "evidence": "The inspected book theorem uses the ordinary domination polynomial; its power-domination section lists other families.",
+          "identifier_or_url": "DOI 10.47836/mjms.19.1.14",
+          "material_read": "relevant primary PDF sections defining the book and computing its domination entropy, plus the power-domination-family section; page-image requests were attempted but the screenshot endpoint failed",
+          "method": "primary PDF targeted inspection with page-image transport failure",
+          "title": "On Graph Entropy Measures Based on the Number of Dominating and Power Dominating Sets",
+          "trigger": "same \\(C_4\\)-book graph in later polynomial/entropy literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Brimkov et al. 2018",
+        "Geethu--Parthiban 2025",
+        "assigned RESULT/verifier"
+      ],
+      "rationale": "Book graphs are a standard infinite family and the power-domination polynomial is an established refinement of the monitoring parameter. The theorem gives every feasible set by a simple page criterion, the complete polynomial, total count, and exact minimum-set classification. This supplies a reusable named-family benchmark rather than a tiny-instance enumeration.",
+      "residual_risks": [
+        "The proof is elementary once the page-touch condition is recognized."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The formula is for the \\(C_4\\)-page book with a common edge and does not cover longer-cycle or triangular books.",
+    "A specialized book-graph power-domination note could be poorly indexed.",
+    "The proof is elementary once the page-touch condition is recognized."
+  ]
+}
