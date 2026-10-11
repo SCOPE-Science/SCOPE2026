@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:59:01.755368Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 57823ece7f848485d1f681762faac2c0b782b3a5",
+        "verify.py blob d4dbd6ad1a361ecb119917f8137211b170041939",
+        "independent coefficient-generation checks and endpoint-vector proof reconstruction"
+      ],
+      "rationale": "Writing \\(A=2^a\\), the pure two-power generating factor is \\(H_A(z)=(1+z)(1-z^A)/(1-z)\\), so its endpoint coefficients are one and all interior coefficients are two. The full degree enumerator factorizes as \\(H_A(z)\\prod_{j=1}^bH_A(z^{(p-1)p^{j-1}})\\). Phi-practicality supplies at least one digit vector for each degree. If any digit is interior, its positive weight already contributes at least two. If every digit is an endpoint, complement symmetry reduces to a binary vector beginning with one; the explicit carry/replacement identities for \\(p\\le A-1\\) or \\(p=A+1\\) produce another representation containing an interior digit. Hence every nontrivial coefficient is at least two. Degree one comes only from \\(\\Phi_1\\) or \\(\\Phi_2\\), so the exact minimum is two. Independent generating-function checks on several admissible families, including \\((a,p,b)=(2,5,2)\\) and \\((4,17,1)\\), reproduce the bound.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thompson's extension criterion determines the all-degree existence range for the two-prime family.",
+          "No inspected broader practical-number result controls coefficient multiplicities within each degree."
+        ],
+        "reasoning": "The prime-extension theorem supplies the domain but not the multiplicity conclusion.",
+        "searches": [
+          "Thompson, Polynomials with divisors of every degree, arXiv:1111.5401; Journal of Number Theory 132 (2012), 1038--1053",
+          "OEIS A260653 phi-practical numbers",
+          "Resultary query: phi practical two prime divisor degree multiplicity X^n minus 1 unique interior degree Thompson"
+        ]
+      },
+      "checked_sources": [
+        "Thompson, Polynomials with divisors of every degree, arXiv:1111.5401; Journal of Number Theory 132 (2012), 1038--1053",
+        "OEIS A260653 phi-practical numbers",
+        "Resultary query: phi practical two prime divisor degree multiplicity X^n minus 1 unique interior degree Thompson"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A phi-practical representation can in principle be unique, so existence does not imply the theorem.",
+          "The audited endpoint-vector replacement constructs a second weighted representation or an interior digit, forcing coefficient at least two."
+        ],
+        "reasoning": "The multiplicity theorem needs a new combinatorial argument beyond the prior existence criterion.",
+        "searches": [
+          "Thompson prime-extension criterion",
+          "independent digit-vector replacement argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior definition is equivalent to positivity of every coefficient of the cyclotomic-degree subset-sum polynomial.",
+          "The audited claim concerns lower bounds and exact minima of those coefficients, which is strictly stronger than positivity."
+        ],
+        "reasoning": "Existence and multiplicity are distinct formulations; phi-practicality alone does not imply nonuniqueness.",
+        "searches": [
+          "Thompson, Polynomials with divisors of every degree, arXiv:1111.5401; Journal of Number Theory 132 (2012), 1038--1053",
+          "OEIS A260653 phi-practical numbers",
+          "Resultary query: phi practical two prime divisor degree multiplicity X^n minus 1 unique interior degree Thompson"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A260653 tabulates phi-practical integers only, not divisor-degree multiplicities.",
+          "Resultary returned the present multiplicity theorem as the exact same-object hit."
+        ],
+        "reasoning": "No known table inspected contains the claimed coefficient lower bound.",
+        "searches": [
+          "OEIS A260653 phi-practical numbers",
+          "Resultary query: phi practical two prime divisor degree multiplicity X^n minus 1 unique interior degree Thompson"
+        ]
+      },
+      "rationale": "Originality passes. Thompson's work defines phi-practicality through existence of at least one divisor of every degree and supplies the prime-extension criterion used to identify the \\(2^a p^b\\) range. The audited theorem studies a different multiplicity-sensitive invariant \\(N_n(d)\\): every interior degree is represented at least twice, with exact minimum two. Fresh Resultary and targeted searches found no covering multiplicity theorem.",
+      "residual_risks": [
+        "The Thompson full text was not independently available through the open web route in this run; the primary abstract and standard phi-practical sequence/reference material were inspected.",
+        "An older multiplicity-sensitive subset-sum observation could exist outside phi-practical terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_FRAMEWORK_NOT_MULTIPLICITY_RESULT; FULL_TEXT_LIMITED",
+          "evidence": "Accessible material concerns whether every degree occurs, not how many divisors realize each degree.",
+          "identifier_or_url": "arXiv:1111.5401; J. Number Theory 132 (2012) 1038--1053",
+          "material_read": "Primary abstract plus current bibliographic/sequence material summarizing the divisor-of-every-degree criterion and the phi-practical framework. Full paper text was not exposed by the accessible open route in this run.",
+          "method": "lawful primary record and standard reference material",
+          "title": "Polynomials with divisors of every degree",
+          "trigger": "Foundational source for phi-practicality and the two-prime extension criterion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Thompson, Polynomials with divisors of every degree, arXiv:1111.5401; Journal of Number Theory 132 (2012), 1038--1053",
+        "OEIS A260653 phi-practical numbers",
+        "Resultary query: phi practical two prime divisor degree multiplicity X^n minus 1 unique interior degree Thompson"
+      ],
+      "rationale": "Phi-practicality is an existence property, and asking whether an interior degree has a unique cyclotomic-factor subset is the natural next multiplicity question. The theorem completely resolves that question for the full even two-prime-support family and identifies the exact minimum multiplicity, giving a structural strengthening rather than another membership test.",
+      "residual_risks": [
+        "The result does not classify coefficient multiplicities for phi-practical integers with three or more distinct prime factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The Thompson full text was not independently available through the open web route in this run; the primary abstract and standard phi-practical sequence/reference material were inspected.",
+    "An older multiplicity-sensitive subset-sum observation could exist outside phi-practical terminology.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

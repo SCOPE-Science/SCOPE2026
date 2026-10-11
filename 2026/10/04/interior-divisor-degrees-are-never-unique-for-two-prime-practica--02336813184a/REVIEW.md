@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces divisor-degree multiplicities to an exact cyclotomic subset-sum generating function. The 2-power layer has coefficients \(1,2,\ldots,2,1\), and every all-endpoint degree representation is explicitly replaced by one with an interior layer coordinate. The two possible prime ranges and the boundary \(p=2^a+1\) are handled separately. Complement symmetry and the exact degree-one count close the endpoints and sharpness.
+## correctness
 
-## Originality
-PASS. The closest primary source is Thompson's 2011 preprint/2012 paper, whose Lemma 4.1 gives the complete prime-extension condition for \(\varphi\)-practicality. Full-text inspection found an existence proof but no count or uniqueness classification for divisors of a given degree. Searches under multiplicity, unique degree, coefficient-product, and two-prime-support formulations found no equivalent or stronger theorem.
+PASS
 
-## Value
-PASS. The result refines the defining existence property of \(\varphi\)-practical numbers to a sharp multiplicity statement on a complete structural family. It identifies exactly which degrees are uniquely realizable and gives the exact interior minimum, a natural invariant of the divisor-degree spectrum.
+Writing \(A=2^a\), the pure two-power generating factor is \(H_A(z)=(1+z)(1-z^A)/(1-z)\), so its endpoint coefficients are one and all interior coefficients are two. The full degree enumerator factorizes as \(H_A(z)\prod_{j=1}^bH_A(z^{(p-1)p^{j-1}})\). Phi-practicality supplies at least one digit vector for each degree. If any digit is interior, its positive weight already contributes at least two. If every digit is an endpoint, complement symmetry reduces to a binary vector beginning with one; the explicit carry/replacement identities for \(p\le A-1\) or \(p=A+1\) produce another representation containing an interior digit. Hence every nontrivial coefficient is at least two. Degree one comes only from \(\Phi_1\) or \(\Phi_2\), so the exact minimum is two. Independent generating-function checks on several admissible families, including \((a,p,b)=(2,5,2)\) and \((4,17,1)\), reproduce the bound.
 
-## Closest literature and limitations
-Thompson's extension lemma is essential prior work and completely determines the admissible \(2^a p^b\) range; it does not supply the multiplicity conclusion. OEIS A260653 summarizes membership and counting results but no per-degree multiplicity. An obscure formulation through the coefficient polynomial \(\prod_{d\mid n}(1+z^{\varphi(d)})\) remains a residual literature risk. The theorem does not address support size at least three.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. Thompson's work defines phi-practicality through existence of at least one divisor of every degree and supplies the prime-extension criterion used to identify the \(2^a p^b\) range. The audited theorem studies a different multiplicity-sensitive invariant \(N_n(d)\): every interior degree is represented at least twice, with exact minimum two. Fresh Resultary and targeted searches found no covering multiplicity theorem.
+
+## value
+
+PASS
+
+Phi-practicality is an existence property, and asking whether an interior degree has a unique cyclotomic-factor subset is the natural next multiplicity question. The theorem completely resolves that question for the full even two-prime-support family and identifies the exact minimum multiplicity, giving a structural strengthening rather than another membership test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
