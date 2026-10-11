@@ -1,51 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The maximum probabilities are
-\[
-w_i=P_i^n-P_{i-1}^n,
-\]
-so the normalized maximum gap is the weighted covariance between the support
-and the increasing score \(w_i/p_i\). Every centered increasing support is an
-exact positive combination of centered threshold vectors. On each threshold
-ray, the covariance-to-norm ratio is exactly
-\[
-\frac{P_j-P_j^n}{\sqrt{P_j(1-P_j)}}.
-\]
-The triangle inequality therefore gives the lower bound. Strictness for at
-least three distinct atoms and sharpness by a two-level collapse are both
-proved from the same decomposition. Connectedness of positive gap ratios
-fills the interval up to the projection upper endpoint.
+PASS
 
-## Originality
+Writing \(w_i=P_i^n-P_{i-1}^n\) and \(s_i=w_i/p_i\) gives \(\mathbb E M_n-\mathbb E X=\langle X-\mathbb EX,S-1\rangle_p\), with strictly increasing score coordinates. Cauchy--Schwarz gives the stated upper endpoint and equality exactly for an increasing affine function of S. For the lower bound, every centered increasing support has the positive gap decomposition \(y=\sum_j d_jv^{(j)}\). Each threshold vector has ratio \((P_j-P_j^n)/\sqrt{P_j(1-P_j)}\), so positivity plus the triangle inequality yields the lower bound. With \(m\ge3\), at least two positive gaps multiply noncollinear threshold vectors, making the norm triangle inequality strict. Concentrating all but one gap to zero approaches the minimizing threshold ray. After quotienting translation and positive scale, positive gap vectors form a connected open simplex; continuity therefore makes the image the full interval from the unattained infimum to the attained maximum. An independent random-profile calculation over 200 profiles/supports reproduced \(L<R\le U\).
 
-PASS, with an explicit residual access risk. The accessible 1998
-López-Blázquez material is the closest source and clearly formulates the
-discrete **upper** expected-maximum optimization under moment constraints.
-The full article was not available for inspection, so no whole-document
-noncoverage claim is made.
+## originality
 
-A complete full-text treatment of expected-maxima sequences was inspected.
-It develops characterization and discrete-uniform approximation machinery,
-but not a profile-fixed lower support extremum. The later finite-population
-without-replacement paper has different sampling and weighting constraints.
+PASS
 
-Targeted statement-level searches for a lower standardized maximum with
-prescribed atom masses, two-level cut extremizers, and complete fixed-profile
-ranges did not locate a stronger or equivalent result.
+The accessible record for López-Blázquez's 1998 paper describes the opposite optimization—the upper expected-maximum problem under moment constraints—and is consistent with the projection endpoint used here. Papadatos's full paper characterizes entire sequences of expected maxima, not support-geometry minima for one fixed atom profile. Targeted Resultary search found no lower cut formula, two-level-collapse characterization, or full fixed-profile interval. Full text of the closest 1998 article remained inaccessible because the authorized institutional fallback was blocked by the platform safety gate; under the owner rule this is retained as an access residual rather than converted into failure.
 
-## Value
+## value
 
-PASS. Upper bounds for expected maxima are classical, but fixing the discrete
-mass profile creates a complementary geometric question: how close can the
-sample maximum remain to the parent mean after variance normalization? The
-answer is a finite, explicit cut functional, with a complete closure
-classification and full attainable interval. It distinguishes support
-geometry from mass geometry and is directly computable for any prescribed
-discrete law profile.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The upper expected-maximum geometry for discrete distributions is an established optimization problem. Determining the opposite sharp endpoint when the atom masses are fixed, including all near-minimizing shapes and every attainable intermediate value, gives the complementary geometry of the same natural statistic. The equal-mass formula and two-point boundary make the result directly reusable.
 
-
-Exact-rational replay: `VERIFY_OK identity_checks=48000 decomposition_checks=16000 lower_checks=16000 upper_checks=16000 upper_equality_checks=16000 two_point_checks=152 boundary_checks=12000`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
