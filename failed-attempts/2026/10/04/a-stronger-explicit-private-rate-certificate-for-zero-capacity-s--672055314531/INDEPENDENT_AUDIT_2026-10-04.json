@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:11:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.10520",
+        "repository RESULT.md blob 66a0af1ee222cdff05a3655dab6e35b0a2825d5a",
+        "repository verify.py blob 882a343f2e86bbe3a8b39aa30e3cdeb5961f22d0",
+        "I. Devetak, arXiv:quant-ph/0304127"
+      ],
+      "rationale": "For a binary prior \\(\\Pr(U=1)=q\\), Bob's click channel has conditional probabilities \\(0\\) and \\(a_pt\\), so its mutual information is exactly \\(h_2(qa_pt)-q h_2(a_pt)\\). If \\(\\omega_1\\preceq c\\omega_0\\), then every mixture \\(\\omega_s\\) is the image of a Bernoulli coin of bias \\(r_s^{(c)}\\) under one fixed preparation channel, giving the stated \\(J_c(q,t)\\) upper bound by data processing. Averaging the two erasure branches and subtracting from Bob's information gives the displayed achievable private-information rate. A fresh high-precision evaluation at \\(p=1/2,q=39/200,t=4/299\\) gave \\(0.0002101139266\\ldots\\), more than \\(1.104\\) times \\(3\\ln 2/10927\\). The repository's exact rational-interval verifier independently certifies the sign.",
+      "residual_risks": [
+        "The result is only an achievable rate for the fixed physical construction and measurement; it is not a capacity evaluation or optimizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general private-information lower bound is an optimization over ensembles and their probabilities.",
+          "The source's abstract already identifies the mechanism as receiver information gain versus environmental leakage under a fixed measurement."
+        ],
+        "reasoning": "The combination of the source construction and the standard coding theorem already covers re-optimizing its binary prior.",
+        "searches": [
+          "Devetak, The private classical capacity and quantum capacity of a quantum channel",
+          "Zhu-Wang 2026 source architecture"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.10520",
+        "https://arxiv.org/abs/quant-ph/0304127",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bob's formula follows immediately from the two source click probabilities for any prior.",
+          "The environmental coin bound follows immediately from the same operator domination after changing prior weights.",
+          "A positive difference is already converted to an achievable private rate by the standard theorem."
+        ],
+        "reasoning": "All structural steps are direct consequences of published inputs; the residual work is one-dimensional parameter selection and numerical certification.",
+        "searches": [
+          "source channel/measurement plus standard binary mutual information",
+          "source operator-order bounds plus data processing",
+          "Devetak coding theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source already establishes the same channel pair and fixed joint measurement with a positive private-information difference.",
+          "The general coding theorem permits arbitrary input probabilities; replacing the fixed source prior by \\(q\\) is exactly that standard degree of freedom."
+        ],
+        "reasoning": "The new expression is the same wiretap construction evaluated at a different prior, not a distinct coding architecture.",
+        "searches": [
+          "Resultary query: arXiv 2609.10520 arbitrary prior q stronger private rate",
+          "Zhu-Wang arXiv:2609.10520 primary record",
+          "Devetak private-information formulation over input ensembles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier table with the exact rational pair \\(q=39/200,t=4/299\\) was found.",
+          "Absence of the exact tuned number does not establish originality because the number is obtained by routine evaluation of the covered parameter family."
+        ],
+        "reasoning": "Exact-number novelty is not enough when the scientific claim is mechanically available from the prior construction.",
+        "searches": [
+          "Resultary exact search for 0.0002101 and arXiv:2609.10520",
+          "current arXiv record for the source's 0.0001903 certificate"
+        ]
+      },
+      "rationale": "The assigned theorem keeps the source channel pair, states, measurement, environmental domination constants, and coding theorem, and changes only the binary input prior while retaining the exact mutual-information expressions instead of the source's coarser numerical bounds. The private-information achievability theorem already optimizes over input ensembles/priors. Thus the arbitrary-prior formula is a routine one-parameter evaluation of the published construction, and the \\(0.0002101\\) certificate is a numerical tuning of a previously established achievable architecture rather than a new scientific mechanism.",
+      "residual_risks": [
+        "No correctness defect is asserted.",
+        "The source full text was not retrievable through the open HTML route in this audit, but the originality rejection rests on the unchanged architecture and generic prior optimization, not on a missing-source noncoverage inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_ARCHITECTURE_AND_MECHANISM",
+          "evidence": "The source exhibits the same four-level channel plus half-erasure helper, fixed joint measurement, and a \\(>0.0001903\\) achievable rate from receiver gain versus environmental leakage.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10520",
+          "material_read": "Current primary abstract and version metadata; direct full-text HTML retrieval was unavailable in this audit",
+          "method": "Primary-record inspection with explicit full-text access limitation",
+          "title": "Private communication via zero-private-capacity quantum channels",
+          "trigger": "Exact source channel pair and prior achievable-rate certificate"
+        },
+        {
+          "assessment": "GENERAL_PRIOR_OPTIMIZATION_INPUT",
+          "evidence": "The achievable private-information expression optimizes over ensembles, including their prior probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0304127",
+          "material_read": "Primary theorem-level formulation of achievable private information over ensembles",
+          "method": "Primary-source theorem comparison",
+          "title": "The private classical capacity and quantum capacity of a quantum channel",
+          "trigger": "General coding implication used by the assigned result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhu-Wang 2026 source",
+        "Devetak coding theorem",
+        "assigned RESULT.md"
+      ],
+      "rationale": "A reproducible ten-percent improvement to one already-positive lower-bound certificate is useful numerically, but here it comes from routine prior tuning and retaining exact elementary information expressions, with no optimality, new channel, new coding mechanism, or structural boundary. Under the shared value bar this is too narrow a numerical gain to constitute an independent mathematical finding.",
+      "residual_risks": [
+        "The tuned point may still be useful computationally as a benchmark."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is only an achievable rate for the fixed physical construction and measurement; it is not a capacity evaluation or optimizer.",
+    "No correctness defect is asserted.",
+    "The source full text was not retrievable through the open HTML route in this audit, but the originality rejection rests on the unchanged architecture and generic prior optimization, not on a missing-source noncoverage inference.",
+    "The tuned point may still be useful computationally as a benchmark."
+  ]
+}
