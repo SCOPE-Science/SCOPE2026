@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source gives the exact square and hexagonal dispersion relations. Re-expanding the exact edge equations with \(t_m=m\pi\) gives the stated \(m^{-2}\) corrections; direct substitution into \(E=(t_m+y)^2/\ell^2\) removes any possible \(m^{-1}\) energy-width term. The remaining width errors are \(O(m^{-4})\), hence summable. Counting centers below \(K\) and allowing one partial terminal cell proves the two \(O(1)\) cumulative remainders. The numerical replay checks the exact equations but is not substituted for the proof.
+## correctness
 
-## Originality
-PASS. The 2017/2018 source states only \(8/\ell+O(m^{-1})\) for square energy gaps and \(4(\sqrt3-1)/\ell+O(m^{-1})\) for each hexagonal band. Those bounds allow a logarithmic cumulative error and do not imply the vanishing first-order term or the explicit second-order coefficients. The 2021 related paper defines the energy-spectrum probability and records only limiting zero/one values in its model. Band--Berkolaiko concerns momentum-band density, not the present energy finite-cutoff law. The inspected 2026 preferred-orientation spectral-statistics paper concerns spacing/form-factor statistics of finite graphs. Repository searches for aliases, the coefficients, bounded remainders, and cumulative energy measures returned no covering result.
+PASS
 
-## Value
-PASS. The energy-spectrum probability is used in this literature as a transport statistic. The result supplies its sharp finite-cutoff convergence scale and proves that the local \(O(m^{-1})\) uncertainty does not accumulate logarithmically. The universal coefficients and bounded remainder give a concrete benchmark for finite-energy spectral computations and sharpen the topology contrast between square and hexagonal preferred-orientation lattices.
+Starting from the exact Exner–Tater square and hexagonal Floquet dispersion equations, expand the band-edge equations about k ell = m pi. For the square lattice the two edge displacements are odd to first order and their energy difference is 8/ell - 8 ell/(3 pi^2 m^2) + O(m^-4). For the hexagonal lattice the four relevant roots around the same flat-band point give total width 8(sqrt(3)-1)/ell + 8 ell(4-3 sqrt(3))/(3 pi^2 m^2) + O(m^-4). The absence of an m^-1 term makes the sums of local errors absolutely summable, so counting m <= ell sqrt(K)/pi gives the two stated finite-energy laws with O(1) remainders. A fresh independent numerical root solve at ell=0.7 and 1.4, m=60 and 120 made the residual after the displayed m^-2 correction scale as m^-4 with stable constants for both lattices.
 
-## Closest literature and limitations
-The closest source is Exner--Tater, arXiv:1710.02664v1, because it contains the exact dispersion relations and the coarser local width estimates. Exner--Tater, arXiv:2108.04708v1, motivates the cumulative energy statistic. Band--Berkolaiko, arXiv:1304.6028, treats momentum density. Band--Exner--Goel--Strauss (2026) studies a different spectral-statistics regime. The theorem does not extend automatically to other lattice geometries or vertex couplings.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper derives the exact dispersion relations and states only first-order high-energy information: square energy gaps have width 8/ell + O(m^-1), while the two hexagonal bands have width 4(sqrt(3)-1)/ell + O(m^-1) each. Those estimates are too coarse to sum with bounded cumulative error. The audited m^-2 coefficients, cancellation of the m^-1 term, and the resulting O(1) finite-energy remainders require a higher-order band-edge calculation not stated in the source. Current Resultary searches for preferred-orientation square/hexagonal spectral-measure remainders and higher-order gap widths returned no earlier equivalent or stronger theorem.
+
+## value
+
+PASS
+
+The result changes a non-summable first-order error estimate into a summable expansion and therefore determines the finite-energy spectral measure to bounded error. The cancellation is a motivated spectral refinement of an established periodic-graph model rather than a finite numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

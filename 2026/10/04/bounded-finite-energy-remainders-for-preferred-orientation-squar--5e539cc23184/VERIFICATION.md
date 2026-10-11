@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. Its critical checks are:
+# Independent mathematical audit
 
-1. Use the published exact square dispersion relation to write each high-energy gap edge as a scalar root near \(k=m\pi/\ell\).
-2. Expand both roots through order \(m^{-3}\). After conversion from momentum to energy, the \(m^{-1}\) energy-width contribution vanishes and the first correction is \(-8\ell/(3\pi^2m^2)\).
-3. For the hexagonal relation, impose the two extremal Bloch values \(d=-1\) and \(d=3\), expand all four nearby roots, convert to energy, and add the two band widths. Again there is no \(m^{-1}\) term; the first correction is \(8\ell(4-3\sqrt3)/(3\pi^2m^2)\).
-4. Since \(\sum m^{-2}\) converges and the number of Neumann centers below energy \(K\) is \(\ell\sqrt K/\pi+O(1)\), the cumulative remainder is bounded. A terminal partially cut cell has bounded width and changes only the \(O(1)\) term.
+## correctness
 
-The included `verify.py` uses only the Python standard library. It solves the exact boundary equations by bisection for several values of \(\ell\) and large \(m\), then verifies the displayed second-order asymptotics and the expected \(m^{-4}\) residual scale. It prints `VERIFY_OK` on success.
+PASS
 
-Limits: finite numerical checks do not prove the asymptotic theorem; the Taylor expansion and summability argument above do. No independent audit has been performed.
+Starting from the exact Exner–Tater square and hexagonal Floquet dispersion equations, expand the band-edge equations about k ell = m pi. For the square lattice the two edge displacements are odd to first order and their energy difference is 8/ell - 8 ell/(3 pi^2 m^2) + O(m^-4). For the hexagonal lattice the four relevant roots around the same flat-band point give total width 8(sqrt(3)-1)/ell + 8 ell(4-3 sqrt(3))/(3 pi^2 m^2) + O(m^-4). The absence of an m^-1 term makes the sums of local errors absolutely summable, so counting m <= ell sqrt(K)/pi gives the two stated finite-energy laws with O(1) remainders. A fresh independent numerical root solve at ell=0.7 and 1.4, m=60 and 120 made the residual after the displayed m^-2 correction scale as m^-4 with stable constants for both lattices.
+
+## originality
+
+PASS
+
+The primary paper derives the exact dispersion relations and states only first-order high-energy information: square energy gaps have width 8/ell + O(m^-1), while the two hexagonal bands have width 4(sqrt(3)-1)/ell + O(m^-1) each. Those estimates are too coarse to sum with bounded cumulative error. The audited m^-2 coefficients, cancellation of the m^-1 term, and the resulting O(1) finite-energy remainders require a higher-order band-edge calculation not stated in the source. Current Resultary searches for preferred-orientation square/hexagonal spectral-measure remainders and higher-order gap widths returned no earlier equivalent or stronger theorem.
+
+## value
+
+PASS
+
+The result changes a non-summable first-order error estimate into a summable expansion and therefore determines the finite-energy spectral measure to bounded error. The cancellation is a motivated spectral refinement of an established periodic-graph model rather than a finite numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:10:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Exner–Tater, arXiv:1710.02664, complete primary PDF",
+        "assigned RESULT.md blob 0e463dc19612071fc7737c51a30f41c9f00c6751",
+        "assigned verify.py blob 2baee27eb1bdb8c2c42e5b012231a1408cea5727",
+        "fresh independent band-edge root replay"
+      ],
+      "rationale": "Starting from the exact Exner–Tater square and hexagonal Floquet dispersion equations, expand the band-edge equations about k ell = m pi. For the square lattice the two edge displacements are odd to first order and their energy difference is 8/ell - 8 ell/(3 pi^2 m^2) + O(m^-4). For the hexagonal lattice the four relevant roots around the same flat-band point give total width 8(sqrt(3)-1)/ell + 8 ell(4-3 sqrt(3))/(3 pi^2 m^2) + O(m^-4). The absence of an m^-1 term makes the sums of local errors absolutely summable, so counting m <= ell sqrt(K)/pi gives the two stated finite-energy laws with O(1) remainders. A fresh independent numerical root solve at ell=0.7 and 1.4, m=60 and 120 made the residual after the displayed m^-2 correction scale as m^-4 with stable constants for both lattices.",
+      "residual_risks": [
+        "The asymptotics concern the equilateral periodic lattices and the preferred-orientation coupling used by the source; other edge lengths or couplings are outside scope.",
+        "The O(1) remainder is not evaluated to a limiting constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact dispersion relation is broader input data, but the paper does not carry it to the summable remainder order.",
+          "No retrieved later finding dominated the second-order coefficients or bounded cumulative remainder."
+        ],
+        "reasoning": "An exact dispersion relation is an input, not by itself a published evaluation of its nontrivial higher-order cancellation; the audited computation is the additional step.",
+        "searches": [
+          "Exner–Tater complete primary PDF",
+          "Resultary semantic search for periodic quantum-graph finite-energy spectral-measure asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.02664",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An O(m^-1) remainder can accumulate logarithmically and therefore does not imply an O(1) global remainder.",
+          "The vanishing m^-1 term and explicit m^-2 coefficient are the facts needed to make the cumulative error bounded."
+        ],
+        "reasoning": "The prior theorem does not imply the stronger remainder without the higher-order edge analysis.",
+        "searches": [
+          "Source O(m^-1) local asymptotics versus audited O(m^-4) post-correction expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source square statement is 8/ell + O(m^-1) in energy.",
+          "The source hexagonal statement is two widths 4(sqrt(3)-1)/ell + O(m^-1).",
+          "The audited result is equivalently a second-order local edge expansion whose error is summable over m."
+        ],
+        "reasoning": "The local second-order expansion and the global bounded-remainder formulation are equivalent after counting flat-band centers; neither is supplied by the source first-order estimates.",
+        "searches": [
+          "Resultary: preferred-orientation square hexagonal quantum graphs high energy gap widths bounded finite energy remainder spectral measure",
+          "Exner–Tater arXiv:1710.02664 high-energy band/gap asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact-coefficient hit was retrieved."
+        ],
+        "reasoning": "There is no canonical finite database; this check targeted the exact local coefficients and finite-energy remainder statements.",
+        "searches": [
+          "Resultary exact searches for coefficients -8 ell/(3 pi^2) and 8 ell(4-3 sqrt(3))/(3 pi^2)"
+        ]
+      },
+      "rationale": "The primary paper derives the exact dispersion relations and states only first-order high-energy information: square energy gaps have width 8/ell + O(m^-1), while the two hexagonal bands have width 4(sqrt(3)-1)/ell + O(m^-1) each. Those estimates are too coarse to sum with bounded cumulative error. The audited m^-2 coefficients, cancellation of the m^-1 term, and the resulting O(1) finite-energy remainders require a higher-order band-edge calculation not stated in the source. Current Resultary searches for preferred-orientation square/hexagonal spectral-measure remainders and higher-order gap widths returned no earlier equivalent or stronger theorem.",
+      "residual_risks": [
+        "A differently indexed later asymptotic paper could have expanded the same dispersion equations to higher order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIRST_ORDER_ONLY",
+          "evidence": "The square paper gives 8/ell + O(m^-1) gap widths; the hexagonal paper gives two 4(sqrt(3)-1)/ell + O(m^-1) band widths.",
+          "identifier_or_url": "arXiv:1710.02664",
+          "material_read": "Complete lawful primary PDF, including the square positive-spectrum discussion and hexagonal high-energy discussion",
+          "method": "Primary full-text PDF inspection with page-image verification",
+          "title": "Quantum graphs with vertices of a preferred orientation",
+          "trigger": "Exact source of both lattice dispersion relations and prior high-energy estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exner–Tater primary paper",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The result changes a non-summable first-order error estimate into a summable expansion and therefore determines the finite-energy spectral measure to bounded error. The cancellation is a motivated spectral refinement of an established periodic-graph model rather than a finite numerical exercise.",
+      "residual_risks": [
+        "The advance is asymptotic and model-specific rather than a new general quantum-graph theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The asymptotics concern the equilateral periodic lattices and the preferred-orientation coupling used by the source; other edge lengths or couplings are outside scope.",
+    "The O(1) remainder is not evaluated to a limiting constant.",
+    "A differently indexed later asymptotic paper could have expanded the same dispersion equations to higher order.",
+    "The advance is asymptotic and model-specific rather than a new general quantum-graph theorem."
+  ]
+}
