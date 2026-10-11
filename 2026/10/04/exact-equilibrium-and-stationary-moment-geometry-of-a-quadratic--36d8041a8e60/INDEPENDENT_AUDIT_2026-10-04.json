@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:50:44.541246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob a0cc996cf78758fbc004033879a43004d044997c",
+        "artifacts/verify_equilibrium_geometry.py blob ae83477a71061834cae60dfb132fb7bbdb59d992",
+        "artifacts/verification_output.txt blob d6430add5ef754cb7f8bfb881857bbf6560f69c5",
+        "independent symbolic factorization and baseline calculation"
+      ],
+      "rationale": "Exact elimination gives \\((be+cd)x^2+aex-cf=0\\). The positive root always lies inside the admissible \\(x^2<f/d\\) interval, while the negative root is admissible exactly when \\(b\\sqrt{f/d}\\ge a\\), giving the stated 2/3/4 count. The cubic characteristic polynomial was reconstructed; trace, constant-term, and Routh--Hurwitz arguments cover every sign branch and the boundary case, proving all equilibria unstable. Stationary coordinate identities give the claimed mean and second moments, and independent symbolic factorization verifies \\(\\operatorname{Var}(x)=A^2(ae)^{-2}(q-x_+^2)(x_-^2-q)\\). At the source parameters, independent exact arithmetic gives \\(x_+=\\sqrt3-1\\), \\(y^2=2\\sqrt3\\), hence \\(|y|\\approx1.8612097182\\), confirming that the printed 3.4641 is the squared ordinate.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic self-excited/offset-boosting theory does not fix this ODE's quadratic elimination or invariant-measure moment curve.",
+          "Nearby Resultary stationary-balance findings concern different vector fields and do not specialize to the Xu et al. system."
+        ],
+        "reasoning": "The broader literature supplies context for attractor classification, not an implication that determines the exact threshold \\(b\\sqrt{f/d}=a\\) and stationary variance factorization.",
+        "searches": [
+          "source references on offset-boostable/self-excited chaotic flows",
+          "web searches for general positive-parameter equilibrium counts in this exact ODE",
+          "Resultary semantic search for stationary variance laws in quadratic chaotic flows"
+        ]
+      },
+      "checked_sources": [
+        "Xu et al., Entropy 20(2), 86 (2018), DOI:10.3390/e20020086",
+        "PMC mirror of the same open-access article (PMC7512649)",
+        "Resultary query: quadratic chaotic flow exact equilibrium stationary moment geometry Xu Shekofteh Akgul Li Panahi Entropy 2018",
+        "web searches using the exact source title, printed coordinates 0.7321/3.4641, equilibrium polynomial, and stationary variance formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's baseline eigenvalues do not imply the 2/3/4 equilibrium count or instability for every admissible parameter.",
+          "The invariant-measure theorem requires combining stationary coordinate identities with the exact equilibrium roots and an equality-support argument.",
+          "Independent symbolic factorization reproduced the stated variance identity."
+        ],
+        "reasoning": "The final package is not a mere corrected decimal: its parameter-family classification and stationary-measure geometry are not logically supplied by the source's two-point calculation.",
+        "searches": [
+          "derive the elimination polynomial \\((be+cd)x^2+aex-cf=0\\) from the source ODE",
+          "test whether baseline eigenvalue analysis implies all-positive-parameter instability",
+          "derive invariant coordinate-balance identities and factor the resulting variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives the same ODE and the baseline fixed-point equations but prints ordinates inconsistent with those equations.",
+          "No other Resultary hit in the focused search was the same vector field with the audited parameter-family theorem."
+        ],
+        "reasoning": "Equivalent formulations by equilibrium polynomial, named source system, and stationary moments were checked; the source itself contains only the baseline numerical equilibrium discussion.",
+        "searches": [
+          "DOI:10.3390/e20020086 full text, Section 2 fixed-point equations and Eq. (4)",
+          "PMC7512649 same article",
+          "Resultary query: quadratic chaotic flow exact equilibrium stationary moment geometry Xu Shekofteh Akgul Li Panahi Entropy 2018"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The baseline article contains only its two printed equilibria and quoted eigenvalues.",
+          "No checked correction table or exact parameter-family census was retrieved."
+        ],
+        "reasoning": "An erratum or exact table would cover the correction/classification directly; none appeared in the checked sources.",
+        "searches": [
+          "source full-text fixed-point section",
+          "web exact searches for 0.7321 3.4641 correction and \\(\\sqrt{2\\sqrt3}\\)",
+          "Resultary exact/semantic search for the parameter-family formula"
+        ]
+      },
+      "rationale": "The source article was read at its exact vector field, fixed-point equations, printed coordinates, and eigenvalues. It prints \\(\\pm3.4641\\) where its own equations require \\(\\pm\\sqrt{2\\sqrt3}\\), and it treats only the displayed parameter set. The audited result adds the full positive-parameter 2/3/4-equilibrium threshold, all-equilibria instability theorem, and exact invariant-measure variance factorization with equality classification. Fresh Resultary and exact-equation searches found no distinct same-system source supplying those statements.",
+      "residual_risks": [
+        "The invariant-measure identities arise from low-degree coordinate averages and are algebraically simple once the parameter-family equilibrium polynomial is exposed.",
+        "Search cannot exclude an unindexed correction of the paper's printed ordinate or a private computation of the same parameter-family classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASELINE_EQUILIBRIUM_ERROR_NOT_GENERAL_CLASSIFICATION",
+          "evidence": "The source prints \\((0.7321,\\pm3.4641,0)\\) even though its preceding equation is \\(x^2+y^2=4\\); the reported eigenvalues instead match the corrected ordinate.",
+          "identifier_or_url": "DOI:10.3390/e20020086; PMC7512649",
+          "material_read": "Open-access full article around the ODE, fixed-point equations (2), printed equilibria, Jacobian/eigenvalues, and stated self-excited conclusion.",
+          "method": "lawful open-access publisher/PMC full text",
+          "title": "A New Chaotic System with a Self-Excited Attractor: Entropy Measurement, Signal Encryption, and Parameter Estimation",
+          "trigger": "Primary same-system source, including the suspected fixed-point transcription error."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Xu et al. full text",
+        "assigned symbolic proof",
+        "independent reconstruction"
+      ],
+      "rationale": "The source uses equilibrium type to label its attractor self-excited, so correcting the fixed points is scientifically material. The positive-parameter threshold and invariant-measure amplitude curve then turn a one-parameter numerical discussion into a natural structural classification and a sharp recurrence constraint, with an exact equality case.",
+      "residual_risks": [
+        "The theorem constrains compact stationary states but does not validate the source's numerical attractor, entropy, circuit, or parameter-estimation claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The invariant-measure identities arise from low-degree coordinate averages and are algebraically simple once the parameter-family equilibrium polynomial is exposed.",
+    "Search cannot exclude an unindexed correction of the paper's printed ordinate or a private computation of the same parameter-family classification."
+  ],
+  "schema_version": 1
+}

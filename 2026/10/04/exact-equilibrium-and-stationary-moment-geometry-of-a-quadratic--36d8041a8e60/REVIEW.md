@@ -1,17 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The equilibrium elimination is exact and yields \((be+cd)x^2+aex-cf=0\). The admissibility threshold for the negative root follows by evaluating this quadratic at \(-\sqrt{f/d}\). The Jacobian characteristic polynomial was reconstructed symbolically. Every equilibrium has a right-half-plane eigenvalue: positive-\(y\) equilibria have positive trace, the negative-\(y\) negative-root branch has a positive real root from the constant-term sign, the boundary point has spectrum containing \(+\sqrt{ag}\), and the negative-\(y\) positive-root branch violates the cubic Routh-Hurwitz determinant because \(e(a+2bx_+)-\Delta=cd(ae-\Delta)/(be+cd)<0\). The invariant-measure identities follow from vanishing mean Lie derivatives of the coordinate functions on compact invariant support, and the variance factorization was checked exactly.
+PASS
 
-## Originality
+Exact elimination gives \((be+cd)x^2+aex-cf=0\). The positive root always lies inside the admissible \(x^2<f/d\) interval, while the negative root is admissible exactly when \(b\sqrt{f/d}\ge a\), giving the stated 2/3/4 count. The cubic characteristic polynomial was reconstructed; trace, constant-term, and Routh--Hurwitz arguments cover every sign branch and the boundary case, proving all equilibria unstable. Stationary coordinate identities give the claimed mean and second moments, and independent symbolic factorization verifies \(\operatorname{Var}(x)=A^2(ae)^{-2}(q-x_+^2)(x_-^2-q)\). At the source parameters, independent exact arithmetic gives \(x_+=\sqrt3-1\), \(y^2=2\sqrt3\), hence \(|y|\approx1.8612097182\), confirming that the printed 3.4641 is the squared ordinate.
 
-PASS. The introducing article prints the same system, its specialized equilibrium equations, two numerical fixed points, Jacobian, and eigenvalues, but does not state the positive-parameter equilibrium-count theorem, the universal instability proof, or the invariant-measure moment/variance theorem. Its printed ordinates fail the displayed equilibrium equations, while the quoted eigenvalues agree with the corrected square-root ordinates. Exact-title, DOI, coefficient, coordinate, formula, alias, and implication searches did not surface an indexed equivalent result. The closest indexed stationary-balance results found concern other named flows and do not imply this vector-field-specific theorem.
+## originality
 
-## Value
+PASS
 
-PASS. Equilibria and their local stability are the basis for distinguishing self-excited from hidden dynamics in this literature, so a coordinate error in the introducing equilibrium analysis is structurally relevant rather than cosmetic. The theorem replaces the single numerical calculation by a complete positive-parameter equilibrium count and proves that stable equilibria cannot occur anywhere in that family. The stationary variance identity adds a global exact constraint on every compact recurrent statistical state and gives a sharp equilibrium-only root-mean-square amplitude floor.
+The source article was read at its exact vector field, fixed-point equations, printed coordinates, and eigenvalues. It prints \(\pm3.4641\) where its own equations require \(\pm\sqrt{2\sqrt3}\), and it treats only the displayed parameter set. The audited result adds the full positive-parameter 2/3/4-equilibrium threshold, all-equilibria instability theorem, and exact invariant-measure variance factorization with equality classification. Fresh Resultary and exact-equation searches found no distinct same-system source supplying those statements.
 
-The main residual risk is bibliographic: an unindexed correction or later paper could contain part of the same algebra. The mathematical claim itself is fully explicit and independently checkable.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source uses equilibrium type to label its attractor self-excited, so correcting the fixed points is scientifically material. The positive-parameter threshold and invariant-measure amplitude curve then turn a one-parameter numerical discussion into a natural structural classification and a sharp recurrence constraint, with an exact equality case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
