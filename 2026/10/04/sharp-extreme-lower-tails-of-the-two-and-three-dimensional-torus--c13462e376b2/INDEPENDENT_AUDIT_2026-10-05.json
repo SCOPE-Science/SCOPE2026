@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:57:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob cc50ef54783236d43a7a328823589a30c15d4793.",
+        "Feng–Mordant arXiv:2609.26597 abstract confirms the d=2,3 limiting laws are explicit weighted sums of independent centered exponentials.",
+        "Independent algebraic replay of 4/(27A^2)=8 pi^2/3."
+      ],
+      "rationale": "Starting from the centered-exponential spectral series, the cumulant generating function of Y_d=-L_d is K_d(s)=sum_{[k]}(s a_k-log(1+s a_k)), a_k=1/(2 pi^2 |k|^2). In d=3, the lattice Riemann sum gives K_3(s)~A s^(3/2), A=1/(3 sqrt(2) pi); the radial integral follows by differentiating J(a), and the Legendre constant 4/(27 A^2)=8 pi^2/3 was independently recomputed. In d=2, Abel summation with N(r)=pi r^2+O(r) gives K_2'(s)~(4 pi)^(-1) log s and K_2''(s)=O(s^-1). Chernoff upper bounds and exponential tilting, with variance negligible at the saddle scale, give matching lower bounds. The monotone inversion to lower quantiles is valid. No finite-sample tail claim is inferred from weak convergence.",
+      "risks": [
+        "The primary arXiv full PDF for the very recent Feng–Mordant paper was not retrievable through the web tool during this run; the abstract was read and the internal derivation was reconstructed from the frozen package."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng–Mordant supplies the exact type of limiting law and motivation.",
+          "Wang–Zhao's abstract gives a broad Carleman–Fredholm determinant and sharp large-parameter growth for second-chaos limits in logarithmic/Riesz settings, but not the submitted flat-torus constants in accessible material.",
+          "Classical positive quadratic-norm small deviations are not directly the centered non-trace-class series with sum a_k diverging and sum a_k^2 converging."
+        ],
+        "reasoning": "No accessible broader theorem was found that already instantiates to both exact constants and quantile asymptotics for these torus laws.",
+        "searches": [
+          "Feng–Mordant arXiv:2609.26597",
+          "Wang–Zhao arXiv:2609.00867",
+          "Lifshits–Nazarov arXiv:1705.00422"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query above",
+        "arXiv:2609.26597",
+        "arXiv:2609.00867",
+        "arXiv:1705.00422"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weak convergence to an explicit law does not imply its extreme-tail constants.",
+          "A general Laplace-growth framework does not, from the accessible statement alone, supply the specific lattice integral constants and matching tilted lower bounds."
+        ],
+        "reasoning": "The submitted theorem requires a separate lattice asymptotic and sharp Legendre/tilting calculation. The inaccessible Wang–Zhao body remains the main overlap risk, but the accessible abstract does not make coverage decisive.",
+        "searches": [
+          "Feng–Mordant weak-limit statement",
+          "Wang–Zhao second-chaos partition-function abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit in the returned top set stated these torus matching tail constants.",
+          "The Feng–Mordant abstract states weak limits/variance but no extreme lower-tail asymptotics."
+        ],
+        "reasoning": "Searches included lower tail, lower quantile, Laplace growth, centered exponential series, second Wiener chaos and flat-torus spectrum formulations.",
+        "searches": [
+          "Resultary: sharp extreme lower tails two three dimensional torus matching limits L2 L3 centered exponential",
+          "Web: quadratic matching flat torus limit lower tail quantile 4 pi 8 pi^2/3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry with these tail constants was located."
+        ],
+        "reasoning": "The constants arise from asymptotic spectral analysis, not finite tabulation.",
+        "searches": [
+          "Resultary exact constants query",
+          "Web exact searches for 4 pi double-exponential and 8 pi^2/3 cubic torus-matching tails"
+        ]
+      },
+      "rationale": "Feng–Mordant identify the limiting laws and variance asymptotics but their accessible primary abstract does not state extreme lower-tail or lower-quantile constants. Wang–Zhao prove a broader second-Wiener-chaos/partition-function framework and sharp large-parameter growth in certain kernel settings, but only their abstract was accessible here; it does not expose the flat-torus constants or show that their hypotheses mechanically yield the submitted probability constants. The full-text public fetches for both recent arXiv papers failed, and the single authorized institutional fallback for Wang–Zhao returned worker unavailable/request invalid; no retry or bypass was attempted. This access limitation is retained as a material residual risk rather than treated as negative evidence.",
+      "residual_risks": [
+        "The inaccessible Wang–Zhao full body may contain a general theorem whose specialization yields some or all of the Laplace constants.",
+        "A sharp Tauberian theorem for centered Hilbert-Schmidt quadratic chaos could subsume the tail calculation under different terminology.",
+        "No finite-sample matching-cost tail approximation is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_LIMIT_LAW; FULL_BODY_INACCESSIBLE_THIS_RUN; NO_TAIL_CONSTANT_IN_ACCESSIBLE_STATEMENT",
+          "evidence": [
+            "The abstract states convergence to explicit non-Gaussian weighted sums of independent centered exponentials in d=2,3."
+          ],
+          "identifier_or_url": "arXiv:2609.26597",
+          "material_read": "Current primary arXiv abstract, including the d=2,3 weak limits and explicit weighted-centered-exponential description; direct PDF fetch was attempted and failed in this run.",
+          "method": "Public arXiv abstract inspection plus failed direct full-PDF retrieval.",
+          "title": "Fluctuations of the quadratic matching cost on the flat torus: dimensions two, three and four",
+          "trigger": "Exact motivating source and same limiting laws."
+        },
+        {
+          "assessment": "PLAUSIBLE_BROADER_SOURCE_WITH_ACCESS_LIMITATION; NOT_DECISIVE_FROM_ACCESSIBLE_STATEMENT",
+          "evidence": [
+            "The abstract states a Carleman–Fredholm determinant for the second-chaos limit and sharp large-parameter growth under stated kernel/density conditions, but gives no flat-torus constants."
+          ],
+          "identifier_or_url": "arXiv:2609.00867",
+          "material_read": "Current primary arXiv abstract; direct public PDF retrieval failed. A single authorized institutional fallback was attempted and returned worker unavailable/request invalid; no retry or bypass was made.",
+          "method": "Public arXiv abstract inspection, direct PDF attempt, then one authorized fallback after public access failed.",
+          "title": "Uniform Partition-Function Estimates for Coulomb Modulated Energy at All Positive Temperatures",
+          "trigger": "Potential broader coverage through sharp large-parameter second-chaos Laplace growth."
+        },
+        {
+          "assessment": "DIFFERENT_POSITIVE_TRACE_CLASS_STYLE_SETTING",
+          "evidence": [
+            "The submitted object is a centered Hilbert-Schmidt but non-trace-class quadratic series."
+          ],
+          "identifier_or_url": "arXiv:1705.00422",
+          "material_read": "Abstract/scope comparison.",
+          "method": "Public arXiv metadata inspection.",
+          "title": "L2-Small Deviations for Weighted Stationary Processes",
+          "trigger": "Classical small-deviation comparison for weighted Gaussian quadratic forms."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact dimension-dependent probability constants.",
+        "Matching lower-quantile asymptotics."
+      ],
+      "rationale": "The extreme-tail constants are natural invariants of newly identified statistical limit laws and reveal a genuine dimension transition: double-exponential behavior in d=2 versus cubic stretched-exponential behavior in d=3. The lower-quantile formulas are useful for understanding rare low matching costs while the theorem carefully avoids unsupported finite-sample extrapolation.",
+      "risks": [
+        "The practical finite-n calibration problem remains open because weak convergence alone is not uniform in the extreme tail."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the explicit two- and three-dimensional flat-torus matching limit laws L_2,L_3, the extreme lower tails satisfy log log(1/P(L_2<=-x))/x -> 4 pi and -log P(L_3<=-x)/x^3 -> 8 pi^2/3, with the stated lower-quantile asymptotics.",
+  "limitations": [
+    "Limiting laws only; no finite-sample extreme-tail approximation.",
+    "Dimensions two and three only."
+  ],
+  "schema_version": 1
+}

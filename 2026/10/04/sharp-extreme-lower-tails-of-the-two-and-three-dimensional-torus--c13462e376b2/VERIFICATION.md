@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The derivation was replayed from the exact spectral representation of the limiting laws.
+# Independent mathematical audit
 
-For dimension three, the radial integral
-\[
-J(a)=\int_0^\infty r^2\left(\frac a{r^2}-\log\left(1+\frac a{r^2}\right)\right)dr
-\]
-was differentiated to obtain \(J'(a)=\pi\sqrt a/2\), hence \(J(1)=\pi/3\). This gives \(K_3(s)\sim s^{3/2}/(3\sqrt2\,\pi)\). Substitution into the Legendre transform gives
-\[
-\frac4{27(1/(3\sqrt2\,\pi))^2}=\frac{8\pi^2}{3}.
-\]
+## correctness
 
-For dimension two, differentiating the cumulant generating function reduces the asymptotic to the lattice sum
-\[
-\sum_{k\ne0}\frac{R^2}{|k|^2(|k|^2+R^2)}\sim2\pi\log R.
-\]
-Together with \(R^2=s/(2\pi^2)\) and the quotient by \(k\sim-k\), this yields \(K_2'(s)\sim(4\pi)^{-1}\log s\).
+PASS
 
-The variance under the tilted law is \(K_d''(s)\), which is \(O(s^{-1})\) in dimension two and \(O(s^{-1/2})\) in dimension three. These bounds are sufficient for the concentration step that matches the Chernoff upper bounds.
+Starting from the centered-exponential spectral series, the cumulant generating function of Y_d=-L_d is K_d(s)=sum_{[k]}(s a_k-log(1+s a_k)), a_k=1/(2 pi^2 |k|^2). In d=3, the lattice Riemann sum gives K_3(s)~A s^(3/2), A=1/(3 sqrt(2) pi); the radial integral follows by differentiating J(a), and the Legendre constant 4/(27 A^2)=8 pi^2/3 was independently recomputed. In d=2, Abel summation with N(r)=pi r^2+O(r) gives K_2'(s)~(4 pi)^(-1) log s and K_2''(s)=O(s^-1). Chernoff upper bounds and exponential tilting, with variance negligible at the saddle scale, give matching lower bounds. The monotone inversion to lower quantiles is valid. No finite-sample tail claim is inferred from weak convergence.
 
-Limits: this verifies asymptotics for the limiting random variables only. It does not verify any uniform finite-sample tail approximation.
+## originality
+
+PASS
+
+Feng–Mordant identify the limiting laws and variance asymptotics but their accessible primary abstract does not state extreme lower-tail or lower-quantile constants. Wang–Zhao prove a broader second-Wiener-chaos/partition-function framework and sharp large-parameter growth in certain kernel settings, but only their abstract was accessible here; it does not expose the flat-torus constants or show that their hypotheses mechanically yield the submitted probability constants. The full-text public fetches for both recent arXiv papers failed, and the single authorized institutional fallback for Wang–Zhao returned worker unavailable/request invalid; no retry or bypass was attempted. This access limitation is retained as a material residual risk rather than treated as negative evidence.
+
+## value
+
+PASS
+
+The extreme-tail constants are natural invariants of newly identified statistical limit laws and reveal a genuine dimension transition: double-exponential behavior in d=2 versus cubic stretched-exponential behavior in d=3. The lower-quantile formulas are useful for understanding rare low matching costs while the theorem carefully avoids unsupported finite-sample extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
