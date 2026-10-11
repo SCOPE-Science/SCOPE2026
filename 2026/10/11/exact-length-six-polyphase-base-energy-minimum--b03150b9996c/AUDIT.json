@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "After endpoint-phase normalization, exact expansion gives E=5+4F. Four corner values of F are explicit sums of two squares after tangent half-angle substitution. Their certificate vectors satisfy z1·z4-z2·z3=-4DB; Cauchy--Schwarz yields sqrt(p1p4)+sqrt(p2p3)>=2|B|, and a half-angle AM-GM decomposition then gives F>=0 globally. Continuity covers tangent poles. The sixth-root witness has all five sidelobes of modulus one, so the bound is sharp.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golomb--Scholtz treats the Barker max-sidelobe condition over finite alphabets and supplies a length-six witness.",
+        "Borwein--Ferguson treats arbitrary polyphase coefficients but reports local/stochastic minima and statistical evidence for global values."
+      ],
+      "reasoning": "Neither a finite-alphabet max-sidelobe classification nor a statistically supported polyphase table implies an exact lower bound for the continuous-phase sum of squared sidelobes.",
+      "searches": [
+        "length 6 unimodular polynomial minimum L4 norm base energy autocorrelation energy continuous phase",
+        "generalized Barker sequence length six merit factor base energy global minimum",
+        "six term unimodular polynomial fourth norm exact minimum"
+      ]
+    },
+    "checked_sources": [
+      "NTRS:19650013726",
+      "NTRS:19650022866",
+      "DOI:10.1109/TIT.2004.842778",
+      "CECM:P213",
+      "own ledger through p0001_g000031",
+      "database result 2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c",
+      "database result 2026/10/4/SCOPE-exact-finite-grid-phase-minimum-for-the-consecutive-unimodular-t--49933ee8abec"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior length-six item proves only strict local minimality and the transverse Hessian spectrum at one Barker orbit.",
+        "The prior exact global fourth-norm minimum concerns length five, not length six.",
+        "The prior variance result concerns random coefficients and does not give a deterministic minimum."
+      ],
+      "reasoning": "Local curvature, a different length, and an average-case variance statement do not imply the present global deterministic length-six bound.",
+      "searches": [
+        "own-ledger: item a06a57ad-7679-4a2e-8a02-fe7ee1bb9885",
+        "own-ledger: item afb1037d-2af7-4b29-903b-d21b66bc5ba1",
+        "own-ledger: item 2ac4e1c3-27c6-4c31-a41e-d747c6087b52"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No implication-equivalent result appeared among the returned mathematical findings; nearest hits concerned four-point supports, finite-grid trinomials, or unrelated six-object problems.",
+        "Borwein--Mossinghoff gives the standard identity ||P||_4^4=n^2+2E, so the base-energy, fourth-norm, and merit-factor phrasings were all explicitly compared."
+      ],
+      "reasoning": "The aliases are mathematically equivalent for unimodular length six, so absence of a covering statement across all of them is materially stronger than a title-only comparison.",
+      "searches": [
+        "length six polyphase exact base energy 5 global minimum proof",
+        "degree five unimodular polynomial exact minimum fourth norm 46",
+        "length 6 unimodular polynomial merit factor 18/5 integrated sidelobe level 5",
+        "six term polyphase Barker global minimum autocorrelation energy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Borwein--Ferguson Figure 1 lists n=6 with E=5.000 and l_infinity=1.000; the surrounding text describes statistical analysis and candidates for ground states.",
+        "Golomb--Scholtz displays (1,1,zeta,-1,1,-zeta) and its unit-modulus correlation values."
+      ],
+      "reasoning": "The numerical table agrees with the theorem but is not a proof of global optimality; the Barker table provides attainment but not the total-energy lower bound.",
+      "searches": [
+        "Borwein Ferguson polyphase sequences low autocorrelation Figure 1 length 6 base energy",
+        "Golomb Scholtz generalized Barker sequences length 6 sixth roots"
+      ]
+    },
+    "rationale": "The closest classical sources provide either a sharpness witness or numerical/statistical evidence for the same value, but not the unrestricted continuous-phase global lower bound. Direct statement/implication comparisons and multiple alias searches found no stronger covering theorem.",
+    "residual_risks": [
+      "Older radar/polyphase sequence literature may contain the same exact length-six lower bound under different integrated-sidelobe or sequence-design terminology. No such implication-equivalent theorem was found in the checked primary texts or alias searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source exhibits the sixth-root Barker sequence and finite-alphabet Barker facts. It does not optimize total squared sidelobe energy over arbitrary continuous phases.",
+        "identifier_or_url": "NTRS:19650013726 / NTRS:19650022866",
+        "material_read": "Public NTRS metadata and the full-text pages containing the k=6 discussion, witness, correlation values, and uniqueness statement within Barker-preserving transformations",
+        "method": "Primary full-text inspection",
+        "title": "Generalized Barker Sequences",
+        "trigger": "Classical length-six generalized-Barker witness and possible covering finite-alphabet result"
+      },
+      {
+        "assessment": "CLOSEST_NUMERICAL_NOT_COVERING",
+        "evidence": "Figure 1 gives n=6, E=5.000, while the paper characterizes its global-optimum status via stochastic repetition and statistical evidence rather than an analytic theorem.",
+        "identifier_or_url": "DOI:10.1109/TIT.2004.842778",
+        "material_read": "Abstract/introduction, Figure 1 containing the length-six row, statistical-analysis section, and comments",
+        "method": "Primary full-text inspection of the lawful author-hosted PDF",
+        "title": "Polyphase sequences with low autocorrelation",
+        "trigger": "Exact numerical value 5.000 at length six and arbitrary polyphase coefficients"
+      },
+      {
+        "assessment": "FRAMEWORK_NOT_COVERING",
+        "evidence": "The identity supplies an equivalent formulation but no unrestricted length-six polyphase minimization theorem.",
+        "identifier_or_url": "CECM:P213",
+        "material_read": "Opening page with primary MSC 42A05 and the page stating the Parseval identity ||f||_4^4=n^2+2 sum |c_k|^2",
+        "method": "Primary full-text inspection",
+        "title": "Barker sequences and flat polynomials",
+        "trigger": "Standard equivalence between fourth norm, autocorrelation energy, and merit factor; MSC ownership"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b03150b9-996c-4ab9-b5e4-ac0769084110",
+  "value": {
+    "rationale": "The integrated sidelobe/base-energy minimum is a canonical exact invariant for phase-coded sequences, equivalent to a sharp fourth-norm and merit-factor statement. Length six has a classical generalized-Barker witness and a long-standing numerical table value; an analytic global certificate over all continuous phases resolves the exact status of that value.",
+    "status": "PASS"
+  }
+}
