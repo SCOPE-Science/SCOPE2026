@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3 and each single conjugacy class of B_n, Schur orthogonality is normalized by a sqrt(n) linear isometry. Under conjugation, End(C^n) decomposes multiplicity-free into 1, n-1, n(n-1)/2, n(n-1)/2 sectors. Projection energies of an orbit representative are s^2/n, f-s^2/n, (n-f)/2+tau, (n-f)/2-tau, derived from actual signed entries and two-cycle products and summing exactly to n. Orbit averaging gives all displayed eigenvalues with multiplicities. The trace n^2|C|/|B_n| forces scalar tightness value w; solving sector equations proves f=1,tau=0 exactly. Positive sectors yield injectivity criterion. The extracted standard-library checker computes complete integer orbit operators on all n^2 matrix directions for all 66 classes in n=3,4,5, including all boundaries. Finite checks corroborate rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general Schur-orbit identity in finite-group frame theory implies a scalar on each irreducible conjugation sector but does not itself evaluate those scalars from signed cycle types.",
+        "A. Ram, The Hyperoctahedral Group, describes irreducible modules via bipartitions; the inspected representation classification does not analyze Fourier sampling on a conjugacy class.",
+        "The result for natural permutation representations of S_n in Cherniavsky--Sklarz arXiv:math/0411554 concerns similarity of representations and fixed points, not type-B class Fourier sampling."
+      ],
+      "reasoning": "General group averaging is an acknowledged premise, not novelty. To imply the complete claim one must also identify the four B_n matrix sectors, evaluate the specific signed 2-cycle transpose correlation, and solve the all-class injective/tight inequalities. The sources materially inspected provide tools or different theorems, not a statement subsuming those conclusions.",
+      "searches": [
+        "Scientific semantic-index query: Diagonally signed permutations tensor-square decomposition four sectors class orbit Gram eigenvalues",
+        "Scientific semantic-index query: Reflection representation signed permutation group orbit of conjugation B_n class frame positive and negative signed 2 cycles rank injective",
+        "Web: \"hyperoctahedral\" \"tensor square\" \"reflection representation\" 4 irreducible",
+        "Web: \"hyperoctahedral\" \"symmetric square\" \"exterior square\" irreducible"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0411554; Theorems 2.2, 3.8, 4.5",
+      "arxiv:1509.05087; introduction, group frames and generalized-dihedral examples",
+      "arxiv:1509.05739; group Fourier frame construction and conjugacy discussion",
+      "https://math.soimeme.org/~arunram/Notes/hyperoctahedral.html; B_n irreducible modules",
+      "Published study: Full-space conjugate phase retrieval from difference-plus-mean permutation orbits (different group orbit phase retrieval)",
+      "Published study: Kronecker-square fingerprints separate S_6-S_8 irreducibles up to sign (different finite-dimensional representation problem)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cherniavsky--Sklarz arXiv:math/0411554 Theorems 2.2, 3.8, 4.5 establish statements about S_n conjugacy, similarity, and permutation-matrix fixed point actions, without class-selected B_n Fourier eigenvalues.",
+        "Thill--Hassibi arXiv:1509.05739 constructs group Fourier frames for selected representations and treats their coherence; the signed class restriction operator and its tightness condition are not the article claim.",
+        "A previously published result titled Kronecker-square fingerprints separate symmetric-group representations up to sign treats ordinary symmetric-group irreducibles in small ranks, not all-rank signed permutation class sampling."
+      ],
+      "reasoning": "Neither the unsigned S_n statements nor generic group-frame existence theorems directly assert or specialize to the signed 2-cycle split and one-fixed-point balance criterion. The signed normal subgroup creates distinct matrix sectors and class geometry absent from an unsigned implication. Historical equivalence in another formalism remains possible.",
+      "searches": [
+        "Scientific semantic-index query: Exact spectrum Fourier concentration natural representation of signed permutation group sampled on conjugacy classes",
+        "Scientific semantic-index query: Hyperoctahedral signed permutation group B_n reflection representation conjugacy class sampling four eigenvalues fixed signed cycles two-cycles Fourier",
+        "Web: arxiv 2004 conjugacy in permutation representations symmetric group Cherniavsky Sklarz pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Thill--Hassibi arXiv:1509.05087 treats group frames and tightness for cyclic/generalized-dihedral constructions, rather than class restriction of the B_n reflection coefficient block.",
+        "Thill--Hassibi arXiv:1509.05739 discusses conjugacy classes for inner-product multiplicities (Section V, around equation (26)), not this exact four-sector sample Gram operator.",
+        "A previously published result titled Full-space conjugate phase retrieval from difference-plus-mean permutation orbits concerns a different sampling operator."
+      ],
+      "reasoning": "The exact expression involves positive/negative signed one-cycles and positive/negative signed two-cycles; a title or group-frame method match alone is not the same claim. Checked equivalents include class-orbit frames, Gram spectra, noncommutative Fourier restriction, and signed-cycle type, without finding an evaluated matching formula.",
+      "searches": [
+        "Scientific semantic-index query: Exact eigenvalues multiplicities of concentration P_H 1_C P_H on signed permutation group B_n reflection Fourier block for each conjugacy class, dependence on signed one and two cycles",
+        "Scientific semantic-index query: Sharp tight frame conjugacy class of hyperoctahedral group signed permutations with exactly one fixed point and balanced two cycles",
+        "Web: \"signed permutation matrices\" \"tight frame\" conjugacy",
+        "Web: \"hyperoctahedral group\" \"conjugacy class\" \"frame\" spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A direct exact enumeration of signed conjugacy classes for n=3,4,5 yields 10,20,36 classes and the asserted full matrix operator spectrum in all 66; these are new computations, not a cited pre-existing table.",
+        "The arXiv:1509.05739 discussion of conjugacy labels groups via characters but gives no all-rank table of these class concentration eigenvalues."
+      ],
+      "reasoning": "An exhaustive finite-rank table is not an all-rank formula; no examined database or published table provided the function of f,s,tau or the all-rank tightness locus. This assessment does not prove that no such table exists.",
+      "searches": [
+        "Scientific semantic-index query: Conjugacy class type B Fourier sampling tight if one signed 1-cycle and tplus equals tminus",
+        "Scientific semantic-index query: Complete injective sampling criterion for reflection Fourier block on signed permutation conjugacy classes",
+        "Web: hyperoctahedral group conjugacy class signed permutation matrix conjugation four subrepresentations diagonal symmetric antisymmetric"
+      ]
+    },
+    "rationale": "The assessed claim is an all-rank, four-sector concentration spectrum for each single conjugacy class in B_n, with exact sign-sensitive two-cycle splitting, full-rank criterion, and an infinite exactly tight classification. The inspected general group-frame results give broad methods but not these signed-cycle identities or their exact parameter characterization; the inspected S_n conjugacy paper addresses similarity and characters, not B_n Fourier restriction. Searches for conjugacy-class orbit spectra and balanced signed two-cycles returned no directly covering statement. This is a qualified assessment rather than global priority certification.",
+    "residual_risks": [
+      "A general conjugacy-orbit frame theorem or type-B association-scheme formula could contain the result in an implicit alternative basis; search of available papers and semantic records cannot rule this out.",
+      "The representation-theoretic averaging is classical. The originality/value claim is restricted to the evaluated signed-cycle spectral parameters, the all-class injectivity boundary, and the exact tightness classification.",
+      "Only three ranks are computed exhaustively; the all-rank conclusions rely on the self-contained analytic proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No direct class-concentration spectrum: the operators and finite group differ.",
+        "evidence": "Theorem 2.2 proves S_n conjugacy classes do not merge under the natural permutation matrices; Theorem 4.5 counts matrices centralized by permutations under S_n x S_n actions.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0411554",
+        "material_read": "Full paper searched; Theorem 2.2 and its proof, Theorems 3.8 and 4.5 and the Section 4 action compared in text and PDF page image.",
+        "method": "Lawful open-access arXiv PDF, text search and page-image examination.",
+        "title": "Conjugacy in Permutation Representations of the Symmetric Group",
+        "trigger": "Plausible earlier conjugacy-class work on matrix representations and fixed-point counts."
+      },
+      {
+        "assessment": "Provides framework but not signed-permutation class sampling or exact four-sector criterion.",
+        "evidence": "The article constructs and bounds low-coherence frames from cyclic and generalized-dihedral unitary group actions, not the class restriction operator on B_n coefficient matrices.",
+        "identifier_or_url": "https://arxiv.org/pdf/1509.05087",
+        "material_read": "Abstract, introductory group-frame lemmas, cyclic harmonic frames and generalized-dihedral construction sections, including PDF page 3.",
+        "method": "Lawful open-access arXiv PDF, section and page-image inspection.",
+        "title": "Group Frames with Few Distinct Inner Products and Low Coherence",
+        "trigger": "Frame tightness, group-generated finite frames, generalized dihedral analogues."
+      },
+      {
+        "assessment": "General Fourier-frame approach and inner-product conjugacy invariance, no B_n class spectral calculation.",
+        "evidence": "In Section V the character is constant on conjugacy classes to control possible frame inner products, rather than determining P_H 1_C P_H and its eigenvalues for each C.",
+        "identifier_or_url": "https://arxiv.org/pdf/1509.05739",
+        "material_read": "Introduction and Sections II-III on group Fourier frames; full-text search and inspection of Section V around character conjugacy equation (26); later Section VII example.",
+        "method": "Lawful open-access arXiv PDF, text section search and page-image review.",
+        "title": "Low-Coherence Frames from Group Fourier Matrices",
+        "trigger": "Most relevant finite-group Fourier frame general machinery; includes conjugacy discussion."
+      },
+      {
+        "assessment": "Supports classical representation setting, not a result on the class sampling operator.",
+        "evidence": "Irreducible B_n representations indexed by bipartitions are presented; no reflection-block sampling or class Fourier concentration theorem is given in the inspected material.",
+        "identifier_or_url": "https://math.soimeme.org/~arunram/Notes/hyperoctahedral.html",
+        "material_read": "Group structure and bipartition-indexed irreducible representation classification, especially the displayed module theorem.",
+        "method": "Open web mathematical notes, substantive text inspection.",
+        "title": "The Hyperoctahedral Group",
+        "trigger": "Classical B_n representation classification and signed-permutation realizations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a4185244-2f2b-4186-a0df-497b2b50047b",
+  "value": {
+    "rationale": "Exact Fourier recovery and condition numbers from conjugacy classes are natural finite nonabelian harmonic invariants. The theorem exhausts all signed cycle types in every n>=3, produces a necessary-and-sufficient class recovery condition, and classifies infinitely many exactly tight, single-class sampling frames starting at rank 4. The sign of 2-cycles separates symmetric and alternating matrix sectors, a structural effect not described by unsigned fixed-point counts. It is a motivated complete classification, not an arbitrary slice, small table extension, or mere parameter substitution.",
+    "status": "PASS"
+  }
+}
