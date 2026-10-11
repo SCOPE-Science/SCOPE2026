@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The primary source proves that \(M_3\) is built from the unique homogeneous strongly dense \(2\)-regular ordered \(C\)-set, that \(\operatorname{Aut}(M_3)=\operatorname{Aut}(M,C,\le)\), and that \(M_3\) is set-homogeneous. Its semilinear representation turns a finite subset into a plane full binary hierarchy. For a root split with \(i\) left leaves and \(j\) right leaves, precisely the cross triples with one left and two right leaves satisfy the source's edge rule, producing the shift \(i\binom j2\). This gives the recurrence. Palindromy follows by reflection/order reversal, and the edge-spectrum induction is elementary once the \(n=6\) base is established. The bundled checker independently validates the tree statistic, recurrence, finite isomorphism counts, and spectrum in a nontrivial range.
+PASS
 
-## Originality
+Assari--Hosseinzadeh--Macpherson's full primary text defines \(M_3\) from the strongly dense ordered binary \(C\)-set, proves \(\operatorname{Aut}(M_3)=\operatorname{Aut}(M,C,<)\), and in the set-homogeneity proof identifies the unique left/right root-cone decomposition. A finite type is therefore a plane full binary tree. For a root split with \(i\) leaves left and \(j=n-i\) right, every cross triple with one left and two right leaves is an edge and the other cross orientation is not, contributing exactly \(i\binom j2\); this gives the recurrence. Root reflection complements every triple, giving palindromy. The support induction is valid after the explicit five- and six-leaf base cases because the intervals contributed by the \((n-1,1)\) and \((1,n-1)\) splits overlap. An independent reconstruction of the recurrence through \(n=10\) produced Catalan totals, the stated five-leaf gap, complete support from \(n=6\), and palindromy in every checked degree.
 
-PASS. The source was inspected at its \(C\)-set preliminaries, construction of \(M_3\), automorphism-group equality, four-vertex configurations, and order-reversal/complement discussion. It does not state the edge-refined age polynomial or the all-\(n\) spectrum. published-finding corpus and web searches using \(M_3\), set-homogeneous hypergraph, \(\partial PT_3\), ordered \(C\)-set, Catalan age/profile, edge enumerator, edge-count spectrum, and rooted-triple aliases did not locate an equivalent result. The unrefined Catalan profile is treated cautiously because older oligomorphic-group literature may already encode it; the retained originality claim is the hypergraph edge refinement and the five-vertex-gap/gap-free-spectrum theorem.
+## originality
 
-## Value
+PASS
 
-PASS. The result converts a qualitative set-homogeneous example into an exact finite-age enumerator. It explains the source's five four-vertex configurations, gives a recursive polynomial for every order, identifies self-complementarity as coefficient palindromy, and proves a sharp realization theorem for every possible edge count from six vertices onward.
+The primary \(M_3\) paper gives the construction, its automorphism group, and the recursive root-cone analysis but does not enumerate finite induced types by edge count or state a gap-free edge spectrum. Cameron's older treelike-object work is a source for the underlying ordered \(C\)-set, not an edge-refined hypergraph enumerator. No Resultary or literature search located the polynomial recurrence, palindromicity, or all-\(n\) spectrum theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The polynomial is a natural refined age invariant of the canonical exceptional set-homogeneous hypergraph, and the exact gap-free support theorem records every possible induced edge count, not merely the number of tree types. The refinement is structural and reusable for finite-substructure statistics and oligomorphic profile questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
