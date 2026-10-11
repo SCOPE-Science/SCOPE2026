@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:54:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=x+y+z, alpha+beta=2 gives the exact logistic identity Ndot=N(1-N). Compact support inside the positive octant makes log N and one-coordinate logarithmic antiderivative tests legitimate. Invariance of log N and N yields E[N]=E[N^2]=1, hence N=1 almost surely. Testing H'(x)=phi(x)/x gives E[alpha y+beta z|x]=1-x; together with y+z=1-x and alpha!=1 this forces E[y|x]=E[z|x]=(1-x)/2, cyclically. The global means are 1/3. On the simplex the per-capita speeds reduce pointwise to (alpha-1) times pairwise differences, and the identity sum_{pairs}(x-y)^2=3 sum x^2-(x+y+z)^2 gives exactly the displayed factor 3 multiplying the sum of variances.",
+      "risks": [
+        "Compact positive support is essential for the logarithmic tests; boundary heteroclinic measures are outside scope."
+      ],
+      "sources": [
+        "RESULT.md blob d8ce8d75a14bb289548cdea4fa088bcb00ac7a6c",
+        "verify.py blob ab4261c6430e3e9816935c6449064968fecfd528"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior works cover mean values, integrability/global dynamics, and the neutral periodic plane, not conditional means on every abundance fiber."
+        ],
+        "reasoning": "Global average and orbit-structure results do not imply the conditional barycentric regression.",
+        "searches": [
+          "DOI:10.1016/S1468-1218(02)00021-4",
+          "DOI:10.1016/j.nonrwa.2012.06.004",
+          "modern May-Leonard deterministic/stochastic treatment inspected earlier in this run"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/S1468-1218(02)00021-4",
+        "DOI:10.1016/j.nonrwa.2012.06.004",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing x+y+z=1 and E[x]=E[y]=E[z]=1/3 does not determine E[y|x] or E[z|x]. The generator test adds genuinely stronger information."
+        ],
+        "reasoning": "The final claim is not a corollary of the known global means alone.",
+        "searches": [
+          "Direct implication comparison against global mean and neutral-simplex literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Searches surfaced Redheffer mean-values work, periodic/global dynamics papers, and unrelated stationary-moment records, but no fiberwise conditional law."
+        ],
+        "reasoning": "Equivalent formulations E[y-z|x]=0 and orthogonality of per-capita growth to arbitrary functions of x were included conceptually in the comparison.",
+        "searches": [
+          "web: May Leonard conditional expectation alpha beta 2",
+          "web: May-Leonard invariant measure conditional mean periodic orbit",
+          "Resultary: May Leonard alpha plus beta 2 invariant measure conditional expectation fiberwise competitors stationary variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact May–Leonard fiberwise conditional-mean or fluctuation-identity finding was returned."
+        ],
+        "reasoning": "No exact database/table coverage was found.",
+        "searches": [
+          "Resultary semantic query above"
+        ]
+      },
+      "rationale": "PASS. The classical neutral simplex/periodic regime and global mean-value literature are explicitly excluded from novelty. Fresh searches of May–Leonard conditional-expectation, invariant-measure, and alpha+beta=2 terminology did not locate the fiberwise barycentric identity. Redheffer concerns mean values/partial survival in a nonautonomous model; modern May–Leonard work concerns periodic or global dynamics. Resultary likewise returned no same-object conditional-law record. The final claim is distribution-level: an infinite family of conditional test-function identities on every own-species fiber plus the exact stationary fluctuation consequence.",
+      "residual_risks": [
+        "An incidental equivalent conditional-moment observation could exist in older ecological-dynamics literature under different terminology.",
+        "No novelty is claimed for the invariant simplex, periodic regime, or global mean 1/3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the deterministic invariant-measure fiberwise law in the material read.",
+          "evidence": "The abstract is about nonautonomous mean values/partial survival rather than conditional stationary regressions.",
+          "identifier_or_url": "DOI:10.1016/S1468-1218(02)00021-4",
+          "material_read": "Primary/metadata abstract describing mean values and partial survival for nonautonomous May–Leonard equations.",
+          "method": "Statement-level comparison.",
+          "title": "Mean values and the nonautonomous May–Leonard equations",
+          "trigger": "Potentially closest prior by terminology."
+        },
+        {
+          "assessment": "No covering conditional-moment theorem located; retained as a residual literature risk.",
+          "evidence": "The work is explicitly about integrability and global dynamics.",
+          "identifier_or_url": "DOI:10.1016/j.nonrwa.2012.06.004",
+          "material_read": "Accessible bibliographic/abstract scope and open-source route identified; compared at theorem-topic level.",
+          "method": "Scope/implication comparison.",
+          "title": "Integrability and global dynamics of the May–Leonard model",
+          "trigger": "Potential broader exact-structure source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The neutral May–Leonard system is canonical, and the distinction between global averages and abundance-conditioned competition is mathematically meaningful. The exact fiberwise barycentric law gives a stationary diagnostic that global means do not provide and yields a clean fluctuation-energy identity with no simulation or census dependence.",
+      "risks": [
+        "Restricted to compact positive invariant measures on the neutral parameter surface."
+      ],
+      "sources": [
+        "RESULT.md invariant-measure theorem",
+        "classical May–Leonard mean/global-dynamics literature as baseline"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Boundary-supported invariant measures are excluded.",
+    "The theorem is specific to alpha+beta=2 and alpha!=1."
+  ],
+  "schema_version": 1
+}
