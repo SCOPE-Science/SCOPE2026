@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For each proposed p=1,...,11, period-p equations are exactly the union across all \\(2^p\\) sign vectors of rational affine linear systems with closed sign inequalities. Exact Fraction row reduction and exact Fourier-Motzkin elimination, whose projection rule is elementary and lossless, decide every real feasibility cell including boundaries. All feasible nonsingular points at 5 and 11 are rational and deduplicated by actual cyclic state equality, while a direct six-cycle witness supplies p=6. Direct nonzero-branch Jacobian products give return traces 1,3,-5,+5 and determinant one. Full finite checker and actual output are attached; no extrapolation beyond 11.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original Devaney 1984 paper introducing the exact map is identified by DOI 10.1016/0167-2789(84)90187-8, but complete text could not be obtained.",
+        "Cima et al. (2025) study \\(F_{a,b}(x,y)=(|x|-y+a,x-|y|+b)\\), not this exact map; their second component is not x globally, and their introduction emphasizes dissipation, whereas gingerbreadman has branch Jacobian determinant 1.",
+        "Lagarias–Rains (2005/2006) investigate homogeneous, parameterized piecewise-linear plane maps, not the affine gingerbreadman intercept and its exact short-period count."
+      ],
+      "reasoning": "No inspected broader theorem is shown to imply the specific counts and trace classes. The founding same-object paper is an explicitly unresolved full-text comparison, not silently declared non-covering; its possible stronger coverage remains a risk.",
+      "searches": [
+        "gingerbreadman map exact period 5 6 7 8 9 10 11 orbit classification periodic points Devaney",
+        "Lozi gingerbreadman piecewise-affine map 5-cycle multiple primitive cycles",
+        "\"A piecewise linear model for the zones of instability\" arxiv pdf download",
+        "\"Invariant Graphs and Dynamics of a Family of Continuous Piecewise Linear Planar Maps\" Devaney"
+      ]
+    },
+    "checked_sources": [
+      "Abu-Saris and Al-Jubouri, On the Periodicity of Lozi’s Equation, Commun. Appl. Anal. 13 (2009), 47–56",
+      "MathWorld, Gingerbreadman Map, https://mathworld.wolfram.com/GingerbreadmanMap.html",
+      "Rocchini, Gingerbreadman map public visualization, 2006-12-20, https://commons.wikimedia.org/wiki/File:Gingerbreadman_map.png",
+      "Cima, Gasull, Mañosa, and Mañosas, Invariant Graphs and Dynamics of a Family of Continuous Piecewise Linear Planar Maps, DOI:10.1007/s12346-025-01221-1",
+      "Robert L. Devaney, A Piecewise Linear Model for the Zones of Instability, DOI:10.1016/0167-2789(84)90187-8 (bibliographic evidence; full text unavailable)",
+      "Lagarias and Rains, Dynamics of a family of piecewise-linear area-preserving plane maps I (2005/2006), arXiv:math/0303007 (published definitions/abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abu-Saris–Al-Jubouri Theorem 2.2 (2009), equations (2.1)–(2.3), characterizes periodicity of solutions already satisfying the recurrence via finite sums; the authors explicitly focus further on periods 2 and 3 and universal global periodicity in Sections 2–3.",
+        "MathWorld discusses the outer five-hexagon region and one outer period-five orbit; neither a global no-other-five proof nor a period-eleven census is displayed.",
+        "The checker obtains only fixed points at nominal periods 2,3,4,7,8,9 and only fixed/five-points at nominal period 10; at periods 5 and 11 it yields exactly 2 prime orbits each."
+      ],
+      "reasoning": "The conclusion does not follow just by selecting \\(\\alpha=1\\) in the published general equations: it requires solving every one of 4094 nontrivial binary sign cases across lengths up to 11, including 112 inconsistent-in-sign singular length-nine systems. Earlier formulas can serve as a starting lemma, but no exact published count or implication was located.",
+      "searches": [
+        "gingerbreadman F(x,y)=(1-y+|x|,x) complete primitive periods up to 11; two length five and two length eleven orbits",
+        "piecewise linear Lozi \\(\\alpha=1\\) beta=-1 gamma=1 gingerbreadman exact cycles hyperbolic period eleven spectrum",
+        "Devaney 1984 gingerbread map distinct period-five cycles one elliptic one hyperbolic",
+        "https://www.acadsol.eu/en/articles/13/1/6.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2009 paper, pp. 47–48, explicitly gives \\(y_{n+1}=\\alpha|y_n|+\\beta y_{n-1}+\\gamma\\) and identifies \\((\\alpha,\\beta,\\gamma)=(1,-1,1)\\) with the gingerbreadman map. Its Theorem 2.2, pp. 49–50, supplies sum identities for periodicity, while Lemmas 2.3–2.4, pp. 50–52, identify parameter-dependent periods two and three.",
+        "The exact first-coordinate form is \\(x_{k+1}+x_{k-1}=1+|x_k|\\), with an invertible state map \\(F(x,y)=(1-y+|x|,x)\\)."
+      ],
+      "reasoning": "The general Lozi periodicity identities are necessary-and-sufficient tests for a GIVEN orbit but do not count all real prime-five or prime-eleven orbits or eliminate prime-seven through prime-ten on the gingerbreadman slice. The present finite rational itinerary argument supplies that missing global comparison.",
+      "searches": [
+        "piecewise linear Lozi \\(\\alpha=1\\) beta=-1 gamma=1 gingerbreadman exact cycles hyperbolic period eleven spectrum",
+        "gingerbreadman F(x,y)=(1-y+|x|,x) complete primitive periods up to 11; two length five and two length eleven orbits",
+        "\"gingerbreadman\" \"period 11\" \"period 5\"",
+        "https://www.acadsol.eu/en/articles/13/1/6.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld explicitly prints only one outer five-cycle with planar points (-1,3),(-1,-1),(3,-1),(5,3),(3,5); it provides no exhaustive zero-to-eleven period table and no eleven-cycle trace matrix.",
+        "A public gingerbreadman period-colored image appeared 2006-12-20 (Wikimedia Commons File:Gingerbreadman_map.png), but no corresponding exact primitive-eleven orbit table is given.",
+        "The full 2009 paper treats all-parameter tests and exact period-two/three solutions, but not a published 5/11 census."
+      ],
+      "reasoning": "The printed five-cycle is cyclically (-1,3,5,3,-1), distinct from (-1,1,3,3,1); the latter is hyperbolic, not just a differently ordered copy. The listed comparison artifacts neither enumerate the two length-eleven orbits nor exclude lengths seven through ten by exact real feasibility.",
+      "searches": [
+        "piecewise linear area preserving map x_next = 1 - y + abs(x), y_next=x, period eleven two orbits trace plus minus five",
+        "gingerbread man map prime period 11 no 7 8 9 10, short-period gap",
+        "\"gingerbreadman map\" \"11\" \"5\" \"periodic\" orbit",
+        "https://mathworld.wolfram.com/GingerbreadmanMap.html"
+      ]
+    },
+    "rationale": "A directly comparable 2009 full-text study gives the general recurrence and periods two/three, without the exact global short-period orbit census. The named MathWorld source prints one outer period-five cycle, while the exact global calculation finds two (one with hyperbolic trace 3); two hyperbolic eleven-cycles and the prime-length gap 7–10 are not provided there. A closely related 2025 full paper treats a different dissipative map. The inaccessible founding 1984 text and unindexed older descriptions impose a genuine residual risk, not a proof of global novelty.",
+    "residual_risks": [
+      "Devaney 1984 founding same-map paper could have statements implying the short-period census; complete text was inaccessible despite lawful full-text searches.",
+      "The MathWorld phrase unique period-five orbit may be intended only for interiors of five peripheral hexagons; the present claim is global and includes branch-boundary points.",
+      "Search cannot exclude unindexed or differently titled reports of the exact period-eleven classes; independent literature review remains needed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related and directly comparable, but does not present a complete prime-five/eleven orbit census or the period-seven-to-ten exclusions.",
+        "evidence": [
+          "Page 47 identifies \\(\\alpha=1\\),beta=-1,gamma=1 as gingerbreadman; Theorem 2.2 pp.49–50 gives sum constraints; Lemma 2.3/2.4 pp.50–52 cover minimal periods 2,3; Theorem 3.2 pp.53–54 addresses all-solutions periodicity."
+        ],
+        "identifier_or_url": "https://www.acadsol.eu/en/articles/13/1/6.pdf",
+        "material_read": "Full nine-page primary PDF: abstract, Sections 1–3, periodicity theorem, cases two and three, and references, pp. 47–55; source contains 9 PDF pages.",
+        "method": "Text extraction with visual inspection of cover page and theorem page.",
+        "title": "Abu-Saris and Al-Jubouri, On the Periodicity of Lozi’s Equation, Commun. Appl. Anal. 13 (2009), 47–56",
+        "trigger": "Exact general Lozi equation contains the gingerbreadman specialization."
+      },
+      {
+        "assessment": "Potential exact-object coverage unresolved; no whole-document noncoverage assertion is made.",
+        "evidence": [
+          "DOI 10.1016/0167-2789(84)90187-8; Physica D 10 (1984), 387–393; cited in inspected 2009 and 2025 articles."
+        ],
+        "identifier_or_url": "doi:10.1016/0167-2789(84)90187-8",
+        "material_read": "Bibliographic record, abstracts and references identifying the map; complete original article unavailable.",
+        "method": "Search for arXiv and lawful open-access copies, with an additional lawful full-text access attempt; complete text not returned.",
+        "title": "Robert L. Devaney, A Piecewise Linear Model for the Zones of Instability of an Area Preserving Map (1984)",
+        "trigger": "Founding exact-object study; possible stronger periodicity classification."
+      },
+      {
+        "assessment": "Lists one outer five-cycle; leaves the distinct hyperbolic global five-cycle and eleven-cycle exact counts unaddressed. Possible limited-region interpretation of its uniqueness wording.",
+        "evidence": [
+          "Lists (-1,3),(-1,-1),(3,-1),(5,3),(3,5) and states the interior hexagon has period six except (1,1)."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/GingerbreadmanMap.html",
+        "material_read": "Complete public web text defining F and the hexagon/five-cycle description.",
+        "method": "Read rendered HTML public page and exact coordinate list.",
+        "title": "MathWorld, Gingerbreadman Map, https://mathworld.wolfram.com/GingerbreadmanMap.html",
+        "trigger": "Widely used explicit five-cycle and hexagonal period-six account."
+      },
+      {
+        "assessment": "Different dissipative family with second abs(y) nonlinearity, no implication for this exact area-preserving gingerbreadman finite period census.",
+        "evidence": [
+          "Equation (1): \\(F_{a,b}(x,y)=(|x|-y+a,x-|y|+b)\\), and Introduction describes strongly dissipative as opposed to earlier conservative maps."
+        ],
+        "identifier_or_url": "doi:10.1007/s12346-025-01221-1",
+        "material_read": "Full rendered HTML available; inspected introduction, map definition, main-results exposition and references.",
+        "method": "Read online open-access article main text and cited-map definitions.",
+        "title": "Cima, Gasull, Mañosa, and Mañosas, Invariant Graphs and Dynamics of a Family of Continuous Piecewise Linear Planar Maps, DOI:10.1007/s12346-025-01221-1",
+        "trigger": "Recent extensive primary analysis of piecewise-linear planar map with Devaney references."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "512812eb-6d6f-41d2-a8ff-f7cccf0f12b8",
+  "value": {
+    "rationale": "The exact period cutoff 11 detects the first additional primitive period beyond the familiar 5/6 resonance zones, with sharp nonexistence for 7–10. Distinguishing the globally second period-five orbit from the well-documented outer five-cycle identifies a hyperbolic versus elliptic splitting; the two period-eleven hyperbolic multipliers fix the initial finite unstable orbit skeleton. This is a natural finite classification of a standard conservative piecewise-linear homeomorphism, not a parameter-renaming or unmotivated one-off calculation.",
+    "status": "PASS"
+  }
+}
