@@ -1,12 +1,21 @@
-# Review of Roman \(\{3\}\)-domination of complete prisms
+# Independent mathematical audit
 
-## Correctness
-PASS. Writing \(\alpha\) and \(\beta\) for the two clique-layer label sums, the defining condition at \(a_i\) with label at most \(1\) is exactly \(\alpha+f(b_i)\ge3\), and symmetrically on the other layer. If one layer has sum at most \(2\), all but at most one matched coordinate in the opposite layer must carry enough weight to force the sharp lower bounds. Equality gives the exceptional \(n=4\) and \(n=5\) patterns. For \(n\ge6\), weight \(6\) forces both layer sums to equal \(3\), after which every composition is automatically feasible. Direct exhaustive checks for \(n=4,5\) and an independent exact aggregate dynamic program through \(n=60\) agree with the value, classification, and counts.
+## correctness
 
-## Originality
-PASS. The 2020 bounds paper gives general degree-based inequalities for the same invariant; targeted searches of its inspected full text found no Cartesian product, prism, or \(K_n\square K_2\) treatment. The 2023 small/large-value paper characterizes the extreme values \(3\), order minus one, and order and develops tree bounds, but its inspected full text likewise contains no complete-prism formula. Targeted web and published-results searches for the Roman \(\{3\}\) or double Italian domination of \(K_n\square K_2\), complete prisms, and prism graphs did not locate an equivalent statement or the minimum-function enumeration.
+PASS
 
-## Value
-PASS. Cartesian products with a two-vertex factor are a standard graph construction, and the complete prism is a highly symmetric family not covered by the known complete multipartite formulas. The theorem gives more than a scalar value: it identifies the exact stabilization threshold, completely classifies the exceptional transition cases, and gives a closed formula for every optimum from \(n\ge6\). The square stars-and-bars count reflects an exact decoupling of the two clique layers at optimum.
+For G_n=K_n square K_2, if a_i has label 0 or 1 its Roman-{3} constraint is exactly alpha+f(b_i) at least 3, with the symmetric condition beta+f(a_i) at least 3. If a feasible labeling has total weight at most 5, one layer has sum at most 2; sums 0 and 1 are immediately impossible for n at least 4, and sum 2 forces at least n-1 opposite-layer entries to be at least 1. This gives the sharp lower bounds 5 for n=4 and 6 for n at least 5. Tightness analysis gives exactly the eight n=4 minima, the 1225 balanced plus ten exceptional n=5 minima, and for n at least 6 forces both layer sums to equal 3, giving binomial(n+2,3)^2 minima. A fresh direct brute-force replay independently checked all 4^(2n) labelings for n=4 and n=5 and reproduced (5,8) and (6,1235); the package verifier additionally uses an independent aggregate dynamic program through n=60.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected Roman-{3}/double-Italian literature gives general degree bounds, extremal-value classifications, and tree results, but no Cartesian-product or complete-prism formula was located. The n>=4 prism values 5/6 lie outside the small/near-order extremal classifications, and the complete minimum-function counts are strictly finer than the domination number. A targeted Resultary search returned related Roman variants on complete multipartite graphs but no exact Roman-{3} complete-prism theorem. Thus the all-n value and minimizer classification survive best-of-knowledge originality.
+
+## value
+
+PASS
+
+Complete prisms are a canonical Cartesian-product family, and the result gives both the exact Roman-{3} domination number and a complete minimum-function census with two sharp small-size transitions. That is a natural exact classification of a standard graph family, not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
