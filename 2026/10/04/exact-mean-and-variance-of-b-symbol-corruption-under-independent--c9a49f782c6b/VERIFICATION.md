@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` performs two independent finite checks of the analytic theorem.
+# Independent mathematical audit
 
-First, it enumerates every binary error-indicator pattern for each \(1\le b\le n\le9\). For each of four rational substitution probabilities, it reconstructs the cyclic \(b\)-symbol corruption count directly from the indicator pattern, computes the exact probability-weighted first and second moments using rational arithmetic, and compares them with the formulas in the finding. The symbol values themselves are irrelevant once an error is required to change the symbol.
+## correctness
 
-Second, it evaluates the general cyclic-overlap variance and the simplified \(n\ge2b\) expression on a larger integer grid with exact rational arithmetic. This checks the algebraic reduction independently of floating-point evaluation.
+PASS
 
-These finite checks corroborate, but do not replace, the all-parameter proof. The proof's only probabilistic premise is independence of coordinate-error indicators with common probability \(p\).
+Let Z_i be the clean-window indicators. Then W_b=n-sum_i Z_i, E Z_i=r^b, and for offset d the joint clean event is exactly avoidance on the union of two cyclic length-b windows. Direct set counting gives union size u_0=b and u_d=2b-max(0,b-d)-max(0,b-(n-d)); therefore E[Z_i Z_{i+d}]=r^{u_d} and the stated covariance sum follows by cyclic translation invariance. The n>=2b reduction leaves paired overlap offsets d=1,...,b-1 with union size b+d and zero covariance for disjoint offsets. Boundary cases p=0, p=1, b=1 and b=n are consistent. An independent exact rational replay over all binary support patterns for small n reproduced both moments; it was used only as a check on the analytic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. The foundational full text defines the exact cyclic b-read metric and develops deterministic MDS bounds; Vega's open full text gives b-weight enumerators for structured semiprimitive cyclic codes. Neither supplies the iid Bernoulli support law or the all-parameter first and second moments. The closest sphere-bound paper was only abstract-accessible, so it is retained as a named residual risk rather than treated as noncoverage.
+
+## value
+
+PASS
+
+The random b-symbol corruption count is the channel's direct stochastic distortion under the standard iid substitution model. Overlapping reads create dependence even when coordinates are independent, so the exact variance and its stable linear-in-n regime quantify a natural channel fluctuation scale rather than an arbitrary finite statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

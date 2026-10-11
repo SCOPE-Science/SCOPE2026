@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces the random \(b\)-symbol distance to a sum of clean-window indicators. The pairwise union size is counted exactly on the cycle, including the two-overlap regime when \(2b>n\). Independence of coordinate errors then gives every covariance term. Direct exhaustive reconstruction with rational probabilities agrees with both the first and second moments for all tested small parameters, and a larger parameter grid confirms the simplified \(n\ge2b\) expression.
+## correctness
 
-## Originality
-**PASS, with recorded residual risk.** Searches covered stochastic \(b\)-symbol distance, random \(b\)-weight, Bernoulli cyclic-window coverage, moment/variance language, and pair-symbol aliases. The closest published-finding corpus record concerns optimal cyclic symbol-pair codes rather than stochastic moments. The open Ding--Zhang--Ge full text defines the metric but studies MDS code bounds and constructions. Vega's open full text studies \(b\)-weight distributions inside structured cyclic codes. Song--Fujiwara is the closest sphere-bound paper; its abstract and metadata were inspected, but its full text was unavailable through the lawful routes used here, leaving a specific residual risk of an unstated intermediate overlap.
+PASS
 
-## Value
-**PASS.** Under independent substitutions, overlapping \(b\)-symbol reads are correlated even though coordinate errors are independent. The exact variance quantifies that dependence for every block length, read width, and substitution probability, and the stable \(n\ge2b\) formula gives the exact root-\(n\) fluctuation coefficient. This is a natural stochastic channel invariant rather than a chosen finite parameter cell.
+Let Z_i be the clean-window indicators. Then W_b=n-sum_i Z_i, E Z_i=r^b, and for offset d the joint clean event is exactly avoidance on the union of two cyclic length-b windows. Direct set counting gives union size u_0=b and u_d=2b-max(0,b-d)-max(0,b-(n-d)); therefore E[Z_i Z_{i+d}]=r^{u_d} and the stated covariance sum follows by cyclic translation invariance. The n>=2b reduction leaves paired overlap offsets d=1,...,b-1 with union size b+d and zero covariance for disjoint offsets. Boundary cases p=0, p=1, b=1 and b=n are consistent. An independent exact rational replay over all binary support patterns for small n reproduced both moments; it was used only as a check on the analytic proof.
 
-## Closest literature and limitations
-The closest inspected literature defines the same metric and studies deterministic code bounds or structured codeword weight distributions. The theorem here concerns a different probability law: arbitrary words subjected to iid substitution locations. It does not cover dependent errors or the full probability generating function. The inaccessible full text of the 2018 sphere-bound paper is retained as an originality risk rather than being declared non-covering.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes. The foundational full text defines the exact cyclic b-read metric and develops deterministic MDS bounds; Vega's open full text gives b-weight enumerators for structured semiprimitive cyclic codes. Neither supplies the iid Bernoulli support law or the all-parameter first and second moments. The closest sphere-bound paper was only abstract-accessible, so it is retained as a named residual risk rather than treated as noncoverage.
+
+## value
+
+PASS
+
+The random b-symbol corruption count is the channel's direct stochastic distortion under the standard iid substitution model. Overlapping reads create dependence even when coordinates are independent, so the exact variance and its stable linear-in-n regime quantify a natural channel fluctuation scale rather than an arbitrary finite statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
