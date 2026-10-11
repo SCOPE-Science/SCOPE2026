@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs each proper double star directly and tests every vertex subset by simulating the domination step followed by the standard forcing rule. The simulation does not call the structural characterization.
+# Independent mathematical audit
 
-For each tested parameter pair it separately checks the two local side conditions, expands the claimed product by integer polynomial multiplication, and compares every coefficient. It also checks the closed total count, the minimum exponent, and the exact number of minimum power dominating sets.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-double_star_parameter_pairs_checked = 36
-vertex_subsets_checked = 254016
-power_dominating_sets_checked = 81225
-parameters a,b = 2..7
-all direct power-domination tests matched the structural classification
-all polynomial coefficients matched Q_a(x)Q_b(x)
-all total counts and minimum-set counts matched
-```
+Let u and v be the two adjacent centers and L_u,L_v their leaf sets. If u is omitted and at least two L_u leaves are omitted, neither omitted leaf can ever be observed except through u and u cannot force while two such leaves remain, so power domination fails; the analogous statement holds at v. Conversely, if u is selected or at most one L_u leaf is omitted, that side becomes fully observed/forced once the bridge center is observed, independently of the other side. Thus a set is power dominating exactly when each side satisfies its star condition. This Cartesian independence gives P(D_{a,b};x)=Q_a(x)Q_b(x), Q_t=x(1+x)^t+t x^(t-1)+x^t, with the total and minimum-set formulas. A fresh literal propagation replay for (a,b)=(2,2),(2,4),(3,5),(4,3) matched the predicate for every subset.
 
-The exhaustive computation is finite corroboration only. The theorem for arbitrary \(a,b\ge2\) follows from the proof.
+## originality
+
+PASS
+
+Brimkov et al. define the polynomial, compute the star polynomial, and derive several decomposition formulas, but their conclusion explicitly asks whether splitting formulas based on cut vertices or separating sets exist and also asks for characterization/counting on further tree families. The inspected paper does not contain the double-star bridge factorization. Current Resultary and web searches under double-star/bistar terminology found no prior formula; a 2025 entropy paper uses power-domination polynomials for selected families but does not supply this one.
+
+## value
+
+PASS
+
+The theorem gives an exact connected-graph factorization at the simplest nontrivial bridge of two stars, directly addressing a cut-vertex/separating-set direction posed by the foundational polynomial paper. It determines every coefficient, total count and minimum-set multiplicity for an infinite tree family, so it is a natural complete classification rather than an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

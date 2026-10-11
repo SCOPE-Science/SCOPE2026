@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:10:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Brimkov et al., arXiv:1805.10984, complete primary PDF",
+        "assigned RESULT.md blob fd1c6eb83c2d002422748bb3662321ad4bc3982c",
+        "assigned verify.py blob d7db76fdba79165e2e5f7560a4e9cad20c33d663",
+        "fresh independent exhaustive propagation replay"
+      ],
+      "rationale": "Let u and v be the two adjacent centers and L_u,L_v their leaf sets. If u is omitted and at least two L_u leaves are omitted, neither omitted leaf can ever be observed except through u and u cannot force while two such leaves remain, so power domination fails; the analogous statement holds at v. Conversely, if u is selected or at most one L_u leaf is omitted, that side becomes fully observed/forced once the bridge center is observed, independently of the other side. Thus a set is power dominating exactly when each side satisfies its star condition. This Cartesian independence gives P(D_{a,b};x)=Q_a(x)Q_b(x), Q_t=x(1+x)^t+t x^(t-1)+x^t, with the total and minimum-set formulas. A fresh literal propagation replay for (a,b)=(2,2),(2,4),(3,5),(4,3) matched the predicate for every subset.",
+      "residual_risks": [
+        "The factorization requires proper double stars a,b>=2; degenerate parameters are not part of the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational paper explicitly leaves cut-vertex/separating-set splitting formulas as a research question.",
+          "The later paper discusses selected graph families and entropy, not a proper-double-star bridge product."
+        ],
+        "reasoning": "No inspected broader tree theorem mechanically determines the factorization.",
+        "searches": [
+          "Brimkov et al. complete primary PDF, decomposition section and Questions 3-4",
+          "2025 power-domination entropy paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.10984",
+        "doi:10.47836/mjms.19.1.14",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known product rule for disjoint unions does not apply because the two stars share a bridge between centers.",
+          "The new side criterion is what establishes independence despite connectivity."
+        ],
+        "reasoning": "A genuine structural lemma is required before the source star formula can be multiplied.",
+        "searches": [
+          "Known star polynomial Q_t versus connected double star"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is also called a bistar or double star; no retrieved source gives its all-set polynomial.",
+          "The source star factor Q_t is known, but connected bridge multiplication is not a general polynomial rule."
+        ],
+        "reasoning": "The assigned theorem is not merely the disjoint-union product: it proves that the bridge happens to preserve independent star-side feasibility.",
+        "searches": [
+          "Resultary: power domination polynomial double star bistar bridge factorization",
+          "web search: power domination polynomial double star bistar"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-result published record was retrieved."
+        ],
+        "reasoning": "The claim is an all-parameter factorization, not a finite table lookup.",
+        "searches": [
+          "Resultary exact semantic search for double-star/bistar power-domination polynomial"
+        ]
+      },
+      "rationale": "Brimkov et al. define the polynomial, compute the star polynomial, and derive several decomposition formulas, but their conclusion explicitly asks whether splitting formulas based on cut vertices or separating sets exist and also asks for characterization/counting on further tree families. The inspected paper does not contain the double-star bridge factorization. Current Resultary and web searches under double-star/bistar terminology found no prior formula; a 2025 entropy paper uses power-domination polynomials for selected families but does not supply this one.",
+      "residual_risks": [
+        "A poorly indexed graph-theory note under the name bistar could contain the same elementary formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_SPLITTING_DIRECTION",
+          "evidence": "The paper asks for splitting formulas based on cut vertices or separating sets and does not state the double-star factorization.",
+          "identifier_or_url": "arXiv:1805.10984",
+          "material_read": "Complete primary PDF, including star polynomial material and concluding Questions 3-4",
+          "method": "Primary full-text PDF inspection with page-image verification",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Foundational polynomial source and closest decomposition theory"
+        },
+        {
+          "assessment": "NO_DOUBLE_STAR_COVERAGE_FOUND",
+          "evidence": "The article applies the polynomial to selected examples for entropy rather than giving the audited bridge factorization.",
+          "identifier_or_url": "doi:10.47836/mjms.19.1.14",
+          "material_read": "Accessible primary PDF abstract/scope and family context",
+          "method": "Primary-source comparison",
+          "title": "On Graph Entropy Measures Based on the Number of Dominating and Power Dominating Sets",
+          "trigger": "Later paper that could contain additional explicit family polynomials"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Brimkov et al. primary paper",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The theorem gives an exact connected-graph factorization at the simplest nontrivial bridge of two stars, directly addressing a cut-vertex/separating-set direction posed by the foundational polynomial paper. It determines every coefficient, total count and minimum-set multiplicity for an infinite tree family, so it is a natural complete classification rather than an arbitrary computation.",
+      "residual_risks": [
+        "The factorization is family-specific and does not provide a general cut-vertex recurrence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The factorization requires proper double stars a,b>=2; degenerate parameters are not part of the theorem.",
+    "A poorly indexed graph-theory note under the name bistar could contain the same elementary formula.",
+    "The factorization is family-specific and does not provide a general cut-vertex recurrence."
+  ]
+}
