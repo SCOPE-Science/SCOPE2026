@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof was reconstructed from the defining quantifiers. For an outside vertex, the only possible witness containing two selected vertices is a geodesic of length two; separating the cases in which the outside vertex is an endpoint or the middle yields the criterion used in the proof.
+## correctness
 
-`verify.py` provides an independent finite stress test. It constructs adjacency from the multipartition, enumerates simple length-two paths, retains geodesics by endpoint nonadjacency, tests the original definition for every candidate subset, and compares both the optimum value and the number of optimum sets with the theorem for every complete-multipartite isomorphism type through order nine.
+PASS
 
-Expected replay output:
+The local criterion was independently reconstructed in part-count variables: for an outside vertex in part \(i\), a valid geodesic triple with two selected vertices exists exactly when either the selected set meets its part and at least one other part, or some other part contributes at least two selected vertices. This criterion gives the stated minimum-number cases and exhausts all minimum sets: the whole graph for a complete graph, cross-part pairs plus two-vertex whole parts in the bipartite case, whole two-vertex parts for at least three parts, and otherwise the three listed size-three patterns. Independent brute force on every complete multipartite type through order nine reproduced both the minimum and the exact minimum-set count for 87 types.
 
-`ALL CHECKS PASSED; multipartite_types=87; candidate_subsets=5109; max_order=9`
+## originality
 
-The finite range does not certify the universal theorem. The universal quantifiers are discharged by the analytic occupancy-profile argument in `RESULT.md`. No claim is made for parameter pairs other than \((3,2)\). Independent audit has not been performed.
+PASS
+
+The exact number and complete classification/count of minimum \((3,2)\)-dominating sets were not found in the foundational paper, older graph literature, or published SCOPE comparisons. The new local occupancy criterion is required to obtain the case split and enumerator, so the result is not implication-covered by ordinary or neighboring domination formulas.
+
+## value
+
+PASS
+
+This is a natural complete classification for a canonical graph family in a newly introduced domination theory, and it goes beyond a single minimum number by identifying and counting every minimum set. The foundational paper explicitly calls for exact values on classical families, so the object/invariant motivation precedes the computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
