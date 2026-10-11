@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim has an exhaustive finite certificate over all \(7^7\) vertex maps, a direct counting decomposition, a symbolic proof of the contiguity components, and an independently replayed integral cohomology calculation. The ordinary homotopy conclusion is limited to the direct simplicial maps enumerated and follows from the torus being a \(K(\mathbb Z^2,1)\).
+## correctness
 
-## Originality
-PASS. Exact-number, alias, implication, table and broader-coverage searches found no prior statement of this endomorphism census or the \(43\)-versus-\(7\) comparison. The closest primary source supplies the minimal triangulation and affine symmetry group; the closest methodological source supplies general contiguity. Neither covers the result. A residual risk remains that an older or poorly indexed computation exists.
+PASS
 
-## Value
-PASS. The object is the vertex-minimal torus, and the finding identifies a natural, exact discrepancy between simplicial contiguity and classical homotopy: translations are isolated under contiguity but homotopically invisible. The absorbing-zero extension of the affine automorphism group and the complete image-size gap give a compact structural classification rather than an arbitrary finite statistic.
+I independently enumerated all \(7^7=823543\) vertex maps for the fourteen displayed facets and recovered exactly 27979 simplicial self-maps with image sizes 7,2646,25284,0,0,0,42. The 42 surjections are exactly the affine permutations \(i\mapsto ai+b\) of \(\mathbb Z/7\); every other simplicial image is a simplex and hence is directly contiguous to a constant. A direct check of every one-coordinate move from every affine automorphism found none contiguous, and the facet-star intersection argument proves isolation symbolically. An independent integral cocycle pullback calculation reproduced exactly six H1 matrices, each with multiplicity seven. Since the torus is \(K(\mathbb Z^2,1)\) and \(\mathbb Z^2\) is abelian, those six distinct induced maps give six non-null unbased homotopy classes, while the non-automorphisms are null by contiguity.
 
-## Closest literature and limitations
-The closest literature establishes the seven-vertex Möbius torus and its symmetry group, and separately develops simplicial contiguity as a homotopy analogue. The present census is restricted to direct simplicial maps on the fixed minimal triangulation; subdivisions or arbitrary continuous maps realize additional torus homotopy classes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The classical small-triangulation literature supplies the seven-vertex torus and its symmetry setting, and general contiguity literature supplies the fact that contiguous realizations are homotopic. Neither inspected source gives the complete simplicial endomorphism count, the 43 contiguity classes, the affine-plus-zero class monoid, or the six H1 actions. Resultary searches returned the current record and related finite-model mapping classifications but no earlier theorem implying the 27979/27937/42 decomposition. The finite census and contiguity-versus-homotopy comparison are therefore original to the best of current evidence.
+
+## value
+
+PASS
+
+The result quantifies a concrete and striking gap between simplicial contiguity on a vertex-minimal torus and ordinary torus homotopy: 43 direct contiguity classes collapse to seven ordinary classes. The complete map census, monoid description, and explicit H1 action spectrum form a natural structural classification of a canonical minimal triangulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

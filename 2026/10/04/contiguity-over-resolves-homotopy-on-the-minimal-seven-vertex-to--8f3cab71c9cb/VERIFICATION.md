@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The embedded `verify.py` is standalone and uses only the Python standard library. It reconstructs the seven-vertex complex from the fourteen listed facets and performs the following checks:
+# Independent mathematical audit
 
-- enumerates all \(7^7=823{,}543\) vertex maps and tests simpliciality;
-- verifies exactly \(27{,}979\) simplicial self-maps and the image-size distribution \(1:7,2:2646,3:25284,7:42\);
-- verifies that every non-automorphism has simplex image;
-- identifies exactly \(42\) automorphisms and checks that they are exactly the affine maps \(i\mapsto ai+b\) on \(\mathbb Z/7\);
-- constructs the full one-coordinate contiguity graph and verifies component sizes \(27{,}937\) and \(42\) singletons;
-- checks the facet-intersection criterion used to isolate automorphisms;
-- reconstructs the integral first-cohomology system, verifies rank two, and computes all \(42\) pullback matrices;
-- verifies that exactly six matrices occur, each with multiplicity seven.
+## correctness
 
-Successful replay prints:
+PASS
 
-`VERIFY_OK maps=27979 image_sizes=1:7,2:2646,3:25284,7:42 contiguity=27937+42x1 autos=AGL(1,7) h1_actions=6x7`
+I independently enumerated all \(7^7=823543\) vertex maps for the fourteen displayed facets and recovered exactly 27979 simplicial self-maps with image sizes 7,2646,25284,0,0,0,42. The 42 surjections are exactly the affine permutations \(i\mapsto ai+b\) of \(\mathbb Z/7\); every other simplicial image is a simplex and hence is directly contiguous to a constant. A direct check of every one-coordinate move from every affine automorphism found none contiguous, and the facet-star intersection argument proves isolation symbolically. An independent integral cocycle pullback calculation reproduced exactly six H1 matrices, each with multiplicity seven. Since the torus is \(K(\mathbb Z^2,1)\) and \(\mathbb Z^2\) is abelian, those six distinct induced maps give six non-null unbased homotopy classes, while the non-automorphisms are null by contiguity.
 
-The finite computation certifies the exact direct-map census. The proof in `RESULT.md` supplies the symbolic implications from simplex image to null contiguity class, from maximal-facet intersections to automorphism isolation, and from the six induced matrices to the seven represented ordinary homotopy classes. No claim is made that the finite enumeration classifies arbitrary continuous self-maps of the torus.
+## originality
+
+PASS
+
+The classical small-triangulation literature supplies the seven-vertex torus and its symmetry setting, and general contiguity literature supplies the fact that contiguous realizations are homotopic. Neither inspected source gives the complete simplicial endomorphism count, the 43 contiguity classes, the affine-plus-zero class monoid, or the six H1 actions. Resultary searches returned the current record and related finite-model mapping classifications but no earlier theorem implying the 27979/27937/42 decomposition. The finite census and contiguity-versus-homotopy comparison are therefore original to the best of current evidence.
+
+## value
+
+PASS
+
+The result quantifies a concrete and striking gap between simplicial contiguity on a vertex-minimal torus and ordinary torus homotopy: 43 direct contiguity classes collapse to seven ordinary classes. The complete map census, monoid description, and explicit H1 action spectrum form a natural structural classification of a canonical minimal triangulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
