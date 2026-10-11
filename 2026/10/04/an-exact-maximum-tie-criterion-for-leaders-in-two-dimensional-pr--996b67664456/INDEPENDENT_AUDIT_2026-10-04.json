@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:05:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the one-dimensional maximizing-index sets \\(I_X\\) and \\(I_Y\\) having cardinalities \\(K_X=k\\) and \\(K_Y=\\ell\\). Exchangeability makes each index set uniform over subsets of its cardinality, and product independence makes the two subsets independent. A two-dimensional leader exists exactly when they intersect. Thus the conditional probability is \\(1-\\binom{n-k}{\\ell}/\\binom{n}{\\ell}\\), with value one when \\(\\ell>n-k\\), and averaging gives the stated exact formula. The union bound on intersection size gives the upper bound \\(\\min(1,k\\ell/n)\\). The exact disjointness product is at most \\((1-k/n)^\\ell\\le e^{-k\\ell/n}\\), giving the lower bound \\(1-e^{-k\\ell/n}\\). Independent rational checks for all \\(n\\le50\\) verified both inequalities for every \\((k,\\ell)\\), but the arbitrary-\\(n\\) proof is algebraic. Since both bounding functions are bounded and vanish only at zero, \\(a_n\\to0\\) exactly when \\(K_XK_Y/n\\to0\\) in probability. The liminf leader criterion follows by a fixed positive tail lower bound in one direction and, conversely, from \\(a_n\\le E\\min(1,R_n)\\) with a deterministic truncation threshold.",
+      "risks": [
+        "The result is specifically two-dimensional and requires independence of the two coordinate samples; dependent coordinates need not produce independent maximizing-index sets."
+      ],
+      "sources": [
+        "Frozen source tree f9b936ff1eb621d618a83060049c0c12ab1c21ac",
+        "A. M. Raducan et al., On the Probability of Finding Extremes in a Random Set, Mathematics 10 (2022) 1623",
+        "Independent hypergeometric derivation and exhaustive rational check of the conditional inequalities for \\(n\\le50\\)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper supplies general formulas/conditions and states the product infinite-support question and computable-criterion problem.",
+          "The quasi-unidimensional follow-up studies \\(Z=f(X)\\), not independent-coordinate product laws, and again lists computable criteria as open."
+        ],
+        "reasoning": "The broader leader-property literature motivates the problem but does not imply the submitted exact product/tie formula.",
+        "searches": [
+          "doi:10.3390/math10101623 full primary web text",
+          "doi:10.3390/math10224199 full primary web text"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math10101623",
+        "doi:10.3390/math10224199",
+        "Resultary product-leader query",
+        "Exact web searches for maximizing-index-set formulations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves that finite independent coordinate supports give the strong leader property and gives special continuous/discrete cases, but it does not characterize arbitrary product laws by sample maximum tie counts."
+        ],
+        "reasoning": "Special support cases do not logically imply the exact all-product conditional formula or its probability-limit equivalences.",
+        "searches": [
+          "Statement-level comparison with the 2022 product-support remarks and conclusions/open problems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No searched source gave the hypergeometric intersection formula in terms of the two marginal maximum multiplicities.",
+          "The equivalent event is intersection of two independent uniform maximizing-index subsets conditional on their sizes."
+        ],
+        "reasoning": "No checked alias or order-statistic formulation covered the same statement.",
+        "searches": [
+          "Resultary query: leader probability product distribution maximizing index set intersection maximum multiplicity criterion",
+          "Web query: maximizing-index sets leader probability product",
+          "Web query: leader property product distributions maximum ties"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior Resultary record or probability table with the exact conditional law was located."
+        ],
+        "reasoning": "The formula is a structural exchangeability calculation, not a known-table recomputation.",
+        "searches": [
+          "Resultary product-leader/tie-multiplicity query"
+        ]
+      },
+      "rationale": "The 2022 primary paper defines the leader probabilities, treats discrete and absolutely continuous cases, and explicitly identifies finding a computable leader criterion as its main open problem. It also asks whether a product law with both coordinate supports infinite can ever have the leader property. The 2022 quasi-unidimensional follow-up studies the different representation \\(Z=f(X)\\) and again leaves computable criteria open. Neither source states the product-coordinate maximum-tie reduction, the exact hypergeometric intersection formula, or the equivalence in terms of \\(K_XK_Y/n\\). Fresh Resultary and exact web searches found no earlier record with this criterion.",
+      "residual_risks": [
+        "The intersection formula is elementary once the maximizing-index sets are introduced, so an unindexed order-statistics source could have observed the same reduction without using leader-property terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "The paper explicitly says the main open problem is a computable leader criterion and asks about independent coordinates with infinite supports; it does not state the tie-index-set formula."
+          ],
+          "identifier_or_url": "doi:10.3390/math10101623",
+          "material_read": "Accessible full web text including Definitions 2-3, discrete formulas, product-support remarks, special product cases and Section 6 conclusions/open problems.",
+          "method": "Primary full-text statement and implication comparison.",
+          "title": "On the Probability of Finding Extremes in a Random Set",
+          "trigger": "Primary source defining the leader property and posing product-law/open-criterion questions."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "The paper treats vectors of the form \\(f(X)\\) and leaves computable criteria open; it does not cover independent-coordinate product samples."
+          ],
+          "identifier_or_url": "doi:10.3390/math10224199",
+          "material_read": "Accessible full web text including introduction, general-results setup and conclusions/open problems.",
+          "method": "Primary full-text comparison.",
+          "title": "The Leader Property in Quasi Unidimensional Cases",
+          "trigger": "Direct follow-up by overlapping authors on leader-property criteria."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source literature explicitly asks for computable leader criteria and leaves broad product-law behavior open. Reducing every two-dimensional product law to the joint scale of its two one-dimensional maximum tie multiplicities is a clean structural criterion that handles atoms and continuous parts uniformly and converts a multivariate order event into one-dimensional statistics.",
+      "risks": [
+        "The criterion may still require nontrivial asymptotics for the marginal maximum multiplicities in a concrete infinite-support law."
+      ],
+      "sources": [
+        "2022 leader-property open problems",
+        "Exact conditional hypergeometric reduction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The reduction does not by itself decide every infinite-support product law; marginal tie-multiplicity asymptotics may remain difficult."
+  ],
+  "schema_version": 1
+}

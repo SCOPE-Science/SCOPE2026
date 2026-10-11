@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The event identity is exact: a leader exists exactly when the two marginal maximizing-index sets intersect. Conditional uniformity of each maximizing set follows from exchangeability at fixed multiplicity, and independence follows from the product law. The hypergeometric formula and the two pointwise bounds are then elementary and valid for every sample size. The asymptotic equivalences use only bounded convergence and explicit tail inequalities.
+## correctness
 
-## Originality
-PASS. The closest inspected source is DOI 10.3390/math10101623, which studies the same leader probability and product distributions but does not state the maximizing-index intersection formula, the multiplicity sandwich, or the resulting if-and-only-if criterion. DOI 10.3390/math10224199 is a same-author follow-up in a quasi-unidimensional dependent-coordinate setting and does not cover the product-law theorem. Targeted searches for equivalent hypergeometric, common-maximizer, and maximum-tie formulations found no dominating statement. A terminology-based residual literature risk remains.
+PASS
 
-## Value
-PASS. The source literature explicitly identifies the search for a computable leader criterion as a main open problem. This result reduces the two-dimensional product case to one-dimensional sample-maximum multiplicities and gives exact finite-sample and asymptotic criteria. It recovers the continuous case and precisely identifies what must be controlled to address the infinite-support product conjecture.
+Condition on the one-dimensional maximizing-index sets \(I_X\) and \(I_Y\) having cardinalities \(K_X=k\) and \(K_Y=\ell\). Exchangeability makes each index set uniform over subsets of its cardinality, and product independence makes the two subsets independent. A two-dimensional leader exists exactly when they intersect. Thus the conditional probability is \(1-\binom{n-k}{\ell}/\binom{n}{\ell}\), with value one when \(\ell>n-k\), and averaging gives the stated exact formula. The union bound on intersection size gives the upper bound \(\min(1,k\ell/n)\). The exact disjointness product is at most \((1-k/n)^\ell\le e^{-k\ell/n}\), giving the lower bound \(1-e^{-k\ell/n}\). Independent rational checks for all \(n\le50\) verified both inequalities for every \((k,\ell)\), but the arbitrary-\(n\) proof is algebraic. Since both bounding functions are bounded and vanish only at zero, \(a_n\to0\) exactly when \(K_XK_Y/n\to0\) in probability. The liminf leader criterion follows by a fixed positive tail lower bound in one direction and, conversely, from \(a_n\le E\min(1,R_n)\) with a deterministic truncation threshold.
 
-## Closest literature and limitations
-The closest source is Răducan, Rădulescu, Rădulescu, and Zbăganu (2022), DOI 10.3390/math10101623. The theorem does not solve their infinite-support conjecture; it transforms that conjecture into a question about whether \(K_{X,n}K_{Y,n}/n\to0\) in probability. The result is restricted to two independent coordinates. An equivalent criterion under unrelated terminology remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2022 primary paper defines the leader probabilities, treats discrete and absolutely continuous cases, and explicitly identifies finding a computable leader criterion as its main open problem. It also asks whether a product law with both coordinate supports infinite can ever have the leader property. The 2022 quasi-unidimensional follow-up studies the different representation \(Z=f(X)\) and again leaves computable criteria open. Neither source states the product-coordinate maximum-tie reduction, the exact hypergeometric intersection formula, or the equivalence in terms of \(K_XK_Y/n\). Fresh Resultary and exact web searches found no earlier record with this criterion.
+
+## value
+
+PASS
+
+The source literature explicitly asks for computable leader criteria and leaves broad product-law behavior open. Reducing every two-dimensional product law to the joint scale of its two one-dimensional maximum tie multiplicities is a clean structural criterion that handles atoms and continuous parts uniformly and converts a multivariate order event into one-dimensional statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
