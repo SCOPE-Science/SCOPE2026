@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:09:14.842756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The current primary paper fixes \\(\\kappa\\ge\\omega\\) distinct propositional variables, explicitly permits countable conjunctions, and states that the Lindenbaum–Tarski algebra is free among similar \\(\\sigma\\)-complete Boolean algebras. For each \\(x\\in2^\\omega\\), the conjunction choosing \\(p_n\\) or \\(\\neg p_n\\) according to x is therefore a formula and is nonzero: the corresponding assignment to the two-element Boolean algebra extends to an evaluation sending it to one. Two distinct sequences disagree at a literal, so their classes have zero meet. This gives a continuum-sized disjoint nonzero family and violates the paper's own ccc definition. Since 'almost measurable' explicitly requires ccc, the subsequent model definition requiring such an algebra has no instance under the stated free Lindenbaum construction.",
+      "risks": [
+        "The conclusion is about the framework exactly as stated; altered quotients, restricted variables, or different infinitary semantics could evade it."
+      ],
+      "sources": [
+        "Cosyns, arXiv:2609.28104, Sections 2–3",
+        "Cosyns, 2025 Durham thesis, extended abstract and Chapter 2",
+        "direct Cantor-family construction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General free sigma-complete Boolean-algebra structure is broader than the framework-specific observation.",
+          "The framework's freeness gives the needed two-valued evaluations without additional new machinery."
+        ],
+        "reasoning": "Broader algebraic structure and the thesis statement dominate the key obstruction.",
+        "searches": [
+          "Rieger free sigma-complete Boolean algebras",
+          "Cosyns thesis freeness/cardinality discussion"
+        ]
+      },
+      "checked_sources": [
+        "Cosyns 2025 Durham thesis",
+        "arXiv:2609.28104",
+        "Rieger 1951 free complete/sigma-complete Boolean algebra background",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuum many atoms are pairwise disjoint nonzero elements, contradicting ccc immediately in the countably generated case.",
+          "For any larger kappa, choosing countably many variables and complete countable literal conjunctions reproduces the same continuum antichain."
+        ],
+        "reasoning": "The audited conclusion is a short consequence of the author's own prior structural statements and the current paper's syntax.",
+        "searches": [
+          "thesis: countably generated infinite algebra is atomic continuum + paper/thesis definition of ccc",
+          "paper: kappa>=omega + countable conjunctions + freeness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The thesis explicitly states that the infinite countably generated Lindenbaum–Tarski algebra is atomic with cardinality continuum.",
+          "The paper defines ccc as every disjoint nonzero family being countable and 'almost measurable' as ccc plus weak countable distributivity."
+        ],
+        "reasoning": "The countably generated case already contains the core antichain obstruction; larger allowed languages contain the same countable-variable construction.",
+        "searches": [
+          "Cosyns 2025 thesis atomic countably generated Lindenbaum Tarski continuum",
+          "arXiv:2609.28104 countable conjunction ccc almost measurable",
+          "free sigma-complete Boolean algebra countable generators atoms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate indexed record stating the exact uniform obstruction was found, but the thesis itself already implies the decisive countable case."
+        ],
+        "reasoning": "Exact-database absence does not overcome direct prior implication.",
+        "searches": [
+          "current Resultary search for almost measurable Lindenbaum ccc antichain",
+          "Cosyns thesis/paper text search"
+        ]
+      },
+      "rationale": "The obstruction is scientifically important but not independently original under the required implication rule. The author's 2025 thesis already states that an infinite countably generated Lindenbaum–Tarski algebra in this setup is atomic of cardinality continuum, which directly entails a continuum family of disjoint nonzero atoms and hence failure of ccc. The same thesis defines 'almost measurable' by ccc. The 2026 paper again states \\(\\kappa\\ge\\omega\\), countable conjunctions, freeness, and ccc. Extending the antichain to every allowed larger \\(\\kappa\\) by selecting a countable subset of variables and evaluating complete literal conjunctions is a routine consequence of those stated assumptions. Thus the exact 'all allowed kappa' wording is not enough to survive implication-based originality.",
+      "residual_risks": [
+        "If the intended notation S* denotes a different non-free quotient not generated by the stated logical equivalence, the framework would need an explicit additional construction; no such construction is present in the inspected definitions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE PRIOR IMPLICATION.",
+          "evidence": "The thesis states that an infinite countably generated Lindenbaum–Tarski algebra is atomic of cardinality continuum and separately defines almost-measurable algebras by the ccc requirement.",
+          "identifier_or_url": "Durham University doctoral thesis, 2025",
+          "material_read": "Full thesis text around the extended abstract's Lindenbaum–Tarski discussion and the Chapter 2 ccc/almost-measurable definitions; the relevant PDF page was visually inspected.",
+          "method": "Primary full-text implication comparison.",
+          "title": "The Modal Logic of the Calculus of Probability",
+          "trigger": "Earlier source explicitly cited by the focal paper and described by the package as closely related."
+        },
+        {
+          "assessment": "SUPPLIES all assumptions of the direct antichain construction.",
+          "evidence": "It fixes kappa at least omega, allows countable conjunctions, states freeness of the Lindenbaum algebra, defines ccc, and requires an almost-measurable algebra in its models.",
+          "identifier_or_url": "arXiv:2609.28104",
+          "material_read": "Full PDF text around language formation, Theorem 2.2, Definitions 2.3–2.4, the almost-measurable definition, and Definition 3.1; relevant PDF pages were visually inspected.",
+          "method": "Primary full-text syntax/algebra/model comparison.",
+          "title": "On the foundations of logic and probability, I. Modal sentential calculi",
+          "trigger": "Focal 2026 paper whose model class is being tested."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The deduction exposes a foundational consistency problem in a newly proposed semantic framework: under the stated language and quotient, the required ccc algebra cannot exist, so the advertised model class is empty. That consequence is scientifically consequential even though the obstruction is already implicit in the author's thesis and follows by elementary Boolean-algebra reasoning.",
+      "risks": [
+        "The result diagnoses the stated setup rather than proving that all probability-inspired modal semantics are impossible."
+      ],
+      "sources": [
+        "Cosyns thesis and 2026 model definitions",
+        "direct continuum antichain construction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Framework exactly as stated with at least countably many variables and countable conjunctions.",
+    "Changing the quotient, language, or ccc requirement may avoid the obstruction.",
+    "Originality fails because the core obstruction is already implicit in the author's prior thesis."
+  ],
+  "schema_version": 1
+}
