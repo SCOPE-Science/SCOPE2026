@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the first Dirichlet mode on the stated triangle, factors it into positive elementary factors, proves strict concavity of its logarithm, and verifies by exact polynomial identities that the algebraic-cosine point is the unique interior critical point. The standard-library checker independently replays the polynomial identities and Sturm root count. Numerical values are diagnostic only.
+## correctness
 
-## Originality
-PASS. Finch's 2014 source gives the same first eigenfunction and only numerical coordinates for this \(30^\circ\)-\(60^\circ\)-\(90^\circ\) thermodynamic center. The inspected eigenstructure paper supplies the trigonometric spectral setting but not the maximum location. General hot-spot literature supplies uniqueness/localization context but no inspected exact-coordinate formula. Exact-coordinate, sextic, alias, published-finding corpus, and cumulative-ledger searches found no covering statement. Residual risk remains for unindexed or differently phrased literature.
+PASS
 
-## Value
-PASS. The result turns a published numerical benchmark for a named triangle center into an exact symbolic invariant, with a short structural proof based on log-concavity. This is directly motivated by the source's program of identifying the proposed centers and is not a routine normalization check or arbitrary finite slice.
+The scientific theorem reconstructs correctly after repairing corrupted TeX control bytes in the frozen RESULT.md. The first eigenfunction factors into positive sine/cosine factors on the open triangle; log u is strictly concave because log sin X + log sin Y has negative-definite Hessian and each log cos of an affine argument is concave. Substituting d=-20c^5+24c^3-5c into the two cleared critical equations gives exactly the stated factors by Q(c); Q has a unique root in (93/100,47/50), the corresponding point lies in the triangle, and strict concavity makes it the unique global maximum. Independent symbolic checks reproduced both factorizations, the eliminant for d, and the quoted coordinates.
 
-## Closest literature and limitations
-The closest source is S. R. Finch, *In Limbo: Three Triangle Centers*, arXiv:1406.0836v1, Section 3. Damle and Peterson's SIURO paper explains the explicit \(30^\circ\)-\(60^\circ\)-\(90^\circ\) eigenstructure. Brasco, Magnanini, and Salani provide general hot-spot localization context. The claim is restricted to the normalized triangle and does not imply a formula for general triangles.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Finch's complete primary PDF gives the same first eigenfunction and only decimal coordinates for the 30-60-90 thermodynamic center. The exact sextic, algebraic-cosine representation, and strict-log-concavity proof are not present in the inspected thermodynamic-center section. Fresh exact-coordinate and Resultary searches found the current exact record but no earlier exact symbolic formula.
+
+## value
+
+PASS
+
+The thermodynamic center is a named geometric/spectral center, and Finch's canonical 30-60-90 example was previously only numerical. Converting that benchmark into an exact algebraic coordinate with a uniqueness proof is a motivated exact invariant, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -10,7 +10,7 @@ d_*=-20c_*^5+24c_*^3-5c_*.
 \]
 Then the thermodynamic center is exactly
 \[
-(x_*,y_*)=\left(rac{3}{\pi}rccos c_*,rac{\sqrt3}{\pi}rccos d_*ight).
+(x_*,y_*)=\left(\frac{3}{\pi}\arccos c_*,\frac{\sqrt3}{\pi}\arccos d_*\right).
 \]
 Numerically,
 \[
@@ -27,7 +27,7 @@ The domain is the open \(30^\circ\)-\(60^\circ\)-\(90^\circ\) triangle with vert
 
 Set
 \[
-X=rac{\pi x}{3},\qquad Y=rac{\pi y}{\sqrt3}.
+X=\frac{\pi x}{3},\qquad Y=\frac{\pi y}{\sqrt3}.
 \]
 The triangle becomes \(X>0\), \(Y>0\), and \(3X+Y<\pi\).
 
@@ -43,8 +43,8 @@ u=4\sin X\sin Y\,(\cos X+\cos Y)(\cos 3X+\cos Y),
 or equivalently
 \[
 u=16\sin X\sin Y
-\cosrac{X+Y}{2}\cosrac{X-Y}{2}
-\cosrac{3X+Y}{2}\cosrac{3X-Y}{2}.
+\cos\frac{X+Y}{2}\cos\frac{X-Y}{2}
+\cos\frac{3X+Y}{2}\cos\frac{3X-Y}{2}.
 \]
 Every displayed factor is positive in the open triangle and the product vanishes on its boundary. Hence this is the positive first eigenfunction up to scaling.
 
@@ -52,10 +52,10 @@ Moreover, \(\log u\) is strictly concave on the triangle. Indeed, \(\log\sin X+\
 
 Write \(c=\cos X\), \(d=\cos Y\), and \(c_3=4c^3-3c\). Dividing the two logarithmic-gradient equations by the positive sines gives
 \[
-rac{d}{1-d^2}=rac{1}{c+d}+rac{1}{c_3+d},
+\frac{d}{1-d^2}=\frac{1}{c+d}+\frac{1}{c_3+d},
 \]
 \[
-rac{c}{1-c^2}=rac{1}{c+d}+rac{3(4c^2-1)}{c_3+d}.
+\frac{c}{1-c^2}=\frac{1}{c+d}+\frac{3(4c^2-1)}{c_3+d}.
 \]
 After clearing positive denominators these equations are
 \[

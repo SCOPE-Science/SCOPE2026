@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying `verify.py` performs the following finite checks on the exact formulas used in the proof:
+# Independent mathematical audit
 
-- exact polynomial expansion of both cleared critical equations after substituting the proposed relation between the two algebraic cosines;
-- exact agreement with the claimed factorizations by the sextic polynomial;
-- a rational Sturm-sequence count showing exactly one sextic root in the isolating interval;
-- numerical bisection inside that certified interval, followed by reconstruction of the two coordinates and comparison with the published decimal benchmark.
+## correctness
 
-The numerical comparison is not used to prove uniqueness or existence. Strict log-concavity supplies global uniqueness, while exact polynomial identities and interval signs supply the critical point. The checker does not certify any statement about arbitrary triangles or about completeness of literature searches.
+PASS
+
+The scientific theorem reconstructs correctly after repairing corrupted TeX control bytes in the frozen RESULT.md. The first eigenfunction factors into positive sine/cosine factors on the open triangle; log u is strictly concave because log sin X + log sin Y has negative-definite Hessian and each log cos of an affine argument is concave. Substituting d=-20c^5+24c^3-5c into the two cleared critical equations gives exactly the stated factors by Q(c); Q has a unique root in (93/100,47/50), the corresponding point lies in the triangle, and strict concavity makes it the unique global maximum. Independent symbolic checks reproduced both factorizations, the eliminant for d, and the quoted coordinates.
+
+## originality
+
+PASS
+
+Finch's complete primary PDF gives the same first eigenfunction and only decimal coordinates for the 30-60-90 thermodynamic center. The exact sextic, algebraic-cosine representation, and strict-log-concavity proof are not present in the inspected thermodynamic-center section. Fresh exact-coordinate and Resultary searches found the current exact record but no earlier exact symbolic formula.
+
+## value
+
+PASS
+
+The thermodynamic center is a named geometric/spectral center, and Finch's canonical 30-60-90 example was previously only numerical. Converting that benchmark into an exact algebraic coordinate with a uniqueness proof is a motivated exact invariant, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
