@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:08:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Visser's monotone sufficient bounds reduce each record-gap interval to one endpoint check. The four stored widths/indices for records 81-84 satisfy \\(g_i^*<F_F(n_i^*)<F_N(n_i^*)\\) with large margins, and the current record-gap table places the next start at \\(101412319996363309069\\). The derivative argument for monotonicity is valid. Thus the finite frontier is correct assuming the published table data.",
+      "risk": "The result depends on correctness of the externally tabulated record starts, widths and indices.",
+      "sources": [
+        "Matt Visser, arXiv:1904.00499 / Mathematics 7 (2019) 691",
+        "current maximal-prime-gap tables/OEIS records",
+        "frozen verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source explicitly explains how every new maximal gap extends the verification."
+        ],
+        "reasoning": "That general procedure dominates the four-row instance once the table values are public.",
+        "searches": [
+          "Visser 2019 interval theorem and remarks on future maximal gaps"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.00499",
+        "Mathematics 7 (2019), 691",
+        "OEIS A005250",
+        "OEIS A002386",
+        "OEIS A005669",
+        "current maximal-prime-gap table",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the four table rows into Visser's monotone endpoint criterion yields exactly the claimed cutoff."
+        ],
+        "reasoning": "The claim is mechanically implied by already-published method and database values.",
+        "searches": [
+          "Visser sufficient inequalities plus records 81-85 table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact hit is the audited record.",
+          "Visser's method is stated for arbitrary successive record-gap intervals."
+        ],
+        "reasoning": "The '85th start' statement is simply the database-updated endpoint form of Visser's published procedure.",
+        "searches": [
+          "Resultary: Firoozbakht Nicholson Farhadian 85th maximal prime gap verification frontier",
+          "Visser 2019 paper",
+          "current maximal-prime-gap tables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The needed widths, starts and indices are public tabulated data."
+        ],
+        "reasoning": "The numerical content is a known-table replay rather than a newly generated exhaustive census.",
+        "searches": [
+          "OEIS A005250, A002386, A005669 and current record-gap table through record 85"
+        ]
+      },
+      "rationale": "Visser explicitly supplies the interval-reduction theorem and says newly discovered maximal gaps extend the verified range by the same endpoint checks. The current record-gap database supplies exactly the four new rows. Combining an existing theorem with those table entries mechanically implies the submitted frontier; exact absence of the final decimal endpoint from a paper is not implication-level novelty.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_UPDATE_METHOD_COVERS_THE_SUBMITTED_REPLAY",
+          "evidence": "The paper supplies the entire proof pattern; only later table rows are substituted.",
+          "identifier_or_url": "arXiv:1904.00499; Mathematics 7 (2019), 691",
+          "material_read": "Primary paper sections deriving the sufficient inequalities and record-gap interval reduction, including the discussion that later record gaps extend the range.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Verifying the Firoozbakht, Nicholson, and Farhadian conjectures up to the 81st maximal prime gap",
+          "trigger": "Exact predecessor theorem and method."
+        },
+        {
+          "assessment": "EXACT_INPUT_TABLE",
+          "evidence": "The tabulated entries match the four endpoint checks in the package.",
+          "identifier_or_url": "OEIS A005250/A002386/A005669 and current record-gap table",
+          "material_read": "Entries for starts, widths and prime indices through record 85.",
+          "method": "Public database inspection.",
+          "title": "Current maximal prime gap tables",
+          "trigger": "Supplies records 81-85 used numerically."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Finite cutoffs can be valuable, but this one is a four-row mechanical update explicitly anticipated by the source, with no new gap computation, certification method or structural estimate. It is therefore a known-table recomputation rather than an independently motivated new invariant or cutoff result under the common bar.",
+      "risk": "A future independently certified larger table would move the frontier again by the same calculation.",
+      "sources": [
+        "Visser 2019",
+        "current record-gap tables"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "Visser's record-gap interval method, applied to record gaps 81 through 84, verifies the Firoozbakht, Nicholson and Farhadian conjectures for every prime below \\(101412319996363309069\\), the start of record gap 85.",
+  "limitations": [
+    "Finite verification only.",
+    "Scientific rejection is for implication/value, not correctness."
+  ],
+  "schema_version": 1
+}
