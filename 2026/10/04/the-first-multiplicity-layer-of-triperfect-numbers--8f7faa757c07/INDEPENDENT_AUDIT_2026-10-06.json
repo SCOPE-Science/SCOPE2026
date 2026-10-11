@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:07:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For \\(\\Omega(n)\\le4\\), the five exponent partitions give sharp prime-minimized abundancy upper bounds, the largest being \\(14/5<3\\), so no triperfect number occurs. If \\(\\Omega(n)=5\\), an odd triperfect number is impossible because the modern stronger theorem on odd triperfect numbers gives at least twelve distinct prime factors; independently, the parity criterion also forces an odd triperfect integer to be a square, contradicting odd \\(\\Omega\\). Writing \\(n=2^a m\\), the cases \\(a=5,4,3,2,1\\) close exactly as in the submitted proof. Fresh exact-rational reconstruction reproduced the critical maxima, the unique \\(a=3\\) solution \\((q,r)=(3,5)\\), and no \\(a=2\\) squarefree-three-prime solution. Cohen's Theorem 4 independently confirms that a triperfect integer divisible by \\(2^2\\cdot3\\cdot5\\) is \\(120\\).",
+      "risk": "The proof classifies only the minimal multiplicity layer; it does not classify triperfect numbers with larger \\(\\Omega\\).",
+      "sources": [
+        "Cohen 1980, DOI:10.1017/S1446788700021376, Theorem 4 and Theorem 6",
+        "Kishore 1987, DOI:10.1017/S1446788700028184",
+        "frozen RESULT.md and verify.py read from assigned tree",
+        "fresh exact-rational case reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohen establishes at least nine distinct prime factors in the odd case and conditional divisor restrictions in the even case.",
+          "Kishore proves at least twelve distinct prime factors for odd triperfect numbers."
+        ],
+        "reasoning": "These results dispose of the odd case and provide consistency checks, but they do not dominate the even minimal-multiplicity classification.",
+        "searches": [
+          "Cohen 1980 full PDF, Theorems 4--6",
+          "Kishore 1987 odd-triperfect theorem"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S1446788700021376",
+        "DOI:10.1017/S1446788700028184",
+        "Resultary scientific-record corpus",
+        "standard multiply-perfect number tables"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd case follows from a stronger prior theorem, but the even \\(\\Omega=5\\) cases \\(v_2(N)=1,2,3,4,5\\) still require the submitted abundancy and Diophantine eliminations.",
+          "Only after the \\(v_2(N)=3\\) case forces odd primes \\(3,5\\) does Cohen's uniqueness theorem become applicable."
+        ],
+        "reasoning": "The final all-triperfect statement is not a corollary of any inspected prior theorem under the same hypotheses.",
+        "searches": [
+          "Cohen Theorem 4(ii) and Theorem 6",
+          "Kishore 1987 odd-triperfect lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest published SCOPE hit is this assigned record; a quadriperfect multiplicity-layer theorem is a different abundancy.",
+          "Cohen Theorem 4 says \\(2^2\\cdot3\\cdot5\\mid N\\Rightarrow N=120\\), not \\(\\Omega(N)=5\\Rightarrow N=120\\)."
+        ],
+        "reasoning": "Prime-factor multiplicity, abundancy-index, and low-support formulations were compared.",
+        "searches": [
+          "Resultary semantic search: triperfect \\(\\Omega\\) prime factors multiplicity unique \\(120\\)",
+          "Primary full-text inspection of Cohen 1980",
+          "Targeted web searches for triperfect multiplicity and \\(120\\)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known tables list \\(120\\) as the smallest of six known triperfect numbers but do not prove that it is the unique triperfect number with \\(\\Omega=5\\)."
+        ],
+        "reasoning": "Enumeration of known examples is not used as an originality argument; the checked tables do not contain the theorem.",
+        "searches": [
+          "Resultary exact semantic search for \\(\\Omega(n)=5\\) triperfect",
+          "Searches of standard multiply-perfect summaries and known triperfect tables"
+        ]
+      },
+      "rationale": "Cohen proves strong divisibility consequences for even triperfect numbers and lower bounds for odd ones, while Kishore strengthens the odd case to twelve distinct prime factors. Those results do not state a global lower bound in prime-factor multiplicity or classify the equality layer. Cohen's \\(120\\) uniqueness theorem applies after the factors \\(2^2\\cdot3\\cdot5\\) are already known to divide the number; the audited argument must first force exactly that configuration from the sole hypothesis \\(\\Omega(n)=5\\). No stronger Resultary theorem or exact multiplicity-layer table was found.",
+      "residual_risks": [
+        "An older low-multiplicity classification may exist under the terminology multiply-perfect or pluperfect rather than triperfect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_INPUT_NOT_EQUALITY_LAYER_CLASSIFICATION",
+          "evidence": "Theorem 4(ii) needs \\(2^2\\cdot3\\cdot5\\mid N\\); Theorem 6 concerns odd triperfect numbers.",
+          "identifier_or_url": "DOI:10.1017/S1446788700021376",
+          "material_read": "Full publisher PDF around Theorems 4--6, including the exact \\(120\\) divisibility theorem and odd-prime-factor lower bound.",
+          "method": "Lawful publisher full-text PDF inspection, including visual page inspection.",
+          "title": "On odd perfect numbers (II), multiperfect numbers and quasiperfect numbers",
+          "trigger": "Primary triperfect source with possible stronger low-factor classification."
+        },
+        {
+          "assessment": "STRONGER_ODD_SUBCASE_ONLY",
+          "evidence": "It eliminates odd \\(\\Omega=5\\) a fortiori but does not address the even equality layer.",
+          "identifier_or_url": "DOI:10.1017/S1446788700028184",
+          "material_read": "Publisher abstract and accessible PDF/reference material establishing the stated twelve-distinct-prime theorem.",
+          "method": "Lawful publisher-source inspection.",
+          "title": "Odd triperfect numbers are divisible by twelve distinct prime factors",
+          "trigger": "Potentially stronger lower bound for the odd subcase."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum possible total prime multiplicity is a natural coarse complexity invariant for multiperfect numbers. The theorem gives a complete sharp boundary layer and a unique equality case by a finite symbolic case split, not merely a search through known examples.",
+      "risk": "It does not materially constrain higher multiplicity layers.",
+      "sources": [
+        "Cohen 1980",
+        "Kishore 1987"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every triperfect integer \\(n\\), meaning \\(\\sigma(n)=3n\\), satisfies \\(\\Omega(n)\\ge5\\); moreover \\(\\Omega(n)=5\\) holds exactly for \\(n=120=2^3\\cdot3\\cdot5\\).",
+  "limitations": [
+    "The theorem concerns triperfect numbers only.",
+    "No classification is asserted for \\(\\Omega(n)>5\\)."
+  ],
+  "schema_version": 1
+}
