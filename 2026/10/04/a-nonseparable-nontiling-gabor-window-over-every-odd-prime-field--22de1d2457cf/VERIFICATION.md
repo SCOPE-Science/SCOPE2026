@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof was reconstructed from the stated Fourier normalizations. Critical steps checked independently are: \(\widehat h(m)=q_m/p\); the exact translation correlation of \(h\); the cyclotomic argument forcing a vanishing sum of \(p\) prime roots to use every residue exactly once; the unique permutation parameter \(x=1\); the cardinality obstruction to tiling; the Fourier-conjugacy obstruction to real-valuedness; the nonconstant-modulus inequality; and the quadratic Gauss-sum magnitude \(\sqrt p\) for \(m\ne0\).
+# Independent mathematical audit
 
-The packaged `verify.py` was executed from its actual package path. It checks the construction for \(p\in\{5,7,11,13,17,19,23\}\), including all entries of every Gabor Gram matrix and all two-dimensional Fourier magnitudes, and prints the line stored in `verification_output.txt`.
+## correctness
 
-Finite replay is not an exhaustive proof over all primes. The universal quantifier rests on the symbolic arguments in `RESULT.md`. No assertion is made about \(p=2\) or \(p=3\), and no independent external validation has been performed.
+PASS
+
+The normalized transform gives \(\widehat h(m)=q_m/p\), so translations of \(h\) are orthonormal and the two-dimensional Gabor Gram matrix factors into two Kronecker deltas. A vanishing value of \(h\) forces a length-\(p\) vanishing sum of \(p\)-th roots; the cyclotomic polynomial argument makes the exponent multiset a permutation, and the two modified exponents force the unique zero at residue \(1\). Thus the support has size \(p(p-1)\), which cannot tile \(\mathbb F_p^2\). Row supports prove nonproduct structure, Fourier conjugacy rules out nonnegative-real values, the norm and explicit value at zero rule out constant support modulus, and the quadratic Gauss-sum formula gives two distinct nonzero Fourier magnitudes.
+
+## originality
+
+PASS
+
+The relevant primary paper was read through its final question, which asks for one finite-prime-field Gabor window simultaneously satisfying the same six properties; its preceding constructions do not. Later discrete-Gabor papers found in targeted searches study different cyclic support formulations and do not imply this all-primes explicit family. No earlier source located answers the exact six-property question uniformly for every prime at least five.
+
+## value
+
+PASS
+
+This gives a uniform explicit solution for every prime \(p\ge5\) to a published six-condition existence problem; the nonlinear row shift and Gauss-sum mechanism are structural, not a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
