@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:50:44.541246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 699fdab36fc30b98d89411c85fe498b9ef487558",
+        "verify.py blob 2159524995b676f364735e40bbb2f4d0c105e5f1",
+        "independent symbolic Jury and characteristic-root reconstruction"
+      ],
+      "rationale": "The first-order reduction was reconstructed directly. At the zero orbit, \\(v_t=\\beta_2v_{t-1}+O(x_t^2)\\), while \\(\\xi_t=1/2+O(|x_t-x_{t-1}|)\\); because both corrections multiply the first-order momentum in the parameter step, neither changes the Jacobian. The limiting \\((x,m)\\) block has determinant \\(\\beta_1\\), trace \\(1+\\beta_1-(1-\\beta_1)\\alpha\\lambda/(2\\varepsilon)\\), and Jury stability exactly when \\(0<\\alpha\\lambda/\\varepsilon<4(1+\\beta_1)/(1-\\beta_1)\\). Independent symbolic/numeric replay gave the upper root \\(-1\\) at the boundary, the cap 76 at \\(\\beta_1=0.9\\), and the stated complex-root plateau with modulus \\(\\sqrt{\\beta_1}\\). The exponentially decaying bias-correction perturbation is compatible with the strict limiting hyperbolicity claim; no nonlinear claim is made at the unit-root boundary.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohen et al. cover static-preconditioner EMA-heavy-ball stability on quadratics.",
+          "Bock--Weiß explicitly distinguish epsilon inside versus outside the square root and cite local Adam convergence, but their analyzed map is Adam rather than diffGrad.",
+          "No inspected broader theorem directly includes a multiplicative absolute-gradient-difference friction factor."
+        ],
+        "reasoning": "The broadest nearby results supply the heavy-ball block and asymptotically autonomous perturbation context. Applying them requires a model-specific local expansion showing that the extra diffGrad state variables contribute only higher-order terms.",
+        "searches": [
+          "Cohen et al. arXiv:2207.14484v2 quadratic EMAHB threshold",
+          "Bock--Weiß arXiv:2210.02070, local Adam convergence discussion and epsilon-placement remarks",
+          "web search: Adam local convergence quadratic epsilon Jacobian stability beta1 epsilon threshold"
+        ]
+      },
+      "checked_sources": [
+        "Dubey et al., diffGrad: An Optimization Method for Convolutional Neural Networks, arXiv:1909.11015v4 / IEEE TNNLS",
+        "Cohen et al., Adaptive Gradient Methods at the Edge of Stability, arXiv:2207.14484v2",
+        "Bock and Weiß, Non-Convergence and Limit Cycles in the Adam optimizer, arXiv:2210.02070",
+        "Resultary semantic query: diffGrad scalar quadratic local stability epsilon floor friction one half Adam heavy ball threshold oscillatory plateau",
+        "web searches: diffGrad stability quadratic optimizer friction coefficient; diffGrad local convergence gradient difference optimizer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once the model-specific linear reduction is proved, Cohen's threshold immediately produces the audited ceiling.",
+          "The nonconstant DFC is \\(O(|g_t-g_{t-1}|)\\) away from 1/2 and multiplies the first-order momentum, so its first variation is second order.",
+          "The second-moment update is quadratic in the gradient, and the product of first moment with the square-root denominator correction is little-o of state size on the nonnegative moment cone."
+        ],
+        "reasoning": "The final numerical ceiling is strongly constrained by prior heavy-ball theory, but the claim is not implication-covered until the nonsmooth source-form diffGrad map is reduced to that block. That reduction is the central audited statement.",
+        "searches": [
+          "Specialized Cohen's EMAHB threshold to effective step \\(\\alpha/(2\\varepsilon)\\)",
+          "compared Bock--Weiß's local-Adam setting with diffGrad Eq. (20)",
+          "checked whether diffGrad's DFC derivative enters the Jacobian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "diffGrad Eq. (20) uses \\(\\sqrt{\\hat v_t}+\\varepsilon\\) and its DFC has minimum 0.5 at zero gradient change.",
+          "Cohen et al. give the EMA-heavy-ball threshold \\((2+2\\beta_1)/(\\eta(1-\\beta_1))\\), but do not analyze the state-dependent diffGrad friction.",
+          "The focused Resultary query returned no earlier distinct record giving the same source-form diffGrad theorem."
+        ],
+        "reasoning": "Equivalent formulations were checked both as a diffGrad Jacobian theorem and as a frozen preconditioned EMA-heavy-ball recurrence. The latter is a necessary comparison but does not by itself establish that the nonsmooth diffGrad map has the claimed first-order reduction.",
+        "searches": [
+          "arXiv:1909.11015v4 full text, Sections III-IV and Eq. (20)",
+          "arXiv:2207.14484v2, Sections 2 and Appendix-level quadratic recurrence discussion",
+          "Resultary query: diffGrad scalar quadratic local stability epsilon floor friction one half Adam heavy ball threshold oscillatory plateau"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked table or indexed finding supplied the ceiling 76 for \\(\\beta_1=0.9\\) as a theorem about source-form diffGrad, nor the exact complex-root interval."
+        ],
+        "reasoning": "This is an analytic local-stability classification rather than a standard benchmark table; exact numerical searches were still used to test for a pre-existing tabulation.",
+        "searches": [
+          "Resultary semantic search for exact diffGrad scalar-quadratic thresholds",
+          "web exact searches combining diffGrad, 76, beta1=0.9, epsilon-floor, and local stability"
+        ]
+      },
+      "rationale": "The source paper gives the exact diffGrad recurrence and the floor value \\(\\xi=1/2\\), while Cohen et al. give the EMA-heavy-ball quadratic threshold. Neither inspected source states the local Jacobian of source-form diffGrad with epsilon outside the square root, proves that both the gradient-difference variation and adaptive second-moment variation disappear at first order, or gives the doubled ceiling and complex-root plateau. Bock--Weiß discuss Adam local convergence and the nondifferentiability caused by epsilon outside the square root, but not diffGrad. The audited theorem is therefore not merely a numerical retabulation of a published diffGrad theorem, though it deliberately uses the prior heavy-ball threshold once the reduction is proved.",
+      "residual_risks": [
+        "The numerical threshold is closely related to the published EMA-heavy-ball threshold: the new step is the proof that the full source-form diffGrad map, including its nonsmooth gradient-difference coefficient and epsilon-floor adaptive denominator, has that frozen first-order reduction.",
+        "A later or unindexed optimizer-analysis paper could have carried out the same source-form linearization without using the exact phrase 'diffGrad local stability'."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_RECURRENCE_NOT_LOCAL_STABILITY_THEOREM",
+          "evidence": "The source states the DFC and optimizer recurrence and analyzes regret, but does not derive a scalar quadratic Jacobian, Jury frontier, or oscillatory plateau.",
+          "identifier_or_url": "arXiv:1909.11015v4",
+          "material_read": "Full arXiv HTML around the Adam moments, DFC definition, source-form update Eq. (20), convergence-analysis setup, and the discussion of the 0.5 friction floor.",
+          "method": "lawful open-access arXiv full text",
+          "title": "diffGrad: An Optimization Method for Convolutional Neural Networks",
+          "trigger": "Defining source for the exact optimizer convention and strongest same-method coverage risk."
+        },
+        {
+          "assessment": "GENERAL_LINEAR_BLOCK_INGREDIENT",
+          "evidence": "It supplies the sharp EMAHB threshold for a static preconditioner but does not analyze diffGrad's gradient-difference state dependence.",
+          "identifier_or_url": "arXiv:2207.14484v2",
+          "material_read": "Full arXiv HTML notation/background and quadratic EMA-heavy-ball threshold discussion, including the \\(38/\\eta\\) value at \\(\\beta_1=0.9\\).",
+          "method": "lawful open-access arXiv full text",
+          "title": "Adaptive Gradient Methods at the Edge of Stability",
+          "trigger": "Closest published exact stability threshold for the EMA-heavy-ball block used after linearization."
+        },
+        {
+          "assessment": "ADAM_BACKGROUND_NOT_DIFFGRAD_COVERAGE",
+          "evidence": "The paper discusses Adam and notes that epsilon outside the square root creates a nondifferentiable exception set; it does not state the source-form diffGrad local spectrum.",
+          "identifier_or_url": "arXiv:2210.02070",
+          "material_read": "Primary arXiv record sections on local convergence, epsilon placement, bias correction, scalar quadratics, and the quoted hyperparameter boundary for the differentiable epsilon-inside variant.",
+          "method": "lawful open-access arXiv text",
+          "title": "Non-Convergence and Limit Cycles in the Adam optimizer",
+          "trigger": "Closest scalar-quadratic adaptive-moment dynamics paper and possible local-convergence coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "diffGrad defining paper",
+        "Cohen et al. EMA-heavy-ball threshold",
+        "independent local reconstruction"
+      ],
+      "rationale": "The exact local frontier is a motivated method-level boundary: diffGrad was introduced specifically to change oscillatory behavior near optima, and the theorem identifies which part of that mechanism survives infinitesimally, quantifies the exact doubling relative to frozen EMA momentum, and isolates the complex-root plateau. This is more informative than a generic optimizer substitution because it resolves a nonsmooth adaptive recurrence at its stationary orbit.",
+      "residual_risks": [
+        "The contribution is local and scalar; it does not establish global convergence or neural-network stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The numerical threshold is closely related to the published EMA-heavy-ball threshold: the new step is the proof that the full source-form diffGrad map, including its nonsmooth gradient-difference coefficient and epsilon-floor adaptive denominator, has that frozen first-order reduction.",
+    "A later or unindexed optimizer-analysis paper could have carried out the same source-form linearization without using the exact phrase 'diffGrad local stability'."
+  ],
+  "schema_version": 1
+}

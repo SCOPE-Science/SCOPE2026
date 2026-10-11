@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source formulas were reconstructed with bias correction, the gradient-difference friction, and epsilon outside the square root. At the zero orbit, \(\xi_t-1/2=O(|x_t-x_{t-1}|)\), so its product with the first moment is second order. The adaptive denominator similarly differs from \(1/\varepsilon\) only by a higher-order contribution. The limiting optimization block has determinant \(\beta_1\) and trace \(1+\beta_1-(1-\beta_1)\alpha\lambda/(2\varepsilon)\); the exact Jury inequalities give the stated ceiling. The remaining limiting eigenvalues are \(\beta_2\) and \(0\).
+PASS
 
-Risk: the equality boundary is not assigned a nonlinear stability status, and global dynamics outside the local neighborhood are not classified.
+The first-order reduction was reconstructed directly. At the zero orbit, \(v_t=\beta_2v_{t-1}+O(x_t^2)\), while \(\xi_t=1/2+O(|x_t-x_{t-1}|)\); because both corrections multiply the first-order momentum in the parameter step, neither changes the Jacobian. The limiting \((x,m)\) block has determinant \(\beta_1\), trace \(1+\beta_1-(1-\beta_1)\alpha\lambda/(2\varepsilon)\), and Jury stability exactly when \(0<\alpha\lambda/\varepsilon<4(1+\beta_1)/(1-\beta_1)\). Independent symbolic/numeric replay gave the upper root \(-1\) at the boundary, the cap 76 at \(\beta_1=0.9\), and the stated complex-root plateau with modulus \(\sqrt{\beta_1}\). The exponentially decaying bias-correction perturbation is compatible with the strict limiting hyperbolicity claim; no nonlinear claim is made at the unit-root boundary.
 
-## Originality
+## originality
 
-PASS. The defining diffGrad paper states the friction rule, its \(1/2\) floor, and a regret theorem, and reports reduced oscillation experimentally; it does not give a quadratic local-stability spectrum. The adaptive-edge-of-stability literature gives the exact frozen EMA-heavy-ball threshold for Adam-like momentum but does not analyze diffGrad's gradient-difference factor. The Adam limit-cycle literature demonstrates broader nonlinear phenomena but likewise does not imply the first-order disappearance of diffGrad's gradient-difference sensitivity.
+PASS
 
-Focused searches for diffGrad local stability, scalar quadratics, Jacobians, epsilon-floor curvature, and asymptotic equivalence to half-step Adam identified no covering result.
+The source paper gives the exact diffGrad recurrence and the floor value \(\xi=1/2\), while Cohen et al. give the EMA-heavy-ball quadratic threshold. Neither inspected source states the local Jacobian of source-form diffGrad with epsilon outside the square root, proves that both the gradient-difference variation and adaptive second-moment variation disappear at first order, or gives the doubled ceiling and complex-root plateau. Bock--Weiß discuss Adam local convergence and the nondifferentiability caused by epsilon outside the square root, but not diffGrad. The audited theorem is therefore not merely a numerical retabulation of a published diffGrad theorem, though it deliberately uses the prior heavy-ball threshold once the reduction is proved.
 
-Residual risk: a generic adaptive-optimizer linearization framework may imply the calculation after substituting diffGrad's friction coefficient, even if no diffGrad-specific statement is indexed.
+## value
 
-## Value
+PASS
 
-PASS. diffGrad's defining mechanism is intended to change friction according to short-term gradient variation, especially near optima. The theorem separates two effects that are otherwise conflated: the fixed floor \(1/2\) doubles the local curvature margin, while the actual gradient-difference sensitivity contributes only at nonlinear order. This gives a sharp mechanistic boundary, a direct comparison with established frozen-Adam stability theory, and a precise warning that first-order local stabilization is not dynamically responsive to gradient differences.
+The exact local frontier is a motivated method-level boundary: diffGrad was introduced specifically to change oscillatory behavior near optima, and the theorem identifies which part of that mechanism survives infinitesimally, quantifies the exact doubling relative to frozen EMA momentum, and isolates the complex-root plateau. This is more informative than a generic optimizer substitution because it resolves a nonsmooth adaptive recurrence at its stationary orbit.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
