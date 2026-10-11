@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The normalized Walsh basis turns concentration into an exact (n+1)-dimensional Gram matrix with diagonal p, off-coordinate entries s and off-coordinate-pair entries t. The permutation-standard sector is p-t with multiplicity n-1; the two-dimensional radial sector has the stated characteristic polynomial. Direct conditional-binomial identities and t/s=(n-1-2r)/(n-1) prove strict interior interlacing; evaluation on radius-one vertices proves positivity, while contractivity gives eigenvalues <=1. Binomial central and local limit theorems and an exact central-binomial ratio give the claimed Gaussian limiting levels and decreasing half-ball singular-value condition numbers. Extracted standalone finite checker exhaustively compared all 39 matrices for 3<=n<=8, recomputed rational characteristic polynomials by a distinct exact Newton-identity method, verified 99 exact monotonicity identities, and checked three CLT parameters; computations corroborate, but do not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tsitsvero–Barbarossa–Di Lorenzo arXiv:1507.08822v1 Theorem 2.3 establishes general BDB concentration, which contains this operator abstractly but does not evaluate its eigenvalues.",
+        "Hogan–Lakey 2018 journal Section 2 has the general rank formula \\(\\operatorname{rank}(P_{K_1}Q_{K_2}P_{K_1})=\\operatorname{dim}(\\min(K_1,K_2))\\); their numerical section provides equal-radius samples.",
+        "Avni–Samorodnitsky arXiv:2411.14597v1 describes induced-ball adjacency, not low-frequency-band projection with spatial truncation."
+      ],
+      "reasoning": "Generic Slepian/graph concentration principles entail the operator definition and some sampling structure, not the asserted closed spectra, strict ordering for 1<=r<=n-2, general-radius normal-CLT scaling, or exact odd-halfball limiting sharp condition number.",
+      "searches": [
+        "\"spectral concentration Walsh low degree Hamming ball Gaussian limit eigenvalues\"",
+        "\"Hamming ball first chaos Slepian two spectral outlier Gaussian limit\"",
+        "\"Slepian spectral concentration on finite homogeneous spaces Grassmann Johnson Boolean Hamming frequency rank spectrum\"",
+        "\"Spatio-spectral limiting on hypercubes: eigenspaces\" arXiv:1812.08905"
+      ]
+    },
+    "checked_sources": [
+      "Harrow–Kolla–Schulman, DOI 10.4086/toc.2014.v010a003",
+      "Tsitsvero–Barbarossa–Di Lorenzo, arXiv:1507.08822v1",
+      "Hogan–Lakey, DOI 10.1007/s00041-018-09654-w",
+      "Hogan–Lakey, arXiv:1812.08905v1",
+      "Avni–Samorodnitsky, arXiv:2411.14597v1",
+      "Published research records: 2026/10/4/SCOPE-exact-even-dilate-shapiro-constants-for-hamming-balls-on-the-boo--6f80bd4fe238; 2026/10/4/SCOPE-sharp-tur-n-constant-and-all-extremizers-for-the-weight-two-bool--e912a3cb52c4; 2026/10/4/SCOPE-exact-affine-orbit-rank-census-for-the-5-9-walsh-support-gap-on--2a5eb96974d1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General graph concentration gives BDB and its eigenvalue interpretation, implying no numerical formula without a specialized calculation.",
+        "Hogan–Lakey \\(\\operatorname{rank}(P_{K_1}Q_{K_2}P_{K_1})=\\operatorname{dim}(\\min(K_1,K_2))\\) does imply the restricted first-band injectivity claim for r>=1; this element is explicitly acknowledged as prior and not a proposed novelty.",
+        "Hogan–Lakey 2018 eigenspace algorithm applies when spectral and spatial radii agree, so not a theorem of explicit levels at all r with the first-band radius fixed at one; exact Gaussian-limit and sharp condition number remain additional claims.",
+        "Avni–Samorodnitsky study principal-submatrix adjacency instead of the Slepian compression; an adjacency eigenvalue description does not determine the compression eigenvalues without new analysis."
+      ],
+      "reasoning": "The final substantive contribution is the all-radius exact closed spectrum plus strict sector ordering and the quantitative binomial-to-Gaussian crossover, not the generic operator definition, representation splitting, or the already-known full-rank statement.",
+      "searches": [
+        "\"Signals on Graphs: Uncertainty Principle and Sampling\" arXiv:1507.08822",
+        "\"An Analogue of Slepian Vectors on Boolean Hypercubes\" DOI:10.1007/s00041-018-09654-w",
+        "\"Spatio-spectral limiting on hypercubes: eigenspaces\" arXiv:1812.08905",
+        "\"Eigenvalues and eigenfunctions of a Hamming ball\" arXiv:2411.14597",
+        "\"Walsh Fourier concentration P_{<=1} 1_{|x|<=r} P_{<=1} exact spectrum Hamming ball\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hogan–Lakey DOI 10.1007/s00041-018-09654-w pp.4-13 studies the exact Slepian operator, its general rank and numerical eigenvalues, but provides no algebraic first-band all-radius spectrum or condition-number limit.",
+        "Their arXiv:1812.08905v1 pp.3,12-14 constructs equal-radius eigenspaces by reduced finite matrices, not the three explicit binomial levels for arbitrary ball radius."
+      ],
+      "reasoning": "A general matrix eigenvalue algorithm and a few numerical instances can calculate special cases but do not state or prove this uniformly quantified closed formula and Gaussian crossover. Sampling rank was previously covered and is attributed, not asserted original.",
+      "searches": [
+        "\"Walsh Fourier concentration P_{<=1} 1_{|x|<=r} P_{<=1} exact spectrum Hamming ball\"",
+        "\"Bernoulli Gram matrix affine functions restricted binomial tail upper lower eigenvalues Gaussian Hermite crossover\"",
+        "\"binomial halfspace degree one Fourier concentration Hamming ball sampling condition number monotonic\"",
+        "Hogan Lakey An Analogue of Slepian Vectors on Boolean Hypercubes PDF full text pages 1-17"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record 2026/10/4/SCOPE-exact-even-dilate-shapiro-constants-for-hamming-balls-on-the-boo--6f80bd4fe238 evaluates Shapiro translation constants rather than eigenvalues.",
+        "Published record 2026/10/4/SCOPE-sharp-tur-n-constant-and-all-extremizers-for-the-weight-two-bool--e912a3cb52c4 evaluates a Turán extremal on a weight-two shell.",
+        "Published record 2026/10/4/SCOPE-exact-affine-orbit-rank-census-for-the-5-9-walsh-support-gap-on--2a5eb96974d1 concerns Walsh support uncertainty.",
+        "The explicit Hogan–Lakey 2018 journal table lists finite equal-radius numerical eigenvalues, not exact scalar functions for every n,r."
+      ],
+      "reasoning": "The searched database results and primary tables have different invariants or isolated numerical parameters and cannot supply the entire new theorem merely by matching a frequency-related keyword or a handful of numbers.",
+      "searches": [
+        "\"Boolean cube Hamming ball Slepian eigenvalues bandwidth one eigenvalue 1/2 finite Krawtchouk\"",
+        "\"exact concentration eigenvalues first order Walsh Fourier band on Hamming balls cumulative binomial Gram\"",
+        "\"Hamming ball first chaos Slepian two spectral outlier Gaussian limit\"",
+        "\"Slepian on Hamming balls Krawtchouk Walsh low frequency spectral projection\""
+      ]
+    },
+    "rationale": "The primary sources establish spherical-mean Fourier diagonalization, general graph spectral concentration, hypercube Slepian operators and their multiplicity/rank/eigenspace decompositions, and induced-Hamming-ball adjacency spectra. Hogan–Lakey already implies injectivity of the first-band restriction for ball radius >=1, and general projections yield the Slepian setup; those observations are not claimed novel. Their full first hypercube paper supplies numerical eigenvalues and general full rank but no all-radius closed first-band binomial formula or Gaussian two-outlier continuum with balanced condition-number monotonicity. The second paper restricts its detailed eigenspace construction to equal spatial/spectral radii and gives a finite matrix algorithm, not an all-radius closed scalar spectral identity. The stated formula and asymptotic transition are not implied as mathematical propositions by the inspected primary results. Residual risk of equivalent classical covariance/Krawtchouk formulas remains, so no independent novelty guarantee is asserted.",
+    "residual_risks": [
+      "Older unindexed Boolean covariance, Krawtchouk or discrete prolate literature might contain an equivalent exact first-chaos binomial spectrum without using Slepian terminology.",
+      "The generic graph Slepian machinery and Hogan–Lakey numerical spectra may make the elementary lowest-band calculation accessible; the new contribution is a closed all-radius formula plus asymptotic and condition-number structure, not the construction of the concentration operator or known rank theorem.",
+      "Search comparisons and mathematical reasoning are not independent originality certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Spherical-average maximal bounds act as Walsh Fourier multipliers, not Slepian spatial cutoff followed by projection. No all-radius first-band three-eigenvalue table.",
+        "identifier_or_url": "https://www.theoryofcomputing.org/articles/v010a003/v010a003.pdf",
+        "material_read": "Introduction, definitions of spherical multipliers and spectral diagonalization in Section 2, Lemma 2.2, and Section 3 maximal-operator argument",
+        "method": "Lawful publisher open-access full-text PDF read",
+        "title": "Dimension-Free L2 Maximal Inequality for Spherical Means in the Hypercube",
+        "trigger": "Archive-era hypercube Walsh/Krawtchouk spherical spectral source"
+      },
+      {
+        "assessment": "FOUND_PRIOR_SUBCLAIM_NOT_TOTAL",
+        "evidence": "Theorem 2.3 identifies BDB eigenvectors as maximally concentrated graph signals, encompassing the operator type; no Boolean Hamming-ball closed eigenvalue formula is given.",
+        "identifier_or_url": "https://arxiv.org/pdf/1507.08822",
+        "material_read": "Abstract and introduction, Section II definitions, Theorem 2.3 and proof at printed pp.4-5; Section IV rank/sampling discussion",
+        "method": "Public arXiv full-text PDF read",
+        "title": "Signals on Graphs: Uncertainty Principle and Sampling",
+        "trigger": "Earliest archive-era general spatial/frequency concentration and sampling result"
+      },
+      {
+        "assessment": "FOUND_PRIOR_SUBCLAIM_NOT_TOTAL",
+        "evidence": "p.2007 states \\(\\operatorname{rank}(P_{K_1}Q_{K_2}P_{K_1})=\\operatorname{dim}(\\min(K_1,K_2))\\), covering injectivity; pp.2010-2016 contain numerical equal-radius spectra and eigenvector algorithms. No algebraic first-band spectrum for arbitrary spatial radius or Gaussian crossover is claimed.",
+        "identifier_or_url": "DOI:10.1007/s00041-018-09654-w",
+        "material_read": "All printed pages 2004-2020 (17 pages): Sections 1-5, tables and figures, Appendix and references; specifically rank on p.2007, eigenvalue table p.2016",
+        "method": "Full primary-paper text read and compared across all pages",
+        "title": "An Analogue of Slepian Vectors on Boolean Hypercubes",
+        "trigger": "Same exact graph and spatial/spectral limiting setup; decisive comparison required"
+      },
+      {
+        "assessment": "FOUND_PRIOR_SUBCLAIM_NOT_TOTAL",
+        "evidence": "§1 explicitly restricts to K1=K2=K; Corollary 9 computes equal-radius eigenspaces through principal minors. Does not present all-radius first-band closed formula or normal-CLT and odd-halfball sharp-condition-number limits.",
+        "identifier_or_url": "https://arxiv.org/pdf/1812.08905",
+        "material_read": "Introduction and setup pp.1-4, invariant-space decomposition pp.6-12, Corollary 9 and matrix procedure pp.12-14, numerical and reference sections pp.14-18",
+        "method": "Public arXiv full-text PDF read with page-image confirmation of operator setup",
+        "title": "Spatio-spectral limiting on hypercubes: eigenspaces",
+        "trigger": "Closest same-object follow-up providing all multiplicities in equal-radius regime"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Spectral object is vertex-induced Hamming-ball adjacency M_B A_cube M_B, not Fourier-band compression P_1 M_B P_1. The difference persists despite common Hamming radius and Krawtchouk terminology.",
+        "identifier_or_url": "https://arxiv.org/pdf/2411.14597",
+        "material_read": "Introduction, Theorems 1.7 and 1.10, Sections 2.2 and 2.3 on Krawtchouk-root descriptions, final references",
+        "method": "Public arXiv full-text PDF read",
+        "title": "Eigenvalues and eigenfunctions of a Hamming ball",
+        "trigger": "Title could disguise a covering eigenvalue result on identical spatial sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2f5ddac-5a0f-44c3-91da-7c86118162a5",
+  "value": {
+    "rationale": "The natural lowest nonconstant Walsh/Fourier subspace on a Boolean cube and its full family of Hamming balls are canonical, rather than an arbitrarily selected slice. Beyond the prior operator definition and rank theorem, the complete sharp eigenvalues determine optimal sampling distortion for each ball, establish a three-sector interlacing law and reveal a nontrivial two-outlier Gaussian Hermite limit as dimension grows. The odd-halfball condition number decreases strictly to an explicit constant. These are uniform structural statements over all dimensions/radii with concrete stable-sampling use; the calculation is elementary in its symmetry reduction but not merely a chosen numerical table or renaming of a known exact invariant.",
+    "status": "PASS"
+  }
+}
