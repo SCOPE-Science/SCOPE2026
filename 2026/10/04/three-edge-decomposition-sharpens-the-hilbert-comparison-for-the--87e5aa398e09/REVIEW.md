@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The upper estimate uses only disjointness of segment endpoints and the exact inequality \(|a-b|^2\le2(|a|^2+|b|^2)\); the adjacent-sign witness attains \(\sqrt2\). For the lower estimate, the explicit recursive three-edge coloring makes each color class a matching, so one color carries at least one third of the full edge energy. With \(t=1/\sqrt2\), summing \(2|ab|\le t|a|^2+t^{-1}|b|^2\) gives coefficient \(3-2\sqrt2\) at every nonroot vertex and the larger coefficient \(2-\sqrt2\) at the root. The exact segment formula follows because every nonzero variation consumes a distinct support node, while the source's branch-off construction realizes one unit variation per node.
+## correctness
 
-## Originality
-PASS. The focal paper proves only a coarser Hilbert comparison for the first-attempt norm, displaying upper constant \(\sqrt3\) and lower constant \(\sqrt{(3-2\sqrt2)/5}\), and states only the lower bound \(\sqrt{|s|}\) for a segment sum. Full-text inspection, targeted web searches, semantic database searches, and the available prior ledger found no statement with the three-color lower bound, sharp \(\sqrt2\) upper constant, or exact segment identity. A previously recorded result from the same paper concerns the final \(X_\alpha\) norm and is logically separate.
+PASS
 
-## Value
-PASS. The preliminary norm is not an arbitrary auxiliary object: the focal paper introduces it as the natural first dyadic-tree analogue of the James variation norm and uses its failure to motivate the final construction. The new theorem gives a coherent quantitative profile of that obstruction: it improves the canonical Hilbert distortion certificate from the source's displayed constants, identifies the optimal upper comparison constant, and makes the segment blow-up exact. The three-edge decomposition also exposes the role of the tree's degree rather than merely re-running the four-family proof.
+The proof is correct. Pairwise disjoint test segments have distinct endpoints, giving the global upper bound \(\sqrt2\) times the Hilbert norm, and a sign-changing vector on one edge attains it. A proper three-edge coloring partitions all tree edges into matchings, so the norm squared dominates one third of the full edge energy. The weighted two-variable inequality with weight \(1/\sqrt2\) gives the energy lower coefficient \(3-2\sqrt2\) at every nonroot vertex, with a larger root coefficient. For a finite path segment, every nonzero variation consumes a distinct support endpoint, while branch-off edges give one disjoint unit variation at every support node, proving the exact square-root segment norm.
 
-## Closest literature and limitations
-The closest source is S. A. Argyros and P. Motakis, “Explicitly Defined Norms on \(JT_*\) Spaces,” arXiv:2609.31276v1. Section 1.1 defines the norm, proves \(X_1\cong\ell_2(T)\), and gives the coarser constants and segment lower bound described above. No exact lower comparison constant is claimed here; only the stated improved bound and the sharpness of the upper constant are asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes with an explicit same-paper access limitation. The source comparison recorded in the package is to a coarser Hilbert estimate and a one-sided segment bound; the current Resultary search returned no prior finding with the three-edge improvement, sharp upper constant, or exact segment identity. The nearby Resultary record concerns the final Argyros--Motakis norm rather than the preliminary \(N_1\) norm.
+
+## value
+
+PASS
+
+The preliminary norm is explicitly motivated as the natural first dyadic-tree James-variation attempt. The theorem materially sharpens its Hilbert comparison, determines the optimal upper constant, and makes the source's branching failure exact on segment indicators. That combination is a useful quantitative diagnosis of why the construction is discarded, not an arbitrary constant tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

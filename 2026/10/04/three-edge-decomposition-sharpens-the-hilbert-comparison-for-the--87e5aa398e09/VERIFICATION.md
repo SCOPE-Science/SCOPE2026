@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly from the displayed definition of the first-attempt norm.
+# Independent mathematical audit
 
-1. Pairwise disjoint test segments have pairwise distinct endpoints, so the quadratic variation is at most twice the Hilbert energy. The vector supported by values \(1\) and \(-1\) on one edge attains the resulting upper constant \(\sqrt2\).
-2. The recursive three-edge coloring is proper: the two outgoing colors at each nonroot node are precisely the colors different from its incoming edge. Hence every color class is a matching and is an admissible family of disjoint one-edge segments.
-3. Expanding the full edge energy and applying \(2|ab|\le t|a|^2+t^{-1}|b|^2\) with \(t=1/\sqrt2\) gives coefficient \(3-2\sqrt2\) at every nonroot vertex and the larger coefficient \(2-\sqrt2\) at the root. Thus the lower comparison holds for every finitely supported vector, not merely for a finite-level truncation.
-4. For a segment indicator, each nonzero variation has size one and consumes a distinct node of the support, giving the upper count \(|s|\). The branch-off one-edge segments give exactly \(|s|\) disjoint unit variations, proving equality.
+## correctness
 
-No finite experiment is used as an infinite proof. Decimal constants in the accompanying report are evaluations of the closed forms only. The lower comparison constant is not claimed to be optimal, and no assertion is made about the final \(X_\alpha\) norm.
+PASS
+
+The proof is correct. Pairwise disjoint test segments have distinct endpoints, giving the global upper bound \(\sqrt2\) times the Hilbert norm, and a sign-changing vector on one edge attains it. A proper three-edge coloring partitions all tree edges into matchings, so the norm squared dominates one third of the full edge energy. The weighted two-variable inequality with weight \(1/\sqrt2\) gives the energy lower coefficient \(3-2\sqrt2\) at every nonroot vertex, with a larger root coefficient. For a finite path segment, every nonzero variation consumes a distinct support endpoint, while branch-off edges give one disjoint unit variation at every support node, proving the exact square-root segment norm.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with an explicit same-paper access limitation. The source comparison recorded in the package is to a coarser Hilbert estimate and a one-sided segment bound; the current Resultary search returned no prior finding with the three-edge improvement, sharp upper constant, or exact segment identity. The nearby Resultary record concerns the final Argyros--Motakis norm rather than the preliminary \(N_1\) norm.
+
+## value
+
+PASS
+
+The preliminary norm is explicitly motivated as the natural first dyadic-tree James-variation attempt. The theorem materially sharpens its Hilbert comparison, determines the optimal upper constant, and makes the source's branching failure exact on segment indicators. That combination is a useful quantitative diagnosis of why the construction is discarded, not an arbitrary constant tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
