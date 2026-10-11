@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:13:48.149325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Abrate-Barbero-Cerruti-Murru, The biharmonic mean, Mathematical Reports 18 (2016), complete 13-page PDF, Proposition 1 and Theorems 4-5",
+        "assigned RESULT.md at Git tree 899d60aff26b71ee3d78baa76e13611b238e3b77"
+      ],
+      "rationale": "Using the source's equivalence, a crystal pair gives an integer \\(w\\) with \\((x+y-1)^2=wxy\\), where \\(x=(a+1)/2\\) and \\(y=(b+1)/2\\). Any common divisor of \\(x,y\\) divides 1 after reduction of this equation, so \\(\\gcd(a+1,b+1)=2\\). For \\(d=\\gcd(a,b)\\), oddness gives the inverse \\(h=2^{-1}\\pmod d\\) and \\(x\\equiv y\\equiv h\\). The conic forces \\(w\\equiv0\\pmod d\\). The published recurrence for consecutive solution terms then propagates the congruence \\(h\\) backwards because \\(u_{j-2}=(w-2)u_{j-1}+2-u_j\\equiv2-3h\\equiv h\\pmod d\\). Reaching \\(u_1=1\\) gives \\(h\\equiv1\\), incompatible with \\(2h\\equiv1\\) unless \\(d=1\\). Hence every crystal factorization is unitary, and with exactly two prime divisors only one nontrivial unordered unitary split exists.",
+      "residual_risks": [
+        "The theorem does not compare the several unitary splits available once the integer has at least three distinct prime divisors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source gives the conic recurrence and complete recurrence parametrization, but leaves component uniqueness conjectural.",
+          "A210494 concerns biharmonic numbers/divisor means, not crystal component coprimality."
+        ],
+        "reasoning": "The prior classification provides ingredients but no theorem dominating the new coprimality invariant or two-prime uniqueness corollary.",
+        "searches": [
+          "Abrate et al. 2016 Proposition 1, Theorem 4, Theorem 5 and final conjecture",
+          "OEIS A210494"
+        ]
+      },
+      "checked_sources": [
+        "https://imar.ro/journals/Mathematical_Reports/Pdfs/2016/4/5.pdf",
+        "https://arxiv.org/abs/1601.03081",
+        "OEIS A210494",
+        "Resultary published-result search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence theorem does not itself state that a common divisor of \\(a,b\\) propagates backward to a contradiction; that modular invariant is the new step.",
+          "The source explicitly presents component uniqueness as unresolved."
+        ],
+        "reasoning": "The new lemma is not merely a special case of a stronger published theorem; it adds a nontrivial arithmetic invariant to the recurrence.",
+        "searches": [
+          "Direct proof comparison with Abrate et al. recurrence classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent crystal result appeared among Resultary's leading matches.",
+          "The full Abrate et al. text contains the uniqueness conjecture but no gcd/coprime theorem."
+        ],
+        "reasoning": "The unitary-factorization formulation is equivalent to \\(\\gcd(a,b)=1\\); neither wording was found in the inspected primary source.",
+        "searches": [
+          "Resultary query: biharmonic mean crystals coprime components unitary factorization uniqueness two primes",
+          "web query: The Biharmonic mean crystal components coprime gcd uniqueness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The database records biharmonic integers rather than the component-pair gcd structure."
+        ],
+        "reasoning": "The claim is a symbolic all-crystal theorem, not a table recomputation.",
+        "searches": [
+          "OEIS A210494",
+          "targeted search for crystal component gcd/coprime"
+        ]
+      },
+      "rationale": "The complete primary paper was inspected. It classifies crystal pairs by the conic/recurrence and explicitly ends by conjecturing uniqueness of crystal components, saying a proof or counterexample does not follow easily. It does not state either coprimality conclusion. Targeted literature and Resultary searches found no equivalent coprime/unitary component theorem. The audited modular recurrence argument therefore supplies a new structural restriction and proves the source conjecture on the full two-prime-support stratum.",
+      "residual_risks": [
+        "An unindexed number-theory note could contain the same recurrence congruence, though none was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_CONJECTURE_SOURCE",
+          "evidence": "The paper states that crystal components are conjecturally unique and that a proof or counterexample does not follow easily; no coprime theorem appears.",
+          "identifier_or_url": "https://imar.ro/journals/Mathematical_Reports/Pdfs/2016/4/5.pdf",
+          "material_read": "Complete 13-page PDF, especially the crystal definition, Proposition 1, Theorems 4-5, and the concluding uniqueness-conjecture paragraph.",
+          "method": "Lawful public full-PDF inspection with rendered-page verification.",
+          "title": "The biharmonic mean",
+          "trigger": "Direct source introducing crystals, their recurrence classification, and the component-uniqueness conjecture."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Abrate et al. 2016 concluding conjecture"
+      ],
+      "rationale": "Coprimality of every crystal component pair is a reusable structural invariant, and it settles the published uniqueness conjecture for all crystals supported on exactly two primes. This materially narrows any future counterexample search to at least three distinct prime factors.",
+      "residual_risks": [
+        "The full uniqueness conjecture for three or more prime factors remains open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://imar.ro/journals/Mathematical_Reports/Pdfs/2016/4/5.pdf",
+    "https://arxiv.org/abs/1601.03081",
+    "OEIS A210494",
+    "Resultary published-result search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Odd crystals with nontrivial components only.",
+    "No uniqueness conclusion is claimed once \\(\\omega(N)\\ge3\\)."
+  ],
+  "residual_risks": [
+    "An unindexed number-theory note could contain the same recurrence congruence, though none was located."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "OPEN_CONJECTURE_SOURCE",
+      "evidence": "The paper states that crystal components are conjecturally unique and that a proof or counterexample does not follow easily; no coprime theorem appears.",
+      "identifier_or_url": "https://imar.ro/journals/Mathematical_Reports/Pdfs/2016/4/5.pdf",
+      "material_read": "Complete 13-page PDF, especially the crystal definition, Proposition 1, Theorems 4-5, and the concluding uniqueness-conjecture paragraph.",
+      "method": "Lawful public full-PDF inspection with rendered-page verification.",
+      "title": "The biharmonic mean",
+      "trigger": "Direct source introducing crystals, their recurrence classification, and the component-uniqueness conjecture."
+    }
+  ]
+}

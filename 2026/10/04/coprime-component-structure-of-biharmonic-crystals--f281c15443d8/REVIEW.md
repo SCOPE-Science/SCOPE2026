@@ -1,38 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is derived from the source's exact crystal criterion. For a crystal,
-\(Q(a,b)\) is integral and the half-shifted components
-\(x=(a+1)/2\), \(y=(b+1)/2\) satisfy \((x+y-1)^2=wxy\). A common divisor
-of \(x\) and \(y\) immediately contradicts this equation, proving
-\(\gcd(a+1,b+1)=2\). For \(\gcd(a,b)\), the published recurrence for all positive
-integer solutions is used backwards modulo a hypothetical common divisor; it forces
-the fixed initial value \(u_1=1\) to be congruent to the inverse of \(2\), which is
-impossible unless the divisor is \(1\). The two-prime-support uniqueness corollary
-then follows from unique prime-power allocation in a coprime factorization.
+## correctness
 
-The main scientific risk is copying of the source recurrence or equivalence.
-Those statements were checked in the primary full text, and the packaged checker
-also validates thousands of generated instances.
+PASS
 
-## Originality
-PASS. published-finding corpus searches for biharmonic crystals, component gcds, unitary
-factorizations and two-prime-support uniqueness returned no result about this object.
-The current ledger contains no biharmonic/crystal finding. The primary paper
-classifies crystals and explicitly poses component uniqueness as a conjecture, but
-does not state the two coprimality identities; full-text searches for "gcd" and
-"coprime" were negative. OEIS A210494 records biharmonic integers, not component
-factorizations. The closest published-finding corpus hits concern other divisor notions or unrelated
-uniqueness problems and do not imply this claim.
+Using the source's equivalence, a crystal pair gives an integer \(w\) with \((x+y-1)^2=wxy\), where \(x=(a+1)/2\) and \(y=(b+1)/2\). Any common divisor of \(x,y\) divides 1 after reduction of this equation, so \(\gcd(a+1,b+1)=2\). For \(d=\gcd(a,b)\), oddness gives the inverse \(h=2^{-1}\pmod d\) and \(x\equiv y\equiv h\). The conic forces \(w\equiv0\pmod d\). The published recurrence for consecutive solution terms then propagates the congruence \(h\) backwards because \(u_{j-2}=(w-2)u_{j-1}+2-u_j\equiv2-3h\equiv h\pmod d\). Reaching \(u_1=1\) gives \(h\equiv1\), incompatible with \(2h\equiv1\) unless \(d=1\). Hence every crystal factorization is unitary, and with exactly two prime divisors only one nontrivial unordered unitary split exists.
 
-Residual risk: a later or poorly indexed paper could have noticed the same elementary
-structural consequence without using searchable terminology.
+## originality
 
-## Value
-PASS. The result is not a parameter substitution or bounded census. It gives a global
-structural invariant for every crystal factorization and converts arbitrary component
-splits into unitary splits. This directly reduces the open uniqueness problem and
-settles it for the natural first nontrivial support stratum \(\omega(N)=2\), while
-showing that any counterexample must have at least three distinct prime divisors.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The complete primary paper was inspected. It classifies crystal pairs by the conic/recurrence and explicitly ends by conjecturing uniqueness of crystal components, saying a proof or counterexample does not follow easily. It does not state either coprimality conclusion. Targeted literature and Resultary searches found no equivalent coprime/unitary component theorem. The audited modular recurrence argument therefore supplies a new structural restriction and proves the source conjecture on the full two-prime-support stratum.
+
+## value
+
+PASS
+
+Coprimality of every crystal component pair is a reusable structural invariant, and it settles the published uniqueness conjecture for all crystals supported on exactly two primes. This materially narrows any future counterexample search to at least three distinct prime factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
