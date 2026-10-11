@@ -1,15 +1,21 @@
-# Review: Exact rank-one multiplicities for nilpotent–involution factorizations in \(M_3(\mathbb F_q)\)
+# Independent mathematical audit
 
-## Correctness
-PASS. The factorization count is reduced bijectively to involutions \(U\) satisfying \(\operatorname{tr}(AU)=0\). Rank-one nilpotence follows from \((u\varphi)^2=\varphi(u)u\varphi\). In odd characteristic, the bijection \(U=I_3-2P\) with idempotents \(P\) and the rank-one parametrization \(P=x\psi\), \(\psi(x)=1\), give the two exact counts by scaling-orbit enumeration and inclusion-exclusion. In characteristic two, \(U=I_3+S\) with \(S^2=0\), and every nonzero square-zero \(3\times3\) matrix has rank one, yielding the other two counts. Exact exhaustive replays over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) agree.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2608.17569v1, proves existence criteria and remarks that decompositions are not unique, but does not count admissible involutions or factorization fibers. Searches using factorization, incidence, rank-one, trace-hyperplane, formula, and small-field formulations found no equivalent statement. Classical counts of all involutions do not imply the \(A\)-dependent condition \(\operatorname{tr}(AU)=0\). Residual risk remains because a classical full text on involution counts was not accessible and because older terminology may differ.
+PASS
 
-## Value
-PASS. Factorization multiplicity is a natural invariant of the decomposition problem highlighted by the recent source's non-uniqueness remark. The result is a complete classification over all finite fields on the full rank-one stratum, with a nontrivial split by trace and characteristic. It is not merely a recomputation of total involution counts.
+For rank-one \(A=u\varphi\) and involution U, \(AU\) remains rank one and is nilpotent iff its trace vanishes, so factorizations are exactly involutions satisfying \(\varphi(Uu)=0\). Similarity and nonzero scaling reduce the trace-zero and nonzero-trace strata to \(E_{12}\) and \(E_{11}\). In odd characteristic, writing \(U=I-2P\) converts the problem to an idempotent incidence count; in characteristic two, \(U=I+S\) with \(S^2=0\) and rank at most one gives the analogous square-zero incidence count. Inclusion-exclusion and projective rescaling yield the four stated polynomials. Independent brute-force enumeration over all 3x3 matrices for q=2 and q=3 reproduced (14,6) and (128,48).
 
-## Closest literature and limitations
-The nearest primary source is F. Mabilat, arXiv:2608.17569v1 (18 August 2026), which supplies the existence framework. J. H. Hodges, doi:10.2307/2308579, is relevant background for total involution counts but was not fully accessible in the inspected channel. The theorem here does not address rank-two matrices, idempotent-factor multiplicities, or higher dimensions; finite replay is limited to \(q=2,3,4\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Mabilat's complete current paper characterizes existence of nilpotent--involution factorizations over arbitrary fields and explicitly remarks that the decomposition is generally nonunique, including examples, but it does not count factorizations. The audited result turns that open multiplicity dimension into an exact finite-field incidence law on the natural rank-one M3 stratum, with a nontrivial characteristic and trace dichotomy. Resultary and targeted searches found no prior equivalent formula.
+
+## value
+
+PASS
+
+The strongest current source explicitly observes nonuniqueness after solving existence. Exact fiber multiplicity is therefore a natural next invariant. The rank-one M3 stratum is the first nontrivial finite-field case where characteristic and trace produce distinct closed profiles, making the result structurally motivated rather than an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

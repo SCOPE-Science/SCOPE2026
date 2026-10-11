@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for every prime power \(q\). The critical checks are:
+# Independent mathematical audit
 
-1. For rank-one \(R=u\varphi\), verify \(R^2=\operatorname{tr}(R)R\); hence nonzero rank-one nilpotence is equivalent to trace zero and implies \(R^2=0\).
-2. Use the bijection between factorizations \(A=NU\) and involutions \(U\) with \(\operatorname{tr}(AU)=0\), via the forced factor \(N=AU\).
-3. For odd characteristic, verify the involution/idempotent bijection \(U=I_3-2P\), count qualifying rank-one idempotents modulo \((x,\psi)\sim(cx,c^{-1}\psi)\), and use \(P\mapsto I_3-P\) for rank two.
-4. For characteristic two, verify \(U=I_3+S\) with \(S^2=0\), note \(\operatorname{rank}S\le1\) in dimension three, and count nonzero rank-one square-zero \(S=x\psi\) with \(\psi(x)=0\).
+## correctness
 
-`verify_factorizations.py` separately enumerates every \(3\times3\) matrix over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\), tests \(U^2=I_3\), and counts the two trace conditions. Its stored output is:
+PASS
 
-```
-q=2: involutions=22; trace-zero-rank1 factors=14; nonzero-trace-rank1 factors=6; OK
-q=3: involutions=236; trace-zero-rank1 factors=128; nonzero-trace-rank1 factors=48; OK
-q=4: involutions=316; trace-zero-rank1 factors=124; nonzero-trace-rank1 factors=60; OK
-```
+For rank-one \(A=u\varphi\) and involution U, \(AU\) remains rank one and is nilpotent iff its trace vanishes, so factorizations are exactly involutions satisfying \(\varphi(Uu)=0\). Similarity and nonzero scaling reduce the trace-zero and nonzero-trace strata to \(E_{12}\) and \(E_{11}\). In odd characteristic, writing \(U=I-2P\) converts the problem to an idempotent incidence count; in characteristic two, \(U=I+S\) with \(S^2=0\) and rank at most one gives the analogous square-zero incidence count. Inclusion-exclusion and projective rescaling yield the four stated polynomials. Independent brute-force enumeration over all 3x3 matrices for q=2 and q=3 reproduced (14,6) and (128,48).
 
-The computation is a check only; the all-\(q\) result is proved by the counting argument above. No claim is made for rank-two matrices or dimensions other than three.
+## originality
+
+PASS
+
+Mabilat's complete current paper characterizes existence of nilpotent--involution factorizations over arbitrary fields and explicitly remarks that the decomposition is generally nonunique, including examples, but it does not count factorizations. The audited result turns that open multiplicity dimension into an exact finite-field incidence law on the natural rank-one M3 stratum, with a nontrivial characteristic and trace dichotomy. Resultary and targeted searches found no prior equivalent formula.
+
+## value
+
+PASS
+
+The strongest current source explicitly observes nonuniqueness after solving existence. Exact fiber multiplicity is therefore a natural next invariant. The rank-one M3 stratum is the first nontrivial finite-field case where characteristic and trace produce distinct closed profiles, making the result structurally motivated rather than an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
