@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source gives exactly two nonzero dual weights for each punctured distance-three family, so Delsarte's external-distance bound yields punctured covering radius at most two. The strict inequalities \(n+1<2^r\) rule out radius one, hence the punctured radius is exactly two. The parity-check matrix of the extension then partitions syndromes by error-weight parity and gives the exact four-layer leader distribution \(1,N,2^r-1,2^r-N\). Because \(2^r-N>0\), the extended radius is exactly three. The finite verifier independently reproduces the two smallest convenient syndrome graphs but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. arXiv:2510.22259v1 explicitly asks in Open Problem 8.6 for covering radii of the distance-optimal families. Theorems 4.2/4.5 and 6.2/6.5 provide the two-weight punctured codes and the parity extensions but do not state these radii or leader distributions. Focused published-finding corpus and web searches using both length formulas, source notation, exact redundancies, and covering-radius aliases found no matching result. The closest older cyclic-code covering-radius paper treats different parameters. An unindexed equivalent observation remains a residual risk.
+PASS
 
-## Value
-PASS. This resolves a named invariant from an explicit open problem for two complete infinite distance-four BCH families and provides the full coset-leader distribution, not merely an upper bound. The proof exposes a simple structural mechanism that can be tested against other families in the source paper.
+For either unextended family, two nonzero dual weights imply external distance two, hence Delsarte gives covering radius at most two. Minimum distance three and \(N=n+1<2^r\) exclude radius one by the perfect-code sphere identity, so the punctured radius is exactly two. In the parity extension, the last syndrome bit is error parity. Every nonzero last-zero syndrome therefore has leader weight exactly two; among last-one syndromes the \(N\) distinct parity-check columns have weight one, and every remaining syndrome is represented by two base columns plus the new parity column, hence has leader weight three. Thus \(L_0=1,L_1=N,L_2=2^r-1,L_3=2^r-N\) and the radius is three. Fresh independent arithmetic reproduced \((1,52,255,204)\) for Family A at \(s=2\) and \((1,86,255,170)\) for Family B at \(s=4\).
 
-## Closest literature and limitations
-The closest source is Chen--Xie--Ding, arXiv:2510.22259v1, especially Theorems 4.2, 4.5, 6.2, 6.5 and Open Problem 8.6. Delsarte's external-distance bound supplies the standard covering-radius inequality. The result does not address the source's Section 5 distance-four family or its distance-six families, and focused search cannot exclude an older unindexed equivalent formulation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Chen-Xie-Ding explicitly leave the covering radii of their distance-optimal families as Open Problem 8.6. Their Theorems 4.2/6.2 provide the two-weight dual data for the punctured codes and Theorems 4.5/6.5 provide the distance-four extensions, but they do not state the extension radii or coset-leader distributions. Delsarte alone determines only the punctured radius; the parity-syndrome lifting lemma is the additional step that fixes every extended coset. Targeted searches found no earlier theorem or table containing these two exact extended-family results.
+
+## value
+
+PASS
+
+The theorem resolves two infinite families inside a source paper’s explicit covering-radius open problem and gives the entire coset-leader weight distribution, not merely the maximum. The proof is concise because the dual spectra are unusually rigid, but the exact infinite-family classification is a natural coding-theoretic invariant with clear future use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

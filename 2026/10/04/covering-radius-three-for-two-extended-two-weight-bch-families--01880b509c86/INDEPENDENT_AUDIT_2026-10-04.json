@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:01:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 74b91fd24ae3628f7a0648b5c50c13b9a73127da",
+        "assigned verify.py blob 3561176fd6aa70a5db624ccb6ba759a3a4922581",
+        "Chen-Xie-Ding arXiv:2510.22259 full primary text"
+      ],
+      "rationale": "For either unextended family, two nonzero dual weights imply external distance two, hence Delsarte gives covering radius at most two. Minimum distance three and \\(N=n+1<2^r\\) exclude radius one by the perfect-code sphere identity, so the punctured radius is exactly two. In the parity extension, the last syndrome bit is error parity. Every nonzero last-zero syndrome therefore has leader weight exactly two; among last-one syndromes the \\(N\\) distinct parity-check columns have weight one, and every remaining syndrome is represented by two base columns plus the new parity column, hence has leader weight three. Thus \\(L_0=1,L_1=N,L_2=2^r-1,L_3=2^r-N\\) and the radius is three. Fresh independent arithmetic reproduced \\((1,52,255,204)\\) for Family A at \\(s=2\\) and \\((1,86,255,170)\\) for Family B at \\(s=4\\).",
+      "residual_risks": [
+        "The theorem covers only the two distance-four parity-extension families whose punctured duals have exactly two nonzero weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delsarte yields \\(\rho(C)\\le2\\) for the punctured code but does not by itself give the parity-extension distribution.",
+          "The source itself leaves covering radii open."
+        ],
+        "reasoning": "No inspected stronger extension theorem or tabulation specializes to these families.",
+        "searches": [
+          "Delsarte external-distance bound",
+          "covering-radius literature for binary cyclic/BCH codes",
+          "Chen-Xie-Ding 2025 primary paper"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2510.22259",
+        "Delsarte external-distance theorem as restated in current covering-radius literature",
+        "Resultary current corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known inputs force punctured radius two.",
+          "A separate syndrome-parity argument is required to prove all extension syndromes have weights 0/1/2/3 in the exact stated counts."
+        ],
+        "reasoning": "The result is a short but genuine solution of two infinite subfamilies of a named open covering-radius problem, not a mere printed parameter substitution.",
+        "searches": [
+          "source two-weight duals plus Delsarte",
+          "source distance-four parity extensions plus parity-syndrome structure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Covering radius three is equivalent to every syndrome being a sum of at most three columns with at least one requiring three.",
+          "The claimed leader distribution is stronger than the scalar radius and is not in the source."
+        ],
+        "reasoning": "Both radius and syndrome-representation formulations were searched.",
+        "searches": [
+          "Resultary: covering radius parity extension two-weight BCH Chen Xie Ding coset leaders",
+          "arXiv:2510.22259 Open Problem 8.6",
+          "parity-check syndrome/coset-leader formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact family hit was retrieved.",
+          "The source open problem confirms the values were not tabulated there."
+        ],
+        "reasoning": "The finite anchor computations are checks, not the novelty basis.",
+        "searches": [
+          "Resultary exact searches using both length formulas, redundancies and covering radius three",
+          "existing cyclic-code covering-radius tables searched by family descriptors"
+        ]
+      },
+      "rationale": "Chen-Xie-Ding explicitly leave the covering radii of their distance-optimal families as Open Problem 8.6. Their Theorems 4.2/6.2 provide the two-weight dual data for the punctured codes and Theorems 4.5/6.5 provide the distance-four extensions, but they do not state the extension radii or coset-leader distributions. Delsarte alone determines only the punctured radius; the parity-syndrome lifting lemma is the additional step that fixes every extended coset. Targeted searches found no earlier theorem or table containing these two exact extended-family results.",
+      "residual_risks": [
+        "An older general parity-extension lemma may make the syndrome lifting step classical even if these exact family consequences were not located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_SUPPLIES_INPUTS_AND_EXPLICITLY_LEAVES_COVERING_RADII_OPEN",
+          "evidence": "The paper gives the punctured two-weight duals and distance-four extensions, then asks to determine covering radii of its distance-optimal binary codes.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.22259",
+          "material_read": "complete accessible primary arXiv text targeted at Theorems 4.2, 4.5, 6.2, 6.5 and Open Problem 8.6",
+          "method": "primary full-text inspection",
+          "title": "Infinitely many families of distance-optimal binary linear codes with respect to the sphere packing bound",
+          "trigger": "exact source of both BCH families and Open Problem 8.6"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chen-Xie-Ding 2025",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The theorem resolves two infinite families inside a source paper’s explicit covering-radius open problem and gives the entire coset-leader weight distribution, not merely the maximum. The proof is concise because the dual spectra are unusually rigid, but the exact infinite-family classification is a natural coding-theoretic invariant with clear future use.",
+      "residual_risks": [
+        "It leaves the other distance-optimal families from Open Problem 8.6 unresolved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem covers only the two distance-four parity-extension families whose punctured duals have exactly two nonzero weights.",
+    "An older general parity-extension lemma may make the syndrome lifting step classical even if these exact family consequences were not located.",
+    "It leaves the other distance-optimal families from Open Problem 8.6 unresolved."
+  ]
+}
