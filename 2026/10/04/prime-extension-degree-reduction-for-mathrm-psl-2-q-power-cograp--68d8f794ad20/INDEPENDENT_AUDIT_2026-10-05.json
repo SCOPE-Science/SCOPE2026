@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:50:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e8631fbe69088f0ea1e8e5e67bcbe391fd2ae2b4",
+        "artifacts/verify.py blob 5c80b3c6c8c31a0dc5af97a754f7382ccbb8ac6c",
+        "published PSL₂(q) cograph criterion",
+        "fresh proof reconstruction and independent p≤19,f≤12 comparison"
+      ],
+      "rationale": "The proof correctly starts from the published admissibility criterion. For p=2, even f factors 2^f-1 into coprime nontrivial factors and modulo-three divisibility eliminates all but f=2,4; for odd composite f the proper divisor 2^a+1 and the 3-power analysis eliminate admissibility. For odd p, even f≠2 over p=3 creates incompatible 4- and 3-divisibility, while p=3 reduces to f=2. For odd composite f, the factor (p^a+1)/2 is already composite and Bang–Zsigmondy supplies an outside prime, excluding both prime-power and squarefree-semiprime forms. At odd prime f, primitive divisors force p>3 to have both consecutive integers (p-1)/2,(p+1)/2 prime, hence p=5; p=3 and 5 then reduce to the stated exact factors. An independent comparison of the source criterion and reduced criterion for all primes p≤19 and 2≤f≤12 found zero mismatches. The cited Zsigmondy applications avoid the classical exceptions.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 source already proves the characteristic-two even-degree restriction and records arithmetic patterns, but leaves the residual determination as number theoretic.",
+          "The 2022 exact finite-simple criterion supplies the starting iff condition, not the prime-extension reduction.",
+          "Brachter–Kaja classify nonsolvable power-cograph groups relative to these same PSL₂/Suzuki arithmetic obstacles and leave the number-theoretic branch in place."
+        ],
+        "reasoning": "No inspected broader theorem removes all odd composite extension degrees or forces odd-characteristic base p to {3,5}.",
+        "searches": [
+          "arXiv:2010.05198 full primary text",
+          "arXiv:2106.14217",
+          "Brachter–Kaja, arXiv:2203.02362"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2010.05198",
+        "arXiv:2106.14217",
+        "arXiv:2203.02362",
+        "Bang–Zsigmondy theorem",
+        "Resultary PSL₂ extension-degree semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd composite f, a proper composite factor of (p^f+1)/2 together with a primitive prime divisor outside it rules out both admissible forms.",
+          "For odd prime f and p>3, primitive divisors force both (p-1)/2 and (p+1)/2 to be prime; consecutive primality leaves p=5, while p=3 is the boundary case.",
+          "The remaining p=3 and p=5 criteria follow by isolating the unavoidable factors 2 or 3."
+        ],
+        "reasoning": "These deductions are substantive additional arithmetic beyond the source classification and are not printed as a corollary in the checked papers.",
+        "searches": [
+          "Manna–Cameron–Mehatari exact torus-order criterion",
+          "Bang–Zsigmondy theorem",
+          "audited cyclotomic factor reductions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source classification says the relevant torus orders q±1 (q even) or (q±1)/2 (q odd) must each be a prime power or a product of two distinct primes.",
+          "The submitted result is the exact arithmetic consequence of imposing this criterion on q=p^f with f>1."
+        ],
+        "reasoning": "The extension-degree formulation is equivalent to a cyclotomic factor-count problem for the source admissibility condition, but the complete reduction is not stated in the source.",
+        "searches": [
+          "Manna–Cameron–Mehatari, arXiv:2010.05198, PSL₂(q) discussion",
+          "Cameron–Manna–Mehatari, arXiv:2106.14217; DOI:10.1016/j.jalgebra.2021.09.034",
+          "Resultary query: PSL2 q power graph cograph prime extension degree p^f Zsigmondy p=3 p=5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited theorem is the direct exact Resultary hit; no older published finding with the same extension-degree/base-prime reduction was returned."
+        ],
+        "reasoning": "Published example lists are consistent with the theorem but do not substitute for the universal reduction.",
+        "searches": [
+          "Resultary semantic query listed above"
+        ]
+      },
+      "rationale": "Manna–Cameron–Mehatari already isolate the PSL₂(q) number-theoretic problem, including the characteristic-two even-degree exceptions q=4,16 and necessary conditions for odd degrees. Cameron–Manna–Mehatari subsequently prove the exact admissibility criterion for the two torus orders. The inspected literature does not carry this to the submitted global reduction: apart from q=16, composite extension degrees are eliminated, and in odd characteristic the base prime is forced to 3 or 5 with the stated exact residual primality conditions.",
+      "residual_risks": [
+        "An equivalent cyclotomic reduction may exist in unindexed notes on the power-cograph classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ARITHMETIC_REDUCTION_PRIOR_FULL_EXTENSION_DEGREE_THEOREM_NOT_STATED",
+          "evidence": "The paper explicitly leaves the remaining admissible q as a difficult number-theoretic problem.",
+          "identifier_or_url": "arXiv:2010.05198; DOI:10.37236/9961",
+          "material_read": "Full accessible primary text around the PSL₂(q) discussion was read, including the q=2^f even-degree reduction, odd-degree necessary conditions and listed odd-characteristic arithmetic patterns.",
+          "method": "Same-problem theorem and unresolved-parameter comparison.",
+          "title": "Forbidden Subgraphs of Power Graphs",
+          "trigger": "Primary paper first isolating the PSL₂(q) cograph arithmetic problem."
+        },
+        {
+          "assessment": "EXACT_COGRAPH_CRITERION_PRIOR_EXTENSION_DEGREE_REDUCTION_NOT_STATED",
+          "evidence": "The source gives an iff condition in q, while the audited theorem solves a substantial part of the arithmetic when q is a nonprime field.",
+          "identifier_or_url": "arXiv:2106.14217; DOI:10.1016/j.jalgebra.2021.09.034",
+          "material_read": "Accessible primary theorem material establishing the exact admissibility condition for the two PSL₂ torus orders was inspected.",
+          "method": "Starting-theorem versus new-corollary comparison.",
+          "title": "On finite groups whose power graph is a cograph",
+          "trigger": "Primary exact classification used as the theorem's starting point."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2010.05198",
+        "arXiv:2106.14217",
+        "arXiv:2203.02362",
+        "Bang–Zsigmondy theorem",
+        "Resultary PSL₂ extension-degree semantic search"
+      ],
+      "rationale": "The finite-simple-group classification explicitly leaves a number-theoretic search. Reducing every nonprime field, aside from one exception, to prime extension degree and forcing the odd-characteristic base to 3 or 5 removes a large infinite parameter region and replaces it by explicit residual primality conditions. This is a meaningful structural reduction of the stated open branch.",
+      "residual_risks": [
+        "An equivalent cyclotomic reduction may exist in unindexed notes on the power-cograph classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2010.05198",
+    "arXiv:2106.14217",
+    "arXiv:2203.02362",
+    "Bang–Zsigmondy theorem",
+    "Resultary PSL₂ extension-degree semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For q=p^f with f>1, PSL₂(q) can have a cograph power graph only when f is prime, except q=16; in characteristic two the exact surviving degree conditions are those stated in the result, while in odd characteristic even f gives only q=9 and odd f forces prime f with p=3 or 5 and the stated residual primality/admissibility conditions.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent cyclotomic reduction may exist in unindexed notes on the power-cograph classification.",
+    "The residual prime-extension primality questions are not solved.",
+    "Suzuki-group arithmetic conditions are outside scope."
+  ]
+}

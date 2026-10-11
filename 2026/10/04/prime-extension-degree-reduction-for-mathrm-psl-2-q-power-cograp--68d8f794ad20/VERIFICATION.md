@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The final theorem was checked against the exact published \(\mathrm{PSL}_2(q)\) cograph criterion.
 
-Critical proof checks:
-- for \(p=2\), even composite extension degree is excluded by \(2^{2m}-1=(2^m-1)(2^m+1)\), with the exact exceptions \(f=2,4\);
-- for odd \(f\), \(2^f+1\) admissible forces \((2^f+1)/3\) prime, and composite odd \(f\) is impossible;
-- \(2^f-1\) has no proper prime-power form for odd \(f\ge3\);
-- for odd \(p\) and even \(f\), divisibility by \(4\) and \(3\) excludes \(p\ne3\), while the \(p=3\) factorization leaves only \(f=2\);
-- for odd composite \(f\), a proper composite factor of \((p^f+1)/2\), together with a primitive divisor of \(p^{2f}-1\), excludes both admissible possibilities;
-- for odd prime \(f\), primitive divisors force \((p-1)/2\) and \((p+1)/2\) to be consecutive primes unless \(p=3\), hence \(p=5\);
-- substituting \(p=3\) and \(p=5\) yields exactly the displayed cyclotomic primality conditions.
+# Independent mathematical audit
 
-The Bang--Zsigmondy applications use exponents \(f\ge3\) and \(2f\ge6\) with odd base \(p\), so neither classical exception applies.
+## correctness
 
-`artifacts/verify.py` independently factors the relevant integers and compares the published criterion with the reduced criterion for \(p=2\), \(2\le f\le31\), and for \(p\in\{3,5,7,11\}\), \(2\le f\le9\). It returns `VERIFY_OK`.
+PASS
 
-Finite computation is not used to establish the universal statement.
+The proof correctly starts from the published admissibility criterion. For p=2, even f factors 2^f-1 into coprime nontrivial factors and modulo-three divisibility eliminates all but f=2,4; for odd composite f the proper divisor 2^a+1 and the 3-power analysis eliminate admissibility. For odd p, even f≠2 over p=3 creates incompatible 4- and 3-divisibility, while p=3 reduces to f=2. For odd composite f, the factor (p^a+1)/2 is already composite and Bang–Zsigmondy supplies an outside prime, excluding both prime-power and squarefree-semiprime forms. At odd prime f, primitive divisors force p>3 to have both consecutive integers (p-1)/2,(p+1)/2 prime, hence p=5; p=3 and 5 then reduce to the stated exact factors. An independent comparison of the source criterion and reduced criterion for all primes p≤19 and 2≤f≤12 found zero mismatches. The cited Zsigmondy applications avoid the classical exceptions.
+
+## originality
+
+PASS
+
+Manna–Cameron–Mehatari already isolate the PSL₂(q) number-theoretic problem, including the characteristic-two even-degree exceptions q=4,16 and necessary conditions for odd degrees. Cameron–Manna–Mehatari subsequently prove the exact admissibility criterion for the two torus orders. The inspected literature does not carry this to the submitted global reduction: apart from q=16, composite extension degrees are eliminated, and in odd characteristic the base prime is forced to 3 or 5 with the stated exact residual primality conditions.
+
+## value
+
+PASS
+
+The finite-simple-group classification explicitly leaves a number-theoretic search. Reducing every nonprime field, aside from one exception, to prime extension degree and forcing the odd-characteristic base to 3 or 5 removes a large infinite parameter region and replaces it by explicit residual primality conditions. This is a meaningful structural reduction of the stated open branch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
