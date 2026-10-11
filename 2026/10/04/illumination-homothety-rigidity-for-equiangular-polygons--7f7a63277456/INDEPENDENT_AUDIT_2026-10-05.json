@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:57:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published polygonal characterization reduces a homothetic illumination body to an admissible \\((k,l)\\)-extension with \\(k+l=2q\\) and \\(2q+1<m/2\\). For equally spaced outward normals, direct intersection of the two prescribed sidelines yields \\(A h_{i-q-1}+B h_{i+q}=\\mu D h_i\\), where \\(A=\\sin(q\\phi)\\), \\(B=\\sin((q+1)\\phi)\\), and \\(D=\\sin((2q+1)\\phi)\\) are positive. Summing gives \\(\\mu D=A+B\\). A nonconstant Fourier mode would therefore require \\(A z^{-(q+1)}+Bz^q=A+B\\); equality in the triangle inequality forces both unit factors to be one, and coprimality of \\(q,q+1\\) forces \\(z=1\\). Thus all supports are equal and the polygon is regular. The actual frozen verifier was read and stress-tests the Fourier obstruction and sideline intersections.",
+      "risk": "The result depends essentially on equal angular spacing and does not settle non-equiangular polygons.",
+      "sources": [
+        "Horváth-Lángi, arXiv:2012.08955 / DOI:10.1007/s10711-022-00673-y",
+        "Lángi, arXiv:1706.03036 / DOI:10.1007/s00010-018-0541-z",
+        "frozen RESULT.md and verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8 leaves higher extensions structurally characterized but unresolved except for the first extension.",
+          "The 2018 vertex-recurrence theorem does not derive the support recurrence from illumination homothety."
+        ],
+        "reasoning": "The audited result solves a genuine subclass across every admissible higher extension, not a direct instance of the published first-extension theorem.",
+        "searches": [
+          "Horváth-Lángi Theorem 8 and Problem 2",
+          "Lángi 2018 affine-regularity recurrence theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.08955",
+        "DOI:10.1007/s10711-022-00673-y",
+        "arXiv:1706.03036",
+        "DOI:10.1007/s00010-018-0541-z",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source characterization identifies endpoint intersections but does not force regularity without additional use of equal normal spacing.",
+          "The new positive two-term support recurrence and Fourier collapse are not contained in the inspected prior conclusions."
+        ],
+        "reasoning": "The final theorem needs the new support-coordinate reduction and equality-in-triangle argument.",
+        "searches": [
+          "arXiv:2012.08955 extension characterization",
+          "arXiv:1706.03036 recurrence criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The motivating paper states the illumination-body/homothetic-convex-hull equivalence and the extension characterization.",
+          "No inspected source states that every equiangular solution is regular."
+        ],
+        "reasoning": "Illumination body, homothetic convex-hull sublevel, higher extension and support-recurrence formulations were compared.",
+        "searches": [
+          "Resultary: equiangular polygon illumination body homothetic extension support recurrence regular polygon",
+          "arXiv:2012.08955",
+          "arXiv:1706.03036"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact classification or table for the equiangular subclass was located."
+        ],
+        "reasoning": "This is a rigidity theorem rather than a numerical table; exact statement searches were used.",
+        "searches": [
+          "Resultary exact searches for equiangular homothetic illumination bodies and higher extensions"
+        ]
+      },
+      "rationale": "The full motivating paper was inspected: it asks the general polygonal rigidity question, characterizes admissible higher extensions, and proves affine regularity only for the \\((1,1)\\)-extension. Its accessible text does not contain an equiangular specialization. Lángi's recurrence work concerns prescribed vertex relations rather than the support-number recurrence forced here. Resultary search found the current theorem and related regular-polygon results, but no stronger prior equiangular illumination theorem.",
+      "residual_risks": [
+        "An older equiangular support-line rigidity result under unrelated terminology may be poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATING_GENERAL_CHARACTERIZATION_NOT_EQUIANGULAR_RIGIDITY",
+          "evidence": "The paper proves affine regularity only for the \\((1,1)\\)-extension and otherwise supplies the higher-extension structure.",
+          "identifier_or_url": "arXiv:2012.08955; DOI:10.1007/s10711-022-00673-y",
+          "material_read": "Open full text around the illumination/homothetic-convex-hull equivalence, Problem 2, Theorem 8 and its proof.",
+          "method": "Lawful open full-text inspection.",
+          "title": "On the convex hull and homothetic convex hull functions of a convex body",
+          "trigger": "Primary source posing the polygonal problem and giving the extension characterization."
+        },
+        {
+          "assessment": "RELATED_VERTEX_RECURRENCE_NOT_COVERING",
+          "evidence": "The paper does not discuss illumination bodies or derive the support-number recurrence used here.",
+          "identifier_or_url": "arXiv:1706.03036; DOI:10.1007/s00010-018-0541-z",
+          "material_read": "Open source material covering the main recurrence theorem and exceptional cases.",
+          "method": "Lawful open full-text/source inspection.",
+          "title": "A characterization of affinely regular polygons",
+          "trigger": "Closest broader circulant/recurrence rigidity framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source leaves a concrete polygonal homothety problem open beyond its first extension. Equiangular polygons are a natural broad subclass with many nonregular members, and the theorem settles all admissible higher extensions at once through a reusable positive-circulant rigidity mechanism.",
+      "risk": "The full arbitrary-polygon problem remains open.",
+      "sources": [
+        "arXiv:2012.08955",
+        "arXiv:1706.03036"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every convex equiangular polygon having a positive homothetic illumination body is regular; equivalently, one homothetic sublevel set of the corresponding homothetic-convex-hull function forces Euclidean regularity.",
+  "limitations": [
+    "Equiangular convex polygons only.",
+    "No classification of non-equiangular higher-extension solutions is claimed."
+  ],
+  "schema_version": 1
+}

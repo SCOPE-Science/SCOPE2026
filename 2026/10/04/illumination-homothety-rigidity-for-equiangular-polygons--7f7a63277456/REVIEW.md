@@ -1,31 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published polygonal characterization reduces every homothetic illumination body to an admissible \((k,l)\)-extension with \(k+l=2q\) and \(2q+1<m/2\). For an equiangular polygon, direct solution of the two sideline equations gives the exact support recurrence
-\[
-A h_{i-q-1}+B h_{i+q}=\mu D h_i,
-\]
-with \(A,B,D>0\). Summing fixes \(\mu D=A+B\). On a nonzero Fourier mode the recurrence would require
-\[
-A z^{-(q+1)}+Bz^q=A+B.
-\]
-Since both powers of \(z\) lie on the unit circle and both weights are positive, equality forces each power to equal \(1\); coprimality of \(q\) and \(q+1\) then gives \(z=1\). Thus only the constant support mode survives, which is exactly a regular polygon.
+PASS
 
-The packaged checker independently reconstructs sideline intersections for regular support data and stress-tests the Fourier obstruction across a broad finite parameter range. The finite sweep is not used as a proof of the general theorem.
+The published polygonal characterization reduces a homothetic illumination body to an admissible \((k,l)\)-extension with \(k+l=2q\) and \(2q+1<m/2\). For equally spaced outward normals, direct intersection of the two prescribed sidelines yields \(A h_{i-q-1}+B h_{i+q}=\mu D h_i\), where \(A=\sin(q\phi)\), \(B=\sin((q+1)\phi)\), and \(D=\sin((2q+1)\phi)\) are positive. Summing gives \(\mu D=A+B\). A nonconstant Fourier mode would therefore require \(A z^{-(q+1)}+Bz^q=A+B\); equality in the triangle inequality forces both unit factors to be one, and coprimality of \(q,q+1\) forces \(z=1\). Thus all supports are equal and the polygon is regular. The actual frozen verifier was read and stress-tests the Fourier obstruction and sideline intersections.
 
-## Originality
+## originality
 
-PASS with a residual terminology risk. Horváth and Lángi explicitly pose the full polygonal problem and prove affine regularity only for the \((1,1)\)-extension. Their general Theorem 8 permits higher extensions and does not resolve them; the accessible text contains no equiangular specialization. Targeted searches for equiangular polygons together with illumination bodies, generalized homothety, and \((k,l)\)-extensions found no equivalent rigidity theorem.
+PASS
 
-Lángi's 2018 circulant-matrix work gives broad vertex-recurrence criteria for affine regularity, but does not state the illumination-body implication and does not supply the support-number recurrence used here. The new step is the conversion of the higher extension condition to a positive two-term support recurrence and the resulting Fourier collapse.
+The full motivating paper was inspected: it asks the general polygonal rigidity question, characterizes admissible higher extensions, and proves affine regularity only for the \((1,1)\)-extension. Its accessible text does not contain an equiangular specialization. Lángi's recurrence work concerns prescribed vertex relations rather than the support-number recurrence forced here. Resultary search found the current theorem and related regular-polygon results, but no stronger prior equiangular illumination theorem.
 
-## Value
+## value
 
-PASS. The source leaves a concrete polygonal homothety problem open after resolving only the first extension. Equiangular polygons form a natural high-dimensional family containing many nonregular shapes, and the result settles the open implication on that entire family for every admissible higher extension at once. The proof also isolates a reusable rigidity mechanism: equal angular spacing turns homothetic extension geometry into a positive circulant eigenvalue problem with a uniquely constant top mode.
+PASS
 
-## Closest literature and limitations
+The source leaves a concrete polygonal homothety problem open beyond its first extension. Equiangular polygons are a natural broad subclass with many nonregular members, and the theorem settles all admissible higher extensions at once through a reusable positive-circulant rigidity mechanism.
 
-The closest source is Horváth–Lángi, arXiv:2012.08955, especially Problem 2 and Theorem 8. Lángi, arXiv:1706.03036, is the closest broader recurrence-rigidity framework. No located source states the equiangular illumination-homothety theorem. The result does not settle non-equiangular polygons.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

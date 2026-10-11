@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,41 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The source theorem supplies an integer \(q\ge1\) satisfying
-\[
-2q+1<\frac m2
-\]
-and identifies the endpoint
-\[
-p_{i-q-1,i+q}
-\]
-of the homothetic image of side \(i\).
+## correctness
 
-For equally spaced side normals with angular step \(\phi=2\pi/m\), a direct two-line intersection gives
-\[
-A h_{i-q-1}+B h_{i+q}=\mu D h_i,
-\]
-where
-\[
-A=\sin(q\phi),\qquad
-B=\sin((q+1)\phi),\qquad
-D=\sin((2q+1)\phi).
-\]
-The source inequality implies \(A,B,D>0\). Summation over \(i\) gives
-\[
-\mu D=A+B.
-\]
+PASS
 
-For a Fourier root \(z\), a nonzero coefficient would require
-\[
-A z^{-(q+1)}+Bz^q=A+B.
-\]
-The triangle inequality is sharp only when both unit complex numbers equal \(1\). Thus \(z^q=z^{q+1}=1\), hence \(z=1\). Only the constant support mode remains.
+The published polygonal characterization reduces a homothetic illumination body to an admissible \((k,l)\)-extension with \(k+l=2q\) and \(2q+1<m/2\). For equally spaced outward normals, direct intersection of the two prescribed sidelines yields \(A h_{i-q-1}+B h_{i+q}=\mu D h_i\), where \(A=\sin(q\phi)\), \(B=\sin((q+1)\phi)\), and \(D=\sin((2q+1)\phi)\) are positive. Summing gives \(\mu D=A+B\). A nonconstant Fourier mode would therefore require \(A z^{-(q+1)}+Bz^q=A+B\); equality in the triangle inequality forces both unit factors to be one, and coprimality of \(q,q+1\) forces \(z=1\). Thus all supports are equal and the polygon is regular. The actual frozen verifier was read and stress-tests the Fourier obstruction and sideline intersections.
 
-The embedded `verify.py` was replayed from its packaged path. It checks the nonconstant Fourier-mode obstruction for all admissible \((m,q)\) in a broad finite range and independently reconstructs the sideline intersections for regular support data. It returned:
+## originality
 
-`VERIFY_OK equiangular illumination-homothety rigidity`
+PASS
 
-The finite replay is not an infinite proof. The all-parameter conclusion is established by the exact triangle-equality argument above.
+The full motivating paper was inspected: it asks the general polygonal rigidity question, characterizes admissible higher extensions, and proves affine regularity only for the \((1,1)\)-extension. Its accessible text does not contain an equiangular specialization. Lángi's recurrence work concerns prescribed vertex relations rather than the support-number recurrence forced here. Resultary search found the current theorem and related regular-polygon results, but no stronger prior equiangular illumination theorem.
+
+## value
+
+PASS
+
+The source leaves a concrete polygonal homothety problem open beyond its first extension. Equiangular polygons are a natural broad subclass with many nonregular members, and the theorem settles all admissible higher extensions at once through a reusable positive-circulant rigidity mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
