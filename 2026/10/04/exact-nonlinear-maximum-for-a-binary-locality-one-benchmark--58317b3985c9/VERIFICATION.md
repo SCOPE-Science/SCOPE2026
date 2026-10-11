@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter.
+## correctness
 
-The script performs two independent finite checks. First, it constructs the eight-word code
-\[
-\{(a,a,b,b,c,c,d,d,d):c=a+b\}
-\]
-and verifies cardinality \(8\), global minimum distance \(3\), and for every coordinate the existence of a one-helper recovery view whose two-coordinate projection has minimum distance \(2\).
+PASS
 
-Second, after the proved reduction to coordinate equivalence classes, it enumerates every integer partition of \(9\) into parts at least \(2\). For each partition it enumerates every subset of the corresponding binary quotient cube and computes the largest subset with weighted minimum distance at least \(3\). The exact maxima are printed, with overall maximum \(8\), followed by `VERIFY_OK`.
+The eight-word construction has repair projections \(\{00,11\}\) inside each replication class and global minimum distance three. For the upper bound, every valid binary two-coordinate repair projection is contained in either \(\{00,11\}\) or \(\{01,10\}\), so helper-linked coordinate functions differ by a fixed bit. The transitive equivalence classes of coordinate functions all have size at least two and no coordinate is constant; representatives therefore embed the code into a weighted binary cube with class weights summing to nine. There are at most four classes. Three or fewer give at most eight words immediately. Four forces weights \(2,2,2,3\); slicing by the weight-three coordinate leaves two length-three binary codes of ordinary minimum distance at least two, each of size at most four. Thus the total is at most eight. The exhaustive weighted-quotient verifier reproduces the bound for every integer partition of nine, but the reduction and upper bound are proved symbolically.
 
-The exhaustive search is finite because at most four equivalence classes are possible, so the largest quotient has only \(16\) vertices and only \(2^{16}\) subsets. The script does not use its finite enumeration to justify the infinite/logical reduction from locality to equivalence classes; that reduction is proved in `RESULT.md`.
+## originality
+
+PASS
+
+Kang--Xiong's 2026 three-block LP treats the same nonlinear locality definition and the exact parameter row \((2,9,3,1,2)\), but its certified upper bound is \(64/5\) while its verified construction has size eight; the paper's exact-maximum theorem does not list this row. The closest Resultary exact-LRC finding resolves different locality-one parameter rows. The assigned equivalence-class reduction therefore closes a genuine benchmark left open by the strongest inspected source.
+
+## value
+
+PASS
+
+The exact nonlinear maximum closes a named finite benchmark left unresolved by the strongest current LP bound and is supported by a reusable structural reduction specific to binary locality one. It is a motivated exact invariant rather than an arbitrary small-code census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

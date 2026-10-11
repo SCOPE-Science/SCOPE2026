@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The upper bound is proved structurally. Binary local distance \(2\) on a two-coordinate recovery view forces the two coordinate functions to agree up to a fixed complement. Hence all coordinates lie in equivalence classes of size at least \(2\), and the code injects into a weighted binary quotient. At length \(9\), either there are at most three classes, giving at most \(8\) words immediately, or the class sizes are \((2,2,2,3)\); slicing on the weight-\(3\) coordinate then gives two length-three distance-\(2\) binary codes, each of size at most \(4\). The eight-word witness is explicit. `verify.py` checks the witness and exhausts every reduced weighted quotient case.
+## correctness
 
-## Originality
-**PASS.** The closest primary source, Kang--Xiong arXiv:2609.16044v1, defines the same nonlinear locality model and reports for \((2,9,3,1,2)\) the bounds \(8\le M_{\max}\le64/5\); its theorem of seven exact maxima does not include this row. Exact-tuple, verbal-alias, broader-locality, and published semantic-literature searches did not locate the exact value \(8\). The closest published neighboring LRC record proves different locality-one tuples and does not imply this one. Residual risk remains that the elementary locality-one class reduction may be implicit in older literature; the exact target value itself was not found.
+PASS
 
-## Value
-**PASS.** The claim closes a concrete nonlinear-size gap in a recent certified benchmark table and shows that nonlinearity gives no advantage at that parameter. It is not a routine recomputation of the LP: the stronger bound comes from a structural quotient argument that handles arbitrary overlapping selected recovery views.
+The eight-word construction has repair projections \(\{00,11\}\) inside each replication class and global minimum distance three. For the upper bound, every valid binary two-coordinate repair projection is contained in either \(\{00,11\}\) or \(\{01,10\}\), so helper-linked coordinate functions differ by a fixed bit. The transitive equivalence classes of coordinate functions all have size at least two and no coordinate is constant; representatives therefore embed the code into a weighted binary cube with class weights summing to nine. There are at most four classes. Three or fewer give at most eight words immediately. Four forces weights \(2,2,2,3\); slicing by the weight-three coordinate leaves two length-three binary codes of ordinary minimum distance at least two, each of size at most four. Thus the total is at most eight. The exhaustive weighted-quotient verifier reproduces the bound for every integer partition of nine, but the reduction and upper bound are proved symbolically.
 
-## Closest literature and limitations
-The decisive comparison is Kang--Xiong, arXiv:2609.16044v1, Table V.1 and Theorem V.1. Li--Wei--Xiong, arXiv:2608.05758v1, is broader background for nonlinear LRC LP bounds. A published research record titled *Exact maxima for the three residual three-block LRC cases* covers neighboring exact tuples but not \((2,9,3,1,2)\). The present theorem is restricted to the binary tuple \((n,d,r,\delta)=(9,3,1,2)\); no larger-alphabet or general-parameter formula is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kang--Xiong's 2026 three-block LP treats the same nonlinear locality definition and the exact parameter row \((2,9,3,1,2)\), but its certified upper bound is \(64/5\) while its verified construction has size eight; the paper's exact-maximum theorem does not list this row. The closest Resultary exact-LRC finding resolves different locality-one parameter rows. The assigned equivalence-class reduction therefore closes a genuine benchmark left open by the strongest inspected source.
+
+## value
+
+PASS
+
+The exact nonlinear maximum closes a named finite benchmark left unresolved by the strongest current LP bound and is supported by a reusable structural reduction specific to binary locality one. It is a motivated exact invariant rather than an arbitrary small-code census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
