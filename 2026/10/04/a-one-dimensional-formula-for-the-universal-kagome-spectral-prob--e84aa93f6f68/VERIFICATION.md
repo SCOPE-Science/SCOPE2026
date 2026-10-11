@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The verification target is the exact reduction of the published two-phase sign condition to a one-dimensional Cauchy integral.
 
-Run `python3 verify.py`. A successful replay prints `VERIFY_OK`.
+# Independent mathematical audit
 
-The checker performs four independent finite checks: it confirms the exact crossover relation numerically at \(q_0=\sqrt{3/5}\) and the root ordering on representative values; compares the trigonometric criterion with the tangent-polynomial criterion on a deterministic nonsingular phase grid; evaluates the one-dimensional formula by adaptive Simpson quadrature after \(q=\tan u\); and separately estimates the original two-dimensional torus area by a \(900\times900\) midpoint grid.
+## correctness
 
-The numerical area check is not a proof of the infinite limiting statement. The proof is the explicit half-angle algebra, root ordering, Cauchy conditioning, and equidistribution argument in `RESULT.md`. The checker also does not re-derive the source's asymptotic Floquet criterion.
+PASS
+
+The half-angle polynomial was independently checked against the source trigonometric product. For \(q>0\), the four roots have the asserted order except for the single positive-root crossover \(b_+(q)=3/q\), whose positive solution is \(\sqrt{3/5}\); the comparison \(a>e\) reduces to the positive square difference \(9(q^2+1)^2\). Polynomial sign alternation gives the two conditional intervals and hence the Cauchy probabilities. Irrational edge ratio supplies torus equidistribution. Independent high-precision quadrature reproduced \(0.639080422792129545195861596982\). Integration by parts transfers the same limiting fraction from momentum to energy weighting.
+
+## originality
+
+PASS
+
+Baradaran–Exner’s primary text around Eq. (3.13) was read: it displays the same high-energy sign region, states that the rewritten inequality is too complicated for direct solution, and obtains about 0.639081 from a two-dimensional area calculation. Band–Berkolaiko provides the general torus-volume mechanism but not this Kagome-region evaluation. Searches for the exact constant, tangent-half-angle factors, Cauchy reduction, and breakpoint found no earlier one-dimensional formula.
+
+## value
+
+PASS
+
+The source’s principal transport statistic was previously obtained from a two-dimensional numerical area; the exact one-dimensional reduction reveals the switching geometry and enables reproducible high-precision analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
