@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The graph, metric, scales, and Rips convention are explicit. A standalone exhaustive verifier checks the 16-vertex graph, diameter 4, the complete face sets at scales 1, 2, and 3, the 118-pair scale-2 matching, acyclicity of the entire oriented Hasse diagram, and the exact zero 3-to-2 Morse boundary. The scale-3 distance-4 graph is exactly a perfect matching, so that complex is the boundary of an 8-cross-polytope. The remaining scales follow directly from integrality of graph distance and diameter.",
+    "risks": [
+      "The scale-2 proof depends on the correctness of the stated discrete-Morse gradient-path sign convention; zero is independently compatible with the critical-cell counts and exact directed-path calculation."
+    ],
+    "sources": [
+      "RESULT.md",
+      "verify.py",
+      "verification_output.json"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nearby published records cover different metric spaces: a truncated tetrahedral graph, a truncated cubical graph, projective-plane incidence graphs, and hypercube families."
+      ],
+      "reasoning": "Those statements do not specialize to \\(G(8,3)\\). Hypercube formulas use the hypercube shortest-path/Hamming metric, whereas deleting cube edges to obtain \\(G(8,3)\\) changes the metric and therefore the Rips complexes.",
+      "searches": [
+        "2026/10/4/SCOPE-the-graph-metric-rips-filtration-of-the-truncated-tetrahedron--51e8cc219376",
+        "2026/10/4/SCOPE-a-mixed-dimensional-rips-wedge-for-the-truncated-cube--4fae71a21a80",
+        "2026/10/4/SCOPE-scale-two-vietoris-rips-complexes-of-finite-projective-plane-inc--c3740b96b3c3",
+        "2026/10/4/SCOPE-a-parity-reduction-of-penultimate-hypercube-rips-complexes--7b869e8f79d9"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.14388v1",
+      "DOI:10.2140/iig.2024.21.17",
+      "arXiv:2304.05185v1",
+      "DOI:10.1007/s00009-023-02533-9",
+      "arXiv:2103.01040v1",
+      "published records 51e8cc219376, 4fae71a21a80, c3740b96b3c3, 7b869e8f79d9, 4bfded76792e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Platonic-solids paper gives exact filtrations only for its named vertex sets; the critical-edges paper controls specific \\(H_0\\)/\\(H_1\\) changes; the hypercube paper treats \\(Q_n\\) with Hamming distance."
+      ],
+      "reasoning": "No inspected theorem has hypotheses satisfied by this metric space in a way that forces the scale-2 wedge, the scale-3 S^7, or the complete filtration. The new statement is therefore not a corollary or special case of the checked results.",
+      "searches": [
+        "arXiv:2302.14388v1",
+        "arXiv:2304.05185v1",
+        "arXiv:2103.01040v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim was compared under the equivalent descriptions “Möbius–Kantor graph”, “generalized Petersen graph \\(G(8,3)\\)”, “clique complex of the square/cube graph power”, and “inclusive shortest-path Vietoris–Rips complex”."
+      ],
+      "reasoning": "None of the inspected papers states the scale-2 mixed-dimensional wedge or the complete five-stage filtration for \\(G(8,3)\\).",
+      "searches": [
+        "arXiv:2302.14388v1",
+        "arXiv:2304.05185v1",
+        "arXiv:2103.01040v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Saleh–Titz Mite–Witzel Table 2 lists tetrahedron, cube, octahedron, dodecahedron, and icosahedron only. The published Möbius–Kantor database hit concerns its matching complex, a different simplicial construction."
+      ],
+      "reasoning": "Neither exact table nor the same-graph record contains the Rips filtration claimed here.",
+      "searches": [
+        "arXiv:2302.14388v1 Table 2",
+        "2026/10/4/SCOPE-the-m-bius-kantor-matching-complex-is-a-mixed-dimensional-sphere--4bfded76792e"
+      ]
+    },
+    "rationale": "The closest inspected primary literature determines Rips filtrations for Platonic solids, hypercubes, or general low-dimensional persistence phenomena, not the shortest-path Möbius–Kantor filtration. Targeted published-record searches under \\(G(8,3)\\), Möbius–Kantor, graph powers, scale 2, scale 3, and shortest-path Rips formulations found nearby examples but no stronger or equivalent statement.",
+    "residual_risks": [
+      "An uncatalogued or poorly indexed source may contain this exact finite case.",
+      "A result stated for a broad class under a nonstandard alias could have escaped the targeted comparisons, although the closest general graph-metric and hypercube sources were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Primary MSC \\(55N31\\); the paper lists only the five Platonic solids and does not mention the Möbius–Kantor graph.",
+        "identifier_or_url": "arXiv:2302.14388v1",
+        "material_read": "Abstract, introduction, main theorem, Rips convention, combinatorial-distance setup, Table 2, and discrete-Morse preliminaries.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "Vietoris-Rips complexes of Platonic solids",
+        "trigger": "Closest primary-topology paper determining complete finite structured Rips filtrations with combinatorial distance."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The results give general low-dimensional persistence structure but not exact higher homotopy types of this graph.",
+        "identifier_or_url": "arXiv:2304.05185v1",
+        "material_read": "Abstract, introduction, scope of the main theorems, and the stated focus on \\(H_0\\)/\\(H_1\\) critical changes.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "Critical edges in Rips complexes and persistence",
+        "trigger": "General Rips-persistence theory could potentially dominate a finite exact filtration claim."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper treats the Hamming metric on \\(Q_n\\). The shortest-path metric after edge deletion to form \\(G(8,3)\\) is different, so the theorem does not specialize to the present claim.",
+        "identifier_or_url": "arXiv:2103.01040v1",
+        "material_read": "Abstract, introduction, definition of \\(Q_n\\) with Hamming/shortest-path metric, scale-2 theorem, and open-question discussion.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "On Vietoris--Rips complexes of hypercube graphs",
+        "trigger": "The Möbius–Kantor graph is related combinatorially to the 4-cube, so hypercube Rips formulas required comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fc448ae3-8513-4355-beab-aaba8ebe910a",
+  "value": {
+    "rationale": "The Möbius–Kantor graph is a natural highly symmetric cubic graph, and its shortest-path Rips filtration is a natural topological invariant rather than an arbitrary parameter slice. The exact scale-2 complex has homology in two adjacent dimensions and the next scale is a high-dimensional cross-polytope sphere, giving a compact benchmark where a graph-metric Rips filtration changes from a graph wedge to a mixed-dimensional wedge and then to a single sphere. The claim is fully self-contained and reusable as a test case for methods on structured finite Rips complexes.",
+    "risks": [
+      "The result concerns one graph rather than an infinite family, so its value is as a natural exact benchmark and structural example rather than a general classification."
+    ],
+    "sources": [
+      "arXiv:2302.14388v1",
+      "arXiv:2304.05185v1",
+      "RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
