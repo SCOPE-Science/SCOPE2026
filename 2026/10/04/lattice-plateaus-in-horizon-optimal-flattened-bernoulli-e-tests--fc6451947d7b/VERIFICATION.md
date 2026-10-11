@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` establishes analytically that the first-passage event depends only on a finite vector of integer count boundaries and that each relevant scalar level equation has at most two roots.
+# Independent mathematical audit
 
-`verify_plateau.py` performs the finite check for \((p_0,p_1,\alpha,t)=(2/5,3/5,1/20,30)\). It reconstructs all effective root locations from the monotonicity structure, checks the isolated root residuals and separation, enumerates every induced boundary cell, and evaluates each survival probability by exact rational dynamic programming. It also recomputes the smooth stationary point and its exact first-passage probability.
+## correctness
 
-Expected terminal line:
+PASS
 
-`VERIFY_OK`
+For Bernoulli data, log wealth at time \(s\) is affine in the integer success count \(K_s\), so rejection is exactly \(K_s\ge\lceil q_s(\beta)\rceil\). The effective first-passage boundary vector therefore changes only when some \(q_s\) crosses an integer. Differentiation gives \(q'_s(\beta)=[s(\beta\kappa'(\beta)-\kappa(\beta))-\log(1/\alpha)]/(\beta^2\Delta)\), while \(\beta\kappa'(\beta)-\kappa(\beta)\) is strictly increasing because \(\kappa''>0\). Hence each \(q_s\) has at most one minimum and each relevant integer level at most two roots, proving finitely many cells. The package verifier exhaustively enumerates the \(t=30\) cells and exact rational survival probabilities, certifying the displayed plateau and comparison point.
 
-The numerical bisection is not used as evidence for an infinite statement. Its role is only to locate finitely many analytically isolated roots in the displayed finite example. Exact probability comparisons use rational arithmetic.
+## originality
+
+PASS
+
+Forré studies the same normalized power-likelihood family and a smooth horizon-dependent beta optimum. The audited theorem instead analyzes the genuine Bernoulli first-passage event and proves that its beta dependence is a finite staircase, with a concrete optimal interval separated from the smooth stationary point. Resultary returned no equivalent first-passage cell theorem. Full primary text for Forré was not accessible through the web route used in this run, so the PASS is best-of-knowledge with an explicit access residual rather than a whole-document noncoverage claim.
+
+## value
+
+PASS
+
+The theorem identifies a concrete mismatch between smooth horizon tuning and the actual anytime first-passage type-II objective, and turns the exact optimization into a finite staircase with a nonunique optimal interval. This is a motivated sequential-testing boundary phenomenon rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

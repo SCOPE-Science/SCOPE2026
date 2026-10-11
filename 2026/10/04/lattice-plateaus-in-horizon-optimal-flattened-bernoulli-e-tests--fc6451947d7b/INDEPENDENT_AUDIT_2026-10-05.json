@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T13:13:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md fd54f547d57830f21967f52f28c85f80c5dace59",
+        "verify_plateau.py b7f4ba0f686e134ffd09d0d80e964d4257761966",
+        "Forré arXiv:2609.27765"
+      ],
+      "rationale": "For Bernoulli data, log wealth at time \\(s\\) is affine in the integer success count \\(K_s\\), so rejection is exactly \\(K_s\\ge\\lceil q_s(\\beta)\\rceil\\). The effective first-passage boundary vector therefore changes only when some \\(q_s\\) crosses an integer. Differentiation gives \\(q'_s(\\beta)=[s(\\beta\\kappa'(\\beta)-\\kappa(\\beta))-\\log(1/\\alpha)]/(\\beta^2\\Delta)\\), while \\(\\beta\\kappa'(\\beta)-\\kappa(\\beta)\\) is strictly increasing because \\(\\kappa''>0\\). Hence each \\(q_s\\) has at most one minimum and each relevant integer level at most two roots, proving finitely many cells. The package verifier exhaustively enumerates the \\(t=30\\) cells and exact rational survival probabilities, certifying the displayed plateau and comparison point.",
+      "residual_risks": [
+        "The optimizer interval is design-specific.",
+        "Higher-dimensional lattice models are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Accessible Forré material gives horizon-dependent beta optimization but not the audited boundary-cell theorem."
+        ],
+        "reasoning": "No inspected broader statement supplied the full first-passage threshold vector.",
+        "searches": [
+          "Forré arXiv:2609.27765",
+          "classical exact binomial testing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.27765",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A smooth stationary equation does not determine integer threshold plateaus or their exact survival probabilities."
+        ],
+        "reasoning": "The staircase requires the additional discrete-path reduction.",
+        "searches": [
+          "smooth horizon optimum versus pathwise first passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same normalized family \\(R^ eta/\\mathbb E_0R^ eta\\).",
+          "Audited objective is sequential first passage through a finite horizon."
+        ],
+        "reasoning": "The integer path-boundary formulation is not the same as the smooth horizon surrogate.",
+        "searches": [
+          "Resultary: flattened Bernoulli e-test finite horizon first passage beta staircase",
+          "Forré arXiv:2609.27765"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent same-result hit."
+        ],
+        "reasoning": "Search absence is supporting only.",
+        "searches": [
+          "Resultary current search for exact t=30 plateau"
+        ]
+      },
+      "rationale": "Forré studies the same normalized power-likelihood family and a smooth horizon-dependent beta optimum. The audited theorem instead analyzes the genuine Bernoulli first-passage event and proves that its beta dependence is a finite staircase, with a concrete optimal interval separated from the smooth stationary point. Resultary returned no equivalent first-passage cell theorem. Full primary text for Forré was not accessible through the web route used in this run, so the PASS is best-of-knowledge with an explicit access residual rather than a whole-document noncoverage claim.",
+      "residual_risks": [
+        "A buried discrete specialization in inaccessible full text remains possible.",
+        "Older sequential-analysis literature may use different lattice-boundary terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE_SOURCE_NOT_FULLY_INSPECTED",
+          "evidence": "The abstract exposes the horizon-dependent beta statement but not the audited first-passage staircase.",
+          "identifier_or_url": "arXiv:2609.27765",
+          "material_read": "current primary abstract; direct full-text opening failed",
+          "method": "primary-source abstract inspection with access limitation",
+          "title": "The Type-II Error of Test Supermartingales: e-Power versus the Chernoff-Stein Exponent",
+          "trigger": "same flattened family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Forré 2026",
+        "assigned RESULT/verifier"
+      ],
+      "rationale": "The theorem identifies a concrete mismatch between smooth horizon tuning and the actual anytime first-passage type-II objective, and turns the exact optimization into a finite staircase with a nonunique optimal interval. This is a motivated sequential-testing boundary phenomenon rather than an arbitrary numerical slice.",
+      "residual_risks": [
+        "Only the staircase mechanism, not the numerical gap, is universal in the stated family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The optimizer interval is design-specific.",
+    "Higher-dimensional lattice models are not covered.",
+    "A buried discrete specialization in inaccessible full text remains possible.",
+    "Older sequential-analysis literature may use different lattice-boundary terminology.",
+    "Only the staircase mechanism, not the numerical gap, is universal in the stated family."
+  ]
+}

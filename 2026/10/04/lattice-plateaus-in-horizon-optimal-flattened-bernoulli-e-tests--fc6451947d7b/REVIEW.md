@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the first-passage event to integer Bernoulli-count boundaries \(\lceil q_s(\beta)\rceil\). The derivative identity for \(q_s\) and strict convexity of the Bernoulli log moment generating function imply at most one interior minimum for each \(q_s\), hence finitely many effective boundary changes. The finite \(t=30\) statement is replayed by exact rational dynamic programming after numerically bracketing only analytically isolated scalar roots. The computation does not stand in for the general proof.
+## correctness
 
-## Originality
-PASS. The motivating 2026 source was inspected at the level of its abstract, flattened-family definitions, and horizon-tuning derivation. It gives a smooth horizon criterion for the power-likelihood family but the inspected material does not state the Bernoulli first-passage staircase, a complete finite cell reduction, or the displayed exact optimizer plateau. Targeted semantic searches for flattened likelihood ratios, Bernoulli lattice thresholds, staircase type-II error, and horizon-optimal tilts returned no statement implying this result. The closest discrete-testing comparison concerns a differentially private binomial testing problem rather than a power-likelihood e-process.
+PASS
 
-Residual risk remains that the finite-cell mechanism has appeared under different terminology in discrete sequential likelihood-ratio work. This risk is disclosed and is not treated as disproved by failed search.
+For Bernoulli data, log wealth at time \(s\) is affine in the integer success count \(K_s\), so rejection is exactly \(K_s\ge\lceil q_s(\beta)\rceil\). The effective first-passage boundary vector therefore changes only when some \(q_s\) crosses an integer. Differentiation gives \(q'_s(\beta)=[s(\beta\kappa'(\beta)-\kappa(\beta))-\log(1/\alpha)]/(\beta^2\Delta)\), while \(\beta\kappa'(\beta)-\kappa(\beta)\) is strictly increasing because \(\kappa''>0\). Hence each \(q_s\) has at most one minimum and each relevant integer level at most two roots, proving finitely many cells. The package verifier exhaustively enumerates the \(t=30\) cells and exact rational survival probabilities, certifying the displayed plateau and comparison point.
 
-## Value
-PASS. The object being optimized is the operational finite-horizon first-passage type-II probability of the sequential e-test. The result shows that a smooth horizon optimizer need not optimize that exact discrete sequential probability and quantifies a nontrivial gap in a concrete rational design. It also provides a finite exact algorithm for all tilt plateaus at any fixed Bernoulli horizon, so the result is more than a numerical example or a renaming of a standard binomial tail.
+## originality
 
-## Closest literature and limitations
-Forré (2026), arXiv:2609.27765, supplies the flattened likelihood-ratio family and the smooth horizon comparison that motivates the question. Awan and Slavković (2018), arXiv:1805.09236, is a comparison point for exact finite-sample binomial testing under differential privacy, but its inspected abstract addresses a different constrained-testing problem. The theorem here is limited to simple Bernoulli hypotheses and fixed-in-advance \(\beta\); it does not optimize over arbitrary e-processes.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Forré studies the same normalized power-likelihood family and a smooth horizon-dependent beta optimum. The audited theorem instead analyzes the genuine Bernoulli first-passage event and proves that its beta dependence is a finite staircase, with a concrete optimal interval separated from the smooth stationary point. Resultary returned no equivalent first-passage cell theorem. Full primary text for Forré was not accessible through the web route used in this run, so the PASS is best-of-knowledge with an explicit access residual rather than a whole-document noncoverage claim.
+
+## value
+
+PASS
+
+The theorem identifies a concrete mismatch between smooth horizon tuning and the actual anytime first-passage type-II objective, and turns the exact optimization into a finite staircase with a nonunique optimal interval. This is a motivated sequential-testing boundary phenomenon rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
