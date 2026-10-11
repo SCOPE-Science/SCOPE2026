@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Cox's Theorem 4.2 gives the dimension of the covering automorphism group as the sum of the relevant Cox-ring graded-piece dimensions; quotienting by the one-dimensional grading torus gives equation (1). The weighted monomial counts yield equations (2)--(4). Combining them with the independently rechecked Reid--Tai canonical/terminal triangles reduces both extrema to monotonic binomial inequalities, with the \(r=2\) terminal exception enumerated exactly. The regression script recomputes the graded pieces and age tests through \(r=30\).
+## correctness
 
-## Originality
-PASS. published-finding corpus searches and broader literature searches used the exact family notation, automorphism-dimension language, canonical/terminal qualifiers, and the candidate extremal weight patterns. Cox supplies the general automorphism formula and Kasprzyk supplies general weighted-projective singularity criteria, but no inspected source states or implies the sharp two-heavy maxima without the optimization carried out here. The closest weighted-projective published-finding corpus hit concerns reflexive four-simplices and \(h^*\)-vectors.
+PASS
 
-## Value
-PASS. Automorphism-group dimension is a basic measure of symmetry and directly affects quotient/moduli constructions. The theorem identifies exact maximizers and equality cases in every dimension for a natural canonical/terminal family, including a genuine low-dimensional terminal exception, rather than merely evaluating automorphism groups case by case.
+Cox's automorphism theorem gives the covering-group dimension as the sum of the Cox-ring graded-piece dimensions; quotienting by the one-dimensional grading torus yields the submitted formula. Direct weighted-monomial counts give the three special formulas for \(1<a<b\), equal heavy weights and \(a=1\). On the canonical/terminal triangles, monotonicity of \(B_r(m)=\binom{r+m-1}{r-1}\) and the submitted binomial estimates isolate the outer corner, with the terminal \(r=2\) exception checked separately. I independently recomputed graded-piece dimensions by a weight-DP and exhaustively recovered every maximum for \(2\le r\le11\); the frozen verifier was also read.
 
-## Closest literature and limitations
-Cox, arXiv:alg-geom/9210008, gives the Cox-ring automorphism theorem; Kasprzyk, arXiv:1304.3029, gives general canonical and terminal weighted-projective criteria. No equivalent sharp family-specific automorphism-dimension bound was located. The theorem does not optimize over all weighted projective spaces or fake weighted projective spaces, and search incompleteness remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Cox supplies the general automorphism formula and Kasprzyk supplies general weighted-projective singularity criteria; the published SCOPE triangular classification supplies the exact two-heavy feasible region. None of those results optimizes the graded-piece dimension over the family or states the all-dimensional maximizing weights and low-dimensional terminal tie. Resultary searches found same-family invariant records but no prior automorphism-dimension extremum.
+
+## value
+
+PASS
+
+Automorphism dimension is a natural symmetry invariant relevant to moduli quotients. The result gives sharp all-dimensional extrema and equality cases, including a nontrivial boundary exception, rather than merely evaluating isolated weighted projective spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

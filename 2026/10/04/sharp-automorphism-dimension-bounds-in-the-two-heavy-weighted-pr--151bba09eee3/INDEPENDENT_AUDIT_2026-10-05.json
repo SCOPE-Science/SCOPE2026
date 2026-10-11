@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:02:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cox's automorphism theorem gives the covering-group dimension as the sum of the Cox-ring graded-piece dimensions; quotienting by the one-dimensional grading torus yields the submitted formula. Direct weighted-monomial counts give the three special formulas for \\(1<a<b\\), equal heavy weights and \\(a=1\\). On the canonical/terminal triangles, monotonicity of \\(B_r(m)=\\binom{r+m-1}{r-1}\\) and the submitted binomial estimates isolate the outer corner, with the terminal \\(r=2\\) exception checked separately. I independently recomputed graded-piece dimensions by a weight-DP and exhaustively recovered every maximum for \\(2\\le r\\le11\\); the frozen verifier was also read.",
+      "risk": "The theorem concerns algebraic-group dimension, not finite component structure.",
+      "sources": [
+        "arXiv:alg-geom/9210008, Theorem 4.2",
+        "arXiv:1304.3029",
+        "RESULT.md",
+        "verify_aut_dimension_bounds.py",
+        "fresh independent weighted-monomial replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cox Theorem 4.2 gives the general dimension formula.",
+          "The singularity sources determine feasibility but not the maximizing graded-piece count."
+        ],
+        "reasoning": "The final extremal theorem requires a separate all-dimensional monomial-count optimization.",
+        "searches": [
+          "Cox 1995 Section 4 full text",
+          "Kasprzyk 2013 full text",
+          "published SCOPE triangular classification 7f218dfae0e7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:alg-geom/9210008",
+        "arXiv:1304.3029",
+        "published SCOPE triangular classification 7f218dfae0e7",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general Cox formula plus a feasible triangle does not by itself determine the global maximum or equality cases.",
+          "The proof has to control the extra \\(y^j\\)-monomial terms when \\(a\\le d\\) and the unit/equal-weight boundary regimes."
+        ],
+        "reasoning": "The inspected prior results are ingredients, not a theorem dominating the final claim.",
+        "searches": [
+          "arXiv:alg-geom/9210008 Theorem 4.2",
+          "published SCOPE triangular classification 7f218dfae0e7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned volume, singularity and other invariant records, but no earlier automorphism-dimension maximum.",
+          "Cox gives the graded automorphism machinery rather than this family optimization."
+        ],
+        "reasoning": "Automorphism-group dimension, Cox-ring graded-piece count and symmetry-dimension formulations were compared.",
+        "searches": [
+          "Resultary query: automorphism dimension canonical terminal two-heavy weighted projective P(1^r,a,b)",
+          "arXiv:alg-geom/9210008",
+          "arXiv:1304.3029"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact theorem or table matching the maxima was located."
+        ],
+        "reasoning": "The finite verifier only corroborates the analytic inequalities.",
+        "searches": [
+          "Resultary exact searches for the candidate weights and binomial dimension formulas"
+        ]
+      },
+      "rationale": "Cox supplies the general automorphism formula and Kasprzyk supplies general weighted-projective singularity criteria; the published SCOPE triangular classification supplies the exact two-heavy feasible region. None of those results optimizes the graded-piece dimension over the family or states the all-dimensional maximizing weights and low-dimensional terminal tie. Resultary searches found same-family invariant records but no prior automorphism-dimension extremum.",
+      "residual_risks": [
+        "An equivalent family-specific optimization may exist under toric-root or Demazure-root terminology outside the searched corpus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_AUTOMORPHISM_FORMULA_NOT_FAMILY_EXTREMUM",
+          "evidence": "The theorem gives graded-piece dimensions and the quotient by the grading group, but no canonical/terminal two-heavy optimization.",
+          "identifier_or_url": "arXiv:alg-geom/9210008",
+          "material_read": "Full open arXiv material around Section 4 and Theorem 4.2, with the erratum context.",
+          "method": "Lawful open full-text inspection with PDF page inspection.",
+          "title": "The Homogeneous Coordinate Ring of a Toric Variety",
+          "trigger": "Primary automorphism-group theorem for Cox rings."
+        },
+        {
+          "assessment": "SINGULARITY_CRITERIA_NOT_AUTOMORPHISM_MAXIMUM",
+          "evidence": "The paper classifies singularity conditions in weighted projective settings, not automorphism-dimension extrema.",
+          "identifier_or_url": "arXiv:1304.3029",
+          "material_read": "Open full text around canonical/terminal toric criteria and weighted-projective setup.",
+          "method": "Lawful open full-text inspection with PDF page inspection.",
+          "title": "Classifying terminal weighted projective space",
+          "trigger": "Primary weighted-projective singularity/classification source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Automorphism dimension is a natural symmetry invariant relevant to moduli quotients. The result gives sharp all-dimensional extrema and equality cases, including a nontrivial boundary exception, rather than merely evaluating isolated weighted projective spaces.",
+      "risk": "No claim is made about maximizing symmetry over all weighted projective spaces.",
+      "sources": [
+        "arXiv:alg-geom/9210008"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(X_{r,a,b}=\\mathbb P(1^r,a,b)\\), the automorphism-group dimension among canonical members is uniquely maximized at \\((2r,3r)\\) with the stated binomial formula; among terminal members it is maximized at \\((1,1),(1,2)\\) with value \\(15\\) for \\(r=2\\), and uniquely at \\((2r-2,3r-3)\\) with the stated binomial formula for \\(r\\ge3\\).",
+  "limitations": [
+    "Ordinary complex \\(\\mathbb P(1^r,a,b)\\) only.",
+    "Only automorphism-group dimension is optimized."
+  ],
+  "schema_version": 1
+}
