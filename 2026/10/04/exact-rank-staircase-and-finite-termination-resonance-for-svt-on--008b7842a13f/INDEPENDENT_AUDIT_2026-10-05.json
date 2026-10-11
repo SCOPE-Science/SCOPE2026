@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:07:49.190961Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 091c15db6ed96802caedfa07205ab979bb72046c",
+        "Cai--Candès--Shen DOI 10.1137/080738970 primary article",
+        "Yin DOI 10.1137/090760350",
+        "independent scalar recurrence checks"
+      ],
+      "rationale": "A matching observation pattern diagonalizes after row/column permutations, so every iterate stays in the orthogonal rank-one span and soft-thresholding acts coordinatewise. Before activation, \\(y_j^{k-1}=(k-1)\\delta s_j\\), giving \\(\\kappa_j=\\lfloor\\tau/(\\delta s_j)\\rfloor+2\\). After activation the amplitude obeys \\(x_{j}^{k+1}-s_j=(1-\\delta)(x_j^k-s_j)\\); the activation bound and \\(|1-\\delta|<1\\) prove persistence and exact rank monotonicity. At \\(\\delta=1\\), one affine update settles each direction and yields the ceiling formula. Independent scalar replays across steps below, at and above 1 confirmed activation and persistence.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai--Candès--Shen prove convergence of SVT and emphasize empirical rank monotonicity.",
+          "Yin proves general linearized-Bregman convergence/regularization properties and discusses acceleration."
+        ],
+        "reasoning": "General convergence does not imply exact per-coordinate activation, persistence or finite termination on matching samples.",
+        "searches": [
+          "DOI 10.1137/080738970",
+          "DOI 10.1137/090760350"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1137/080738970",
+        "https://doi.org/10.1137/090760350",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source iteration plus matching geometry are necessary inputs.",
+          "The exact staircase requires proving invariant decoupling and the post-activation scalar recurrence; the source does not state those consequences."
+        ],
+        "reasoning": "The theorem converts a source-level empirical phenomenon into an exact result on a natural structured class, rather than restating a proven source theorem.",
+        "searches": [
+          "direct comparison with the SVT iteration and empirical-rank statement in DOI 10.1137/080738970"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned no equivalent matching-sample theorem.",
+          "The SVT source describes rank as empirically nondecreasing rather than proving an exact staircase."
+        ],
+        "reasoning": "Matrix matching, diagonalized sampling and support-identification aliases were checked.",
+        "searches": [
+          "Resultary: singular value thresholding matching observation rank staircase finite termination delta=1",
+          "searches for SVT activation times, diagonal/matching samples, support identification and linearized Bregman kicking"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table or formula for matching-observation activation indices was located."
+        ],
+        "reasoning": "The result is analytic for arbitrary finite matching samples and real parameters.",
+        "searches": [
+          "Resultary semantic search",
+          "targeted searches for the activation and ceiling formulas"
+        ]
+      },
+      "rationale": "The defining SVT paper explicitly says rank monotonicity is empirical and proves general convergence; its implementation discussion concerns the initial all-zero phase. The matching-pattern theorem proves rank monotonicity exactly and resolves every direction's activation and settling time. Linearized-Bregman work supplies related shrinkage/convergence machinery but not this matrix-completion matching decomposition. Targeted searches found no prior exact staircase or finite-termination resonance.",
+      "residual_risks": [
+        "An implementation note or thesis may have noticed the same diagonal/matching reduction without indexing it as a theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EMPIRICAL_GENERAL_NOT_EXACT_MATCHING_THEOREM",
+          "evidence": "The paper does not state the matching-sample rank formula, per-direction activation schedule or finite-termination resonance.",
+          "identifier_or_url": "https://doi.org/10.1137/080738970",
+          "material_read": "Publisher article/primary text including algorithm description, convergence discussion and explicit statement that iterate rank is empirically nondecreasing.",
+          "method": "Lawful primary-source inspection.",
+          "title": "A Singular Value Thresholding Algorithm for Matrix Completion",
+          "trigger": "Exact defining source and strongest plausible prior coverage."
+        },
+        {
+          "assessment": "RELATED_METHOD_NOT_COVERING",
+          "evidence": "It does not state the matrix matching-sample SVT staircase or exact finite settling indices.",
+          "identifier_or_url": "https://doi.org/10.1137/090760350",
+          "material_read": "Primary abstract and theorem-level analysis of linearized Bregman regularization/convergence and kicking methods.",
+          "method": "Lawful publisher primary-source inspection.",
+          "title": "Analysis and Generalizations of the Linearized Bregman Method",
+          "trigger": "Broader shrinkage/Bregman analysis that could dominate the scalarized recurrence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cai--Candès--Shen",
+        "Yin"
+      ],
+      "rationale": "The original SVT paper highlights empirical rank monotonicity as a practically important feature. The matching observation class is a clean, natural setting where that phenomenon can be proved exactly, with explicit activation times and a sharp finite-termination resonance at \\(\\delta=1\\). This is a motivated solvable benchmark, not an arbitrary special case.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1137/080738970",
+    "https://doi.org/10.1137/090760350",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to matching observation patterns with nonzero sampled values.",
+    "Does not prove rank monotonicity for overlapping matrix-completion samples.",
+    "Finite termination is specific to \\(\\delta=1\\)."
+  ],
+  "residual_risks": [
+    "An implementation note or thesis may have noticed the same diagonal/matching reduction without indexing it as a theorem."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "EMPIRICAL_GENERAL_NOT_EXACT_MATCHING_THEOREM",
+      "evidence": "The paper does not state the matching-sample rank formula, per-direction activation schedule or finite-termination resonance.",
+      "identifier_or_url": "https://doi.org/10.1137/080738970",
+      "material_read": "Publisher article/primary text including algorithm description, convergence discussion and explicit statement that iterate rank is empirically nondecreasing.",
+      "method": "Lawful primary-source inspection.",
+      "title": "A Singular Value Thresholding Algorithm for Matrix Completion",
+      "trigger": "Exact defining source and strongest plausible prior coverage."
+    },
+    {
+      "assessment": "RELATED_METHOD_NOT_COVERING",
+      "evidence": "It does not state the matrix matching-sample SVT staircase or exact finite settling indices.",
+      "identifier_or_url": "https://doi.org/10.1137/090760350",
+      "material_read": "Primary abstract and theorem-level analysis of linearized Bregman regularization/convergence and kicking methods.",
+      "method": "Lawful publisher primary-source inspection.",
+      "title": "Analysis and Generalizations of the Linearized Bregman Method",
+      "trigger": "Broader shrinkage/Bregman analysis that could dominate the scalarized recurrence."
+    }
+  ]
+}

@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The matching hypothesis makes the sampled matrix a weighted signed partial permutation, so its singular directions are exactly the observed coordinate pairs and are preserved by singular-value shrinkage. The matrix recurrence therefore reduces without approximation to independent scalar shrinkage recurrences. The activation index follows from the strict threshold inequality, the post-activation error multiplier is exactly \(1-\delta\), and \(|1-\delta|<1\) together with the activation bounds proves that an active direction never deactivates. The \(\delta=1\) settling index handles integer and noninteger threshold ratios explicitly. A dual-norm certificate plus strict Frobenius equality proves that the reached sparse matrix is the unique minimizer of the finite-\(\tau\) regularized problem. The exact-rational packaged checker returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with residual risk. The primary SVT paper already states empirical rank nondecrease and derives the duration of the initial all-zero phase, so neither fact is claimed as new. Targeted published-finding corpus and literature searches did not surface an implication-equivalent theorem giving every direction's activation time, the exact rank staircase, the post-activation recurrence, and the \(\delta=1\) finite-settling law for matching observations. Related linearized-Bregman work covers shrinkage, convergence, and kicking techniques but the inspected material does not state this matrix-specialized result. Unindexed notes or more specialized support-identification analyses remain a plausible residual risk.
+PASS
 
-## Value
-PASS. Rank growth is one of the two practical features singled out in the original SVT paper, yet it is described there as empirical in general. A matching observation graph is the simplest nontrivial sparse matrix-completion pattern that preserves singular directions exactly. On that natural class, the finding turns the empirical phenomenon into a complete activation schedule, identifies an exact finite-termination resonance, and supplies a closed-form diagnostic benchmark for implementations and for studying what coupling destroys once observations share rows or columns.
+A matching observation pattern diagonalizes after row/column permutations, so every iterate stays in the orthogonal rank-one span and soft-thresholding acts coordinatewise. Before activation, \(y_j^{k-1}=(k-1)\delta s_j\), giving \(\kappa_j=\lfloor\tau/(\delta s_j)\rfloor+2\). After activation the amplitude obeys \(x_{j}^{k+1}-s_j=(1-\delta)(x_j^k-s_j)\); the activation bound and \(|1-\delta|<1\) prove persistence and exact rank monotonicity. At \(\delta=1\), one affine update settles each direction and yields the ceiling formula. Independent scalar replays across steps below, at and above 1 confirmed activation and persistence.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The defining SVT paper explicitly says rank monotonicity is empirical and proves general convergence; its implementation discussion concerns the initial all-zero phase. The matching-pattern theorem proves rank monotonicity exactly and resolves every direction's activation and settling time. Linearized-Bregman work supplies related shrinkage/convergence machinery but not this matrix-completion matching decomposition. Targeted searches found no prior exact staircase or finite-termination resonance.
+
+## value
+
+PASS
+
+The original SVT paper highlights empirical rank monotonicity as a practically important feature. The matching observation class is a clean, natural setting where that phenomenon can be proved exactly, with explicit activation times and a sharp finite-termination resonance at \(\delta=1\). This is a motivated solvable benchmark, not an arbitrary special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic proof reduces the SVT recurrence exactly to independent scalar shrinkage recurrences under the matching observation hypothesis. It derives the activation index from the strict threshold test, proves persistent positivity after activation for every \(0<\delta<2\), and proves the \(\delta=1\) finite-settling formula. A nuclear/Frobenius norm argument separately identifies the unique finite-\(\tau\) regularized minimizer.
 
-`verify.py` uses exact `fractions.Fraction` arithmetic. It checks multiple rational values of \(\tau\), \(\delta\), and \(s_j\), including \(\delta<1\), \(\delta=1\), and \(\delta>1\). It verifies the exact first-positive index, the geometric error recurrence, persistence of positivity, a multi-direction rank staircase, and the finite-settling formula. The packaged script returns `VERIFY_OK`.
+# Independent mathematical audit
 
-These finite checks corroborate the recurrence implementation; they do not replace the all-parameter proof. No claim is made about floating-point roundoff or about observation patterns with shared rows or columns.
+## correctness
+
+PASS
+
+A matching observation pattern diagonalizes after row/column permutations, so every iterate stays in the orthogonal rank-one span and soft-thresholding acts coordinatewise. Before activation, \(y_j^{k-1}=(k-1)\delta s_j\), giving \(\kappa_j=\lfloor\tau/(\delta s_j)\rfloor+2\). After activation the amplitude obeys \(x_{j}^{k+1}-s_j=(1-\delta)(x_j^k-s_j)\); the activation bound and \(|1-\delta|<1\) prove persistence and exact rank monotonicity. At \(\delta=1\), one affine update settles each direction and yields the ceiling formula. Independent scalar replays across steps below, at and above 1 confirmed activation and persistence.
+
+## originality
+
+PASS
+
+The defining SVT paper explicitly says rank monotonicity is empirical and proves general convergence; its implementation discussion concerns the initial all-zero phase. The matching-pattern theorem proves rank monotonicity exactly and resolves every direction's activation and settling time. Linearized-Bregman work supplies related shrinkage/convergence machinery but not this matrix-completion matching decomposition. Targeted searches found no prior exact staircase or finite-termination resonance.
+
+## value
+
+PASS
+
+The original SVT paper highlights empirical rank monotonicity as a practically important feature. The matching observation class is a clean, natural setting where that phenomenon can be proved exactly, with explicit activation times and a sharp finite-termination resonance at \(\delta=1\). This is a motivated solvable benchmark, not an arbitrary special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
