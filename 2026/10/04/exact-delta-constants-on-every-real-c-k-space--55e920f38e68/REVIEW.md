@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound begins with an arbitrary slice containing \(f\). A non-isolated-point perturbation gives the mandatory floor \(R\ge1+\beta(f)\). On every active isolated coordinate, the representing measure must have the matching sign and enough atomic mass to prevent a distance larger than the slice radius; combining these inequalities with \(1-\mu(f)\) yields the exact active-sum condition \(\Phi_f(R)\le1\), including infinite active sets through finite subsums. For the upper bound, every radius above the non-isolated floor has only finitely many active isolated points. The canonical weights proportional to \((r+1-|f(t)|)^{-1}\) produce a single slice whose bad-face support is strictly below the value at \(f\). Boundary equality is obtained by decreasing radii from above. Quantifiers, strict slice inequalities, and the \(q=0\) case were checked separately.
+## correctness
 
-## Originality
-PASS. The 2018 source gives only the qualitative endpoint criterion for \(C(K)\). The 2023 quantitative source defines the constants, gives \(c_0\) lower bounds and special exact families, and gives a uniform-algebra \(\Delta\)-upper estimate under additional finite near-norming hypotheses. Statement-level searches for exact \(C(K)\) formulas, isolated-point active sums, and the displayed rational obstruction did not locate a covering theorem. published-finding corpus searches likewise returned no semantically matching finding.
+PASS
 
-## Value
-PASS. The theorem gives an exact all-point formula on every infinite real \(C(K)\), not merely an endpoint characterization. It identifies two genuinely different geometric contributions: a topological floor from non-isolated points and a finite-dimensional convex-separation obstruction from isolated peaks. The convergent-sequence specialization supplies a concrete mixed case where finitely many isolated peaks can raise the constant strictly above the limit-point floor.
+The arbitrary-slice lower bound is complete. Urysohn localization near a non-isolated point forces radius at least \(1+\beta(f)\). For each active isolated point, sign alignment and a one-coordinate perturbation yield the sharp atomic inequality \(a_t(R+1-|f(t)|)\ge\alpha\); combining it with the slice defect gives every finite-subsum active constraint and hence \(\Phi_f(R)\le1\). Conversely, above any feasible radius the active isolated set is finite, reciprocal-width weights define a norm-one atomic functional, and its slice separates all coordinate-bad faces. Letting the auxiliary radius decrease proves equality. Infinite sums are handled as suprema of finite subsums, and the boundary is reached by approximation. The bundled finite checker was inspected only as a verification of the finite separation algebra, not as proof of the compact-Hausdorff localization.
 
-## Closest literature and limitations
-The closest primary sources are arXiv:1812.02450v1 and arXiv:2307.10647v1/v3. The theorem is restricted to real \(C(K)\). The exact formula may have an equivalent formulation in literature not reached by the targeted searches, so bibliographic originality remains subject to external verification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes for the combined exact Delta-constant formula on every infinite real C(K). Choi–Jung provide the quantitative invariant, lower bounds and special exact c0 families, plus a uniform-algebra upper estimate, while the earlier C(K) result is qualitative. Two relevant published SCOPE records separately solve all of c0 and the Daugavet constant on C(K). Neither statement mechanically yields the audited Delta formula, because the latter simultaneously requires the non-isolated localization floor and the exact isolated-atom bad-face obstruction in one arbitrary-slice argument.
+
+## value
+
+PASS
+
+The theorem gives a natural exact invariant on every infinite real C(K), quantitatively separating the topological obstruction from the isolated-coordinate geometry. It strictly extends the exact c0 mechanism to arbitrary compact spaces and explains mixed examples that neither the qualitative endpoint theorem nor the Daugavet constant can resolve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
