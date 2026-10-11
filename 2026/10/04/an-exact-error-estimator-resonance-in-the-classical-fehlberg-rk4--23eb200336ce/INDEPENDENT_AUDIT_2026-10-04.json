@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:05:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The six Fehlberg stages were reconstructed independently over exact rationals. They give \\(R_4(z)=1+z+z^2/2+z^3/6+z^4/24+z^5/104\\) and \\(R_5(z)=1+z+z^2/2+z^3/6+z^4/24+z^5/120+z^6/2080\\), hence \\(E(z)=R_5(z)-R_4(z)=z^5(3z-8)/6240\\). The unique nonzero estimator zero is therefore \\(z_*=8/3\\), where both formulas equal \\(1613/117\\). Independent exact evaluation also gives \\(E'(z_*)=1024/15795\\). The sixth Taylor partial sum already exceeds the common numerical multiplier by \\(139264/426465>0\\), so \\(e^{8/3}>1613/117\\); the one-step local defect is nonzero while the embedded estimate vanishes. Repeating an externally fixed resonant step leaves the estimate identically zero and multiplies the numerical/exact ratio by a fixed factor strictly below one, so the relative global error tends to one. The unbounded local effectivity ratio follows from the simple zero of \\(E\\) and the nonzero defect at \\(z_*\\).",
+      "risks": [
+        "The persistent-failure statement is intentionally restricted to externally fixed or maximum-step-capped repetition of the resonant step; it is not a claim that a standard adaptive controller will remain at \\(z_*=8/3\\)."
+      ],
+      "sources": [
+        "Frozen source tree 6c8959fe4debb777ace1ceb6da2a7cb34f54f71c",
+        "Independent exact-rational reconstruction of the Fehlberg Butcher stages and stability polynomials",
+        "D. J. Higham and G. Hall, Embedded Runge-Kutta formulae with stable equilibrium states, J. Comput. Appl. Math. 29 (1990), 25-33"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higham--Hall study embedded-pair equilibrium and stability restrictions and compare Fehlberg numerically, but do not state the submitted exact resonance.",
+          "The accessible regular-pair precursor characterizes the target pathology as simultaneous spurious fixed points; this does not imply a common multiplier different from one."
+        ],
+        "reasoning": "The broader adaptive-regularity literature is highly relevant but does not, in the material actually read, imply the final fixed-step resonance claim.",
+        "searches": [
+          "D. J. Higham and G. Hall, 1990, full nine-page paper",
+          "D. J. Higham, Regular Runge-Kutta pairs, 1997, bibliographic/abstract sources and the accessible Adaptive Time-Stepping and Long Term Dynamics workshop precursor"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/0377-0427(90)90192-3",
+        "doi:10.1016/S0168-9274(97)00062-7",
+        "Resultary resonance query",
+        "Exact web searches for Fehlberg \\(8/3\\) and \\(3z-8\\)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior sources imply that Fehlberg error control can have undesirable equilibrium behavior, but they do not imply that the two scalar stability polynomials coincide specifically at \\(z=8/3\\) with multiplier \\(1613/117\\)."
+        ],
+        "reasoning": "A general warning about embedded error control or spurious fixed points is weaker and logically different from the submitted non-fixed common-map resonance.",
+        "searches": [
+          "Higham--Hall 1990 statement/figure/table comparison",
+          "Higham 1997 abstract and accessible workshop precursor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit or web result stated the exact positive-real estimator-zero/common-multiplier event.",
+          "The algebraically equivalent formulation is a nonzero root of the difference of the two scalar stability polynomials, with both one-step maps equal but not exact."
+        ],
+        "reasoning": "No checked source gave an alias or equivalent scalar-stability statement that identifies this resonance.",
+        "searches": [
+          "Resultary query: Fehlberg RK4(5) embedded error polynomial zero z=8/3 resonance local error estimator",
+          "Web query: \"Fehlberg\" \"3 z - 8\" Runge Kutta",
+          "Web query: \"Fehlberg\" \"8/3\" embedded error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior database/table entry with the exact resonance was located."
+        ],
+        "reasoning": "The coefficients were reconstructed from the published pair rather than copied from a located resonance table.",
+        "searches": [
+          "Resultary exact-parameter query for Fehlberg \\(8/3\\) resonance",
+          "Web searches for the exact factor \\(3z-8\\) with Fehlberg"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives statement-level comparison. The 1990 Higham--Hall paper analyzes equilibrium/stability behavior of embedded fourth/fifth-order pairs and explicitly compares the Fehlberg pair, but the inspected paper does not state the positive-real common-multiplier resonance \\(z=8/3\\), its zero embedded estimator with nonzero exact defect, or the resulting fixed-step blind-error trajectory. Higham's later regular-pair work concerns simultaneous spurious fixed points of the two formulas under adaptive error control; the inspected workshop precursor likewise frames regularity in terms of common fixed points, whereas the submitted resonance has common multiplier \\(1613/117\\neq1\\). Fresh Resultary and web searches found no prior statement of the exact \\(8/3\\) resonance. The full 1997 journal article remained an access risk rather than being treated as novelty evidence.",
+      "residual_risks": [
+        "The inaccessible full 1997 Higham paper could discuss scalar zero-error configurations more explicitly than its abstract and accessible precursor.",
+        "Older implementation literature may tabulate the Fehlberg scalar error polynomial without highlighting the submitted consequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "The paper compares Fehlberg equilibrium/stability performance but does not state the \\(z=8/3\\) estimator-zero/common-multiplier resonance."
+          ],
+          "identifier_or_url": "doi:10.1016/0377-0427(90)90192-3",
+          "material_read": "Complete nine-page PDF, including the local-error-control setup, equilibrium discussion, Fehlberg comparison figures, Table 4 and numerical conclusions.",
+          "method": "Primary full-text PDF inspection with rendered-page checks.",
+          "title": "Embedded Runge-Kutta formulae with stable equilibrium states",
+          "trigger": "Primary older analysis of Fehlberg and other fourth/fifth-order embedded pairs under stability-limited step selection."
+        },
+        {
+          "assessment": "MATERIAL_ACCESS_RISK",
+          "evidence": [
+            "Available material concerns simultaneous spurious fixed points and pair regularity; the inaccessible full journal text remains a specific originality risk."
+          ],
+          "identifier_or_url": "doi:10.1016/S0168-9274(97)00062-7",
+          "material_read": "Bibliographic metadata and abstract; public repositories reported no full text. An accessible workshop precursor by Higham was read through its regular-pair discussion.",
+          "method": "Public/OA search followed by authorized-access attempt; the journal full text remained unavailable because the institutional verification session could not be completed in this run.",
+          "title": "Regular Runge-Kutta pairs",
+          "trigger": "Most plausible prior source on embedded-pair zero-error pathologies and spuriousity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An embedded estimator that vanishes exactly while the accepted one-step map has a nonzero local defect is a motivated reliability boundary for a classical adaptive pair. The exact resonance, simple-zero effectivity blow-up, and repeated externally fixed-step failure together give a concrete reproducible stress test rather than a generic numerical warning.",
+      "risks": [
+        "The resonance lies on a positive growing scalar mode and does not by itself establish failure for every adaptive controller or every ODE."
+      ],
+      "sources": [
+        "Exact reconstructed stability polynomials",
+        "Primary embedded-pair stability literature"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality is best-of-knowledge because the full 1997 Higham journal article could not be inspected end to end.",
+    "The persistent blind trajectory requires externally fixed or capped repetition of the resonant step."
+  ],
+  "schema_version": 1
+}
