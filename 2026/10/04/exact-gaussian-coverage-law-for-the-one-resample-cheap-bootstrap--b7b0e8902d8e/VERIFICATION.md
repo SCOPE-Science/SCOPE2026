@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reduces the finite-sample law to multinomial occupancies and then derives the asymptotic coefficient analytically from exact collision moments. The standalone `verify.py` checks the finite combinatorics without external libraries.
+# Independent mathematical audit
 
-Checks performed by the packaged script:
+## correctness
 
-- exhaustive labeled bootstrap enumeration agrees with the occupancy recurrence for every \(2\le n\le4\);
-- occupancy counts sum exactly to \(n^n\) for every \(2\le n\le30\);
-- exact second, third, and fourth central-moment formulas for \(C_n\) agree with recurrence values for every \(2\le n\le30\);
-- the quoted \(95\%\) coverages at \(n=2,10,20,30\) are reproduced to floating-point tolerance;
-- the closed-form \(1/n\) coefficient at \(\alpha=0.05\) is reproduced and agrees with the finite-\(n\) trend.
+PASS
 
-The finite checks support the algebra but do not constitute an exhaustive proof for arbitrary \(n\). The all-\(n\) result rests on the Gaussian orthogonality argument, the exact occupancy identity, Jensen's inequality, and the explicit collision-moment expansion given in `RESULT.md`.
+Conditioned on bootstrap counts \(N_i\), the sample-mean error and bootstrap displacement are orthogonal Gaussian linear forms because the displacement coefficients \(N_i-1\) sum to zero. The conditional variance ratio is \(Q_n=n^{-1}\sum_i(N_i-1)^2=2C_n/n\), where \(C_n=\sum_i\binom{N_i}{2}\). The ratio of the independent standardized normals is Cauchy, yielding the exact conditional arctangent coverage and hence the occupancy mixture. Strict concavity gives finite-n undercoverage. In this audit, direct labeled resampling for n=2,3,4 independently reproduced the collision laws and the n=2 coverage 0.475; the inspected verifier independently checks the stated collision moments through n=30. The Taylor calculation from the exact first two moments gives the displayed \(1/n\) coefficient.
+
+## originality
+
+PASS
+
+Lam's complete primary text defines the exact B=1 interval and proves asymptotic exactness for every fixed positive resample count. Its higher-order section states a two-sided \(O(n^{-1})\) coverage error whose coefficient is a high-dimensional integral that is not available in closed form. The audited Gaussian calculation instead gives an exact all-n occupancy mixture, strict sign of the finite-sample error, and a closed-form first-order coefficient. Resultary and targeted literature searches found no equivalent Gaussian one-resample identity.
+
+## value
+
+PASS
+
+The one-resample regime is the defining extreme-computation case of Cheap Bootstrap. An exact finite-sample calibration law showing systematic undercoverage even in the Gaussian mean benchmark, together with the closed first-order deficit, is a motivated statistical design fact with direct practical interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

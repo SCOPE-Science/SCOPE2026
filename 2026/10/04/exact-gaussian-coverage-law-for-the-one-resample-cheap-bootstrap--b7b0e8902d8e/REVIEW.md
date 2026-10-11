@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Conditional on the multinomial bootstrap counts, the bootstrap displacement and the sample-mean error are orthogonal Gaussian linear forms. This gives an exact Cauchy ratio and hence the stated conditional coverage. The identity \(Q_n=2C_n/n\), the occupancy generating function, strict concavity argument, and collision-indicator moments were reconstructed independently. The packaged exact-arithmetic occupancy recurrence reproduces exhaustive labeled resampling for small \(n\), verifies normalization and the second through fourth central moments through \(n=30\), and reproduces all quoted numerical values.
+## correctness
 
-Risk: the exact reduction is special to Gaussian observations and to one resample. Those boundaries are stated in the claim and result.
+PASS
 
-## Originality
-PASS. The focal Cheap Bootstrap paper defines the \(B=1\) interval and proves asymptotic exactness; its higher-order section gives a general \(O(n^{-1})\) expansion whose coefficient is described as a multidimensional integral not generally available in closed form. The later finite-sample paper gives upper bounds for linear and Gaussian/sub-Gaussian models, not an exact occupancy mixture or a strict sign for every finite sample size. Searches for the exact Gaussian-mean specialization, Cauchy/occupancy formulation, collision-count formulation, and closed-form \(1/n\) coefficient did not locate a covering statement. A 2026 studentized extension changes the interval through an extra calibration layer and therefore does not imply the claim.
+Conditioned on bootstrap counts \(N_i\), the sample-mean error and bootstrap displacement are orthogonal Gaussian linear forms because the displacement coefficients \(N_i-1\) sum to zero. The conditional variance ratio is \(Q_n=n^{-1}\sum_i(N_i-1)^2=2C_n/n\), where \(C_n=\sum_i\binom{N_i}{2}\). The ratio of the independent standardized normals is Cauchy, yielding the exact conditional arctangent coverage and hence the occupancy mixture. Strict concavity gives finite-n undercoverage. In this audit, direct labeled resampling for n=2,3,4 independently reproduced the collision laws and the n=2 coverage 0.475; the inspected verifier independently checks the stated collision moments through n=30. The Taylor calculation from the exact first two moments gives the displayed \(1/n\) coefficient.
 
-Residual risk: older bootstrap literature may contain an equivalent normal-mean identity under unrelated terminology. The targeted searches and inspections did not resolve every historical source exhaustively.
+## originality
 
-## Value
-PASS. The source method is explicitly motivated by inference with as few as one resample. The finding gives an exact finite-sample calibration diagnostic for that extreme-computation regime: even in the most favorable Gaussian mean problem, the nominal interval is always slightly anti-conservative, with a closed-form first-order deficit and dramatic degeneration at very small \(n\). This sharpens both the source paper's asymptotic expansion and the follow-up paper's finite-sample bounds without requiring a broader downstream theorem.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Lam's complete primary text defines the exact B=1 interval and proves asymptotic exactness for every fixed positive resample count. Its higher-order section states a two-sided \(O(n^{-1})\) coverage error whose coefficient is a high-dimensional integral that is not available in closed form. The audited Gaussian calculation instead gives an exact all-n occupancy mixture, strict sign of the finite-sample error, and a closed-form first-order coefficient. Resultary and targeted literature searches found no equivalent Gaussian one-resample identity.
+
+## value
+
+PASS
+
+The one-resample regime is the defining extreme-computation case of Cheap Bootstrap. An exact finite-sample calibration law showing systematic undercoverage even in the Gaussian mean benchmark, together with the closed first-order deficit, is a motivated statistical design fact with direct practical interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

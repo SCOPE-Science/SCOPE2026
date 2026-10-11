@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:15:03.010319Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 5b796b9251b2999b3b37047dcef55775aa9c6eaa",
+        "assigned verify.py blob 519b64d9c5686b7024c31c040afc7c247a28ec12",
+        "fresh labeled bootstrap enumeration for n=2,3,4",
+        "Lam arXiv:2202.00090 full arXiv HTML"
+      ],
+      "rationale": "Conditioned on bootstrap counts \\(N_i\\), the sample-mean error and bootstrap displacement are orthogonal Gaussian linear forms because the displacement coefficients \\(N_i-1\\) sum to zero. The conditional variance ratio is \\(Q_n=n^{-1}\\sum_i(N_i-1)^2=2C_n/n\\), where \\(C_n=\\sum_i\\binom{N_i}{2}\\). The ratio of the independent standardized normals is Cauchy, yielding the exact conditional arctangent coverage and hence the occupancy mixture. Strict concavity gives finite-n undercoverage. In this audit, direct labeled resampling for n=2,3,4 independently reproduced the collision laws and the n=2 coverage 0.475; the inspected verifier independently checks the stated collision moments through n=30. The Taylor calculation from the exact first two moments gives the displayed \\(1/n\\) coefficient.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lam proves asymptotic exactness for any fixed B and an O(n^-1) two-sided expansion, but states the general coefficient as a non-closed high-dimensional integral.",
+          "Lam--Liu give finite-sample coverage-error bounds rather than the exact one-resample Gaussian law.",
+          "The 2026 studentized procedure adds a calibration/studentization layer and is a different interval."
+        ],
+        "reasoning": "These broader methods control or improve coverage but do not imply the exact occupancy distribution and finite-n sign for the original B=1 interval.",
+        "searches": [
+          "Lam arXiv:2202.00090 full text",
+          "Lam--Liu arXiv:2210.10974",
+          "Studentized Cheap Bootstrap arXiv:2606.25968"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.00090",
+        "https://arxiv.org/abs/2210.10974",
+        "https://arxiv.org/abs/2606.25968",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source theorem gives only the limiting coverage and an abstract higher-order integral coefficient.",
+          "The exact result additionally uses conditional Gaussian orthogonality and the multinomial collision distribution."
+        ],
+        "reasoning": "The prior asymptotic/bound statements do not determine the exact finite law or force strict undercoverage for every n.",
+        "searches": [
+          "Lam arXiv:2202.00090 Sections 2 and 3",
+          "Lam--Liu finite-sample bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit stated the exact occupancy-mixture law.",
+          "Lam's full text defines B=1 in Eq. (3) and gives asymptotic rather than exact finite-n coverage."
+        ],
+        "reasoning": "Both bootstrap-count quadratic-form and pair-collision formulations were searched; no equivalent exact Gaussian law was located.",
+        "searches": [
+          "Resultary: Cheap Bootstrap one resample Gaussian mean exact coverage collision occupancy undercoverage",
+          "web searches under B=1 Cheap Bootstrap, normal mean, Cauchy ratio and multinomial collision count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No known table supplies the all-n occupancy distribution or the displayed coefficient.",
+          "Lam's numerical illustrations are empirical and do not tabulate this exact Gaussian law."
+        ],
+        "reasoning": "The quoted finite-n values are consequences of the analytic formula, not a recomputation of a located table.",
+        "searches": [
+          "Resultary exact-formula search",
+          "searches for exact B=1 Gaussian Cheap Bootstrap coverage tables"
+        ]
+      },
+      "rationale": "Lam's complete primary text defines the exact B=1 interval and proves asymptotic exactness for every fixed positive resample count. Its higher-order section states a two-sided \\(O(n^{-1})\\) coverage error whose coefficient is a high-dimensional integral that is not available in closed form. The audited Gaussian calculation instead gives an exact all-n occupancy mixture, strict sign of the finite-sample error, and a closed-form first-order coefficient. Resultary and targeted literature searches found no equivalent Gaussian one-resample identity.",
+      "residual_risks": [
+        "Older bootstrap literature could contain the same normal-mean identity under terminology unrelated to Cheap Bootstrap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ASYMPTOTIC_AND_GENERAL_NOT_EXACT_GAUSSIAN",
+          "evidence": "The paper defines the same interval and establishes asymptotic guarantees, but does not provide the audited exact Gaussian occupancy mixture or closed coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.00090",
+          "material_read": "Complete arXiv HTML, including Eq. (3), Theorem 1, and the introduction/Section 3 discussion that the two-sided O(n^-1) coefficient is a high-dimensional integral not available in closed form.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "A Cheap Bootstrap Method for Fast Inference",
+          "trigger": "Defining primary source for the B=1 interval and its higher-order theory."
+        },
+        {
+          "assessment": "DIFFERENT_PROCEDURE",
+          "evidence": "The method changes the interval through studentization/calibration and therefore does not imply the exact law of the original one-resample interval.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.25968",
+          "material_read": "Primary abstract describing a distinct studentized/calibrated extension.",
+          "method": "Abstract-level scope comparison only.",
+          "title": "Studentized Cheap Bootstrap: Achieving Higher-Order Coverage Accuracy with Low Computation",
+          "trigger": "Recent close follow-up on higher-order Cheap Bootstrap accuracy."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lam full primary text",
+        "Lam--Liu follow-up",
+        "Studentized Cheap Bootstrap abstract"
+      ],
+      "rationale": "The one-resample regime is the defining extreme-computation case of Cheap Bootstrap. An exact finite-sample calibration law showing systematic undercoverage even in the Gaussian mean benchmark, together with the closed first-order deficit, is a motivated statistical design fact with direct practical interpretation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2202.00090",
+    "https://arxiv.org/abs/2210.10974",
+    "https://arxiv.org/abs/2606.25968",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one ordinary nonparametric resample and iid univariate Gaussian observations.",
+    "No exact claim for non-Gaussian data, multiple resamples or studentized/calibrated variants."
+  ],
+  "residual_risks": [
+    "Older bootstrap literature could contain the same normal-mean identity under terminology unrelated to Cheap Bootstrap."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "ASYMPTOTIC_AND_GENERAL_NOT_EXACT_GAUSSIAN",
+      "evidence": "The paper defines the same interval and establishes asymptotic guarantees, but does not provide the audited exact Gaussian occupancy mixture or closed coefficient.",
+      "identifier_or_url": "https://arxiv.org/abs/2202.00090",
+      "material_read": "Complete arXiv HTML, including Eq. (3), Theorem 1, and the introduction/Section 3 discussion that the two-sided O(n^-1) coefficient is a high-dimensional integral not available in closed form.",
+      "method": "Lawful arXiv full-text inspection.",
+      "title": "A Cheap Bootstrap Method for Fast Inference",
+      "trigger": "Defining primary source for the B=1 interval and its higher-order theory."
+    },
+    {
+      "assessment": "DIFFERENT_PROCEDURE",
+      "evidence": "The method changes the interval through studentization/calibration and therefore does not imply the exact law of the original one-resample interval.",
+      "identifier_or_url": "https://arxiv.org/abs/2606.25968",
+      "material_read": "Primary abstract describing a distinct studentized/calibrated extension.",
+      "method": "Abstract-level scope comparison only.",
+      "title": "Studentized Cheap Bootstrap: Achieving Higher-Order Coverage Accuracy with Low Computation",
+      "trigger": "Recent close follow-up on higher-order Cheap Bootstrap accuracy."
+    }
+  ]
+}
