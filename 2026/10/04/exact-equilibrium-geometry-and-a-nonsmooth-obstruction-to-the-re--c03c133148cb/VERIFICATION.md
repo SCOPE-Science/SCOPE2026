@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker `verify.py` evaluates the algebra in \(\mathbb{Q}(\sqrt{230})\) without floating-point dependence for the identities that determine the threshold. It verifies
-\[
-197x_H^2-20x_H-10=0,
-\]
-\[
-c_H=x_H^2-\frac15x_H
-=\frac{1776}{38809}+\frac{291\sqrt{230}}{194045},
-\]
-and
-\[
-\frac1{10}\left(1+\frac3{10}x_H^2\right)-x_H\left(2x_H-\frac15\right)=0.
-\]
-It also checks the two exact endpoint inequalities used to establish stability of the larger positive branch and checks that the computed decimal value of \(c_H\) lies in a narrow stated interval. A successful replay prints `VERIFY_OK`.
+# Independent mathematical audit
 
-The origin instability is not delegated to computation. For the left smooth extension, \(p_-(0)=-c<0\) and \(p_-(\lambda)\to+\infty\) as \(\lambda\to+\infty\), so there is a positive real eigenvalue for every \(c>0\). The associated one-dimensional unstable manifold has a branch in \(x<0\), where the extension coincides with the original vector field. This proves Lyapunov instability of the nonsmooth origin.
+## correctness
 
-Limits: the checker does not establish a first Lyapunov coefficient, a periodic orbit, chaos, or multistability, and the scientific claim does not assert any of those conclusions.
+PASS
+
+Solving the equilibrium equation separately on \(x>0\) and \(x<0\) gives the always-present negative root and the positive pair exactly for \(c\le1/100\), with coalescence at \(x=1/10\). At nonzero equilibria, direct differentiation and elimination of \(c\operatorname{sgn}(x)\) gives the stated cubic. The smaller positive branch has negative constant term and is unstable; the larger branch satisfies the Routh inequality throughout. On the negative branch, the Routh quantity is monotone and vanishes only at \(x_H=(10-3\sqrt{230})/197\); independent exact arithmetic reproduced \(c_H\approx0.06850593165728569\) and the factorization with imaginary pair \(\pm i/\sqrt{10}\). At the origin, the left smooth extension has a positive real eigenvalue for every \(c>0\); its local unstable branch lies in \(x<0\), where it coincides with the original vector field, proving Lyapunov instability without differentiating \(|x|\) at zero.
+
+## originality
+
+PASS
+
+The accepted manuscript of the defining paper was inspected around the absolute-value jerk equation, equilibrium derivation, Jacobian, and claimed Hopf conditions. It treats the origin with a one-sided smooth derivative and reports a classical Hopf condition at \(c=0.1\), despite the \(|x|\) nonsmoothness. The audited result instead proves actual Lyapunov instability of the origin for every \(c>0\), gives the exact nonzero-equilibrium existence range, and locates the unique genuine spectral crossing on the negative smooth branch. Fresh Resultary and exact-threshold searches found no prior correction.
+
+## value
+
+PASS
+
+The correction changes the local bifurcation interpretation of the model: the reported origin Hopf cannot be a classical smooth Hopf because the actual origin is already unstable on one side for every positive parameter. The exact equilibrium existence diagram and the genuine negative-branch spectral crossing provide a mathematically appropriate replacement, making this a substantive source correction rather than a cosmetic recalculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

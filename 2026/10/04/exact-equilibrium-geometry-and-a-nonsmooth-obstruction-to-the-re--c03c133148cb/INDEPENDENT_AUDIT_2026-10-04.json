@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:50:44.541246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 660eb7c034b85a833d8b530489879db39527696d",
+        "verify.py blob ff3a6e8d19fb275fcb20651637f61d1c8a4b5584",
+        "independent exact radical/Routh and one-sided polynomial reconstruction"
+      ],
+      "rationale": "Solving the equilibrium equation separately on \\(x>0\\) and \\(x<0\\) gives the always-present negative root and the positive pair exactly for \\(c\\le1/100\\), with coalescence at \\(x=1/10\\). At nonzero equilibria, direct differentiation and elimination of \\(c\\operatorname{sgn}(x)\\) gives the stated cubic. The smaller positive branch has negative constant term and is unstable; the larger branch satisfies the Routh inequality throughout. On the negative branch, the Routh quantity is monotone and vanishes only at \\(x_H=(10-3\\sqrt{230})/197\\); independent exact arithmetic reproduced \\(c_H\\approx0.06850593165728569\\) and the factorization with imaginary pair \\(\\pm i/\\sqrt{10}\\). At the origin, the left smooth extension has a positive real eigenvalue for every \\(c>0\\); its local unstable branch lies in \\(x<0\\), where it coincides with the original vector field, proving Lyapunov instability without differentiating \\(|x|\\) at zero.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General smooth jerk bifurcation theory does not apply directly at the nondifferentiable origin.",
+          "No broader inspected theorem supplies the exact negative-branch threshold for this polynomial/absolute-value vector field."
+        ],
+        "reasoning": "Smooth Hopf theory is background rather than dominating coverage because the principal correction is precisely that its differentiability hypothesis fails at the origin.",
+        "searches": [
+          "Lăzureanu 2023 smooth jerk double-zero bifurcation background",
+          "web search for piecewise-smooth/nonsmooth Hopf corrections to the Vaidyanathan model",
+          "Resultary search for absolute-value jerk Hopf thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Vaidyanathan et al., International Journal of Computer Applications in Technology 67(1), DOI:10.1504/IJCAT.2021.120733; ORA accepted manuscript uuid:a1b4b398-5beb-4718-ab79-639b21d872b5",
+        "Lăzureanu, On the Double-Zero Bifurcation of Jerk Systems, Mathematics 11 (2023) 4468, DOI:10.3390/math11214468",
+        "Resultary query: absolute value jerk system equilibrium geometry nonsmooth origin Hopf c=0.1 0.0685059 multistable jerk",
+        "web searches using the exact source title/DOI, origin Hopf c=0.1, and exact corrected threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the left extension, the characteristic polynomial has negative constant term for every c>0, hence a positive real eigenvalue and an unstable branch contained locally in x<0.",
+          "Positive equilibria exist only when c<=1/100, so the source's positive nonzero Hopf value near 0.033 cannot belong to that branch.",
+          "The negative branch has a unique Routh equality at the audited exact radical value."
+        ],
+        "reasoning": "The source formulas do not imply the final claim because their central differentiability step at the origin is invalid and their reported branch picture conflicts with the exact equilibrium geometry.",
+        "searches": [
+          "analyze left and right smooth extensions at the origin",
+          "derive all nonzero equilibrium roots separately for x<0 and x>0",
+          "apply cubic Routh--Hurwitz to the nonzero branches and compare with source Hopf values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses a sign parameter in differentiating at the origin and prints the c=0.1 Hopf condition.",
+          "The exact Resultary same-object hit is the present finding; other hits concern different jerk systems."
+        ],
+        "reasoning": "Equivalent formulations as a piecewise-smooth/absolute-value origin and as smooth half-space extensions were checked. The source does not state the audited one-sided instability obstruction.",
+        "searches": [
+          "DOI:10.1504/IJCAT.2021.120733 accepted-manuscript full text via ORA",
+          "Resultary query: absolute value jerk system equilibrium geometry nonsmooth origin Hopf c=0.1 0.0685059 multistable jerk",
+          "web exact searches for the source title plus nonsmooth origin/Hopf correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source's reported nonzero Hopf values differ and its positive reported value lies outside the exact positive-equilibrium existence range on this parameter slice.",
+          "No prior exact table containing the corrected radical threshold was retrieved."
+        ],
+        "reasoning": "A published correction with the exact threshold would directly cover the claim; none was found.",
+        "searches": [
+          "source manuscript equilibrium/Hopf tables and formulas",
+          "web exact search for 0.0685059316572857 and the radical expression",
+          "Resultary exact/semantic query for the corrected threshold"
+        ]
+      },
+      "rationale": "The accepted manuscript of the defining paper was inspected around the absolute-value jerk equation, equilibrium derivation, Jacobian, and claimed Hopf conditions. It treats the origin with a one-sided smooth derivative and reports a classical Hopf condition at \\(c=0.1\\), despite the \\(|x|\\) nonsmoothness. The audited result instead proves actual Lyapunov instability of the origin for every \\(c>0\\), gives the exact nonzero-equilibrium existence range, and locates the unique genuine spectral crossing on the negative smooth branch. Fresh Resultary and exact-threshold searches found no prior correction.",
+      "residual_risks": [
+        "The accepted manuscript was the decisive same-paper text; the publisher landing page was not needed for the scientific comparison.",
+        "An unindexed erratum could exist, but no checked search surfaced a correction of the nonsmooth origin calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_SMOOTHES_NONDIFFERENTIABLE_ORIGIN",
+          "evidence": "The manuscript differentiates through the absolute-value term by fixing a sign and then applies a classical smooth Hopf condition at the origin.",
+          "identifier_or_url": "DOI:10.1504/IJCAT.2021.120733; ORA uuid:a1b4b398-5beb-4718-ab79-639b21d872b5",
+          "material_read": "Accepted-manuscript full text/PDF around the printed jerk equation, equilibrium relations, origin characteristic polynomial, c=0.1 Hopf calculation, and nonzero Hopf discussion; the PDF page containing the relevant equations was visually inspected.",
+          "method": "lawful Oxford Research Archive accepted manuscript",
+          "title": "A new multistable jerk system with Hopf bifurcations, its electronic circuit simulation and an application to image encryption",
+          "trigger": "Primary same-model source and direct target of the nonsmooth Hopf correction."
+        },
+        {
+          "assessment": "SMOOTH_BACKGROUND_INAPPLICABLE_AT_ORIGIN",
+          "evidence": "Its smooth-system bifurcation framework does not remove the differentiability obstruction in the audited absolute-value vector field.",
+          "identifier_or_url": "DOI:10.3390/math11214468",
+          "material_read": "Primary article metadata/abstract and theorem context sufficient to identify its smooth jerk setting as structurally different from the absolute-value source model.",
+          "method": "lawful open-access primary record",
+          "title": "On the Double-Zero Bifurcation of Jerk Systems",
+          "trigger": "Closest general smooth jerk-bifurcation background surfaced by searches."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "source accepted manuscript",
+        "assigned proof",
+        "independent one-sided/Routh reconstruction"
+      ],
+      "rationale": "The correction changes the local bifurcation interpretation of the model: the reported origin Hopf cannot be a classical smooth Hopf because the actual origin is already unstable on one side for every positive parameter. The exact equilibrium existence diagram and the genuine negative-branch spectral crossing provide a mathematically appropriate replacement, making this a substantive source correction rather than a cosmetic recalculation.",
+      "residual_risks": [
+        "The spectral crossing alone does not establish a nondegenerate Hopf bifurcation or the existence/stability of a periodic orbit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The accepted manuscript was the decisive same-paper text; the publisher landing page was not needed for the scientific comparison.",
+    "An unindexed erratum could exist, but no checked search surfaced a correction of the nonsmooth origin calculation."
+  ],
+  "schema_version": 1
+}
