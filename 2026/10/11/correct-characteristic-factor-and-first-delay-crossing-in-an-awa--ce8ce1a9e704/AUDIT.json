@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation reconstructs the current and delayed Jacobian terms from the printed nonlinear model. Symbolic determinant reduction gives the claimed factor. At the source parameters, the endemic residuals vanish numerically; the squared-frequency polynomial has exactly one positive root by Descartes plus endpoint signs; zero-delay Routh--Hurwitz determinants are strictly positive; F(i theta*,tau*) has negligible residual; and the analytically differentiated root has positive crossing speed. The claim is restricted to the first local stability loss.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Related delay-factor database hit 2026/9/18/SCOPE-all-order-gamma-memory-bifurcation-geometry--1c8a8bf2a700 concerns a different PDE/memory model",
+        "Related correction hit 2026/10/4/SCOPE-correct-first-order-averaging-for-the-positive-radius-zero-hopf--4fdaac2cfdd1 concerns a different ODE averaging problem"
+      ],
+      "reasoning": "Broader delay and Hopf results do not specialize to the source SEQIJR system or its incidence derivative structure, so they do not dominate the claim.",
+      "searches": [
+        "delay differential epidemic model characteristic equation Hopf correction",
+        "awareness epidemic media delay Hopf characteristic equation",
+        "Maji Basir Mukherjee Nisar Ravichandran 2022 delay characteristic equation correction Hopf"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2022672",
+      "doi:10.1016/j.amc.2018.05.042",
+      "2026/9/18/SCOPE-all-order-gamma-memory-bifurcation-geometry--1c8a8bf2a700",
+      "2026/10/4/SCOPE-correct-first-order-averaging-for-the-positive-radius-zero-hopf--4fdaac2cfdd1",
+      "2026/9/18/SCOPE-frequency-matched-shifted-erlang-enso-feedback--c5273aabd245"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source equations explicitly contain both current I(t) and delayed I(t-tau) dependence in one incidence term",
+        "The 2018 related paper studies a different SIS/media system"
+      ],
+      "reasoning": "The source does not imply the corrected result because its subsequent characteristic construction is based on the merged derivative. The inspected predecessor cannot imply it because its linearized state/delay architecture is different.",
+      "searches": [
+        "Maji Basir Mukherjee Nisar Ravichandran 2022 delay characteristic equation correction Hopf",
+        "\"COVID-19 propagation\" characteristic equation Hopf delay correction",
+        "Role of media coverage and delay in controlling infectious diseases mathematical model characteristic equation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.2022672, model (2.3), matrices and characteristic equation (2.6), delay equations in Section 3",
+        "DOI 10.1016/j.amc.2018.05.042, full model and stability analysis"
+      ],
+      "reasoning": "The motivating paper uses the same nonlinear equations but its displayed A/B split combines the current and delayed infectious derivatives. The related 2018 model has different states and delay placement. No checked source gives an algebraically equivalent corrected factor.",
+      "searches": [
+        "Maji Basir Mukherjee Nisar Ravichandran 2022 delay characteristic equation correction Hopf",
+        "\"COVID-19 propagation\" characteristic equation Hopf delay correction",
+        "\"10.3934/math.2022672\" Hopf correction",
+        "awareness COVID delay model missing current delayed derivative Hopf threshold 18.59"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI/title searches returned the article, mirrors/citations, and no checked source-specific erratum or corrected threshold",
+        "The source numerical bifurcation plot shows the transition near delays 18--19 but does not tabulate the corrected characteristic factor"
+      ],
+      "reasoning": "No checked exact record or table contains the corrected factor or the stated first-crossing value.",
+      "searches": [
+        "\"10.3934/math.2022672\" correction OR erratum OR corrigendum",
+        "AIMS Mathematics 2022 12091 12105 correction erratum",
+        "\"10.3934/math.2022672\" Hopf correction"
+      ]
+    },
+    "rationale": "The source-specific linearization error and corrected factor were compared directly against the motivating full text, a full-text structurally related awareness-delay model, database results, and exact DOI/title correction searches. No checked source states or implies the corrected SEQIJR factor or the 18.592486... first crossing. Search is necessarily non-exhaustive, which is recorded as residual risk.",
+    "residual_risks": [
+      "Searches cannot exclude an obscure, unindexed, or inaccessible source-specific correction.",
+      "The source numerical bifurcation figure is visually consistent with the corrected threshold, but it does not disclose enough numerical-method detail to identify how that plotted transition was computed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The printed A/B split merges current and delayed incidence derivatives and therefore does not yield the correct positive-delay characteristic equation.",
+        "evidence": "Direct differentiation gives current coefficients -v,+v and delayed coefficients +mvI*,-mvI*, producing the factor stated in the finding.",
+        "identifier_or_url": "doi:10.3934/math.2022672",
+        "material_read": "Full article; model (2.3), matrices A and B, characteristic equation (2.6), Section 3 imaginary-root derivation, Theorem 4, parameter set (5.1), and numerical bifurcation figures.",
+        "method": "Equation-by-equation differentiation and implication comparison against the printed nonlinear system.",
+        "title": "COVID-19 propagation and the usefulness of awareness-based control measures: A mathematical model with delay",
+        "trigger": "Same model, same endemic equilibrium, and claimed Hopf-delay threshold."
+      },
+      {
+        "assessment": "Different SIS/media model; does not cover or imply the corrected SEQIJR factor.",
+        "evidence": "Its delayed feedback architecture is not the awareness-modulated SEQIJR infection chain analyzed here.",
+        "identifier_or_url": "doi:10.1016/j.amc.2018.05.042",
+        "material_read": "Full institutional preprint; model equations and local stability/delay setup.",
+        "method": "Structural comparison of state variables, delayed terms, and characteristic construction.",
+        "title": "Role of media coverage and delay in controlling infectious diseases: a mathematical model",
+        "trigger": "Closely related epidemic-awareness delay literature cited in the area."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ce8ce1a9-e704-4c5f-a921-c48633e9ed84",
+  "value": {
+    "rationale": "The correction separates two derivatives that affect the delay spectrum differently. This changes the quasipolynomial for every positive delay and repairs the central analytic stability calculation, while producing an exact threshold consistent with the paper's numerical transition. It is a structural correction with reusable relevance to linearizing state-dependent incidence containing both current and delayed arguments, not a rounding or formatting fix.",
+    "status": "PASS"
+  }
+}
