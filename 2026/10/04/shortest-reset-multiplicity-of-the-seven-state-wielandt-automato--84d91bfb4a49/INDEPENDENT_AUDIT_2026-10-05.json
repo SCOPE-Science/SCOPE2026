@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:13:41.147992Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 73d249b9a460ff342c50c203382300e0ce7dd996",
+        "assigned verify.py blob 64148f2e3c526baf4701080253f7132ed2b8cbfb",
+        "Ananichev--Gusev--Volkov, arXiv:1005.0129, Wielandt-family theorem"
+      ],
+      "rationale": "The seven-state transitions are the standard unique coloring of the Wielandt digraph. An independent complete subset-BFS gives minimum reset length 31 and unique minimum-distance singleton state 2. Exact polynomial propagation along all shortest subset edges gives z^6(1+z)^20 and total 1048576; the inspected verifier independently reproduces the same polynomial by a reverse-distance optimal-DAG recursion. The published witness has length 31. The computation exhausts the complete finite power automaton.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources treat the whole Wielandt family but only reset thresholds/witnesses.",
+          "Reset-language work concerns broader language-theoretic structure and did not yield the exact W7 shortest-word enumerator."
+        ],
+        "reasoning": "Broader family coverage of optimum length does not determine optimum-word multiplicity.",
+        "searches": [
+          "arXiv:1005.0129",
+          "arXiv:1403.3992",
+          "Rodaro, language of minimal reset words"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1005.0129",
+        "arXiv:1403.3992",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A reset threshold and one witness do not imply the number of distinct shortest words.",
+          "The unique target-state conclusion likewise does not determine the binomial letter-count distribution."
+        ],
+        "reasoning": "The shortest-path polynomial on the subset automaton is additional information.",
+        "searches": [
+          "Comparison with the Wielandt reset-threshold proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining source gives the threshold and target state.",
+          "No inspected source gives z^6(1+z)^20 or total 2^20."
+        ],
+        "reasoning": "Shortest synchronizing word, shortest reset word, multiplicity and generating-polynomial formulations were all compared.",
+        "searches": [
+          "Resultary: W7 Wielandt automaton shortest reset multiplicity polynomial",
+          "web: Wielandt automaton shortest reset words count reset language"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact published table or finding for this enumerator was returned."
+        ],
+        "reasoning": "The submitted finite invariant was independently recomputed from all nonempty subsets.",
+        "searches": [
+          "Resultary exact semantic search for W7 count 1048576 and binomial letter profile"
+        ]
+      },
+      "rationale": "The primary Wielandt-family source was inspected: it proves reset length n^2-3n+3, gives a shortest witness, and proves a shortest reset ends at state 2. It does not enumerate all shortest reset words or their letter-count distribution. Targeted Resultary and literature searches for W7 shortest-word multiplicity and reset-language enumeration found no source stating the polynomial or count.",
+      "residual_risks": [
+        "An unindexed finite enumeration may contain W7's multiplicity.",
+        "The observed small-n pattern suggests a possible all-n generalization, but no such theorem is asserted or needed for this exact finite result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "THRESHOLD_AND_TARGET_NOT_MULTIPLICITY",
+          "evidence": "No shortest-word count or letter-count polynomial appears in the inspected theorem.",
+          "identifier_or_url": "arXiv:1005.0129",
+          "material_read": "Primary theorem section defining W_n, proving reset length n^2-3n+3, the witness, and the fact that a shortest word must reset to state 2.",
+          "method": "Lawful primary full-text inspection.",
+          "title": "Slowly Synchronizing Automata and Digraphs",
+          "trigger": "Defining source for the Wielandt automata and their reset threshold."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ananichev--Gusev--Volkov",
+        "Gusev--Pribavkina"
+      ],
+      "rationale": "W7 is a canonical slowly synchronizing benchmark, and shortest-word multiplicity is a natural invariant of its optimal reset language rather than an arbitrary statistic. The compact binomial profile is an exact self-contained finite fact useful for checking enumeration/sampling methods. Under the stated standard, the existence of an unfinished larger-family pattern does not by itself make the exact W7 result worthless.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1005.0129",
+    "arXiv:1403.3992",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only W7 is claimed.",
+    "No all-n formula is proved, despite a suggestive finite pattern in independent exploratory checks."
+  ],
+  "residual_risks": [
+    "An unindexed finite enumeration may contain W7's multiplicity.",
+    "The observed small-n pattern suggests a possible all-n generalization, but no such theorem is asserted or needed for this exact finite result."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "THRESHOLD_AND_TARGET_NOT_MULTIPLICITY",
+      "evidence": "No shortest-word count or letter-count polynomial appears in the inspected theorem.",
+      "identifier_or_url": "arXiv:1005.0129",
+      "material_read": "Primary theorem section defining W_n, proving reset length n^2-3n+3, the witness, and the fact that a shortest word must reset to state 2.",
+      "method": "Lawful primary full-text inspection.",
+      "title": "Slowly Synchronizing Automata and Digraphs",
+      "trigger": "Defining source for the Wielandt automata and their reset threshold."
+    }
+  ]
+}
