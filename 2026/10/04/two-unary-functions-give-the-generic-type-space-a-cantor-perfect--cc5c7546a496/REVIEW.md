@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Kruckman–Ramsey prove that the model companion of the empty theory exists in arbitrary languages, has quantifier elimination, and is complete in languages without constants. Hence a \(1\)-type here is exactly its quantifier-free equality pattern on unary terms. A finite generated orbit yields a finite transition table and pairwise inequalities that isolate the type. Conversely, every finite fragment of an infinite-orbit type has a finite completion, so such a type is not isolated. For the perfect-kernel step, an infinite type necessarily leaves an outgoing transition unresolved in every finite term diagram; using that transition, two distinct infinite completions can be attached while preserving the diagram. Therefore the first derivative consists exactly of infinite-orbit types and has no isolated points.
+## correctness
 
-The computation checks finite rooted two-function algebras through four states and explicit finite/infinite cylinder completions. It is supportive only; the proof supplies the infinite quantifiers.
+PASS
 
-## Originality
-PASS with residual folklore risk. Jeřábek explicitly proves that two unary functions give \(2^{\aleph_0}\) complete \(1\)-types, so cardinality alone is prior and is not claimed. Kruckman–Ramsey provide model completion, quantifier elimination, disjoint amalgamation, and closure. Targeted searches for Cantor–Bendixson rank, isolated types, finite generated orbits, congruence-space formulations, and Cantor perfect kernels did not locate the exact decomposition
-\[
-S_1(T)'=\{p:|\langle a\rangle|=\infty\}\cong 2^\omega.
-\]
-Searches also considered the equivalent viewpoint of right congruences on the free two-generated unary term tree. No stronger published statement covering the topological refinement was located.
+Quantifier elimination makes the atomic equality congruence on unary terms a complete invariant. A finite quotient is isolated by its finite transition table and distinctness diagram. Conversely, any finite term diagram inside an infinite quotient can be completed to a finite unary algebra and hence embedded in an existentially closed model, so no infinite-orbit type is isolated and finite-orbit types are dense. Inside an infinite quotient, a finite represented set cannot already contain both outgoing transitions of every represented congruence class; opening such an unfixed transition to a fresh infinite ray gives two distinct infinite completions of the same cylinder. Thus the infinite locus is closed and perfect. Compact metrizability and zero-dimensionality then give Cantor space. An independent enumeration reproduced the rooted finite-orbit type counts \(1,12,216\) for orbit sizes \(1,2,3\); it is only a sanity check, not the infinite proof.
 
-## Value
-PASS. The result gives a sharp topological boundary for the generic unary-function theories: with two unary functions, the non-smallness theorem is refined from a cardinality statement to an exact decomposition into a dense countable isolated part and a Cantor perfect kernel. This identifies precisely where the continuum of types lives and supplies a natural invariant beyond raw type count.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh comparison separates the topological claim from the known generic-structure and cardinality results. Kruckman–Ramsey prove that the generic \(L\)-structure is the model completion of the empty theory, has quantifier elimination, is complete without constants, and has generated substructure equal to algebraic/definable closure. Jeřábek proves that the two-unary-function case has continuum many complete \(1\)-types. Neither materially inspected primary source states the finite-generated-orbit isolation criterion, density of the isolated locus, or the Cantor–Bendixson kernel. A fresh Resultary search under model-theoretic and congruence/topological aliases returned no covering published finding.
+
+## value
+
+PASS
+
+The result refines a known continuum-cardinality statement into the exact Cantor–Bendixson anatomy of a natural generic function theory. The finite-versus-infinite generated-orbit boundary is intrinsic and the identification of the entire perfect kernel is a reusable structural fact, not a small numerical census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
