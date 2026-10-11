@@ -1,0 +1,11 @@
+# Review: sharp polyhedral generators for a neutral–expanding product
+
+**Correctness — PASS.** For each integer \(m\ge2\), the displayed \(m+1\) cells partition the fundamental square and have finite affine boundaries. Merging \(a\) and \(b\) yields the exact greedy base-\(m\) digit expansion of \(y\); the unsplit frequency of \(a\) on the universal full-measure equidistribution set is \(\theta/m\), recovering \(\theta\). Entropy of the direct product is exactly \(\log m\). Any \(m\)-symbol generator would induce the uniform i.i.d. name process by equality in Shannon's block entropy bounds, implying ergodicity in contradiction to the fixed neutral coordinate. Thus the lower bound applies to **all** measurable generators and the upper bound is piecewise affine.
+
+**Originality — PASS.** The focal full-text theorem at arXiv:2610.01642v1 requires an eigenvalue strictly inside the unit circle for its smooth-generator obstruction; \(\operatorname{diag}(1,m)\) has no such eigenvalue. Its expanding and strictly contracting regimes and earlier Markov/Bernoulli literature do not state an exact \(m+1\) minimum or the one-cylinder frequency code. The closest published searches concern expanding-matrix Markov partitions and finite-alphabet entropy bounds. The exact specialized result was compared at the level of hypotheses and implication, not titles. Residual risk: an unlocated symbolic-coding construction may imply the same formula.
+
+**Value — PASS.** Generator size is the natural minimum symbolic alphabet required to reconstruct a dynamical system. This closes that exact invariant across a natural infinite diagonal family at the neutral spectral boundary, with polygonal realizers rather than merely abstract measurable generators. The sharp one-symbol cost of retaining a nonergodic neutral factor is not obtained from entropy alone; the essential new mechanism is frequency coding within one expanding digit cell.
+
+**Scope and caution.** Neither uniqueness of the coding, its Markov property, nor an extension to non-diagonal matrices is asserted. The literature check is not a proof of absolute novelty. The accessible primary texts were compared on their actual theorems and hypotheses.
+
+Same-model review: passed. Independent audit: not yet performed.
