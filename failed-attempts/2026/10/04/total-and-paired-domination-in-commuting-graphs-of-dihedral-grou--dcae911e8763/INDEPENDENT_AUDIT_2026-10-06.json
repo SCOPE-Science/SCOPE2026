@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:40:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Vahidi and Talebi, The Commuting Graphs on Groups D2n and Qn, Journal of Mathematics and Computer Science 1 (2010), DOI 10.22436/jmcs.001.02.07; primary full text inspected at the parity-dependent dihedral commuting-graph section.",
+        "Ali, Salman and Huang, On the Commuting Graph of Dihedral Group, Communications in Algebra 44 (2016), DOI 10.1080/00927872.2015.1053488; same-object structural source, with the exact decomposition later quoted explicitly in published commuting-graph literature.",
+        "Rather, Filomat 38 (2024), full text inspected at Lemma 5.1 quoting the established dihedral commuting-graph decomposition: odd case rotation clique plus isolated reflections after removing the center, even case \\(K_{n-2}\\) plus \\((n/2)K_2\\) after removing the center.",
+        "Resultary query: commuting graph dihedral group total domination paired domination K_{n-2} n/2 K2.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree bc1d479d4072b715ef836171a33ca94a45c31944."
+      ],
+      "rationale": "Direct commutation gives that all noncentral rotations form a clique, no reflection commutes with a noncentral rotation, and two distinct reflections commute exactly when their exponents differ by \\(n/2\\) in the even case. Thus odd \\(n\\) has isolated reflections and even \\(n\\) has the stated component decomposition. Componentwise total domination then gives \\(2+n\\), and the same minimum set is perfectly matched.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact graph structure is strictly stronger than the requested domination numbers because it determines every graph invariant.",
+          "Published same-family work predates the package by years."
+        ],
+        "reasoning": "A known isomorphism type dominates a later calculation of two elementary graph parameters.",
+        "searches": [
+          "Ali–Salman–Huang same-family structure",
+          "Vahidi–Talebi parity-dependent dihedral commuting-graph results"
+        ]
+      },
+      "checked_sources": [
+        "Vahidi and Talebi, The Commuting Graphs on Groups D2n and Qn, Journal of Mathematics and Computer Science 1 (2010), DOI 10.22436/jmcs.001.02.07; primary full text inspected at the parity-dependent dihedral commuting-graph section.",
+        "Ali, Salman and Huang, On the Commuting Graph of Dihedral Group, Communications in Algebra 44 (2016), DOI 10.1080/00927872.2015.1053488; same-object structural source, with the exact decomposition later quoted explicitly in published commuting-graph literature.",
+        "Rather, Filomat 38 (2024), full text inspected at Lemma 5.1 quoting the established dihedral commuting-graph decomposition: odd case rotation clique plus isolated reflections after removing the center, even case \\(K_{n-2}\\) plus \\((n/2)K_2\\) after removing the center.",
+        "Resultary query: commuting graph dihedral group total domination paired domination K_{n-2} n/2 K2.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree bc1d479d4072b715ef836171a33ca94a45c31944."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A graph with an isolated vertex has no total or paired dominating set.",
+          "Each \\(K_2\\) forces both vertices into every total dominating set, and a nontrivial clique contributes exactly two; their union already has a perfect matching."
+        ],
+        "reasoning": "The final parity dichotomy and value \\(n+2\\) follow in a few routine lines from the prior exact graph theorem.",
+        "searches": [
+          "Known decomposition \\(K_{n-2}\\sqcup(n/2)K_2\\) for even \\(n\\), with isolated reflections for odd \\(n\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For odd \\(n\\), removing the center leaves \\(K_{n-1}\\) together with \\(n\\) isolated reflections.",
+          "For even \\(n\\), removing the two central elements leaves \\(K_{n-2}\\sqcup (n/2)K_2\\)."
+        ],
+        "reasoning": "The package's commutation calculation reconstructs the same known graph. Total and paired domination of that disjoint union are equivalent reformulations obtained by standard componentwise graph theory.",
+        "searches": [
+          "Resultary query: commuting graph dihedral group total domination paired domination K_{n-2} n/2 K2",
+          "Vahidi–Talebi DOI 10.22436/jmcs.001.02.07",
+          "published exact dihedral commuting-graph decomposition quoted as Lemma 5.1 in Filomat 38 (2024)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate historical table of these two domination numbers was needed: the stronger exact graph decomposition already covers them."
+        ],
+        "reasoning": "Failure to find the exact numerical phrase \\(n+2\\) is not novelty evidence when a prior theorem determines the entire graph.",
+        "searches": [
+          "Resultary exact family/invariant query",
+          "published exact graph decomposition"
+        ]
+      },
+      "rationale": "The graph decomposition that does all mathematical work is already in the published commuting-graph literature. Once the noncentral graph is known to be a rotation clique plus either isolated reflections or disjoint reflection edges, the total- and paired-domination conclusions are immediate componentwise facts about complete graphs and isolated edges. The audited theorem is therefore a routine invariant read-off from a known exact graph, not an original structural result.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "SAME GRAPH FAMILY ALREADY STRUCTURALLY ANALYZED",
+          "evidence": "The paper determines the parity-dependent commuting structure and associated exact invariants for \\(D_{2n}\\).",
+          "identifier_or_url": "DOI:10.22436/jmcs.001.02.07",
+          "material_read": "Full-text dihedral section including Proposition 1 and Theorem 2, with the parity split, clique and independence structure.",
+          "method": "Primary full-text rendering.",
+          "title": "The Commuting Graphs on Groups D2n and Qn",
+          "trigger": "Primary same-object source predating the claim."
+        },
+        {
+          "assessment": "DECISIVE STRONGER COVERAGE",
+          "evidence": "Deleting the center from the stated graph gives exactly the package's noncentral decomposition.",
+          "identifier_or_url": "published Lemma 5.1 in full text",
+          "material_read": "Full-text lemma stating the dihedral commuting graph as the appropriate join of the center with the rotation clique and reflection components.",
+          "method": "Open published full text.",
+          "title": "Filomat 38:6 (2024) article quoting the established dihedral commuting-graph structure",
+          "trigger": "Direct check for exact graph-isomorphism coverage."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Vahidi and Talebi, The Commuting Graphs on Groups D2n and Qn, Journal of Mathematics and Computer Science 1 (2010), DOI 10.22436/jmcs.001.02.07; primary full text inspected at the parity-dependent dihedral commuting-graph section.",
+        "Ali, Salman and Huang, On the Commuting Graph of Dihedral Group, Communications in Algebra 44 (2016), DOI 10.1080/00927872.2015.1053488; same-object structural source, with the exact decomposition later quoted explicitly in published commuting-graph literature.",
+        "Rather, Filomat 38 (2024), full text inspected at Lemma 5.1 quoting the established dihedral commuting-graph decomposition: odd case rotation clique plus isolated reflections after removing the center, even case \\(K_{n-2}\\) plus \\((n/2)K_2\\) after removing the center.",
+        "Resultary query: commuting graph dihedral group total domination paired domination K_{n-2} n/2 K2.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree bc1d479d4072b715ef836171a33ca94a45c31944."
+      ],
+      "rationale": "Although the parameters are natural, after the exact commuting graph has already been published the strengthened-domination calculation is a textbook componentwise exercise. It does not expose a new boundary or structural phenomenon beyond the known decomposition.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the standard commuting graph on noncentral elements of \\(D_{2n}\\), total and paired domination fail for odd \\(n\\); for even \\(n\\), the graph is \\(K_{n-2}\\sqcup(n/2)K_2\\) and both parameters equal \\(n+2\\).",
+  "limitations": [
+    "The theorem is mathematically correct under the noncentral-vertex convention.",
+    "Rejection is for prior structural coverage and routine value, not for a correctness defect."
+  ],
+  "schema_version": 1
+}
