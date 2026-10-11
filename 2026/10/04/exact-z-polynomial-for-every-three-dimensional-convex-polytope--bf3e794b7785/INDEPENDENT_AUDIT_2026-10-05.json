@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:53:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob af380cf6d906c37466026f857a5f0162b46837a0",
+        "verify.py blob 1b0b5b4dc97f448fa2134f84f13172270ef6ed15",
+        "Ferroni--Riccardi full primary theorem",
+        "fresh rank-count and toric-h coefficient reconstruction"
+      ],
+      "rationale": "Using Ferroni--Riccardi's interval-poset representation Q, rank-one elements are [vertex,1] and [0,facet], giving a1=v+f. Rank two consists of [edge,1], [0,edge] and vertex--facet incidences; the latter count is 2e, so a2=4e. For rank-three lower intervals, the local toric g linear coefficient is atoms-3. Summing over [facet,1] and [0,vertex] gives 4e-3(v+f), while the [edge,facet] and [vertex,edge] types contribute zero. In the toric h recursion this yields [x^3]h=v+f-4 and [x^2]h=6+8e-6(v+f). Euler's relation e=v+f-2 reduces the latter to 2(v+f)-10; toric h symmetry supplies the remaining coefficients. The factorization is direct. Since every three-polytope has v,f>=4, v+f-8>=0 and the quadratic factor has discriminant (v+f-8)(v+f-4)>=0 with positive coefficients, so its roots are negative. The finite verifier checks representative Platonic examples only as consistency tests.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The structural theorem covers all Eulerian posets but leaves explicit coefficient computation to the interval-poset combinatorics.",
+          "The source explicitly frames gamma positivity as an open question for Gorenstein* lattices."
+        ],
+        "reasoning": "A general representation theorem does not mechanically supply the rank counts and local g contributions for all three-polytopes; the submitted calculation resolves that subclass.",
+        "searches": [
+          "Ferroni--Riccardi general Eulerian-poset theorem",
+          "standard Bayer--Ehrenborg/Stanley toric g/h recursion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.17679",
+        "DOI:10.1017/fms.2026.10270",
+        "standard toric g/h recursion",
+        "Resultary exact 3-polytope Z-polynomial search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem reduces the problem to computing the toric h-polynomial of a new rank-five interval poset.",
+          "The assigned proof counts rank-one/rank-two intervals, computes the sum of rank-three local g linear coefficients as 4e-3(v+f), and then reduces h to a function of v+f."
+        ],
+        "reasoning": "Those rank counts and the resulting real-rooted factorization are additional consequences, not stated by the source theorem.",
+        "searches": [
+          "Ferroni--Riccardi Theorem identifying Z_P=h_{hat P}",
+          "toric h recursion plus Euler's v-e+f=2 relation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferroni--Riccardi identify Z_P with the toric h-polynomial of the closed-interval poset with a formal empty interval.",
+          "The direct Resultary hit is the audited finding; no earlier explicit 3-polytope formula appeared among the leading results."
+        ],
+        "reasoning": "The audited polynomial formula is equivalently a complete toric-h evaluation of the interval poset of a rank-four face lattice.",
+        "searches": [
+          "Ferroni--Riccardi, arXiv:2510.17679 / DOI:10.1017/fms.2026.10270",
+          "Resultary query: Eulerian posets Z-polynomial three dimensional convex polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the current finding itself as the direct exact match and no older explicit formula.",
+          "No table of three-polytope Z-polynomials yielding the universal v+f collapse was located."
+        ],
+        "reasoning": "The formula is universal over all convex three-polytopes and is not extrapolated from the five verifier examples.",
+        "searches": [
+          "Resultary exact Z-polynomial 3-polytope search",
+          "targeted web/search comparison for v+f formula and gamma vector"
+        ]
+      },
+      "rationale": "Ferroni--Riccardi prove the general structural identity identifying the Eulerian-kernel Z-polynomial with the toric h-polynomial of the interval poset and explicitly ask about gamma positivity for Gorenstein* lattices. Their inspected primary text does not state the dimension-three coefficient collapse, gamma vector, or real-rooted factorization. The submitted rank-by-rank evaluation closes the full three-dimensional polytopal subclass and strengthens gamma positivity there to real-rootedness.",
+      "residual_risks": [
+        "A very recent follow-up to the 2026 published paper could contain the same low-dimensional calculation outside the indexed sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_REPRESENTATION_PRIOR_DIMENSION_THREE_EVALUATION_NOT_STATED",
+          "evidence": "The source supplies the reduction used in the proof and asks whether Gorenstein* Z-polynomials are gamma-positive, but it does not give the displayed 3-polytope formula or real-rootedness result.",
+          "identifier_or_url": "arXiv:2510.17679; DOI:10.1017/fms.2026.10270",
+          "material_read": "Full accessible primary text around the structural identity Z_P=h_{hat P}, discussion of explicit computation, and the gamma-positivity question.",
+          "method": "Primary full-text theorem and open-question comparison.",
+          "title": "Eulerian posets and Z-polynomials",
+          "trigger": "Defining primary source for the Eulerian-kernel Z-polynomial and the interval-poset representation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2510.17679",
+        "DOI:10.1017/fms.2026.10270",
+        "standard toric g/h recursion",
+        "Resultary exact 3-polytope Z-polynomial search"
+      ],
+      "rationale": "The result gives a complete dimension-three answer to a stated gamma-positivity question for the natural polytopal subclass and strengthens it to real-rootedness with an explicit universal formula. The calculation is structural and all-dimensional within the three-polytope class, not an extrapolation from examples.",
+      "residual_risks": [
+        "A very recent follow-up to the 2026 published paper could contain the same low-dimensional calculation outside the indexed sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2510.17679",
+    "DOI:10.1017/fms.2026.10270",
+    "standard toric g/h recursion",
+    "Resultary exact 3-polytope Z-polynomial search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every convex three-polytope with v vertices and f facets, the Eulerian-kernel Z-polynomial is (1+x)^2(x^2+(v+f-6)x+1), equivalently with coefficient vector (1,v+f-4,2v+2f-10,v+f-4,1); hence its gamma vector is (1,v+f-8,0) and it is gamma-positive and real-rooted.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A very recent follow-up to the 2026 published paper could contain the same low-dimensional calculation outside the indexed sources.",
+    "The theorem concerns convex three-polytope face lattices and does not settle gamma positivity for arbitrary higher-rank Gorenstein* lattices."
+  ]
+}

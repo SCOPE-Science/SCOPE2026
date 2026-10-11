@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The proof reduces the interval-poset toric \(h\)-recursion to three exact incidence counts. Rank-one intervals number \(v+f\); rank-two intervals number \(4e\); and the summed linear coefficient of the rank-three local toric \(g\)-polynomials is \(4e-3(v+f)\). These give the middle coefficients, and Euler's relation \(v-e+f=2\) yields the stated closed form. The factorization and discriminant checks are exact.
+## correctness
 
-## Originality
-The lead source proves the general representation \(Z_P=h_{\widehat P}\) and poses \(\gamma\)-positivity for Gorenstein* lattices as an open question, but it does not evaluate the three-dimensional polytopal case. Claim-specific searches for a three-polytope formula, a rank-four interval-poset formula, and a \(\gamma\)-positive low-rank specialization found no source stating or implying this coefficient formula. The closest source remains Ferroni--Riccardi itself.
+PASS
 
-## Value
-This is a complete natural-dimensional classification, not an isolated example: every convex three-polytope has the same \(Z\)-polynomial as every other one with the same \(v+f\). It gives a full positive answer to the source's \(\gamma\)-positivity question on the three-dimensional polytopal subclass and strengthens it to real-rootedness.
+Using Ferroni--Riccardi's interval-poset representation Q, rank-one elements are [vertex,1] and [0,facet], giving a1=v+f. Rank two consists of [edge,1], [0,edge] and vertex--facet incidences; the latter count is 2e, so a2=4e. For rank-three lower intervals, the local toric g linear coefficient is atoms-3. Summing over [facet,1] and [0,vertex] gives 4e-3(v+f), while the [edge,facet] and [vertex,edge] types contribute zero. In the toric h recursion this yields [x^3]h=v+f-4 and [x^2]h=6+8e-6(v+f). Euler's relation e=v+f-2 reduces the latter to 2(v+f)-10; toric h symmetry supplies the remaining coefficients. The factorization is direct. Since every three-polytope has v,f>=4, v+f-8>=0 and the quadratic factor has discriminant (v+f-8)(v+f-4)>=0 with positive coefficients, so its roots are negative. The finite verifier checks representative Platonic examples only as consistency tests.
 
-The main residual originality risk is an unindexed low-dimensional calculation in older toric-\(h\) or antiprism literature. No such formula was located in the checked literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ferroni--Riccardi prove the general structural identity identifying the Eulerian-kernel Z-polynomial with the toric h-polynomial of the interval poset and explicitly ask about gamma positivity for Gorenstein* lattices. Their inspected primary text does not state the dimension-three coefficient collapse, gamma vector, or real-rooted factorization. The submitted rank-by-rank evaluation closes the full three-dimensional polytopal subclass and strengthens gamma positivity there to real-rootedness.
+
+## value
+
+PASS
+
+The result gives a complete dimension-three answer to a stated gamma-positivity question for the natural polytopal subclass and strengthens it to real-rootedness with an explicit universal formula. The calculation is structural and all-dimensional within the three-polytope class, not an extrapolation from examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
