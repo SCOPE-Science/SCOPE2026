@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For uniformly small changes, the area of a polygon with fixed normal fan is exactly quadratic in support offsets. The covariogram \\(g_P(tu)=|P\\cap(P+tu)|\\) is obtained from inward offsets \\(t\\max(0,-n_i\\cdot u)\\). Three elementary cosine integrals give \\(C_4(P)=\\sum_i[1+(\\pi-\\alpha_i)\\cot\\alpha_i]/(8\\pi^2)\\), including perimeter normalization. Differentiation of \\(H(\\beta)=(\\sin\\beta-\\beta\\cos\\beta)/\\sin^3\\beta\\) gives \\(f^{\\prime\\prime}(a)>2/3\\); the constrained Jensen argument yields the exact factor \\(1/(24\\pi^2)\\). The centrally symmetric even-sided equilateral polygon has squared-angle variance \\(4\\varepsilon^2\\) and approaches the same quotient as the number of sides tends to infinity, proving optimality. The packaged standard-library program independently checks finite polygon clipping and angular integrals, but is not a substitute for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/1903.07757 arbitrary-polygon framework is broader in the class of bodies, but not in extremal angle inequalities.",
+        "2026/9/20/SCOPE-quantitative-area-stability-reduced-polygons--c9d16da8d26f (public RESULT.md read): stability of Lassak reduced polygons at fixed thickness controls an area deficit, using different canonical angles.",
+        "2026/9/20/SCOPE-sharp-angle-variance-stability-tangential-quadrilaterals--cce8a9a33e16 (public RESULT.md read): sharp stability of tangential quadrilateral semiperimeter controls interior-angle variance but not short-pair statistics.",
+        "https://doi.org/10.1007/s11277-012-0887-9 older arbitrary convex n-gon distance model has only abstract-level inspection; broader computational scope does not demonstrate domination of universal angular rigidity."
+      ],
+      "reasoning": "General formulas and algorithms covering polygon distance distributions could derive the local coefficient after additional computation. None of the materially read sources provides a stronger inequality directly implying the globally sharp quantitative coefficient bound, and the inaccessible Baltzis source is retained as a genuine risk rather than declared non-covering.",
+      "searches": [
+        "Short-range pair probability convex polygon uniform strong-convexity angular variance coefficient 1/(24 pi squared) sharp",
+        "Sinan Wang Brunn Minkowski distribution random pairs convex bodies planar polygons fourth-order angular expansion",
+        "distance distribution convex n-gons Baltzis 2013 random two nodes",
+        "2026/9/20/SCOPE-quantitative-area-stability-reduced-polygons--c9d16da8d26f",
+        "2026/9/20/SCOPE-sharp-angle-variance-stability-tangential-quadrilaterals--cce8a9a33e16"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.01916v1",
+      "https://arxiv.org/pdf/1903.07757",
+      "https://arxiv.org/pdf/1602.03407",
+      "https://doi.org/10.1007/s11277-012-0887-9",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-quantitative-area-stability-reduced-polygons--c9d16da8d26f/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-sharp-angle-variance-stability-tangential-quadrilaterals--cce8a9a33e16/RESULT.md",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2610.01916v1 Eq. (1.7) fixes only the first correction (order \\(\\rho^3\\) in the plane), so it cannot alone imply the order \\(\\rho^4\\) angular stability result.",
+        "https://arxiv.org/pdf/1903.07757 its generic overlap integral implies that a polygon-specific coefficient can in principle be calculated, but is not itself a sharp minimization theorem.",
+        "2026/9/20/SCOPE-quantitative-area-stability-reduced-polygons--c9d16da8d26f and 2026/9/20/SCOPE-sharp-angle-variance-stability-tangential-quadrilaterals--cce8a9a33e16 both bound distinct area-based functionals and neither dominates the random-pair statistic for general convex N-gons."
+      ],
+      "reasoning": "The implication of the source integral identities is recognized: one can recover the fourth coefficient by a nontrivial polygonal and angular calculation. The new claim further determines an extremal inequality over unrestricted side counts, its exact equiangular equality class, and globally sharp stability scale; those do not follow as corollaries from the cited published statements without new geometric and convexity analysis.",
+      "searches": [
+        "Near-origin random-pair distance distribution convex polygons exact quartic coefficient interior angles 1+(pi-alpha)cot alpha and minimization by equiangular polygons",
+        "Short-range pair probability convex polygon uniform strong-convexity angular variance coefficient 1/(24 pi squared) sharp",
+        "Sinan Wang Brunn Minkowski distribution random pairs convex bodies planar polygons fourth-order angular expansion",
+        "short distance random pairs convex polygons corner angular fourth order exact CDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2610.01916v1 Eq. (1.3), Eq. (1.7) gives perimeter correction, no angular quartic coefficient; full relevant intro, definitions, and main theorem sections read.",
+        "https://arxiv.org/pdf/1903.07757 Theorem 3 Eq. (21) gives radial integration over translated polygon overlap; general algorithm but no angle-variance inequality in the inspected main results and appendices.",
+        "https://arxiv.org/pdf/1602.03407 derives random-point distance distributions using kinematic measure and triangulation; no stated sharp angular rigidity."
+      ],
+      "reasoning": "A complete distance-distribution algorithm necessarily determines local coefficients, so coefficient calculability alone is covered and not a claimed novelty. The new result is the explicit angle function and optimal universal quadratic stability statement with equality and extremal N-to-infinity construction; these are not equivalent to merely possessing an integration algorithm.",
+      "searches": [
+        "Near-origin random-pair distance distribution convex polygons exact quartic coefficient interior angles 1+(pi-alpha)cot alpha and minimization by equiangular polygons",
+        "distance distribution between uniform random points in convex polygon exact small-radius expansion",
+        "radial covariogram small distance planar polygon third fourth order coefficient corner angles cotangent",
+        "arXiv:1903.07757v1",
+        "arXiv:2610.01916v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/pdf/1903.07757 displays specific triangle PDF cases and a generic computational recipe, not a table of optimal α-angle quartic stability constants.",
+        "https://arxiv.org/pdf/1602.03407 presents algorithmic arbitrary-polygon cases; no listed universal coefficient or sharp-angle variance constant.",
+        "2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8 is an exact second-moment triangle statistic for boundary and interior samples; it does not tabulate short-distance quartic coefficients."
+      ],
+      "reasoning": "No exact matching reference table or record was found for the all-N universal coefficient, equality condition, and sharpness construction. Absence in the searched indexes does not rule out unindexed historical calculations.",
+      "searches": [
+        "isotropic covariogram of polygons area perimeter corner angle coefficient",
+        "Near-origin random-pair distance distribution convex polygons exact quartic coefficient interior angles 1+(pi-alpha)cot alpha and minimization by equiangular polygons",
+        "Sharp polygon vertex angle variance inequality for isotropic pair distance distribution or chord length CDF",
+        "distance distribution between two random points in arbitrary polygons 2022"
+      ]
+    },
+    "rationale": "The accepted statement is the universal sharp angle-rigidity inequality for the short-pair quartic coefficient, together with its exact angle formula and all-side-count sharpness. Wang 2026 establishes only the perimeter small-distance correction. Pure–Durrani–Tong–Pan 2019 and Tong–Pan 2016 present general algorithms for distance distributions but do not state the angle-only sharp minimization or dimension-free variance stability; their methods may implicitly generate the coefficient and are explicitly credited. Full public mathematical stability reports concern reduced-polygon area and tangential-quadrilateral semiperimeter, not this statistic. Specific older broad polygon-distance literature has incomplete full-text access, and undocumented equivalences remain a residual risk.",
+    "residual_risks": [
+      "The 2013 Baltzis convex-polygon distance article was not fully accessible; its arbitrary-polygon framework may conceal a related local angle formula.",
+      "Exact coefficients for specified polygons are algorithmically implied by older full-distribution frameworks; originality rests on the sharp global angular rigidity theorem, not on coefficient calculability.",
+      "A semantically equivalent inequality may exist in older trigonometric, stochastic geometry, or covariance literature under unrelated wording; indexed searches do not prove absolute uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the quantitative polygonal angle theorem; provides base functional and perimeter-order correction.",
+        "evidence": "Introduction Eq. (1.3) represents D as integrated covariogram; Eq. (1.7) supplies only first-order perimeter correction; 52A40 is listed first in MSC2020.",
+        "identifier_or_url": "https://arxiv.org/html/2610.01916v1",
+        "material_read": "Original public HTML: abstract, classification, introduction and identities (1.1)–(1.7), main theorem sections, and related-work discussion.",
+        "method": "Direct reading of arXiv HTML v1",
+        "title": "A Brunn–Minkowski Theory for the Distribution of Random Pairs of Points in Convex Bodies",
+        "trigger": "Fresh original definition and local small-radius result for the same random-pair functional."
+      },
+      {
+        "assessment": "COVERING general distribution calculability; NOT_COVERING a stated all-N sharp angular variance inequality in the inspected material.",
+        "evidence": "Theorem 3 integrates area of translated intersections to obtain the PDF and appendices compute example cases; no general sharp angular inequality or equality family was presented.",
+        "identifier_or_url": "https://arxiv.org/pdf/1903.07757",
+        "material_read": "Public 24-page PDF: introduction and prior-work comparison, Theorem 3 including Eq. (21), arbitrary-polygon decomposition, worked distributions, appendices and Mathematica implementation sections.",
+        "method": "Direct examination of arXiv full-text PDF and page image",
+        "title": "Distance Distribution Between Two Random Nodes in Arbitrary Polygons",
+        "trigger": "Most directly plausible prior complete two-point polygon distance distribution."
+      },
+      {
+        "assessment": "COVERING arbitrary-polygon distance computation generally; no inspected statement supplies the global sharp angle-variance law.",
+        "evidence": "Algorithmic triangulation and kinematic-measure approach computes distributions for given shapes; no minimax comparison of the fourth short-distance coefficient across convex N-gons.",
+        "identifier_or_url": "https://arxiv.org/pdf/1602.03407",
+        "material_read": "Public preprint PDF: stated algorithm, chord/kinematic measure construction, worked examples and appendices.",
+        "method": "Direct inspection of full-text PDF and relevant pages",
+        "title": "Random Distances Associated with Arbitrary Polygons: An Algorithmic Approach between Two Random Points",
+        "trigger": "Independent earlier arbitrary polygon-distance algorithm, potential broad coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: reduced polygon area deficit, not short-pair quartic coefficient.",
+        "evidence": "This reference bounds reduced-polygon area deficits through Lassak angles, schematically \\(A_{\\mathrm{reg}}-A(R)\\ge(\\Delta^2/2)C_N\\sum_i(\\psi_i-\\pi/N)^2\\). These are a different functional and angle system.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-quantitative-area-stability-reduced-polygons--c9d16da8d26f/RESULT.md",
+        "material_read": "Entire published RESULT.md theorem, proof, sharpness, limitations, references.",
+        "method": "Direct public repository document read",
+        "title": "Quantitative area stability for reduced polygons",
+        "trigger": "Closest published polygon angle-variance stability result in the semantic index."
+      },
+      {
+        "assessment": "NOT_COVERING: different invariant (semiperimeter/area deficit) and special tangential quadrilateral domain.",
+        "evidence": "Bounds s−4r by an angle variance for tangential quadrilaterals; not a random-pair distance coefficient.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-sharp-angle-variance-stability-tangential-quadrilaterals--cce8a9a33e16/RESULT.md",
+        "material_read": "Entire published RESULT.md theorem, detailed proof, equality and boundary-sharpness sections.",
+        "method": "Direct public repository document read",
+        "title": "Sharp angle-variance stability for Ivanova's tangential-quadrilateral inequality",
+        "trigger": "Highly similar stability terminology and angular variances."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK: broad method may derive individual coefficients; no basis to claim full-document non-coverage.",
+        "evidence": "Abstract describes analytic framework for distances in convex polygons with arbitrary side counts and lengths, but supplies no visible all-N angle stability statement.",
+        "identifier_or_url": "https://doi.org/10.1007/s11277-012-0887-9",
+        "material_read": "Title, abstract, bibliographic record; full text inaccessible under available public and institutional paths.",
+        "method": "Publisher and bibliography inspection; public full-text alternatives searched, institutional full text unavailable.",
+        "title": "Distance Distribution in Convex n-Gons: Mathematical Framework and Wireless Networking Applications",
+        "trigger": "Older plausible exact all-polygon distance method cited in the direct 2019 full text."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "24e8bcd8-655b-4cf2-825d-913ddb0713f9",
+  "value": {
+    "rationale": "This is a motivated exact natural short-pair statistic newly foregrounded by Wang 2026; the fourth-order coefficient isolates polygon angular geometry beyond area/perimeter. For every allowed vertex count, it solves a complete natural minimization, characterizes equality, and gives a quantitative stability inequality with the best possible coefficient uniform across all side counts. The all-N optimality construction and angle-only covariance calculation are substantive geometry, not arbitrary parameter slicing or a mere existing table recomputation.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Fixed-fan support-line perturbations give an exact quadratic covariogram; explicit angular integrals give the quartic coefficient. The sharp coefficient follows from a rigorously monotone curvature quotient and Jensen's inequality. A centrally symmetric even-sided construction shows optimality of the dimension-free variance factor. The included Python verification independently checks finite intersection-area cases and normalization; it is not the proof of the universal assertion.
+
+**Originality — PASS, subject to historical overlap risk.** Wang's manuscript gives the perimeter correction but not the next polygonal coefficient or the angle-rigidity theorem. The primary full texts of the earlier general polygon-distance algorithms were inspected and supply procedures for calculating entire distributions, which may implicitly determine any individual coefficient, but they do not state the global sharp angular variance law and equality classification. Related published reduced-polygon and tangential-quadrilateral stability bounds concern different functionals. One historical convex-polygon distance source was not fully accessible; possible differently named prior formulations remain a risk.
+
+**Value — PASS.** The quartic short-distance coefficient recovers an angle-only geometric invariant beyond the already known perimeter term. The inequality solves a natural complete extremal problem over all convex polygons with a prescribed number of vertices and quantitatively constrains their angle vectors; the optimal uniform rigidity constant requires an all-sided limiting construction. The result is restricted to the local polynomial regime, rather than an asserted global probability ordering.
+
+Same-model review: passed. Independent audit: not yet performed.
