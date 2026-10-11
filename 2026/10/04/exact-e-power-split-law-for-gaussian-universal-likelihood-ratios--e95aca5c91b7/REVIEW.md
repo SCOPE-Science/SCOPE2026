@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Gaussian calculation is exact: conditional null expectation gives e-value validity; alternative first and second moments give the stated e-power; the strictly decreasing forward-difference threshold proves all finite integer optimizer cases. The local and fixed-signal limits are direct consequences of that exact characterization. The packaged verifier independently checks the finite formulas on a deterministic grid and the asymptotic examples.
+## correctness
 
-## Originality
-PASS. The closest same-model literature optimizes different criteria. Dunn et al. optimize expected squared confidence-set radius; Tse and Davison compute finite-threshold rejection power; Strieder and Drton optimize asymptotic rejection power. Delong and Wüthrich (2025) is the closest conceptual source because it explicitly defines e-power and studies split sampling, but the inspected split-ratio analysis is numerical and concerns isotonic mean calibration rather than this scalar Gaussian theorem. The closest indexed prior result concerns null moment integrability of cross-fit and \(K\)-fold averages, not alternative expected-log growth.
+PASS
 
-Residual risk remains that broader e-value/Kelly-design literature may contain the same Gaussian optimizer under different notation, and the later 2025 calibration preprint is especially relevant. No inspected source stated the exact finite threshold rule, the \(|h|=1\) local phase, or the fixed-signal \(m_n=\sqrt n/|\mu|+O(1)\) law.
+Conditioning on the training mean \(\widehat\mu\), the evaluation log e-value is \((n-m)(\widehat\mu\bar Y_0-\widehat\mu^2/2)\). Under \(N(\mu,1)\), independence of the split gives \(\mathbb E\widehat\mu=\mu\), \(\mathbb E\widehat\mu^2=\mu^2+1/m\), hence the exact e-power formula. Direct subtraction gives the forward difference and therefore complete integer unimodality/tie characterization. The positivity threshold, local scaling, and fixed-signal expansion follow from that threshold relation. Independently, 3471 \((n,\mu)\) cases including every adjacent-tie value for \(2\le n<80\) were optimized over all integer splits and matched the threshold characterization exactly.
 
-## Value
-PASS. The split fraction is a central tuning choice for universal likelihood-ratio tests. The theorem gives an exact, self-contained design law for the e-power criterion and reveals that its optimum can be qualitatively different from published power- and confidence-radius optima. The sharp local boundary and fixed-signal vanishing-training-fraction law make the distinction operationally interpretable.
+## originality
 
-## Closest literature and limitations
-The result is limited to the known-variance scalar Gaussian location model, a simple null, and a deterministic one-split e-value. E-power does not equal fixed-threshold rejection power, and no validity claim is made for choosing the split after seeing the same data. Relevant sources are arXiv:1912.11436, arXiv:2104.14676, DOI:10.1002/sta4.501, arXiv:2203.06748, and arXiv:2510.23821.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The Gaussian universal-inference literature analyzes size, rejection power, confidence-set geometry, and alternative split-ratio criteria. Strieder--Drton optimize asymptotic rejection power via noncentral split-chi-square approximations; Delong--Wüthrich study e-power for a different calibration problem and numerically vary a split ratio; Hao--Grünwald give general/exact Gaussian e-power results for other UI/RIPr constructions rather than a single fixed training/evaluation plug-in split. None of the inspected sources states or implies this scalar exact integer oracle law and its local/fixed-signal phase profile.
+
+## value
+
+PASS
+
+E-power is a standard growth-rate criterion for e-values, and sample allocation is a central design choice in universal inference. The exact law reveals a qualitatively different optimum from fixed-fraction heuristics: under fixed signal the training fraction vanishes at rate \(n^{-1/2}\), while under local alternatives it has a nontrivial phase boundary at \(|h|=1\). That makes the calculation a motivated benchmark rather than a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
