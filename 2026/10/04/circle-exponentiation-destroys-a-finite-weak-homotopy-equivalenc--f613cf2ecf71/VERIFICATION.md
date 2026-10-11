@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof package contains `artifacts/verify.py` and `artifacts/certificate.json`.
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python3 artifacts/verify.py`
+PASS
 
-The verifier reconstructs the source and target partial orders from the stated cover relations, exhausts all \(9^4\) set maps, and checks that exactly \(461\) are monotone. It then reconstructs the full pointwise order on the mapping space and replays every certificate entry.
+The Cianci--Ottina source confirms that the stated nine-point poset is homotopically trivial and noncontractible. Independently recomputing from the exact Hasse covers in the assigned package gives exactly 461 monotone maps \(C\to R\). Greedy Stong beat deletion removes 426 maps, with 179 up-beat and 247 down-beat deletions, leaving a 35-point beat-free core. The order complex of that core has simplex vector \((35,94,80,24)\); 90 elementary simplicial collapses leave a connected graph with 25 vertices and 28 edges, hence first Betti number \(28-25+1=4\). These independently reproduced counts agree with the actual package verifier and certificate. Therefore \(\operatorname{Map}(C,R)\) has weak type \(\bigvee^4S^1\), whereas \(\operatorname{Map}(C,*)\) is a point, so exponentiation destroys the weak equivalence.
 
-For each of the \(426\) beat deletions it verifies, at the moment of deletion, that the stored witness is respectively the minimum of the strict upper set or the maximum of the strict lower set. It verifies that the remaining \(35\)-point subspace has no beat points.
+## originality
 
-It enumerates every chain of that core and checks the simplex vector \((35,94,80,24)\). For every one of the \(90\) simplicial collapses it recomputes the current maximal simplices and checks that the stored free face is codimension one and belongs to exactly one maximal simplex. It finally checks that the residual complex is a connected graph with \(25\) vertices and \(28\) edges, hence cycle rank \(4\).
+PASS
 
-The expected successful terminal line is:
+Cianci--Ottina classify the nine-point weakly contractible noncontractible spaces but do not compute mapping spaces out of the four-point circle. General finite/Alexandroff function-space theory supplies the framework, not this 461-point homotopy calculation. Resultary returned the assigned theorem as the exact match and several other same-day finite mapping-space computations with different source/target pairs; none implies the audited \(C\to R\) calculation or the exponentiation counterexample.
 
-`VERIFY_OK maps=461 deletions=426 up=179 down=247 core=35 simplices=35,94,80,24 collapses=90 graph=25,28 rank=4`
+## value
 
-The computation proves only the finite combinatorial statements described above. The premise that \(R\) is weakly contractible comes from the cited Cianci--Ottina theorem that \(\mathcal K(R)\) is contractible. No minimality claim is verified.
+PASS
+
+Weak equivalences are the central homotopical notion for finite spaces, so an explicit finite counterexample showing that exponentiation by the minimal finite circle does not preserve them identifies a genuine categorical boundary. The exact core and cycle-rank certificate make the phenomenon concrete and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
