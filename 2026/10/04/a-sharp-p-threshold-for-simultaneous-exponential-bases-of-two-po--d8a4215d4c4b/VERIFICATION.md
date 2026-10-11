@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For a two-point set \(E=\{x,y\}\) and two characters \(\chi_0,\chi_1\), writing \(\psi=\chi_1\chi_0^{-1}\) gives
-\[
-\det T(E,\{\chi_0,\chi_1\})
-=\chi_0(x)\chi_0(y)\psi(x)\bigl(\psi(y-x)-1\bigr).
-\]
-Thus the determinant vanishes exactly when the quotient character belongs to \((y-x)^\perp\). This was re-derived symbolically before packaging.
+# Independent mathematical audit
 
-The strict union bound used in the proof is
-\[
-\left|\bigcup_{j=1}^m d_j^\perp\right|
-\le 1+m\left(\frac{|G|}{p}-1\right)
-\le |G|-p+1<|G|
-\]
-for \(m\le p\), where \(p\) is the least prime divisor of \(|G|\).
+## correctness
 
-The accompanying `verify.py` was run from its packaged path. It exhaustively enumerates characters and two-point subsets for several small product groups, checks the determinant/annihilator equivalence and the pair-existence conclusion, and verifies the sharp \(p+1\)-direction obstruction for \(p=2,3,5,7\). It prints `VERIFY_OK`.
+PASS
 
-The finite checker is not evidence for the universal theorem; the analytic determinant identity and counting proof establish the full quantified claim.
+For any two characters, factoring the \(2\times2\) restriction determinant leaves the nonzero factor \(\psi(d_j)-1\), so one quotient character outside all annihilators is necessary and sufficient. Each annihilator has size \(|G|/o(d_j)\le|G|/p\) and all contain the trivial character; the overlap-aware union estimate is strictly below \(|G|\) for \(m\le p\). In \(\mathbb Z_p^2\), the annihilators of representatives of the \(p+1\) directions are exactly all dual lines and cover the dual. The actual verifier exhaustively checks the determinant equivalence and small-group threshold examples.
+
+## originality
+
+PASS
+
+The primary source explicitly leaves the pair-of-equal-size-sets question unresolved. Its simultaneous-basis section gives three two-point sets only for \(\mathbb Z_2^2\), and for general prime \(p\) its obstruction uses \(p\)-point subgroups, not arbitrary two-point sets. Classical subgroup-covering theory becomes relevant only after the new determinant reduction.
+
+## value
+
+PASS
+
+The theorem completely classifies a natural two-point regime, resolves the cardinality-two case of an explicit open question, and supplies a sharp uniform family-size threshold for every prime. That is a reusable structural result, not a routine isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

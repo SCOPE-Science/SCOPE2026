@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a two-character candidate basis, factoring the \(2\times2\) determinant shows that invertibility on \(\{x_j,y_j\}\) is exactly the condition that the quotient character not annihilate \(d_j=y_j-x_j\). This gives a necessary-and-sufficient dual-cover criterion. The family-size bound then follows because every nonzero difference has order at least the least prime divisor \(p\) of \(|G|\), so its annihilator has size at most \(|G|/p\), and all annihilators share the identity. The \(\mathbb Z_p^2\) example uses every dual line and gives equality at the sharp obstruction size \(p+1\).
+## correctness
 
-## Originality
-PASS relative to the checked literature. The 2019 source explicitly leaves the pair question unresolved and gives a three-set two-point counterexample only for \(\mathbb Z_2^2\), while its general \(p+1\) construction uses subsets of size \(p\). The checked classical subgroup-covering literature studies covers abstractly, but does not state the determinant reduction or its consequence for simultaneous exponential bases of arbitrary two-point subsets. Exact-phrase, parameter, and semantic published-finding corpus searches found no covering statement. Residual risk remains for literature using substantially different terminology.
+PASS
 
-## Value
-PASS. The result gives a complete criterion for every family of two-point subsets, settles the full cardinality-two case of an explicit open pair question, and identifies a sharp threshold with matching obstructions for every prime. This is a structural theorem rather than an isolated finite computation.
+For any two characters, factoring the \(2\times2\) restriction determinant leaves the nonzero factor \(\psi(d_j)-1\), so one quotient character outside all annihilators is necessary and sufficient. Each annihilator has size \(|G|/o(d_j)\le|G|/p\) and all contain the trivial character; the overlap-aware union estimate is strictly below \(|G|\) for \(m\le p\). In \(\mathbb Z_p^2\), the annihilators of representatives of the \(p+1\) directions are exactly all dual lines and cover the dual. The actual verifier exhaustively checks the determinant equivalence and small-group threshold examples.
 
-## Closest literature and limitations
-The closest source is Ferguson--Mayeli--Sothanaphan, arXiv:1904.04487, especially Question 1.8 and Section 7.1. Bhaskara Rao--Reid (1992) is the closest broader subgroup-covering reference. The result does not address larger subset cardinalities or quantitative condition numbers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary source explicitly leaves the pair-of-equal-size-sets question unresolved. Its simultaneous-basis section gives three two-point sets only for \(\mathbb Z_2^2\), and for general prime \(p\) its obstruction uses \(p\)-point subgroups, not arbitrary two-point sets. Classical subgroup-covering theory becomes relevant only after the new determinant reduction.
+
+## value
+
+PASS
+
+The theorem completely classifies a natural two-point regime, resolves the cardinality-two case of an explicit open question, and supplies a sharp uniform family-size threshold for every prime. That is a reusable structural result, not a routine isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
