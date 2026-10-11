@@ -1,0 +1,11 @@
+# Same-model scientific review
+
+**Correctness — PASS.** The statement fixes the Fourier convention, four distinct frequencies, unnormalized determinant, all integer moduli at least four, and literal-set counting. The proof derives the six-chord determinant, uses strict concavity twice to balance opposite gaps, proves the opposite-pair sum gap cannot exceed two, resolves all four congruence classes including the strict alternating advantage for the half-offset case, and counts translation stabilizers. The finite independent Leibniz computation tests 53,130 cases but is not used as an infinite proof.
+
+**Originality — PASS, with residual risk.** Ferguson–Mayeli–Sothanaphan define the relevant exponential-determinant tightness invariant; Dubickas–Pritsker recall the unrestricted continuous-circle Fekete extremizers. Neither statement specifies the exact finite-cyclic four-point determinant profile or its complete optimizer census. Published work on determinant optimization for a subgroup-plus-one-point family, four-point spectral multiplicities, and binary Kronecker radii was compared at the level of objects and quantifiers; none implies this claim. The divisible-by-four continuous Hadamard equality case is explicitly acknowledged as prior coverage. An unindexed general discrete-Fekete theorem remains the main originality risk.
+
+**Value — PASS.** For four consecutive Fourier samples, the determinant is a natural finite-dimensional volume measure of exponential-basis nondegeneracy. The result gives sharp design parameters for every cyclic ambient size and an exact multiplicity count, distinguishing two different near-equispaced configurations in the first parity regime where placement matters. This is a complete natural classification rather than an arbitrary numerical threshold; no condition-number claim is made.
+
+**Closest literature and scope.** Dubickas–Pritsker (arXiv:1902.08348), Ferguson–Mayeli–Sothanaphan (arXiv:1904.04487); related public exact-determinant and finite-Fourier classifications concern different sample families/objectives. The theorem covers four consecutive sample points and unnormalized determinant only. Float computations corroborate the analytic proof, not independent validation.
+
+Same-model review: passed. Independent audit: not yet performed.
