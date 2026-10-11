@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:04:26.475758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 2e977c17a22ed6e05460da03cfd5a5f227939c4b",
+        "verify_two_point_stft.py blob 318d73a939726b543150fe9485c77d97a053efbe",
+        "independent row/cycle proof reconstruction"
+      ],
+      "rationale": "For each translation, the STFT row is the Fourier transform of at most two point masses. If one point is occupied the row has all \\(N\\) frequencies; if two are occupied it loses exactly \\(d=\\gcd(a,N)\\) frequencies precisely when the coefficient ratio is an \\(L=N/d\\)-th root. Thus minimizing total support is maximizing simultaneously good directed internal edges of the step-\\(a\\) cycles. All edges of a proper occupied path, and of a complete even cycle, can be made good by alternating phases; a complete odd cycle must lose exactly one because the product of the required ratios would be \\(-1\\). Hence the optimum number of good edges is \\(E_a(S)-Q_a(S)\\), proving the exact formula. Componentwise minimization gives global \\(N\\) only at \\(L=2\\), and otherwise \\(2N\\) exactly for singleton support. The package's exhaustive small-\\(N\\) replay is consistent with the analytic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nicola determines all pairs attaining support exactly \\(N\\), explaining the \\(L=2\\) branch.",
+          "None of the inspected broader theorems yields the \\(2N\\) minimum for a non-antipodal equal two-point window or the prescribed-support correction for complete odd cycles."
+        ],
+        "reasoning": "The known global equality theorem covers one boundary case but not the final fixed-window classification.",
+        "searches": [
+          "Krahmer--Pfander--Rashkov Proposition 4.2 and composite-group section",
+          "Nicola 2023 Theorem 1.2 and finite-Abelian discussion",
+          "Fernández--Galbis--Martínez 2014"
+        ]
+      },
+      "checked_sources": [
+        "Krahmer--Pfander--Rashkov, arXiv:math/0611493, Sections 4.1--4.2",
+        "Nicola, The uncertainty principle for the short-time Fourier transform on finite cyclic groups: Cases of equality, DOI:10.1016/j.jfa.2023.109924",
+        "Fernández--Galbis--Martínez, Localization Operators and an Uncertainty Principle for the Discrete Short Time Fourier Transform, DOI:10.1155/2014/131459",
+        "Resultary semantic query: two point cyclic STFT window delta0 plus delta a prescribed support composite cyclic exact support geometry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior rowwise bounds do not say how many internal two-point rows can simultaneously realize their one-row zero allowance.",
+          "The new parity obstruction on a fully occupied odd step-cycle is exactly the missing simultaneous phase-consistency condition."
+        ],
+        "reasoning": "The prescribed-support formula requires a model-specific global compatibility argument not implied by the inspected results.",
+        "searches": [
+          "rowwise Fourier support argument from Krahmer--Pfander--Rashkov background",
+          "Nicola universal equality theorem",
+          "independent cycle-consistency reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited formula is support-specific through \\(A_a(S),E_a(S),Q_a(S)\\).",
+          "The prior theorems are global/support-cardinality statements or equality classifications at the universal lower bound."
+        ],
+        "reasoning": "Equivalent formulations via zero counts in translation rows, occupied step-cycle edges, and global STFT support were compared.",
+        "searches": [
+          "arXiv:math/0611493 Sections 4.1--4.2",
+          "DOI:10.1016/j.jfa.2023.109924 full open article",
+          "Resultary query listed in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked table or database source supplied \\(N A_a(S)-d(E_a(S)-Q_a(S))\\) or its all-\\(N\\) support classification."
+        ],
+        "reasoning": "This is an analytic all-support theorem rather than a finite data table.",
+        "searches": [
+          "Resultary two-point-window query",
+          "targeted searches for fixed equal two-point Gabor/STFT support and odd cycle obstruction"
+        ]
+      },
+      "rationale": "Originality passes. Krahmer--Pfander--Rashkov give universal and support-size lower bounds and generic-window results, but not the exact prescribed-support minimum for the fixed equal two-point window on every composite cyclic group. Nicola completely classifies equality in the universal \\(N\\)-point STFT bound; this subsumes the antipodal \\(L=2\\) equality branch but does not determine the fixed-window minima above \\(N\\) or the exact value for each support set. The audited odd-cycle defect term is therefore not implication-covered.",
+      "residual_risks": [
+        "A specialized fixed-window combinatorial treatment could exist under Gabor-zero terminology, although no such theorem was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_FIXED_TWO_POINT_WINDOW_GEOMETRY",
+          "evidence": "The paper does not state a support-set formula for \\(g=\\delta_0+\\delta_a\\).",
+          "identifier_or_url": "arXiv:math/0611493",
+          "material_read": "Full relevant Sections 4.1--4.2, including rowwise Fourier arguments, prime bounds, generic-window and composite-group results.",
+          "method": "lawful open-access full text",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "Foundational STFT support bounds and closest composite-group framework."
+        },
+        {
+          "assessment": "COVERS_ONLY_GLOBAL_SUPPORT_N_EQUALITY_BRANCH",
+          "evidence": "It classifies support size exactly \\(N\\), not fixed-window minima when the universal bound is unattainable.",
+          "identifier_or_url": "DOI:10.1016/j.jfa.2023.109924",
+          "material_read": "Open full article main theorem, extremal characterization, and finite-Abelian generalization discussion.",
+          "method": "lawful open-access publisher full text",
+          "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: Cases of equality",
+          "trigger": "Strongest exact global equality classification for cyclic STFT support."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krahmer--Pfander--Rashkov, arXiv:math/0611493, Sections 4.1--4.2",
+        "Nicola, The uncertainty principle for the short-time Fourier transform on finite cyclic groups: Cases of equality, DOI:10.1016/j.jfa.2023.109924",
+        "Fernández--Galbis--Martínez, Localization Operators and an Uncertainty Principle for the Discrete Short Time Fourier Transform, DOI:10.1155/2014/131459",
+        "Resultary semantic query: two point cyclic STFT window delta0 plus delta a prescribed support composite cyclic exact support geometry"
+      ],
+      "rationale": "Equal two-point windows are the simplest genuinely overlapping sparse Gabor windows. The theorem gives every prescribed signal support an exact optimum and identifies the composite-order obstruction as cycle parity, while also locating exactly when the universal bound is attainable. This is a natural complete structural classification rather than a narrow numerical example.",
+      "residual_risks": [
+        "Unequal two-point window weights and quantitative stability are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialized fixed-window combinatorial treatment could exist under Gabor-zero terminology, although no such theorem was found.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
