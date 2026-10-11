@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:42:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e53c9f8a417e8326c29fab9e8adcc14810745186",
+        "assigned verify.py blob af58d81e148a832b2544606a243cbb3022fd0656",
+        "Alexeev--Cahill--Mixon, arXiv:1110.3548, Theorem 9"
+      ],
+      "rationale": "Alexeev--Cahill--Mixon's prime-power full-spark theorem makes every minor with a type-A row or column set nonsingular. After translating a type-B column set to \\(\\{0,pa,b\\}\\), a type-B row set gives determinant \\((v_2-v_1)(u_3-u_1)\\ne0\\); a type-C row set makes the first two columns proportional while the third separates the three lifts, so rank is exactly two. Two type-C sets factor as an outer product, giving rank one. Direct counting yields \\(B=p^3(p-1)^2/2\\) and \\(C_3=p^2(p-1)(p-2)/6\\), hence the stated totals. An independent p=3 full minor-rank replay agreed with all type predictions.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct SCOPE theorem states in its scope that it concerns principal three-point submatrices only and does not classify nonprincipal minors.",
+          "The current theorem treats every unordered row set and every unordered column set independently."
+        ],
+        "reasoning": "Principal-minor theorems are strictly narrower than the current all-pair rank classification.",
+        "searches": [
+          "SCOPE-exact-singularity-criterion-for-three-point-principal-fourier-minors--1482c28703d6",
+          "Caragea--Lee principal Fourier minors"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.3548",
+        "SCOPE-exact-singularity-criterion-for-three-point-principal-fourier-minors--1482c28703d6",
+        "Caragea--Lee 2024",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work says a B or C row set is not full spark, which only guarantees existence of at least one singular column choice.",
+          "The audited theorem determines every individual column type and exact rank."
+        ],
+        "reasoning": "Existence of some singular minor does not imply the complete local rank census or its counts.",
+        "searches": [
+          "Prime-power full-spark criterion versus current B/B, B/C, C/C calculations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact hit is the assigned theorem; the closest distinct hit is the principal-minor criterion SCOPE-exact-singularity-criterion-for-three-point-principal-fourier-minors--1482c28703d6.",
+          "Alexeev--Cahill--Mixon Theorem 9 gives the uniform-distribution full-spark criterion for selected rows at prime-power order."
+        ],
+        "reasoning": "Equivalent formulations as a residue-occupancy rank table or as local failure modes of full spark were compared; the prior full-spark theorem does not resolve individual nonprincipal minors.",
+        "searches": [
+          "Resultary query: singular three by three minors prime-square Fourier matrix p^2 rank classification residue type",
+          "arXiv:1110.3548 Theorem 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-row/all-column rank-and-count table for order \\(p^2\\) was located."
+        ],
+        "reasoning": "The claimed closed counts are consequences of the new rank classification, not a lookup in a pre-existing table.",
+        "searches": [
+          "Resultary Fourier-minor search",
+          "Alexeev--Cahill--Mixon full-spark framework"
+        ]
+      },
+      "rationale": "The prime-power full-spark theorem determines only whether a fixed row set makes every square minor nonsingular; for three rows it settles type A but does not say which individual minors vanish for non-full-spark type-B/C row sets. A separate published SCOPE result classifies three-point principal Fourier minors for arbitrary modulus, but explicitly excludes nonprincipal minors, so it does not imply this complete row/column rank census.",
+      "residual_risks": [
+        "Older generalized-Vandermonde or harmonic-frame literature could contain an equivalent residue-rank table under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: type-A nonsingularity only for this three-row specialization.",
+          "evidence": "Theorem 9 characterizes when a selected prime-power Fourier row set is full spark, not which individual minors vanish when it is not.",
+          "identifier_or_url": "arXiv:1110.3548",
+          "material_read": "Full primary PDF around Theorem 9 and its prime-power uniform-distribution criterion; the theorem page was visually inspected.",
+          "method": "Primary PDF full-text plus page inspection.",
+          "title": "Full Spark Frames",
+          "trigger": "Strongest direct prime-power Fourier-minor theorem."
+        },
+        {
+          "assessment": "NOT_COVERING the nonprincipal all-pair theorem.",
+          "evidence": "Its assumptions and limitations explicitly restrict it to principal three-by-three submatrices.",
+          "identifier_or_url": "SCOPE-exact-singularity-criterion-for-three-point-principal-fourier-minors--1482c28703d6",
+          "material_read": "Complete published RESULT.md.",
+          "method": "Published SCOPE full-record inspection.",
+          "title": "Exact singularity criterion for three-point principal Fourier minors",
+          "trigger": "Highly relevant published SCOPE theorem on three-point Fourier singularity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Alexeev--Cahill--Mixon 2012",
+        "principal Fourier-minor literature"
+      ],
+      "rationale": "The result converts a global failure-of-full-spark criterion into a complete local rank census and exact singular-minor count for the first nontrivial prime-power square setting. That is a natural structural refinement with direct uncertainty/harmonic-frame relevance.",
+      "residual_risks": [
+        "The scope is restricted to 3-by-3 minors at prime-square order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(N=p^2\\) with \\(p\\) an odd prime, a three-by-three Fourier minor is singular exactly for type pairs \\((C,C),(C,B),(B,C)\\) in the record's modulo-\\(p\\) occupancy classification; these have ranks one, two, two respectively, and the stated exact singular/rank counts follow.",
+  "limitations": [
+    "Only three-by-three minors of the cyclic Fourier matrix at an odd prime square are classified.",
+    "Larger minors, higher prime powers, and arbitrary composite moduli are not covered."
+  ],
+  "schema_version": 1
+}

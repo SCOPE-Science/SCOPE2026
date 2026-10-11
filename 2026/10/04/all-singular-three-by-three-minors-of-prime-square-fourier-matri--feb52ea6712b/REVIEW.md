@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the problem to the three residue-occupancy types modulo \(p\). Type A is covered by the prime-power full-spark theorem. For type B columns, a direct row subtraction gives a nonzero product in the type-B row case and an exact rank-two collapse in the type-C row case. Type \((C,C)\) factors as an outer product and has rank one. These cases exhaust all possibilities. The counting formulas follow from disjoint residue choices and lift choices. Exact cyclotomic replay for \(p=3\) and \(p=5\) agrees with every predicted rank.
+## correctness
 
-## Originality
-PASS. The closest inspected primary source, Alexeev--Cahill--Mixon, characterizes when an entire selected-row harmonic frame is full spark for prime-power order. It does not state which individual three-by-three minors vanish for the non-full-spark row types, nor their ranks or total counts. Searches for singular three-by-three Fourier minors, prime-square DFT minors, and residue-class classifications did not locate an implication-equivalent statement. A prior principal-minor classification is only the diagonal slice \(R=C\) and does not imply the off-diagonal type-pair census.
+PASS
 
-## Value
-PASS. The theorem converts the first non-prime prime-power obstruction to Fourier full spark into a complete local incidence law: singularity, rank, and multiplicity are all explicit. This is useful for exact sparse-recovery and uncertainty-diagram calculations because it distinguishes a non-full-spark row set from the much smaller family of column triples that actually make it singular.
+Alexeev--Cahill--Mixon's prime-power full-spark theorem makes every minor with a type-A row or column set nonsingular. After translating a type-B column set to \(\{0,pa,b\}\), a type-B row set gives determinant \((v_2-v_1)(u_3-u_1)\ne0\); a type-C row set makes the first two columns proportional while the third separates the three lifts, so rank is exactly two. Two type-C sets factor as an outer product, giving rank one. Direct counting yields \(B=p^3(p-1)^2/2\) and \(C_3=p^2(p-1)(p-2)/6\), hence the stated totals. An independent p=3 full minor-rank replay agreed with all type predictions.
 
-The main residual risk is terminological: an equivalent count could be hidden in older generalized-Vandermonde or harmonic-frame literature under a different formulation. The inspected prime-power full-spark theorem is broader in one direction but does not subsume this local classification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The prime-power full-spark theorem determines only whether a fixed row set makes every square minor nonsingular; for three rows it settles type A but does not say which individual minors vanish for non-full-spark type-B/C row sets. A separate published SCOPE result classifies three-point principal Fourier minors for arbitrary modulus, but explicitly excludes nonprincipal minors, so it does not imply this complete row/column rank census.
+
+## value
+
+PASS
+
+The result converts a global failure-of-full-spark criterion into a complete local rank census and exact singular-minor count for the first nontrivial prime-power square setting. That is a natural structural refinement with direct uncertainty/harmonic-frame relevance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
