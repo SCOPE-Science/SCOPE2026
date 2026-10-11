@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:13:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 42ed6319097d054927150bc2d3d40e0899486b47",
+        "assigned verify.py blob bae1201b6ea6091d6e86c9bc2e0d64fb6f3d88ab",
+        "Craig--Merca arXiv:2112.05649 full primary PDF"
+      ],
+      "rationale": "The proof correctly resolves all coprime progressions. The elementary criterion is that an odd prime \\(p\\) divides \\(\\varphi(m)\\) exactly when \\(p^2\\mid m\\) or some prime divisor \\(q\\mid m\\) satisfies \\(q\\equiv1\\pmod p\\). If \\(p\\nmid A\\), CRT and Dirichlet produce a prime \\(q\\equiv B\\pmod A\\) in any chosen nonzero, non-one residue modulo \\(p\\). If \\(p\\mid A\\) but \\(B\\not\\equiv1\\pmod p\\), any sufficiently large prime \\(q\\equiv B\\pmod A\\) works. In the remaining case \\(p\\mid A,\\ B\\equiv1\\pmod p\\), writing \\(A=p^eC\\), one chooses a unit class \\(c\\equiv u\\pmod{p^e}\\), \\(c\\equiv1\\pmod C\\), and \\(d\\equiv Bc^{-1}\\pmod A\\); Dirichlet gives distinct primes \\(q\\equiv c\\), \\(r\\equiv d\\pmod A\\), so \\(qr\\equiv B\\pmod A\\) and neither \\(q-1\\) nor \\(r-1\\) is divisible by \\(p\\). The bundled verifier independently checks the construction for odd primes through \\(19\\) and all coprime \\(A,B\\le35\\), but the theorem is proved by CRT and Dirichlet.",
+      "residual_risks": [
+        "The proof is ineffective in the size of the least witness and is restricted to prime moduli."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source framework explicitly leaves the exceptional residue case open.",
+          "Dirichlet alone gives primes in one class; the audited argument uses a product of two complementary classes to escape the obstruction."
+        ],
+        "reasoning": "The broader ingredients do not state the semiprime resolution.",
+        "searches": [
+          "Craig--Merca general Ramanujan-type congruence framework",
+          "standard Dirichlet theorem on reduced progressions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.05649",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every prime in the exceptional progression is \\(1\\) modulo \\(p\\), so the prior prime-witness argument cannot work.",
+          "The new complementary-residue semiprime construction is the additional step that closes the conjecture."
+        ],
+        "reasoning": "The final theorem is not implied by the prior proposition.",
+        "searches": [
+          "Craig--Merca Proposition 3.5 versus the exceptional \\(p\\mid A,\\ B\\equiv1\\pmod p\\) case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 2 is exactly the quantified negation proved by the audited theorem.",
+          "Proposition 3.5 already handles the non-one residue case by prime progressions."
+        ],
+        "reasoning": "The audited theorem is an exact resolution of the published conjecture rather than a renamed variant.",
+        "searches": [
+          "Craig--Merca arXiv:2112.05649, Section 3.2, Proposition 3.5 and Conjecture 2",
+          "Resultary: Craig Merca Conjecture 2 Euler totient Ramanujan congruence odd prime"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the only exact resolution returned."
+        ],
+        "reasoning": "Search absence is supporting evidence, while the primary source's explicit conjecture is decisive context.",
+        "searches": [
+          "Resultary current search for Conjecture 2 and totient progression congruences"
+        ]
+      },
+      "rationale": "Craig and Merca's Proposition 3.5 supplies the prime-progression obstruction only when the progression residue is not \\(1\\) modulo the congruence prime, and the paper then explicitly says its methods do not address the remaining case and states Conjecture 2: no such odd-prime totient congruence exists for coprime \\(A,B\\). The audited semiprime construction closes precisely that missing residue case. Current Resultary search returned the assigned resolution as the exact hit and no earlier published solution.",
+      "residual_risks": [
+        "A later unindexed elementary solution could exist, but no such source was surfaced by current searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_CONJECTURE",
+          "evidence": "The source states exactly the odd-prime coprime-progression conjecture resolved by the audited semiprime argument.",
+          "identifier_or_url": "arXiv:2112.05649; DOI 10.1007/s13398-022-01272-y",
+          "material_read": "full primary PDF at Section 3.2, including Proposition 3.5 and the immediately following statement that the remaining totient question is beyond the method, plus Conjecture 2; the conjecture page was visually inspected",
+          "method": "primary full-text PDF inspection",
+          "title": "On Ramanujan-type Congruences for Multiplicative Functions",
+          "trigger": "exact source of the conjecture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Craig--Merca 2022",
+        "assigned proof/verifier"
+      ],
+      "rationale": "The theorem settles a published conjecture and identifies the exact obstruction to a prime witness, replacing it by a two-prime witness in the sole exceptional residue case. The argument is short but structurally natural and supplies a complete classification for all coprime progressions modulo every odd prime.",
+      "residual_risks": [
+        "Composite moduli remain outside the theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The proof is ineffective in the size of the least witness and is restricted to prime moduli.",
+    "A later unindexed elementary solution could exist, but no such source was surfaced by current searches.",
+    "Composite moduli remain outside the theorem."
+  ]
+}

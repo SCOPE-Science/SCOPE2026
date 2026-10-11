@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the exact prime-factor criterion for divisibility of \(\varphi(m)\) by an odd prime \(p\). When a prime witness is available, a reduced residue class and Dirichlet's theorem produce it. In the sole residue case where every prime value necessarily has totient divisible by \(p\), two carefully chosen reduced residue classes multiply to the target progression class while each avoids \(1\) modulo \(p\). Distinct prime representatives then give a squarefree semiprime witness. The three cases exhaust all coprime \(A,B\), and the packaged finite regression independently exercises every branch.
+## correctness
 
-## Originality
-PASS. Craig and Merca's Section 3.2 proves only a restricted prime-progression obstruction and immediately formulates the full no-congruence assertion as Conjecture 2. The present semiprime construction is precisely for the residue case not handled by a prime witness. Targeted semantic-index searches, exact-phrase web searches, bibliographic searches, and the canonical OEIS entry did not locate a later result implying this theorem.
+PASS
 
-## Value
-PASS. The result settles a named published conjecture and explains the structural obstruction in its remaining case. It also sharpens the conclusion by showing that every progression has a witness with at most two prime factors and identifying exactly when one prime factor suffices.
+The proof correctly resolves all coprime progressions. The elementary criterion is that an odd prime \(p\) divides \(\varphi(m)\) exactly when \(p^2\mid m\) or some prime divisor \(q\mid m\) satisfies \(q\equiv1\pmod p\). If \(p\nmid A\), CRT and Dirichlet produce a prime \(q\equiv B\pmod A\) in any chosen nonzero, non-one residue modulo \(p\). If \(p\mid A\) but \(B\not\equiv1\pmod p\), any sufficiently large prime \(q\equiv B\pmod A\) works. In the remaining case \(p\mid A,\ B\equiv1\pmod p\), writing \(A=p^eC\), one chooses a unit class \(c\equiv u\pmod{p^e}\), \(c\equiv1\pmod C\), and \(d\equiv Bc^{-1}\pmod A\); Dirichlet gives distinct primes \(q\equiv c\), \(r\equiv d\pmod A\), so \(qr\equiv B\pmod A\) and neither \(q-1\) nor \(r-1\) is divisible by \(p\). The bundled verifier independently checks the construction for odd primes through \(19\) and all coprime \(A,B\le35\), but the theorem is proved by CRT and Dirichlet.
 
-## Closest literature and limitations
-The closest literature is Proposition 3.5 and Conjecture 2 of Craig--Merca, arXiv:2112.05649. The proof is existential through Dirichlet's theorem and does not give a uniform bound for the least witness. Composite congruence moduli are outside the claim. An equivalent unindexed elementary argument remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Craig and Merca's Proposition 3.5 supplies the prime-progression obstruction only when the progression residue is not \(1\) modulo the congruence prime, and the paper then explicitly says its methods do not address the remaining case and states Conjecture 2: no such odd-prime totient congruence exists for coprime \(A,B\). The audited semiprime construction closes precisely that missing residue case. Current Resultary search returned the assigned resolution as the exact hit and no earlier published solution.
+
+## value
+
+PASS
+
+The theorem settles a published conjecture and identifies the exact obstruction to a prime witness, replacing it by a two-prime witness in the sole exceptional residue case. The argument is short but structurally natural and supplies a complete classification for all coprime progressions modulo every odd prime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
