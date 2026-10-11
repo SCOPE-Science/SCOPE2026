@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic argument uses the exact published quotient \(G(k)\) and two exact algebraic factorizations of the equations \(G(k)=3\) and \(G(k)=-3/2\). The critical steps are: (1) the fixed broad-band roots \(\cos(kd)=-1/2\); (2) the even-center identity \(\lvert\tan(kd/2)\rvert=\sqrt3/(k\ell)\), which gives a total central-hole contribution of order \(1/n\); (3) the two odd-center half-angle equations, whose edge difference gives the paired narrow-band contribution of order \(1/n\); and (4) harmonic summation over phase periods.
+# Independent mathematical audit
 
-`verify.py` is a standard-library replay. It evaluates the original quotient, checks both factorization identities at independent values, locates the four continuous-band pieces by bisection in complete high-energy periods, and verifies convergence of
-\[
-n\left(\frac{4\pi}{3d}-|S\cap P_n|\right)
-\]
-to \(4/(\sqrt3\pi\ell)\) for several \(d\) and \(\ell\). It also checks a cumulative harmonic-corrected residual. Its successful output is `VERIFY_OK`.
+## correctness
 
-The numerical replay is not used as a proof for infinitely many periods. The proof of the all-
-\(K\) statement is the exact factorization plus Taylor expansion and the harmonic-series asymptotic. The \(O(1)\) constant is not computed, and no claim is made about energy-measure density, the general Kagome lattice, or the detailed low-energy spectrum.
+PASS
+
+The primary source gives the exact triangular spectral quotient \(G(k)\) and the band condition \(-3/2\le G\le3\). Independent symbolic algebra factors the two boundary equations exactly as in the record. The broad-band inner edge obeys \(\tan(kd/2)=\sqrt3/(k\ell)\), producing a central-hole half-width \(\sqrt3/(\pi\ell n)+O(n^{-3})\) near \(2n\pi/d\). At odd centers the two relevant boundary branches give \(\tan(ds/2)=1/(\sqrt3u)\) and \(2u/(\sqrt3(u^2+1))\), whose two-band combined momentum width is \(4/(\sqrt3\pi\ell(2n+1))+O(n^{-2})\). Combining the endpoint holes and odd-center bands over one phase period yields the \(-4/(\sqrt3\pi\ell n)\) defect; harmonic summation gives the stated logarithm. Flat-band points have zero Lebesgue measure.
+
+## originality
+
+PASS
+
+Full inspection of the triangular-lattice section of Baradaran--Exner shows the exact quotient, first high-energy offsets, and limiting momentum density \(2/3\), but no cumulative finite-cutoff asymptotic or logarithmic second term. The audited calculation retains the first-order widths whose harmonic sum survives and therefore adds information not implied by the limiting density alone.
+
+## value
+
+PASS
+
+The source emphasizes momentum-band density as a structural spectral statistic. Determining its first cumulative correction, with a universal-in-\(d\) coefficient arising from the interaction of two band families, is a natural sharpened invariant rather than a cosmetic asymptotic term.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

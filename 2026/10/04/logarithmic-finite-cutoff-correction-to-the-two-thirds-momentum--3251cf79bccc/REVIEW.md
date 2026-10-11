@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact source criterion is reconstructed with all parameters fixed and positive. Both band-boundary equations admit the displayed algebraic factorizations. Their local roots give the even-center hole and odd-center narrow-band widths, and summing the resulting \(1/n\) period defect yields the logarithm. Flat bands have zero Lebesgue measure, while finitely many singular or low-energy points alter only the bounded remainder. The packaged replay returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2106.16019v1, states the exact quotient, the two asymptotic band families, and the limiting density \(2/3\), but not a cumulative \(\log K\) correction. Searches covering model aliases, the source notation, Brillouin-center gaps, second-order density, and logarithmic discrepancy found no equivalent statement. Band--Berkolaiko gives a broader limiting-density theorem for a different coupling class, and Berkolaiko--Kha concerns a different band-edge question.
+PASS
 
-## Value
-PASS. The correction is the first unbounded term beneath the source's central high-energy density statistic. It identifies a mathematically meaningful competition: shrinking holes around the flat-band centers remove more momentum measure than the paired odd-center bands restore. The resulting coefficient is independent of \(d\), which gives the refinement structural content beyond a numerical convergence estimate.
+The primary source gives the exact triangular spectral quotient \(G(k)\) and the band condition \(-3/2\le G\le3\). Independent symbolic algebra factors the two boundary equations exactly as in the record. The broad-band inner edge obeys \(\tan(kd/2)=\sqrt3/(k\ell)\), producing a central-hole half-width \(\sqrt3/(\pi\ell n)+O(n^{-3})\) near \(2n\pi/d\). At odd centers the two relevant boundary branches give \(\tan(ds/2)=1/(\sqrt3u)\) and \(2u/(\sqrt3(u^2+1))\), whose two-band combined momentum width is \(4/(\sqrt3\pi\ell(2n+1))+O(n^{-2})\). Combining the endpoint holes and odd-center bands over one phase period yields the \(-4/(\sqrt3\pi\ell n)\) defect; harmonic summation gives the stated logarithm. Flat-band points have zero Lebesgue measure.
 
-## Closest literature and limitations
-The closest source is Baradaran--Exner, arXiv:2106.16019v1, Section 4.1. The claim is restricted to its triangular degeneration, fixed positive \(d\) and \(\ell\), and momentum measure. It does not evaluate the bounded remainder or extend to the general Kagome geometry. Residual originality risk is that an equivalent finite-cutoff discrepancy formula may exist under terminology not retrieved by the searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full inspection of the triangular-lattice section of Baradaran--Exner shows the exact quotient, first high-energy offsets, and limiting momentum density \(2/3\), but no cumulative finite-cutoff asymptotic or logarithmic second term. The audited calculation retains the first-order widths whose harmonic sum survives and therefore adds information not implied by the limiting density alone.
+
+## value
+
+PASS
+
+The source emphasizes momentum-band density as a structural spectral statistic. Determining its first cumulative correction, with a universal-in-\(d\) coefficient arising from the interaction of two band families, is a natural sharpened invariant rather than a cosmetic asymptotic term.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
