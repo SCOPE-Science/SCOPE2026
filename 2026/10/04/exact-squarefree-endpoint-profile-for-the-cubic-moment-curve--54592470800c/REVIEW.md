@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For each prime \(p>3\), Newton identities show that the first three power sums determine the elementary symmetric functions of a triple. Therefore the relevant local Vinogradov system counts pairs of orderings of one multiset. The three multiplicity types give
-\[
-36\binom p3+9p(p-1)+p=p(6p^2-9p+4).
-\]
-The Chinese remainder theorem multiplies these counts over squarefree \(N\), and the published affine-symmetry identity converts the exact moment into the stated \(\mathcal C_6\). The endpoint equivalence follows from uniform bounds on the local factors. The supplementary verifier exhaustively checks the local count for \(p=5,7,11\).
+## correctness
 
-## Originality
-**PASS.** The closest recent source, arXiv:2609.25404v1, explicitly reduces moment-curve synthesis to \(J_{s,d}(N)\) and asks for precise growth and dependence on general composite moduli. It does not compute the squarefree cubic sixth moment. Hickman--Wright, arXiv:1801.03176v2, gives prime-power growth information but not this exact squarefree product or its \(\omega(N)\) endpoint characterization. Targeted semantic and web searches for the exact local polynomial, \(J_{3,3}\), squarefree moment curves, and endpoint synthesis produced no covering result. A residual risk is that the elementary finite-field count may exist under different notation in uncatalogued literature.
+PASS
 
-## Value
-**PASS.** The result treats the first critical endpoint for the cubic moment curve in the precise composite-modulus direction posed by the recent source. Its exact arithmetic factor changes the qualitative synthesis behavior: primes fail at \(\ell^6\), whereas squarefree moduli with an increasing number of prime factors succeed. This makes the theorem a useful benchmark for the still-open ramified and general-composite cases.
+For every prime \(p>3\), equality of the first three power sums of two triples determines the three elementary symmetric functions by Newton identities, hence the triples are orderings of the same multiset. The three multiplicity types contribute \(36\binom p3+9p(p-1)+p=p(6p^2-9p+4)\). Chinese remaindering multiplies these counts over squarefree moduli, and substitution into the cited affine-transitivity synthesis identity gives the displayed \(\mathcal C_6\). Since each local factor lies in \([109/25,6)\), the cubic endpoint constant tends to zero exactly when \(\omega(N)\to\infty\). Fresh brute-force counts at \(p=5,7\) reproduced the local formula and fiber multiplicities.
 
-## Closest literature and limitations
-The primary source is A. Iosevich, Z. Li, and K. Yu, arXiv:2609.25404v1. The principal earlier comparison is J. Hickman and J. Wright, arXiv:1801.03176v2. The theorem here is restricted to squarefree moduli coprime to \(6\); exact prime-power local factors are not determined.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The recent Iosevich--Li--Yu abstract confirms a general exact synthesis constant for affine-transitive sets and discusses arithmetic endpoint behavior, but the material accessible in this run did not state the squarefree cubic sixth-moment product or the iff criterion in \(\omega(N)\). A focused Resultary search returned the current record itself but no earlier covering record. The full arXiv text was unavailable through the public route, and the authorized institutional fallback returned a worker-unavailable error; that source-access risk is preserved explicitly.
+
+## value
+
+PASS
+
+The result evaluates the first critical cubic moment on a natural composite-modulus family and turns the arithmetic factor into a qualitative endpoint dichotomy: primes and squarefree moduli with growing prime support behave oppositely. That is a natural exact invariant and a useful benchmark for the unresolved ramified/general-composite problem, not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
