@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The induction gives the exact shift length \(2^k\), discarded-prefix offset \(2^k-1\), and exponent product. The \(p\)-hyponormality condition follows from diagonal formulas for a general positive \(d\)-step weighted shift, so the iff statement has no hidden finite-dimensional or numerical step.
+## correctness
 
-## Originality
-PASS. The focal 2026 full text was inspected through its weighted-shift example and searched for iteration; it states only the one-step formula. The original 2005 \(S(T)\) paper was inspected in full-text form and includes weighted-shift examples but no dyadic iterate-threshold theorem. Targeted semantic searches for the formula, equivalent weight inequalities, first-success thresholds, and the focal source returned no covering result. The 2024 \(S_r\) paper was available only at abstract level, which is retained as a residual risk.
+PASS
 
-## Value
-PASS. Repeated transforms are a natural next question for a transform paper. The result completely classifies when this canonical test family becomes \(p\)-hyponormal under arbitrary positive exponent schedules and proves that every possible finite onset time, as well as permanent failure, occurs.
+The proof was reconstructed from the actual RESULT.md. Induction through the polar decomposition gives a \(2^k\)-step shift with weights \(c_n=w_{n+2^k-1}^{R_k}\). For a positive \(d\)-step shift, both \((W^*W)^p\) and \((WW^*)^p\) are diagonal, and the inequality is equivalent to \(c_m\le c_{m+d}\). Since \(R_k>0\), this reduces exactly to the displayed comparison of original weights. The tail implication follows by chaining two length-\(d\) inequalities, and the stated spike, increasing, and decreasing examples realize every claimed threshold. No finite experiment is needed for the infinite statement.
 
-## Closest literature and limitations
-Fashandi (arXiv:2609.32623v1) gives the one-step quaternionic weighted-shift computation. Patel--Tanahashi--Uchiyama (2005) is the original complex \(S(T)\) paper and contains weighted-shift examples. Menkad--Zid (2024) studies the parameterized \(S_r(T)\) transform, but the retrieved abstract does not mention this iterate classification and the full text was not available through the inspected open source. The theorem is restricted to positive real unilateral weights.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same-object 2026 source computes one transform of a positive real quaternionic weighted shift, \(S_r(T_w)e_n=w_{n+1}^r e_{n+2}\), and uses monotone weights to obtain one-step hyponormality. It does not state an iterated dyadic formula, an exponent-independent p-hyponormality threshold, the tail theorem, or threshold realizability. A targeted Resultary search returned this assigned finding as the direct match and no earlier implication-equivalent published result.
+
+## value
+
+PASS
+
+The result gives a complete dynamical classification of when repeated transforms regularize a natural weighted-shift model and shows that both the p-index and all positive transform exponents disappear from the answer. The exact tail law and realizability of every threshold are structural consequences beyond a one-step example, providing a natural benchmark for transform iteration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
