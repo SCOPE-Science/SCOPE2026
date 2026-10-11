@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:38:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md af4e0172828e1a0577d225a7fabec7a171aea23b",
+        "verify.py a89a80c3d3077400f4069dbde5c9d6b1d3622163",
+        "Holdener--Holdener JIS 23 (2020)",
+        "Ryan 2002 bibliographic record"
+      ],
+      "rationale": "Holdener--Holdener give that \\(N\\) is an odd square, \\(q\\) is its least prime factor, and any other prime \\(r\\) is at least \\(q+1\\). Assuming two-prime support, Euler-factor bounds force \\(r<q+3+4/(q-2)\\), leaving \\(r=q+2\\) except the \\((3,7)\\) case. When \\(r=q+2\\), the exact abundancy identity forces the two divisor sums to be pure powers of the opposite prime; modulo \\(r\\) this gives incompatible congruences differing by a factor four. For \\((3,7)\\), the order of 3 modulo 7 gives the contradiction. The verifier checks the cutoff, special order and a large finite regression grid.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest accessible same-object result is the weaker \\(\\omega(N)\\ge2\\) statement."
+        ],
+        "reasoning": "No accessible stronger theorem eliminates the two-prime case.",
+        "searches": [
+          "Holdener--Holdener full PDF",
+          "Ryan 2002 bibliographic comparison"
+        ]
+      },
+      "checked_sources": [
+        "Holdener--Holdener 2020",
+        "Ryan 2002 bibliographic record",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Those propositions do not upper-bound the second prime tightly enough to force contradiction."
+        ],
+        "reasoning": "The new abundancy upper bound and modular argument are additional.",
+        "searches": [
+          "Holdener--Holdener Propositions 22--23"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source allows exactly two prime factors and only lower-bounds the second prime."
+        ],
+        "reasoning": "Prime quasi-friendly divisors and the ratio \\((q+2)/q\\) were compared.",
+        "searches": [
+          "Resultary quasi-friendly divisor search",
+          "Holdener--Holdener Propositions 22--23",
+          "exact ratio searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior \\(\\omega(N)\\ge3\\) theorem was returned."
+        ],
+        "reasoning": "The source's explicit open case is stronger novelty evidence than search absence.",
+        "searches": [
+          "Resultary exact quasi-friendly query"
+        ]
+      },
+      "rationale": "The full Holdener--Holdener paper was inspected: Proposition 23 stops at at least two distinct prime factors, and the conclusion explicitly leaves the prime quasi-friendly-divisor question open. The audited proof eliminates the remaining two-prime-support case. Ryan's 2002 full text was not accessible and remains an explicit residual risk.",
+      "residual_risks": [
+        "Ryan's 2002 full text was not inspected; it remains a concrete originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STOPS_AT_TWO_PRIME_LOWER_BOUND",
+          "evidence": "Proposition 23 says at least two distinct prime divisors; the conclusion says the prime case remains unresolved.",
+          "identifier_or_url": "JIS 23 (2020), Article 20.8.4",
+          "material_read": "Full primary PDF around Propositions 22--23 and the conclusion, with the relevant pages visually inspected.",
+          "method": "Full-text and page-image inspection.",
+          "title": "Characterizing Quasi-Friendly Divisors",
+          "trigger": "Exact source for Propositions 22--23 and the open question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Holdener--Holdener 2020"
+      ],
+      "rationale": "Eliminating the entire two-prime-support branch is a natural structural advance toward the source's explicit existence question for prime quasi-friendly divisors.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "If \\(q\\) is an odd prime and \\(\\sigma(N)/N=(q+2)/q\\), then \\(N\\) has at least three distinct prime divisors.",
+  "limitations": [
+    "Does not settle existence of prime quasi-friendly divisors.",
+    "Rules out only support sizes one and two."
+  ],
+  "schema_version": 1
+}
