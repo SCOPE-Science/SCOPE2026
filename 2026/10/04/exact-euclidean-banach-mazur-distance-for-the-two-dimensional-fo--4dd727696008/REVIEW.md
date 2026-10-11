@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof begins with the exact quadratic-form expression for squared Banach--Mazur distortion. Averaging any feasible quadratic form over the four coordinate sign changes preserves the comparison inequalities and produces a diagonal form, so no nonsymmetric linear map is omitted. The resulting one-variable ratio \(F_t\) is analyzed symbolically: at \(t=1/\sqrt{17}\) the endpoints are the only minima, the derivative has exactly one positive zero \(s_*\), and fixed-point comparisons show every \(t\ne1/\sqrt{17}\) has larger distortion. The standard-library checker reproduces the root and decimal values from the packaged formulas; finite computation is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The 2006-online primary paper defining finite-dimensional Cesàro spaces was read through its relevant section and contains no Banach--Mazur occurrence. It computes a James constant only at exponent \(2\) and explicitly poses the \(p\ne2\) James problem. Zuo (2012) gives a Ptolemy result for \(\mathrm{ces}_2^{(2)}\), while the 2022 same-family paper gives a Gao-type constant for \(\mathrm{ces}_q^{(2)}\). Searches using Banach--Mazur distance, Hilbertian distortion, John ellipsoid, optimal ellipse, \(\mathrm{ces}_p^{(2)}\), exponent \(4\), and the characteristic \(\sqrt{17}\) term found no prior statement implying the claimed exact distance. No broader inspected theorem subsumes the result.
+PASS
 
-## Value
-PASS. Euclidean Banach--Mazur distance is a canonical affine measure of Hilbertian distortion. Exponent \(4\) is the first non-Hilbert even exponent after \(2\), and the answer is not a coordinatewise norm estimate: it identifies the globally optimal ellipsoid among all linear images. The exact benchmark complements the known constant computations for the same classical Cesàro family and isolates a reusable sign-symmetry minimax method.
+The actual proof correctly reduces all Euclidean pullbacks to diagonal forms by coordinate-sign averaging. For q_t=x^2+t y^2 it derives F_t(s)=sqrt(16+(1+s)^4)/(4(1+t s^2)). At t0=1/sqrt(17) the two endpoint values agree, the exact polynomial difference shows all interior values are larger, and the derivative has the sign of h(s)=(1+s)^3(sqrt(17)-s)-16s. The phi-analysis proves exactly one positive critical root s_*. Comparing F_t(s_*) against the appropriate endpoint proves every t != t0 has larger distortion. The inspected verifier independently brackets s_* in (3.511,3.512), confirms the negative discriminant and high-precision stated D_*; these numerical checks corroborate rather than replace the analytic minimax proof.
 
-## Closest literature and limitations
-Maligranda--Petrot--Suantai (available online 17 April 2006) is the primary source for the finite-dimensional Cesàro family. Zuo (2012) is the closest older exact-constant calculation for a two-dimensional Cesàro norm, but only at exponent \(2\). Zuo--Huang--Huang--Wang (2022) treats the same general two-dimensional Cesàro family under primary MSC \(46\mathrm{B}20\), but for a Gao-type constant. The result here is limited to the real exponent-
-\(4\) plane, and an unindexed equivalent statement remains a bibliographic residual risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The broad planar uniqueness theorem is relevant but does not determine the nontrivial diagonal aspect ratio or the quartic contact slope for this nonsymmetric-in-coordinate-swap norm. Sign invariance only forces a diagonal distance ellipse. The submitted work still has to solve a genuine one-parameter minimax, identify t=1/sqrt(17), prove the endpoints are the minima, prove uniqueness of the interior maximum, and derive the algebraic value. The primary Cesaro paper defines the family and leaves even James constants for p != 2 as a problem; full-text search found no Banach–Mazur discussion. Fresh Resultary/web searches found the known p=2 Cesaro distance and unrelated symmetric quartic families, but no p=4 claim that implies this exact minimax.
+
+## value
+
+PASS
+
+The Euclidean Banach–Mazur distance is a natural invariant of a classical finite-dimensional Cesaro space. Unlike the D4-symmetric neighboring families, this p=4 body retains a genuine diagonal-shape optimization whose exact solution requires a nontrivial algebraic contact equation. The result is a self-contained exact invariant that a researcher comparing finite-dimensional Cesaro geometry could directly reuse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

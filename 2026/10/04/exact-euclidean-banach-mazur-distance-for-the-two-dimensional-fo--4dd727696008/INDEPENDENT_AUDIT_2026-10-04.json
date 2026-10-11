@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:53:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual proof correctly reduces all Euclidean pullbacks to diagonal forms by coordinate-sign averaging. For q_t=x^2+t y^2 it derives F_t(s)=sqrt(16+(1+s)^4)/(4(1+t s^2)). At t0=1/sqrt(17) the two endpoint values agree, the exact polynomial difference shows all interior values are larger, and the derivative has the sign of h(s)=(1+s)^3(sqrt(17)-s)-16s. The phi-analysis proves exactly one positive critical root s_*. Comparing F_t(s_*) against the appropriate endpoint proves every t != t0 has larger distortion. The inspected verifier independently brackets s_* in (3.511,3.512), confirms the negative discriminant and high-precision stated D_*; these numerical checks corroborate rather than replace the analytic minimax proof.",
+      "risks": [
+        "The result is restricted to the real two-dimensional p=4 Cesaro norm."
+      ],
+      "sources": [
+        "RESULT.md blob d1eb643555c5c4924847144b3bec35fdab2a8627",
+        "verify.py blob 4a2691b8f639a31b251cf61b4660219955cb5bf8",
+        "verify_output.txt blob 13f7237d6d155da7d753bc870bd300b023a2768f",
+        "Independent analytic reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Planar uniqueness plus sign symmetries forces only a diagonal ellipse, not its aspect ratio or the final distortion.",
+          "No general Cesaro p theorem or broader exact formula covering p=4 was located."
+        ],
+        "reasoning": "The broad theorem supplies a reduction, not the distinctive algebraic minimax solved here.",
+        "searches": [
+          "Grundbacher DOI 10.1112/mtk.70062, Corollary 2.11",
+          "Resultary search for Cesaro Banach–Mazur and quartic absolute norms"
+        ]
+      },
+      "checked_sources": [
+        "Stefan Grundbacher, “On certain extremal Banach–Mazur distances and Ader's characterization of distance ellipsoids,” Mathematika (2026), DOI 10.1112/mtk.70062, especially Corollary 2.11.",
+        "Maligranda--Petrot--Suantai DOI 10.1016/j.jmaa.2006.02.085",
+        "Resultary p=4 and p=2 Cesaro searches",
+        "Actual package verifier blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniqueness implies the optimizer respects coordinate reflections and is diagonal, but leaves a free positive parameter t.",
+          "The p=2 result concerns a different quadratic norm and does not specialize to p=4."
+        ],
+        "reasoning": "A nontrivial exact minimax remains after every identified prior theorem; the final algebraic contact equation and value are not a routine parameter substitution.",
+        "searches": [
+          "Statement comparison with Grundbacher Corollary 2.11",
+          "Maligranda--Petrot--Suantai DOI 10.1016/j.jmaa.2006.02.085",
+          "Resultary p=2 Cesaro Banach–Mazur finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper defines finite-dimensional Cesaro norms and its Problem 4 asks for James constants at p != 2; no Banach–Mazur occurrence was found.",
+          "Resultary's closest Cesaro Banach–Mazur hit is a distinct p=2 result."
+        ],
+        "reasoning": "The p=4 body is not coordinate-swap symmetric, so the general D4/circle shortcut used by neighboring findings does not apply.",
+        "searches": [
+          "Resultary: two dimensional Cesaro p=4 Banach Mazur distance Euclidean ces_4^(2)",
+          "Web exact searches: ces_4 Banach-Mazur sqrt(17)",
+          "Maligranda--Petrot--Suantai 2007 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry matching the p=4 value or its defining equation was located."
+        ],
+        "reasoning": "Search failure is not used alone; it complements full-text inspection of the defining family source and the implication analysis against the broad distance-ellipsoid theorem.",
+        "searches": [
+          "Resultary exact p=4 Cesaro search",
+          "Web exact constants sqrt(17), 1.26068368922021387435, and ces_4"
+        ]
+      },
+      "rationale": "The broad planar uniqueness theorem is relevant but does not determine the nontrivial diagonal aspect ratio or the quartic contact slope for this nonsymmetric-in-coordinate-swap norm. Sign invariance only forces a diagonal distance ellipse. The submitted work still has to solve a genuine one-parameter minimax, identify t=1/sqrt(17), prove the endpoints are the minima, prove uniqueness of the interior maximum, and derive the algebraic value. The primary Cesaro paper defines the family and leaves even James constants for p != 2 as a problem; full-text search found no Banach–Mazur discussion. Fresh Resultary/web searches found the known p=2 Cesaro distance and unrelated symmetric quartic families, but no p=4 claim that implies this exact minimax.",
+      "residual_risks": [
+        "An unindexed specialist computation of the same p=4 distance could exist; no such source was found in the bounded search.",
+        "The general planar distance-ellipsoid literature may contain alternative contact methods, but no source located supplies this exact Cesaro evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_FAMILY_NOT_COVERING",
+          "evidence": [
+            "Problem 4 asks for James constants of ces_p^(2) for p != 2; no Banach–Mazur occurrence was found."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.jmaa.2006.02.085",
+          "material_read": "Accessible full text through the finite-dimensional section, Theorem 3 discussion, Problem 4, and references; targeted Banach–Mazur search.",
+          "method": "Lawful full-text inspection.",
+          "title": "On the James constant and B-convexity of Cesàro and Cesàro–Orlicz sequence spaces",
+          "trigger": "Defining finite-dimensional Cesaro source and closest same-family primary paper."
+        },
+        {
+          "assessment": "PARTIAL_REDUCTION_ONLY",
+          "evidence": [
+            "Planar uniqueness forces symmetry inheritance but does not evaluate the remaining diagonal minimax."
+          ],
+          "identifier_or_url": "DOI:10.1112/mtk.70062",
+          "material_read": "Full relevant sections through Corollary 2.11.",
+          "method": "Lawful publisher full-text inspection.",
+          "title": "On certain extremal Banach–Mazur distances and Ader's characterization of distance ellipsoids",
+          "trigger": "Potential general reduction of planar distance-ellipsoid optimization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Euclidean Banach–Mazur distance is a natural invariant of a classical finite-dimensional Cesaro space. Unlike the D4-symmetric neighboring families, this p=4 body retains a genuine diagonal-shape optimization whose exact solution requires a nontrivial algebraic contact equation. The result is a self-contained exact invariant that a researcher comparing finite-dimensional Cesaro geometry could directly reuse.",
+      "risks": [
+        "No general p formula is established."
+      ],
+      "sources": [
+        "RESULT.md blob d1eb643555c5c4924847144b3bec35fdab2a8627",
+        "Maligranda--Petrot--Suantai DOI 10.1016/j.jmaa.2006.02.085",
+        "Stefan Grundbacher, “On certain extremal Banach–Mazur distances and Ader's characterization of distance ellipsoids,” Mathematika (2026), DOI 10.1112/mtk.70062, especially Corollary 2.11."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formula for general p, higher dimension, or uniqueness modulo all linear symmetries is claimed."
+  ],
+  "schema_version": 1
+}

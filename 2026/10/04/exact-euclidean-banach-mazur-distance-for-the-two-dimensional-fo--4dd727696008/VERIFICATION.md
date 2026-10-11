@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the norm definition and checked independently of the decimal computation. The critical all-isomorphism step is the sign-symmetry averaging of positive-definite quadratic forms; it justifies reducing the Banach--Mazur minimization to \(q_t(x,y)=x^2+t y^2\). The exact endpoint identity at \(t=1/\sqrt{17}\), the positive quadratic factor controlling the endpoint minima, the derivative equation \((1+s)^3(\sqrt{17}-s)=16s\), and the monotonic comparison for \(t\ne1/\sqrt{17}\) were all checked algebraically.
+# Independent mathematical audit
 
-The packaged `verify.py` was executed from its actual package path. It uses high-precision decimal bisection only to confirm numerical consequences of the proved algebraic characterization. It verifies \(3.511<s_*<3.512\), a small residual in the defining equation, the negative discriminant \(40-24\sqrt{17}<0\), and the displayed values of \(D_*\) and \(\sqrt{D_*}\).
+## correctness
 
-Scientific limits: the checker does not certify global optimization, and no finite sample is used to replace the analytic proof. The result is not claimed for other exponents, dimensions, or all optimizer-uniqueness questions. Literature searches cannot exclude an unindexed equivalent statement.
+PASS
+
+The actual proof correctly reduces all Euclidean pullbacks to diagonal forms by coordinate-sign averaging. For q_t=x^2+t y^2 it derives F_t(s)=sqrt(16+(1+s)^4)/(4(1+t s^2)). At t0=1/sqrt(17) the two endpoint values agree, the exact polynomial difference shows all interior values are larger, and the derivative has the sign of h(s)=(1+s)^3(sqrt(17)-s)-16s. The phi-analysis proves exactly one positive critical root s_*. Comparing F_t(s_*) against the appropriate endpoint proves every t != t0 has larger distortion. The inspected verifier independently brackets s_* in (3.511,3.512), confirms the negative discriminant and high-precision stated D_*; these numerical checks corroborate rather than replace the analytic minimax proof.
+
+## originality
+
+PASS
+
+The broad planar uniqueness theorem is relevant but does not determine the nontrivial diagonal aspect ratio or the quartic contact slope for this nonsymmetric-in-coordinate-swap norm. Sign invariance only forces a diagonal distance ellipse. The submitted work still has to solve a genuine one-parameter minimax, identify t=1/sqrt(17), prove the endpoints are the minima, prove uniqueness of the interior maximum, and derive the algebraic value. The primary Cesaro paper defines the family and leaves even James constants for p != 2 as a problem; full-text search found no Banach–Mazur discussion. Fresh Resultary/web searches found the known p=2 Cesaro distance and unrelated symmetric quartic families, but no p=4 claim that implies this exact minimax.
+
+## value
+
+PASS
+
+The Euclidean Banach–Mazur distance is a natural invariant of a classical finite-dimensional Cesaro space. Unlike the D4-symmetric neighboring families, this p=4 body retains a genuine diagonal-shape optimization whose exact solution requires a nontrivial algebraic contact equation. The result is a self-contained exact invariant that a researcher comparing finite-dimensional Cesaro geometry could directly reuse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
