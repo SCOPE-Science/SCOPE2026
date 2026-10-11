@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_ttc3_cycle_chronology.py` is a standard-library-only exact replay.
 
-It enumerates all \(216\) strict three-agent preference profiles. TTC is implemented in two independent ways:
-1. a functional graph from each remaining agent to the current owner of her favorite remaining house;
-2. an explicit bipartite directed graph with distinct agent and house nodes.
+# Independent mathematical audit
 
-Both implementations execute all current cycles simultaneously and are required to agree on the final allocation and the full cycle-size chronology for every profile.
+## correctness
 
-The verifier also checks that the \(27\) first-choice maps each have exactly \(8\) full-ranking refinements and reproduces the six first-round graph-type counts. It separately verifies the star/chain split inside the one-self-loop/no-two-cycle family.
+PASS
 
-The exact replay requires the chronology histogram
-\[
-8,24,16,48,48,6,30,36
-\]
-for the eight stated traces; the mover histogram
-\[
-98,102,16
-\]
-for \(0,2,3\) movers; and the round histogram
-\[
-48,132,36
-\]
-for \(1,2,3\) rounds.
+A fresh implementation exhausts all 6^3=216 profiles and independently reconstructs TTC from the current-owner functional graph. It exactly reproduces chronology counts 8,24,16,48,48,6,30,36 in the stated cells, round counts 48,132,36, and mover counts 98,102,16. The analytic first-round taxonomy is also complete: the 27 first-choice maps split into identity, loop-plus-two-cycle, three-cycle, two-loops-plus-tail, two-cycle-plus-tail, and the nine one-loop/no-two-cycle maps; the latter split into stars and chains with the stated refinements. Thus the finite theorem is exhaustive rather than extrapolated.
 
-It then checks the exact fractions \(49/108\), \(17/36\), \(2/27\), \(59/108\), \(7/6\), and \(35/18\).
+## originality
 
-Run:
+PASS
 
-`python3 verify_ttc3_cycle_chronology.py`
+The classical housing-market literature defines TTC and proves its core/efficiency properties, while later random-TTC work studies a different two-sided model and round dynamics. No inspected source gives the complete three-agent impartial-culture chronology or mover law. Fresh independent enumeration recovers the claimed eight chronology atoms and trade-volume distribution, so best-of-knowledge originality passes with the explicit residual risk of an unindexed exercise or finite table.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The computation proves only the stated finite three-agent result under the parallel cycle convention.
+Three agents are the smallest housing market supporting a genuine three-cycle, making this a canonical finite boundary rather than an arbitrary tiny instance. The exact chronology and trade-volume law provide a clean benchmark for probabilistic TTC analyses and distinguish parallel-round dynamics from final-allocation facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
