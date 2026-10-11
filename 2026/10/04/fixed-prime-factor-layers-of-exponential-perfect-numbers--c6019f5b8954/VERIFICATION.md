@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic check is the proof in `RESULT.md`: unique core decomposition, exclusion of prime-power cores, fixed-support finiteness, the prior two-prime classification, and Landau's fixed-\(k\) almost-prime theorem.
+# Independent mathematical audit
 
-The executable `verify_eperfect_layers.py` independently evaluates the exponential-divisor sum from the exponent divisors for every integer through \(500000\). It verifies that each detected e-perfect integer decomposes into a powerful e-perfect core and a coprime squarefree factor, and it checks the two-prime layer in that finite range.
+## correctness
 
-Running `python verify_eperfect_layers.py` produced:
+PASS
 
-`VERIFY_OK bound=500000 eperfect=4345 decomposed=4345 omega2=[36] cores=4 base36_omega3=1639 layers=2:1,3:1642,4:2146,5:542,6:14`
+The decomposition is correct and supplies the required infinite proof. Writing an exponential-perfect integer uniquely as \(n=cm\), with \(c\) the product of prime powers having exponent at least two and \(m\) its coprime squarefree part, multiplicativity and \(\sigma^{(e)}(m)=m\) show that \(n\) is exponential-perfect exactly when \(c\) is. Hagis's primary paper uses this same powerful-core decomposition and records the prior finiteness theorem for powerful exponential-perfect numbers with fewer than any prescribed number of prime factors. The later handbook explicitly records the prior classification that \(36\) is the only exponential-perfect integer with two distinct prime factors. For fixed \(r\), summing Landau's fixed-\(k\) squarefree almost-prime asymptotic over the finitely many cores shows that the unique two-prime core \(36\) contributes \(X(\log\log X)^{r-3}/(36(r-3)!\log X)\), while every core with at least three prime factors loses at least one power of \(\log\log X\), or contributes only \(O(1)\) when \(r=3\). A fresh independent enumeration through \(20{,}000\) found \(175\) exponential-perfect integers and exactly \(36\) in the two-prime layer. This finite check is corroborative only.
 
-The finite computation does not certify the infinite two-prime classification, the finiteness of powerful cores at fixed support size, Landau's theorem, or the asymptotic itself. Those are handled by the mathematical proof and cited literature.
+## originality
+
+PASS
+
+Hagis proves a global positive-density result by summing squarefree multiples of powerful exponential-perfect cores, and explicitly relies on the finiteness of cores with bounded prime support. The two-prime classification \(36\) is also prior. Neither inspected source refines the global count by a fixed value of \(\omega(n)\), identifies the unique \(36\)-core as the dominant contribution in every fixed layer, or states the consecutive-layer ratio. Current Resultary searches returned the assigned theorem as the exact same-object hit and no earlier fixed-\(\omega\) result. The claim therefore survives best-of-knowledge originality as a natural stratified refinement of the prior decomposition rather than a special case of Hagis's global density theorem.
+
+## value
+
+PASS
+
+Prime-factor layers are a natural refinement of a multiplicative counting problem, and the theorem identifies a sharp hierarchy in which one primitive core controls every fixed layer. The explicit main term and consecutive-layer ratio add structural information not visible in the global density. This is a motivated asymptotic classification rather than a finite recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
