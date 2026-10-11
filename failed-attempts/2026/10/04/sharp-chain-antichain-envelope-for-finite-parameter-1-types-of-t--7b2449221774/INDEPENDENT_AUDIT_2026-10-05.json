@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:39:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4eb61c44c840c4d182f0abca821049303deaa44d",
+        "prior SCOPE finite-parameter type-count RESULT.md blob 00d10496a21723bb6e8686f8c8ad4164135701c2",
+        "Dolinka--Mašulović, DOI:10.1017/S0013091510001161, Lemma 4.3"
+      ],
+      "rationale": "The prior admissible-pair description yields \\(c(P)=2J(P)-1+q(P)\\), where \\(J(P)\\) is the number of ideals, equivalently antichains, and \\(q(P)\\) counts ordered nonempty antichain pairs \\((X,Y)\\) with every element of \\(X\\) below every element of \\(Y\\). Counting the empty antichain, all singletons and every incomparable pair gives \\(J(P)\\ge1+n+\\operatorname{inc}(P)\\), while singleton comparable pairs give \\(q(P)\\ge\\operatorname{cmp}(P)\\), proving the lower bound. For the upper bound, union maps every counted ordered pair injectively to a non-antichain subset because its minimal and maximal parts recover \\(X,Y\\), so \\(q(P)\\le2^n-J(P)\\); together with \\(J(P)\\le2^n-\\operatorname{cmp}(P)\\) this gives the upper bound. Equality forces respectively no incomparable or no comparable pairs, hence the unique chain and antichain extrema. The package verifier enumerates finite posets through six points as a consistency check.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior SCOPE record supplies the exact combinatorial object being counted for every finite poset and already evaluates both endpoint families.",
+          "The audited bounds require no additional random-poset or model-theoretic lemma beyond that representation."
+        ],
+        "reasoning": "The earlier all-poset representation is stronger raw information than the derived chain/antichain envelope.",
+        "searches": [
+          "SCOPE RESULT.md blob 00d10496a21723bb6e8686f8c8ad4164135701c2",
+          "Dolinka--Mašulović full primary PDF"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE RESULT.md blob 00d10496a21723bb6e8686f8c8ad4164135701c2",
+        "DOI:10.1017/S0013091510001161",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the prior representation, the lower bound is obtained by retaining antichains of size at most two and singleton comparable pairs.",
+          "The upper bound is the immediate injection of ordered \\(X<Y\\) pairs into non-antichain unions, followed by deleting comparable pairs from the antichain count."
+        ],
+        "reasoning": "These are routine counting consequences of the published representation, so the final claim is implication-level covered.",
+        "searches": [
+          "prior SCOPE admissible-pair theorem",
+          "Dolinka--Mašulović one-point extension description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior SCOPE result gives a bijection between nonalgebraic types and admissible lower/upper pairs and explicitly records \\(c(C_n)=\\binom{n+2}{2}\\) and \\(c(A_n)=2^{n+1}-1\\).",
+          "Dolinka--Mašulović use the same lower-set and upper-set data for finite-poset one-point extensions."
+        ],
+        "reasoning": "Finite-parameter 1-types, pointwise-stabilizer one-point-extension orbits and admissible \\((L,U)\\) pairs are equivalent formulations.",
+        "searches": [
+          "Resultary query: sharp chain antichain envelope finite parameter 1-types random poset",
+          "prior SCOPE record finite-parameter 1-type counting in the random poset",
+          "Dolinka--Mašulović Lemma 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic search did not surface the exact envelope, but direct repository inspection found the stronger prior representation and both endpoint formulas."
+        ],
+        "reasoning": "Direct source implication outweighs absence of an indexed copy of the optimized inequalities.",
+        "searches": [
+          "Resultary exact random-poset chain/antichain envelope query",
+          "same-snapshot repository comparison with the #P-completeness/type-count record"
+        ]
+      },
+      "rationale": "A prior published SCOPE record at the same audited snapshot already proves the exact admissible-pair representation for \\(c(P)\\), identifies ideals with antichains, and prints the chain and antichain endpoint formulas. Dolinka--Mašulović provide the underlying lower-set/upper-set one-point extension structure. The new pair-sensitive inequalities then follow by counting singleton and two-point antichains/comparabilities and by the elementary union injection for \\(q(P)\\). Thus the unique endpoint classification and stability gaps are mechanically implied refinements of an already published stronger representation, not an independent scientific claim under the required implication standard.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_REPRESENTATION_AND_ENDPOINTS_ALREADY_PUBLISHED",
+          "evidence": "It gives \\(c(P)\\) for every finite poset as admissible lower/upper pairs and already prints the two endpoint values used by the new extremal theorem.",
+          "identifier_or_url": "SCOPE repository RESULT.md blob 00d10496a21723bb6e8686f8c8ad4164135701c2",
+          "material_read": "Complete RESULT.md, including the admissible-pair bijection, exact count formula, top-chain reduction, and explicit chain/antichain values.",
+          "method": "Read-only Git blob inspection.",
+          "title": "Finite-parameter 1-type counting in the random poset is #P-complete",
+          "trigger": "Same object and same finite-parameter type count at the audited snapshot."
+        },
+        {
+          "assessment": "STRUCTURAL_PREDECESSOR",
+          "evidence": "The source supplies the exact one-point extension language from which the later SCOPE type-count representation is built.",
+          "identifier_or_url": "DOI:10.1017/S0013091510001161",
+          "material_read": "Full primary PDF around Lemma 4.3, including the definition of \\(L=\\{p:p<x\\}\\), \\(U=\\{p:x<p\\}\\), their down/up-set role and cross-order condition; the page was visually inspected.",
+          "method": "Open full-PDF text and page-image inspection.",
+          "title": "A universality result for endomorphism monoids of some ultrahomogeneous structures",
+          "trigger": "Primary source for one-point extensions of finite posets by lower/upper data."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "prior random-poset type-count record",
+        "finite-poset one-point extension literature"
+      ],
+      "rationale": "The chain/antichain extremizers and pair-sensitive gaps are natural extremal information about a canonical oligomorphic structure, and the theorem gives a complete global classification rather than a finite census. The record is rejected because this useful envelope is too direct a consequence of the already published exact representation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "If \\(P\\) is the finite parameter poset of size \\(n\\) in the random poset and \\(c(P)\\) is its nonalgebraic one-point type count, then \\(\\binom{n+2}{2}+\\operatorname{inc}(P)\\le c(P)\\le2^{n+1}-1-\\operatorname{cmp}(P)\\); consequently the chain uniquely minimizes and the antichain uniquely maximizes the complete 1-type count, with the displayed pair-sensitive stability gaps.",
+  "limitations": [
+    "Finite parameter sets in the countable random poset only.",
+    "The result is mathematically correct but is an elementary extremal corollary of the previously published admissible-pair representation of one-point types."
+  ],
+  "schema_version": 1
+}
