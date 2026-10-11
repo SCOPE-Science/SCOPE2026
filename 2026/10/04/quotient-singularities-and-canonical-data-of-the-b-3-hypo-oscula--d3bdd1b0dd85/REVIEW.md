@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source identifies the exact contracted curves and gives the minimal free resolution. Their self-intersections are \(-3\), they are pairwise disjoint, and adjunction gives \(K_Y\cdot N_i=1\). The resolution has projective dimension \(3\) over a six-variable polynomial ring; because the coordinate ring has dimension \(3\), it is Cohen--Macaulay. Together with the published three-point singular locus this gives normality by \(S_2+R_1\). The one-\((-3)\)-curve graph gives \(\frac13(1,1)\), and the discrepancy, canonical index, \(K^2\), canonical degree, and sectional genus follow by exact intersection arithmetic. The included verifier reproduces the arithmetic independently of floating point computation.
+## correctness
 
-## Originality
-**PASS.** The lead paper was inspected where it constructs \(X_B\), lists the three contracted curves, gives the three image points, defining ideal, and minimal free resolution. It calls them singular points but does not state the cyclic quotient type or the derived local/global invariant package. The earlier \(B_3\) quartic paper was also inspected as the closest configuration-level predecessor. Exact-phrase and alias searches for cyclic quotient type, one-\((-3)\)-curve resolution, canonical index, discrepancy, \(K^2\), and sectional genus did not reveal coverage. A residual risk remains that equivalent data appear in an unindexed source under different terminology.
+PASS
 
-## Value
-**PASS.** The three singularities are the entire obstruction to smoothness of the named surface that geometrically encodes the unique unexpected-quartic phenomenon. Identifying their exact analytic type and canonical behavior is structural information: it distinguishes them from rational double points, fixes their local class group and canonical index, and supplies global canonical/intersection invariants for the surface. These are intrinsic invariants of the central example, not an arbitrary parameter slice.
+Szpond's published free resolution gives a three-dimensional Cohen--Macaulay homogeneous coordinate ring, while the published singular locus consists of exactly three points, so Serre \(S_2+R_1\) gives normality. The contraction resolves each point by one smooth rational \((-3)\)-curve, hence the Hirzebruch--Jung classification identifies the local analytic type as \(\frac13(1,1)\). Adjunction gives discrepancy \(-1/3\), and the quotient character gives canonical index three and local class group \(\mathbb Z/3\mathbb Z\). Using \(f^*K_X=K_Y+\frac13\sum N_i\), the exact intersection arithmetic gives \(K_X^2=1\), \(K_X\cdot\mathcal O_X(1)=-3\), and sectional genus three. The package verifier checks all intersection and quotient-index arithmetic exactly.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Szpond's primary paper states that the degree-seven \(B_3\) surface has exactly three singular points and gives the blow-up model and free resolution, but the inspected full text does not present the quotient type, local class groups, canonical index/discrepancy package, \(K^2\), or sectional genus. Current Resultary and web searches for the surface together with \(\frac13(1,1)\), canonical index, and sectional genus returned only the assigned result. The local quotient identification and global canonical calculations therefore survive best-of-knowledge implication comparison.
+
+## value
+
+PASS
+
+Local quotient type, canonical index, discrepancy, and \(K^2\) are standard birational invariants of a named singular surface. Determining all of them from the published contraction and resolution places the \(B_3\) hypo-osculating example precisely in the surface-singularity classification and supplies reusable canonical data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
