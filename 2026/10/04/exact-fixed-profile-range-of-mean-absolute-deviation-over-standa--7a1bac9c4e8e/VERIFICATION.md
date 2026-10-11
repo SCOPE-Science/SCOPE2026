@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic for all inequality decisions.
+# Independent mathematical audit
 
-For random rational probability profiles and strictly increasing rational supports it computes
-\[
-D=\mathbb E|X-\mathbb EX|
-\]
-and
-\[
-\sigma^2=\operatorname{Var}(X)
-\]
-exactly, then verifies
-\[
-D^2\ge L(\mathbf p)^2\sigma^2
-\]
-and, for \(m\ge3\),
-\[
-D^2<U(\mathbf p)^2\sigma^2.
-\]
+## correctness
 
-The checker separately verifies exact equality for every tested two-point law and for the explicit three-point lower-extremal support
-\[
-(-p_3,0,p_1).
-\]
+PASS
 
-It also checks the equal-weight even--odd formulas and follows strict-support rational collapse sequences toward the lower and upper boundary configurations.
+Centering gives equal positive and negative first moments \(A=D/2\). On the two sides, \(y^2\le a|y|\) and \(y^2\le b|y|\), while the endpoint masses give \(p_1a\le A\) and \(p_mb\le A\); this yields the lower constant and exact equality conditions. For the upper edge, the indicator above the mean has covariance \(A\) with the centered variable, so Cauchy--Schwarz gives the cumulative-cut ceiling; equality forces a two-level law. Collapse sequences make both bounds sharp, and connectedness fills the intervals. Fresh exact-rational replay verified the lower and upper inequalities on 1800 independent generated strict supports.
 
-Finite replay supports the algebra but is not used to infer the universal result.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK random_lower_checks=30000 random_upper_checks=25620 two_point_checks=4380 three_point_endpoint_checks=8000 equal_weight_checks=198 lower_path_checks=6000 upper_path_checks=6000`.
+The accessible MAD literature gives general identities and universal comparisons but not the exact arbitrary fixed-profile support-shape interval. A second SCOPE record in this same assignment states the same theorem, but its import commit is eleven commits later and has the earlier record as an ancestor; it therefore cannot be prior coverage of this record. Best-of-knowledge originality passes for this earlier instance.
+
+## value
+
+PASS
+
+Mean absolute deviation and standard deviation are canonical competing dispersion scales. The theorem completely quantifies how a fixed category-frequency profile constrains their ratio, including exact equality topology and simple equal-weight consequences. This is a natural exact invariant rather than a one-off numerical calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
