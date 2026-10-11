@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is \(\chi_{\mathrm{stable}}(K_{2,3,3})=6\).
+# Independent mathematical audit
 
-For the upper bound, the proof uses the published reachability theorem and the explicit acyclic orientation \(C\to B\to A\).  Direct traversal gives reachable-set sizes \(1\) on \(A\), \(3\) on \(B\), and \(6\) on \(C\).
+## correctness
 
-For the lower bound, `artifacts/certificate.json` contains the five-color preference profile and one blocking cycle for every proper coloring.  `artifacts/verify.py` does not trust a precomputed list of proper colorings: it enumerates all \(5^8=390625\) vertex-color maps, tests the graph edges directly, reconstructs the envy relation from the rankings, and checks acyclicity.  It finds exactly \(2940\) proper maps and zero stable maps.  It separately checks that the certificate has exactly \(2940\) unique entries and that every listed directed cycle consists of actual envy arcs for its coloring.
+PASS
 
-Run:
+The upper bound follows from the published reachability bound applied to the acyclic part orientation \(C\to B\to A\): reachable-set sizes are \(1\), \(3\), and \(6\) on the three parts, so six colors suffice for every preference profile. For the lower bound, the package gives a fully specified five-color preference profile. I independently reconstructed properness and envy arcs from those rankings and exhaustively replayed all \(5^8\) maps; exactly \(2940\) are proper and none has an acyclic envy digraph. The packaged verifier was read line by line and separately checks one blocking cycle for every proper coloring, so the finite obstruction is exhaustive rather than sampled.
 
-`python3 artifacts/verify.py`
+## originality
 
-Expected output:
+PASS
 
-`ALL CHECKS PASSED; proper_5_colorings=2940; stable_5_colorings=0; blocking_cycles=2940; orientation_max_reach=6`
+The initiating 2026 paper defines the invariant and publishes the general acyclic-orientation reachability upper bound, but the exact \(K_{2,3,3}\) value was not found in Resultary or exact web searches. The new content is the five-color obstruction, not the six-color upper bound. The primary arXiv full PDF could not be retrieved in this execution after open-access attempts, so no whole-document noncoverage claim is made; that access limitation is retained as a residual risk rather than converted into failure.
 
-The finite verification proves only the displayed five-color obstruction for this graph.  No extrapolation to other multipartite graphs is made.
+## value
+
+PASS
+
+The result determines the first natural small complete-tripartite profile at which the simple part-order reachability bound reaches six, and it supplies a complete finite obstruction showing that level is genuinely necessary. Exact values on benchmark graph families are mathematically useful for a newly introduced coloring invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
