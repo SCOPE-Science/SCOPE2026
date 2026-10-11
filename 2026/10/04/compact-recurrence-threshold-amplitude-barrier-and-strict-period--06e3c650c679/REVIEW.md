@@ -1,24 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact generator certificate
-\[
-L H_1=b(x+z)^2-a(b+1)y^2
-\]
-proves the nonpositive-parameter rigidity and the positive-parameter derivative-energy law. At \(a=0\), support invariance reduces the support exactly to the equilibrium parabola. For \(a>0\), the second exact certificate gives
-\[
-\mathbb E\!\left[y^2\left(y+\frac ab\right)\right]=0,
-\]
-which, together with \(\mathbb E[y]=0\), forces excursions below \(-a/b\) and above \(0\) for every non-origin compact invariant state. The periodic-orbit proof combines the exact energy identity with Wirtinger's inequality, and the independently checked jerk equation excludes equality.
+## correctness
 
-Risk: the \(a=0\) classification uses the standard fact that the support of an invariant probability measure for a continuous flow is invariant.
+PASS
 
-## Originality
-PASS. The primary-author survey supplies the exact generalized equations and numerical parameter regions. The inspected full same-object synchronization paper treats controller design and parameter convergence. The accessible statistical prior treats approximate two-point spectra, while the all-Sprott analytical paper is retained as an explicit access risk because only its abstract and metadata were available. Targeted published-finding corpus searches found analogous balance and period results only for different vector fields.
+The first polynomial certificate gives \(b\mathbb E[(x+z)^2]=a(b+1)\mathbb E[y^2]\), which yields the exact \(a<0\), \(a=0\), and \(a>0\) compact-measure regimes. Coordinate averages give the stated barycenter, and the second certificate gives \(\mathbb E[y^2(y+a/b)]=0\). Combined with \(\mathbb E[y]=0\), that forces every non-origin recurrent measure for \(a>0\) to visit both \(y<-a/b\) and \(y>0\). For periodic orbits the energy identity and Wirtinger give the stated floor, with strictness from the exact jerk equation. Fresh symbolic reconstruction verified both polynomial certificates and the jerk identity.
 
-Risk: the unavailable full text of the 2004 all-Sprott analytical paper and unindexed older literature could contain a differently phrased antecedent.
+## originality
 
-## Value
-PASS. The theorem analytically resolves compact recurrence on and below the parameter surface \(a=0\), identifies an explicit critical equilibrium parabola, and gives positive-\(a\) recurrent dynamics both a forced amplitude excursion and a strict universal period floor. These statements constrain every compact invariant statistical state or periodic orbit under the stated hypotheses and directly complement the source literature's numerical parameter-region picture.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The primary-author Case I page supplies the exact two-parameter system and maps dynamic regions numerically, but does not state the sharp compact-recurrence boundary, cubic stationary moment law, amplitude barrier, or least-period floor. Current Resultary searches found no same-object theorem. Panchev's broad all-Sprott analytical paper is a residual risk because reliable full text was unavailable, while the accessible abstract does not reveal an equivalent Case I result.
+
+## value
+
+PASS
+
+The sharp \(a=0\) recurrence boundary, explicit equilibrium-parabola endpoint, nonlinear amplitude barrier and strict least-period floor form a coherent structural theorem for a canonical Sprott family. The result is analytically reusable and not merely a finite or numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
