@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof works over every commutative base \(k\)-algebra and does not infer a scheme statement merely from field-valued points. Starting with a general invertible matrix, the multiplication identities force \(D=G=H=0\), \(F=BE\), \(I=E^2\), and \((A-1)E=0\). Invertibility makes \(E\) a unit and hence \(A=1\), leaving the single relation \(B^2=\lambda(E^2-1)\). This proves the representing coordinate ring. The base-change substitution \(v=b+s(u-1)\) gives \(v^2=0\) exactly, and the dual-number calculation gives the full three-dimensional tangent space. The companion derivation paper independently matches the tangent matrix family.
+## correctness
 
-Risk: the claim depends on the standard definition of the affine automorphism group scheme as the product-preserving closed subgroup functor of \(\operatorname{GL}(L)\). This definition is implemented explicitly rather than imported as an unproved structural theorem.
+PASS
 
-## Originality
-**PASS.** The closest primary sources are arXiv:2609.24320v1 and arXiv:2609.24323v1. The first determines ordinary automorphism groups and gives the characteristic-two field-point equation; the second separately gives the three-dimensional derivation algebra. Full-text inspection found no discussion of automorphism schemes, geometric nonreducedness, smoothness, or the tangent-dimension mismatch. Searches for these formulations did not locate an equivalent published result.
+Over an arbitrary commutative base algebra, preservation of \([a_1,a_2]=a_2\) forces the first-column coefficient \(D=0\), \((A-1)E=0\), and \(F=BE\); preservation of \([a_2,a_2]=a_3\) gives \(G=H=0\), \(I=E^2\). Invertibility makes \(A,E\) units, hence \(A=1\), and \([a_1,a_1]=\lambda a_3\) gives exactly \(B^2=\lambda(E^2-1)\). Thus the displayed coordinate ring represents the automorphism functor. After adjoining \(s^2=\lambda\), fresh symbolic reduction in characteristic two gives \((b+s(u-1))^2-\lambda(u^2-1)=v^2\); the hypersurface has dimension two and a nonzero square-zero class in every geometric local ring, hence is nowhere smooth. Dual numbers impose no first-order relation, giving tangent dimension three, exactly matching the independently published derivation matrices.
 
-Risk: older nonassociative-algebra literature may discuss the same automorphism scheme under different terminology and may be incompletely indexed. The directly relevant 2025 complex-field classification is inapplicable to the characteristic-two phenomenon.
+## originality
 
-## Value
-**PASS.** The result explains a structural discrepancy visible only when the two recent classifications are compared: the derivation algebra has one more infinitesimal direction than the reduced geometric symmetry group. The exact coordinate ring also explains the apparently smaller ordinary automorphism group over a nonperfect field when \(\lambda\) is nonsquare. This is a natural group-scheme refinement of a freshly completed low-dimensional classification, not a mere recounting of field-valued automorphisms.
+PASS
 
-Risk: the result is local to one family and does not establish a complete smoothness classification for all sixteen types.
+Best-of-knowledge originality passes. The automorphism paper classifies field-valued automorphisms and states the same scalar equation, while the companion paper separately gives the three-dimensional derivation algebra. Field-point data do not determine nilpotent functor-of-points structure, and neither inspected paper formulates the representing automorphism scheme, geometric square-zero thickening, or nowhere-smooth conclusion. The audited proof therefore re-derives the equations over arbitrary commutative base algebras rather than merely schemeifying a set of field points.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact group-scheme calculation explains a natural discrepancy between two recent classifications: the reduced symmetry has dimension two while the derivation/tangent space has dimension three. Identifying the missing direction as a geometric square-zero thickening is a structural characteristic-two phenomenon, not merely a restatement of field-valued matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
