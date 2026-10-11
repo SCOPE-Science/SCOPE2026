@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-The analytic proof was reconstructed from the edge boundary-value solution. The exact all-boundary Dirichlet-to-Neumann matrix is
-\[
-\Lambda_G(k^2)=\frac{k}{\sin(k\ell)}\left(A-\cos(k\ell)D\right).
-\]
-At an odd resonance the finite matrix factor tends to \(Q=D+A\), and the scalar pole factor has residue magnitude \(2\lambda_0/\ell\). At an even resonance the finite factor tends to \(-L\), which is singular.
+# Independent mathematical audit
 
-The fixed-order optimization was checked from the exact complement identity
-\[
-Q(G)+Q(\overline G)=(d-2)I+J
-\]
-and the positive-semidefinite signless-Laplacian quadratic form. Strictness for every non-complete graph follows from a vector supported on any missing edge.
+## correctness
 
-`verify_resonator_strength.py` supplies supplementary finite checks. It enumerates all simple graphs through five vertices, confirms the complete graph is the unique maximizer of the least signless-Laplacian eigenvalue, verifies the exact characteristic polynomial of the four-vertex triangle-plus-pendant example, checks odd cycles, and numerically checks the scaled Dirichlet-to-Neumann singular value near representative odd and even resonances. The script prints `VERIFY_OK`.
+PASS
 
-The literature comparison used the full text of the archive-era source, including its pole estimate, odd-cycle construction, degree-four example, and explicit remark asking for effective designs. The result has not undergone an independent audit.
+The edge boundary-value solution independently gives Λ_G(k²)=k/sin(kℓ)(A-cos(kℓ)D). At an odd resonance the finite factor tends to Q=D+A and the scalar residue magnitude tends to 2λ0/ℓ, hence the scaled least singular value tends to (2λ0/ℓ)q_min(Q). At even resonance the factor tends to -L, which has a constant-vector kernel. For fixed d, Q(G)+Q(Gbar)=(d-2)I+J; on the orthogonal complement of the all-ones vector this gives q_min(G)<=d-2, and any missing complement edge produces a strict test vector, so equality is unique to K_d. A fresh independent enumeration of every simple graph through five vertices reproduced unique maxima 1,2,3 for d=3,4,5.
+
+## originality
+
+PASS
+
+Originality passes narrowly. Do--Kuchment--Ong prove only existence of an unspecified uniform pole constant under their resonance condition and explicitly ask how that constant depends on the decoration in order to choose effective designs. The audited result answers that stated design question on the natural all-boundary equilateral simple-graph subclass by identifying the exact residue with the least signless-Laplacian eigenvalue and solving the fixed-boundary-size optimization. Standard signless-Laplacian theory supplies graph-spectral ingredients but no checked source couples them to this quantum-graph pole coefficient.
+
+## value
+
+PASS
+
+The pole constant is exactly the quantity the motivating gap paper identifies as controlling design effectiveness. Turning it into a graph invariant gives an immediate bipartiteness feasibility criterion, an optimizer for every boundary size, and a quantitative comparison with the source example. This is a motivated exact design theorem even though the residue calculation itself is concise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

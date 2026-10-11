@@ -1,32 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The edge boundary-value problem gives the exact matrix
-\[
-\Lambda_G(k^2)=\frac{k}{\sin(k\ell)}\left(A-\cos(k\ell)D\right).
-\]
-At an odd resonance \(k_0\ell=n\pi\), the matrix factor tends to \(Q=D+A\), while
-\[
-|k^2-k_0^2|\left|\frac{k}{\sin(k\ell)}\right|
-\longrightarrow \frac{2k_0^2}{\ell}.
-\]
-Continuity of singular values therefore proves the stated coefficient. The even-resonance claim follows because the limiting numerator is \(-L\), which is singular. The fixed-order optimum follows from
-\[
-Q(G)+Q(\overline G)=(d-2)I+J
-\]
-and the positive-semidefinite signless-Laplacian quadratic form. The strict equality case is established by an explicit vector supported on a missing edge. Supplementary enumeration and near-resonance numerical checks replay these formulas.
+PASS
 
-## Originality
+The edge boundary-value solution independently gives Λ_G(k²)=k/sin(kℓ)(A-cos(kℓ)D). At an odd resonance the finite factor tends to Q=D+A and the scalar residue magnitude tends to 2λ0/ℓ, hence the scaled least singular value tends to (2λ0/ℓ)q_min(Q). At even resonance the factor tends to -L, which has a constant-vector kernel. For fixed d, Q(G)+Q(Gbar)=(d-2)I+J; on the orthogonal complement of the all-ones vector this gives q_min(G)<=d-2, and any missing complement edge produces a strict test vector, so equality is unique to K_d. A fresh independent enumeration of every simple graph through five vertices reproduced unique maxima 1,2,3 for d=3,4,5.
 
-**PASS, with a narrow scope.** Do--Kuchment--Ong prove the uniform pole estimate abstractly, give an odd-cycle construction, and explicitly identify dependence of the gap size on their constant \(C\) as a design question. Their inspected full text does not evaluate that constant for general all-boundary equilateral simple decorations or optimize it over a fixed boundary size.
+## originality
 
-The signless-Laplacian reduction is specific to the all-boundary equilateral subclass. Targeted searches for combinations of “signless Laplacian,” “Dirichlet-to-Neumann,” “resonant spectral gap,” and “quantum graph decoration” did not locate an equivalent result. General signless-Laplacian spectral theory and unrelated signless-Laplacian quantum walks do not imply the quantum-graph residue formula without the edge Dirichlet-to-Neumann calculation.
+PASS
 
-Residual risk remains because the identity is compact and may appear in work phrased using \(M\)-functions or boundary triples. The claim therefore does not assert priority for the general resonant mechanism or for signless-Laplacian graph theory.
+Originality passes narrowly. Do--Kuchment--Ong prove only existence of an unspecified uniform pole constant under their resonance condition and explicitly ask how that constant depends on the decoration in order to choose effective designs. The audited result answers that stated design question on the natural all-boundary equilateral simple-graph subclass by identifying the exact residue with the least signless-Laplacian eigenvalue and solving the fixed-boundary-size optimization. Standard signless-Laplacian theory supplies graph-spectral ingredients but no checked source couples them to this quantum-graph pole coefficient.
 
-## Value
+## value
 
-**PASS.** The finding answers the source paper's stated design question on a broad, natural finite class rather than for a single example. It turns the analytic pole-strength problem into a graph spectral invariant, gives a structural feasibility test through bipartiteness, proves a unique optimizer for every boundary size, and quantifies a more than fourfold improvement over the source's four-boundary example.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The pole constant is exactly the quantity the motivating gap paper identifies as controlling design effectiveness. Turning it into a graph invariant gives an immediate bipartiteness feasibility criterion, an optimizer for every boundary size, and a quantitative comparison with the source example. This is a motivated exact design theorem even though the residue calculation itself is concise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
