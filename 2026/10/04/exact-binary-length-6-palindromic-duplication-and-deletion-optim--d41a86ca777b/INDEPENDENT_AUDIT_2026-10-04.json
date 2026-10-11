@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:41:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 338b8bca0d5d422df971c2b5b06a7510a213f6c5",
+        "assigned verify.py blob ab94fcb1ec4eeadd3e9af870f18cad9f543acc21",
+        "assigned certificates.json blob 2f842ed5a85e3f0760735b6b9063446d3a55b3f1",
+        "independent reconstruction of both 64-vertex conflict graphs and exact independent-set optima"
+      ],
+      "rationale": "The channel definitions were reconstructed directly. An independent exact conflict-graph computation on all \\(64\\) length-six words gives \\(56\\) duplication-conflict edges and \\(34\\) deletion-conflict edges. Exact maximum-independent-set optimization returns \\(40\\) and \\(42\\), respectively. The package certificates independently realize the same bounds: a 40-word duplication packing plus 24 disjoint conflict edges, and a 42-word deletion packing plus a disjoint partition into eight conflict triangles, six conflict edges, and 28 singletons. These upper certificates are logically sufficient without relying on an optimizer.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lenz et al. develop general sphere formulas/bounds; Sun--Ge study constructions and redundancy for arbitrary lengths/errors.",
+          "Neither inspected source states a theorem that forces the exact two small independent numbers."
+        ],
+        "reasoning": "The general coding bounds do not dominate the exact finite extremum at this parameter.",
+        "searches": [
+          "Lenz--Wachter-Zeh--Yaakobi arXiv:1707.00052",
+          "Sun--Ge arXiv:2602.01151"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1707.00052",
+        "arXiv:2602.01151",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source supplies examples proving the two correction notions differ but no optimality argument for all 64 source words."
+        ],
+        "reasoning": "The audited exact optima are not a corollary of the published examples or general sphere bounds; exhaustive upper certificates add genuinely new information.",
+        "searches": [
+          "arXiv:1707.00052 Section on relationship between palindromic duplication and deletion codes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's examples are at binary length 6 and duplication length 2, but establish only nonequivalence by particular code examples.",
+          "The audited statement is the stronger extremal pair \\(\\alpha(G_{dup})=40\\), \\(\\alpha(G_{del})=42\\)."
+        ],
+        "reasoning": "Equivalent formulations as independent numbers of the two finite confusability graphs, maximum sphere packings, or exact one-error correcting-code sizes were compared.",
+        "searches": [
+          "Resultary: binary length 6 palindromic duplication deletion correction exact optimum code size 40 42 block length 2",
+          "Lenz--Wachter-Zeh--Yaakobi arXiv:1707.00052"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact finite table or database entry giving 40 and 42 was located among the returned published findings."
+        ],
+        "reasoning": "This is a small finite extremal value, so exact-table coverage was specifically checked rather than inferred from the absence of a theorem.",
+        "searches": [
+          "Resultary exact-value search for palindromic duplication/deletion length 6 block 2"
+        ]
+      },
+      "rationale": "The closest defining source uses exactly the binary \\(n=6\\), duplication length \\(2\\), one-error setting to demonstrate that palindromic duplication and deletion correction are not equivalent, but it does not determine either exact maximum code size. Later palindromic-duplication work inspected is asymptotic/general and does not supply the paired \\(40\\) versus \\(42\\) finite optimum. Targeted Resultary searches likewise found no covering exact result.",
+      "residual_risks": [
+        "An unindexed finite computation or unpublished small-parameter table could still contain the same pair of values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the exact optima.",
+          "evidence": "The paper proves nonequivalence through examples at the same natural parameter but does not compute maximum correcting-code cardinalities 40 and 42.",
+          "identifier_or_url": "arXiv:1707.00052",
+          "material_read": "Full primary paper, especially the section comparing palindromic duplication and deletion correction and its two binary length-six examples.",
+          "method": "Open-access full-text inspection, including visual inspection of the relevant PDF page.",
+          "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+          "trigger": "Exact channel and same binary length-six, block-length-two parameter used to establish nonequivalence."
+        },
+        {
+          "assessment": "NOT_COVERING the paired finite optimum.",
+          "evidence": "The paper develops constructions and redundancy bounds for palindromic/reverse-complement duplication correction rather than the binary n=6 exact duplication/deletion pair.",
+          "identifier_or_url": "arXiv:2602.01151",
+          "material_read": "Primary PDF abstract/introduction and stated main directions/results.",
+          "method": "Open-access full-text/PDF inspection of the paper's scope and main-result roadmap.",
+          "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+          "trigger": "Recent primary work on palindromic duplication correction that could plausibly contain stronger finite results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lenz--Wachter-Zeh--Yaakobi arXiv:1707.00052",
+        "assigned exact certificates"
+      ],
+      "rationale": "The exact parameter is not arbitrary: it is the very binary length-six, block-length-two setting used in the foundational paper to demonstrate nonequivalence of palindromic duplication and deletion correction. Replacing witness-level nonequivalence by the exact extremal separation \\(40<42\\) gives a motivated quantitative answer and a reusable benchmark for this error model.",
+      "residual_risks": [
+        "The contribution is a single finite benchmark rather than a general formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary source words of length \\(6\\), one palindromic duplication of block length \\(2\\) has exact correcting-code optimum \\(40\\), while one palindromic deletion of block length \\(2\\) has exact optimum \\(42\\).",
+  "limitations": [
+    "Only the binary alphabet, source length \\(6\\), block length \\(2\\), and one error are covered.",
+    "The result determines the two optimum cardinalities but does not classify all optimal codes or give an asymptotic theorem."
+  ],
+  "schema_version": 1
+}
