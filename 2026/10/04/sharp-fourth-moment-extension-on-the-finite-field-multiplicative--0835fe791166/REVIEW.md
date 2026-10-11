@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-The proof was reconstructed from the collision equation rather than inferred from computation. For a nonzero pair sum, equal first coordinates and equal inverse-coordinate sums force equality of the unordered pairs; the zero sum is the sole exceptional fiber. This yields the exact weighted identity \(Q=2S^2-P_4-2R+|B|^2\). Pairwise AM--GM, phase alignment, and Cauchy--Schwarz then give the sharp upper bound, and their equality conditions intersect exactly in the stated extremizer class. The normalization was checked against the standard finite-field convention of counting measure on the ambient physical space and normalized surface measure on the frequency surface.
+## correctness
 
-## Originality
-The closest broad theorem is Iosevich--Koh's uniform \(L^2\to L^4\) estimate for nondegenerate quadratic surfaces, which includes \(xy=1\) but records only a field-size-independent bound and does not determine the best finite-field constant or maximizers. Iosevich--Murphy--Pakianathan inspect the same hyperbola through Kloosterman Fourier decay rather than weighted fourth extension energy. The 2024 sharp-extension paper treats several named paraboloid and cone geometries and explicitly frames best constants and maximizers as a newer problem; the planar multiplicative hyperbola is not among its stated sharp cases. Exact-formula, additive-energy, Kloosterman-hyperbola, and extremizer searches produced no covering statement.
+PASS
 
-Residual risk remains that an older or differently indexed calculation of the same exact weighted energy exists in Kloosterman, conic, or additive-combinatorics literature. No inspected source implied the theorem.
+If two ordered hyperbola pairs have the same nonzero vector sum, then their first-coordinate sums agree and equality of inverse-coordinate sums forces the same product, so the unordered pair is determined; every nonzero pair-sum fiber therefore has size at most two. The zero fiber consists of all \(q-1\) ordered antipodal pairs. This gives the same exact weighted-energy identity as in the anisotropic case. Antipodal-pair optimization forces equal moduli within and across pairs and common phase of the products, yielding \(\mathcal Q\le3(q-2)S^2/(q-1)\) and hence the stated normalized constant. Independent brute-force reconstruction for \(q=3,5,7,11,13\) reproduced zero-fiber size \(q-1\), nonzero-fiber maximum two and energy \(3(q-1)(q-2)\); the actual verifier repeats these checks through prime 101 and certifies a nontrivial phase extremizer.
 
-## Value
-The multiplicative hyperbola is a canonical Kloosterman surface and a basic nondegenerate quadratic curve. The theorem upgrades the known bounded endpoint estimate to an exact finite-\(q\) constant and completely describes equality. The mechanism is structural: a single large zero-sum collision fiber is responsible for both the finite-size correction and the antipodal phase condition, so the result exposes information lost by uniform pair-sum bounds or Fourier-decay estimates.
+## originality
 
-## Limitations
-Characteristic two is excluded, and no claim is made about other extension exponents, near-extremizer stability, or finite rings.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The same-dimensional Iosevich--Koh theorem supplies only a uniform \(L^2\to L^4\) estimate for nondegenerate quadratic curves, with a proof that bounds nonzero two-point sums but is deliberately nonsharp at the exceptional zero fiber and in equality. Hyperbola-specific prior work checked studies Fourier decay/additive behavior rather than the exact extension norm. The recent sharp finite-field extension papers located address other surfaces. No prior exact value or all-extremizer classification for this hyperbola was found.
+
+## value
+
+PASS
+
+The multiplicative hyperbola is a canonical finite-field curve. Replacing the known uniform extension estimate by an exact norm and complete extremizer class is a natural sharp endpoint problem, with the split conic's \(q-1\) geometry producing a distinct constant from the anisotropic \(q+1\) case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
