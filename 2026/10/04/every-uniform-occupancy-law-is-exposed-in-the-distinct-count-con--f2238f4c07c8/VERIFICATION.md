@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the exact occupancy identity
-\[
-\Pr\{K_{n,m}=k\}=\frac{S(n,k)(m)_{k\downarrow}}{m^n}
-\]
-and the reciprocal parameter \(x=1/m\). This produces the polynomial coordinates
-\[
-p_{n,k}(x)=S(n,k)x^{n-k}\prod_{j=1}^{k-1}(1-jx).
-\]
-Their lowest nonzero powers are distinct: \(p_{n,k}\) starts with \(S(n,k)x^{n-k}\). Therefore they form a basis of all polynomials of degree at most \(n-1\).
+# Independent mathematical audit
 
-For every finite \(m_0\), the exposing polynomial is
-\[
--\left(x-\frac1{m_0}\right)^2.
-\]
-It is available exactly when \(n\ge3\), and it has a unique maximum at \(x=1/m_0\) on the full set \(\{0,1,1/2,1/3,\ldots\}\). The limiting point \(x=0\) is exposed by \(-x\). This verifies the universal claim without a limiting or finite-enumeration step.
+## correctness
 
-The accompanying exact-arithmetic checker reconstructs Stirling numbers and coordinate polynomials, verifies the triangular basis structure and the identity \(\sum_k p_{n,k}(x)=1\), solves for the linear functionals representing the exposing polynomials for multiple values of \(n\) and \(m_0\), and checks strict separation on sample parameter grids. These computations are consistency checks only; the symbolic basis argument is the proof for all \(n\ge3\).
+PASS
 
-The verification does not address Zhu's stronger characterization of all exchangeable distinct-count laws and does not assess any independent audit channel.
+Zhu's exact occupancy coordinates become, after \(x=1/m\), \(p_{n,k}(x)=S(n,k)x^{n-k}\prod_{j=1}^{k-1}(1-jx)\). Each has degree at most \(n-1\) and a distinct lowest nonzero power \(x^{n-k}\), so the \(n\) coordinate polynomials form a basis of all real polynomials of degree at most \(n-1\). For \(n\ge3\), the quadratic \(-\left(x-1/m_0\right)^2\) is therefore a linear functional of the probability vector and uniquely exposes the finite point \(m_0\) on \(\{0,1,1/2,\ldots\}\); \(-x\) uniquely exposes the limiting point \(m=\infty\). Finally, a point of \(\operatorname{conv}(V_n)\) not itself in \(V_n\) has a finite convex representation involving at least two distinct generators and hence a nontrivial segment decomposition, so it is not extreme.
+
+## originality
+
+PASS
+
+Zhu's full primary text states exactly the extreme-point assertion as Conjecture 2(i), proves it only for \(n=3\), and in Section 4 calls the higher-dimensional statement a first step, notes that it does not seem to be recorded in the Stirling-number literature, and reports only finite numerical checks. The audited polynomial-basis argument proves all \(n\ge3\) and strengthens extremality to exposedness. Targeted Resultary and web searches under occupancy, Stirling-coordinate, moment-curve, and convex-hull language found no covering theorem.
+
+## value
+
+PASS
+
+The theorem settles the exact extreme-point half of a published conjecture for every dimension and upgrades it to exposedness with explicit supporting functionals. It is a complete natural classification rather than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
