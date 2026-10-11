@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof uses the exact Baronti--Papini definition of \(J_\perp\) and the exact mixed norm. The support-functional characterization of Birkhoff--James orthogonality exhausts all unit vectors into Euclidean-arc interiors, taxicab-segment interiors, and coordinate-axis junctions. The first two classes are proved to contribute at most \(\sqrt2\). At an axis, the problem becomes the unique crossing of an increasing function \(F(a)\) and a decreasing function \(G(a)\), and the change of variable \(t=\sqrt{(1-a)/(1+a)}\) turns that crossing into \(t^4+2t^3-1=0\). The unique root in the admissible interval gives a value strictly above \(\sqrt2\), completing the global proof.
+## correctness
 
-Risk: the result classifies the maximizing branch and a symmetry orbit, but it does not attempt a separate taxonomy of all symmetry-redundant ordered pairs; that is outside the claimed exact value.
+PASS
 
-## Originality
-**PASS.** Baronti--Papini (2022) study exactly this norm and state only \(J_\perp(X)\approx1.626\), with approximate optimizer coordinates. Martín--Papini (2024) revisit extreme sums of Birkhoff-orthogonal unit vectors and explicitly recall \(J_\perp\), but the inspected full text gives exact values for other examples rather than an exactification of this one. Later weighted and approximate-Birkhoff generalizations were searched by object, aliases, decimal value, and algebraic form; no implication of the final formula was found. published-finding corpus and the current prior ledger likewise contain no covering statement.
+The unit sphere is exhausted by smooth Euclidean arcs, interiors of taxicab segments and the four nonsmooth axis junctions. On a Euclidean arc, the unique norming functional forces the orthogonal direction and gives a contribution at most \(\sqrt2\). On a taxicab segment, the corresponding diagonal orthogonal direction again gives at most \(\sqrt2\). At \(x=(1,0)\), using the full support-functional interval reduces every admissible orthogonal unit vector to \(y=(a,\sqrt{1-a^2})\), \(0\le a\le1/\sqrt2\), with \(F(a)=\sqrt{2(1+a)}\) increasing and \(G(a)=1-a+\sqrt{1-a^2}\) decreasing. Their unique crossing is therefore the global axis maximum, and the substitution \(t=\sqrt{(1-a)/(1+a)}\) converts it to \(t^4+2t^3-1=0\). The positive-root monotonicity and independent algebraic elimination reproduce the stated exact constant and equivalent polynomial.
 
-Residual risk: an obscure independent derivation may be absent from the searched indexes, and the full text of one 2026 weighted preprint was unavailable through the browsing route used.
+## originality
 
-## Value
-**PASS.** The primary source itself identifies this computation as nontrivial and leaves it numerical. The exact algebraic evaluation closes that concrete gap, supplies an exact extremizer, and reveals a structural fact: smooth Euclidean arcs and taxicab edges are uniformly suboptimal, while a nonsmooth axis junction controls the invariant. This makes the example a sharper benchmark for later orthogonality-constrained James-type constants.
+PASS
 
-## Closest literature and limitations
-The closest source is Baronti--Papini (2022), DOI:10.33205/cma.1067323, Example 5.4. Martín--Papini (2024), DOI:10.7153/mia-2024-27-28, is the closest later full-text treatment of extreme sums of Birkhoff-orthogonal unit vectors. The result is limited to this real two-dimensional norm and the unweighted constant; no higher-dimensional, weighted, or approximate-orthogonality formula is claimed.
+The defining primary source studies exactly this mixed Euclidean--taxicab plane in Example 5.4, says the calculation of \(J_\perp\) is nontrivial, and records only \(J_\perp\approx1.626\) with an approximate extremizing coordinate \(a\approx0.321\). It omits the exact algebraic value, a derivation, and a proof that all sphere branches have been globally exhausted. The audited theorem supplies that missing exact support-functional classification and algebraic crossing. Resultary returned the assigned exactification as the only exact match for this example.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is the specific nontrivial example singled out in the paper studying the orthogonal James parameter. Replacing a source-level unexplained decimal by a rigorous exact algebraic value, a complete branch classification and an explicit maximizing orbit gives a natural exact invariant for a canonical mixed Banach plane rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
