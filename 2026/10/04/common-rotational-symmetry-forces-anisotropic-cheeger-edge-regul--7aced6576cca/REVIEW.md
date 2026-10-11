@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Kawohl and Novaga's planar convex anisotropic Cheeger theorem gives the unique set
-\[
-C_W(\Omega)=(\Omega\ominus\rho W)\oplus\rho W
-\]
-with \(|\Omega\ominus\rho W|=\rho^2|W|\). If an orthogonal map \(Q\) preserves both \(\Omega\) and \(W\), then membership in the erosion is equivalent before and after applying \(Q\), so the erosion and hence the Cheeger set are \(Q\)-invariant. The cyclic-group intersection yields at least \(\gcd(k,\widetilde k)\)-fold symmetry and \(k\mid\widetilde k\) yields full \(k\)-symmetry.
+PASS
 
-For edge contact, a boundary point of the erosion determines a translated scaled Wulff body contained in \(\Omega\). If that translate had positive clearance from \(\partial\Omega\), the erosion point would be interior, a contradiction. Thus a Cheeger/domain boundary contact exists, and full common \(k\)-symmetry rotates it onto every Cañete edge. All hypotheses and the distinction between sufficient and necessary conditions are explicit.
+Translate coordinates so the common rotation center is the origin. The planar convex anisotropic Cheeger theorem gives C=(Omega minus rho W) plus rho W and uniqueness. Any orthogonal Q preserving both Omega and W commutes exactly with Minkowski erosion and addition, hence QC=C. Cyclic rotation groups of orders k and k_tilde intersect in the subgroup of order gcd(k,k_tilde), and k divides k_tilde makes the domain generator a W symmetry. For contact, a boundary point z of the erosion has z+rho W inside Omega; if this translate had positive clearance from the boundary then z would be interior to the erosion, a contradiction. A resulting point of C on boundary Omega lies on boundary C, and the k-fold orbit supplies a contact in every cyclic edge.
 
-## Originality
+## originality
 
-PASS with residual folklore risk. Cañete's 2021 article proves the Euclidean symmetry and edge-contact conclusions, then explicitly proposes their anisotropic extension as future work and predicts a divisibility relation between domain and Wulff rotational orders. The inspected Kawohl--Novaga theorem provides the anisotropic Minkowski representation but does not discuss this rotational consequence. Later anisotropic-Cheeger searches located work on optimizing the anisotropy and other anisotropic Cheeger questions, but no statement of the common-rotation/divisibility theorem or the resulting Cañete-edge contact.
+PASS
 
-The symmetry-inheritance subclaim is a short equivariance consequence of uniqueness, so it may be folklore. The combined result remains original under the searches performed because it makes Cañete's proposed divisibility mechanism explicit and carries it through to his edge-regularity conclusion.
+The primary Euclidean paper explicitly marks the anisotropic question as future work and anticipates the same kind of divisibility phenomenon. The anisotropic structure theorem supplies the mechanism, but no inspected source states the gcd/common-symmetry and all-edge contact result.
 
-## Value
+## value
 
-PASS. The result answers a concrete future-work direction in the primary geometry source. It identifies a transparent sufficient divisibility rule, clarifies the partial-symmetry case through a greatest-common-divisor law, and shows that polygonality or parallel-side assumptions on the Wulff body are unnecessary for the two basic conclusions. The edge-contact conclusion is geometrically useful because it transports Cañete's structural regularity notion to the anisotropic setting, rather than merely observing invariance of a minimizer.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The result answers a concrete future-work direction in the primary geometry source, identifies a reusable group-theoretic criterion for anisotropic symmetry inheritance, and extends the geometrically meaningful all-edge-contact property without polygonality or parallel-side hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

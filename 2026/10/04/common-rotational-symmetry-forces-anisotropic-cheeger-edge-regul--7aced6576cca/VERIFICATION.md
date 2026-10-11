@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,30 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The critical external premise is the planar anisotropic Cheeger representation
-\[
-C_W(\Omega)=(\Omega\ominus\rho W)\oplus\rho W,
-\qquad
-|\Omega\ominus\rho W|=\rho^2|W|,
-\]
-with uniqueness. This is the content of Kawohl--Novaga's planar theorem inspected in the open full text.
+## correctness
 
-For a common orthogonal symmetry \(Q\), the set identity is checked directly:
-\[
-x\in\Omega\ominus\rho W
-\iff
-x+\rho W\subseteq\Omega
-\iff
-Qx+\rho W\subseteq\Omega
-\iff
-Qx\in\Omega\ominus\rho W.
-\]
-Thus the erosion is \(Q\)-invariant, and equivariance of Minkowski addition yields \(QC_W(\Omega)=C_W(\Omega)\).
+PASS
 
-For rotational orders \(k\) and \(\widetilde k\), the two generated cyclic rotation groups contain the subgroup of order \(\gcd(k,\widetilde k)\). If \(k\mid\widetilde k\), rotation by \(2\pi/k\) preserves both sets.
+Translate coordinates so the common rotation center is the origin. The planar convex anisotropic Cheeger theorem gives C=(Omega minus rho W) plus rho W and uniqueness. Any orthogonal Q preserving both Omega and W commutes exactly with Minkowski erosion and addition, hence QC=C. Cyclic rotation groups of orders k and k_tilde intersect in the subgroup of order gcd(k,k_tilde), and k divides k_tilde makes the domain generator a W symmetry. For contact, a boundary point z of the erosion has z+rho W inside Omega; if this translate had positive clearance from the boundary then z would be interior to the erosion, a contradiction. A resulting point of C on boundary Omega lies on boundary C, and the k-fold orbit supplies a contact in every cyclic edge.
 
-For contact, let \(A=\Omega\ominus\rho W\). The area equation gives \(|A|>0\). If \(z\in\partial A\) and \(z+\rho W\) had positive clearance from \(\partial\Omega\), then all sufficiently small translates of \(z\) would remain in \(A\), contradicting \(z\in\partial A\). Hence \(z+\rho W\) touches \(\partial\Omega\), and that contact lies on \(\partial C_W(\Omega)\). Under full common \(k\)-symmetry its orbit meets every Cañete edge.
+## originality
 
-No numerical enumeration or finite experiment is used. The verification is an exact reconstruction of the set identities, group inclusion, and compactness argument.
+PASS
+
+The primary Euclidean paper explicitly marks the anisotropic question as future work and anticipates the same kind of divisibility phenomenon. The anisotropic structure theorem supplies the mechanism, but no inspected source states the gcd/common-symmetry and all-edge contact result.
+
+## value
+
+PASS
+
+The result answers a concrete future-work direction in the primary geometry source, identifies a reusable group-theoretic criterion for anisotropic symmetry inheritance, and extends the geometrically meaningful all-edge-contact property without polygonality or parallel-side hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
