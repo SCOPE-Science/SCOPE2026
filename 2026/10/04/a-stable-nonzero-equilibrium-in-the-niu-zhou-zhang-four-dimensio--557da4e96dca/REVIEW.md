@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The equilibrium coordinates follow algebraically from the printed ODE. An exact rational replay verifies the equilibrium equations, independently reconstructs the characteristic polynomial from \(\det(\lambda I-J)\), and evaluates the quartic Routh–Hurwitz determinants. Both nontrivial determinants are strictly positive and all polynomial coefficients are positive, proving strict left-half-plane spectrum. Approximate roots are secondary only.
+## correctness
 
-## Originality
-PASS. The primary open-access article was inspected through its defining equations, equilibrium section, Jacobian, and numerical eigenvalues. published-finding corpus searches by DOI, equilibrium coordinates, explicit vector-field form, and stability/correction aliases did not return a statement covering this source-specific correction. The closest published-finding corpus records concern other dynamical systems and do not imply the claim. Exact web searches likewise found the primary article and downstream reuse but no correction of this equilibrium classification.
+PASS
 
-Residual risk: no literature search can establish logical nonexistence of every unindexed correction; one downstream 2025 reuse was available only through an indexed excerpt and is not relied on for the proof.
+Solving the printed equilibrium equations exactly gives y=-fx, z=b+cf=856/25, x=(b+cf)/(a(f+1))=428/1445, y=-5136/7225 and w=(fx^2+dz)/e=1432077728/18792225. Exact substitution vanishes. Expanding det(lambda I-J) at this point gives the primitive positive-coefficient quartic printed in the package. The nontrivial Routh–Hurwitz determinants recompute exactly as Delta_2=1850867402738339250 and Delta_3=23033184284619159659128251000, both positive; therefore every eigenvalue has negative real part. The approximate roots are consistent but unnecessary.
 
-## Value
-PASS. The source uses this parameter vector as a hyperchaotic pseudorandom generator and states that both equilibria are unstable. Correcting the nonzero equilibrium to asymptotically stable changes the phase portrait qualitatively: there is an open basin that converges to a fixed point. Consequently any chaotic invariant set at the same parameters is multistable with a nonchaotic steady state, which is directly relevant to dynamical interpretation and to initialization robustness of the generator.
+## originality
 
-## Closest literature and limitations
-The closest retrieved SCOPE/published-finding corpus items were exact stability results for other flows, including Lorenz-96-like, Halvorsen, and predator-dependent replicator systems. They provide no implication for this characteristic polynomial. The claim is local: it does not estimate the attraction basin, prove or disprove the separate chaotic set, or re-evaluate the full encryption construction.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact open-access primary paper was inspected and states the opposite result: for the same E2 it prints eigenvalues -24.1106,-12.4377,-4.1019,+0.0501 and declares both equilibria unstable. Fresh Resultary search returns the submitted record itself plus corrections for other unrelated four-dimensional flows, but no prior correction of this Niu–Zhou–Zhang equilibrium. Thus the exact Hurwitz sign correction is not a corollary of the source and remains original to best knowledge.
+
+## value
+
+PASS
+
+Changing the nonzero equilibrium from unstable to asymptotically stable changes the qualitative phase portrait at the parameter vector used as the pseudorandom generator: it creates an open steady-state basin that must coexist with any chaotic invariant set. This is a substantive dynamical correction with direct initialization/interpretation relevance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

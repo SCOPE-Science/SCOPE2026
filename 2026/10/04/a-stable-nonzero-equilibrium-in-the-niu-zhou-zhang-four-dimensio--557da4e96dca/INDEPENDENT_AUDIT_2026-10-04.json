@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:53:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solving the printed equilibrium equations exactly gives y=-fx, z=b+cf=856/25, x=(b+cf)/(a(f+1))=428/1445, y=-5136/7225 and w=(fx^2+dz)/e=1432077728/18792225. Exact substitution vanishes. Expanding det(lambda I-J) at this point gives the primitive positive-coefficient quartic printed in the package. The nontrivial Routh–Hurwitz determinants recompute exactly as Delta_2=1850867402738339250 and Delta_3=23033184284619159659128251000, both positive; therefore every eigenvalue has negative real part. The approximate roots are consistent but unnecessary.",
+      "risks": [
+        "Local hyperbolic stability does not determine the global basin or existence of a separate chaotic invariant set."
+      ],
+      "sources": [
+        "Frozen source tree a51bbfef3e4fef79fcf004182442f0169cb234c1",
+        "Niu–Zhou–Zhang, Scientific Reports 14, 7033 (2024), DOI 10.1038/s41598-024-57756-x",
+        "Independent exact rational and Hurwitz replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary article studies the complete encryption/chaos system but its local E2 classification is wrong.",
+          "Broader correction records concern different equations and do not imply this quartic."
+        ],
+        "reasoning": "No broader inspected theorem evaluates this exact source-specific equilibrium.",
+        "searches": [
+          "Niu–Zhou–Zhang full open-access article",
+          "Fresh Resultary four-dimensional-flow stability records"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1038/s41598-024-57756-x",
+        "Fresh Resultary Niu–Zhou–Zhang query",
+        "Frozen exact verifier/output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source explicitly concludes instability from +0.0501, whereas exact Hurwitz signs prove strict stability."
+        ],
+        "reasoning": "Prior work implies the opposite qualitative conclusion, so it cannot cover the correction.",
+        "searches": [
+          "Scientific Reports equilibrium section and Jacobian",
+          "Resultary query above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives the identical vector field, parameter vector and E2 coordinates but reports a positive 0.0501 eigenvalue.",
+          "The Resultary search self-matches the audited record; other hits concern different flows."
+        ],
+        "reasoning": "Equivalent formulations by exact coordinates, Jacobian spectrum, and Routh–Hurwitz stability all conflict with the primary source rather than being covered by it.",
+        "searches": [
+          "Scientific Reports DOI 10.1038/s41598-024-57756-x, equilibrium-stability section",
+          "Resultary query: Niu Zhou Zhang 0.0501 nonzero equilibrium stable corrected spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact numeric table located is the primary paper’s erroneous spectrum; no independent corrected spectrum table was found."
+        ],
+        "reasoning": "This is a bespoke exact reconstruction, not a known tabulated invariant.",
+        "searches": [
+          "Exact DOI plus 0.0501 search",
+          "Resultary exact semantic query above"
+        ]
+      },
+      "rationale": "The exact open-access primary paper was inspected and states the opposite result: for the same E2 it prints eigenvalues -24.1106,-12.4377,-4.1019,+0.0501 and declares both equilibria unstable. Fresh Resultary search returns the submitted record itself plus corrections for other unrelated four-dimensional flows, but no prior correction of this Niu–Zhou–Zhang equilibrium. Thus the exact Hurwitz sign correction is not a corollary of the source and remains original to best knowledge.",
+      "residual_risks": [
+        "An unindexed correction or erratum could exist; no such source was located in the targeted search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_CONFLICT",
+          "evidence": [
+            "The source prints E2=(0.2962,-0.7109,34.2400,76.2059), eigenvalue +0.0501 and the conclusion that both equilibria are unstable."
+          ],
+          "identifier_or_url": "doi:10.1038/s41598-024-57756-x",
+          "material_read": "Full open-access HTML through the proposed flow, dissipativity/equilibrium stability section, Jacobian, parameter vector and E2 eigenvalues.",
+          "method": "Primary full-text equation-by-equation comparison.",
+          "title": "Image encryption scheme based on improved four-dimensional chaotic system and evolutionary operators",
+          "trigger": "Exact source defining the flow and disputed equilibrium spectrum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Changing the nonzero equilibrium from unstable to asymptotically stable changes the qualitative phase portrait at the parameter vector used as the pseudorandom generator: it creates an open steady-state basin that must coexist with any chaotic invariant set. This is a substantive dynamical correction with direct initialization/interpretation relevance.",
+      "risks": [
+        "No cryptographic-security conclusion follows solely from local stability."
+      ],
+      "sources": [
+        "Niu–Zhou–Zhang application context",
+        "Exact Hurwitz certificate"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local stability only; no basin-volume or global-attractor classification.",
+    "No independent claim about the encryption algorithm’s overall security."
+  ],
+  "schema_version": 1
+}

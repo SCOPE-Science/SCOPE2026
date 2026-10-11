@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the same directory.
+# Independent mathematical audit
 
-The checker uses exact rational arithmetic for the published parameter vector and performs the following checks:
+## correctness
 
-1. Reconstructs the nonzero equilibrium \(E_*\) exactly and substitutes it into all four differential equations.
-2. Builds the published Jacobian at \(E_*\).
-3. Expands \(\det(\lambda I-J(E_*))\) directly by permutation arithmetic over rational polynomials.
-4. Reduces the result to the primitive integer polynomial
-\[
-10440125\lambda^4+423869075\lambda^3+4674655710\lambda^2+12506994792\lambda+643445784.
-\]
-5. Checks coefficient positivity and the exact quartic Routh–Hurwitz determinants
-\[
-\Delta_2=1850867402738339250,
-\]
-\[
-\Delta_3=23033184284619159659128251000.
-\]
-6. Computes approximate roots as a nonessential readability check and verifies their real parts are negative.
+PASS
 
-Successful replay ends with `VERIFY_OK`.
+Solving the printed equilibrium equations exactly gives y=-fx, z=b+cf=856/25, x=(b+cf)/(a(f+1))=428/1445, y=-5136/7225 and w=(fx^2+dz)/e=1432077728/18792225. Exact substitution vanishes. Expanding det(lambda I-J) at this point gives the primitive positive-coefficient quartic printed in the package. The nontrivial Routh–Hurwitz determinants recompute exactly as Delta_2=1850867402738339250 and Delta_3=23033184284619159659128251000, both positive; therefore every eigenvalue has negative real part. The approximate roots are consistent but unnecessary.
 
-The exact Routh–Hurwitz inequalities, not the floating-point roots, are the proof of local asymptotic stability. No global basin size, global attractor classification, or cryptographic security theorem is verified by this package.
+## originality
+
+PASS
+
+The exact open-access primary paper was inspected and states the opposite result: for the same E2 it prints eigenvalues -24.1106,-12.4377,-4.1019,+0.0501 and declares both equilibria unstable. Fresh Resultary search returns the submitted record itself plus corrections for other unrelated four-dimensional flows, but no prior correction of this Niu–Zhou–Zhang equilibrium. Thus the exact Hurwitz sign correction is not a corollary of the source and remains original to best knowledge.
+
+## value
+
+PASS
+
+Changing the nonzero equilibrium from unstable to asymptotically stable changes the qualitative phase portrait at the parameter vector used as the pseudorandom generator: it creates an open steady-state basin that must coexist with any chaotic invariant set. This is a substantive dynamical correction with direct initialization/interpretation relevance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
