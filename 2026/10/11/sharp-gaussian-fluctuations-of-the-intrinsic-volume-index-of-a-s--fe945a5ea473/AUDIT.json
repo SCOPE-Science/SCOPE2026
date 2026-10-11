@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Gaussian projection KKT yields the exact active-ray index. Normal Mills and truncated-tail expansions, a two-dimensional Lyapunov CLT with covariance [[1,1],[1,2]], a self-consistent root expansion and uniform local empirical-count control prove a centered Gaussian limit with variance two at scale t_m. Theorem 4.5 and 4.8 of McCoy–Tropp yield δ_m~t_m², uniform integrability and Var(J_m)/t_m²→2, which verifies every claimed normalization. The extracted verifier checks finite projection identities but the infinite proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldstein–Nourdin–Peccati, Theorem 1.1: CLT uses δ_C and τ_C, with τ_C^2/δ_C nondegeneracy assumption; Table 1 gives other cones",
+        "McCoy–Tropp, Theorem 4.5: Var(V_C)<=2 min(δ(C),δ(C^∘)); Theorem 4.8 supplies exponential moments"
+      ],
+      "reasoning": "Generic normal approximation does not imply this family satisfies its nondegeneracy condition or identify its deterministic explicit center/scale. The universal bound permits strict slack and cannot imply asymptotic equality. The new proof supplies missing inputs.",
+      "searches": [
+        "Gaussian Phase Transitions and Conic Intrinsic Volumes 2014 general central limit theorem variance normal approximation",
+        "arxiv:1411.6265 Theorem 1.1 Table 1",
+        "arxiv:1308.5265 Theorem 4.5 Theorem 4.8",
+        "arxiv:2006.09492 Theorem 2.4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1308.5265v5",
+      "arxiv:1411.6265v1",
+      "arxiv:2006.09492v1",
+      "https://damelunx.github.io/conivol/articles/conic-intrinsic-volumes.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldstein–Nourdin–Peccati Section 3 requires variance asymptotics supplied here",
+        "McCoy–Tropp Theorem 4.5 gives only an upper bound; Section 6.3 sharpness is shown using narrow circular cones",
+        "Kabluchko–Seidel 2020 Section 2.4 supplies exact probabilities without the claimed limit"
+      ],
+      "reasoning": "An earlier first-order mean/localization statement yields neither Gaussian fluctuations nor saturation. The general CLT cannot identify the exact normalization without the sharp variance calculation. The present full claim is not stated in the inspected sources.",
+      "searches": [
+        "conic intrinsic volume variance saturation regular simplex tangent cone sharp central limit",
+        "regular simplex vertex cone conic intrinsic-volume mean law variance CLT",
+        "arxiv:1411.6265 simplex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McCoy–Tropp arXiv:1308.5265, Sections 2, 4 and 6",
+        "Goldstein–Nourdin–Peccati arXiv:1411.6265, Theorem 1.1/Table 1",
+        "Kabluchko–Seidel arXiv:2006.09492, Theorem 2.4"
+      ],
+      "reasoning": "The equivalent random variable is the Gaussian projection active-ray count, as derived in the proof; replacing conic index by projected face dimension does not escape comparison. The examined papers lack its explicit logarithmic limiting variance and centering.",
+      "searches": [
+        "\"regular simplex\" \"conic intrinsic volumes\" \"central limit\" \"log\"",
+        "regular simplex tangent cone intrinsic volume variance 2 log n central limit",
+        "simplex vertex cone intrinsic-volume index CLT log n variance",
+        "regular simplex contracted orthant C_n(1) intrinsic volume index fluctuation central limit law"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kabluchko–Seidel, Theorem 2.4 equations (12),(13), exact finite-n formulas",
+        "Goldstein–Nourdin–Peccati, Table 1 lists orthant, PSD, circular and permutation chambers"
+      ],
+      "reasoning": "Finite formulas and tables do not state the sharp growing-dimensional intrinsic index law. Theorem 2.4 describes finite probabilities, not a table of their logarithmic variance or normal asymptotics.",
+      "searches": [
+        "Kabluchko Seidel intrinsic volumes simplex vertex cones Theorem 2.4 Gaussian",
+        "simplex vertex cone intrinsic volume numerical table asymptotic Gaussian logarithmic",
+        "arxiv:2006.09492 intrinsic volume conic formula 2020"
+      ]
+    },
+    "rationale": "The 2013 universal McCoy–Tropp bound allows the universal two-times-statistical-dimension variance bound but does not determine the variance in this family. Goldstein–Nourdin–Peccati 2014 normalize a generic cone by its unknown exact mean and standard deviation, and neither that theorem nor its listed examples supplies the explicit logarithmic center and asymptotic variance for a simplex vertex cone. Kabluchko–Seidel 2020 give finite intrinsic-volume formulas for simplex-related cones, without the present large-dimension CLT and asymptotic variance saturation in the inspected full text. Search and comparison against other published geometry results and own records found no stronger covering statement. Residual uncertainty about equivalent earlier asymptotics remains.",
+    "residual_risks": [
+      "Older angle-asymptotic or stochastic-programming literature not found could contain the same limiting law, even without matching terminology.",
+      "The general CLT and the exact finite formulas are stronger in other senses, but their conjunction does not on its face determine the explicit variance without analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers essential supporting inequalities, not the simplex-specific sharp asymptotics",
+        "evidence": [
+          "Theorem 4.5: the all-cone variance bound",
+          "Theorem 4.8: exact exponential-moment upper bound",
+          "Section 6.3: circular cone sharpness example"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1308.5265v5",
+        "material_read": "Sections 2, 4.3–4.8 and 6.3 (including full statement and proof of variance bound and exponential-moment inequality)",
+        "method": "Public full-text HTML, checked theorem statements and scope",
+        "title": "From Steiner Formulas for Cones to Concentration of Intrinsic Volumes",
+        "trigger": "Exact all-cone variance upper bound and master Steiner characterization may dominate the candidate"
+      },
+      {
+        "assessment": "General CLT with unspecified mean/variance; lacks explicit simplex vertex cone evaluation",
+        "evidence": [
+          "Theorem 1.1 is centered by E V_C and scaled by sqrt Var(V_C)",
+          "Remark 1.2 requires proving variance lower bounds",
+          "Table 1 contains Weyl chambers, orthants, circular and PSD cones; no regular-simplex vertex cones"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1411.6265v1",
+        "material_read": "Introduction/Theorem 1.1, Table 1 in Section 3, and Section 4 variance discussion",
+        "method": "Public arXiv full-text HTML and in-document search for simplex and variance",
+        "title": "Gaussian Phase Transitions and Conic Intrinsic Volumes: Steining the Steiner Formula",
+        "trigger": "General conic index central limit theorem might cover present limit"
+      },
+      {
+        "assessment": "No matching regular-simplex vertex-cone Gaussian index limit or sharp variance coefficient located",
+        "evidence": [
+          "Theorem 2.4 equations (12),(13) provide exact finite conic intrinsic-volume formulas",
+          "Section 4.3 discusses expected face counts for projected regular polytopes, distinct statistics"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/342258812_Convex_cones_spanned_by_regular_polytopes",
+        "material_read": "Full publicly displayed author text, Sections 1–2.4 (especially Theorem 2.4), asymptotics Section 4.3 and proof Section 5.1",
+        "method": "Legible open full text and targeted find for central limit and asymptotic",
+        "title": "Convex cones spanned by regular polytopes",
+        "trigger": "Direct finite-dimensional intrinsic volume formulas for simplex-generated cones"
+      },
+      {
+        "assessment": "Supports the basic Gaussian face-count representation, not asymptotic law",
+        "evidence": [
+          "v_k(C) equals probability Gaussian projection lies in a k-face relative interior"
+        ],
+        "identifier_or_url": "https://damelunx.github.io/conivol/articles/conic-intrinsic-volumes.html",
+        "material_read": "Section Conic intrinsic volumes, projector-to-relative-interior formula",
+        "method": "Open full web documentation",
+        "title": "Conic intrinsic volumes and the (bivariate) chi-bar-squared distribution",
+        "trigger": "Face-dimensional characterization of conic intrinsic volumes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fe945a5e-a473-4adc-9ace-ca578d87245b",
+  "value": {
+    "rationale": "The conic intrinsic-volume index controls integral-geometric phase transitions for a natural simplex tangent cone. The theorem supplies exact logarithmic centering and variance, plus asymptotic equality in a sharp universal variance bound; the latter is a structural fact not determined by normality or finite tables. Earlier literature gives generic CLT/concentration and exact finite probabilities, not their specific sharp asymptotic combination.",
+    "status": "PASS"
+  }
+}
