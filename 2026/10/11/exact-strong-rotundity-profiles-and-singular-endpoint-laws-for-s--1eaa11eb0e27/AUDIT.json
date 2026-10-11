@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Directly verify the hyperplane distance 1-t for z=(t,y) and the optimal witness (1,y). For every finite p the unit ball gives ||y||^p<=1-|t|^p; the distance ||x-z||^p is bounded by (1-t)^p+1-|t|^p. This envelope decreases with t in [-1,1], including the p=1 plateau, so the sharp slice radius is G_p(d)^(1/p). It is attained by z_d=(1-d,(1-|1-d|^p)^(1/p)u). Invert this radius to get eta; G_p is strictly increasing for p>1 and p=1 has a saturation at d=1. For p=infinity the exact radius is max(d,1), yielding a zero plateau at epsilon<=1. Endpoint and asymptotic claims follow from direct substitutions and G_p(d)=pd+o(d). This is an all-dimensions analytic argument; numeric tests are supplementary.",
+    "risks": [
+      "Interpretation is the local pairwise index, not the global infimum.",
+      "Floating and rational finite test grids do not establish the continuum theorem."
+    ],
+    "sources": [
+      "doi:10.3934/math.20231043, Definition 2.1 and Theorem 2.3",
+      "Bundled RESULT.md, exact Steps 1-5",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "García-Pacheco (2023), Theorem 2.3 gives the complete p=2 case eta=epsilon^2/2 and does not cover p!=2.",
+        "García-Pacheco (2023), Theorem 2.6 treats stereographic projection pairs for p>1 without an index profile.",
+        "Campos-Jiménez and García-Pacheco (2024), Theorems 3.4-3.5 give core/endpoint properties but not the full quantitative law at arbitrary p.",
+        "García-Pacheco (2023), Proposition 2.2 already has the epsilon=2 index value at a single ell_infinity coordinate-vector support pair; it does not give the full epsilon-dependent profile or the general transverse Y formulation."
+      ],
+      "reasoning": "A published p=2 formula is a specialization, and a general p stereographic-projection sufficient condition is logically different. Neither implies the p-dependent local η formula or its endpoint discontinuities.",
+      "searches": [
+        "Garcia-Pacheco strong rotundity index eta_X epsilon ell_p summand local formula p exponent",
+        "2023 The index of strong rotundity Lp summand exponent p scalar profile",
+        "eta_X of Lp summand vector p!=2 García-Pacheco index quantitative 2023"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20231043",
+      "doi:10.3934/math.2024169",
+      "2026/10/4/SCOPE-exact-local-octahedrality-index-of-hilbert-valued-ell-p-sequence--5d5da336f7e9",
+      "2026/10/4/SCOPE-exact-scalar-axis-daugavet-and-delta-constants-in-ell-p-sums--1f505b58d6b8",
+      "2026/10/4/SCOPE-sharpness-of-the-varepsilon-2-right-additivity-coefficient--60d82094ed7e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known Hilbert index is recovered by G_2(d)=2d.",
+        "An abstract support-functional reduction differs from the new explicit evaluation of the full infimum and attained witnesses for arbitrary nonzero Y.",
+        "Other published scalar ell_p computations concern different pointwise indices and do not determine the strong-rotundity profile.",
+        "The original Proposition 2.2 has an ell_infinity coordinate-vector endpoint value and a contrasting all-ones-vector zero case; neither supplies the intermediate epsilon=1 jump or p-dependent behavior."
+      ],
+      "reasoning": "The claim explicitly excludes reasserting an abstract support-functional reduction and the known p=2 value as original; the claimed addition is evaluation of the entire family including sharp endpoint laws, which does not follow from either comparison without a new one-variable extremal calculation.",
+      "searches": [
+        "2023 The index of strong rotundity Lp summand exponent p scalar profile",
+        "local strong rotundity slice diameter at scalar Lp sum and endpoint p=infinity p=1",
+        "exact quantitative strong exposure slice radius R_p(delta) for ellp summand 2023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact eta is the minimum normal deficiency 1-f(z) at distance at least epsilon; equivalently the inverse of the radius of exposed slices.",
+        "The 2023 Definition 2.1 specifies this local distance quantity, but Theorem 2.3 evaluates only L2-summand vectors.",
+        "The general support-functional identity by itself does not evaluate the p-dependent envelope."
+      ],
+      "reasoning": "Both metric-support-slice and eta-index formulations, including the exact scalar envelope and cubic specialization, were compared so a change of terminology would not be mistaken for novelty.",
+      "searches": [
+        "Garcia Pacheco index of strong rotundity at an Lp-summand vector exact epsilon-power formula implicit equation d^p+1-|1-d|^p",
+        "exact quantitative strong exposure slice radius R_p(delta) for ellp summand 2023",
+        "strong rotundity local index eta for ell_3^2 coordinate vector epsilon exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches for the ell_3^2 coordinate model, eta(1)=1/2 pivot and p-dependent envelope located no matching exact-value record.",
+        "Nearby published-index hits concern local octahedrality or Daugavet/Delta constants rather than the strong-rotundity index.",
+        "The defining 2023 PDF contains the Hilbert p=2 formula but no table of general p values."
+      ],
+      "reasoning": "Checking a concrete cubic specialization and scalar midpoint value guards against an isolated numerical table covering a nontrivial special case.",
+      "searches": [
+        "strong rotundity local index eta for ell_3^2 coordinate vector epsilon exact",
+        "index strong rotundity ell_p^n unit coordinate hyperplane distance h_p epsilon",
+        "index of strong rotundity pi/2 pivot eps=1 at Lp summand"
+      ]
+    },
+    "rationale": "The 2023 defining PDF was inspected at the local-index definition, exact L2 Theorem 2.3, the particular ℓ-infinity endpoint calculation in Proposition 2.2, subsequent comparison index and general Lp-summand stereographic Theorem 2.6. The 2024 follow-up PDF was inspected at its index/core results, which provide different endpoint/qualitative criteria. Published semantic-literature searches covered exact eta symbols, polynomial envelope, ell_3^2 coordinate slices, Lp-summand support planes, singular endpoints and the p=2 pivot, without a covering exact non-Hilbert formula. A general support-functional reduction of eta supplies an abstract optimization identity, but it does not evaluate the scalar-summand profile; comparable published computations concern different moduli. The p=2 case is explicitly conceded as prior.",
+    "residual_risks": [
+      "Indexing cannot prove absolute novelty, and a general local-uniform-convexity formula under a different name could imply the same scalar envelope.",
+      "The index is local at a single support pair; no global statement is asserted.",
+      "The original article already covers the p=2 specialization, which is not counted as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: the p=2 strong-rotundity case and a p=infinity coordinate-vector endpoint are explicitly covered, but the general p theorem there is about stereographic projections, not exact eta or exposed-slice radii.",
+        "evidence": "Original PDF printed “Published: 25 June 2023” and “Mathematics Subject Classification: 46B20”; page 20481 Definition 2.1 gives the hyperplane-distance definition; page 20482 Theorem 2.3 gives epsilon^2/2; page 20483 Theorem 2.6 concerns p-summand stereographic projection. Page 20481 Proposition 2.2 gives a single ell_infinity coordinate-vector value at epsilon=2.",
+        "identifier_or_url": "doi:10.3934/math.20231043; https://www.aimspress.com/aimspress-data/math/2023/9/PDF/math-08-09-1043.pdf",
+        "material_read": "Original PDF title page, abstract and MSC, introduction, Section 2 Definition 2.1 and Lemma 2.2, Proposition 2.2, Theorems 2.3, 2.4, 2.6, concluding discussion and references.",
+        "method": "Open-access publisher full-text PDF parsed reading; page-image examination of pages 4, 5 and 7 (0-based pages 3,4,6).",
+        "title": "The index of strong rotundity",
+        "trigger": "The original introduction of the exact local index and special L2-summand computation, as well as the adjacent general Lp-summand claim."
+      },
+      {
+        "assessment": "PARTIAL_ENDPOINT_COVERAGE: the paper provides qualitative zero and endpoint-two criteria for varying support pairs, but does not give the p-dependent scalar-summand profile across epsilon.",
+        "evidence": "Theorems 3.4-3.5 relate eta to the core and convex faces, while the formula G_p and its inversion at a scalar ell_p axis do not occur in the inspected section; online publisher page dates the source 8 January 2024.",
+        "identifier_or_url": "doi:10.3934/math.2024169; https://www.aimspress.com/aimspress-data/math/2024/2/PDF/math-09-02-169.pdf",
+        "material_read": "Original PDF abstract, introduction, Section 3 discussion of the eta and nu definitions, Theorems 3.4 and 3.5, and the references to the 2023 index source.",
+        "method": "Open-access publisher full-text PDF with passage-level inspection of the index/core section.",
+        "title": "The core of the unit sphere of a Banach space",
+        "trigger": "Later primary work by the index originator relating the same invariant to maximal-face/core geometry; potential stronger endpoint theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1eaa11eb-0e27-4f6f-9d35-de4a9353bb1a",
+  "value": {
+    "rationale": "This is a sharp evaluation of an intrinsic, recently defined strong-exposure index for the natural class of scalar ell_p-summand vectors, uniformly across arbitrary nonzero Banach complements. It provides more than a point computation: every exposed-slice radius, every epsilon and p endpoint, attained extremizers, the exact local exposure order epsilon^p/p, a universal finite-p midpoint, and singular endpoint behavior at both p=1 and infinity. The source itself treats non-Hilbert p-summands qualitatively but lacks these quantitative benchmarks. These are motivated boundaries of a natural invariant rather than an arbitrary finite slice.",
+    "risks": [
+      "The scalar-summand restriction is a natural tractable model but does not classify all support points in an arbitrary ell_p sum.",
+      "The p=2 reduction was previously proved."
+    ],
+    "sources": [
+      "doi:10.3934/math.20231043, Definition 2.1 and Theorems 2.3, 2.6",
+      "doi:10.3934/math.2024169, Theorems 3.4-3.5",
+      "Bundled RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
