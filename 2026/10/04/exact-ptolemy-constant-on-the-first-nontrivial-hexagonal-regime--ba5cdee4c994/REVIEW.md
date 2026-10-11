@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Claim
-For the real hexagonal plane \(X_\gamma=(\mathbb R^2,N_\gamma)\), \(N_\gamma(x,y)=\max\{|y|,\ |x|+(1-\gamma)|y|\}\), one has \(C_{\mathrm{Pt}}(X_\gamma)=2/(1+\gamma)\) for every \(0<\gamma<1/2\).
+## correctness
 
-## Correctness
-**PASS.** The six extreme points of the source unit ball lie on the ellipse
-\[
-x^2+(1-\gamma^2)y^2=1,
-\]
-which proves \(H_\gamma\le N_\gamma\). Weighted Cauchy--Schwarz gives
-\[
-|x|+(1-\gamma)|y|
-\le\sqrt{2/(1+\gamma)}\,H_\gamma(x,y),
-\]
-and the remaining branch \(|y|\) obeys the same bound exactly when \(\gamma\le1/2\). Hilbert-space Ptolemy then gives the global upper bound. The explicit triple in the proof has ratio \(2/(1+\gamma)\), so the bound is sharp throughout the stated open interval.
+PASS
 
-## Originality
-**PASS, with explicit access residuals.** Targeted semantic searches found no direct statement for this parameterized family and formula. The exact-family 2014 source was inspected in full and contains no Ptolemy result. The 2012 Ptolemy paper was inspected in full text; its relevant Euclidean comparison criterion is inapplicable because the associated function crosses the Euclidean one, and neither “hexagon” nor the Martín--Merí family occurs there. The 2018 comparison paper was also inspected: its broader off-midpoint theorems require symmetry absent from the present associated function.
+Let \(H_\gamma(x,y)=\sqrt{x^2+(1-\gamma^2)y^2}\). The six vertices of the \(N_\gamma\)-unit ball lie on the \(H_\gamma\)-unit ellipse, so convexity gives \(H_\gamma\le N_\gamma\). Weighted Cauchy gives \(|x|+(1-\gamma)|y|\le\sqrt{2/(1+\gamma)}H_\gamma\), and for \(0<\gamma<1/2\) this factor also dominates the axis branch \(|y|\). Hence \(N_\gamma\le\sqrt{2/(1+\gamma)}H_\gamma\), and Hilbert-space Ptolemy yields \(C_{\mathrm{Pt}}\le2/(1+\gamma)\). The explicit triple \(x=(-1,0)\), \(y=(\gamma,1)\), \(z=(-(1+\gamma),1)\) has the six required norms \(2,2,1,1,1,1+2\gamma\), giving ratio \(2/(1+\gamma)\). A fresh symbolic replay independently reproduced this ratio.
 
-A 2010 paper computes one fixed “hexagon space,” but the accessible preview presents a single norm rather than a parameterized family; its unreadable body is retained as a risk. A 2015 reconsideration announcing additional sufficient conditions could not be inspected in full and is also retained as a risk.
+## originality
 
-## Value
-**PASS.** The Ptolemy constant is a standard quantitative invariant of Banach-space geometry, and this is a named one-parameter hexagonal family already used for exact operator-geometric constants. The interval \(0<\gamma<1/2\) is not arbitrary: \(\gamma=1/2\) is exactly the threshold at which the \(|y|\) branch ceases to be controlled strictly below the same sharp Hilbert comparison factor. The result therefore determines a natural full nontrivial regime.
+PASS
 
-## Closest literature and limitations
-The closest literature consists of the exact-family rank-one-index source, the 2010 fixed-hexagon Ptolemy example, and the 2012/2018 absolute-normalized-norm frameworks. The final claim deliberately does not extend beyond \(0<\gamma<1/2\).
+The defining Chica-Merí paper studies the same one-parameter hexagonal family but computes its rank-one numerical index, not its Ptolemy constant. The 2010 Ptolemy paper computes several individual spaces, including a fixed hexagon example, while Zuo's 2012 general absolute-norm criteria do not directly determine this crossing regime. A related published SCOPE record gives the Euclidean Banach-Mazur profile \(\sqrt{2/(1+\gamma)}\) on this regime, which supplies the same natural upper comparison but not the matching Ptolemy witness or equality. No distinct exact full-interval Ptolemy theorem was located in the bounded searches.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The Ptolemy constant is a standard quantitative inner-product defect. The family is a classical explicit hexagonal deformation, and the theorem gives the exact first nontrivial parameter regime with a sharp equality mechanism between Euclidean distortion and a concrete Ptolemy witness. This is a motivated geometric boundary calculation rather than an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
