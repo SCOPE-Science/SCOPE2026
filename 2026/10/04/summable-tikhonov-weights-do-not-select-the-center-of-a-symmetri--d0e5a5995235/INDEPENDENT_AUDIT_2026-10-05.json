@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:57:03Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 25eb7e44bac66af5656f9c59ffee57a5f948db26",
+        "VERIFICATION.md blob c2f9939038b61588999b5682b0e5021884d95726",
+        "Inspected checker blob 33a5d6582e195277957096ccb310b5091f25db36",
+        "Li–Wang–Chen, arXiv:2609.02722, full algorithm text inspected."
+      ],
+      "rationale": "The source algorithm's unconstrained subproblem reduces exactly to minimizing \\(\\frac12(x-ct)^2+\\frac{\\rho}{4}t^2\\), whose interior minimizer is \\(t=2cx/(2c^2+\\rho)\\). Therefore the combined gradient is \\(\\beta x\\) with \\(\\beta=\\rho/(2c^2+\\rho)\\), giving the stated exact recurrences. Because \\(0<\\beta_k/\\sigma_k<1\\) and \\(\\sum_k\\beta_k/\\sigma_k<\\infty\\), the infinite product is strictly positive; monotone telescoping gives the displacement bound. A fresh numerical replay for a legal geometric schedule converged to approximately \\(1.0976353\\) from \\(1.2\\), with movement \\(0.102365\\) below the analytic bound \\(0.109091\\).",
+      "risks": [
+        "The theorem is deliberately restricted to the unconstrained deterministic symmetric quadratic family and summable positive Tikhonov weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary SAA-RMGDA paper supplies the algorithm and positive-summable schedule assumption but not the limiting-point selection law.",
+          "Related objective-function-free multiobjective methods use a different adaptive mechanism."
+        ],
+        "reasoning": "General Pareto-stationarity convergence does not identify which point of a continuum of stationary points is selected.",
+        "searches": [
+          "Li–Wang–Chen arXiv:2609.02722",
+          "De Santis–Eichfelder–Porcelli arXiv:2602.05893"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches above",
+        "arXiv:2609.02722",
+        "arXiv:2602.05893"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's convergence theorem only forces accumulation points to be Pareto stationary; every point of the interval is Pareto stationary in the audited example.",
+          "The nonzero limiting product requires using summability quantitatively and is not implied by stationarity alone."
+        ],
+        "reasoning": "The final selection counterexample is not a direct restatement of the source convergence theorem.",
+        "searches": [
+          "Li–Wang–Chen full Algorithm 1 and unconstrained closed form"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent published Resultary record appeared among the high-ranked results.",
+          "The source paper's stated contributions concern feasible regularized steps, stationarity and complexity rather than selection within a non-singleton Pareto set."
+        ],
+        "reasoning": "Searches covered vanishing/summable regularization, multiplier selection, implicit bias and symmetric Pareto intervals.",
+        "searches": [
+          "Resultary query: summable Tikhonov Pareto selection regularized multi-gradient product law",
+          "Web query: vanishing summable Tikhonov multiobjective Pareto point selection symmetric quadratics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database-style exact trajectory/product law for this symmetric family was located."
+        ],
+        "reasoning": "The claim is an analytic dynamical statement, so no external finite table is naturally applicable.",
+        "searches": [
+          "Resultary selection-law query above"
+        ]
+      },
+      "rationale": "The exact source paper introduces the regularized simplex multiplier, permits arbitrary positive summable Tikhonov weights, and proves stationarity/complexity, but it does not state a Pareto-point selection theorem or the product/displacement law. The audited example answers a different question: whether per-iteration Tikhonov uniqueness creates cumulative selection of the symmetry center. Targeted Resultary searches returned no equivalent selection law.",
+      "residual_risks": [
+        "A continuous-time or regularization-selection result under different implicit-bias terminology may contain an equivalent example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_ALGORITHM_NOT_COVERING_PARETO_POINT_SELECTION",
+          "evidence": [
+            "Algorithm 1 permits any positive summable Tikhonov sequence and updates \\(\\sigma\\) from the step length; the stated theorems establish Pareto stationarity rather than center selection."
+          ],
+          "identifier_or_url": "arXiv:2609.02722",
+          "material_read": "Full-text pages covering the regularized multi-gradient subproblem, unconstrained closed form, Algorithm 1, arbitrary positive-summable Tikhonov sequence, and convergence analysis.",
+          "method": "Public routes were attempted first; after full text was unavailable there, authorized institutional full-text retrieval was used once.",
+          "title": "An Adaptive Projected-Gradient Algorithm for Sample-Average Approximations of Stochastic Multi-Objective Optimization",
+          "trigger": "Exact source algorithm and parameter assumptions."
+        },
+        {
+          "assessment": "DIFFERENT_METHOD_NOT_COVERING_THE_PRODUCT_LAW",
+          "evidence": [
+            "The method is AdaGrad-like rather than the Tikhonov-regularized simplex recursion audited here."
+          ],
+          "identifier_or_url": "arXiv:2602.05893",
+          "material_read": "Accessible abstract/scope comparison.",
+          "method": "Public web/arXiv comparison.",
+          "title": "Objective-Function Free Multi-Objective Optimization: Rate of Convergence and Performance of an Adagrad-like algorithm",
+          "trigger": "Closest objective-function-free multiobjective method named by the source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact product law for every legal summable schedule in the family.",
+        "Explicit control showing arbitrarily small total regularization mass leaves the limit arbitrarily close to the noncentral start."
+      ],
+      "rationale": "The source advertises the Tikhonov term as giving a unique stable multiplier. Showing exactly that summable per-iteration regularization need not select the symmetric Pareto center is a motivated boundary result about what that regularization does and does not imply; the total-mass bound makes the phenomenon quantitative.",
+      "risks": [
+        "The result does not establish a general selection theorem for nonsymmetric or noisy problems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On the symmetric two-objective quadratic Pareto interval, every nonzero interior SAA-RMGDA start with \\(\\sigma_0\\ge1\\) and any positive summable Tikhonov schedule converges to a nonzero point of the same sign, with an exact product law, a total-displacement bound, and a nonuniform limiting simplex multiplier.",
+  "limitations": [
+    "One-dimensional deterministic symmetric quadratic family only.",
+    "No claim for nonsummable Tikhonov schedules or stochastic gradient noise."
+  ],
+  "schema_version": 1
+}

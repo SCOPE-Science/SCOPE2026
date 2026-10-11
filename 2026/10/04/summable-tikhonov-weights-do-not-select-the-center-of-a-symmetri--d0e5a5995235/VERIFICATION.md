@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof was checked directly from the unconstrained SAA-RMGDA subproblem. Parameterizing the two-simplex by \(t=\lambda_1-\lambda_2\) gives a strictly convex scalar quadratic, so the multiplier and update formulas are exact rather than asymptotic.
+# Independent mathematical audit
 
-The included `verify.py` independently evaluates the closed-form multiplier and the algorithmic updates on the symmetric quadratic family. For a geometric positive-summable Tikhonov sequence, it checks sign preservation, monotone motion, the total-displacement bound, finite convergence of \(\sigma_k\), convergence to a nonzero interior point, and the limiting multiplier relation. A successful replay prints `VERIFY_OK`.
+## correctness
 
-Finite replay is not used to establish the infinite product. The nonzero limit follows analytically from the standard criterion for \(\prod_k(1-a_k)>0\) when \(0\le a_k<1\) and \(\sum_k a_k<\infty\).
+PASS
+
+The source algorithm's unconstrained subproblem reduces exactly to minimizing \(\frac12(x-ct)^2+\frac{\rho}{4}t^2\), whose interior minimizer is \(t=2cx/(2c^2+\rho)\). Therefore the combined gradient is \(\beta x\) with \(\beta=\rho/(2c^2+\rho)\), giving the stated exact recurrences. Because \(0<\beta_k/\sigma_k<1\) and \(\sum_k\beta_k/\sigma_k<\infty\), the infinite product is strictly positive; monotone telescoping gives the displacement bound. A fresh numerical replay for a legal geometric schedule converged to approximately \(1.0976353\) from \(1.2\), with movement \(0.102365\) below the analytic bound \(0.109091\).
+
+## originality
+
+PASS
+
+The exact source paper introduces the regularized simplex multiplier, permits arbitrary positive summable Tikhonov weights, and proves stationarity/complexity, but it does not state a Pareto-point selection theorem or the product/displacement law. The audited example answers a different question: whether per-iteration Tikhonov uniqueness creates cumulative selection of the symmetry center. Targeted Resultary searches returned no equivalent selection law.
+
+## value
+
+PASS
+
+The source advertises the Tikhonov term as giving a unique stable multiplier. Showing exactly that summable per-iteration regularization need not select the symmetric Pareto center is a motivated boundary result about what that regularization does and does not imply; the total-mass bound makes the phenomenon quantitative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
