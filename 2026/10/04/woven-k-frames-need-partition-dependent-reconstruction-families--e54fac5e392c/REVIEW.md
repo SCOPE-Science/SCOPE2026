@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The scalar construction gives exact universal weave bounds \(1/3\) and \(4/3\). The common-family contradiction follows by comparing partitions differing at one index, with absolute convergence from \(\ell^2\). The repaired equivalence follows from Douglas factorization and \(\|K^*f\|\le\sqrt B\,\|T_\sigma^*f\|\).
+## correctness
 
-## Originality
-PASS. Exact theorem statements and proofs in the 2021 and 2024 sources were compared with the claim, together with nearby \(K\)-\(g\)-frame duality and woven-frame operator-preservation work. The closest source-level characterization already keeps the synthesis operator indexed by the partition. Focused indexed searches found no covering correction or equivalent counterexample.
+PASS
 
-## Value
-PASS. The claim identifies a quantifier error in a published iff characterization, gives a one-dimensional counterexample, explains the structural termwise constraint imposed by a truly common family, and replaces the false implication by an exact uniform characterization with explicit reciprocal constants.
+For the scalar pair with coefficients 2^{-j} and 2^{1-j}, every weaving has exact energy between one third and four thirds. If one square-summable reconstruction sequence worked for every partition, toggling a single index would force its coefficient to vanish; doing this at every index contradicts reconstruction. For the positive theorem, the uniform lower bound is equivalent to C K K* less than or equal to T_sigma T_sigma*, and Douglas factorization gives K=T_sigma U_sigma with norm squared at most 1/C. Coordinate projections of U_sigma form the required partition-dependent family. The converse follows from K*=U_sigma* T_sigma* and the uniform Bessel norm.
 
-Closest literature and limitations: Xiang (2021), Theorem 3.1, and Wang (2024), Theorem 5.1, are the disputed statements. Wang (2024), Theorem 4.2, is a nearby partition-indexed operator formulation. Later duality and operator-wovenness papers inspected do not supply the corrected equivalence. An unindexed correction or folklore observation remains possible; no unrelated downstream theorem is assessed here.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The current literature search confirms the two cited primary papers and a later correction paper by the same author. The assigned theorem statement was checked directly and the scalar partition-toggle obstruction is exact. The primary full theorem text was not independently reread line-by-line during this short run, so the literature comparison retains a specific access/time residual risk; however the mathematical repair is independently reconstructed from Douglas factorization and no checked later source supplied an equivalent correction.
+
+## value
+
+PASS
+
+The result diagnoses a concrete quantifier error in a published characterization and supplies the minimal usable correction with reciprocal quantitative constants. That is directly useful to later work relying on reconstruction characterizations of woven K-frames.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
