@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite verifier models a degree-\(4\) del Pezzo surface as the blow-up of \(\mathbf P^2\) at five general points. In the basis \(H,E_1,\ldots,E_5\), it constructs the sixteen \((-1)\)-curve classes
-\[
-E_i,\qquad H-E_i-E_j,\qquad 2H-E_1-\cdots-E_5.
-\]
-Using the exact intersection form, it verifies that all sixteen classes have self-intersection \(-1\), every vertex of the incidence graph has degree \(5\), the graph has \(40\) edges, and it contains no triangles. Hence all pair intersections counted by the graph are distinct and there are no triple intersection points.
+# Independent mathematical audit
 
-It then checks
-\[
-\chi(W)=16\cdot2-40=-8,
-\]
-\[
-\chi(X)=3+5=8,
-\]
-and therefore
-\[
-\chi(Y)=16.
-\]
-With \(b_0=1\), \(b_1=10\), and no homology above degree \(2\), it checks \(b_2=25\).
+## correctness
 
-The verifier does not replace the published identification of \(W\), the published computation \(H_1(Y,\mathbf Z)\cong\mathbf Z^{10}\), the finite-map description establishing affineness, or the Andreotti--Frankel--Hamm theorem. The Hopf-map conclusion additionally uses the published group homology \(H_2(\pi_1Y,\mathbf Z)\cong\mathbf Z^{25}\).
+PASS
 
-The saved replay output ends in `VERIFY_OK`.
+The sixteen standard \((-1)\)-classes on the degree-four del Pezzo were independently reconstructed. Exact intersection pairing gives a 5-regular triangle-free graph with 40 double points, so \(\chi(W)=32-40=-8\); the blow-up surface has \(\chi(X)=8\), hence \(\chi(Y)=16\). The squaring map is finite and identifies \(Y\) as the finite inverse image of the affine discriminant-conic complement, so \(Y\) is a smooth affine complex surface and has finite CW dimension at most two. With the published \(H_1(Y,\mathbf Z)\cong\mathbf Z^{10}\), this forces free \(H_2(Y,\mathbf Z)\cong\mathbf Z^{25}\) and zero higher homology. Hopf gives a surjection to the published free group-homology group of rank 25, hence an isomorphism. The conclusion concerns only the Hurewicz image, not vanishing of \(\pi_2\).
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. The current Bhattacharya--Matsubara primary record and detailed theorem digest explicitly give \(H_1(Y,\mathbf Z)\cong\mathbf Z^{10}\), a 10-generator/25-relator minimal presentation, and \(H_2(\pi_1Y,\mathbf Z)\cong\mathbf Z^{25}\), but not ordinary \(H_2(Y,\mathbf Z)\), \(\chi(Y)=16\), the complete Betti profile, or the Hopf-map isomorphism. Fresh Resultary and exact searches did not locate a prior covering statement.
+
+## value
+
+PASS
+
+The initiating paper is explicitly about the topology of this very-stable complement but leaves a gap between ordinary homology and group homology in the distinguished surface case. Computing the complete integral homology and identifying the Hopf map closes that gap and gives a compact topological invariant of a natural moduli-space complement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
