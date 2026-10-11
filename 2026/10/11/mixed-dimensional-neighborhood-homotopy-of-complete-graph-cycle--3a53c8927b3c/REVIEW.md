@@ -1,0 +1,11 @@
+# Same-model scientific review
+
+**Correctness — PASS.** The maximal neighborhood simplices are exactly the \(mn\) sets in the proof. The opposite-layer pairs have unique centers when \(n\ge5\), making the first full-star collapse valid; the subsequent wing faces are unique and all matched pairs are codimension-one free faces. A surviving interface has \(m(m-1)\) cross edges and \(2m(m-2)\) fan triangles. The fan relations connect cross edges in the line graph of a connected crown graph; after \(E-1\) tree relations cancel all but one bridge, simple connectivity of \(S^{m-2}\) splits the remaining \(m^2-3m+1\) two-cells as spheres. The bridges make precisely one cycle. The package's executable reconstruction confirms all intermediate face sets and finite integral-structure-compatible mod-two ranks in sixteen parameter cases, but the universal result is based on the proof, not extrapolation.
+
+**Originality — PASS, with risk.** Matsushita's arXiv:1210.2803 Theorem 1.1 addresses fundamental groups, not higher sphere bouquets. Shukla's arXiv:1802.04526 Theorems 2–7 are restricted to graphs of maximum degree at most three or four-regular circulants, while this family has degree at least five. Chauhan–Shukla–Vinayak's arXiv:2512.04486 Theorem 1.5 concerns the different total two-cut complex on the identical graph, with homology in a wholly different dimension. Indexed results, exact-object searches, and nearby parameter comparisons do not imply the full claim. Residual risk: an uncatalogued equivalent decomposition could exist.
+
+**Value — PASS.** The classification answers a natural product-graph topology question for every \(m\ge4,n\ge5\), identifies two independent families of sphere summands and their exact all-parameter multiplicities, and supplies explicit constructive reductions. Mixed-dimensional homology already appears at \(m=5\), beyond low-degree graph calculations, and the result determines all integral Betti numbers and fundamental groups without a finite census.
+
+Scientific limitations: the claim is nonequivariant, assumes \(m\ge4,n\ge5\), and makes no assertion for low-order exceptional graphs. Literature coverage is not exhaustive.
+
+Same-model review: passed. Independent audit: not yet performed.
