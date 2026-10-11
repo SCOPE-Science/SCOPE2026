@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The exact circumcircle parametrization with Jacobian 2ar³ turns the CDF into a translation-erosion integral. For fixed positively curved C² K the tubular signed-normal expansion of K⊖rT has an O_K(r²) remainder uniform over T in the unit disk. Two exact gap integrations give E[a]=3/(2π) and E[a p]=64/(3π²). Cauchy rotation averaging gives angular coefficients 24π² and 512P/3; radial integration proves t⁴ coefficient 6π²/A² and t⁵ coefficient −512P/(15 A³), with O_K(t⁶). All assumptions, normalization, measure-zero collinear cases, and non-contained circumcircle cases are handled. Embedded SymPy verifier reproduces both moment integrals and a Jacobian instance. Finite tests are not used to establish infinite scope.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.29975 Theorem 1.4 is a ball-convex hull moment extremality theorem, not stochastic dominance for small ordinary circumradius.",
+        "Le Caër arXiv:1803.08484 applies to circumcircles wholly inside the unit disk, not all triangles in arbitrary K."
+      ],
+      "reasoning": "Neither stronger general convex-hull inequalities nor conditional radius distribution results yield the specific unconditional CDF coefficients. The Cauchy and Blaschke–Petkantschin formulas are antecedent tools, not an implication of the final theorem without new angular moments and uniform erosion variation.",
+      "searches": [
+        "small-circumradius distribution circle from uniform planar points boundary correction first two coefficients Blaschke Petkantschin",
+        "Blaschke Petkantschin exact small circumradius stochastic geometry convex body perimeter two-term expansion random triangle",
+        "\"circumradius\" \"perimeter\" \"small radius\" random triangle"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.29975; paper first posted 2026-08-30",
+      "arXiv:1803.08484; first posted 2018-03-22",
+      "Published mathematical records search for random triangle small-circumradius expansions, upper tails, and boundary asymptotics",
+      "Related published mathematical claims and references compared for scientific overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bakó-Szabó–Besau–Fodor arXiv:2608.29975: unit-disk R≥1 exact CDF.",
+        "Le Caër arXiv:1803.08484: circles conditioned entirely inside unit ball.",
+        "Classical circumcircle Jacobian and Cauchy perimeter formula are used but do not themselves contain the area-perimeter small-radius distribution."
+      ],
+      "reasoning": "A unit-disk upper-tail result does not imply the small-radius constants; the conditional law omits protruding circumcircles, and the sought second coefficient explicitly arises from boundary intersections. The all-K formula also introduces variable P(K), absent from the cited unit-disk laws.",
+      "searches": [
+        "arXiv:2608.29975 Sections 1.4 and 5.2: circumradius exact CDF on [1,infinity)",
+        "arXiv:1803.08484: conditional circumspheres contained within unit ball",
+        "\"random triangle\" \"circumradius\" near zero general convex set expansion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.29975 Sections 1.4, 5.2: [1,infinity) CDF; no t→0 formula",
+        "arXiv:1803.08484: law under contained-circumsphere condition",
+        "Targeted searches for t⁴/t⁵ radius expansions did not yield a published matching theorem."
+      ],
+      "reasoning": "Event distinction and asymptotic domain distinction exclude apparent matches; radial moment and perimeter correction jointly characterize the assessed statement.",
+      "searches": [
+        "circumradius of three uniformly random points in unit disk left tail near zero two term expansion 6 r^4 r^5",
+        "\"circumradius\" \"near zero\" \"random\" \"triangle\" convex planar",
+        "random triangle circumscribed circle radius disk small radius asymptotic distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identified exact reference tabulates the pair (6π²/A², −512P/(15A³)) for the same three-point event.",
+        "Closest structured published record on three-point circumradius addresses R→∞, not R→0."
+      ],
+      "reasoning": "A table for circumcircles contained in the ball does not count the near-boundary configurations and so cannot imply the full perimeter coefficient; no same-event small-radius table identified.",
+      "searches": [
+        "\"6π²\" \"512\" \"circumradius\" perimeter",
+        "\"circumradius\" \"probability\" \"r^4\" random points",
+        "Le Caer circumradius distribution beta conditional enclosed circles general unconditional small radius"
+      ]
+    },
+    "rationale": "The 2026 primary full text computes the upper circumradius tail for the unit disk only, while the 2018 conditional law excludes circles protruding beyond the body, which affect the perimeter term. Searches for the lower tail, complete asymptotics, database constants, and implicit stronger results yielded no inspected claim determining both coefficients for arbitrary smoothly curved planar convex bodies. The result is not a restatement of a stronger inspected result. Some unindexed integral-geometric derivation remains possible.",
+    "residual_risks": [
+      "A differently named unindexed integral-geometric calculation could already imply both coefficients.",
+      "The related February 2026 contained-circle note was inaccessible in full; its indexed stated event is not the one studied here.",
+      "Same-model originality assessment cannot replace independent full-literature audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER_SMALL_RADIUS: exact circumradius distribution explicitly restricted to radius at least one in unit disk",
+        "evidence": "Abstract and Corollary 1.7 specify the circumradius CDF on [1,infinity); current theorem is t↓0 for arbitrary curved K.",
+        "identifier_or_url": "https://arxiv.org/html/2608.29975v1",
+        "material_read": "Full HTML text including abstract, Section 1.4, Section 5.2, relevant principal results and discussion",
+        "method": "Opened source full HTML and inspected sections and mathematical hypotheses",
+        "title": "Sylvester's four point problem for ball-convex bodies",
+        "trigger": "Current primary 2026 source computes circumradius CDF"
+      },
+      {
+        "assessment": "NOT_COVERING_UNCONDITIONAL_EVENT: requires circumsphere wholly inside unit ball",
+        "evidence": "The abstract explicitly restricts to circumspheres contained in the unit ball; the current second term incorporates circles crossing the boundary.",
+        "identifier_or_url": "https://arxiv.org/abs/1803.08484",
+        "material_read": "Abstract, relevant event definition and reported conditional distributions from open preprint text and paper material",
+        "method": "Inspected authorized open-access preprint and theorem scope",
+        "title": "Circumspheres of sets of n+1 random points in the d-dimensional Euclidean unit ball",
+        "trigger": "Plausible older exact beta radius law"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_RISK, but question is different conditional containment event",
+        "evidence": "The public indexed question concerns probability that the entire circumcircle lies within the original disk, not the small-radius CDF.",
+        "identifier_or_url": "https://blog.szczepan.org/blog/three-points/",
+        "material_read": "Search-result statement identifying the wholly-contained-circumcircle event; full text blocked by HTTP 403",
+        "method": "Search result and attempted article opening",
+        "title": "Three random points in a disk: contained circumcircle problem",
+        "trigger": "Directly related February 2026 example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1252d4f1-e8f4-4f40-94f8-6cb7fce05938",
+  "value": {
+    "rationale": "The expansion recovers both planar intrinsic volumes, area and perimeter, from a single natural random-triangle circumradius statistic and gives the first nontrivial small-scale isoperimetric comparison. The universal angular mixed area–perimeter moment explains the shape-independence of the coefficients and supplies a reusable stochastic-geometric mechanism; it is neither a renaming of an existing exact CDF nor an arbitrary finite constant.",
+    "status": "PASS"
+  }
+}
