@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the four-dimensional flow, the added coordinate is a one-dimensional driven fiber with constant tangent coefficient \(b<0\), so the tangent cocycle is triangular and contributes the exact exponent \(b\). The three-dimensional base is autonomous with divergence \(-1\); every non-equilibrium ergodic base measure has the flow exponent \(0\), hence at most one positive exponent. For the five-dimensional flow, \(H=y+\phi\) is an exact first integral and the change \(h=H\) gives a triangular system whose added exponents are exactly \(0\) and \(-b\). The equilibrium polynomial \(\lambda(\lambda+b)(\lambda+1)(\lambda^2+2c)\) is independent of \(\phi\). Exact-rational replay checks the algebraic parts.
+## correctness
 
-## Originality
-PASS. The primary article states the two hyperchaos claims but does not identify the stable-fiber reduction of its four-dimensional system, the conserved quantity \(y+\phi\) of its memristive system, or the resulting exact Lyapunov-spectrum decomposition. Exact-title, equation-level, first-integral, skew-product, and hyperchaos searches in the checked research index did not return this result. The closest prior scientific records concern different systems or general cocycle phenomena. A related 2024 Sprott-C extension uses a different two-dimensional fiber and does not imply the conserved-leaf reduction here.
+PASS
 
-## Value
-PASS. The result changes the qualitative classification of both principal continuous-time models in the source: at the stated bounded parameter regimes they can have at most one positive asymptotic Lyapunov exponent. For the memristive model it also exposes a global first integral and shows that the equilibrium spectrum is independent of the supposedly stability-controlling memristor coordinate. These facts directly affect interpretation of the published Lyapunov diagrams, bifurcation claims, and any continuous-time use of the models as hyperchaotic signal generators.
+The printed four-dimensional system is an autonomous three-dimensional Sprott-C base with a scalar driven fiber; its variational cocycle is block triangular and the vertical exponent is exactly \(b<0\). The base divergence is \(-1\), and every non-equilibrium ergodic flow measure has the standard zero flow exponent, so the base and hence the extension have at most one positive exponent. In the five-dimensional system, direct differentiation gives the exact first integral \(H=y+\phi\). The global linear change \(h=H\) makes the tangent cocycle triangular with diagonal blocks equal to the three-dimensional base, a zero scalar, and \(-b\). Thus the full spectrum is the base spectrum together with \(0,-b\). Independent symbolic reconstruction also gives the equilibrium characteristic polynomial \(\lambda(\lambda+b)(\lambda+1)(\lambda^2+2c)\), independent of \(\phi\).
 
-## Closest literature and limitations
-The closest literature checked was the introducing article itself; a 2022 memristive Sprott-B model, which uses different equations; and a 2024 five-dimensional Sprott-C extension with a different linear fiber. No checked source supplied the present equation-level first integral or dominated the no-hyperchaos statement. Residual risk remains that an unindexed correction or note exists under a non-obvious title. The proof does not diagnose the source's numerical Lyapunov implementation and does not assess the discrete FPGA map.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The introducing paper prints the exact two vector fields, reports two positive numerical Lyapunov exponents for each, and calls both hyperchaotic. It does not identify the stable-fiber spectral union in the four-dimensional model, the first integral \(y+\phi\), or the resulting five-dimensional spectral decomposition and \(\phi\)-independent equilibrium polynomial. Resultary searches returned the submitted record and several analogous corrections for different systems, not a prior correction of these equations. The nearby 2022 Sprott-B and 2024 Sprott-C papers use different vector fields/couplings.
+
+## value
+
+PASS
+
+The result overturns the central qualitative hyperchaos classification of both continuous-time systems in the source. In the memristive model it also supplies a global first integral and removes the claimed dependence of equilibrium stability on the memory coordinate. These are substantive structural corrections with direct relevance to bifurcation interpretation and continuous-time signal-generation claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

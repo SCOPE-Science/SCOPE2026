@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The algebraic checks use the equations exactly as printed in the 2023 article.
+# Independent mathematical audit
 
-For the four-dimensional model,
-\[
-\dot x=yz,\quad \dot y=x-y,\quad \dot z=1-x^2,\quad \dot u=ax+bu,
-\]
-the checker verifies the two equilibria and the factorization
-\[
-(\lambda-b)(\lambda+1)(\lambda^2+2).
-\]
-The proof-level Lyapunov step is structural: the \(u\)-fiber is invariant and has exponent \(b\), while the quotient is the three-dimensional base cocycle.
+## correctness
 
-For the five-dimensional model,
-\[
-\dot x=cyz,\quad \dot y=x-y,\quad \dot z=1-x^2,
-\]
-\[
-\dot u=ax-bu+k(m+3n\phi^2)z,\quad \dot\phi=y-x,
-\]
-the checker verifies exactly that \(\dot y+\dot\phi=0\), checks equilibrium residuals for several rational parameter choices and several values of \(\phi\), and verifies the factorization
-\[
-\lambda(\lambda+b)(\lambda+1)(\lambda^2+2c).
-\]
-The proof-level cocycle step uses the global coordinate \(h=y+\phi\), after which the tangent system is block lower triangular with diagonal blocks given by the three-dimensional base cocycle, the scalar zero cocycle, and the scalar coefficient \(-b\).
+PASS
 
-The source's displayed Lyapunov sums are also checked as arithmetic consistency tests. Their agreement with divergence is necessary but not sufficient: the exact triangular decomposition imposes additional asymptotic spectral constraints.
+The printed four-dimensional system is an autonomous three-dimensional Sprott-C base with a scalar driven fiber; its variational cocycle is block triangular and the vertical exponent is exactly \(b<0\). The base divergence is \(-1\), and every non-equilibrium ergodic flow measure has the standard zero flow exponent, so the base and hence the extension have at most one positive exponent. In the five-dimensional system, direct differentiation gives the exact first integral \(H=y+\phi\). The global linear change \(h=H\) makes the tangent cocycle triangular with diagonal blocks equal to the three-dimensional base, a zero scalar, and \(-b\). Thus the full spectrum is the base spectrum together with \(0,-b\). Independent symbolic reconstruction also gives the equilibrium characteristic polynomial \(\lambda(\lambda+b)(\lambda+1)(\lambda^2+2c)\), independent of \(\phi\).
 
-The replay does not numerically integrate trajectories, infer finite-time exponents, or assess the discrete FPGA implementation.
+## originality
+
+PASS
+
+The introducing paper prints the exact two vector fields, reports two positive numerical Lyapunov exponents for each, and calls both hyperchaotic. It does not identify the stable-fiber spectral union in the four-dimensional model, the first integral \(y+\phi\), or the resulting five-dimensional spectral decomposition and \(\phi\)-independent equilibrium polynomial. Resultary searches returned the submitted record and several analogous corrections for different systems, not a prior correction of these equations. The nearby 2022 Sprott-B and 2024 Sprott-C papers use different vector fields/couplings.
+
+## value
+
+PASS
+
+The result overturns the central qualitative hyperchaos classification of both continuous-time systems in the source. In the memristive model it also supplies a global first integral and removes the claimed dependence of equilibrium stability on the memory coordinate. These are substantive structural corrections with direct relevance to bifurcation interpretation and continuous-time signal-generation claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
