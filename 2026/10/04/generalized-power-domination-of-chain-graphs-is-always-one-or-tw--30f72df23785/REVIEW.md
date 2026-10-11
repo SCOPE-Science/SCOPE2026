@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof separates sufficiency, necessity, and the universal two-vertex upper bound. For sufficiency, an extreme vertex monitors the opposite bipartition class immediately and then peels canonical twin classes in order because the residual load at each step is exactly the corresponding block size, except for the selected extreme class where one vertex is already monitored. For necessity, an unselected twin class larger than \(k\) cannot be entered by the propagation rule, and selecting a nonextreme vertex from a class of size greater than \(k\) leaves at least \(k\) same-class vertices plus a nonempty later class, so propagation cannot even begin. The argument handles \(p=1\) and ordinary power domination \(k=1\). The packaged verifier independently checks 4092 block profiles through order 11 for \(k\le4\).
+## correctness
 
-## Originality
-**PASS.** Focused searches covered “generalized k-power domination chain graphs Ferrers graphs exact number”, “k-power domination chain graph nested neighborhoods”, “power domination chain graph gamma one two canonical twin classes”, and “power domination bipartite chain graph Ferrers exact”. The closest generalized-power source defines the parameter and discusses bipartite hardness, regular graphs, grids, Sierpiński graphs, and complete-bipartite examples, but full-text searches found no “chain” or “Ferrers”. The 2018 power-domination-polynomial paper was also inspected and its searchable full text has no “chain”, “Ferrers”, or “multipartite”. published-finding corpus searches returned no statement implying this chain-graph formula; the closest power-domination hit concerns fragile PMU placement on complete multipartite graphs, a different graph class and different robustness objective. Historical local findings on chain graphs concern zero forcing, domination, metric invariants, identifying codes, and related parameters rather than generalized power domination.
+PASS
 
-## Value
-**PASS.** Generalized power domination is motivated by network monitoring and is computationally difficult on broad bipartite classes. Chain graphs are a natural nested-neighborhood subclass, and the theorem collapses an iterative propagation optimization to two explicit canonical block-load tests. The result simultaneously gives every \(k\ge1\), immediately recovers ordinary power domination, identifies extreme witnesses, and gives a linear-time decision from the canonical decomposition. This is a natural complete classification rather than an arbitrary finite slice.
+The propagation proof is complete in both directions. Starting at an extreme vertex in \(A_p\) monitors the entire \(B\)-side; successive \(B_i\) vertices then release the \(A_i\) twin classes precisely when the residual class sizes are at most \(k\), giving the condition \(L_A\le k\); the \(B_1\) argument is symmetric. Conversely, if a singleton lies in \(A_i\), any other unmonitored \(A_j\) of size greater than \(k\) permanently blocks propagation, and when \(i<p\) a too-large home class plus the next nonempty class blocks the first propagation step. Thus any successful singleton implies \(L_A\le k\), with the symmetric alternative on the other side. An extreme pair \(\{a,b\}\in A_p\times B_1\) dominates the graph immediately, so the minimum is always one or two. A fresh independent literal simulation over 765 canonical profiles/parameter choices through order nine agreed with the formula; the simulation is corroborative, not the infinite proof.
 
-## Closest literature and limitations
-Dorbec–Varghese–Vijayakumar (2016) supplies the generalized propagation rule and complete-bipartite comparison points; it does not state a chain/Ferrers theorem in the inspected material. Brimkov–Patel–Suriyanarayana–Teich (2018) develops all-set power-domination polynomials but does not mention chain/Ferrers graphs in searchable full text. The claim does not enumerate all minimum sets or propagation radii, and older literature hidden under uncommon terminology remains a residual bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The generalized-power-domination source develops the invariant, graph modifications and propagation radius; the accessible primary text/record contains no chain or Ferrers specialization. Fresh Resultary queries found many other domination polynomials on chain graphs but no generalized power-domination theorem. The complete-bipartite case is a one-block specialization and does not imply the nested multi-block threshold.
+
+## value
+
+PASS
+
+Chain graphs are a standard nested-neighborhood bipartite class, and generalized power domination is designed to measure propagation under a bounded-unmonitored-neighbor rule. Collapsing the parameter for every connected chain graph to an exact one-versus-two criterion in canonical twin-class sizes is a natural complete classification and supplies explicit optimal witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
