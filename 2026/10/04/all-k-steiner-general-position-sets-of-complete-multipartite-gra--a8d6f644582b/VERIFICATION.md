@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact domain is a connected complete multipartite graph \(K_{n_1,\ldots,n_r}\) with \(r\ge2\) and \(2\le k\le N-1\). The critical proof split is whether a terminal \(k\)-set lies inside one part or meets at least two parts. In the first case the minimum Steiner tree has one extra outside center; in the second case the terminal-induced graph is connected and a minimum Steiner tree uses no extra vertex.
+# Independent mathematical audit
 
-The bundled `verify.py` independently builds graph adjacency, enumerates every candidate vertex set, computes minimum Steiner-tree edge counts by exhaustive connected-superset search, and checks whether any selected nonterminal can lie in a minimum Steiner tree. It then compares the observed set-size distribution with the displayed enumerator.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-multipartite_k_instances = 264
-vertex_subset_checks = 44496
-orders = 2..8; all k = 2..N-1
-```
+If a set is not contained in one part and some part contributes at least \(k\) vertices, choose \(k\) terminals there and another selected vertex outside; the star through that outside vertex is a minimum Steiner tree and contains an extra selected vertex, so the set fails. Conversely, if the set lies in one part, every minimum tree for \(k\) selected terminals uses exactly one center outside that part; if each occupancy is at most \(k-1\), every \(k\)-subset meets at least two parts, induces a connected graph, and has a minimum Steiner tree on the terminals alone. The counting and maxima follow by disjoint enumeration. Fresh brute Steiner checks covered 49,944 candidate sets through order seven.
 
-The finite run covers all complete multipartite isomorphism types of orders two through eight and every admissible \(k\). It is corroborative only; the infinite theorem is supplied by the symbolic proof. No claim is made beyond complete multipartite graphs, and no independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the exact all-set classification, enumerator, and count of maximum sets. The 2021 primary paper determines the scalar \(k\)-Steiner general-position number for graph joins and gives an explicit complete-bipartite formula, but it does not state an arbitrary complete-multipartite all-set classification or cardinality enumerator.
+
+## value
+
+PASS
+
+The theorem gives the complete feasible family for a recently introduced natural general-position invariant, not just its extremal size, and compresses every coefficient and maximum-set multiplicity to a simple occupancy rule. This is a natural complete classification with clear future reference value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

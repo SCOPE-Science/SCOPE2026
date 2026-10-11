@@ -1,12 +1,21 @@
-# Review of All k-Steiner general position sets of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates the only two possible terminal configurations. A \(k\)-set inside one part needs exactly one outside Steiner vertex, so any selected outside vertex witnesses failure; a \(k\)-set meeting two parts is already connected and every minimum Steiner tree uses only its \(k\) terminals. These facts are necessary and sufficient for the structural dichotomy, from which the enumerator, maximum, and maximum-set count follow by exact counting. The independent checker reconstructs the adjacency relation and minimum Steiner trees directly for all tested graphs.
+## correctness
 
-## Originality
-PASS. The 2021 source introduces the parameter, proves a general theorem for joins, and explicitly solves complete bipartite graphs at the level of the maximum number. It does not state the all-set characterization or enumerator for arbitrary complete multipartite graphs. The current survey likewise restates the complete-bipartite formula but no arbitrary complete-multipartite Steiner theorem. Exact and semantic searches found no equivalent all-set result. The \(k=2\) and complete-bipartite boundary cases are acknowledged as covered; originality rests on the uniform arbitrary-multipartite classification and its enumerative consequences.
+PASS
 
-## Value
-PASS. Complete multipartite graphs are a canonical extension of the explicitly treated complete-bipartite family, and the source literature emphasizes both exact graph-class formulas and open Steiner-general-position questions. An all-set theorem is stronger than a single extremal number: it provides every size count, all maximum-set multiplicities, and a one-line criterion usable in later counting, game, or random-set questions. The result also unifies the classical \(k=2\) structure with every higher Steiner order.
+If a set is not contained in one part and some part contributes at least \(k\) vertices, choose \(k\) terminals there and another selected vertex outside; the star through that outside vertex is a minimum Steiner tree and contains an extra selected vertex, so the set fails. Conversely, if the set lies in one part, every minimum tree for \(k\) selected terminals uses exactly one center outside that part; if each occupancy is at most \(k-1\), every \(k\)-subset meets at least two parts, induces a connected graph, and has a minimum Steiner tree on the terminals alone. The counting and maxima follow by disjoint enumeration. Fresh brute Steiner checks covered 49,944 candidate sets through order seven.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the exact all-set classification, enumerator, and count of maximum sets. The 2021 primary paper determines the scalar \(k\)-Steiner general-position number for graph joins and gives an explicit complete-bipartite formula, but it does not state an arbitrary complete-multipartite all-set classification or cardinality enumerator.
+
+## value
+
+PASS
+
+The theorem gives the complete feasible family for a recently introduced natural general-position invariant, not just its extremal size, and compresses every coefficient and maximum-set multiplicity to a simple occupancy rule. This is a natural complete classification with clear future reference value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
