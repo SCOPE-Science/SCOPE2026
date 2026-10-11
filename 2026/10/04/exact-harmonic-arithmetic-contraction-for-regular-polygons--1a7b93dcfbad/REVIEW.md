@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For odd \(n\), the polar identity \(P_n^{\circ}=s_n(-P_n)\) reduces the harmonic symmetrization to \(H_n=\cos(\pi/n)A_n^{\circ}\). The difference body \(A_n\) is proved to be a regular \(2n\)-gon of circumradius \(\cos(\pi/(2n))\), hence inradius \(\cos^2(\pi/(2n))\). Its polar is rotated by half a sector, so harmonic vertices lie in arithmetic side-normal directions. Comparing the exact radial distances yields \(\beta_n=\cos(\pi/n)/\cos^4(\pi/(2n))\). Opposite contacts force equality of a pair of supporting-strip widths, which rules out every translated smaller homothet. The even case is central symmetry. The packaged checker reconstructs all operations independently for \(3\le n\le51\), but the theorem rests on the analytic proof.
+PASS
 
-## Originality
+For even \(n\), central symmetry makes both symmetrizations equal to the polygon. For odd \(n\), with unit circumradius, \(r=\cos(\pi/n)\), \(c=\cos(\pi/(2n))\), and asymmetry \(s=1/r\), polarity gives \(P_n^\circ=s(-P_n)\) and hence \(H_n=rA_n^\circ\). The half-difference body \(A_n\) is a regular \(2n\)-gon of circumradius \(c\) and inradius \(c^2\); its polar is rotated by half a sector with circumradius \(1/c^2\). Therefore the vertices of \(H_n\) lie in side-normal directions of \(A_n\), and the least centered containment factor is \(r/c^4=4s/(s+1)^2\). Opposite contact points saturate a supporting-strip width, which rules out improvement by translation. Independent symbolic reconstruction verified \(r/c^4=4s/(s+1)^2\), and the package polygon checker reconstructs the operations through \(n=51\). The all-\(n\) claim rests on the regular-polygon/polar argument, not the finite replay.
 
-PASS with a specific close-prior risk. The 2020 source gives the forward factor \(8/9\) only for the centered equilateral triangle and notes qualitatively that regular odd polygons need not have factor \(1\). The 2021 source gives the sharp universal planar lower envelope \(4s/(s+1)^2\) and, in Example 4.2, an exact reverse arithmetic-to-harmonic factor for regular odd polygons. Those two statements do not imply that a regular odd polygon attains the forward lower envelope: they provide respectively a lower bound and a reverse-direction comparison, not the missing forward upper bound. The new regular \(2n\)-gon polarity calculation supplies that upper bound and proves equality for every odd \(n\ge5\). Targeted literature and semantic-index searches found no equivalent statement or stronger implication.
+## originality
 
-## Value
+PASS
 
-PASS. The contraction parameter is the central quantitative invariant studied by the motivating papers, and its sharp lower envelope is one of their main planar conclusions. Regular polygons are the canonical rotational test family and had already been singled out for the reverse direction, so identifying their exact forward factor is a motivated missing comparison rather than an arbitrary slice. The result adds an infinite natural equality family for the sharp envelope and shows that the approach to symmetry is quartic in \(1/n\), despite the Minkowski-asymmetry excess being quadratic.
+The 2021/2023 primary paper gives the sharp planar lower envelope \(4s/(s+1)^2\) for harmonic-to-arithmetic containment and separately analyzes regular odd polygons in the reverse containment direction. The inspected regular-polygon example does not supply the missing forward inclusion equality for odd \(n\ge5\). A universal lower bound cannot by itself show that this canonical family attains it, and the reverse factor does not imply the forward factor. The audited polarity calculation provides the matching upper inclusion. Current Resultary searches return the assigned regular-polygon equality record as the exact hit and no stronger statement identifying all odd regular polygons as lower-envelope extremizers.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Regular polygons are canonical test bodies for sharp symmetrization inequalities. Showing that every odd regular polygon hits the known sharp planar lower envelope supplies a natural infinite equality family, extends the prior triangle endpoint, and quantifies the quartic approach to symmetry. That is a motivated exact geometric classification even though the final polar calculation is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
