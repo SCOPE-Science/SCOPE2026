@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The multiplier inversion gives a real odd circulant kernel. Finite sine sums give the stated cotangent/tangent values separately for odd and even cycle sizes. Row and column absolute sums give the endpoint upper bounds and explicit sign/point-mass data attain them. The dyadic identity is an exact reindexing of the two finite cotangent sums. The residue-class asymptotics follow from the smooth remainder g(x)=cot(x)-1/x, the identity for half-integer harmonic sums, and midpoint Euler--Maclaurin. The bundled checker independently reconstructs the finite kernels and tests all displayed regimes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Carli--Samad treats operators on ell^p(Z), not finite cyclic endpoint norms.",
+        "Gilbert--Rzeszotnik calculates Fourier-transform norms on finite abelian groups, not the norm of this sign multiplier.",
+        "Fermo--Loi treats quadrature approximants to the continuous circular Hilbert transform, not the finite DFT multiplier."
+      ],
+      "reasoning": "A broader theorem would need to specialize to this multiplier and these endpoint exponents. The inspected broader Fourier and Hilbert-transform results do not do so.",
+      "searches": [
+        "discrete Hilbert transform finite group exact l1 norm cotangent",
+        "finite cyclic Hilbert transform l infinity norm cotangent kernel",
+        "Hilbert transform Z_N endpoint Lebesgue constant",
+        "Hausdorff Young extremizers finite cyclic subgroup projection sharp norm"
+      ]
+    },
+    "checked_sources": [
+      "Gold-Oppenheim-Rader-1969",
+      "arXiv:1506.03362v1",
+      "DOI:10.1007/s10915-025-03044-3",
+      "DOI:10.5802/aif.2556"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current ledger contains a fixed-order L4 norm for the real cyclic Hilbert transform on C5; it does not imply an all-N endpoint norm.",
+        "The prior-week ledger contains no recoverable claim matching Hilbert/cotangent/endpoint terminology.",
+        "The 1969 construction supplies the frequency-response convention but no induced endpoint norm calculation.",
+        "The 2015 paper studies the infinite lattice rather than finite cyclic groups."
+      ],
+      "reasoning": "Neither the fixed-order intermediate-exponent result nor the inspected primary literature logically implies the all-cycle endpoint formulas, their equality cases, dyadic invariance, or residue-class asymptotics.",
+      "searches": [
+        "own current ledger: cyclic Hilbert transform C5 L4 norm",
+        "own prior ledger: Hilbert; cotangent; endpoint norm",
+        "published source: Gold--Oppenheim--Rader 1969 finite DFT Hilbert transform",
+        "published source: arXiv:1506.03362v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gold--Oppenheim--Rader (1969) was inspected at its finite-length DFT Hilbert-transform construction.",
+        "arXiv:1506.03362v1 was inspected for the infinite-lattice discrete Hilbert-transform formulation.",
+        "No indexed result returned an exact finite-cyclic endpoint norm or the identity L_{2N}=L_N for odd N."
+      ],
+      "reasoning": "The natural aliases are finite-length/discrete/DFT/cyclic Hilbert transform, phase shifter, convolution kernel, and cotangent kernel. The closest sources define related transforms but do not state an equivalent endpoint Banach-space norm theorem.",
+      "searches": [
+        "finite cyclic Hilbert transform exact endpoint norm dyadic identity L_N=L_2N",
+        "finite DFT Hilbert phase shifter induced infinity norm cotangent",
+        "cyclic Hilbert transform norm equals cotangent sum",
+        "DFT Hilbert transform l1 operator norm log N parity constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-fingerprint search returned the constants -7 pi/36, 2 pi/9, or -7 pi/9 in this finite-cyclic Hilbert-transform setting.",
+        "The closest indexed finite-cyclic endpoint result concerns a three-frequency Fourier projection and a different kernel."
+      ],
+      "reasoning": "Exact constants and the dyadic identity were searched directly to detect tables or formula compilations that might subsume the claim; none matched.",
+      "searches": [
+        "cotangent sum 7 pi 36 cyclic Hilbert transform norm",
+        "2 over pi log N gamma log 4 over pi cyclic Hilbert transform",
+        "conjugate Dirichlet kernel sampled odd grid exact norm"
+      ]
+    },
+    "rationale": "The inspected foundational finite-DFT source supplies the phase-shifter construction but not the sharp endpoint norm law; the closest infinite-lattice and continuous-quadrature sources concern different operators. Targeted published-index searches for cotangent endpoint norms, dyadic invariance, and the three residue-class asymptotics found no equivalent or dominating result. A residual risk from older DSP terminology is retained explicitly.",
+    "residual_risks": [
+      "Older signal-processing literature may contain the same absolute cotangent row-sum identity under finite-length Hilbert-transform or phase-shifter terminology even if it is not indexed with operator-norm language.",
+      "The claim therefore does not assert novelty for the kernel formula alone; originality is attached to the integrated sharp endpoint norm theorem, exact dyadic invariance, and explicit residue-class asymptotics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELEVANT_NOT_COVERING",
+        "evidence": "The inspected pages specify the finite DFT phase shifter but do not state an exact ell^1 or ell^infinity operator norm, cotangent absolute row sum, dyadic norm identity, or the residue-class asymptotics.",
+        "identifier_or_url": "Gold-Oppenheim-Rader-1969",
+        "material_read": "Title/presentation page and the finite-length frequency-sampling section describing N phase samples, signs on positive/negative halves, and zero/Nyquist handling.",
+        "method": "Page-image inspection of the public scan.",
+        "title": "Theory and Implementation of the Discrete Hilbert Transform",
+        "trigger": "Foundational finite-length DFT Hilbert-transform construction closely matching the multiplier convention."
+      },
+      {
+        "assessment": "RELEVANT_NOT_COVERING",
+        "evidence": "The operators act on the infinite lattice and the results concern one-parameter groups and ell^p bounds; no finite cyclic endpoint norm formula is stated.",
+        "identifier_or_url": "arXiv:1506.03362v1",
+        "material_read": "Abstract, definitions, introduction, and main theorem discussion in the public full text.",
+        "method": "Full-text HTML inspection.",
+        "title": "One-parameter groups of operators and discrete Hilbert transforms",
+        "trigger": "Primary MSC 42A45 source on discrete Hilbert transforms and Fourier multipliers."
+      },
+      {
+        "assessment": "DIFFERENT_OPERATOR",
+        "evidence": "The paper analyzes Szego/anti-Szego quadrature for a continuous principal-value integral; it does not study the finite cyclic Fourier sign multiplier or its induced endpoint norm.",
+        "identifier_or_url": "DOI:10.1007/s10915-025-03044-3",
+        "material_read": "Abstract, stated scope, numerical-test description, conclusions, and bibliographic metadata.",
+        "method": "Open-access HTML inspection.",
+        "title": "Approximation of the Hilbert Transform On The Unit Circle",
+        "trigger": "Recent open-access work on discrete numerical approximations to the circular Hilbert transform."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a7ab305-5d8e-4c66-9146-25c8e51468fd",
+  "value": {
+    "rationale": "The object is the canonical finite DFT Hilbert phase shifter, so its worst-case endpoint amplification is a natural stability invariant. The theorem resolves that invariant for every cycle size, exposes an exact odd-to-double invariance, and quantifies the parity/mod-4 finite-size effects beyond the universal logarithmic leading order. This is structural rather than a fixed-size computation.",
+    "status": "PASS"
+  }
+}
