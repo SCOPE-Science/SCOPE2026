@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact sparse-polynomial arithmetic over rational coefficients.
 
-For
-\[
-\dot x=a y+z,\qquad
-\dot y=-x+y^2,\qquad
-\dot z=x+b y,
-\]
-it verifies
-\[
-L(y+z)=y(y+b)
-\]
-and the exact completion of the square
-\[
-y(y+b)=\left(y+\frac b2\right)^2-\frac{b^2}{4}.
-\]
+# Independent mathematical audit
 
-It also substitutes the two symbolic equilibria
-\[
-(0,0,0),\qquad (b^2,-b,ab)
-\]
-into all three components and verifies zero residuals, then checks the original parameters \(a=27/10\), \(b=1\).
+## correctness
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+PASS
 
-The checker validates the algebraic certificate. Conditional expectations require arbitrary test functions, Jensen's inequality is used for the parameter range, and the slab-rigidity conclusion uses invariance and continuity of the compact support.
+Antiderivative tests in each coordinate give the three conditional laws. Stationarity of \(y\) and \(z\) yields \(\mathbb E[y(y+b)]=0\), hence the circle law. Jensen gives \(0\le\theta\le1\) and the variance parabola. Endpoint and slab rigidity follow from invariant support and the sign of \(y(y+b)\). The actual frozen verify.py was read and confirms the core generator and equilibrium identities.
+
+## originality
+
+PASS
+
+The full 1994 Sprott article was lawfully accessible and was checked at the object/scope level; it catalogs the flows, critical points, Lyapunov exponents and fractal dimensions. Later accessible material concerns approximate statistics, analytical reformulations and periodic-orbit localization. Resultary searches found no Sprott-P circle law, conditional regression or slab-occupation theorem.
+
+## value
+
+PASS
+
+Sprott P is a canonical multistability testbed. The theorem gives an attractor-independent exact moment circle, complete mean–variance curve and a sharp two-sided slab occupation constraint across all compact stationary components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
