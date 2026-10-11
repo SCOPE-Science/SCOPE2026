@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two independent analytic certificates.
+# Independent mathematical audit
 
-First, the least-favorable prior
-\[
-w_*=\frac5{13}\delta_{-\pi/3}+\frac3{13}\delta_0+\frac5{13}\delta_{\pi/3}
-\]
-produces an averaged Helstrom difference with nonzero eigenvalues \(\pm\sqrt{2114}/104\). Therefore every fixed measurement has worst-case success at most
-\[
-V=\frac12+\frac{\sqrt{2114}}{208}.
-\]
+## correctness
 
-Second, the displayed kernel-corrected observable \(B_*\) has spectrum \(\{-1,-4/39,4/39,1\}\), so it defines a valid binary POVM. Its exact profile obeys
-\[
-P_*(\theta)-V
-=
-\frac{\sqrt{2114}}{219856}(1-\cos\theta)(2\cos\theta-1)(246\cos\theta+713).
-\]
-For \(|\theta|\le\pi/3\), all factors on the right are nonnegative. This proves the continuum lower bound without sampling.
+PASS
 
-`artifacts/verify.py` reconstructs the four-dimensional symmetric-subspace matrices from the defining states and checks the spectra, active-point equalization, and closed-form profile against direct matrix evaluation. It uses only the Python standard library and deterministic arithmetic at double precision. Its grid test is a regression check for the formulas, not the proof of the continuum inequality.
+Both three-copy states lie in the four-dimensional symmetric subspace, where a two-outcome POVM is represented by a Hermitian contraction \(B\) and success is \(1/2+(1/4)\operatorname{Tr}(\Delta(\theta)B)\). Averaging over the stated three-point prior gives the displayed Hermitian matrix with spectrum \(\{-\lambda,0,0,\lambda\}\), \(\lambda=\sqrt{2114}/104\); the Helstrom trace-norm bound therefore gives the global minimax upper bound \(1/2+\sqrt{2114}/208\). The proposed kernel correction preserves contraction, with eigenvalues \(-1,-4/39,4/39,1\). Direct algebra yields the success excess \(\frac{\sqrt{2114}}{219856}(1-\cos\theta)(2\cos\theta-1)(246\cos\theta+713)\), nonnegative on \(|\theta|\le\pi/3\) and zero exactly at \(0,\pm\pi/3\), matching the upper bound over the full continuum. The inspected verifier independently reconstructs the averaged matrix, kernel correction, contraction spectrum, active-point values, and numerical agreement with the closed profile; the continuum guarantee is the analytic factorization.
 
-Limits: the verification and theorem concern only three copies with \(\alpha=\pi/4\), \(\theta_{\max}=\pi/3\), and equal label priors.
+## originality
+
+PASS
+
+Fujiki--Tanaka formulate exactly the common-unitary nuisance problem and state a finite-discretization least-favorable-prior SDP with numerical binary-qubit demonstrations. The accessible primary abstract does not state a continuous analytic solution, exact algebraic value, three-point rational least-favorable prior, or closed success profile. Targeted Resultary search found no published SCOPE record covering this benchmark exactly. Full-text access to the very recent source failed through the arXiv HTML route and the authorized institutional fallback was unavailable in this run, so a specific source-access residual risk is retained rather than converted into a failure.
+
+## value
+
+PASS
+
+This closes a natural continuous version of a freshly published numerical benchmark: it replaces grid-dependent evidence by an exact saddle certificate, identifies the least-favorable nuisance support and weights, and gives a closed success profile proving the global continuum guarantee. The result is narrow but strongly motivated by the source benchmark and supplies a reusable analytic test case for robust quantum discrimination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

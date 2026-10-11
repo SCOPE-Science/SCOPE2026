@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:32:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 51d6487af5cdcea51b675569707de7b318b6f462",
+        "assigned artifacts/verify.py blob 886ab4e44a872e6f67b1e3e58aa57d592dbbba8c",
+        "Fujiki--Tanaka, arXiv:2609.04020, primary abstract/metadata",
+        "D'Ariano--Sacchi--Kahn, arXiv:quant-ph/0504048"
+      ],
+      "rationale": "Both three-copy states lie in the four-dimensional symmetric subspace, where a two-outcome POVM is represented by a Hermitian contraction \\(B\\) and success is \\(1/2+(1/4)\\operatorname{Tr}(\\Delta(\\theta)B)\\). Averaging over the stated three-point prior gives the displayed Hermitian matrix with spectrum \\(\\{-\\lambda,0,0,\\lambda\\}\\), \\(\\lambda=\\sqrt{2114}/104\\); the Helstrom trace-norm bound therefore gives the global minimax upper bound \\(1/2+\\sqrt{2114}/208\\). The proposed kernel correction preserves contraction, with eigenvalues \\(-1,-4/39,4/39,1\\). Direct algebra yields the success excess \\(\\frac{\\sqrt{2114}}{219856}(1-\\cos\\theta)(2\\cos\\theta-1)(246\\cos\\theta+713)\\), nonnegative on \\(|\\theta|\\le\\pi/3\\) and zero exactly at \\(0,\\pm\\pi/3\\), matching the upper bound over the full continuum. The inspected verifier independently reconstructs the averaged matrix, kernel correction, contraction spectrum, active-point values, and numerical agreement with the closed profile; the continuum guarantee is the analytic factorization.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General minimax/Helstrom theory supplies the dual upper-bound mechanism but not the benchmark's exact nuisance prior or continuum-attaining contraction.",
+          "The source's finite-grid theorem does not by itself certify the continuum between grid points."
+        ],
+        "reasoning": "No checked broader theorem collapses this particular continuum problem to the three nuisance points or yields the displayed algebraic value automatically.",
+        "searches": [
+          "Fujiki--Tanaka finite-grid LFP framework",
+          "classical Helstrom binary discrimination",
+          "D'Ariano--Sacchi--Kahn minimax discrimination"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.04020",
+        "arXiv:quant-ph/0504048",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible source text characterizes its binary and qutrit examples as numerical demonstrations following a finite discretization.",
+          "The audited proof adds an exact least-favorable prior, exact spectral upper certificate, explicit contraction, and nonnegative factorization on the whole interval."
+        ],
+        "reasoning": "On the material actually accessible, the final exact continuum theorem is not an implication of the published finite-grid result.",
+        "searches": [
+          "arXiv:2609.04020 accessible abstract versus audited analytic saddle certificate",
+          "quant-ph/0504048 minimax theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fujiki--Tanaka explicitly describe a finite-discretization SDP whose value is the finite-grid minimax success probability and present numerical binary-qubit demonstrations.",
+          "D'Ariano--Sacchi--Kahn study minimax over unknown label priors, not a common external unitary nuisance parameter."
+        ],
+        "reasoning": "Equivalent formulations as a semi-infinite binary quantum detection problem, a continuous nuisance minimax, or a least-favorable-prior saddle point were compared.",
+        "searches": [
+          "Resultary query: three-copy robust qubit common rotation continuous minimax least favorable prior exact value pi/4 pi/3",
+          "arXiv:2609.04020 abstract and metadata",
+          "arXiv:quant-ph/0504048"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry with \\(\\sqrt{2114}\\), weights \\(5/13,3/13,5/13\\), or the displayed continuous profile was located."
+        ],
+        "reasoning": "The source benchmark is numerical, so an exact-value table was a plausible covering route and was explicitly checked.",
+        "searches": [
+          "Resultary exact benchmark/value search",
+          "web search for the exact title and benchmark parameters"
+        ]
+      },
+      "rationale": "Fujiki--Tanaka formulate exactly the common-unitary nuisance problem and state a finite-discretization least-favorable-prior SDP with numerical binary-qubit demonstrations. The accessible primary abstract does not state a continuous analytic solution, exact algebraic value, three-point rational least-favorable prior, or closed success profile. Targeted Resultary search found no published SCOPE record covering this benchmark exactly. Full-text access to the very recent source failed through the arXiv HTML route and the authorized institutional fallback was unavailable in this run, so a specific source-access residual risk is retained rather than converted into a failure.",
+      "residual_risks": [
+        "The full Fujiki--Tanaka paper could not be inspected in this run; an exact continuous calculation hidden in the body or appendix therefore remains the principal residual originality risk.",
+        "A mathematically equivalent robust-control formulation under different terminology could escape the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ABSTRACT_NOT_COVERING; best-of-knowledge PASS with explicit residual risk.",
+          "evidence": "The accessible primary description is finite-grid/numerical and contains none of the audited exact algebraic constants or continuum profile.",
+          "identifier_or_url": "arXiv:2609.04020",
+          "material_read": "Primary arXiv abstract and metadata, which state the common-unitary minimax formulation, finite-discretization SDP theorem, and numerical binary-qubit/qutrit demonstrations. A full HTML fetch was attempted but unavailable; a separate lawful OA search found no alternate full copy, and the authorized institutional fallback returned an unavailable-worker error.",
+          "method": "Primary abstract plus bounded access attempts; no claim of whole-document noncoverage.",
+          "title": "Robust multi-hypothesis quantum-state discrimination under unknown common unitary perturbations via least favorable priors",
+          "trigger": "Exact source paper containing the benchmark being solved."
+        },
+        {
+          "assessment": "NOT_COVERING the common-unitary nuisance benchmark.",
+          "evidence": "Its minimax variable is the unknown label prior/detection balance rather than a shared rotation acting on both hypotheses.",
+          "identifier_or_url": "arXiv:quant-ph/0504048",
+          "material_read": "Primary result-level material describing minimax discrimination without prior probabilities and its relation to Bayesian measurements.",
+          "method": "Open-access primary-source comparison.",
+          "title": "Minimax quantum-state discrimination",
+          "trigger": "Closest classical quantum minimax-discrimination theorem cited by the source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fujiki--Tanaka 2026 benchmark",
+        "general minimax quantum discrimination literature"
+      ],
+      "rationale": "This closes a natural continuous version of a freshly published numerical benchmark: it replaces grid-dependent evidence by an exact saddle certificate, identifies the least-favorable nuisance support and weights, and gives a closed success profile proving the global continuum guarantee. The result is narrow but strongly motivated by the source benchmark and supplies a reusable analytic test case for robust quantum discrimination.",
+      "residual_risks": [
+        "The algebra exploits the special three-copy symmetric subspace and algebraic angles, so generalization is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Fujiki--Tanaka binary three-copy qubit benchmark with equal label priors, state separation \\(\\pi/4\\), and unknown common \\(y\\)-rotation \\(\\theta\\in[-\\pi/3,\\pi/3]\\), the exact collective-measurement continuous minimax success probability is \\(\\frac12+\\frac{\\sqrt{2114}}{208}\\). A least-favorable nuisance prior places weights \\(5/13,3/13,5/13\\) at \\(-\\pi/3,0,\\pi/3\\), and an explicit optimal POVM has the displayed closed-form success profile whose only worst cases are those three nuisance points.",
+  "limitations": [
+    "Only the specified binary three-copy benchmark is solved.",
+    "The result does not give a formula for other copy numbers, state separations, nuisance intervals, unequal label priors, qutrit examples, or locality-restricted measurements."
+  ],
+  "schema_version": 1
+}
