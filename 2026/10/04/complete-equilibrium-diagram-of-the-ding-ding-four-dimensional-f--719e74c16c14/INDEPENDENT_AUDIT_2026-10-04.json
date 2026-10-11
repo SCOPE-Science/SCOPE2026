@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:01:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact elimination gives \\(y=x\\), \\(z=x^2/c\\), \\(w=dx^3\\), and the single condition \\(x[(b-1)+(d-1/c)x^2]=0\\). This yields the complete case split, including the singular locus \\(dc=1\\). At the source parameters \\(R=-144\\). Direct symbolic reconstruction of the origin Jacobian factors its characteristic polynomial by \\((\\lambda-1)\\), so the universal linear instability is exact. The packaged rational checker was inspected but is only corroborative.",
+      "risk": "The result concerns equilibria and local linearization only; it does not decide the existence or basin structure of the reported hyperchaotic attractor.",
+      "sources": [
+        "Ding and Ding, Entropy 22 (2020), 310, DOI 10.3390/e22030310, PMCID PMC7516767",
+        "assigned RESULT.md blob d573af2f82525f729817eda0a1c58e9d55f536f5"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Returned results concern different chaotic flows; none supplies a theorem covering this vector field as a special case."
+        ],
+        "reasoning": "No checked broader equilibrium theorem fixes the source-specific algebra automatically beyond direct elimination.",
+        "searches": [
+          "Resultary equilibrium-correction corpus",
+          "public citation/title searches"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/e22030310",
+        "PMCID:PMC7516767",
+        "Resultary semantic corpus",
+        "OpenAlex W3012474806"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's sign condition already implies only the origin at the showcased parameters, but its claimed curve and coordinates contradict that implication and it omits the singular \\(dc=1\\) case.",
+          "The final corrected theorem is not a valid theorem already stated by the source; it is the reconciliation and completion of contradictory source claims."
+        ],
+        "reasoning": "The prior paper motivates and partially contains the ingredients but does not imply its own erroneous curve assertion.",
+        "searches": [
+          "Ding and Ding 2020 Sections 3.1--3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's Section 3.1 asserts a full equilibrium curve; Section 3.2 separately gives a sign-dependent one/three-equilibrium count with incorrect nonzero coordinates.",
+          "No checked source states the corrected square-root branches together with the \\(dc=1\\) degeneracy."
+        ],
+        "reasoning": "The source has pieces of the count but not an equivalent correct complete theorem.",
+        "searches": [
+          "Resultary: Ding Ding four-dimensional hyperchaotic equilibrium curve correction",
+          "public search by DOI 10.3390/e22030310 and equilibrium equation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table records the corrected parameter-stratified equilibrium set."
+        ],
+        "reasoning": "This is a symbolic classification rather than a table lookup.",
+        "searches": [
+          "Resultary published findings",
+          "OpenAlex/PubMed/PMC source records"
+        ]
+      },
+      "rationale": "The source paper itself contains an internal inconsistency: it calls the entire parametrized curve an equilibrium curve, yet its later sign test says the showcased negative-ratio parameters have only one equilibrium, and its displayed nonzero coordinates omit the required square roots. The audited theorem resolves this inconsistency, supplies the omitted singular parameter locus, and adds the universal eigenvalue-one statement. Targeted Resultary and public-literature searches located the source and unrelated equilibrium corrections, but no prior correction of this system.",
+      "residual_risks": [
+        "A correction in unindexed commentary or a non-English secondary source could exist; no such source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_CONTAINS_CORRECTABLE_INTERNAL_CONTRADICTION",
+          "evidence": "Section 3.1 calls \\((x,x,x^2/c,dx^3)\\) an equilibrium curve at all parameters; Section 3.2 says the system has only one equilibrium when \\(c(1-b)/(dc-1)<0\\), which occurs at the showcased parameters.",
+          "identifier_or_url": "DOI:10.3390/e22030310 / PMCID:PMC7516767",
+          "material_read": "Full PMC HTML around Sections 3.1 and 3.2, including the equilibrium-curve equation, Figure 4 parameter set, and the one/three-equilibrium sign statement.",
+          "method": "lawful open full text",
+          "title": "The Establishment and Dynamic Properties of a New 4D Hyperchaotic System with Its Application and Statistical Tests in Gray Images",
+          "trigger": "Primary source containing the claimed equilibrium curve and showcased parameters."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete correction of a published equilibrium geometry used in subsequent local-stability discussion. It identifies exactly when the advertised continuum actually exists and prevents applying a curve-based stability argument at parameters where no such curve is present.",
+      "risk": "The correction does not by itself invalidate the source's numerical hyperchaos or encryption experiments.",
+      "sources": [
+        "DOI:10.3390/e22030310"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Ding--Ding four-dimensional flow \\(\\dot x=a(y-x),\\ \\dot y=bx-y-xz+w,\\ \\dot z=x^2-cz,\\ \\dot w=w-dx^3\\) with \\(a,b,c,d>0\\), if \\(dc\\ne1\\) and \\(R=c(1-b)/(dc-1)\\), the real equilibria are only the origin when \\(R\\le0\\) and the origin plus \\((\\pm\\sqrt R,\\pm\\sqrt R,R/c,\\pm dR^{3/2})\\) when \\(R>0\\); if \\(dc=1\\), a full equilibrium curve exists exactly when \\(b=1\\). At \\((24,25,3,1/2)\\), only the origin is an equilibrium, and the origin always has eigenvalue \\(1\\).",
+  "limitations": [
+    "No claim about Lyapunov exponents, attractor existence, or cryptographic performance is made."
+  ],
+  "schema_version": 1
+}

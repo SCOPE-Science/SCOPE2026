@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Solving the four equilibrium equations in their logical order forces \(y=x\), \(z=x^2/c\), and \(w=dx^3\), after which the remaining equation is exactly \(x[(b-1)+(d-1/c)x^2]=0\). The case split in the finding exhausts all positive \(a,b,c,d\), including the singular denominator case \(dc=1\) and the collision \(R=0\). The origin's eigenvalue \(1\) follows directly from the factorized characteristic polynomial. The exact replay script succeeds from the packaged path.
+## correctness
 
-## Originality
-PASS. The primary paper was inspected through its defining equations, equilibrium-curve section, local-stability section, and showcased parameter choice. Exact DOI/equation searches and semantic comparisons against close published dynamical-system records did not locate a prior statement of the complete equilibrium classification or the observation that the plotted curve is not an equilibrium set at the showcased parameters. The nearest located records concern different vector fields and therefore do not imply this source-specific correction.
+PASS
 
-## Value
-PASS. Whether a system has a continuum of equilibria or isolated equilibria is a structural property that changes the correct local-dynamical analysis. The source explicitly presents the equilibrium curve as a novel feature and bases a Routh–Hurwitz calculation on arbitrary points of it. Showing that the continuum exists only on the exact codimension-two locus \(b=1\), \(dc=1\), while the main numerical parameters have only one equilibrium, repairs a central mathematical description of the model rather than a cosmetic parameter typo.
+Exact elimination gives \(y=x\), \(z=x^2/c\), \(w=dx^3\), and the single condition \(x[(b-1)+(d-1/c)x^2]=0\). This yields the complete case split, including the singular locus \(dc=1\). At the source parameters \(R=-144\). Direct symbolic reconstruction of the origin Jacobian factors its characteristic polynomial by \((\lambda-1)\), so the universal linear instability is exact. The packaged rational checker was inspected but is only corroborative.
 
-## Closest literature and limitations
-The closest located material is the introducing article itself and general published work on equilibrium and stability structure in other smooth flows. None of those different systems contains this algebraic equilibrium set as a special case. The result does not rule out the paper's numerical attractor or cryptographic experiments, and an unindexed later correction remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source paper itself contains an internal inconsistency: it calls the entire parametrized curve an equilibrium curve, yet its later sign test says the showcased negative-ratio parameters have only one equilibrium, and its displayed nonzero coordinates omit the required square roots. The audited theorem resolves this inconsistency, supplies the omitted singular parameter locus, and adds the universal eigenvalue-one statement. Targeted Resultary and public-literature searches located the source and unrelated equilibrium corrections, but no prior correction of this system.
+
+## value
+
+PASS
+
+This is a complete correction of a published equilibrium geometry used in subsequent local-stability discussion. It identifies exactly when the advertised continuum actually exists and prevents applying a curve-based stability argument at parameters where no such curve is present.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
