@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,49 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytical conservation identity is exact:
-\[
-g_1+g_2+g_3+g_4+g_5=0.
-\]
 
-The numerical witness uses
-\[
-\gamma=\frac12,\qquad
-\Delta t=1,\qquad
-N=1,\qquad
-\delta=\omega=\frac12,
-\]
-and the exact invariant history
-\[
-I=A=Q=0,\qquad S=1-R,
-\qquad
-R(t)=e^t\operatorname{erfc}(\sqrt t).
-\]
+# Independent mathematical audit
 
-At \(m=2\), the printed recurrence has correction coefficients
-\[
-C_2=\frac{4}{\Gamma(5/2)}
-\]
-and
-\[
-C_3=\frac{17}{2\Gamma(7/2)}.
-\]
-Because the erroneous recovery corrections are evaluated on \(Q=0\), the remaining total-population change is
-\[
-C_2(R_1-R_0)+C_3(R_2-2R_1+R_0).
-\]
+## correctness
 
-The bundled checker evaluates this expression at 80-digit precision and verifies
-\[
-\Delta N_3
-\approx
--0.49207893684378897699,
-\]
-hence
-\[
-N_3
-\approx
-0.50792106315621102301.
-\]
+PASS
 
-The checker is a replay of the explicit witness. The general cancellation and the source of its failure are established algebraically.
+Adding the five printed continuous Caputo SIAQR fields cancels exactly, so total population is conserved. Equation (5.22) uses the recovered state R in its first g5 history term but the quarantine state Q in the two higher g5 differences, destroying the componentwise cancellation. For the exact invariant submodel I=A=Q=0, N=1, delta=omega=1/2 and gamma=1/2, R(t)=exp(t) erfc(sqrt(t)). An independent 50-digit replay gives the first fully affected m=2 population defect -0.492078936843788976989587439259416..., matching the inspected verifier. Replacing the two Q histories by the corresponding R histories restores exact cancellation.
+
+## originality
+
+PASS
+
+The primary article contains the continuous closed SIAQR system and the printed component recurrences, but targeted source, correction and Resultary searches located no published notice of the Q-for-R substitution or its conservation defect. Earlier SIAQR work concerns a different stochastic-delay model, while generic Newton-polynomial Caputo expositions keep the same scalar component function throughout its history interpolation. Neither prior line implies the explicit source-specific 49.2 percent population loss.
+
+## value
+
+PASS
+
+Population conservation is a defining structural constraint of the closed model, and the printed update loses about 49.2 percent of total population on a simple exact admissible history. The finding therefore supplies a strong reproducibility diagnostic and a precise minimal repair, well beyond a cosmetic notation observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

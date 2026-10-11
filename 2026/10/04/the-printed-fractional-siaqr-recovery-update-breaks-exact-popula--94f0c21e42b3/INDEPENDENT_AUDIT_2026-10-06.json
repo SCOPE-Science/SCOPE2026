@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:04:21.654390Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and complete public package at tree f190f8a1a4f1215f0fcaf1402067fe3fc734ab89",
+        "assigned verify.py",
+        "Althubiti--Sharma--Goswami--Dubey, DOI:10.1080/25765299.2023.2209981",
+        "Rihan--Alsakaji, DOI:10.1016/j.rinp.2021.104658"
+      ],
+      "rationale": "Adding the five printed continuous Caputo SIAQR fields cancels exactly, so total population is conserved. Equation (5.22) uses the recovered state R in its first g5 history term but the quarantine state Q in the two higher g5 differences, destroying the componentwise cancellation. For the exact invariant submodel I=A=Q=0, N=1, delta=omega=1/2 and gamma=1/2, R(t)=exp(t) erfc(sqrt(t)). An independent 50-digit replay gives the first fully affected m=2 population defect -0.492078936843788976989587439259416..., matching the inspected verifier. Replacing the two Q histories by the corresponding R histories restores exact cancellation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier SIAQR paper proves properties of a different stochastic-delay system.",
+          "The generic scalar Caputo history scheme retains one component function through its interpolation."
+        ],
+        "reasoning": "Broader SIAQR and numerical-method literature supplies context but does not dominate the exact printed-recurrence diagnosis.",
+        "searches": [
+          "Rihan--Alsakaji DOI:10.1016/j.rinp.2021.104658",
+          "Wang--Wang--Li DOI:10.1177/14613484231224611"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1080/25765299.2023.2209981",
+        "DOI:10.1177/14613484231224611",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous conservation alone does not imply that a discretization violates it.",
+          "The accepted result requires detecting the Q-for-R substitution and evaluating its effect on an exact fractional history."
+        ],
+        "reasoning": "The source-specific counterexample and minimal repair are additional nontrivial information.",
+        "searches": [
+          "Direct statement comparison between the source's continuous conservation identity and its equation (5.22)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching published correction was returned.",
+          "The source-specific defect can equally be described as a wrong recovered-state history argument or failure of the exact total-population cancellation."
+        ],
+        "reasoning": "The searches covered component substitution, conservation failure, recovered-compartment recurrence and erratum terminology.",
+        "searches": [
+          "Resultary: fractional SIAQR recovery update population conservation g5 Q R Althubiti Sharma Goswami Dubey",
+          "DOI:10.1080/25765299.2023.2209981 g5 Q R correction erratum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact database finding was returned among the relevant records."
+        ],
+        "reasoning": "The 80-digit residual is a certificate for a structural algebraic defect, not a lookup value.",
+        "searches": [
+          "Resultary exact semantic search for the article, equation (5.22), g5 and population conservation"
+        ]
+      },
+      "rationale": "The primary article contains the continuous closed SIAQR system and the printed component recurrences, but targeted source, correction and Resultary searches located no published notice of the Q-for-R substitution or its conservation defect. Earlier SIAQR work concerns a different stochastic-delay model, while generic Newton-polynomial Caputo expositions keep the same scalar component function throughout its history interpolation. Neither prior line implies the explicit source-specific 49.2 percent population loss.",
+      "residual_risks": [
+        "Unpublished simulation code may use the intended R arguments.",
+        "A non-indexed author correction could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_RECOVERY_HISTORY_DEFECT",
+          "evidence": "The recovered equation changes state argument in its higher g5 history terms, and no source correction was located.",
+          "identifier_or_url": "DOI:10.1080/25765299.2023.2209981",
+          "material_read": "Open primary article material covering the five-compartment model, Caputo formulation, numerical scheme and simulations; the exact equation (5.22) argument pattern was checked against the frozen source package.",
+          "method": "Lawful open primary-source inspection plus exact recurrence comparison.",
+          "title": "Fractional SIAQR model with time dependent infection rate",
+          "trigger": "Exact source containing both the conserved model and recovery recurrence."
+        },
+        {
+          "assessment": "COMPONENT_FUNCTION_REMAINS_FIXED",
+          "evidence": "It provides no mechanism for replacing the recovered state by a different compartment inside higher history differences.",
+          "identifier_or_url": "DOI:10.1177/14613484231224611",
+          "material_read": "Numerical-algorithm material from the scalar Caputo equation through its Volterra/history interpolation.",
+          "method": "Primary literature comparison.",
+          "title": "An efficient numerical simulation of chaos dynamical behaviors for fractional-order Rossler chaotic systems with Caputo fractional derivative",
+          "trigger": "Independent exposition of the same scalar history-stepping pattern."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Althubiti et al. 2023",
+        "generic Caputo history-scheme comparator"
+      ],
+      "rationale": "Population conservation is a defining structural constraint of the closed model, and the printed update loses about 49.2 percent of total population on a simple exact admissible history. The finding therefore supplies a strong reproducibility diagnostic and a precise minimal repair, well beyond a cosmetic notation observation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1080/25765299.2023.2209981",
+    "DOI:10.1177/14613484231224611",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The finding audits the printed scheme, not unavailable code.",
+    "It does not certify all coefficients, positivity, stability or convergence order of the full numerical method."
+  ],
+  "residual_risks": [
+    "Unpublished simulation code may use the intended R arguments.",
+    "A non-indexed author correction could exist."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRINTED_RECOVERY_HISTORY_DEFECT",
+      "evidence": "The recovered equation changes state argument in its higher g5 history terms, and no source correction was located.",
+      "identifier_or_url": "DOI:10.1080/25765299.2023.2209981",
+      "material_read": "Open primary article material covering the five-compartment model, Caputo formulation, numerical scheme and simulations; the exact equation (5.22) argument pattern was checked against the frozen source package.",
+      "method": "Lawful open primary-source inspection plus exact recurrence comparison.",
+      "title": "Fractional SIAQR model with time dependent infection rate",
+      "trigger": "Exact source containing both the conserved model and recovery recurrence."
+    },
+    {
+      "assessment": "COMPONENT_FUNCTION_REMAINS_FIXED",
+      "evidence": "It provides no mechanism for replacing the recovered state by a different compartment inside higher history differences.",
+      "identifier_or_url": "DOI:10.1177/14613484231224611",
+      "material_read": "Numerical-algorithm material from the scalar Caputo equation through its Volterra/history interpolation.",
+      "method": "Primary literature comparison.",
+      "title": "An efficient numerical simulation of chaos dynamical behaviors for fractional-order Rossler chaotic systems with Caputo fractional derivative",
+      "trigger": "Independent exposition of the same scalar history-stepping pattern."
+    }
+  ]
+}

@@ -1,33 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The continuous five-compartment right-hand sides sum identically to zero. The recovery recurrence in equation (5.22) is then compared term by term with the other four component recurrences: its first history term uses \(R\), but its two higher history differences use \(Q\). For the exact invariant submodel
-\[
-I=A=Q=0,\qquad N=1,\qquad \delta=\omega=\frac12,\qquad \gamma=\frac12,
-\]
-the source model has
-\[
-R(t)=e^t\operatorname{erfc}(\sqrt t).
-\]
-Substitution into the \(m=2\) recurrence gives an uncancelled population change
-\[
--0.49207893684378897699\ldots.
-\]
-The bundled high-precision checker independently reconstructs the coefficients and value.
+PASS
 
-## Originality
+Adding the five printed continuous Caputo SIAQR fields cancels exactly, so total population is conserved. Equation (5.22) uses the recovered state R in its first g5 history term but the quarantine state Q in the two higher g5 differences, destroying the componentwise cancellation. For the exact invariant submodel I=A=Q=0, N=1, delta=omega=1/2 and gamma=1/2, R(t)=exp(t) erfc(sqrt(t)). An independent 50-digit replay gives the first fully affected m=2 population defect -0.492078936843788976989587439259416..., matching the inspected verifier. Replacing the two Q histories by the corresponding R histories restores exact cancellation.
 
-PASS. Population conservation and scalar Newton-polynomial history quadrature are prior methodology. The accepted result is source-specific: equation (5.22) changes the recovered-state argument to the quarantine state inside the higher \(g_5\) history corrections, and this exact substitution breaks conservation on an explicit fractional-order solution history. Searches by exact DOI/title, \(g_5/Q/R\) aliases, recovered-compartment wording, and erratum terminology found no published correction.
+## originality
 
-## Value
+PASS
 
-PASS. The model is explicitly a closed five-compartment epidemic model, so preservation of total population is a natural structural check. The printed update loses approximately \(49.2\%\) of the total population in the exact witness after a single evaluated recurrence level. The repair is minimal and directly useful for reproducing the algorithm. The assessment is limited to the printed scheme because the simulation code is unavailable.
+The primary article contains the continuous closed SIAQR system and the printed component recurrences, but targeted source, correction and Resultary searches located no published notice of the Q-for-R substitution or its conservation defect. Earlier SIAQR work concerns a different stochastic-delay model, while generic Newton-polynomial Caputo expositions keep the same scalar component function throughout its history interpolation. Neither prior line implies the explicit source-specific 49.2 percent population loss.
 
-## Closest literature and limitations
+## value
 
-Earlier stochastic-delay SIAQR work treats positivity and persistence in a different model. Independent descriptions of Newton-polynomial Caputo stepping keep the same scalar component function throughout a history interpolation. Neither supplies the later article's \(Q\)-for-\(R\) substitution.
+PASS
 
-The result does not claim that the published figures were generated with the malformed recurrence, nor does it certify the remaining numerical coefficients or the convergence order of the method.
+Population conservation is a defining structural constraint of the closed model, and the printed update loses about 49.2 percent of total population on a simple exact admissible history. The finding therefore supplies a strong reproducibility diagnostic and a precise minimal repair, well beyond a cosmetic notation observation.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
