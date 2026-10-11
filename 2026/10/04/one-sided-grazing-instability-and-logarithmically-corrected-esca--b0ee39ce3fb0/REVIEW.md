@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Under the stated sign assumptions and boundary equality, the source return map has \(R(A)=0\), while the explicit upper and lower flight times are both positive. The boundary orbit reaches the lower threshold tangentially at \((0,-\mu)\). Signed distance reduces the return map exactly to
-\[
-u^+=\sqrt{u(u+2\rho)}.
-\]
-This recurrence is strictly expansive for every \(u>0\), and its exact increment yields
-\[
-u_n=\rho n-\frac{\rho}{2}\log n+C+o(1).
-\]
-The proof is analytic and does not extrapolate from finite computation.
+## correctness
 
-## Originality
-PASS. The motivating paper explicitly removes \(R(x^*)=0\) from its differentiable stability argument and says the singular boundary requires separate analysis. Its later qualitative statement that visible-fold cycles are repulsive does not provide the singular normal form or an escape rate. Focused indexed-literature searches for the source, boundary equality, exact recurrence, grazing aliases, and logarithmic escape found no implication-equivalent record. Full text of the closest classical square-root-map paper was inspected; it develops generic grazing square-root bifurcation structure but does not contain this model-specific recurrence or the \(-\rho\log n/2\) correction.
+PASS
 
-The closest literature is the Nordmark/square-root grazing-map theory, especially doi:10.1088/0951-7715/23/2/012 and doi:10.1137/120884286. Those works make the square-root singularity itself expected, so the novelty claim is limited to the exact boundary reduction and sharp long-iterate escape law.
+Substituting the singular boundary equality into the source return map gives \(R(A)=0\). The sign hypotheses make both explicit flight times positive, so the fixed point is a physical grazing cycle rather than an algebraic zero-time artifact. Writing \(x=A+s u\) on the returning side gives exactly \(u^+=\sqrt{u(u+2\rho)}\). The recurrence is strictly increasing and divergent, its increment tends to \(\rho\), and after normalization the expansion \(v_{n+1}-v_n=1-1/(2v_n)+O(v_n^{-2})\), together with \(v_n/n\to1\), gives a summable correction to \(v_n-n+\tfrac12\log n\); hence the stated finite constant and logarithmic escape law. The derivation is analytic and does not rely on a finite trajectory experiment.
 
-## Value
-PASS. The parameter equality is a natural bifurcation boundary where the source says its usual derivative criterion fails. Determining the actual one-sided dynamics there closes a specific gap in the phase portrait, and the logarithmically corrected linear escape rate quantifies the singular instability rather than merely relabeling it.
+## originality
 
-## Limitations and residual risk
-The theorem is confined to the affine model, the returning branch, and the exact singular equality. It does not prove robustness of the logarithmic correction under smoothing, nonlinear perturbations, or noise. An equivalent recurrence calculation could be hidden in unindexed nonsmooth-dynamics literature, although targeted exact-form and alias searches did not find one.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact 2026 source is the strongest plausible priority source. Its accessible abstract confirms that it derives explicit first-return maps and classifies periodic-orbit birth/disappearance and stability, while the audited package identifies the singular boundary as the case excluded from its differentiable stability test. Classical grazing literature explains generic square-root singularities but does not, in the material located, state this affine model's exact recurrence or its \(-\rho\log n/2\) iteration correction. A permitted institutional full-text retrieval was safety-blocked and was not retried or bypassed; this access limitation is retained as a real priority risk rather than treated as a failure.
+
+## value
+
+PASS
+
+The singular equality is a natural creation/destruction boundary where ordinary derivative stability fails. The exact one-sided normal form and its universal linear-plus-logarithmic escape law quantify the boundary dynamics sharply, supplying more than a qualitative grazing-instability statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
