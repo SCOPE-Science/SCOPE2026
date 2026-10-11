@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:09:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct expansion of the exact Fromage map gives the norm identity. The sharp lower bound on \\((x^\\top Hx)/(\\|x\\|\\|Hx\\|)\\) is attained by the two-eigenvalue witness with squared coordinate ratio \\(\\mu/L\\), producing exactly the submitted condition-number factor and the \\(\\eta=1\\) minimizer. Removing only the Fromage prefactor gives the submitted proportional-update quadratic and its sharp interval. In one shifted dimension the official update is multiplication by \\((1+\\eta)/\\sqrt{1+\\eta^2}\\) below the minimizer and \\((1-\\eta)/\\sqrt{1+\\eta^2}\\) above it; the trapping interval and logarithmic circle translation follow exactly. The official implementation was read and confirms that even at zero gradient the global \\(1/\\sqrt{1+\\eta^2}\\) prefactor is still applied. Fresh numerical identities independently reproduced the sharp witness and the circle-coordinate conjugacy.",
+      "risk": "The multidimensional statement is a one-step Euclidean guarantee; it is not a complete asymptotic spectral characterization of every SPD orbit.",
+      "sources": [
+        "arXiv:2002.03432",
+        "official jxbz/fromage blob 840c6ce062237a62b31741457dc693644d448096",
+        "arXiv:1801.03137",
+        "frozen RESULT.md and verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The LARS source covers qualitative shifted one-dimensional nonconvergence without the Fromage prefactor.",
+          "The Fromage source derives the algorithm for deep relative trust rather than SPD condition-number sharpness or translated orbit classification."
+        ],
+        "reasoning": "Neither broader source implies the exact prefactored two-regime theorem.",
+        "searches": [
+          "arXiv:1801.03137 full text, Sections 3.1--3.3",
+          "arXiv:2002.03432 full text, Algorithm 1 and Section 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2002.03432",
+        "arXiv:1801.03137",
+        "official jxbz/fromage source",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining rule supplies the map but not its sharp SPD extremum.",
+          "The LARS analysis omits the prefactor, which changes both the trapping multipliers and the fixed point behavior; its oscillation statement does not imply the rigid log-circle conjugacy."
+        ],
+        "reasoning": "The final accepted claim needs new sharp quadratic geometry and exact analysis of the prefactored translated map.",
+        "searches": [
+          "Bernstein et al. Algorithm 1",
+          "Gitman--Dilipkumar--Parr one-dimensional LARS analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining Fromage paper states Algorithm 1 with the normalization prefactor and its relation to LARS.",
+          "The proportional-update paper proves a trapping interval and fixed-step nonconvergence for unprefactored LARS on \\(\\tfrac12(w-a)^2\\), but not the prefactored circle map or centered SPD sharp factor."
+        ],
+        "reasoning": "Normalized-gradient, proportional-update, LARS and Fromage formulations were compared on the same quadratic models.",
+        "searches": [
+          "Resultary query: Fromage optimizer centered SPD quadratic sharp contraction condition number square root translated shifted scalar circle rotation LARS proportional updates",
+          "arXiv:2002.03432",
+          "arXiv:1801.03137"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published Resultary record with the same optimizer/model and exact factors was returned."
+        ],
+        "reasoning": "The claim is analytic rather than tabular; the exact search was used only to detect a duplicate theorem.",
+        "searches": [
+          "Resultary semantic search for exact Fromage SPD and translated-circle formulas"
+        ]
+      },
+      "rationale": "Bernstein et al. define the exact prefactored Fromage rule and compare it with LARS, but do not give a sharp condition-number analysis on centered SPD quadratics. Gitman--Dilipkumar--Parr already analyze the unprefactored one-dimensional proportional update and show fixed-step oscillation near a nonzero minimizer; that prior result is therefore not credited as new here. The audited contribution that survives comparison is the exact prefactored Fromage behavior: the centered sharp factor together with the translated-map rotation conjugacy. No Resultary hit or inspected primary source implied those statements.",
+      "residual_risks": [
+        "Older normalized-gradient or dynamical-systems literature may encode the same prefactored circle conjugacy under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_RULE_NOT_SHARP_QUADRATIC_DICHOTOMY",
+          "evidence": "Algorithm 1 uses \\(W\\mapsto (W-\\eta\\|W\\|g/\\|g\\|)/\\sqrt{1+\\eta^2}\\) and explicitly says the prefactor distinguishes Fromage from LARS.",
+          "identifier_or_url": "arXiv:2002.03432",
+          "material_read": "Open full PDF, including Algorithm 1 and Section 5; page 7 was visually inspected.",
+          "method": "Lawful open full-text inspection.",
+          "title": "On the distance between two neural networks and the stability of learning",
+          "trigger": "Defines Fromage and the normalization prefactor."
+        },
+        {
+          "assessment": "COVERS_UNPREFIXED_LARS_OSCILLATION_ONLY",
+          "evidence": "The paper gives the shifted one-dimensional LARS trapping interval and states fixed-step oscillation without convergence, but does not analyze Fromage's prefactor.",
+          "identifier_or_url": "arXiv:1801.03137",
+          "material_read": "Open full PDF, especially Sections 3.1--3.3; the relevant page was visually inspected.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Convergence Analysis of Gradient Descent Algorithms with Proportional Updates",
+          "trigger": "Closest prior analysis of the same norm-ratio direction on shifted quadratics."
+        },
+        {
+          "assessment": "CONFIRMS_EXACT_UPDATE_SEMANTICS",
+          "evidence": "The implementation applies the \\(1/\\sqrt{1+\\eta^2}\\) rescaling after both the normalized-gradient and zero-gradient branches.",
+          "identifier_or_url": "GitHub jxbz/fromage blob 840c6ce062237a62b31741457dc693644d448096",
+          "material_read": "Complete source file fromage.py.",
+          "method": "Read-only GitHub source inspection.",
+          "title": "Official Fromage implementation",
+          "trigger": "Verify the exact zero-gradient branch and normalization semantics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem isolates a mathematically sharp origin-dependence pathology in a named optimization rule: centering yields an accelerated-looking condition-number factor, while translation creates persistent nonconvergence with an exact dynamical normal form. The contrast is structurally informative beyond a numerical counterexample.",
+      "risk": "The shifted classification is scalar and fixed-step, so it does not by itself diagnose practical multilayer training.",
+      "sources": [
+        "arXiv:2002.03432",
+        "arXiv:1801.03137"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For centered SPD quadratics, Fromage has the sharp Euclidean one-step factor \\(q_F(\\eta,\\kappa)=\\sqrt{1-4\\eta\\sqrt\\kappa/((1+\\eta^2)(\\kappa+1))}\\), with unique optimal fixed parameter \\(\\eta=1\\); the corresponding unprefactored proportional update has its stated sharp stability window. On the shifted scalar quadratic with nonzero minimizer, the same fixed-step Fromage rule is eventually conjugate in log-coordinate to a circle rotation and therefore does not converge to that minimizer.",
+  "limitations": [
+    "Centered SPD result is Euclidean one-step sharpness.",
+    "Translated orbit classification is scalar with \\(0<\\eta<1\\).",
+    "The LARS comparison is a mathematical unprefactored map, not every practical LARS variant."
+  ],
+  "schema_version": 1
+}

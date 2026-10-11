@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Expanding the exact Fromage update reduces its squared norm ratio to one minus a scalar multiple of the angle cosine \(x^\top Hx/(\|x\|\|Hx\|)\). The sharp lower bound \(2\sqrt{\mu L}/(\mu+L)\) follows from the eigenvalue inequality \(\lambda^2+\mu L\le(\mu+L)\lambda\) and arithmetic-geometric mean, with equality on a two-eigenvalue witness. This proves the exact centered factor, its unconditional contraction for every positive finite learning rate, and the unique optimum at \(\eta=1\). Removing the prefactor gives the exact LARS-type comparison. For the shifted scalar objective, the official update becomes a two-branch multiplicative map; the invariant interval and logarithmic rigid-rotation conjugacy are exact.
+PASS
 
-Risk: the square-root statement is a sharp repeated one-step guarantee, not a lower bound on every trajectory's asymptotic convergence rate.
+Direct expansion of the exact Fromage map gives the norm identity. The sharp lower bound on \((x^\top Hx)/(\|x\|\|Hx\|)\) is attained by the two-eigenvalue witness with squared coordinate ratio \(\mu/L\), producing exactly the submitted condition-number factor and the \(\eta=1\) minimizer. Removing only the Fromage prefactor gives the submitted proportional-update quadratic and its sharp interval. In one shifted dimension the official update is multiplication by \((1+\eta)/\sqrt{1+\eta^2}\) below the minimizer and \((1-\eta)/\sqrt{1+\eta^2}\) above it; the trapping interval and logarithmic circle translation follow exactly. The official implementation was read and confirms that even at zero gradient the global \(1/\sqrt{1+\eta^2}\) prefactor is still applied. Fresh numerical identities independently reproduced the sharp witness and the circle-coordinate conjugacy.
 
-## Originality
+## originality
 
-PASS. The defining Fromage paper explains the norm-ratio update and introduces the \((1+\eta^2)^{-1/2}\) prefactor to correct relative norm growth, but the inspected text does not derive a sharp SPD-quadratic condition-number law. Earlier proportional-update analysis already shows qualitative fixed-rate nonconvergence on shifted one-dimensional objectives, so that phenomenon is treated as prior coverage rather than novelty. The surviving claim is the exact effect of the Fromage prefactor: unconditional centered SPD contraction, the sharp \(1-\Theta(\kappa^{-1/2})\) one-step bound, the exact LARS comparison, and the prefactored log-rotation boundary.
+PASS
 
-Focused searches over Fromage, LARS, proportional updates, normalized gradients, centered quadratics, condition numbers, and shifted scalar dynamics found no inspected source stating or implying the complete claim.
+Bernstein et al. define the exact prefactored Fromage rule and compare it with LARS, but do not give a sharp condition-number analysis on centered SPD quadratics. Gitman--Dilipkumar--Parr already analyze the unprefactored one-dimensional proportional update and show fixed-step oscillation near a nonzero minimizer; that prior result is therefore not credited as new here. The audited contribution that survives comparison is the exact prefactored Fromage behavior: the centered sharp factor together with the translated-map rotation conjugacy. No Resultary hit or inspected primary source implied those statements.
 
-## Value
+## value
 
-PASS. Fromage's defining distinction from LARS is precisely its normalization prefactor. The theorem quantifies that design choice on the canonical SPD quadratic class: it removes the proportional update's finite stability ceiling and improves the best sharp centered one-step condition-number scaling from \(1-\Theta(\kappa^{-1})\) to \(1-\Theta(\kappa^{-1/2})\). The shifted example simultaneously identifies the limitation that makes this possible—the update is relative to the origin rather than translation invariant. This provides both a positive benchmark and a sharp caution for interpreting Fromage as a general quadratic optimizer.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The theorem isolates a mathematically sharp origin-dependence pathology in a named optimization rule: centering yields an accelerated-looking condition-number factor, while translation creates persistent nonconvergence with an exact dynamical normal form. The contrast is structurally informative beyond a numerical counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
