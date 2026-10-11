@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact weighted half-plane kernel is fixed by a Fourier–Laplace integral and matches the normalization of Deng–Huang–Qian, arXiv:2009.02989. Mixed derivatives obey \\(\\partial_z^r\\partial_{\\overline w}^sK/K=(-1)^r(h)_{r+s}t^{r+s}\\). Expanding four derivative combinations and dividing by a nowhere-zero factor yields exactly \\(Q(t)=1+A[(-1)^dc+\\overline c]t^d+(-1)^dB|c|^2t^{2d}\\). For \\(h=\\alpha+2>1\\) and \\(q>p\\), strict gamma log-convexity proves \\(B>A^2\\), so the quadratic in \\(t^d\\) has two distinct nonzero roots. Complete angular enumeration gives the claimed \\(d\\), \\(d+1\\), and \\(d-1\\) counts and real-boundary cases; all zeros are simple and accessible as \\(t=(z-\\overline w)^{-1}\\) for suitable interior points. The standalone checker passed four high-precision Fourier-integral normalization tests and 560 root tests; the analytic proof, not finite samples, covers all parameters. Limits: no fixed-point-slice count or more-than-two-jet claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bao–Guan–Sun arXiv:2510.13144v2 studies extremal p-Bergman kernels and relations to higher-order differential functionals, but neither states nor bounds the zero count for two separated jets on a weighted half-plane.",
+        "Deng–Huang–Qian arXiv:2009.02989v1 gives power-weight reproducing kernels for tube domains without derivative-mix zero location.",
+        "Bonyo DOI 10.33434/cams.631112 gives weighted half-plane base kernels and mappings, without the present Gram-zero theorem."
+      ],
+      "reasoning": "The cited papers cover the setting or derive unweighted/power-weighted base formulas, not a theorem that dominates the exact scalar count. A general expression for the kernel is weaker than the asserted uniform root geometry.",
+      "searches": [
+        "Bergman kernel mixed partial derivatives Gram matrix zero free two point differential evaluation functional upper half plane two jets",
+        "higher order Bergman reproducing kernels derivative weighted half plane zero-free polynomials jet Gram zeros",
+        "arXiv:2510.13144 PDF searches \"Lu Qi\", \"upper half plane\", \"off-diagonal\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.13193",
+      "https://arxiv.org/pdf/2608.13193",
+      "https://arxiv.org/abs/2510.13144",
+      "https://arxiv.org/pdf/2510.13144",
+      "https://arxiv.org/pdf/2009.02989",
+      "https://dergipark.org.tr/tr/download/article-file/1021092"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.1 of Gehlawat–Jain–Sarkar yields an unweighted series identity, but its zero-free Theorem 4.11 proves claims only for singleton support and factorial support, while the new theorem uses two different nonadjacent orders.",
+        "Bao–Guan–Sun derive extremal and regularity relationships, not zero counts of the Hermitian Gram kernel; the same word \"off-diagonal\" denotes a distinct definition there.",
+        "The weighted kernel sources only identify the base K_alpha, not the differential Gram zeros."
+      ],
+      "reasoning": "Singleton support gives no nonzero reduced roots and cannot entail the separated two-support counts. The factorial sequence does not specialize to only two nonadjacent nonzero entries. Knowledge of the base weighted kernel and abstract derivative series permits calculations but does not itself state or prove the gamma-strictness-plus-angular-count theorem.",
+      "searches": [
+        "arXiv:2608.13193 full-text Theorem 4.1, Proposition 4.5 and Theorem 4.11",
+        "arXiv:2510.13144 Section 5 higher order Bergman kernel and ξ-Bergman kernel",
+        "2020 weighted half-plane kernel normalization sources"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.13193v1 §4, formula (4.6): an unweighted entire function F_xi(t) records arbitrary differential sequences but gives no closed parity zero count.",
+        "Theorem 4.11 of the same paper addresses one supported order and the factorial sequence.",
+        "Direct comparison against reciprocal-difference, sparse-jet and Lu Qi-Keng terminology found no equivalent result in the examined material."
+      ],
+      "reasoning": "The exact model is a specialization of a general unweighted differential-sequence series, but an explicit formula alone does not locate and count its zeros. The normalized weighted theorem addresses all nonadjacent derivative pairs and all real power weights; adjacent first-order cases and single-order examples do not imply its parity law.",
+      "searches": [
+        "\"two-sparse\" \"Bergman\" \"zeros\" 2026",
+        "\"two-jet\" \"Bergman\" \"Lu Qi-Keng\"",
+        "upper half plane Bergman derivative evaluation Gram kernel order p q two jets zero count d=q-p phase imaginary c",
+        "arXiv:2608.13193 PDF Section 4 formula (4.6) and search \"two nonzero\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record searches returned no entry with the same jet functional, weighted parameter range and three-case scalar zero-count statement among the inspected highest-ranked records.",
+        "The identified primary source lists two special sequences and does not tabulate separated pairs."
+      ],
+      "reasoning": "This is a uniform infinite-family classification, not a recomputation of a finite database cell or an unpublished tabulation. Absence of a semantic search hit is supportive but not proof of global novelty.",
+      "searches": [
+        "Gehlawat Jain Sarkar canonical ξ Bergman kernel higher two-sparse jet indices m n root counts parity upper half-plane",
+        "Weighted upper half plane Bergman jet functional f derivative p and q sparse two term kernels polynomial roots count d plus or minus one",
+        "Two-supported derivative evaluation Gram kernel upper half-plane Lu Qi Keng failures for gap at least two"
+      ]
+    },
+    "rationale": "The nearest full-text primary source supplies an unweighted general differential-sequence kernel series but gives zero-free conclusions only for single-supported or factorially supported sequences, not a parity-and-phase count for every nonadjacent pair and every power weight. The source on extremal functional Bergman kernels and the weighted half-plane kernel papers likewise do not state this exact zero geometry. The new result combines the four-term reduction, strict gamma inequality, and exhaustive angular count. Same-model literature and semantic-record comparison found no stronger or equivalent prior theorem; an unindexed analogue remains a risk.",
+    "residual_risks": [
+      "A thesis or article not indexed or not encountered by the targeted full-text and semantic searches may contain an equivalent classification.",
+      "A broader unpublished statement might logically subsume this theorem even without matching the functional notation.",
+      "Numerical checks do not replace external verification of the analytic proof; independent review is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives universal unweighted expression and two special zero-free classes; does not give exact nonadjacent two-jet root count or power-weight continuation.",
+        "evidence": [
+          "Theorem 4.1 eq (4.6) full differential sequence series",
+          "Proposition 4.5 singleton and factorial coefficients",
+          "Theorem 4.11 singleton and factorial examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.13193",
+        "material_read": "Primary PDF text and rendered pages 1, 14-20, including Theorem 4.1, equation (4.4), equation (4.6), Definition 4.3, Proposition 4.5, Theorem 4.11; inspected Section 5 and Section 6 headings and statements.",
+        "method": "Open arXiv full PDF, inspect equation-bearing rendered pages and search full text by theorem labels and sequence support.",
+        "title": "A Canonical Positive Definite Kernel Associated with the ξ-Bergman Kernel",
+        "trigger": "Same Gram-kernel definition, same half-plane, source of the newly posed zero-set problem."
+      },
+      {
+        "assessment": "The off-diagonal functional extremal kernel and plurisubharmonicity statements do not cover the weighted two-jet Gram zero count.",
+        "evidence": [
+          "Introduction §1.1-1.3 definitions",
+          "§5 higher-order functional comparison",
+          "No Lu Qi-Keng or upper-half-plane zero theorem identified"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2510.13144",
+        "material_read": "Primary PDF introduction and definitions, relevant sections 1-2 and Section 5 on higher order kernels; full-document targeted searches for \"Lu Qi\", \"upper half plane\", and \"off-diagonal\".",
+        "method": "Read OA arXiv PDF text plus rendered introduction, inspect definitions and Section 5, compare the objects not the title.",
+        "title": "On the p-Bergman Kernel with Respect to a Functional ξ",
+        "trigger": "Strongly adjacent study of differential functionals, higher-order and off-diagonal extremal Bergman kernels."
+      },
+      {
+        "assessment": "Provides the base weighted half-plane kernel; no two-jet Gram zero classification in the inspected relevant results.",
+        "evidence": [
+          "Section 1, weight rho(iy)=y^(v-1) and explicit K(z,w)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2009.02989",
+        "material_read": "Rendered PDF page 1 and 2, especially stated power-weight kernel and normalization, plus text of representation section.",
+        "method": "Open full OA arXiv PDF, inspect the normalizing weight and formula on rendered original page.",
+        "title": "Reproducing Kernels of Some Weighted Bergman Spaces",
+        "trigger": "Same power-weight half-plane reproducing kernel and potential stronger weight coverage."
+      },
+      {
+        "assessment": "Classifies base reproducing kernels and projections, not zeros of differential Gram kernels.",
+        "evidence": [
+          "Theorem 2.1 gives weighted upper-half-plane reproducing kernel"
+        ],
+        "identifier_or_url": "https://dergipark.org.tr/tr/download/article-file/1021092",
+        "material_read": "Primary PDF pages 1 and 4, especially Section 2.1 and Theorem 2.1 for the base weighted kernel.",
+        "method": "Inspect full PDF text and rendered theorem, track the paper-specific measure normalization.",
+        "title": "Reproducing Kernels for Hardy and Bergman Spaces of the Upper Half Plane",
+        "trigger": "Independent power-weight kernel formula and possible unrecognized root coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "48a4d84c-1cc7-4165-ab0e-9b435db1c9a9",
+  "value": {
+    "rationale": "The canonical differential-sequence kernel construction (Gehlawat–Jain–Sarkar, arXiv:2608.13193, Theorem 4.11) raises the Lu Qi-Keng zero-set problem. Exact counts of attainable zeros of its first separated two-term derivative mixtures form a natural structural classification: every gap \\(d=q-p\\ge2\\) yields zeros; the exact count depends only on parity and the sign of \\(\\operatorname{Im}c\\); and the law persists through all \\(\\alpha>-1\\) power weights and all starting orders. The phase dependence and weight/order invariance are mathematically useful global features, not a small numerical improvement or arbitrary slice. The unrestricted differential-sequence problem remains outside the result.",
+    "status": "PASS"
+  }
+}
