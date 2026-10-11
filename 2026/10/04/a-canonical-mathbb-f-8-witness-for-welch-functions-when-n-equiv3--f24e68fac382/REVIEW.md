@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(n=6r+3\), the unique subfield \(\mathbb F_8\subset\mathbb F_{2^n}\) is a three-dimensional allowed subspace. Since \(m=3r+1\), the Welch exponent is congruent to \(5\) modulo \(7\), and the nontrivial fifth-power sum over the cyclic group \(\mathbb F_8^\times\) is zero. The source obstruction polynomial independently collapses to zero on \(\mathbb F_8^2\). The exact verifier replays both finite-field identities. The verifier is not used to prove the infinite quantifier.
+## correctness
 
-## Originality
-PASS, with a stated revision-access risk. The inspected first public Hou--Zhao version states the all-odd assertion as Conjecture 5.10 and checks only \(n\le15\); it does not give the canonical \(\mathbb F_8\) witness or a theorem for all \(3\mid n\). Searches by the Welch exponent, the subfield witness, the conjecture number, and equivalent obstruction language found no proved statement covering the infinite progression. The closest divisible-by-three theorem concerns the multiplicative inverse function and does not imply this claim. A later revision dated 2026-09-28 was catalogued but not materially available for full-text comparison.
+PASS
 
-## Value
-PASS. The result proves an infinite arithmetic progression of a newly stated conjecture and identifies a structural mechanism that replaces determinant computations by a canonical subfield witness. It explains, rather than merely recomputes, the divisible-by-three cases appearing in the source table.
+If odd \(n\) is divisible by \(3\), write \(n=6r+3\) and \(m=(n-1)/2=3r+1\). Finite-field subfield theory gives \(\mathbb F_8\subset\mathbb F_{2^n}\), a three-dimensional \(\mathbb F_2\)-linear subspace and hence an allowed affine three-flat. On \(\mathbb F_8^\times\), whose order is seven, \(2^m+3\equiv2+3\equiv5\pmod7\). Therefore \(\sum_{x\in\mathbb F_8}x^{2^m+3}=\sum_{x\in\mathbb F_8^\times}x^5=0\), since fifth power permutes the nonzero cyclic group and the sum of all its elements is zero. Thus the Welch function fails third-order sum-freedom. Independently, on \(\mathbb F_8\) the Frobenius \(z\mapsto z^{2^m}\) is squaring, and substitution into the Hou–Zhao obstruction polynomial cancels its first two terms in characteristic two and annihilates the third.
 
-## Closest literature and limitations
-The direct predecessor is Hou--Zhao, arXiv:2609.31489v1, §5.3 and Conjecture 5.10. Ebeling--Hou--Rydell--Zhao, DOI:10.1016/j.ffa.2025.102744, supplies a superficially similar divisibility theorem for a different function. The theorem here does not address odd dimensions not divisible by three. An inaccessible later revision and unindexed folklore remain bibliographic risks.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The current indexed abstract of Hou–Zhao's Welch paper, last updated on 2026-09-28, still describes the third-order Welch statement as a conjecture supported by numerical evidence. Exact searches for an \(\mathbb F_8\) Welch witness or a theorem for \(3\mid n\) found no prior theorem, and Resultary returned only the assigned record as the exact hit. The superficially similar earlier divisible-by-three theorem is explicitly for the multiplicative inverse function, not the Welch exponent. The current Hou–Zhao revision's full PDF could not be obtained through the lawful arXiv/OA route or authorized institutional retrieval, so possible revision-only overlap is recorded as a residual risk rather than treated as noncoverage evidence.
+
+## value
+
+PASS
+
+The theorem proves an infinite arithmetic progression of a newly stated Welch sum-freedom conjecture and replaces determinant/search evidence with a canonical subfield mechanism. That is a motivated structural advance even though the final proof is elementary once the witness is recognized.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
