@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:57:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct elimination from the actual RESULT.md recurrence gives y^{k+1}=bz^{k+1}; on the invariant manifold rho r=b Delta z and |s|=rho|Delta z|, hence |r|/|s|=b/rho^2 on nonstationary steps. The resulting three-branch map enters [sqrt(b/mu),sqrt(mu b)] for every positive start iff tau<=mu; for tau>mu every rho in (sqrt(mu b)/tau,sqrt(b/mu)) is a literal two-cycle. Substitution gives q(rho)=(rho^2+ab)/((a+rho)(b+rho)) in (0,1), and differentiation gives the unique fixed-penalty minimizer sqrt(ab). The packaged exact-rational checker is consistent with, but not a substitute for, these analytic steps.",
+      "risks": [
+        "The residual ratio is undefined at the stationary zero-residual state, where the usual rule simply leaves rho unchanged."
+      ],
+      "sources": [
+        "RESULT.md blob cb685b42987fc3ebc3152619598a1b40bc123ae2",
+        "verify.py blob c92269b751519cba44588f50cf97774dec163d5d",
+        "Independent algebraic reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. give the standard residuals and heuristic update.",
+          "Ghadimi et al. give the fixed-penalty quadratic optimizer; in this scalar family it is rho=sqrt(ab).",
+          "McCann--Wohlberg analyze quadratic ADMM as an affine fixed-point problem and compare adaptive penalty methods."
+        ],
+        "reasoning": "These sources are broader in algorithmic setting but do not imply the sharp tau/mu phase diagram for the submitted scalar residual-balancing dynamics.",
+        "searches": [
+          "Boyd et al. DOI:10.1561/2200000016",
+          "Ghadimi et al. DOI:10.1109/TAC.2014.2354892",
+          "McCann--Wohlberg DOI:10.1109/OJSP.2023.3349115"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob cb685b42987fc3ebc3152619598a1b40bc123ae2",
+        "verify.py blob c92269b751519cba44588f50cf97774dec163d5d",
+        "DOI:10.1561/2200000016",
+        "DOI:10.1109/TAC.2014.2354892",
+        "arXiv:1704.06209v1",
+        "DOI:10.1109/OJSP.2023.3349115",
+        "Fresh Resultary and web exact-formula searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard rule plus the known fixed optimum does not determine the adaptive orbit without the invariant and exact residual identity.",
+          "The later affine fixed-point treatment discusses residual balancing but does not provide the submitted iff stabilization theorem in inspected sections."
+        ],
+        "reasoning": "The submitted theorem requires an additional exact dynamical reduction, so it is not a parameter substitution or direct corollary of the inspected prior statements.",
+        "searches": [
+          "Statement comparison with Boyd et al. residual-balancing rule",
+          "Statement comparison with Ghadimi et al. fixed-penalty theorem",
+          "Full-text comparison with McCann--Wohlberg 2024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wohlberg analyzes residual-balancing scaling and the non-universality of a unit residual-ratio target, but not the exact scalar penalty orbit.",
+          "No Resultary hit supplied the same iff capture threshold or explicit cycle interval."
+        ],
+        "reasoning": "The exact claim is equivalent to a one-dimensional piecewise multiplicative map only after proving the nontrivial invariant y=bz and residual ratio b/rho^2; the inspected prior formulations do not give that reduction.",
+        "searches": [
+          "Resultary query: residual balancing ADMM scalar quadratic deadband cycling tau mu exact penalty map",
+          "web query: residual balancing ADMM two-cycle penalty tau mu scalar quadratic",
+          "Wohlberg arXiv:1704.06209v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh searches returned optimization/stability results but no exact database/table containing |r|/|s|=b/rho^2 together with the stated deadband and cycle classification."
+        ],
+        "reasoning": "There is no finite table at issue; the database check targeted exact formulas and aliases. Non-detection is not itself novelty proof.",
+        "searches": [
+          "Resultary query: residual balancing ADMM scalar quadratic deadband cycling tau mu exact penalty map",
+          "web exact-phrase/parameter search for tau mu residual-balancing cycles"
+        ]
+      },
+      "rationale": "Fresh statement-level comparison separates the classical residual-balancing rule, fixed-penalty quadratic optimum, and scaling critique from the submitted exact adaptive orbit. The inspected later quadratic penalty-selection paper analyzes residual balancing and affine fixed-point behavior but does not state the scalar invariant-induced deadband map, the universal finite-capture iff condition tau<=mu, or the explicit two-cycle interval. Fresh Resultary and web searches found no implication-equivalent published finding; search absence is treated only as corroboration.",
+      "residual_risks": [
+        "Adaptive-ADMM literature is extensive, so a differently phrased scalar special-case analysis could exist outside the inspected sources.",
+        "The deadband/rate comparison is coordinate-scale dependent, as expected from residual-balancing scaling sensitivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_RULE_NOT_COVERING",
+          "evidence": [
+            "Defines the heuristic used by the claim but no scalar deadband/cycling theorem."
+          ],
+          "identifier_or_url": "DOI:10.1561/2200000016",
+          "material_read": "Sections defining primal/dual residuals, varying-penalty update, and scaled-dual rescaling.",
+          "method": "Lawful full-text inspection.",
+          "title": "Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers",
+          "trigger": "Defining source for the standard residual-balancing update."
+        },
+        {
+          "assessment": "FIXED_PARAMETER_COVERAGE_ONLY",
+          "evidence": [
+            "Covers rho*=sqrt(ab) in the scalar specialization, not the adaptive penalty phase diagram."
+          ],
+          "identifier_or_url": "DOI:10.1109/TAC.2014.2354892; OptimizationOnline:3917",
+          "material_read": "Problem recurrence and fixed-penalty optimality theorem.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Optimal Parameter Selection for the Alternating Direction Method of Multipliers (ADMM): Quadratic Problems",
+          "trigger": "Same quadratic ADMM family and fixed-penalty benchmark."
+        },
+        {
+          "assessment": "SCALING_CRITIQUE_NOT_COVERING",
+          "evidence": [
+            "Shows the target residual ratio is problem-dependent but does not state the exact submitted map."
+          ],
+          "identifier_or_url": "arXiv:1704.06209v1",
+          "material_read": "Residual-balancing definition, scaling analysis, and conclusion.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "ADMM Penalty Parameter Selection by Residual Balancing",
+          "trigger": "Closest dedicated analysis of the same heuristic."
+        },
+        {
+          "assessment": "HIGHLY_RELEVANT_NOT_COVERING",
+          "evidence": [
+            "Residual balancing and scalar fixed-point behavior are discussed, but the exact tau/mu finite-capture and two-cycle theorem was not found."
+          ],
+          "identifier_or_url": "DOI:10.1109/OJSP.2023.3349115",
+          "material_read": "Author-version sections on residual balancing and the affine fixed-point model, including scalar fixed-point discussion.",
+          "method": "Lawful full-text author-version inspection.",
+          "title": "Robust and Simple ADMM Penalty Parameter Selection",
+          "trigger": "Highly relevant later quadratic adaptive-penalty work."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp necessary-and-sufficient stabilization boundary and explicit cycling obstruction for a widely used adaptive-penalty heuristic are motivated structural diagnostics. The additional comparison with the known optimal fixed penalty shows that finite stabilization and rate quality can separate arbitrarily strongly in this canonical quadratic family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scalar strongly convex quadratic, classical residual definitions, and a symmetric multiplicative update factor only.",
+    "The theorem concerns exact arithmetic and does not assert typical large-scale behavior."
+  ],
+  "schema_version": 1
+}

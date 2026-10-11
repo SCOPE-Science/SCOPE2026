@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact unscaled ADMM first-order conditions. The identity \(y^{k+1}=bz^{k+1}\) survives varying penalties because it is established within each completed update. On that invariant manifold, \(\rho_k r^{k+1}=b(z^{k+1}-z^k)\) and \(|s^{k+1}|=\rho_k|z^{k+1}-z^k|\), giving the state-independent ratio \(b/\rho_k^2\) on every nonstationary step. The deadband map follows directly. The finite-capture proof and two-cycle construction cover the two sides of the sharp condition \(\tau\le\mu\). The scalar state recurrence has factor strictly between zero and one for every finite positive penalty. The packaged exact-rational checker independently replays these identities on representative inputs.
+## correctness
 
-## Originality
-PASS with stated residual risk. The classical residual-balancing heuristic, its typical parameters, and dual rescaling are explicitly prior work. Ghadimi et al. already give the optimal fixed penalty for the same quadratic family; the scalar optimizer \(\sqrt{ab}\) is not claimed as new. Wohlberg already establishes a general scaling weakness and warns that a unit target residual ratio is not generally justified; that critique is also excluded. The final claim is instead the exact induced penalty map on this source family, the if-and-only-if universal finite-stabilization threshold \(\tau\le\mu\), the explicit period-two interval when \(\tau>\mu\), and the exact comparison between its deadband and the known rate-optimal penalty. Targeted semantic searches returned no implication-equivalent published finding. A 2024 paper on robust ADMM penalty selection analyzes quadratic ADMM via affine fixed points, but only its abstract was inspected here; an equivalent scalar theorem in its full text remains the main risk.
+PASS
 
-## Value
-PASS. Residual balancing is a widely used adaptive rule, and standard convergence arguments for variable-penalty ADMM often rely on eventual stabilization or controlled penalty changes. The theorem identifies exactly when the common symmetric multiplicative rule guarantees finite stabilization on a canonical strongly convex quadratic and when it can cycle forever. It also separates parameter stabilization from rate optimality: the common safe regime can freeze at penalties whose asymptotic rate is arbitrarily worse in relative terms than the known optimum. The result is a structural diagnostic, not a routine restatement of quadratic ADMM convergence.
+Direct elimination from the actual RESULT.md recurrence gives y^{k+1}=bz^{k+1}; on the invariant manifold rho r=b Delta z and |s|=rho|Delta z|, hence |r|/|s|=b/rho^2 on nonstationary steps. The resulting three-branch map enters [sqrt(b/mu),sqrt(mu b)] for every positive start iff tau<=mu; for tau>mu every rho in (sqrt(mu b)/tau,sqrt(b/mu)) is a literal two-cycle. Substitution gives q(rho)=(rho^2+ab)/((a+rho)(b+rho)) in (0,1), and differentiation gives the unique fixed-penalty minimizer sqrt(ab). The packaged exact-rational checker is consistent with, but not a substitute for, these analytic steps.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fresh statement-level comparison separates the classical residual-balancing rule, fixed-penalty quadratic optimum, and scaling critique from the submitted exact adaptive orbit. The inspected later quadratic penalty-selection paper analyzes residual balancing and affine fixed-point behavior but does not state the scalar invariant-induced deadband map, the universal finite-capture iff condition tau<=mu, or the explicit two-cycle interval. Fresh Resultary and web searches found no implication-equivalent published finding; search absence is treated only as corroboration.
+
+## value
+
+PASS
+
+A sharp necessary-and-sufficient stabilization boundary and explicit cycling obstruction for a widely used adaptive-penalty heuristic are motivated structural diagnostics. The additional comparison with the known optimal fixed penalty shows that finite stabilization and rate quality can separate arbitrarily strongly in this canonical quadratic family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
