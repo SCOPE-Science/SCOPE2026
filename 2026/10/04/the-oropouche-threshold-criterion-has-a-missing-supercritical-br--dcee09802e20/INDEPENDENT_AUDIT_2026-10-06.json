@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:40:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b9deeb4eb576a0490529b9dcadadc3603c901a9c",
+        "verify.py blob ac1f24bb86946cf5357d8451b2edd9dda88e088c",
+        "Peterson et al. DOI:10.1007/s00285-026-02422-1"
+      ],
+      "rationale": "Writing \\(q=\\mathcal R_0^2\\), the source formula makes \\(q\\) the larger root of \\(q^2-Sq+P=0\\). If \\(S>2\\), then \\(q\\ge S/2>1\\). If \\(S\\le2\\), the larger root exceeds one exactly when the quadratic at one is negative, namely \\(1-S+P<0\\). This proves the two-branch criterion. For the package's exact example, \\(S=P=16/3\\), the discriminant is \\(64/9\\) and the larger root is exactly four, while \\(S-P-1=-1\\). The inspected exact-rational verifier reconstructs the six transmission rates from admissible primitive parameters and checks every equilibrium residual at the displayed one-half state is zero.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General epidemic threshold theory says to compare the spectral radius with one but does not repair this paper's algebraic branch analysis."
+        ],
+        "reasoning": "The model-specific two-branch reduction is additional.",
+        "searches": [
+          "full primary model article",
+          "standard next-generation-matrix theory"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00285-026-02422-1",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source itself asserts a false equivalence between \\(S-P-1>0\\) and supercriticality.",
+          "The larger-root analysis shows that when \\(S>2\\), supercriticality can hold even with \\(P\\ge S-1\\)."
+        ],
+        "reasoning": "The final claim is a correction of, rather than a corollary from, the published criterion.",
+        "searches": [
+          "source equation for \\(\\mathcal R_0\\)",
+          "source appendix equation for \\(\\alpha_0\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives \\(\\mathcal R_0=2^{-1/2}\\sqrt{S+\\sqrt{S^2-4P}}\\).",
+          "Appendix lines for \\(\\alpha_0\\) state that \\(S-P-1>0\\) is the condition for \\(\\mathcal R_0>1\\)."
+        ],
+        "reasoning": "The spectral-radius threshold and sign of the larger quadratic root are equivalent formulations; the appendix factor is only one branch of that sign test.",
+        "searches": [
+          "Resultary: Oropouche reproduction threshold missing supercritical branch",
+          "Peterson et al. DOI:10.1007/s00285-026-02422-1 full open article",
+          "searches for correction/erratum to the appendix threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published correction with the same \\(S>2\\) branch or exact example was returned."
+        ],
+        "reasoning": "No external table is involved; the primary article's symbolic formulas are the exact comparison object.",
+        "searches": [
+          "Resultary exact Oropouche threshold query"
+        ]
+      },
+      "rationale": "The complete open primary article was inspected. It prints the same closed formula for \\(\\mathcal R_0\\) and then, in its appendix, identifies positivity of the quartic constant factor \\(S-P-1\\) with \\(\\mathcal R_0>1\\). The explicit supercritical counterbranch in the audited result directly contradicts that equivalence. Searches found no erratum or later correction. This is therefore a source-specific threshold correction, not a restatement of epidemic-model background.",
+      "residual_risks": [
+        "A post-publication correction may appear later because the article is very recent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_MISSES_SUPERCRITICAL_BRANCH",
+          "evidence": "The article states \\(S-P-1>0\\) is the condition for \\(\\mathcal R_0>1\\), while its own closed form has an additional \\(S>2\\) branch.",
+          "identifier_or_url": "DOI:10.1007/s00285-026-02422-1",
+          "material_read": "Complete open primary HTML, including the autonomous model, six transmission-rate definitions, next-generation matrix and \\(\\mathcal R_0\\) formula, equilibrium appendix and constant-term threshold argument.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "A novel mathematical model of seasonality in Oropouche virus transmission in Amazonas, Brazil",
+          "trigger": "Exact source of the next-generation formula and disputed appendix criterion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Peterson et al. 2026",
+        "next-generation-matrix background"
+      ],
+      "rationale": "The basic reproduction threshold controls local disease-free stability and is then used in the article's endemic-equilibrium discussion. Missing an entire supercritical branch is a substantive qualitative error; the exact criterion and admissible counterexample directly repair the model analysis.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the autonomous Oropouche next-generation formula with \\(S=R_{FA}+R_{FH}+R_{CH}\\) and \\(P=R_{FA}R_{CH}\\), the exact supercritical criterion is \\(\\mathcal R_0>1\\) if and only if \\(S>2\\) or \\(P<S-1\\). Thus the appendix criterion \\(P<S-1\\) misses a genuine supercritical branch; the explicit admissible parameter point in RESULT.md has \\(S=P=16/3\\), \\(\\mathcal R_0^2=4\\), violates the appendix inequality, and possesses the displayed positive endemic equilibrium.",
+  "limitations": [
+    "This corrects the autonomous threshold/equilibrium criterion in the cited Oropouche model; it does not re-evaluate the paper's seasonal data-fitting conclusions.",
+    "The statement concerns the paper's displayed next-generation expression and appendix factorization."
+  ],
+  "schema_version": 1
+}
