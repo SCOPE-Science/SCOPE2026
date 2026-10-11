@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:09:14.842741Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a primitive degree-\\(d\\) core, its roots are \\(\\alpha,\\alpha^Q,\\ldots,\\alpha^{Q^{d-1}}\\), so the focal source's exterior-product formula gives modes \\((-1)^k\\alpha^{E_I}\\) with \\(E_I=\\sum_{i\\in I}Q^i\\). For \\(1\\le k<d\\), these subset exponents are distinct integers strictly between 0 and \\(Q^d-1\\), hence distinct modulo the order of primitive \\(\\alpha\\). Frobenius multiplication of the exponent by Q rotates the binary support, so minimal-polynomial orbits are exactly cyclic-rotation orbits. A word with orbit size \\(d/h\\) is an h-fold repetition and forces \\(h\\mid k\\); Möbius inversion gives the stated primitive-necklace count. The coprime case and the irreducibility boundary follow immediately. An independent enumeration reproduced the necklace degree formula for all \\(2\\le d\\le10\\), \\(1\\le k<d\\).",
+      "risks": [
+        "The theorem is for the canonical annihilator and primitive, not merely irreducible, cores.",
+        "The finite computation is corroboration; the arbitrary-field statement rests on the symbolic Frobenius argument."
+      ],
+      "sources": [
+        "Alekseyev–Khomovsky, arXiv:2609.27268v2, Proposition 2.1",
+        "standard finite-field Frobenius/minimal-polynomial theory",
+        "standard primitive-necklace Möbius count",
+        "independent necklace enumeration"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic finite-field factorization theorem and standard necklace enumeration jointly give the entire factor-degree distribution."
+        ],
+        "reasoning": "These broader results dominate the claimed arithmetic once the source's root-product spectrum is substituted.",
+        "searches": [
+          "finite-field factorization by Frobenius orbits",
+          "primitive polynomial conjugates",
+          "necklace Möbius inversion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.27268v2",
+        "standard finite-field minimal-polynomial/Frobenius theory",
+        "standard constant-weight necklace enumeration",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly supplies every eigenvalue as a fixed-cardinality root product.",
+          "Primitive finite-field roots are \\(\\alpha^{Q^i}\\); taking Qth powers cyclically shifts the selected indices.",
+          "Irreducible factor degree equals Frobenius orbit length by the standard finite-field minimal-polynomial theorem."
+        ],
+        "reasoning": "The chain leaves no additional nonstandard mathematical lemma to establish.",
+        "searches": [
+          "Alekseyev–Khomovsky Eq. (2)/Proposition 2.1 + primitive-polynomial Frobenius conjugacy + necklace orbit counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 2.1 identifies the modes as fixed-cardinality root products.",
+          "For a primitive polynomial the conjugates are the Frobenius cycle of one primitive element, so subset products are indexed by rotated supports."
+        ],
+        "reasoning": "The proposed 'necklace factorization' is the standard Frobenius-orbit decomposition written in the source's exterior-degree coordinates.",
+        "searches": [
+          "arXiv:2609.27268 exterior-degree recurrence modes",
+          "finite-field Frobenius cyclotomic cosets",
+          "constant-weight binary necklace orbit count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older exact table of the Toeplitz factor degrees was located; the absence is not decisive because the formula is already implied by general theory."
+        ],
+        "reasoning": "This is not a database novelty question.",
+        "searches": [
+          "Resultary primitive-core Toeplitz necklace search",
+          "finite-field compound-matrix factor searches"
+        ]
+      },
+      "rationale": "The factorization is a direct specialization of the focal paper's classical subset-product eigenvalue formula to a primitive finite-field companion matrix, followed by the standard facts that irreducible factors over \\(\\mathbb F_Q\\) are Frobenius orbits and that cyclic orbits of fixed-weight binary words are counted by primitive-necklace Möbius inversion. The focal paper itself stresses that the root-product modes are classical. Under the required implication test, recombining those standard ingredients does not create an original theorem merely because the exact Toeplitz wording was not found.",
+      "residual_risks": [
+        "An explicit formula identical to the audited one may also occur in finite-field exterior-power/Singer-cycle literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the recurrence-mode formula; the remaining finite-field orbit calculation is standard.",
+          "evidence": "Equation (2) is the fixed-cardinality root-product polynomial and Proposition 2.1 identifies it as the normalized compound characteristic polynomial; the paper explicitly says root-product modes are classical.",
+          "identifier_or_url": "arXiv:2609.27268v2",
+          "material_read": "Full-text HTML through the introduction, contribution comparison, Section 2, Equation (2), Proposition 2.1, Remark 2.2 and the graded multiplication discussion.",
+          "method": "Primary full-text statement/implication comparison.",
+          "title": "Toeplitz multiplication and graded factorization of determinant recurrences",
+          "trigger": "Primary focal source defining the canonical exterior-degree recurrence polynomial."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The factor-degree distribution is tidy and may be convenient for users of the new Toeplitz profile, but mathematically it is a routine application of standard Frobenius-orbit and necklace machinery to a root-product formula already supplied by the focal source. Under the stated value standard, that packaging alone does not clear the bar for a standalone finding.",
+      "risks": [
+        "It may still be useful expositoryly or as a corollary in a larger study."
+      ],
+      "sources": [
+        "focal root-product formula",
+        "standard finite-field and necklace theory"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Primitive cores only.",
+    "Canonical annihilator only; specialized scalar minimal recurrences may lose factors.",
+    "The finite checks do not substitute for the symbolic proof."
+  ],
+  "schema_version": 1
+}
