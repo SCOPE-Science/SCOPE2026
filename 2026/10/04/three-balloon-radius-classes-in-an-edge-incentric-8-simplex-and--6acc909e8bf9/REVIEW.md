@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Hajja's exact existence and equiareality formulas reduce the question to a quartic with no linear term. The four-class exclusion is an immediate Vieta contradiction for four positive roots. For the three-class construction, the exact coefficient identities, root isolation, positivity/distinctness bounds, and existence inequality are all replayed by `verify.py`; finite decimal diagnostics are not used as proof.
+## correctness
 
-## Originality
-PASS. The primary 2006 paper explicitly leaves the \(\mu=3\) and \(\mu=4\) existence cases open after settling \(\mu=2\). Targeted searches for the exact problem, aliases, broader same-object results, and the construction polynomial found no statement implying this result. Wu--Zhang's later same-object paper addresses circumradius rather than equiareality. Residual risk remains for unindexed or differently worded literature, and a 2009 same-object paper was available only at metadata/abstract level during this review.
+PASS
 
-## Value
-PASS. The result answers a natural open existence question from the source in both unresolved branches: it proves that four classes cannot occur and provides an exact three-class example. It also gives a reusable structural reason for the obstruction, not merely a computational witness.
+Hajja's equiareality condition places every distinct reciprocal balloon radius among the positive roots of a quartic whose linear coefficient vanishes. Four distinct positive roots would have positive third elementary symmetric sum, contradicting that zero linear coefficient, so four classes are impossible. For the proposed dimension-eight multiplicities 1,3,5, the inspected exact-rational verifier proves both polynomial factorizations imposing the quartic coefficient conditions, isolates the unique root b in the stated rational interval, proves c>1, and verifies Hajja's existence quantity M^2-7N is positive. An independent symbolic replay reproduced the factorization data, the selected real root b approximately 0.24795364834026344, c approximately 1.3453685908429687, and positive existence margin.
 
-## Closest literature and limitations
-The closest source is Hajja 2006, which supplies the governing quartic and explicitly asks whether the three- and four-value cases exist. The result does not classify all three-value simplices and does not prove minimality of dimension \(8\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hajja derives the same governing quartic, completely handles the two-value case, and explicitly leaves the existence of three and four distinct balloon-radius values unaddressed. The submitted result resolves both remaining branches: the missing linear term rules out four positive roots, while the exact algebraic construction realizes three. The later Wu--Zhang paper studies circumradius for the same simplex class rather than equiareality or the number of balloon-radius classes. Resultary search found the audited exact result and no prior covering resolution.
+
+## value
+
+PASS
+
+The theorem directly closes both unresolved existence branches posed in the foundational paper: four classes are globally impossible and three classes occur by an exact simplex construction. The Vieta obstruction is structural and the explicit witness is reusable, so this is a motivated resolution of a named geometric gap rather than an arbitrary algebraic example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

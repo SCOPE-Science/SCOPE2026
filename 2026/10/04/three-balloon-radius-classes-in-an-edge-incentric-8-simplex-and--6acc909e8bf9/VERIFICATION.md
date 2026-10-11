@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `verify.py` uses only Python's standard library and exact rational arithmetic for the certificate identities. It checks:
+# Independent mathematical audit
 
-- exact signs isolating the selected zero \(b\) of \(P\);
-- exact substitution/factorization certificates for \(H_1\) and \(H_2\);
-- the exact remainder formula for \(M^2-7N\) modulo \(P\);
-- the zero-linear-coefficient auxiliary-root identity and coefficient matching;
-- positivity and distinctness bounds sufficient for the construction.
+## correctness
 
-The analytic Vieta argument proves that four positive classes are impossible. The checker does not claim an exhaustive classification of three-class examples or minimality of dimension \(8\). Decimal values printed by the checker are diagnostics and are not used to establish the theorem.
+PASS
+
+Hajja's equiareality condition places every distinct reciprocal balloon radius among the positive roots of a quartic whose linear coefficient vanishes. Four distinct positive roots would have positive third elementary symmetric sum, contradicting that zero linear coefficient, so four classes are impossible. For the proposed dimension-eight multiplicities 1,3,5, the inspected exact-rational verifier proves both polynomial factorizations imposing the quartic coefficient conditions, isolates the unique root b in the stated rational interval, proves c>1, and verifies Hajja's existence quantity M^2-7N is positive. An independent symbolic replay reproduced the factorization data, the selected real root b approximately 0.24795364834026344, c approximately 1.3453685908429687, and positive existence margin.
+
+## originality
+
+PASS
+
+Hajja derives the same governing quartic, completely handles the two-value case, and explicitly leaves the existence of three and four distinct balloon-radius values unaddressed. The submitted result resolves both remaining branches: the missing linear term rules out four positive roots, while the exact algebraic construction realizes three. The later Wu--Zhang paper studies circumradius for the same simplex class rather than equiareality or the number of balloon-radius classes. Resultary search found the audited exact result and no prior covering resolution.
+
+## value
+
+PASS
+
+The theorem directly closes both unresolved existence branches posed in the foundational paper: four classes are globally impossible and three classes occur by an exact simplex construction. The Vieta obstruction is structural and the explicit witness is reusable, so this is a motivated resolution of a named geometric gap rather than an arbitrary algebraic example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
