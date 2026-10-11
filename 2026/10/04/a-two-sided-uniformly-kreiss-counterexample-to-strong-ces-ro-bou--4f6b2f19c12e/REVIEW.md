@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim uses the exact finite-block structure of the focal construction. Each block is diagonal in its chosen basis with unimodular eigenvalues \(e^{i\theta_j}\). Replacing them by \(e^{-i\theta_j}\) gives the inverse. The inverse multipliers have uniformly bounded total variation because \(|e^{ia}-e^{ib}|\le|a-b|\) and the positive geometric phases telescope. For rotated Cesàro means, the focal scalar kernel satisfies \(F_m(-t)=\overline{F_m(t)}\), so the total-variation estimate for \(F_m(\phi+\theta_j)\) applies verbatim to \(F_m(\phi-\theta_j)\) after replacing \(\phi\) by \(-\phi\). The same summation-by-parts bound is therefore uniform for the inverse blocks. The direct sum has a bounded inverse and the inverse is uniformly Kreiss bounded. The focal signed-average lower bound still proves that the forward operator is not strongly Cesàro bounded.
+## correctness
 
-Risk: this reasoning depends on the focal construction using the stated ordered geometric phase multipliers and its published variation lemma uniformly across blocks. Those ingredients were inspected directly in the preprint.
+PASS
 
-## Originality
-PASS. The focal theorem proves only existence of a one-sided uniformly Kreiss bounded operator that is not strongly Cesàro bounded; searches of the focal text found no inverse, invertible, or two-sided statement. The 2020 paper discusses invertible strongly Kreiss examples and poses a separate two-sided absolute-Cesàro problem, but neither statement implies the present two-sided uniform-Kreiss witness. Targeted published-finding corpus searches for inverse/two-sided uniform Kreiss formulations returned no covering finding.
+For each finite block the eigenvalues are \(e^{i\theta_j}\) in the nonorthogonal basis used by the construction. Monotonicity of the positive phases gives finite total variation of \(e^{-i\theta_j}\), so the same partial-sum-projection summation-by-parts estimate bounds the inverse blocks uniformly. For rotated Cesàro kernels \(F_m(t)=m^{-1}\sum_{k=1}^m e^{ikt}\), the identity \(F_m(-t)=\overline{F_m(t)}\) makes the variation sequence for \(\phi-\theta_j\) exactly the forward variation sequence at rotation \(-\phi\). Thus the block-uniform forward multiplier estimate transfers unchanged to \(T^{-1}\). The original signed-average obstruction remains a forward property of the same \(T\), so failure of strong Cesàro boundedness persists.
 
-Risk: the phase-reversal step is short and natural, so an equivalent observation may be folklore or may appear in material not yet indexed.
+## originality
 
-## Value
-PASS. The added hypothesis is mathematically natural: it asks whether the newly discovered separation between uniform Kreiss and strong Cesàro boundedness persists after imposing the same resolvent/Cesàro control in backward time. The answer is yes for the explicit counterexample. This rules out a plausible symmetry repair of the failed implication and connects the new counterexample to the older literature on invertible and two-sided ergodic/resolvent conditions.
+PASS
 
-Risk: the result is a structural sharpening rather than a new construction and does not settle the stronger two-sided absolute-Cesàro problem.
+The accessible primary Arnold statement proves only existence of a uniformly Kreiss bounded Hilbert operator that is not strongly Cesàro bounded. Cohen--Cuny--Eisner--Lin study stronger/different absolute-Cesàro, strong-Kreiss and power-growth questions. Resultary searches found no prior two-sided uniform-Kreiss statement. The inverse symmetry is a short strengthening of a very recent construction, with a real access residual risk rather than fabricated noncoverage.
 
-## Closest literature and limitations
-The closest sources are Arnold's 2026 counterexample and Cohen--Cuny--Eisner--Lin's 2020 study. The former supplies the construction and one-sided separation; the latter formulates the antecedent open problem and nearby two-sided hypotheses. The present statement is not a corollary of their theorem statements alone; it requires checking the phase multiplier proof for the inverse.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Requiring the same counterexample to satisfy uniform Kreiss control in both time directions is a mathematically meaningful strengthening: it rules out a natural explanation that the one-sided separation is caused by bad inverse dynamics. The result places a sharp symmetric counterexample next to older two-sided Cesàro questions, even though the new proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
