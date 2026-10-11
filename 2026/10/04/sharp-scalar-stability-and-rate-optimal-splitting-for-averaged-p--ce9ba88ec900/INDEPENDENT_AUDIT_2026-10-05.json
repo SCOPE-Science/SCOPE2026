@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:47:47.922530Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e675142d8dfb99f606c47c5b06af7a4cabbc2f50",
+        "artifacts/verify_aprg_scalar_split.py blob 6dbd03a944759f6cc3d39394807a1a6fb8b99b36",
+        "fresh symbolic Jury and limit reconstruction"
+      ],
+      "rationale": "Independent symbolic reconstruction confirms the recurrence and every boundary. The Jury margins reduce to t(γ+1)/(2(1+γt)), [4+3(γ-1)t]/[2(1+γt)], and a positive third margin, giving the exact finite ceiling only when γ<1. The roots have opposite signs, so the dominant factor is the displayed closed form. For 0<γ<2 the coefficient A changes sign once at t=2/(2-γ); implicit differentiation shows the factor decreases before and increases after this point. For γ at least 2, A stays positive and the factor decreases to one half. Boundary-mode calculations show the prescribed initialization cannot accidentally cancel the unstable mode.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strong-monotonicity and FRB results cover broader operator classes but for different updates.",
+          "Their stability/rate formulas do not specialize to the averaged proximal coefficients in the package."
+        ],
+        "reasoning": "No inspected broader theorem dominates this scalar split.",
+        "searches": [
+          "Y. Malitsky, Projected Reflected Gradient Methods for Monotone Variational Inequalities, DOI:10.1137/14097238X",
+          "Y. Malitsky and M. K. Tam, A Forward-Backward Splitting Method for Monotone Inclusions Without Cocoercivity, DOI:10.1137/18M1207260",
+          "Resultary records: strongly-monotone PRG sharp threshold; rate-optimal FRB skew rotations; optimal reflection tuning split-skew FRB"
+        ]
+      },
+      "checked_sources": [
+        "X. Chang, J. Li, J. Yang, Averaged proximal reflected gradient method for monotone variational inequalities, arXiv:2609.06409v1",
+        "Y. Malitsky, Projected Reflected Gradient Methods for Monotone Variational Inequalities, DOI:10.1137/14097238X",
+        "Y. Malitsky and M. K. Tam, A Forward-Backward Splitting Method for Monotone Inclusions Without Cocoercivity, DOI:10.1137/18M1207260",
+        "Resultary records: strongly-monotone PRG sharp threshold; rate-optimal FRB skew rotations; optimal reflection tuning split-skew FRB"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's visible generic theory supplies a convergence regime but not necessity.",
+          "For the scalar split, Jury conditions collapse to one affine inequality and the dominant-root derivative changes sign exactly where the trace coefficient vanishes."
+        ],
+        "reasoning": "The sharp phase diagram requires a method-specific spectral calculation beyond the visible source theorem.",
+        "searches": [
+          "X. Chang, J. Li, J. Yang, Averaged proximal reflected gradient method for monotone variational inequalities, arXiv:2609.06409v1",
+          "independent Jury and root-derivative calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited recurrence is the exact scalar specialization of averaged proximal reflected gradient with a quadratic proximal term.",
+          "Unaveraged PRG and FRB have different characteristic polynomials and parameter roles."
+        ],
+        "reasoning": "Algorithm aliases were compared at the recurrence level rather than by method names.",
+        "searches": [
+          "X. Chang, J. Li, J. Yang, Averaged proximal reflected gradient method for monotone variational inequalities, arXiv:2609.06409v1",
+          "Y. Malitsky, Projected Reflected Gradient Methods for Monotone Variational Inequalities, DOI:10.1137/14097238X",
+          "Y. Malitsky and M. K. Tam, A Forward-Backward Splitting Method for Monotone Inclusions Without Cocoercivity, DOI:10.1137/18M1207260",
+          "Resultary records: strongly-monotone PRG sharp threshold; rate-optimal FRB skew rotations; optimal reflection tuning split-skew FRB"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby exact spectral results for other reflected methods, not the same recurrence.",
+          "No checked table supplied the split-curvature formula."
+        ],
+        "reasoning": "The exact boundary is derived from the characteristic polynomial, not inferred from search absence.",
+        "searches": [
+          "Resultary records: strongly-monotone PRG sharp threshold; rate-optimal FRB skew rotations; optimal reflection tuning split-skew FRB",
+          "targeted searches for the exact finite ceiling and rate-optimal step"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes with the same-paper access risk stated explicitly. The current primary abstract says the paper introduces averaged PRG, gives convergence theory, and develops potentially larger adaptive steps, but does not expose a necessary-and-sufficient scalar stability boundary or closed-form rate optimum. Related Resultary records treat unaveraged PRG or forward-reflected-backward skew families with different recurrences. No checked source implies the split-curvature phase diagram.",
+      "residual_risks": [
+        "The complete focal arXiv:2609.06409 manuscript was not obtainable through the open readers used in this run; one authorized institutional retrieval attempt returned an unavailable/invalid worker error. A scalar worked example hidden in the inaccessible body remains the principal originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_FOCAL_SOURCE",
+          "evidence": "The accessible statement gives general convergence and adaptive-step claims but no visible exact scalar stability/rate theorem; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "arXiv:2609.06409v1",
+          "material_read": "Primary arXiv abstract/current record and accessible article metadata describing the method, fixed/adaptive steps, and convergence claims. Direct full-text readers failed; one authorized institutional attempt returned an unavailable/invalid worker error.",
+          "method": "lawful primary record plus one bounded authorized-access attempt",
+          "title": "Averaged proximal reflected gradient method for monotone variational inequalities",
+          "trigger": "Exact defining paper for the algorithm."
+        },
+        {
+          "assessment": "DIFFERENT_UNAVERAGED_RECURRENCE",
+          "evidence": "The method does not contain the same proximal averaging split and therefore does not imply the audited coefficients.",
+          "identifier_or_url": "DOI:10.1137/14097238X",
+          "material_read": "Primary abstract/theorem-level material on convergence and strong monotonicity.",
+          "method": "lawful primary-source comparison",
+          "title": "Projected Reflected Gradient Methods for Monotone Variational Inequalities",
+          "trigger": "Foundational reflected-gradient predecessor."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "X. Chang, J. Li, J. Yang, Averaged proximal reflected gradient method for monotone variational inequalities, arXiv:2609.06409v1",
+        "Y. Malitsky, Projected Reflected Gradient Methods for Monotone Variational Inequalities, DOI:10.1137/14097238X",
+        "Y. Malitsky and M. K. Tam, A Forward-Backward Splitting Method for Monotone Inclusions Without Cocoercivity, DOI:10.1137/18M1207260",
+        "Resultary records: strongly-monotone PRG sharp threshold; rate-optimal FRB skew rotations; optimal reflection tuning split-skew FRB"
+      ],
+      "rationale": "The scalar commuting split is the canonical calibration problem for how forward curvature and proximal curvature jointly affect a reflected method. The theorem identifies an exact stability ceiling, the transition to unconditional finite-step stability, and the unique fastest step where it exists. These are motivated algorithm-design boundaries rather than arbitrary scalar numerics.",
+      "residual_risks": [
+        "The theorem does not extend automatically to noncommuting multidimensional or nonlinear problems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complete focal arXiv:2609.06409 manuscript was not obtainable through the open readers used in this run; one authorized institutional retrieval attempt returned an unavailable/invalid worker error. A scalar worked example hidden in the inaccessible body remains the principal originality risk.",
+    "Publication is withheld because the frozen packages contain operational workflow fields in existing public AUDIT.json, METADATA.json, and VERIFICATION.md files. The complete 37-file recursive trees were read and semantically scanned; RESULT.md, SLOGAN.txt, REVIEW.md, and computational artifacts were clear of the checked platform/workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}

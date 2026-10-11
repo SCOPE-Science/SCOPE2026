@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proximal map of the quadratic regularizer is explicit, so the aPRG iteration reduces exactly to a real second-order recurrence. The three Jury inequalities simplify to one nontrivial condition, giving the if-and-only-if stability region. The finite boundary has an exact \(-1\) root, and the prescribed source initialization has a nonzero coefficient on that mode; the same initialization cannot cancel the unstable mode above the boundary. The rate formula follows from the two real roots of opposite signs. Differentiating the dominant root proves the unique finite optimum for \(0<\mu<2a\) and strict monotone improvement toward factor \(1/2\) for \(\mu\ge2a\).
+PASS
 
-The bundled script checks the recurrence identities, exact boundary relations, representative root moduli, and the optimal-step formulas. It is supporting verification only; the quantified proof is algebraic.
+Independent symbolic reconstruction confirms the recurrence and every boundary. The Jury margins reduce to t(γ+1)/(2(1+γt)), [4+3(γ-1)t]/[2(1+γt)], and a positive third margin, giving the exact finite ceiling only when γ<1. The roots have opposite signs, so the dominant factor is the displayed closed form. For 0<γ<2 the coefficient A changes sign once at t=2/(2-γ); implicit differentiation shows the factor decreases before and increases after this point. For γ at least 2, A stays positive and the factor decreases to one half. Boundary-mode calculations show the prescribed initialization cannot accidentally cancel the unstable mode.
 
-## Originality
+## originality
 
-PASS. The primary 2026 aPRG paper was inspected through its algorithm, special-case remark, convergence theorem, and rate discussion. It proves generic fixed-step convergence for \(\tau<1/L_F\) and an ergodic sublinear rate, but no positive-proximal-quadratic scalar stability or exact rate-optimal phase diagram was found. The paper itself identifies the \(g=0\) specialization with Popov, so that limiting slice is excluded from the originality claim.
+PASS
 
-The closest database records were inspected in full. One treats unaveraged affine reflected gradient; two treat forward-reflected-backward on split-skew rotations. Their characteristic recurrences differ and do not imply the symmetric proximal-quadratic aPRG formula. Foundational projected-reflected-gradient and forward-reflected-backward sources were also checked at the method and stated-result level.
+Best-of-knowledge originality passes with the same-paper access risk stated explicitly. The current primary abstract says the paper introduces averaged PRG, gives convergence theory, and develops potentially larger adaptive steps, but does not expose a necessary-and-sufficient scalar stability boundary or closed-form rate optimum. Related Resultary records treat unaveraged PRG or forward-reflected-backward skew families with different recurrences. No checked source implies the split-curvature phase diagram.
 
-Residual risk remains that an older scalar calculation under different splitting terminology could contain an equivalent formula.
+## value
 
-## Value
+PASS
 
-PASS. The quadratic split isolates the interaction between forward curvature and proximal curvature in the new averaged method. The exact threshold \(\mu=a\) for removal of every finite step ceiling, together with the closed rate-optimal step for \(0<\mu<2a\), gives actionable parameter-design information that the generic Lipschitz theorem does not expose. It also shows precisely why treating the proximal curvature as irrelevant to the step bound can be highly conservative on a natural commuting model.
+The scalar commuting split is the canonical calibration problem for how forward curvature and proximal curvature jointly affect a reflected method. The theorem identifies an exact stability ceiling, the transition to unconditional finite-step stability, and the unique fastest step where it exists. These are motivated algorithm-design boundaries rather than arbitrary scalar numerics.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
