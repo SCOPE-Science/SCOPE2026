@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The source states that in its normalization all roots have squared length two and are precisely the Voronoi facet vectors. Hence every Voronoi facet is at distance 1/sqrt(2), so the pyramid formula gives surface area d*sqrt(2)*covolume and I_d=d*sqrt(2)*covolume^(1/d). The classical ADE Cartan determinants reduce the problem to an exact integer product minimization. The residue lower bound h=(1,2,3,4,4,4,3,2) is verified algebraically by the eight-by-eight multiplication table, whose equality occurs only when one residue is zero. This yields both the infinite lower bound and the complete equality classification. A separately replayed exact checker confirms the combinatorics through rank 256.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical root-system references provide the ADE classification and Cartan determinants.",
+        "General fixed-inradius Voronoi results relate inradius, covolume, and surface area but do not optimize across ADE decompositions.",
+        "Novaga--Song's local theorem is broader in allowable perturbations but does not dominate a global comparison between discrete root-lattice types."
+      ],
+      "reasoning": "The classical determinant data are ingredients rather than a covering theorem. The new claim combines them with the tangential Voronoi identity and a sharp multiplicative residue argument.",
+      "searches": [
+        "global minimizer root lattice Voronoi surface area fixed rank E8 direct sums",
+        "root lattice covolume A_n D_n E6 E7 E8 determinant",
+        "\"root lattice\" \"isoperimetric\" Voronoi E6 E7 E8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01653v1",
+      "Alfred C. T. Wu, Cartan-Gram determinants for the simple Lie groups, J. Math. Phys. 23 (1982)",
+      "John H. Conway and Neil J. A. Sloane, Sphere Packings, Lattices and Groups, 3rd ed.",
+      "Published literature searches for root-lattice Voronoi isoperimetric quotients, E8 direct sums, and fixed-rank minima"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Novaga--Song classify strict local minima as A2, D_d for d>=4, E6, E7, E8 and prove every reducible root lattice has a decreasing nearby variation.",
+        "The same section states that every root lattice is an orthogonal ADE sum and that its Voronoi facet vectors are exactly its roots.",
+        "Classical Cartan determinants are n+1 for A_n, 4 for D_n, and 3,2,1 for E6,E7,E8."
+      ],
+      "reasoning": "The source's local theorem cannot imply the present global result: some present global minimizers are reducible and are therefore locally unstable in the larger continuous class. The new implication instead comes from an exact fixed-rank determinant optimization on the discrete root-lattice locus.",
+      "searches": [
+        "2610.01653 Theorem 9.1 root lattices local minimizers",
+        "root lattice Voronoi facets roots squared length two",
+        "Cartan determinant A_n D_n E6 E7 E8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source's Section 9 states only a local classification under nearby lattice metrics and affine maps.",
+        "Searches returned root-lattice, Voronoi, packing, and fixed-inradius literature but no fixed-rank modulo-eight global isoperimetric classification.",
+        "The exact formula d*sqrt(2)*q_r^(1/(2d)) and its equality list were not found."
+      ],
+      "reasoning": "An equivalent formulation would have to compare all ADE orthogonal sums of a fixed rank and classify every equality lattice. Neither the recent source nor the located Voronoi/root-lattice literature performs that global discrete optimization.",
+      "searches": [
+        "root lattice Voronoi isoperimetric quotient covolume rank modulo 8 E8 Dd",
+        "isoperimetric quotient root lattice Voronoi cell d sqrt 2 covolume",
+        "\"root lattice\" Voronoi \"isoperimetric quotient\" E8",
+        "\"Voronoi cell\" \"root lattice\" \"surface area\" E8 A2 D4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index searches returned results on D4 reducedness/completeness, D5 packing-covering optimization, and unrelated Voronoi invariants, but no fixed-rank root-lattice isoperimetric classification.",
+        "Source-specific searches returned the Novaga--Song local theorem rather than a global determinant minimum.",
+        "No located record states the periodic determinant minimum q_r or the complete equality-type list."
+      ],
+      "reasoning": "The available published records do not contain a table or theorem whose entries imply the modulo-eight minimum and equality classification.",
+      "searches": [
+        "2610.01653 root lattices global isoperimetric quotient fixed rank",
+        "root lattice Voronoi isoperimetric quotient covolume rank modulo 8 E8 Dd",
+        "global minimizer root lattice Voronoi surface area fixed rank E8 direct sums"
+      ]
+    },
+    "rationale": "Novaga--Song prove a local variation classification, not a fixed-rank global comparison across root lattices. Targeted published-index and web searches for fixed-rank root-lattice Voronoi isoperimetric minima, covolume reduction, modulo-eight E8 periodicity, and the exact formula found no covering result.",
+    "residual_risks": [
+      "The same fixed-rank determinant optimization may exist implicitly in older lattice literature without an isoperimetric formulation.",
+      "The theorem is deliberately restricted to the discrete root-lattice locus; unrestricted lattice deformations can improve several equality cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: it provides the root normalization, ADE decomposition, facet-vector fact, and local instability theorem, but no global fixed-rank comparison among root lattices.",
+        "evidence": "Section 9 explicitly says its conclusions concern nearby lattice Voronoi cells and affine images; Theorem 9.1 is a local classification and states reducible lattices have decreasing variations.",
+        "identifier_or_url": "arXiv:2610.01653v1",
+        "material_read": "The abstract and introduction; Section 9 from the definition of root lattices through Theorem 9.1 and its proof; the reference list identifying the root-lattice and Voronoi sources.",
+        "method": "Full-text HTML/PDF inspection, including rendered first-page inspection and direct reading of Section 9.",
+        "title": "The isoperimetric problem for four-dimensional parallelohedra",
+        "trigger": "Recent source introducing an all-rank local root-lattice application of its isoperimetric variation formula."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING: supplies determinant values but no Voronoi isoperimetric optimization.",
+        "evidence": "The table gives det(A_n)=n+1, det(D_n)=4, and det(E6),det(E7),det(E8)=3,2,1.",
+        "identifier_or_url": "J. Math. Phys. 23 (1982), Alfred C. T. Wu",
+        "material_read": "The determinant table as reproduced in standard Cartan-matrix references and bibliographic metadata identifying the paper.",
+        "method": "Cross-check of the standard ADE determinant table against multiple mathematical references.",
+        "title": "Cartan-Gram determinants for the simple Lie groups",
+        "trigger": "Classical determinant data needed to compare ADE root lattices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2946fd28-8974-495f-ae8f-75a9179bcfce",
+  "value": {
+    "rationale": "The recent source highlights a striking local stability classification for root-lattice Voronoi cells but does not answer the complementary global fixed-rank question. The new result gives a complete all-dimensional answer with an eight-periodic exact constant and full equality classification. It also exposes a mathematically meaningful contrast: reducible E8-stacked lattices can be globally optimal inside the root-lattice class while being locally unstable in the ambient continuous lattice class.",
+    "status": "PASS"
+  }
+}
