@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved analytically in `RESULT.md`; finite computation is corroborative.
+# Independent mathematical audit
 
-`verify.py` performs exact cyclotomic arithmetic for dyadic orders. For \(N=2^m\), it reduces each monomial modulo \(X^{N/2}+1\), so no floating-point tolerance is involved. It exhausts all four-element supports for \(N=8,16,32\), checks that the directly computed zero set equals the union of the predicted valuation shells, and checks the classification of balanced-level sets. It then checks explicit witnesses for every admissible empty, singleton, and two-level pattern through \(m=9\).
+## correctness
 
-A successful replay prints `VERIFY_OK`. The finite range does not certify the infinite quantifier; the all-order result rests on the proof's antipodal-pair lemma, exact dyadic congruence solution, and normalized parity split.
+PASS
+
+If four unit complex numbers sum to zero, after ordering them as the sides of a closed unit quadrilateral they form a rhombus, so they split into two antipodal pairs. Hence a Fourier zero for a four-point indicator is equivalent to one perfect matching whose paired differences each satisfy \(k(a-b)\equiv2^{m-1}\pmod{2^m}\). For a nonzero difference of valuation \(r\), this congruence holds exactly on the frequency shell \(v_2(k)=m-1-r\). Normalizing by the minimum pairwise valuation reduces the four support points to a parity split: a \(1+3\) split has no balanced matching; a \(2+2\) split gives the minimum level and possibly one higher same-parity level. The \(m-r_0=2\) boundary excludes a lone level \(m-2\) or \(m-1\). This yields exactly the empty, allowed singleton, and allowed pair patterns stated. Independent exact cyclotomic enumeration for \(m=3,4,5\) reproduced the shell formula for every four-subset; that enumeration corroborates rather than proves the all-\(m\) argument.
+
+## originality
+
+PASS
+
+Lam--Leung's full primary text supplies the classical prime-power vanishing-sum mechanism that, for powers of two, reduces nonnegative vanishing relations to antipodal two-cycles. Filaseta--Finch--Nicol study sparse \(0,1\)-polynomial cyclotomic divisibility. Neither inspected source gives the frequency-shell decomposition, balanced-matching invariant, or complete attainable shell-union spectrum. Targeted Resultary searches returned no prior equivalent theorem.
+
+## value
+
+PASS
+
+Four points are the first coefficient-one support size at which multiple antipodal pairings can interact. The result gives a complete all-orders classification of zero geometry and exact attainable Fourier-support sizes, not merely a support lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
