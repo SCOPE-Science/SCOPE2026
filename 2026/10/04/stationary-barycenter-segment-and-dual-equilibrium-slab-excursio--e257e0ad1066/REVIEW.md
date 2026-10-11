@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The conditional law is obtained from the invariant-measure generator identity using arbitrary antiderivatives of continuous functions of \(x\). Coordinate and \(x^2\) generators give the exact barycenter segment and variance parabola. Two independent polynomial certificates,
-\[
-L\!\left(\frac12x^2-b(y+z)\right)=a\,x\left(x+\frac ba\right)
-\]
-and
-\[
-L\!\left(-\frac a2x^2-bx-ab(y+z)\right)
-=b^2z(z-1)-(ax+bz)^2,
-\]
-prove the slab balance and height defect. Equality rigidity follows from support invariance and direct substitution into the vector field. The periodic crossing conclusions use only the resulting sign information, continuity, connectedness of the periodic image, and \(0<\mathbb E[z]<1\).
+## correctness
 
-Scientific risk: support invariance for invariant probability measures of continuous flows is used in the equality classification; this is a standard fact.
+PASS
 
-## Originality
-PASS. The same-object sources inspected in full or substantial public text focus on numerical parameter regions, Lyapunov exponents, fractional-order/multiscroll modifications, and approximate two-point spectral statistics. Targeted semantic searches found no Sprott G theorem implying the exact conditional regression, barycenter/variance parabola, or slab-rigidity statements.
+Invariance against arbitrary antiderivatives of continuous functions of \(x\) gives \(\mathbb E[z\mid x]=-(a/b)x\). The coordinate generators and \(L(x^2)\) yield \(\mathbb E x=\mathbb E y=-(b/a)p\), \(\mathbb E x^2=(b/a)^2p\), and \(\operatorname{Var}(x)=(b/a)^2p(1-p)\), forcing \(0\le p\le1\). The exact coboundaries \(L(\tfrac12x^2-b(y+z))=a x(x+b/a)\) and \(L(-\tfrac a2x^2-bx-ab(y+z))=b^2z(z-1)-(ax+bz)^2\) give the slab balance and height defect. Equality in the height defect forces \(\dot x=0\) on the invariant support and hence only the two equilibria. The signed balance similarly forces every other invariant measure to place positive mass on both signs of \(x(x+b/a)\). For a nonconstant periodic orbit, continuity on the periodic circle converts the sign/height information into at least two boundary crossings for both slabs. The packaged exact sparse-polynomial verifier was read and independently confirms every polynomial identity.
 
-Scientific risk: the 2004 broad analytical Sprott paper and the complete 2001 statistics article were not available for full line-by-line inspection, so they remain explicitly named residual risks rather than being declared noncovering.
+## originality
 
-## Value
-PASS. The result converts the two equilibria and numerical parameter-space picture into exact global restrictions on every compact recurrent statistical state. The equilibrium segment, variance parabola, signed \(x\)-slab balance, and derivative-energy height defect are sharp, natural, and have rigid equality cases. The periodic crossing consequences constrain recurrent geometry without relying on numerical trajectory sampling.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Sprott's primary-author technical note gives the exact generalized Case G equations and parameter-plane motivation, but no invariant-measure identities. The complete 2001 statistics paper retrieved in this audit studies generalized Sprott B and N, not G, and develops approximate two-point spectral fits rather than exact stationary moments. The 2004 Panchev paper is a plausible analytical comparison, but the authorized retrieval for its DOI returned the wrong two-page Rössler 1976 paper; that transport/content mismatch was not retried or bypassed, so Panchev remains an explicit residual risk rather than grounds for failure. Resultary searches returned analogous stationary-moment findings for other vector fields but no Sprott G theorem covering the conditional regression, variance parabola or dual slab constraints.
+
+## value
+
+PASS
+
+The identities impose sharp global geometry on every compact recurrent statistical state of a canonical chaotic flow: an exact equilibrium-segment barycenter, a variance parabola, a derivative-energy defect with rigid equality, and forced excursions across both equilibrium slabs for periodic recurrence. These are natural structural restrictions tied to the system's two equilibria rather than arbitrary computed moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
