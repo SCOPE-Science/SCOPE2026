@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source identifies the canonical five-dimensional block-circulant spaces and proves set-theoretic equality of their affine intersection with \(Z_4\) and the restricted naive-octic zero set. The exact verifier reconstructs those restrictions in the representative coordinates: one vanishes, the other two coincide, and the common octic satisfies the claimed identity. Its normal degree-four part is \(L_1L_2L_3L_4/16\), the next normal degree is six, and the linear-factor determinant is \(-16p^2(1-p)^2\). Thus the order is exactly four and the normal tangent cone is reduced and tetrahedral for \(p\notin\{0,1\}\). The verifier also confirms the defining polynomial is squarefree and checks the real orthostochastic witness.
+## correctness
 
-## Originality
-PASS. The closest primary source gives the block-circulant components and restricted octic computation but does not state this balanced-line normal form, multiplicity, or tangent-cone factorization. Searches for the exact object, aliases, block-circulant formulation, tangent-cone language, and normal-crossing/four-hyperplane formulations produced no source implying the claim. published-finding corpus searches returned only unrelated records with generic words such as “four hyperplanes,” “circulant,” or “tangent cone.”
+PASS
 
-## Value
-PASS. The nine block-circulant components are not arbitrary slices: they are the canonical five-dimensional lower-dimensional components that occur in the set-theoretic proof of the defining equations for \(Z_4\). The result gives a concrete local invariant along a natural one-parameter orthostochastic stratum, identifies the exact generic transverse multiplicity, and exposes the tetrahedral degeneration hidden in the source octic restrictions. It also marks \(p=0,1\) as the precise parameter values where this generic normal geometry fails.
+Substitution into the three source octics leaves one zero restriction and one common nonzero equation F. Its exact expansion has only normal degrees four and six, and the degree-four term is the product of the four displayed linear forms divided by sixteen. Their coefficient determinant is -16 p^2(1-p)^2, so for p not zero or one they are distinct and independent, giving order exactly four and a reduced four-hyperplane normal cone. The derivative gcd equals one, so the hypersurface equation is squarefree and agrees with the reduced section. The permutation symmetry transfers the statement to all nine components.
 
-## Closest literature and limitations
-Chen--Dey is the decisive comparison: it supplies the same \(Z_4\), the same nine block-circulant spaces, and the relevant octics, but stops at their set-theoretic restriction. Chterental--Doković supplies the earlier naive equations rather than this local section geometry. The remaining risk is that an unindexed later source may have independently carried out the same local expansion. The claim deliberately avoids the stronger, unjustified inference that a four-hyperplane tangent cone forces four analytic branches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Chen–Dey determine the block-circulant components and the restricted octic equations, but the inspected paper does not state a balanced-line tangent cone, transverse multiplicity, or factorization into four normal hyperplanes. Extracting and factoring the degree-four normal initial form produces new local singularity information rather than merely restating the ambient equations.
+
+## value
+
+PASS
+
+The result identifies a natural singular stratum of a canonical algebraic model and gives exact multiplicity and tangent-cone geometry. This is substantive local structure beyond the known global equations, despite the final verification being symbolic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

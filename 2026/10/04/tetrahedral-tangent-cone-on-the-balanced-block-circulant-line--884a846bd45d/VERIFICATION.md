@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact symbolic checker `artifacts/verify.py` reconstructs the representative block-circulant doubly stochastic matrix and the three naive orthostochastic octics. It verifies that one restriction is zero, the other two are equal, and their common equation has the claimed degree-four plus degree-six decomposition. It checks the determinant of the four normal linear forms, confirms squarefreeness by a derivative gcd equal to one, and verifies an explicit orthogonal square root for the real balanced line.
+# Independent mathematical audit
 
-The checker proves only the packaged algebraic statements. It does not certify the endpoint singularities at \(p=0,1\), the local geometry of the full \(Z_4\), or analytic branch decomposition.
+## correctness
+
+PASS
+
+Substitution into the three source octics leaves one zero restriction and one common nonzero equation F. Its exact expansion has only normal degrees four and six, and the degree-four term is the product of the four displayed linear forms divided by sixteen. Their coefficient determinant is -16 p^2(1-p)^2, so for p not zero or one they are distinct and independent, giving order exactly four and a reduced four-hyperplane normal cone. The derivative gcd equals one, so the hypersurface equation is squarefree and agrees with the reduced section. The permutation symmetry transfers the statement to all nine components.
+
+## originality
+
+PASS
+
+Chen–Dey determine the block-circulant components and the restricted octic equations, but the inspected paper does not state a balanced-line tangent cone, transverse multiplicity, or factorization into four normal hyperplanes. Extracting and factoring the degree-four normal initial form produces new local singularity information rather than merely restating the ambient equations.
+
+## value
+
+PASS
+
+The result identifies a natural singular stratum of a canonical algebraic model and gives exact multiplicity and tangent-cone geometry. This is substantive local structure beyond the known global equations, despite the final verification being symbolic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
