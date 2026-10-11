@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The construction is explicit for every integer \(n\ge2\) and \(1\le k\le n\). Positivity of the added vectors, all norm-one and norming conditions, pairwise distinctness, the prescribed row and column sums, and the frame-operator identity \(S=((n+k)/n)I\) are derived algebraically. The boundary cases \(k=1\) and \(k=n\) are included. The exact checker is supplementary and is not used to extrapolate an infinite statement from finite tests.
+## correctness
 
-## Originality
-**PASS.** Cheng and Heil's inspected paper explicitly asks whether a length-seven FUNTF without repeated elements exists in real \(\ell_1^5\), while its no-repetition constructions cover lengths \(2n-2\) and \(2n-1\). The earlier Chávez-Domínguez–Freeman–Kornelson paper supplies the Banach FUNTF framework and other existence results but not this pairwise-distinct family. Searches under the source question, distinct-element FUNTF, prescribed-margin, and equivalent frame-operator formulations found no covering statement. The closest internal prior result concerns balanced FUNTFs and imposes an additional zero-sum constraint; it neither states nor implies the present no-repetition construction. Residual risk remains that an obscure or unindexed note contains the same elementary construction.
+PASS
 
-## Value
-**PASS.** The theorem directly resolves a published explicit open problem and replaces a single missing example by a uniform construction for every first-redundancy length \(n+k\) with \(1\le k\le n\). The exact cancellation mechanism is structurally reusable: freedom in the off-support values of norming functionals is paired with a positive matrix of prescribed margins. This is mathematically motivated by the source's no-repetition gap rather than an arbitrary parameter slice.
+The displayed positive k-by-n matrix has row sums one, column sums k/n, and distinct rows. The standard basis vectors and added positive rows all have l1 norm one; the proposed functionals have dual norm one and norm their paired vectors. The standard contribution to the frame operator is (1+k/n)I-(k/n)J and the added rows contribute (k/n)J, leaving ((n+k)/n)I. Exact-rational replay verified positivity, margins, distinctness, norming, and every frame-operator entry for all 77 pairs with 2<=n<=12 and 1<=k<=n.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cheng-Heil explicitly state the seven-vector real l1^5 case as Question 2.13 and, later, say they do not know constructions throughout the intermediate no-repetition range. The assigned positive prescribed-margin construction answers that question and uniformly supplies every length n+1 through 2n. No Resultary hit predating the assigned record covers the same family.
+
+## value
+
+PASS
+
+The construction directly closes a published explicit open case and replaces it by a uniform family spanning every first-redundancy length up to 2n. The prescribed-margin cancellation is a reusable construction device, so the result is substantially more than a one-off example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
