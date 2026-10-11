@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete \(2\times2\) and \(3\times3\) domains are exhausted. Stability is implemented independently with rank maps and direct list positions. Rank-maximality is independently checked by lexicographic profiles and a steep-base objective. Egalitarian optimality is independently checked by raw rank sums and the profile-weight identity. All implementations agree profile by profile, and the witness is replayed explicitly.
+## correctness
 
-Risk: the theorem is finite and makes no larger-market frequency claim.
+PASS
 
-## Originality
-**PASS.** The foundational and modern profile-based literature establish the two fairness criteria and algorithms for optimizing them. Cooper and Manlove explicitly compare rank-maximal stable matchings against egalitarian cost empirically, so mere non-equivalence is not claimed as new. The accepted claim is the sharp first-market boundary and exact \(3\times3\) optimum-set relation census. Searches using both criterion names, small-market aliases, exact counts, and the disjoint-incidence fraction did not locate an equivalent theorem or table.
+Fresh independent enumeration checked every perfect matching for stability in all 16 two-by-two and 46656 three-by-three profiles. It reproduced the stable-count marginal 34080, 11484 and 1092, and the exact relation histogram 42756 equality, 2928 strict rank-maximal subset of egalitarian, and 972 disjoint. The package verifier independently uses duplicate stability and objective formulations, and the displayed witness has the stated two stable matchings, profiles and costs.
 
-Risk: failed search is not proof of bibliographic uniqueness. An unindexed small-instance computation could contain the same census.
+## originality
 
-## Value
-**PASS.** Egalitarian cost minimizes aggregate rank burden, while rank-maximality lexicographically prioritizes the number of highest-choice assignments. Their first exact conflict is therefore a natural fairness boundary. The \(1/48\) disjoint layer gives a clean benchmark in which the two criteria force different stable choices rather than merely adding ties.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The literature defines and optimizes both fairness criteria and Cooper–Manlove compare rank-maximal matchings empirically against egalitarian cost, but the inspected complete paper does not give the sharp first-market boundary or the exact three-by-three optimum-set relation census. Resultary searches did not surface an equivalent table or theorem.
+
+## value
+
+PASS
+
+Rank-maximality and egalitarian cost encode two standard but different fairness goals. Determining their sharp first conflict market and the complete relation structure, including the exact disjoint probability \(1/48\), is a natural finite boundary classification rather than an arbitrary small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
