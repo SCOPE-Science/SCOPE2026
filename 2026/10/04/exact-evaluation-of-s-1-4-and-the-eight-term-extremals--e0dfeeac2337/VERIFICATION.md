@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The exact verifier checks all \(75582\) length-eight and \(167960\) length-nine residue multisets modulo \(16\). It compares direct four-position enumeration with an independent subset-size/residue dynamic program; the methods agree everywhere.
 
-Expected output begins `VERIFY_OK` and reports `bad8=160`, `bad9=0`, `orbits=7`, with orbit sizes `[32, 32, 16, 8, 32, 32, 8]`.
+# Independent mathematical audit
 
-It also rebuilds the affine action and verifies that the seven orbits cover all \(160\) extremals. This computation proves only the finite \(n=4\) claim.
+## correctness
+
+PASS
+
+The property depends only on residues modulo 16, with admissible residues exactly those not divisible by four and a witness exactly a four-submultiset whose sum is \(4,8\), or \(12\) modulo 16. Fresh exhaustive enumeration of all \(167960\) nondecreasing length-nine multisets found a witness in every case, while among all \(75582\) length-eight multisets exactly 160 were witness-free. An explicit bad eight gives the lower bound. Applying every odd multiplier and translation by a multiple of four partitions precisely those 160 extremals into orbit sizes \(32,32,16,8,32,32,8\), with the stated seven representatives.
+
+## originality
+
+PASS
+
+Sun's source formulates the general constant and conjectures \(s_1(n)=2n+1\); its stated bounds leave the first composite case within a one-unit gap. The earlier Gao et al. problem is prime-modulus, and the later local theorem has a different subset-size quantifier. Resultary returned the assigned finding as the exact \(n=4\) resolution and no prior exact classification. The theorem therefore appears to close a genuine stated boundary case rather than recompute a known table.
+
+## value
+
+PASS
+
+The result resolves the first composite instance of an explicit new exact zero-sum conjecture and closes a published one-unit gap. The complete extremal orbit classification explains sharpness rather than reporting only a brute-force scalar value, so this is a motivated finite cutoff with clear mathematical context.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

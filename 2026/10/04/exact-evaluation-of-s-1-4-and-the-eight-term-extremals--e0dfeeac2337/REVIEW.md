@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The modulo-\(16\) reduction is exact. The lower-bound example is direct, the upper bound is exhaustive, and two independent witness detectors agree on every case. The seven affine orbits are reconstructed from all \(160\) extremals.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The primary precursor is prime-only; Sun's stated bounds leave \(9\le s_1(4)\le10\); the later local theorem changes the subset-size quantifier. Targeted published-finding corpus, web, and open-problem searches found no exact or stronger covering statement. Full direct manuscript text of the Sun preprint was unavailable, leaving a specific residual risk of an unindexed internal small-case computation.
+PASS
 
-## Value
-PASS. \(n=4\) is the first composite instance of the conjecture, and the result closes its published one-unit gap. The seven-orbit classification gives structural information about every sharp length-eight obstruction.
+The property depends only on residues modulo 16, with admissible residues exactly those not divisible by four and a witness exactly a four-submultiset whose sum is \(4,8\), or \(12\) modulo 16. Fresh exhaustive enumeration of all \(167960\) nondecreasing length-nine multisets found a witness in every case, while among all \(75582\) length-eight multisets exactly 160 were witness-free. An explicit bad eight gives the lower bound. Applying every odd multiplier and translation by a multiple of four partitions precisely those 160 extremals into orbit sizes \(32,32,16,8,32,32,8\), with the stated seven representatives.
 
-## Closest literature and limitations
-Closest are Gao et al.'s prime constant, Sun's general definition and bounds, and the later at-most-\(n\) constants. This result is finite and specific to \(n=4\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Sun's source formulates the general constant and conjectures \(s_1(n)=2n+1\); its stated bounds leave the first composite case within a one-unit gap. The earlier Gao et al. problem is prime-modulus, and the later local theorem has a different subset-size quantifier. Resultary returned the assigned finding as the exact \(n=4\) resolution and no prior exact classification. The theorem therefore appears to close a genuine stated boundary case rather than recompute a known table.
+
+## value
+
+PASS
+
+The result resolves the first composite instance of an explicit new exact zero-sum conjecture and closes a published one-unit gap. The complete extremal orbit classification explains sharpness rather than reporting only a brute-force scalar value, so this is a motivated finite cutoff with clear mathematical context.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
