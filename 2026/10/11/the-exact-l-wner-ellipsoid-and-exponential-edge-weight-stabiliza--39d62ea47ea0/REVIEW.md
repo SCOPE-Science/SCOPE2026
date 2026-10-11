@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The weighted Laplacian has an explicitly diagonalized Euclidean spectrum in the zero-sum space. The root-of-unity Poisson identity produces endpoint signs and, together with strict log-determinant concavity, one admissible ratio in every dimension. Effective-resistance differentiation proves all signed roots contact. A determinant–trace arithmetic/geometric mean certificate establishes global minimum volume and uniqueness over arbitrary off-center competitors. Uniform convergence and an exact endpoint derivative prove the exponential constant. The separate symbolic/rational and floating-point verifier checks independent finite consequences; it is not substituted for the general proof.
+
+**Originality — PASS, with residual literature risk.** The closest source describing the same family, D’Alì–Delucchi–Michałek arXiv:1910.05193v1 §4.3, concerns wheel facets and lattice invariants, which do not give the Euclidean Löwner shape. Chen–Davis–Korchevskaia arXiv:2107.12315v1 gives graph-facet combinatorics, not optimal enclosing ellipsoids. Suliman–Weinstein arXiv:2302.05966v1 gives the general graph optimal-design/ellipsoid framework, which *is prior work*, but not the wheel-specific equation, spectrum, or sharp exponential correction. Mathematically equivalent earlier computations may be indexed under effective resistance, graph Lewis weights, or optimal design, and could limit originality; this is not independently excluded. Searches included all those aliases and claims as recorded in the structured review.
+
+**Value — PASS.** Determining the exact anisotropic Euclidean Löwner ellipsoid, the full all-vertex contact certificate, and a sharp exponential weight-ratio correction is a motivated natural metric classification for the infinite wheel family of symmetric edge polytopes. The exponential constant distinguishes the result from generic convex optimization formulations, mere computational examples, and earlier combinatorial facet counts.
+
+**Limits.** The result covers only unweighted wheels in a specified Euclidean structure, with the ratio given by a uniquely solvable equation. Finite checks do not prove infinite assertions; no independent audit was performed.
+
+Same-model review: passed. Independent audit: not yet performed.
