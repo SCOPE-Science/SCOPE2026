@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The unit disk \(K_a=B((a,0),1)\) is smooth and contains the gauge origin precisely for \(0\le a<1\). The defining tangent-direction vectors \(b(x)\) and \(b(p(x))\) are reconstructed from exact line-circle intersections. The opposite-ray map is solved exactly. The Möbius coordinate
-\[
-z=\frac{\cos t+a}{1+a\cos t}
-\]
-turns the opposite-ray involution into \(z\mapsto-z\), and the squared outer-asymmetry function reduces to an explicit rational function of \(y=z^2\).
+PASS
 
-The derivative numerator is a convex quadratic in \(y\). Its endpoint signs give a rigorous phase threshold at the unique positive root of \(4a^6+7a^4-2a^2-1\), and the interior critical point has the stated radical expression. The family maximum is proved by a factored derivative on the first branch and an envelope-derivative sign argument on the second branch. A direct numerical replay from the geometric definition agrees with the formulas but is not used to prove the continuum statement.
+Starting from the published definition of outer asymmetry, the translated-circle geometry gives the exact tangent chord vector \(b(x)=2\sqrt{1-a^2\cos^2 t}\,(-\sin t,\cos t)\) and an explicit opposite-ray point. The Möbius coordinate \(z=(\cos t+a)/(1+a\cos t)\) reduces the squared objective to \(64a^2(1-a^2)^3\Phi_a(z^2)/\pi^2\), where \(\Phi_a(y)=(1-y)((1+a^2)^2-4a^2y)/(1-a^2y)^4\). Independent symbolic differentiation reproduces the submitted quadratic derivative numerator \(8a^4y^2+(-3a^6-18a^4+5a^2)y+4a^6+7a^4-2a^2-1\). Its endpoint signs give the unique phase threshold and the high-branch root. The lower branch has its unique family maximum at \(a=1/\sqrt3\), below the bifurcation threshold; the submitted envelope calculation makes the upper branch strictly decreasing. Numerical boundary checks independently reproduce the threshold and high-branch root locations, corroborating the analytic proof without replacing it.
 
-## Originality
+## originality
 
-PASS with residual indexing risk. The defining paper was inspected at the full-text definition of \(b^\pm\), \(p\), \(f_{\mathrm{out}}\), and \(c_{\mathrm{out}}\), as well as its universal bound. It introduces the invariant and its general properties but does not work out translated Euclidean disks. Full-text searches found no translated-disk, ellipse, or Euclidean-disk family computation.
+PASS
 
-Targeted semantic-index and web searches used the aliases translated disk, shifted circle, convex distance function, gauge, Randers-type gauge, outer asymmetry, and \(c_{\mathrm{out}}\). No result with the same phase transition, threshold polynomial, or exact family maximum was located. Classical Minkowski-, Grünbaum-, and John-type asymmetry measures are different functionals and do not imply the present tangent-based constant.
+Balestro--Martini--Teixeira introduce \(c_{\mathrm{out}}\), prove its invariance, bounds and continuity, but their complete primary text contains no translated-disk or Euclidean-disk worked family. The audited result computes the entire natural off-center circle family, discovers a genuine extremizer bifurcation and determines the sharp maximum across the family. Targeted Resultary search returned the assigned phase diagram as the only exact match.
 
-## Value
+## value
 
-PASS. Translated Euclidean disks are the canonical smooth non-norm gauges: the boundary shape remains perfectly round and all asymmetry comes solely from displacement of the gauge origin. The theorem therefore gives a clean calibration family for a recently introduced metric asymmetry invariant. The unexpected bifurcation in the maximizing tangent configuration and the sharp family maximum quantify behavior that the general universal bound \(c_{\mathrm{out}}<2\) does not reveal.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A Euclidean disk with a displaced gauge origin is the canonical smooth one-parameter deformation from a norm to an asymmetric gauge. The full exact c_out profile reveals a nontrivial maximizing-configuration bifurcation and a sharp unique family maximum, making it a natural benchmark for the asymmetry invariant rather than an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
