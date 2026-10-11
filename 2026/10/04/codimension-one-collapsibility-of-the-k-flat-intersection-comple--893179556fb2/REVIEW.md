@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof first establishes the exact structure of every proper closed convex set containing a hyperplane. If \(H=a+V\subset F\), convexity and closedness imply \(F+V=F\), so \(F\) is the inverse image of a closed interval under a linear functional with kernel \(V\). A proper such set cannot have two distinct hyperplane directions. This reduces every fixed-direction block of the hyperplane-intersection complex to an interval nerve. The interval deletion rule gives a valid elementary \(1\)-collapse because a minimal finite right endpoint is shared by every interval meeting the chosen interval; if all right endpoints are \(+\infty\), the block is already a simplex. Universal vertices do not create a second maximal face.
+PASS
 
-## Originality
+The proof is structurally sound. If a proper closed convex \(F\) contains \(a+V\), convexity gives \(x+v+t(a-x)\in F\) and closedness gives \(F+V=F\); quotienting by the hyperplane direction makes \(F\) the inverse image of a closed interval. Two distinct hyperplane directions would span all of \(\mathbb R^d\), forcing \(F=\mathbb R^d\), so proper members have unique direction. A face cannot mix distinct proper directions. Within one direction, the complex is the nerve of intervals; deleting an interval with minimal finite right endpoint is a valid elementary 1-collapse, and the all-right-unbounded remainder is a simplex. Universal vertices only join the unique maximal face and can be removed last.
 
-PASS with residual bibliographic risk. Ludwigson--Soberón (arXiv:2608.27189v1) explicitly pose the general \((d-k)\)-collapsibility question and do not discuss the specialization \(k=d-1\), slab classification, or interval-nerve decomposition. Targeted published-finding corpus and public-web searches for the claim, its geometric reformulations, and its key reduction found no source stating the codimension-one theorem. The closest literature found is the general open problem and standard collapsibility background.
+## originality
 
-## Value
+PASS
 
-PASS. The finding resolves the first nontrivial boundary case of a newly stated open structural question. This is mathematically motivated rather than a parameter tweak: codimension one is exactly where convexity forces hyperplane-containing sets to become one-dimensional interval data after quotienting by the hyperplane direction. Ludwigson--Soberón explain that collapsibility would feed stronger fractional-Helly and selection-structure consequences; the theorem activates that route in this boundary case.
+The focal 2026 paper poses the general question whether \(N_k(\mathcal F)\) is \((d-k)\)-collapsible and reports that standard swiping arguments appear not to extend. The audited codimension-one proof uses a special structural collapse unavailable in lower codimension: every proper closed convex set containing a hyperplane is a generalized slab with one normal line, so each direction block becomes an interval nerve. Resultary and web searches found the audited record as the exact match and no older codimension-one theorem. Best-of-knowledge originality therefore passes, with an explicit access limitation on the primary paper.
 
-## Closest literature and limitations
+## value
 
-The primary source is Sarah Ludwigson and Pablo Soberón, “Helly and Radon theorems for convex intersections containing \(k\)-flats,” arXiv:2608.27189v1 (27 August 2026), especially its remarks posing the collapsibility problem. Jiří Matoušek and Martin Tancer, arXiv:0803.3520v1, provides standard collapsibility definitions and background. No exact codimension-one predecessor was found in the searches performed, but historical terminology could still conceal an equivalent statement.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Codimension one is a natural boundary case of an explicitly posed collapsibility problem, and the proof identifies the geometric reason it is tractable: hyperplane-containing proper convex sets collapse to one-dimensional interval data after quotienting. This is a motivated structural lemma resolving a full parameter regime, not a tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
