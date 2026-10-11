@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction gives bounded forward solutions with \\(S+I\\) uniformly positive. The exact derivative identity for \\(V=I+(R_x/\\varepsilon)X\\) is algebraically verified, its zero set reduces invariantly to \\(I=X=0\\), and the remaining plant subsystem is Hurwitz. Critical Lyapunov stability is separately justified by uniform infected-state control and variation of constants. For \\(R_0>1\\), the infected block has negative determinant and a positive eigenvalue.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest published-finding corpus threshold results included 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd, 2026/9/20/SCOPE-ikeda-critical-delay-stability-and-sharp-relaxation--51fcdbf5a801, and 2026/9/20/SCOPE-rabinovich-quintic-pump-threshold-and-critical-slowing--811a42ee7416; all concern different equations and mechanisms.",
+        "The source cites general epidemic threshold literature, but those papers do not state this protected rice-pathogen four-state identity."
+      ],
+      "reasoning": "General epidemic theorems can motivate threshold analysis, but they do not dominate this claim because the proof hinges on the exact model-specific cancellation in \\(I+(R_x/\\varepsilon)X\\), the protected \\(S,P\\) block, and the critical-case stability argument.",
+      "searches": [
+        "published-finding corpus: epidemic compartment model standard incidence I X environmental pathogen Lyapunov R0 critical equality global stability",
+        "published-finding corpus: ODE epidemic predator prey center manifold critical parameter exact asymptotic global stability differential dynamics",
+        "Web: \"leaf brown spot disease\" \"global asymptotic stability\" \"R0 < 1\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023485",
+      "Chiang Mai Journal of Science 48 (2021), 931-941 predecessor record",
+      "published-finding corpus exact-source query: 10.3934/math.2023485 leaf brown spot disease rice SIXP global stability R0",
+      "published-finding corpus critical-threshold query: leaf brown spot SIXP model pathogen-free equilibrium global asymptotic stability R0 = 1 Lyapunov I X",
+      "Own current ledger 2026-10_week1__private research ledger__p0001_g000072.jsonl",
+      "Own prior ledger 2026-09_week4__private research ledger__p0001_g000063.jsonl"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 paper gives local pathogen-free stability for \\(R_0<1\\), but its global theorem statement prints \\(R_0>1\\); the proof introduces its Lyapunov function under \\(I=0,X=0\\) and later uses \\(X=\\sigma I/\\varepsilon\\) along the derivative calculation.",
+        "The 2023 discussion reverts to \\(R_0<1\\), confirming an internal mismatch but not a valid full transient proof.",
+        "The 2021 predecessor is described by the 2023 paper as the earlier SIX model; the protected state \\(P\\) is the new extension."
+      ],
+      "reasoning": "The new claim is stronger than the valid prior local result and is not implied by the flawed global proof. It supplies a new exact Lyapunov identity, proves full-state global convergence, includes \\(R_0=1\\), and proves sharp failure for \\(R_0>1\\).",
+      "searches": [
+        "Primary full-text inspection: DOI 10.3934/math.2023485, equations (1)-(4), Theorems 2.1-2.2, discussion",
+        "Predecessor search: \"A Mathematical Model for Leaf Brown Spot Disease of Rice with Standard Incidence Rate\" global Lyapunov R0",
+        "published-finding corpus exact-source and critical-threshold queries listed above"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit identified the same paper or the same Lyapunov identity among the returned top-50 results.",
+        "Exact web searches returned the 2023 source record itself but no separate theorem establishing the closed threshold or the displayed Lyapunov combination."
+      ],
+      "reasoning": "Equivalent wording such as disease-free, pathogen-free, extinction threshold, critical reproduction number, and environmental-pathogen Lyapunov function was searched. The source's own theorem is not equivalent because its proof does not establish the transient four-state claim and it does not correctly state the critical equality case.",
+      "searches": [
+        "published-finding corpus: 10.3934/math.2023485 leaf brown spot disease rice SIXP global stability R0",
+        "published-finding corpus: leaf brown spot SIXP model pathogen-free equilibrium global asymptotic stability R0 = 1 Lyapunov I X",
+        "Web: \"10.3934/math.2023485\" \"R_0 = 1\"",
+        "Web: \"I + (R_x/epsilon) X\" epidemic Lyapunov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The own prior-week differential-dynamics ledger search returned unrelated sources and no occurrence of DOI 10.3934/math.2023485.",
+        "The current ledger was searched directly for the DOI, title phrase, and brown-spot aliases with no match.",
+        "No external numerical database or table is relevant to this analytic ODE theorem."
+      ],
+      "reasoning": "The claim is not a lookup fact and is not covered by an exact table. Exact-source deduplication against the current and prior own ledgers found no matching finding.",
+      "searches": [
+        "Own Library exact DOI search: 10.3934/math.2023485",
+        "Own Library title/alias search: leaf brown spot SIXP",
+        "Web exact DOI and title searches"
+      ]
+    },
+    "rationale": "The same-system source does not validly prove the claimed transient global theorem and does not state the closed critical threshold. Focused published-finding corpus, web, and own-ledger searches found no equivalent same-system result or stronger source implying it.",
+    "residual_risks": [
+      "The complete 2021 predecessor full text was not retrievable during this run; indexed evidence and the 2023 source show that it is a lower-dimensional predecessor, but an unindexed remark there could overlap with part of the Lyapunov idea.",
+      "Search failure is not a proof of novelty; the assessment is limited to the inspected source, indexed web literature, published-finding corpus results, and own ledgers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The equations and local threshold are usable. The displayed global theorem is internally inconsistent and its proof uses an equilibrium relation for the pathogen variable inside a transient calculation, so it does not cover the new claim.",
+        "evidence": "Publisher record states Published: 20 February 2023 and MSC 34D20, 34D23. Theorem 2.1 states local stability for \\(R_0<1\\); Theorem 2.2 prints \\(R_0>1\\), while the following derivation discusses \\(R_0=1\\) and \\(R_0<1\\) and substitutes \\(X=\\sigma I/\\varepsilon\\).",
+        "identifier_or_url": "doi:10.3934/math.2023485",
+        "material_read": "Publisher metadata and full-text PDF pages containing equations (1)-(4), the disease-free equilibrium, Theorem 2.1, Theorem 2.2 and its proof, plus the discussion/conclusion.",
+        "method": "Lawful open-access publisher full text; text extraction plus visual inspection of the equation/model page and the two pages containing Theorem 2.2.",
+        "title": "Stability analysis and optimal control for leaf brown spot disease of rice",
+        "trigger": "Same-system primary source; exact equations and claimed global pathogen-free theorem."
+      },
+      {
+        "assessment": "Relevant predecessor but not the same four-state protected model. No indexed evidence located a closed \\(R_0=1\\) theorem for the present SIXP system.",
+        "evidence": "The 2023 primary paper states that the earlier SIX model is extended by adding the protected population \\(P\\); the 2021 bibliographic record is volume 48, pages 931-941.",
+        "identifier_or_url": "Chiang Mai Journal of Science 48 (2021), 931-941",
+        "material_read": "Search-index title, bibliographic record, abstract-level description, and the 2023 paper's explicit description of this work as the earlier SIX model.",
+        "method": "Publisher/index searches; bounded attempt to retrieve the full predecessor file failed in this run.",
+        "title": "A Mathematical Model for Leaf Brown Spot Disease of Rice with Standard Incidence Rate",
+        "trigger": "Direct predecessor cited by the same-system 2023 paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dd323fc5-fd9d-485c-939a-5593f69a2e2f",
+  "value": {
+    "rationale": "The exact disease-eradication boundary is the model's central stability threshold. The result supplies a correct full-state global proof where the published proof is not valid, closes the nonhyperbolic equality \\(R_0=1\\), and proves sharp instability above threshold. The identity is structural and parameter-uniform, not a routine numerical recomputation or arbitrary slice.",
+    "status": "PASS"
+  }
+}
