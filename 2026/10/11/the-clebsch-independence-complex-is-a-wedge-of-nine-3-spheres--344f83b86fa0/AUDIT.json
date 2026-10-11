@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The finite complex is regenerated from the defining 16-vertex graph. An exhaustive 191-pair face-poset matching is checked against every one of the 1200 Hasse covers, and a full topological sort proves the Morse orientation acyclic. Exactly one critical 0-cell and nine critical 3-cells remain, which yields a wedge of nine 3-spheres. A separately constructed mod-2 chain complex has boundary ranks (15,65,95,16) and reduced Betti rank 9 only in degree 3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1007.0418v1, Theorem 3.4: every triangle-free graph independence complex has the homotopy type of a suspension.",
+        "arXiv:2207.10363v1 gives exact wedge results for square-grid graphs, not folded cubes."
+      ],
+      "reasoning": "Barmak gives a broad structural conclusion but does not identify the suspended space or its sphere multiplicity. The grid result is exact but for a graph family that does not contain the 5-folded cube.",
+      "searches": [
+        "folded cube independence complex homotopy",
+        "folded cube FQ5 independence complex homology",
+        "triangle-free graph independence complex suspension",
+        "independence complex graph homotopy folded cube"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A355227",
+      "OEIS:A355559",
+      "arXiv:1007.0418v1",
+      "arXiv:2207.10363v1",
+      "arXiv:2406.10814v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No inspected indexed result states the exact wedge decomposition.",
+        "The public OEIS data imply reduced Euler characteristic -9 but not a wedge of spheres.",
+        "The general triangle-free theorem implies a suspension but not nine 3-spheres."
+      ],
+      "reasoning": "Neither exact enumeration nor the suspension theorem dominates the final claim. The implication direction is the reverse: the wedge decomposition recovers the known Euler value and is compatible with the general suspension theorem.",
+      "searches": [
+        "Clebsch graph wedge nine 3-spheres independence complex",
+        "folded 5 cube wedge nine 3 spheres",
+        "VR(Q4;2) Vietoris Rips 4-cube homotopy",
+        "FQ5 independence complex VR Q4 2 wedge"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2406.10814v1 identifies projective cube dimension 4 with the Clebsch/Greenwood–Gleason graph; no independence-complex homotopy statement was found there."
+      ],
+      "reasoning": "The alias searches target isomorphic presentations of the same graph, including the complementary-clique-complex formulation. None of the inspected source statements supplies the exact wedge decomposition.",
+      "searches": [
+        "Clebsch graph independence complex homotopy",
+        "Clebsch independence complex",
+        "Greenwood Gleason graph independence complex",
+        "Segre graph independence complex homotopy",
+        "projective cube PC(4) independence complex homotopy",
+        "Clebsch graph clique complex complement topology"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A355227 records row n=5 as (1,16,80,160,120,16).",
+        "OEIS:A355559 records the n=5 evaluation at -1 as 9."
+      ],
+      "reasoning": "These sources already cover the face vector and Euler-characteristic consequence. They do not determine simple-homotopy or homotopy type, so the final claim is deliberately limited to the stronger wedge decomposition.",
+      "searches": [
+        "OEIS A355227 5-folded cube independent sets",
+        "OEIS A355559 folded cube independence polynomial -1"
+      ]
+    },
+    "rationale": "The exact homotopy type is not implied by the inspected exact enumeration tables, the general triangle-free suspension theorem, the grid-family homotopy calculations, or the projective-cube alias literature. Exact and alias searches found no covering statement. Search failure is not a theorem, so an unindexed equivalent computation remains a residual risk.",
+    "residual_risks": [
+      "An equivalent finite computation may exist under an unindexed or historical alias not surfaced by the searches.",
+      "The public face counts and Euler characteristic are not novel and are excluded from the originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary MSC is 55P10; the paper treats square-grid graphs and does not cover the Clebsch/5-folded cube.",
+        "evidence": "First posted 2022-07-21; 2020 MSC 55P10; 05C69.",
+        "identifier_or_url": "arXiv:2207.10363v1",
+        "material_read": "Abstract, 2020 MSC line, introduction through the statement of the main grid-family theorem, and preliminary independence-complex definitions.",
+        "method": "Compared graph family, objects, and implication strength with the final claim.",
+        "title": "Independence complexes of (n x 6)-grid graphs",
+        "trigger": "Middle-window topology anchor with primary MSC 55P10 and exact independence-complex homotopy results."
+      },
+      {
+        "assessment": "The theorem implies that the target complex is a suspension, but does not determine the suspended space or exact homotopy type.",
+        "evidence": "Theorem 3.4 states that the independence complex of any triangle-free graph has the homotopy type of a suspension.",
+        "identifier_or_url": "arXiv:1007.0418v1",
+        "material_read": "PDF introduction and Theorem 3.4 on the second page, together with the surrounding explanation of triangle-free independence complexes.",
+        "method": "Compared the theorem conclusion with the exact wedge claim.",
+        "title": "Star clusters in independence complexes of graphs",
+        "trigger": "Strong general theorem for triangle-free graphs could potentially subsume a graph-specific topology claim."
+      },
+      {
+        "assessment": "Confirms an important alias route; no independence-complex homotopy calculation is stated in the inspected material.",
+        "evidence": "First posted 2024-06-16; abstract identifies projective cube dimension 4 with the Clebsch and Greenwood–Gleason graph.",
+        "identifier_or_url": "arXiv:2406.10814v1",
+        "material_read": "Abstract, submission metadata, and the passage identifying projective cube dimension 4 with the Clebsch/Greenwood–Gleason graph.",
+        "method": "Matched the named graph aliases to the finite object used in the proof.",
+        "title": "Signed projective cubes, a homomorphism point of view",
+        "trigger": "Alias/equivalence check for projective cube, Clebsch, Greenwood–Gleason, and Segre terminology."
+      },
+      {
+        "assessment": "The face vector and Euler value are prior data; the exact homotopy type is strictly stronger.",
+        "evidence": "A355227 row n=5 is (1,16,80,160,120,16); A355559 gives value 9 at n=5.",
+        "identifier_or_url": "OEIS:A355227; OEIS:A355559",
+        "material_read": "Sequence definitions, row n=5 examples, author dates, and cross-references.",
+        "method": "Compared tabulated numerical invariants with the consequences of the final homotopy claim.",
+        "title": "OEIS A355227 and A355559",
+        "trigger": "Exact database coverage of finite independent-set counts and the alternating sum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "344f83b8-6fa0-4a63-b2f1-279d48cbc65c",
+  "value": {
+    "rationale": "The 5-folded cube/Clebsch graph is a canonical symmetric strongly regular graph, and its independent-set enumeration is already tabulated. Determining the full homotopy type therefore supplies genuinely new structural information rather than another count. The result sharpens the general triangle-free suspension theorem to an explicit nine-sphere wedge and gives a compact reproducible benchmark for topology of independence complexes of symmetric graphs.",
+    "status": "PASS"
+  }
+}
