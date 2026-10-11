@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` is analytic. Its critical steps are: (i) whitening the pair \((\Sigma_0,\Sigma_0+\Sigma_\star)\) to obtain the generalized-eigenvalue weights \((1+\lambda_i)^{-1}\); (ii) converting joint ellipsoid coverage into the weighted chi-square probability \(F_Q(\tau\chi^2_{d,1-\alpha})\); (iii) using Rayleigh-quotient extremality for the all-contrast threshold; and (iv) comparing upper chi-square quantiles for the limit \(\alpha\downarrow0\).
+# Independent mathematical audit
 
-`verify.py` checks an anisotropic two-dimensional instance without external packages. For \(\Sigma_0=I_2\), \(\Sigma_\star=\operatorname{diag}(0,3)\), and \(\alpha=0.05\), deterministic quadrature and bisection give \(\tau_{\mathrm E}\approx0.6917708845\), strictly between the generalized-eigenvalue bounds \(1/4\) and \(1\). The all-contrast threshold is \(1\).
+## correctness
 
-The computation does not certify the general asymptotic theorem and is not presented as exhaustive evidence. The theorem still depends on the stated bMGP Gaussian-limit premises and on consistent covariance estimation if implemented with plug-in matrices. No finite-sample coverage claim is made.
+PASS
+
+Whitening the sampling covariance reduces the repeated-sampling ellipsoid statistic to Q equal to the sum of independent chi-square-one variables weighted by a_i=1/(1+lambda_i). Continuity gives a unique fixed-level ellipsoid scalar. Pathwise comparison with a_min times chi-square-d and a_max times chi-square-d gives strict interior bounds under anisotropy. For a contrast, the posterior-to-sampling variance ratio is a generalized Rayleigh quotient, whose worst direction yields tau_L=a_max. Finally Q dominates a_max times one chi-square-one term and is bounded above by a_max chi-square-d, while the upper quantiles of chi-square-one and chi-square-d have ratio tending to one, proving tau_E tends to tau_L. Fresh deterministic quadrature reproduced the package's two-dimensional value 0.6917708844598199.
+
+## originality
+
+PASS
+
+The bMGP source supplies the conservative covariance decomposition, while Tanaka supplies generic scalar-calibration context. Neither accessible primary statement nor the fresh Resultary search gives the finite-level strict separation between the exact joint-ellipsoid scalar and the sharp all-linear-contrast non-undercoverage threshold, together with their extreme-confidence coalescence. The weighted-chi-square and generalized-Rayleigh argument is therefore a best-of-knowledge new structural consequence of the bMGP limit.
+
+## value
+
+PASS
+
+The theorem identifies the exact cost of insisting on one direction-preserving scalar correction for a practically motivated conservative posterior: exact joint coverage can permit materially more contraction than simultaneous contrast protection. This is a useful calibration boundary rather than a generic restatement of covariance mismatch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
