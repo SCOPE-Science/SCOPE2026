@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The endemic-equilibrium coefficients and disease-free reproduction threshold imply a strict sign restriction on the linear coefficient whenever \(R_{\mathrm{vac}}\le1\). Polynomial signs then exclude positive endemic roots at and below threshold. Above threshold, the quadratic has opposite-sign roots when \(1-\theta>0\), while the perfect-vaccine boundary is linear with one positive root.
+PASS
 
-## Originality
+Writing \(r=1-\theta\), \(a=d+\delta\), and \(m=d+\alpha+b\), the paper's reproduction number gives \(\Lambda\beta/m\le d(a+\gamma)/(a+r\gamma)\) when \(R_{vac}\le1\). Because \(r(a+\gamma)\le a+r\gamma\), \(\Lambda\beta r/m\le d\). Substitution into \(B/(βm)\) yields at most \(-\delta-r(\gamma+d)\); the only apparent equality corner \(r=\delta=0\) still gives the exact strict value \(-d\). Thus \(B<0\). Root signs then give none at/below threshold and exactly one above it, including the linear \(r=0\) case. A fresh exact-rational grid checked 972 parameter/boundary configurations against these implications.
 
-PASS. The 2024 source explicitly lists subthreshold cases requiring a positive linear coefficient but does not test compatibility with its own threshold inequality. Exact-title, DOI, formula, and equivalent bifurcation searches found no published source-specific correction. The closest older backward-bifurcation model genuinely permits the corresponding sign pattern, so it does not imply this source-specific obstruction.
+## originality
 
-## Value
+PASS
 
-PASS. Eliminating the purported subthreshold branches changes the model's equilibrium phase diagram: positive endemic equilibria exist exactly above threshold and are unique. This also resolves the tension between the paper's subthreshold root classification and its forward-bifurcation example without making a broader claim about vaccination models.
+The 2024 SVIR paper was reread at its equilibrium polynomial and Theorem 3.3. The paper explicitly advertises a unique endemic equilibrium above threshold and forward bifurcation in the abstract, yet its theorem also includes an algebraic branch with one or two endemic equilibria below threshold when coefficient \(B>0\). Direct substitution of its own reproduction number shows that this sign condition cannot occur in the subthreshold regime under the stated biological parameter domain. Fresh Resultary and publisher searches found no correction or prior source making this exact sign collapse.
 
-## Closest literature and limitations
+## value
 
-The closest source-level comparison is Zhu et al. (2024), DOI 10.3934/math.2024170. The closest broader backward-bifurcation comparison is Arino, McCluskey, and van den Driessche (2003), DOI 10.1137/S0036139902413829. Liu, Takeuchi, and Iwami (2008), DOI 10.1016/j.jtbi.2007.10.014, establish strict threshold behavior in different SVIR vaccination equations.
+PASS
 
-The result does not establish global convergence of the unique endemic equilibrium, re-evaluate Hopf bifurcation, or generalize to other vaccination systems.
+Whether an epidemic model admits a subthreshold endemic branch is a central qualitative question. Removing an impossible backward-bifurcation branch from a published equilibrium theorem, while proving the exact all-parameter alternative, is a substantive correction with direct interpretive value.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

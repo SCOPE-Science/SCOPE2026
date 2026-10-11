@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:47:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f73fcc87824987059887f914328170c403f84731",
+        "verify.py blob 869a39c966c7eaf2b196b0fe47f3d6b832ecbc23",
+        "DOI:10.3934/math.2024170 equations and Theorem 3.3",
+        "fresh exact-rational coefficient replay"
+      ],
+      "rationale": "Writing \\(r=1-\\theta\\), \\(a=d+\\delta\\), and \\(m=d+\\alpha+b\\), the paper's reproduction number gives \\(\\Lambda\\beta/m\\le d(a+\\gamma)/(a+r\\gamma)\\) when \\(R_{vac}\\le1\\). Because \\(r(a+\\gamma)\\le a+r\\gamma\\), \\(\\Lambda\\beta r/m\\le d\\). Substitution into \\(B/(βm)\\) yields at most \\(-\\delta-r(\\gamma+d)\\); the only apparent equality corner \\(r=\\delta=0\\) still gives the exact strict value \\(-d\\). Thus \\(B<0\\). Root signs then give none at/below threshold and exactly one above it, including the linear \\(r=0\\) case. A fresh exact-rational grid checked 972 parameter/boundary configurations against these implications.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General backward-bifurcation theory explains how subthreshold endemic equilibria can arise in compartmental models, but it does not imply that they arise in this parameterization.",
+          "The source's abstract and later global-stability discussion are consistent with a forward-only branch, while Theorem 3.3 retains impossible extra algebraic cases."
+        ],
+        "reasoning": "The correction is model-specific and is not subsumed by general epidemic threshold theory.",
+        "searches": [
+          "Zhu et al. full primary PDF and current publisher page",
+          "van den Driessche–Watmough, reproduction numbers and subthreshold endemic equilibria, cited by the source"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2024170 full primary PDF",
+        "van den Driessche–Watmough 2002 threshold theory",
+        "Resultary source-specific SVIR search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly treats \\(R_{vac}<1,B>0\\) as possible and derives positive roots there.",
+          "Using its own \\(R_{vac}\\), one obtains \\(\\Lambda\\beta(1-\\theta)/(d+\\alpha+b)\\le d\\) below threshold, which forces \\(B<0\\) strictly, including the boundary cases."
+        ],
+        "reasoning": "The final claim corrects a logical branch of the source rather than following from a theorem it already states.",
+        "searches": [
+          "DOI:10.3934/math.2024170 Theorem 3.3 and printed coefficients",
+          "audited reproduction-number substitution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The endemic equilibrium is governed by the paper's quadratic \\(A I^2+B I+C=0\\), with \\(A\\le0\\) and \\(C\\) having the sign of \\(R_{vac}-1\\).",
+          "The audited inequality proves \\(B<0\\) whenever \\(R_{vac}\\le1\\), eliminating the source theorem's conditional \\(B>0\\) branch."
+        ],
+        "reasoning": "This is the exact algebraic feasibility test for the paper's stated endemic-equilibrium cases.",
+        "searches": [
+          "Zhu et al., DOI:10.3934/math.2024170, equations (3.4)–(3.5) and Theorem 3.3",
+          "Resultary semantic query: SVIR 2024 subthreshold endemic branch backward bifurcation coefficient B Rvac"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact correction, erratum or published SCOPE theorem with the coefficient-sign argument was located."
+        ],
+        "reasoning": "There is no relevant numerical table; the question is symbolic feasibility of a published theorem branch.",
+        "searches": [
+          "Resultary source-specific SVIR search",
+          "publisher title/DOI plus correction and erratum searches"
+        ]
+      },
+      "rationale": "The 2024 SVIR paper was reread at its equilibrium polynomial and Theorem 3.3. The paper explicitly advertises a unique endemic equilibrium above threshold and forward bifurcation in the abstract, yet its theorem also includes an algebraic branch with one or two endemic equilibria below threshold when coefficient \\(B>0\\). Direct substitution of its own reproduction number shows that this sign condition cannot occur in the subthreshold regime under the stated biological parameter domain. Fresh Resultary and publisher searches found no correction or prior source making this exact sign collapse.",
+      "residual_risks": [
+        "A later unindexed author correction could independently note the same algebraic collapse."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUBTHRESHOLD_B_POSITIVE_BRANCH_ALGEBRAICALLY_EMPTY",
+          "evidence": "The printed theorem allows endemic equilibria for \\(R_{vac}<1,B>0\\), while the coefficient displayed on the same page is forced negative by the paper's reproduction-number inequality.",
+          "identifier_or_url": "DOI:10.3934/math.2024170",
+          "material_read": "Full open primary PDF around system (3.1), the coefficients of (3.4), equation (3.5), Theorem 3.3 and the abstract/global-stability statements; the theorem pages were visually inspected.",
+          "method": "Exact coefficient-sign and parameter-domain comparison.",
+          "title": "Global stability and optimal vaccination control of SVIR models",
+          "trigger": "Defining primary source for the quadratic endemic-equilibrium classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.3934/math.2024170 full primary PDF",
+        "van den Driessche–Watmough 2002 threshold theory",
+        "Resultary source-specific SVIR search"
+      ],
+      "rationale": "Whether an epidemic model admits a subthreshold endemic branch is a central qualitative question. Removing an impossible backward-bifurcation branch from a published equilibrium theorem, while proving the exact all-parameter alternative, is a substantive correction with direct interpretive value.",
+      "residual_risks": [
+        "A later unindexed author correction could independently note the same algebraic collapse."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3934/math.2024170 full primary PDF",
+    "van den Driessche–Watmough 2002 threshold theory",
+    "Resultary source-specific SVIR search"
+  ],
+  "disposition": "passed",
+  "final_claim": "In the published autonomous SVIR model, \\(B<0\\) for every admissible parameter choice with \\(R_{vac}\\le1\\); therefore no positive endemic equilibrium exists at or below threshold, while \\(R_{vac}>1\\) gives exactly one positive endemic equilibrium. The subthreshold endemic branch retained in Theorem 3.3 is empty.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A later unindexed author correction could independently note the same algebraic collapse.",
+    "The result classifies positive equilibria only; it does not re-prove all global-stability or Hopf-bifurcation claims."
+  ]
+}

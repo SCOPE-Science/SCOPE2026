@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The general statement is verified analytically from the printed equilibrium coefficients.
 
-Critical proof checks:
-- The disease-free coordinates give
-  \[
-  R_{\mathrm{vac}}=
-  \frac{\beta\Lambda(a+r\gamma)}{dm(a+\gamma)}.
-  \]
-- If \(R_{\mathrm{vac}}\le1\), then
-  \[
-  \frac{\Lambda\beta r}{m}
-  \le d\frac{r(a+\gamma)}{a+r\gamma}
-  \le d.
-  \]
-- Substitution in the printed coefficient gives \(B_1<0\), including the boundary \(r=0\), \(\delta=0\).
-- For \(R_{\mathrm{vac}}<1\), no positive root exists.
-- For \(R_{\mathrm{vac}}=1\), the constant term vanishes and the remaining factor is negative for positive \(I\).
-- For \(R_{\mathrm{vac}}>1\), exactly one positive root exists by opposite root signs when \(r>0\), or by the linear equation when \(r=0\).
+# Independent mathematical audit
 
-`verify.py` uses exact rational arithmetic to replay the coefficient formulas over boundary and interior parameter cases. It also reconstructs the source's disease-free numerical example and obtains \(R_{\mathrm{vac}}\approx0.8016\).
+## correctness
 
-Finite replay is supporting evidence only; it is not used to infer the all-parameter theorem.
+PASS
 
-No independent audit has been performed.
+Writing \(r=1-\theta\), \(a=d+\delta\), and \(m=d+\alpha+b\), the paper's reproduction number gives \(\Lambda\beta/m\le d(a+\gamma)/(a+r\gamma)\) when \(R_{vac}\le1\). Because \(r(a+\gamma)\le a+r\gamma\), \(\Lambda\beta r/m\le d\). Substitution into \(B/(βm)\) yields at most \(-\delta-r(\gamma+d)\); the only apparent equality corner \(r=\delta=0\) still gives the exact strict value \(-d\). Thus \(B<0\). Root signs then give none at/below threshold and exactly one above it, including the linear \(r=0\) case. A fresh exact-rational grid checked 972 parameter/boundary configurations against these implications.
+
+## originality
+
+PASS
+
+The 2024 SVIR paper was reread at its equilibrium polynomial and Theorem 3.3. The paper explicitly advertises a unique endemic equilibrium above threshold and forward bifurcation in the abstract, yet its theorem also includes an algebraic branch with one or two endemic equilibria below threshold when coefficient \(B>0\). Direct substitution of its own reproduction number shows that this sign condition cannot occur in the subthreshold regime under the stated biological parameter domain. Fresh Resultary and publisher searches found no correction or prior source making this exact sign collapse.
+
+## value
+
+PASS
+
+Whether an epidemic model admits a subthreshold endemic branch is a central qualitative question. Removing an impossible backward-bifurcation branch from a published equilibrium theorem, while proving the exact all-parameter alternative, is a substantive correction with direct interpretive value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
