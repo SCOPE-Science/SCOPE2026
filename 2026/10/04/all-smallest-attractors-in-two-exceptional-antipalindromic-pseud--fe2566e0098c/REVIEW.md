@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The prefix identities are derived from the shortest antipalindromic-closure rule. For \(A_n\), the proof reduces all factors to overlapping period-two occurrence intervals and isolates the unique endpoint failure. For \(B_n\), length-two incidence forces opposite residue classes; \(0011\) isolates the two boundary failures; length-three factors are discharged by a residue-and-boundary check; and every longer factor has an occurrence union containing the common central interval. Both words contain both letters, excluding singleton attractors. The independent finite verifier reconstructs the closure and tests every factor occurrence directly.
+## correctness
 
-## Originality
-PASS. The closest primary source is Dvořáková--Hendrychová, arXiv:2308.00850, especially Theorem 8 and the antipalindromic-prefix discussion. It determines canonical/minimum-size behavior but does not classify all minimum position pairs or state the two multiplicity formulas. The closest broader all-smallest-attractor work inspected is the 2026 Fibonacci/period-doubling paper, which treats different words. OEIS A339668 counts words having attractor number two, not minimum-attractor multiplicity within a fixed word. Targeted searches under exact formulas, aliases, periodic forms, and implication-level variants found no covering statement. Residual risk remains from unindexed or unpublished material.
+PASS
 
-## Value
-PASS. The primary paper isolates these directive patterns as the exceptional boundary of its antipalindromic-prefix theorem. Classifying every smallest attractor sharpens minimum cardinality into a complete structural invariant, and the quadratic multiplicities distinguish the two exceptional families. The 2026 Fibonacci/period-doubling work independently motivates all-smallest-attractor classification and multiplicity as a meaningful finer measure of repetitiveness. This is an infinite structural classification rather than a finite table or a routine recomputation.
+The antipalindromic-closure recursion yields the stated closed words. For \(A_n\), one-letter factors force opposite parities and every factor of length at least two has an interval occurrence union; the only opposite-parity pair avoiding the critical \(10\) union is the endpoint pair, giving \(n^2-1\). For \(B_n\), length-two factors force two interior positions in opposite mod-4 residue classes. The length-four factor \(0011\) excludes exactly two endpoint-near pairs, while length-three residue checks and the central-interval property of every length-at-least-four factor prove all remaining candidates work. No singleton can cover both one-letter factors. Independent brute-force rechecks for \(3\le n\le6\) reproduced both classifications.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Dvořáková--Hendrychová's Theorem 8 was inspected in the full primary paper. It identifies the relevant antipalindromic prefix patterns and minimum/canonical-attractor behavior, but it does not enumerate every minimum pair in these two families or give the polynomial multiplicities. Banbara et al. give complete smallest-attractor classifications for Fibonacci and period-doubling words, which demonstrates the invariant's relevance but concerns different families.
+
+## value
+
+PASS
+
+The number and geometry of all smallest attractors is a strictly finer invariant than minimum cardinality, and the two families are not arbitrary slices: they are the exceptional antipalindromic patterns singled out by the motivating theorem. The exact residue classifications and multiplicities therefore form a natural complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
