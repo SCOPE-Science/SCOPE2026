@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The matrix lemma is reconstructed from the source proof with its sole upper-bound step replaced by the endpoint maximum of the convex function \(d+\tau/d\) on \([1,M]\). The counting residuals are derived pointwise and the exact rational margins are positive. The asymptotic zeta statement is explicitly conditional on the source's Proposition 5 and Proposition 6 inputs, so their computer-assisted content is not silently re-certified.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2609.33043v1, states and uses the Gram inequality only for multiplicities one and two and puts multiplicity at least three in the high remainder. arXiv:2609.24167v1 retains a defect only for simple real points. Searches for triple-zero, multiplicity-three, Gram-defect, and pair-correlation formulations found no statement implying the affine \(N_d\)-versus-\(N_3\) tradeoff. Residual risk remains that a differently phrased recent note contains the same extension.
+PASS
 
-## Value
-PASS. The result treats exactly the first multiplicity omitted by the new 83.69% defect mechanism and converts it into a quantitative stability law. It also identifies an exact feasibility boundary of the same seven-point block scheme. The unconditional base constant is slightly weaker than the source record when \(N_3\) has zero density, so the contribution is a structural refinement rather than a new unconditional record.
+The final zeta statement is explicitly conditional on the energy estimate and seven-point local inequality quoted from the source. Under those assumptions, the mixed-multiplicity Gram proof extends from diagonal weights in \(1\le d_i\le2\) to \(1\le d_i\le M\) by the endpoint maximum of the convex function \(d+\tau/d\). For \(M=3\), the counting identity leaves residual \((d-1)(d-2)\), hence exactly two units for each distinct triple zero. Independent exact-rational reconstruction reproduced \(a=303831/69400000\), \(\beta=341/158232\), \(\tau^2-\Delta=567/500000\), both positive high/off-line margins, the displayed \(q_3\), \(\gamma_3\), the density crossover \(9.72832695406657\times10^{-6}\), and the \(m=348\) obstruction. Finite arithmetic checks only instantiate the symbolic conditional proof.
 
-Closest literature and limitations are described in `RESULT.md` and `AUDIT.json`.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact source theorem restricts the Gram diagonal to multiplicities one and two and sends multiplicity at least three to the high remainder. The audited theorem changes that substantive hypothesis, keeps multiplicity three inside the Gram block, derives a new positive triple-zero residual, and retunes the block feasibility to \(m=347\). A targeted Resultary search returned the audited result as the only direct exact hit and no stronger published theorem implying the triple-zero affine tradeoff.
+
+## value
+
+PASS
+
+Multiplicity three is the first case omitted by the source's new mixed-multiplicity defect mechanism. Retaining it yields a quantitative stability law and an exact feasibility boundary for the same seven-point scheme. The theorem is carefully conditional and does not pretend to prove a positive density of triple zeros.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
