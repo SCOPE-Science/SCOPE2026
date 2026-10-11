@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and covers every even \(N\ge10\). The finite checker is supplemental.
+# Independent mathematical audit
 
-`verify.py` performs four exact checks:
+## correctness
 
-1. It verifies the closed form \(G_n=n2^{1-n}\) against the repeated-root recurrence through index \(80\).
-2. It checks the exact transition ratios \(10/3\), \(7/3\), and \(11/9\) at \(N=6\) and \(N=8\).
-3. It proves the two numerical inequalities used by the universal descent argument after replacing \(\pi\) by the classical rational upper bound \(22/7\).
-4. It independently reconstructs Bernoulli numbers with rational arithmetic and verifies the maximizing index for every even \(N\) from \(4\) through \(40\).
+PASS
 
-The replay output is stored in `verification_output.txt`. The finite range is not presented as evidence for the universal quantifier; that quantifier is discharged by the adjacent-ratio proof in `RESULT.md`.
+At \(q=1/4\), the repeated-root recurrence gives \(G_j=j2^{1-j}\) and hence the stated positive weights. For even \(j\), Euler's zeta formula factors every magnitude into a common \(N\)-dependent term times \(\omega_j\zeta(N-j)\), with the displayed adjacent ratio \(R_j\). The inequalities \(R_2>1\), \(R_4\zeta(4)<1\), and the uniform \(j\ge6\) tail bound force strict decrease from \(j=4\) onward for every even \(N\ge10\), while the \(j=4\) to \(j=2\) comparison is strictly greater than one. The exact \(N=4,6,8\) ratios give modes \(2,4,6\). A fresh independent direct evaluation of the original zeta summands through even \(N=60\) reproduced \(2,4,6,4,4,\ldots\); the universal conclusion rests on the ratio inequalities, not the finite replay.
+
+## originality
+
+PASS
+
+Danesh's primary paper contains the exact trace-one recurrence identity, explicitly includes \(q=1/4\), and prints \(G_j(1/4)=j2^{1-j}\). It also develops a general absolute-term asymptotic framework and proves a finite largest-index theorem for Fibonacci and Lucas weights. Complete inspection of the 13-page paper found no repeated-root modal classification or sharp \(N_0=10\) statement. The general asymptotic machinery suggests the method but does not determine the exact finite cutoff; the audited weight-specific ratio proof does. Current Resultary search returned no earlier repeated-root threshold theorem.
+
+## value
+
+PASS
+
+The source itself makes finite largest-term location a central cancellation-profile invariant and separately highlights the repeated-root endpoint of its trace-one family. Determining the exact exceptional modal sequence and the smallest permanent-mode cutoff is therefore a motivated finite boundary, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
