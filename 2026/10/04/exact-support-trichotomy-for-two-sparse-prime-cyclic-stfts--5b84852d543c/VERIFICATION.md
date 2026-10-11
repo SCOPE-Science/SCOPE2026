@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed at the level of translation rows. For each \(x\), the row \(V_gf(x,\cdot)\) is the Fourier transform of \(f\overline{T_xg}\). Two-point supports give either four one-point intersections or three intersections of sizes \(1,2,1\). In the latter case the only possible Fourier zero comes from a two-term polynomial, and multiplication by the nonzero support difference permutes the \(p\)-th roots of unity.
+# Independent mathematical audit
 
-The accompanying `verify.py` constructs the STFT directly for every pair of two-point supports for \(p\in\{5,7,11,13\}\). For unaligned support differences it verifies support \(4p\). For aligned differences it tests a generic equal-coefficient choice with support \(3p\) and a sign choice satisfying the root-of-unity condition with support \(3p-1\). It also verifies explicit witnesses for all three values. The script prints `VERIFY_OK`.
+## correctness
 
-The finite replay is not used as proof of the universal classification. It checks the formulas and boundary examples against direct STFT computation.
+PASS
+
+The proof is complete. Nonzero translation rows are indexed by the difference set \(A-B\). If the two unoriented support differences differ, all four differences are distinct, every row is a point mass, and the support is \(4p\). If they align, there are exactly three rows: two singleton rows contribute \(p\) each, and the middle row is a two-point Fourier transform. Because multiplication by the nonzero support difference permutes all \(p\)-th roots, that row has exactly one zero iff the stated cross-ratio is a \(p\)-th root of unity, and otherwise none, giving \(3p-1\) or \(3p\). The explicit examples attain all three values. Finite verifier cases are consistency checks only.
+
+## originality
+
+PASS
+
+Originality passes. Krahmer--Pfander--Rashkov Proposition 4.4 already gives the sharp lower bound \(3p-1\) after specializing to two-sparse \(f,g\), and its proof already decomposes by translation rows and uses Cauchy--Davenport. What it does not state is the exact two-sparse spectrum \(\{3p-1,3p,4p\}\) for all primes or the equality criterion in terms of aligned support differences and one coefficient cross-ratio. Nicola classifies the much lower universal support-\(p\) extremizers, not this sparse stratum.
+
+## value
+
+PASS
+
+Equality in a sharp uncertainty bound is a natural structural question, and the two-sparse stratum is the first nontrivial fixed-sparsity case. The theorem converts a known lower bound into a complete support spectrum and a transparent geometric/phase equality criterion valid for every prime, which is a motivated sharp classification despite the short proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
