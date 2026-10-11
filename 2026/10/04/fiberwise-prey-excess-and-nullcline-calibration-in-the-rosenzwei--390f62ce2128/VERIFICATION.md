@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -19,7 +22,7 @@ The packaged `verify.py` uses only the Python standard library and exact rationa
 
 It checks the coexistence-prey identity
 \[
-N_*=rac{mh}{1-m},
+N_*=\frac{mh}{1-m},
 \qquad
 \frac{N_*}{h+N_*}=m,
 \]
@@ -34,7 +37,7 @@ It checks that
 \[
 \frac{(N-N_*)^2}{h+N}
 =
-(h+N)-2(h+N_*)+rac{(h+N_*)^2}{h+N},
+(h+N)-2(h+N_*)+\frac{(h+N_*)^2}{h+N},
 \]
 which is the algebra behind the conditional harmonic defect.
 

@@ -1,22 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Compact positivity permits logarithmic antiderivative tests in both population coordinates. These yield the two exact nullcline regressions. The predator regression is equivalent to a constant conditional harmonic mean of \(h+N\), and direct algebra gives
-\[
-\mathbb E[N\mid P]-N_*
-=
-\mathbb E\!\left[\frac{(N-N_*)^2}{h+N}\,\middle|\,P\right].
-\]
-The predator equation converts the same defect into a weighted mean-square per-capita speed. Conditional orthogonality gives both variance-speed identities. Zero defect forces the coexistence equilibrium atom.
+## correctness
 
-Risk: compact support strictly inside the positive quadrant is required for the logarithmic generator tests.
+PASS
 
-## Originality
-PASS. The literature comparison explicitly removes the known global statement that prey time average on a nonconstant Rosenzweig–MacArthur cycle exceeds the equilibrium prey density. Classical limit-cycle uniqueness, modern cycle-size estimates, and complete period-average calculations were also compared. None of the inspected sources implication-wise gives the conditional harmonic law on each predator-density fiber or the exact conditional speed defect.
+The final scientific claim was reconstructed independently. Generator tests with H'(N)=phi(N)/N and K'(P)=psi(P)/P give E[P/(h+N)|N]=r(1-N) and E[N/(h+N)|P]=m. Positivity forces N<1 almost surely and therefore m<1/(1+h). Rewriting the second regression gives the conditional harmonic identity at N_*=mh/(1-m); expanding (Y-Y_*)^2/Y yields exactly E[N|P]-N_*=E[(N-N_*)^2/(h+N)|P]. The predator speed factorization gives the coefficient (1-m)^(-2). Conditional orthogonality proves both variance-speed identities. Vanishing defect forces N=N_* and invariance then P=P_*, so strictness is correctly classified. The repaired VERIFICATION.md changes only two malformed control-character TeX escapes and leaves all mathematics unchanged.
 
-Risk: the 1963 foundational full text was not obtained through the lawful full-text routes inspected, and the short generator argument could have appeared incidentally under different terminology.
+## originality
 
-## Value
-PASS. The equilibrium-versus-time-average shift is already ecologically important because it changes invasion and disease thresholds. The new identity localizes that shift at every predator density and quantifies it exactly by predator per-capita speed. It therefore gives a direct stationary diagnostic for oscillatory data and a sharper structural statement than a global mean inequality.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. The published global fact that prey time average on a nonconstant Rosenzweig–MacArthur cycle exceeds the coexistence prey density is treated as prior, not novelty. The Bate–Hilker full paper writes the exact dimensionless system and explicitly attributes the larger oscillatory prey time average to prior Armstrong–McGehee results. That global inequality does not imply the submitted conditional harmonic calibration on every predator-density fiber, the exact nonnegative conditional defect, or the per-capita speed/variance identities. Resultary searches for Rosenzweig–MacArthur conditional/nullcline/harmonic formulations returned no covering same-object record.
+
+## value
+
+PASS
+
+The exact conditional defect localizes a biologically relevant global mean shift at every predator-density fiber and ties it quantitatively to predator per-capita speed. Together with the nullcline regressions and variance identities it gives a structural stationary diagnostic for a canonical predator–prey oscillator, not a routine equilibrium recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
