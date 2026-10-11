@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytical proof derives the exact branch-averaged second-moment matrix for the original pre-step-refresh Loopless SVRG convention.
 
-`verify.py` performs three independent checks: exact rational branch enumeration against the matrix recurrence; exact rational verification of the determinant identity
-\[
-\det(I-N)=\frac{\alpha}{4}\left[2+\alpha-(1+4h^2)\alpha^2\right];
-\]
-and a deterministic grid test of all four cubic Jury inequalities immediately below and above the claimed frontier.
+# Independent mathematical audit
 
-The grid tests are not used as proof of stability. The necessary-and-sufficient result follows from the exact moment recursion and the analytic Jury inequalities in `RESULT.md`.
+## correctness
+
+PASS
+
+The sampled-sign and refresh branches close exactly on the second moments of \((x,e)\), giving the stated \(3\times3\) operator. Independent symbolic reconstruction from that matrix gives \(\det(I-N)=-\alpha[(1+4h^2)\alpha^2-\alpha-2]/4\), so the claimed endpoint is exactly where eigenvalue \(1\) appears. The package supplies the remaining Jury inequalities proving they stay strict below that root; their factorizations were read rather than inferred from verifier output. The offset cancels algebraically from the variance-reduced gradient.
+
+## originality
+
+PASS
+
+Fresh Resultary search found only stability results for other methods. Current primary sources on Loopless SVRG and arbitrary sampling establish general sufficient convergence rules, not a necessary-and-sufficient scalar second-moment frontier. No searched source stated the lifted matrix or radical threshold.
+
+## value
+
+PASS
+
+This is the smallest model retaining snapshot staleness, curvature heterogeneity and noninterpolation. The exact frontier quantifies the true constant-step margin and sharply separates it from conservative sufficient theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

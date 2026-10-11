@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:06:15Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 6a2a215caecf9f5c5f9b1be7f54710dbf693f2a6",
+        "VERIFICATION.md blob 4dcaca4ca8b4b168f33b9ac1d0a664a068f5cc6e",
+        "Independent symbolic determinant check performed this run."
+      ],
+      "rationale": "The sampled-sign and refresh branches close exactly on the second moments of \\((x,e)\\), giving the stated \\(3\\times3\\) operator. Independent symbolic reconstruction from that matrix gives \\(\\det(I-N)=-\\alpha[(1+4h^2)\\alpha^2-\\alpha-2]/4\\), so the claimed endpoint is exactly where eigenvalue \\(1\\) appears. The package supplies the remaining Jury inequalities proving they stay strict below that root; their factorizations were read rather than inferred from verifier output. The offset cancels algebraically from the variance-reduced gradient.",
+      "risks": [
+        "Only the scalar two-component, \\(p=1/2\\) setting is classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper proves loopless SVRG convergence under sufficient step-size conditions.",
+          "The arbitrary-sampling extension develops expected-smoothness sufficient theory."
+        ],
+        "reasoning": "These are broader algorithmically but weaker as exact stability classifications; a sufficient theorem cannot imply the sharp necessity boundary.",
+        "searches": [
+          "arXiv:1901.08689",
+          "JMLR 22(112):1-47 (2021)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fresh query",
+        "arXiv:1901.08689",
+        "JMLR 22(112):1-47 (2021)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither accessible primary statement gives necessity, second-moment spectral radius, or the radical expression."
+        ],
+        "reasoning": "Directly diagonalizing the specialized moment recursion adds information not mechanically contained in the general sufficient bounds.",
+        "searches": [
+          "arXiv:1901.08689",
+          "JMLR:22(112):1-47:2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit matched the method and threshold.",
+          "Current Loopless SVRG sources describe loopless refresh and general convergence, not the exact radical frontier."
+        ],
+        "reasoning": "Equivalent Markov-jump/second-moment/Schur formulations were included.",
+        "searches": [
+          "Resultary: Loopless SVRG two component scalar quadratic exact mean-square stability frontier second moment Schur refresh probability one half",
+          "Web: Loopless SVRG exact quadratic stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest hits were exact frontiers for unrelated first-order schemes."
+        ],
+        "reasoning": "No exact Loopless-SVRG stability table/formula was found.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "Fresh Resultary search found only stability results for other methods. Current primary sources on Loopless SVRG and arbitrary sampling establish general sufficient convergence rules, not a necessary-and-sufficient scalar second-moment frontier. No searched source stated the lifted matrix or radical threshold.",
+      "residual_risks": [
+        "An equivalent scalar jump-linear calculation may exist in control/stochastic-approximation literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_EXACT_STABILITY",
+          "evidence": [
+            "No exact two-component mean-square frontier appears in the accessible statement."
+          ],
+          "identifier_or_url": "arXiv:1901.08689",
+          "material_read": "Fresh primary abstract describing replacement of the outer loop by probabilistic gradient refresh and convergence guarantees.",
+          "method": "Fresh arXiv web retrieval.",
+          "title": "Don't Jump Through Hoops and Remove Those Loops: SVRG and Katyusha are Better Without the Outer Loop",
+          "trigger": "Defining Loopless SVRG source."
+        },
+        {
+          "assessment": "BROADER_SUFFICIENT_THEORY_NOT_COVERING_EXACT_FRONTIER",
+          "evidence": [
+            "The accessible statement concerns convergence analysis under expected-smoothness parameters, not exact Schur stability."
+          ],
+          "identifier_or_url": "JMLR 22(112):1-47, 2021",
+          "material_read": "Fresh JMLR abstract and bibliographic page describing expected-smoothness analysis and recovery of Loopless SVRG as a special case.",
+          "method": "Fresh public JMLR retrieval.",
+          "title": "L-SVRG and L-Katyusha with Arbitrary Sampling",
+          "trigger": "Broader loopless sampling theory."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Necessary-and-sufficient mean-square threshold with explicit heterogeneity dependence."
+      ],
+      "rationale": "This is the smallest model retaining snapshot staleness, curvature heterogeneity and noninterpolation. The exact frontier quantifies the true constant-step margin and sharply separates it from conservative sufficient theory.",
+      "risks": [
+        "No multidimensional noncommuting-Hessian claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the two-component scalar Loopless SVRG family with standard refresh probability \\(1/2\\), mean-square stability holds exactly for \\(0<\\alpha<(1+\\sqrt{9+32h^2})/[2(1+4h^2)]\\), independently of the affine noninterpolation offset.",
+  "limitations": [
+    "Two scalar components, uniform sampling, constant step and refresh probability \\(1/2\\) only."
+  ],
+  "schema_version": 1
+}
