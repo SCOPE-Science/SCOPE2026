@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof first reduces adjacency to incomparability of gcd-cell divisor labels, then proves both directions of a bijection: an independent dominating set must contain whole cells along a maximal divisor chain, and every maximal chain gives an independent dominating set. Saturated divisor chains are exactly prime-multiset orderings, so the polynomial formula follows without extrapolation. The adjacent-swap comparison of Euler-totient suffix weights proves the extremal ordering statements, and geometric sums of totients give the displayed closed formulas.
+PASS
 
-Risk: equal adjacent-swap costs can occur, so the extremal ordering need not be unique. The claim states that the indicated orderings attain the extrema, not that they are the unique optimizers.
+The proof reconstructs for every composite n. Gcd cells are independent and two distinct cells are completely adjacent exactly when their divisor labels are incomparable. Independence therefore makes the selected labels a chain; selecting only part of any chosen cell leaves the unchosen same-cell vertices undominated, so chosen cells must be whole. Such a full-cell chain dominates exactly when it is maximal in the nontrivial proper divisor poset. Adding 1 and n turns each maximal chain into a saturated divisor chain, hence into a distinct ordering of the prime multiset. The cell-size sum gives the stated polynomial. For adjacent distinct primes a<b before a fixed suffix T, the swap replaces phi(bT) by phi(aT), and Euler's product formula gives phi(aT)<=phi(bT) in all divisibility cases; bubble sorting therefore proves the descending/ascending extrema. The geometric totient sums yield the displayed closed formulas. The bundled finite enumeration was inspected only as corroboration.
 
-## Originality
+## originality
 
-PASS. The 2024 full text supplies the divisor-cell decomposition and formulas for special prime factorizations, then explicitly identifies general \(n\) as an open difficult direction. Searches for “maximal chain,” divisor-poset formulations, arbitrary-\(n\) independent domination formulas, and equivalent prime-ordering expressions found no prior statement of the bijection or general formula. The 2026 follow-up abstract still treats zeros in the biprime, triprime, and \(p^a q\) regimes.
+PASS
 
-Risk: the maximal-chain deduction is short once the cell structure is visible, and an unindexed note may have observed it independently.
+Originality passes. Rather's 2024 complete primary article gives formulas only for selected factorizations and explicitly closes by saying the general-n polynomial remains difficult. The audited maximal-chain bijection resolves that stated general case, gives the exact number of independent dominating sets, and identifies both extremal exponents. The accessible 2026 follow-up still advertises biprime, triprime and prime-power-times-prime regimes rather than an arbitrary composite theorem.
 
-## Value
+## value
 
-PASS. The result closes the general-\(n\) structural gap explicitly left open in the 2024 paper. It replaces case-by-case cell analysis with a canonical divisor-poset model, produces the polynomial for every composite modulus, counts all independent dominating sets, and extracts exact independent-domination and independence numbers.
+PASS
 
-Risk: coefficient collection for highly composite \(n\) can still be combinatorially large, even though the theorem gives a finite exact formula.
+The invariant was previously computed only for selected factorizations, with the source explicitly identifying the general case as difficult. A complete all-composite structural classification, exact enumerator and extremal formulas are a natural resolution of that gap and give reusable information beyond another finite table.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
