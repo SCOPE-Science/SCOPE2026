@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:53:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 91a4949eda3281655fc6e9bb7abce43a0501a9e1",
+        "verify.py blob 7b3f298540c14b8bf460b0849112ed09ae2462a9",
+        "fresh reconstruction of the one-per-pair and component-closure proof"
+      ],
+      "rationale": "The standard half-order lower bound and the original-vertex witness give gamma_sp=n. Any minimum set has exactly one selected vertex from each private pair {v,u_v}; otherwise an omitted private leaf has no selected neighbor, while n selected vertices leave no room for a double-selected pair. If v itself is selected and its leaf omitted, v must be the private defender of that leaf, so no H-neighbor of v may be omitted. Hence the base vertices whose leaves are selected form a union of connected components. Conversely, choosing all leaves on any component union and all original vertices off it supplies a valid private defender for every omitted vertex. This proves the exact bijection and count. The inspected verifier exhausts every labeled base graph through order five and directly tests the definition, but the all-order conclusion comes from the structural proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022/2024 paper treats the neighborhood corona for the domination number, while its enumeration section handles paths, cycles and other selected families rather than ordinary one-leaf coronas.",
+          "Its future-work list explicitly asks to count minimum super dominating sets in trees."
+        ],
+        "reasoning": "No inspected broader enumeration theorem implies the component-union bijection for arbitrary, possibly disconnected H.",
+        "searches": [
+          "Ghanbari--Jager--Lehtila, arXiv:2209.01795 full primary text",
+          "Klein--Rodriguez-Velazquez--Yi, arXiv:1705.00928 primary PDF"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1705.00928",
+        "arXiv:2209.01795",
+        "Resultary one-leaf-corona query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing gamma_sp=n does not determine which n-subsets are super dominating.",
+          "For a minimum set, exactly one endpoint of each private-leaf pair must be selected; an original selected vertex can defend its omitted leaf only if no adjacent base vertex is omitted, forcing the leaf-choice set to be a union of components."
+        ],
+        "reasoning": "The all-minimum-set classification and count require the new component-closure argument and are not a corollary of the scalar corona theorem.",
+        "searches": [
+          "Klein--Rodriguez-Velazquez--Yi corona-number formula",
+          "Ghanbari--Jager--Lehtila enumeration/future-work discussion",
+          "assigned private-leaf proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar prior formula gives gamma_sp=n for H circle K1 but contains no structural parameter for the number of minimizers.",
+          "The audited theorem is equivalently the statement that every minimum set chooses one endpoint of each private-leaf pair and that the leaf-choice indicator is constant on every connected component of H."
+        ],
+        "reasoning": "The componentwise binary-choice formulation is not equivalent to the previously known scalar value; it is an all-minimizer refinement.",
+        "searches": [
+          "Klein--Rodriguez-Velazquez--Yi, arXiv:1705.00928, ordinary-corona section/Theorem 18 in the inspected version",
+          "Ghanbari--Jager--Lehtila, arXiv:2209.01795, Sections 1, 6 and future-work section",
+          "Resultary query: minimum super dominating sets one-leaf corona component count 2^c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading returned super-domination findings concerned other graph classes; no published Resultary theorem with the 2^{c(H)} component formula was located."
+        ],
+        "reasoning": "The exact multiplicity is proved structurally rather than inferred from database absence.",
+        "searches": [
+          "Resultary semantic search for one-leaf corona minimum super-dominating-set enumeration"
+        ]
+      },
+      "rationale": "Klein--Rodriguez-Velazquez--Yi already determine the scalar super-domination number for ordinary corona products, which specializes to gamma_sp(H circle K1)=|V(H)|, but they do not classify the minimum sets. Ghanbari--Jager--Lehtila materially distinguish the ordinary and neighborhood corona, enumerate minimum super dominating sets only for selected graph classes, and explicitly list counting minimum super dominating sets in trees as future work. The audited component-union classification and exact 2^{c(H)} multiplicity were not found in those full primary sources or in the Resultary search.",
+      "residual_risks": [
+        "A differently phrased or non-indexed corona enumeration could exist outside the checked super-domination literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_CORONA_VALUE_PRIOR_ENUMERATION_NOT_STATED",
+          "evidence": "The corona theorem determines the minimum cardinality for G circle H; it does not enumerate the minimum super dominating sets.",
+          "identifier_or_url": "arXiv:1705.00928",
+          "material_read": "Primary PDF ordinary-corona section was read and its theorem page visually inspected.",
+          "method": "Same-family scalar-versus-all-minimizers comparison.",
+          "title": "On the super domination number of graphs",
+          "trigger": "Primary source for the ordinary-corona super-domination number."
+        },
+        {
+          "assessment": "NO_ORDINARY_ONE_LEAF_ALL_MINIMA_THEOREM_FOUND",
+          "evidence": "The paper distinguishes ordinary from neighborhood corona, enumerates minima for selected classes, and explicitly lists counting minimum super dominating sets in trees as future work.",
+          "identifier_or_url": "arXiv:2209.01795",
+          "material_read": "Full arXiv HTML was inspected through the product and enumeration sections and future-work list.",
+          "method": "Whole-document family/scope comparison.",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "Closest primary enumeration paper and later corona-related treatment."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1705.00928",
+        "arXiv:2209.01795",
+        "Resultary one-leaf-corona query"
+      ],
+      "rationale": "Counting and classifying all minimum super dominating sets is a natural refinement of the established corona number. The theorem solves the full one-private-leaf family for arbitrary base graphs and, for connected trees, supplies an infinite tree family in a direction explicitly identified in the later enumeration paper.",
+      "residual_risks": [
+        "A differently phrased or non-indexed corona enumeration could exist outside the checked super-domination literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1705.00928",
+    "arXiv:2209.01795",
+    "Resultary one-leaf-corona query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every finite simple graph H of order n at least one, the one-leaf corona H circle K1 has super-domination number n, and its minimum super dominating sets are in bijection with unions of connected components of H; consequently their number is 2^{c(H)}.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A differently phrased or non-indexed corona enumeration could exist outside the checked super-domination literature.",
+    "The result is specific to the ordinary corona with exactly one private leaf per base vertex."
+  ]
+}
