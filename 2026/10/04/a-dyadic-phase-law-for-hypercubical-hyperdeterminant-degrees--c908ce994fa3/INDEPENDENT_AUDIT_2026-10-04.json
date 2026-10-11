@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:09:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ottaviani--Sodomaco--Ventura reproduce the GKZ exponential generating function \\(\\sum H_dx^d/d!=e^{-2x}(1-x)^{-2}\\) and the coefficient formula \\(H_d=d!A_d\\) with \\(A_d=\\sum_{j=0}^d(d-j+1)(-2)^j/j!\\), and record \\(\\operatorname{EDdegree}_F((\\mathbb P^1)^d)=d!\\). Legendre gives \\(\\nu_2(2^j/j!)=s_2(j)\\). For even d, the j=0 term of \\(A_d\\) is odd and all others are even, so \\(A_d\\) is odd. For odd d, every j>=2 term is divisible by 4 in the 2-adic integers: even j adds an even factor \\(d-j+1\\), while odd j>=3 has \\(s_2(j)\\ge2\\). Thus \\(A_d\\equiv(d+1)-2d=1-d\\pmod4\\), giving exact valuation one for \\(d\\equiv3\\pmod4\\) and valuation at least two for \\(d\\equiv1\\pmod4\\). The inspected exact checker independently reconstructs the recurrence and coefficient formula and verifies the phase law through d=4000; this is regression evidence only.",
+      "risk": "The \\(d\\equiv1\\pmod4\\) branch intentionally gives only a lower bound on the additional valuation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "OEIS cites a general divisibility theorem for permanents of sign matrices, but that lower bound is weaker than the exact even and 3 mod 4 valuations and does not yield the 1 mod 4 two-step statement sharply.",
+          "The Segre paper's formulas are broader degree identities but contain no p-adic analysis."
+        ],
+        "reasoning": "No checked theorem dominates the submitted residue-sensitive valuation result.",
+        "searches": [
+          "OEIS A087981 formula/divisibility comments",
+          "arXiv:2008.11670 Section 3.2 and Remark 3.13",
+          "Resultary hyperdeterminant valuation search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2008.11670v2",
+        "OEIS:A087981",
+        "arXiv:1607.05932",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof requires isolating the low-j terms in the 2-adic normalized sum and showing all remaining terms vanish mod 2 or mod 4 depending on parity."
+        ],
+        "reasoning": "Although elementary once the exact formula is known, the checked prior results do not state the resulting exact phase law or a stronger theorem that makes it a quoted special case.",
+        "searches": [
+          "GKZ/Ottaviani coefficient formula",
+          "Legendre valuation identity",
+          "OEIS permanent divisibility"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS and the Segre paper give the underlying exact integer sequence/formula, not its three-case \\(2\\)-adic valuation.",
+          "No alternate parity/carry statement equivalent to the submitted law was found."
+        ],
+        "reasoning": "The checked sources determine the numbers but do not state an equivalent valuation theorem.",
+        "searches": [
+          "Resultary: 2-adic valuation hyperdeterminant binary Segre degree",
+          "OEIS A087981",
+          "Ottaviani--Sodomaco--Ventura arXiv:2008.11670"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A087981 lists values 1,0,2,4,24,128,..., the e.g.f., recurrence and exact coefficient formula; it does not list a valuation sequence or the submitted phase law."
+        ],
+        "reasoning": "The database makes finite checking easy but does not supply the infinite valuation theorem.",
+        "searches": [
+          "OEIS:A087981 including table n=0..100 and formulas"
+        ]
+      },
+      "rationale": "The exact generating function and coefficient formula are classical prior art and were not credited as new. The OEIS record A087981 lists the same sequence, recurrence, formula and a general permanent divisibility lower bound, but it does not state the residue-sensitive exact valuation law. The modern full-text Segre-degree paper likewise gives the exact degree and ED-degree formulas without the dyadic classification. Resultary searches returned the audited phase law as the direct match and no earlier dominating p-adic theorem.",
+      "residual_risks": [
+        "The original 1992 hyperdeterminant article was not inspected at full-text claim level in this run; an old arithmetic corollary not indexed in modern sources remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the e.g.f., exact coefficient expression and \\(d!\\) ED degree, but no 2-adic valuation theorem.",
+          "evidence": "The paper displays \\(e^{-2x}(1-x)^{-2}\\), the coefficient sum, and \\(\\mathrm{EDdegree}_F=d!\\).",
+          "identifier_or_url": "arXiv:2008.11670v2",
+          "material_read": "Section 3.2 through Proposition 3.12 and Remark 3.13.",
+          "method": "lawful arXiv full text",
+          "title": "Asymptotics of degrees and ED degrees of Segre products",
+          "trigger": "Modern full-text source for both the hyperdeterminant degree formula and Frobenius ED degree."
+        },
+        {
+          "assessment": "Provides exact values/formulas and a weaker general permanent divisibility bound, not the audited valuation law.",
+          "evidence": "The record identifies the sequence as the hyperdeterminant degree and lists the e.g.f./recurrence; its divisibility comment is not residue-sensitive.",
+          "identifier_or_url": "OEIS:A087981",
+          "material_read": "Sequence values, comments, references, formula section and divisibility note.",
+          "method": "public database record",
+          "title": "OEIS A087981",
+          "trigger": "Exact public database for the same hyperdeterminant degree sequence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The degree is a canonical invariant of the binary Segre dual hypersurface, and its exact two-primary behavior is a natural arithmetic invariant. The theorem identifies a clean residue phase and relates it to the equally natural Frobenius ED degree via Legendre's formula. It is an exact infinite statement rather than a table recomputation, and the \\(d\\equiv1\\pmod4\\) variability is stated honestly.",
+      "risk": "The proof is short once the classical coefficient formula is known, so the contribution is a focused arithmetic invariant rather than a broad geometric theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the degree \\(H_d\\) of the \\(2^{\\times d}\\) hyperdeterminant, \\(\\nu_2(H_d)=d-s_2(d)\\) for even \\(d\\), equals \\(d-s_2(d)+1\\) for \\(d\\equiv3\\pmod4\\), and is at least \\(d-s_2(d)+2\\) for \\(d\\equiv1\\pmod4\\); since the Frobenius ED degree of \\((\\mathbb P^1)^d\\) is \\(d!\\), these are the exact first dyadic excess layers over \\(\\nu_2(d!)\\).",
+  "limitations": [
+    "No exact formula for the excess valuation is claimed when \\(d\\equiv1\\pmod4\\)."
+  ],
+  "schema_version": 1
+}
