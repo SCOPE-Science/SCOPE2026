@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The order-5 exclusion is forced by the unique \(D_{10}\) maximal subgroup containing a given subgroup of order \(5\). The remaining pair types are exactly the proper subgroups \(V_4\), \(S_3\), \(D_{10}\), and \(A_4\), with inverse 3-cycles as the single nonextendable proper 3-cycle pair. Explicit minimal triples witness all extendable pair types. The fixed-point description yields the 3-cycle blow-up graph and the degree counts. An independent exhaustive permutation replay checks all \(\binom{59}{3}\) triples and all claimed graph statistics.
+## correctness
 
-## Originality
-PASS. The 2020 primary source defines the fixed-size graphs, proves connectivity for soluble groups, and leaves the arbitrary finite-group case open. The closest older A5 generation literature gives element-order restrictions for minimax triples but not pair co-occurrence, edge counts, degree data, or fixed-size connectivity. Exact semantic and numerical searches found no covering A5 theorem.
+PASS
 
-## Value
-PASS. \(A_5\) is the smallest unsoluble finite group, making it the canonical first test beyond the soluble theorem. The result completely identifies the size-three layer and exposes a nontrivial triangular-graph blow-up structure, rather than merely recording a computational yes/no answer.
+Independent construction of A5 as the 60 even permutations reproduces the class sizes 15, 20 and 24 at orders two, three and five. Exhaustive closure of all pairs and triples gives 1140 generating pairs and exactly 1240 minimal generating three-subsets. Building adjacency from those triples yields 35 nonisolated vertices, 405 edges, the degree multiset 26 repeated 15 times and 21 repeated 20 times, and exact diameter two. The structural proof also explains the census: an order-five subgroup lies in its unique maximal dihedral normalizer, while the remaining proper pair-generated subgroup types yield the stated involution and fixed-point criteria.
 
-The main residual risk is bibliographic: an equivalent finite computation may exist under irredundant-generating-set terminology not indexed by the searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lucchini introduces the fixed-size independence graphs and proves fixed-size connectivity for soluble groups, but does not work out the smallest nonsoluble group A5. The exact vertex classes, pair criteria, edge count, degrees and diameter require the A5 subgroup analysis or exhaustive calculation. No independent exact predecessor was located.
+
+## value
+
+PASS
+
+This is the smallest nonsoluble test case for the fixed-size connectivity theory and gives the complete graph structure rather than only a yes/no connectivity answer. The pair criteria, degrees and diameter make it a reusable benchmark for larger nonsoluble groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

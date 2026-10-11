@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof has both structural and exhaustive finite checks.
 
-Structurally, an element of order \(5\) cannot occur in a minimal generating triple because its order-5 subgroup lies in a unique maximal \(D_{10}\). The remaining relevant proper pair-generated subgroups are \(V_4\), \(S_3\), \(D_{10}\), and \(A_4\). Explicit representative triples show that every such pair type is extendable except inverse 3-cycles.
+# Independent mathematical audit
 
-The packaged checker `artifacts/verify.py` independently builds \(A_5\) as the 60 even permutations on five points. It enumerates all nonidentity pairs and triples directly from the multiplication law, determines generated subgroups by exact breadth-first closure, and constructs \(\Delta_2(A_5)\) and \(\Delta_3(A_5)\).
+## correctness
 
-It verifies exactly:
-\[
-1140
-\]
-generating pairs and
-\[
-1240
-\]
-minimal generating 3-subsets; the size-three graph has 35 vertices, 405 edges, degree multiset consisting of 15 copies of 26 and 20 copies of 21, and diameter 2. It also checks the fixed-point-set criterion for 3-cycles and the proper-subgroup criterion for involution--3-cycle adjacency.
+PASS
 
-The replay returns `VERIFY_OK`.
+Independent construction of A5 as the 60 even permutations reproduces the class sizes 15, 20 and 24 at orders two, three and five. Exhaustive closure of all pairs and triples gives 1140 generating pairs and exactly 1240 minimal generating three-subsets. Building adjacency from those triples yields 35 nonisolated vertices, 405 edges, the degree multiset 26 repeated 15 times and 21 repeated 20 times, and exact diameter two. The structural proof also explains the census: an order-five subgroup lies in its unique maximal dihedral normalizer, while the remaining proper pair-generated subgroup types yield the stated involution and fixed-point criteria.
 
-Because \(A_5\) is finite, this is an exhaustive proof of the enumerative assertions, not a statistical sample.
+## originality
+
+PASS
+
+Lucchini introduces the fixed-size independence graphs and proves fixed-size connectivity for soluble groups, but does not work out the smallest nonsoluble group A5. The exact vertex classes, pair criteria, edge count, degrees and diameter require the A5 subgroup analysis or exhaustive calculation. No independent exact predecessor was located.
+
+## value
+
+PASS
+
+This is the smallest nonsoluble test case for the fixed-size connectivity theory and gives the complete graph structure rather than only a yes/no connectivity answer. The pair criteria, degrees and diameter make it a reusable benchmark for larger nonsoluble groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
