@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The source dimensions and facet descriptions are explicit. Independent permutations of the three indices act orthogonally and transitively on coordinates, so the orthogonal projector onto either affine translation space has constant diagonal. Its trace is the source dimension, proving that every squared projected coordinate-normal length equals dimension divided by \\(n^3\\). Dividing the uniform coordinate slack by this norm gives the displayed radii. Summing the coordinate-clearance inequalities gives matching global upper bounds, and equality forces every coordinate of an optimal center to equal the uniform value, proving uniqueness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source gives the exact dimensions and coordinate facets needed for the proof but no Euclidean radius theorem.",
+        "The broader stochastic-tensor literature focuses on extreme points, Birkhoff-type decomposition, permanents, normalization, and vertex counts.",
+        "No searched multiway-transportation result supplied the tensor-specific projected-normal lengths or both displayed radii."
+      ],
+      "reasoning": "A general multiway-transportation theorem would dominate the claim only if it computed intrinsic coordinate-normal lengths for these constraint spaces. No such broader statement was located; the source rank data must still be combined with the orthogonal-projector trace argument.",
+      "searches": [
+        "Zhang--Zhang, arXiv:2008.04655, Section 4 dimension/rank and facet statements",
+        "Li--Zhang--Zhang, arXiv:1702.04288, stochastic tensor vertex-bound literature",
+        "Che--Bu--Qi--Wei, DOI 10.1080/03081087.2018.1453469, plane-stochastic tensor literature",
+        "published-result database query: multiway transportation polytope Euclidean inradius one-marginal",
+        "published-result database query: multiway transportation polytope Chebyshev center uniform margins"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2008.04655v1",
+      "doi:10.1080/02331934.2019.1647198",
+      "FAU SEICCGTC 2019 abstract zhang19.pdf",
+      "arXiv:1702.04288",
+      "doi:10.1080/03081087.2018.1453469",
+      "published-result database searches for tensor-polytope inradius, tangentiality, and multiway-transportation formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorems 9 and 10 provide dimensions and ranks, while the surrounding source text provides coordinate facets; they do not normalize those facets in the intrinsic Euclidean metric.",
+        "Birkhoff-type decomposition statements determine extreme points or convex generation, not the norm of projected coordinate normals in the order-3 affine hull.",
+        "Plane-stochastic extreme-point and normalization results do not imply that every facet is equidistant from the uniform point."
+      ],
+      "reasoning": "The final implication requires the new identity \\(\\|\\Pi_Te_{ijk}\\|^2=\\dim(T)/n^3\\), followed by sharp all-facet clearance bounds and equality rigidity. Those metric steps are absent from the compared statements.",
+      "searches": [
+        "Zhang--Zhang Theorems 9 and 10 versus intrinsic inradius/tangentiality",
+        "Birkhoff-polytope metric analogy versus order-3 line-stochastic tensors",
+        "plane-stochastic tensor extreme-point literature versus intrinsic facet distances",
+        "multiway transportation polytope literature versus uniform tensor Chebyshev centers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located statement gives either exact tensor inradius, unique uniform incenter, or all-coordinate-facet tangentiality.",
+        "The direct same-object source discusses dimensions, ranks, facets, and vertex bounds but does not formulate a Frobenius Chebyshev-center problem."
+      ],
+      "reasoning": "Equivalent metric formulations include inradius, largest intrinsic ball, Chebyshev center, insphere, and tangentiality. The searches covered both line- and plane-stochastic terminology and did not locate a theorem with the claimed implication.",
+      "searches": [
+        "published-result database query: plane stochastic tensor polytope Euclidean inradius Chebyshev center",
+        "published-result database query: plane-stochastic tensor inradius Frobenius",
+        "published-result database query: line-stochastic tensor tangential polytope inradius",
+        "published-result database query: stochastic tensor polytope inscribed ball",
+        "published-result database query: d-way stochastic tensor polytope inradius coordinate facets",
+        "literature query: \"plane-stochastic tensor\" inradius",
+        "literature query: \"line-stochastic tensor\" tangential polytope inradius",
+        "literature query: \"stochastic tensor\" insphere"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records concern unrelated simplex facet metrics, Euclidean polytope radii, or random tensor norms.",
+        "No exact stochastic-tensor radius table or symbolic inradius formula was returned."
+      ],
+      "reasoning": "Because both formulas are closed expressions in \\(n\\), either a symbolic theorem or a small-dimension metric table could provide strong prior coverage. The exact-object database searches returned neither.",
+      "searches": [
+        "published-result database query: line stochastic tensor exact inradius",
+        "published-result database query: plane stochastic tensor exact inradius",
+        "published-result database query: stochastic tensor polytope tangential",
+        "published-result database query: plane stochastic tensor Chebyshev radius"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the stochastic-tensor definitions, index-permutation symmetry, dimension/rank section, and coordinate-facet statements. The checked source develops vertex bounds and coefficient matrices rather than Euclidean inspheres. Searches using inradius, Chebyshev-center, tangential, insphere, projected-normal, and multiway-transportation formulations did not locate a statement implying the paired exact formulas.",
+    "residual_risks": [
+      "The projection-trace argument is short once the source dimension and transitive coordinate symmetry are recognized, so independent rediscovery is plausible.",
+      "A general unpublished theorem on symmetric multiway transportation polytopes could specialize to these formulas.",
+      "The full text of the 2018 plane-stochastic article was not inspected; its abstract gives no indication of Euclidean inradius results.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the exact dimensions and complete coordinate-facet structure used in the proof, but does not state intrinsic inradii, incenters, or tangentiality.",
+        "evidence": "The full text lists Primary MSC 52B11. It gives \\(\\dim\\mathcal L_n=(n-1)^3\\), \\(\\dim\\mathcal P_n=n^3-3n+2\\), and states that the coordinate supporting hyperplanes yield \\(n^3\\) facets.",
+        "identifier_or_url": "arXiv:2008.04655v1; DOI 10.1080/02331934.2019.1647198",
+        "material_read": "Definitions and symmetry discussion; Section 4 on dimensions and coefficient-matrix ranks; the statements that coordinate hyperplanes cut out the facets; Theorems 9 and 10; later vertex-bound discussion.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Enumerating extreme points of the polytopes of stochastic tensors: an optimization approach",
+        "trigger": "Exact geometry-classified source treating both order-3 line- and plane-stochastic tensor polytopes."
+      },
+      {
+        "assessment": "This establishes the source direction as public during the March 4--8, 2019 conference; the later full paper supplies the theorem-level details used in the proof.",
+        "evidence": "The conference site dates the meeting March 4--8, 2019 and hosts the matching abstract.",
+        "identifier_or_url": "FAU SEICCGTC 2019 abstract, zhang19.pdf",
+        "material_read": "Conference abstract identifying the same line- and plane-stochastic tensor polytope project and coefficient-matrix study.",
+        "method": "Public conference abstract inspection.",
+        "title": "Enumerating extreme points of the polytopes of stochastic tensors: an optimization approach",
+        "trigger": "Earliest verified public version of the source direction located in this run."
+      },
+      {
+        "assessment": "The inspected material concerns combinatorial and normalization properties rather than Euclidean inradii; unavailable full-text metric coverage remains a residual risk.",
+        "evidence": "The paper was published online 2018-03-20 and is explicitly devoted to plane-stochastic tensors.",
+        "identifier_or_url": "DOI 10.1080/03081087.2018.1453469",
+        "material_read": "Publisher abstract and indexed scope description covering plane-stochastic patterns, normalization, and tensor permanents.",
+        "method": "Publisher/indexed abstract inspection.",
+        "title": "Nonnegative tensors revisited: plane stochastic tensors",
+        "trigger": "Strong same-object literature for plane-stochastic tensors that could contain a broader metric statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "69d5c7d2-b621-4ee3-8488-71d9b07b5a6e",
+  "value": {
+    "rationale": "These stochastic tensor polytopes are natural higher-dimensional Birkhoff-type objects whose vertex enumeration remains difficult and is the main subject of the source. The result gives a complete intrinsic inball theorem for both canonical order-3 stochasticity notions without requiring their vertices: exact radius, unique center, and tangency of every facet. The dimension-controlled normal identity also explains why two very different constraint systems nevertheless have closed all-dimensional metric formulas.",
+    "status": "PASS"
+  }
+}
