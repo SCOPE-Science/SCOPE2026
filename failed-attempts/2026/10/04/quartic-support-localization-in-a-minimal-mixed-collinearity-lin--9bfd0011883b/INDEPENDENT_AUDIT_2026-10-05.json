@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:49:08Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob fbbc221f15fb474463d89912976b3f684ebe7b37",
+        "verify_mixed_collinearity.py blob c9558f32bde26158e5815752da68fee7e0b0d21e",
+        "Breiding et al., arXiv:2303.02066, full-text Example 5.5 and Section 6 context."
+      ],
+      "rationale": "The frozen proof gives two explicit polynomial syzygies expressing \\(x_5F\\) and \\(z_5F\\) in the determinantal ideal. The inspected exact verifier reconstructs the matrix and expands those identities symbolically. The displayed witness specializes the matrix to rank two, so every \\(3\\times3\\) minor vanishes, while direct substitution gives \\(F=-12\\), proving radical nonmembership. The localization conclusion on \\(D(x_5)\\cup D(z_5)\\) follows immediately.",
+      "risks": [
+        "The statement is configuration-specific and does not prove saturation, a full defining ideal, or persistence under deformation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 paper gives set-theoretic arbitrary-arrangement corrections and scheme-theoretic results when all camera centers are collinear.",
+          "The generic determinantal theorem excludes four-collinear centers."
+        ],
+        "reasoning": "Those broader frameworks do not imply the displayed mixed-case ideal identities.",
+        "searches": [
+          "arXiv:2303.02066 full text",
+          "arXiv:2203.01694 line multiview varieties"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:2303.02066",
+        "arXiv:2203.01694"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit quartic itself is prior, but multiplying it by the fifth-view coordinates and expressing those products in the five-camera minor ideal is additional information."
+        ],
+        "reasoning": "The old four-camera correction and all-collinear theorem do not mechanically imply these mixed syzygies.",
+        "searches": [
+          "arXiv:2303.02066 Example 5.5, Corollary 5.6, Section 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact hit is the audited record; the nearest related finding concerns intrinsic geometry of the four-collinear correction itself.",
+          "The primary full text exposes Example 5.5 and the all-collinear Section 6 without the submitted mixed syzygies."
+        ],
+        "reasoning": "Equivalent formulations through localization, support over the projected baseline, and quartic ideal membership were checked.",
+        "searches": [
+          "Resultary: line multiview five cameras four collinear centers fifth off baseline quartic correction saturation ideal",
+          "web: Line Multiview Ideals four collinear Example 5.5 mixed five cameras"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior indexed record with the same five-camera support localization was returned."
+        ],
+        "reasoning": "The claim is an exact algebraic identity rather than a tabulated invariant.",
+        "searches": [
+          "Resultary exact mixed-collinearity query"
+        ]
+      },
+      "rationale": "Fresh Resultary search found the audited record and related four-collinear correction geometry, but no prior mixed five-camera support-localization theorem. The accessible full text of Line Multiview Ideals contains the explicit four-collinear determinant, a set-theoretic correction framework, and a scheme-theoretic all-collinear section, but not the submitted two syzygies for the four-plus-one arrangement.",
+      "residual_risks": [
+        "A later computational note may contain the same syzygies under a different camera normal form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_QUARTIC_AND_OTHER_REGIMES; NOT_THE_MIXED_SYZYGIES",
+          "evidence": [
+            "Example 5.5 gives the four-collinear correction; Section 6 is explicitly aimed at arrangements with all centers collinear."
+          ],
+          "identifier_or_url": "arXiv:2303.02066",
+          "material_read": "Accessible full-text introduction, generic determinantal theorem, Example 5.5 quartic determinant, Corollary 5.6, Example 5.7, and the opening of Section 6 on all-collinear Gröbner bases.",
+          "method": "Public full-text web retrieval.",
+          "title": "Line Multiview Ideals",
+          "trigger": "Exact primary source of the quartic correction and closest ideal-theoretic coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "RESULT.md expressly limits the theorem to one explicit arrangement and disclaims arbitrary baseline cross-ratio or arbitrary fifth camera.",
+        "The prior literature already supplies the correction quartic and the general set-theoretic framework; the new result localizes it only at this one example."
+      ],
+      "rationale": "The final theorem is confined to one specially chosen rational five-camera configuration with a fixed cross-ratio and a fixed off-baseline camera, and it explicitly proves no invariance, genericity, deformation persistence, saturation theorem, primary decomposition, or complete mixed-arrangement ideal. The general four-plus-one regime is mathematically motivated, but this single unclassified moduli point is an arbitrary slice rather than a natural complete classification or a structural lemma. Exact symbolic correctness and novelty of the two syzygies do not by themselves establish scientific value under the stated bar.",
+      "risks": [
+        "A proof that the same localization holds on a natural open family, or that this configuration is a canonical representative of all relevant orbits, could change the value assessment; no such statement is present."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For one explicit five-camera arrangement with exactly four collinear centers and one off-baseline center, the standard four-camera correction quartic \\(F\\) satisfies \\(x_5F,z_5F\\in I_3(M)\\) but \\(F\\notin\\sqrt{I_3(M)}\\), so its determinantal defect is confined relative to the fifth view to the projected-baseline point.",
+  "limitations": [
+    "Scientific rejection is value-only; the exact syzygies and radical witness are correct for the displayed configuration."
+  ],
+  "schema_version": 1
+}
