@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically at the following points.
+# Independent mathematical audit
 
-For fixed \(\alpha>0\), the implication \(p>\alpha n\Rightarrow p>\sqrt n\) holds for all \(n>\alpha^{-2}\), so every higher term in Legendre's formula vanishes. The equivalence \(\lfloor n/p\rfloor=j\iff n/(j+1)<p\le n/j\) fixes the interval boundaries exactly. Intersecting those cells with the target window gives the coefficient in `RESULT.md`, and the prime number theorem applies to only finitely many fixed scaled endpoints.
+## correctness
 
-The embedded `verify.py` was replayed from the decoded package. It independently computes Legendre valuations, checks the exact cell regrouping in \(250\) finite cases, and evaluates the parity profile for \(h=2\), \(K=2\) through \(n=2{,}000{,}000\). The machine output is stored in `verification_output.txt`.
+PASS
 
-The finite checks do not prove the asymptotic and are not presented as exhaustive evidence for all parameters. The asymptotic proof depends on the classical prime number theorem in the form \(\vartheta(x)=x+o(x)\). No claim is made about a uniform error when the fixed parameters vary with \(n\).
+For fixed positive alpha and sufficiently large n, every prime in the window exceeds square-root n, so Legendre's formula collapses exactly to floor(n/p). The condition floor(n/p)=j is the interval n/(j+1)<p<=n/j, leaving only finitely many cells. Summing log p on each fixed positive-scaled interval and applying the prime number theorem gives the coefficient formula. The aligned top-window harmonic simplification and parity comparison are immediate finite sums. The bundled verifier independently confirms the exact cell regrouping in 250 finite cases and the predicted top-window profile numerically.
+
+## originality
+
+PASS
+
+Ma's recent theorem proves equal residue mass on fixed power bands, a scale whose total mass is of order n log n; its fixed-endpoint theorem does not imply a window with endpoints proportional to n, whose mass is only order n. Older valuation-pattern papers vary n for fixed primes and therefore have different quantifiers. No inspected or Resultary source gives the explicit piecewise-harmonic linear-window law or the parity bias. The result survives best-of-knowledge originality despite its classical proof ingredients.
+
+## value
+
+PASS
+
+The result identifies the natural boundary scale at which the recent fixed-power-band equidistribution ceases to look uniform and quantifies the resulting bias exactly. The explicit 3/5 versus 2/5 split is a concrete obstruction to unjustified uniform extrapolation and the general coefficient is reusable for any fixed linear window.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
