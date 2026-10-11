@@ -1,21 +1,21 @@
-# Review of Exact \(\Delta\)-constants for every point of \(c_0\)
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound starts from an arbitrary slice containing \(x\) and proves that its radius \(R\) satisfies the active-coordinate inequality \(\Phi_x(R)\le1\). The proof checks the sign of every active coefficient, the slice slack \(q=1-a(x)\), and the sharp denominator \(R+1-|x_i|\). The upper bound explicitly normalizes a supporting \(\ell_1\)-functional at every feasible radius and bounds every coordinate of the resulting slice. Infinite support is handled because active sets are finite away from \(r=1\), while residual functional mass is placed on an inactive tail coordinate and its value is tracked exactly by \(\tau=a_kx_k\). The accompanying standard-library script recovers the known exact family and checks heterogeneous witnesses.
+## correctness
 
-Risk: the infinite-support upper construction must account for the chosen inactive tail coordinate possibly having nonzero \(x_k\); the proof tracks this exactly through \(\tau=a_kx_k\) rather than assuming a zero coordinate exists.
+PASS
 
-## Originality
-PASS. The closest inspected source is Choi--Jung, arXiv:2307.10647. In its \(c_0\) section, Theorem 3.3 gives lower bounds for arbitrary points and Remark 3.4(3) gives an exact formula only for \(t\sum_{k=1}^n e_k\). Substitution shows that the present active-sum formula recovers that family, while the cited lower bounds do not imply the heterogeneous or infinite-support cases. Targeted semantic searches for exact \(c_0\) \(\Delta\)-constant formulas and the displayed rational threshold found no covering statement. Abrahamsen--Lima--Martiny--Perreau, arXiv:2203.14528, supplies qualitative/asymptotic background but no exact pointwise quantitative formula.
+For any slice containing \(x\), active coordinates with \(|x_i|>R-1\) must have aligned functional coefficients, and the slice slack plus the one-coordinate obstruction yields \(a_i(R+1-|x_i|)\ge\delta\). Summing gives the necessary condition \(\Phi_x(R)\le1\). Conversely, for feasible r the active set is finite and weights proportional to \((r+1-|x_i|)^{-1}\), with leftover mass placed in the tail, define a norm-one slice functional whose radius approaches r. This gives the exact infimum formula. The statement that a remote zero coordinate gives the universal lower floor \(R\ge1\) is slightly over-literal for infinite-support x; the same step is valid by choosing tail coordinates with \(x_k\to0\), changing one to the opposite unit sign, and taking the supremum. No theorem statement changes. Fresh checks reproduced \((3+\sqrt{33})/8\) and the \(1/i\) threshold \(5/4\).
 
-Risk: search coverage is not a proof of novelty, and an equivalent unindexed formulation may exist.
+## originality
 
-## Value
-PASS. The invariant was introduced specifically to quantify how far points are from being \(\Delta\)-points, and the primary source leaves the \(c_0\) case at bounds plus special exact families. The theorem gives an exact coordinate-level answer for every point of \(B_{c_0}\), yields nontrivial heterogeneous values such as \((3+\sqrt{33})/8\), and explains the known equal-coordinate phase transition through an active-set threshold. The result is mathematically natural and not a finite-table recomputation.
+PASS
 
-Risk: the mechanism depends on remote coordinates of \(c_0\), so no finite-dimensional \(\ell_\infty^N\) analogue is claimed.
+Choi and Jung give lower bounds on the \(\Delta\)-constant in \(c_0\) and an exact equal-coordinate finite-support family, but their full primary text does not give an all-point coordinate formula. A current published theorem gives an exact formula on every real \(C(K)\) space and, when applied in \(c=C(\mathbb N\cup\{\infty\})\) to the extension \(x\mapsto(x,0)\), produces the same numerical expression. This is a serious neighboring result but does not imply the c0 theorem: pointwise slice constants are ambient-space dependent, and an isometric embedding/codimension-one inclusion does not transfer the reverse inequality. Restricting ambient slices only yields the easy one-sided comparison; the assigned \(\ell_1\)-dual tail construction proves the missing c0-specific direction. No prior direct all-c0 formula was located.
 
-## Closest literature and limitations
-The primary comparison is G. Choi and M. Jung, *The Daugavet and Delta-constants of points in Banach spaces*, arXiv:2307.10647, especially Definition 2.1 and Section 3.1. The broader background is T. A. Abrahamsen, V. Lima, A. Martiny, and Y. Perreau, *Asymptotic geometry and Delta-points*, arXiv:2203.14528. The proof is for real \(c_0\) only; complex scalars, finite-dimensional \(\ell_\infty^N\), and other sequence spaces remain outside scope.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The pointwise \(\Delta\)-constant is an established quantitative Banach-space invariant, and c0 is canonical. The theorem converts previous lower bounds and one symmetric family into a complete coordinate formula covering heterogeneous and infinite-support points, with an explicit constructive slice. That is a natural complete classification with clear future reference value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
