@@ -1,15 +1,21 @@
-# Review of Exact secure domination number of connected chain graphs
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof has three independent structural pieces. The common-support leaf-twin lemma is an exact reduction in both directions; after trimming, a universal bipartite argument forces \(\gamma_s\ge\min\{4,|X|,|Y|\}\); and matching upper bounds come from an entire bipartition side or the four extreme vertices of a nested-neighborhood ordering. The exceptional cases are included rather than discarded. Exhaustive exact checking on all \(511\) canonical connected chain profiles of total order at most \(10\) matches the theorem and rechecks the twin reduction.
+## correctness
 
-## Originality
-**PASS.** The closest source is arXiv:2512.23989v2, Section 3.3. Its Algorithm 2 begins with four extreme vertices and adds all but one multiple pendant on each end. The theorem here is not implied by that routine: on the half graph \(H_3\), the displayed routine returns four vertices, but one whole bipartition side is a secure dominating set of size \(3\), and the general bipartite lower bound rules out size \(2\). Focused searches under chain graph, half graph, and Ferrers graph terminology did not locate the closed formula. Secure total domination on chain graphs is a distinct stronger parameter.
+PASS
 
-## Value
-**PASS.** The result is a complete exact formula for a standard graph class. It reduces the optimum to leaf multiplicities and bipartition sizes, supplies a constant-time evaluation once the chain representation is known, explains exactly when four guards are necessary, and identifies a concrete small-side boundary missed by the closest same-object routine.
+If t>=2 leaves share a support, any secure dominating set contains at least t-1 of them: with two omitted leaves their common support is the only possible defender and moving it to one leaves the other undominated. Deleting t-1 selected twins and retaining one representative preserves all defenses, and adjoining them back also preserves security, proving exact leaf-twin additivity. In the reduced graph H, each side has at most one leaf. A general bipartite argument gives gamma_s(H)>=min{4,|X|,|Y|}: a secure set of size at most three smaller than both sides has exactly one selected vertex on one side, and defending an outside vertex on the other side would leave the selected set in one part without containing that whole part. Each whole bipartition side is secure when the opposite side has at most one leaf. If both reduced sides have size at least four, the four extreme vertices {x_{m-1},x_m,y_1,y_2} form a secure set; universal extreme vertices handle ordinary outside vertices and the unique possible leaf cases are handled by the second extreme. These bounds coincide. The verifier exhausts all canonical profiles through order ten and checks 511 twin reductions, but the proof is all-order.
 
-## Closest literature and limitations
-The archive-era source *Finite Order Domination in Graphs* provides the secure-domination protection framework and lists AMS 05C69; the public manuscript copy is dated 11 September 2003. The closest same-object source is arXiv:2512.23989v2. Jha's DOI:10.1016/j.akcej.2019.10.005 treats secure total domination instead. The theorem does not classify all minimum sets, and its finite verifier is supplementary rather than an infinite proof. A 2003 Bulletin article was bibliographically identified but its full text was not available for direct inspection; this remains a minor historical overlap risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The recent bisplit-graph preprint is the closest same-object source: it says secure domination is polynomial-time solvable on chain graphs and displays a four-extreme-vertex routine plus pendant-class handling, but the public full text does not state the closed formula audited here. More importantly, the displayed routine is not an implication of the formula in the small-side regime: on the 3-by-3 half graph it starts from four extreme vertices whereas an entire side is a secure set of size three. Secure total domination on chain graphs is a different, strictly stronger parameter. No broader or database result located determines the submitted ordinary secure-domination number.
+
+## value
+
+PASS
+
+Secure domination is a standard graph-protection invariant and chain graphs are a canonical nested-neighborhood class. The theorem gives a complete exact formula, isolates the only effect of pendant-twin multiplicity, and resolves the small-side regime that the closest current algorithmic treatment does not capture transparently. This is a natural family classification rather than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:55:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 81340750954b838b10d0f59bd25cc858f541dae6",
+        "verify.py blob 0bab3d0e8b35accdbe7bd9a28cf5052a516fd5f2",
+        "fresh proof reconstruction"
+      ],
+      "rationale": "If t>=2 leaves share a support, any secure dominating set contains at least t-1 of them: with two omitted leaves their common support is the only possible defender and moving it to one leaves the other undominated. Deleting t-1 selected twins and retaining one representative preserves all defenses, and adjoining them back also preserves security, proving exact leaf-twin additivity. In the reduced graph H, each side has at most one leaf. A general bipartite argument gives gamma_s(H)>=min{4,|X|,|Y|}: a secure set of size at most three smaller than both sides has exactly one selected vertex on one side, and defending an outside vertex on the other side would leave the selected set in one part without containing that whole part. Each whole bipartition side is secure when the opposite side has at most one leaf. If both reduced sides have size at least four, the four extreme vertices {x_{m-1},x_m,y_1,y_2} form a secure set; universal extreme vertices handle ordinary outside vertices and the unique possible leaf cases are handled by the second extreme. These bounds coincide. The verifier exhausts all canonical profiles through order ten and checks 511 twin reductions, but the proof is all-order.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burger et al. treat paths, cycles, multipartite graphs and products, not the chain-graph formula.",
+          "Jha treats secure total domination, which imposes total domination after every swap and is not the same invariant.",
+          "The bisplit preprint gives an algorithmic claim for chain graphs but not the closed small-side formula."
+        ],
+        "reasoning": "None of the inspected broader results implies ordinary secure domination on every connected chain graph.",
+        "searches": [
+          "Burger et al., Finite Order Domination in Graphs, JCMCC 49 (2004)",
+          "Jha, Secure total domination in chain graphs and cographs, 2020",
+          "Swathi D--Sadagopan 2025/2026"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.23989v2",
+        "Burger et al. JCMCC 49 (2004)",
+        "DOI:10.1016/j.akcej.2019.10.005",
+        "Resultary chain-graph query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 2 initializes four extreme vertices and branches on pendant multiplicities; its rendered public text does not imply min{4,a',b'}, and on H3 the four-set starting point is not minimum for ordinary secure domination.",
+          "Secure total domination cannot imply equality for ordinary secure domination because it optimizes over a smaller class of sets."
+        ],
+        "reasoning": "The formula supplies additional mathematics, especially the exact small-side regime and leaf-twin additivity, rather than merely restating a prior algorithm.",
+        "searches": [
+          "arXiv:2512.23989v2 Algorithm 2 lines 309--336",
+          "Jha 2020 secure-total theorem/algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The preprint uses the same proper ordered chain partition and pendant classes.",
+          "Resultary's exact semantic hit is the audited record; nearby chain-graph results concern other domination parameters."
+        ],
+        "reasoning": "The submitted leaf-twin reduction is an equivalent structural description of the same ordinary secure-domination optimization, but its exact min{4,a',b'} formula is not stated by the inspected source.",
+        "searches": [
+          "Swathi D--Sadagopan, arXiv:2512.23989v2, Section 3.3 Algorithm 2",
+          "Resultary query: secure domination number connected chain graphs exact formula leaf twins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct Resultary hit is the audited theorem itself. The recent preprint has no complete numeric table or exact formula resolving all reduced side sizes."
+        ],
+        "reasoning": "The exact formula is not recoverable as a known table lookup from the inspected sources.",
+        "searches": [
+          "Resultary chain-graph secure-domination search",
+          "arXiv:2512.23989v2 chain-graph section"
+        ]
+      },
+      "rationale": "The recent bisplit-graph preprint is the closest same-object source: it says secure domination is polynomial-time solvable on chain graphs and displays a four-extreme-vertex routine plus pendant-class handling, but the public full text does not state the closed formula audited here. More importantly, the displayed routine is not an implication of the formula in the small-side regime: on the 3-by-3 half graph it starts from four extreme vertices whereas an entire side is a secure set of size three. Secure total domination on chain graphs is a different, strictly stronger parameter. No broader or database result located determines the submitted ordinary secure-domination number.",
+      "residual_risks": [
+        "The very recent bisplit preprint's rendered Algorithm 2 is incomplete/malformed in places; a later corrected revision could state a sharper chain-graph formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_PROBLEM_ALGORITHM_DOES_NOT_STATE_OR_IMPLY_AUDITED_CLOSED_FORM",
+          "evidence": "The displayed routine starts from four extreme vertices; for H3, with no multiple pendant classes, the audited size-three whole-side set shows the ordinary secure domination optimum is three.",
+          "identifier_or_url": "arXiv:2512.23989v2",
+          "material_read": "Full public arXiv HTML around Section 3.3, Definition 4 and Algorithm 2.",
+          "method": "Same-object algorithm/formula comparison with the H3 boundary case.",
+          "title": "Bisplit graphs -- A Structural and algorithmic study",
+          "trigger": "Closest same-object source, explicitly claiming a chain-graph MSD algorithm."
+        },
+        {
+          "assessment": "DIFFERENT_STRONGER_PARAMETER",
+          "evidence": "The paper requires the post-swap set to be total dominating, while the audited parameter requires only domination.",
+          "identifier_or_url": "DOI:10.1016/j.akcej.2019.10.005",
+          "material_read": "Full open article introduction and chain-graph section, including Theorem 4.2 context.",
+          "method": "Invariant-scope comparison.",
+          "title": "Secure total domination in chain graphs and cographs",
+          "trigger": "Same graph class and closely named domination invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2512.23989v2",
+        "Burger et al. JCMCC 49 (2004)",
+        "DOI:10.1016/j.akcej.2019.10.005",
+        "Resultary chain-graph query"
+      ],
+      "rationale": "Secure domination is a standard graph-protection invariant and chain graphs are a canonical nested-neighborhood class. The theorem gives a complete exact formula, isolates the only effect of pendant-twin multiplicity, and resolves the small-side regime that the closest current algorithmic treatment does not capture transparently. This is a natural family classification rather than an arbitrary finite census.",
+      "residual_risks": [
+        "The very recent bisplit preprint's rendered Algorithm 2 is incomplete/malformed in places; a later corrected revision could state a sharper chain-graph formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2512.23989v2",
+    "Burger et al. JCMCC 49 (2004)",
+    "DOI:10.1016/j.akcej.2019.10.005",
+    "Resultary chain-graph query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every finite connected chain graph G with bipartition A,B and leaf excesses e_A=max{|L_A|-1,0}, e_B=max{|L_B|-1,0}, the ordinary secure domination number is e_A+e_B+min{4,|A|-e_A,|B|-e_B}.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The very recent bisplit preprint's rendered Algorithm 2 is incomplete/malformed in places; a later corrected revision could state a sharper chain-graph formula."
+  ]
+}
