@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The normalized vector field is independently documented in later T-system literature. Exact differentiation gives \(LF=-2nz(z-m)\), and invariant-measure integration gives \(\mathbb E[z^2]=m\mathbb E[z]\). Stationarity of \(x^2\), \(z\), and smooth functions of \(z\) gives the remaining moment and conditional identities. The endpoint equality cases were checked by invariant-support tangency, and the slab-crossing consequence follows from the sign of \(z(z-m)\). The symbolic checker replays the critical polynomial identities exactly.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The closest full-text T-system source identifies \(F=y^2+z^2-2mz\) as a first integral only on the integrable boundary \(n=0\), where its level sets are invariant cylinders. The final theorem instead concerns \(n>0\) and turns the dissipative derivative into invariant-measure laws, a conditional product identity, sharp endpoint rigidity, and a recurrence slab-crossing statement. Searches of the published-results database returned analogous stationary-balance theorems for other chaotic flows but no T-system statement with these implications. The 2015 ultimate-bound paper concerns attracting sets rather than these exact identities. The main residual risk is unindexed or non-searchable literature using different terminology for stationary averages.
+PASS
 
-## Value
-PASS. The result gives a parameter-uniform statistical constraint for every compact recurrent regime of a classical Lorenz-family chaotic flow. It supplies an exact \(L^2\) height circle and a sharp geometric obstruction that every non-equilibrium periodic or stationary recurrent state must cross. This is a natural continuation of the known \(n=0\) invariant-cylinder geometry into the dissipative regime rather than an arbitrary parameter slice or numerical recomputation.
+For \(F=y^2+z^2-2mz\), exact differentiation gives \(LF=-2nz(z-m)\); stationarity therefore yields \(\mathbb E[z^2]=m\bar z\) and the variance parabola \(\operatorname{Var}(z)=\bar z(m-\bar z)\). Stationarity of \(x^2\) and \(z\) gives \(\mathbb E[x^2]=\mathbb E[xy]=n\bar z\). Applying stationarity to arbitrary antiderivatives \(\Phi(z)\) yields \(\mathbb E[xy\mid z]=nz\). At \(\bar z=0\) or \(m\), zero variance fixes the height, and invariant-support tangency leaves exactly the origin or the two nonzero equilibria. For a measure not supported on these equilibria, the continuous function \(z(z-m)\) cannot vanish almost surely, while its stationary mean is zero; hence both its negative region \(0<z<m\) and positive exterior have positive mass.
 
-## Closest literature and limitations
-The 2021 open-access T-system paper is the closest equation-level source: it treats the same polynomial as a first integral at \(n=0\) and classifies special invariant surfaces. The 2015 ultimate-bound work gives global absorbing estimates for a Lorenz-family class; the 2023 and 2024 papers address bifurcation and Jacobi stability. None of the inspected sources states the final invariant-measure theorem. The 2004 public-source date comes from bibliographic records of the 7--9 October conference; the 2006 arXiv and 2021 article were the principal full-text equation-level sources inspected.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete open 2021 primary article was inspected. It identifies the same polynomial \(F=y^2+z^2-2mz\) as a first integral in the special conservative boundary case \(n=0\), with invariant cylinders. The audited theorem instead treats \(n>0\), where \(F\) is no longer conserved and its exact derivative becomes a stationary moment circle, a conditional product law, rigid endpoints and a slab-crossing theorem. Those implications are not stated in the inspected T-system literature. Resultary searches returned only analogous stationary laws for other flows.
+
+## value
+
+PASS
+
+The T-system is a standard Lorenz-family model, and the theorem converts a known conservative-boundary polynomial into a sharp positive-damping stationary geometry: a fixed second-moment circle, rigid endpoint measures and forced recurrence on both sides of a natural slab. This is a motivated structural description of recurrent dynamics rather than a routine numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

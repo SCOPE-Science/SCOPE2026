@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:36:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob bd5049d7c47f42e9df3eda5872e2148a011395c7",
+        "assigned verify.py blob e39525b7d3cb9b937fbdfe1f06846460612533a2",
+        "D. Constantinescu, G. Tigan and X. Zhang, Coexistence of chaotic attractor and unstable limit cycles in a 3D dynamical system, DOI:10.12688/openreseurope.13590.1",
+        "G. Tigan and D. Opris, Analysis of a 3D chaotic system, arXiv:math/0608568"
+      ],
+      "rationale": "For \\(F=y^2+z^2-2mz\\), exact differentiation gives \\(LF=-2nz(z-m)\\); stationarity therefore yields \\(\\mathbb E[z^2]=m\\bar z\\) and the variance parabola \\(\\operatorname{Var}(z)=\\bar z(m-\\bar z)\\). Stationarity of \\(x^2\\) and \\(z\\) gives \\(\\mathbb E[x^2]=\\mathbb E[xy]=n\\bar z\\). Applying stationarity to arbitrary antiderivatives \\(\\Phi(z)\\) yields \\(\\mathbb E[xy\\mid z]=nz\\). At \\(\\bar z=0\\) or \\(m\\), zero variance fixes the height, and invariant-support tangency leaves exactly the origin or the two nonzero equilibria. For a measure not supported on these equilibria, the continuous function \\(z(z-m)\\) cannot vanish almost surely, while its stationary mean is zero; hence both its negative region \\(0<z<m\\) and positive exterior have positive mass.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior work studies invariant cylinders at \\(n=0\\), bifurcations, chaos, limit cycles and boundedness.",
+          "No inspected theorem gives the invariant-probability variance parabola or the conditional identity at positive \\(n\\)."
+        ],
+        "reasoning": "The special first-integral result does not dominate the positive-damping stationary theorem because conservation is destroyed for \\(n>0\\).",
+        "searches": [
+          "Constantinescu--Tigan--Zhang 2021 full article",
+          "Tigan--Opris arXiv:math/0608568",
+          "T-system ultimate-bound/bifurcation literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.12688/openreseurope.13590.1",
+        "arXiv:math/0608568",
+        "Resultary semantic search",
+        "T-system bifurcation and ultimate-bound literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing \\(F\\) is conserved only at \\(n=0\\) does not imply the positive-\\(n\\) stationary average \\(\\mathbb E[z(z-m)]=0\\) unless the nonzero derivative is explicitly derived.",
+          "Endpoint rigidity and the two-sided slab recurrence then require additional invariant-support and sign arguments."
+        ],
+        "reasoning": "The final positive-damping theorem is not a direct special case of the conservative result.",
+        "searches": [
+          "2021 first-integral result for \\(n=0\\)",
+          "standard invariant-measure generator identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 paper states that at \\(n=0\\), \\(F=y^2+z^2-2mz\\) is a first integral.",
+          "For \\(n>0\\), the audited identity is instead \\(LF=-2nz(z-m)\\), whose zero stationary average produces the claimed circle."
+        ],
+        "reasoning": "The normalized T-system and its standard three-parameter Lorenz-family form were both included in the comparison.",
+        "searches": [
+          "Resultary: T-system invariant measure stationary height circle slab crossing recurrence xy conditional z",
+          "DOI:10.12688/openreseurope.13590.1",
+          "arXiv:math/0608568"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-model Resultary entry with the height circle, conditional product law or slab-crossing result was returned among the direct semantic matches."
+        ],
+        "reasoning": "The claim is symbolic; the database check searched for exact same-model formulations rather than a numerical table.",
+        "searches": [
+          "Resultary exact T-system stationary-law query"
+        ]
+      },
+      "rationale": "The complete open 2021 primary article was inspected. It identifies the same polynomial \\(F=y^2+z^2-2mz\\) as a first integral in the special conservative boundary case \\(n=0\\), with invariant cylinders. The audited theorem instead treats \\(n>0\\), where \\(F\\) is no longer conserved and its exact derivative becomes a stationary moment circle, a conditional product law, rigid endpoints and a slab-crossing theorem. Those implications are not stated in the inspected T-system literature. Resultary searches returned only analogous stationary laws for other flows.",
+      "residual_risks": [
+        "A time-average treatment in older Lorenz-family literature could encode the same positive-\\(n\\) balance without using invariant-measure terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONSERVATIVE_BOUNDARY_PREDECESSOR_NOT_POSITIVE_N_STATIONARY_THEOREM",
+          "evidence": "The source makes \\(F\\) a first integral only at \\(n=0\\); it does not state the positive-\\(n\\) stationary variance circle, conditional law or slab-crossing consequence.",
+          "identifier_or_url": "DOI:10.12688/openreseurope.13590.1",
+          "material_read": "Complete open primary article with focused reading of the normalized system, the \\(n=0\\) first-integral calculation and the invariant-cylinder/global-dynamics discussion.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Coexistence of chaotic attractor and unstable limit cycles in a 3D dynamical system",
+          "trigger": "Closest full primary T-system source; it studies the same polynomial and its invariant geometry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Constantinescu--Tigan--Zhang 2021",
+        "Tigan--Opris 2006/2008",
+        "T-system recurrence literature"
+      ],
+      "rationale": "The T-system is a standard Lorenz-family model, and the theorem converts a known conservative-boundary polynomial into a sharp positive-damping stationary geometry: a fixed second-moment circle, rigid endpoint measures and forced recurrence on both sides of a natural slab. This is a motivated structural description of recurrent dynamics rather than a routine numerical check.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the normalized T-system \\(\\dot x=y-x\\), \\(\\dot y=mx-xz\\), \\(\\dot z=-nz+xy\\) with \\(m,n>0\\), every compactly supported invariant probability measure satisfies \\(\\mathbb E[xy\\mid z]=nz\\), \\(\\mathbb E[x^2]=\\mathbb E[xy]=n\\bar z\\), \\(\\mathbb E[z^2]=m\\bar z\\), and \\(\\operatorname{Var}(z)=\\bar z(m-\\bar z)\\); the endpoint measures are exactly the stated equilibrium mixtures, and every non-equilibrium compact invariant measure charges both the open slab \\(0<z<m\\) and its exterior.",
+  "limitations": [
+    "Normalized T-system with \\(m>0\\) and \\(n>0\\) only.",
+    "The recurrence conclusion is qualitative and does not bound excursion frequency or size.",
+    "No existence or uniqueness of a non-equilibrium invariant measure is asserted."
+  ],
+  "schema_version": 1
+}
