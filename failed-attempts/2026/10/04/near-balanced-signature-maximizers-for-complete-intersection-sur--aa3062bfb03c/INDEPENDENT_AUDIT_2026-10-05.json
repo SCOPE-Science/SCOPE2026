@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:00:23.248304Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 5c1200891437e5dab075b31e8e729e3b00fc734f",
+        "artifacts/verify.py blob 80091e050796e7bc3193fc8c02f0bc287b1da72c",
+        "fresh independent exact check for 6<=S<=40",
+        "classical complete-intersection tangent formula"
+      ],
+      "rationale": "The calculation is correct. From the normal bundle sequence, c_1=(5-a-b)H and c_2=(10-5(a+b)+a^2+ab+b^2)H^2, so p_1=(5-a^2-b^2)H^2 and integrating H^2=ab gives sigma=ab(5-a^2-b^2)/3. At fixed S and gap g=b-a, minus three times the signature equals (S^4-10S^2+10g^2-g^4)/8. On even allowed gaps, g=2 uniquely maximizes the variable term; on odd gaps, g=1 and g=3 tie and every g at least five is lower. A fresh exact check for every S from 6 through 40 reproduced both formulas and all equality cases; the symbolic quartic argument proves all S.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior characteristic-class formulas cover all complete-intersection multidegrees, strictly broader than the fixed-sum bidegree slice.",
+          "No new geometric input is needed after specializing them to dimension two and codimension two."
+        ],
+        "reasoning": "The broader pointwise formula dominates the claimed discrete optimization.",
+        "searches": [
+          "Astey--Gitler--Micha--Pastor, On the homotopy type of complete intersections, DOI:10.1016/j.top.2004.04.001",
+          "Libgober--Wood--Zagier, Congruences modulo powers of 2 for the signature of complete intersections, DOI:10.1093/qmath/31.2.209"
+        ]
+      },
+      "checked_sources": [
+        "Astey--Gitler--Micha--Pastor, On the homotopy type of complete intersections, DOI:10.1016/j.top.2004.04.001",
+        "Libgober--Wood--Zagier, Congruences modulo powers of 2 for the signature of complete intersections, DOI:10.1093/qmath/31.2.209",
+        "Hirzebruch signature theorem and standard Chern/Pontryagin formulas for smooth complete intersections",
+        "Resultary query: complete intersection surface P4 bidegree fixed sum signature maximum balanced"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formulas imply sigma=ab(5-a^2-b^2)/3 for every admissible a,b.",
+          "At fixed S, the only variable term is 10g^2-g^4; checking even or odd integer g gives the complete maximizer list immediately."
+        ],
+        "reasoning": "This is a mechanical implication from established formulas rather than a new theorem requiring a nonstandard lemma.",
+        "searches": [
+          "classical complete-intersection tangent formula",
+          "Hirzebruch signature theorem",
+          "substitution g=b-a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stable tangent bundle of a complete intersection is explicitly recorded in the classical topology literature.",
+          "Signature is a standard characteristic number of complete intersections and the audited pointwise formula follows immediately for codimension two surfaces."
+        ],
+        "reasoning": "The fixed-sum extremum is an elementary reparameterization of a known all-bidegree invariant formula.",
+        "searches": [
+          "Astey--Gitler--Micha--Pastor, On the homotopy type of complete intersections, DOI:10.1016/j.top.2004.04.001",
+          "Libgober--Wood--Zagier, Congruences modulo powers of 2 for the signature of complete intersections, DOI:10.1093/qmath/31.2.209",
+          "Resultary query: complete intersection surface P4 bidegree fixed sum signature maximum balanced"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published table of the gap-two/tie pattern was found.",
+          "That absence is immaterial because the values are obtained by elementary optimization of the already-known formula."
+        ],
+        "reasoning": "Under the audit rule, lack of a matching table cannot rescue a direct corollary.",
+        "searches": [
+          "Resultary query: complete intersection surface P4 bidegree fixed sum signature maximum balanced",
+          "targeted searches for the displayed radical-free fixed-sum maxima"
+        ]
+      },
+      "rationale": "Originality fails under the implication standard. The exact tangent-bundle formula for complete intersections is classical and gives the pointwise signature formula for every bidegree by the standard Chern-to-Pontryagin calculation and Hirzebruch signature theorem. Once that stronger all-bidegree formula is known, imposing a+b=S and writing g=b-a reduces the claimed extremum to maximizing the elementary quartic 10g^2-g^4 on the allowed parity lattice. The gap-two even optimum and gap-one/gap-three odd tie are therefore routine corollaries of already-known complete-intersection characteristic-class data, even though no source with those extremal words was found.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_CHARACTERISTIC_CLASS_INPUT",
+          "evidence": "The pointwise Pontryagin/signature formula used by the package is a standard specialization of this established complete-intersection tangent data.",
+          "identifier_or_url": "DOI:10.1016/j.top.2004.04.001",
+          "material_read": "Accessible primary full-text material including the complete-intersection setup and displayed stable tangent-bundle formula.",
+          "method": "lawful primary full-text inspection",
+          "title": "On the homotopy type of complete intersections",
+          "trigger": "Classical complete-intersection topology source recording the stable tangent-bundle formula."
+        },
+        {
+          "assessment": "CLASSICAL_SIGNATURE_CONTEXT",
+          "evidence": "The literature treats complete-intersection signatures as established characteristic-number data; the audited novelty can only be the elementary fixed-sum optimization.",
+          "identifier_or_url": "DOI:10.1093/qmath/31.2.209",
+          "material_read": "Complete accessible PDF relevant portions on signatures of nonsingular complete intersections.",
+          "method": "lawful full-text PDF inspection",
+          "title": "Congruences modulo powers of 2 for the signature of complete intersections",
+          "trigger": "Direct classical literature on complete-intersection signatures."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Astey--Gitler--Micha--Pastor, On the homotopy type of complete intersections, DOI:10.1016/j.top.2004.04.001",
+        "Libgober--Wood--Zagier, Congruences modulo powers of 2 for the signature of complete intersections, DOI:10.1093/qmath/31.2.209",
+        "Hirzebruch signature theorem and standard Chern/Pontryagin formulas for smooth complete intersections",
+        "Resultary query: complete intersection surface P4 bidegree fixed sum signature maximum balanced"
+      ],
+      "rationale": "Fixing a+b is geometrically motivated because it fixes the adjunction exponent, but the final extremal theorem is obtained by substituting into a classical pointwise signature formula and maximizing a one-variable quartic over parity-constrained integers. Under the required value bar this is a routine deduction from known characteristic-class data, not an independently worthwhile exact invariant.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
