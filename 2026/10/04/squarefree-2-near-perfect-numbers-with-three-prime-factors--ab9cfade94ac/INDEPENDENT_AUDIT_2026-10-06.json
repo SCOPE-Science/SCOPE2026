@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:51:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md c7a6d3a820e89608b098b174696fa8484dd1f009",
+        "verify.py 05ee54779a54a8f1f7d6eb0231cf76bf06298ebb",
+        "fresh prime/divisor replay"
+      ],
+      "rationale": "D=-pq+3p+3q+3. For p≥7 it is negative; p=3 gives D=12 and q≥13 is excluded because the divisors below 12 are {1,2,3,6}; p=5 forces q=7 and D=4, impossible from two distinct divisors. Fresh brute force below 100 reproduces only 30 and 66; the frozen verifier extends bounded regression below 1000 but is not used for exhaustiveness.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both explicitly concern exactly two distinct prime factors."
+        ],
+        "reasoning": "They do not contain 2pq.",
+        "searches": [
+          "arXiv:2310.01305",
+          "arXiv:2508.06651"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.01305",
+        "arXiv:2508.06651",
+        "OEIS A341475",
+        "Resultary 2pq query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Those theorems do not constrain a second odd prime support; positivity here forces p∈{3,5}."
+        ],
+        "reasoning": "The 2pq theorem is not mechanically implied.",
+        "searches": [
+          "two-prime primary theorems",
+          "audited positivity/divisor proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n=2pq, the definition is equivalent to two distinct divisors summing to D=-pq+3p+3q+3."
+        ],
+        "reasoning": "The prior classifications have one odd-prime support, not two.",
+        "searches": [
+          "arXiv:2310.01305",
+          "arXiv:2508.06651",
+          "OEIS A341475",
+          "Resultary 2-near-perfect 2pq query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS contains 30 and 66 but states no infinite-family completeness result."
+        ],
+        "reasoning": "Database membership is not coverage of the classification.",
+        "searches": [
+          "OEIS A341475",
+          "Resultary exact query"
+        ]
+      },
+      "rationale": "The 2023 and 2025 primary papers classify 2-near-perfect numbers with exactly two distinct prime factors, not the squarefree three-prime family 2pq. OEIS A341475 lists 30 and 66 but gives no exhaustion theorem for 2pq; Resultary returns the audited result as the exact hit.",
+      "residual_risks": [
+        "An unindexed note or computational repository could contain the same 2pq classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TWO_DISTINCT_PRIME_FACTORS_ONLY",
+          "evidence": "Classifies n=2^k p^i, i∈{1,2}.",
+          "identifier_or_url": "arXiv:2310.01305",
+          "material_read": "Primary abstract/current theorem scope.",
+          "method": "Prime-support comparison.",
+          "title": "On 2-Near Perfect Numbers",
+          "trigger": "Primary classification source."
+        },
+        {
+          "assessment": "TWO_PRIME_FACTORS_ONLY",
+          "evidence": "Explicitly restricted to exactly two prime factors.",
+          "identifier_or_url": "arXiv:2508.06651",
+          "material_read": "Primary abstract/current theorem scope.",
+          "method": "Prime-support comparison.",
+          "title": "Complete characterization of 2-near perfect numbers with exactly 2 prime factors",
+          "trigger": "Strongest later classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2310.01305",
+        "arXiv:2508.06651",
+        "OEIS A341475",
+        "Resultary 2pq query"
+      ],
+      "rationale": "After the exactly-two-prime-factor classification, squarefree 2pq is the simplest natural three-prime-support layer and the theorem gives a complete infinite-family classification.",
+      "residual_risks": [
+        "An unindexed note or computational repository could contain the same 2pq classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2310.01305",
+    "arXiv:2508.06651",
+    "OEIS A341475",
+    "Resultary 2pq query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For odd primes p<q, the squarefree integer 2pq is 2-near-perfect exactly for 30 and 66.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed note or computational repository could contain the same 2pq classification.",
+    "Nonsquarefree three-prime-support numbers remain outside scope."
+  ]
+}
