@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone program `verify_cuboctahedron_rips.py` reconstructs the twelve points from the coordinate definition and verifies that the nonzero squared pairwise distances are exactly \(2,4,6,8\). It enumerates every nonempty subset of the twelve vertices and retains exactly the Vietoris--Rips simplices at each threshold.
+# Independent mathematical audit
 
-At squared threshold \(2\), it verifies face vector \((12,24,8)\), maximal simplices equal to the eight triangular faces, mod-two boundary ranks \((11,8)\), Betti vector \((1,5,0)\), and an acyclic Morse matching with one critical \(0\)-cell and five critical \(1\)-cells.
+## correctness
 
-At squared threshold \(4\), it verifies face vector \((12,36,32,6)\), maximal simplices equal to the eight triangular and six square face vertex sets, ranks \((11,25,6)\), Betti vector \((1,0,1,0)\), and an acyclic Morse matching with one critical \(0\)-cell and one critical \(2\)-cell.
+PASS
 
-At squared threshold \(6\), it verifies that the only absent pairs are the six antipodal pairs and that every maximal simplex chooses one vertex from each pair. It obtains face vector \((12,60,160,240,192,64)\), ranks \((11,49,111,129,63)\), Betti vector \((1,0,0,0,0,1)\), and an acyclic Morse matching with one critical \(0\)-cell and one critical \(5\)-cell.
+The twelve coordinates have exactly squared distances 2,4,6,8. At squared threshold 2 the eight triangular maximal simplices have cube-graph nerve, giving \(\bigvee^5S^1\). At 4 the triangular faces and six square-face tetrahedra have the same good-cover nerve as the cuboctahedron boundary, giving \(S^2\). At 6 the only missing edges are six antipodal pairs, so the clique complex is the join of six copies of \(S^0\), hence \(S^5\); at 8 it is the full simplex. Fresh exhaustive reconstruction independently gives face/Betti data (12,24,8)/(1,5,0), (12,36,32,6)/(1,0,1,0), and (12,60,160,240,192,64)/(1,0,0,0,0,1), corroborating the homotopy proof.
 
-At squared threshold \(8\), it verifies the full simplex on twelve vertices. The executable check ends with `VERIFY_OK`.
+## originality
 
-The program verifies the finite combinatorial inputs. The homotopy identifications at squared thresholds \(2\) and \(4\) additionally use the nerve arguments stated in `RESULT.md`; at squared threshold \(6\), the join description is direct from the antipodal-pair classification. No claim is made about untested point sets or an infinite family.
+PASS
+
+The closest full primary theorem treats exactly the five Platonic solids and explicitly names Archimedean solids as a conceivable generalization; it does not include the cuboctahedron. Resultary returned the assigned cuboctahedron filtration as the exact hit, with other Rips findings on different metrics/polyhedra. Best-of-knowledge originality therefore passes for the complete Euclidean-vertex filtration, with the related thesis retained as an access risk.
+
+## value
+
+PASS
+
+The cuboctahedron is a canonical Archimedean solid, precisely the kind of natural extension singled out by the closest primary paper. Its filtration has several distinct nontrivial homotopy phases and a complete persistence description, making this a motivated finite classification rather than an arbitrary point-cloud calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
