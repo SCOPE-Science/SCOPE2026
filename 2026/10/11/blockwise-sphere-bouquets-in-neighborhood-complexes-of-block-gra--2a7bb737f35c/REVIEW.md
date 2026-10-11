@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact neighborhood union under one-vertex gluing, its intersection as two disjoint faces, and the homotopy-pushout reduction to one extra circle were reconstructed from the definitions. The leaf attachment is an elementary collapse; the block–cut tree permits induction. Inclusions of oriented clique boundaries furnish the asserted integral higher-homology basis and yield the automorphism signs. Finite verification exhaustively checked 4,792 small labeled block graphs and additional larger, gluing, branch-degree, and automorphism examples. The numerical checks are supportive rather than a substitute for induction.
+
+**Originality — PASS.** The closest primary comparison by Kozlov relates neighborhood and Hom complexes in simple homotopy; it does not classify the neighborhood complexes of clique trees. Matsushita concerns fundamental groups, Braun–Vega concern Hajós constructions and distant identifications, and Shukla treats low-degree and specific circulant graphs. Statement-level and implication-level comparisons do not show an all-block-size formula with canonical higher-homology symmetry modules. Principal residual risk: a non-indexed or differently phrased cut-vertex-gluing theorem could imply the wedge formula; such a source would need direct evaluation.
+
+**Value — PASS.** The result is a natural, complete, all-parameter classification for block graphs (including line graphs of trees), detects mixed-dimensional spheres invisible to graph cycle rank, and shows that attachment geometry does not affect the homotopy type once block sizes are known. Canonical oriented generators further determine the full high-dimensional integral homology action of graph symmetries. This is not a single low-order count, routine numerical table, or change of notation.
+
+**Boundaries.** Ordinary homotopy, not a specified simple-homotopy collapse to the wedge, is proved. No formula is claimed for general chordal graphs with large clique intersections, and the extra first-homology circle classes are not claimed to split equivariantly. No independent audit has been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
