@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For every prime power q>=2 and nontrivial additive character, group enumeration gives |SL_2(F_q)|=q(q^2-1). The exact one-coordinate, same-row/column and opposite-entry Fourier sums produce a Hermitian Gram with four coordinate blocks. Direct character orthogonality yields K_epsilon K_epsilon^*=q^2 I-(q+1)J, so its restriction to the mean-zero subspace has singular value q. The four mean-coordinate vectors decompose into a one-dimensional top bulk mode, two-dimensional bottom bulk mode, and a residual 2x2 block coupled to the constant character. The block characteristic polynomial gives both simple roots and a strictly positive determinant q(q-1)/(q+1)^2. Explicit discriminant comparisons prove the strict eigenvalue order for q>=2, and the exhibited eigenvectors classify all equality spaces. The standalone checker enumerated 3,090 matrices across q=2,3,4,5,7,8,9,11, verified both Kloosterman matrix identities, every Gram entry, eigenvalue with multiplicity and constructed eigenvectors (maximum numerical eigen error 2e-15). The general theorem is established by the exact proof rather than those finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li--Hu Theorem 2.4 covers all additive Fourier frequencies on SL_n(F_q), including rank-one and rank-two frequencies for SL_2, but supplies scalar sums rather than a diagonalization of the specific column Gram.",
+        "Thill--Hassibi arXiv:1509.05739, Theorem 11 in Section VII concerns coherence of group representation frames in characteristic two with additional divisibility conditions, not the arbitrary-characteristic ambient-coordinate family."
+      ],
+      "reasoning": "A universal scalar Fourier-transform identity dominates the Gram-entry computation but not the sharp Gram eigenvalue/eigenspace classification as a statement. No earlier inequality or full-spectrum theorem with stronger parameter range and the same selected coefficient family was identified. The necessary additional simultaneous linear-algebra diagonalization is supplied here; possible unpublished or older stronger formulations remain uncertain.",
+      "searches": [
+        "Sharp Bessel/Riesz frame bounds for four coordinate additive character families on special linear matrices determinant one SL(2,F_q), complete Gram eigenvalues q/(q-1) q/(q+1)",
+        "special linear group matrices coordinate character Fourier restriction Gram eigenvalues first degree sampling finite field",
+        "Gauss sums over some matrix groups arxiv 1105.4513 full text",
+        "Low-Coherence Frames from Group Fourier Matrices arxiv 1509.05739 full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1105.4513 (original full text, theorem and proof checked)",
+      "arXiv:1509.05739 (full text, relevant Section VII and Theorem 11 checked)",
+      "doi:10.1109/ICASSP.2014.6854538 (abstract/metadata; original full text inaccessible)",
+      "Published-record semantic searches for Fourier minors, Kloosterman matrices, and sharp additive-coordinate Gram spectra"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li--Hu identifies the rank-based scalar character sum for every ambient-frequency difference, enough to reconstruct the entries after specialization. Its Theorem 2.4 does not give any spectrum or extremizing linear combination.",
+        "The multiplicative rank-one Kloosterman kernel satisfies a nontrivial exact squared-matrix identity, q^2 I-(q+1)J, proved afresh in the package and not asserted in Li--Hu.",
+        "The group-representation Fourier frames of Thill--Hassibi use representation matrix coefficients indexed by group elements, not four coordinate-wise additive families indexed by F_q^times."
+      ],
+      "reasoning": "The prior scalar-sum theorem is used as a known building block and could, when combined with further harmonic linear algebra, lead to this theorem; this is acknowledged explicitly. It does not logically state the four-level spectral classification as a simple parameter substitution or a direct inequality. The claimed new content is the exact Kloosterman block geometry, full diagonalization, sharp constants and all equality spaces. If an uninspected source performs that diagonalization for the same additive family, the originality conclusion must be reconsidered.",
+      "searches": [
+        "Exact Fourier restriction concentration spectra coordinate characters on determinant-one matrices SL2 over finite fields",
+        "Fourier sampling SL2 finite field coordinate entries four blocks Kloosterman singular values Gauss sum squared exact spectrum",
+        "Sharp Bessel/Riesz frame bounds for four coordinate additive character families on special linear matrices determinant one SL(2,F_q), complete Gram eigenvalues q/(q-1) q/(q+1)",
+        "arxiv:1105.4513 Theorem 2.4",
+        "arxiv:1509.05739 Section VII Theorem 11",
+        "doi:10.1109/ICASSP.2014.6854538",
+        "Sharp Riesz bounds four coordinate additive Fourier characters on SL2(Fq) determinant-one finite-field matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li--Hu arXiv:1105.4513, equations (1.3), (2.20)--(2.21), Theorem 2.4: evaluates ambient additive sums on SL_n in terms of Kloosterman sums.",
+        "Thill--Hassibi arXiv:1509.05739, Section VII: builds frame matrices from nonabelian group representations of SL_2 and studies their coherence, not restrictions of 4q-3 coordinate additive characters."
+      ],
+      "reasoning": "A gram spectrum could also be called a singular-value or Riesz-bound spectrum of a Fourier restriction submatrix; these aliases were searched. Li--Hu computes individual full ambient Fourier coefficients; no statement of the selected Gram spectrum or equality spaces was located. The later group-Fourier matrix work uses a different Fourier representation and coefficient index set. The new statement requires and displays an additional Kloosterman-matrix isometry and a 5-dimensional rank-one-coupled decomposition.",
+      "searches": [
+        "Exact Fourier restriction concentration spectra coordinate characters on determinant-one matrices SL2 over finite fields",
+        "Fourier sampling SL2 finite field coordinate entries four blocks Kloosterman singular values Gauss sum squared exact spectrum",
+        "Fourier restriction coordinate slices determinant one quadric first band compressed Gram eigenvalues SL2(q)",
+        "SL_2 q/(q-1) q/(q+1) Gram eigenvalue additive Fourier",
+        "arxiv:1105.4513 Section 2 and Theorem 2.4",
+        "arxiv:1509.05739 Section VII",
+        "Kloosterman matrix indexed by nonzero field elements exact square q^2 I -(q+1) J additive Fourier Gram spectrum determinant one matrices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic searches retrieved Fourier-minor and harmonic-frame results, but none with the four-level spectrum on the specified determinant-one coordinate characters.",
+        "A related exact rank-one coordinate Gram spectrum concerns singular rank-one matrices, whereas the present determinant-one matrices are all invertible.",
+        "No direct determinant-one-coordinate Gram table was found in the inspected 2011 full text or the 2015 relevant sections.",
+        "Closest retrieved Fourier minors over cyclic rings and compressed Fourier transforms on multiplicative subgroups have different ambient spaces and do not imply the SL_2(F_q) additive-coordinate Gram spectrum."
+      ],
+      "reasoning": "Published tables and earlier related spectral statements searched or inspected did not provide this specific exact determinant-one four-eigenvalue table, multiplicities and eigenspaces. Absence from a semantic index cannot certify global priority, and one related conference paper was not inspected in full.",
+      "searches": [
+        "Kloosterman matrices eigenvalues Gauss sums square spectrum q finite field",
+        "Fourier sampling SL2 finite field coordinate entries four blocks Kloosterman singular values Gauss sum squared exact spectrum",
+        "Kloosterman matrix indexed by nonzero field elements exact square q^2 I -(q+1) J additive Fourier Gram spectrum determinant one matrices",
+        "Sharp Riesz bounds four coordinate additive Fourier characters on SL2(Fq) determinant-one finite-field matrices"
+      ]
+    },
+    "rationale": "Searches of published research records, the available preceding ledgers, and relevant primary literature found no theorem covering the selected 4q-3 coordinate-wise additive character family on determinant-one matrices over every prime-power field. The closest direct source (Li--Hu 2011) gives ambient scalar Fourier transforms, but not their selected Gram eigenspectrum, sharp frame bounds, or complete eigenspaces; Thill--Hassibi uses nonabelian group-representation Fourier frames. The exact Kloosterman isometry and 5-dimensional coupled-block diagonalization provide new scientific content at the statement level beyond parameter substitution. The 2014 conference predecessor was not available in full, and equivalent older Kloosterman-matrix or frame-spectrum formulations remain priority risks.",
+    "residual_risks": [
+      "An equivalent historical Kloosterman-matrix diagonalization or an additive-coordinate frame-spectrum corollary may appear under different vocabulary.",
+      "The 2014 ICASSP predecessor could not be inspected at full-text level; its later, expanded 2015 account was compared.",
+      "Published semantic-result indexes are not exhaustive, and prior unpublished findings outside this archive are not visible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.4 supplies full rank-based scalar additive sums. It does not explicitly diagonalize the selected coordinate character family or give frame bounds/equality spaces. Scientific dependency and historical risk recorded.",
+        "evidence": [
+          "arXiv:1105.4513 pp.1--2 and 5--7",
+          "Theorem 2.4, equations (2.20)--(2.21)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1105.4513",
+        "material_read": "Original 9-page paper text: introduction, definitions, Theorem 2.4, its proof (including equations (2.20)--(2.21)), applications and references; source page images used to verify key formulas.",
+        "method": "Primary full-text equation and statement comparison; searched within full text for eigenvalues, spectra and Fourier-frame claims.",
+        "title": "Gauss sums over some matrix groups",
+        "trigger": "Identical ambient determinant-one variety and its Fourier character sums."
+      },
+      {
+        "assessment": "Group representation character-frame construction is different from the ambient additive coordinate-frequency family; its bounds do not give the proposed 4q-3-column exact spectrum.",
+        "evidence": [
+          "arXiv:1509.05739 Section VII, especially pp.30--35",
+          "Theorem 11"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.05739",
+        "material_read": "Full text available; read abstract and core frame definitions, Section VII (pp.30--36, including Theorem 11), and relevant conclusion/reference material.",
+        "method": "Primary full-text objects, index sets and theorem implication comparison.",
+        "title": "Low-Coherence Frames from Group Fourier Matrices",
+        "trigger": "Relevant frame literature using the same nonabelian group SL_2(F_q)."
+      },
+      {
+        "assessment": "Undetermined full-text coverage, but abstract describes nonabelian group-Fourier frame constructions rather than ambient additive-coordinate restrictions; retain specific risk.",
+        "evidence": [
+          "CaltechAUTHORS record 7pwsv-2v194",
+          "ICASSP 2014 DOI 10.1109/ICASSP.2014.6854538"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ICASSP.2014.6854538",
+        "material_read": "Title, abstract, DOI, journal/proceedings metadata only; full original conference paper not obtained.",
+        "method": "Bibliographic abstract inspection, comparison against accessible expanded 2015 paper; attempted authorized institutional source with no full text available.",
+        "title": "Frames from generalized group Fourier transforms and SL_2(F_q)",
+        "trigger": "Same group and frame topic, likely a predecessor to the later extended arXiv paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a9ad8796-111d-44bf-ae92-9d9ee59f8be4",
+  "value": {
+    "rationale": "The affine determinant-one quadric SL_2(F_q) is a canonical finite matrix variety, and the constant plus four one-coordinate Fourier bands are the natural lowest-complexity ambient additive measurements. Their condition number and redundancy are not determined by bounds on individual Kloosterman sums. The theorem provides a uniform four-level spectral classification for all prime powers, exact sharp frame bounds, a full high-dimensional equality space and an explicit lower extremizer. It proves quantitative near-orthogonality with squared Riesz ratio 1+4/q+O(q^-2), including characteristic two and all extension fields. This is a structural classification and natural sharp invariant, rather than a single arbitrary finite example or minor numerical improvement.",
+    "status": "PASS"
+  }
+}
