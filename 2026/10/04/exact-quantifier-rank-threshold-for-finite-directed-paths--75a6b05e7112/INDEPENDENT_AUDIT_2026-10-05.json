@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:33:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob c484ca5c1f75f2b46fe3154347a5a674f1d048f4",
+        "assigned verify.cpp blob 55e15340e04a31372447806ca576968261831542",
+        "Brown--Hoshino 2007 full primary paper",
+        "independent exact EF-game replay on 165 bounded cases"
+      ],
+      "rationale": "The q=2 source/sink/interior response classification is complete above length four. At q=3, the seven pointed cases determined by distance 0,1,2 from either endpoint versus a three-deep interior give a winning two-round continuation for lengths at least eight, while an exact game check gives Spoiler a win on lengths 7 and 8. For q>=4, Brown--Hoshino's protected-gap strategy is orientation-preserving when the same signed displacement and corresponding endpoint side are copied. The undirected lower bound transfers through \\(E=S\\lor S^{-1}\\), except the directed q=3 boundary that is handled separately. A fresh independent exact EF solver reproduced every case for \\(1\\le q\\le3\\), \\(1\\le n\\le m\\le10\\), including \\(P_7\\not\\equiv_3P_8\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The undirected theorem loses orientation and therefore cannot imply the directed q=3 separation.",
+          "The FO2 word results use a different fragment/signature including linear order and do not state unrestricted FO successor-only equivalence."
+        ],
+        "reasoning": "Neither broader source determines the audited rank-three boundary.",
+        "searches": [
+          "Brown--Hoshino full path classification",
+          "Weis--Immerman, Structure Theorem and Strict Alternation Hierarchy for FO2 on Words"
+        ]
+      },
+      "checked_sources": [
+        "Brown--Hoshino 2007",
+        "Weis--Immerman 2007",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q>=4 the prior strategy transfers, but at q=3 the directed result requires an additional pointed classification plus the P7/P8 obstruction.",
+          "That obstruction is absent in the undirected theorem."
+        ],
+        "reasoning": "The final theorem therefore contains a non-prior boundary case that is essential to the exact all-q statement.",
+        "searches": [
+          "Brown--Hoshino Theorems 3.1/3.10 and signed response strategy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brown--Hoshino give f(3)=7 for undirected paths, not 8.",
+          "The assigned exact game computation and independent replay show the directed 7-versus-8 boundary is genuinely different."
+        ],
+        "reasoning": "Successor-path q-equivalence, least distinguishing quantifier rank, and the finite EF-game threshold are equivalent formulations.",
+        "searches": [
+          "Resultary query: directed path successor-only Ehrenfeucht Fraisse exact quantifier rank threshold 2^q",
+          "Brown--Hoshino 2007 path theorem",
+          "Weis--Immerman 2007 FO2 on words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior Resultary table or finding with the successor-only threshold was returned."
+        ],
+        "reasoning": "The decisive novelty evidence is the changed q=3 boundary, not merely an unsuccessful search.",
+        "searches": [
+          "Resultary exact directed-path threshold search"
+        ]
+      },
+      "rationale": "Brown--Hoshino's undirected threshold is \\(7\\) at rank three, whereas the audited directed successor path has threshold \\(8\\): in particular the undirected \\(P_7,P_8\\) pair is rank-three equivalent but its directed counterpart is not. That strict boundary change prevents implication-level coverage by the undirected theorem. Weis--Immerman study a different, stronger word signature and a two-variable fragment. Resultary searches found no exact unrestricted successor-only directed-path classification.",
+      "residual_risks": [
+        "An unindexed textbook treatment of successor-only directed paths could contain the same exact q=3 boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_BUT_DIFFERENT_AT_Q3",
+          "evidence": "The undirected threshold is seven at q=3, while the directed successor threshold is eight.",
+          "identifier_or_url": "Ars Combinatoria 83 (2007), 193--212",
+          "material_read": "Full primary PDF, including path thresholds, q=3 exception, and the signed protected-gap response strategy; relevant pages visually inspected.",
+          "method": "Open-access full-PDF inspection.",
+          "title": "The Ehrenfeucht-Fraisse Game for Paths and Cycles",
+          "trigger": "Closest exact path-threshold theorem."
+        },
+        {
+          "assessment": "DIFFERENT_LOGIC_SIGNATURE_AND_FRAGMENT",
+          "evidence": "It does not give unrestricted first-order successor-only path equivalence.",
+          "identifier_or_url": "ECCC TR07-008",
+          "material_read": "Result-level primary material describing the FO2 word setting with order/successor.",
+          "method": "Open primary-source comparison.",
+          "title": "Structure Theorem and Strict Alternation Hierarchy for FO2 on Words",
+          "trigger": "Potential directed-word finite-model-theory coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Brown--Hoshino 2007",
+        "finite-word logic literature"
+      ],
+      "rationale": "The result identifies the exact effect of orientation on a canonical finite-model family: it changes precisely the rank-three cutoff while leaving the higher dyadic regime intact. Exact quantifier-rank thresholds are natural benchmarks for finite-variable distinguishability, and the P7/P8 boundary is structurally motivated rather than an arbitrary finite case.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For finite nonempty successor paths \\(\\vec P_n\\), \\(\\vec P_n\\equiv_q\\vec P_m\\) exactly when \\(q\\le1\\), or \\(n=m\\), or \\(q\\ge2\\) and both lengths are at least \\(2^q\\); hence unequal lengths \\(n<m\\) first separate at rank \\(\\max\\{2,\\lfloor\\log_2n\\rfloor+1\\}\\).",
+  "limitations": [
+    "Single consistently oriented paths in the language with equality and successor only.",
+    "No linear order predicate, endpoint constants, counting logic, arbitrary orientations, or unions."
+  ],
+  "schema_version": 1
+}
