@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stated Fano-incidence graph is reconstructed directly. At length 4 the verifier independently obtains chain dimensions 840, 2268, and 1134, computes boundary ranks 840 and 1092 by two elimination orientations, checks every composition column for ∂3∂4=0, and therefore obtains 2268-840-1092=336. The claim is explicitly limited to F_2 and one bidegree.
+## correctness
 
-## Originality
-PASS. The checked primary results do not imply this boundary-case value: the girth theorem needs girth 7 for the first off-diagonal, the geodetic theorem is inapplicable, and the inspected earlier exact computations do not state the Heawood case. The closest checked sources are arXiv:2101.09044, arXiv:1809.07240, and arXiv:2408.12147. The remaining originality risk is an obscure or unindexed exact computation.
+PASS
 
-## Value
-PASS. The Heawood graph is the canonical Fano-plane incidence graph and a highly symmetric girth-six example. Bidegree (3,4) is the first off-diagonal exactly beyond the checked girth-vanishing threshold for girth six, and nongeodeticity places it outside the later exact geodetic theory. The exact rank 336 is therefore a natural benchmark at a structural boundary rather than an arbitrary parameter slice.
+Fresh exhaustive reconstruction gives chain dimensions \(840,2268,1134\) and boundary ranks \(840,1092\), hence total rank \(336\). Endpoint decomposition provides an additional independent structural check: all nonzero homology occurs for the \(84\) ordered distinct same-side endpoint pairs, each with rank \(4\); mixed point-line endpoint chain groups vanish in this bidegree, while all \(14\) equal-endpoint summands have zero homology. This agrees exactly with the published projective-plane endpoint formula at \(q=2\). The assigned verifier independently recomputes the same total ranks in two elimination orientations and checks the chain condition.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A highly relevant published SCOPE result gives the stronger family formula \(\dim_F MH^{P,Q}_{3,4}=q^2\) for ordered distinct same-side endpoints in every projective-plane incidence graph. At \(q=2\) those \(84\) localized summands already contribute \(336\). However that theorem explicitly does not compute equal-endpoint summands, so it supplies a lower bound on the total group rather than the submitted equality. The audited total computation adds the complementary statement that every equal-endpoint summand vanishes; mixed endpoints have no chains by bipartite parity. Neither the girth theorem nor the geodetic theorem gives that vanishing. Thus the exact total rank is not literally covered, although most of its positive contribution is.
+
+## value
+
+PASS
+
+The Fano-plane incidence graph is the smallest canonical projective-plane example at the sharp girth-six boundary. Determining whether the general endpoint-localized contribution exhausts the entire first off-diagonal group is a natural completion question; the exact total rank answers it affirmatively and supplies a benchmark for separating localized from global magnitude homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

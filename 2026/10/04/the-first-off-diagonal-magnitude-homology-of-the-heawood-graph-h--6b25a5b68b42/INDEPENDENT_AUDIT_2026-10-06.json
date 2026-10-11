@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:07:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh exhaustive reconstruction gives chain dimensions \\(840,2268,1134\\) and boundary ranks \\(840,1092\\), hence total rank \\(336\\). Endpoint decomposition provides an additional independent structural check: all nonzero homology occurs for the \\(84\\) ordered distinct same-side endpoint pairs, each with rank \\(4\\); mixed point-line endpoint chain groups vanish in this bidegree, while all \\(14\\) equal-endpoint summands have zero homology. This agrees exactly with the published projective-plane endpoint formula at \\(q=2\\). The assigned verifier independently recomputes the same total ranks in two elimination orientations and checks the chain condition.",
+      "risk": "Only one bidegree and mod-2 coefficients are asserted.",
+      "sources": [
+        "frozen RESULT.md and verify_magnitude_heawood.py from assigned tree",
+        "fresh endpoint-localized and global mod-2 replay",
+        "published Resultary result f51b07cd11f1",
+        "arXiv:2101.09044"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The projective-plane theorem covers all distinct same-side endpoint contributions over every field.",
+          "The girth-six Heawood graph misses the girth-seven hypothesis for first-off-diagonal vanishing.",
+          "The graph is nongeodetic, witnessed by three shortest paths between point \\(0\\) and line \\(8\\)."
+        ],
+        "reasoning": "The positive summands are broadly covered, while the zero complementary summands remain the additional content needed for the total equality.",
+        "searches": [
+          "Published SCOPE f51b07cd11f1 full RESULT",
+          "Asao--Hiraoka--Kanazawa arXiv:2101.09044 full PDF",
+          "Asao--Wakatsuki arXiv:2408.12147"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f51b07cd11f1",
+        "arXiv:2101.09044",
+        "arXiv:1809.07240",
+        "arXiv:2408.12147",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The family theorem leaves equal-endpoint summands undetermined; nonnegativity alone yields total rank at least \\(336\\), not equality.",
+          "The girth theorem does not force first-off-diagonal vanishing at girth six."
+        ],
+        "reasoning": "The final total equality requires an additional complementary vanishing computation, so it is not a formal special case of the family theorem.",
+        "searches": [
+          "Published SCOPE f51b07cd11f1 finding and limitations",
+          "Asao--Hiraoka--Kanazawa Corollary 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published SCOPE family theorem f51b07cd11f1 gives rank \\(4\\) for each distinct point-point or line-line endpoint pair when \\(q=2\\).",
+          "Fresh decomposition shows these account for all \\(336\\) nonzero dimensions, but the family theorem itself does not state the necessary equal-endpoint vanishing."
+        ],
+        "reasoning": "Total-group and endpoint-localized formulations were explicitly separated rather than conflated.",
+        "searches": [
+          "Resultary: Heawood magnitude homology first off diagonal \\(MH_{3,4}\\)",
+          "Resultary: endpoint-localized first off-diagonal magnitude homology finite projective planes",
+          "Web searches for Heawood magnitude homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external table of the total group was found.",
+          "The published SCOPE endpoint formula numerically sums to \\(336\\) over distinct same-side pairs but is not a total-group table."
+        ],
+        "reasoning": "The distinction between a lower-bound sum of localized summands and the total rank is scientifically material.",
+        "searches": [
+          "Resultary exact search for Heawood total rank \\(336\\)",
+          "Targeted web exact search for the bidegree"
+        ]
+      },
+      "rationale": "A highly relevant published SCOPE result gives the stronger family formula \\(\\dim_F MH^{P,Q}_{3,4}=q^2\\) for ordered distinct same-side endpoints in every projective-plane incidence graph. At \\(q=2\\) those \\(84\\) localized summands already contribute \\(336\\). However that theorem explicitly does not compute equal-endpoint summands, so it supplies a lower bound on the total group rather than the submitted equality. The audited total computation adds the complementary statement that every equal-endpoint summand vanishes; mixed endpoints have no chains by bipartite parity. Neither the girth theorem nor the geodetic theorem gives that vanishing. Thus the exact total rank is not literally covered, although most of its positive contribution is.",
+      "residual_risks": [
+        "The novelty margin is narrow because a stronger published SCOPE theorem already determines every positive distinct same-side contribution; the surviving new content is the vanishing of the complementary endpoint summands."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ALL_POSITIVE_DISTINCT_SAME_SIDE_SUMMANDS_NOT_TOTAL_GROUP",
+          "evidence": "For \\(q=2\\), each of \\(84\\) ordered distinct same-side endpoint pairs has dimension \\(4\\); the source explicitly leaves equal-endpoint summands uncomputed.",
+          "identifier_or_url": "Resultary record f51b07cd11f1",
+          "material_read": "Complete public RESULT, including the endpoint-localized theorem, proof, verification scope, relationship-to-prior-work section and limitations.",
+          "method": "Read-only published-result inspection through the repository connector.",
+          "title": "Endpoint-localized first off-diagonal magnitude homology of finite projective planes",
+          "trigger": "Stronger published SCOPE theorem on the exact same Fano-incidence geometry."
+        },
+        {
+          "assessment": "SHARP_GIRTH_THRESHOLD_DOES_NOT_COVER_GIRTH_SIX",
+          "evidence": "The first off-diagonal vanishing criterion requires girth at least seven.",
+          "identifier_or_url": "arXiv:2101.09044; DOI:10.1017/prm.2023.7",
+          "material_read": "Full open arXiv PDF around Theorem 1.3 and Corollary 1.4.",
+          "method": "Lawful open full-text PDF inspection with visual page inspection.",
+          "title": "Girth, magnitude homology, and phase transition of diagonality",
+          "trigger": "General first-off-diagonal vanishing theorem."
+        },
+        {
+          "assessment": "INAPPLICABLE_NON_GEODETIC",
+          "evidence": "The assigned graph has multiple shortest paths for an explicit point-line pair.",
+          "identifier_or_url": "arXiv:2408.12147; DOI:10.4310/HHA.2026.v28.n2.a7",
+          "material_read": "Primary abstract and scope statement listing the geodetic hypothesis and examples.",
+          "method": "Lawful public-source inspection.",
+          "title": "Minimal projective resolution and magnitude homology of geodetic metric spaces",
+          "trigger": "Recent exact general framework that might cover Heawood."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Fano-plane incidence graph is the smallest canonical projective-plane example at the sharp girth-six boundary. Determining whether the general endpoint-localized contribution exhausts the entire first off-diagonal group is a natural completion question; the exact total rank answers it affirmatively and supplies a benchmark for separating localized from global magnitude homology.",
+      "risk": "The incremental value over the stronger endpoint-family theorem is limited to complementary vanishing in one small case.",
+      "sources": [
+        "Resultary f51b07cd11f1",
+        "arXiv:2101.09044"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Heawood graph \\(H\\), presented as the Fano-plane incidence graph with its shortest-path metric, \\(\\dim_{\\mathbb F_2}\\operatorname{MH}_{3,4}(H;\\mathbb F_2)=336\\).",
+  "limitations": [
+    "Coefficients are \\(\\mathbb F_2\\).",
+    "Only bidegree \\((3,4)\\) is determined.",
+    "Most positive summands are already covered by a stronger published projective-plane endpoint theorem."
+  ],
+  "schema_version": 1
+}
