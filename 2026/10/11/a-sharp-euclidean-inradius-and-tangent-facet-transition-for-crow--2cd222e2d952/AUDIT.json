@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The proof constructs the polar in the exact ambient zero-sum Euclidean hyperplane; shows every vertex has a tight spanning tree and integer values 0..3 (graph diameter 3); exhausts range-3 missing-matching potentials of squared norm (n+8)/2, full-biclique range<=2 potentials with maximum n-(n mod 2)/(2n), and remaining range-2 diagonal-gap potentials with norm at most n/2+2. These disjoint exhaustive possibilities give the exact squared circumradius and equality families, including the n=8 tie. By polarity and central symmetry this is the global insphere radius; strict convexity and vertex-facet duality give exact tangent counts. Exact rational tests n=3..14 and direct-coordinate tests n=3,4 passed, but the proof, not tests, supplies the infinite quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Davis–Korchevskaia 2107.12315 Theorem 3 classifies facet subgraphs of arbitrary symmetric edge polytopes; it does not evaluate ambient Euclidean lengths of facet normals.",
+        "D’Alì–Juhnke-Kubitzke–Koch 2307.04933 Section 5 characterizes facet-defining cuts and studies Ehrhart-theoretic invariants of polars, but does not optimize the squared Euclidean norm for crown graphs.",
+        "Previously established complete multipartite symmetric edge polytope inradius formulas cover K_{n,n} but not K_{n,n} with a perfect matching deleted; their graph support assumptions differ."
+      ],
+      "reasoning": "The general theorems describe the feasible integer potentials and can be specialized to enumerate crown facets, but do not imply the exact Euclidean maximization or sharp threshold without the new range-three-versus-balanced-cut comparison. The complete bipartite theorem only provides one competitive branch (and n=3 cycle case); deletion allows new distance-three potential normals, the missing branch.",
+      "searches": [
+        "crown graph symmetric edge polytope inradius Euclidean centered ball 2n graph bipartite perfect matching deleted",
+        "bipartite double cover complete graph symmetric edge polytope facets distances",
+        "crown graphs inradius symmetric edge polytope",
+        "arXiv:2107.12315 Theorem 3 facet subgraphs",
+        "arXiv:2307.04933 Section 5 2-cuts"
+      ]
+    },
+    "checked_sources": [
+      "Chen, Davis, Korchevskaia, arXiv:2107.12315, full HTML original Theorem 3 and Section 4",
+      "D’Alì, Juhnke-Kubitzke, Koch, arXiv:2307.04933, full HTML original Proposition 5.1 and Theorem 5.8 / Remark 5.10",
+      "Previously established complete-multipartite Euclidean inradius and cycle graph symmetric edge-polytope claims (comparison of formulas and hypotheses)",
+      "Indexed crown-graph edge-metric-base and restrained-domination results, which address distinct invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Davis–Korchevskaia Theorem 3 (full text, Section 4) is a combinatorial facet-subgraph correspondence and does not give a Euclidean extremal norm.",
+        "D’Alì–Juhnke-Kubitzke–Koch Theorem 5.8 and Remark 5.10 characterize integer tight-spanning-tree labels; this yields eligibility of facet normals, not an extremal Euclidean length and number of longest normals.",
+        "The known six-cycle (crown size n=3) inradius is already covered by an earlier explicit result and is removed from the claimed domain.",
+        "A complete multipartite graph inradius result covers the K_{n,n} supergraph and hence the balanced branch only, not the distance-three missing-matching potentials of its crown subgraph."
+      ],
+      "reasoning": "The general facet characterization is one logical premise of the result but does not imply the optimized radius without new graph-specific geometric inequalities. The full previous complete-multipartite formula does not apply to the crown graph because its missing perfect matching prevents a multipartite partition. The previously known n=3 case is not claimed as new. These implication tests leave a genuine nonroutine n>=4 crown-specific metric theorem.",
+      "searches": [
+        "arXiv:2107.12315 facets facet subgraphs complete bipartite graphs",
+        "arXiv:2307.04933 regular matroid polar Ehrhart spanning cuts",
+        "crown graph symmetric edge polytope inradius Euclidean centered ball 2n graph bipartite perfect matching deleted",
+        "graph K_n,n minus perfect matching polar root polytope inradius tangent facets",
+        "prior own complete multipartite Euclidean symmetric edge polytope inradii and cycle graph symmetrized edge polytope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The polar of a symmetric edge polytope is exactly the 1-Lipschitz potential polytope of the unit-edge graph, in its Euclidean zero-sum realization. Graph-spread maximum variance is the same optimization after division by the number of graph vertices.",
+        "The inspected crown-graph search results concern edge metric dimension, spectral energy, graph hyperbolicity or domination, not the present Euclidean polar radius."
+      ],
+      "reasoning": "Translation-invariant potential variance, graph spread, polars of symmetric edge polytopes, and metric embeddings are genuine aliases. The theorem was compared at the level of the exact max-norm function, its n=8 transition and maximizing-facet multiplicities rather than nomenclature. No found equivalent established all of these, but absence from search is not proof of novelty.",
+      "searches": [
+        "crown graph spread maximum variance 1 Lipschitz functions threshold 8",
+        "Lipschitz polytope complete graph with one edge deleted Euclidean circumradius inradius dimension threshold seven eight",
+        "graph K_n,n minus perfect matching polar root polytope inradius tangent facets",
+        "\"crown graph\" \"spread\" Lipschitz variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact indexed table for the Euclidean crown polar squared radii and maximizing potential counts was found. The values n=4 through n=14 were independently computed from exact feasible integer potential profiles; n=3 is the known six-cycle case and excluded from the novelty domain."
+      ],
+      "reasoning": "A lookup or facet census for a few n would not imply the all-n closed form or the single n=8 changeover. The calculation is supported by exhaustive feasible labeled integer potential profiles and a self-contained symbolic proof; the lack of search hits cannot alone establish originality.",
+      "searches": [
+        "crown graph Lipschitz polytope extreme potentials 3 level balanced partition",
+        "crown graph polar symmetric edge polytope facet table",
+        "crown graph spread variance extremal labelings"
+      ]
+    },
+    "rationale": "The explicit intrinsic Euclidean crown inradius and the exact phase change in the tangent facet normals at n=8 require a new classification of maximal-norm polar potentials. The closest read primary works determine general facets and cut labellings, not these metric maxima. Former complete-multipartite and cycle results are not dominating: crowns n>=4 are not complete multipartite and the n=3 cycle case is explicitly excluded. Search cannot guarantee uniqueness, particularly with graph-spread terminology; residual risk remains.",
+    "residual_risks": [
+      "An equivalent sharp graph-spread or vertex-variance theorem for crown graphs might be present under a different name and remain unindexed.",
+      "Known general facet-cut classification immediately yields candidate normals; originality depends on the explicit graph-specific extremal geometry and all-n transition, not the integrality lemma.",
+      "The n=3 cycle special case is previously covered and is deliberately outside the new theorem domain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets up the facet-subgraph classification but does not establish the stated exact Euclidean inradius or tangent-facet transition for crowns.",
+        "evidence": [
+          "Theorem 3 describes maximal bipartite face/facet subgraphs; the paper develops cut-set facet counts but has no asserted Euclidean radius formula.",
+          "arXiv 2107.12315 v1 public 2021-07-26, primary MSC 52B20 and 52B40."
+        ],
+        "identifier_or_url": "arXiv:2107.12315; https://arxiv.org/html/2107.12315v2",
+        "material_read": "Introduction, definition of symmetric edge polytopes, Section 4.2 Theorem 3 and proof, Section 4.3/4.4 cut-set facet parameterization, Section 4.5 and examples.",
+        "method": "Primary article HTML text inspected by numbered theorem and section; searched text for metric radius and complete-bipartite specialization.",
+        "title": "Facets and facet subgraphs of symmetric edge polytopes",
+        "trigger": "Same symmetric edge-polytope construction and facets as the proposed crown-graph result."
+      },
+      {
+        "assessment": "Establishes 2-cut/facet correspondence, but does not optimize the ambient Euclidean norm or count maximal-norm crown polar vertices. General lattice equivalence does not preserve the prescribed metric.",
+        "evidence": [
+          "Remark 5.10 explicitly states facet normals are integer graph vertex labelings with adjacent differences at most one and spanning tight-edge subgraph.",
+          "Section 5 focuses on Ehrhart polynomials, flows and cuts, not the ambient Euclidean optimization."
+        ],
+        "identifier_or_url": "arXiv:2307.04933; https://arxiv.org/html/2307.04933v1",
+        "material_read": "Introduction, Section 2.2 on polarity, Section 4 on unimodular equivalence, Section 5 polar Ehrhart and facet cuts, particularly Proposition 5.1, Theorem 5.8 and Remark 5.10.",
+        "method": "Primary arXiv HTML text inspected in relevant original results and their surrounding mathematical argument; searched for Euclidean radius and polar.",
+        "title": "On a generalization of symmetric edge polytopes to regular matroids",
+        "trigger": "Potential stronger result describing all polar vertices through graph Lipschitz potentials and spanning 2-cuts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2cd222e2-d952-49ab-8bb8-794847496c34",
+  "value": {
+    "rationale": "The crown graph K_{n,n} minus its matched edges is a natural sharply structured bipartite double cover of the complete graph. Removing a perfect matching generates graph-distance-three polar potentials that compete exactly with balanced complete-bipartite cut potentials. The theorem gives a natural intrinsic Euclidean invariant for infinitely many polytope dimensions, the unique sharp changeover n=8, and a full characterization and exact count of nearest facets (not just a computed bound). This is a structural geometric transition, not a routine numerical slice, and may inform graph-spread and symmetric-edge-polytope metric studies.",
+    "status": "PASS"
+  }
+}
