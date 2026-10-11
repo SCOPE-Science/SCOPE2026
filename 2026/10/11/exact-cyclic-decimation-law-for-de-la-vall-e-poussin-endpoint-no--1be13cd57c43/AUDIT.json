@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The endpoint convolution norm equals the normalized absolute kernel sum. The VP kernel factorization is standard and independently reconstructed. Partitioning the nm samples into n-point cosets preserves the numerator sign; differentiating the cotangent multiplication formula gives the needed cosecant-square identity. This reduces each coset exactly to n times the absolute three-term Dirichlet kernel. The s=0 singular-looking case is verified by the continuous limit V_n(0)=3n. The residue formulas follow from summing the unique negative arc of 1+2 cos. No finite experiment is used to justify the universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Themistoclakis--Van Barel TW666 studies generalized discrete VP approximation and uniform boundedness/numerical Lebesgue constants on Jacobi grids, not exact cyclic-grid values.",
+        "The exact consecutive-block projection literature covers Dirichlet kernels but does not state the VP-to-three-frequency decimation identity."
+      ],
+      "reasoning": "Broader Fourier-projection formulas do not imply the claim without the nontrivial coset identity for the VP kernel. The discrete approximation source uses a different grid and does not dominate the cyclic statement.",
+      "searches": [
+        "published-finding corpus: V_n cyclic group convolution exact norm csc identity N multiple n",
+        "published-finding corpus: exact endpoint norms consecutive cyclic Fourier projections",
+        "KU Leuven TW666 discrete de la Vallee Poussin Lebesgue constants"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1311.1407v1",
+      "DOI:10.1017/S0004972714000744",
+      "KU-Leuven:TW666",
+      "published-finding corpus:2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mehta Theorem 1.1 proves continuous L1 norm invariance in kernel dilation families.",
+        "Deregowska--Lewandowska define V_n and prove minimality for continuous C and L1 spaces.",
+        "TW666 establishes general boundedness theory and numerical discrete Lebesgue constants on algebraic nodes.",
+        "The published-finding corpus comparison gives A_m for the three-frequency projection but no VP antecedent."
+      ],
+      "reasoning": "None of the inspected statements logically yields the sampled cyclic equality. The proof needs the additional exact partition into n-point cosets and the cosecant-square summation identity.",
+      "searches": [
+        "arXiv:1311.1407v1 full text",
+        "DOI:10.1017/S0004972714000744 full text",
+        "KU-Leuven:TW666 full text",
+        "published-finding corpus: de la Vallee Poussin kernel cyclic grid exact Lebesgue constant n divides N three frequency projection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest indexed exact cyclic result is published-finding corpus 2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242, whose object is the three-frequency projection itself.",
+        "Mehta arXiv:1311.1407 proves continuous dilation-family norm invariance, not a sampled cyclic identity."
+      ],
+      "reasoning": "The new statement is not a renaming of the three-frequency projection result: it identifies a different family of kernels, for all n, with that projection norm after exact coset summation.",
+      "searches": [
+        "published-finding corpus: de la Vallee Poussin kernel cyclic grid exact Lebesgue constant n divides N three frequency projection",
+        "published-finding corpus: sampled de la Vallee Poussin norm decimation Dirichlet kernel D1",
+        "Web: \"de la Vallée Poussin\" sampled kernel cyclic grid Lebesgue constant csc identity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned indexed finding states the equality between the sampled VP norm on Z_(nm) and the three-frequency projection norm on Z_m.",
+        "The returned closest exact cyclic entry concerns only the three-frequency projection value A_m."
+      ],
+      "reasoning": "The search database contains the target comparison constant but not the decimation theorem that maps the VP family to it.",
+      "searches": [
+        "published-finding corpus: de la Vallee Poussin kernel cyclic grid exact Lebesgue constant n divides N three frequency projection",
+        "published-finding corpus: sampled de la Vallee Poussin norm decimation Dirichlet kernel D1",
+        "published-finding corpus: V_n cyclic group convolution exact norm csc identity N multiple n"
+      ]
+    },
+    "rationale": "Targeted semantic, alias, source, and implication searches found the exact three-frequency projection value and the classical continuous VP norm theory, but no source asserting the cyclic all-n decimation identity. Full text of the two closest VP sources and the discrete generalized-VP report was inspected. The closest exact cyclic projection result is an input comparison, not a statement about VP kernels.",
+    "residual_risks": [
+      "An older trigonometric-quadrature or sampling reference could contain the same finite coset identity under different terminology; no such source appeared in the targeted exact, alias, and implication searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 1.1 states continuous L1 norm invariance for VrN,sN; it contains no finite cyclic sampling or quotient-grid identity.",
+        "identifier_or_url": "arXiv:1311.1407v1",
+        "material_read": "Abstract, kernel definitions and formulas, and Theorem 1.1 in the full PDF.",
+        "method": "Full-text PDF inspection.",
+        "title": "The L1 norm of the generalized de la Vallee Poussin kernel",
+        "trigger": "Exact continuous norm and dilation-family invariance are the nearest classical statements."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper treats continuous C and L1 spaces and records the continuous norm; it does not sample V_n on finite cyclic grids.",
+        "identifier_or_url": "DOI:10.1017/S0004972714000744",
+        "material_read": "Definition 1.1, kernel factorization, Theorem 2.2 proof, and references in the full PDF.",
+        "method": "Full-text PDF inspection.",
+        "title": "On the minimal property of de la Vallée Poussin's operator",
+        "trigger": "Defines exactly the H_n/V_n kernel used in the claim."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its discrete operators are based on algebraic/Jacobi nodes and the report gives boundedness and numerical behavior, not the uniform cyclic exact norm or decimation law.",
+        "identifier_or_url": "KU-Leuven:TW666",
+        "material_read": "Abstract, trigonometric VP identities, the discrete-Lebesgue-constant discussion and numerical section in the full report.",
+        "method": "Full-text PDF inspection.",
+        "title": "Generalized de la Vallée Poussin approximations on [-1,1]",
+        "trigger": "Explicitly studies discrete de la Vallée Poussin approximation and Lebesgue constants."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1be13cd5-7c43-4352-818a-cae796191722",
+  "value": {
+    "rationale": "De la Vallée Poussin means are a canonical Fourier summation family, and discrete Lebesgue constants govern stability of sampled approximation. The theorem gives an exact all-scale structural collapse for every n and every quotient size m>=4, rather than a one-off numerical table: a high-degree sampled kernel has precisely the stability constant of a three-frequency projection on the quotient grid. This explains a non-obvious scale invariance and converts a growing-degree endpoint norm problem into a fixed three-frequency one.",
+    "status": "PASS"
+  }
+}
