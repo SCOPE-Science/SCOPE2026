@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The package contains `artifacts/certificate.json` and the standard-library checker `artifacts/verify.py`.
 
-The checker reconstructs the five-vertex wheel from its eight edges, verifies the stated lists of \(16\) primal extreme molecules and \(26\) dual extreme functionals, and recomputes all \(128\) norming extreme pairs. For each of the \(416\) extreme evaluations relevant to the operator norm, it checks an exact rational nonnegative dual combination of the numerical-radius inequalities with total coefficient at most \(2\). It then verifies the explicit equality witness \(T_0\) has numerical radius \(1\) and operator norm \(2\).
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python3 artifacts/verify.py`
+PASS
 
-Expected output:
+The primal unit ball has exactly the 16 oriented edge molecules because every nonedge pair has a length-two geodesic. Total unimodularity of the reduced incidence constraints makes dual vertices integral; independent reconstruction gives exactly 26 extreme dual functionals and 128 norming pairs. The repository certificate contains 416 exact rational dual certificates, one for every primal/dual operator-norm evaluation; this audit parsed the actual certificate and verified every coefficient identity and that every dual weight sum is at most two, proving \(\|T\|\le2v(T)\). Independently reconstructing the explicit witness gives numerical radius one and operator norm two. Thus the index is exactly one half.
 
-`VERIFY_OK`
+## originality
 
-The finite certificate proves the exact polyhedral optimization once the standard facts used in RESULT.md are accepted: extreme points of a finite Lipschitz-free unit ball are molecules, graph incidence matrices are totally unimodular, and the numerical radius in finite dimension may be evaluated on norming primal-dual extreme pairs. No larger-wheel statement and no infinite-dimensional extrapolation is verified.
+PASS
+
+The closest primary paper gives the complete two-dimensional/free-space-of-three-points formula and proves that value one half is equivalent to an equilateral three-point metric. It does not cover the four-dimensional free space over the five-point wheel. Targeted searches and related published results did not locate a theorem implying the wheel value.
+
+## value
+
+PASS
+
+The five-point wheel is a canonical smallest non-complete wheel, and its exact index gives a concrete boundary to the complete three-point rigidity theorem. The exact certificate also provides a reproducible benchmark for higher-dimensional Lipschitz-free numerical-index computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

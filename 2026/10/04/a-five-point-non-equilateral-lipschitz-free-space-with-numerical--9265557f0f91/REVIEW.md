@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is reconstructed from the stated metric and definitions. The \(16\) primal extreme molecules and \(26\) dual extreme functionals are derived from the graph and its incidence inequalities. The finite numerical-radius problem has \(128\) norming extreme pairs. Exact rational dual certificates prove \(\|T\|\le2v(T)\) for every operator, while the explicit \(T_0\) satisfies \(v(T_0)=1\) and \(\|T_0\|=2\). The packaged verifier replays these facts exactly.
+## correctness
 
-## Originality
-PASS. The closest primary source is Cobollo–Guirao–Montesinos, arXiv:2304.13183, which completely treats the two-dimensional/free-space-of-three-points case and proves the one-half/equilateral equivalence there. Targeted searches for wheel, five-point, graph-metric, higher-dimensional, and polyhedral aliases found no result implying the \(W_4\) value. Prior related records were checked for overlap and do not contain this claim.
+PASS
 
-Residual risk: an obscure isometric reformulation in the polyhedral numerical-index literature could escape terminology-based search.
+The primal unit ball has exactly the 16 oriented edge molecules because every nonedge pair has a length-two geodesic. Total unimodularity of the reduced incidence constraints makes dual vertices integral; independent reconstruction gives exactly 26 extreme dual functionals and 128 norming pairs. The repository certificate contains 416 exact rational dual certificates, one for every primal/dual operator-norm evaluation; this audit parsed the actual certificate and verified every coefficient identity and that every dual weight sum is at most two, proving \(\|T\|\le2v(T)\). Independently reconstructing the explicit witness gives numerical radius one and operator norm two. Thus the index is exactly one half.
 
-## Value
-PASS. The exact value is a natural boundary test for the three-point rigidity theorem: \(W_4\) is a small, symmetric, non-equilateral metric whose free space has dimension four, yet it still attains the minimum \(1/2\) from the complete two-dimensional theory. This directly identifies where the equilateral characterization stops generalizing and supplies a reproducible higher-dimensional benchmark.
+## originality
 
-## Closest literature and limitations
-The source paper is the closest same-invariant predecessor. It provides the finite-dimensional extreme-point formula used in the reduction and establishes the exact three-point comparison, but it does not cover \(W_4\). No claim is made for larger wheels or arbitrary graph metrics.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The closest primary paper gives the complete two-dimensional/free-space-of-three-points formula and proves that value one half is equivalent to an equilateral three-point metric. It does not cover the four-dimensional free space over the five-point wheel. Targeted searches and related published results did not locate a theorem implying the wheel value.
+
+## value
+
+PASS
+
+The five-point wheel is a canonical smallest non-complete wheel, and its exact index gives a concrete boundary to the complete three-point rigidity theorem. The exact certificate also provides a reproducible benchmark for higher-dimensional Lipschitz-free numerical-index computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
