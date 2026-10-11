@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:43:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 061f618f73d948afdf51c2fa7d8c41228f16dbcf",
+        "assigned verify.py blob fae385ded4e44f184ba414b0ab187694b92c3545",
+        "Assari--Hosseinzadeh--Macpherson, Set-homogeneous hypergraphs, DOI:10.1112/jlms.12796 / arXiv:2202.09613"
+      ],
+      "rationale": "For a finite tuple of distinct points, the reduced connecting hull is an unrooted leaf-labelled tree whose internal degrees are 3 or 4; quartet data determine that reduced tree, and homogeneity makes its labelled isomorphism type exactly the tuple orbit. Fixing one labelled leaf and deleting it roots the remaining tree, converting internal degrees 3 and 4 into unordered outdegrees 2 and 3. The labelled species decomposition is therefore \\(R=X+\\operatorname{SET}_2(R)+\\operatorname{SET}_3(R)\\), giving \\(R=x+R^2/2+R^3/6\\), and Lagrange inversion yields the displayed coefficient formula. I independently recomputed the recurrence through arity 10 and obtained \\(1,1,1,4,25,220,2485,34300,559405,10525900\\), matching the package. The inspected verifier additionally exhausts labelled rooted trees through seven leaves.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The model-theory source gives homogeneity and the tree interpretation but not the generating function.",
+          "Classical tree enumeration counts the combinatorial objects abstractly but does not identify them as the orbit profile of \\(N_4\\)."
+        ],
+        "reasoning": "No checked broader theorem already packages both ingredients into the claimed model-theoretic invariant.",
+        "searches": [
+          "Assari--Hosseinzadeh--Macpherson full article",
+          "standard phylogenetic-tree enumeration literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1112/jlms.12796",
+        "arXiv:2202.09613",
+        "phylogenetic-tree enumeration literature",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Homogeneity reduces orbits to finite D-substructure isomorphism types, but obtaining the exact all-arity profile still requires identifying every finite hull type and enumerating the degree-3/4 labelled trees.",
+          "The source only inspects low arities for set-homogeneity."
+        ],
+        "reasoning": "The result is a structural enumeration built from, but not already stated by, the checked source.",
+        "searches": [
+          "DOI:10.1112/jlms.12796 finite-tree interpretation and Proposition 4.2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source proves the automorphism-group equality and discusses nonisomorphic finite D-substructures.",
+          "It does not state the all-arity injective ordered orbit count or generating equation."
+        ],
+        "reasoning": "Oligomorphic profile, labelled finite D-substructure types, and reduced leaf-labelled tree shapes were compared.",
+        "searches": [
+          "Resultary: homogeneous 4-branching D-set tuple orbit profile labelled trees degree 3 4 automorphism",
+          "DOI:10.1112/jlms.12796 Proposition 4.2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table tying the sequence \\(1,1,1,4,25,220,\\ldots\\) to the 4-branching D-set was located."
+        ],
+        "reasoning": "The sequence by itself may be classical; novelty is not claimed for the bare numerical tree sequence.",
+        "searches": [
+          "Resultary exact 4-branching D-set profile search",
+          "search for the initial sequence with D-set terminology"
+        ]
+      },
+      "rationale": "Assari--Hosseinzadeh--Macpherson provide the 4-branching homogeneous \\(D\\)-set, its finite tree interpretation, and prove \\(\\operatorname{Aut}(N_4)=\\operatorname{Aut}(N,D)\\), but their inspected treatment uses low-arity substructures to establish set-homogeneity and does not state the full ordered-tuple orbit generating function. A fresh Resultary search for 4-branching \\(D\\)-set orbit profiles found no implication-equivalent published finding. Classical phylogenetic enumeration supplies the tree-counting side, but no checked source identifies that count as this automorphism group's complete orbit profile.",
+      "residual_risks": [
+        "The constrained tree species is classical, and an older oligomorphic-group reference may have recorded the same profile without using the hypergraph \\(N_4\\) notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_INPUT_ONLY_NOT_FULL_ORBIT_ENUMERATION",
+          "evidence": "The article establishes the model and automorphism group and exhibits finite substructure distinctions, but does not give the audited generating function or complete orbit sequence.",
+          "identifier_or_url": "DOI:10.1112/jlms.12796 / arXiv:2202.09613",
+          "material_read": "Full accessible article material on dense proper branching \\(D\\)-sets, the tree interpretation, construction of \\(N_4\\), and Proposition 4.2.3 proving \\(\\operatorname{Aut}(N_4)=\\operatorname{Aut}(N,D)\\).",
+          "method": "Open full-text inspection.",
+          "title": "Set-homogeneous hypergraphs",
+          "trigger": "Exact source constructing \\(N_4\\) from the homogeneous 4-branching \\(D\\)-set."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assari--Hosseinzadeh--Macpherson 2023",
+        "classical labelled-tree combinatorics"
+      ],
+      "rationale": "Ordered-tuple orbit growth is a standard invariant of an oligomorphic automorphism group. For a concrete set-homogeneous structure whose source paper distinguishes low-arity finite substructures, the exact all-arity profile and algebraic EGF give a natural quantitative completion and a reusable bridge to labelled tree enumeration.",
+      "residual_risks": [
+        "The profile does not by itself classify closed reducts or canonical structures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the countable dense proper homogeneous 4-branching \\(D\\)-set, equivalently the full automorphism group of the associated hypergraph \\(N_4\\), injective ordered \\(n\\)-tuple orbits satisfy \\(a_4(1)=1\\) and \\(a_4(n)=r_{n-1}\\) for \\(n\\ge2\\), where \\(R(x)=\\sum r_mx^m/m!\\) is determined by \\(R=x+R^2/2+R^3/6\\).",
+  "limitations": [
+    "The result is the 4-branching homogeneous \\(D\\)-set only.",
+    "The constrained leaf-labelled tree enumeration itself is classical combinatorics; the assessed contribution is its exact identification with this model-theoretic orbit profile."
+  ],
+  "schema_version": 1
+}
