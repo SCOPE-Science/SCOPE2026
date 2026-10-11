@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:06:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source lemma gives the fixed-\\(\\beta\\) boundary used by the submission. For \\(A>0,B\\ge0\\), differentiation gives numerator \\(B\\beta^2+2A\\beta-A\\), strictly increasing from negative at zero to positive at one, hence one global minimizer because the boundary diverges at both endpoints. Solving that quadratic and substituting gives the stated \\(\\beta^*\\), optimum and exact gap; dividing by \\(B\\) gives the limiting ratio. An independent symbolic derivative check reproduced the formula.",
+      "risk": "Validity requires the temperature be chosen from deterministic pre-data quantities; no adaptive or post-hoc tuning validity is claimed.",
+      "sources": [
+        "Kirschner, Krause, Meziu, Mutny, Confidence Estimation via Sequential Likelihood Mixing, arXiv:2502.14689, Lemma 14",
+        "independent symbolic calculus check in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kirschner et al. provide the broader valid family for every fixed \\(\\beta\\), which strictly contains the submitted tuned member.",
+          "The related confidence-sequence papers provide context but are not needed for the decisive coverage argument."
+        ],
+        "reasoning": "The source's parameterized theorem dominates the optimized special choice once the deterministic horizon envelope is fixed.",
+        "searches": [
+          "Kirschner et al. arXiv:2502.14689 full text",
+          "Clerico-Flynn-Kotłowski-Neu regret-based confidence-sequence framework",
+          "Abbasi-Yadkori-Pál-Szepesvári online-to-confidence precursor"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2502.14689",
+        "arXiv:2504.16555",
+        "Abbasi-Yadkori et al. PMLR 22 (2012)",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem: every fixed \\(\\beta\\in(0,1)\\) has the stated confidence validity with exactly the submitted objective.",
+          "Submitted theorem: minimize that objective over \\(\\beta\\) after replacing regret by a deterministic maximum."
+        ],
+        "reasoning": "The latter is a direct calculus corollary of the former and requires no additional statistical argument.",
+        "searches": [
+          "arXiv:2502.14689 Lemma 14, page containing the general \\(\\beta\\)-boundary and \\(\\beta=1/2\\) specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 14 supplies exactly the function \\(R_\\beta(B)\\) over the full admissible \\(\\beta\\)-interval.",
+          "The source's \\(\\beta=1/2\\) specialization is the comparator used by the submission."
+        ],
+        "reasoning": "Writing the minimizer in square-root form is algebraic re-expression of optimizing the already-published one-dimensional family.",
+        "searches": [
+          "arXiv:2502.14689 Lemma 14 and sparse-linear-regression specialization",
+          "Resultary: confidence sequence optimal beta temperature regret boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact database row was located, but that absence cannot establish novelty against a direct implication of the primary theorem."
+        ],
+        "reasoning": "This check is inapplicable as a novelty rescue because source implication is already decisive.",
+        "searches": [
+          "Resultary semantic search for the exact optimizer and square-root formula"
+        ]
+      },
+      "rationale": "The inspected primary source already states the entire one-parameter fixed-temperature boundary for every \\(0<\\beta<1\\), and explicitly specializes it to \\(\\beta=1/2\\). The submitted result is obtained by one-variable differentiation of that displayed bound. Under the audit rule that direct corollaries and special cases are covered even when the exact optimum is not printed, the final claim is already implied by the source family.",
+      "residual_risks": [
+        "No access risk affects the rejection: the decisive primary theorem was read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_DIRECT_IMPLICATION",
+          "evidence": "The source displays the boundary for every fixed \\(\\beta\\in(0,1)\\) and then sets \\(\\beta=1/2\\); minimizing this displayed scalar function gives the submitted formula.",
+          "identifier_or_url": "arXiv:2502.14689",
+          "material_read": "Open full PDF around Lemma 14 and the sparse-linear-regression specialization; the relevant page was also visually inspected.",
+          "method": "Lawful arXiv full-text inspection plus page screenshot.",
+          "title": "Confidence Estimation via Sequential Likelihood Mixing",
+          "trigger": "Primary source of the exact temperature-indexed boundary."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Optimizing a displayed rational function of one scalar parameter by differentiation is a routine calculus consequence of the source theorem. Although the numerical tuning may be practically useful, it does not introduce a new structural lemma, boundary phenomenon, classification or independently nontrivial exact invariant under the common value bar.",
+      "risk": "The result can still be useful as implementation guidance, but practical tuning convenience is not sufficient scientific novelty/value here.",
+      "sources": [
+        "arXiv:2502.14689, Lemma 14"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the fixed-temperature Gaussian online-to-confidence boundary \\(R_\\beta(B)=A/[\\beta(1-\\beta)]+B/(1-\\beta)\\), a deterministic pre-data horizon envelope \\(\\bar b_T\\) is uniquely minimized by \\(\\beta_T^*=\\sqrt A/(\\sqrt A+\\sqrt{A+\\bar b_T})\\), with optimum \\((\\sqrt A+\\sqrt{A+\\bar b_T})^2\\), the stated exact gap from \\(\\beta=1/2\\), and asymptotic ratio \\(1/2\\) for \\(\\bar b_T/A\\to\\infty\\).",
+  "limitations": [
+    "Mathematically correct but rejected because the full one-parameter boundary is already published and the optimum is a direct calculus corollary.",
+    "No claim about adaptive or mixture temperatures is assessed."
+  ],
+  "schema_version": 1
+}
