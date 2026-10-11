@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a total dominating set \(D\), every coordinate hyperplane is covered by the orthogonal hyperplanes \(d^\perp\), \(d\in D\). If \(|D|\le q\), the finite-space covering lemma forces one selected normal parallel to each coordinate basis vector, so \(|D|\ge n\). This yields the lower bound \(\min\{n,q+1\}\). The coordinate basis attains \(n\), while a projective line in a suitable two-dimensional subspace attains \(q+1\). The paired formula follows from parity plus explicit matchable constructions in every field-characteristic and dimension regime, including the exceptional \((q,n)=(2,4)\) case.
+PASS
 
-Risk: the proof relies on the standard nondegenerate coordinate form; changing the bilinear form can change the isotropic-line behavior used in the paired constructions.
+For a total dominating set \(D\), each coordinate hyperplane \(H_i\) is covered by the proper subspaces \(H_i\cap d^\perp\). If \(|D|\le q\), the finite-vector-space covering lemma forces one \(d^\perp\) to contain \(H_i\), hence \(d\) is on the \(i\)-th coordinate axis; doing this for every \(i\) gives \(|D|\ge n\). This proves the lower bound \(\min\{n,q+1\}\). The coordinate basis realizes \(n\); beyond the threshold, projective representatives of a suitable two-plane realize \(q+1\). Pairing arguments give the least even size: the basis construction handles \(n\le q+1\), anisotropic two-planes handle odd \(q\) beyond the threshold, a totally isotropic two-plane plus one extra vector handles even \(q,n\ge5\), and \((q,n)=(2,4)\) has the explicit four-vertex witness. Fresh exhaustive calculations for \((q,n)=(2,3),(2,4),(3,3),(3,4)\) reproduced both formulas; these finite cases are corroborative only.
 
-## Originality
+## originality
 
-PASS. The foundational full article on these graphs studies connectivity, diameter, girth, and comparison with the classical zero-divisor graph, not domination. The closest later finite-field structure paper gives a complete-bipartite description only in the two-factor field case and does not state the \(n\ge3\) strengthened-domination threshold. The closest full domination paper studies ordinary domination of total dot product graphs over residue rings rather than total or paired domination of the zero-divisor induced graph. Targeted searches using the exact graph name together with “domination number,” “total domination,” and “paired domination” found no covering theorem.
+PASS
 
-Risk: because the lower bound is a finite-geometry covering argument, an unindexed work phrased in projective blocking/covering language rather than ring-graph language could conceivably contain an equivalent specialization.
+Badawi and Abdulla–Badawi define and structurally analyze these dot-product graphs; the latter full paper treats finite-field structure in the two-factor case. Saleh–Megahed studies ordinary domination for total dot-product graphs over residue rings, not total or paired domination of the zero-divisor induced graph. A published SCOPE theorem gives total/paired domination for the ambient finite-field total dot-product graph, with \(q+1\) as the total-domination value; it does not imply the zero-divisor threshold because the induced graph has the strictly smaller value \(n\) when \(n<q+1\), and domination is not inherited monotonically from the ambient graph. No inspected source covers the two-regime formula.
 
-## Value
+## value
 
-PASS. The formulas expose a genuine structural phase transition absent from the ambient total-dot-product viewpoint: below the finite-field covering threshold the dimension controls the invariant, while above it the field order does. Paired domination adds exactly the unavoidable parity correction and no further cost. This is a complete natural invariant calculation for the finite-field zero-divisor dot product family in every dimension at least three.
+PASS
 
-Risk: the result determines the two invariant values but does not classify all extremal sets.
+The result identifies a sharp and geometrically natural competition between the \(n\) coordinate hyperplanes defining the zero-divisor locus and the \(q+1\) hyperplanes of a projective line. Exact total and paired domination are standard strengthened domination invariants, and the dimension-field transition is a meaningful structural boundary rather than an arbitrary finite computation.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

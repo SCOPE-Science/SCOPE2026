@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-The standalone `verify.py` was executed from the packaged path.
+# Independent mathematical audit
 
-It directly constructs the nonzero zero-divisors of \(\mathbb F_q^n\) for six prime-field cases, adds an edge exactly when the standard dot product is zero, and exhaustively searches for minimum total and paired dominating sets. These cases include \(n<q+1\), \(n=q+1\), and \(n>q+1\), as well as both parity outcomes.
+## correctness
 
-The script separately verifies explicit projective-line paired constructions for odd fields beyond the threshold and the characteristic-two constructions, including the exceptional case \((q,n)=(2,4)\).
+PASS
 
-Exact output:
+For a total dominating set \(D\), each coordinate hyperplane \(H_i\) is covered by the proper subspaces \(H_i\cap d^\perp\). If \(|D|\le q\), the finite-vector-space covering lemma forces one \(d^\perp\) to contain \(H_i\), hence \(d\) is on the \(i\)-th coordinate axis; doing this for every \(i\) gives \(|D|\ge n\). This proves the lower bound \(\min\{n,q+1\}\). The coordinate basis realizes \(n\); beyond the threshold, projective representatives of a suitable two-plane realize \(q+1\). Pairing arguments give the least even size: the basis construction handles \(n\le q+1\), anisotropic two-planes handle odd \(q\) beyond the threshold, a totally isotropic two-plane plus one extra vector handles even \(q,n\ge5\), and \((q,n)=(2,4)\) has the explicit four-vertex witness. Fresh exhaustive calculations for \((q,n)=(2,3),(2,4),(3,3),(3,4)\) reproduced both formulas; these finite cases are corroborative only.
 
-```text
-VERIFY_OK
-q=2 n=3 vertices=6 gamma_t=3 gamma_pr=4
-q=2 n=4 vertices=14 gamma_t=3 gamma_pr=4
-q=2 n=5 vertices=30 gamma_t=3 gamma_pr=4
-q=3 n=3 vertices=18 gamma_t=3 gamma_pr=4
-q=3 n=4 vertices=64 gamma_t=4 gamma_pr=4
-q=5 n=3 vertices=60 gamma_t=3 gamma_pr=4
-odd_field_projective_constructions=q3n5,q5n7_passed
-even_characteristic_paired_constructions=q2n4,q2n5_passed
-```
+## originality
 
-The finite search does not certify the prime-power theorem by enumeration. The general result is proved symbolically from the finite-vector-space subspace-cover lemma and explicit constructions over arbitrary finite fields.
+PASS
+
+Badawi and Abdulla–Badawi define and structurally analyze these dot-product graphs; the latter full paper treats finite-field structure in the two-factor case. Saleh–Megahed studies ordinary domination for total dot-product graphs over residue rings, not total or paired domination of the zero-divisor induced graph. A published SCOPE theorem gives total/paired domination for the ambient finite-field total dot-product graph, with \(q+1\) as the total-domination value; it does not imply the zero-divisor threshold because the induced graph has the strictly smaller value \(n\) when \(n<q+1\), and domination is not inherited monotonically from the ambient graph. No inspected source covers the two-regime formula.
+
+## value
+
+PASS
+
+The result identifies a sharp and geometrically natural competition between the \(n\) coordinate hyperplanes defining the zero-divisor locus and the \(q+1\) hyperplanes of a projective line. Exact total and paired domination are standard strengthened domination invariants, and the dimension-field transition is a meaningful structural boundary rather than an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
