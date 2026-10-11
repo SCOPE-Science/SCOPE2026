@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:51:05.422880Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f236b7f9a6baed0db048dc227d3c6cede37434d5",
+        "verify_triangle_component_covariance.py blob cf1a9a5f2095684e76e23d031dc034e385129ed1",
+        "fresh exact four-vertex replay",
+        "arXiv:1509.00668; DOI:10.1016/j.nuclphysb.2015.12.001",
+        "DOI:10.1002/rsa.3240010103"
+      ],
+      "rationale": "The identity is correct. Conditioning on all non-triangle edges leaves exactly three exterior connectivity states. If two exterior components meet the triangle, the expected component-rank reduction is one minus \\((1-p)^2\\); if three components meet it, the expected reduction is \\(3p-p^3\\). Comparing each with the fully open reduction gives the exact negative component covariance. Adding the covariance of the three triangle-edge indicators yields the positive cycle-rank expression and its bounds. In the sparse complete graph with \\(p=c/n\\), a simple-path union bound for fixed \\(c<1\\) makes the three vertices exterior-disconnected with probability one minus order \\(1/n\\), giving the stated constants. A fresh exact enumeration on a four-vertex triangle-with-tail graph at \\(p=2/5\\) gave component covariance \\(-864/15625\\) and cycle-rank covariance \\(936/15625\\), exactly matching the formulas.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The random-cluster bridge paper gives broader exact single-edge identities.",
+          "Janson gives broader fixed-subgraph fluctuation theory but the accessible abstract does not expose covariance with the total component count."
+        ],
+        "reasoning": "Neither inspected statement dominates the finite three-edge connectivity-partition identity.",
+        "searches": [
+          "arXiv:1509.00668; DOI:10.1016/j.nuclphysb.2015.12.001",
+          "DOI:10.1002/rsa.3240010103"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1509.00668; DOI:10.1016/j.nuclphysb.2015.12.001",
+        "DOI:10.1002/rsa.3240010103",
+        "Resultary semantic query: component triangle covariance cycle rank triangle-deleted three-point connectivity percolation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For exterior connectivity count two, the triangle reduces components iff at least one of two joining edges opens.",
+          "For connectivity count three, the expected rank of the random triangle is \\(3p-p^3\\); comparing with the fully open rank gives the displayed coefficient.",
+          "A fresh exact enumeration on a triangle with a tail at \\(p=2/5\\) reproduced both the component and cycle-rank covariance formulas."
+        ],
+        "reasoning": "The local three-edge rank calculation is additional information beyond the one-edge bridge relation.",
+        "searches": [
+          "arXiv:1509.00668; DOI:10.1016/j.nuclphysb.2015.12.001",
+          "independent conditional-rank reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The component covariance can be formulated as the expected rank deficit of the three triangle edges after contracting exterior connectivity classes.",
+          "The cycle-rank companion follows by adding the three edge-indicator covariances."
+        ],
+        "reasoning": "Bridge sensitivity, motif covariance, cycle-rank, and three-point connectivity formulations were compared.",
+        "searches": [
+          "arXiv:1509.00668; DOI:10.1016/j.nuclphysb.2015.12.001",
+          "DOI:10.1002/rsa.3240010103",
+          "Resultary semantic query: component triangle covariance cycle rank triangle-deleted three-point connectivity percolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact coefficient table or prior Resultary theorem matching the two- versus three-component correction was located."
+        ],
+        "reasoning": "The claim is symbolic for arbitrary finite base graphs, so search absence is secondary to statement-level comparison.",
+        "searches": [
+          "Resultary semantic query: component triangle covariance cycle rank triangle-deleted three-point connectivity percolation",
+          "targeted searches for covariance of component count and triangles"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. Elçi--Weigel--Fytas give exact single-edge bridge/component identities, while Janson's accessible 1990 abstract concerns fixed-subgraph count limit laws. The current Resultary search found no matching component--triangle or cycle-rank covariance theorem. The assigned result's three-state exterior connectivity correction is not implied by a single-edge bridge formula or by marginal triangle-count asymptotics.",
+      "residual_risks": [
+        "The complete 1990 Janson article was not available in the inspected source; an implicit joint-statistic calculation there or in related random-graph literature remains a residual risk.",
+        "The finite conditioning identity is elementary once the exterior three-point connectivity partition is chosen, so an equivalent unpublished exercise may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SINGLE_EDGE_CONNECTIVITY_RESPONSE_NOT_TRIANGLE_THREE_POINT_LAW",
+          "evidence": "The paper's stated exact relations concern bridge/non-bridge edge classes rather than triangle-count covariance conditioned on a three-vertex partition.",
+          "identifier_or_url": "arXiv:1509.00668; DOI:10.1016/j.nuclphysb.2015.12.001",
+          "material_read": "Primary arXiv abstract/current record and the source scope on edge classes and exact bridge relations.",
+          "method": "Lawful primary-source inspection and theorem-scope comparison.",
+          "title": "Bridges in the random-cluster model",
+          "trigger": "Closest exact finite-graph source on component sensitivity in percolation."
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_RESIDUAL_RISK",
+          "evidence": "The accessible material concerns asymptotic distributions of fixed subgraph counts and does not expose a component-count covariance; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "DOI:10.1002/rsa.3240010103",
+          "material_read": "Publisher abstract and reference/theorem scope; full article text was unavailable in the inspected route.",
+          "method": "Lawful publisher inspection.",
+          "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+          "trigger": "Classical primary source on random-graph subgraph-count fluctuations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1509.00668; DOI:10.1016/j.nuclphysb.2015.12.001",
+        "DOI:10.1002/rsa.3240010103",
+        "Resultary semantic query: component triangle covariance cycle rank triangle-deleted three-point connectivity percolation"
+      ],
+      "rationale": "Triangle count is the basic local cycle statistic, while component count and cycle rank are the two elementary graph Betti quantities. The theorem gives an exact local-to-global covariance law on every finite base graph, explains the opposite signs through three-point connectivity, and yields explicit sparse-regime constants. That is a motivated structural relation rather than a marginal-statistic recomputation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complete 1990 Janson article was not available in the inspected source; an implicit joint-statistic calculation there or in related random-graph literature remains a residual risk.",
+    "The finite conditioning identity is elementary once the exterior three-point connectivity partition is chosen, so an equivalent unpublished exercise may exist.",
+    "Publication is withheld because the complete frozen 35-file inventory contains operational workflow state in AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md in every package. RESULT.md, SLOGAN.txt, verifier sources, and the stored verifier output were semantically inspected and were clear of the checked platform and workflow disclosures. No exact guarded sanitizing replacement bytes were prepared in this run."
+  ],
+  "schema_version": 1
+}

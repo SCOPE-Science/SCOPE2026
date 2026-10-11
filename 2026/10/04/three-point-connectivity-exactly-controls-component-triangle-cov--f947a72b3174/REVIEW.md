@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. After the exterior of one triangle is exposed, only the number of distinct ambient components meeting its three vertices matters. There are exactly three cases. For two ambient components, two of the triangle edges are parallel opportunities to merge the components; for three ambient components, the component-count reduction is the rank of a Bernoulli subgraph of a triangle. These calculations give the two coefficients in the exact covariance formula.
+PASS
 
-The cycle-rank formula is obtained by adding the exactly known covariance between the triangle indicator and the three participating edge indicators. The subcritical limits follow because two fixed triangle vertices connect through the exterior with probability \(O(n^{-1})\) when \(p=c/n\) and \(c<1\).
+The identity is correct. Conditioning on all non-triangle edges leaves exactly three exterior connectivity states. If two exterior components meet the triangle, the expected component-rank reduction is one minus \((1-p)^2\); if three components meet it, the expected reduction is \(3p-p^3\). Comparing each with the fully open reduction gives the exact negative component covariance. Adding the covariance of the three triangle-edge indicators yields the positive cycle-rank expression and its bounds. In the sparse complete graph with \(p=c/n\), a simple-path union bound for fixed \(c<1\) makes the three vertices exterior-disconnected with probability one minus order \(1/n\), giving the stated constants. A fresh exact enumeration on a four-vertex triangle-with-tail graph at \(p=2/5\) gave component covariance \(-864/15625\) and cycle-rank covariance \(936/15625\), exactly matching the formulas.
 
-## Originality
+## originality
 
-PASS, with a residual older-random-graph risk. Elçi--Weigel--Fytas was inspected in full at its percolation edge classification and Russo--Margulis derivation. It gives exact component/edge and bridge relations, but the inspected text does not state a triangle-count covariance or a three-point connectivity partition formula.
+PASS
 
-Janson's classical subgraph-count paper is a plausible broader source for triangle fluctuations. Only publisher-level material was available during inspection, so it is not used to certify whole-document noncoverage. Its accessible description concerns asymptotic subgraph-count distributions rather than exact covariance with total components; this unresolved comparison is retained as a residual risk.
+Best-of-knowledge originality passes. Elçi--Weigel--Fytas give exact single-edge bridge/component identities, while Janson's accessible 1990 abstract concerns fixed-subgraph count limit laws. The current Resultary search found no matching component--triangle or cycle-rank covariance theorem. The assigned result's three-state exterior connectivity correction is not implied by a single-edge bridge formula or by marginal triangle-count asymptotics.
 
-Targeted semantic-database and web searches for component–triangle covariance, cycle-rank–triangle covariance, and three-point percolation formulations did not locate the accepted identity.
+## value
 
-## Value
+PASS
 
-PASS. Component count and cycle rank are the zeroth and first Betti numbers of a graph, while triangle count is the basic local cycle statistic. The theorem gives an exact finite relation between a local motif and global topology, with the sign split explained by a concrete three-point connectivity state.
+Triangle count is the basic local cycle statistic, while component count and cycle rank are the two elementary graph Betti quantities. The theorem gives an exact local-to-global covariance law on every finite base graph, explains the opposite signs through three-point connectivity, and yields explicit sparse-regime constants. That is a motivated structural relation rather than a marginal-statistic recomputation.
 
-The subcritical limits make the interpretation quantitative: one open triangle contributes asymptotically twice its Poisson-scale intensity in lost components but one unit of cycle rank. This is a natural bridge between percolation connectivity and motif-count fluctuation theory.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK graph_parameter_checks=18 percolation_states=3888 connectivity_states=4110 triangle_instances=60`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

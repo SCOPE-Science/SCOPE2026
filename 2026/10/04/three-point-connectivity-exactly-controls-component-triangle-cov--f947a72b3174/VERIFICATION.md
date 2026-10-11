@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. The accompanying checker uses exact rational arithmetic and exhaustive edge-state enumeration.
+# Independent mathematical audit
 
-It tests several base graphs containing isolated triangles, overlapping triangles, chorded structures, and complete graphs. For multiple rational values of \(p\), it enumerates every percolation configuration, computes \(K\), \(T\), and \(R\), and independently computes the triangle-deleted probabilities
-\[
-\Pr(C_\tau=2)
-\quad\text{and}\quad
-\Pr(C_\tau=3).
-\]
+## correctness
 
-It then verifies the component covariance formula, the cycle-rank covariance formula, and both universal cycle-rank bounds exactly.
+PASS
 
-The subcritical limits are not inferred from finite computation. They follow from the simple-path union bound and the exact finite identities in `RESULT.md`.
+The identity is correct. Conditioning on all non-triangle edges leaves exactly three exterior connectivity states. If two exterior components meet the triangle, the expected component-rank reduction is one minus \((1-p)^2\); if three components meet it, the expected reduction is \(3p-p^3\). Comparing each with the fully open reduction gives the exact negative component covariance. Adding the covariance of the three triangle-edge indicators yields the positive cycle-rank expression and its bounds. In the sparse complete graph with \(p=c/n\), a simple-path union bound for fixed \(c<1\) makes the three vertices exterior-disconnected with probability one minus order \(1/n\), giving the stated constants. A fresh exact enumeration on a four-vertex triangle-with-tail graph at \(p=2/5\) gave component covariance \(-864/15625\) and cycle-rank covariance \(936/15625\), exactly matching the formulas.
 
-Independent audit has not been performed.
+## originality
 
-Exact replay result: `VERIFY_OK graph_parameter_checks=18 percolation_states=3888 connectivity_states=4110 triangle_instances=60`.
+PASS
+
+Best-of-knowledge originality passes. Elçi--Weigel--Fytas give exact single-edge bridge/component identities, while Janson's accessible 1990 abstract concerns fixed-subgraph count limit laws. The current Resultary search found no matching component--triangle or cycle-rank covariance theorem. The assigned result's three-state exterior connectivity correction is not implied by a single-edge bridge formula or by marginal triangle-count asymptotics.
+
+## value
+
+PASS
+
+Triangle count is the basic local cycle statistic, while component count and cycle rank are the two elementary graph Betti quantities. The theorem gives an exact local-to-global covariance law on every finite base graph, explains the opposite signs through three-point connectivity, and yields explicit sparse-regime constants. That is a motivated structural relation rather than a marginal-statistic recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
