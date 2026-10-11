@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For every Haar two-plane the projected orthotope is a zonotope with perimeter twice the sum of projected edge lengths. The rank-two projection matrix gives diagonal moments 2/d and a beta marginal. Stabilizer conditioning reduces the distinct-axis length product to the norm of a two-coordinate projection of a uniform sphere vector in the d-1 dimensional complement. Independent beta radius and uniform angle then yield a Gauss 2F1 angular integral, and an exact Euler beta-series calculation yields pi*3F2(-1/2,1/2,3/2;1,(d+1)/2;1)/(2(d-1)). Expanding the square proves the orthotope formula. A beta-weighted hypergeometric Taylor remainder is O(d^-2) and the gamma-ratio expansion proves the 8-5pi/2 variance limit. The executable package checks independent numeric integrals, convex hull perimeters and Haar simulation; no finite experiment is used as the universal proof.",
+    "risks": [
+      "The proof uses Haar-uniform orthogonal Grassmannian subspaces, not Gaussian nonorthogonal projections.",
+      "The high-dimensional limit is for variance only, without any distributional convergence assertion."
+    ],
+    "sources": [
+      "arXiv:1511.08479v3 section 3.1 for background on random one-direction widths",
+      "arXiv:1203.2464v1 section 2.2 for the known d=3 check"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1210.7012v2 Theorem 1.1 treats projected n-dimensional volume, so for two-plane projections its random variable is projected area rather than projected perimeter.",
+        "arXiv:1511.08479v3 Theorem 3.1 is a Gaussian moment representation for one-dimensional widths and cites a more general moment representation, without an evaluated two-plane perimeter correlation.",
+        "Finch arXiv:1203.2464v1 section 3 explicitly identifies a gap in general higher periwidth moments despite the availability of intrinsic-volume means."
+      ],
+      "reasoning": "A general stochastic intrinsic-volume representation is not itself the evaluated cross-direction expected product of projected perpendicular edge lengths; the closed 3F2 coefficient and all-orthotope quadratic moment theorem are additional calculations. Projected two-dimensional area is a different functional from projected perimeter and does not imply the asserted moment.",
+      "searches": [
+        "Paouris Pivovarov higher moments Tsirelson formula intrinsic volumes random Gaussian projections",
+        "A central limit theorem for projections of the cube arxiv 1210.7012 moments volume planar area perimeter",
+        "Gaussian convex bodies nonasymptotic approach intrinsic volumes second moments random zonotopes",
+        "random zonotope projection cube all dimensions squared perimeter pairwise correlations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1511.08479v1/v3, original geometry-primary paper; full text and MSC/date",
+      "arXiv:1203.2464v1, same planar periwidth full text sections 1--5",
+      "arXiv:1210.7012v2, related random cube-projected area full text",
+      "DOI:10.1007/s00454-013-9492-2, abstract and explicit cited general-moment reference (full text inaccessible)",
+      "Original peer-reviewed public source searches under hypercube, rectangular box, periwidth, projected zonotope, perimeter variance, gamma/beta/hypergeometric aliases",
+      "Candidate-specific mathematical record searches using the claim equation, 4-cube 28.495793565 and projected-perpendicular-edge correlation parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1511.08479v3 Example 3.3 proves E(W_cube^2)=1+2(d-1)/pi for projection onto one line, and includes more single-line higher moments. Its full text contains no occurrence of periwidth, planar, or perimeter.",
+        "arXiv:1203.2464v1 sections 2.2/4.2 give a three-dimensional exact 3F2 value and a four-dimensional numerical value, not the same all-dimensional expression.",
+        "arXiv:1210.7012v2 defines Z_N as n-dimensional volume of a random n-dimensional projection; for n=2 this is the shadow area, not its perimeter.",
+        "Final semantic record searches returned close geometry records about other widths/orthotopes or second moments, with no statement implying this exact conditional-Haar cross-edge kernel.",
+        "Available related mathematical statements on mean-square widths of three-dimensional Platonic solids and planar-shadow area variance of Platonic solids concern different objects or functionals and do not imply the random planar-shadow perimeter theorem in ambient dimension d."
+      ],
+      "reasoning": "The known 1D width moment fixes only one-directional expectation and does not determine the covariance of widths at two distinct in-plane directions. A two-plane shadow perimeter is the integral of its in-plane widths, and its square requires precisely the off-diagonal correlation evaluated here. The earlier d=3 hypergeometric result is an implied specialization and explicitly excluded from claimed novelty.",
+      "searches": [
+        "Mean width of regular polytopes Kabluchko Litvak Zaporozhets 1511.08479 random planar projection perimeter moment of cube",
+        "Planar Projections and Second Intrinsic Volume Finch arXiv 1203.2464 four cube periwidth second moment 28.4",
+        "For the Haar random orthogonal projection of the d-dimensional unit hypercube to a uniformly random 2-plane, the exact squared perimeter has expectation 8 + 2 pi d times generalized hypergeometric 3F2(-1/2,1/2,3/2;1,(d+1)/2;1); as dimension grows the perimeter variance tends to 8-5pi/2.",
+        "Projections orthotopes boxes to random two-dimensional Grassmannian planes joint projected edge lengths product moments beta hypergeometric 3F2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finch arXiv:1203.2464v1, section 1 defines periwidth as the circumference/perimeter of a Haar-random planar orthogonal projection.",
+        "Finch arXiv:1203.2464v1 section 4.2 lists E(pw^2) for the four-cube only numerically as 28.4..., not with a closed evaluated expression.",
+        "Kabluchko-Litvak-Zaporozhets arXiv:1511.08479v3 section 3.2 computes cube line-width moments rather than the perimeter of a two-plane shadow."
+      ],
+      "reasoning": "Periwidth, planar-shadow circumference, projected zonotope boundary length, and projected first intrinsic volume differ only by known planar normalizations. Searches of these aliases and the distinctive 3F2 parameters were compared with the actual formulas rather than titles.",
+      "searches": [
+        "second moment squared perimeter planar projection of four dimensional cube hypercube uniform random Grassmannian closed hypergeometric formula",
+        "4-cube periwidth pw squared moment variance Finch 2012 hypergeometric 3F2",
+        "joint distribution squared norms projected coordinate vectors Haar random 2-plane R4 projected hypercube perimeter",
+        "random planar projection 4-cube exact mean square perimeter periwidth 28.495793565 variance 0.051349 Grassmann orthogonal edges hypergeometric",
+        "planar projection orthotope perimeter variance second moment",
+        "square projected norm two perpendicular vectors random k-plane hypergeometric 3F2 moment",
+        "hypercone cube planar shadow boundary second moment generalized hypergeometric"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Finch arXiv:1203.2464v1 section 2.2 gives the three-cube formula E(pw^2)=8+6 pi 3F2(-1/2,1/2,3/2;1,2;1), so the dimension-three specialization is covered.",
+        "The same work section 4.2 gives only E(pw^2)=28.4... for the four-cube; the new exact special function expression numerically agrees.",
+        "No retrieved public database/table entry provided an evaluated all-dimension orthotope moment expression."
+      ],
+      "reasoning": "The table check distinguishes a numerically tabulated value and a known three-dimensional closed value from the new closed formula for all dimensions. A failed search alone is not used as the novelty argument.",
+      "searches": [
+        "4-cube periwidth pw squared moment variance Finch 2012 hypergeometric 3F2",
+        "E periwidth squared 4 cube 28.495793565",
+        "projected cube perimeter variance 0.051349120618869",
+        "squared perimeter orthotope Haar random Grassmannian 3F2"
+      ]
+    },
+    "rationale": "The primary 2015 geometry-classified work solves all-dimension moments of ONE-dimensional projected widths, but the two-plane perimeter second moment requires an additional off-diagonal covariance kernel. Finch 2012 gives the same 3-cube hypergeometric formula and a numerical 4-cube result, whereas this claim gives an evaluated all-d and arbitrary-orthotope expression plus nonzero high-dimensional variance limit. Paouris-Pivovarov-Zinn compute distributions and asymptotics for the projected two-dimensional area, not perimeter. Actual text and semantic searches under mathematical equivalents yielded no implication-equivalent all-d formula. Unindexed random-zonotope work and inaccessible broader moment sources remain residual risks.",
+    "residual_risks": [
+      "An older or unindexed random-zonotope calculation may contain the same all-dimensional correlation reduction.",
+      "The 2013 Paouris-Pivovarov paper was not materially accessible as full text, so its abstract alone does not establish noncoverage.",
+      "The three-cube hypergeometric moment is prior-covered in Finch and is not claimed as new.",
+      "Generic Gaussian moment representations are prior-covered; evaluated all-orthotope coefficients are the claimed contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LINE_WIDTH_MOMENT_RESULTS_PRIOR_NOT_PLANE_PERIMETER_CORRELATION",
+        "evidence": "Theorem 3.1 extends Sudakov to higher moments of widths of projections onto a single line; Example 3.3 obtains the exact second moment 1+2(d-1)/pi and fourth moment for the d-cube. The authors identify earlier general Gaussian representation work, but no planar periwidth or cross-edge beta-hypergeometric moment is stated.",
+        "identifier_or_url": "arXiv:1511.08479v3; arXiv:1511.08479v1 published 2015-11-26",
+        "material_read": "Complete accessible arXiv HTML, focusing on sections 1.1, 3.1, 3.2, 3.3 and references; author PDF first page and page-six to eight relevant passages. MSC primary 52A23 and v1 date verified independently on arXiv.",
+        "method": "Lawful preprint full-text and author-hosted PDF inspection, including the displayed equations (19)--(25).",
+        "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+        "trigger": "Archive-era primary-MSC-52A23 initiating work on exact higher moments of random projected regular-cube line widths."
+      },
+      {
+        "assessment": "COVERS_THREE_CUBE_ENDPOINT_ONLY_NUMERIC_FOUR_CUBE",
+        "evidence": "Section 2.2 explicitly gives 8+6*pi*3F2(-1/2,1/2,3/2;1,2;1), while section 4.2 lists 28.4... and no closed value for the four-cube, and section 3 states lack of general higher-moment periwidth expressions at publication time.",
+        "identifier_or_url": "arXiv:1203.2464v1",
+        "material_read": "Complete accessible arXiv HTML relevant sections: initial definitions, 2.2 for exact three-cube hypergeometric moment, section 3 on higher-moment gap, 4.2 for four-cube numeric table, and section 5 for further-work context.",
+        "method": "Lawful original author preprint full-text HTML.",
+        "title": "Planar Projections and Second Intrinsic Volume",
+        "trigger": "Exact same functional (periwidth squared) for d=3 and numerical benchmark for d=4, potentially covering the intended formula."
+      },
+      {
+        "assessment": "DIFFERENT_PROJECTED_INTRINSIC_VOLUME_AREA_NOT_PERIMETER",
+        "evidence": "The source defines Z_N as n-dimensional volume of an n-dimensional projection. With n=2 it is area, while the new theorem concerns perimeter of the two-dimensional shadow. No evaluated 3F2 perimeter moment is stated.",
+        "identifier_or_url": "arXiv:1210.7012v2",
+        "material_read": "Complete accessible preprint HTML, especially section 1 definitions, Theorem 1.1, equation (1.3), Gaussian zonotopes, and preliminary mixed-volume formulas.",
+        "method": "Lawful arXiv full-text HTML.",
+        "title": "A central limit theorem for projections of the cube",
+        "trigger": "Same cube and Haar Grassmannian projection, higher-dimensional random-projection variance theorem that could potentially dominate the new moment."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_FORMAL_GENERAL_REPRESENTATION_RISK",
+        "evidence": "The abstract emphasizes small deviations of volumes of random polytopes and zonotopes; initiating authors credit its generalization of Gaussian higher-moment representations. Whether it explicitly evaluates the present planar perimeter kernel remains a residual risk.",
+        "identifier_or_url": "DOI:10.1007/s00454-013-9492-2",
+        "material_read": "Publisher abstract, public bibliographic summary and explicit cross-reference to Proposition 4.1 in the initiating full text. The primary whole document was not accessible in the run.",
+        "method": "Open bibliographic abstract and source cross-reference; no full-text noncoverage conclusion.",
+        "title": "Small-Ball Probabilities for the Volume of Random Convex Sets",
+        "trigger": "Referenced by the initiating paper as a broader Gaussian moment identity; possible hidden general coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f6a2c7b-b90c-4f4a-beec-5cdb0e0cf491",
+  "value": {
+    "rationale": "Planar-shadow perimeter is the canonical projected first intrinsic volume, and its orientation variance quantifies how a box image changes under random viewing angle. An exact squared-perimeter law was numerically tabulated for the four-cube in the initiating research literature but not evaluated uniformly in dimension. The new result treats every side-length tuple in all dimensions, supplies a reusable mixed moment of lengths of two perpendicular projected edges, resolves the four-cube exact expression, and finds a nonzero limiting cube-variance constant. This is a complete natural family classification of a quantitatively motivated higher-order integral-geometric invariant rather than a routine low-dimensional table entry.",
+    "risks": [
+      "No theorem is claimed beyond orthogonal boxes, and no broad CLT or distributional statement follows merely from a variance limit."
+    ],
+    "sources": [
+      "arXiv:1511.08479v3 sections 3.1--3.3",
+      "arXiv:1203.2464v1 sections 1, 2.2, 4.2",
+      "arXiv:1210.7012v2 Section 1"
+    ],
+    "status": "PASS"
+  }
+}
