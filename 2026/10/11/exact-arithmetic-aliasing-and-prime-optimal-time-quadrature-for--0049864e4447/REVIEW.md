@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+
+The claim is proved by expanding the Fourier coefficient of the squared modulus at each positive spatial lag, applying continuous temporal orthogonality and then exact root-of-unity orthogonality. The surviving sampled off-diagonal interactions have gap product satisfying \(N\mid2hr\), with the factor \(4\) following from positive/negative spatial lags and paired conjugates. The divisor threshold is bidirectional: if \(d_N\mid hr\), \(v=\gcd(d_N,h)\) gives the lower bound \(h+r\ge v+d_N/v\); selecting a minimizing factorization gives a witness when the boundary is met. Setting all coefficients equal to one rules out uniform equality in the aliasing regime. Cauchy--Schwarz yields the sharp constant and all alias-free extremizers; the minimal prime grid uses the standard Bertrand--Chebyshev theorem and separately checked small bandwidths. All quantifiers, normalizations and integer boundaries are addressed. The independent integer-congruence verifier covers finite cases only, while the unrestricted result follows from these proofs.
+
+## Originality — PASS, with historical risk
+
+The closest foundational continuous theorem is Bourgain, Proposition 2.1, which handles the continuum two-torus fourth moment and does not state a uniform temporal-grid equivalence, modular divisor cutoff or minimum sample count. Hu--Li's normalized estimates and Wooley's extension bounds likewise integrate over a continuous torus. Matsutani--Onishi analyze rational quadratic phases and Gauss sums but do not identify the arbitrary-coefficient quartic time-quadrature kernel. Public mathematical results addressing cyclic-grid Carathéodory--Fejér extrema, projection norms, and four-point phase-only moments have distinct quantifiers, kernels and conclusions. In particular, their optimal discrete harmonic-polynomial constants neither imply nor subsume the signed alias identity. Actual searches also considered arithmetic aliases, prime grids, moment congruences and quadrature terminology. The possibility of a preexisting exact statement in older quadrature, optics or finite-field literature remains an explicit residual risk; lack of search results is not a proof of global novelty.
+
+## Mathematical value — PASS
+
+This is an all-bandwidth, all-modulus exact classification for a natural and reusable fourth-order space-time Fourier diagnostic. The arithmetic invariant \(\sigma(N/\gcd(N,2))\) gives both a constructive finite resolution threshold and an explicit witness at every failed boundary, while the globally optimal sample count is the next odd prime and hence linear in bandwidth. The sharp-norm and extremizer corollaries make this an exact comparison of sampled and continuous Fourier restriction measurements, not simply a numerical identity or arbitrary finite example. It does not claim a generalization to unrelated dispersion relations or give the exact aliasing-regime norm constant.
+
+Same-model review: passed. Independent audit: not yet performed.
