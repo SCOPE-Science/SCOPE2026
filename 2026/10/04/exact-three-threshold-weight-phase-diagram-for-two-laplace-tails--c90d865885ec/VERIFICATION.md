@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact distributional step is checked analytically: for unequal positive scales \(a>b\), partial fractions give the density as a signed combination of two centered Laplace densities, so integrating above a positive threshold yields
-\[
-\Pr\{aX_1+bX_2>z\}=\frac{a^2e^{-z/a}-b^2e^{-z/b}}{2(a^2-b^2)}.
-\]
-The equal-scale limit agrees with the convolution tail \((u+2)e^{-u}/4\) for \(u\ge0\).
+# Independent mathematical audit
 
-The sparse expansion was recomputed from the exact ratio-coordinate formula. Its first nonconstant algebraic coefficient is \(1-t/\sqrt2\). The exponentially small term \(r^2e^{-c/r}\) is flat at \(r=0\), so it cannot alter that sign away from \(t=\sqrt2\).
+## correctness
 
-For the equal-weight endpoint, the squared-weight representation was differentiated directly. The cubic derivative entering the even Taylor expansion is proportional to
-\[
-4t^2-6t-3,
-\]
-whose only positive zero is \((3+\sqrt{21})/4\).
+PASS
 
-The endpoint-height ratio is \((1+t)e^{-(2-\sqrt2)t}\). Its logarithmic derivative changes sign only once, so after its initial equality at \(t=0\) there is at most one positive crossing. Sign checks at \(\sqrt2\) and \((3+\sqrt{21})/4\) place that crossing strictly between the two local-bifurcation thresholds. `verify.py` reproduces the numerical value \(1.687952825208936\ldots\) by bisection and checks the endpoint formulas and local perturbation signs.
+Partial fractions of the moment-generating function give the exact interior tail formula. At r=0 its expansion has quadratic coefficient 1-t/sqrt(2), proving the sparse local-type switch. Around equal weights, writing p=1/2+q makes the q^2 coefficient proportional to h'''(1/2), whose sign is exactly 4t^2-6t-3, giving the stated positive root. The endpoint ratio is (1+t) exp(-(2-sqrt(2))t); its log derivative has one maximum and is strictly decreasing through the relevant interval, giving one further positive crossing and the Lambert-W expression. Independent numerical/algebraic checks reproduce t_*=1.687952825208936 between sqrt(2) and 1.895643923738960. Compactness plus strict local maximality of both endpoints forces an interior global minimum. No claim of uniqueness is used.
 
-The verifier samples only finite points as a stress test. Those samples are not used to infer the analytic local classifications, the uniqueness of the positive crossover, or the existence of the interior minimizer.
+## originality
+
+PASS
+
+Li--Tkocz treat weighted sums of two-sided exponentials and obtain sharp-order tail bounds with the largest weight controlling the asymptotic scale; their inspected full text does not state the exact two-summand weight profile or the sparse/equal endpoint bifurcation thresholds. The classical exact convolution formula itself is prior, but the three-threshold finite-weight phase diagram and coexistence consequence were not found in the inspected literature or Resultary search.
+
+## value
+
+PASS
+
+The object is the natural fixed-variance weight optimization underlying sharp Laplace tail comparison. The exact local bifurcation thresholds and their strict ordering identify a genuine coexistence regime that broad asymptotic bounds do not resolve. This is a motivated structural phase diagram, not merely evaluation of one tail probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

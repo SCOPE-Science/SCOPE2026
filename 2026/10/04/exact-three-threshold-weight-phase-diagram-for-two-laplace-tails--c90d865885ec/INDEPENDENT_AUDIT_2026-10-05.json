@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:54:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 5231aed062e02e2de7fc9d91d7f1205dac92907a",
+        "verify.py blob d11176173f3b5180e0beb8b576a235bdc0afd3e1",
+        "fresh threshold/crossover recomputation",
+        "Li--Tkocz full primary PDF"
+      ],
+      "rationale": "Partial fractions of the moment-generating function give the exact interior tail formula. At r=0 its expansion has quadratic coefficient 1-t/sqrt(2), proving the sparse local-type switch. Around equal weights, writing p=1/2+q makes the q^2 coefficient proportional to h'''(1/2), whose sign is exactly 4t^2-6t-3, giving the stated positive root. The endpoint ratio is (1+t) exp(-(2-sqrt(2))t); its log derivative has one maximum and is strictly decreasing through the relevant interval, giving one further positive crossing and the Lambert-W expression. Independent numerical/algebraic checks reproduce t_*=1.687952825208936 between sqrt(2) and 1.895643923738960. Compactness plus strict local maximality of both endpoints forces an interior global minimum. No claim of uniqueness is used.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broad results control tails up to explicit/universal comparisons and asymptotic scale, but do not identify the exact finite t values sqrt(2), (3+sqrt(21))/4, or the Lambert-W endpoint crossover."
+        ],
+        "reasoning": "Tail bounds and S-inequalities do not mechanically determine second-order endpoint type or the exact crossing of the sparse and equal tails.",
+        "searches": [
+          "Li--Tkocz Theorem 1 and Section 4.2",
+          "Gluskin--Kwapień logarithmically-concave tail estimates",
+          "Nayar--Tkocz S-inequality context"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.14387",
+        "Gluskin--Kwapień 1995",
+        "Nayar--Tkocz 2013",
+        "Resultary two-Laplace phase search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact convolution formula determines T_t(r), but deriving both endpoint local types requires distinct Taylor expansions and the crossover requires solving a separate monotonic equation.",
+          "The coexistence-window interior-minimum conclusion follows only after combining the two local classifications with compactness."
+        ],
+        "reasoning": "The final phase synthesis is not stated or implied by the inspected comparison bounds; it is additional exact finite-threshold structure.",
+        "searches": [
+          "Li--Tkocz weighted-exponential tail bounds",
+          "exact two-Laplace convolution identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li--Tkocz analyze the same class of weighted two-sided exponentials under variance-related normalization but state nonasymptotic bounds rather than the exact two-weight local phase diagram.",
+          "The exact two-Laplace convolution tail is classical and is not claimed as new."
+        ],
+        "reasoning": "The claim can be reformulated as local bifurcation analysis of the exact two-exponential convolution tail along the fixed Euclidean-norm weight arc; that reformulation is not an existing theorem found in the checked sources.",
+        "searches": [
+          "Li--Tkocz, arXiv:2109.14387",
+          "Gluskin--Kwapień, DOI:10.4064/sm-114-3-303-309",
+          "Resultary query: two Laplace tails fixed variance sparse equal weights phase transition threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same three-threshold theorem was returned; closest findings concern gamma-sum quantile curvature or other Laplace/exponential optimization problems."
+        ],
+        "reasoning": "No exact database/table coverage was located, while the elementary convolution formula itself is acknowledged prior.",
+        "searches": [
+          "Resultary fixed-variance weighted Laplace tail search",
+          "targeted searches for sparse-versus-equal Laplace weight extrema and endpoint crossover"
+        ]
+      },
+      "rationale": "Li--Tkocz treat weighted sums of two-sided exponentials and obtain sharp-order tail bounds with the largest weight controlling the asymptotic scale; their inspected full text does not state the exact two-summand weight profile or the sparse/equal endpoint bifurcation thresholds. The classical exact convolution formula itself is prior, but the three-threshold finite-weight phase diagram and coexistence consequence were not found in the inspected literature or Resultary search.",
+      "residual_risks": [
+        "A specialized majorization or convolution paper not captured by the searches could contain an equivalent exact two-weight classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TAIL_BOUNDS_AND_ASYMPTOTICS_NOT_EXACT_TWO_WEIGHT_PHASE_DIAGRAM",
+          "evidence": "The source gives upper/lower tail bounds with matching leading terms and discusses small-threshold comparison, but not the audited endpoint curvature thresholds or their crossover.",
+          "identifier_or_url": "arXiv:2109.14387",
+          "material_read": "Full primary PDF around Theorem 1 and the S-inequality/small-threshold discussion; PDF pages were visually inspected.",
+          "method": "Same-functional theorem and implication comparison.",
+          "title": "Tail bounds for sums of independent two-sided exponential random variables",
+          "trigger": "Primary same-distribution weighted-tail paper cited by the result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2109.14387",
+        "Gluskin--Kwapień 1995",
+        "Nayar--Tkocz 2013",
+        "Resultary two-Laplace phase search"
+      ],
+      "rationale": "The object is the natural fixed-variance weight optimization underlying sharp Laplace tail comparison. The exact local bifurcation thresholds and their strict ordering identify a genuine coexistence regime that broad asymptotic bounds do not resolve. This is a motivated structural phase diagram, not merely evaluation of one tail probability.",
+      "residual_risks": [
+        "A specialized majorization or convolution paper not captured by the searches could contain an equivalent exact two-weight classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2109.14387",
+    "Gluskin--Kwapień 1995",
+    "Nayar--Tkocz 2013",
+    "Resultary two-Laplace phase search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two independent standard Laplace variables with nonnegative weights of fixed squared norm one, the sparse endpoint changes local type at t=sqrt(2), the equal-weight endpoint changes local type at t=(3+sqrt(21))/4, and their tail heights have exactly one positive crossover t_* given by the stated Lambert-W formula, with sqrt(2)<t_*<(3+sqrt(21))/4; throughout the intervening coexistence window both endpoints are strict local maxima and at least one global minimizer is interior.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A specialized majorization or convolution paper not captured by the searches could contain an equivalent exact two-weight classification.",
+    "The result is only for two summands; it does not classify all interior stationary points or uniqueness of the interior minimizer.",
+    "No higher-order classification is claimed exactly at the two local bifurcation thresholds."
+  ]
+}

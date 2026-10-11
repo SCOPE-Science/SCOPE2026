@@ -1,17 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact two-Laplace tail follows by partial fractions of the moment-generating function. The sparse expansion has quadratic coefficient \(1-t/\sqrt2\). In squared-weight coordinates the equal-weight quadratic coefficient is proportional to \(4t^2-6t-3\), producing \(t_e=(3+\sqrt{21})/4\). The endpoint ratio \((1+t)e^{-(2-\sqrt2)t}\) has exactly one positive nonzero crossing. A standalone checker reproduces the constants and stress-tests nearby weights. The finite numerical checks are supplementary; the local statements are proved analytically.
+## correctness
 
-## Originality
-PASS. Li and Tkocz give general weighted-Laplace tail bounds, the same variance normalization, and largest-weight asymptotics, but the inspected full text does not state the exact two-summand local bifurcations, their coexistence window, or the endpoint-height crossover. Gluskin--Kwapień gives constant-factor tail and moment estimates, not exact finite-threshold geometry. Published-findings searches for fixed-variance Laplace tails, sparse/equal endpoint comparisons, convolution extrema, and crossover formulations found no published finding implying the claim. The exact convolution formula itself is treated as prior mathematics, not as the contribution.
+PASS
 
-Residual originality risk: a specialized majorization or exact-convolution source outside the located literature could contain an equivalent classification.
+Partial fractions of the moment-generating function give the exact interior tail formula. At r=0 its expansion has quadratic coefficient 1-t/sqrt(2), proving the sparse local-type switch. Around equal weights, writing p=1/2+q makes the q^2 coefficient proportional to h'''(1/2), whose sign is exactly 4t^2-6t-3, giving the stated positive root. The endpoint ratio is (1+t) exp(-(2-sqrt(2))t); its log derivative has one maximum and is strictly decreasing through the relevant interval, giving one further positive crossing and the Lambert-W expression. Independent numerical/algebraic checks reproduce t_*=1.687952825208936 between sqrt(2) and 1.895643923738960. Compactness plus strict local maximality of both endpoints forces an interior global minimum. No claim of uniqueness is used.
 
-## Value
-PASS. The finding resolves a motivated finite-deviation gap between small-threshold behavior and the known largest-weight far-tail regime. The three exact thresholds identify when sparse and balanced weighting change local roles and exhibit an interval in which both are local maxima, forcing an interior global minimum. This provides a sharp two-dimensional benchmark for any proposed all-weight Laplace concentration principle.
+## originality
 
-## Closest literature and limitations
-The closest primary source is Li--Tkocz, arXiv:2109.14387. The result is restricted to two independent standard Laplace variables at fixed variance. It does not classify the exact degenerate thresholds, prove uniqueness of the interior minimizer, identify every stationary point, or extend the phase diagram to higher-dimensional weight simplices.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Li--Tkocz treat weighted sums of two-sided exponentials and obtain sharp-order tail bounds with the largest weight controlling the asymptotic scale; their inspected full text does not state the exact two-summand weight profile or the sparse/equal endpoint bifurcation thresholds. The classical exact convolution formula itself is prior, but the three-threshold finite-weight phase diagram and coexistence consequence were not found in the inspected literature or Resultary search.
+
+## value
+
+PASS
+
+The object is the natural fixed-variance weight optimization underlying sharp Laplace tail comparison. The exact local bifurcation thresholds and their strict ordering identify a genuine coexistence regime that broad asymptotic bounds do not resolve. This is a motivated structural phase diagram, not merely evaluation of one tail probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
