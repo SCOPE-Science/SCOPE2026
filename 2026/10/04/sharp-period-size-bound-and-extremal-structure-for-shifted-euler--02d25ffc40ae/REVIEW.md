@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Summing \(x_i-\varphi(x_i)=x_i-x_{i+1}+k\) around a period gives the exact cototient budget \(\sum_i c(x_i)=Tk\). Every cycle term is at least \(2\), the maximum is composite, and the standard least-prime-factor estimate gives \(c(M)\ge\sqrt M\). The other \(T-1\) cototients contribute at least \(1\) each, yielding \(M\le[T(k-1)+1]^2\). Equality forces every inequality to be tight, which implies a prime square at the maximum and primes at every other term; the recurrence then forces the full progression. The converse is direct. The packaged checker independently verifies the identities and several exact extremal cycles.
+## correctness
 
-## Originality
-PASS. Leonetti and Luca's full text proves eventual periodicity and a starting-value-dependent trajectory bound, then explicitly states that sharpness and nontrivial size information remain unanswered and suggests prime-progression cycles with a final composite term. The inspected source does not give the period-sensitive square bound or equality classification. The direct follow-up concerns the separate two-step recurrence. OEIS A051953 records cototients but not the cycle theorem. Targeted semantic, web, and exact-number searches did not locate stronger coverage.
+PASS
 
-## Value
-PASS. The result answers a natural structural question singled out by the source: it gives an exact sharp envelope in terms of period and shift, and proves that the proposed prime-progression construction is precisely the extremal mechanism. The equivalent lower bound on period quantifies how long any cycle with a large maximum must be. Equality examples at periods \(2\), \(3\), and \(4\) show the bound is attained nontrivially.
+The cototient identity \(c(x_i)=x_i-x_{i+1}+k\) telescopes to \(\sum_i c(x_i)=Tk\). Every cycle term is at least two, hence contributes at least one; a maximal term cannot be prime, and for composite \(M\) with least prime divisor \(p\le\sqrt M\), \(c(M)\ge M/p\ge\sqrt M\). Therefore \(\sqrt M\le Tk-(T-1)\). Equality forces all other cototients to be one and both composite inequalities to be equalities, hence \(M=q^2\) and every other term prime. Prime terms advance by exactly \(k-1\), and the return from \(q^2\) is equivalent to \(q=T(k-1)+1\). The inspected verifier independently checks the telescoping identity, bound, equality recognition and explicit periods 2, 3 and 4.
 
-## Closest literature and limitations
-The closest source is Leonetti and Luca, arXiv:2302.01783v1 / DOI 10.1017/S0004972723000394. A later publisher article improves only the two-step recurrence. The equality criterion leaves a simultaneous-primality problem and does not imply infinitely many extremal cycles. Literature non-detection cannot exclude an unindexed equivalent formulation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Leonetti--Luca's full open Cambridge article explicitly says that sharpness/nontrivial size information remains unanswered and proposes cycles made of primes in arithmetic progression except the last term. It does not state the period-sensitive square bound or prove that its suggested pattern is the unique equality case. The later Danh et al. paper concerns the separate two-step recurrence. Resultary returned no stronger published record.
+
+## value
+
+PASS
+
+The result directly answers a sharpness direction explicitly highlighted by the source, gives a scale-free period-sensitive bound, and rigidly identifies every equality case. The period-size tradeoff is a natural dynamical invariant of this arithmetic map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

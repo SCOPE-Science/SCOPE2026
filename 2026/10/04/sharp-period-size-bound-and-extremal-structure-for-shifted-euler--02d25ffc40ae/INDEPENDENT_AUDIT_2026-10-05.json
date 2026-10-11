@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:37:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 059f685d540e4161e45ca9b17167244dee9608da",
+        "verify.py 5c90cf612b30d512ea47779614d28de9c6afc717",
+        "Leonetti--Luca DOI:10.1017/S0004972723000394"
+      ],
+      "rationale": "The cototient identity \\(c(x_i)=x_i-x_{i+1}+k\\) telescopes to \\(\\sum_i c(x_i)=Tk\\). Every cycle term is at least two, hence contributes at least one; a maximal term cannot be prime, and for composite \\(M\\) with least prime divisor \\(p\\le\\sqrt M\\), \\(c(M)\\ge M/p\\ge\\sqrt M\\). Therefore \\(\\sqrt M\\le Tk-(T-1)\\). Equality forces all other cototients to be one and both composite inequalities to be equalities, hence \\(M=q^2\\) and every other term prime. Prime terms advance by exactly \\(k-1\\), and the return from \\(q^2\\) is equivalent to \\(q=T(k-1)+1\\). The inspected verifier independently checks the telescoping identity, bound, equality recognition and explicit periods 2, 3 and 4.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source proves eventual periodicity and trajectory bounds depending on initial data; the follow-up improves only the two-step recurrence."
+        ],
+        "reasoning": "Neither theorem dominates the fixed-period maximum bound.",
+        "searches": [
+          "Leonetti--Luca full article",
+          "Danh et al. DOI:10.1017/S0004972723000862"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0004972723000394",
+        "DOI:10.1017/S0004972723000862",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper's proposed prime-progression shape is heuristic/existence-oriented and does not imply \\(M\\le[T(k-1)+1]^2\\) or equality rigidity."
+        ],
+        "reasoning": "The cototient sum and composite maximum estimate add genuinely new implication content.",
+        "searches": [
+          "Leonetti--Luca open-question discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Leonetti--Luca lines 599--600 explicitly pose sharpness and suggest a prime-progression cycle without deriving a bound or classification."
+        ],
+        "reasoning": "The cototient-period formulation and shifted-Euler-cycle formulation were compared.",
+        "searches": [
+          "Resultary: shifted Euler phi(n)+k periodic cycle period bound equality prime square extremal",
+          "Cambridge full article DOI:10.1017/S0004972723000394"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finding was the only direct exact hit among returned records."
+        ],
+        "reasoning": "No prior exact table/formula for the period maximum was located.",
+        "searches": [
+          "Resultary exact shifted-Euler period-bound query"
+        ]
+      },
+      "rationale": "Leonetti--Luca's full open Cambridge article explicitly says that sharpness/nontrivial size information remains unanswered and proposes cycles made of primes in arithmetic progression except the last term. It does not state the period-sensitive square bound or prove that its suggested pattern is the unique equality case. The later Danh et al. paper concerns the separate two-step recurrence. Resultary returned no stronger published record.",
+      "residual_risks": [
+        "An unindexed number-theory note may contain the same elementary cototient argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSES_SHARPNESS_PROBLEM_NOT_COVERING",
+          "evidence": "The source says it has no answer to sharpness/nontrivial size questions and only suggests the extremal-looking cycle shape.",
+          "identifier_or_url": "DOI:10.1017/S0004972723000394",
+          "material_read": "Open Cambridge full HTML around Theorems 1.2--1.3 and the concluding sharpness discussion; lines 599--600 state the question and proposed arithmetic-progression cycle.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "On the iterates of the shifted Euler's function",
+          "trigger": "Exact same recurrence and explicit discussion of sharpness/cycles."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Leonetti--Luca 2024",
+        "shifted-totient iteration literature"
+      ],
+      "rationale": "The result directly answers a sharpness direction explicitly highlighted by the source, gives a scale-free period-sensitive bound, and rigidly identifies every equality case. The period-size tradeoff is a natural dynamical invariant of this arithmetic map.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every minimal period-\\(T\\) orbit of \\(F_k(n)=\\varphi(n)+k\\), \\(k\\ge2\\), has maximum \\(M\\le[T(k-1)+1]^2\\), with equality exactly for the prime-arithmetic-progression cycle ending in \\(q^2\\), where \\(q=T(k-1)+1\\) is prime and all preceding progression terms are prime.",
+  "limitations": [
+    "One-step shifted Euler map with integer \\(k\\ge2\\) only.",
+    "The equality criterion does not establish infinitely many extremal cycles."
+  ],
+  "schema_version": 1
+}

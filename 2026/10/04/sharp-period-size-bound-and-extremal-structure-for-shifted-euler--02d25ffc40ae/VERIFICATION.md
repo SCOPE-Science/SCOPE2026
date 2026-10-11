@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-Run `python3 verify.py`.
 
-The checker uses deterministic integer factorization and primality testing. For every \(2\le k\le80\) and every start \(1\le x_1\le600\), it follows the exact map \(F_k(n)=\varphi(n)+k\) to its repeated state, extracts the minimal cycle, and verifies:
+# Independent mathematical audit
 
-\[
-\sum_i (x_i-\varphi(x_i))=Tk,
-\]
+## correctness
 
-\[
-M\le[T(k-1)+1]^2,
-\]
+PASS
 
-and the full equality structure whenever the bound is attained.
+The cototient identity \(c(x_i)=x_i-x_{i+1}+k\) telescopes to \(\sum_i c(x_i)=Tk\). Every cycle term is at least two, hence contributes at least one; a maximal term cannot be prime, and for composite \(M\) with least prime divisor \(p\le\sqrt M\), \(c(M)\ge M/p\ge\sqrt M\). Therefore \(\sqrt M\le Tk-(T-1)\). Equality forces all other cototients to be one and both composite inequalities to be equalities, hence \(M=q^2\) and every other term prime. Prime terms advance by exactly \(k-1\), and the return from \(q^2\) is equivalent to \(q=T(k-1)+1\). The inspected verifier independently checks the telescoping identity, bound, equality recognition and explicit periods 2, 3 and 4.
 
-It separately checks the exact extremal cycles for \((T,k)=(2,3)\), \((3,3301)\), and \((4,8401)\), including deterministic primality of every required progression term and the return map from the terminal prime square.
+## originality
 
-A successful replay prints `VERIFY_OK`.
+PASS
 
-These are finite regression checks, not an exhaustive proof. The infinite theorem is established symbolically in `RESULT.md` by the cyclic cototient identity and the composite totient inequality.
+Leonetti--Luca's full open Cambridge article explicitly says that sharpness/nontrivial size information remains unanswered and proposes cycles made of primes in arithmetic progression except the last term. It does not state the period-sensitive square bound or prove that its suggested pattern is the unique equality case. The later Danh et al. paper concerns the separate two-step recurrence. Resultary returned no stronger published record.
+
+## value
+
+PASS
+
+The result directly answers a sharpness direction explicitly highlighted by the source, gives a scale-free period-sensitive bound, and rigidly identifies every equality case. The period-size tradeoff is a natural dynamical invariant of this arithmetic map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
