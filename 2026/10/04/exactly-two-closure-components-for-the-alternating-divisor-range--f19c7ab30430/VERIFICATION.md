@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has three checkable layers.
+# Independent mathematical audit
 
-1. **Prime-tail criterion.** The published greedy density proof applies after deleting the primes \(2\) and \(3\). At \(r=2\), the published monotonicity of \(F_m\) reduces all tail inequalities to the direct check at \(m=4\), where
-\[
-F_4=\frac{1807104}{2941225}>\frac{39}{64}>\frac{6}{\pi^2}.
-\]
+## correctness
 
-2. **Finite overlap chain.** The eight constants from exponents \(0,1,2\) at primes \(2\) and \(3\) are checked exactly. Their smallest consecutive ratio is \(117/128\). The classical bound \(\pi>3.14\) implies \(9/\pi^2<117/128\), so the associated intervals overlap from \(6/\pi^2\) through \(73/81\).
+PASS
 
-3. **Gap separation.** The classical bound \(\pi<22/7\) implies \(73/81<9/\pi^2\), proving the two components are disjoint.
+Defant's greedy density proof applies to the prime tail beginning at \(5\). The source monotonicity reduces the tail inequalities to the stated finite check; the actual package checks \(F_4=1807104/2941225>39/64>6/\pi^2\). Hence the coprime-to-six tail closure is \([9/\pi^2,1]\). For a nontrivial \(2\)- or \(3\)-part, every local alternating factor lies between its exponent-one and exponent-two values, so its product lies between \(2/3\) and \(73/81\). The eight endpoint products in the proof chain from \(2/3\) to \(73/81\); their smallest adjacent ratio is exactly \(117/128\), and \(9/\pi^2<117/128\), so their scaled tail intervals cover the whole lower interval. Finally \(73/81<9/\pi^2\). Independent exact arithmetic reproduced all finite constants and the numerical gap.
 
-`verify.py` checks the exact rational arithmetic and exhaustively evaluates the defining function for every integer through \(200000\). That finite sweep is not used as an infinite proof and does not establish novelty.
+## originality
+
+PASS
+
+Defant proves the density criterion, reduces it to finitely many prime-index checks for \(1<r\le2\), and locates the density transition below \(2\), but the paper leaves the number of closure components as an explicit later problem. The audited theorem performs the additional small-prime interval decomposition at the first natural integer point beyond the transition. Resultary returned the assigned finding as the direct exact hit and no earlier equivalent formula.
+
+## value
+
+PASS
+
+The component-count question is explicitly motivated by the defining source, and \(r=2\) is the first natural integer point beyond the density transition. Giving the complete closure with exact endpoints answers a natural boundary case of that open structural problem rather than merely reporting a numerical gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

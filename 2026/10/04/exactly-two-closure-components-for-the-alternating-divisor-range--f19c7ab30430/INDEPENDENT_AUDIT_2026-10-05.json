@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:43:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 07d6f1ec4be8aa6330ad53c076e8f159837a464b",
+        "assigned verify.py blob 048491660c1ce6ca9ed8e77aa7c1872842ca9b3e",
+        "Defant, On Ranges of Variants of the Divisor Functions that are Dense, arXiv:1507.01128v1"
+      ],
+      "rationale": "Defant's greedy density proof applies to the prime tail beginning at \\(5\\). The source monotonicity reduces the tail inequalities to the stated finite check; the actual package checks \\(F_4=1807104/2941225>39/64>6/\\pi^2\\). Hence the coprime-to-six tail closure is \\([9/\\pi^2,1]\\). For a nontrivial \\(2\\)- or \\(3\\)-part, every local alternating factor lies between its exponent-one and exponent-two values, so its product lies between \\(2/3\\) and \\(73/81\\). The eight endpoint products in the proof chain from \\(2/3\\) to \\(73/81\\); their smallest adjacent ratio is exactly \\(117/128\\), and \\(9/\\pi^2<117/128\\), so their scaled tail intervals cover the whole lower interval. Finally \\(73/81<9/\\pi^2\\). Independent exact arithmetic reproduced all finite constants and the numerical gap.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general density theorem only decides connected dense range versus failure of density.",
+          "It does not determine how many gaps remain or their endpoints after density fails."
+        ],
+        "reasoning": "No checked broader theorem specializes mechanically to the two exact intervals.",
+        "searches": [
+          "arXiv:1507.01128v1 full primary text",
+          "Resultary published divisor-range search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.01128v1",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source criterion supplies the dense tail but not the interval union after adjoining primes two and three.",
+          "The audited finite overlap chain and exact gap are additional deductions needed to determine the closure."
+        ],
+        "reasoning": "Knowing only that \\(r=2\\) is on the nondense side does not imply two components or either endpoint.",
+        "searches": [
+          "Defant's tail-density criterion and monotonicity proof",
+          "Defant's open component-count problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source proves nondensity at \\(r=2\\) through its density threshold but does not identify the closure.",
+          "Its final section asks for parameters whose closure has a prescribed finite number of intervals."
+        ],
+        "reasoning": "Descriptions via closure components, the small-prime multiplier fibers over the dense prime tail, and exact endpoints are equivalent formulations of the audited statement.",
+        "searches": [
+          "Resultary query: alternating divisor function s_-2 closure range r=2 two components Defant 73/81 9/pi^2",
+          "arXiv:1507.01128v1, Theorems 2.2--2.4 and final component-count problem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table or published SCOPE entry other than the assigned record was located."
+        ],
+        "reasoning": "An exact component table would directly cover this single-parameter result; none was found.",
+        "searches": [
+          "Resultary exact endpoint/component query",
+          "exact searches for 73/81 and 9/pi^2 with the alternating divisor family"
+        ]
+      },
+      "rationale": "Defant proves the density criterion, reduces it to finitely many prime-index checks for \\(1<r\\le2\\), and locates the density transition below \\(2\\), but the paper leaves the number of closure components as an explicit later problem. The audited theorem performs the additional small-prime interval decomposition at the first natural integer point beyond the transition. Resultary returned the assigned finding as the direct exact hit and no earlier equivalent formula.",
+      "residual_risks": [
+        "An unindexed follow-up note could have evaluated the same single parameter, although direct endpoint and component searches found none."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_DENSITY_ONLY",
+          "evidence": "The paper determines whether the range is dense but leaves finite component counts beyond the threshold open.",
+          "identifier_or_url": "arXiv:1507.01128v1",
+          "material_read": "Full accessible primary text around the density criterion, the \\(1<r\\le2\\) monotonicity reduction, the transition parameter, and the final component-count question.",
+          "method": "Open-access full-text inspection.",
+          "title": "On Ranges of Variants of the Divisor Functions that are Dense",
+          "trigger": "Defining source and the exact density/open-component framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Defant arXiv:1507.01128v1"
+      ],
+      "rationale": "The component-count question is explicitly motivated by the defining source, and \\(r=2\\) is the first natural integer point beyond the density transition. Giving the complete closure with exact endpoints answers a natural boundary case of that open structural problem rather than merely reporting a numerical gap.",
+      "residual_risks": [
+        "The result is one parameter and does not reveal the full component-count phase diagram."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Defant's alternating divisor function \\(s_{-2}\\), the range closure is exactly \\[\\overline{s_{-2}(\\mathbb N)}=[6/\\pi^2,73/81]\\cup[9/\\pi^2,1],\\] and the two intervals are disjoint.",
+  "limitations": [
+    "Only the parameter \\(r=2\\) is classified.",
+    "The theorem does not determine component counts on a neighborhood of \\(2\\) or for other nondense parameters."
+  ],
+  "schema_version": 1
+}
