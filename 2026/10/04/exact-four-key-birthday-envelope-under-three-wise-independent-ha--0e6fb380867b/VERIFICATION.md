@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The standalone checker uses exact rational arithmetic. It verifies the symbolic endpoint laws for every integer \(q\) from \(4\) through \(5000\). For \(4\le q\le10\), it enumerates all \(q^4\) assignments, uniformizes each endpoint law within occupancy types, and checks every concrete three-coordinate marginal against \(1/q^3\). It also checks exact convex mixtures of the endpoint laws.
+# Independent mathematical audit
 
-Replay result:
+## correctness
 
-`VERIFY_OK symbolic_checks=4997 exact_assignment_checks=14 triple_tables_checked=23912 mixture_checks=485`
+PASS
 
-Finite replay does not prove the universal interval; the inequalities in `RESULT.md` do. Originality was assessed by statement-level comparison with the cited sources and the closest indexed occupancy result. Independent audit has not been performed.
+After full coordinate-and-symbol symmetrization, the five occupancy types \(1+1+1+1,2+1+1,2+2,3+1,4\) are governed by normalization plus the exact pair and triple collision moments. The equations \(b+2c+3d+6e=6/q\) and \(d+4e=4/q^2\) are necessary. Under symbol symmetry they are also sufficient for every three-coordinate marginal to be uniform, because the all-equal, one-equal-pair, and all-distinct triple patterns then each split uniformly over concrete symbols. Eliminating \(d\) and optimizing \(b+c\) at fixed \(b+2c\) yields the stated endpoints; the supplied nonnegative endpoint occupancy laws satisfy all moments, and convex mixtures fill the interval. Fresh exact-rational checks independently verified the endpoint laws and collision moments for \(4\le q\le30\).
+
+## originality
+
+PASS
+
+The closest published SCOPE result gives the all-distinct interval under only pairwise independence, where one collision moment remains. Three-wise independence imposes the additional triple-collision moment and produces a strictly different feasible interval. The hashing literature motivates 3-independence and its four-key dependence but does not give this exact birthday-event envelope. Strength-three orthogonal-array language describes uniform-support constructions, not the full polytope of arbitrary joint laws optimized here.
+
+## value
+
+PASS
+
+Four keys are the first point at which 3-wise independence leaves freedom, so the all-distinct event is a canonical birthday-collision diagnostic. The theorem gives the complete sharp envelope, explains exactly how far 3-wise independence can deviate from mutual independence, and supplies extremal laws for every alphabet size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

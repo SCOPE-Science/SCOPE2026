@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T01:06:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After full coordinate-and-symbol symmetrization, the five occupancy types \\(1+1+1+1,2+1+1,2+2,3+1,4\\) are governed by normalization plus the exact pair and triple collision moments. The equations \\(b+2c+3d+6e=6/q\\) and \\(d+4e=4/q^2\\) are necessary. Under symbol symmetry they are also sufficient for every three-coordinate marginal to be uniform, because the all-equal, one-equal-pair, and all-distinct triple patterns then each split uniformly over concrete symbols. Eliminating \\(d\\) and optimizing \\(b+c\\) at fixed \\(b+2c\\) yields the stated endpoints; the supplied nonnegative endpoint occupancy laws satisfy all moments, and convex mixtures fill the interval. Fresh exact-rational checks independently verified the endpoint laws and collision moments for \\(4\\le q\\le30\\).",
+      "risk": "The result optimizes over all abstract three-wise-independent uniform joint laws, not a fixed hash architecture; that distinction is explicit in the claim.",
+      "sources": [
+        "Pătraşcu-Thorup, arXiv:1011.5200v2, full-text definition and statement that simple tabulation is 3-independent but not 4-independent",
+        "independent exact-rational endpoint and moment checks in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hashing papers give concentration/algorithmic guarantees under limited independence rather than exact four-key occupancy polytopes.",
+          "The pairwise theorem covers a broader class of laws but therefore has weaker constraints and different sharp endpoints."
+        ],
+        "reasoning": "Neither broader guarantee implies the exact three-wise feasible interval.",
+        "searches": [
+          "Pătraşcu-Thorup arXiv:1011.5200v2 full text",
+          "Schmidt-Siegel-Srinivasan limited-independence concentration literature",
+          "Resultary pairwise-independent occupancy record 0c331de546b4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1011.5200v2",
+        "Schmidt-Siegel-Srinivasan 1995 limited-independence concentration result",
+        "Resultary record 0c331de546b4",
+        "targeted orthogonal-array/birthday searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three-wise independence implies the pairwise constraints but adds an independent equal-triple constraint.",
+          "The pairwise upper endpoint \\(1-1/q\\) is strictly larger than the submitted upper endpoint for \\(q\\ge4\\), so the pairwise theorem cannot imply the claim."
+        ],
+        "reasoning": "The new two-moment occupancy reduction and its sharp polytope optimization are required.",
+        "searches": [
+          "arXiv:1011.5200v2 lines defining k-independence and simple tabulation as 3-independent",
+          "Resultary pairwise occupancy theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest Resultary hit is the pairwise-independent occupancy theorem, with a different interval and only one moment constraint.",
+          "Pătraşcu-Thorup explicitly state that simple tabulation is 3-independent but not 4-independent, motivating the first four-key freedom, but do not state the all-distinct envelope."
+        ],
+        "reasoning": "Birthday, occupancy, limited-independence hashing, and orthogonal-array formulations were compared; no equivalent endpoint interval was located.",
+        "searches": [
+          "Resultary query: four three-wise independent uniform variables all distinct probability birthday hashing exact range occupancy",
+          "Web query: \"three-wise\" \"all distinct\" four variables birthday hashing",
+          "Strength-three orthogonal-array searches for four columns and all-distinct events"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or prior record with endpoints \\((q-1)(q-5)/q^2\\) and \\((q-1)(q-2)/q^2\\) was found."
+        ],
+        "reasoning": "The theorem is symbolic for every \\(q\\), not a recomputation of a finite table.",
+        "searches": [
+          "Resultary semantic search for three-wise birthday envelope",
+          "Targeted exact-formula web searches"
+        ]
+      },
+      "rationale": "The closest published SCOPE result gives the all-distinct interval under only pairwise independence, where one collision moment remains. Three-wise independence imposes the additional triple-collision moment and produces a strictly different feasible interval. The hashing literature motivates 3-independence and its four-key dependence but does not give this exact birthday-event envelope. Strength-three orthogonal-array language describes uniform-support constructions, not the full polytope of arbitrary joint laws optimized here.",
+      "residual_risks": [
+        "A design-theory paper could encode the same weighted occupancy polytope under strength-three exchangeable arrays; bounded searches did not locate such a statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATION_NOT_ENVELOPE",
+          "evidence": "The paper says simple tabulation is only 3-independent and analyzes other hashing guarantees; it does not give the four-key all-distinct probability interval.",
+          "identifier_or_url": "arXiv:1011.5200v2",
+          "material_read": "Full arXiv HTML introduction, definition of k-independence, simple-tabulation independence statement, and surrounding hashing guarantees.",
+          "method": "Lawful open full-text inspection.",
+          "title": "The Power of Simple Tabulation Hashing",
+          "trigger": "Primary 3-independent-but-not-4-independent hashing source."
+        },
+        {
+          "assessment": "RELATED_WEAKER_INDEPENDENCE_NOT_COVERING",
+          "evidence": "Its interval is the pairwise-independent interval controlled by one pair-collision moment; the three-wise problem has an additional triple moment and different endpoints.",
+          "identifier_or_url": "Resultary:2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4",
+          "material_read": "Indexed title and exact result summary returned by the scientific-search corpus.",
+          "method": "Semantic scientific-record comparison.",
+          "title": "One-moment reduction for symmetric occupancy statistics under pairwise-independent uniforms",
+          "trigger": "Closest published SCOPE occupancy-envelope result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four keys are the first point at which 3-wise independence leaves freedom, so the all-distinct event is a canonical birthday-collision diagnostic. The theorem gives the complete sharp envelope, explains exactly how far 3-wise independence can deviate from mutual independence, and supplies extremal laws for every alphabet size.",
+      "risk": "The result concerns abstract joint laws rather than performance of one fixed practical hash family.",
+      "sources": [
+        "arXiv:1011.5200v2",
+        "Resultary pairwise-independent occupancy theorem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For four exactly uniform three-wise-independent variables on a common \\(q\\)-point set, \\(q\\ge4\\), the attainable probability that all four values are distinct is exactly the interval \\(\\left[\\max\\{0,(q-1)(q-5)/q^2\\},(q-1)(q-2)/q^2\\right]\\), and every value in the interval is attained.",
+  "limitations": [
+    "Exactly four variables, exact uniformity, and exact three-wise independence.",
+    "Fixed implementable hash families may realize only a strict subset of the abstract attainable interval."
+  ],
+  "schema_version": 1
+}
