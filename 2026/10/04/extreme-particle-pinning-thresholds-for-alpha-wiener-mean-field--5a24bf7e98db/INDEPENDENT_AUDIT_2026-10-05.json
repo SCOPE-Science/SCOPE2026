@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:12:09.980116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3c83a50932fc0675c580b37d5054eb5c9d8e170b",
+        "assigned verify.py blob 3556a977bb134fb6311d50c2e436925c76d1e870",
+        "Menguturk--Menguturk, DOI:10.1017/jpr.2025.10032, complete accessible primary article",
+        "Barczy--Pap, arXiv:0810.3070"
+      ],
+      "rationale": "Subtracting the equal-weight ensemble mean from each particle removes the common mean term and yields a scalar linear residual SDE with kernel ((T-t)/(T-s))^alpha. At each fixed t the kernel integrals are iid centered Gaussians with variance v_alpha(t), so the entire residual vector is exactly sigma sqrt(v_alpha(t)) times an iid Gaussian sample centered by its empirical mean. The maximum differs from the ordinary absolute-Gaussian maximum by at most |bar Z_n|; since sqrt(log n)|bar Z_n| tends to zero, both first-order scaling and the 1/b_n Gumbel refinement transfer. Direct integration gives the three alpha regimes and hence the exact condition v_alpha(t_n) log n -> 0 for simultaneous pinning, with the stated critical windows. A fresh analytic/numeric check confirmed positivity and the closed-form regimes, while the packaged verifier separately checks quadrature and tail normalization.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source model proves finite-system pinning and gives the residual representation.",
+          "Barczy--Pap study one alpha-Wiener bridge endpoint behavior.",
+          "Del Moral--Rio give broad mean-field concentration machinery."
+        ],
+        "reasoning": "These sources are broader in model class or path theory but do not dominate the exact maximum-over-particles asymptotic and joint terminal-window classification.",
+        "searches": [
+          "Menguturk--Menguturk DOI:10.1017/jpr.2025.10032",
+          "Barczy--Pap arXiv:0810.3070",
+          "Del Moral--Rio DOI:10.1214/10-AAP716"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1017/jpr.2025.10032",
+        "https://arxiv.org/abs/0810.3070",
+        "DOI:10.1088/1751-8121/ac2715",
+        "DOI:10.1214/10-AAP716",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source representation plus Gaussian extreme-value theory are the ingredients, but the source expressly leaves convergence-rate analysis open.",
+          "Deriving the exact centered sample maximum, the iff pinning criterion and the alpha-dependent critical windows requires the additional joint-limit calculation."
+        ],
+        "reasoning": "The claim is not printed or directly parameter-substituted from the source model; it closes a rate question the source identifies as open.",
+        "searches": [
+          "full-text comparison with the source model's residual representation and Remark 2.1",
+          "comparison with standard Gaussian extreme-value theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent growing-ensemble extreme-value result was located.",
+          "The same model is described in terms of coalescence/pinning to future ensemble averages and alpha-Wiener bridges."
+        ],
+        "reasoning": "Both mean-field-particle and alpha-Wiener-bridge terminology were checked.",
+        "searches": [
+          "Resultary: alpha-Wiener bridge mean-field particles maximum pinning threshold Gumbel terminal window",
+          "search: uniform pinning all particles alpha Wiener bridge maximum deviation",
+          "search: coalescent mean field particle maximum Gaussian deviations terminal time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database containing the stated thresholds was located."
+        ],
+        "reasoning": "The theorem is an analytic all-n asymptotic classification, not a tabulated finite result.",
+        "searches": [
+          "Resultary semantic search",
+          "searches for the three critical terminal-window formulas"
+        ]
+      },
+      "rationale": "The exact source model derives the residual representation and alpha-Wiener specialization but explicitly says the influence of the interaction function on convergence speed is left for future research, and separately leaves the spatial convergence rate for future work. The inspected primary article contains no growing-particle maximum theorem, no log-n terminal window, and no Gumbel profile. Single alpha-Wiener bridge endpoint theory and general mean-field concentration results do not imply the exact centered-Gaussian maximum reduction or the three joint n/t regimes. Resultary searches found no equivalent published SCOPE claim.",
+      "residual_risks": [
+        "Equivalent extreme-value asymptotics could appear in generic Gaussian-array terminology without referencing the mean-field model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_AND_OPEN_RATE_QUESTION_NOT_EXTREME_VALUE_THEOREM",
+          "evidence": "The article provides the model ingredients but explicitly leaves detailed convergence-rate analysis for future work and does not state the audited growing-n maximum result.",
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2025.10032",
+          "material_read": "Complete accessible primary article portions defining the model, residual representation, alpha-Wiener specialization, Remark 2.1, spatial-limit discussion and stated open rate questions.",
+          "method": "Lawful publisher full-text inspection.",
+          "title": "Mean-field interacting systems with sequential coalescence at future ensemble averages",
+          "trigger": "Exact model source and strongest plausible priority source."
+        },
+        {
+          "assessment": "SINGLE_PROCESS_BACKGROUND",
+          "evidence": "It does not address a growing particle ensemble or maximum-over-particles transition.",
+          "identifier_or_url": "https://arxiv.org/abs/0810.3070",
+          "material_read": "Primary theorem/abstract and endpoint-behavior context.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "alpha-Wiener bridges: singularity of induced measures and sample path properties",
+          "trigger": "Closest single-process endpoint theory."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Menguturk--Menguturk",
+        "Barczy--Pap",
+        "Del Moral--Rio"
+      ],
+      "rationale": "The model source explicitly identifies convergence speed as an open issue. Uniform pinning of every particle when the ensemble size grows is a natural stronger question than pointwise finite-n pinning, and the theorem supplies sharp transition scales plus a second-order Gumbel profile. The three alpha regimes expose a genuine phase change at alpha=1/2.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1017/jpr.2025.10032",
+    "https://arxiv.org/abs/0810.3070",
+    "DOI:10.1088/1751-8121/ac2715",
+    "DOI:10.1214/10-AAP716",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equal weights, one segment, no common noise, homogeneous Gaussian idiosyncratic noise and f(t)=alpha/(T-t) only.",
+    "The theorem concerns particle maxima at chosen times, not a continuous-time supremum."
+  ],
+  "residual_risks": [
+    "Equivalent extreme-value asymptotics could appear in generic Gaussian-array terminology without referencing the mean-field model."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MODEL_AND_OPEN_RATE_QUESTION_NOT_EXTREME_VALUE_THEOREM",
+      "evidence": "The article provides the model ingredients but explicitly leaves detailed convergence-rate analysis for future work and does not state the audited growing-n maximum result.",
+      "identifier_or_url": "https://doi.org/10.1017/jpr.2025.10032",
+      "material_read": "Complete accessible primary article portions defining the model, residual representation, alpha-Wiener specialization, Remark 2.1, spatial-limit discussion and stated open rate questions.",
+      "method": "Lawful publisher full-text inspection.",
+      "title": "Mean-field interacting systems with sequential coalescence at future ensemble averages",
+      "trigger": "Exact model source and strongest plausible priority source."
+    },
+    {
+      "assessment": "SINGLE_PROCESS_BACKGROUND",
+      "evidence": "It does not address a growing particle ensemble or maximum-over-particles transition.",
+      "identifier_or_url": "https://arxiv.org/abs/0810.3070",
+      "material_read": "Primary theorem/abstract and endpoint-behavior context.",
+      "method": "Lawful open primary-source inspection.",
+      "title": "alpha-Wiener bridges: singularity of induced measures and sample path properties",
+      "trigger": "Closest single-process endpoint theory."
+    }
+  ]
+}

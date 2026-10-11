@@ -1,18 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the stated equal-weight, zero-common-noise specialization, subtracting the ensemble average from each particle cancels the shared mean and leaves an exactly solvable linear SDE. The variation-of-constants kernel is the \(\alpha\)-Wiener kernel, so at each fixed time the residual vector is exactly a centered iid-Gaussian sample multiplied by \(\sigma\sqrt{v_\alpha(t)}\). The maximum differs from the ordinary iid absolute-Gaussian maximum by at most \(|\bar Z_n|\), which is negligible both on the \(\sqrt{\log n}\) scale and on the Gumbel \(1/b_n\) scale. The closed form and three endpoint equivalents for \(v_\alpha\) follow by direct integration.
+## correctness
 
-Risk: the theorem is deliberately restricted to a chosen time and to the exact Gaussian specialization. No inference is made about continuous-time suprema or general weighted systems.
+PASS
 
-## Originality
-PASS. The closest source, DOI:10.1017/jpr.2025.10032, contains the exact residual representation and \(\alpha\)-Wiener example but explicitly leaves the dependence of convergence rate on the interaction function for future study; it separately leaves its pointwise spatial convergence rate for future work. Full-text inspection found no theorem for the maximum particle deviation, no \(\log n\) terminal window, and no Gumbel law. Barczy–Pap's arXiv:0810.3070 covers endpoint behavior of a single \(\alpha\)-Wiener bridge, while the earlier pinned-particle paper DOI:10.1088/1751-8121/ac2715 treats the one-segment mean-field limit and Del Moral–Rio DOI:10.1214/10-AAP716 supplies broad concentration machinery. None of the inspected statements implies the exact growing-ensemble thresholds or the centered-Gaussian maximum law.
+Subtracting the equal-weight ensemble mean from each particle removes the common mean term and yields a scalar linear residual SDE with kernel ((T-t)/(T-s))^alpha. At each fixed t the kernel integrals are iid centered Gaussians with variance v_alpha(t), so the entire residual vector is exactly sigma sqrt(v_alpha(t)) times an iid Gaussian sample centered by its empirical mean. The maximum differs from the ordinary absolute-Gaussian maximum by at most |bar Z_n|; since sqrt(log n)|bar Z_n| tends to zero, both first-order scaling and the 1/b_n Gumbel refinement transfer. Direct integration gives the three alpha regimes and hence the exact condition v_alpha(t_n) log n -> 0 for simultaneous pinning, with the stated critical windows. A fresh analytic/numeric check confirmed positivity and the closed-form regimes, while the packaged verifier separately checks quadrature and tail normalization.
 
-Residual risk: extreme-value statements may exist under different terminology in literature not surfaced by the targeted searches. The accepted claim avoids treating the classical Gaussian maximum theorem or single-bridge endpoint asymptotics as novel; novelty is confined to their exact combination with this finite-\(n\) centered particle representation and the resulting joint terminal-window phase diagram.
+## originality
 
-## Value
-PASS. The source explicitly identifies convergence-rate analysis as an open direction. Pointwise pinning of each particle does not answer whether an entire growing ensemble is simultaneously close to its average. The theorem gives an exact and interpretable answer: a \(\log n\) extreme-value penalty changes the required approach to the terminal time, with a genuine three-regime phase transition at \(\alpha=1/2\). The Gumbel refinement quantifies residual all-particle risk beyond first order.
+PASS
 
-Risk: the value is specific rather than universal; extending the threshold to weighted, correlated, or non-Gaussian systems remains open.
+The exact source model derives the residual representation and alpha-Wiener specialization but explicitly says the influence of the interaction function on convergence speed is left for future research, and separately leaves the spatial convergence rate for future work. The inspected primary article contains no growing-particle maximum theorem, no log-n terminal window, and no Gumbel profile. Single alpha-Wiener bridge endpoint theory and general mean-field concentration results do not imply the exact centered-Gaussian maximum reduction or the three joint n/t regimes. Resultary searches found no equivalent published SCOPE claim.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The model source explicitly identifies convergence speed as an open issue. Uniform pinning of every particle when the ensemble size grows is a natural stronger question than pointwise finite-n pinning, and the theorem supplies sharp transition scales plus a second-order Gumbel profile. The three alpha regimes expose a genuine phase change at alpha=1/2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
