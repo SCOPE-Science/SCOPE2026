@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-A separate finite replay checks the enumerative layer in complementary ways.
+## correctness
 
-First, for every \(1\le k\le14\), it enumerates every binary word of length \(k\) with odd Hamming weight and sends it to a canonical representative under all \(k\) rotations and \(k\) reflections. Counting canonical representatives agrees with the first fourteen terms of
-\[
-1,1,2,2,4,5,9,12,23,34,63,102,190,325,612,1088,2056,3771,7155,13364.
-\]
+PASS
 
-Second, it evaluates the divisor-sum plus reflection formula from RESULT.md exactly using integer arithmetic through \(k=20\) and obtains the full displayed sequence.
+Assari--Hosseinzadeh--Macpherson's finite-set analysis yields convex equivalence classes around an odd balanced quotient with dihedral induced symmetry; the cyclic class-size sequence up to rotation/reversal determines the finite type. Every odd cyclic composition is realizable by clustering dense-circle points near a balanced odd-gon skeleton. Block-start encoding gives precisely odd-weight bracelets. Burnside's lemma yields the rotation and reflection terms. Babai--Cameron's local-order formula then gives the self-converse count after quotienting by converse. The assigned verifier brute-forces bracelets through length 14 and checks the formulas through length 20.
 
-Third, it computes the Babai--Cameron local-order numbers
-\[
-1,1,2,2,4,6,10,16,30,52,94,172,316,586,1096,2048,3856,7286,13798,26216
-\]
-through \(k=20\), and verifies throughout that
-\[
-2f_{N_3}(k)-L(k)=2^{\lfloor(k-1)/2\rfloor}.
-\]
-It ends with `VERIFY_OK`.
+## originality
 
-The replay does not independently establish the model-theoretic identification of finite \(N_3\)-types with odd cyclic compositions. That step is checked against Proposition 3.3.2 and Claims 1--2 in the primary paper, together with the explicit realization argument in RESULT.md. No independent audit has been performed.
+PASS
+
+The hypergraph source supplies the class decomposition, odd balanced quotient, dihedral symmetry and \(\operatorname{Aut}(N_3)=H\), but does not state the all-arity orbit formula. Babai--Cameron count local orders for the index-two subgroup before quotienting by converse; they do not give the \(N_3\) bracelet profile or the self-converse count. Targeted searches found no earlier exact profile.
+
+## value
+
+PASS
+
+Finite-set orbit growth is a central oligomorphic invariant of \(N_3\). The exact all-arity formula, asymptotic, and self-converse local-order count substantially sharpen the exponential-scale information motivating the source literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

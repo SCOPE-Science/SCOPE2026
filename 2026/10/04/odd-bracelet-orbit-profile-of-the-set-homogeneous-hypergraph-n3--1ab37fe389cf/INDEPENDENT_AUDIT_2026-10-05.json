@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:46:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md d9088a9491eb5edb5d87266ab3a6dc6c1c459ebd",
+        "verify.py 5da83ff6839c38f1c26ffefebc9befd7bf00fb20",
+        "arXiv:2202.09613 / DOI:10.1112/jlms.12796",
+        "DOI:10.37236/1516"
+      ],
+      "rationale": "Assari--Hosseinzadeh--Macpherson's finite-set analysis yields convex equivalence classes around an odd balanced quotient with dihedral induced symmetry; the cyclic class-size sequence up to rotation/reversal determines the finite type. Every odd cyclic composition is realizable by clustering dense-circle points near a balanced odd-gon skeleton. Block-start encoding gives precisely odd-weight bracelets. Burnside's lemma yields the rotation and reflection terms. Babai--Cameron's local-order formula then gives the self-converse count after quotienting by converse. The assigned verifier brute-forces bracelets through length 14 and checks the formulas through length 20.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first gives structural ingredients without enumeration; the second counts local orders under the smaller group."
+        ],
+        "reasoning": "Neither checked source supplies the quotient-by-converse profile.",
+        "searches": [
+          "Assari--Hosseinzadeh--Macpherson Proposition 3.3.2",
+          "Babai--Cameron Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.09613",
+        "DOI:10.1112/jlms.12796",
+        "DOI:10.37236/1516",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit formula needs realizability of all odd cyclic compositions and a new dihedral Burnside count; the self-converse count uses the new quotient profile."
+        ],
+        "reasoning": "The final formulas are not direct substitutions into either checked source theorem.",
+        "searches": [
+          "Assari et al. finite-class proof",
+          "Babai--Cameron local-order enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite \\(N_3\\)-types correspond to cyclic class-size compositions modulo dihedral symmetry; odd-weight bracelets encode those compositions."
+        ],
+        "reasoning": "Finite types, set orbits, cyclic compositions, and bracelets were compared.",
+        "searches": [
+          "Resultary: N3 odd bracelet orbit profile self converse local orders",
+          "arXiv:2202.09613",
+          "DOI:10.37236/1516"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior table matching the displayed \\(N_3\\) profile or self-converse formula was located."
+        ],
+        "reasoning": "The classical local-order sequence is a different orbit profile.",
+        "searches": [
+          "Resultary exact N3/bracelet sequence search",
+          "searches for self-converse local orders"
+        ]
+      },
+      "rationale": "The hypergraph source supplies the class decomposition, odd balanced quotient, dihedral symmetry and \\(\\operatorname{Aut}(N_3)=H\\), but does not state the all-arity orbit formula. Babai--Cameron count local orders for the index-two subgroup before quotienting by converse; they do not give the \\(N_3\\) bracelet profile or the self-converse count. Targeted searches found no earlier exact profile.",
+      "residual_risks": [
+        "An older permutation-group orbit table may encode the same converse quotient under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_INPUT_NOT_ORBIT_FORMULA",
+          "evidence": "The paper uses the decomposition for set-homogeneity but does not print the bracelet profile.",
+          "identifier_or_url": "arXiv:2202.09613; DOI:10.1112/jlms.12796",
+          "material_read": "Full relevant primary section around Proposition 3.3.2 and Claims 1--2, including odd balanced quotients, dihedral symmetry, and class-size matching.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Set-homogeneous hypergraphs",
+          "trigger": "Exact source constructing \\(N_3\\) and its finite class relation."
+        },
+        {
+          "assessment": "COUNTS_LOCAL_ORDERS_BEFORE_CONVERSE_QUOTIENT",
+          "evidence": "Theorem 3.4 counts local orders up to isomorphism, not the larger group's orbit profile.",
+          "identifier_or_url": "DOI:10.37236/1516",
+          "material_read": "Full primary PDF around Lemma 3.3, Theorem 3.4 and the homogeneous-model discussion; the formula page was visually inspected.",
+          "method": "Open full-PDF text and page-image inspection.",
+          "title": "Automorphisms and Enumeration of Switching Classes of Tournaments",
+          "trigger": "Exact source for local-order enumeration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assari--Hosseinzadeh--Macpherson 2023",
+        "Babai--Cameron 2000",
+        "oligomorphic-growth context"
+      ],
+      "rationale": "Finite-set orbit growth is a central oligomorphic invariant of \\(N_3\\). The exact all-arity formula, asymptotic, and self-converse local-order count substantially sharpen the exponential-scale information motivating the source literature.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the set-homogeneous hypergraph \\(N_3\\), the automorphism-group orbits on \\(k\\)-element subsets are exactly odd-weight binary bracelets of length \\(k\\), giving the stated Burnside formula, asymptotic \\(2^{k-2}/k+O(2^{k/2})\\), and self-converse local-order count \\(2^{\\lfloor(k-1)/2\\rfloor}\\).",
+  "limitations": [
+    "Unordered finite subsets, not ordered tuples.",
+    "Specific to \\(N_3\\) and the automorphism/anti-automorphism extension of the dense local order.",
+    "Bracelet enumeration itself is classical."
+  ],
+  "schema_version": 1
+}

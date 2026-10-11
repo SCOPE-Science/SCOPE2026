@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The primary paper proves that finite subsets split into convex \(\sim_U\)-classes, that the quotient representative set is balanced of odd size with dihedral automorphism group, and that compatible class maps lift to \(R\)-isomorphisms. Those statements yield the cyclic-composition classification. The realization of every odd cyclic composition is supplied explicitly using a perturbed regular odd polygon and small convex clusters. The bijection with odd-weight bracelets and the Burnside calculation are exact; a separate replay checks the formula through length 20. The local-order corollary follows from the index-two automorphism/anti-automorphism extension and the published Babai--Cameron count.
+PASS
 
-## Originality
+Assari--Hosseinzadeh--Macpherson's finite-set analysis yields convex equivalence classes around an odd balanced quotient with dihedral induced symmetry; the cyclic class-size sequence up to rotation/reversal determines the finite type. Every odd cyclic composition is realizable by clustering dense-circle points near a balanced odd-gon skeleton. Block-start encoding gives precisely odd-weight bracelets. Burnside's lemma yields the rotation and reflection terms. Babai--Cameron's local-order formula then gives the self-converse count after quotienting by converse. The assigned verifier brute-forces bracelets through length 14 and checks the formulas through length 20.
 
-PASS, with a residual folklore risk. Exact searches were carried out for the N3 orbit profile, dense-local-order anti-automorphism orbits, local orders modulo converse, self-converse locally transitive tournaments, odd-weight bracelets, and the resulting numerical sequence. The 2023 primary paper contains the decomposition but no orbit formula. The 2000 Babai--Cameron paper counts local orders before quotienting by converse. Public tournament data reproduce those local-order counts but do not tabulate the quotient profile found here. A semantic research index was also searched under several equivalent formulations and returned no covering result.
+## originality
 
-## Value
+PASS
 
-PASS. The automorphism/anti-automorphism extension of the dense local order is one of the two groups singled out in Simon's conjectural description of primitive groups with near-\(2^n\) set-orbit growth. The exact formula sharpens that scale to a full all-arity profile and identifies the precise correction caused by reflection/self-converse types. The self-converse count \(2^{\lfloor(k-1)/2\rfloor}\) is a clean finite enumeration corollary.
+The hypergraph source supplies the class decomposition, odd balanced quotient, dihedral symmetry and \(\operatorname{Aut}(N_3)=H\), but does not state the all-arity orbit formula. Babai--Cameron count local orders for the index-two subgroup before quotienting by converse; they do not give the \(N_3\) bracelet profile or the self-converse count. Targeted searches found no earlier exact profile.
 
-## Limitations
+## value
 
-The result is restricted to unordered finite subsets. The full text of Cameron's 1981 paper was not available through the checked source path, so an older explicit quotient-by-converse formula there cannot be ruled out solely from direct inspection. This risk is mitigated by later literature that quotes exact local-order counts while discussing the anti-automorphism extension only at the growth-rate level, and by targeted searches using several equivalent formulations. No independent audit has been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Finite-set orbit growth is a central oligomorphic invariant of \(N_3\). The exact all-arity formula, asymptotic, and self-converse local-order count substantially sharpen the exponential-scale information motivating the source literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
