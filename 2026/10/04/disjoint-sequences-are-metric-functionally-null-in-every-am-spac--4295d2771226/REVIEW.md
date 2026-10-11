@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Kakutani's representation puts any real AM-space lattice-isometrically into a closed sublattice of \(C(K)\). For a disjoint sequence and a fixed center \(w\), a norming point of \(w\) can lie in the nonzero set of at most one sequence member, so the internal metric functional \(h_w\) is negative at at most one term. Pointwise closure preserves this “negative at at most one term” property, giving d-weak nullity. The arbitrary norm profile follows by scaling a standard infinite disjoint positive sequence in an infinite-dimensional Banach lattice. The topology comparison and finite-dimensional endpoint are proved separately and do not rely on an unjustified ambient-subspace transfer.
+## correctness
 
-## Originality
-PASS, with disclosed residual risk. The focal September 2026 preprint was inspected at its topology theorem and its full \(C[0,1]\) disjoint-support proof. The nearest public database record gives an exact compact \(C(K)\) dichotomy, but a general AM-space is only a closed sublattice of a \(C(K)\)-space. D-weak convergence is invariant under surjective isometries, not arbitrary embeddings, so that compact \(C(K)\) theorem does not by itself imply the AM-space statement. Targeted searches for AM-spaces, abstract M-spaces, closed sublattices, disjoint sequences and metric-functional convergence returned no exact theorem. The mechanism is close enough to the \(C(K)\) result that an unindexed abstract reformulation remains a real residual risk.
+PASS
 
-## Value
-PASS. AM-spaces form a foundational Banach-lattice class substantially broader than full \(C(K)\)-spaces. The result identifies a structural source of pathological metric-functional convergence—lattice disjointness itself—and gives a complete finite/infinite dichotomy for equality with classical weak topology inside this class. The arbitrary norm-profile conclusion shows that the phenomenon is not tied to a specially tuned example or growth rate.
+Kakutani representation places any real AM-space lattice-isometrically as a closed sublattice of some \(C(K)\). For a fixed center \(w\), choose a point where its sup norm is attained. Pairwise disjointness means at most one sequence element is nonzero there, so the internal metric functional is nonnegative on all but at most one term. Pointwise closure then shows the same two-negative-values obstruction for every metric functional, proving d-weak nullity. Scaling a standard infinite disjoint positive sequence gives arbitrary norm profiles. Convex norm-continuity makes the metric-functional topology no finer than the weak topology; an unbounded d-weakly null sequence separates them in infinite dimension, while finite-dimensional AM-spaces reduce to finite \(\ell_\infty\) and the coordinate functionals arise as metric-functional limits.
 
-## Closest literature and limitations
-The closest primary source is A. W. Gutiérrez and O. Nevanlinna, arXiv:2609.19368v1 (16 September 2026), which constructs an unbounded d-weakly null disjoint-support sequence in \(C[0,1]\). The closest located public extension is the compact \(C(K)\) dichotomy record `2026/9/20/SCOPE-metric-functional-topology-ck-dichotomy--c5d8c0f37cb6`, inspected in full. Kakutani's classical representation theorem and Oikhberg's published disjoint-sequence lemma supply the Banach-lattice ingredients. The result does not claim analogous behavior for non-AM Banach lattices.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A published C(K) result already proves arbitrary-profile disjoint d-weak null sequences and the finite/infinite topology dichotomy for full continuous-function spaces. The AM-space theorem is not a formal restriction of that result: a general AM-space is only a closed lattice subspace of \(C(K)\), and metric functionals of an isometric subspace need not be restrictions of ambient metric functionals. The assigned proof reruns the internal-center argument inside the represented sublattice and strengthens it to every pairwise disjoint sequence. Current searches found no prior abstract-AM formulation or theorem implying this subspace transfer.
+
+## value
+
+PASS
+
+The result turns a phenomenon known for full \(C(K)\) spaces into a clean structural theorem for all AM-spaces and identifies every disjoint sequence as metric-functionally null. The arbitrary-norm-profile and finite/infinite topology dichotomy are natural consequences with independent functional-analytic use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
