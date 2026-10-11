@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_bipartisan_uncovered_first_layer.py` performs an exact finite replay using only the Python standard library.
 
-For every tournament of orders \(1\) through \(5\), the maximal lottery is computed independently by rational Gaussian elimination and by Pfaffian null-vector formulas on candidate supports. Both implementations verify positivity, normalization, zero payoff on the support, and nonnegative payoff against every pure alternative.
+# Independent mathematical audit
 
-The uncovered set is independently computed from the covering relation and from the equivalent two-step-king characterization.
+## correctness
 
-The verifier confirms:
-- equality \(BP(T)=UC(T)\) for every tournament through order \(4\);
-- exactly \(120\) strict cases among the \(1024\) order-five tournaments;
-- exact incidence \(15/128\);
-- order-five joint-size counts \((1,1):320\), \((3,3):520\), \((3,4):120\), \((5,5):64\);
-- one strict isomorphism class of full orbit size \(120\);
-- canonical maximal lottery \((1/3,0,0,1/3,1/3)\);
-- canonical sets \(BP=\{A,D,E\}\) and \(UC=\{A,C,D,E\}\).
+PASS
 
-Run:
+The inspected verifier enumerates every tournament through order five, computes the maximal lottery independently by rational support solving and by Pfaffian null vectors, and computes the uncovered set independently from covering and from the two-step-king criterion. It obtains strict-count sequence \(0,0,0,0,120\), the exact order-five census \(320,520,120,64\), and one strict canonical orbit of size 120. A separate independent enumeration reproduced the same strict-count sequence and the complete order-five size census. The canonical representative's lottery \((1/3,0,0,1/3,1/3)\) satisfies the exact equilibrium inequalities and its uncovered set has the stated four elements.
 
-`python3 verify_bipartisan_uncovered_first_layer.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+The foundational and modern tournament-solution literature defines the bipartisan set as the unique maximal-lottery support, defines the uncovered set, and places both in the standard set-theoretic hierarchy. Brandt's full primary preprint develops the common framework, while Brandt–Grundbacher study a different separation involving Banks and bipartisan sets. Targeted web and Resultary searches for the order-five threshold, the count 120, probability 15/128 and the single strict isomorphism class found no covering published statement.
 
-The computation proves only the stated finite first separation.
+## value
+
+PASS
+
+The bipartisan and uncovered sets are standard, closely related tournament solutions. Locating the exact first strict order and completely classifying that first layer gives a natural finite separation invariant, including both labelled frequency and the unique unlabeled obstruction, rather than an arbitrary small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

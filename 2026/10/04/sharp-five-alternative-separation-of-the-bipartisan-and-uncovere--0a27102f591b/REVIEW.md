@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every tournament through order \(5\) is exhausted. The maximal lottery is recomputed independently by exact Gaussian elimination and by Pfaffian null-vector formulas, while the uncovered set is recomputed both from the covering relation and from the two-step-king characterization. The implementations agree on every case. Full relabeling of all strict order-five cases yields one orbit of size \(120\).
+## correctness
 
-Risk: the theorem is finite and stops at order \(5\); no larger-order inference is made.
+PASS
 
-## Originality
-**PASS.** Prior work defines the bipartisan set, establishes uniqueness of the maximal lottery, and records that \(BP(T)\subseteq UC(T)\). The inspected sources did not state the sharp equality-through-four threshold, the exact \(120\)-tournament first layer, the \(15/128\) incidence, or the one-orbit classification. Exact-number and parameter searches likewise did not locate those statements.
+The inspected verifier enumerates every tournament through order five, computes the maximal lottery independently by rational support solving and by Pfaffian null vectors, and computes the uncovered set independently from covering and from the two-step-king criterion. It obtains strict-count sequence \(0,0,0,0,120\), the exact order-five census \(320,520,120,64\), and one strict canonical orbit of size 120. A separate independent enumeration reproduced the same strict-count sequence and the complete order-five size census. The canonical representative's lottery \((1/3,0,0,1/3,1/3)\) satisfies the exact equilibrium inequalities and its uncovered set has the stated four elements.
 
-Risk: failed search is not proof of bibliographic uniqueness. An unindexed historical computation or teaching table could contain the same order-five census.
+## originality
 
-## Value
-**PASS.** The bipartisan set is a game-theoretic refinement of the uncovered set, so the smallest tournament where the refinement becomes strict is a natural structural boundary. The complete first layer is unexpectedly rigid: strictness always removes exactly one uncovered alternative and all strict tournaments are isomorphic. This gives a compact benchmark linking covering and mixed-equilibrium notions of tournament choice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The foundational and modern tournament-solution literature defines the bipartisan set as the unique maximal-lottery support, defines the uncovered set, and places both in the standard set-theoretic hierarchy. Brandt's full primary preprint develops the common framework, while Brandt–Grundbacher study a different separation involving Banks and bipartisan sets. Targeted web and Resultary searches for the order-five threshold, the count 120, probability 15/128 and the single strict isomorphism class found no covering published statement.
+
+## value
+
+PASS
+
+The bipartisan and uncovered sets are standard, closely related tournament solutions. Locating the exact first strict order and completely classifying that first layer gives a natural finite separation invariant, including both labelled frequency and the unique unlabeled obstruction, rather than an arbitrary small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
