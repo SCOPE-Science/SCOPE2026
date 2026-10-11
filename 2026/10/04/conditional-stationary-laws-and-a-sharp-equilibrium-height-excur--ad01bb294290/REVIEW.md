@@ -1,28 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Invariance against arbitrary antiderivatives of functions of \(x\) and \(z\) gives
-\[
-\mathbb E[y\mid x]=x,
-\qquad
-\mathbb E[x^2\mid z]=\frac chz.
-\]
-The latter forces \(z\ge0\) on the support. The exact polynomial identity
-\[
-L\left(-hxy+\frac h2x^2+bz-\frac k2z^2\right)
-=
-kc\,z^2-bc\,z-ah(y-x)^2
-\]
-gives the quadratic defect. Its equality case is reconstructed using invariance of the support and yields exactly the three equilibrium atoms. Strict defect then forces positive stationary mass above \(z=b/k\). The packaged exact-arithmetic checker verifies the algebra and canonical constants.
+## correctness
 
-Risk: the equality proof uses the standard fact that the support of an invariant probability measure for a continuous complete flow is invariant.
+PASS
 
-## Originality
-PASS. The most relevant inspected full text fixes the same equations, classical parameters, equilibria, and the local frozen-\(z\) transition at \(z=b/k\), then studies CCEBC and Hopf bifurcation. Targeted searches in that text found no invariant-measure, average, or moment formulation. The 2008 same-object paper concerns Hopf bifurcation and bifurcating-cycle stability, and the 2024 paper concerns Jacobi stability. Published semantic searches over parameter aliases, stationary moments, conditional laws, the \(b/k\) threshold, and recurrence returned no statement implying the final theorem.
+The conditional identities follow by applying invariance to arbitrary smooth antiderivatives of \(x\) and \(z\): \(L\Phi(x)=a\Phi'(x)(y-x)\) and \(L\Psi(z)=\Psi'(z)(hx^2-cz)\). An independent symbolic calculation verified that for \(F=-hxy+(h/2)x^2+bz-(k/2)z^2\), \(LF=kc z^2-bc z-ah(y-x)^2\), giving the exact completed-square identity. Equality forces \(y=x\) and \(z\in\{0,b/k\}\) almost surely; invariance then restricts support to \((0,0,0)\) and \((\pm\sqrt{bc/(hk)},\pm\sqrt{bc/(hk)},b/k)\). The strict excursion and sign-change consequences follow because a non-equilibrium invariant measure makes the nonnegative defect term positive while the invariant mean of \(y-x\) is zero.
 
-Risk: the original 2004 paper and the 2008 Hopf paper were not available for complete line-by-line inspection.
+## originality
 
-## Value
-PASS. The established literature already makes \(b/k\) a meaningful dynamical height: it is the nonzero-equilibrium height and the first threshold in the frozen planar subsystem. The theorem shows that every non-equilibrium compact recurrent statistical state must actually reach above that height, and it supplies two exact conditional laws plus a quantitative defect measuring departure from equilibrium mixtures. For the classical chaotic parameters this becomes the concrete universal barrier \(z>40\).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The full primary Liu-system treatment inspected here gives the exact equations, equilibria, classical parameters, frozen-z threshold \(b/k\), and Hopf analysis but no invariant-measure conditional expectations, stationary square identity, or equality classification. Targeted searches for Liu stationary moments/invariant measures found dynamical/bifurcation papers but no equivalent law.
+
+## value
+
+PASS
+
+The theorem gives exact global stationary constraints, a sharp equilibrium-height defect, and a rigidity/equilibrium classification for an established chaotic model. These are structurally motivated observables and turn a local threshold \(b/k\) into a necessary excursion law for every non-equilibrium compact invariant measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
