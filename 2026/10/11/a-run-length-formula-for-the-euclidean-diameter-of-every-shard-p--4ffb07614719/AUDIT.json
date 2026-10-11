@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The published V-description fixes the sign of every nonzero coordinate, so squared Euclidean distance is exactly support Hamming distance. Each matching selects at most one coordinate in each maximal run. The two-vertex optimization therefore has three symmetric open-matching states. The four singleton/spare run transition tables are exhaustive, and a direct induction solves their max-plus product as A_i=2i+2g_i, B_i=A_i+2h_i-1, C_i=A_i+2h_i-2. The terminal closed state gives diameter squared 2(f+g). The independent zero-vertex argument gives eccentricity sqrt(2f) and the product count of extremal vertices. A full polytope diameter is attained at a vertex pair, so no nonvertex case is omitted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original source supplies exact vertices, facets, faces, normal fans, symmetries, matroid translations, and Minkowski geometry but no metric diameter statement.",
+        "The later Ehrhart-positivity work treats enumeration and order-polynomial positivity; its inspected full text has no diameter, distance, or Euclidean occurrence.",
+        "No broader series-parallel-matroid source surfaced a theorem determining the Euclidean diameter of these translated base polytopes."
+      ],
+      "reasoning": "The prior structural results determine the feasible vertex family but do not optimize pairwise Euclidean distance. The new run-level max-plus reduction and spare-run matching statistic are not consequences stated by the inspected broader results.",
+      "searches": [
+        "full text: Padrol--Pilaud--Ritter, Shard Polytopes, Definition 39, Proposition 40, basic geometric properties, and matroid interpretation",
+        "full-text searches in Shard Polytopes for diameter, circumradius, and inradius",
+        "full text: Ferroni--Morales--Panova, Skew Shapes, Ehrhart Positivity and Beyond, shard-polytope sections",
+        "full-text searches in the Ehrhart-positivity paper for diameter, distance, and Euclidean",
+        "literature search: series-parallel matroid shard polytope Euclidean diameter"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.01008v1/v2",
+      "doi:10.1093/imrn/rnac042",
+      "arXiv:2503.16403",
+      "published-result database searches under shard-polytope diameter, alternating-matching Hamming distance, arc-run, and series-parallel-matroid formulations",
+      "own current and prior geometry ledgers searched for shard-polytope and alternating-matching metric overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves that all alternating-match characteristic vectors are vertices but does not compare distances between pairs of them.",
+        "The matroid translation identifies a related base polytope after translation but does not state the run-length metric formula.",
+        "No own current or prior finding contains a shard-polytope diameter claim."
+      ],
+      "reasoning": "The final statement requires converting pairwise Euclidean distance into a two-matching Hamming optimization and solving that optimization exactly. Neither the V-description nor the matroid realization alone implies the formula without this new optimization argument.",
+      "searches": [
+        "Padrol--Pilaud--Ritter Proposition 40 vertex and facet descriptions",
+        "Padrol--Pilaud--Ritter matroid-polytope translation to series-parallel graphs",
+        "own current and prior geometry ledgers searched for shard polytope, alternating matching, arc runs, and Euclidean diameter",
+        "published-result database query: shard polytopes diameter Hamming distance vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned statement gives an Euclidean diameter formula for shard polytopes.",
+        "The searches explicitly covered the source's alternating-matching vertex language and the equivalent Hamming-distance formulation."
+      ],
+      "reasoning": "Because all nonzero coordinate signs are fixed by the arc, Euclidean squared distance between vertices is a Hamming distance on selected positions. Both the geometric and combinatorial aliases were therefore searched; no equivalent theorem was located.",
+      "searches": [
+        "published-result database query: shard polytope Euclidean diameter alternating matching",
+        "published-result database query: shard polytopes diameter Hamming distance vertices",
+        "published-result database query: shard polytope alternating matching maximum distance",
+        "literature search: \"shard polytope\" Euclidean diameter",
+        "literature search: \"shard polytopes\" diameter metric",
+        "literature search: \"shard polytope\" Hamming distance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed records concern graph metrics of unrelated sparse-sign or hypersimplex polytopes and type-B generalized-permutohedron decompositions.",
+        "No indexed record supplies a shard-polytope diameter table, exact formula, or run statistic."
+      ],
+      "reasoning": "The finding is an all-arc symbolic theorem, not a finite table. Exact database searches were nevertheless used to exclude an already indexed closed formula or equivalent metric classification.",
+      "searches": [
+        "published-result database query: shard polytope metric diameter arc falls rises",
+        "published-result database query: shard polytope Euclidean diameter alternating matching",
+        "published-result database query: series parallel matroid shard polytope Euclidean diameter"
+      ]
+    },
+    "rationale": "The exact source was inspected at the alternating-matching vertex definition, H-description, basic geometry, and later matroid interpretation. It contains no Euclidean diameter theorem and no occurrence of diameter, circumradius, or inradius. Direct published-result and literature searches under shard-polytope, alternating-matching, Hamming-distance, and series-parallel-matroid formulations found no covering result. A later same-object Ehrhart-positivity paper was also checked and does not contain metric-distance terminology.",
+    "residual_risks": [
+      "An equivalent formula may appear under the translated series-parallel matroid base-polytope model rather than the shard-polytope name.",
+      "The source's vertex description makes the metric optimization accessible enough that an unindexed folklore observation is plausible.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the exact alternating-matching vertex model and extensive combinatorial/Minkowski geometry. It does not state the Euclidean diameter, zero-vertex eccentricity, or the run-length formula.",
+        "evidence": "Definition 39 allows possibly empty alternating matchings and defines their characteristic vectors; Proposition 40 makes exactly those vectors the vertices. The arXiv record gives first public date 2020-07-02 and MSC list beginning 52B11.",
+        "identifier_or_url": "arXiv:2007.01008v1 / DOI 10.1093/imrn/rnac042",
+        "material_read": "ArXiv metadata and MSC classification; Definition 39; Proposition 40 and its proof; Remark 41; basic geometric properties; symmetry proposition; matroid-polytope section surfaced from the full-text contents; targeted metric-term searches.",
+        "method": "Open-access arXiv HTML full-text inspection and targeted exact-term searches.",
+        "title": "Shard Polytopes",
+        "trigger": "Exact middle-period source defining the objects and their vertices."
+      },
+      {
+        "assessment": "The work proves Ehrhart positivity for shard polytopes through fence-poset order polynomials. It does not provide a metric diameter theorem.",
+        "evidence": "Targeted full-text searches returned no occurrence of diameter, distance, or Euclidean.",
+        "identifier_or_url": "arXiv:2503.16403",
+        "material_read": "Abstract, introduction, shard-polytope/fence-poset scope, and full-text searches for diameter, distance, and Euclidean.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Skew Shapes, Ehrhart Positivity and Beyond",
+        "trigger": "Later same-object work that could plausibly contain stronger geometric information about shard polytopes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4ffb0761-4719-418b-a18a-562abbc0fbc8",
+  "value": {
+    "rationale": "Shard polytopes are the elementary building blocks in the source's Minkowski construction of quotientopes and have an active later literature through matroid and Ehrhart interpretations. Euclidean diameter is a canonical realization-sensitive size invariant. The theorem compresses its exact value to two transparent arc statistics, shows that run lengths beyond one versus at least two are metrically irrelevant for diameter, gives sharp universal bounds and equality conditions, and also determines the complete farthest-from-zero count. This is a structural all-arc classification rather than a finite example or routine parameter increment.",
+    "status": "PASS"
+  }
+}
