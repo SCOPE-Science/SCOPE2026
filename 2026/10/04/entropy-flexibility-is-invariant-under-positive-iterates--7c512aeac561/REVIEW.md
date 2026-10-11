@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The forward direction uses the standard cyclic decomposition of an \(f\)-ergodic measure into \(f^q\)-ergodic components, together with the exact entropy scaling \(h_\mu(f^q)=q h_\mu(f)\). The converse constructs the finite phase union \(\Lambda=\bigcup_{j=0}^{q-1}f^j(K)\) and the phase average \(\mu=q^{-1}\sum_j f_*^j\nu\); direct verification gives compact invariance, ergodicity of \(\mu\), and the required topological and metric entropy equalities.
+## correctness
 
-## Originality
-PASS with residual literature risk. The 2025 preprint introducing entropy flexibility was inspected at the definition, main theorems, and searchable full text. It contains no located statement that entropy flexibility is equivalent for \(f\) and \(f^q\), and exact-phrase, alias, and implication searches did not reveal a published theorem covering this general closure law. The lowerability and intermediate-entropy literature found in comparison does not couple an invariant compact subsystem with a matching ergodic measure in the same way.
+PASS
 
-## Value
-PASS. Positive iterates are a basic change of discrete sampling rate. Showing that the newly introduced entropy-flexibility property is exactly invariant under this operation is a structural closure theorem, not a parameter-specific computation. The proof also identifies why strict-ergodic witness constructions cannot simply be iterated and supplies the correct ergodic-component/phase-symmetrization replacement.
+Forward transport is valid because an \(f\)-ergodic measure has finitely many \(f^q\)-ergodic components cyclically permuted by \(f\); they have equal \(f^q\)-entropy, hence each has \(q\) times the original entropy. Conversely, for an \(f^q\)-witness \((K,\nu)\), the finite union \(\Lambda=\bigcup_{j=0}^{q-1}f^jK\) is compact and \(f\)-invariant, each phase is conjugate for \(f^q\), and finite-union entropy gives the correct topological value. The average \(q^{-1}\sum_j f_*^j\nu\) is \(f\)-invariant and is \(f\)-ergodic because every \(f\)-invariant measurable set is also \(f^q\)-invariant for \(\nu\). Entropy affinity and the power law then give the target metric entropy. Invertibility is used in the phase conjugacies.
 
-Closest literature: Arbieto--Oprocha--Rego (2025) introduces entropy flexibility and proves broad realization theorems; Huang--Ye--Zhang (2010) studies lowerability of topological entropy on compact subsets. Neither inspected statement implies the iterate equivalence proved here.
+## originality
 
-Limitations: the converse is proved for homeomorphisms; a non-invertible extension is not asserted. Originality remains subject to the possibility of an unindexed folklore observation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 2025 primary source introduces exactly the audited property and proves it for broad classes, but the inspected full text contains no theorem asserting invariance under positive powers. Lowerability is strictly weaker because its realizing compact set need not be invariant and it does not couple the same entropy level to an ergodic measure. The Resultary search returned the assigned finding as the exact match, with neighboring iterate-invariance results for different dynamical invariants.
+
+## value
+
+PASS
+
+Positive iteration is the canonical finite resampling operation in discrete dynamics. Showing exact invariance of a newly introduced coupled topological/metric realization property, while resolving the genuine losses of ergodicity and subsystem invariance under powers, is a useful structural closure theorem rather than a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
