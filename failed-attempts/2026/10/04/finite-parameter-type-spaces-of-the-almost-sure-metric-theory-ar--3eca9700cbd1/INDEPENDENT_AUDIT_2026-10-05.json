@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:41:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f66f4331b3bbeb6408fcdea318d68d145efcc166",
+        "assigned artifacts/verify.py blob 0ee84aa6814e6b495ff20e9be291d64e1d42cac2",
+        "Goldbring--Hart--Kruckman, The almost sure theory of finite metric spaces, arXiv:1911.01260 / DOI:10.1112/blms.12538"
+      ],
+      "rationale": "In \\(T_{\\mathrm{AS}}\\), every nonzero distance lies in \\([1/2,1]\\), so all triangle inequalities among free nonzero distances are automatic. After fixing equalities and identifications with named parameters, the only free atomic data are the \\(mk\\) distances from new classes to parameters and the \\(\\binom{k}{2}\\) distances among new classes; every coordinate tuple is a consistent finite extension, and quantifier elimination makes it a complete type. Compact-to-Hausdorff gives the cube homeomorphism. Inclusion--exclusion/Stirling counting yields the component formulas and the maximal dimension occurs at \\(k=n\\). The inspected verifier independently enumerates all patterns for \\(m\\le3,n\\le6\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General metric model theory supplies the type-by-extension-data framework; the focal source removes all triangle coupling via the half-distance gap."
+        ],
+        "reasoning": "The audited topological decomposition is a routine specialization of these already-published structural facts.",
+        "searches": [
+          "Goldbring--Hart--Kruckman 2021",
+          "Ben Yaacov, Fraïssé limits of metric structures, arXiv:1203.4459",
+          "Conant--Terry, Model theoretic properties of the Urysohn sphere, arXiv:1401.2132"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1911.01260",
+        "DOI:10.1112/blms.12538",
+        "arXiv:1203.4459",
+        "arXiv:1401.2132",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The audited proof uses no new model-theoretic lemma beyond those source theorems; it only partitions equality patterns and counts them.",
+          "The maximum dimension follows immediately from the number of free atomic distances."
+        ],
+        "reasoning": "Thus the full claim is implication-level covered even though the source does not print the component sequence.",
+        "searches": [
+          "arXiv:1911.01260 distance-gap and QE theorems versus the audited proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source proves that all nonzero distances lie in \\([1/2,1]\\) and that the theory eliminates quantifiers.",
+          "With the equality pattern fixed, these statements leave no constraints on the remaining finite list of distance coordinates."
+        ],
+        "reasoning": "Finite-parameter type spaces, finite Katětov extension data, and cubes of free atomic distances are equivalent formulations in this special gap theory.",
+        "searches": [
+          "Resultary query: almost sure theory finite metric spaces finite parameter type space cube connected components Goldbring Hart Kruckman",
+          "arXiv:1911.01260 quantifier elimination/model completion and distance-gap theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate database entry with the Bell-convolution formula was found."
+        ],
+        "reasoning": "The count formula is elementary once the source-implied cube stratification is fixed, so absence from a table does not make it original.",
+        "searches": [
+          "Resultary exact type-space cube/component-formula search"
+        ]
+      },
+      "rationale": "Goldbring--Hart--Kruckman already prove the exact distance-gap theory, model completion, and quantifier elimination. Once those results are substituted into the standard description of continuous-logic types by atomic distance data, the cube decomposition follows immediately: the special gap makes every free distance coordinate independent. The remaining component counts and dimension are elementary enumeration of equality patterns. The package itself accurately describes the result as an explicit structural corollary. Under the audit rule that mechanically implied corollaries are covered without matching wording or formulas, the final claim does not pass originality.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "Those theorems make each fixed equality pattern exactly a product of independent distance intervals; the rest is elementary combinatorics.",
+          "identifier_or_url": "arXiv:1911.01260; DOI:10.1112/blms.12538",
+          "material_read": "Primary theorem sections establishing the \\([1/2,1]\\) nonzero-distance class, model completion, quantifier elimination, and free finite metric extensions.",
+          "method": "Open primary full-text/theorem inspection.",
+          "title": "The almost sure theory of finite metric spaces",
+          "trigger": "Exact source defining \\(T_{\\mathrm{AS}}\\) and proving the distance-gap/QE/model-completion results."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Goldbring--Hart--Kruckman 2021",
+        "general metric model-theory background"
+      ],
+      "rationale": "The formulas are clean expository consequences of the theory and may be useful as examples, but the mathematical work after the source's quantifier elimination and distance gap is routine coordinate counting. It does not resolve an independent structural uncertainty or nontrivial boundary under the shared value bar.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the almost-sure theory \\(T_{\\mathrm{AS}}\\) of finite metric spaces, over a finite parameter set \\(A\\) of size \\(m\\), each equality/parameter pattern with \\(k\\) genuinely new classes is a clopen cube \\([1/2,1]^{mk+\\binom{k}{2}}\\); consequently the component counts, Bell-convolution formula, exponential generating function, and covering dimension \\(mn+\\binom n2\\) stated in RESULT.md hold.",
+  "limitations": [
+    "Finite parameter sets only.",
+    "The claim concerns the logic topology, not the canonical type metric.",
+    "The decomposition is an explicit corollary of the source theory's distance-gap, quantifier-elimination, and model-completion results."
+  ],
+  "schema_version": 1
+}
