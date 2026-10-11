@@ -1,15 +1,21 @@
-# Review of Exact Hopf-threshold recurrence law for the tuned-collector chaotic oscillator
+# Independent mathematical audit
 
-## Correctness
-PASS. The published case-Y equations reduce exactly to the three displayed normalized equations when \(L_1=L_2=C=1\) and \(y_{12}=y_{22}=0\). With \(q=y-Mz\), one gets \(\dot q=x\); differentiating the explicit coercive storage function gives identity (1) by cancellation. For \(\beta\le MY\), positivity/coercivity and LaSalle leave only the origin in the zero-derivative invariant set. At \(\beta=MY\), the independently reconstructed characteristic polynomial factors as \((\lambda^2+1)(\lambda+1/[Y(1-M^2)])\). For \(\beta>MY\), invariance of the same storage observable yields the exact moment ratio. The strict second-moment and support bounds follow from equality cases in Cauchy--Schwarz plus the flow equations. Exact rational replay checks the published numerical specialization.
+## correctness
 
-## Originality
-PASS. The full introducing article was inspected because it is the exact source of the vector field and parameter set. It gives local equilibrium analysis, divergence, numerical Lyapunov analysis, attractor geometry, and experiments, but not the storage function, global Hopf-boundary stability, or invariant fourth-to-second moment relation. Exact-title/DOI web searches and semantic searches for aliases such as global stability threshold, invariant measure, current moments, and recurrence balance found no same-system result. The closest located records establish analogous balance/global-threshold phenomena only for different ODEs, so they neither specialize to nor imply this tuned-collector theorem. Residual risk is unindexed or non-English literature not surfaced by the searches.
+PASS
 
-## Value
-PASS. The source's highlighted chaotic case deliberately sets \(y_{12}=y_{22}=0\), making this a physically motivated subfamily rather than an arbitrary slice. The theorem identifies the exact global meaning of the same parameter \(\beta=MY\) where the linear spectrum has the Hopf pair, and supplies a parameter-only current-moment diagnostic for every compact recurrent state beyond that boundary. At the published chaotic point it forces a strict, directly testable amplitude sandwich around \(3.8176022579\), providing an exact consistency check for numerical trajectories, periodic orbits, and experimental reconstructions.
+With \(d=1-M^2\), \(q=y-Mz\), and the submitted storage function \(H\), direct differentiation from the printed flow gives exactly \(\dot H=((\beta-MY)/(MY^2))z^2+(\alpha/(MY^4))z^4\). An independent symbolic differentiation in this audit reproduced that identity. For \(\beta\le MY\), the displayed \(H\) is positive definite and radially unbounded, and LaSalle's largest invariant subset of \(z=0\) is only the origin, proving global asymptotic stability including the nonhyperbolic boundary. At \(\beta=MY\) the characteristic polynomial factors as stated. For compact invariant measures, integrating \(\dot H\) gives the exact moment ratio; Cauchy-Schwarz and support domination give the two bounds, and the equality cases are excluded by invariance of a hypothetical nonzero constant-|z| trajectory.
 
-## Closest literature and limitations
-The introducing article, DOI 10.3390/math11092213, is the closest and was read in full around the model derivation, equilibrium/characteristic polynomial, divergence, normalization, parameter set (13), numerical analysis, and discussion. Related balance-law records found by semantic search concern Moore--Spiegel, Goodwin, Rössler, Halvorsen, Lorenz--Stenflo, and other distinct systems. The present theorem does not cover nonzero \(y_{12}\) or \(y_{22}\), does not prove a chaotic attractor exists when \(\beta>MY\), and does not determine an attractor's exact maximum current.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full primary article was read: it derives the same admittance model, gives the equilibrium, characteristic polynomial, divergence and numerical chaotic parameter set, but does not state the Lyapunov storage identity, the global stability theorem through the Hopf boundary, or the invariant-measure fourth/second moment law. Focused Resultary searches returned the submitted record and other different-vector-field recurrence laws, not a prior same-system theorem.
+
+## value
+
+PASS
+
+The theorem turns the source's local Hopf surface into a global recurrence boundary and gives an exact stationary amplitude law on the supercritical side. That connects local bifurcation, global stability and recurrent statistics for a published physical oscillator and yields a sharp, experimentally interpretable RMS/support constraint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

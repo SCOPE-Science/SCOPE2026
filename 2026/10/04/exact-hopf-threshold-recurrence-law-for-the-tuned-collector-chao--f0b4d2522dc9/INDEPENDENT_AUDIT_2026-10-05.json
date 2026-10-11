@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:06:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With \\(d=1-M^2\\), \\(q=y-Mz\\), and the submitted storage function \\(H\\), direct differentiation from the printed flow gives exactly \\(\\dot H=((\\beta-MY)/(MY^2))z^2+(\\alpha/(MY^4))z^4\\). An independent symbolic differentiation in this audit reproduced that identity. For \\(\\beta\\le MY\\), the displayed \\(H\\) is positive definite and radially unbounded, and LaSalle's largest invariant subset of \\(z=0\\) is only the origin, proving global asymptotic stability including the nonhyperbolic boundary. At \\(\\beta=MY\\) the characteristic polynomial factors as stated. For compact invariant measures, integrating \\(\\dot H\\) gives the exact moment ratio; Cauchy-Schwarz and support domination give the two bounds, and the equality cases are excluded by invariance of a hypothetical nonzero constant-|z| trajectory.",
+      "risk": "The supercritical statement constrains compact recurrent states if they exist; it does not prove existence, uniqueness, ergodicity or chaos.",
+      "sources": [
+        "J. Petrzela, Mathematics 11 (2023) 2213, DOI:10.3390/math11092213, especially equations (8)-(10) and parameter set (13)",
+        "independent symbolic differentiation in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source is broader in numerical circuit exploration but narrower in rigorous recurrence structure.",
+          "Other recurrence-balance records concern different ODEs and do not specialize to this tuned-collector system."
+        ],
+        "reasoning": "No broader theorem inspected implied the model-specific storage identity or its exact coefficient.",
+        "searches": [
+          "Petrzela 2023 full article",
+          "Resultary recurrence-balance and Hopf-threshold records for other chaotic flows"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math11092213",
+        "Resultary semantic corpus",
+        "targeted same-system global-stability and invariant-measure searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior source provides the vector field and local polynomial but no function whose derivative has the claimed quartic sign structure.",
+          "Its numerical chaos analysis does not logically imply global stability on one side of the threshold or an invariant-measure moment identity on the other."
+        ],
+        "reasoning": "The global and stationary conclusions require the new storage-function calculation.",
+        "searches": [
+          "Petrzela 2023 equations (8)-(10), parameter set (13), numerical-analysis section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact source flow and characteristic polynomial were compared, not just title keywords.",
+          "The source contains no stationary-moment or global-Lyapunov formulation in the inspected full text."
+        ],
+        "reasoning": "Energy/storage, invariant-measure and recurrence-threshold aliases were all tested against the same vector field.",
+        "searches": [
+          "Resultary: tuned collector chaotic oscillator Petrzela invariant measure moment law global stability Hopf threshold",
+          "DOI:10.3390/math11092213 full-text inspection for stability/moment/invariant-measure formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted record was the only same-system exact-law hit among the leading results."
+        ],
+        "reasoning": "This is a symbolic dynamical theorem rather than a table; the database comparison was used to detect prior exact-system statements.",
+        "searches": [
+          "Resultary exact-system query using model name and threshold parameters"
+        ]
+      },
+      "rationale": "The full primary article was read: it derives the same admittance model, gives the equilibrium, characteristic polynomial, divergence and numerical chaotic parameter set, but does not state the Lyapunov storage identity, the global stability theorem through the Hopf boundary, or the invariant-measure fourth/second moment law. Focused Resultary searches returned the submitted record and other different-vector-field recurrence laws, not a prior same-system theorem.",
+      "residual_risks": [
+        "A later circuit-dynamics paper may have independently derived an equivalent storage function under different notation; no such same-system statement was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_SYSTEM_NOT_COVERING_GLOBAL_RECURRENCE_LAW",
+          "evidence": "The article gives the case-Y ODE, local characteristic polynomial and chaos search, but no Lyapunov storage identity, LaSalle theorem at \\(\\beta=MY\\), or invariant-measure moment law.",
+          "identifier_or_url": "DOI:10.3390/math11092213",
+          "material_read": "Complete 13-page primary article, with detailed inspection of the model derivation, equations (8)-(10), parameter set (13), numerical analysis, experimental section and conclusions.",
+          "method": "Lawful institutional/open-access full-text extraction after the public web full-page route did not provide stable full text.",
+          "title": "Chaotic States of Transistor-Based Tuned-Collector Oscillator",
+          "trigger": "Introducing source of the exact vector field and reported chaotic parameters."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem turns the source's local Hopf surface into a global recurrence boundary and gives an exact stationary amplitude law on the supercritical side. That connects local bifurcation, global stability and recurrent statistics for a published physical oscillator and yields a sharp, experimentally interpretable RMS/support constraint.",
+      "risk": "It does not certify the source's reported chaotic attractor or its basin.",
+      "sources": [
+        "Petrzela 2023, DOI:10.3390/math11092213"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the normalized tuned-collector admittance-model flow with \\(y_{12}=y_{22}=0\\), \\(L_1=L_2=C=1\\), \\(0<M<1\\), \\(Y=y_{11}>0\\), \\(\\alpha<0\\), and \\(\\beta>0\\), the local Hopf surface \\(\\beta=MY\\) is also an exact global recurrence threshold: the origin is globally asymptotically stable for \\(0<\\beta\\le MY\\). For \\(\\beta>MY\\), every nontrivial compactly supported invariant probability measure satisfies \\(\\int z^4d\\mu/\\int z^2d\\mu=Y^2(\\beta-MY)/(-\\alpha)\\), with strict second-moment/support bounds, and the same holds on every nonconstant periodic orbit.",
+  "limitations": [
+    "Normalized case-Y subfamily with zero backward/output admittances only.",
+    "No supercritical existence or chaos theorem is claimed.",
+    "The support bound is necessary, not an exact attractor amplitude."
+  ],
+  "schema_version": 1
+}
