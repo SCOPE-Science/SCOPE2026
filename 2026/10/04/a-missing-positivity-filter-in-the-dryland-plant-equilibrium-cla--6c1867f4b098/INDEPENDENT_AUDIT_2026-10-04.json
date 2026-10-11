@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:55:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For \\(u>0\\), the equilibrium equations imply \\((a+mu-u^2)v=1=(b+cu+du^2)v\\). Eliminating \\(v\\) gives \\(F(u)=(1+d)u^2+(c-m)u+b-a=0\\), but reconstructing \\(v\\) also requires \\(a+mu-u^2>0\\). Since \\(a>0\\), this concave quadratic is positive for positive \\(u\\) exactly when \\(0<u<\tau=(m+\\sqrt{m^2+4a})/2\\). On the source branch \\(b=a\\), \\(m>c\\), substituting \\(u=(m-c)/(1+d)\\) gives the exact numerator \\(a(1+d)^2+(m-c)(md+c)\\). At \\(a=b=d=m=1\\), \\(c=-3\\), the only positive quadratic root is \\(u=2\\), for which \\(v=-1\\); thus the source's listed case can contain no positive equilibrium. The universal criterion is symbolic and does not depend on finite enumeration.",
+      "risks": [
+        "The correction addresses the literal parameter domain of the cited preprint version; later results that impose additional sign restrictions require separate assessment."
+      ],
+      "sources": [
+        "Frozen RESULT.md, AUDIT.json and VERIFICATION.md",
+        "Y. Xia, J. Xiao and J. Yu, arXiv:2411.07255v1, model equations and Theorem 2.1 as available from lawful full-text excerpts",
+        "Independent algebraic reconstruction of the branch condition and witness"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The correction is scoped to the literal equilibrium classification; later analyses that impose \\(c\\ge0\\) or otherwise select feasible equilibria are not automatically affected."
+        ],
+        "reasoning": "No broader inspected theorem dominates the exact source-domain correction.",
+        "searches": [
+          "Source theorem and later sections with stronger sign restrictions",
+          "Resultary dryland-equilibrium searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.07255v1 theorem/equation excerpts",
+        "Resultary published-finding search for the positivity-filter correction",
+        "Fresh exact-title, formula and erratum searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reduced quadratic is necessary but not sufficient for positivity because the reconstructed water coordinate has a sign constraint.",
+          "The exact parameter choice satisfies the source's listed case while yielding \\(v=-1\\)."
+        ],
+        "reasoning": "The source theorem as stated does not imply the corrected positivity filter; the counterexample directly shows the omission matters on the stated domain.",
+        "searches": [
+          "arXiv:2411.07255v1 theorem/equation excerpts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source theorem lists the branch \\(u=(m-c)/(1+d)\\) and defines \\(v=1/(a+mu-u^2)\\) without the extra denominator-sign test over its stated real \\(m,c\\) domain.",
+          "No searched result states the submitted sharp filter or exact witness."
+        ],
+        "reasoning": "The final claim is the missing feasibility condition required to make the source's own displayed equilibrium genuinely positive.",
+        "searches": [
+          "arXiv:2411.07255v1, model equations and Theorem 2.1 excerpts",
+          "Resultary: dryland plant positive equilibrium positivity denominator theorem 2.1 Xia Xiao Yu",
+          "exact-form search: \\(a(1+d)^2+(m-c)(md+c)\\) dryland equilibrium"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed source-specific correction, erratum or matching formula was located."
+        ],
+        "reasoning": "The result is not a table recomputation; the exact source theorem is the relevant object.",
+        "searches": [
+          "Resultary exact source/formula search",
+          "arXiv identifier and title searches"
+        ]
+      },
+      "rationale": "The primary preprint version states \\(a,b,d>0\\) with \\(m,c\\in\\mathbb R\\), derives the two equilibrium equations, and then classifies positive equilibria from the reduced quadratic without separately enforcing positivity of the denominator defining \\(v\\). Fresh Resultary and exact formula/source searches found no prior source-specific correction. Public/OA retrieval of the exact preprint was incomplete and the authorized fallback did not return a verified PDF, so the audit records that access limitation explicitly; the theorem statement and equations needed for this comparison were nevertheless available from lawful full-text excerpts. Best-of-knowledge originality passes with a residual risk of a later revision or erratum.",
+      "residual_risks": [
+        "A later unindexed revision, journal version or erratum could add the missing feasibility condition.",
+        "The full PDF was not obtained in this run; the material read was sufficient for the exact theorem/equation comparison but not for a whole-document negative claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_STATEMENT_INSPECTED_WITH_ACCESS_LIMITATION",
+          "evidence": [
+            "The stated domain allows real \\(m,c\\).",
+            "Theorem 2.1 lists the nonzero \\(b=a, m>c\\) root and defines \\(v\\) by the denominator without imposing its positivity."
+          ],
+          "identifier_or_url": "arXiv:2411.07255v1",
+          "material_read": "Available lawful full-text excerpts containing the model parameter domain, equilibrium equations, reduced quadratic and Theorem 2.1 branches; later sign-restricted discussion was also checked where available.",
+          "method": "Public/OA source inspection; a subsequent authorized PDF retrieval attempt returned no verified PDF.",
+          "title": "Pattern formation and global analysis of a systematically reduced plant model in dryland environment",
+          "trigger": "Exact equilibrium classification being corrected."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A positive equilibrium is the base object for the source's subsequent stability and pattern analysis. The filter is necessary and sufficient for every quadratic candidate, and the exact witness changes the equilibrium count within a stated theorem case by exposing a negative water coordinate. That is a substantive feasibility correction rather than a cosmetic sign check.",
+      "risks": [
+        "No claim is made that parameter regimes with additional positivity restrictions or the paper's later numerical examples are invalid."
+      ],
+      "sources": [
+        "Exact equilibrium reconstruction in the frozen package",
+        "Primary theorem statement and equations"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The correction is to the cited preprint version's stated parameter domain.",
+    "No stability, bifurcation or ecological-calibration claim is inferred from the exact witness.",
+    "Full-PDF access to the primary preprint was unavailable in this run; the inspected theorem/equation excerpts were sufficient for the assessed source-specific claim. "
+  ],
+  "schema_version": 1
+}
