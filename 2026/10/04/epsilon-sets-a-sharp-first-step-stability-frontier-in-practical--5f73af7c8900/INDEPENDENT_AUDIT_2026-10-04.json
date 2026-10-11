@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:44:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "A. Defazio, S. Jelassi, Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization, JMLR 23 (2022), Paper 144 / arXiv:2101.11075; primary full text inspected, especially Algorithm 1 and the distinct theoretical denominator in Equation 6.",
+        "Resultary semantic search: MADGRAD epsilon sharp first-step quadratic stability frontier cube-root.",
+        "Assigned transparent verify.py inspected as a transcription guard; the audit independently reconstructed the exact first-step map algebraically."
+      ],
+      "rationale": "Direct substitution into Algorithm 1 gives \\(s_{1,i}=\\gamma h_i x_i\\), \\(\\nu_{1,i}=\\gamma h_i^2x_i^2\\), and multiplier \\(1-q_i\\) with \\(q_i=c\\gamma h_i/(\\gamma^{1/3}h_i^{2/3}|x_i|^{2/3}+\\varepsilon)\\). Since the quadratic is diagonal, objective nonincrease is equivalent coordinatewise to \\(0\\le q_i\\le2\\). The supremum of \\(q_i\\) occurs as \\(x_i\\to0\\), yielding exactly \\(c\\gamma L\\le2\\varepsilon\\); solving \\(q=2\\) gives the spike radius, and convex endpoint optimization of \\((1-q)^2\\) gives the exact supremal factor. Equality at the frontier still gives strict decrease for every finite nonzero active coordinate because its denominator is strictly larger than \\(\\varepsilon\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source proves long-run convex convergence for a theoretical variant whose denominator has an extra gradient-bound term.",
+          "Neighboring SCOPE results give exact one-step frontiers for different algorithms such as Polyak or Barzilai–Borwein."
+        ],
+        "reasoning": "A convergence theorem for a different update and exact results for other optimizers do not dominate the first practical MADGRAD step.",
+        "searches": [
+          "Defazio–Jelassi convergence theory, Theorem 1 and Appendix B",
+          "Resultary optimizer-stability frontier search"
+        ]
+      },
+      "checked_sources": [
+        "A. Defazio, S. Jelassi, Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization, JMLR 23 (2022), Paper 144 / arXiv:2101.11075; primary full text inspected, especially Algorithm 1 and the distinct theoretical denominator in Equation 6.",
+        "Resultary semantic search: MADGRAD epsilon sharp first-step quadratic stability frontier cube-root.",
+        "Assigned transparent verify.py inspected as a transcription guard; the audit independently reconstructed the exact first-step map algebraically."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The practical recurrence is a premise, but the source does not analyze its first-step local map near a zero gradient.",
+          "Substituting the diagonal quadratic shows the adaptive cube-root term vanishes as \\(|x|^{2/3}\\), leaving epsilon as the only nonzero startup scale."
+        ],
+        "reasoning": "The threshold is not a stated corollary of the source convergence theorem because that theorem analyzes a different safeguarded denominator. The exact if-and-only-if law requires optimizing the practical first-step multiplier.",
+        "searches": [
+          "Defazio–Jelassi Algorithm 1",
+          "Defazio–Jelassi Equation 6 and explanation of the omitted gradient-bound term"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 1 contains the cube-root accumulator plus \\(\\varepsilon\\) and inline averaging.",
+          "No inspected source states the equivalent local derivative \\(1-c\\gamma h/\\varepsilon\\), uniform objective-monotonicity condition, or punctured near-minimizer spike interval."
+        ],
+        "reasoning": "Local contraction, first-step objective monotonicity, and absence of a startup spike are equivalent forms of the same assigned threshold; none appears in the defining source.",
+        "searches": [
+          "Resultary query: MADGRAD epsilon sharp first-step quadratic stability frontier cube-root",
+          "Defazio–Jelassi Algorithm 1 and Equation 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed formula matching \\(c\\gamma L=2\\varepsilon\\), the spike radius, or the amplification law was found."
+        ],
+        "reasoning": "This is an analytic calibration law rather than a finite table; the search checked whether the exact law was already indexed.",
+        "searches": [
+          "Resultary exact-topic search using MADGRAD, epsilon, quadratic, cube-root, startup"
+        ]
+      },
+      "rationale": "The defining paper supplies the exact practical recurrence and explains that its convergence proof uses a different denominator containing an additional gradient-bound term. It does not state the sharp practical first-step quadratic stability threshold, spike radius, or supremal amplification. The fresh Resultary search returned other one-step optimizer frontiers but no covering MADGRAD result.",
+      "residual_risks": [
+        "An equivalent short startup calculation could exist in unindexed optimizer implementation notes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES THE UPDATE BUT DOES NOT COVER THE SHARP PRACTICAL STARTUP FRONTIER",
+          "evidence": "Algorithm 1 uses the practical denominator \\(\\nu^{1/3}+\\varepsilon\\); the theorem immediately afterward instead analyzes a variant with an added gradient-bound term and gives no exact first-step quadratic threshold.",
+          "identifier_or_url": "arXiv:2101.11075; JMLR 23 (2022), Paper 144",
+          "material_read": "Primary full text around the cube-root derivation, Algorithm 1, convergence-theory transition, Equation 6, and Appendix B theoretical variant; the algorithm page was visually inspected.",
+          "method": "Open-access primary PDF inspection.",
+          "title": "Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization",
+          "trigger": "Defining source for the exact practical MADGRAD update."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "A. Defazio, S. Jelassi, Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization, JMLR 23 (2022), Paper 144 / arXiv:2101.11075; primary full text inspected, especially Algorithm 1 and the distinct theoretical denominator in Equation 6.",
+        "Resultary semantic search: MADGRAD epsilon sharp first-step quadratic stability frontier cube-root.",
+        "Assigned transparent verify.py inspected as a transcription guard; the audit independently reconstructed the exact first-step map algebraically."
+      ],
+      "rationale": "The result isolates a practically relevant mechanism hidden by the adaptive notation: near a zero gradient the cube-root accumulator contributes no startup scale, so epsilon alone controls first-step stability. A necessary-and-sufficient frontier, exact spike basin, and exact worst amplification give a concrete calibration diagnostic for a widely used optimizer and are not a generic numerical check.",
+      "residual_risks": [
+        "An equivalent short startup calculation could exist in unindexed optimizer implementation notes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the first practical MADGRAD update from zero accumulators on an axis-aligned positive-definite quadratic, uniform objective decrease for every nonzero initialization holds exactly when \\(c\\gamma L\\le2\\varepsilon\\); if this fails, the top-curvature coordinate has the stated punctured near-minimizer spike interval and the exact supremal first-step factor \\(\\max\\{1,(c\\gamma L/\\varepsilon-1)^2\\}\\).",
+  "limitations": [
+    "Only the first practical update is classified.",
+    "The multidimensional iff statement assumes a diagonal Hessian in optimizer coordinates.",
+    "Stochastic gradients, weight decay, and the theoretical extra-denominator variant are outside scope.",
+    "An equivalent short startup calculation could exist in unindexed optimizer implementation notes."
+  ],
+  "schema_version": 1
+}
