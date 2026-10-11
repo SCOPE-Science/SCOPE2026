@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:47:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "A. Cutkosky and F. Orabona, Momentum-Based Variance Reduction in Non-Convex SGD, arXiv:1905.10018; complete primary arXiv HTML inspected for the same-sample corrected-momentum template, its estimator-error discussion and the adaptive STORM algorithm.",
+        "Q. Tran-Dinh, N. H. Pham, D. T. Phan, L. M. Nguyen, Hybrid Stochastic Gradient Descent Algorithms for Stochastic Nonconvex Optimization, arXiv:1905.05920; primary abstract/scope inspected as a nearby estimator with additional independent-noise structure.",
+        "K. Levy, A. Kavis, V. Cevher, STORM+: Fully Adaptive SGD with Momentum for Nonconvex Optimization, arXiv:2111.01040; source relationship and adaptive-parameter scope compared.",
+        "Resultary semantic search for constant-parameter STORM quadratic stationary covariance, exact stability and variance ratio; no matching exact benchmark returned.",
+        "Assigned RESULT.md and exact algebra verifier at source tree 86b01e88962f2dbb7f60f43072543331c7188516."
+      ],
+      "rationale": "Direct substitution of \\(\\nabla f(x,\\xi)=\\lambda x+\\xi\\) into the source update gives \\(e_{t+1}=(1-a)e_t+a\\varepsilon_{t+1}\\) and \\(x_{t+1}=(1-s)x_t-se_t\\), so Schur stability is exactly \\(0<s<2\\). Solving the scalar autoregression and the two stationary covariance equations reproduces \\(\\operatorname{Var}(e)=a\\tau^2/(2-a)\\) and the packaged formula for \\(\\operatorname{Var}(x)\\). Dividing by the exact SGD variance yields the stated ratio, and algebra gives a strictly positive \\(1-R\\) whenever \\(0<a<1\\). Independent symbolic reconstruction of the variance, ratio and derivative agrees with the package verifier.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These works cover broad nonconvex objectives and adaptive schedules.",
+          "Their broader oracle-complexity conclusions do not determine the exact stationary covariance or the source-template comparison to constant-step SGD on this additive-noise quadratic."
+        ],
+        "reasoning": "Broader optimization scope is weaker on the exact stationary invariant being audited.",
+        "searches": [
+          "Cutkosky–Orabona STORM convergence theory",
+          "Levy–Kavis–Cevher STORM+",
+          "Tran-Dinh et al. hybrid stochastic-gradient theory"
+        ]
+      },
+      "checked_sources": [
+        "A. Cutkosky and F. Orabona, Momentum-Based Variance Reduction in Non-Convex SGD, arXiv:1905.10018; complete primary arXiv HTML inspected for the same-sample corrected-momentum template, its estimator-error discussion and the adaptive STORM algorithm.",
+        "Q. Tran-Dinh, N. H. Pham, D. T. Phan, L. M. Nguyen, Hybrid Stochastic Gradient Descent Algorithms for Stochastic Nonconvex Optimization, arXiv:1905.05920; primary abstract/scope inspected as a nearby estimator with additional independent-noise structure.",
+        "K. Levy, A. Kavis, V. Cevher, STORM+: Fully Adaptive SGD with Momentum for Nonconvex Optimization, arXiv:2111.01040; source relationship and adaptive-parameter scope compared.",
+        "Resultary semantic search for constant-parameter STORM quadratic stationary covariance, exact stability and variance ratio; no matching exact benchmark returned.",
+        "Assigned RESULT.md and exact algebra verifier at source tree 86b01e88962f2dbb7f60f43072543331c7188516."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing to deterministic curvature and additive noise yields the new error coordinate \\(e_t=d_t/\\lambda-x_t\\) and a triangular two-mode recursion.",
+          "Solving that recursion gives eigenvalues \\(1-s\\), \\(1-a\\), the exact covariance and the strict variance ratio.",
+          "The source does not state those benchmark consequences."
+        ],
+        "reasoning": "The calculation is elementary after the right state transform, but it is not a direct named corollary of the adaptive STORM theorem and exposes a source-relevant stability/noise tradeoff.",
+        "searches": [
+          "Cutkosky–Orabona corrected-momentum recurrence",
+          "standard discrete Lyapunov theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The STORM source uses the same sample at the current and previous iterate in the correction term.",
+          "The inspected paper discusses adaptive rates and estimator control, not a stationary covariance matrix for constant parameters.",
+          "The nearby hybrid estimator has a different independent-noise component and does not share the exact cancellation."
+        ],
+        "reasoning": "Stationary Lyapunov solution, long-run noise floor and scalar transfer-function descriptions are equivalent formulations of the same benchmark and were compared.",
+        "searches": [
+          "Resultary query: constant parameter STORM quadratic stationary covariance exact stability variance ratio SGD",
+          "Cutkosky–Orabona arXiv:1905.10018 corrected-momentum recursion",
+          "STORM+ and hybrid-SARAH nearby estimator searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published benchmark with the same closed ratio was located."
+        ],
+        "reasoning": "The result is an analytic all-parameter formula, not a numerical benchmark-table recomputation.",
+        "searches": [
+          "Resultary exact STORM covariance/stability search",
+          "Web/source searches for the displayed variance ratio"
+        ]
+      },
+      "rationale": "The original STORM paper gives the corrected-momentum update and motivates the momentum/learning-rate tradeoff, but its inspected complete text analyzes adaptive nonconvex complexity rather than the stationary covariance of this constant quadratic benchmark. The exact triangular decoupling, unchanged SGD stability interval, closed stationary variance and strict variance-ratio comparison were not found in the inspected STORM/STORM+ or hybrid-estimator sources. General linear-systems theory can solve the resulting Lyapunov equation once the specialization is made, but no prior implication was located that states this source-specific benchmark.",
+      "residual_risks": [
+        "An equivalent covariance computation may exist in older linear stochastic-approximation or signal-processing literature without STORM terminology.",
+        "The theorem concerns a constant-parameter template and not the adaptive published STORM schedule."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME TEMPLATE; NO INSPECTED STATIONARY-QUADRATIC COVARIANCE THEOREM",
+          "evidence": "The paper uses common random numbers in the correction term and then selects adaptive parameters for nonconvex optimization.",
+          "identifier_or_url": "arXiv:1905.10018",
+          "material_read": "Complete primary arXiv HTML around the estimator recurrence, momentum/learning-rate discussion, algorithm and convergence results.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Momentum-Based Variance Reduction in Non-Convex SGD",
+          "trigger": "Defining source for the corrected-momentum template."
+        },
+        {
+          "assessment": "RELATED BUT DIFFERENT NOISE COUPLING",
+          "evidence": "The hybrid estimator combines recursive and fresh stochastic-gradient components rather than the exact same-sample cancellation used here.",
+          "identifier_or_url": "arXiv:1905.05920",
+          "material_read": "Primary abstract and accessible formulation/scope.",
+          "method": "Primary source comparison.",
+          "title": "Hybrid Stochastic Gradient Descent Algorithms for Stochastic Nonconvex Optimization",
+          "trigger": "Closest independent contemporaneous variance-reduced recursive estimator."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "A. Cutkosky and F. Orabona, Momentum-Based Variance Reduction in Non-Convex SGD, arXiv:1905.10018; complete primary arXiv HTML inspected for the same-sample corrected-momentum template, its estimator-error discussion and the adaptive STORM algorithm.",
+        "Q. Tran-Dinh, N. H. Pham, D. T. Phan, L. M. Nguyen, Hybrid Stochastic Gradient Descent Algorithms for Stochastic Nonconvex Optimization, arXiv:1905.05920; primary abstract/scope inspected as a nearby estimator with additional independent-noise structure.",
+        "K. Levy, A. Kavis, V. Cevher, STORM+: Fully Adaptive SGD with Momentum for Nonconvex Optimization, arXiv:2111.01040; source relationship and adaptive-parameter scope compared.",
+        "Resultary semantic search for constant-parameter STORM quadratic stationary covariance, exact stability and variance ratio; no matching exact benchmark returned.",
+        "Assigned RESULT.md and exact algebra verifier at source tree 86b01e88962f2dbb7f60f43072543331c7188516."
+      ],
+      "rationale": "This is a canonical exact-noise benchmark for the estimator architecture that separates deterministic stability from stationary variance reduction. It shows that the correction preserves the full SGD stability interval while lowering long-run iterate variance and quantifies the opposing memory-speed limit as \\(a\\downarrow0\\), information directly useful for interpreting the algorithmic template.",
+      "residual_risks": [
+        "An equivalent covariance computation may exist in older linear stochastic-approximation or signal-processing literature without STORM terminology.",
+        "The theorem concerns a constant-parameter template and not the adaptive published STORM schedule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For constant-parameter STORM on a scalar quadratic with additive gradient noise, the exact transformed recursion is triangular, its finite-second-moment stationary regime exists exactly on the constant-SGD interval \\(0<\\eta\\lambda<2\\), and the closed stationary covariance shows strictly smaller iterate variance than constant-step SGD for every nontrivial corrected-momentum parameter \\(0<a<1\\).",
+  "limitations": [
+    "Scalar deterministic curvature and additive common-sample noise only; sample-dependent curvature breaks the decoupling.",
+    "The result is a stationary benchmark, not a finite-time oracle-complexity theorem.",
+    "An equivalent covariance computation may exist in older linear stochastic-approximation or signal-processing literature without STORM terminology.",
+    "The theorem concerns a constant-parameter template and not the adaptive published STORM schedule."
+  ],
+  "schema_version": 1
+}
