@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof first characterizes all dominating and connected dominating sets in a complete multipartite graph and then translates accuracy into the existence of an equally large dominating subset of the complement. This yields the stated support criterion with no unstated generic-position assumption. The boundary cases \(|D|=1\), \(r=2\), \(2M=N\), and \(2M>N\) were checked explicitly. Exhaustive verification through order \(10\) agrees with the literal definition for every subset.
+## correctness
 
-## Originality
-PASS. The closest inspected primary source is the paper introducing connected accurate domination. It gives the complete-graph value and the complete-bipartite value \(m+1\), but its searchable full text has no “multipartite” occurrence and does not give an all-set characterization. Semantic searches for accurate domination with complete multipartite and complete bipartite graphs found no source dominating the present arbitrary-part claim. The prior corpus was also checked for overlap and contained no accurate-domination finding.
+PASS
 
-## Value
-PASS. Complete multipartite graphs are a standard structural test class for domination parameters. The theorem does more than interpolate two known formulas: it identifies exactly when the complement can host a rival dominating set and yields a sharp dominant-part versus half-order transition for \(r\ge3\). This is a natural complete classification with direct enumerative and comparative use.
+In a complete multipartite graph, a nonempty set dominates exactly when it meets at least two parts or equals one whole part; for size at least two it is connected exactly when it meets at least two parts. Given connected dominating \(D\) of size \(s\), if the complement has fewer than \(s\) vertices it cannot contain an equal-size rival; if it meets two parts and has at least \(s\) vertices it contains a dominating \(s\)-subset; if it lies in one part, an equal-size dominating subset exists exactly when the complement is that whole part of size \(s\). The minimization cases then follow. The inspected verifier exhausts all multipartite profiles through order ten and every subset, matching both criterion and formula.
 
-## Closest literature and limitations
-Kulli and Kattimani provide the founding definition and exact clique/biclique values. Those scalar cases are treated as prior-covered checks. The theorem is not claimed outside complete multipartite graphs, and the finite verifier is not used as an infinite proof. Poor indexing in early accurate-domination literature remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary connected-accurate paper gives complete-graph and complete-bipartite values but no arbitrary complete-multipartite theorem or all-set classification. Resultary returned the assigned record as the exact family hit and no earlier complete-multipartite connected-accurate classification.
+
+## value
+
+PASS
+
+A full all-set classification and exact minimum formula for a canonical graph family, including a sharp largest-part transition, is a natural structural result that unifies known complete and bipartite cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
