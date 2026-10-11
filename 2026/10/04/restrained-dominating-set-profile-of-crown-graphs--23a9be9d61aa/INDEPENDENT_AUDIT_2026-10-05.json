@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:32:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ad0c989a6a9e326676ddf619b67110ff99dcb7a8",
+        "assigned verify_crown_restrained.py blob e2ba1214b050f5f33e9a5323f0d68fcec6b9a0f0",
+        "Henning--Kazemi, arXiv:1603.02433",
+        "Domke--Hattingh--Hedetniemi--Laskar--Markus, Discrete Math. 203 (1999)"
+      ],
+      "rationale": "Writing omitted vertices as index sets \\(I,J\\), every omitted vertex needs both a selected and an omitted neighbor across the bipartition. For interior sizes \\(2\\le|I|,|J|\\le n-2\\) this is automatic; when either size is one or \\(n-1\\), exactly the stated matched-index obstruction remains. The case split counts each profile and yields the displayed bivariate polynomial; maximizing \\(|I|+|J|\\) forces the \\((n-1,n-1)\\) case with the same omitted index, so the complements are exactly the deleted-matching pairs. I independently replayed the definition for every subset for \\(3\\le n\\le6\\), reproducing the minimum sets, while the inspected verifier exhausts all subsets through \\(n=9\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bipartite or complete-multipartite restrained-domination theorems do not determine all restrained dominating sets after a perfect matching is removed."
+        ],
+        "reasoning": "No checked broader theorem specializes mechanically to the four boundary conditions or the bivariate profile.",
+        "searches": [
+          "Henning--Kazemi arXiv:1603.02433",
+          "foundational restrained-domination literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1603.02433",
+        "Domke et al. 1999",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum restrained-domination bounds do not determine which subsets of every cardinality work.",
+          "Deleting a perfect matching creates index-specific failures absent from a complete biclique."
+        ],
+        "reasoning": "The enumerator requires a graph-specific trace analysis beyond prior minimum-number results.",
+        "searches": [
+          "Henning--Kazemi bipartite bounds and complete multipartite section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete searchable Henning--Kazemi text contains no crown occurrence.",
+          "Its bipartite section gives minimum-number bounds and complete-bipartite statements, not the omitted-index profile of a matching-deleted biclique."
+        ],
+        "reasoning": "The crown graph, matching-deleted biclique, and indexed-pair formulations were treated as aliases.",
+        "searches": [
+          "Resultary query: restrained domination crown graph K_n,n minus perfect matching polynomial profile",
+          "arXiv:1603.02433 full-text search for crown",
+          "searches using crown graph, biclique crown, and K_n,n minus a perfect matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the direct exact hit; no earlier crown-specific coefficient table was returned."
+        ],
+        "reasoning": "An exact crown-profile table would cover the finite coefficients, but none was located.",
+        "searches": [
+          "Resultary exact crown restrained-domination query"
+        ]
+      },
+      "rationale": "Henning--Kazemi's full searchable arXiv text develops \\(k\\)-tuple restrained domination, gives bipartite bounds and complete multipartite minimum-number results, but a full-text search has no occurrence of 'crown' and no all-set enumerator. The foundational restrained-domination paper is general rather than a crown-profile classification. Resultary searches found the assigned crown profile and other graph-family polynomials but no prior equivalent formula.",
+      "residual_risks": [
+        "A non-indexed crown-specific note using only the matching-deleted-biclique name could contain the same profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BOUNDS_NOT_CROWN_PROFILE",
+          "evidence": "The paper treats general bipartite and complete multipartite minimum numbers but contains no crown-specific all-set classification.",
+          "identifier_or_url": "arXiv:1603.02433",
+          "material_read": "Searchable full primary arXiv text around the bipartite bounds and complete multipartite section; targeted full-text searches for 'crown' and the matching-deleted biclique family.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "k-Tuple Restrained Domination in Graphs",
+          "trigger": "Closest full-text source on restrained domination in bipartite and complete multipartite graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "restrained-domination literature",
+        "crown-graph Resultary search"
+      ],
+      "rationale": "Crown graphs are a standard highly symmetric bipartite family, and the theorem classifies every restrained dominating set rather than merely the minimum parameter. The bivariate omission profile records how the deleted perfect matching controls all cardinalities and gives a reusable exact invariant of a natural graph family.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every crown graph \\(\\operatorname{Cr}_n=K_{n,n}-M\\), \\(n\\ge3\\), restrained dominating sets are exactly the four-boundary-condition omission profiles stated in RESULT.md; the resulting bivariate complement enumerator is \\(Q_n\\), and \\(\\gamma_r(\\operatorname{Cr}_n)=2\\) with precisely the \\(n\\) deleted-matching pairs as minimum sets.",
+  "limitations": [
+    "Standard crown graphs with equal bipartition sizes and one deleted perfect matching only.",
+    "Ordinary restrained domination, not higher \\(k\\)-tuple restrained domination.",
+    "The finite verifier is corroborative; the all-\\(n\\) result rests on the omitted-index proof."
+  ],
+  "schema_version": 1
+}

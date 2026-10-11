@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces restrained domination to two simultaneous neighbor requirements on the complement \(C=V\setminus D\). For a crown graph, all nontrivial failures occur only when one side of \(C\), or one side of \(D\), has size one. The four stated boundary exclusions are exactly those failures. The coefficient formula then counts the resulting profile classes without overlap. Exhaustive subset checks through \(n=9\) agree with both the criterion and coefficient counts. The finite computation is explicitly not used as the infinite proof.
+## correctness
 
-## Originality
-PASS. Focused searches covered “restrained domination crown graph,” “biclique crown,” “\(K_{n,n}\) minus perfect matching,” minimum-set language, and polynomial/enumerator language. The most relevant broad source, Henning–Kazemi on \(k\)-tuple restrained domination, was inspected in searchable full text: it has no “crown” occurrence, and its bipartite results do not imply the all-set profile classification. A same-family published result located for crown graphs concerns a different coloring invariant. No located source states or implies the four-boundary profile theorem, its bivariate enumerator, or the exact classification of all minimum restrained dominating sets.
+PASS
 
-## Value
-PASS. Crown graphs are the canonical graphs obtained by deleting a perfect matching from a complete balanced bipartite graph. The result gives more than the scalar minimum: it classifies every restrained dominating set and compresses all cardinality data into a closed profile enumerator. The boundary phenomenon distinguishes interior profiles from four matching-sensitive regimes and provides an exact benchmark for restrained-domination enumeration on a natural near-complete bipartite family.
+Writing omitted vertices as index sets \(I,J\), every omitted vertex needs both a selected and an omitted neighbor across the bipartition. For interior sizes \(2\le|I|,|J|\le n-2\) this is automatic; when either size is one or \(n-1\), exactly the stated matched-index obstruction remains. The case split counts each profile and yields the displayed bivariate polynomial; maximizing \(|I|+|J|\) forces the \((n-1,n-1)\) case with the same omitted index, so the complements are exactly the deleted-matching pairs. I independently replayed the definition for every subset for \(3\le n\le6\), reproducing the minimum sets, while the inspected verifier exhausts all subsets through \(n=9\).
 
-## Closest literature and limitations
-Henning and Kazemi provide the broader \(k\)-tuple restrained framework and general bipartite bounds, while the earlier restrained-domination literature supplies the underlying parameter and general complexity/bounds. Neither inspected source supplies the crown profile theorem. The statement does not extend to arbitrary deleted matchings or unequal bicliques, and the finite verifier ends at \(n=9\). A non-indexed crown-specific source remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Henning--Kazemi's full searchable arXiv text develops \(k\)-tuple restrained domination, gives bipartite bounds and complete multipartite minimum-number results, but a full-text search has no occurrence of 'crown' and no all-set enumerator. The foundational restrained-domination paper is general rather than a crown-profile classification. Resultary searches found the assigned crown profile and other graph-family polynomials but no prior equivalent formula.
+
+## value
+
+PASS
+
+Crown graphs are a standard highly symmetric bipartite family, and the theorem classifies every restrained dominating set rather than merely the minimum parameter. The bivariate omission profile records how the deleted perfect matching controls all cardinalities and gives a reusable exact invariant of a natural graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
