@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:02:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh direct reconstruction of every radius-one fixed-length Levenshtein ball for all binary centers through length seven reproduced both the stated mean and variance exactly. Independently, the package recurrence tracks the trailing zero-run and the quadratic zero-run statistic through \\(m=200\\); its covariance sum assembles to the stated closed form. The proof separates the all-length symbolic recurrence from finite checks, so enumeration is corroboration rather than the infinite proof.",
+      "risks": [
+        "The result is binary, radius one, and fixed-length; it does not give an exact tail law or central limit theorem."
+      ],
+      "sources": [
+        "RESULT.md blob e8cb4411d17dc09959dd3142a7aba9b829fe6d79",
+        "artifacts/verify.py blob 0141201dba92a3c9c2a35b0ef2dde69e0b2e74bf",
+        "Wang and Wang, arXiv:2204.02201"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing work supplies exact per-word size/mean and concentration inequalities, but these do not determine the variance equality."
+        ],
+        "reasoning": "A concentration inequality and mean do not imply the submitted exact variance.",
+        "searches": [
+          "arXiv:2204.02201 full PDF",
+          "Primary literature cited there on radius-one ball size"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.02201",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source states \\(\\mathbb E B_n\\) and exponential deviation bounds; the submitted \\(\\operatorname{Var}(B_n)\\) is not implied as an equality by those bounds."
+        ],
+        "reasoning": "The variance requires new covariance/moment computation from the exact ball statistic.",
+        "searches": [
+          "Statement comparison with Wang–Wang Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.3 gives the same binary object, exact mean, and two-sided Azuma bounds.",
+          "No variance expression appears in the inspected full paper."
+        ],
+        "reasoning": "The radius-one ball and the random-center distribution are exactly the same objects; the new claim is the exact second moment.",
+        "searches": [
+          "Resultary: fixed length Levenshtein radius one exact variance binary ball size",
+          "arXiv:2204.02201 full PDF, Theorem 3.3 and conclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact variance table or database entry was located."
+        ],
+        "reasoning": "The absence of a database hit is secondary to the primary-source comparison.",
+        "searches": [
+          "Resultary exact-variance query",
+          "Wang–Wang full-text inspection"
+        ]
+      },
+      "rationale": "PASS. Wang and Wang study exactly the distribution of binary radius-one fixed-length Levenshtein balls: their full paper gives the exact mean and Azuma concentration on scale \\(n\\sqrt{n}\\), but no exact variance formula. Their conclusion explicitly describes the distribution/concentration problem as still having a substantial gap. The submitted second moment therefore fills a natural missing statistic rather than recomputing a published table.",
+      "residual_risks": [
+        "An unindexed later note could compute the same variance; no such source was located in the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_MEAN_AND_CONCENTRATION_NOT_VARIANCE",
+          "evidence": [
+            "Theorem 3.3 gives exact mean and Azuma tails; the conclusion discusses concentration and does not state an exact variance."
+          ],
+          "identifier_or_url": "arXiv:2204.02201",
+          "material_read": "Full public PDF including the binary distribution theorem, exact mean, proof, and conclusion.",
+          "method": "Public full-text PDF plus rendered-page inspection.",
+          "title": "On the size distribution of Levenshtein balls with radius one",
+          "trigger": "Same metric, radius, binary alphabet, and random-center distribution."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Variance is the canonical second-order statistic for a random ball size. The exact cubic leading term quantifies the actual fluctuation scale \\(\\tfrac12 n^{3/2}\\), substantially sharpening what a generic bounded-differences inequality alone reveals and supplying a reusable benchmark for synchronization-error geometry.",
+      "risks": [
+        "The scope is a single metric radius and alphabet."
+      ],
+      "sources": [
+        "arXiv:2204.02201",
+        "RESULT.md blob e8cb4411d17dc09959dd3142a7aba9b829fe6d79"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No nonbinary variance or larger-radius formula is claimed."
+  ],
+  "schema_version": 1
+}

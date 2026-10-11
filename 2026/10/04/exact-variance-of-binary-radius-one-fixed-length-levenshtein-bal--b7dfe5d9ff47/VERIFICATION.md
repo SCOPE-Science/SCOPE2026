@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for every \(n\ge1\). The attached `artifacts/verify.py` provides two independent finite checks of the critical identities.
+# Independent mathematical audit
 
-1. Literal channel check: for every binary word of lengths \(1\) through \(10\), construct every output obtained by one deletion followed by one insertion, deduplicate outputs, and compute the exact rational mean and variance. This covers 2,046 centers.
-2. Moment-recurrence check: independently iterate the exact \((R,Q)\) moment recurrences through \(m=200\), sum the covariance formula directly from all-zero intervals, and compare the assembled variance with the closed form.
+## correctness
 
-Expected replay command:
+PASS
 
-`python artifacts/verify.py`
+A fresh direct reconstruction of every radius-one fixed-length Levenshtein ball for all binary centers through length seven reproduced both the stated mean and variance exactly. Independently, the package recurrence tracks the trailing zero-run and the quadratic zero-run statistic through \(m=200\); its covariance sum assembles to the stated closed form. The proof separates the all-length symbolic recurrence from finite checks, so enumeration is corroboration rather than the infinite proof.
 
-Expected terminal line:
+## originality
 
-`VERIFY_OK direct_binary_words=2046 n<=10 recurrence_m<=200`
+PASS
 
-The finite checks do not establish the infinite statement; they corroborate the all-length proof and catch algebraic or normalization errors. No central limit theorem, exact tail law, higher-radius result, or nonbinary variance formula is verified or claimed.
+PASS. Wang and Wang study exactly the distribution of binary radius-one fixed-length Levenshtein balls: their full paper gives the exact mean and Azuma concentration on scale \(n\sqrt{n}\), but no exact variance formula. Their conclusion explicitly describes the distribution/concentration problem as still having a substantial gap. The submitted second moment therefore fills a natural missing statistic rather than recomputing a published table.
+
+## value
+
+PASS
+
+Variance is the canonical second-order statistic for a random ball size. The exact cubic leading term quantifies the actual fluctuation scale \(\tfrac12 n^{3/2}\), substantially sharpening what a generic bounded-differences inequality alone reveals and supplying a reusable benchmark for synchronization-error geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
