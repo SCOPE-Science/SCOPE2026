@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Multiplicative dependence is translated exactly into rational dependence of prime-exponent vectors. For independent pairs, primitive Pluecker coordinates classify the rational two-plane, so the triangle enumeration is exhaustive. The verifier finds exactly 15 unordered consecutive maximal-rank triples through \(1215\), reproduces the published 13 through \(1000\), and isolates exactly the two claimed boundary triples. Their dependence is also checked by explicit identities. The claim is finite; no unverified extrapolation is made.
+## correctness
 
-## Originality
-PASS. The direct 2026 paper defines \(M(H)\), records \(M(1000)=78\), and does not give the next exact value. The 2021 paper stops its stated census at \(1000\). Hercher and OEIS already record the Benelux pair \((75,1215)\), so that pair is not claimed as new. Exact statement/alias searches did not locate the boundary \(M(1214)=78\), \(M(1215)=90\) or the complete pair of new triples. Residual risk remains for unindexed computations.
+PASS
 
-## Value
-PASS. The result answers the immediate exact question beyond the sole finite census quoted in the new paper and locates the first increase of its central counting function. The interval is not selected after an arbitrary search: it starts at the published cutoff and ends at the first provable change. The exceptional Benelux pair gives a structural explanation for the new witnesses.
+Prime-exponent vectors turn multiplicative dependence into exact rational linear dependence. Primitive Pluecker coordinates classify the rational two-plane spanned by each independent pair, so a maximal-rank dependent unordered triple is exactly a triangle whose three pair-edges share one plane key. A fresh independent exact replay over all \(2\le a<b<c\le1215\) found \(15\) consecutive triples, \(13\) with maximum at most \(1000\), and exactly the two claimed new triples at \(1215\). The displayed multiplicative identities verify both boundary witnesses and their translates. Maximal rank forces distinct coordinates, so six permutations convert the unordered counts to \(78\) and \(90\).
 
-## Closest literature and limitations
-Shparlinski--Sleiman (arXiv:2609.29408v1) is the direct current source; Vukusic--Ziegler (arXiv:2103.08542) supplies the 1000 census; Hercher (arXiv:2506.01099v1) and OEIS A343101 establish that \((75,1215)\) is a known Benelux pair. The result is a finite cutoff only and does not settle whether \(M(H)\to\infty\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Vukusic--Ziegler's full paper reports exactly \(13\) unordered examples through \(1000\). Shparlinski--Sleiman's complete ten-page preprint defines the same ordered maximal-rank function, records \(M(1000)=78\), proves only an asymptotic upper bound, and explicitly states that even \(M(H)\to\infty\) is unknown. The Benelux pair \((75,1215)\) was already known, so the individual witness coordinates are not wholly new; the surviving claim is the exhaustive first-jump boundary, including exclusion of every competing triple through \(1214\). Resultary searches found no prior post-1000 census.
+
+## value
+
+PASS
+
+The source literature explicitly leaves the growth and occurrence of consecutive maximal-rank triples open. The first jump beyond the standard published census is a natural exact finite invariant, and proving that boundary requires an exhaustive rank-exact search with no relation-exponent cutoff. The result supplies a concrete benchmark for the new asymptotic counting theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

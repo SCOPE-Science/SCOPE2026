@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` performs an exhaustive exact enumeration for \(2\le a<b<c\le1215\). It factors integers through \(1216\), maps them to prime-exponent vectors, assigns every multiplicatively independent pair a primitive Pluecker key for its rational two-plane, enumerates all monochromatic triangles, and then applies the same rank-two test to the translated triple.
+# Independent mathematical audit
 
-The finite completeness argument is exact: every maximal-rank dependent triple has three independent pair edges spanning one common rational two-plane, and every triangle with a common primitive Pluecker key has three exponent vectors of rank two. No relation-exponent cutoff is introduced.
+## correctness
 
-The program asserts that there are 15 unordered consecutive maximal-rank triples through \(1215\), 13 through \(1000\), and exactly two above \(1000\), both at \(1215\). It also checks the explicit multiplicative identities for the boundary witnesses and the ordered counts \(M(1214)=78\), \(M(1215)=90\).
+PASS
 
-Expected output:
+Prime-exponent vectors turn multiplicative dependence into exact rational linear dependence. Primitive Pluecker coordinates classify the rational two-plane spanned by each independent pair, so a maximal-rank dependent unordered triple is exactly a triangle whose three pair-edges share one plane key. A fresh independent exact replay over all \(2\le a<b<c\le1215\) found \(15\) consecutive triples, \(13\) with maximum at most \(1000\), and exactly the two claimed new triples at \(1215\). The displayed multiplicative identities verify both boundary witnesses and their translates. Maximal rank forces distinct coordinates, so six permutations convert the unordered counts to \(78\) and \(90\).
 
-`VERIFY_OK H=1215 total_unordered=15 le1000=13 new_at_1215=2 M1214=78 M1215=90`
+## originality
 
-This verifies only the stated finite range. It does not establish any claim for \(H>1215\).
+PASS
+
+Vukusic--Ziegler's full paper reports exactly \(13\) unordered examples through \(1000\). Shparlinski--Sleiman's complete ten-page preprint defines the same ordered maximal-rank function, records \(M(1000)=78\), proves only an asymptotic upper bound, and explicitly states that even \(M(H)\to\infty\) is unknown. The Benelux pair \((75,1215)\) was already known, so the individual witness coordinates are not wholly new; the surviving claim is the exhaustive first-jump boundary, including exclusion of every competing triple through \(1214\). Resultary searches found no prior post-1000 census.
+
+## value
+
+PASS
+
+The source literature explicitly leaves the growth and occurrence of consecutive maximal-rank triples open. The first jump beyond the standard published census is a natural exact finite invariant, and proving that boundary requires an exhaustive rank-exact search with no relation-exponent cutoff. The result supplies a concrete benchmark for the new asymptotic counting theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
