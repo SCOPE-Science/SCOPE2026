@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The flow quotient model is established by merging duplicate edges using 0<p<=1 and reducing the 3-edge cycle variable to a concave-between-breakpoints cost; all three spanning trees are considered. Every triple zero-sum molecule has a 2-edge star optimal for p=1; the p<1 quasi-norm obeys the exact 2^{1/p-1} comparison. The dual Lipschitz polytope has exactly six distance-function vertices because all strict triangle inequalities hold, giving Lip(R1)=sec(largest angle/2). At a longest-opposite-side vertex, costs on the two other trees are strictly >2 while star cost=2; explicit small interior perturbation attains matching lower bound. Includes p=1, all shapes and boundary cases; finite numerical checks are auxiliary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bíma, arxiv:2303.03265 Section 3 defines K as union of standard cubes and the l1 vertex metric; its estimate involves C(p,2^{d-1})C(p,d)C(p,3).",
+        "Albiac et al., arxiv:2006.08018 pp. 13–17 Theorem 3.5, coordinatewise product hats for cubes with supremum metric.",
+        "Waldron 1998 studies sharp pointwise scalar interpolation error, DOI 10.1137/S0036142996313154 (abstract only)."
+      ],
+      "reasoning": "The stronger-looking dimension-dependent cubical estimates do not cover a single Euclidean triangle as a special case: their domain is a square/cubical mesh and their metric is l1 or l-infinity. Universal non-affine Lipschitz extension theorems cannot determine the exact Lipschitz norm of this prescribed affine map. The 1998 interpolation-error abstract cannot establish whole-paper noncoverage; it remains a named risk.",
+      "searches": [
+        "WEB: Jan Bima Lipschitz-free spaces and subsets finite-dimensional spaces 2023 Theorem 3.2",
+        "WEB: Albiac Ansorena Cuth Doucha Structure Lipschitz free p spaces Z^d R^d affine extension vertex cube",
+        "WEB: sharp norm linear interpolation operator three nodes 1-Lipschitz data planar triangle",
+        "published-finding corpus: barycentric Lipschitz extension three metric vertices Euclidean triangle exact Lipschitz constant 2^{1/p-1} sec half angle"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2303.03265",
+      "arxiv:2006.08018",
+      "doi:10.1017/prm.2023.109",
+      "doi:10.1137/S0036142996313154 (abstract only)",
+      "https://www.degruyterbrill.com/document/doi/10.1515/agms-2024-0010/html",
+      "published-finding corpus record 2026/10/4/SCOPE-a-sharp-octahedrality-threshold-for-a-three-parameter-lipschitz--97e59c6f2e83",
+      "own current/prior ledger claims incl 23ae4bb0-1450-4d1e-9dc4-51eb69dcb2fa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bíma 2023 Theorem 3.2 is a bound in a different domain geometry; not a theorem about all triangles.",
+        "Albiac et al. 2020 Theorem 3.5 is an existence bound for a different cubical interpolant.",
+        "Our exact proof compares all three spanning-tree costs at the largest-angle vertex, a sharpness condition absent from both sources."
+      ],
+      "reasoning": "Restricting the published cubical theorem does not yield three noncollinear vertices with Euclidean induced distances nor an affine simplex map. The present exact all-shape/all-p formula is not a corollary of the visible prior statements. No universal novelty inference is drawn from partitioning or search results.",
+      "searches": [
+        "published-finding corpus: canonical affine barycentric retraction from Euclidean triangular simplex to Lipschitz-free p-space of three vertices sharp Lipschitz constant sec half largest angle",
+        "WEB: \"Lipschitz-free\" \"triangle\" \"barycentric\" interpolation",
+        "WEB: triangle Lipschitz-free p-space barycentric interpolation norm sharp angle formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2303.03265 Theorem 3.2 addresses product-hat functions over 2^d cube vertices, not barycentric affine triangle interpolation.",
+        "arxiv:2006.08018 Theorem 3.5 addresses cubical vertex sets.",
+        "published-finding corpus matched 2026/10/4/SCOPE-a-sharp-octahedrality-threshold-for-a-three-parameter-lipschitz--97e59c6f2e83 (different infinite metric family and octahedrality)."
+      ],
+      "reasoning": "The parameter pair (arbitrary triangle shape, p) and output norm of the affine triangle-to-F_p(three vertices) map are not equivalent to the retrieved cubical maps or metric octahedrality results. Our p=1 angle-bisector reduction is a scalar interpolation alias explicitly searched.",
+      "searches": [
+        "published-finding corpus: canonical affine barycentric retraction from Euclidean triangular simplex to Lipschitz-free p-space of three vertices sharp Lipschitz constant sec half largest angle",
+        "published-finding corpus: Euclidean triangle affine barycentric interpolation in Lipschitz-free p-space exact Lipschitz constant 2^(1/p-1) sec(max angle/2), for all triangle shapes 0<p<=1",
+        "WEB: \"Lipschitz-free p\" \"triangle\" \"affine\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus source 2026/10/4/SCOPE-facet-distance-coordinates-are-a-scaled-euclidean-isometry-in-re--047a0e8f0d0c gives facet-distance Euclidean coordinates for regular simplices, not norms of free p interpolation.",
+        "Current and prior own-ledger recoverable claims were searched: closest row item 23ae4bb0-1450-4d1e-9dc4-51eb69dcb2fa gives a square-cell l1 four-vertex constant."
+      ],
+      "reasoning": "No exact numeric table or parameterized formula implying the claimed triangle p-norm surfaced in the checked records. The earlier square result is a different metric and domain, so its exact value does not give the stated secant half-angle continuum.",
+      "searches": [
+        "published-finding corpus: arxiv 2303.03265 triangle simplex three vertices affine interpolation",
+        "published-finding corpus: Sharp bilinear or barycentric interpolation into Lipschitz-free p-spaces on triangular cells",
+        "WEB: \"Lipschitz\" \"barycentric\" \"sec\" \"triangle\" interpolation"
+      ]
+    },
+    "rationale": "Full relevant sections of Bíma 2023 (Theorem 3.2) and Albiac–Ansorena–Cúth–Doucha 2020 (Theorem 3.5) specify coordinatewise affine maps on cubes in l1/l∞ geometries and no Euclidean three-vertex triangular formula. Targeted published-finding corpus and web searches with exact claims, half-angle geometry, aliases, and quasi-Banach p parameters found no implying theorem. The recorded 2020 square-cell calculation uses four vertices and l1 geometry; its conclusion does not determine any three-vertex Euclidean triangle. Some earlier scalar interpolation results remain a residual risk, and search absence alone is not treated as novelty proof.",
+    "residual_risks": [
+      "A scalar p=1 half-angle bound might be classical under the name Lagrange finite-element interpolation stability; the novel simultaneous free p formula for p<1 was not found.",
+      "Full text of Waldron 1998 was not accessible; assessed on available abstract only, not classified whole-document noncoverage.",
+      "Searchable published-finding corpus records and own ledgers cannot establish uniqueness against unpublished or poorly indexed mathematical literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: cube-shaped source sets with l1 metric, unlike one Euclidean triangle with three vertices; does not assert present exact all-p angle formula.",
+        "evidence": [
+          "Section 3 lines 671–693 and 726–794; explicit 2^d vertices; no simplex/triangle statements in full text."
+        ],
+        "identifier_or_url": "arxiv:2303.03265; https://www.cambridge.org/core/journals/proceedings-of-the-royal-society-of-edinburgh-section-a-mathematics/article/lipschitzfree-spaces-and-subsets-of-finitedimensional-spaces/7768777651C21799A0D82CE33FB38AA9",
+        "material_read": "Full open-access HTML: introduction, preliminaries, Section 3 definition of coordinatewise affine cubical map, Question 3.1, Theorem 3.2 and proof, relevant Section 4 outline.",
+        "method": "HTML full-text line inspection, including numbered hypotheses and estimates",
+        "title": "Lipschitz-free spaces and subsets of finite-dimensional spaces",
+        "trigger": "Main source for canonical interpolation constants; first public 2023-03-06, primary MSC 46A16"
+      },
+      {
+        "assessment": "Not covering: Section 3 interpolates coordinatewise on cubical grids in supremum metric, with nonsharp p,d estimate; its results do not imply triangle shape profile.",
+        "evidence": [
+          "PDF theorem 3.5 lines 996–1062; Theorem 3.8 lines 1218–1279."
+        ],
+        "identifier_or_url": "arxiv:2006.08018; https://arxiv.org/pdf/2006.08018",
+        "material_read": "ArXiv v1 24-page PDF, introduction and Section 3 including Theorems 3.5 and 3.8 (pp. 13–17); first page visually inspected.",
+        "method": "Open-access arXiv PDF full-text extraction, search and page image inspection",
+        "title": "Structure of the Lipschitz free p-spaces of Zd and Rd for 0<p<=1",
+        "trigger": "Direct original construction referenced by Bíma; plausible stronger coverage"
+      },
+      {
+        "assessment": "Unresolved full-text risk: abstract discusses pointwise scalar L-infinity interpolation-error estimates, not free p-space interpolation constants; cannot rule out an equivalent scalar subformula in the full paper.",
+        "evidence": [
+          "Abstract identifies optimal pointwise interpolation error, rather than the Lipschitz norm of vertex-data interpolation."
+        ],
+        "identifier_or_url": "doi:10.1137/S0036142996313154",
+        "material_read": "Publisher abstract and metadata only; full text not accessible during comparison.",
+        "method": "Publisher abstract inspection",
+        "title": "The Error in Linear Interpolation at the Vertices of a Simplex",
+        "trigger": "Plausible historical simplex interpolation analogue"
+      },
+      {
+        "assessment": "Different problem: existence of 1-Lipschitz barycenter map from probability measures into generalized non-positive curvature target; no exact norm of canonical Euclidean triangle map to free quasi-Banach p-space.",
+        "evidence": [
+          "Theorem 2.5 characterizes barycenter maps P_1(X)->X, not the operator here."
+        ],
+        "identifier_or_url": "https://www.degruyterbrill.com/document/doi/10.1515/agms-2024-0010/html",
+        "material_read": "Open article abstract, section organization, Definition 2.4 and Theorem 2.5 on barycenter maps; comparison of object definitions.",
+        "method": "Web HTML inspection",
+        "title": "Lipschitz extension theorems with explicit constants",
+        "trigger": "Potential general barycentric map or extension theorem that might dominate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f5c52662-9bea-4bbe-9396-d4de0f7902c9",
+  "value": {
+    "rationale": "Determines the precise shape-sensitive Lipschitz stability of the unique canonical affine interpolation from all Euclidean triangular cells into quasi-Banach free p-spaces of their vertices, throughout an exponent continuum. Such local stability is a mathematically motivated analog of the established cubic interpolation project in Bíma 2023, and the exact angle-bisector extremizer and spanning-tree mechanism distinguish nonlocally convex transport p geometry from the p=1 case. It is neither an arbitrary one-off slice nor an unsupported global triangulation claim. The scalar p=1 component alone is likely classical, but the simultaneous sharp p<1 extension and its geometric dependence carry the value.",
+    "status": "PASS"
+  }
+}
