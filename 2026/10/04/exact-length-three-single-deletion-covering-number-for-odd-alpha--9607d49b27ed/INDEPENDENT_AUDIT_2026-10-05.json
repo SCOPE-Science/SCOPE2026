@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:50:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "C. Xie, Y. Sun, G. Ge, New bounds for covering codes under insertions or deletions, arXiv:2606.15379v1 (2026); primary abstract inspected, open full-text route did not expose the mathematical body.",
+        "C. J. Colbourn, A. Rosa, Quadratic leaves of maximal partial triple systems, Graphs and Combinatorics 2 (1986), 317–337, DOI:10.1007/BF01788106; primary abstract inspected.",
+        "Resultary semantic searches for exact D(q,3,1), odd alphabets, and partial-triple-system constructions.",
+        "Assigned RESULT.md and verify_odd_q.py at the frozen source tree.",
+        "Fresh independent verification of the q=5,7,9,11,13 leave/block witnesses and covering construction."
+      ],
+      "rationale": "Every length-three word has at most three distinct length-two deletion descendants, giving the lower bound ceil(q^2/3). For q congruent 3 mod 6, q>=9, choose the cycle C_q as a partial-triple-system leave; for q congruent 1 or 5 mod 6 choose C_{q-1} plus one isolated vertex. The Colbourn–Rosa theorem applies because all leave degrees are zero or two, the necessary parity/divisibility conditions hold, and the lone exception C4 union C5 is never selected. Two opposite words per triangle cover all six orientations of its three edges; one word (v_i,v_{i+1},v_i) per cycle edge covers both orientations plus loop (v_i,v_i), and the isolated symbol uses (z,z,z). The counts simplify to ceil(q^2/3). q=3 is covered by the explicit three-word cycle code. Fresh independent checks reproduce complete coverage and exact size for q=5,7,9,11,13.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Sun–Ge treat arbitrary lengths/radii asymptotically.",
+          "Colbourn–Rosa classify a broad class of leaves for maximal partial triple systems."
+        ],
+        "reasoning": "Neither broader result alone gives the exact coding-theoretic formula; the audit combines the counting lower bound with a specific leave choice and orientation/loop completion.",
+        "searches": [
+          "Xie–Sun–Ge general covering bounds",
+          "Colbourn–Rosa leave theorem"
+        ]
+      },
+      "checked_sources": [
+        "C. Xie, Y. Sun, G. Ge, New bounds for covering codes under insertions or deletions, arXiv:2606.15379v1 (2026); primary abstract inspected, open full-text route did not expose the mathematical body.",
+        "C. J. Colbourn, A. Rosa, Quadratic leaves of maximal partial triple systems, Graphs and Combinatorics 2 (1986), 317–337, DOI:10.1007/BF01788106; primary abstract inspected.",
+        "Resultary semantic searches for exact D(q,3,1), odd alphabets, and partial-triple-system constructions.",
+        "Assigned RESULT.md and verify_odd_q.py at the frozen source tree.",
+        "Fresh independent verification of the q=5,7,9,11,13 leave/block witnesses and covering construction."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The counting bound alone only yields ceil(q^2/3).",
+          "The leave theorem guarantees the required triangle decomposition for the chosen cycle leaves, excluding only C4 union C5, which is never one of the selected leaves.",
+          "Orienting each triangle with two words and each leave edge with one loop-bearing word realizes every ordered pair."
+        ],
+        "reasoning": "The exact formula requires a nontrivial design-theoretic construction beyond the asymptotic covering result.",
+        "searches": [
+          "Xie–Sun–Ge asymptotic theorem",
+          "Colbourn–Rosa quadratic-leave theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recent source treats deletion covering and states asymptotic tightness of the counting lower bound.",
+          "No indexed exact all-odd q length-three formula was returned."
+        ],
+        "reasoning": "Deletion covering, ordered-pair coverage by length-three words and the partial-triple-system construction are equivalent after translating each word to its three deletion descendants.",
+        "searches": [
+          "Resultary: D(q,3,1) odd q exact",
+          "Resultary: length-three single-deletion covering partial triple system",
+          "Xie–Sun–Ge arXiv:2606.15379 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact all-odd table/formula was located."
+        ],
+        "reasoning": "The claim is an infinite exact family, not a finite table entry.",
+        "searches": [
+          "Resultary exact D(q,3,1) searches",
+          "odd-q deletion-covering searches"
+        ]
+      },
+      "rationale": "The recent deletion-covering paper proves asymptotic tightness of the elementary counting lower bound as alphabet size grows and gives asymptotically optimal constructions, but the accessible primary material does not state the exact odd-q length-three formula. The classical partial-triple-system theorem supplies exactly the design-existence ingredient but does not formulate deletion covering codes. Exact-value searches returned no prior all-odd theorem. The complete recent preprint body could not be obtained in this run; one authorized fallback returned a transport-level unavailable/request-invalid error, retained as a residual risk.",
+      "residual_risks": [
+        "The complete Xie–Sun–Ge preprint body was inaccessible in this run and could contain a sharper small-length remark.",
+        "An older deletion-covering formulation under supersequence/subsequence terminology may be poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS-LIMITED; ACCESSIBLE CLAIM IS ASYMPTOTIC",
+          "evidence": "The abstract says the elementary deletion-covering counting lower bound is asymptotically tight as q grows and gives asymptotically optimal nonbinary single-deletion covering codes.",
+          "identifier_or_url": "arXiv:2606.15379v1",
+          "material_read": "Primary abstract and accessible metadata. Open full-text rendering did not expose the body; one authorized institutional fallback returned worker unavailable/request invalid and was not retried.",
+          "method": "Primary abstract inspection plus bounded lawful full-text attempts.",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Closest recent same-object deletion-covering paper."
+        },
+        {
+          "assessment": "SUPPLIES THE DESIGN INGREDIENT, NOT THE CODING-THEORY CONCLUSION",
+          "evidence": "Every degree-zero-or-two graph satisfying the basic conditions is a leave of a maximal partial triple system except C4 union C5.",
+          "identifier_or_url": "DOI:10.1007/BF01788106",
+          "material_read": "Primary Springer abstract and bibliographic page.",
+          "method": "Primary source inspection.",
+          "title": "Quadratic leaves of maximal partial triple systems",
+          "trigger": "Exact design-existence theorem used by the construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "C. Xie, Y. Sun, G. Ge, New bounds for covering codes under insertions or deletions, arXiv:2606.15379v1 (2026); primary abstract inspected, open full-text route did not expose the mathematical body.",
+        "C. J. Colbourn, A. Rosa, Quadratic leaves of maximal partial triple systems, Graphs and Combinatorics 2 (1986), 317–337, DOI:10.1007/BF01788106; primary abstract inspected.",
+        "Resultary semantic searches for exact D(q,3,1), odd alphabets, and partial-triple-system constructions.",
+        "Assigned RESULT.md and verify_odd_q.py at the frozen source tree.",
+        "Fresh independent verification of the q=5,7,9,11,13 leave/block witnesses and covering construction."
+      ],
+      "rationale": "The theorem exactly closes the elementary counting bound on an infinite, arithmetically natural half of the alphabet sizes. It converts a classical leave theorem into an explicit synchronization-error covering construction and provides a clean finite-length benchmark complementary to recent asymptotic deletion-covering theory.",
+      "residual_risks": [
+        "The complete Xie–Sun–Ge preprint body was inaccessible in this run and could contain a sharper small-length remark.",
+        "An older deletion-covering formulation under supersequence/subsequence terminology may be poorly indexed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every odd alphabet size q>=3, the minimum size of a q-ary length-three single-deletion covering code is ceil(q^2/3).",
+  "limitations": [
+    "Only length three, single deletion and odd alphabet sizes are resolved.",
+    "Existence of the required partial triple systems is classical prior art.",
+    "The complete Xie–Sun–Ge preprint body was inaccessible in this run and could contain a sharper small-length remark.",
+    "An older deletion-covering formulation under supersequence/subsequence terminology may be poorly indexed."
+  ],
+  "schema_version": 1
+}
