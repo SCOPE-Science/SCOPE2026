@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound starts from the dual characterization of weighted Lin--Lu--Yau curvature and inserts an explicit feasible \(1\)-Lipschitz function on an arbitrary normalized admissible weighting. This gives \(q\le(p-1)D(1+2D/(p-2))\) without a symmetry assumption. The proposed optimizer is then checked on all three edge types, and the only potentially tight curvature has numerator \(2(p-1)s^2+(p-1)(p-2)s-q(p-2)\), which is nonnegative by the definition of \(s\). The verifier independently stress-tests the formulas and small dual minimizations.
+## correctness
 
-## Originality
-PASS. The initiating preprint defines the invariant and develops exact tree theory plus tree-like-skeleton comparisons, but the inspected full text contains no pineapple-family result. Its tree-like-edge bound does not dominate this claim: each pendant edge has a leaf endpoint, while the decisive lower-bound test in the proof is on a clique edge lying in triangles. Searches using the family name, its construction description, the invariant name, and the Lin--Lu--Yau terminology found no exact pineapple formula. The closest indexed result is an exact curvature-distortion treatment of spider trees, which is a different object class and does not imply the clique-plus-leaves formula.
+PASS
 
-## Value
-PASS. Pineapple graphs are a standard structured family, and the theorem gives a closed two-parameter exact value for a newly introduced invariant outside the tree setting. It exhibits a sharp transition for when unit weights cease to suffice and quantifies how a clique core absorbs pendant branching: for fixed \(p\), the optimum grows on the order of \(\sqrt q\). The proof also supplies a reusable dual-test mechanism for lower bounds on graphs with dense cores and pendant load.
+The lower bound was reconstructed for arbitrary positive admissible weights after normalizing the minimum edge weight to one. The stated dual-feasible function on an attachment clique edge yields \(LR\le P(2r+R)\), and the elementary distortion bounds then give the quadratic inequality in the distortion. For the matching weight, direct edge-type minimization of the dual objective gives positive pendant and inner-clique curvature and the attachment-edge numerator equal to the defining quadratic. Independent evaluation over 600 parameter pairs confirmed the resulting formulas and unit-weight threshold; the finite sweep was only a stress test of the analytic proof.
 
-## Closest literature and limitations
-The closest primary source is Xia's introduction of curvature-distortion numbers and its general tree-like-skeleton comparison. The closest indexed exact-family extension found is the spider-tree formula. The result here is limited to the standard pineapple attachment pattern and the fixed-combinatorial-distance weighted Lin--Lu--Yau convention. Because the invariant is recent, later or not-yet-indexed manuscripts remain a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete 27-page initiating paper was inspected. It develops exact fixed-point theory for trees and comparisons through tree-like edges in general graphs, and its full text contains no pineapple result. In a pineapple graph, the decisive lower bound comes from a clique edge lying in triangles, outside the tree-like-edge theorem. The closest published SCOPE result is for spider trees, a different object class.
+
+## value
+
+PASS
+
+This gives an exact two-parameter value of a newly introduced invariant on a standard named non-tree family, together with a sharp unweighted-curvature threshold. The proof also supplies a non-tree triangle-edge lower-bound mechanism not furnished by the source's tree-like-skeleton theorem, so the result is a motivated structural family calculation rather than a tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

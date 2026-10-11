@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:57:03.443799Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 1c88a1b6b5587e4237a5f3d28fe049d582710ecc",
+        "verify.py blob 1663c0def23e8acbfa68efd015999ea5acb8f271",
+        "independent dual reconstruction and parameter sweep"
+      ],
+      "rationale": "The lower bound was reconstructed for arbitrary positive admissible weights after normalizing the minimum edge weight to one. The stated dual-feasible function on an attachment clique edge yields \\(LR\\le P(2r+R)\\), and the elementary distortion bounds then give the quadratic inequality in the distortion. For the matching weight, direct edge-type minimization of the dual objective gives positive pendant and inner-clique curvature and the attachment-edge numerator equal to the defining quadratic. Independent evaluation over 600 parameter pairs confirmed the resulting formulas and unit-weight threshold; the finite sweep was only a stress test of the analytic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.8 applies only to connected subgraphs whose retained edges are tree-like in the ambient graph.",
+          "The source explicitly notes arbitrary subgraph monotonicity fails when edges lie in triangles.",
+          "Pineapple clique edges lie in triangles, and the audited sharp lower bound is obtained on such a clique edge."
+        ],
+        "reasoning": "The general tree-like theory does not dominate the exact pineapple formula; it gives at most partial lower information from pendant/tree-like structure.",
+        "searches": [
+          "arXiv:2609.12125v2 Theorems 1.1 through 1.8 and Section 6",
+          "tree-like subgraph comparison and local degree bound"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.12125v2",
+        "Resultary record 2026/9/19/SCOPE-curvature-distortion-spider-trees--7ee8f1c6b217",
+        "web searches: pineapple graph curvature-distortion Lin-Lu-Yau exact formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pendant-edge comparison does not produce the sharp quadratic dependence on the pendant load.",
+          "The source's general-graph example illustrates nonuniqueness but does not parameterize pineapples.",
+          "The audited proof requires a new dual test on an attachment-to-clique edge and a matching symmetric weighting."
+        ],
+        "reasoning": "The exact formula is not a routine specialization of the source's tree fixed-point theorem or tree-like-skeleton comparison.",
+        "searches": [
+          "Specialized Xia's tree-like edge lower bound to pineapple pendant edges",
+          "compared the source's non-tree example and failure of arbitrary subgraph monotonicity",
+          "reconstructed the audited dual lower bound on a triangle edge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full-text search of the initiating paper returned no occurrence of pineapple.",
+          "The closest Resultary exact-family record is spider trees, which has no clique cycle structure."
+        ],
+        "reasoning": "Both the named graph family and its construction as a clique with pendant leaves were considered; no equivalent formula was found.",
+        "searches": [
+          "arXiv:2609.12125v2 full-text search for pineapple and complete-graph attachments",
+          "web exact search for pineapple graph Lin-Lu-Yau curvature distortion",
+          "Resultary semantic query for curvature-distortion pineapple graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact SCOPE family is spider trees, not pineapple graphs.",
+          "No exact pineapple table or two-parameter formula was returned."
+        ],
+        "reasoning": "Because this is a named-family exact invariant, an earlier family table would be decisive; none was found.",
+        "searches": [
+          "Resultary exact-family query for curvature-distortion numbers",
+          "web exact-form search for pineapple curvature-distortion"
+        ]
+      },
+      "rationale": "The complete 27-page initiating paper was inspected. It develops exact fixed-point theory for trees and comparisons through tree-like edges in general graphs, and its full text contains no pineapple result. In a pineapple graph, the decisive lower bound comes from a clique edge lying in triangles, outside the tree-like-edge theorem. The closest published SCOPE result is for spider trees, a different object class.",
+      "residual_risks": [
+        "The invariant is very recent, so later or unindexed manuscripts could contain the same family formula. Focused exact-family, alias, and Resultary searches found none as of this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_PINEAPPLE_FORMULA",
+          "evidence": "The paper's general transfer theorem is restricted to tree-like edges and the full text has no pineapple result; it explicitly notes failure of arbitrary subgraph monotonicity for triangle edges.",
+          "identifier_or_url": "arXiv:2609.12125v2",
+          "material_read": "Complete 27-page PDF, including the invariant definition, Theorems 1.1-1.8, the general-graph nonuniqueness example, Section 6 tree-like comparison, and full-text searches for pineapple terminology; a theorem page was visually inspected.",
+          "method": "lawful open arXiv PDF and page screenshot",
+          "title": "Curvature-Distortion Numbers of Graphs: Nonnegative Lin--Lu--Yau Curvature",
+          "trigger": "Primary source introducing the exact invariant and strongest possible coverage source."
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_CLASS",
+          "evidence": "Spider trees are acyclic and governed by the tree fixed-point theory; they do not cover clique-with-pendant-leaf pineapple graphs.",
+          "identifier_or_url": "Resultary record 2026/9/19/SCOPE-curvature-distortion-spider-trees--7ee8f1c6b217",
+          "material_read": "Resultary title, summary, exact family description, and distortion range.",
+          "method": "semantic research-record inspection",
+          "title": "Curvature-distortion numbers of spider trees",
+          "trigger": "Closest published SCOPE exact-family record for the same invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.12125v2",
+        "published spider-tree SCOPE record",
+        "independent dual analysis"
+      ],
+      "rationale": "This gives an exact two-parameter value of a newly introduced invariant on a standard named non-tree family, together with a sharp unweighted-curvature threshold. The proof also supplies a non-tree triangle-edge lower-bound mechanism not furnished by the source's tree-like-skeleton theorem, so the result is a motivated structural family calculation rather than a tiny-instance computation.",
+      "residual_risks": [
+        "The theorem concerns only the standard pineapple family with all leaves attached to one clique vertex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The invariant is very recent, so later or unindexed manuscripts could contain the same family formula. Focused exact-family, alias, and Resultary searches found none as of this audit."
+  ],
+  "schema_version": 1
+}
