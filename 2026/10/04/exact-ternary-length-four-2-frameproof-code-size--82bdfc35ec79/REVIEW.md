@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite. The 12-word lower-bound code is checked directly against the descendant definition. For the upper bound, the automorphism reduction to four possible second-word weights is complete, and two exact search traversals refute every 13-word extension from those four roots. The verifier reconstructs the forbidden triples rather than loading a precomputed table.
+## correctness
 
-## Originality
-PASS. The closest inspected full texts do not imply the exact ternary value. Chee–Zhang defines the same extremal function and gives archive-era constructions. Rochanakul gives the 12-word ternary example but proves its new upper bound only for odd alphabets larger than ten; for \(q=3\) that article does not close the gap. Searches under both notation conventions and separating-hash aliases returned no statement of \(M_{2,4}(3)=12\). Residual risk remains for unindexed small-parameter computations.
+PASS
 
-## Value
-PASS. The parameter is the smallest nonbinary alphabet in the length-four, coalition-two problem and is singled out by a later published 12-word construction that exceeds the archive-era generic odd-alphabet construction at this alphabet size. Closing its exact value supplies a sharp finite benchmark for the structural upper-bound problem rather than an arbitrary slice.
+A fresh reconstruction over all 81 ternary length-four words generated exactly 18,792 forbidden unordered triples, where one word lies in the descendant of the other two. The published 12-word witness contains no forbidden triple. After normalizing one selected word to 0000, the stabilizer and coordinate permutations reduce the second word to Hamming weights 1,2,3,4; exact include/exclude enumeration in all four canonical root cases found no 13-set. This exhausts the finite domain and establishes maximum 12.
 
-## Closest literature and limitations
-The closest sources are Chee–Zhang (arXiv:1206.5863), Cheng–Jiang–Wang (DOI:10.1007/s10623-018-0490-5), and Rochanakul (DOI:10.1155/2020/4879108). The proof here is computer-assisted and parameter-specific; no general formula for larger alphabets is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. The directly relevant 2020 length-four frameproof paper was inspected in full accessible text: it prints the same 12-word ternary construction, but its sharpened upper theorem is restricted to odd q>10 and its conclusion does not claim ternary optimality. Chee–Zhang and the earlier/later length-four bounds likewise do not force 12 at q=3. Fresh Resultary search found no stronger exact ternary statement.
+
+## value
+
+PASS
+
+The ternary case is the smallest nonbinary instance of the length-four coalition-two extremal problem and is specifically highlighted by a later paper through a 12-word construction without matching optimality. Closing that concrete construction-to-upper-bound gap is a natural finite extremal benchmark, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:06:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh reconstruction over all 81 ternary length-four words generated exactly 18,792 forbidden unordered triples, where one word lies in the descendant of the other two. The published 12-word witness contains no forbidden triple. After normalizing one selected word to 0000, the stabilizer and coordinate permutations reduce the second word to Hamming weights 1,2,3,4; exact include/exclude enumeration in all four canonical root cases found no 13-set. This exhausts the finite domain and establishes maximum 12.",
+      "risks": [
+        "The proof is computer-assisted and parameter-specific, though the symmetry reduction and forbidden-triple criterion are complete."
+      ],
+      "sources": [
+        "RESULT.md blob fb4c235af2c567e9dd8bb849df3d9757e74a4ed6",
+        "artifacts/verify.py blob eed9cfb279ff313bddb5539d43469c709b277655"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rochanakul's new upper theorem is stated only for odd q>10; at q=3 the paper gives a 12-word example and a larger general upper bound.",
+          "The large-alphabet length-four bounds do not specialize sharply to q=3."
+        ],
+        "reasoning": "Broader frameproof bounds leave a nontrivial ternary gap and do not dominate the submitted exact finite result.",
+        "searches": [
+          "Rochanakul 2020 full accessible article text",
+          "Chee–Zhang arXiv:1206.5863",
+          "Cheng–Jiang–Wang DOI:10.1007/s10623-018-0490-5"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1155/2020/4879108",
+        "arXiv:1206.5863",
+        "DOI:10.1007/s10623-018-0490-5",
+        "DOI:10.1137/S0895480101384633",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior construction proves only M>=12; the general bound cited there gives a larger ternary upper bound.",
+          "The submitted exhaustive symmetry-reduced search supplies the missing M<=12."
+        ],
+        "reasoning": "A construction plus a nonsharp upper bound does not imply optimality; the new finite exclusion of 13 is logically additional.",
+        "searches": [
+          "Statement comparison with Rochanakul Example 1 and conclusion",
+          "Statement comparison with Blackburn/general upper bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rochanakul's Example 1 is the same 12-word lower-bound code.",
+          "Frameproof descendant language and the forbidden-triple formulation are equivalent: a code is 2-frameproof iff no distinct triple has one member in the descendant of the other two.",
+          "No Resultary exact ternary frameproof theorem was returned."
+        ],
+        "reasoning": "The exact finite hypergraph independence statement is an equivalent formulation, but no inspected prior source gives its independence number 12.",
+        "searches": [
+          "Resultary: ternary length four 2-frameproof code exact maximum 12 M_4,2(3)",
+          "web exact M_{2,4}(3), M_{4,2}(3), 3-ary frameproof",
+          "separating-hash/frameproof alias searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry asserting maximum 12 was located; the most relevant published article itself presents 12 as an example rather than an optimum."
+        ],
+        "reasoning": "The exact value is not a located table lookup.",
+        "searches": [
+          "Resultary exact query",
+          "web exact-parameter and small-frameproof-table searches"
+        ]
+      },
+      "rationale": "PASS. The directly relevant 2020 length-four frameproof paper was inspected in full accessible text: it prints the same 12-word ternary construction, but its sharpened upper theorem is restricted to odd q>10 and its conclusion does not claim ternary optimality. Chee–Zhang and the earlier/later length-four bounds likewise do not force 12 at q=3. Fresh Resultary search found no stronger exact ternary statement.",
+      "residual_risks": [
+        "An unindexed finite computation could have established q=3 earlier, although the most directly relevant 2020 paper does not present it as exact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LOWER_BOUND_ONLY_AT_Q3",
+          "evidence": [
+            "Example 1 gives the 12-word ternary code; the sharpened theorem is restricted to odd q>10 and the paper does not prove q=3 optimality."
+          ],
+          "identifier_or_url": "DOI:10.1155/2020/4879108",
+          "material_read": "Full accessible article text including Example 1, the upper-bound theorem/corollaries, and conclusion.",
+          "method": "Public full-text HTML inspection.",
+          "title": "New Bounds on 2-Frameproof Codes of Length 4",
+          "trigger": "Same length, coalition size, and explicit ternary witness."
+        },
+        {
+          "assessment": "CONSTRUCTION_FRAMEWORK_NOT_EXACT_Q3",
+          "evidence": [
+            "Provides general constructions rather than the exact ternary upper bound."
+          ],
+          "identifier_or_url": "arXiv:1206.5863",
+          "material_read": "Accessible arXiv material and length-four construction scope.",
+          "method": "Public arXiv inspection.",
+          "title": "Improved Constructions of Frameproof Codes",
+          "trigger": "Primary construction paper for the same extremal function."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ternary case is the smallest nonbinary instance of the length-four coalition-two extremal problem and is specifically highlighted by a later paper through a 12-word construction without matching optimality. Closing that concrete construction-to-upper-bound gap is a natural finite extremal benchmark, not an arbitrary slice.",
+      "risks": [
+        "No general formula for larger alphabets is obtained."
+      ],
+      "sources": [
+        "DOI:10.1155/2020/4879108",
+        "RESULT.md blob fb4c235af2c567e9dd8bb849df3d9757e74a4ed6"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact q=3,length=4,coalition=2 result; no extremizer classification."
+  ],
+  "schema_version": 1
+}
