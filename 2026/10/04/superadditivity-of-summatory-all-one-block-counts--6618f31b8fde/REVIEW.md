@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the summatory occurrence count to a finite sum of positional tail-residue counting functions. For each position, the floor-plus-tail expression is derived directly from the binary residue class defining an occurrence of \(1^r\). A complete three-case comparison of the two residues proves superadditivity for arbitrary nonnegative arguments. The equality strip is a separate binary-prefix argument: below the stated threshold, prefixing the leading \(1\) creates no new boundary occurrence.
+## correctness
 
-The bundled verifier independently reconstructs occurrences from binary strings, compares them with the positional formula, checks more than a million finite input pairs, probes complete residue periods and boundary cases, and exhaustively checks the equality strip through moderate dyadic scales. These checks support the proof but are not used to infer the infinite theorem.
+PASS
 
-## Originality
-PASS. The closest direct recent source explicitly asks whether summatory digit inequalities have block-counting analogues and names binary \(11\) as its example. The closest older full-text source gives exact formulas for general subblock summatory functions, but its inspected theorem statements and proofs do not state the two-addend inequality or the sharp equality strip. published-finding corpus and public-web searches covered native notation, the classical \(B(N,w)\) notation, superadditivity aliases, and the cited historical sources.
+The count decomposes by least-significant block position into functions \(F_q(N)=q\lfloor N/(2^rq)\rfloor+\max\{0,(N\bmod 2^rq)-(2^rq-q)\}\). The residue interval is the terminal interval of each period, and the three possible locations of the two residuals give superadditivity of every \(F_q\); summing the finitely many active positions proves the theorem. The equality strip follows because prepending the top binary one creates a crossing \(1^r\) block only after the stated threshold. A fresh independent brute-force replay for \(2\le r\le5\), all addends through 100, and dyadic equality strips through exponent eight found no violations.
 
-The main residual risk is that the broad older exact formula could have generated an unindexed or unstated corollary elsewhere. The 1983 Kirschenhofer full text was not openly available through the checked routes, so that source was assessed from its abstract and later descriptions rather than a complete full-text read.
+## originality
 
-## Value
-PASS. The \(r=2\) case is exactly the concrete block-counting example posed in the anchor paper, while the proof yields the full all-one family \(r\ge2\). The result also identifies an infinite dyadic equality region, showing that the positive correction term present in Graham's digit-sum inequality has no analogue depending only on the smaller addend here. This is a structural answer to a stated research direction, not a routine finite computation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Allouche and Stipulanti explicitly ask whether their summatory digit inequalities extend to block-counting functions and give the number of binary \(11\) occurrences as the concrete example. The older Muramoto et al. primary paper gives exact formulas for general subblock summatory counts but does not state the two-argument superadditivity or dyadic equality strip. Targeted Resultary search did not retrieve an equivalent additive inequality.
+
+## value
+
+PASS
+
+The theorem answers an explicit published question at \(r=2\) and supplies a uniform proof for every longer all-one block. The equality strip gives sharp structural information beyond bare superadditivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
