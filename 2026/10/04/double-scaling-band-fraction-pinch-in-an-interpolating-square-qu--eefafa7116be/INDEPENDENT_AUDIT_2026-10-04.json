@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:42:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at frozen tree",
+        "Exner--Turek--Tater, arXiv:1804.01414, Section 7 and equations (32),(34),(35)",
+        "fresh independent numerical evaluation of source inequality"
+      ],
+      "rationale": "Starting from the source’s exact positive-band factorization, writing x=m pi+y and u=tan(|y|/2) reduces the criterion to (u-r_m)(1-r_m u)>=0 with r_m=A_m/x and A_m=ell cot(pi t_m/4). Since m t_m->tau, r_m converges uniformly on the fixed-width cell to r=4ell/(pi^2 tau). Thus the limiting admitted momenta are |y|>=2 arctan(min{r,r^{-1}}); dominated convergence gives the momentum fraction and x/(m pi)->1 uniformly transfers it to energy measure. The isolated Dirichlet point is null. A fresh direct midpoint evaluation of the original source inequality at m=400 matched the limit to below 10^-6 away from the pinch and showed the expected O(1/m) residual fraction at the pinch.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These cover fixed couplings, review material, or a different graph topology."
+        ],
+        "reasoning": "None dominates a square-lattice coupling that itself varies as 1/m.",
+        "searches": [
+          "Exner--Turek 2010 fixed-coupling high-energy asymptotics",
+          "Exner 2020 review",
+          "Exner--Pekar 2024 chain interpolation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.01414",
+        "arXiv:1006.1446",
+        "arXiv:2003.06189",
+        "arXiv:2403.09457",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact source relation determines each finite band, but the paper analyzes fixed t; the audited result performs a distinct singular double limit uniformly across a cell and derives a new nontrivial crossover profile."
+        ],
+        "reasoning": "The source formula is an essential premise, but the checked prior theorem statements do not themselves imply the scaling law without the new singular asymptotic analysis.",
+        "searches": [
+          "Exner--Turek--Tater equations (34),(35) versus audited uniform-cell limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit supplied the scaling law.",
+          "The source gives the exact collapse t_j^* and fixed-t high-energy analysis, but not the m t scaling fraction."
+        ],
+        "reasoning": "Equivalent formulations as a singular high-energy/Kirchhoff crossover, normalized cell-band length, or reciprocal r<->1/r scaling were compared.",
+        "searches": [
+          "Resultary: square lattice quantum graph double scaling mt tau band fraction pinch",
+          "arXiv:1804.01414 Section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database contains the function F_ell(tau) or the universal pinch value for this varying-coupling regime."
+        ],
+        "reasoning": "This is an analytic scaling theorem rather than a finite lookup.",
+        "searches": [
+          "Resultary targeted scaling search"
+        ]
+      },
+      "rationale": "The 2018 paper gives the exact band condition, finite-index collapse points, and fixed-t high-energy asymptotics, but its asymptotic expansion is singular as t->0 and it does not state the simultaneous m t -> tau cell-fraction law. The audited theorem resolves that noncommuting regime with a full crossover curve, not a fixed-parameter specialization. Resultary found no prior same-statement record.",
+      "residual_risks": [
+        "An equivalent singular-perturbation formulation under different terminology may be weakly indexed; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING only.",
+          "evidence": "The paper supplies finite-t exact equations and collapse points but not the simultaneous m t -> tau normalized-cell limit.",
+          "identifier_or_url": "arXiv:1804.01414 / DOI 10.1088/1751-8121/aac651",
+          "material_read": "Primary paper Section 7 around the alpha=0 band criterion, flat-band collapse formula (35), and subsequent fixed-t high-energy gap-width asymptotics.",
+          "method": "Open-access primary full-text/PDF inspection.",
+          "title": "A family of quantum graph vertex couplings interpolating between different symmetries",
+          "trigger": "Exact square-lattice model and band equations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exner--Turek--Tater 2018",
+        "fixed-coupling square-lattice asymptotic literature"
+      ],
+      "rationale": "The theorem resolves a genuine noncommuting high-energy/Kirchhoff limit in a published interpolation model, supplies the full crossover rather than only a collapse point, and identifies an exact universal scaling threshold.",
+      "residual_risks": [
+        "The result is model-specific and only leading-order in the scaling window."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Kirchhoff-endpoint interpolating square quantum graph and any t_m with m t_m -> tau>0, the normalized Lebesgue spectral fraction in the m-th Dirichlet-centered energy cell converges to F_ell(tau)=1-(4/pi) arctan(min{r,r^{-1}}), r=4ell/(pi^2 tau), with a unique zero at tau=4ell/pi^2 and limit one at both scaling extremes.",
+  "limitations": [
+    "Restricted to alpha=0 and one-cell Lebesgue spectral fraction.",
+    "No optimal rate, density-of-states statement, negative-spectrum claim, or alpha!=0 analogue."
+  ],
+  "schema_version": 1
+}

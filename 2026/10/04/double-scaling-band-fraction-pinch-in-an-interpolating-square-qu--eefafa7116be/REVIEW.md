@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed directly from the exact positive-band condition in Exner--Turek--Tater. The half-angle reduction is parity-independent, the scalar sign condition is solved exactly, and the convergence of the threshold is uniform on each cell. The change from momentum measure to energy measure uses the exact Jacobian and a uniform \(x/(m\pi)\to1\) estimate. The parameter-independent Dirichlet eigenvalue is explicitly retained but has zero Lebesgue measure. A separate checker compares the transformed condition against the original source inequality and finite-cell roots.
+## correctness
 
-## Originality
-PASS. The primary source gives exact band boundaries, finite-index collapse points, and a fixed-parameter high-energy gap expansion, but not a simultaneous \(m\to\infty\), \(t_m\to0\), \(m t_m\to\tau\) spectral-fraction limit. The broad square-lattice asymptotic theorem for general self-adjoint couplings treats fixed couplings; the later interpolation paper concerns periodic chain graphs. Targeted searches for equivalent half-angle, double-scaling, flat-band, and normalized spectral-fraction formulations found no result implying the stated crossover. Residual risk remains that an equivalent limit exists under different singular-perturbation terminology.
+PASS
 
-## Value
-PASS. The limit resolves a natural nonuniformity already visible in the published formulas: fixed positive interpolation parameters produce high-energy gaps, the Kirchhoff endpoint has no positive gaps, and exact finite-index band collapses occur at parameters of order \(1/m\). The explicit crossover curve identifies the critical scale and both re-expanding regimes, providing a structural description that is not contained in either endpoint asymptotic alone.
+Starting from the source’s exact positive-band factorization, writing x=m pi+y and u=tan(|y|/2) reduces the criterion to (u-r_m)(1-r_m u)>=0 with r_m=A_m/x and A_m=ell cot(pi t_m/4). Since m t_m->tau, r_m converges uniformly on the fixed-width cell to r=4ell/(pi^2 tau). Thus the limiting admitted momenta are |y|>=2 arctan(min{r,r^{-1}}); dominated convergence gives the momentum fraction and x/(m pi)->1 uniformly transfers it to energy measure. The isolated Dirichlet point is null. A fresh direct midpoint evaluation of the original source inequality at m=400 matched the limit to below 10^-6 away from the pinch and showed the expected O(1/m) residual fraction at the pinch.
 
-## Closest literature and limitations
-The closest primary source is arXiv:1804.01414 itself; arXiv:1006.1446 provides broader fixed-coupling square-lattice high-energy asymptotics, and arXiv:2403.09457 treats the same interpolation idea on chain graphs. The result is restricted to \(\alpha=0\) and to leading normalized Lebesgue spectral fraction in one high-energy cell; it does not establish an optimal convergence rate or a density-of-states theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2018 paper gives the exact band condition, finite-index collapse points, and fixed-t high-energy asymptotics, but its asymptotic expansion is singular as t->0 and it does not state the simultaneous m t -> tau cell-fraction law. The audited theorem resolves that noncommuting regime with a full crossover curve, not a fixed-parameter specialization. Resultary found no prior same-statement record.
+
+## value
+
+PASS
+
+The theorem resolves a genuine noncommuting high-energy/Kirchhoff limit in a published interpolation model, supplies the full crossover rather than only a collapse point, and identifies an exact universal scaling threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

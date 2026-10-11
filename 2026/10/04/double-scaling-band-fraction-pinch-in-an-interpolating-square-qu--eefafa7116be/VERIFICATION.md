@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof uses the exact positive-band criterion of arXiv:1804.01414 rather than a finite enumeration. The accompanying `verify.py` supplies independent finite-index checks of the algebra and asymptotics.
+## correctness
 
-The checker performs four kinds of tests:
+PASS
 
-1. It compares the source inequality (32), evaluated directly, with the factorized condition (34) at representative points in even and odd cells.
-2. It locates the two finite-cell band edges by bisection and evaluates the exact energy-measure fraction.
-3. It compares those finite-cell fractions with the theorem's limiting function for multiple edge lengths and for scaling constants below, at, and above the pinch.
-4. It verifies that the source's exact collapse parameter satisfies the claimed scaled limit.
+Starting from the source’s exact positive-band factorization, writing x=m pi+y and u=tan(|y|/2) reduces the criterion to (u-r_m)(1-r_m u)>=0 with r_m=A_m/x and A_m=ell cot(pi t_m/4). Since m t_m->tau, r_m converges uniformly on the fixed-width cell to r=4ell/(pi^2 tau). Thus the limiting admitted momenta are |y|>=2 arctan(min{r,r^{-1}}); dominated convergence gives the momentum fraction and x/(m pi)->1 uniformly transfers it to energy measure. The isolated Dirichlet point is null. A fresh direct midpoint evaluation of the original source inequality at m=400 matched the limit to below 10^-6 away from the pinch and showed the expected O(1/m) residual fraction at the pinch.
 
-Representative results for the canonical sequence \(t_m=\tau/m\) include, for \(\ell=1\) and \(m=1000\), limiting value \(0.515524233636626\) versus finite-cell fractions \(0.515524185707415\) and \(0.515524306519799\) at reciprocal sides of the pinch, while at \(\tau=4/\pi^2\) the finite-cell fraction is \(0.000318208581673\) and tends to zero.
+## originality
 
-Running `python3 verify.py` returns `VERIFY_OK`.
+PASS
 
-These computations are consistency checks only. They do not replace the analytic uniform-threshold argument, and they do not certify an optimal convergence rate or any statement outside the scope given in `RESULT.md`.
+The 2018 paper gives the exact band condition, finite-index collapse points, and fixed-t high-energy asymptotics, but its asymptotic expansion is singular as t->0 and it does not state the simultaneous m t -> tau cell-fraction law. The audited theorem resolves that noncommuting regime with a full crossover curve, not a fixed-parameter specialization. Resultary found no prior same-statement record.
+
+## value
+
+PASS
+
+The theorem resolves a genuine noncommuting high-energy/Kirchhoff limit in a published interpolation model, supplies the full crossover rather than only a collapse point, and identifies an exact universal scaling threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
