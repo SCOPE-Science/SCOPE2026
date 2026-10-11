@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof is exact. The different component multiplicities in \(B=Q+2Q'\) force preservation of \(Q\) and \(Q'\). Their unique intersection point reduces the conic stabilizer to a Borel subgroup of \(\operatorname{PGL}_2\). Imposing \(Q'\) yields the one-parameter family \(A_{r,\varepsilon}\), and substituting into the cubic gives \(C\circ A_{r,\varepsilon}-C=r(2\varepsilon x-r y)Q\), forcing \(r=0\). Both surviving transformations preserve the equations. The exact identities are independently replayable by the bundled standard-library script.
+## correctness
 
-## Originality
-**PASS.** The lead source was inspected at the explicit example rather than by title alone. It gives the equations and the \(III^*\) construction but not the projective stabilizer. Searches using the exact equations, the example description, and automorphism/stabilizer/isotropy aliases found no covering statement. The natural later GIT paper was also inspected and does not state this calculation. The residual risk is an unindexed equivalent computation under different terminology.
+PASS
 
-## Value
-**PASS.** This is the exact isotropy of a distinguished marked plane model in a moduli/GIT setting. The calculation identifies a genuine rigidity transition: the two conics alone admit a positive-dimensional stabilizer, while the cubic cuts it to the order-two symmetry. This is a reusable structural fact about the example rather than an arbitrary numerical slice.
+The stabilizer computation is self-contained and correct for the displayed equations. Different multiplicities in the marked sextic force its two conics to be preserved separately, and their unique common support point is fixed. Identifying the smooth conic with P1 gives the full conic stabilizer fixing that point. Preservation of the second conic reduces this family to transformations A(r,epsilon) with epsilon equal to plus or minus one. Direct substitution gives C composed with A minus C equal to r times (2 epsilon x minus r y) times Q. Since the y-cubed coefficient fixes the scalar of any preserved cubic equation, preservation of C forces r=0. The only survivors are the identity and x mapped to minus x. The exact symbolic verifier independently confirms the polynomial identities and the coefficient obstruction.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
 
-## Closest literature and limitations
-Zanardini's construction supplies the explicit generators and fiber type; the later stability paper supplies the GIT context. Neither inspected source determines this marked stabilizer. The claim is intentionally limited to projective automorphisms preserving the distinguished sextic and cubic individually, and it does not classify all automorphisms of the resolved surface or unmarked pencil.
+PASS
+
+Zanardini's primary paper supplies the Halphen-pencil framework and the explicit double-conic example used by the package, while the inspected early pages develop the construction rather than a projective stabilizer classification. A targeted Resultary search for the exact equations and C2 stabilizer returned the audited finding as the only direct match. The calculation is not merely the obvious sign symmetry: the pair of conics retains a positive-dimensional stabilizer, and the cubic equation is what cuts it down to two elements. The exact Example 7.46 pages could not be retrieved in this run after the authorized later-page request was safety-blocked; that same-source comparison remains an explicit residual risk.
+
+## value
+
+PASS
+
+The exact projective stabilizer is a natural invariant of a distinguished explicit Halphen presentation. The calculation identifies a genuine symmetry-breaking mechanism: preserving the two conics alone leaves a positive-dimensional family, while the marked cubic rigidifies it to a single involution. This is more than observing an evident sign symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
