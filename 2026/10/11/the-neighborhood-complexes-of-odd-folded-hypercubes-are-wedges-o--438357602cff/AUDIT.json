@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For every odd \\(n\\ge3\\), lifting length-two walks establishes pairwise neighborhood intersections of size 0 or 2, so high-dimensional faces have unique facets and can be elementary-collapsed by explicit descending free-face pairs. The cubical two-skeleton of \\(Q_n\\) is simply connected, its free antipodal quotient corresponds to the four-cycle-filled graph complex \\(X_2(FQ_n)\\), and an odd deck-transformation path shows that its even-length fundamental subgroup is trivial. Matsushita 2017 Theorem 1.1 therefore yields \\(\\pi_1(\\mathcal N(FQ_n))=0\\); connectivity follows from the projected odd cycle. Exact face counts yield \\(\\chi=2^{n-3}(n^2-5n+8)\\). Two-dimensionality, Hurewicz, and the homology Whitehead theorem prove the integral wedge decomposition, not just homology. Standalone explicit-collapse/face-count program and independent quotient-graph program checked \\(n=3,5,7\\) (and face numbers at \\(n=9\\)). Limits: finite programs do not prove the infinite statement; the all-n proof is mathematical, and independent validation remains absent.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Matsushita 2017 Theorem 1.1: \\(\\pi_1(\\mathcal N(G))\\) is the even subgroup of \\(\\pi_1^2(G)\\); Theorem 3.1 describes square-filling X_2(G). No group-to-wedge multiplicity theorem is claimed.",
+        "Shukla 2019 Theorem 2 assumes maximum degree at most three, and Theorems 3-7 treat 4-regular circulants. Folded cubes for \\(n\\ge5\\) have degree \\(n\\ge5\\).",
+        "Known ordinary hypercube N(Q_n) computations concern a bipartite graph with two components; antipodal quotient FQ_n for odd n is nonbipartite, so those results do not cover the family."
+      ],
+      "reasoning": "Neither the general fundamental-group identification nor the explicit low-valency classifications determine the full integral homotopy type of every odd folded cube. The current theorem combines a new family-specific cell collapse, a square-complex antipodal covering computation, and a closed Euler characteristic count.",
+      "searches": [
+        "Matsushita full PDF https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf, Sections 1 and 3-4, Theorems 1.1, 3.1",
+        "Shukla full PDF https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i2p4/pdf/, Sections 1-2",
+        "Indexed research-record search: Neighborhood complexes of nonbipartite cubelike graphs with two common neighbors and trivial even square fundamental group are wedges of 2-spheres",
+        "Indexed research-record search: projective hypercube PC(2k) Lovasz neighborhood complex homotopy sphere wedges Euler characteristic",
+        "Indexed research-record search: folded odd-dimensional hypercube or projective cube graph: neighborhood complex wedge of 2-spheres 2^{n-3}(n^2-5n+8)-1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1210.2803v1 and https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf",
+      "arXiv:1802.04526 and https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i2p4/pdf/",
+      "arXiv:2406.10814v1 and https://onlinelibrary.wiley.com/doi/10.1002/jgt.70046",
+      "Public research record:2026/10/4/SCOPE-a-parity-reduction-of-penultimate-hypercube-rips-complexes--7b869e8f79d9",
+      "Public research record:2026/10/4/SCOPE-the-icosahedral-neighborhood-complex-is-a-wedge-of-twenty-three--07e6e60de0e7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A determination of pi1 alone is strictly weaker than the rank of pi2 and the full wedge decomposition; the latter requires a two-dimensional reduction and Euler calculation.",
+        "Ordinary hypercube neighborhood complexes have two components, unlike nonbipartite odd folded cubes; quotient does not preserve neighborhood-complex homotopy.",
+        "Independence-complex and neighborhood-complex constructions have different faces and no general implication equating their homotopy types."
+      ],
+      "reasoning": "After considering equivalence under folded/projective cube and \\(\\operatorname{Hom}(K_2,-)\\) descriptions, neither Matsushita generalities, Shukla low-degree cases, ordinary-cube computations, nor exact-graph independence results imply the final theorem. The proof genuinely supplies the missing collapse, square-complex parity argument and infinite formula; no known stronger theorem subsumes it.",
+      "searches": [
+        "Indexed research-record search: pi1 graph square complex antipodal quotient folded hypercubes and simplicial neighborhood complex",
+        "Indexed research-record search: folded cube neighborhood complex is wedge of 2^{n-3}(n^2-5n+8)-1 two spheres for odd n",
+        "arXiv:1210.2803v1 (even two-fundamental group versus higher homotopy)",
+        "arXiv:2406.10814v1 (folded and projective cube equivalences)",
+        "Indexed research record 2026/10/4/SCOPE-the-icosahedral-neighborhood-complex-is-a-wedge-of-twenty-three--07e6e60de0e7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2406.10814, Section 2: projective cube PC(k) is obtained from Q_(k+1) by identifying antipodes, with PC(4) the Clebsch graph.",
+        "Indexed research-record search under Clebsch, Greenwood-Gleason, folded cube, projective cube and Hom(K2) aliases returned no matching integral wedge theorem."
+      ],
+      "reasoning": "The target object is \\(\\mathcal \\(\\mathcal N(\\(F\\(Q_n\\)\\))\\)=\\mathcal \\(\\mathcal N(PC(n-1))\\)\\) for every odd \\(n\\ge3\\); equivalently \\(\\operatorname{Hom}(K_2,\\(F\\(Q_n\\)\\))\\) has this nonequivariant homotopy type. The checked alternate descriptions refer to the same graph but literature about graph representations or other graph-complex functors does not imply the proposed N-complex wedge decomposition.",
+      "searches": [
+        "Indexed research-record search: Lovasz neighborhood complex of the Clebsch graph, Greenwood Gleason graph, folded 5-cube, 16-cyclotomic graph",
+        "Indexed research-record search: neighborhood complex of folded cubes FQ_5 and FQ_7, cube with antipodal edges, 31 two-spheres",
+        "Indexed research-record search: graph Hom(K2, Clebsch graph) simplicial homotopy type folded hypercube",
+        "Indexed research-record search: Clebsch Greenwood Gleason 16 vertex (16,5,0,2) neighborhood complex 31 two-spheres",
+        "Web: \"folded hypercube\" \"neighborhood complex\"",
+        "Web: \"Clebsch\" \"neighborhood complex\" homotopy",
+        "arXiv:2406.10814, Section 2 (projective cube aliases and quotient construction)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest exact-graph published record 2026/10/4/SCOPE-a-parity-reduction-of-penultimate-hypercube-rips-complexes--7b869e8f79d9 studies folded graph independence, not its Lovasz neighborhood complex.",
+        "No relevant exact wedge formula, face-vector table, or stronger parameter-family theorem was located in checked result records or published literature."
+      ],
+      "reasoning": "The wedge multiplicity \\(2^{n-3}(n^2-5n+8)-1\\), Clebsch value 31, quotient-cubical square covering, and the whole odd-n domain were compared as statements. No inspected database or table computes this ordinary open-neighborhood-complex homotopy classification. Nonretrieval is evidence with residual bibliographic risk, not an absolute proof of priority.",
+      "searches": [
+        "Indexed research-record search: 31 2-spheres neighborhood complex strongly regular (16,5,0,2) graph",
+        "Indexed research-record search: folded cube neighborhood complex is wedge of 2^{n-3}(n^2-5n+8)-1 two spheres for odd n",
+        "Indexed research-record search: Clebsch graph Lovasz neighborhood complex wedge 31 S2 and odd projective cubes",
+        "Web: \"folded cube\" \"neighborhood complex\" sphere wedge",
+        "Web: \"projective cube\" Lovasz neighborhood complex homotopy"
+      ]
+    },
+    "rationale": "Matsushita's general fundamental-group theorem and Shukla's low-valency classifications do not determine the integral homotopy type of odd folded hypercubes. Equivalent folded/projective cube, Clebsch and Hom-complex descriptions, and broader parameter results, were compared by mathematical implication. The ordinary hypercube and Clebsch independence constructions are different simplicial complexes and do not imply the proposed quotient-graph neighborhood-complex theorem. No covering published result was identified in the inspected sources; an equivalent unindexed account remains a residual risk.",
+    "residual_risks": [
+      "An equivalent folded/projective cube or \\(\\operatorname{Hom}(K_2,-)\\) calculation may occur in literature not indexed by the searches; absence of returned results does not establish absolute priority.",
+      "The general graph fundamental-group theorem is used as a published mathematical input; it is not independently reproved here.",
+      "Independent scientific validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the even two-fundamental group isomorphism for ordinary neighborhood complexes but not the family-specific integral wedge type or multiplicity",
+        "evidence": [
+          "Theorem 1.1 explicitly identifies pi1(N_r(G)) with the even subgroup of pi1^(2r)(G).",
+          "Introduction describes X_r(G) as the graph with 2-cells attached to short even cycles; MSC 55Q05."
+        ],
+        "identifier_or_url": "arXiv:1210.2803; https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf",
+        "material_read": "Introduction pp.321-323, definitions Section 3 pp.324-327 and the relevant Theorem 1.1/3.1 statements; full PDF text inspected in relevant sections",
+        "method": "Read primary 33-page OA journal PDF and theorem statements, checked MSC and original public submission date",
+        "title": "Fundamental Groups of Neighborhood Complexes",
+        "trigger": "Foundational exact graph-topological theorem needed for fundamental-group proof, potential broad coverage"
+      },
+      {
+        "assessment": "Degree-at-most-three and 4-regular circulant hypotheses exclude all odd folded cube family members of degree at least five. The trivial n=3 member does not imply the uniform theorem.",
+        "evidence": [
+          "Theorem 2: maximum graph degree at most 3.",
+          "Theorems 3-7 explicitly classify 4-regular C_n(s,t), unlike FQ_n for odd \\(n\\ge5\\)."
+        ],
+        "identifier_or_url": "arXiv:1802.04526; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i2p4/pdf/",
+        "material_read": "Full 18-page publisher OA PDF available; introduction and the numbered statements of Theorems 2-7 (pp.1-3), with Section 3 degree and circulant definitions",
+        "method": "Read the exact hypotheses and conclusions of primary full-text numbered theorems and the allowed graph families",
+        "title": "Homotopy Type of the Neighborhood Complexes of Graphs of Maximal Degree at most 3 and 4-Regular Circulant Graphs",
+        "trigger": "Exact same simplicial functor and explicit homotopy classifications; possible covering parameter theorem"
+      },
+      {
+        "assessment": "Establishes equivalent graph constructions and a homomorphism-theoretic agenda; no exact Lovasz neighborhood-complex homotopy statement.",
+        "evidence": [
+          "Definition 3: PC(k) is quotient of Q_(k+1) by antipodal identification.",
+          "Section 2 identifies PC(4) with the Clebsch graph and describes generator set."
+        ],
+        "identifier_or_url": "arXiv:2406.10814v1; https://onlinelibrary.wiley.com/doi/10.1002/jgt.70046",
+        "material_read": "Full accessible scholarly HTML, construction and equivalences in Section 2, especially Definitions 3-5 and graph PC(4) Clebsch example; searched for neighborhood complex, homotopy, Lovasz terminology",
+        "method": "Compared mathematical objects and themes in the original article, including quotient and Cayley definitions",
+        "title": "Signed Projective Cubes, a Homomorphism Point of View",
+        "trigger": "Projective cube is a key alias of the folded cube, and broad graph results could subsume calculations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43835760-2cff-4892-be22-35e06bf28d05",
+  "value": {
+    "rationale": "This determines a complete integral homotopy invariant uniformly for a canonical infinite four-chromatic family of antipodal quotients of hypercube graphs, including the Clebsch graph and arbitrarily large folded cubes. The substantial feature is dimension compression from \\(n-1\\) to \\(2\\) plus a precise nontrivial sphere multiplicity \\(2^{n-3}(n^2-5n+8)-1\\); this is not implied by graph vertex/edge counts or the general fundamental-group theorem alone. It gives natural examples where the Lovasz obstruction is sharp, a novel uniform square-complex covering argument, and self-contained structural collapse steps, not arbitrary numerical slices. The proof does not assert an equivariant splitting or even-n case.",
+    "status": "PASS"
+  }
+}
