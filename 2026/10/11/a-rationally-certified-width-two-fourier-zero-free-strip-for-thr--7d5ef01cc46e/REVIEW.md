@@ -1,0 +1,12 @@
+# Same-model scientific review
+
+## Correctness (PASS)
+The exact domain is all \(\alpha>0\) for the three-dimensional balanced bipyramid. The Fourier representation agrees with the direct Bessel transform of each circular section. Two integrations by parts reduce the all-real-frequency question to positivity of \(H(u,s)\). Strict monotonicity of \(J_0(z)-zJ_1(z)\) on \([0,2]\) reduces all transverse arguments to one endpoint. Small and large axial frequencies have independent explicit rational lower bounds; the intervening compact band is certified by 261 exact rational samples **plus** a uniform interpolation bound and Bessel/Taylor remainder estimates. The packaged program was replayed successfully and checked the claimed integer/rational inequalities. The equal-volume ball's first root and volume normalizations were reconstructed. No unproved extrapolation from a finite grid is made.
+
+## Originality (PASS, with residual risk)
+The closest direct comparison is Gómez-Serrano, Levitin, Platt and Polterovich, arXiv:2609.10517v1 (Sections 1 and 2), which establishes an unspecified positive transverse zero-free interval and qualitative sufficiently large parameter \(\alpha\). A public September 2026 Pólya–Bessel zero-free-strip note (identifier `72c1da0f9bb0`) establishes the more specific but weaker bound \(s\le r_3\approx1.25578\) and sufficient \(\alpha>91.6248\). Its positivity-of-second-derivative premise fails at \(s=2\); the present certificate instead proves positivity of an integrated signed kernel and yields \(s\le2\) and every \(\alpha\ge23\). A prior geometric asymptotic result with an uncomputed sharp transverse threshold also does not imply the numeric value \(2\). Title and formula searches cannot exclude unindexed or unpublished equivalent proofs; a 2009 antecedent paper was not comprehensively inspected.
+
+## Mathematical value (PASS)
+The result turns a qualitative counterexample into an explicit parameter-uniform constructive family and improves the existing sufficient elongation threshold by approximately a factor of four. Its principal mechanism—a zero-free integral beyond the pointwise convexity of its kernel—is reusable for sharper Fourier-zero estimates. The proof supplies a rational reproducibility certificate with an analytically controlled continuous domain. No optimality claim for \(2\) or \(23\) is made, and the result does not solve unrestricted isoperimetry for Fourier zeros.
+
+Same-model review: passed. Independent audit: not yet performed.
