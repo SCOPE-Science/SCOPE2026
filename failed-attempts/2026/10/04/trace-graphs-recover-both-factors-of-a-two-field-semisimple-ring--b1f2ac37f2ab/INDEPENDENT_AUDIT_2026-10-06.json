@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:34:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2586222ff5d85a0e4ba0429ef6cc13bddd5722df",
+        "assigned artifacts/verify.py blob 57a6a7608454778b0936763415955e2602737b32",
+        "Almahdi--Louartiti--Tamekkante, DOI:10.1007/s10474-018-0815-x, Proposition 2.3 and Corollary 3.7",
+        "Tamizh Chelvam, DOI:10.1080/09728600.2024.2332780"
+      ],
+      "rationale": "Under \\(M_n(\\mathbb F_q\\times\\mathbb F_r)\\cong M_n(\\mathbb F_q)\\times M_n(\\mathbb F_r)\\), the trace equations separate by factor. For a nonzero matrix over \\(\\mathbb F_u\\), the functional \\(C\\mapsto\\operatorname{tr}(AC)\\) is nonzero and has kernel size \\(u^{n^2-1}\\); a zero component contributes \\(u^{n^2}\\). Deleting the zero vertex and, exactly for self-orthogonal vertices, the vertex itself gives the six formal degrees. \\(E_{12}\\) and \\(E_{11}\\) realize both square-trace types. The minimum gives \\(B_0\\), graph order gives \\(qr=(v+1)/B_0\\), and the degrees for which \\(B_0\\mid d+2\\) recover \\(\\{1,q,r\\}\\); the product distinguishes the equal-factor case. The exponent in \\(v+1=(qr)^{n^2}\\) then recovers \\(n\\). The actual verifier blob was inspected and checks finite fields \\(2,3,4,5\\) and several factor pairs.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 theorem covers every finite commutative ring, including all two-field products.",
+          "The survey explicitly poses direct-product trace graphs as problems but reproduces the older degree framework."
+        ],
+        "reasoning": "The earlier degree theorem is strictly broader at the local-degree level than the assigned semisimple specialization.",
+        "searches": [
+          "Almahdi--Louartiti--Tamekkante 2018 Proposition 2.3 and Corollary 3.7",
+          "2024 trace-graph survey"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s10474-018-0815-x",
+        "DOI:10.1080/09728600.2024.2332780",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nonzero ideals of \\(\\mathbb F_q\\times\\mathbb F_r\\) have cardinalities \\(q,r,qr\\), so the proposition immediately yields \\(qB_0\\), \\(rB_0\\) and \\(B_0\\) degree scales with the two self-orthogonality offsets.",
+          "From \\(\\delta=B_0-2\\) and \\(v+1=(qr)^{n^2}\\), the remaining recovery formulas are elementary integer arithmetic."
+        ],
+        "reasoning": "The final classification is therefore mechanically implied by the older theorem plus the elementary ideal lattice of a product of two fields.",
+        "searches": [
+          "DOI:10.1007/s10474-018-0815-x Proposition 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 2.3 expresses every degree solely through \\(|R|\\), \\(|I(A)|\\) and self-orthogonality.",
+          "For the reduced product ring, Corollary 3.7 lists both \\(-2\\) and \\(-1\\) degrees for every nonzero ideal size."
+        ],
+        "reasoning": "The componentwise product trace graph is the ordinary trace graph of \\(M_n(R)\\) for \\(R=\\mathbb F_q\\times\\mathbb F_r\\), so the general finite-ring theorem applies verbatim.",
+        "searches": [
+          "Resultary query: trace graph matrix ring product finite fields recover factors degree set",
+          "DOI:10.1007/s10474-018-0815-x full primary article",
+          "DOI:10.1080/09728600.2024.2332780 full survey"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A later published result reconstructs same-field matrix-factor products by degree distributions.",
+          "No older record prints the exact different-field fingerprint verbatim, but the 2018 formula already determines it."
+        ],
+        "reasoning": "Exact wording is not required for coverage when the values are direct substitutions into a published general formula.",
+        "searches": [
+          "Resultary exact product-trace-graph search"
+        ]
+      },
+      "rationale": "The complete 2018 primary article gives, for every finite commutative ring \\(R\\), \\(\\deg(A)=|R|^{n^2}/|I(A)|-1\\) or \\(-2\\) according to \\(\\operatorname{Tr}(A^2)\\), and Corollary 3.7 states the full degree list for finite reduced rings in terms of nonzero ideal sizes. Applying this directly to \\(R=\\mathbb F_q\\times\\mathbb F_r\\), whose nonzero ideals have sizes \\(q,r,qr\\), gives exactly the assigned degree fingerprint. Once that list is known, the recovery of \\(qr\\), then \\(q,r\\), and finally \\(n\\) is a short divisibility/exponent calculation. Thus the 2024 survey's direct-product problem is answered here by a routine specialization of an earlier stronger general degree theorem; under implication-level originality the record is covered despite the survey presenting direct products as open.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_DEGREE_THEOREM_COVERS_PRODUCT_SPECIALIZATION",
+          "evidence": "Proposition 2.3 gives \\(|R|^{n^2}/|I(A)|\\) with the two self-orthogonality offsets for every finite ring; Corollary 3.7 supplies the complete list for reduced rings.",
+          "identifier_or_url": "DOI:10.1007/s10474-018-0815-x",
+          "material_read": "Authorized full primary article through the substantive theorem pages, including Proposition 2.3, Example 3.1 and Corollary 3.7.",
+          "method": "Authorized institutional full-PDF text inspection after public full-text routes were insufficient.",
+          "title": "The trace graph of the matrix ring over a finite commutative ring",
+          "trigger": "General primary degree theorem for exactly the trace-graph construction."
+        },
+        {
+          "assessment": "POSES_DIRECT_PRODUCT_PROBLEM_BUT_DOES_NOT_REMOVE_EARLIER_IMPLICATION",
+          "evidence": "Problem 1 asks for \\(M_n(R)\\times M_n(S)\\), but algebraically the equal-size two-field case is \\(M_n(R\\times S)\\), to which the 2018 degree theorem applies.",
+          "identifier_or_url": "DOI:10.1080/09728600.2024.2332780",
+          "material_read": "Full open article conclusion and open Problems 1--3 concerning direct products of matrix rings.",
+          "method": "Open primary full-text web inspection.",
+          "title": "Graphs from matrices - a survey",
+          "trigger": "The assigned record presents itself as addressing the survey's direct-product problem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "2018 finite-ring trace-graph degree theorem",
+        "2024 trace-graph survey"
+      ],
+      "rationale": "Recovering the two simple factors from graph invariants is a natural reconstruction question highlighted by the direct-product survey problems. The record is rejected because this useful classification is too direct a specialization and arithmetic consequence of the pre-existing general degree formula, not because the invariant lacks mathematical interest.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For \\(G=\\Gamma_t(M_n(\\mathbb F_q\\times\\mathbb F_r))\\), \\(n\\ge2\\), the distinct degrees are \\(\\{B_0s-2,B_0s-1:s\\in\\{1,q,r\\}\\}\\) with \\(B_0=(qr)^{n^2-1}\\); graph order, minimum degree and this degree fingerprint recover \\(n\\) and the unordered multiset \\(\\{q,r\\}\\), giving the stated isomorphism classification.",
+  "limitations": [
+    "Exactly two field factors and one common matrix size.",
+    "Rejected for implication-level originality: the 2018 general finite-ring degree theorem already specializes to the complete degree fingerprint, after which factor recovery is elementary arithmetic."
+  ],
+  "schema_version": 1
+}
