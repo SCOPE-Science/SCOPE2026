@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The central idempotent formula gives kernel m chi_r. Endpoint convolution norms equal its L1 mass. Weyl character and integration formulas reduce the problem to I_m=∫_0^pi |sin(m theta)| sin(theta)dtheta. Splitting exactly at all zeros and evaluating a closed antiderivative yields I_m=2m/(m^2-1) cot(pi/(2m)) for m>=2, with m=1 handled separately. The asymptotic follows from the cotangent expansion. A standalone verifier reproduces the signed integral through m=500 and direct quadrature on representative cases; those checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giulini--Travaglini give sharp-order estimates for spherical and polyhedral Dirichlet kernels on compact semisimple Lie groups.",
+        "Meaney studies unbounded Lebesgue constants from compact-group Fourier partial-sum decompositions."
+      ],
+      "reasoning": "These are broader multi-block/partial-sum results. They do not imply an exact one-block norm because their kernels and index sets are different, and their statements do not evaluate the absolute mass of a single irreducible character.",
+      "searches": [
+        "doi:10.1016/0022-1236(86)90059-5",
+        "doi:10.1007/BF01295142",
+        "Lebesgue constants compact Lie groups single block SU(2)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4153/CMB-1997-036-1",
+      "doi:10.1016/0022-1236(86)90059-5",
+      "doi:10.1007/BF01295142",
+      "published-finding corpus semantic index searches listed in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hare Section 2(4) defines the irreducible degree-(r+1) spaces H_r and discusses one-sided Littlewood--Paley inequalities and unbounded partial sums.",
+        "The inspected full text contains no displayed or verbal evaluation of ||P_r|| on L1 or Linfinity and no absolute-character cotangent formula."
+      ],
+      "reasoning": "Hare establishes the exact spectral decomposition used as the starting object, but a lacunary square-function inequality neither states nor determines the endpoint norm of an individual projection. The new calculation requires the central idempotent kernel and exact Weyl-integral evaluation.",
+      "searches": [
+        "doi:10.4153/CMB-1997-036-1 full text Section 2(4)",
+        "published-finding corpus source-title query for Kathryn Hare SU(2) Littlewood-Paley"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states the single SU(2) isotypic projection norm or the equivalent integral m∫|chi_m|.",
+        "Web formula-fingerprint searches for the cotangent expression and the SU(2) character L1 norm returned no matching theorem."
+      ],
+      "reasoning": "The projection norm, character L1 norm, signed sine integral, and cotangent closed form are equivalent after the Weyl formulas, so all were searched. No retrieved statement covers the identity.",
+      "searches": [
+        "SU(2) single irreducible Fourier projection endpoint norm L1 character exact cotangent",
+        "SU(2) irreducible character L1 norm exact formula cot pi over 2n",
+        "SU(2) Peter-Weyl isotypic projection Lebesgue constant single representation",
+        "compact group single isotypic projection norm character absolute integral SU2",
+        "web formula fingerprint: cot(pi/(2n)) SU(2) character L1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry with the all-dimension cotangent formula was found.",
+        "The claim is an infinite symbolic identity rather than a finite census."
+      ],
+      "reasoning": "The verifier recomputes sample values from the formula and direct integration; it is not reproducing a known table located during the search.",
+      "searches": [
+        "published-finding corpus: SU(2) single irreducible Fourier projection endpoint norm L1 character exact cotangent",
+        "web: 4 n^2 cot(pi/(2n)) SU(2)"
+      ]
+    },
+    "rationale": "The closest full-text source uses the same SU(2) Peter--Weyl blocks but proves lacunary Littlewood--Paley estimates rather than a single-block endpoint norm. Broader compact-group Lebesgue-constant sources concern partial sums. Statement-level published-finding corpus and web searches for the operator formulation, the character-L1 formulation, and the explicit cotangent formula returned no covering result. Residual risk remains that the elementary character integral is recorded under unrelated terminology.",
+    "residual_risks": [
+      "The elementary identity for the L1 norm of an SU(2) irreducible character may have been recorded in older representation-theory, special-function, or approximation literature under terminology not retrieved by the searches.",
+      "The Meaney full article could not be fetched from its host during this run; its accessible abstract does not suggest coverage, but that access limitation remains explicit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it defines the same blocks and proves Littlewood--Paley estimates, but does not state the single-block endpoint norm or character L1 evaluation.",
+        "evidence": "Page 299 identifies H_r as matrix-coefficient spaces for the degree-(r+1) irreducibles and discusses Littlewood--Paley results and partial-sum behavior; no endpoint block norm is given.",
+        "identifier_or_url": "doi:10.4153/CMB-1997-036-1",
+        "material_read": "Full 13-page PDF, with title/classification and Section 2(4) on SU(2) inspected directly.",
+        "method": "Full-text PDF inspection, including visual inspection of the SU(2) page.",
+        "title": "A General Approach to Littlewood--Paley Theorems for Orthogonal Families",
+        "trigger": "Same SU(2) Peter--Weyl decomposition and individual spaces H_r."
+      },
+      {
+        "assessment": "NOT_COVERING at statement level: it treats spherical and polyhedral Dirichlet kernels and sharp growth estimates, not an exact single-irrep SU(2) projection norm.",
+        "evidence": "The abstract states lower and upper growth estimates for multi-block Dirichlet kernels on compact connected semisimple Lie groups.",
+        "identifier_or_url": "doi:10.1016/0022-1236(86)90059-5",
+        "material_read": "Publisher/repository abstract and bibliographic/classification record.",
+        "method": "Abstract and metadata inspection.",
+        "title": "Sharp estimates for Lebesgue constants on compact Lie groups",
+        "trigger": "Closest broader compact-Lie-group Lebesgue-constant literature located by web search."
+      },
+      {
+        "assessment": "NOT_DECISIVE_BUT_NOT_COVERING_IN_ACCESSIBLE_STATEMENT: the accessible statement concerns criteria for unbounded Lebesgue constants of decompositions, not the exact norm of one SU(2) block.",
+        "evidence": "The abstract describes decompositions of the dual into finite sets and unboundedness of corresponding partial-sum Lebesgue constants.",
+        "identifier_or_url": "doi:10.1007/BF01295142",
+        "material_read": "Bibliographic record and abstract; full-text retrieval was blocked by the host.",
+        "method": "Abstract/record inspection with access limitation recorded.",
+        "title": "Unbounded Lebesgue Constants on Compact Groups",
+        "trigger": "Broad compact-group Fourier partial-sum comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "91e7da64-7bb6-4c64-9d7c-25203f49781d",
+  "value": {
+    "rationale": "A single isotypic Peter--Weyl projection is an atomic spectral object in nonabelian compact harmonic analysis. The exact all-dimension endpoint norm and its linear 8/pi^2 growth quantify instability already at one irreducible block, contrasting with norm-one one-character projections in the abelian case. This is a natural infinite family, not an arbitrary finite slice or table recomputation.",
+    "status": "PASS"
+  }
+}
