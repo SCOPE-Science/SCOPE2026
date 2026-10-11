@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Edge incidence gives even outer boundary length, all face walks are even, and the plane mesh graph is bipartite. In each cyclic quadrilateral the same-color vertices are opposite and their angles sum to \(\pi\). Summing face angles and then re-indexing by vertices proves the identity exactly. The square corollary follows from the resulting evenness of the number of geometric corners in either boundary color class. The edge-to-edge hypothesis is explicit and essential.
+PASS
 
-## Originality
+Counting edge incidences gives \(4F=2E_{\mathrm{int}}+B\), so the boundary length \(B\) is even. All bounded faces are quadrilaterals and the outer facial walk is even, hence the connected plane mesh graph is bipartite. In every cyclic quadrilateral, opposite angles are supplementary; because opposite vertices have the same bipartition color, each tile contributes exactly \(\pi\) angle mass to each color. Summing by vertices gives \(F\pi=2\pi I_C+\sum_{v\in\partial,C}\theta_v\) for either color, and subtraction yields the stated boundary-angle balance. For a square each color has \(B/2\) boundary vertices; if \(m_C\) of the four corners have that color, its boundary angle sum is \(B\pi/2-m_C\pi/2\), forcing \(m_C\) even. Walking around the four sides shows that exactly two adjacent odd side-subdivision counts would color the four corners in a \(3\)-to-\(1\) split, contradiction.
 
-PASS with residual literature risk. Targeted searches covered alternating boundary angle sums, cyclic quadrangulations, bipartite color balances, and square boundary parity. The directly relevant texts inspected were Rao–Ren–Wang (arXiv:2001.03289), Maldonado–Roldán-Pensado (arXiv:2104.04940), and Takayama–Panozzo–Sorkine-Hornung (DOI 10.1111/cgf.12443). None states the color-class angle identity or its adjacent-odd square obstruction.
+## originality
 
-The implication comparison is substantive: the topological quadrangulation result allows any four-side subdivision vector with even total size, including \((1,1,2,2)\), while the present cyclic-geometric theorem rules that vector out. The seven/nine congruent-square theorem has a different finite domain and does not imply an all-size, noncongruent cyclic balance.
+PASS
 
-## Value
+The mesh-topology literature proves only the even-total-boundary condition and then allows arbitrary boundary subdivision counts topologically. The closest square-dissection paper studies congruent convex tiles and, in the quadrilateral case, a right-angle-trapezoid subclass via a different hypotenuse graph. Neither inspected full text states the cyclic-quadrilateral color-angle invariant or the adjacent-odd boundary obstruction. Resultary returned the assigned theorem as the exact hit.
 
-PASS. Rao–Ren–Wang explicitly leave quadrilateral square-tiling structure open and single out a cyclic angle class. Maldonado–Roldán-Pensado resolve only small odd tile counts by finite graph-and-angle search. The identity gives a size-independent structural filter for the cyclic subclass and separates topological quadrangulability from Euclidean cyclic realizability, so it can prune boundary patterns before metric or congruence case analysis.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact color-angle balance is a reusable structural invariant for cyclic quadrangulations and yields a geometric obstruction that survives even when the standard topological feasibility condition is satisfied. That directly addresses the difficult quadrilateral regime in square-dissection questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

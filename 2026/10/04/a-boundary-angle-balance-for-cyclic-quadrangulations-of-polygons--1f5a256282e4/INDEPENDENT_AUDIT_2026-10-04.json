@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:13:17.606745Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at Git tree f71ce3b9bc773356cf1063aa56216229ca6ab0b5",
+        "Takayama–Panozzo–Sorkine-Hornung, Pattern-Based Quadrangulation for N-Sided Patches, complete PDF (turn703408view2; topology condition turn581114view4 and page image turn581114view5)",
+        "Rao–Ren–Wang, Dissecting a square into congruent polygons, complete 17-page PDF (turn683697view0; page image turn982168view0)"
+      ],
+      "rationale": "Counting edge incidences gives \\(4F=2E_{\\mathrm{int}}+B\\), so the boundary length \\(B\\) is even. All bounded faces are quadrilaterals and the outer facial walk is even, hence the connected plane mesh graph is bipartite. In every cyclic quadrilateral, opposite angles are supplementary; because opposite vertices have the same bipartition color, each tile contributes exactly \\(\\pi\\) angle mass to each color. Summing by vertices gives \\(F\\pi=2\\pi I_C+\\sum_{v\\in\\partial,C}\\theta_v\\) for either color, and subtraction yields the stated boundary-angle balance. For a square each color has \\(B/2\\) boundary vertices; if \\(m_C\\) of the four corners have that color, its boundary angle sum is \\(B\\pi/2-m_C\\pi/2\\), forcing \\(m_C\\) even. Walking around the four sides shows that exactly two adjacent odd side-subdivision counts would color the four corners in a \\(3\\)-to-\\(1\\) split, contradiction.",
+      "residual_risks": [
+        "The graph argument assumes the stated finite edge-to-edge disk cellulation; it does not extend verbatim to non-edge-to-edge or non-simply-connected meshes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takayama et al. cover arbitrary topological quadrangulations of small-sided patches.",
+          "Rao et al. prove square-tiling restrictions for congruent polygons and right-angle trapezoids."
+        ],
+        "reasoning": "These sources are broader in mesh topology or different in congruence hypotheses, but neither implies the all-cyclic-quadrilateral angle balance.",
+        "searches": [
+          "Takayama–Panozzo–Sorkine-Hornung 2014 full PDF",
+          "Rao–Ren–Wang 2020 full PDF"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1111/cgf.12443",
+        "https://arxiv.org/abs/2001.03289",
+        "Resultary published-result search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even total boundary length alone permits a pattern with exactly two adjacent odd side counts.",
+          "The new cyclic angle mass identity adds the corner-color parity restriction that rules this pattern out."
+        ],
+        "reasoning": "The new conclusion is strictly stronger than the known purely topological condition.",
+        "searches": [
+          "Comparison of the standard even-boundary Euler count with the audited bipartite cyclic-angle sum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact corpus hit was the assigned record.",
+          "Takayama et al. state that total boundary subdivision count must be even and, apart from that topological restriction, their connectivity construction accepts arbitrary side counts."
+        ],
+        "reasoning": "The audited restriction is geometric and cyclic-angle based, not a restatement of the standard even-boundary condition.",
+        "searches": [
+          "Resultary query: cyclic quadrangulation polygon bipartite boundary angle balance square adjacent odd side counts",
+          "full-text comparison with quadrangulation boundary-subdivision conditions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact parity table or boundary pattern theorem with the same cyclic hypothesis was located."
+        ],
+        "reasoning": "The square corollary is a symbolic obstruction for every boundary size, not a finite enumeration.",
+        "searches": [
+          "Resultary exact query on the four side-count parity pattern"
+        ]
+      },
+      "rationale": "The mesh-topology literature proves only the even-total-boundary condition and then allows arbitrary boundary subdivision counts topologically. The closest square-dissection paper studies congruent convex tiles and, in the quadrilateral case, a right-angle-trapezoid subclass via a different hypotenuse graph. Neither inspected full text states the cyclic-quadrilateral color-angle invariant or the adjacent-odd boundary obstruction. Resultary returned the assigned theorem as the exact hit.",
+      "residual_risks": [
+        "An older recreational-geometry or mesh note may contain an equivalent two-color angle sum under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TOPOLOGICAL_BASELINE_NOT_COVERING",
+          "evidence": "It establishes only the even-total-boundary obstruction and does not impose cyclic geometry.",
+          "identifier_or_url": "https://doi.org/10.1111/cgf.12443",
+          "material_read": "Complete 8-page PDF, especially the boundary parity condition and statement that side counts are otherwise topologically arbitrary.",
+          "method": "Lawful open full PDF with page-image verification.",
+          "title": "Pattern-Based Quadrangulation for N-Sided Patches",
+          "trigger": "Primary source for prescribed boundary-subdivision feasibility in quadrangulations."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Its quadrilateral theorem assumes congruent right-angle trapezoids and does not state the audited invariant for arbitrary cyclic quadrilateral tiles.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.03289",
+          "material_read": "Complete 17-page PDF, including the quadrilateral/right-angle-trapezoid case and angle-pattern graph construction.",
+          "method": "Lawful arXiv full text with page-image verification.",
+          "title": "Dissecting a square into congruent polygons",
+          "trigger": "Closest square-dissection work with detailed angle and graph arguments."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Takayama et al. 2014",
+        "Rao–Ren–Wang 2020"
+      ],
+      "rationale": "The exact color-angle balance is a reusable structural invariant for cyclic quadrangulations and yields a geometric obstruction that survives even when the standard topological feasibility condition is satisfied. That directly addresses the difficult quadrilateral regime in square-dissection questions.",
+      "residual_risks": [
+        "The theorem is a necessary-condition invariant; it does not classify which remaining boundary data admit cyclic realizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1111/cgf.12443",
+    "https://arxiv.org/abs/2001.03289",
+    "Resultary published-result search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Tiles are nondegenerate convex cyclic quadrilaterals in a finite edge-to-edge tiling of a simply connected Euclidean polygon.",
+    "For squares the theorem gives a parity obstruction, not a sufficiency theorem."
+  ],
+  "residual_risks": [
+    "An older recreational-geometry or mesh note may contain an equivalent two-color angle sum under different terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "TOPOLOGICAL_BASELINE_NOT_COVERING",
+      "evidence": "It establishes only the even-total-boundary obstruction and does not impose cyclic geometry.",
+      "identifier_or_url": "https://doi.org/10.1111/cgf.12443",
+      "material_read": "Complete 8-page PDF, especially the boundary parity condition and statement that side counts are otherwise topologically arbitrary.",
+      "method": "Lawful open full PDF with page-image verification.",
+      "title": "Pattern-Based Quadrangulation for N-Sided Patches",
+      "trigger": "Primary source for prescribed boundary-subdivision feasibility in quadrangulations."
+    },
+    {
+      "assessment": "RELATED_NOT_COVERING",
+      "evidence": "Its quadrilateral theorem assumes congruent right-angle trapezoids and does not state the audited invariant for arbitrary cyclic quadrilateral tiles.",
+      "identifier_or_url": "https://arxiv.org/abs/2001.03289",
+      "material_read": "Complete 17-page PDF, including the quadrilateral/right-angle-trapezoid case and angle-pattern graph construction.",
+      "method": "Lawful arXiv full text with page-image verification.",
+      "title": "Dissecting a square into congruent polygons",
+      "trigger": "Closest square-dissection work with detailed angle and graph arguments."
+    }
+  ]
+}
