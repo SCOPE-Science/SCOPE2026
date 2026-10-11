@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:06:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The structural condition is correct. The only distance-two pairs are pairs in the same non-singleton part \\(V_i\\), and their common neighborhood is exactly \\(V(G)\\setminus V_i\\). Hence a set \\(X\\) is total mutual-visible exactly when its complement \\(Y\\) meets \\(V(G)\\setminus V_i\\) for every non-singleton part, equivalently \\(Y\\not\\subseteq V_i\\) for every such part. Weighted inclusion-exclusion over the disjoint partite classes gives the polynomial. Inclusion-minimal admissible complements are exactly a singleton from a singleton part or, when at least two non-singleton parts exist, a two-set meeting two distinct such parts. The resulting maximal-set counts and lower number follow. A fresh independent check for profile \\((2,2,1)\\) gave coefficient vector \\((1,5,10,8,1,0)\\), agreeing with the formula; the frozen verifier checks every multipartite isomorphism type through order nine.",
+      "risk": "No correctness issue was found; rejection is for prior implication/value.",
+      "sources": [
+        "Bujtás--Klavžar--Tian, DOI:10.1007/s00010-025-01197-y / arXiv:2412.03066",
+        "RESULT.md",
+        "verify.py",
+        "fresh definition-level check"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.2 is strictly broader in graph class and determines all feasible sets once common neighborhoods are known.",
+          "The complete-bipartite polynomial appears explicitly as a boundary family."
+        ],
+        "reasoning": "The prior theorem dominates the substantive feasibility classification; only routine class-specific counting remains.",
+        "searches": [
+          "Full open 2025 primary article, Theorem 5.2",
+          "Same article, Proposition 3.2"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00010-025-01197-y",
+        "arXiv:2412.03066",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For vertices in the same non-singleton part, \\(N(u)\\cap N(v)=V\\setminus V_i\\); all other pairs have distance one.",
+          "Thus Theorem 5.2 says exactly that the complement must contain a vertex outside every non-singleton part.",
+          "The forbidden complements are the powersets of the non-singleton parts, whose pairwise intersections are only the empty set, so the displayed polynomial follows by immediate inclusion-exclusion.",
+          "Minimal admissible complements are then visibly of sizes one or two with the stated part support."
+        ],
+        "reasoning": "The final claim is a routine specialization and counting corollary of a stronger published result.",
+        "searches": [
+          "Bujtás--Klavžar--Tian Theorem 5.2",
+          "Bujtás--Klavžar--Tian Proposition 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.2 characterizes total mutual-visibility sets in every connected graph via common neighborhoods of distance-two pairs.",
+          "For complete multipartite graphs that criterion is exactly \\(V\\setminus X\\not\\subseteq V_i\\) for each non-singleton part.",
+          "Proposition 3.2 already gives the total visibility polynomial for \\(K_{n,n}\\)."
+        ],
+        "reasoning": "The submitted complement formulation is a direct specialization of the published all-graph theorem.",
+        "searches": [
+          "Resultary query: total mutual visibility polynomial complete multipartite lower total visibility maximal sets",
+          "Bujtás--Klavžar--Tian DOI:10.1007/s00010-025-01197-y, Theorem 5.2 and Proposition 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical arbitrary-multipartite table was found, but the stronger published criterion determines it immediately.",
+          "The prior balanced-biclique formula is exactly the submitted polynomial specialized to two equal non-singleton parts."
+        ],
+        "reasoning": "Absence of the exact same table does not overcome implication coverage.",
+        "searches": [
+          "Resultary semantic search for total visibility polynomial on complete multipartite graphs",
+          "Bujtás--Klavžar--Tian exact balanced-bipartite polynomial"
+        ]
+      },
+      "rationale": "Bujtás--Klavžar--Tian prove the stronger all-graph characterization: \\(X\\) is total mutual-visible iff for every distance-two pair \\(u,v\\), the common neighborhood \\(N(u)\\cap N(v)\\) is not contained in \\(X\\). Specializing this theorem to a complete multipartite graph immediately gives the submitted complement condition because same-part pairs are the only distance-two pairs and have common neighborhood \\(V\\setminus V_i\\). Their Proposition 3.2 already computes the total visibility polynomial for balanced complete bipartite graphs and explicitly notes that general \\(K_{m,n}\\) is obtained similarly. After the general criterion, the arbitrary-multipartite formula is one inclusion-exclusion step and the maximal-set theorem is the elementary classification of inclusion-minimal complements satisfying that condition.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_GENERAL_THEOREM_DIRECTLY_IMPLIES_MULTIPARTITE_CRITERION",
+          "evidence": "Theorem 5.2 states the common-neighborhood characterization for every connected graph; Proposition 3.2 gives the balanced complete-bipartite total visibility polynomial.",
+          "identifier_or_url": "DOI:10.1007/s00010-025-01197-y; arXiv:2412.03066",
+          "material_read": "Complete open primary article sections on visibility polynomials and total mutual visibility, including Proposition 3.2 and Theorem 5.2 with their proofs.",
+          "method": "Lawful open full-text HTML inspection.",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Same invariant plus a general characterization and complete-bipartite polynomial."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The graph family and invariant are natural, but once the published all-graph distance-two criterion is specialized, the polynomial is elementary inclusion-exclusion and the maximal-set/lower-number statements are the minimal transversals of a disjoint family of partite powersets. This does not add a nonstandard structural lemma or a sufficiently independent exact invariant beyond the stronger prior theorem.",
+      "risk": "The closed formulas are convenient for users of complete multipartite graphs, but convenience alone is below the scientific-value threshold.",
+      "sources": [
+        "DOI:10.1007/s00010-025-01197-y"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a connected complete multipartite graph, the total visibility polynomial is obtained by excluding complements contained in one non-singleton part; the same complement condition classifies all maximal total mutual-visibility sets and yields the stated three-case lower total mutual-visibility number and maximal-set count.",
+  "limitations": [
+    "This rejection is for prior implication/value, not correctness.",
+    "Finite connected complete multipartite graphs only."
+  ],
+  "schema_version": 1
+}
