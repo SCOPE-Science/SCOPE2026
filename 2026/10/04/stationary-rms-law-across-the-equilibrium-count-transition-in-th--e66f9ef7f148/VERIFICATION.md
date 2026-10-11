@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact sparse-polynomial arithmetic over rational coefficients.
 
-For
-\[
-\dot x=y,\qquad
-\dot y=z,\qquad
-\dot z=-y-x^2-xz+3y^2+a,
-\]
-it verifies
-\[
-Lx=y,\qquad Ly=z,
-\]
-and the critical certificate
-\[
-L(z+xy+x)=a-x^2+4y^2.
-\]
+# Independent mathematical audit
 
-It also verifies that substituting
-\[
-y=z=0,\qquad x^2=a
-\]
-annihilates the vector field symbolically, and it checks the exact benchmark
-\[
-a=-\frac1{20}
-\quad\Longrightarrow\quad
--\frac a4=\frac1{80}.
-\]
+## correctness
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+PASS
 
-The checker validates the algebraic certificate. The conditional-expectation deductions use arbitrary antiderivatives on compact coordinate ranges, and the equality classifications use invariance of the compact support.
+Arbitrary antiderivative tests in \(x\) and \(y\) give the two conditional expectations. The inspected package's critical polynomial certificate \(F=z+xy+x\) satisfies exactly \(LF=a-x^2+4y^2\), hence stationarity yields the RMS identity. For \(a>0\), equality forces \(y=0\) on invariant support, then successively \(z=0\) and \(x^2=a\), so the support lies on the two equilibria; any other invariant measure has positive \(y^2\), hence \(x^2\)-mean strictly above \(a\), forcing mass outside \(|x|\le\sqrt a\). Its zero mean and nonzero second moment also force both signs of \(y\). For \(a<0\), nonnegativity gives \(\mathbb E[y^2]\ge-a/4\); equality would force \(x=0\) on invariant support and then \(y=z=0\), contradicting \(\dot z=a\ne0\), so the floor is strict.
+
+## originality
+
+PASS
+
+The original Wang--Chen source introduces the equilibrium-count transition and numerical chaotic regimes. The later rigorous Oliveira--Valls full preprint was inspected and fixes the plus-sign normalization used here while studying Hopf and zero--Hopf bifurcations, the flow at infinity, invariant algebraic surfaces and integrability. It does not state invariant-probability conditional laws or the RMS relation across the transition. Resultary searches for the exact Chen--Wang stationary law returned analogous recurrence-shell results for other systems but no same-model predecessor.
+
+## value
+
+PASS
+
+The Chen--Wang model was designed around a transition in the number of equilibria. The exact RMS law shows that the same transition has a sharp statistical counterpart for every compact recurrent state: equilibrium mixtures are the unique equality states on the positive side and a strict kinetic floor survives on the no-equilibrium side. This is a natural global invariant tied directly to the model's motivating parameter transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

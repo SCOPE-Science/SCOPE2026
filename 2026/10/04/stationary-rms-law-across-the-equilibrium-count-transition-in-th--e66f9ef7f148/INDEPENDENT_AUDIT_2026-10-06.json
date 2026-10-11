@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:36:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob b6a9c8cd1edd940e27b76019e25f0d545fe4fd7a",
+        "assigned verify.py blob c2f4ee68478b7f869b81096af7c96b3b3544b43f",
+        "X. Wang and G. Chen, Constructing a chaotic system with any number of equilibria, arXiv:1201.5751",
+        "R. D. S. Oliveira and C. Valls, Global dynamical aspects of a generalized Chen--Wang differential system, DOI:10.1007/s11071-015-2584-1"
+      ],
+      "rationale": "Arbitrary antiderivative tests in \\(x\\) and \\(y\\) give the two conditional expectations. The inspected package's critical polynomial certificate \\(F=z+xy+x\\) satisfies exactly \\(LF=a-x^2+4y^2\\), hence stationarity yields the RMS identity. For \\(a>0\\), equality forces \\(y=0\\) on invariant support, then successively \\(z=0\\) and \\(x^2=a\\), so the support lies on the two equilibria; any other invariant measure has positive \\(y^2\\), hence \\(x^2\\)-mean strictly above \\(a\\), forcing mass outside \\(|x|\\le\\sqrt a\\). Its zero mean and nonzero second moment also force both signs of \\(y\\). For \\(a<0\\), nonnegativity gives \\(\\mathbb E[y^2]\\ge-a/4\\); equality would force \\(x=0\\) on invariant support and then \\(y=z=0\\), contradicting \\(\\dot z=a\\ne0\\), so the floor is strict.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rigorous literature gives stronger local bifurcation information but no all-invariant-measure second-moment identity.",
+          "Resultary analogues concern different vector fields and do not specialize to the Chen--Wang polynomial certificate."
+        ],
+        "reasoning": "No checked broader stationary theorem contains the final claim.",
+        "searches": [
+          "Oliveira--Valls full preprint",
+          "Llibre--Oliveira--Valls 2015 integrability/zero--Hopf paper",
+          "Resultary stationary-moment records for related Chen-type systems"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1201.5751",
+        "DOI:10.1007/s11071-015-2584-1",
+        "DOI:10.1007/s11071-014-1873-4",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the equilibrium coordinates and their parameter transition does not constrain second moments of arbitrary compact invariant measures.",
+          "The polynomial coboundary \\(L(z+xy+x)=a-x^2+4y^2\\) is the additional key step; the strict no-equilibrium floor further uses invariant-support tangency."
+        ],
+        "reasoning": "The stationary RMS law and its equality classes are not direct corollaries of the prior equilibrium-count results.",
+        "searches": [
+          "Wang--Chen equilibrium-count paper",
+          "Oliveira--Valls bifurcation/integrability analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rigorous later source writes the same plus-sign Chen--Wang system and classifies the finite-equilibrium transition.",
+          "Its theorem list concerns local/global bifurcations and integrability, not invariant-measure moment balances."
+        ],
+        "reasoning": "The one-parameter Chen--Wang system and its two-parameter generalized form were compared after matching the stated normalization.",
+        "searches": [
+          "Resultary: Chen Wang flow invariant measure stationary RMS law equilibrium transition",
+          "arXiv:1201.5751",
+          "DOI:10.1007/s11071-015-2584-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-model exact identity \\(\\mathbb E[x^2]=a+4\\mathbb E[y^2]\\) was returned among the direct semantic matches."
+        ],
+        "reasoning": "The result is a symbolic law, so the database check targeted exact same-object formulas rather than numerical tables.",
+        "searches": [
+          "Resultary exact Chen--Wang RMS/invariant-measure query"
+        ]
+      },
+      "rationale": "The original Wang--Chen source introduces the equilibrium-count transition and numerical chaotic regimes. The later rigorous Oliveira--Valls full preprint was inspected and fixes the plus-sign normalization used here while studying Hopf and zero--Hopf bifurcations, the flow at infinity, invariant algebraic surfaces and integrability. It does not state invariant-probability conditional laws or the RMS relation across the transition. Resultary searches for the exact Chen--Wang stationary law returned analogous recurrence-shell results for other systems but no same-model predecessor.",
+      "residual_risks": [
+        "The original 2012 preprint has a known sign inconsistency in its displayed parameter term versus its equilibrium description; the audit therefore relies on the later rigorous plus-sign normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQUILIBRIUM_AND_BIFURCATION_PREDECESSOR_NOT_STATIONARY_RMS_LAW",
+          "evidence": "The source fixes the plus-sign model and analyzes equilibrium transitions and global bifurcations but does not state the invariant-probability RMS identity or conditional laws.",
+          "identifier_or_url": "DOI:10.1007/s11071-015-2584-1",
+          "material_read": "Full accessible primary preprint text, including the defining generalized system, specialization to the original Chen--Wang equations, finite-equilibrium regimes and stated bifurcation/integrability results.",
+          "method": "Open primary full-text PDF/text inspection.",
+          "title": "Global dynamical aspects of a generalized Chen--Wang differential system",
+          "trigger": "Full rigorous primary treatment of the same system and the normalization/equilibrium transition."
+        },
+        {
+          "assessment": "INTRODUCES_TRANSITION_NOT_STATIONARY_MEASURE_THEOREM",
+          "evidence": "Its purpose is constructing chaotic systems across equilibrium counts; no inspected statement supplies the audited compact-invariant-measure law.",
+          "identifier_or_url": "arXiv:1201.5751",
+          "material_read": "Primary arXiv record and accessible defining/equilibrium material, including the reported zero-, one- and two-equilibrium regimes.",
+          "method": "Open-access primary-source inspection.",
+          "title": "Constructing a chaotic system with any number of equilibria",
+          "trigger": "Original source for the Chen--Wang equilibrium-count construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang--Chen 2012",
+        "Oliveira--Valls 2016",
+        "Llibre--Oliveira--Valls 2015"
+      ],
+      "rationale": "The Chen--Wang model was designed around a transition in the number of equilibria. The exact RMS law shows that the same transition has a sharp statistical counterpart for every compact recurrent state: equilibrium mixtures are the unique equality states on the positive side and a strict kinetic floor survives on the no-equilibrium side. This is a natural global invariant tied directly to the model's motivating parameter transition.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the plus-sign Chen--Wang flow \\(\\dot x=y\\), \\(\\dot y=z\\), \\(\\dot z=-y-x^2-xz+3y^2+a\\), every compactly supported invariant probability measure satisfies \\(\\mathbb E[y\\mid x]=0\\), \\(\\mathbb E[z\\mid y]=0\\), and \\(\\mathbb E[x^2]=a+4\\mathbb E[y^2]\\); for \\(a>0\\) equality \\(\\mathbb E[x^2]=a\\) occurs exactly for mixtures of the two equilibrium atoms and every other compact recurrent state exits the equilibrium-amplitude slab, while for \\(a<0\\) every compact recurrent state, if one exists, has the strict floor \\(\\mathbb E[y^2]>-a/4\\).",
+  "limitations": [
+    "The theorem uses the plus-sign normalization fixed in the later rigorous Chen--Wang literature.",
+    "Invariant-measure statements assume compact support.",
+    "For \\(a<0\\), the RMS floor is conditional on existence of compact recurrence and does not prove an attractor exists."
+  ],
+  "schema_version": 1
+}
