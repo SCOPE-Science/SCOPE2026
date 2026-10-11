@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source equilibrium polynomial is
-\[
-P(q)=6c_1q^2+Bq-C,
-\qquad
-B=4(1+c_2)-d^2(\mu-1)^2.
-\]
-The source's omitted Jury condition is exactly
-\[
-k^2q_1^*q_2^*\bigl(B+12c_1q_2^*\bigr)
-=k^2q_1^*q_2^*P'(q_2^*),
-\]
-and under its delayed-feedback map it is divided by \((1+m)^2\). This proves the branch criterion symbolically.
+# Independent mathematical audit
 
-`verifier.py` uses exact arithmetic in \(\mathbb{Q}(\sqrt{70})\). It checks the witness
-\[
-\alpha=\frac75,\ c=\frac25,\ d=\frac12,\ \mu=1,\ c_1=1,\ c_2=-2,\ c_3=\frac32,\ c_4=0,
-\]
-with
-\[
-q_1^*=\frac12,
-\qquad
-q_2^*=\frac{10-\sqrt{70}}{30},
-\qquad
-k=\frac1{100}.
-\]
-It verifies the exact equilibrium identity, all stated cubic-cost restrictions, positivity of both equilibrium roots, positivity of the retained conditions (40) and (41), and
-\[
-1-\operatorname{tr}J+\det J
-=\frac{7-\sqrt{70}}{150000}<0.
-\]
-It also checks the controlled case \(m=1\), where the retained conditions (48) and (49) are positive but the omitted Jury value is \((7-\sqrt{70})/600000<0\). In both cases the exact second multiplier is greater than one.
+## correctness
 
-The script prints `VERIFY_OK` only after all exact sign and identity checks pass. The general theorem is not inferred from finite tests; the witness only demonstrates that the published retained inequalities are insufficient.
+PASS
+
+Differentiating \(P(q)=6c_1q^2+Bq-C\) gives \(P'(q)=12c_1q+B\). Direct substitution into the source Jacobian factor gives exactly \(1-\operatorname{tr}J+\det J=k^2q_1^*q_2^*P'(q_2^*)\), and feedback multiplies this by \((1+m)^{-2}\). Since \(c_1>0\), the derivative is negative at the smaller of two distinct roots and positive at the larger. I independently replayed the quadratic-surd witness with exact rational arithmetic: both roots satisfy the equilibrium equation, the source's retained conditions are positive, the omitted factor is negative, and the displayed multiplier exceeds one, both without feedback and at \(m=1\). The frozen exact verifier source was read in full.
+
+## originality
+
+PASS
+
+The primary 2025 article gives the modified cubic game, local stability analysis, and delayed-feedback construction but concludes with only two retained local conditions. Fresh source-specific, lower-branch, derivative-factor and correction searches found no published repair. Nearby relative-profit Cournot papers use different cost structures/maps. The accepted claim requires noticing an omitted nonautomatic Jury factor and identifying its exact sign with the equilibrium-polynomial derivative; it is not stated by the source.
+
+## value
+
+PASS
+
+The missing sign condition changes a theorem-level local-stability classification: one entire positive equilibrium branch is never stabilizable by the proposed feedback scaling, and an exact admissible witness shows the published retained conditions are not sufficient. This is a motivated correction with a structural branch criterion, not a cosmetic algebra check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

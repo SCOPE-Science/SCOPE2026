@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source's equilibrium quadratic is \(P(q)=6c_1q^2+Bq-C\), with \(B=4(1+c_2)-d^2(\mu-1)^2\). Its omitted Jury expression is exactly \(k^2q_1^*q_2^*(B+12c_1q_2^*)=k^2q_1^*q_2^*P'(q_2^*)\), and in the controlled map it is divided by \((1+m)^2\). For two distinct positive roots of an upward-opening quadratic, the derivative is negative at the lower root and positive at the upper root. The exact witness satisfies every stated cubic-cost restriction, both retained inequalities of Proposition 2 and both retained inequalities of Proposition 3, while the omitted Jury quantity is negative and a real multiplier is greater than one. The bundled exact-arithmetic verifier reproduces all witness identities.
+## correctness
 
-## Originality — PASS
-The primary 2025 article was inspected through its cubic-cost restrictions, equilibrium equation, Jacobian, Propositions 2 and 3, all three Jury expressions, and numerical example. Exact-title, DOI, proposition-number, “always satisfied,” lower-equilibrium-branch, polynomial-derivative, and stability-implication searches found no correction of this source-specific omission. The 2019 asymmetric-cost predecessor uses a quadratic second-player cost; the 2023 related chaos-control article concerns a different relative-profit Cournot map. Database searches returned no record matching this cubic branch criterion or counterexample. The residual risk is an unindexed correction or an equivalent observation stated under different notation.
+PASS
 
-## Value — PASS
-The missing inequality is not a cosmetic condition: it separates the two positive branches of the source equilibrium quadratic. On the lower branch, no positive adjustment speed can produce local asymptotic stability, and the delayed-feedback law cannot repair that instability because it only multiplies the same negative Jury factor by a positive scalar. This changes the admissible stability classification whenever the source's own cubic-cost restrictions permit two positive roots and gives an exact counterexample to the sufficiency of both published two-inequality propositions.
+Differentiating \(P(q)=6c_1q^2+Bq-C\) gives \(P'(q)=12c_1q+B\). Direct substitution into the source Jacobian factor gives exactly \(1-\operatorname{tr}J+\det J=k^2q_1^*q_2^*P'(q_2^*)\), and feedback multiplies this by \((1+m)^{-2}\). Since \(c_1>0\), the derivative is negative at the smaller of two distinct roots and positive at the larger. I independently replayed the quadratic-surd witness with exact rational arithmetic: both roots satisfy the equilibrium equation, the source's retained conditions are positive, the omitted factor is negative, and the displayed multiplier exceeds one, both without feedback and at \(m=1\). The frozen exact verifier source was read in full.
 
-## Closest literature and limitations
-The closest source is the 2025 paper itself. The 2019 predecessor supplies the asymmetric relative-profit setting with a different cost form, while the 2023 chaos-control paper supplies nearby bounded-rationality/control context. Neither inspected work covers the derivative sign of the 2025 cubic equilibrium polynomial. No claim is made about global chaos, welfare, or the source's specific one-equilibrium numerical example.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2025 article gives the modified cubic game, local stability analysis, and delayed-feedback construction but concludes with only two retained local conditions. Fresh source-specific, lower-branch, derivative-factor and correction searches found no published repair. Nearby relative-profit Cournot papers use different cost structures/maps. The accepted claim requires noticing an omitted nonautomatic Jury factor and identifying its exact sign with the equilibrium-polynomial derivative; it is not stated by the source.
+
+## value
+
+PASS
+
+The missing sign condition changes a theorem-level local-stability classification: one entire positive equilibrium branch is never stabilizable by the proposed feedback scaling, and an exact admissible witness shows the published retained conditions are not sufficient. This is a motivated correction with a structural branch criterion, not a cosmetic algebra check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
