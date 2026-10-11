@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,49 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only exact sparse-polynomial and rational arithmetic.
 
-For the real form
-\[
-X=c+u(xC-yS),
-\qquad
-Y=u(xS+yC),
-\]
-it verifies
-\[
-(X-c)^2+Y^2
-=
-u^2(x^2+y^2)(C^2+S^2),
-\]
-with \(u=u\). Therefore the trigonometric constraint
-\[
-C^2+S^2=1
-\]
-gives the exact radial identity.
+# Independent mathematical audit
 
-At
-\[
-c=1,
-\qquad
-u=\frac9{10},
-\]
-it verifies exactly
-\[
-R=10,
-\qquad
-d=\frac{100}{19},
-\qquad
-\rho=\frac{90}{19}.
-\]
-It also checks coefficient-by-coefficient that the second-moment equation
-\[
-(1-u^2)M_2-2M_x+1=0
-\]
-is equivalent to
-\[
-M_2-2dM_x+d^2-\rho^2=0.
-\]
+## correctness
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+PASS
 
-The support theorem, distributional pushforward, and fixed-point boundary classification are analytic arguments in `RESULT.md` and are not inferred from finite computation.
+The support claim follows from \(|F(z)|\le |c|+u|z|\): invariance and repeated preimages of the tail beyond \(|c|/(1-u)\) force zero mass there. The pointwise identity \(|F(z)-c|=u|z|\), combined with invariance, gives equality of the complete radial pushforward laws. Taking second moments and completing the square yields \(E|Z-d|^2=\rho^2\), and the complex bias--variance identity gives \(V+|m-d|^2=\rho^2\). Boundary equality is equivalent to zero variance, hence to an invariant point mass, which is exactly a fixed-point atom. The exact verifier independently checks the rotation-norm identity and the standard \(c=1,u=9/10\) specialization.
+
+## originality
+
+PASS
+
+Classical Ikeda-map work develops fixed points, bifurcations, attractors, basin boundaries and contraction, while the 2019 symbolic-dynamics paper explicitly approximates Ikeda invariant measures numerically. The inspected same-object sources do not state the exact radial pushforward identity, the mean--variance circle or the fixed-point boundary characterization. Fresh Resultary search using the map and radial/moment terminology returned only unrelated radial-distribution findings, not an equivalent Ikeda result. Because the key pointwise norm identity is simple, equivalent optical-power terminology remains a real residual risk.
+
+## value
+
+PASS
+
+The result constrains every invariant probability measure of the entire generalized phase family, not one attractor or simulation: all radial quantiles are tied exactly, and the first two moments lie on a sharp circle with a complete boundary classification. That is a natural distribution-level invariant of a canonical chaotic map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

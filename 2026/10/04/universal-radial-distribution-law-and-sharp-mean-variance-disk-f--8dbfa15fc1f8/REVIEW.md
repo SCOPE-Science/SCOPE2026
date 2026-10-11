@@ -1,20 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. A tail-preimage contraction shows every invariant probability is supported in \(|z|\le |c|/(1-u)\). Invariance combined with the pointwise geometric identity
-\[
-|F(z)-c|=u|z|
-\]
-gives the full radial pushforward law. The second moment completes to the RMS circle, and bias–variance gives the exact mean disk. Boundary equality is equivalent to zero variance and therefore to a fixed-point atom.
+## correctness
 
-Risk: none of the proof steps relies on numerical evidence; the only modeling scope restriction is \(0<u<1\).
+PASS
 
-## Originality
-PASS. The closest full same-object source explicitly approximates Ikeda invariant measures, but does not state the exact radial pushforward, mean–variance disk, or boundary classification. Full horseshoe material and substantial foundational-map material cover chaos and global geometry rather than this invariant-measure law. Direct semantic searches over distributional and moment formulations found no same-object implication.
+The support claim follows from \(|F(z)|\le |c|+u|z|\): invariance and repeated preimages of the tail beyond \(|c|/(1-u)\) force zero mass there. The pointwise identity \(|F(z)-c|=u|z|\), combined with invariance, gives equality of the complete radial pushforward laws. Taking second moments and completing the square yields \(E|Z-d|^2=\rho^2\), and the complex bias--variance identity gives \(V+|m-d|^2=\rho^2\). Boundary equality is equivalent to zero variance, hence to an invariant point mass, which is exactly a fixed-point atom. The exact verifier independently checks the rotation-norm identity and the standard \(c=1,u=9/10\) specialization.
 
-Risk: because the core geometric identity is short, an equivalent optical-power formulation could exist in unindexed literature; the incomplete access to the 1984 conference paper and full 1985 article is retained as a residual risk.
+## originality
 
-## Value
-PASS. The result upgrades the map's contraction geometry to a complete stationary radial-distribution calibration and a sharp phase-independent mean–variance constraint. It is directly applicable to invariant-measure approximations, simulations, and experimental stationary samples, with exact boundary rigidity distinguishing fixed states from fluctuating ones.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Classical Ikeda-map work develops fixed points, bifurcations, attractors, basin boundaries and contraction, while the 2019 symbolic-dynamics paper explicitly approximates Ikeda invariant measures numerically. The inspected same-object sources do not state the exact radial pushforward identity, the mean--variance circle or the fixed-point boundary characterization. Fresh Resultary search using the map and radial/moment terminology returned only unrelated radial-distribution findings, not an equivalent Ikeda result. Because the key pointwise norm identity is simple, equivalent optical-power terminology remains a real residual risk.
+
+## value
+
+PASS
+
+The result constrains every invariant probability measure of the entire generalized phase family, not one attractor or simulation: all radial quantiles are tied exactly, and the first two moments lie on a sharp circle with a complete boundary classification. That is a natural distribution-level invariant of a canonical chaotic map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
