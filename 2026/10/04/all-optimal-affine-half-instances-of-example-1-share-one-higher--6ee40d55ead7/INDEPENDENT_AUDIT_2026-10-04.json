@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:06:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I inspected the assigned certificate and verifier and independently replayed the full finite classification. The construction uses \\(\\mathbb F_8=\\mathbb F_2[z]/(z^3+z+1)\\), all nine Desarguesian spread components, all 36 unordered component pairs, and all 49 nonzero normals outside each dual-spread union. For every instance the exact \\(7\\times95\\) binary generator was formed and every message subspace was enumerated in reduced row-echelon form: 127, 2667, 11811, 11811, 2667, 127, and 1 subspaces in dimensions 1 through 7, or 29,211 per code. The full 1,764-instance replay therefore checked 51,528,204 subcode supports. Every instance matched the packaged complete spectra and hierarchy \\((22,56,74,84,90,93,95)\\). The dimension-one spectrum exactly reproduces the source Example 1 weight enumerator, providing an external anchor on the code construction.",
+      "risk": "This is an exact finite classification of one explicit Desarguesian model; it does not prove permutation equivalence of the 1,764 codes or a formula for arbitrary \\(m,r\\).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chung--Jin--Kim provides complete ordinary weights and optimality of outside normals across the affine-half family.",
+          "Related generalized-weight papers study other partial-spread/Boolean-function code families, not the duplicated-coordinate affine-half instances audited here."
+        ],
+        "reasoning": "Ordinary weight distributions determine only one-dimensional subcode supports; broader parent-code or partial-spread results do not automatically determine higher-dimensional support unions after structured coordinate duplication.",
+        "searches": [
+          "J.-H. Chung, D. Jin, D. Kim, Affine-Half Extensions of Partial-Spread Minimal Binary Linear Codes with Explicit Weight Distributions, DOI:10.3390/math14173152",
+          "Searches for generalized Hamming weights of partial-spread minimal codes"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math14173152",
+        "V. K. Wei, Generalized Hamming weights for linear codes, IEEE Trans. Inf. Theory 37 (1991)",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source fixes the generator family and every codeword weight, which determines the \\(s=1\\) spectrum only.",
+          "For \\(s\\ge2\\), the support of a subcode is a union of codeword supports and is not determined by the ordinary weight enumerator."
+        ],
+        "reasoning": "The new finite computation addresses information not implied by the source's published enumerator; the exact all-instance isospectrality therefore survives the implication check.",
+        "searches": [
+          "DOI:10.3390/math14173152, Example 1 and weight-distribution theorems",
+          "V. K. Wei generalized Hamming weight framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No checked result states the hierarchy \\((22,56,74,84,90,93,95)\\) or the complete subcode-support histograms for this code family.",
+          "The source article's one-dimensional enumerator matches the audited \\(s=1\\) row but contains no higher-support table."
+        ],
+        "reasoning": "Generalized Hamming weights are equivalent to the minimum support sizes of subcodes by dimension, but neither that hierarchy nor the finer full spectra were found under those aliases.",
+        "searches": [
+          "Resultary: 22 56 74 84 90 93 95 generalized Hamming weights [95,7,22]",
+          "Resultary: 1764 affine-half support spectrum 95 7 22",
+          "Web search: affine-half partial-spread generalized Hamming weights [95,7,22]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database or published table of the 1,764 higher-support spectra was located.",
+          "The source table records ordinary weights/minimum distances, not subcode-support distributions."
+        ],
+        "reasoning": "The submitted spectra are a finite exact census, but not a recomputation of a located known table.",
+        "searches": [
+          "Resultary exact parameter/hierarchy search for [95,7,22] and the seven generalized weights",
+          "Source Example 1 tables and formulas"
+        ]
+      },
+      "rationale": "The 2026 primary article was read in full at the construction, Example 1, and weight-distribution/optimization sections. It proves the ordinary weight enumerator and the outside-normal optimum \\([95,7,22]_2\\), but does not give generalized Hamming weights or higher-dimensional subcode-support spectra. Exact hierarchy and parameter searches in Resultary found no prior match. Generalized-Hamming-weight literature for related partial-spread codes concerns different code constructions and does not determine the support unions after this affine-half coordinate duplication.",
+      "residual_risks": [
+        "A differently indexed computational note could contain the same finite hierarchy, but exact parameter and hierarchy searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_ONE_DIMENSIONAL_DATA_NOT_HIGHER_SUPPORT",
+          "evidence": "Example 1 gives the outside-normal \\([95,7,22]_2\\) code and ordinary enumerator \\(1+z^{22}+12z^{42}+36z^{46}+62z^{48}+3z^{54}+12z^{58}+z^{64}\\), exactly the audited dimension-one spectrum; no generalized-Hamming hierarchy or higher-dimensional support spectrum is stated.",
+          "identifier_or_url": "DOI:10.3390/math14173152",
+          "material_read": "Full public article sections defining the affine-half code, the Desarguesian model, Example 1, and the weight-distribution/optimality results.",
+          "method": "lawful publisher full HTML",
+          "title": "Affine-Half Extensions of Partial-Spread Minimal Binary Linear Codes with Explicit Weight Distributions",
+          "trigger": "Same construction, same Example 1 parameters, and the ordinary weight enumerator used to anchor the replay."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Generalized Hamming weights and full subcode-support spectra are natural invariants of a linear code and matter beyond ordinary weight distributions. The result classifies those invariants for every optimal-normal instance of a concrete current construction and discovers a nontrivial isospectrality across 1,764 codes. The exact fact is not implied by the published ordinary enumerator and is plausibly useful for later equivalence, wiretap, and support-geometry analysis.",
+      "risk": "The result is computational and finite, and it does not yet explain the common spectrum by a closed group-action theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the explicit \\(m=6,r=2\\) Desarguesian affine-half construction of Chung--Jin--Kim Example 1, all \\(36\\cdot49=1764\\) outside-normal optimal \\([95,7,22]_2\\) instances have generalized Hamming weights \\((22,56,74,84,90,93,95)\\), and in every subcode dimension \\(1\\) through \\(7\\) they share the exact complete support-size spectra printed in RESULT.md.",
+  "limitations": [
+    "The conclusion is restricted to the explicit \\(m=6,r=2\\) Desarguesian model.",
+    "Higher-support isospectrality does not imply coordinate-permutation equivalence."
+  ],
+  "schema_version": 1
+}

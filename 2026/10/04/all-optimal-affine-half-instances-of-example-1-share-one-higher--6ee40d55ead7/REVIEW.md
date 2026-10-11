@@ -1,22 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source construction was rebuilt exactly in the explicit Desarguesian \(3\)-spread model. Before any new claim is used, the \(s=1\) support spectrum reproduces the published Example 1 weight enumerator
-\[
-1+z^{22}+12z^{42}+36z^{46}+62z^{48}+3z^{54}+12z^{58}+z^{64}.
-\]
-The replay exhausts all \(36\) spread-component pairs, all \(49\) outside normals for each pair, and every message subspace in dimensions \(1\) through \(7\). All \(1764\) codes have the same complete spectrum and hierarchy
-\[
-(22,56,74,84,90,93,95).
-\]
+PASS
 
-## Originality
+I inspected the assigned certificate and verifier and independently replayed the full finite classification. The construction uses \(\mathbb F_8=\mathbb F_2[z]/(z^3+z+1)\), all nine Desarguesian spread components, all 36 unordered component pairs, and all 49 nonzero normals outside each dual-spread union. For every instance the exact \(7\times95\) binary generator was formed and every message subspace was enumerated in reduced row-echelon form: 127, 2667, 11811, 11811, 2667, 127, and 1 subspaces in dimensions 1 through 7, or 29,211 per code. The full 1,764-instance replay therefore checked 51,528,204 subcode supports. Every instance matched the packaged complete spectra and hierarchy \((22,56,74,84,90,93,95)\). The dimension-one spectrum exactly reproduces the source Example 1 weight enumerator, providing an external anchor on the code construction.
 
-PASS. The primary paper gives ordinary weight distributions and the outside-normal minimum-distance optimum, but no generalized Hamming weights. Exact searches for the code parameters, the exact hierarchy, affine-half aliases, partial-spread aliases, and higher-support terminology found no prior same-object result. The parent partial-spread literature does not imply support unions after the affine-half coordinate duplication.
+## originality
 
-## Value
+PASS
 
-PASS. The source uses the outside-normal condition to select the best affine-half codes by minimum distance. The generalized Hamming hierarchy is the canonical higher-dimensional refinement of that criterion. The stronger discovery that all \(1764\) optimal-normal realizations share the full subcode-support spectrum supplies a natural rigidity statement for a prominent new example, not merely another minimum-distance computation.
+The 2026 primary article was read in full at the construction, Example 1, and weight-distribution/optimization sections. It proves the ordinary weight enumerator and the outside-normal optimum \([95,7,22]_2\), but does not give generalized Hamming weights or higher-dimensional subcode-support spectra. Exact hierarchy and parameter searches in Resultary found no prior match. Generalized-Hamming-weight literature for related partial-spread codes concerns different code constructions and does not determine the support unions after this affine-half coordinate duplication.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Generalized Hamming weights and full subcode-support spectra are natural invariants of a linear code and matter beyond ordinary weight distributions. The result classifies those invariants for every optimal-normal instance of a concrete current construction and discovers a nontrivial isospectrality across 1,764 codes. The exact fact is not implied by the published ordinary enumerator and is plausibly useful for later equivalence, wiretap, and support-geometry analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
