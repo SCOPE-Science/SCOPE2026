@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For qubits, \(A=\sigma_U^{-1/2}\rho\sigma_U^{-1/2}\) has orbit-independent determinant \(\delta\) and trace \(t\) affine in the eigenbasis transition probability. Cayley--Hamilton gives an exact resolvent identity, which reduces every kernel in the operator-convex representation to the displayed scalar function. Its derivative is strictly positive for every non-affine operator-convex generator. The finite checker corroborates exact identities on representative rational data but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2601.08268, proves the minimum, maximum, and closed-interval image of the orbit. Those statements do not imply injectivity or monotonicity through the interior. Claim- and alias-specific searches found no prior statement of the strict qubit overlap profile, its level-set rigidity, or the explicit quadratic stability coefficient. Earlier unitary-orbit work treats particular divergences, and the mixed-unitary follow-up optimizes over a different feasible set.
+PASS
 
-## Value
-PASS. The result converts an endpoint theorem into a complete qubit optimization landscape. It gives an exact observable coordinate for every orbit level and a quantitative local curvature coefficient at the optimum, which are directly useful for robustness and inverse-level questions.
+For faithful nondegenerate qubits, the squared-overlap matrix is necessarily the two-by-two bistochastic matrix with entries \(q,1-q\), so \(t=\operatorname{Tr}(\rho\sigma_U^{-1})=t_{\min}+\Delta(1-q)\) with \(\Delta>0\). The determinant of \(A=\sigma_U^{-1/2}\rho\sigma_U^{-1/2}\) is orbit-independent. Cayley--Hamilton gives the claimed resolvent reduction and \(\operatorname{Tr}[\sigma_U(A-I)^2]=t-\delta-1\). Substitution into the standard operator-convex representation yields the displayed scalar profile. Its derivative is a nonnegative quadratic coefficient plus an integral whose kernel is strictly positive for every \(a\ge0\); non-affinity means at least one of these two positive components is nonzero. Hence the profile is strictly increasing in \(t\), therefore strictly decreasing in \(q\). The phase-quotiented endpoint and level-set claims follow, and \(q=\cos^2\theta\) gives the stated quadratic coefficient. I independently replayed the rational kernel derivative and orbit-slope identities; the inspected package verifier checks the same algebra on representative exact spectra without being used as an infinite proof.
 
-## Closest literature and limitations
-The nearest literature is Nguyen--Nguyen--Le, arXiv:2601.08268, together with earlier fidelity/relative-entropy unitary-orbit results of Zhang--Fei and a later mixed-unitary extension. The theorem is restricted to faithful, nondegenerate qubits and non-affine operator-convex generators of the maximal commutant-Radon--Nikodym divergence. An equivalent older formulation under specialized terminology remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same-object Nguyen--Nguyen--Le preprint was materially inspected at its operator-convex representation and unitary-orbit optimization results. It determines the minimum, maximum and closed interval image for arbitrary finite dimension, but the inspected theorem and surrounding text do not state a strict qubit parametrization by the single transition probability, uniqueness of every intermediate level modulo phases, or the local quadratic coefficient. Those conclusions do not follow from endpoint extrema plus continuity alone. Targeted Resultary search and comparison with the older Zhang--Fei orbit paper found no stronger result covering the general maximal operator-convex \(f\) qubit profile.
+
+## value
+
+PASS
+
+The source leaves the full unitary orbit between two sharp endpoints. In dimension two, identifying the entire landscape, proving there are no interior repeated levels after the natural phase quotient, and giving the exact local curvature is a natural structural refinement of the same optimization problem. It is not merely a re-evaluation of endpoint values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

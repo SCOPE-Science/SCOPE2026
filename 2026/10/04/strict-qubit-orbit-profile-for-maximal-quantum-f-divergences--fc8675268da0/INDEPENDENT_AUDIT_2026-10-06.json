@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:11:18.971647Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ee3cda76780ebbf7c5b25660ebdb28fab2f812c0",
+        "assigned artifacts/verify.py blob fd8a1c10b594a5bc06e670a73489dc870f9b6b91",
+        "Nguyen--Nguyen--Le, arXiv:2601.08268"
+      ],
+      "rationale": "For faithful nondegenerate qubits, the squared-overlap matrix is necessarily the two-by-two bistochastic matrix with entries \\(q,1-q\\), so \\(t=\\operatorname{Tr}(\\rho\\sigma_U^{-1})=t_{\\min}+\\Delta(1-q)\\) with \\(\\Delta>0\\). The determinant of \\(A=\\sigma_U^{-1/2}\\rho\\sigma_U^{-1/2}\\) is orbit-independent. Cayley--Hamilton gives the claimed resolvent reduction and \\(\\operatorname{Tr}[\\sigma_U(A-I)^2]=t-\\delta-1\\). Substitution into the standard operator-convex representation yields the displayed scalar profile. Its derivative is a nonnegative quadratic coefficient plus an integral whose kernel is strictly positive for every \\(a\\ge0\\); non-affinity means at least one of these two positive components is nonzero. Hence the profile is strictly increasing in \\(t\\), therefore strictly decreasing in \\(q\\). The phase-quotiented endpoint and level-set claims follow, and \\(q=\\cos^2\\theta\\) gives the stated quadratic coefficient. I independently replayed the rational kernel derivative and orbit-slope identities; the inspected package verifier checks the same algebra on representative exact spectra without being used as an infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 source treats maximal quantum \\(f\\)-divergence in arbitrary dimension but only the extremal rearrangements and range.",
+          "Zhang--Fei treats fidelity and Umegaki relative entropy rather than all non-affine operator-convex maximal divergences."
+        ],
+        "reasoning": "The broader endpoint theorem supplies premises but does not dominate the strict qubit interior profile.",
+        "searches": [
+          "Nguyen--Nguyen--Le arXiv:2601.08268",
+          "Zhang--Fei arXiv:1305.1472"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.08268",
+        "arXiv:1305.1472",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact minimum, maximum and connected interval image permit nonmonotone or repeated interior values and therefore do not imply strict level-set rigidity.",
+          "The explicit positive derivative after the qubit Cayley--Hamilton reduction is additional information."
+        ],
+        "reasoning": "No inspected prior theorem directly implies the final strict profile.",
+        "searches": [
+          "Statement comparison with the main unitary-orbit theorem of arXiv:2601.08268"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper states the spectral endpoint rearrangements and that the unitary-orbit image is the closed interval between them.",
+          "No inspected statement makes the orbit map injective after phase stabilizers or gives the one-scalar derivative formula."
+        ],
+        "reasoning": "Interval-valued range and strict one-parameter ordering are not equivalent; the latter requires the two-dimensional Cayley--Hamilton reduction and strict derivative.",
+        "searches": [
+          "Resultary query: strict qubit orbit profile maximal quantum f divergence unitary orbit qubit level sets",
+          "arXiv:2601.08268 searches for qubit, n=2, strictness and level sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate published Resultary record with the same qubit profile was returned among the relevant hits."
+        ],
+        "reasoning": "This is a structural continuum theorem, not a finite table; the database check was used to detect exact prior publication.",
+        "searches": [
+          "Resultary semantic search for strict qubit maximal-\\(f\\) orbit level sets and quadratic coefficient"
+        ]
+      },
+      "rationale": "The exact same-object Nguyen--Nguyen--Le preprint was materially inspected at its operator-convex representation and unitary-orbit optimization results. It determines the minimum, maximum and closed interval image for arbitrary finite dimension, but the inspected theorem and surrounding text do not state a strict qubit parametrization by the single transition probability, uniqueness of every intermediate level modulo phases, or the local quadratic coefficient. Those conclusions do not follow from endpoint extrema plus continuity alone. Targeted Resultary search and comparison with the older Zhang--Fei orbit paper found no stronger result covering the general maximal operator-convex \\(f\\) qubit profile.",
+      "residual_risks": [
+        "A specialized qubit-divergence paper using Bloch-vector rather than maximal-\\(f\\) terminology could contain an equivalent profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ENDPOINT_AND_RANGE_COVERAGE_NOT_STRICT_QUBIT_PROFILE",
+          "evidence": "The source supplies the representation and global endpoints but not the audited all-interior injective profile in the inspected material.",
+          "identifier_or_url": "arXiv:2601.08268",
+          "material_read": "Primary full-text material containing the operator-convex integral representation, main minimum/maximum spectral rearrangement theorem, and the statement that the orbit image is the closed interval; text searches for qubit-specific strictness were also checked.",
+          "method": "Lawful open primary full-text web inspection.",
+          "title": "Optimization of maximal quantum f-divergences between unitary orbits",
+          "trigger": "Exact same divergence and unitary-orbit problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2601.08268",
+        "arXiv:1305.1472"
+      ],
+      "rationale": "The source leaves the full unitary orbit between two sharp endpoints. In dimension two, identifying the entire landscape, proving there are no interior repeated levels after the natural phase quotient, and giving the exact local curvature is a natural structural refinement of the same optimization problem. It is not merely a re-evaluation of endpoint values.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2601.08268",
+    "arXiv:1305.1472",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Faithful qubits with nondegenerate spectra only.",
+    "Affine generators and degenerate spectra give constant orbit profiles and are explicitly excluded.",
+    "The one-scalar reduction does not extend automatically to dimension greater than two."
+  ],
+  "residual_risks": [
+    "A specialized qubit-divergence paper using Bloch-vector rather than maximal-\\(f\\) terminology could contain an equivalent profile."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "ENDPOINT_AND_RANGE_COVERAGE_NOT_STRICT_QUBIT_PROFILE",
+      "evidence": "The source supplies the representation and global endpoints but not the audited all-interior injective profile in the inspected material.",
+      "identifier_or_url": "arXiv:2601.08268",
+      "material_read": "Primary full-text material containing the operator-convex integral representation, main minimum/maximum spectral rearrangement theorem, and the statement that the orbit image is the closed interval; text searches for qubit-specific strictness were also checked.",
+      "method": "Lawful open primary full-text web inspection.",
+      "title": "Optimization of maximal quantum f-divergences between unitary orbits",
+      "trigger": "Exact same divergence and unitary-orbit problem."
+    }
+  ]
+}
