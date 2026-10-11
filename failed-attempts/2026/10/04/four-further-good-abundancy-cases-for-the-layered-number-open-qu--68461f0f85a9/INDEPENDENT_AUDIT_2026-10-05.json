@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:26:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 27faaab7085d38d7d8846a6978f4575416b43faa",
+        "verify.py blob 02f16443d796a352b9b40e10d54fcded8a8f325c",
+        "OEIS A023199",
+        "OEIS A073751 b-file"
+      ],
+      "rationale": "OEIS A023199 supplies the exact a_i representations used by the package. The A073751 b-file confirms the relevant prime-occurrence positions: 83 first at 37 and next at 572 with 2621 at 425; 149 first at 52 and next at 1500 with 4567 at 673; 127 first at 47 and next at 1145 with 8011 at 1072; and the inspected 1687--1727 segment contains 13633 once at 1687 and ends with 13999 at 1727. The rational correction factors do not contain the witness primes. Since q_i occurs exactly once, sigma(q_i)=q_i+1 divides sigma(a_i), and q_i+1 is divisible by i in every case. Thus i|sigma(a_i); minimality of a_i then gives g_i=a_i. The verifier reproduces these exact finite checks.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected literature gives the layered/good-abundancy context and the OEIS supplies exact a_i representations and colossally-abundant prime-factor sequence data.",
+          "No broader theorem found forces a_i=g_i for all i or automatically for 14--17."
+        ],
+        "reasoning": "The four cases are not logically covered by a universal theorem found in the search.",
+        "searches": [
+          "Jokar arXiv:2207.09053",
+          "OEIS A023199/A073751"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.09053",
+        "OEIS A023199",
+        "OEIS A073751",
+        "Resultary good-abundancy search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once q_i||a_i and q_i≡-1 mod i are read from the tables, multiplicativity of sigma immediately gives i|sigma(a_i).",
+          "The checked sources do not explicitly print the final equalities g_i=a_i for all four indices."
+        ],
+        "reasoning": "The statements are not verbatim prior coverage, but they are very close to a routine consequence of pre-existing table data and mechanism.",
+        "searches": [
+          "Jokar prime-witness context",
+          "OEIS A023199/A073751"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is equivalent to checking i divides sigma(a_i) for the four tabulated least-i-abundant integers.",
+          "A prime q exactly once in a_i with q congruent -1 mod i forces this divisibility through sigma(q)=q+1."
+        ],
+        "reasoning": "The reformulation is the same prime-factor witness used in the surrounding good-abundancy discussion; the novelty, if any, lies only in applying it to four further table entries.",
+        "searches": [
+          "Jokar, arXiv:2207.09053",
+          "OEIS A023199",
+          "OEIS A073751",
+          "Resultary query: good i abundant ai gi 14 15 16 17 layered numbers Jokar"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The decisive facts are table entries: first/next occurrences of 83,127,149 and the segment containing 13633 once before 13999; the b-file directly confirms the cited positions.",
+          "The four congruences q_i+1 divisible by i are elementary arithmetic."
+        ],
+        "reasoning": "The claim is not itself listed as an OEIS table value, but its proof is a short computation on existing table data.",
+        "searches": [
+          "OEIS A023199 exact formulas for a(14)..a(17)",
+          "OEIS A073751 b-file positions 37,47,52,425,572,673,1072,1145,1500,1687,1727"
+        ]
+      },
+      "rationale": "The four equalities are best-of-knowledge new statements relative to the inspected layered/abundancy source and Resultary corpus. Their numerical input is, however, entirely tabulated in OEIS A023199/A073751 and the proof applies the already-known prime-witness mechanism to four next entries. No source found states the four equalities themselves.",
+      "residual_risks": [
+        "The exact attribution of the earlier a_i=g_i range in the package was not independently located in the searchable preprint text; this does not affect the four arithmetic checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTEXT_AND_MECHANISM_NO_EXACT_FOUR_CASE_STATEMENT_FOUND",
+          "evidence": "The source motivates the layered/good-abundancy direction but does not in the inspected material state the i=14,15,16,17 conclusion.",
+          "identifier_or_url": "arXiv:2207.09053",
+          "material_read": "Accessible primary preprint around the definitions and open-question discussion; the exact four equalities were not located in the inspected text.",
+          "method": "Problem-scope comparison.",
+          "title": "On k-layered numbers",
+          "trigger": "Primary source for the layered/good-abundancy setting cited by the package."
+        },
+        {
+          "assessment": "DECISIVE_TABULATED_INPUT",
+          "evidence": "The b-file confirms 83 at 37 and 572, 127 at 47 and 1145, 149 at 52 and 1500, target primes at 425/673/1072/1727, and 13633 once in the inspected 1687--1727 segment.",
+          "identifier_or_url": "https://oeis.org/A073751/b073751.txt",
+          "material_read": "Direct b-file ranges containing the first occurrences and next occurrences used by the proof, including 13633 at position 1687 and 13999 at 1727.",
+          "method": "Exact database verification.",
+          "title": "OEIS A073751 b-file",
+          "trigger": "Exact multiplicity data needed for correctness."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2207.09053",
+        "OEIS A023199",
+        "OEIS A073751",
+        "Resultary good-abundancy search"
+      ],
+      "rationale": "The contribution is only four next numerical instances obtained by applying the same one-prime witness to externally tabulated colossally-abundant factorizations. It adds no structural lemma, new infinite family, meaningful cutoff, or nontrivial classification, and the exact work is essentially table lookup plus sigma(q)=q+1. Under the stated value bar against known-table recomputation and tiny routine extensions, these four cases do not constitute a sufficiently motivated independent mathematical result.",
+      "residual_risks": [
+        "The exact attribution of the earlier a_i=g_i range in the package was not independently located in the searchable preprint text; this does not affect the four arithmetic checks."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2207.09053",
+    "OEIS A023199",
+    "OEIS A073751",
+    "Resultary good-abundancy search"
+  ],
+  "disposition": "failed",
+  "final_claim": "For i=14,15,16,17, the least integer a_i with sigma(n)/n at least i is already good i-abundant, so a_i=g_i; witnesses are q_i=83,149,127,13633 occurring to exponent one in a_i and satisfying q_i≡-1 mod i.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for insufficient independent mathematical value, not for correctness; the best-of-knowledge exact four equalities themselves were not found stated elsewhere."
+  ]
+}
