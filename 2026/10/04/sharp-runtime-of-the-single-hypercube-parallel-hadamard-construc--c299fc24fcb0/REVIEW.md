@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the normalized hypercube propagator, forces all diagonally correctable times from entry magnitudes, factors the Hadamard-to-propagator phase ratio using the Hamming-distance identity, proves uniqueness of the diagonal factors up to scalar rotations, and converts any loop-singleton sequence into an accumulated-time arc. The exact shortest arcs through two, three, or four consecutive fourth roots yield the lower bound, and explicit masks attain it. The finite verifier corroborates the phase algebra and schedules but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest source is Herrman--Wong, arXiv:2106.06015, which supplies the same normalized hypercube interval and loop-singleton phase construction, including the \(5\pi/2\) two-qubit example and the general phase durations. It gives an upper bound, not a lower-bound or optimality theorem. Wong's isolated-vertex work supplies the phase primitive; Adisa--Wong's length-three result concerns a different gate-synthesis architecture; Chan's cube/complex-Hadamard work concerns uniform-mixing existence and classification. Targeted searches found no equivalent piecewise elapsed-time minimum.
+PASS
 
-Residual risk: an equivalent diagonal phase-synthesis bound may exist under control-theoretic terminology not recovered by the searches. This does not create a decisive unresolved comparison with the inspected sources.
+The proof is correct. Tensor factorization of the normalized hypercube evolution shows every entry at Hamming distance d has magnitude determined by powers of sine and cosine. Diagonal corrections preserve magnitudes, so flat Hadamard magnitudes force the first positive hypercube time nπ/4. At such a time the entrywise Walsh-to-cube ratio factors uniquely into row and column phases indexed by Hamming weight. Any sequence of nonnegative loop-singleton layers of total duration T assigns each vertex an accumulated time between zero and T; modulo a common scalar the required phases therefore need a directed circular arc of length at least π/2 for n=1, π for n=2, and 3π/2 once four weight classes occur. Nested masks attain those costs. Independent exact phase-identity checks through n=8 reproduce the construction, but the all-n proof is analytic.
 
-## Value
-PASS. Exact optimality is mathematically and operationally motivated by the source's explicit objective of shortening dynamic-walk evolution. The result proves that the known two-qubit timing and the general four-phase correction cost are not artifacts of one phase assignment: within the stated architecture, they are forced. The low-dimensional transition at \(n=1,2,3\) also identifies the precise point at which all four phase classes become unavoidable.
+## originality
 
-## Closest literature and limitations
-The closest literature is Herrman--Wong (arXiv:2106.06015), Wong (arXiv:1908.00507), Adisa--Wong (arXiv:2108.01055), and Chan (DOI 10.5802/alco.112). The claim is not global gate-synthesis optimality. Multiple non-diagonal intervals, mixed loop-and-edge graphs, weighted generators, ancillary vertices, and other normalizations remain outside scope.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality passes with the focal full-text access limitation retained. Herrman--Wong introduce the hypercube simplification and parallel Hadamard construction; Wong supplies the looped-versus-loopless isolated-vertex phase primitive; Chan characterizes uniform mixing and complex Hadamard behavior for cube-related graphs. No checked source or Resultary record states an architecture-sharp elapsed-time lower bound for one normalized hypercube interval sandwiched by arbitrary loop-singleton phase layers.
+
+## value
+
+PASS
+
+The result certifies time optimality inside a concrete dynamic-walk gate architecture already used for parallel Hadamards. Separating the unavoidable hypercube mixing time from the exact diagonal phase-synthesis cost gives a useful architectural lower bound, not merely another implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

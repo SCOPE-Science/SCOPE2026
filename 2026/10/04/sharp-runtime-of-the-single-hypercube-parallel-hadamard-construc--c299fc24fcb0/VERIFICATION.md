@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved symbolically in `RESULT.md`; no finite experiment is used to infer the statement for arbitrary \(n\).
+# Independent mathematical audit
 
-The standalone standard-library checker `verify.py` performs the following independent replay checks:
+## correctness
 
-1. For every \(1\le n\le8\) and every pair of basis strings, it verifies exactly modulo four that the shortest-time hypercube phase corrected by Hamming-weight phases equals the Walsh-Hadamard sign pattern.
-2. It computes the minimal circular covering arc of the distinct required fourth roots and checks the exact values \(\pi/2\), \(\pi\), and \(3\pi/2\) for the three dimensional regimes.
-3. It checks explicit accumulated-time schedules made from durations \(\pi/2\) for \(n=1\), two durations \(\pi/2\) for \(n=2\), and durations \(\pi\) and \(\pi/2\) for \(n\ge3\).
-4. It checks that the runtime identity \(T_n^*=n\pi/4+\pi\min\{n,3\}\) reproduces the three displayed cases.
+PASS
 
-Run:
+The proof is correct. Tensor factorization of the normalized hypercube evolution shows every entry at Hamming distance d has magnitude determined by powers of sine and cosine. Diagonal corrections preserve magnitudes, so flat Hadamard magnitudes force the first positive hypercube time nπ/4. At such a time the entrywise Walsh-to-cube ratio factors uniquely into row and column phases indexed by Hamming weight. Any sequence of nonnegative loop-singleton layers of total duration T assigns each vertex an accumulated time between zero and T; modulo a common scalar the required phases therefore need a directed circular arc of length at least π/2 for n=1, π for n=2, and 3π/2 once four weight classes occur. Nested masks attain those costs. Independent exact phase-identity checks through n=8 reproduce the construction, but the all-n proof is analytic.
 
-`python3 verify.py`
+## originality
 
-Expected output:
+PASS
 
-`VERIFY_OK`
+Best-of-knowledge originality passes with the focal full-text access limitation retained. Herrman--Wong introduce the hypercube simplification and parallel Hadamard construction; Wong supplies the looped-versus-loopless isolated-vertex phase primitive; Chan characterizes uniform mixing and complex Hadamard behavior for cube-related graphs. No checked source or Resultary record states an architecture-sharp elapsed-time lower bound for one normalized hypercube interval sandwiched by arbitrary loop-singleton phase layers.
 
-The checker does not search over more general dynamic-walk architectures and does not establish novelty. Those are outside computational verification.
+## value
+
+PASS
+
+The result certifies time optimality inside a concrete dynamic-walk gate architecture already used for parallel Hadamards. Separating the unavoidable hypercube mixing time from the exact diagonal phase-synthesis cost gives a useful architectural lower bound, not merely another implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

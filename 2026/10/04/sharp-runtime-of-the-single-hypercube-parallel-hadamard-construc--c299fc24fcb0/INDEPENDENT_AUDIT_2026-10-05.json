@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:47:47.922355Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e0ffc147b92fc67303ae81465b6e9e56626f6894",
+        "verify.py blob 030093bcc5145105e26770708b98e64d8544c6bd",
+        "independent exact phase identity replay through n=8"
+      ],
+      "rationale": "The proof is correct. Tensor factorization of the normalized hypercube evolution shows every entry at Hamming distance d has magnitude determined by powers of sine and cosine. Diagonal corrections preserve magnitudes, so flat Hadamard magnitudes force the first positive hypercube time nπ/4. At such a time the entrywise Walsh-to-cube ratio factors uniquely into row and column phases indexed by Hamming weight. Any sequence of nonnegative loop-singleton layers of total duration T assigns each vertex an accumulated time between zero and T; modulo a common scalar the required phases therefore need a directed circular arc of length at least π/2 for n=1, π for n=2, and 3π/2 once four weight classes occur. Nested masks attain those costs. Independent exact phase-identity checks through n=8 reproduce the construction, but the all-n proof is analytic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform-mixing theory determines when the hypercube interval can have flat entry magnitudes but does not price arbitrary diagonal phase synthesis.",
+          "The construction paper gives implementations but the accessible primary statements do not expose a matching optimality theorem."
+        ],
+        "reasoning": "No inspected broader result dominates both the non-diagonal-time and phase-layer lower bounds.",
+        "searches": [
+          "R. Herrman and T. G. Wong, Simplifying Continuous-Time Quantum Walks on Dynamic Graphs, arXiv:2106.06015; DOI:10.1007/s11128-021-03403-7",
+          "A. Chan, Complex Hadamard matrices, instantaneous uniform mixing and cubes, arXiv:1305.5811; DOI:10.5802/alco.112"
+        ]
+      },
+      "checked_sources": [
+        "R. Herrman and T. G. Wong, Simplifying Continuous-Time Quantum Walks on Dynamic Graphs, arXiv:2106.06015; DOI:10.1007/s11128-021-03403-7",
+        "T. G. Wong, Isolated Vertices in Continuous-Time Quantum Walks on Dynamic Graphs, arXiv:1908.00507; DOI:10.1103/PhysRevA.100.062325",
+        "A. Chan, Complex Hadamard matrices, instantaneous uniform mixing and cubes, arXiv:1305.5811; DOI:10.5802/alco.112",
+        "Resultary semantic query: continuous time quantum walk one hypercube Hadamard gate loop singleton phase layers minimum runtime"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diagonal phases cannot alter hypercube entry magnitudes, forcing the first admissible hypercube time.",
+          "The required row and column phases form consecutive fourth roots indexed by Hamming weight; arbitrary nonnegative phase layers place all accumulated phases in one directed arc whose minimum covering length is π/2, π, or 3π/2."
+        ],
+        "reasoning": "The lower bound uses a phase-synthesis obstruction not supplied by the inspected construction statements.",
+        "searches": [
+          "R. Herrman and T. G. Wong, Simplifying Continuous-Time Quantum Walks on Dynamic Graphs, arXiv:2106.06015; DOI:10.1007/s11128-021-03403-7",
+          "T. G. Wong, Isolated Vertices in Continuous-Time Quantum Walks on Dynamic Graphs, arXiv:1908.00507; DOI:10.1103/PhysRevA.100.062325",
+          "A. Chan, Complex Hadamard matrices, instantaneous uniform mixing and cubes, arXiv:1305.5811; DOI:10.5802/alco.112",
+          "independent entry-magnitude and circular-arc proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited architecture is exactly a diagonal-phase sandwich around one hypercube evolution.",
+          "The phase corrections are arbitrary products of loop-singleton layers, so splitting or rearranging phases is already included."
+        ],
+        "reasoning": "Dynamic-walk gate synthesis, isolated-vertex phases, cube uniform mixing, and diagonal-equivalence formulations were compared.",
+        "searches": [
+          "R. Herrman and T. G. Wong, Simplifying Continuous-Time Quantum Walks on Dynamic Graphs, arXiv:2106.06015; DOI:10.1007/s11128-021-03403-7",
+          "T. G. Wong, Isolated Vertices in Continuous-Time Quantum Walks on Dynamic Graphs, arXiv:1908.00507; DOI:10.1103/PhysRevA.100.062325",
+          "A. Chan, Complex Hadamard matrices, instantaneous uniform mixing and cubes, arXiv:1305.5811; DOI:10.5802/alco.112",
+          "Resultary semantic query: continuous time quantum walk one hypercube Hadamard gate loop singleton phase layers minimum runtime"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned no matching theorem or table.",
+          "Searches located the construction papers and cube-mixing literature, not the exact elapsed-time optimum."
+        ],
+        "reasoning": "This is an architecture optimization rather than a catalogued numerical value.",
+        "searches": [
+          "Resultary semantic query: continuous time quantum walk one hypercube Hadamard gate loop singleton phase layers minimum runtime",
+          "targeted searches for minimum runtime, phase-synthesis lower bounds, and the piecewise cost"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes with the focal full-text access limitation retained. Herrman--Wong introduce the hypercube simplification and parallel Hadamard construction; Wong supplies the looped-versus-loopless isolated-vertex phase primitive; Chan characterizes uniform mixing and complex Hadamard behavior for cube-related graphs. No checked source or Resultary record states an architecture-sharp elapsed-time lower bound for one normalized hypercube interval sandwiched by arbitrary loop-singleton phase layers.",
+      "residual_risks": [
+        "The complete Herrman--Wong paper was not exposed by the open readers used in this run; after open routes failed, one authorized institutional retrieval attempt returned an unavailable/invalid worker error and was not retried. Whole-document noncoverage is therefore not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_CONSTRUCTION_SOURCE",
+          "evidence": "Accessible material establishes the construction setting but does not expose an elapsed-time optimality theorem; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "arXiv:2106.06015; DOI:10.1007/s11128-021-03403-7",
+          "material_read": "Primary arXiv/publisher abstract and repository records describing hypercube uniform mixing and parallel single-qubit simplification. Full text was not exposed by the available open reader; authorized retrieval then returned an unavailable/invalid worker error.",
+          "method": "lawful primary record plus one bounded authorized retrieval attempt after open-route failure",
+          "title": "Simplifying Continuous-Time Quantum Walks on Dynamic Graphs",
+          "trigger": "Exact construction source and strongest possible prior-coverage source."
+        },
+        {
+          "assessment": "UNIFORM_MIXING_NOT_PHASE_LAYER_RUNTIME_OPTIMIZATION",
+          "evidence": "The result concerns existence/characterization of mixing and complex Hadamard matrices, not the cost of dynamic diagonal layers around one cube interval.",
+          "identifier_or_url": "arXiv:1305.5811; DOI:10.5802/alco.112",
+          "material_read": "Open publisher/arXiv article metadata and theorem-level description of uniform mixing and cube-related adjacency algebras.",
+          "method": "lawful open primary material",
+          "title": "Complex Hadamard matrices, instantaneous uniform mixing and cubes",
+          "trigger": "Strongest cube-mixing and complex-Hadamard comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "R. Herrman and T. G. Wong, Simplifying Continuous-Time Quantum Walks on Dynamic Graphs, arXiv:2106.06015; DOI:10.1007/s11128-021-03403-7",
+        "T. G. Wong, Isolated Vertices in Continuous-Time Quantum Walks on Dynamic Graphs, arXiv:1908.00507; DOI:10.1103/PhysRevA.100.062325",
+        "A. Chan, Complex Hadamard matrices, instantaneous uniform mixing and cubes, arXiv:1305.5811; DOI:10.5802/alco.112",
+        "Resultary semantic query: continuous time quantum walk one hypercube Hadamard gate loop singleton phase layers minimum runtime"
+      ],
+      "rationale": "The result certifies time optimality inside a concrete dynamic-walk gate architecture already used for parallel Hadamards. Separating the unavoidable hypercube mixing time from the exact diagonal phase-synthesis cost gives a useful architectural lower bound, not merely another implementation.",
+      "residual_risks": [
+        "No claim is made about architectures with multiple non-diagonal intervals, weighted controls, ancillas, or different Hamiltonian normalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complete Herrman--Wong paper was not exposed by the open readers used in this run; after open routes failed, one authorized institutional retrieval attempt returned an unavailable/invalid worker error and was not retried. Whole-document noncoverage is therefore not asserted.",
+    "Publication is withheld because the frozen packages contain operational workflow fields in existing public AUDIT.json, METADATA.json, and VERIFICATION.md files. The complete 37-file recursive trees were read and semantically scanned; RESULT.md, SLOGAN.txt, REVIEW.md, and computational artifacts were clear of the checked platform/workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}
