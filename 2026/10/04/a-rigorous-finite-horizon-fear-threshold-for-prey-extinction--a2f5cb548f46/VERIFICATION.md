@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,63 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof of finite-time extinction is analytic. The numerical checker only replays the explicit certificate on the motivating source's Figure 6 data.
 
-For
-\[
-u_0=4.8,\quad
-v_0=8.3,\quad
-a=2.5,\quad
-c=2.5,\quad
-d=2,\quad
-p=0.2,\quad
-m=0.4,
-\]
-the checker evaluates
-\[
-R_\infty
-=
-\frac{(1-p)cv_0^m}
-{md\,u_0^{1-p}}
-\]
-and confirms
-\[
-R_\infty
-\approx
-1.661798090950775
->
-1.
-\]
+# Independent mathematical audit
 
-At
-\[
-T=1.5,
-\]
-it computes
-\[
-R_T
-\approx
-1.161274124589654
-\]
-and
-\[
-K(T)
-\approx
-15.37918897486502.
-\]
+## correctness
 
-For
-\[
-k=16,
-\]
-the closed-form normalized margin is approximately
-\[
-1.005818253780147,
-\]
-and independent quadrature of the sharper integral gives approximately
-\[
-1.128993918149717.
-\]
-Both are strictly above \(1\), so the certificate has a nonzero numerical margin.
+PASS
 
-No finite experiment is used to infer extinction for arbitrary data, and the checker does not validate the source's \(k=0.03\) trajectory.
+The comparison proof reconstructs from the frozen equations without using the saved verifier as proof. Before the first prey zero, v' >= -dv gives v(t) >= v0 exp(-dt), and 1+kv >= kv gives u' <= a exp(dt)u/(k v0) - c v0^m exp(-mdt)u^p. With w=u^(1-p), this becomes a linear differential inequality. The integrating factor exp(-Phi_k(t)) yields a contradiction to positivity through T whenever (1-p)c v0^m integral_0^T exp(-mds-Phi_k(s)) ds > u0^(1-p). Bounding Phi_k(s) by Phi_k(T) gives exactly R_T exp(-Phi_k(T))>1 and hence the displayed K(T). The iff statement about existence of a horizon is only for this certificate and follows from monotone convergence R_T upward to R_infinity. Independent high-precision replay gives R_infinity=1.6617980909507749..., R_1.5=1.1612741245896543..., K(1.5)=15.379188974865015..., and strict coarse/sharp margins 1.0058182537801465... and 1.1289939181497174... at k=16.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives a statement-level comparison with the exact motivating source. That paper claims qualitative fear-driven finite-time extinction and prints a large-k comparison argument, but its displayed comparison reaches a strictly positive upper bound and does not establish the present integrating-factor contradiction or the finite-horizon formula K(T). Remark 5 explicitly leaves quantitative control of the fear size open. Fresh Resultary searches found no earlier record implying this exact k-versus-T certificate. The novelty is therefore the valid explicit finite-horizon certificate for the exact two-dimensional model, not the general idea that sublinear predation can cause finite-time extinction.
+
+## value
+
+PASS
+
+The source makes fear-driven finite-time extinction a central conclusion and itself identifies quantitative fear size as an open issue. A rigorous prescribed-horizon certificate separates a provable regime from the much smaller plotted simulation value and gives a reusable analytic bound on the exact model. This is a motivated quantitative repair/boundary result rather than a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

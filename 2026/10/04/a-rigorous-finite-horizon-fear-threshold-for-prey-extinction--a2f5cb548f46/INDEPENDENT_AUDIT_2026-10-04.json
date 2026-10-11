@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:56:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The comparison proof reconstructs from the frozen equations without using the saved verifier as proof. Before the first prey zero, v' >= -dv gives v(t) >= v0 exp(-dt), and 1+kv >= kv gives u' <= a exp(dt)u/(k v0) - c v0^m exp(-mdt)u^p. With w=u^(1-p), this becomes a linear differential inequality. The integrating factor exp(-Phi_k(t)) yields a contradiction to positivity through T whenever (1-p)c v0^m integral_0^T exp(-mds-Phi_k(s)) ds > u0^(1-p). Bounding Phi_k(s) by Phi_k(T) gives exactly R_T exp(-Phi_k(T))>1 and hence the displayed K(T). The iff statement about existence of a horizon is only for this certificate and follows from monotone convergence R_T upward to R_infinity. Independent high-precision replay gives R_infinity=1.6617980909507749..., R_1.5=1.1612741245896543..., K(1.5)=15.379188974865015..., and strict coarse/sharp margins 1.0058182537801465... and 1.1289939181497174... at k=16.",
+      "risks": [
+        "The certificate is sufficient and conservative; it neither proves a sharp threshold nor the source's k=0.03 trajectory.",
+        "The result concerns the classical positive solution only up to the first prey-extinction time."
+      ],
+      "sources": [
+        "Frozen RESULT.md and exact source tree 24862a77505e54fa062ff5ad9c93942d73df4932",
+        "Antwi-Fordjour et al., arXiv:2108.00546v1, model equations and Theorem 5.1 proof, pp. 12-13",
+        "Independent analytic reconstruction and numerical replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source gives the broader biological model and qualitative extinction claim but not a correct explicit threshold.",
+          "No searched broader theorem dominated the submitted finite-horizon formula."
+        ],
+        "reasoning": "Broader finite-time-extinction methods are prior art, but the exact coefficient dependence and horizon certificate require a new comparison derivation.",
+        "searches": [
+          "arXiv:2108.00546v1, Section 5",
+          "Resultary semantic search above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.00546v1",
+        "DOI:10.3934/math.2023173",
+        "Resultary published-finding semantic search for the exact threshold formulation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's printed proof claims finite-time extinction after deriving a positive upper comparison and explicitly says a condition on the fear magnitude remains unproved.",
+          "The submitted proof retains a linear positive term in u and forces the transformed upper bound below zero, which is the missing logical mechanism."
+        ],
+        "reasoning": "The qualitative prior theorem does not imply the quantitative K(T) formula, and the printed comparison does not validate that formula by simple substitution.",
+        "searches": [
+          "arXiv:2108.00546v1 Theorem 5.1 proof, equations (18)-(24), Remark 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source's Theorem 5.1 is qualitative and its proof does not contain the submitted integrating-factor inequality.",
+          "The Resultary query returned no implication-equivalent certificate; leading hits concerned different dynamical models."
+        ],
+        "reasoning": "An equivalent result would need a prescribed-horizon sufficient inequality for k in this exact model, not merely an existence statement for sufficiently large fear.",
+        "searches": [
+          "arXiv:2108.00546v1 Theorem 5.1 and Remark 5",
+          "Resultary query: finite horizon fear threshold prey extinction predator prey explicit k versus T sublinear u^p v^m fear"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed result supplied K(T), R_T, or the k=16 certification for the source's Figure 6 data."
+        ],
+        "reasoning": "The numerical specialization is derived from the source's own data; absence from a database supports but does not establish originality.",
+        "searches": [
+          "Resultary semantic search above",
+          "arXiv:2108.00546v1 Figure 6 and Remark 5"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives a statement-level comparison with the exact motivating source. That paper claims qualitative fear-driven finite-time extinction and prints a large-k comparison argument, but its displayed comparison reaches a strictly positive upper bound and does not establish the present integrating-factor contradiction or the finite-horizon formula K(T). Remark 5 explicitly leaves quantitative control of the fear size open. Fresh Resultary searches found no earlier record implying this exact k-versus-T certificate. The novelty is therefore the valid explicit finite-horizon certificate for the exact two-dimensional model, not the general idea that sublinear predation can cause finite-time extinction.",
+      "residual_risks": [
+        "A later unindexed paper could have derived the same explicit certificate from the 2021 model.",
+        "The source's broader qualitative theorem may admit another correct proof; the audit does not claim that theorem false."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_QUALITATIVE_CLAIM_DOES_NOT_COVER_THE_EXPLICIT_VALID_CERTIFICATE",
+          "evidence": [
+            "Theorem 5.1 asserts existence of a sufficiently large fear parameter.",
+            "Remark 5 says a condition on the size of k remains unproved.",
+            "The proof's displayed final upper estimate is positive and is not the submitted transformed integral contradiction."
+          ],
+          "identifier_or_url": "arXiv:2108.00546v1; DOI:10.3934/math.2023173",
+          "material_read": "Full relevant primary text: model equations and assumptions; Theorem 5.1 and its complete proof on pp. 12-13; Remark 5; Figure 6 caption and source initial data.",
+          "method": "Lawful arXiv PDF inspection, including rendered pages 12-13 and statement-level reconstruction.",
+          "title": "Fear-driven extinction and (de)stabilization in a predator-prey model incorporating prey herd behavior and mutual interference",
+          "trigger": "Exact primary source for the model and claimed finite-time-extinction theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source makes fear-driven finite-time extinction a central conclusion and itself identifies quantitative fear size as an open issue. A rigorous prescribed-horizon certificate separates a provable regime from the much smaller plotted simulation value and gives a reusable analytic bound on the exact model. This is a motivated quantitative repair/boundary result rather than a routine parameter substitution.",
+      "risks": [
+        "The sufficient threshold is conservative and is not claimed sharp."
+      ],
+      "sources": [
+        "arXiv:2108.00546v1 Theorem 5.1, Remark 5 and Figure 6",
+        "Frozen RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a sufficient finite-horizon certificate is proved.",
+    "No necessary or sharp fear threshold is claimed, and k=0.03 is not certified.",
+    "Post-extinction continuation for fractional powers is outside scope."
+  ],
+  "schema_version": 1
+}

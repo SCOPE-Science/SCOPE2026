@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof is reconstructed directly from the source equations. Before prey extinction,
-\[
-v(t)\ge v_0e^{-dt},
-\]
-which gives an upper differential inequality for \(u\). The transformation
-\[
-w=u^{1-p}
-\]
-turns it into a linear inequality, and an integrating factor yields an upper bound that becomes negative under the stated integral condition. Positivity through the chosen horizon is then impossible. The closed-form threshold follows from a monotone lower bound on the integral. High-precision replay of the source parameter set gives a strict margin at \(k=16\).
+PASS
 
-## Originality
+The comparison proof reconstructs from the frozen equations without using the saved verifier as proof. Before the first prey zero, v' >= -dv gives v(t) >= v0 exp(-dt), and 1+kv >= kv gives u' <= a exp(dt)u/(k v0) - c v0^m exp(-mdt)u^p. With w=u^(1-p), this becomes a linear differential inequality. The integrating factor exp(-Phi_k(t)) yields a contradiction to positivity through T whenever (1-p)c v0^m integral_0^T exp(-mds-Phi_k(s)) ds > u0^(1-p). Bounding Phi_k(s) by Phi_k(T) gives exactly R_T exp(-Phi_k(T))>1 and hence the displayed K(T). The iff statement about existence of a horizon is only for this certificate and follows from monotone convergence R_T upward to R_infinity. Independent high-precision replay gives R_infinity=1.6617980909507749..., R_1.5=1.1612741245896543..., K(1.5)=15.379188974865015..., and strict coarse/sharp margins 1.0058182537801465... and 1.1289939181497174... at k=16.
 
-PASS. Finite-time comparison methods for sublinear predator-prey equations are established prior work. The motivating article itself asserts sufficiently strong fear can cause finite-time extinction, so that qualitative statement is not claimed as new. The surviving original contribution is the explicit finite-horizon \(k\)-versus-\(T\) certificate for this exact model, together with a rigorous evaluation on the source's Figure 6 data. The earlier related model lacks the present fear term, while a later explicit-extinction-time paper treats a different higher-dimensional system. One plausible 2026 square-root predator-prey source could only be inspected at abstract level and remains a stated residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The source makes fear-driven finite-time extinction a central result and explicitly leaves quantitative control of the fear parameter unresolved. A computable sufficient threshold fills a meaningful part of that gap and separates what can be proved by comparison from what is only shown numerically. The result is conservative but mathematically operational and uses the motivating paper's own initial data rather than an arbitrary slice.
+Best-of-knowledge originality survives a statement-level comparison with the exact motivating source. That paper claims qualitative fear-driven finite-time extinction and prints a large-k comparison argument, but its displayed comparison reaches a strictly positive upper bound and does not establish the present integrating-factor contradiction or the finite-horizon formula K(T). Remark 5 explicitly leaves quantitative control of the fear size open. Fresh Resultary searches found no earlier record implying this exact k-versus-T certificate. The novelty is therefore the valid explicit finite-horizon certificate for the exact two-dimensional model, not the general idea that sublinear predation can cause finite-time extinction.
 
-## Closest literature and limitations
+## value
 
-The closest fully inspected predecessor is the 2020 mutual-interference predator-prey model, which proves finite-time extinction by comparison but has no fear denominator. A 2026 susceptible-infectious-predator model supplies explicit extinction-time estimates in a different system. The inaccessible full text of a 2026 square-root predator-prey paper is retained as an originality risk rather than being treated as non-covering.
+PASS
 
-The present result does not prove the full generality of the motivating Theorem 5.1, does not give a necessary or sharp threshold, and does not certify the plotted value \(k=0.03\).
+The source makes fear-driven finite-time extinction a central conclusion and itself identifies quantitative fear size as an open issue. A rigorous prescribed-horizon certificate separates a provable regime from the much smaller plotted simulation value and gives a reusable analytic bound on the exact model. This is a motivated quantitative repair/boundary result rather than a routine parameter substitution.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
