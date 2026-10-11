@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The universal inequalities and equality cases are established by symbolic analysis of the Reid--Tai feasible region and exact derivatives of the anticanonical-volume function.
+# Independent mathematical audit
 
-`verify_volume_two_heavy.py` is an independent exact-rational regression check. It enumerates the canonical and terminal regions for every \(2\le r\le100\), computes the rational volume exactly, and verifies the claimed maxima and complete equality sets. Its executed output is:
+## correctness
 
-`VERIFY_OK r=2..100`
+PASS
 
-The finite sweep is not used to infer the infinite theorem. Independent audit has not been performed.
+Reid--Tai on the two heavy charts gives exactly \(0\le d=b-a\le r,\ 1\le a\le r+d\) in the canonical case and the strict inequalities in the terminal case. The standard weighted-projective volume is \((r+a+b)^{r+1}/(ab)\). For fixed \(d\), the logarithmic derivative has one positive zero, so the maximum on the allowed \(a\)-interval is at an endpoint; the submitted derivative calculations then make the outer endpoint monotone in \(d\), while the lower endpoint is strictly smaller except for the stated canonical \(r=2\) tie. I independently enumerated the exact rational feasible regions for \(2\le r\le40\), reproducing every formula and equality case; this is corroboration, not the infinite proof.
+
+## originality
+
+PASS
+
+Kasprzyk gives general canonical/terminal weight restrictions and Bäuerle gives sharp anticanonical-degree bounds with dimension and Gorenstein index as parameters. The published same-family SCOPE triangular classification supplies the feasible parameter triangle but not a volume optimization. None of the inspected stronger/general statements determines these unrestricted two-heavy extrema or their equality cases.
+
+## value
+
+PASS
+
+Anticanonical volume is a central Fano invariant. The theorem gives a complete all-dimensional extremal law with exact equality cases on a natural infinite family, including a genuine low-dimensional tie, rather than a finite census or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
