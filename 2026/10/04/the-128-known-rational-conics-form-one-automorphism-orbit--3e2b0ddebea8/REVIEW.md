@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The argument identifies the coordinate-squaring map as the function-field quotient by the 256-element projective sign group using the exact generic fiber size. Transitivity of a Galois group on prime divisors above a fixed prime divisor gives one sign orbit for each 64-component diagonal family. The explicit square reflection exchanges the two quotient lines, and orbit--stabilizer yields the stated stabilizer orders. `verify_orbit.py` checks the finite permutation and order arithmetic.
+## correctness
 
-## Originality
-PASS. The motivating paper gives the ingredients separately: the full automorphism group, the two 64-conic families, and the reflection. It does not state that the 128 conics form one automorphism orbit, nor the two stabilizer orders. Its later discussion still refers to two families. The older quasi-hyperbolicity paper proves finiteness phenomena but does not classify these conics or their orbits. Direct semantic and exact-phrase searches for the orbit/stabilizer statement and equivalent quotient language found no covering result. Residual risk remains for unindexed literature.
+PASS
 
-## Value
-PASS. Auel--Singer explicitly leave open whether their 128 conics are all conics on the surface. Showing that the entire known catalogue is one automorphism orbit is a structural reduction directly adjacent to that classification problem: one representative determines every known conic by symmetry, and any additional conic must lie outside this known orbit. The stabilizer orders quantify the symmetry of a representative and can be used in subsequent orbit-counting or incidence calculations.
+The squaring map has generic fiber 2^9/2=256, equal to the sign-change group order, so its function-field quotient is the magic-square plane. A finite Galois group acts transitively on prime divisors above a fixed quotient prime divisor, hence each 64-component diagonal preimage is one sign orbit. The explicit square reflection exchanges the two diagonal quotient lines, giving one full orbit. Orbit–stabilizer gives 4 and 16. The inspected verifier independently checks the group orders and reflection pattern; the only noncomputational input is the cited source’s 64+64 component description.
 
-## Closest literature and limitations
-Auel--Singer, arXiv:2609.09351v1, is the closest source and contains all geometric premises but not the orbit theorem proved here. Bruin--Thomas--Várilly-Alvarado, arXiv:1912.08908, proves algebraic quasi-hyperbolicity of the same surface but not a conic-orbit classification. This result does not settle completeness of the 128 conics and does not determine the abstract stabilizer groups.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Auel–Singer is the defining primary source for the surface, automorphism group and 128 known conics. Its full text was not materially retrievable in this run after open-access attempts, and the single authorized institutional retrieval attempt returned an unavailable/invalid-worker error, so no whole-document noncoverage claim is made. Accessible primary metadata and a later published SCOPE extension confirm the underlying source scope. Resultary contains this same record and a later source record 41a8fbd7b44e whose SOURCE.json timestamp is ten seconds later and which explicitly extends the orbit statement by adding incidence data; that later result is corroboration, not prior coverage. No earlier independent covering theorem was located.
+
+## value
+
+PASS
+
+The result turns the entire known 128-conic catalogue into one symmetry type and supplies stabilizer sizes, so one representative controls all known conics and later incidence calculations. This is a natural structural classification relevant to the source’s open conic-classification problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
