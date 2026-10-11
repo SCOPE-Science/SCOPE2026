@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:01:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a noncomplete complete multipartite graph, a successful zero forcing process cannot start with three or more white vertices: any first force leaves at least two indistinguishable white vertices in one part and the process stalls. With exactly two whites, forcing succeeds precisely when they lie in distinct parts and are not both singleton parts. Thus minimum sets are exactly complements of those admissible pairs. Merging singleton parts makes admissible pairs exactly the edges of the compressed multipartite graph \\(H\\); two complementary minimum sets differ by one token exactly when their omitted edges share one endpoint, so the reconfiguration graph is \\(L(H)\\). The order and diameter statements follow. Fresh exhaustive checks on profiles \\((2,2),(3,1,1),(2,3,1),(1,1,1,1),(1,3)\\) reproduced the minimum-set counts and diameters.",
+      "risk": "No correctness defect was found; rejection is for implication-based originality and value.",
+      "sources": [
+        "Geneson--Haas--Hogben, arXiv:2009.00220 / DOI:10.1016/j.dam.2023.01.027",
+        "Davila--Henning--Pepper, DOI:10.7151/dmgt.2389",
+        "published SCOPE/Resultary record 21dd3de55bd1",
+        "frozen RESULT.md and verify.py",
+        "fresh exhaustive profile checks"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The SCOPE/Resultary theorem is strictly broader in forcing parameter \\(k\\) and classifies all initial sets, not only minimum ordinary zero forcing sets.",
+          "The reconfiguration paper supplies the exact adjacency rule used to turn omitted pairs into a line graph.",
+          "The dense-graphs paper covers complete multipartite zero forcing as a family."
+        ],
+        "reasoning": "The prior all-\\(k\\) theorem dominates the key set classification; the submitted graph is its immediate token-jumping incidence graph.",
+        "searches": [
+          "Full published RESULT for SCOPE/Resultary 21dd3de55bd1",
+          "Geneson--Haas--Hogben primary abstract/article metadata",
+          "Davila--Henning--Pepper primary abstract/article metadata"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE 21dd3de55bd1",
+        "arXiv:2009.00220",
+        "DOI:10.1016/j.dam.2023.01.027",
+        "DOI:10.7151/dmgt.2389",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For \\(k=1\\), the prior criterion permits at most one white vertex in a witnessing part and at most one outside; the minimum layer gives exactly the same admissible omitted pairs, including singleton restrictions.",
+          "Two minimum sets are adjacent exactly when they exchange one vertex, i.e. their two omitted pairs have symmetric difference two, equivalently share one endpoint."
+        ],
+        "reasoning": "No additional nonstandard lemma is needed to obtain \\(\\mathscr Z(G)=L(H)\\) from the prior minimum-set classification.",
+        "searches": [
+          "Published all-k-forcing theorem with \\(k=1\\)",
+          "Definition of \\(\\mathscr Z(G)\\) from arXiv:2009.00220"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 21dd3de55bd1 gives an iff criterion for every initial set and every \\(k\\ge1\\); setting \\(k=1\\) yields the admissible two-white-vertex classification used here.",
+          "Geneson--Haas--Hogben define token-jumping adjacency between minimum zero forcing sets.",
+          "Davila--Henning--Pepper already establish complete multipartite zero-forcing density and known minimum-number behavior."
+        ],
+        "reasoning": "Minimum-set complements, zero-forcing reconfiguration/token jumping, and line graphs of the omitted-pair graph are equivalent encodings once the prior \\(k=1\\) classification is known.",
+        "searches": [
+          "Resultary: zero forcing graph complete multipartite singleton forcing",
+          "Published SCOPE/Resultary: All k-forcing sets of complete multipartite graphs, record 21dd3de55bd1",
+          "Geneson--Haas--Hogben arXiv:2009.00220",
+          "Davila--Henning--Pepper DOI:10.7151/dmgt.2389"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact line-graph sentence was not separately indexed, but the complete set data required to construct it are already published."
+        ],
+        "reasoning": "Exact wording is not required under the implication rule: once vertices are known to be complements of edges, reconfiguration adjacency is the line-graph definition.",
+        "searches": [
+          "Resultary semantic query for complete multipartite zero forcing reconfiguration",
+          "Resultary exact record 21dd3de55bd1"
+        ]
+      },
+      "rationale": "A published SCOPE/Resultary theorem already classifies every \\(k\\)-forcing set of every connected complete multipartite graph. Its \\(k=1\\) specialization gives exactly the minimum ordinary zero forcing sets for arbitrary part profiles, including singleton parts. Once those minimum sets are represented by their omitted admissible pairs, the submitted reconfiguration graph is mechanically the line graph of the graph whose edges are those pairs, because token-jumping adjacency is exactly one shared omitted endpoint. Thus the substantive classification is covered and the remaining line-graph reformulation is a routine consequence of the definition. Earlier external work also already defines the reconfiguration graph and treats complete/star boundaries.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_PRIOR_SET_CLASSIFICATION_COVERS_CORE_CLAIM",
+          "evidence": "The theorem classifies every \\(k\\)-forcing set of every connected complete multipartite graph; ordinary zero forcing is its \\(k=1\\) specialization.",
+          "identifier_or_url": "Resultary/SCOPE record 21dd3de55bd1",
+          "material_read": "Complete published RESULT.md including the all-initial-set iff criterion, minimum formula, counting formula, proof, and explicit \\(k=1\\) discussion.",
+          "method": "Read-only public repository inspection.",
+          "title": "All k-forcing sets of complete multipartite graphs",
+          "trigger": "Strictly broader same-family theorem covering \\(k=1\\)."
+        },
+        {
+          "assessment": "DEFINES_RECONFIGURATION_OPERATION",
+          "evidence": "The paper defines vertices as minimum zero forcing sets and edges as single-vertex exchanges.",
+          "identifier_or_url": "arXiv:2009.00220; DOI:10.1016/j.dam.2023.01.027",
+          "material_read": "Primary abstract/article metadata and open arXiv description of the reconfiguration definition and treated boundary families.",
+          "method": "Lawful open-source inspection.",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Defines the exact reconfiguration graph and token-jumping adjacency."
+        },
+        {
+          "assessment": "PRIOR_COMPLETE_MULTIPARTITE_FORCING_COVERAGE",
+          "evidence": "It treats complete multipartite zero forcing but does not independently rescue originality once the stronger all-k record is considered.",
+          "identifier_or_url": "DOI:10.7151/dmgt.2389",
+          "material_read": "Primary institutional abstract and publication record describing complete multipartite graphs as ZTF-dense.",
+          "method": "Lawful public-source inspection.",
+          "title": "Zero and total forcing dense graphs",
+          "trigger": "Prior complete-multipartite zero-forcing result."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "After the published all-\\(k\\) classification supplies every minimum zero forcing set, identifying the token-jumping graph with a line graph is a one-step change-of-encoding: vertices are omitted edges and adjacency means shared endpoint. The order and diameter follow from elementary line-graph facts. This is a useful corollary but not a sufficiently independent mathematical contribution under the common value bar.",
+      "risk": "The line-graph formulation is convenient for users, but convenience does not overcome implication coverage.",
+      "sources": [
+        "Resultary/SCOPE 21dd3de55bd1",
+        "arXiv:2009.00220"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every connected complete multipartite graph, the token-jumping reconfiguration graph of minimum zero forcing sets is the complete graph in the all-singleton case and otherwise the line graph of the complete multipartite graph obtained by merging all singleton parts; equivalently the minimum sets are complements of admissible cross-part pairs, with the stated order and diameter formulas.",
+  "limitations": [
+    "This rejection is for originality/value, not correctness.",
+    "Token-jumping reconfiguration of minimum standard zero forcing sets only."
+  ],
+  "schema_version": 1
+}
