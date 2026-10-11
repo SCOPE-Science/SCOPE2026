@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof was reconstructed from the printed equilibrium equations of the 2024 source.
 
-Analytic checks:
-- The substitution \(z=e^{m_1I^*}\) gives the scalar equation \(q=G_R(z)\).
-- The derivative numerator has a unique minimum.
-- Evaluating that minimum gives the exact transition \(R=4e^{3/2}\).
-- The fold merger occurs at \(z=e^{3/2}\), giving \(q=2e^{-3/2}\).
-- The Jacobian determinant is a strictly positive factor times \(G_R'(z)\).
+# Independent mathematical audit
 
-Reproducibility checks:
-- `verify.py` recomputes the threshold, fold levels, three-root witness, active-media inequalities, equilibrium residuals, and trace/determinant signs.
-- The witness uses only positive parameters and has two locally asymptotically stable endemic equilibria separated by a saddle.
+## correctness
 
-Limits:
-- Numerical calculations certify the explicit witness only; the general root classification is analytic.
-- No independent audit has been performed.
+PASS
+
+The source equilibrium relation reduces to \(q=G_R(z)=\log z/[z(1-z/R)]\), \(1<z<R\). The derivative has the sign of \(N_R(z)=1-z/R-(1-2z/R)\log z\). Since \(z(1+2\log z)\) is strictly increasing, \(N_R\) has one minimum; at that point its value is \(L(3-2L)/(1+2L)\), so the exact transition is \(L=3/2\), or \(R=4e^{3/2}\). Endpoint signs then give zero or two critical points and the complete horizontal-line root count. Direct differentiation of the active subsystem gives the stated determinant-slope identity. The inspected verifier reproduces the cusp constants, fold levels, three-root example, active-region check, and determinant signs; the all-parameter classification is analytic.
+
+## originality
+
+PASS
+
+The 2024 primary paper derives the same implicit endemic equation and analyzes a labeled endemic equilibrium, but does not classify all positive roots or identify the cusp threshold. A different 2016 SIS model with logistic growth and media alert already has up to three endemic equilibria and bistability, so multiplicity itself is not new; the surviving originality is the exact root diagram, universal cusp, and determinant-slope identity for this Lambert-W SIR model.
+
+## value
+
+PASS
+
+The exact cusp threshold organizes the full endemic-equilibrium phase diagram of a recently published nonlinear media model, and the determinant-slope identity immediately identifies the middle branch as a saddle. This is a natural structural classification with direct relevance to the model's bistability regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
