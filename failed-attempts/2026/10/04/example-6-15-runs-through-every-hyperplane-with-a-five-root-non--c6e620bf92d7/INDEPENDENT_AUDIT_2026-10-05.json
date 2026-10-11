@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:43:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 1296bc0c8bea31920316e089d49d2ce83a26e251",
+        "assigned artifacts/verify.py blob a7c20643612b12d28d3dcf735f669f0f1848511e",
+        "independent GF(64) projective-map/root replay",
+        "Bartoli--Grimaldi--Stănică, On the hull of linearized polynomial codes, arXiv:2604.23097 / DOI:10.3934/amc.2026.101087"
+      ],
+      "rationale": "The finite-field algebra is correct. From \\(\\phi_\\rho^\\dagger(y)=\\rho y+y^{16}\\), a nonzero adjoint-kernel vector satisfies \\(\\rho=y^{15}\\). The kernel of the fifteenth-power map on \\(\\mathbb F_{64}^\\times\\) has size \\(\\gcd(15,63)=3\\), exactly \\(\\mathbb F_4^\\times\\), so projective normal points biject with the \\(21\\) singular parameters and the adjoint orthogonality identity yields \\(C_\\rho=y^\\perp\\). Hull nontriviality is equivalent to \\(\\operatorname{Tr}_{64/4}(y)=0\\). Eliminating \\(y\\) from \\(y+y^4+y^{16}=0\\) and \\(\\rho=y^{15}\\) gives \\(\\rho^5+\\rho^4+1=0\\). A fresh independent realization of \\(\\mathbb F_{64}\\) confirmed 21 projective lines/singular parameters and exactly five roots.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source provides a general adjoint/hull theorem plus a complete worked enumeration over \\(\\mathbb F_{64}\\), which is stronger context than a standalone finite polynomial description."
+        ],
+        "reasoning": "Specializing the general theorem to the exact worked example and quotienting by \\(\\mathbb F_4^\\times\\) mechanically yields the projective bijection.",
+        "searches": [
+          "Bartoli--Grimaldi--Stănică full primary paper and published abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.23097",
+        "DOI:10.3934/amc.2026.101087",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For nonzero kernel normal \\(y\\), the source equation immediately gives \\(\\rho=y^{15}\\); the scalar kernel has exactly three elements.",
+          "The trace-zero condition then eliminates to the displayed degree-five polynomial by a few finite-field exponent reductions."
+        ],
+        "reasoning": "No additional nonstandard lemma is needed beyond the source's same-example classification and elementary finite-field algebra.",
+        "searches": [
+          "source adjoint formula, singular equation, and trace-isotropy criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source already identifies all singular parameters and gives the adjoint-kernel/hull mechanism.",
+          "Its full-parameter theorem explicitly characterizes the extremal singular hull condition by trace isotropy."
+        ],
+        "reasoning": "The audited hyperplane normal, projective normal line, and singular adjoint kernel are the same one-dimensional object under the source's nondegenerate trace pairing.",
+        "searches": [
+          "Resultary query: Bartoli Grimaldi Stanica Example 6.15 hyperplanes rho^5 rho^4 1 trace zero",
+          "arXiv:2604.23097 Example 6.15 and adjoint theorem",
+          "DOI:10.3934/amc.2026.101087 abstract/full fixed-field classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source itself already tabulates the five non-LCD singular parameters in a primitive-element representation and reports the \\(60/5\\) full-projective hull count."
+        ],
+        "reasoning": "The polynomial is a cleaner coordinate-free encoding of a set already exactly tabulated by the source, not an unknown finite locus.",
+        "searches": [
+          "Resultary exact five-root/hyperplane query",
+          "source Example 6.15 exhaustive SageMath table"
+        ]
+      },
+      "rationale": "The primary source already supplies all load-bearing ingredients in exactly this family: the adjoint identity, \\((\\operatorname{im}\\phi)^\\perp=\\ker\\phi^\\dagger\\), the singular equation \\(\\rho^{21}=1\\), the one-dimensional singular adjoint kernels, a general trace-isotropy criterion on the singular locus, and an exhaustive Example 6.15 count of 21 singular fibers with five non-LCD exceptions. The projective hyperplane bijection is then the direct observation that the kernel equation gives \\(\\rho=y^{15}\\) modulo the three-element scalar kernel; the degree-five equation follows by elementary elimination of that same trace condition. Under the required implication-level standard, this is a structural repackaging of the source's complete fixed-field classification rather than a surviving original theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "The source already supplies the singular set, one-dimensional adjoint kernels, trace-isotropy criterion, and five exceptional points; the audited hyperplane/polynomial form follows by routine specialization.",
+          "identifier_or_url": "arXiv:2604.23097; DOI:10.3934/amc.2026.101087",
+          "material_read": "Primary full-paper material for the adjoint/hull statements and Example 6.15, together with the published abstract summarizing the complete full-parameter singular/hull classification and fixed-field exhaustive verification.",
+          "method": "Open-access primary-source inspection.",
+          "title": "On the hull of linearized polynomial codes",
+          "trigger": "Exact same family, adjoint theorem, trace-isotropy criterion, and Example 6.15."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Bartoli--Grimaldi--Stănică 2026"
+      ],
+      "rationale": "The projective interpretation is elegant exposition, but the source already gives a complete fixed-field hull classification and exact five-point exceptional set. Passing from its one-dimensional adjoint kernels to all projective hyperplanes and rewriting the listed trace-isotropic points as one degree-five polynomial is a short finite-field reformulation rather than a new motivated invariant or unresolved boundary.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For Bartoli--Grimaldi--Stănică Example 6.15, the \\(21\\) singular parameters of \\(\\phi_\\rho(x)=\\rho x+x^4\\) correspond bijectively to all hyperplanes of the three-dimensional \\(\\mathbb F_4\\)-trace space via \\(\\rho=y^{15}\\) and \\(C_\\rho=y^\\perp\\); the five non-LCD parameters are the roots of \\(\\rho^5+\\rho^4+1\\).",
+  "limitations": [
+    "Only the fixed \\(q=4,m=3,k=1\\) worked example is covered.",
+    "The source already gives the singular locus, adjoint/hull description, trace-isotropy criterion, and the exhaustive five non-LCD count."
+  ],
+  "schema_version": 1
+}
