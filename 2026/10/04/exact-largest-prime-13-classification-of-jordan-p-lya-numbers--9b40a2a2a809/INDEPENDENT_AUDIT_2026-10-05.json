@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:52:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With prime rows \\(2,3,5,7,11,13\\), the valuation columns of \\(2!,3!,5!,7!,11!,13!\\) form an upper-triangular unimodular basis. Independent recomputation gives coordinates \\(u=(1,-1,-1,1,0,1)\\) for \\(14!\\), \\(v=(-2,-1,0,1,0,1)\\) for \\(15!\\), and \\(16!=15!(2!)^4\\). Because any factorial factor in a number with largest prime divisor 13 is at most \\(16!\\), the whole stratum is exactly \\(\\mathbb N^6+\\mathbb N u+\\mathbb N v\\). Writing \\(t=r+s\\), coordinate nonnegativity yields the displayed inequalities. The lower bounds in \\(r\\) are monotone, so \\(r=r_0=\\max(0,-c_3)\\) is optimal, and feasibility is exactly the stated bound with \\(m=\\min(c_4,c_6)\\). Choosing \\(t=m\\) reconstructs the canonical factorization.",
+      "risks": [
+        "The theorem is intentionally limited to largest prime divisor exactly 13; larger supports require new generators."
+      ],
+      "sources": [
+        "RESULT.md blob 0541d6e0a179861677830e549d4801b5d1e92c26",
+        "verify.py blob 633becbe244fe599af61d35e7070dbadfec8949b",
+        "De Koninck--Doyon--Razafindrasoanaivolala--Verreault, DOI:10.5817/AM2020-3-141"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Koninck et al. prove global counting bounds and isolate a prime-factorial subset, not fixed-support membership.",
+          "Luca studies when one factorial is a product of smaller factorials, a different Diophantine problem.",
+          "The prior SCOPE theorem stops at largest prime 11 and uses \\(14!\\) only as the first obstruction."
+        ],
+        "reasoning": "These broader results do not determine the repaired support-13 semigroup or its closed membership inequalities.",
+        "searches": [
+          "De Koninck et al. DOI:10.5817/AM2020-3-141 full PDF",
+          "Luca DOI:10.1017/S0305004107000308 problem statement",
+          "Erdős--Graham On products of factorials",
+          "Resultary prior low-support normal-form record"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.5817/AM2020-3-141 full PDF",
+        "Resultary:2026/10/4/SCOPE-prime-factorial-normal-forms-for-low-support-jordan-p-lya-number--df6c27e827b4",
+        "DOI:10.1017/S0305004107000308",
+        "Erdős--Graham 1976 On products of factorials",
+        "OEIS:A001013",
+        "Public factorial/Jordan--Pólya identity sources"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior knowledge that \\(14!\\) is an obstruction does not specify the additional \\(15!\\) generator or prove that those two generators suffice for every support-13 product.",
+          "The audited proof uses the prime bound \\(k\\le16\\), explicit valuation coordinates, and a two-variable semigroup elimination to obtain necessity and sufficiency."
+        ],
+        "reasoning": "The final criterion is not a corollary of the low-support normal form or global counting theorem without the new generator analysis and elimination.",
+        "searches": [
+          "Statement comparison with De Koninck et al. Section 4 prime-factorial submonoid",
+          "Statement comparison with Resultary:2026/10/4/SCOPE-prime-factorial-normal-forms-for-low-support-jordan-p-lya-number--df6c27e827b4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper identifies \\(14!\\) as outside the prime-factorial submonoid but does not give a support-13 membership criterion.",
+          "Public sources record alternative representations of \\(16!\\), including one via \\(15!\\), but not the semigroup elimination or canonical support-13 representation."
+        ],
+        "reasoning": "Searches covered the natural semigroup, valuation-coordinate, and factorial-identity formulations; no equivalent full classification was found.",
+        "searches": [
+          "Resultary: Jordan Polya largest prime divisor 13 semigroup 14 factorial 15 factorial",
+          "Web: Jordan-Polya 15! factorial product support 13",
+          "DOI:10.5817/AM2020-3-141 full PDF searches for 14! and prime factorial representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001013 tabulates the sequence definition and terms but no support-13 valuation criterion.",
+          "No exact table containing the two-generator coordinate classification was located."
+        ],
+        "reasoning": "The result is an infinite structural membership theorem, not a finite table recomputation.",
+        "searches": [
+          "OEIS:A001013",
+          "Resultary support-13 Jordan--Pólya query",
+          "Web Jordan--Pólya support 13 14! 15!"
+        ]
+      },
+      "rationale": "The 2020 primary paper defines the prime-factorial submonoid, proves uniqueness there, records \\(14!\\) as lying outside it, and lists the classical \\(16!=2!\\cdot5!\\cdot14!\\) identity; it does not classify all Jordan--Pólya numbers with largest prime divisor 13. The closest published SCOPE result proves free prime-factorial normal forms only through support 11 and stops at the \\(14!\\) obstruction. Fresh Resultary and web searches did not locate the two-generator support-13 semigroup, its necessary-and-sufficient valuation inequalities, or the canonical factorization. The new theorem therefore closes the first failure stratum rather than restating the known obstruction.",
+      "residual_risks": [
+        "The 1976 products-of-factorials literature is broad and an unindexed equivalent fixed-support semigroup could exist; no such statement was located in the targeted searches.",
+        "The theorem says nothing about larger prime supports, where more composite-factorial generators appear."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "It establishes global counting bounds and the prime-factorial subset, but no fixed-largest-prime-13 semigroup or membership inequalities."
+          ],
+          "identifier_or_url": "DOI:10.5817/AM2020-3-141",
+          "material_read": "Full 12-page author-hosted PDF with targeted searches; rendered page 9 inspected. The introduction records factorial-product identities, and Section 4 defines the prime-factorial submonoid, uniqueness, and \\(14!\notin J_{\\mathcal P}\\).",
+          "method": "Direct PDF text and page-image inspection.",
+          "title": "Bounds for the counting function of the Jordan-Pólya numbers",
+          "trigger": "Primary same-object source defining the prime-factorial submonoid and noting the first obstruction."
+        },
+        {
+          "assessment": "STRICTLY_WEAKER",
+          "evidence": [
+            "It stops before support 13 and does not introduce the \\(15!\\) generator or classify the next stratum."
+          ],
+          "identifier_or_url": "Resultary:2026/10/4/SCOPE-prime-factorial-normal-forms-for-low-support-jordan-p-lya-number--df6c27e827b4",
+          "material_read": "Full RESULT.md including the support-through-11 proof and the \\(14!\\) boundary witness.",
+          "method": "Direct repository inspection.",
+          "title": "Prime-factorial normal forms for low-support Jordan–Pólya numbers",
+          "trigger": "Closest published SCOPE structural theorem."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "No valuation-coordinate or largest-prime-13 classification is given."
+          ],
+          "identifier_or_url": "OEIS:A001013",
+          "material_read": "Definition, comments, and linked sequence information.",
+          "method": "Public sequence-entry inspection.",
+          "title": "A001013 Jordan-Polya numbers",
+          "trigger": "Exact sequence/database check."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Largest prime 13 is the first natural support where the unique prime-factorial normal form breaks. Classifying the entire next stratum, identifying exactly two new generators, and eliminating them to a closed membership test and canonical factorization is a motivated complete boundary classification with a plausible template for later supports.",
+      "risks": [
+        "The exact test is support-specific and does not by itself solve global Jordan--Pólya membership."
+      ],
+      "sources": [
+        "De Koninck et al. DOI:10.5817/AM2020-3-141",
+        "Resultary low-support normal-form record",
+        "RESULT.md blob 0541d6e0a179861677830e549d4801b5d1e92c26"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classification is complete only for the largest-prime-13 stratum."
+  ],
+  "schema_version": 1
+}

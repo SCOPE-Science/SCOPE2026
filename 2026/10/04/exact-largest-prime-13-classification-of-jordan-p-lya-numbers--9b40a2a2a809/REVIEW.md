@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For largest prime divisor \(13\), no factorial factor can exceed \(16!\). The six prime-factorial valuation vectors form a unimodular basis. In this basis all factorials through \(13!\) lie in \(\mathbb N^6\), while \(14!\) and \(15!\) contribute exactly \(u=(1,-1,-1,1,0,1)\) and \(v=(-2,-1,0,1,0,1)\), and \(16!=15!(2!)^4\). Eliminating nonnegative coefficients \(r,s\) from \(c=a+ru+sv\) yields the stated inequality. The canonical choice \(r=r_0\), \(t=m\) reconstructs nonnegative \(a_i\) whenever the criterion holds. The packaged verifier recomputes the basis and checks \(3,198,720\) bounded equivalences plus \(18,225\) generated canonical witnesses.
+## correctness
 
-## Originality
-**PASS.** The closest full-text Jordan–Pólya source defines the prime-factorial submonoid and says \(14!\) is outside it, but does not classify the full largest-prime-\(13\) stratum. Luca's factorial-decomposition problem and Erdős–Graham's products-of-factorials results address different implication directions and counting questions. Exact-criterion, generator, support-\(13\), and alias searches in the available record database returned no equivalent or stronger statement. The closest prior fixed-support result only reaches support \(11\) and records the single \(14!\) obstruction, so it does not imply the present two-generator semigroup or its membership inequality.
+PASS
 
-## Value
-**PASS.** This is a natural complete classification at the first support where the prime-factorial normal form fails. It replaces a lone obstruction by an exact semigroup description, a closed valuation test, and a deterministic factorization for every member of the stratum. The result is structurally reusable for studying how new composite factorial generators alter subsequent prime-support layers.
+With prime rows \(2,3,5,7,11,13\), the valuation columns of \(2!,3!,5!,7!,11!,13!\) form an upper-triangular unimodular basis. Independent recomputation gives coordinates \(u=(1,-1,-1,1,0,1)\) for \(14!\), \(v=(-2,-1,0,1,0,1)\) for \(15!\), and \(16!=15!(2!)^4\). Because any factorial factor in a number with largest prime divisor 13 is at most \(16!\), the whole stratum is exactly \(\mathbb N^6+\mathbb N u+\mathbb N v\). Writing \(t=r+s\), coordinate nonnegativity yields the displayed inequalities. The lower bounds in \(r\) are monotone, so \(r=r_0=\max(0,-c_3)\) is optimal, and feasibility is exactly the stated bound with \(m=\min(c_4,c_6)\). Choosing \(t=m\) reconstructs the canonical factorization.
 
-## Closest literature and limitations
-The closest source is De Koninck et al. (2020), especially its construction of the prime-factorial submonoid and its observation that \(14!\) lies outside it. Luca (2007) and Erdős–Graham (1976) are broader factorial-product sources. The theorem stops at largest prime \(13\); the 1976 paper's broad scope leaves a residual risk of an unindexed equivalent formulation not exposed by the searchable metadata or sampled full text.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2020 primary paper defines the prime-factorial submonoid, proves uniqueness there, records \(14!\) as lying outside it, and lists the classical \(16!=2!\cdot5!\cdot14!\) identity; it does not classify all Jordan--Pólya numbers with largest prime divisor 13. The closest published SCOPE result proves free prime-factorial normal forms only through support 11 and stops at the \(14!\) obstruction. Fresh Resultary and web searches did not locate the two-generator support-13 semigroup, its necessary-and-sufficient valuation inequalities, or the canonical factorization. The new theorem therefore closes the first failure stratum rather than restating the known obstruction.
+
+## value
+
+PASS
+
+Largest prime 13 is the first natural support where the unique prime-factorial normal form breaks. Classifying the entire next stratum, identifying exactly two new generators, and eliminating them to a closed membership test and canonical factorization is a motivated complete boundary classification with a plausible template for later supports.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
