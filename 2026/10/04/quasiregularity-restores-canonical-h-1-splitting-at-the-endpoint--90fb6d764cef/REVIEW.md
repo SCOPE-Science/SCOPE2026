@@ -1,35 +1,21 @@
-# Review of Quasiregularity restores canonical \(H^1\) splitting at the endpoint
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof redoes the primary source's regularized Laplacian comparison at \(p=1\). The weak quasiregular inequality first gives
-\[
-\Lambda_f^2
-\le
-\frac{2K^2}{K^2+1}(|h'|^2+|g'|^2)
-+
-\frac{2K_0}{K^2+1}.
-\]
-For the source's regularized functions \(U_\varepsilon\) and \(V_\varepsilon\), this yields a strictly positive endpoint lower bound for \(\Delta V_\varepsilon\), while direct differentiation gives the required upper bound for \(\Delta U_\varepsilon\). The comparison \(V_\varepsilon^2\le2U_\varepsilon^2\) converts these into
-\[
-\Delta U_\varepsilon\le D_K\Delta V_\varepsilon.
-\]
-Green's identity and \(g(0)=0\) then give the radial integral estimate. The endpoint passage is legitimate because the regularization keeps the comparison functions smooth and positive, and the right-hand radial integrals are finite for each fixed radius. Taking suprema proves \(h,g\in H^1\).
+PASS
 
-The control example is exact: the positive Poisson kernel belongs to harmonic \(\mathbf h^1\), but its canonical analytic factors are \(1/(1-z)\) and \(z/(1-z)\), whose \(H^1\) integral means diverge logarithmically.
+From \(\Lambda^2\le K\Lambda\lambda+K_0\) and \(S=(\Lambda^2+\lambda^2)/2\), the factorization \(\Lambda^2-\frac{2K^2}{K^2+1}S=((\Lambda-K\lambda)(\Lambda+K\lambda))/(K^2+1)\) yields the required upper bound for \(\Lambda^2\). For the regularized comparison functions \(V_\varepsilon=(|f|^2+\eta|z|^2+\varepsilon)^{1/2}\) and \(U_\varepsilon=(|h|^2+|g|^2+\eta|z|^2+\varepsilon)^{1/2}\), direct differentiation gives the stated lower and upper Laplacian estimates. Because \(V_\varepsilon^2\le2U_\varepsilon^2\), Green's mean identity and \(g(0)=0\) give the uniform radial \(H^1\) estimate; letting \(\varepsilon\downarrow0\) is legitimate at each fixed radius. The Poisson-kernel example correctly shows that arbitrary harmonic \(\mathbf h^1\) need not split into \(H^1\) components.
 
-## Originality
+## originality
 
-PASS. The closest primary source, arXiv:2609.33159v1, states its Littlewood--Paley theorem only for \(1<p\le2\). Its proof contains the component-comparison mechanism for \(p>1\), but it does not state the endpoint \(H^1\) splitting. The accepted argument independently checks that the regularized differential step survives at \(p=1\).
+PASS
 
-The strongest directly relevant endpoint comparison found is the full 2025 paper of Das, Huang, and Rasila. For a general harmonic member of \(\mathbf h^1\), their Theorem 3(ii) obtains only \(h,g\in H^p\) for every \(0<p<1\). Their endpoint \(H^1\) lemma applies only to the combination \(h+g\) under a nonvanishing hypothesis. Thus it does not imply the present component-wise \(H^1\) conclusion.
+Chen, Huang, Jin, and Li study weak harmonic \((K,K_0)\)-quasiregular mappings through a Littlewood--Paley inequality, while the audited theorem isolates an endpoint \(H^1\) component-splitting statement that is absent from the accessible abstract and fails without quasiregularity. Resultary search returned the assigned endpoint result as the exact hit and no prior \(p=1\) weak-\((K,K_0)\) splitting theorem. The source's full body was not independently accessible through the route used in this run, so the judgment retains an explicit overlap risk.
 
-Candidate-specific published-finding searches covered weak harmonic quasiregularity, canonical splitting, analytic/co-analytic projections, the \(H^1\) endpoint, and the source identifier. No returned statement covered the claim. Residual risk remains that an older equivalent theorem exists under different quasiregular Hardy-space terminology.
+## value
 
-## Value
+PASS
 
-PASS. The analytic/co-analytic projection is an endpoint obstruction for general harmonic \(\mathbf h^1\): the explicit Poisson-kernel example already destroys component-wise \(H^1\) membership. The recent source needs component control as the first step in its Littlewood--Paley theorem but stops at \(p>1\). Showing that weak quasiregularity restores the component splitting exactly at \(p=1\) isolates which part of that argument genuinely survives the endpoint and separates it from the later square-function obstruction.
+The canonical decomposition fails at \(H^1\) for general harmonic maps, so proving that weak quasiregularity restores it is a natural endpoint boundary result. The radial estimate is reusable independently of the square-function theorem that motivated it.
 
-This is a structural endpoint lemma with a quantitative bound, not a routine recomputation of the source's \(p>1\) estimate.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

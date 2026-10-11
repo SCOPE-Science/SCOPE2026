@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,64 +19,24 @@
 }
 ---
 
-The verification is analytic.
+# Independent mathematical audit
 
-The weak quasiregular hypothesis and
-\[
-|h'|^2+|g'|^2
-=
-\frac{\Lambda_f^2+\lambda_f^2}{2}
-\]
-give the exact differential estimate
-\[
-\Lambda_f^2
-\le
-\frac{2K^2}{K^2+1}
-\left(
-|h'|^2+|g'|^2
-\right)
-+
-\frac{2K_0}{K^2+1}.
-\]
+## correctness
 
-For the regularized comparison functions
-\[
-V_\varepsilon
-=
-\left(
-|f|^2+\frac{4K_0}{K^2+1}|z|^2+\varepsilon
-\right)^{1/2}
-\]
-and
-\[
-U_\varepsilon
-=
-\left(
-|h|^2+|g|^2+\frac{4K_0}{K^2+1}|z|^2+\varepsilon
-\right)^{1/2},
-\]
-direct differentiation at the endpoint gives
-\[
-\Delta U_\varepsilon
-\le
-D_K\Delta V_\varepsilon.
-\]
-Green's mean identity and \(g(0)=0\) then yield the stated radial integral comparison.
+PASS
 
-The regularization makes all endpoint derivatives classical. Removal of \(\varepsilon\) uses Fatou's lemma on the left and dominated convergence on the right for each fixed radius.
+From \(\Lambda^2\le K\Lambda\lambda+K_0\) and \(S=(\Lambda^2+\lambda^2)/2\), the factorization \(\Lambda^2-\frac{2K^2}{K^2+1}S=((\Lambda-K\lambda)(\Lambda+K\lambda))/(K^2+1)\) yields the required upper bound for \(\Lambda^2\). For the regularized comparison functions \(V_\varepsilon=(|f|^2+\eta|z|^2+\varepsilon)^{1/2}\) and \(U_\varepsilon=(|h|^2+|g|^2+\eta|z|^2+\varepsilon)^{1/2}\), direct differentiation gives the stated lower and upper Laplacian estimates. Because \(V_\varepsilon^2\le2U_\varepsilon^2\), Green's mean identity and \(g(0)=0\) give the uniform radial \(H^1\) estimate; letting \(\varepsilon\downarrow0\) is legitimate at each fixed radius. The Poisson-kernel example correctly shows that arbitrary harmonic \(\mathbf h^1\) need not split into \(H^1\) components.
 
-The failure without quasiregularity is verified by the exact identity
-\[
-\operatorname{Re}\frac{1+z}{1-z}
-=
-\frac{1-|z|^2}{|1-z|^2},
-\]
-whose harmonic \(\mathbf h^1\) norm is one, while its canonical components
-\[
-\frac1{1-z}
-\quad\text{and}\quad
-\frac z{1-z}
-\]
-have logarithmically divergent \(H^1\) integral means.
+## originality
 
-No numerical experiment or finite truncation is used.
+PASS
+
+Chen, Huang, Jin, and Li study weak harmonic \((K,K_0)\)-quasiregular mappings through a Littlewood--Paley inequality, while the audited theorem isolates an endpoint \(H^1\) component-splitting statement that is absent from the accessible abstract and fails without quasiregularity. Resultary search returned the assigned endpoint result as the exact hit and no prior \(p=1\) weak-\((K,K_0)\) splitting theorem. The source's full body was not independently accessible through the route used in this run, so the judgment retains an explicit overlap risk.
+
+## value
+
+PASS
+
+The canonical decomposition fails at \(H^1\) for general harmonic maps, so proving that weak quasiregularity restores it is a natural endpoint boundary result. The radial estimate is reusable independently of the square-function theorem that motivated it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
