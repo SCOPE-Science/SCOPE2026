@@ -1,12 +1,21 @@
-# Review of Correction and all-set classification for edge metric dimension of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. In a complete multipartite graph, every landmark has edge distance \(0\) exactly to incident edges and \(1\) to every other edge. Thus edge representations are determined solely by selected endpoints. The complement analysis is exhaustive: with at least three parts, two omissions always create either two empty-code edges or two edges with the same selected endpoint; with two parts, a transversal omitted pair is the unique additional feasible pattern. Direct breadth-first-search verification through order ten agrees with the classification, dimensions, basis counts, and enumerator.
+## correctness
 
-## Originality
-PASS. The 2018 foundational paper gives the complete-bipartite formula but no arbitrary complete-multipartite theorem. The 2022 primary source explicitly states \(N-r\) for arbitrary complete multipartite graphs and applies it to \(K_{2,3,5}\). The omitted-one-per-part construction fails whenever at least three parts are present. Exact-title, formula, correction, erratum, and alternative-value searches found no later repair, and semantic searches found no equivalent ordinary edge-metric correction. The final claim also classifies every edge resolving set and its enumerator.
+PASS
 
-## Value
-PASS. The result repairs an explicit infinite-family theorem in a paper devoted to complete multipartite resolvability. The error changes every graph with at least three parts by \(r-1\) relative to the published value and invalidates the displayed \(K_{2,3,5}\) example. The intersection-code proof supplies a structural explanation and the complete feasible-set family.
+For any landmark s in a complete multipartite graph and any edge uv, d(s,uv)=0 exactly when s is an endpoint and equals 1 otherwise, because any nonendpoint is adjacent to at least one endpoint. Hence an edge code is precisely the selected endpoint set e intersect S. Injectivity of e -> e intersect S gives the complete classification: with at least three parts the complement T may contain at most one vertex; in the bipartite case a second possibility is exactly two omitted vertices, one from each part. Therefore edim=N-1 for r>=3, edim=N-2 for r=2, with N and n1*n2 bases respectively and enumerator \(z^N+N z^{N-1}+\mathbf 1_{r=2}n_1n_2z^{N-2}\). An independent brute-force distance/code replay through order eight matched this classification for every multipartite type; the actual package verifier at blob e9f2bc7c463d6608e109b7a461857364a661aa6f was also inspected and uses the same exhaustive check through order ten.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2022 primary paper explicitly states the conflicting value N-r and uses it in K_{2,3,5}; the foundational edge-metric literature does not supply the corrected arbitrary multipartite classification. Fresh formula/erratum searches and Resultary queries found no separate repair.
+
+## value
+
+PASS
+
+This repairs an explicit infinite-family theorem and example in a paper devoted to complete multipartite resolvability. The error changes every r>=3 case, and the endpoint-intersection argument gives the full resolving-set family, basis count, and enumerator rather than a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

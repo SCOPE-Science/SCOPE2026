@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any landmark s in a complete multipartite graph and any edge uv, d(s,uv)=0 exactly when s is an endpoint and equals 1 otherwise, because any nonendpoint is adjacent to at least one endpoint. Hence an edge code is precisely the selected endpoint set e intersect S. Injectivity of e -> e intersect S gives the complete classification: with at least three parts the complement T may contain at most one vertex; in the bipartite case a second possibility is exactly two omitted vertices, one from each part. Therefore edim=N-1 for r>=3, edim=N-2 for r=2, with N and n1*n2 bases respectively and enumerator \\(z^N+N z^{N-1}+\\mathbf 1_{r=2}n_1n_2z^{N-2}\\). An independent brute-force distance/code replay through order eight matched this classification for every multipartite type; the actual package verifier at blob e9f2bc7c463d6608e109b7a461857364a661aa6f was also inspected and uses the same exhaustive check through order ten.",
+      "risks": [
+        "The theorem assumes connected complete multipartite graphs of order at least three; degenerate disconnected one-part cases are outside scope."
+      ],
+      "sources": [
+        "Frozen source tree 66835259d8fd465c9e2dbac0e8487c76b23687cb",
+        "Hayat--Khan--Zhong, Mathematics 10 (2022) 1815, Theorem 4 and Example 3",
+        "Independent exhaustive direct-distance replay through order 8; package verify.py blob e9f2bc7c463d6608e109b7a461857364a661aa6f inspected"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 states beta_e(K_{t1,...,tr})=N-r and its construction omits one vertex from each part.",
+          "The complete-bipartite case is consistent with N-2 but does not imply the r>=3 correction."
+        ],
+        "reasoning": "The prior arbitrary multipartite theorem is false on r>=3; no stronger correct theorem inspected dominates the final all-set classification.",
+        "searches": [
+          "Full HTML of Hayat--Khan--Zhong 2022 Theorem 4",
+          "Foundational edge-metric literature including complete bipartite formulas"
+        ]
+      },
+      "checked_sources": [
+        "Hayat--Khan--Zhong 2022 full HTML",
+        "DOI:10.1016/j.dam.2018.08.031 publisher material",
+        "Resultary semantic search",
+        "Exact formula/erratum web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published N-r value gives 7 for K_{2,3,5}; direct endpoint-code injectivity gives 9 and shows the omitted-one-per-part construction collides on three empty-code edges."
+        ],
+        "reasoning": "The final theorem corrects a contrary published infinite-family statement and adds a complete all-set classification, so it is not a corollary of the source.",
+        "searches": [
+          "Statement comparison with Hayat--Khan--Zhong Theorem 4 and K_{2,3,5} example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned related resolvability results but no prior ordinary edge-metric correction for arbitrary complete multipartite graphs.",
+          "The direct primary match is the 2022 paper with the N-r formula."
+        ],
+        "reasoning": "Ordinary edge metric dimension was distinguished from outer multiset, doubly resolving, and k-size edge variants.",
+        "searches": [
+          "Resultary semantic query: edge metric dimension complete multipartite all resolving sets N minus 1 N minus 2 correction",
+          "Web search: edge metric dimension complete multipartite correction N-1",
+          "Web search: On Resolvability- and Domination-Related Parameters of Complete Multipartite Graphs edge metric dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table/classification matching the final resolving-set enumerator was returned."
+        ],
+        "reasoning": "A correct published complete-multipartite table would directly cover the claim; none was located.",
+        "searches": [
+          "Exact formula searches for N-1/N-2 complete multipartite edge metric dimension",
+          "Resultary semantic search"
+        ]
+      },
+      "rationale": "The 2022 primary paper explicitly states the conflicting value N-r and uses it in K_{2,3,5}; the foundational edge-metric literature does not supply the corrected arbitrary multipartite classification. Fresh formula/erratum searches and Resultary queries found no separate repair.",
+      "residual_risks": [
+        "A later correction not indexed by the queried services may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_THEOREM_FALSE_FOR_R_AT_LEAST_3",
+          "evidence": [
+            "The paper claims N-r and proposes omitting one vertex per part; for three omitted vertices, distinct edges among them have identical empty codes."
+          ],
+          "identifier_or_url": "Mathematics 10 (2022), 1815; MDPI article",
+          "material_read": "Section 3.3 including Theorem 4 proof and the stated complete-multipartite formula.",
+          "method": "Primary full-text theorem/proof comparison.",
+          "title": "On Resolvability- and Domination-Related Parameters of Complete Multipartite Graphs",
+          "trigger": "Primary source of the incorrect complete-multipartite edge-metric theorem."
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COMPLETE_MULTIPARTITE_CLASSIFICATION",
+          "evidence": [
+            "The paper studies topful graphs generally but does not provide the submitted all-set complete-multipartite theorem in the inspected material."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.dam.2018.08.031",
+          "material_read": "Abstract and theorem context available from the publisher page.",
+          "method": "Broader-family coverage check.",
+          "title": "On graphs with the maximum edge metric dimension",
+          "trigger": "Broader literature on the extremal value N-1."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This repairs an explicit infinite-family theorem and example in a paper devoted to complete multipartite resolvability. The error changes every r>=3 case, and the endpoint-intersection argument gives the full resolving-set family, basis count, and enumerator rather than a single counterexample.",
+      "risks": [
+        "The structural proof is elementary once the endpoint-code observation is made."
+      ],
+      "sources": [
+        "2022 Theorem 4 and K_{2,3,5} example",
+        "Complete endpoint-code classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Connected complete multipartite graphs with N>=3 only."
+  ],
+  "schema_version": 1
+}
