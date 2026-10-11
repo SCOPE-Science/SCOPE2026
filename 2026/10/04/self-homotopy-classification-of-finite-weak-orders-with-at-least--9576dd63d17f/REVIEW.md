@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates maps by the structure of their image inside the ordinal-sum levels. If every occupied target level has at least two points, comparability forces a surjective order-preserving assignment from occupied target levels to source levels; cardinality then forces all levels to be occupied and matched identically. Every other image has a singleton occupied level and is therefore a cone. For level-preserving nonconstant maps, the join decomposition of the order complex gives a nonzero top-homology action, and homotopy invariance plus pointwise comparability makes each such map isolated. The counting step is then exact.
+## correctness
 
-## Originality
-PASS. Full-text inspection of Barmak--Minian supplies the finite-space/poset and core framework but no self-map classification for layered ordinal sums. The inspected pseudosphere literature identifies ordinal sums of trivial posets as a natural class but studies their order complexes and matroid structure, not homotopy classes of self-maps. Database searches using the aliases “finite weak order”, “ordinal sum of antichains”, “pseudosphere”, “self homotopy”, and “mapping space” found no covering statement. The closest checked prior result for the same objects determines nonzero top-homology actions only; it neither proves that every remaining map is null-homotopic nor counts the homotopy components.
+PASS
 
-## Value
-PASS. This is a natural complete classification for a standard family of finite spaces rather than a finite census or parameter slice. It identifies a sharp dichotomy in the entire self-map space: one null component versus explicitly many rigid singleton components. The formula is immediately usable for any number and sizes of levels and explains how the combinatorics of ordinal-sum layers control finite-space self-homotopy.
+If every occupied image level contains at least two points, comparability forces each such target level to receive points from exactly one source level and every source level to occur; with equal source and target heights, monotonicity makes this assignment the identity, so the map is level-preserving and nonconstant on every level. Otherwise the image weak order has a singleton occupied level and its order complex is a cone, so the map factors through a contractible image and is null-homotopic. A levelwise nonconstant map acts nontrivially on top rational homology. Any pointwise-comparable map has the same action, hence is also levelwise nonconstant and level-preserving; comparability inside an antichain then forces equality. Fresh enumeration of the (2,2,2) case independently gives 446 maps and exactly nine components, one of size 438 and eight singletons.
 
-The main residual risk is terminology dispersion: equivalent objects can appear as layered posets, ordinal sums of discrete posets, joins of discrete complexes, or pseudospheres. Those aliases were searched, and no covering self-map theorem was located; this remains a literature-completeness risk rather than a mathematical gap.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Published nearby results determine the top-homology test, unequal-source/target same-height maps, and the height-two self-map case, but none implies the h-at-least-three self-map null-component theorem. The audited image lemma adds the missing implication from failure of levelwise nonconstancy to a contractible image, and this plus homology rigidity yields the full self-homotopy set.
+
+## value
+
+PASS
+
+The result gives the complete self-homotopy monoid-set cardinality and component structure for a standard finite-pseudosphere family, strengthening the previously available top-homology test to an exact homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

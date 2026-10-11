@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The general theorem was checked by reconstructing the proof from the stated finite-poset definitions. The critical steps are:
+# Independent mathematical audit
 
-1. For the image \(I=f(W)\), if every occupied target level contains at least two image points, distinct points in one target antichain cannot have preimages in different source levels. This forces a surjective order-preserving assignment from occupied target levels to source levels, hence all \(h\) levels are occupied and matched identically.
-2. Every other image has an occupied singleton level (or is itself a singleton), making its order complex a cone. Thus the corresponding map is null-homotopic.
-3. A level-preserving nonconstant self-map induces a tensor product of nonzero maps on the reduced degree-zero homology of the discrete levels, so its top rational homology action is nonzero.
-4. Any pointwise-comparable map is homotopic and hence has the same nonzero top-homology action. The image lemma then forces both maps to be level-preserving, and comparability inside each antichain forces pointwise equality.
-5. The number of nonconstant self-functions on a level of size \(r_i\) is \(r_i^{r_i}-r_i\); multiplying these independent choices gives the isolated-class count.
+## correctness
 
-`verify.py` gives supplementary finite replay. It exhaustively enumerates all monotone self-maps for \((2,2,2)\) and \((2,2,3)\). For \((2,2,2)\), it constructs the pointwise-comparability graph of all \(446\) maps and finds exactly \(9\) components with sizes \(438,1,1,1,1,1,1,1,1\). For \((2,2,3)\), it enumerates \(2507\) monotone maps and finds exactly \(96\) level-preserving levelwise-nonconstant maps, as predicted. In both cases every remaining map has a contractible image of the type used in the proof. The replay terminates with `VERIFY_OK`.
+PASS
 
-These finite checks do not prove the unrestricted theorem; the symbolic argument above does.
+If every occupied image level contains at least two points, comparability forces each such target level to receive points from exactly one source level and every source level to occur; with equal source and target heights, monotonicity makes this assignment the identity, so the map is level-preserving and nonconstant on every level. Otherwise the image weak order has a singleton occupied level and its order complex is a cone, so the map factors through a contractible image and is null-homotopic. A levelwise nonconstant map acts nontrivially on top rational homology. Any pointwise-comparable map has the same action, hence is also levelwise nonconstant and level-preserving; comparability inside an antichain then forces equality. Fresh enumeration of the (2,2,2) case independently gives 446 maps and exactly nine components, one of size 438 and eight singletons.
+
+## originality
+
+PASS
+
+Published nearby results determine the top-homology test, unequal-source/target same-height maps, and the height-two self-map case, but none implies the h-at-least-three self-map null-component theorem. The audited image lemma adds the missing implication from failure of levelwise nonconstancy to a contractible image, and this plus homology rigidity yields the full self-homotopy set.
+
+## value
+
+PASS
+
+The result gives the complete self-homotopy monoid-set cardinality and component structure for a standard finite-pseudosphere family, strengthening the previously available top-homology test to an exact homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
