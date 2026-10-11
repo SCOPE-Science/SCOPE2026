@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. In finite dimension, the defining approximate witness condition for a pair \((x,f)\) is equivalent by compactness to the existence of an exact norming witness \(y\) with \(f(y)=1\) and \(\|x+y\|=2\). For \(\ell_\infty^n\), norming faces of \(\ell_1^n\) functionals are coordinatewise explicit. The sufficiency argument covers both zero and nonzero coefficients on the saturated support. The necessity argument constructs an exact separating functional whenever any unsaturated coordinate of \(x\) is nonzero; every norming vector then cancels all saturated coordinates, making distance two impossible.
+## correctness
 
-## Originality
-PASS. The focal 2026 paper introduces positive square points and gives the isolated example \((1,0)\in\ell_\infty^2\), but its full text does not state the all-dimensional classification, the cube-face-center formulation, or the exact count \(3^n-1\). Targeted published-finding corpus and literature searches for positive square points in finite-dimensional \(\ell_\infty\), coordinate descriptions, and face-center classifications found no covering statement. The closest prior item in the available private ledger based on the same source concerns global rank-one projection identities and does not imply a pointwise classification in cubes.
+PASS
 
-## Value
-PASS. Positive square points are a new pointwise notion introduced specifically to separate square-Daugavet geometry from established diametral notions. A complete classification in the canonical finite-dimensional cube gives the first natural model beyond a single witness: it shows the locus is finite, intrinsic to the face lattice, and has the exact size \(3^n-1\) in every dimension. This is a natural complete classification rather than an arbitrary parameter slice.
+In finite dimensions the approximate definition is equivalent by compactness to the existence, for each admissible functional, of a norming vector \(y\) with both \(f(y)=1\) and \(\|x+y\|_\infty=2\). For \(f=(a_i)\in S_{\ell_1^n}\), every nonzero coefficient forces a norming vector coordinate \(y_i=\operatorname{sgn}(a_i)\). If \(x\in\{-1,0,1\}^n\setminus\{0\}\), either a saturated coordinate has zero functional coefficient and can be chosen freely, or \(f(x)\ge0\) forces some saturated coordinate whose sign agrees with its coefficient, yielding norm two. Conversely, if \(0<|x_j|<1\), placing small total opposite-sign mass on all saturated coordinates and the remaining mass with the sign of \(x_j\) gives \(f(x)>0\) while every norming vector cancels every saturated coordinate, so \(\|x+y\|_\infty<2\). This proves exactly the nonzero ternary coordinate locus and the cube-face-center count \(3^n-1\).
 
-## Closest literature and limitations
-The closest source is J. Langemets, “Characterizing the Daugavet property by squares of rank-one operators,” arXiv:2609.27693v1. Its Example 3.4 verifies one positive square point in \(\ell_\infty^2\), while the surrounding section compares the notion with Daugavet, \(\Delta\)-, and \(\nabla\)-points. The present theorem is limited to finite-dimensional real \(\ell_\infty^n\) and does not claim an infinite-dimensional analogue.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Langemets's new paper introduces the square-point notions and publicly indexed descriptions confirm pointwise comparisons with Daugavet, Delta, and nabla points; the motivating material includes the positive-square example in \(\ell_\infty^2\). Current Resultary search returned the assigned all-dimensional cube-face classification as the exact hit and no prior classification of the entire positive-square locus of \(\ell_\infty^n\). The exact primary body was not available through the inspected web route, so no whole-document noncoverage claim is made; the assessment remains best-of-knowledge with that access risk explicitly retained.
+
+## value
+
+PASS
+
+The theorem completely resolves the canonical finite-dimensional cube for a newly introduced pointwise Banach-space property, turning an isolated two-dimensional example into an exact geometric locus of all face centers. That is a natural model-space classification with a clean obstruction mechanism, not an arbitrary coordinate exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
