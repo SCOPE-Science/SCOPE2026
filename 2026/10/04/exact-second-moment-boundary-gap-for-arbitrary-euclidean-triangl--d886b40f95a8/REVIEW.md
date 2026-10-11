@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim follows from the identity \(\mathbb E\|Z-Z'\|^2=2(\mathbb E\|Z\|^2-\|\mathbb EZ\|^2)\), exact Dirichlet moments for area-uniform barycentric coordinates, and exact one-dimensional segment moments for the arclength mixture on the three sides. The resulting side-length formulas were algebraically replayed in `verify.py`. Strict positivity is proved symbolically after the semitangent substitution \(x=s-a\), \(y=s-b\), \(z=s-c\), with every term positive for a nondegenerate triangle.
+## correctness
 
-## Originality
-**PASS.** Lotnikov's arXiv:2608.14848v1 states the all-moments conjecture, gives arbitrary planar results only for sufficiently high moments, and treats triangles at the first moment. Tokmachev's arXiv:2607.08869v1 gives all moments under centroid coincidence; for a triangle this covers only the equilateral case. Searches for the exact second-moment formulas, equivalent moment-of-inertia formulations, and published-database records returned no covering arbitrary-triangle statement. Older polygon distance-distribution papers inspected in scope concern area-uniform point pairs or regular polygons, not this boundary-versus-interior gap.
+PASS
 
-## Value
-**PASS.** The result fills a natural low-order hole in a current geometric-probability comparison: \(p=2\) is the first nontrivial power moment after the mean and is structurally special because it reduces to covariance, yet generic triangles fall outside the centroid-based all-moment theorem. The exact gap in classical triangle invariants gives a reusable quantitative statement rather than a one-off numerical check.
+For iid vectors, mean squared pair distance is twice the trace covariance. Dirichlet \((1,1,1)\) barycentric moments give the interior value \((a^2+b^2+c^2)/18\). Weighting the three uniform edge-segment moments by side length gives the boundary value \((a^3+b^3+c^3+3abc)/(6(a+b+c))\). Standard triangle identities yield the stated \(s,R,r\) formulas. Subtracting and setting \(x=s-a,y=s-b,z=s-c>0\) gives an explicit polynomial with only positive coefficients, proving strictness. Fresh independent numerical evaluation on three scalene/isosceles test triangles reproduced the gap identities; the universal proof is symbolic.
 
-## Closest literature and limitations
-The closest sources are arXiv:2608.14848v1 and arXiv:2607.08869v1. The result does not extend their first-moment or centroid-based theorems to arbitrary powers; it establishes only the exact squared-distance comparison for triangles. A residual bibliographic risk remains that an equivalent classical moment-of-inertia formula may exist under different terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The accessible Lotnikov abstract treats the Zaporozhets–Tarasov mean-distance program and states a stronger triangle result in its first-moment context, but does not expose the audited \(p=2\) formulas. Tokmachev proves all moments under planar interior/boundary centroid coincidence; a triangle satisfies that centroid hypothesis only in the equilateral case, so it does not cover generic triangles. Exact formula searches returned the assigned finding rather than an older arbitrary-triangle boundary second moment. Full texts of the two recent arXiv papers were not obtained through the open route, and the combined authorized fallback attempt was safety-blocked and not retried; this remains a residual risk.
+
+## value
+
+PASS
+
+The second moment is the first algebraically tractable nontrivial benchmark for the current boundary-versus-interior moment conjecture. The theorem covers every triangle, including those excluded from the known centroid-coincidence theorem, and gives an exact quantitative gap rather than only a sign.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

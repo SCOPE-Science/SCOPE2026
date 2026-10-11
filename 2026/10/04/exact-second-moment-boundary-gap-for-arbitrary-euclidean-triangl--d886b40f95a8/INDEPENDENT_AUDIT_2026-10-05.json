@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:47:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "A. S. Lotnikov, Mean distance between points inside and on the boundary of a convex body, arXiv:2608.14848v1; official primary abstract inspected. Direct arXiv full-text rendering was unavailable in this run.",
+        "A. S. Tokmachev, Inequalities for convex functions of random points inside and on the boundary of convex bodies, arXiv:2607.08869v1; official primary abstract inspected.",
+        "Resultary and web searches for the exact triangle second-moment formulas and the boundary-minus-interior gap.",
+        "Assigned RESULT.md and symbolic verifier at the frozen tree.",
+        "Fresh independent evaluation of the closed formulas on 3-4-5, 2-3-4 and 5-5-6 triangles."
+      ],
+      "rationale": "For iid vectors, mean squared pair distance is twice the trace covariance. Dirichlet \\((1,1,1)\\) barycentric moments give the interior value \\((a^2+b^2+c^2)/18\\). Weighting the three uniform edge-segment moments by side length gives the boundary value \\((a^3+b^3+c^3+3abc)/(6(a+b+c))\\). Standard triangle identities yield the stated \\(s,R,r\\) formulas. Subtracting and setting \\(x=s-a,y=s-b,z=s-c>0\\) gives an explicit polynomial with only positive coefficients, proving strictness. Fresh independent numerical evaluation on three scalene/isosceles test triangles reproduced the gap identities; the universal proof is symbolic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lotnikov treats the wider all-convex-body mean-distance conjecture and high moments in the plane.",
+          "Tokmachev treats all \\(p\\ge1\\) under centroid coincidence.",
+          "The centroid theorem specializes to equilateral triangles but not arbitrary triangles."
+        ],
+        "reasoning": "The broader recent theorems leave the generic triangle second moment outside their accessible stated hypotheses.",
+        "searches": [
+          "Lotnikov arXiv:2608.14848v1",
+          "Tokmachev arXiv:2607.08869v1"
+        ]
+      },
+      "checked_sources": [
+        "A. S. Lotnikov, Mean distance between points inside and on the boundary of a convex body, arXiv:2608.14848v1; official primary abstract inspected. Direct arXiv full-text rendering was unavailable in this run.",
+        "A. S. Tokmachev, Inequalities for convex functions of random points inside and on the boundary of convex bodies, arXiv:2607.08869v1; official primary abstract inspected.",
+        "Resultary and web searches for the exact triangle second-moment formulas and the boundary-minus-interior gap.",
+        "Assigned RESULT.md and symbolic verifier at the frozen tree.",
+        "Fresh independent evaluation of the closed formulas on 3-4-5, 2-3-4 and 5-5-6 triangles."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a triangle, equality of the area centroid and perimeter centroid forces all three side lengths equal, so Tokmachev only implies the equilateral special case.",
+          "Lotnikov's accessible statement does not supply an implication to the displayed generic \\(p=2\\) identity."
+        ],
+        "reasoning": "No inspected accessible prior theorem implies the arbitrary-triangle second-moment gap; the result requires direct area and boundary second-moment calculations.",
+        "searches": [
+          "Tokmachev centroid theorem",
+          "Lotnikov accessible abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned finding.",
+          "Searches under random-chord, moment-of-inertia and mean-squared-distance formulations found no independent arbitrary-triangle boundary formula.",
+          "Tokmachev's accessible theorem has an explicit centroid hypothesis absent for generic triangles."
+        ],
+        "reasoning": "The iid squared-distance, covariance/moment-of-inertia and random-chord formulations are equivalent at second order and were compared.",
+        "searches": [
+          "Resultary: triangle boundary interior mean squared distance second moment",
+          "Web searches for \\((s^2-3r^2)/6\\) and \\((s^2+8Rr-7r^2)/18\\)",
+          "Lotnikov and Tokmachev primary abstracts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table or older boundary-arclength formula for arbitrary triangles was located."
+        ],
+        "reasoning": "The result is a symbolic theorem for every triangle, not a finite table computation.",
+        "searches": [
+          "Resultary exact formula searches",
+          "Web exact-string searches for the invariant expressions"
+        ]
+      },
+      "rationale": "The accessible Lotnikov abstract treats the Zaporozhets–Tarasov mean-distance program and states a stronger triangle result in its first-moment context, but does not expose the audited \\(p=2\\) formulas. Tokmachev proves all moments under planar interior/boundary centroid coincidence; a triangle satisfies that centroid hypothesis only in the equilateral case, so it does not cover generic triangles. Exact formula searches returned the assigned finding rather than an older arbitrary-triangle boundary second moment. Full texts of the two recent arXiv papers were not obtained through the open route, and the combined authorized fallback attempt was safety-blocked and not retried; this remains a residual risk.",
+      "residual_risks": [
+        "The inaccessible complete Lotnikov paper could contain a second-moment triangle remark not visible in the abstract.",
+        "A classical equivalent formula may exist under polygon boundary inertia or arclength moment terminology.",
+        "The authorized institutional fallback attempt for inaccessible recent papers was safety-blocked by the platform and was not retried or bypassed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS ONLY THE CENTROID-COINCIDENCE SUBCLASS; GENERIC TRIANGLES FAIL THE HYPOTHESIS",
+          "evidence": "The abstract requires \\(\\mathbb EI=\\mathbb EB\\) in the planar case; direct barycentric comparison shows this holds for a triangle only when it is equilateral.",
+          "identifier_or_url": "arXiv:2607.08869v1",
+          "material_read": "Official primary abstract, including the exact planar centroid hypothesis and the consequence for all \\(p\\ge1\\).",
+          "method": "Primary abstract inspection.",
+          "title": "Inequalities for convex functions of random points inside and on the boundary of convex bodies",
+          "trigger": "Potential broader theorem proving every moment comparison."
+        },
+        {
+          "assessment": "DIRECT CONJECTURE CONTEXT; WHOLE-DOCUMENT \\(p=2\\) NONCOVERAGE CANNOT BE CLAIMED FROM ABSTRACT ALONE",
+          "evidence": "The accessible abstract states planar high-moment results and a stronger triangle mean-distance result but does not expose the audited exact second-moment formulas.",
+          "identifier_or_url": "arXiv:2608.14848v1",
+          "material_read": "Official primary abstract. Direct open full text was unavailable; the authorized institutional fallback attempt was safety-blocked and not retried.",
+          "method": "Primary abstract inspection with explicit access limitation.",
+          "title": "Mean distance between points inside and on the boundary of a convex body",
+          "trigger": "Direct recent source on the same boundary-versus-interior distance conjecture and triangle case."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "A. S. Lotnikov, Mean distance between points inside and on the boundary of a convex body, arXiv:2608.14848v1; official primary abstract inspected. Direct arXiv full-text rendering was unavailable in this run.",
+        "A. S. Tokmachev, Inequalities for convex functions of random points inside and on the boundary of convex bodies, arXiv:2607.08869v1; official primary abstract inspected.",
+        "Resultary and web searches for the exact triangle second-moment formulas and the boundary-minus-interior gap.",
+        "Assigned RESULT.md and symbolic verifier at the frozen tree.",
+        "Fresh independent evaluation of the closed formulas on 3-4-5, 2-3-4 and 5-5-6 triangles."
+      ],
+      "rationale": "The second moment is the first algebraically tractable nontrivial benchmark for the current boundary-versus-interior moment conjecture. The theorem covers every triangle, including those excluded from the known centroid-coincidence theorem, and gives an exact quantitative gap rather than only a sign.",
+      "residual_risks": [
+        "The inaccessible complete Lotnikov paper could contain a second-moment triangle remark not visible in the abstract.",
+        "A classical equivalent formula may exist under polygon boundary inertia or arclength moment terminology.",
+        "The authorized institutional fallback attempt for inaccessible recent papers was safety-blocked by the platform and was not retried or bypassed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every nondegenerate Euclidean triangle, two independent area-uniform points have mean squared distance \\((s^2-4Rr-r^2)/9\\), two independent arclength-uniform boundary points have mean squared distance \\((s^2-3r^2)/6\\), and the exact positive gap is \\((s^2+8Rr-7r^2)/18\\).",
+  "limitations": [
+    "Only squared Euclidean distance on triangles is treated.",
+    "The theorem does not imply the full all-moments conjecture for generic planar convex bodies.",
+    "The inaccessible complete Lotnikov paper could contain a second-moment triangle remark not visible in the abstract.",
+    "A classical equivalent formula may exist under polygon boundary inertia or arclength moment terminology.",
+    "The authorized institutional fallback attempt for inaccessible recent papers was safety-blocked by the platform and was not retried or bypassed."
+  ],
+  "schema_version": 1
+}
