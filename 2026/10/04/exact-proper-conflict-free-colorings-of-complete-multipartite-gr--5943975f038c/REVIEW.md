@@ -1,15 +1,21 @@
-# Review: Exact proper conflict-free colorings of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Properness forces each color class into one part. For a vertex in part \(V_i\), a color is unique in its open neighborhood exactly when that color is a singleton class in a different part. Therefore proper conflict-freeness is equivalent to having singleton color classes in at least two distinct parts. The color-number formula and optimal-coloring count follow by minimizing and counting the required splits. The standalone verifier independently checks the original neighborhood definition for every complete-multipartite type through order ten.
+## correctness
 
-## Originality
-**PASS.** The inspected recent papers define and study the same proper conflict-free invariant but do not state the arbitrary complete-multipartite theorem. The closest broader algorithmic source covers chain graphs, which include complete bipartite graphs, but does not supply the \(r\)-part structural criterion or the optimal-coloring enumerator. Earlier general bounds give at most a \(\chi+2\)-type ceiling here, not the exact singleton-part transition. Targeted semantic-index searches found an exact crown-graph result and an exact odd-coloring result on complete multipartite graphs; neither implies this theorem because the graph class or invariant differs.
+PASS
 
-## Value
-**PASS.** Complete multipartite graphs are a standard dense family, and the result gives a complete structural characterization, exact chromatic number, and exact count of optimizers. It sharpens the natural two-extra-color bound by identifying precisely when one or both extra colors can be saved. The classification is reusable for testing conjectures and algorithms for proper conflict-free coloring and is not an arbitrary finite slice.
+Properness confines every color class to one part. The open neighborhood of a vertex is exactly the union of all other parts, so a uniquely occurring neighbor color exists exactly when another part contains a singleton color class. Satisfying every part is therefore equivalent to having at least two witnessing parts. Starting from the monochromatic-per-part proper coloring, each missing witness part costs exactly one extra color; a size-two activated part has one optimal split, while a larger part has one split per singled-out vertex. This proves both the chromatic formula and enumeration. Fresh direct-definition enumeration on 70 complete-multipartite types of order at most nine reproduced the minimum and optimal unlabeled count in every case.
 
-## Closest literature and limitations
-The closest inspected same-invariant literature consists of general proper conflict-free bounds and algorithms on special graph classes. The theorem does not treat list variants, \(h>1\), or graphs with missing cross-part edges. Search coverage cannot exclude a result hidden under substantially different older terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Recent proper conflict-free literature gives broad maximum-degree bounds and algorithms on several graph classes, but the inspected sources do not state the arbitrary complete-multipartite iff criterion, exact chromatic number, or optimum-coloring enumerator. Resultary surfaced an exact crown-graph theorem on a different graph family and an odd-coloring theorem on the same family with a weaker parity condition; neither implies the unique-neighborhood classification here.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical dense family for coloring invariants, and the theorem is a natural complete classification rather than an arbitrary slice. It sharpens general bounds to an exact zero/one/two-extra-color transition and classifies every optimum coloring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
