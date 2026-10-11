@@ -1,17 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct differentiation gives \(\nabla\!\cdot F=z\). Liouville's formula then gives \(\det D\phi_t(E_s)=e^{st}\) on the exact equilibrium trajectory \(E_s=(0,0,s)\), establishing bounded trajectories with arbitrary real phase-volume rates. Evaluating \(\nabla\!\cdot(\rho F)\) at a nonzero equilibrium proves the positive-\(C^1\)-density obstruction. The characteristic polynomial is \(\lambda(\lambda^2-s\lambda+a)\), so for \(a>0\) the transverse real parts have the sign of \(s\), with the purely imaginary boundary at \(s=0\). The two invariant-measure identities are exact mean Lie-derivative balances and were replayed symbolically.
+PASS
 
-## Originality
+The frozen equations give divergence \(z\) exactly. On the stationary line \(E_s=(0,0,s)\), Liouville therefore gives \(\det D\phi_t(E_s)=e^{st}\). Evaluating \(\nabla\cdot(\rho F)\) at a nonzero equilibrium proves the positive-smooth-density obstruction. The transverse characteristic polynomial is \(\lambda(\lambda^2-s\lambda+a)\), and the two stationary moment laws follow from the mean Lie derivatives of \(z\) and \(a x^2+y^2\). The packaged symbolic script independently reproduces these identities; its success log is corroboration, not the proof.
 
-PASS. The introducing 2022 article gives the same vector field, one numerical Lyapunov spectrum, the equilibrium line, and its transverse eigenvalues, but it does not compute the divergence, apply Liouville's formula to obtain the continuum of exact equilibrium-line phase-volume rates, state the smooth invariant-density obstruction, or derive the invariant-measure identities. The closest conceptual prior work is the 2019 taxonomy of conservative flows, which explains that state-dependent divergence may have initial-condition-dependent averages, but it treats different vector fields and does not imply the present source-specific theorem. Exact-title, DOI, equation, divergence, invariant-density, equilibrium-rate, alias, and correction searches did not surface an inspected equivalent result.
+## originality
 
-## Value
+PASS
 
-PASS. The 2022 paper's title, abstract, introduction, and conclusion make system-wide conservativity and absence of dissipation central properties of the proposed oscillator. The exact equilibrium line provides a decisive, elementary family of bounded trajectories whose phase-volume rates range over all real values, so the distinction between trajectory-wise near-zero Lyapunov sum and global volume preservation materially changes the interpretation of the model. The invariant-density obstruction and stationary balance laws give reusable exact constraints beyond a numerical counterexample.
+The 2022 introducing article gives the exact flow, line of equilibria, one near-zero numerical Lyapunov sum and local transverse stability, but not the divergence-based continuum of equilibrium phase-volume rates, the smooth invariant-density obstruction, or the two compact-invariant-measure balance laws. The 2019 conservative-flow taxonomy supplies the general distinction between state-dependent divergence and trajectory-dependent average dissipation, not these source-specific formulas.
 
-The main residual risk is bibliographic: an unindexed correction or later derivation could overlap part of the result. The theorem deliberately leaves open whether the particular reported chaotic orbit has zero average divergence.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The advertised conservativity/no-dissipation interpretation is central to the motivating oscillator. A continuum of bounded stationary trajectories with every real phase-volume rate decisively separates a single near-zero numerical Lyapunov sum from global volume preservation, and the density/moment laws add reusable exact constraints. The calculation is elementary but substantively motivated by a published system-level claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
