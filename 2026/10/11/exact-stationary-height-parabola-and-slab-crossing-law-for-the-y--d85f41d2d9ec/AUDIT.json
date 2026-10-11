@@ -1,0 +1,121 @@
+{
+  "claim": "For the Yang–Chen flow \\(\\dot x=a(y-x)\\), \\(\\dot y=x(c-z)\\), \\(\\dot z=xy-bz\\) with \\(a,b,c>0\\), every compactly supported invariant probability measure \\(\\mu\\) satisfies \\(\\int x^2\\,d\\mu=b\\bar z\\), \\(\\int z^2\\,d\\mu=c\\bar z\\), and \\(\\operatorname{Var}_\\mu(z)=\\bar z(c-\\bar z)\\), where \\(\\bar z=\\int z\\,d\\mu\\). Thus \\(0\\le\\bar z\\le c\\); the lower endpoint is only the origin measure and the upper endpoint is supported on the two outer equilibria. Consequently every non-equilibrium ergodic compact invariant measure has \\(0<\\bar z<c\\), \\(\\int x^2\\,d\\mu<bc\\), positive height variance, and positive mass both in \\(0<z<c\\) and in \\(z<0\\) or \\(z>c\\). In particular, any nonconstant periodic orbit with \\(z(t)>0\\) for all \\(t\\) visits both \\(0<z<c\\) and \\(z>c\\).",
+  "correctness": {
+    "rationale": "For compact invariant support, invariant averaging of the Lie derivatives of \\(x^2/2\\), \\(z\\), \\(y^2/2\\), and \\(z^2/2\\) gives \\(\\int xy=\\int x^2=b\\bar z\\) and \\(c\\int xy=\\int xyz=b\\int z^2\\), hence \\(\\int z^2=c\\bar z\\) and the variance parabola. Endpoint support geometry is checked directly from the vector field. A packaged symbolic verifier independently replays the algebra and returns VERIFY_OK. The proof makes no finite-time-to-infinite-time inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest database analogue: 2026/10/4/SCOPE-stationary-variance-parabola-for-the-aziz-merie-four-dimensional--569d283d83a1, which proves a variance parabola for a different four-dimensional flow.",
+        "2026/9/20/SCOPE-rossler-compact-recurrence-threshold-and-measure-laws--6e87f2d3c811 gives invariant-measure laws for the Rössler system, not Yang–Chen.",
+        "2026/10/4/SCOPE-exact-stationary-balances-and-a-recurrence-exclusion-plane-in-th--ec31d6ae4adf concerns the complex Chen system and a different amplitude-weighted balance."
+      ],
+      "reasoning": "The closest broader results demonstrate that stationary balance methods can yield exact recurrence geometry in other models, but their vector fields and observables differ. None specializes to or dominates the Yang–Chen claim.",
+      "searches": [
+        "differential dynamics invariant measure exact mean identity periodic orbit chaos ODE",
+        "three dimensional chaotic system invariant measure mean variance exact law",
+        "Yang Chen system compact recurrent state invariant measure",
+        "Yang-Chen z variance mean c minus mean stationary moment parabola"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdsb.2020235 — same-system full text, pages 1-12 inspected",
+      "doi:10.1142/S0218127408021063 — original-paper abstract/opening material inspected",
+      "doi:10.1016/j.amc.2017.03.033 — same-system global-stability abstract inspected",
+      "2026/10/4/SCOPE-stationary-variance-parabola-for-the-aziz-merie-four-dimensional--569d283d83a1 — different-system structural analogue",
+      "2026/9/20/SCOPE-rossler-compact-recurrence-threshold-and-measure-laws--6e87f2d3c811 — different-system recurrence analogue",
+      "2026/10/4/SCOPE-exact-stationary-balances-and-a-recurrence-exclusion-plane-in-th--ec31d6ae4adf — complex-Chen analogue"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020/2021 source gives the exact vector field and finite equilibria, but its inspected theorems concern dynamics at infinity and Jacobi stability.",
+        "The 2008 original-paper material inspected describes the unusual coexistence of a chaotic attractor with stable node-foci and numerical bifurcation structure.",
+        "The 2017 abstract states global attracting-set and Lyapunov/Lagrange stability results."
+      ],
+      "reasoning": "Neither local/equilibrium stability, global boundedness, nor KCC/Jacobi instability logically implies the two exact invariant averages. The new identities require integrating four specific Lie derivatives; the slab-crossing conclusion then uses endpoint rigidity and the sign of \\(z(z-c)\\).",
+      "searches": [
+        "DOI 10.3934/dcdsb.2020235 full text",
+        "DOI 10.1142/S0218127408021063 abstract opening text",
+        "DOI 10.1016/j.amc.2017.03.033 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same-system source prints the Yang–Chen vector field and studies infinity, KCC/Jacobi stability, equilibria, periodic behavior, and chaos; the inspected full text does not state the invariant-measure moment parabola.",
+        "The original 2008 paper material inspected emphasizes Lyapunov exponents, bifurcations, routes to chaos, periodic windows, parameter regions, and compound attractor structure.",
+        "The 2017 Lagrange-stability abstract concerns attracting sets and Lyapunov/Lagrange stability rather than stationary moment identities."
+      ],
+      "reasoning": "Aliases based on Yang–Chen, mean-square balance, invariant measure, time-average language, and the factor \\(z(z-c)\\) were searched. No same-system formulation with the two moment identities or their slab-crossing consequence was located.",
+      "searches": [
+        "Yang Chen chaotic system invariant measure RMS balance x2 z2",
+        "Yang-Chen system exact recurrence balance mean square c x squared equals b z squared",
+        "a(y-x) x(c-z) xy-bz stationary moment identity",
+        "Yang Chen system compact recurrent state invariant measure",
+        "Yang-Chen z variance mean c minus mean stationary moment parabola",
+        "Yang-Chen system z(z-c) invariant measure",
+        "Yang Chen c mean z minus z squared compact recurrent",
+        "one saddle two stable node foci exact stationary moment",
+        "full-text inspection: DOI 10.3934/dcdsb.2020235, pages 1-12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database/table entry was located for the Yang–Chen identities \\(\\int x^2\\,d\\mu=b\\bar z\\) and \\(\\int z^2\\,d\\mu=c\\bar z\\) or for \\(\\operatorname{Var}(z)=\\bar z(c-\\bar z)\\).",
+        "The source parameter tables and figures report chaotic or periodic regimes and equilibria, not exact invariant-measure moment tables."
+      ],
+      "reasoning": "The finding is an analytic identity rather than a recomputation of a known numerical table. Targeted exact-object searches did not reveal a tabulated equivalent.",
+      "searches": [
+        "Yang-Chen stationary moments mean square balance",
+        "Yang-Chen z variance mean stationary moment parabola",
+        "Yang-Chen system time average invariant measure"
+      ]
+    },
+    "rationale": "Targeted same-object, alias, parameter, invariant-measure, mean-square, and factorized-moment searches found no prior Yang–Chen statement implying the claim. The same-system full text inspected addresses different global/KCC questions. Close database hits are structural analogues for other vector fields and do not specialize to this system.",
+    "residual_risks": [
+      "The full 2017 Lagrange-stability article was not inspected, so an unindexed equivalent identity there cannot be excluded absolutely; its abstract and the 2020 same-system survey give no indication of such a result.",
+      "Only abstract/opening material of the 2008 original article was inspected in this run; an equivalent identity buried elsewhere in that paper remains a bounded bibliographic risk.",
+      "Database and web search failure is not a proof of novelty; the PASS rests on statement-level comparison with the material actually retrieved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the inspected material: it establishes global-at-infinity and Jacobi-stability results but does not state or derive the stationary height parabola or slab-crossing law.",
+        "evidence": "Pages 2-3 print the system and describe chaos/Hopf/period-doubling/periodic behavior; pages 10-12 develop KCC equations and equilibrium Jacobi instability. The four invariant-average identities used here are absent from the inspected sections.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2020235",
+        "material_read": "Publisher PDF pages 1-12, including abstract, introduction, printed system, dynamics-at-infinity sections, KCC setup, and finite-equilibrium analysis.",
+        "method": "Full-text PDF reading after open web access did not provide the needed complete material.",
+        "title": "Dynamics at infinity and Jacobi stability of trajectories for the Yang-Chen system",
+        "trigger": "Same system, middle-cohort source, and direct discussion of periodic/chaotic dynamics."
+      },
+      {
+        "assessment": "No equivalent stationary-moment statement was found in the material read; no whole-document NOT_COVERING claim is made.",
+        "evidence": "The inspected material describes equilibria, Lyapunov exponents, bifurcations, routes to chaos, periodic windows, parameter regions, and numerical attractor structure.",
+        "identifier_or_url": "doi:10.1142/S0218127408021063",
+        "material_read": "Abstract and opening model text available publicly.",
+        "method": "Public bibliographic/preview inspection.",
+        "title": "A chaotic system with one saddle and two stable node-foci",
+        "trigger": "Original paper introducing the Yang–Chen object."
+      },
+      {
+        "assessment": "The material read concerns global exponential attractive sets and Lyapunov/Lagrange stability, not invariant-measure moments; full-document exclusion is not claimed.",
+        "evidence": "The abstract describes constructive boundedness/stability regions and bifurcation expressions, with no stationary moment identity.",
+        "identifier_or_url": "doi:10.1016/j.amc.2017.03.033",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Public abstract inspection and targeted claim search.",
+        "title": "Constructive proof of Lagrange stability and sufficient–Necessary conditions of Lyapunov stability for Yang–Chen chaotic system",
+        "trigger": "Potentially broader same-system global stability result cited by the 2020 source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d85f41d2-d9ec-46ed-8e13-8cf762a5bffc",
+  "value": {
+    "rationale": "The result gives a finite-amplitude, exact global constraint on every compact recurrent statistical state of a classical unusual Lorenz-type flow. It ties mean height, height variance, and horizontal RMS to the equilibrium height \\(c\\), forces non-equilibrium recurrence to cross the equilibrium slab, and supplies a parameter-exact diagnostic for periodic or chaotic computations. This is structurally stronger than a local stability calculation or a numerical attractor statistic.",
+    "status": "PASS"
+  }
+}
