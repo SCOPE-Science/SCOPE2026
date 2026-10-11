@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at source tree 09b40b8b05693501f2c6e9544b877c49aeb05223",
+        "arXiv:2305.02114",
+        "NIST DLMF §4.13"
+      ],
+      "rationale": "Starting from the source's exact optimizer equation \\(1-1/x-\\log(x/\\kappa)=0\\), putting \\(y=1/x>1\\) gives \\(y-\\log y=1+\\log\\kappa\\), equivalently \\((-y)e^{-y}=-1/(e\\kappa)\\). The interval \\(y>1\\) selects \\(w=W_{-1}(-1/(e\\kappa))=-y\\), and substitution yields the displayed \\(\\theta_\\kappa\\) and minimum. Independent symbolic series inversion reproduced \\(y=1+q+q^2/3+q^3/36-q^4/270+\\cdots\\) for \\(q=\\sqrt{2\\log\\kappa}\\), hence the package's \\(\\theta\\) and \\(m\\) expansions; the standard large-branch relation gives \\(y-1=\\log\\kappa+\\log\\log\\kappa+o(1)\\) and \\(1-m\\sim1/(e\\kappa\\log\\kappa)\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source completely solves the \\(\\kappa>1\\) Pareto minimization in terms of a unique scalar root.",
+          "The standard Lambert-W reference supplies exactly the inverse function and endpoint expansions used to rewrite that root."
+        ],
+        "reasoning": "Together these sources dominate the audited exact formula and asymptotics without a new mathematical obstruction.",
+        "searches": [
+          "Cheng Li, Ze-Chun Hu and Qian-Qian Zhou, A study on the Weibull and Pareto distributions motivated by Chvátal's theorem, arXiv:2305.02114",
+          "NIST DLMF §4.13 Lambert W-function"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.02114",
+        "NIST DLMF §4.13",
+        "Resultary semantic query: Pareto mean threshold Lambert W optimizer critical square root scaling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With \\(x=1/y\\), the source equation becomes \\(-y e^{-y}=-1/(e\\kappa)\\), and \\(x\\in(0,1)\\) forces the \\(W_{-1}\\) branch.",
+          "Standard expansion of that branch at \\(-e^{-1}\\) gives the square-root law as \\(\\kappa\\downarrow1\\); its large-\\(\\kappa\\) expansion gives the logarithmic denominator."
+        ],
+        "reasoning": "The final claim is mechanically implied by the prior root characterization plus standard special-function asymptotics.",
+        "searches": [
+          "arXiv:2305.02114 Proposition 3.1",
+          "DLMF §4.13 branch definition and expansions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3.1 already gives the exact minimizer through the unique root of \\(1-1/x-\\log(x/\\kappa)=0\\).",
+          "DLMF defines \\(W\\) by \\(We^W=z\\), identifies the real \\(W_{-1}\\) branch on \\((-e^{-1},0)\\), and records branch-point and large-argument expansions."
+        ],
+        "reasoning": "The source's implicit-root parameterization and the audited Lambert-W formula are algebraically equivalent after \\(y=1/x\\).",
+        "searches": [
+          "arXiv:2305.02114, Proposition 3.1 and Lemma 3.2",
+          "NIST DLMF §4.13 Lambert W-function, real branches and asymptotic expansions",
+          "Resultary semantic query: Pareto mean threshold Lambert W optimizer critical square root scaling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact database lookup is needed for coverage: the same-object primary theorem already gives the optimizer implicitly."
+        ],
+        "reasoning": "The exact-source comparison is decisive; the audited formula is an equivalent representation of the source's unique root.",
+        "searches": [
+          "Resultary published-finding corpus for Pareto mean-threshold and Lambert-W aliases",
+          "arXiv:2305.02114 exact-root theorem"
+        ]
+      },
+      "rationale": "Li--Hu--Zhou already reduce the exact Pareto minimizer to the unique root \\(x_0\\in(0,1)\\) of \\(1-1/x-\\log(x/\\kappa)=0\\) and set \\(\\theta_0=1/(1-x_0)\\). Substituting \\(y=1/x\\) gives \\(y-\\log y=1+\\log\\kappa\\), hence \\(-y=W_{-1}(-1/(e\\kappa))\\) by the defining equation of Lambert \\(W\\). The claimed endpoint expansions then follow from the standard branch-point and large-argument expansions recorded in DLMF §4.13. Under the required implication standard, the full audited claim is a routine closed-form repackaging and asymptotic expansion of the source's implicit optimizer.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_IMPLICIT_OPTIMIZER_COVERAGE",
+          "evidence": "For \\(\\kappa>1\\), Proposition 3.1 states that the unique minimizer is \\(\\theta_0=1/(1-x_0)\\) where \\(x_0\\) is the unique root of \\(1-1/x-\\log(x/\\kappa)=0\\).",
+          "identifier_or_url": "arXiv:2305.02114",
+          "material_read": "Open full-text material around the Pareto density, definition of \\(g_\\kappa\\), Proposition 3.1, equation (3.1), and Lemma 3.2.",
+          "method": "Direct algebraic implication comparison.",
+          "title": "A study on the Weibull and Pareto distributions motivated by Chvátal's theorem",
+          "trigger": "Primary same-object paper containing the exact Pareto minimization theorem."
+        },
+        {
+          "assessment": "STANDARD_INVERSE_AND_ASYMPTOTIC_TOOL",
+          "evidence": "The audited special-function formula follows immediately from the defining equation, with \\(W_{-1}\\) selected by the source's interval \\(x_0\\in(0,1)\\).",
+          "identifier_or_url": "https://dlmf.nist.gov/4.13",
+          "material_read": "Definition, real-branch description near \\(-e^{-1}\\), and listed branch-point/large-variable asymptotic expansions.",
+          "method": "Implication comparison.",
+          "title": "DLMF §4.13 Lambert W-Function",
+          "trigger": "Standard reference needed to assess whether the Lambert-W rewrite and endpoint expansions add substantive new content."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2305.02114",
+        "NIST DLMF §4.13"
+      ],
+      "rationale": "The source already solves the exact one-dimensional minimization and uniquely characterizes the optimizer. Rewriting that root with a standard inverse special function and applying standard branch expansions improves explicitness but is a routine post-processing step rather than a motivated new mathematical gap under the required value bar.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2305.02114",
+    "NIST DLMF §4.13",
+    "Resultary semantic query: Pareto mean threshold Lambert W optimizer critical square root scaling"
+  ],
+  "disposition": "failed",
+  "final_claim": "For \\(\\kappa>1\\), the Pareto mean-threshold objective has unique minimizer \\(\\theta_\\kappa=w_\\kappa/(w_\\kappa+1)\\) with \\(w_\\kappa=W_{-1}(-1/(e\\kappa))\\), and minimum \\(m(\\kappa)=1+1/(e\\kappa w_\\kappa)\\); the stated square-root expansions as \\(\\kappa\\downarrow1\\) and logarithmic asymptotics as \\(\\kappa\\to\\infty\\) follow.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for decisive prior implication and routine-value status, not for correctness."
+  ]
+}
