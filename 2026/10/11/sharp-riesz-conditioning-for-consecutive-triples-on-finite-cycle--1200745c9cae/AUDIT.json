@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact unitary phase conjugation yields real Gram off-diagonals g(d), and explicit eigenvalues handle balanced gaps. Gershgorin/interlacing strictly excludes a gap below q; the only remaining (q,q,q+2) type is excluded by a fully factored eighth-degree inequality positive for every N>=11; N=3,4,5,6,8 handled exactly. All quantifiers, eigenvalue ratios, and optimizer counts checked. The standalone checker independently reproduces three symbolic identities and exhaustively evaluates all frequency triples through N=70; finite tests are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kunis–Nagel–Strotmann prove upper/lower singular-value estimates for separated nodes, with no exact three-by-three discrete optimizer counts.",
+        "Kunis–Nagel give condition bounds in the regime of nearly colliding node pairs, a distinct geometric regime."
+      ],
+      "reasoning": "General bounds for separated or clustered Vandermonde nodes do not give equality characterizations or the exact minimum among all N-grid three-node choices. The new formulas cannot be obtained by substituting a cardinality into those inequalities.",
+      "searches": [
+        "optimal 3 node Fourier interpolation stability 3 equally spaced cyclic frequencies smallest condition number and multiplicity",
+        "arxiv:2103.08167",
+        "arxiv:1812.08645"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.04487",
+      "doi:10.13001/1081-3810.1190",
+      "arxiv:2103.08167",
+      "arxiv:1812.08645",
+      "Ferreira (1999) workshop manuscript"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finite-group Riesz-basis existence and generic geometry bounds imply only existence/inequalities, not all minimizing B.",
+        "Qualitative three-point spectral-pair criteria imply ratio 1 when 3 divides N, but not the sharp nonorthogonal ratios for N congruent to 1 or 2 modulo 3.",
+        "General unit-circle conditioning work quantifies stability with separation rather than proving balanced gaps are the unique grid minimizers."
+      ],
+      "reasoning": "The prior qualitative theorem covers the orthogonal 3|N corollary; the new scope specifically includes the nonorthogonal sharp constants and complete optimizing geometry for every other order. Neither a generic stability estimate nor a perfect-condition characterization for a tunable grid supplies that claim.",
+      "searches": [
+        "exact Riesz ratio of three consecutive sites {0,1,2} in Z_N all N, best exponential basis cyclic gaps floor N/3 ceil N/3",
+        "3 x 3 Fourier Vandermonde discrete roots unity optimal spectral condition number evenly spaced nodes",
+        "arxiv:1904.04487",
+        "doi:10.13001/1081-3810.1190"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Three-by-three Fourier submatrix is a unit-circle Vandermonde matrix; its squared spectral condition number equals the finite exponential-basis Riesz ratio.",
+        "Ferguson–Mayeli–Sothanaphan define this Riesz ratio, but do not supply the every-order three-point optimizer classification.",
+        "Berman–Feuer study when an adjustable sampling scale permits a perfectly conditioned Vandermonde; their variable parameter changes the problem."
+      ],
+      "reasoning": "Optimizing a three-frequency basis of consecutive cyclic sampling sites is equivalent, by column phase shifts, to optimizing a symmetric three-node unit-circle Gram matrix with off-diagonals 1+2cos(gap). This equivalence was used in the primary literature comparison; perfect conditioning under free continuous sampling scale cannot imply the constrained imperfect-grid formula.",
+      "searches": [
+        "exact Riesz ratio of three consecutive sites {0,1,2} in Z_N all N, best exponential basis cyclic gaps floor N/3 ceil N/3",
+        "all 3x3 Fourier submatrices with consecutive rows optimal condition number three equidistributed columns roots unity",
+        "arxiv:1904.04487",
+        "doi:10.13001/1081-3810.1190"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest research-record hits concerned a subgroup-plus-one-point family, qualitative three-point cyclic spectral pairs, and singular Fourier-minor ranks, not best conditioning for {0,1,2}.",
+        "Complete enumeration of N=3,...,70 frequencies is in the supplied checker, but no literature table covering the claimed all-order classification was found among inspected primary sources."
+      ],
+      "reasoning": "A numerical table or singular-minor classification cannot dominate an explicit all-order theorem with optimizer counts. A missed specialized table remains a residual bibliographic risk; an unsuccessful search alone is not treated as proof of novelty.",
+      "searches": [
+        "sharp exact Riesz ratio rho({0,1,2}) of three consecutive points on cyclic group Z_n balanced frequency triple spectral condition number",
+        "discrete Vandermonde 3 by 3 Gram eigenvalue ratio all n optimizer circular gaps q q q+1 q+1 and q",
+        "three by three Fourier minor singular values optimal condition number cyclic prime group"
+      ]
+    },
+    "rationale": "Specific constrained infinite-family sharp ratio and optimizer-count theorem was compared to published finite-group quantitative-spectrality framework, classical perfect Vandermonde conditioning, and separated/clustered-node estimates; these neither state nor imply it. A qualitative spectral-pair result covers only the 3|N orthogonal subcase; the new nonorthogonal regimes and uniqueness remain distinct. Historical alternative terminology leaves residual risk.",
+    "residual_risks": [
+      "An equivalent older three-by-three restricted Vandermonde minimax theorem may exist under spectral design or interpolation terminology.",
+      "Some historical specialized texts are incompletely indexed and no independently exhaustive originality audit is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found broad framework and examples but no exact all-N consecutive-three-point optimum with equality frequencies",
+        "evidence": [
+          "arxiv:1904.04487, 2019-04-09 first public; sections 1,3–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1904.04487v6",
+        "material_read": "Introduction, quantitative-spectrality definitions and theorem statements, Sections 3–5 definitions and bounds, later examples and bibliography",
+        "method": "Read lawful full arXiv HTML; compared objects, minimization variables, and implications",
+        "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+        "trigger": "Defines finite-group Riesz ratio and nearest primary conceptual source"
+      },
+      {
+        "assessment": "Addresses existence of a continuously adjustable scale yielding perfect conditioning for chosen indices; not a fixed-grid ratio minimization theorem",
+        "evidence": [
+          "Berman and Feuer, Electronic Journal of Linear Algebra 16 (2007)"
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/1081-3810.1190",
+        "material_read": "Published article PDF, problem definition, exact perfect-conditioning criterion, explanatory discussion",
+        "method": "Read accessible publisher PDF including theorem, compared tunable scale to fixed N-grid design",
+        "title": "On perfect conditioning of Vandermonde matrices on the unit circle",
+        "trigger": "Same Vandermonde matrix object and condition number"
+      },
+      {
+        "assessment": "Separation-dependent stability estimates; does not provide full three-by-three finite-grid minimax or all equality sets",
+        "evidence": [
+          "arxiv:2103.08167"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.08167",
+        "material_read": "Accessible full arXiv text, introduction, separated-node theorems and bounds",
+        "method": "Read lawful OA preprint text and compared exactness and equality claims",
+        "title": "Multivariate Vandermonde matrices with separated nodes on the unit circle are stable",
+        "trigger": "Quantitative lower singular-value bounds for Fourier/Vandermonde matrices"
+      },
+      {
+        "assessment": "Upper/lower bounds for separated or nearly colliding nodes; no discrete-grid exact 3-node optimizer classification",
+        "evidence": [
+          "Kunis and Nagel, arxiv:1812.08645; Numerical Algorithms 87 (2021)"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+        "material_read": "Published OA full article sections 1–3 and stated bounds, node geometry, discussion",
+        "method": "Inspected accessible Springer full text, notably Section 2 and Theorems 2.1 and 2.2",
+        "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+        "trigger": "Same condition-number objective and potential stronger two-point comparison"
+      },
+      {
+        "assessment": "Broad interpolation and sample-recovery stability statements, not the all-order three-frequency constrained optimum",
+        "evidence": [
+          "Ferreira, 1999 workshop manuscript"
+        ],
+        "identifier_or_url": "Ferreira (1999), workshop preprint",
+        "material_read": "Complete short workshop paper and Vandermonde stability discussion",
+        "method": "Read freely accessible paper including illustrations and matrix bounds",
+        "title": "Superresolution, the recovery of missing samples, and Vandermonde matrices on the unit circle",
+        "trigger": "Early full-text conditioning literature and possible same-object theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1200745c-9cae-43a6-affb-6c6f923af74d",
+  "value": {
+    "rationale": "Best Riesz ratio measures stability of exponential bases in finite harmonic analysis. The theorem gives exact all-order sharp values, arithmetic dependence on N mod 3, and counts/equality classification of optimal three-grid-frequency designs for the natural three-consecutive-point aperture. This answers a nontrivial discrete minimax problem, not a substitution into generic bounds; the precise optimal design has direct use in stable reconstruction.",
+    "status": "PASS"
+  }
+}
