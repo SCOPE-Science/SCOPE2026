@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The equilibrium equations were solved exactly for the stated rational parameter family and reduce to \(\mu-39y^2/4=0\). At \(\mu=0\) this leaves only the origin. The full four-dimensional Jacobian was reconstructed from the printed vector field and its characteristic polynomial reduces exactly to \(\lambda^2(\lambda^2+1769/1904)\). The proof therefore establishes an isolated equilibrium with the double-zero plus imaginary-pair spectrum used by the source's own definition. The claim does not infer generic bifurcation consequences from spectral data alone.
+## correctness
 
-## Originality
-PASS. The primary paper states the opposite conclusion in Theorem 1. Exact-model, theorem-language, characteristic-polynomial, DOI, and alias searches found no RNC-O correction or equivalent construction. The closest published-finding corpus result concerns a different Rössler zero-Hopf unfolding, and open-access four-dimensional zero-Hopf papers checked in detail use different Lorenz-type vector fields. No checked statement implies this explicit RNC-O counterexample.
+PASS
 
-## Value
-PASS. The source poses the existence of such a one-parameter family as Problem 1 and answers it negatively. An exact positive construction with the source's baseline \(a\), \(c\), and \(d\), a complete equilibrium trichotomy, and an exact spectrum directly corrects that mathematical conclusion and reopens zero-Hopf analysis for the RNC-O family.
+Direct elimination gives \(z=-y\), \(w=-10y\), \(x=39y/4\), with the remaining equation \(\mu-39y^2/4=0\). Fresh symbolic determinant calculation gives exactly \(\lambda^2(1904\lambda^2+1769)/1904\). Thus \(\mu=0\) has one isolated equilibrium with a double-zero eigenvalue and a nonzero imaginary pair. The claim is deliberately restricted to the source's equilibrium-level zero-Hopf definition and does not infer normal-form nondegeneracy or bifurcating periodic solutions.
 
-## Closest literature and limitations
-The closest source is Nikolov–Vassilev (2023), DOI 10.3390/axioms12020185, whose Theorem 1 is contradicted at the equilibrium level. Yang–Wei–Moroz (2020), DOI 10.1186/s13662-020-02647-4, and Chen–Liang (2017), DOI 10.1002/mma.4236, establish zero-Hopf phenomena for different four-dimensional hyperchaotic systems and do not cover the RNC-O equations. A residual originality risk remains for unindexed corrections. The present result does not prove the full nondegeneracy hypotheses or periodic-orbit conclusions of any specific zero-Hopf bifurcation theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full primary article states Problem 1 asking for a one-parameter RNC-O family with an origin zero-Hopf equilibrium and then Theorem 1 asserting that an origin equilibrium of system (2) cannot be zero-Hopf. The assigned parameters satisfy the printed system hypotheses, keep the origin as the unique equilibrium at \(\mu=0\), and yield the opposite exact spectrum. Resultary's closest other Rössler zero-Hopf item concerns a different unfolding, so no prior implication covers this correction.
+
+## value
+
+PASS
+
+An exact counterexample to a named same-model nonexistence theorem and a positive answer to its explicit equilibrium-level problem materially changes the local spectral possibilities of the model. The complete equilibrium trichotomy and exact frequency make the correction independently reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
