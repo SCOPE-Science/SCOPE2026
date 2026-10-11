@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:10:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one Rademacher probe, \\(D_i=z_i(Hz)_i=H_{ii}+\\sum_{j\\ne i}H_{ij}z_iz_j\\); orthogonality of distinct Rademacher monomials gives mean \\(H_{ii}\\) and variance \\(\\sum_{j\\ne i}H_{ij}^2\\). Independent probe averaging divides only the variance by \\(m\\). The bias-corrected RMS-square is a convex combination of identically distributed squared estimates whose weights sum to one, giving the exact time-independent expectation. In two dimensions, writing one coordinate's squared projection onto the small-eigenvalue eigenspace as \\(p\\) reduces the squared inflation to a one-variable rational function with unique maximum at \\(p=\\kappa/(\\kappa+1)\\), giving the claimed sharp factor and its \\(m\\)-probe version. Fresh exhaustive Rademacher enumeration for several random symmetric matrices and independent evaluation of the condition-number maximizer reproduced the formulas.",
+      "risk": "The result is for a fixed Hessian, block size one, and expected RMS square rather than expected RMS.",
+      "sources": [
+        "Yao et al., arXiv:2006.00719, AdaHessian equations (9)--(12)",
+        "Dharangutte--Musco, arXiv:2208.03268 / DOI:10.1137/1.9781611977585.ch32",
+        "independent exact moment checks in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The estimator literature is broader in matrix class and probabilistic error bounds; AdaHessian is broader in optimizer behavior and experiments.",
+          "Those works do not state the fixed-Hessian RMS target or orientation-sharp condition-number factor."
+        ],
+        "reasoning": "General variance/concentration control does not supply the exact post-RMS quantity or its sharp SPD orientation extremum without the submitted composition and calculation.",
+        "searches": [
+          "AdaHessian full primary paper",
+          "Dharangutte--Musco tight Hutchinson analysis",
+          "Hallman--Ipsen--Saibaba 2023 Monte Carlo diagonal-estimation analysis"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.00719",
+        "arXiv:2208.03268",
+        "DOI:10.1137/1.9781611977585.ch32",
+        "DOI:10.1016/j.apnum.2007.01.003",
+        "DOI:10.1137/22M1476277",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published ingredients make the first moment calculation short, but neither source states the combined RMS mean-square target.",
+          "The sharp two-dimensional orientation maximum and exact multi-probe inflation are additional claims not contained in the cited estimator bounds."
+        ],
+        "reasoning": "The final claim is not treated as novel merely because it rewrites Hutchinson variance; the materially new part is the persistent AdaHessian RMS leakage and its exact conditioning envelope.",
+        "searches": [
+          "arXiv:2006.00719 Hessian momentum formula",
+          "arXiv:2208.03268 off-diagonal error analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AdaHessian's Equation (11) is an RMS of squared stochastic diagonal estimates, so the relevant prior estimator variance is the natural equivalent formulation.",
+          "No inspected source states that AdaHessian's expected squared RMS equals row energy for one probe or gives the sharp \\(\\kappa\\)-dependent inflation."
+        ],
+        "reasoning": "Estimator variance and optimizer RMS were compared at the statement/implication level; the standard Hutchinson moment itself is not claimed as novel.",
+        "searches": [
+          "Resultary query: AdaHessian Hutchinson diagonal RMS off-diagonal curvature variance row norm condition number",
+          "arXiv:2006.00719 full PDF equations 9--12",
+          "arXiv:2208.03268 / SOSA 2023 Hutchinson diagonal estimator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct scientific record with the optimizer-specific formula was returned."
+        ],
+        "reasoning": "The result is a symbolic exact law, not a finite table; absence is only supporting evidence.",
+        "searches": [
+          "Resultary exact search for AdaHessian row-norm RMS target and \\((\\kappa+1)/(2\\sqrt\\kappa)\\)"
+        ]
+      },
+      "rationale": "AdaHessian defines Hutchinson diagonal estimation, spatial averaging, and the bias-corrected RMS Hessian momentum but does not state the resulting mean-square target on a fixed Hessian. Diagonal-estimation papers establish that off-diagonal energy controls Hutchinson error, but do not propagate it through AdaHessian's RMS state or give the optimizer-specific sharp two-dimensional condition-number inflation. The underlying moment identity is standard; originality is restricted to the exact optimizer-state consequence and sharp conditioning law.",
+      "residual_risks": [
+        "The exact coordinatewise Rademacher second moment is classical, so only the optimizer-specific combination and sharp conditioning law carry originality.",
+        "A follow-up optimizer-analysis paper could have noted the same RMS bias under different terminology; none was located in bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_COMPONENTS_NOT_MEAN_SQUARE_TARGET",
+          "evidence": "The paper explicitly uses Hutchinson plus RMS EMA and says spatial averaging reduces variance, but it does not state the row-norm mean-square target or the conditioning formula.",
+          "identifier_or_url": "arXiv:2006.00719",
+          "material_read": "Full open PDF around the Hutchinson diagonal estimator, spatial averaging, Hessian momentum Equation (11), AdaHessian Equation (12), and one-probe default discussion.",
+          "method": "Lawful arXiv full-text inspection with page screenshot.",
+          "title": "ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning",
+          "trigger": "Defining source for the exact estimator and Hessian RMS recurrence."
+        },
+        {
+          "assessment": "ESTIMATOR_ERROR_PRIOR_NOT_ADAHESSIAN_RMS_LAW",
+          "evidence": "It controls the diagonal estimator itself through off-diagonal matrix energy; it does not analyze AdaHessian's RMS state.",
+          "identifier_or_url": "arXiv:2208.03268 / DOI:10.1137/1.9781611977585.ch32",
+          "material_read": "Primary abstract and publication record describing dimension-free error control through the off-diagonal part of the matrix.",
+          "method": "Lawful primary abstract/publication inspection.",
+          "title": "A Tight Analysis of Hutchinson's Diagonal Estimator",
+          "trigger": "Closest primary estimator-error analysis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "AdaHessian explicitly uses RMS smoothing and spatial averaging to manage stochastic Hessian-diagonal noise. The theorem identifies a persistent, exact consequence of that design: off-diagonal curvature becomes the RMS mean-square target, quantifies its worst conditioning distortion, and shows precisely how multiple probes suppress it. That is a motivated optimizer-structure invariant rather than a bare estimator variance calculation.",
+      "risk": "The theorem does not address changing Hessians, spatial blocks larger than one, or full optimizer convergence.",
+      "sources": [
+        "arXiv:2006.00719",
+        "arXiv:2208.03268"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For paper-form AdaHessian on a fixed quadratic without spatial averaging, averaging \\(m\\) independent Rademacher Hutchinson probes before the Hessian RMS gives \\(\\mathbb E[\\overline D_{t,i}^{\\,2}]=H_{ii}^2+m^{-1}\\sum_{j\\ne i}H_{ij}^2\\) at every time; for one probe the target is the squared row norm, and in two dimensions the sharp RMS inflation over all SPD orientations of condition number \\(\\kappa\\) is \\((\\kappa+1)/(2\\sqrt\\kappa)\\), with the stated exact \\(m\\)-probe reduction.",
+  "limitations": [
+    "Fixed deterministic quadratic Hessian and no spatial averaging.",
+    "Expected squared RMS state only; no claim for expected RMS or almost-sure convergence.",
+    "The sharp condition-number envelope is two-dimensional."
+  ],
+  "schema_version": 1
+}

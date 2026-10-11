@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof starts from the exact paper-form Hutchinson coordinate estimator. Rademacher orthogonality gives its first and second moments exactly, independent probe averaging divides only the variance by the probe count, and the bias-corrected Hessian RMS is a convex combination of those squared estimates. The two-dimensional condition-number formula is a complete one-variable extremization and is attained by an explicit eigenspace orientation.
+PASS
 
-Risk: the exact identity is for a fixed Hessian and the expected square of the RMS state, not for a changing stochastic Hessian or the expectation of the square root itself.
+For one Rademacher probe, \(D_i=z_i(Hz)_i=H_{ii}+\sum_{j\ne i}H_{ij}z_iz_j\); orthogonality of distinct Rademacher monomials gives mean \(H_{ii}\) and variance \(\sum_{j\ne i}H_{ij}^2\). Independent probe averaging divides only the variance by \(m\). The bias-corrected RMS-square is a convex combination of identically distributed squared estimates whose weights sum to one, giving the exact time-independent expectation. In two dimensions, writing one coordinate's squared projection onto the small-eigenvalue eigenspace as \(p\) reduces the squared inflation to a one-variable rational function with unique maximum at \(p=\kappa/(\kappa+1)\), giving the claimed sharp factor and its \(m\)-probe version. Fresh exhaustive Rademacher enumeration for several random symmetric matrices and independent evaluation of the condition-number maximizer reproduced the formulas.
 
-## Originality
+## originality
 
-PASS. Stochastic diagonal-estimator variance and off-diagonal error are established prior results. The inspected AdaHessian paper uses that estimator inside an RMS momentum but does not state the resulting exact mean-square target, the row-norm identity at one probe, the \(1/m\) leakage law, or the sharp two-dimensional conditioning factor. The claim is therefore restricted to that downstream optimizer-level consequence rather than asserting novelty for Hutchinson variance itself.
+PASS
 
-Residual risk: an unindexed implementation discussion may have noted the same RMS bias.
+AdaHessian defines Hutchinson diagonal estimation, spatial averaging, and the bias-corrected RMS Hessian momentum but does not state the resulting mean-square target on a fixed Hessian. Diagonal-estimation papers establish that off-diagonal energy controls Hutchinson error, but do not propagate it through AdaHessian's RMS state or give the optimizer-specific sharp two-dimensional condition-number inflation. The underlying moment identity is standard; originality is restricted to the exact optimizer-state consequence and sharp conditioning law.
 
-## Value
+## value
 
-PASS. AdaHessian is specifically designed to use stochastic curvature information as an adaptive preconditioner. The result identifies a precise structural distinction between smoothing the stochastic estimate and removing its variance: temporal RMS momentum preserves off-diagonal variance in its mean-square target, while multiple probes reduce it. The condition-number extremum turns that distinction into a quantitative worst-case diagnostic.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+AdaHessian explicitly uses RMS smoothing and spatial averaging to manage stochastic Hessian-diagonal noise. The theorem identifies a persistent, exact consequence of that design: off-diagonal curvature becomes the RMS mean-square target, quantifies its worst conditioning distortion, and shows precisely how multiple probes suppress it. That is a motivated optimizer-structure invariant rather than a bare estimator variance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
