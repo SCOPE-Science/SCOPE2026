@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:03:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 6c63980dca687908129b9ea69b964e68e80483ce",
+        "assigned verify.py blob f36ac648c4c8ad7087ee5d1e3cc445e21d6cbab4",
+        "OEIS A344178 current entry"
+      ],
+      "rationale": "The radical identity \\(G(n)/n=G(\\operatorname{rad}n)/\\operatorname{rad}n+\\sum_{p\\mid n}(e_p-1)/p\\) follows directly from the factorized arithmetic derivative and Euler product. For prime powers it gives \\(G(p^e)=(e-1)p^{e-1}\\), with minimum two only at \\(4\\). For two-prime support \\(p^a q^b\\), direct expansion gives \\(G=p^{a-1}q^{b-1}[(a-1)q+(b-1)p+1]\\), so the nonsquarefree minimum is eight only at \\(12\\). For a squarefree triple \\(pqr\\), \\(G=p+q+r-1\\ge9\\) with equality only at \\(30\\); adding further squarefree primes strictly increases \\(G\\), while repeated exponents add a strictly positive radical term. These support bounds make the listed fibers through nine exhaustive. An independent enumeration through \\(20000\\) reproduced all stated minima and fibers; the proof is unrestricted.",
+      "residual_risks": [
+        "The theorem determines only the first support thresholds and fibers through nine."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "OEIS gives only the \\(0\\)- and \\(1\\)-fiber characterizations; standard arithmetic-derivative sources provide the factorization formula but not the cototient-gap support theorem."
+        ],
+        "reasoning": "The standard factorization is an input, not a prior classification of the new inverse fibers.",
+        "searches": [
+          "OEIS A344178 comments",
+          "Haukkanen--Merikoski--Tossavainen arithmetic subderivative literature"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A344178",
+        "Haukkanen--Merikoski--Tossavainen 2019",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonnegativity and the first two fibers do not imply minimum eight on nonsquarefree two-prime support or minimum nine on three-prime support."
+        ],
+        "reasoning": "The radical decomposition and exact two-prime formula are the additional global arguments.",
+        "searches": [
+          "OEIS nonnegativity and \\(0/1\\) fibers versus support thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A344178 has exactly the audited function, formula, and initial sequence values."
+        ],
+        "reasoning": "The object is identical; novelty is the proof of the support-stratified thresholds and exhaustive low fibers.",
+        "searches": [
+          "Resultary query: arithmetic derivative cototient gap support thresholds OEIS A344178",
+          "OEIS A344178 current entry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The database table contains early occurrences \\(4,9,25,49,8,12,18,30\\), but its comments do not certify completeness for values two through nine."
+        ],
+        "reasoning": "Known-table recomputation is explicitly separated from the global support bounds that prove no later entries exist.",
+        "searches": [
+          "OEIS A344178 data/table through 65537 and comments",
+          "Resultary current exact function search"
+        ]
+      },
+      "rationale": "OEIS A344178 is exactly \\(G(n)=D(n)-(n-\\varphi(n))\\). Its current entry proves nonnegativity and records the complete fibers \\(G=0\\) and \\(G=1\\), while its data visibly contains the early values but does not prove that no later integer enters fibers two through nine. The audited support inequalities supply that missing global exclusion and therefore turn the observed initial table into a complete spectrum through nine. Resultary returned only the assigned same-object theorem, and the inspected arithmetic-derivative literature does not discuss this cototient difference.",
+      "residual_risks": [
+        "An unindexed elementary number-theory note or database comment elsewhere could contain the same low-fiber classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_INITIAL_TABLE_AND_ZERO_ONE_FIBERS_ONLY",
+          "evidence": "The entry states \\(a(n)=0\\) exactly for \\(1\\) and primes and \\(a(n)=1\\) exactly for squarefree semiprimes, but does not state the audited support thresholds or exhaustive fibers two through nine.",
+          "identifier_or_url": "https://oeis.org/A344178",
+          "material_read": "current full entry including formula, data, nonnegativity comment, and complete \\(0\\)- and \\(1\\)-fiber comments",
+          "method": "database full-entry inspection",
+          "title": "OEIS A344178",
+          "trigger": "canonical database entry for the exact function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A344178",
+        "standard arithmetic-derivative formulas",
+        "assigned proof"
+      ],
+      "rationale": "The function is a canonical recorded combination of the arithmetic derivative and cototient. Support-stratified sharp minima are natural inverse-value invariants, and the theorem gives the first complete nontrivial fiber spectrum rather than merely recomputing a finite table.",
+      "residual_risks": [
+        "The low-value theorem is an initial classification, not a theory of arbitrary fibers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem determines only the first support thresholds and fibers through nine.",
+    "An unindexed elementary number-theory note or database comment elsewhere could contain the same low-fiber classification.",
+    "The low-value theorem is an initial classification, not a theory of arbitrary fibers."
+  ]
+}

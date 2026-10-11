@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses exact identities only. Prime powers satisfy \(G(p^e)=(e-1)p^{e-1}\). Two-prime support has the closed formula
-\[
-G(p^a q^b)=p^{a-1}q^{b-1}\left((a-1)q+(b-1)p+1\right),
-\]
-which yields the sharp nonsquarefree threshold \(8\) uniquely at \(12\). Squarefree triples satisfy \(G(pqr)=p+q+r-1\), minimized uniquely by \(2,3,5\), and the squarefree recursion plus the radical identity exclude smaller values for larger or repeated support. The package verifier independently confirms all statements through \(10^6\).
+## correctness
 
-## Originality
-PASS. The current canonical entry A344178 defines the same function and records exact descriptions only for the fibers at \(0\) and \(1\). It does not contain the support-stratified lower bounds or the complete fibers from \(2\) through \(9\). Targeted published-finding corpus and web searches for the function, aliases, explicit values, and support thresholds found no prior implication-equivalent statement. The inspected arithmetic-derivative paper provides the standard derivative formula but contains no cototient discussion.
+PASS
 
-## Value
-PASS. The result advances the exact fiber program already present in A344178 and does so structurally: it identifies the first sharp threshold in each prime-support regime and explains all missing and attained values through \(9\). The cutoff is mathematically natural because \(8\) is the first nonsquarefree two-prime threshold and \(9\) is the first three-prime threshold.
+The radical identity \(G(n)/n=G(\operatorname{rad}n)/\operatorname{rad}n+\sum_{p\mid n}(e_p-1)/p\) follows directly from the factorized arithmetic derivative and Euler product. For prime powers it gives \(G(p^e)=(e-1)p^{e-1}\), with minimum two only at \(4\). For two-prime support \(p^a q^b\), direct expansion gives \(G=p^{a-1}q^{b-1}[(a-1)q+(b-1)p+1]\), so the nonsquarefree minimum is eight only at \(12\). For a squarefree triple \(pqr\), \(G=p+q+r-1\ge9\) with equality only at \(30\); adding further squarefree primes strictly increases \(G\), while repeated exponents add a strictly positive radical term. These support bounds make the listed fibers through nine exhaustive. An independent enumeration through \(20000\) reproduced all stated minima and fibers; the proof is unrestricted.
 
-## Closest literature and limitations
-The closest exact source is OEIS A344178, whose current comments classify only the \(0\)- and \(1\)-fibers. The main background source is Haukkanen--Merikoski--Tossavainen on arithmetic subderivatives, primary MSC \(11A25\). The theorem does not classify arbitrary larger fibers, and an unindexed elementary note remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+OEIS A344178 is exactly \(G(n)=D(n)-(n-\varphi(n))\). Its current entry proves nonnegativity and records the complete fibers \(G=0\) and \(G=1\), while its data visibly contains the early values but does not prove that no later integer enters fibers two through nine. The audited support inequalities supply that missing global exclusion and therefore turn the observed initial table into a complete spectrum through nine. Resultary returned only the assigned same-object theorem, and the inspected arithmetic-derivative literature does not discuss this cototient difference.
+
+## value
+
+PASS
+
+The function is a canonical recorded combination of the arithmetic derivative and cototient. Support-stratified sharp minima are natural inverse-value invariants, and the theorem gives the first complete nontrivial fiber spectrum rather than merely recomputing a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
