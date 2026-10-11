@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:08:11.197288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 557d9941bdf476bbc01a41c270a5c0bec1b1ceba",
+        "assigned verify_rank2_feedback.py blob ee3073bf0d5d53318f070b9bd6236e518e4e571a",
+        "Gregoratti--Werner, arXiv:quant-ph/0403092",
+        "Wootters, DOI 10.1103/PhysRevLett.80.2245",
+        "Laustsen--Verstraete--van Enk, arXiv:quant-ph/0206192v2, complete 20-page primary PDF"
+      ],
+      "rationale": "For any finite Kraus refinement, Gregoratti--Werner's optimal qubit feedback formula reduces to \\(F_{\\mathrm{corr}}=\\tfrac12+\\tfrac12\\sum_k|\\det B_k|\\). Writing every refinement as an isometric remixing of a minimal pair and Takagi-diagonalizing its determinant quadratic gives \\(s_1-s_2\\le\\sum_k|\\det B_k|\\le s_1+s_2\\). The two-outcome unitary path in the package reaches both bounds and varies continuously, hence fills the interval. The amplitude-damping and dephasing specializations and the provided deterministic verifier are consistent with these identities.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wootters supplies the convex-roof minimum.",
+          "Laustsen--Verstraete--van Enk supply the concave-roof maximum and the right-unitary/Takagi optimization.",
+          "Gregoratti--Werner supply the feedback-fidelity determinant objective for qubits.",
+          "Uhlmann develops the same rank-two determinant/concurrence geometry in channel language."
+        ],
+        "reasoning": "Together the prior results dominate the claimed endpoint characterization for rank-two qubit channels.",
+        "searches": [
+          "Wootters, Phys. Rev. Lett. 80, 2245 (1998)",
+          "Laustsen--Verstraete--van Enk, arXiv:quant-ph/0206192v2",
+          "Gregoratti--Werner, arXiv:quant-ph/0403092",
+          "Uhlmann, arXiv:quant-ph/0605103"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/quant-ph/0206192",
+        "https://doi.org/10.1103/PhysRevLett.80.2245",
+        "https://arxiv.org/abs/quant-ph/0403092",
+        "https://arxiv.org/abs/quant-ph/0605103",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gregoratti--Werner reduce optimized corrected fidelity to an average determinant objective for a chosen Kraus decomposition.",
+          "HJW identifies Kraus remixings with pure-state ensemble decompositions of the Choi state.",
+          "The minimum and maximum of that exact average are respectively ordinary concurrence and concurrence of assistance."
+        ],
+        "reasoning": "The final endpoints, independence criterion and special cases are therefore direct translations of established concurrence-roof formulas; only the observation that a connected path fills every intermediate value is additional and routine.",
+        "searches": [
+          "Gregoratti--Werner Proposition 4 and qubit determinant identity",
+          "Laustsen--Verstraete--van Enk Eqs. (20)--(24)",
+          "Wootters two-qubit concurrence formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Laustsen--Verstraete--van Enk identify all ensemble decompositions through right-unitary matrices and prove the maximum average concurrence is the sum of Takagi singular values.",
+          "Wootters gives the minimum average concurrence for a two-qubit state; for Choi rank two only two singular values are nonzero, yielding their difference.",
+          "The channel Kraus decomposition is the HJW ensemble decomposition of the normalized Choi state, and weighted pure concurrence equals \\(|\\det B_k|\\)."
+        ],
+        "reasoning": "The audited determinant-remixing problem is equivalent to the established convex- and concave-roof concurrence problem for the channel's rank-two Choi state.",
+        "searches": [
+          "Resultary query: rank two qubit channel environment measurement correction fidelity interval determinant Takagi Kraus",
+          "web query: concurrence of assistance rank two state Takagi singular values sum",
+          "web query: Local vs. joint measurements for the entanglement of assistance",
+          "Wootters concurrence formula search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The endpoint formulas are theorem-level analytic results, not database entries."
+        ],
+        "reasoning": "Database coverage is inapplicable; direct prior-theorem implication is decisive.",
+        "searches": [
+          "literature search for concurrence of assistance analytic formula",
+          "primary full-text inspection of quant-ph/0206192v2"
+        ]
+      },
+      "rationale": "The interval endpoints are established concurrence roofs in disguise. Normalize the channel's Choi matrix by two. Finite Kraus representations are exactly finite pure-state ensemble decompositions of that rank-two two-qubit state by the HJW theorem, and for a Kraus branch the ensemble-weighted pure-state concurrence is \\(|\\det B_k|\\). Wootters' two-qubit concurrence therefore gives the minimum average as \\(s_1-s_2\\), while Laustsen--Verstraete--van Enk explicitly prove that concurrence of assistance is the maximum over all right-unitary decompositions and equals the sum of the Takagi singular values, here \\(s_1+s_2\\). Gregoratti--Werner already identify the corrected qubit fidelity with the same determinant sum. Thus both fidelity endpoints follow directly from established results; connected two-outcome remixing then gives the interval by a routine continuity argument.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERAGE",
+          "evidence": "The paper proves that the maximum over right-unitary decompositions of the same symmetric quadratic form equals the sum of its Takagi singular values.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0206192",
+          "material_read": "Complete 20-page primary PDF, including Sec. 2, HJW ensemble freedom, Eqs. (18)--(24), Takagi factorization, and Appendix 1.",
+          "method": "Lawful author-hosted/arXiv full-PDF inspection.",
+          "title": "Local vs. joint measurements for the entanglement of assistance",
+          "trigger": "Decisive source for the maximum average concurrence over all ensemble decompositions."
+        },
+        {
+          "assessment": "DECISIVE_MINIMUM_FORMULA",
+          "evidence": "For a rank-two two-qubit Choi state, the concurrence is the difference of its two nonzero spin-flip singular values.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.80.2245",
+          "material_read": "Primary theorem/abstract and standard explicit two-qubit concurrence formula as cross-checked in current literature.",
+          "method": "Publisher theorem-level inspection.",
+          "title": "Entanglement of Formation of an Arbitrary State of Two Qubits",
+          "trigger": "Foundational source for the minimum average concurrence."
+        },
+        {
+          "assessment": "OBJECTIVE_ALREADY_IDENTIFIED",
+          "evidence": "The source reduces optimal feedback fidelity for a fixed Kraus decomposition to the determinant sum that the concurrence literature already optimizes over decompositions.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0403092",
+          "material_read": "Primary qubit feedback section, including the fixed-decomposition polar correction formula and determinant identity.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "On quantum error-correction by classical feedback in discrete time",
+          "trigger": "Exact feedback objective used in the audited channel claim."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Gregoratti--Werner",
+        "Wootters",
+        "Laustsen--Verstraete--van Enk"
+      ],
+      "rationale": "The channel-language synthesis is pedagogically useful, but under the audit bar it does not constitute an independent mathematical gap: the objective is Gregoratti--Werner's, and its extrema are the standard concurrence and concurrence-of-assistance roofs of the rank-two Choi state. The remaining full-interval statement follows from a simple continuous two-outcome remix.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/quant-ph/0206192",
+    "https://doi.org/10.1103/PhysRevLett.80.2245",
+    "https://arxiv.org/abs/quant-ph/0403092",
+    "https://arxiv.org/abs/quant-ph/0605103",
+    "Resultary semantic search"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The rejection is for prior implication and routine synthesis, not correctness.",
+    "The statement is restricted to minimal Kraus rank two, finite rank-one environment measurements and conditional unitary correction."
+  ],
+  "residual_risks": [],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE_COVERAGE",
+      "evidence": "The paper proves that the maximum over right-unitary decompositions of the same symmetric quadratic form equals the sum of its Takagi singular values.",
+      "identifier_or_url": "https://arxiv.org/abs/quant-ph/0206192",
+      "material_read": "Complete 20-page primary PDF, including Sec. 2, HJW ensemble freedom, Eqs. (18)--(24), Takagi factorization, and Appendix 1.",
+      "method": "Lawful author-hosted/arXiv full-PDF inspection.",
+      "title": "Local vs. joint measurements for the entanglement of assistance",
+      "trigger": "Decisive source for the maximum average concurrence over all ensemble decompositions."
+    },
+    {
+      "assessment": "DECISIVE_MINIMUM_FORMULA",
+      "evidence": "For a rank-two two-qubit Choi state, the concurrence is the difference of its two nonzero spin-flip singular values.",
+      "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.80.2245",
+      "material_read": "Primary theorem/abstract and standard explicit two-qubit concurrence formula as cross-checked in current literature.",
+      "method": "Publisher theorem-level inspection.",
+      "title": "Entanglement of Formation of an Arbitrary State of Two Qubits",
+      "trigger": "Foundational source for the minimum average concurrence."
+    },
+    {
+      "assessment": "OBJECTIVE_ALREADY_IDENTIFIED",
+      "evidence": "The source reduces optimal feedback fidelity for a fixed Kraus decomposition to the determinant sum that the concurrence literature already optimizes over decompositions.",
+      "identifier_or_url": "https://arxiv.org/abs/quant-ph/0403092",
+      "material_read": "Primary qubit feedback section, including the fixed-decomposition polar correction formula and determinant identity.",
+      "method": "Lawful arXiv full-text inspection.",
+      "title": "On quantum error-correction by classical feedback in discrete time",
+      "trigger": "Exact feedback objective used in the audited channel claim."
+    }
+  ]
+}
