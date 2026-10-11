@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:25:50.923620Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 67a84d6c822df452fcb2b20a5e1f1e4a8f94ec4d",
+        "assigned verify.py blob 487c438621c2aa011e89651061ded70e74464444",
+        "Kalinowski--Kamyczura--Pilsniak--Wozniak, arXiv:2605.23828, complete primary paper",
+        "Pekala--Przybylo, arXiv:2608.04122"
+      ],
+      "rationale": "For a two-colouring of \\(K_n\\), every edge has \\(2n-4\\) adjacent edges, so both colour counts must equal \\(n-2\\). If \\(d(v)\\) is the red degree, this gives \\(d(u)+d(v)=n\\) on red edges and \\(n-2\\) on blue edges. For odd \\(n\\), three pairwise degree sums cannot all be odd. For even \\(n\\), all degrees have the same parity, differ by at most two, and exactly two values occur; one degree class must be a singleton. The red graph is therefore a star or a clique plus an isolated vertex, and the degree gap forces \\(n=4\\). The submitted three-colour constructions for \\(n=3,5,7\\), and the equitable three-part construction for \\(n=6\\) and \\(n\\ge8\\), meet the threshold. An independent exhaustive replay of every two-colouring for \\(K_3,K_4,K_5\\) confirmed that only \\(K_4\\) admits two colours.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper proves \\(\\operatorname{Maj}'(K_n)\\le3\\).",
+          "The second proves every graph of minimum degree at least five has strong majority index at most three."
+        ],
+        "reasoning": "These results dominate the upper bound for most orders but do not decide whether two colours suffice.",
+        "searches": [
+          "Kalinowski et al. arXiv:2605.23828",
+          "Pekala--Przybylo arXiv:2608.04122"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.23828",
+        "arXiv:2608.04122",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work gives only three-colour existence, which cannot imply a two-colour impossibility classification.",
+          "The defining paper's even-degree observation is contradicted by the valid \\(K_4\\) colouring."
+        ],
+        "reasoning": "The degree-sum rigidity argument is genuinely additional and determines the missing lower bound.",
+        "searches": [
+          "full comparison with arXiv:2605.23828 complete-graph discussion",
+          "comparison with arXiv:2608.04122 minimum-degree theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned nearby strong-majority graph results but no exact complete-graph formula.",
+          "The defining paper states only the three-colour complete-graph upper bound."
+        ],
+        "reasoning": "Strong-majority index, two-colour edge-balance and complete-graph formulations were compared; the exact iff classification was not found.",
+        "searches": [
+          "Resultary: strong majority index complete graphs edge colouring K_n two colours three colours",
+          "arXiv:2605.23828",
+          "arXiv:2608.04122"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact table/family statement with \\(K_4\\) as the unique two-colour exception was located."
+        ],
+        "reasoning": "The theorem is an all-order structural classification, not a finite-table recomputation.",
+        "searches": [
+          "Resultary exact-family search",
+          "searches for strong-majority values of complete graphs and the exceptional \\(K_4\\)"
+        ]
+      },
+      "rationale": "The defining 2026 strong-majority paper gives the complete-graph upper bound \\(\\operatorname{Maj}'(K_n)\\le3\\) and easy small constructions, but not the exact two-colour obstruction. It also states a general observation that index two can occur only when all vertex degrees are even; the explicit \\(K_4\\) star/triangle colouring satisfies the paper's definition and directly contradicts that observation. The later minimum-degree theorem also supplies only a three-colour upper bound for large complete graphs. No Resultary hit or primary source inspected states the exact family formula with the unique \\(K_4\\) exception.",
+      "residual_risks": [
+        "The later minimum-degree source was used for its theorem statement; it is not decisive for the exact complete-graph lower bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UPPER_BOUND_NOT_EXACT_CLASSIFICATION",
+          "evidence": "The paper gives \\(\\operatorname{Maj}'(K_n)\\le3\\) but does not classify two-colourability. Its stated even-degree necessary observation is falsified by the audited \\(K_4\\) star/triangle colouring under the same definition.",
+          "identifier_or_url": "arXiv:2605.23828",
+          "material_read": "Complete primary paper, including the strong majority index definition and the complete-graph three-colour construction/upper bound.",
+          "method": "Lawful open full-text and rendered-page inspection.",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Defining primary source for the invariant and the same complete-graph family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kalinowski et al. complete primary paper",
+        "Pekala--Przybylo theorem statement"
+      ],
+      "rationale": "Complete graphs are the canonical dense test family for the newly introduced invariant. The theorem gives the exact index at every order, identifies the unique exceptional two-colour case, and exposes a counterexample to an erroneous general parity observation in the defining paper. That is a natural exact family classification.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2605.23828",
+    "arXiv:2608.04122",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The proof is specialized to complete graphs and does not classify all graphs of strong majority index two."
+  ],
+  "residual_risks": [
+    "The later minimum-degree source was used for its theorem statement; it is not decisive for the exact complete-graph lower bound."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "UPPER_BOUND_NOT_EXACT_CLASSIFICATION",
+      "evidence": "The paper gives \\(\\operatorname{Maj}'(K_n)\\le3\\) but does not classify two-colourability. Its stated even-degree necessary observation is falsified by the audited \\(K_4\\) star/triangle colouring under the same definition.",
+      "identifier_or_url": "arXiv:2605.23828",
+      "material_read": "Complete primary paper, including the strong majority index definition and the complete-graph three-colour construction/upper bound.",
+      "method": "Lawful open full-text and rendered-page inspection.",
+      "title": "Strong majority colorings of graphs",
+      "trigger": "Defining primary source for the invariant and the same complete-graph family."
+    }
+  ]
+}

@@ -1,12 +1,21 @@
-# Correctness
-PASS. The two-colour lower-bound argument is reconstructed from the definition. In a two-colouring of \(K_n\), both colour counts around every edge must equal \(n-2\), yielding the exact red-degree equations \(d(u)+d(v)=n\) on red edges and \(d(u)+d(v)=n-2\) on blue edges. Parity excludes odd \(n\); for even \(n\), the two allowed pair sums force two degree values differing by \(2\), with one degree class a singleton, which yields only \(n=4\). All upper constructions satisfy the local threshold, and the executable checker confirms the finite constructions.
+# Independent mathematical audit
 
-# Originality
-PASS with residual literature risk. The 2026 source introducing the invariant gives general bounds and class results. The later minimum-degree theorem gives \(\operatorname{Maj}'(G)\le3\) when \(\delta(G)\ge5\), so the upper bound for complete graphs of order at least six is covered. The final claim is instead the exact complete-graph formula, whose substantive new component is the two-colour classification together with the small orders. Searches for the exact complete-graph statement, its \(K_4\) exception, and the degree-sum characterization found no covering statement in the inspected literature or published-record index.
+## correctness
 
-# Value
-PASS. Complete graphs are a standard benchmark family for a newly introduced graph invariant. The result gives the exact value at every order, identifies a unique exceptional order, and explains the exception through a structural rigidity argument rather than a table computation. This is a natural exact classification rather than an arbitrary finite slice.
+PASS
 
-Closest literature and limitations are stated in RESULT.md. The minimum-degree-three-colour theorem already implies one half of the upper bound for sufficiently large complete graphs, so no novelty is claimed for that implication alone. The principal residual risk is an exact complete-graph computation in a source not found by the searches performed.
+For a two-colouring of \(K_n\), every edge has \(2n-4\) adjacent edges, so both colour counts must equal \(n-2\). If \(d(v)\) is the red degree, this gives \(d(u)+d(v)=n\) on red edges and \(n-2\) on blue edges. For odd \(n\), three pairwise degree sums cannot all be odd. For even \(n\), all degrees have the same parity, differ by at most two, and exactly two values occur; one degree class must be a singleton. The red graph is therefore a star or a clique plus an isolated vertex, and the degree gap forces \(n=4\). The submitted three-colour constructions for \(n=3,5,7\), and the equitable three-part construction for \(n=6\) and \(n\ge8\), meet the threshold. An independent exhaustive replay of every two-colouring for \(K_3,K_4,K_5\) confirmed that only \(K_4\) admits two colours.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The defining 2026 strong-majority paper gives the complete-graph upper bound \(\operatorname{Maj}'(K_n)\le3\) and easy small constructions, but not the exact two-colour obstruction. It also states a general observation that index two can occur only when all vertex degrees are even; the explicit \(K_4\) star/triangle colouring satisfies the paper's definition and directly contradicts that observation. The later minimum-degree theorem also supplies only a three-colour upper bound for large complete graphs. No Resultary hit or primary source inspected states the exact family formula with the unique \(K_4\) exception.
+
+## value
+
+PASS
+
+Complete graphs are the canonical dense test family for the newly introduced invariant. The theorem gives the exact index at every order, identifies the unique exceptional two-colour case, and exposes a counterexample to an erroneous general parity observation in the defining paper. That is a natural exact family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
