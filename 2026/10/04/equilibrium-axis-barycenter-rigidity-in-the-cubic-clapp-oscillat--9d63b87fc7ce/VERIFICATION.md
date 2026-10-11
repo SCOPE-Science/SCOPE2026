@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked directly from the polynomial Clapp equations. For a compactly supported invariant probability measure, integrating each coordinate derivative gives zero. The third coordinate yields zero mean inductor current; the first and fourth then fix the complete barycenter line; the second yields the exact cubic moment relation.
+# Independent mathematical audit
 
-For the one-sided statement, strict convexity of \(x\mapsto x^3\) on \([0,\infty)\) gives the mean bound. Equality would force constant \(v_1\), and substitution into the vector field leaves only an equilibrium on a compact complete orbit. The factorized stationary identity \(\int v_1(v_1^2-\rho^2)\,d\mu=0\) then forces positive measure on each side of \(\rho\) unless the support is contained in the two threshold levels; continuity and invariance again reduce that exceptional case to equilibria.
+## correctness
 
-No numerical orbit, truncated enumeration, or asymptotic fit is used to establish the theorem. The proof does not assert existence of a one-sided attractor and does not extend to the piecewise-linear model without a separate argument.
+PASS
+
+Averaging the four printed circuit equations gives \(m_i=0\), \(m_2=-(g/h)m_1\), \(m_3=-(1+g/h)m_1\), and the cubic moment identity. On a nonnegative-support ergodic state, \(m_1=0\) would force a bounded complete support orbit to the origin. Jensen's inequality for the strictly convex map \(x^3\) on the half-line gives \(m_1\le\rho\), with equality only at the positive outer equilibrium. Finally, the zero mean of \(v_1(v_1^2-\rho^2)\) forces positive mass in both \((0,\rho)\) and \((\rho,\infty)\); otherwise invariance and continuity reduce the support to equilibrium levels. The negative statement follows by the vector-field inversion symmetry.
+
+## originality
+
+PASS
+
+Petrzela's primary paper introduces and numerically studies the same polynomial Clapp oscillator, its equilibria and chaotic/hyperchaotic regimes, but no checked material states an invariant-measure barycenter or cubic-moment law. Resultary searches returned the audited theorem as the only direct Clapp stationary-measure hit; nearby stationary-balance records concern different vector fields.
+
+## value
+
+PASS
+
+The equilibrium axis and outer-equilibrium voltage are intrinsic to this physical oscillator. Pinning every compact stationary barycenter to that axis and proving a sharp one-sided recurrence threshold gives a natural exact constraint on the multistable chaotic/hyperchaotic regimes studied in the source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

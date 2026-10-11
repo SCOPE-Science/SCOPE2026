@@ -1,15 +1,21 @@
-# Review: Equilibrium-axis barycenter rigidity in the cubic Clapp oscillator
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The four invariant-measure identities are obtained by integrating the coordinate derivatives, and every division uses a parameter assumed strictly positive. The strict one-sided conclusion uses strict convexity and an invariant-support argument; it does not infer recurrence from a finite trajectory.
+## correctness
 
-## Originality
-**PASS.** The same-system 2022 primary article was inspected through the model, equilibrium, numerical-analysis, circuit-realization, and discussion sections. It gives the equilibrium line but not the barycenter identity, cubic stationary moment, or threshold-crossing result. Targeted same-system searches under mean, stationary moment, invariant measure, barycenter, and third-moment aliases found no covering statement. A related 2019 Clapp-based snap-circuit paper concerns a different vector field and does not imply this claim. General stationarity of invariant measures is standard and is not claimed as new.
+PASS
 
-## Value
-**PASS.** The source highlights coexistence and multistability as a structural open direction. The result constrains every compact recurrent statistical state without numerical trajectory fitting, and the one-sided theorem forces symmetry-broken recurrent states to cross the voltage of the outer equilibrium. This is a meaningful geometric restriction on the coexisting regimes studied in the source.
+Averaging the four printed circuit equations gives \(m_i=0\), \(m_2=-(g/h)m_1\), \(m_3=-(1+g/h)m_1\), and the cubic moment identity. On a nonnegative-support ergodic state, \(m_1=0\) would force a bounded complete support orbit to the origin. Jensen's inequality for the strictly convex map \(x^3\) on the half-line gives \(m_1\le\rho\), with equality only at the positive outer equilibrium. Finally, the zero mean of \(v_1(v_1^2-\rho^2)\) forces positive mass in both \((0,\rho)\) and \((\rho,\infty)\); otherwise invariance and continuity reduce the support to equilibrium levels. The negative statement follows by the vector-field inversion symmetry.
 
-## Closest literature and limitations
-The closest primary source is Petržela (2022), which introduces the exact polynomial Clapp model and reports chaotic/hyperchaotic coexistence. The closest earlier circuit literature inspected is Srisuchinwong et al. (2019), but it uses a different Clapp-based snap flow. The theorem assumes compact invariant support; the strict crossing statement additionally assumes ergodicity and one-sided support, and it does not prove existence of such a state.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Petrzela's primary paper introduces and numerically studies the same polynomial Clapp oscillator, its equilibria and chaotic/hyperchaotic regimes, but no checked material states an invariant-measure barycenter or cubic-moment law. Resultary searches returned the audited theorem as the only direct Clapp stationary-measure hit; nearby stationary-balance records concern different vector fields.
+
+## value
+
+PASS
+
+The equilibrium axis and outer-equilibrium voltage are intrinsic to this physical oscillator. Pinning every compact stationary barycenter to that axis and proving a sharp one-sided recurrence threshold gives a natural exact constraint on the multistable chaotic/hyperchaotic regimes studied in the source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
