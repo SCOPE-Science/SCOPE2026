@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is independent of finite enumeration.
 
-For the faithful semidirect product
-\[
-G=C_r\rtimes C_m,
-\]
-choose a complement action by \(u\in\mathbf F_r^\times\) of exact order \(m\). If the complement coordinate of an element is \(b\ne0\), then
-\[
-u^b\ne1,
-\]
-so the equation placing that element in a conjugate complement has a unique solution because
-\[
-1-u^b
-\]
-is invertible modulo \(r\).
+# Independent mathematical audit
 
-This gives the critical structural facts:
-\[
-H_s\cap H_t=1
-\quad(s\ne t),
-\]
-every non-kernel cyclic subgroup lies in exactly one \(H_t\), and the kernel \(C_r\) is a leaf. The graph decomposition and all counting formulas follow.
+## correctness
 
-The packaged checker `artifacts/verify.py` directly constructs the groups
-\[
-(r,m)=(5,4),(7,6),(13,4),(13,6),(17,8),(31,10),
-\]
-enumerates every cyclic subgroup from multiplication, constructs all cover relations, and verifies the displayed vertex and edge formulas and the strict cyclic comparison.
+PASS
 
-It returns `VERIFY_OK`.
+For a faithful C_r⋊C_m with r prime and m|r−1, every element x^a y^b outside the kernel has b≠0 and lies in a unique conjugate complement because 1-u^b is invertible mod r. Thus the r complements intersect only at 1, every nontrivial cyclic subgroup outside the kernel lies in exactly one complement, and the normal C_r has no cyclic overgroup and is a leaf. The graph is therefore r copies of C(C_m)^* glued at 1 plus the kernel leaf. This gives |C(G)|=2+r(τ(m)−1) and |E|=1+r e(m). Since gcd(r,m)=1, the cyclic comparison has τ(m)+2e(m) edges. Finally e(m)≥τ(m)−1 because the cyclic-subgroup graph of C_m is connected, and r≥5, so (r−2)e(m)−(τ(m)−1)>0. The inspected verifier builds the semidirect products directly and checks representative cases, but the proof is group-theoretic and universal.
 
-Finite computation is not used to prove the universal theorem.
+## originality
+
+PASS
+
+Tărnăuceanu's theorem leaves the relevant even nonnilpotent regime conjectural. Cameron–Reddy–Sharma treat ordinary dihedral, dicyclic, generalized quaternion, nilpotent, and minimal non-cyclic families; their inspected minimal-noncyclic semidirect products are not the faithful even-complement Frobenius family here (except excluded boundary phenomena). Resultary searches found no prior cyclic-subgroup-graph decomposition for faithful prime-kernel Frobenius groups with arbitrary even cyclic complement m≥4. The exact one-point-union structure and strict edge comparison therefore survive as original to the best of current evidence.
+
+## value
+
+PASS
+
+The theorem resolves the same published even-order edge-minimality conjecture on another natural infinite nonnilpotent family and gives the entire cyclic-subgroup graph decomposition, not just an inequality. Exact vertex/edge formulas are structural data usable for further graph invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
