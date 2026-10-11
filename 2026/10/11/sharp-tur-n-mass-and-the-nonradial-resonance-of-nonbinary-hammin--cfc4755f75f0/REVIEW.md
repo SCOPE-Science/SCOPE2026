@@ -1,0 +1,15 @@
+# Same-model scientific review
+
+## Correctness — PASS
+The finite-group Fourier transform turns positive definiteness into pointwise nonnegative spectrum. A uniform weight-layer average proves the exact least-Krawtchouk upper bound, and the explicit radial spectral polynomial attains it. At equality, complementarity forces vanishing on each minimizing weight layer. The proof decomposes pairwise zero-mean coordinate interactions into centered activity indicators and nonzero-label contrasts; variation of active coordinate labels eliminates all contrast components. Four-index swaps then force additive edge coefficients. The remaining single coefficient equation either eliminates all perturbations or, uniquely when \(d\equiv2\pmod q\), gives the complete zero-sum, subset-nonnegative optimizer polytope. The interior-layer hypothesis \(d\ge2q\) is checked at every use. Direct exact-rational and modular-rank tests corroborate the algebraic argument; none replaces an infinite proof.
+
+## Originality — PASS, residual bibliographic risk
+The published Boolean-shell theorem [3] is restricted to \(q=2\); the new conclusion concerns all prime powers \(q\ge3\), where extra nonzero-label contrasts require separate elimination and the resonance is \(d\equiv2\pmod q\). The generalized Turán/Delsarte paper [1] supplies the broad framework and packing bounds, not this equality face. Hamming graph eigenvalues and least-eigenvalue scalar estimates are classical [2], so their computation is not asserted as a new principle. Li's binary coding LP [4] has different feasibility constraints; q-ary ball results allow weight-one Fourier modes and do not classify a pure weight-two shell. No identified primary statement subsumes the full nonbinary polytope classification. Historical association-scheme/theta-equality literature is a concrete unresolved indexing risk, not silently discarded.
+
+## Value — PASS
+The problem is a canonical positive-type extremal problem for a Hamming association-scheme relation. Beyond a known-style spectral constant, it resolves the complete generally nonradial equality set for an infinite nonbinary parameter range and reveals a sharp congruence transition from rigidity to a full \((d-1)\)-dimensional optimizer face. The explicit subset inequalities and exact examples are reusable structural data, not an arbitrary numerical slice. The hypothesis \(d\ge2q\) identifies the natural interior support-layer regime; lower dimensions may have additional equality directions.
+
+## Scope and closest literature
+Primary MSC 43A35. Motivating verified public date: 2019-04-07 (arXiv:1904.03614v1). Closest checked comparisons: [1] Berdysheva–Révész, [2] van Dam–Sotirov, [3] published Boolean-shell optimizer theorem, [4] Li's binary Delsarte LP. Residual risk: unindexed equivalent characterization of the distance-two theta/Turán equality face. The all-dimensional assertion depends on the supplied proof, not a computational census.
+
+Same-model review: passed. Independent audit: not yet performed.
