@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "A binary truth-table identity yields the exact three-column temporal local constraint. An orbit fixed by the p-th iterate is represented by a bi-infinite spatial path through a finite temporal graph. Both finite-support initial layers imply the path is rooted at the homogeneous period-three background on both spatial tails. The root SCC is exactly forward reachability intersected with reverse reachability, so checking that entire component is sufficient and necessary without a spatial cutoff. Exhaustive exact tests for p=9 and 18 enumerate respectively 31 and 973 possible center time words; the root components of sizes 3 and 27 are the threefold temporal lifts of the p=3 and p=6 root components. Hence the full finite-support fixed-point equalities follow. The attached code checks all eight rule entries, uses two independently derived edge-generation implementations, compares their complete reachability sets and edge totals, and verifies example least periods 3 and 6. No finite experiment is used as an infinite spatial proof without the exact graph reduction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Formenti–Kamilya, arXiv:2606.13159v1 Theorem 1 proves finite-support periodicity generally and Lemma 1 gives divisibility by 3.",
+        "Its Proposition 1 gives period closure under lcm and does not exclude 9 or 18.",
+        "The general reversible second-order CA rule is a known construction."
+      ],
+      "reasoning": "The universal period-divisibility constraint allows both 9 and 18, and the lcm construction is an existence implication rather than an exclusion. General CA symbolic graph constructions provide a method, not a theorem ruling out these specific cycles; no stronger inspected claim subsumes both equalities.",
+      "searches": [
+        "Formenti Kamilya reversible second-order cellular automaton rule 115 has no finite-support configurations of primitive temporal periods 9 or 18; classify homoclinic finite configurations using temporal word adjacency graph",
+        "\"reversible elementary second order\" \"period 9\" 2026",
+        "\"RESOCA 115\" finite 9 18 graph algorithm September 2026",
+        "reversible elementary second order cellular automaton 115 period spectrum 2026"
+      ]
+    },
+    "checked_sources": [
+      "Formenti and Kamilya, The Curious Case of Reversible Elementary Second Order Cellular Automaton 115, arXiv:2606.13159v1 (first posted 2026-06-11), full HTML Sections 2–7, corresponding PDF; EPTCS 445 (2026), 95–103.",
+      "Public mathematical searches for reversible CA period 9/18, rule-115 period spectra and equivalent temporal-column graph arguments; no overlapping primary theorem found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1: every finite initial configuration is periodic. Lemma 1: each least period is a multiple of 3.",
+        "Section 7: only nonfinite period-9 examples; graph-size obstruction to exploring period 18.",
+        "New certified equalities force every 9-fixed finite state to be 3-fixed and every 18-fixed finite state to be 6-fixed."
+      ],
+      "reasoning": "Period-divisibility gives a necessary condition but does not exclude any particular multiple of three, and existence of finite periods 3 and 6 is insufficient to constrain 9 or 18. The finite-graph result supplies a genuinely additional exclusion statement, while acknowledging that de Bruijn and temporal-column reductions themselves are established ideas.",
+      "searches": [
+        "arXiv:2606.13159v1 Theorem 1, Lemma 1, Proposition 1 and §§4–7",
+        "RESOCA 115 period 9 period 18 finite configurations impossible temporal columns finite state automata de Bruijn 2026 Formenti Kamilya",
+        "\"rule 115\" \"period 9\" \"period 18\" cellular automata Formenti Kamilya"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.13159v1 §7 explicitly marks temporal period 9 with an asterisk (infinite-support occurrence only) and describes the period-18 gap.",
+        "No inspected public source states the identical finite-support fixed-set equalities or an equivalent temporal-column rooted-component collapse."
+      ],
+      "reasoning": "The claim is stronger than inability to construct primitive periods: it proves identities of complete fixed sets for every finite-support pair. The motivating paper supplies motivation and conjectural gaps but not a covering theorem. Searches considered the aliases RESOCA, reversible ECA, second-order CA, and temporal period graph.",
+      "searches": [
+        "RESOCA 115 period 9 period 18 finite configurations impossible temporal columns finite state automata de Bruijn 2026 Formenti Kamilya",
+        "reversible elementary second order cellular automaton rule 115 exact periodic orbits period 9 18 forbidden finite configuration",
+        "\"rule 115\" \"period 9\" \"period 18\" cellular automata Formenti Kamilya",
+        "\"RESOCA 115\" \"9\" \"18\" finite configurations",
+        "arXiv:2606.13159v1, §§3,7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source lists 9* as an observed period only for nonfinite configurations, with no finite-support period-9 example; 18 is not established.",
+        "Its experimental period list includes 3, 6, 12, 15 and 27 but no exact exclusion table for 9 or 18."
+      ],
+      "reasoning": "A list of observed finite periods and a failure to observe periods 9 and 18 do not imply nonexistence, so the new full rooted-component enumeration is neither a recomputation of a published exact table nor a consequence of omitted entries.",
+      "searches": [
+        "second order ECA rule 115 period spectrum 3 6 9 12 15 18 cycle period finite support",
+        "\"RESOCA 115\" \"9\" \"18\" finite configurations",
+        "periodic points second order cellular automaton 115 9 18 forbidden",
+        "arXiv:2606.13159v1 §7 period list"
+      ]
+    },
+    "rationale": "The primary source arXiv:2606.13159v1, inspected through the full article (Sections 2–7) and its corresponding PDF, proves that finite configurations have periods divisible by three and observes period nine only for nonfinite configurations; it calls period eighteen a computationally inaccessible gap. It neither states nor implies the equalities Fix_fin(F^9)=Fix_fin(F^3) and Fix_fin(F^18)=Fix_fin(F^6). A direct exact finite temporal-graph calculation closes precisely these two source-identified gaps. Targeted searches of the published literature and indexed mathematical records found no equivalent result. This is a positive source-to-claim comparison, not merely reliance on a failed search; priority remains subject to later manuscripts and unindexed work.",
+    "residual_risks": [
+      "An as-yet-unindexed or unpublished equivalent result, possibly in a later expanded manuscript, may change priority.",
+      "Search ranking is not a mathematical uniqueness guarantee; all originality judgements are same-model only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct source records finite-support period 9 as unachieved and period 18 as an inaccessible gap, without proving the negative fixed-set identities.",
+        "evidence": [
+          "arXiv:2606.13159v1 §§2.1–2.2 define RESOCA and rule 115.",
+          "arXiv:2606.13159v1 §3 states finite-configuration periodicity and period divisibility by three.",
+          "arXiv:2606.13159v1 §7 specifies 9* as nonfinite and calls 18 a computationally difficult missing period."
+        ],
+        "identifier_or_url": "arXiv:2606.13159v1; https://arxiv.org/html/2606.13159v1",
+        "material_read": "HTML full article, especially Sections 2–7 (rule definition, temporal background, finite periodicity, merge, families and precise period-list gap), including Theorem 1, Lemma 1, Propositions 1–5 and conclusions.",
+        "method": "Full arXiv HTML text reading and comparison of mathematical statements; accompanying arXiv PDF page examined.",
+        "title": "The Curious Case of Reversible Elementary Second Order Cellular Automaton 115",
+        "trigger": "Same object and rule, identified open periods 9 and 18; primary source of definitions and novelty comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "692b925d-fcdf-43ee-96e2-05e60f3050ec",
+  "value": {
+    "rationale": "The 2026 source explicitly identifies finite-support periods 9 and 18 as interesting unsolved existence gaps, and discusses an impractical graph-size obstruction for 18. Resolving both negatively and proving stronger fixed-set equalities is a sharply motivated finite-state dynamical classification, not a routine parameter perturbation or an arbitrary short table. The time-column method yields a reproducible compression of the source-identified infinite spatial questions to 31 and 973 admissible time words, giving a useful route for other prescribed temporal periods while making no unproved general-spectrum claim.",
+    "status": "PASS"
+  }
+}
