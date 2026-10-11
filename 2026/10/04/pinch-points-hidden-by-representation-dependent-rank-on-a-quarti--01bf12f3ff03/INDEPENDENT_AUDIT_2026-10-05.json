@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:48:46.260907Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ceec400b11d7cc5be448da7aa7434cad9820bdc1",
+        "verify.py blob 449111c50449b5c649d74ec53914a4783849fe97",
+        "independent discriminant/Hessian/minor reconstruction"
+      ],
+      "rationale": "The determinant and singular-locus calculation was reconstructed from the displayed matrices. Differentiation factors the gradient into the two singular lines plus exactly four isolated points, and the projective Hessian has rank three at each isolated point, so they are ordinary nodes. On each line, the transverse quadratic discriminant is \\(256a^2(a^2+2a+t^2+1)\\), giving exactly \\(t=\\pm i\\) as the pinch points and, after completing the square, the Whitney form \\(W^2-a^2h=0\\). At the line intersection the discriminant is \\(256a^2b^2(1+(a+b)^2)\\), yielding \\(U^2-a^2b^2=0\\). The 3-by-3 minors of the two symmetric matrices show that each representation has one line identically rank two and the other generically rank three with drops exactly at its two pinch points. The inspected symbolic verifier checks these identities directly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later spectrahedra work discusses quartic symmetroid families and double lines but no inspected statement gives these four points or the exact local germs in Example 9.6.",
+          "The package is deliberately limited to one named example rather than claiming a general symmetroid classification."
+        ],
+        "reasoning": "No inspected broader theorem specializes automatically to all coordinates and representation-rank coincidences claimed here.",
+        "searches": [
+          "Helsø, Rational Quartic Symmetroids, arXiv:1708.04101; DOI:10.1515/advgeom-2018-0037, Example 9.6",
+          "Helsø--Ranestad, Rational Quartic Spectrahedra, arXiv:1810.11235"
+        ]
+      },
+      "checked_sources": [
+        "Helsø, Rational Quartic Symmetroids, arXiv:1708.04101; DOI:10.1515/advgeom-2018-0037, Example 9.6",
+        "Helsø--Ranestad, Rational Quartic Spectrahedra, arXiv:1810.11235",
+        "Resultary query: Rational Quartic Symmetroids Example 9.6 pinch points Whitney double lines rank 2 loci"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Along each double line the transverse quadratic discriminant acquires a double-line factor times a simple local coordinate exactly at two points.",
+          "The 3-by-3 minors on the generically rank-three line have common factor \\(t^2+1\\), aligning the representation-specific rank drops with those intrinsic pinch points."
+        ],
+        "reasoning": "These analytic and determinantal statements require computation beyond the source's observation that the rank-two loci differ.",
+        "searches": [
+          "Helsø, Rational Quartic Symmetroids, arXiv:1708.04101; DOI:10.1515/advgeom-2018-0037, Example 9.6",
+          "independent discriminant and minor calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same determinant and two representations are prior data.",
+          "The audited claim is the intrinsic analytic stratification of that already-known surface, including four exact pinch coordinates and the line-intersection germ."
+        ],
+        "reasoning": "Matrix-rank strata and intrinsic analytic singularity type are different invariants; the latter is not determined merely by knowing the lines and nodes.",
+        "searches": [
+          "Helsø, Rational Quartic Symmetroids, arXiv:1708.04101; DOI:10.1515/advgeom-2018-0037, Example 9.6",
+          "Resultary query: Rational Quartic Symmetroids Example 9.6 pinch points Whitney double lines rank 2 loci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked indexed source supplied the exact local stratification."
+        ],
+        "reasoning": "The search was anchored to the named primary example; absence is supporting evidence, not proof by itself.",
+        "searches": [
+          "Resultary query: Rational Quartic Symmetroids Example 9.6 pinch points Whitney double lines rank 2 loci",
+          "targeted searches for Example 9.6 together with pinch, Whitney, and the coordinates [4:0:±i:1]"
+        ]
+      },
+      "rationale": "Originality passes. Helsø's Example 9.6 gives the same quartic, its two double lines, four isolated nodes, and two nonconjugate symmetric-matrix representations whose rank-two loci differ. The inspected example does not identify Whitney pinch points, local analytic normal forms, or the precise coincidence between intrinsic pinch points and representation-specific isolated rank drops. Fresh Resultary search returned the audited theorem as the exact same-example hit and no earlier configuration-specific local stratification.",
+      "residual_risks": [
+        "Classical algebraic-surface literature may contain a general local theorem about pinch points on double lines; no source was found that already performs the exact Example 9.6 stratification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_EXAMPLE_WITHOUT_PINCH_LOCAL_STRATIFICATION",
+          "evidence": "The example records the global singular lines/nodes and differing rank loci but does not identify the Whitney pinch points or the line-intersection normal form.",
+          "identifier_or_url": "arXiv:1708.04101; DOI:10.1515/advgeom-2018-0037",
+          "material_read": "Full accessible material around Remark 2.1 and Example 9.6, including the two matrices, singular lines, four nodes, and representation-dependent rank-two loci.",
+          "method": "lawful accessible primary full-text extraction",
+          "title": "Rational Quartic Symmetroids",
+          "trigger": "Exact source of the named quartic and both symmetric representations."
+        },
+        {
+          "assessment": "GENERAL_FAMILY_CONTEXT_NOT_NAMED_EXAMPLE_LOCAL_GERMS",
+          "evidence": "No inspected statement gives the audited four pinch coordinates or representation-rank coincidence.",
+          "identifier_or_url": "arXiv:1810.11235",
+          "material_read": "Primary abstract/current record and inspected statements about quartic symmetroid families with intersecting singular lines.",
+          "method": "lawful primary material",
+          "title": "Rational Quartic Spectrahedra",
+          "trigger": "Closest follow-up on quartic symmetroid singular lines and real geometry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Helsø, Rational Quartic Symmetroids, arXiv:1708.04101; DOI:10.1515/advgeom-2018-0037, Example 9.6",
+        "Helsø--Ranestad, Rational Quartic Spectrahedra, arXiv:1810.11235",
+        "Resultary query: Rational Quartic Symmetroids Example 9.6 pinch points Whitney double lines rank 2 loci"
+      ],
+      "rationale": "The distinction between intrinsic surface singularity type and representation-dependent determinantal rank is geometrically substantive for symmetroids. Pinpointing the four Whitney pinch points and showing exactly how either symmetric representation reveals only two of them clarifies a concrete ambiguity already highlighted by the source, and the line-intersection germ completes the local stratification of the named example.",
+      "residual_risks": [
+        "The result is example-specific and does not classify all quartic symmetroids with double curves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical algebraic-surface literature may contain a general local theorem about pinch points on double lines; no source was found that already performs the exact Example 9.6 stratification.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

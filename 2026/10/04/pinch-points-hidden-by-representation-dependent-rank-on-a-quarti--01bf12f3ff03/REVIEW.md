@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Both published matrices were reconstructed exactly and their determinants agree. The gradient factorization exhausts the projective singular locus. Each isolated singular point has projective Hessian rank \(3\). On each double line the transverse Hessian drops exactly at \(t^2+1=0\), where exact completion of the square gives \(W^2-a^2h=0\). At the line intersection the same method gives \(U^2-a^2b^2=0\). The \(3\times3\) minors verify the rank exchange between the two determinant representations.
+## correctness
 
-## Originality
-PASS. The closest source is Helsø, arXiv:1708.04101v1, Example 9.6. It states the two singular lines, four isolated nodes, and representation-dependent rank-\(2\) loci, but not pinch points, Whitney normal forms, the intersection normal form, or the exact rank-drop/pinch correspondence. Full-text searches for “pinch” and “Whitney” return no occurrence. Helsø--Ranestad, arXiv:1810.11235v1, was inspected for broader coverage and does not supply this local refinement. A residual risk is that classical quartic-surface literature may imply general pinch-point facts, so the claim is restricted to this exact example and representation switch.
+PASS
 
-## Value
-PASS. The finding resolves a motivated ambiguity already highlighted by the source: determinant-matrix rank is representation-dependent while analytic singularity type is intrinsic. The four pinch points and the intersection normal form provide structural local information relevant to the normalization and double-curve geometry of the surface.
+The determinant and singular-locus calculation was reconstructed from the displayed matrices. Differentiation factors the gradient into the two singular lines plus exactly four isolated points, and the projective Hessian has rank three at each isolated point, so they are ordinary nodes. On each line, the transverse quadratic discriminant is \(256a^2(a^2+2a+t^2+1)\), giving exactly \(t=\pm i\) as the pinch points and, after completing the square, the Whitney form \(W^2-a^2h=0\). At the line intersection the discriminant is \(256a^2b^2(1+(a+b)^2)\), yielding \(U^2-a^2b^2=0\). The 3-by-3 minors of the two symmetric matrices show that each representation has one line identically rank two and the other generically rank three with drops exactly at its two pinch points. The inspected symbolic verifier checks these identities directly.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Originality passes. Helsø's Example 9.6 gives the same quartic, its two double lines, four isolated nodes, and two nonconjugate symmetric-matrix representations whose rank-two loci differ. The inspected example does not identify Whitney pinch points, local analytic normal forms, or the precise coincidence between intrinsic pinch points and representation-specific isolated rank drops. Fresh Resultary search returned the audited theorem as the exact same-example hit and no earlier configuration-specific local stratification.
+
+## value
+
+PASS
+
+The distinction between intrinsic surface singularity type and representation-dependent determinantal rank is geometrically substantive for symmetroids. Pinpointing the four Whitney pinch points and showing exactly how either symmetric representation reveals only two of them clarifies a concrete ambiguity already highlighted by the source, and the line-intersection germ completes the local stratification of the named example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
