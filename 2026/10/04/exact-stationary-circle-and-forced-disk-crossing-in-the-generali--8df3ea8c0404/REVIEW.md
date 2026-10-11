@@ -1,20 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact generator certificate
-\[
-L(xy+z-bx)=x^2+y^2+ax
-\]
-gives the stationary circle and the mean-variance parabola after using \(Lx=y\) and \(Ly=x-z\). Endpoint rigidity follows from the nonnegative variance sum and the exact \(L(yz)\) identity. Boundary-circle rigidity is proved dynamically: on a non-equilibrium boundary arc, \(LF=0\) forces a linear relation between \(z\) and \(x\), whose differentiated form together with \(F=0\) gives either a finite-valued contradiction when \(b=2\) or a nonzero quartic vanishing on an interval when \(b\ne2\). The packaged exact-arithmetic checker replays all nonstandard polynomial steps.
+## correctness
 
-Risk: the boundary-support classification uses the standard fact that the support of a compactly supported invariant probability measure is invariant under the flow.
+PASS
 
-## Originality
-PASS. The inspected primary-author source gives the generalized Case O equations and numerical dynamic regions. Same-object or same-family literature inspected here concerns approximate spectral statistics, equilibrium/Shilnikov classification, synchronization, or broader asymptotic analysis. No inspected statement implies the stationary-circle identity, mean-variance parabola, boundary-support classification, or forced disk crossing. Ten targeted semantic searches using object, moment, circle, recurrence, and equilibrium aliases returned no same-object coverage.
+For the generalized Sprott O vector field, direct differentiation gives the exact coboundary \(L(xy+z-bx)=x^2+y^2+ax\). Every compact invariant probability therefore satisfies \(\mathbb E[(x+a/2)^2+y^2]=a^2/4\). Stationarity of \(x\) and \(y\) gives \(\mathbb E[y]=0\) and \(\mathbb E[x]=\mathbb E[z]=m\), yielding the variance parabola. Zero variance at either endpoint forces the corresponding equilibrium atom, using the displayed \(L(yz)\) identity. On the boundary circle, \(LF=y(4x-2z+a)\); if a complete trajectory is not an equilibrium, an interval with \(y\ne0\) forces a linear relation between \(z\) and \(x\), and substitution back yields a nonzero quartic vanishing on an interval, a contradiction. Hence only equilibrium mixtures live on the circle, and every other invariant measure has positive mass on both sides. Periodic-orbit crossing follows by continuity. The exact sparse-polynomial verifier checks all algebraic identities.
 
-Risk: the complete 2001 statistical paper and 2004 analytical Sprott-flow paper were not available for full-text inspection; both are retained as explicit bibliographic risks rather than declared noncovering.
+## originality
 
-## Value
-PASS. The theorem turns the two equilibria of Sprott O into a sharp global recurrence geometry: all compact stationary statistics lie on one exact mean-square circle law, the mean controls total planar variance by a sharp parabola, and only equilibrium mixtures can remain on the boundary. Every other recurrent state must genuinely traverse both the interior and exterior, directly constraining periodic and chaotic compact dynamics across the parameter family.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Sprott's original paper gives the canonical O system and its equilibria, while the later dynamic-regions note gives exactly the two-parameter generalized equations used here and maps numerical dynamical regimes. Neither inspected source states the stationary circle, mean-variance parabola, or forced disk crossing. The complete Dimitrova--Yordanov paper studies statistical spectra of generalized Sprott B and N systems rather than O. A particularly relevant 2004 analytical Sprott-flow paper could not be reliably inspected because the authorized DOI retrieval returned mismatched content; it is retained as a residual bibliographic risk and is not used for a noncoverage claim. Targeted Resultary searches returned no implication-equivalent O-system balance law.
+
+## value
+
+PASS
+
+The stationary circle is a parameter-exact geometric constraint on every compact recurrent statistical state of a standard generalized chaotic flow. The theorem also classifies the boundary-supported invariant measures and forces every nonconstant periodic orbit to cross the circle, turning a simple coboundary into a global recurrence statement. This is a natural structural property of the named flow rather than a numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:18:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 480cbb365b1daa0b46a54797795d4603b9cc193f",
+        "assigned verify.py blob dd137cdd4095cbd6fcad418d1b9174be7f35ff83",
+        "Sprott, Some simple chaotic flows, Physical Review E 50 (1994)",
+        "Sprott, Dynamic Regions in Simple Chaotic Flows (2013 technical note)",
+        "Dimitrova--Yordanov, Statistics of some Low-Dimensional Chaotic Flows, DOI 10.1142/S0218127401003735"
+      ],
+      "rationale": "For the generalized Sprott O vector field, direct differentiation gives the exact coboundary \\(L(xy+z-bx)=x^2+y^2+ax\\). Every compact invariant probability therefore satisfies \\(\\mathbb E[(x+a/2)^2+y^2]=a^2/4\\). Stationarity of \\(x\\) and \\(y\\) gives \\(\\mathbb E[y]=0\\) and \\(\\mathbb E[x]=\\mathbb E[z]=m\\), yielding the variance parabola. Zero variance at either endpoint forces the corresponding equilibrium atom, using the displayed \\(L(yz)\\) identity. On the boundary circle, \\(LF=y(4x-2z+a)\\); if a complete trajectory is not an equilibrium, an interval with \\(y\\ne0\\) forces a linear relation between \\(z\\) and \\(x\\), and substitution back yields a nonzero quartic vanishing on an interval, a contradiction. Hence only equilibrium mixtures live on the circle, and every other invariant measure has positive mass on both sides. Periodic-orbit crossing follows by continuity. The exact sparse-polynomial verifier checks all algebraic identities.",
+      "residual_risks": [
+        "The measure theorem assumes compact support and does not address unbounded orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected accessible sources concern system generation, regime maps or approximate spectral statistics.",
+          "The 2004 Panchev paper remains an access risk because the DOI retrieval returned unrelated content and therefore was not used to assert noncoverage."
+        ],
+        "reasoning": "No accessible broader result inspected in this run mechanically supplies the invariant-circle law.",
+        "searches": [
+          "Sprott 1994 full primary paper",
+          "Sprott 2013 parameter-region survey",
+          "Dimitrova--Yordanov complete 2001 statistical paper",
+          "Panchev 2004 analytical Sprott-flow bibliographic record"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1103/PhysRevE.50.R647",
+        "Sprott 2013 Dynamic Regions technical note",
+        "DOI 10.1142/S0218127401003735",
+        "DOI 10.1016/j.chaos.2003.12.054 bibliographic record only",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equilibrium locations do not determine the expectation identity or characterize all invariant measures supported on the circle.",
+          "Approximate autocorrelation/spectral models do not imply an exact measure-wide moment shell."
+        ],
+        "reasoning": "The exact coboundary and boundary-orbit rigidity are additional structural arguments.",
+        "searches": [
+          "known equilibria and numerical dynamic regions versus invariant-measure circle law",
+          "approximate chaotic spectra versus exact polynomial coboundary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2013 note uses exactly \\(\\dot x=y,\\ \\dot y=x-z,\\ \\dot z=ax+xz+by\\).",
+          "The original paper supplies the canonical parameters and the two equilibria.",
+          "The 2001 statistical paper treats B and N rather than O."
+        ],
+        "reasoning": "The exact vector field and its generalized parameterization were matched before comparing stationary-statistical claims.",
+        "searches": [
+          "Resultary query: generalized Sprott O invariant measure stationary circle moment identity disk crossing",
+          "Sprott 1994 primary paper, Case O",
+          "Sprott 2013 Dynamic Regions technical note, generalized Case O equations",
+          "Dimitrova--Yordanov DOI 10.1142/S0218127401003735"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact same-object formula was retrieved."
+        ],
+        "reasoning": "Search absence is treated as supporting evidence only.",
+        "searches": [
+          "Resultary current search for Sprott O stationary circle, invariant measure, moment parabola and disk crossing"
+        ]
+      },
+      "rationale": "Sprott's original paper gives the canonical O system and its equilibria, while the later dynamic-regions note gives exactly the two-parameter generalized equations used here and maps numerical dynamical regimes. Neither inspected source states the stationary circle, mean-variance parabola, or forced disk crossing. The complete Dimitrova--Yordanov paper studies statistical spectra of generalized Sprott B and N systems rather than O. A particularly relevant 2004 analytical Sprott-flow paper could not be reliably inspected because the authorized DOI retrieval returned mismatched content; it is retained as a residual bibliographic risk and is not used for a noncoverage claim. Targeted Resultary searches returned no implication-equivalent O-system balance law.",
+      "residual_risks": [
+        "Panchev's 2004 analytical Sprott-flow paper remains a plausible source because reliable full text was not obtained in this run.",
+        "Non-digitized Sprott-system literature may contain equivalent moment identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SYSTEM_DEFINITION_NOT_STATIONARY_CIRCLE",
+          "evidence": "The paper introduces the flow and numerical chaos examples, not the audited invariant-measure identity.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.R647",
+          "material_read": "complete four-page primary paper with the Case O table and equilibrium information inspected",
+          "method": "primary full-text/PDF inspection",
+          "title": "Some simple chaotic flows",
+          "trigger": "original source defining Sprott O"
+        },
+        {
+          "assessment": "GENERALIZED_EQUATIONS_AND_NUMERICAL_REGIONS",
+          "evidence": "The exact audited equations are present, but no stationary circle or disk-crossing theorem is stated.",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "material_read": "complete relevant Case O section and parameter-region description inspected",
+          "method": "primary-author technical-note inspection",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "source of the generalized two-parameter Case O normalization"
+        },
+        {
+          "assessment": "DIFFERENT_SPROTT_SYSTEMS_AND_APPROXIMATE_STATISTICS",
+          "evidence": "The paper analyzes generalized B and N systems and approximate spectra, not the O-system invariant-measure shell.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127401003735",
+          "material_read": "complete eight-page primary article read through authorized institutional access",
+          "method": "authorized primary full-text inspection",
+          "title": "Statistics of some Low-Dimensional Chaotic Flows",
+          "trigger": "plausible statistical Sprott-flow source"
+        },
+        {
+          "assessment": "UNRESOLVED_BIBLIOGRAPHIC_RISK_NOT_USED_AS_FAILURE",
+          "evidence": "No whole-document noncoverage claim is made from the failed/mismatched retrieval.",
+          "identifier_or_url": "https://doi.org/10.1016/j.chaos.2003.12.054",
+          "material_read": "bibliographic metadata only; open full text was not available and the authorized DOI retrieval returned content from an unrelated Rössler paper, so that payload was discarded",
+          "method": "access/transport-limited source inspection",
+          "title": "Analytical properties of the Sprott's chaotic flows",
+          "trigger": "highly relevant analytical survey of Sprott flows"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sprott 1994",
+        "Sprott 2013",
+        "Dimitrova--Yordanov 2001",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The stationary circle is a parameter-exact geometric constraint on every compact recurrent statistical state of a standard generalized chaotic flow. The theorem also classifies the boundary-supported invariant measures and forces every nonconstant periodic orbit to cross the circle, turning a simple coboundary into a global recurrence statement. This is a natural structural property of the named flow rather than a numerical curiosity.",
+      "residual_risks": [
+        "The result does not prove existence of a chaotic attractor in any parameter regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The measure theorem assumes compact support and does not address unbounded orbits.",
+    "Panchev's 2004 analytical Sprott-flow paper remains a plausible source because reliable full text was not obtained in this run.",
+    "Non-digitized Sprott-system literature may contain equivalent moment identities.",
+    "The result does not prove existence of a chaotic attractor in any parameter regime."
+  ]
+}
