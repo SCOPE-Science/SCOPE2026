@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:08:01.907089Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a63fcf11990a757efe9d435c66ccbc59d3eac3ca",
+        "assigned verify_stable_marriage_orbits.py blob ab97d374f3dde0a64f1c47ca7322645195367db1",
+        "Borodin et al., Sequences of the Stable Matching Problem, Journal of Integer Sequences 27 (2024)",
+        "OEIS A344666"
+      ],
+      "rationale": "The claim was reconstructed independently from the exact package. A fresh implementation enumerated all \\(6^6=46656\\) strict labelled profiles, tested all six perfect matchings for stability, and then formed full orbits under independent relabelling of each side together with side exchange. It reproduced raw counts \\(34080,11484,1092\\), exactly \\(491,161,17\\) full-symmetry classes for one, two, and three stable matchings, hence \\(669\\) classes total, and three-stable orbit sizes \\(72^{\\times14},36^{\\times2},12^{\\times1}\\). The assigned verifier independently implements generator-orbit partitioning and a separate Burnside fixed-profile count over all \\(72\\) group elements, and its expected values match the fresh reconstruction.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source is broader in the variety of stable-marriage statistics and gives all labelled \\(3\\)-by-\\(3\\) profile counts by number of stable matchings.",
+          "The database repeats the labelled count sequence."
+        ],
+        "reasoning": "Broader labelled enumeration does not dominate the full orbit/stabilizer classification because orbit splitting is extra information.",
+        "searches": [
+          "Borodin et al., Sequences of the Stable Matching Problem",
+          "OEIS A344666"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL27/Khovanova/khova32.html",
+        "https://oeis.org/A344666",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing total labelled counts and a \\(72\\)-element action does not determine orbit counts because stabilizers vary.",
+          "The audited result supplies the fixed-point/orbit information needed to resolve the quotient."
+        ],
+        "reasoning": "No inspected stronger theorem directly implies the full census; the independent Burnside route is substantive evidence rather than mere restatement.",
+        "searches": [
+          "statement-level comparison with the primary paper's symmetry discussion",
+          "Burnside/orbit-stabilizer comparison against the published labelled totals"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper identifies independent relabelling and side exchange as count-preserving symmetries.",
+          "No inspected statement gives the full orbit quotient by all \\(72\\) symmetries."
+        ],
+        "reasoning": "The natural isomorphism-class and full-symmetry formulations were compared directly; the source treats symmetries but does not supply the submitted quotient census.",
+        "searches": [
+          "Resultary query: stable marriage 3 by 3 symmetry quotient relabeling side exchange orbit census 669 classes stabilizers",
+          "Journal of Integer Sequences 27 (2024), Sections on 3-by-3 profiles and symmetries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both sources give \\(34080,11484,1092\\) for the labelled distribution.",
+          "Neither source gives \\(669\\), \\(491/161/17\\), or the submitted orbit-size profile."
+        ],
+        "reasoning": "The numerical raw layer is known, but the exact quotient table audited here is not present in the checked database/table sources.",
+        "searches": [
+          "OEIS A344666",
+          "Journal of Integer Sequences table for the \\(3\\)-by-\\(3\\) distribution"
+        ]
+      },
+      "rationale": "The complete primary stable-matching sequence paper gives the labelled distribution for the \\(3\\)-by-\\(3\\) problem and explicitly discusses the relevant relabelling and side-exchange symmetries, but its symmetry section quotients more limited profile data and does not give the full two-sided \\((S_3\\times S_3)\\rtimes C_2\\) orbit census, orbit-size distribution, or stabilizers. OEIS A344666 likewise gives only the labelled stable-matching-count distribution. A Resultary search for the exact full-symmetry census did not return a prior equivalent record among the relevant hits. The published labelled counts plus knowledge of the symmetry group do not determine the orbit counts without fixed-point/orbit information, so the submitted complete quotient census is not a direct corollary of the inspected sources.",
+      "residual_risks": [
+        "A separate stable-marriage isomorphism-class catalogue using the identical full symmetry group could exist under different terminology, although none was located in the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RAW_COUNTS_AND_SYMMETRIES_NOT_FULL_QUOTIENT",
+          "evidence": "It confirms the known raw layer and symmetry operations but does not state the audited full orbit/stabilizer census.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Khovanova/khova32.html",
+          "material_read": "Complete article material including the labelled distribution table and the symmetry section describing relabelling of men, relabelling of women, and exchanging the two sides.",
+          "method": "Lawful open primary full-text inspection, including rendered PDF pages for the table and symmetry section.",
+          "title": "Sequences of the Stable Matching Problem",
+          "trigger": "Primary source for the exact \\(3\\)-by-\\(3\\) labelled counts and stable-marriage symmetries."
+        },
+        {
+          "assessment": "RAW_TABLE_ONLY",
+          "evidence": "It contains the labelled distribution but no full-symmetry quotient data.",
+          "identifier_or_url": "https://oeis.org/A344666",
+          "material_read": "Sequence definition, values and source links.",
+          "method": "Open database inspection.",
+          "title": "OEIS A344666",
+          "trigger": "Exact database candidate for the \\(3\\)-by-\\(3\\) stable-count distribution."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Borodin et al. (2024)",
+        "OEIS A344666"
+      ],
+      "rationale": "The \\(3\\)-by-\\(3\\) case is the first size with a nontrivial distribution up to three stable matchings, and the primary literature already singles out its labelled sequence and symmetry operations. A complete quotient by the natural full symmetry group, including stabilizer strata, is therefore a motivated finite classification rather than an arbitrary sample. The result separates genuinely different profile types that the known raw count does not distinguish.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cs.uwaterloo.ca/journals/JIS/VOL27/Khovanova/khova32.html",
+    "https://oeis.org/A344666",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The census is only for strict \\(3\\)-by-\\(3\\) preferences.",
+    "No formula or classification for larger market sizes is claimed."
+  ],
+  "residual_risks": [
+    "A separate stable-marriage isomorphism-class catalogue using the identical full symmetry group could exist under different terminology, although none was located in the targeted searches."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "RAW_COUNTS_AND_SYMMETRIES_NOT_FULL_QUOTIENT",
+      "evidence": "It confirms the known raw layer and symmetry operations but does not state the audited full orbit/stabilizer census.",
+      "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Khovanova/khova32.html",
+      "material_read": "Complete article material including the labelled distribution table and the symmetry section describing relabelling of men, relabelling of women, and exchanging the two sides.",
+      "method": "Lawful open primary full-text inspection, including rendered PDF pages for the table and symmetry section.",
+      "title": "Sequences of the Stable Matching Problem",
+      "trigger": "Primary source for the exact \\(3\\)-by-\\(3\\) labelled counts and stable-marriage symmetries."
+    },
+    {
+      "assessment": "RAW_TABLE_ONLY",
+      "evidence": "It contains the labelled distribution but no full-symmetry quotient data.",
+      "identifier_or_url": "https://oeis.org/A344666",
+      "material_read": "Sequence definition, values and source links.",
+      "method": "Open database inspection.",
+      "title": "OEIS A344666",
+      "trigger": "Exact database candidate for the \\(3\\)-by-\\(3\\) stable-count distribution."
+    }
+  ]
+}

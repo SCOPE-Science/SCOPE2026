@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The search space is exactly \(6^6=46656\) profiles because each of six agents chooses one of six strict orders. Every one of the six perfect matchings is tested for every profile against every possible blocking pair. The symmetry quotient is independently obtained both by generator-orbit partition and by Burnside fixed-point counting. Both routes produce \(491,161,17\), and orbit-size reconstruction yields the published labeled totals \(34080,11484,1092\).
+## correctness
 
-Risk: none from finite incompleteness; the claim does not extrapolate beyond three agents per side.
+PASS
 
-## Originality
-**PASS.** The closest enumerative source gives the labeled distribution for three-by-three profiles and separately discusses relabeling and side exchange, but the inspected text does not provide the full symmetry-reduced stable-count table or the stabilizer distribution. Targeted searches for the exact quotient totals, isomorphism-class language, and orbit-size data found no equivalent statement.
+The claim was reconstructed independently from the exact package. A fresh implementation enumerated all \(6^6=46656\) strict labelled profiles, tested all six perfect matchings for stability, and then formed full orbits under independent relabelling of each side together with side exchange. It reproduced raw counts \(34080,11484,1092\), exactly \(491,161,17\) full-symmetry classes for one, two, and three stable matchings, hence \(669\) classes total, and three-stable orbit sizes \(72^{\times14},36^{\times2},12^{\times1}\). The assigned verifier independently implements generator-orbit partitioning and a separate Burnside fixed-profile count over all \(72\) group elements, and its expected values match the fresh reconstruction.
 
-Risk: an unindexed computation, thesis, note, or software table could contain the same quotient census.
+## originality
 
-## Value
-**PASS.** Size three is the smallest case supporting three stable matchings, and the labeled profile space already contains substantial redundancy. The quotient gives a complete nonredundant benchmark for classification or algorithm testing and shows exactly how symmetry is distributed among the maximally multi-stable instances, rather than merely recounting labeled profiles.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The complete primary stable-matching sequence paper gives the labelled distribution for the \(3\)-by-\(3\) problem and explicitly discusses the relevant relabelling and side-exchange symmetries, but its symmetry section quotients more limited profile data and does not give the full two-sided \((S_3\times S_3)\rtimes C_2\) orbit census, orbit-size distribution, or stabilizers. OEIS A344666 likewise gives only the labelled stable-matching-count distribution. A Resultary search for the exact full-symmetry census did not return a prior equivalent record among the relevant hits. The published labelled counts plus knowledge of the symmetry group do not determine the orbit counts without fixed-point/orbit information, so the submitted complete quotient census is not a direct corollary of the inspected sources.
+
+## value
+
+PASS
+
+The \(3\)-by-\(3\) case is the first size with a nontrivial distribution up to three stable matchings, and the primary literature already singles out its labelled sequence and symmetry operations. A complete quotient by the natural full symmetry group, including stabilizer strata, is therefore a motivated finite classification rather than an arbitrary sample. The result separates genuinely different profile types that the known raw count does not distinguish.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
