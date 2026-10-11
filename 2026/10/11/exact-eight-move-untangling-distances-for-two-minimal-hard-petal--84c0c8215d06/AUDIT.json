@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "With \\(a\\) additions, \\(d\\) deletions, and \\(p\\) preserving moves, petal count gives \\(d-a=4\\) and path length \\(2a+4+p\\). Published hardness gives \\(a\\ge1\\), so every path shorter than eight has exactly one addition, five deletions, and at most one preserving move. The exact checker exhausts a stronger relaxation allowing arbitrary \\(\\mathsf R,\\mathsf S\\) at zero cost and at most one \\(\\mathsf X\\), finds no terminal path, and separately verifies both eight-move upper paths. The proof therefore establishes exactly the claimed two distances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.01596v1 compares quantitative Reidemeister-move complexity with petal excess but its own theorem records maximum intermediate petal count, not total move length.",
+        "Targeted search returned the 2019 move-calculus paper and the 2026 hardness paper, with no broader shortest-path theorem for these petal words."
+      ],
+      "reasoning": "Known broader results establish connectivity or monotonicity/excess phenomena. They do not dominate the claimed exact graph distance for the two named vertices.",
+      "searches": [
+        "trivial petal addition deletion crossing exchange minimum number moves",
+        "petal permutations minimal number moves untangle unknot crossing exchange trivial petal addition deletion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01596v1",
+      "arXiv:1812.08930v1",
+      "Targeted semantic-result records for shortest petal-move distance and geodesic untangling sequences."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Result B gives rigidity/hardness; Result C gives excess \\(2\\) and explicit paths through eleven petals.",
+        "The 2019 theorem says isotopic petal permutations are connected by petal moves."
+      ],
+      "reasoning": "Prior hardness only forces at least one addition, giving the coarse move-count lower bound \\(6\\). Prior excess \\(2\\) controls peak petal count rather than path length. The exact lower bound \\(8\\) requires the new exhaustive exclusion of every length-six or length-seven possibility, so the claim is not a corollary of the prior statements.",
+      "searches": [
+        "arXiv:2610.01596v1 Result B Result C alpha beta excess 2",
+        "arXiv:1812.08930 Theorem 1 petal moves"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01596v1 Sections 1, 5, and 6.1 state hardness, excess, and explicit upper paths but no shortest-distance theorem.",
+        "arXiv:1812.08930v1 Theorem 1 is a connectivity theorem for petal moves."
+      ],
+      "reasoning": "The exact move distance is equivalent to geodesicity of the displayed eight-step paths. Neither inspected primary source states or implies geodesicity: hardness plus excess two allows move lengths six, seven, eight, or larger, and the new finite exclusion is needed to rule out the shorter cases.",
+      "searches": [
+        "petal diagram alpha beta exact move distance 8 shortest untangling trivial petal addition crossing exchange",
+        "hard unknot petal permutation shortest move sequence geodesic alpha beta",
+        "petal move graph distance one-petal diagram alpha beta Vernitski"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 2 of arXiv:2610.01596v1 records word/component/hardness counts.",
+        "Section 5.3 describes searches bounded by maximum petal number; Section 6.1 labels the displayed sequences as upper bounds for Result C."
+      ],
+      "reasoning": "The inspected table and described ancillary outputs concern hardness and excess. No move-distance column, shortest-path count, or minimal-length assertion is stated.",
+      "searches": [
+        "arXiv:2610.01596v1 Table 2 Section 5.3 Section 6.1",
+        "petal_hard.py shortest distance alpha beta"
+      ]
+    },
+    "rationale": "The closest 2026 source gives hardness, excess, and explicit paths as upper bounds, but no shortest move length; the 2019 source gives move completeness without metric bounds. Targeted semantic and primary-literature checks found no statement covering the exact distance-eight claim.",
+    "residual_risks": [
+      "The 2026 article has ancillary code; its stated purpose and reported outputs concern the published hardness/excess counts, but undocumented local variables or unreported experiments could in principle contain path-length data. No exact distance claim appears in the article or its tables."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact move distance. The article proves excess and supplies eight-step upper paths but does not prove their geodesicity.",
+        "evidence": "Sections 5.3 and 6.1 organize the computation by peak petal number; the alpha/beta sequences are expressly used to prove excess upper bounds.",
+        "identifier_or_url": "arXiv:2610.01596v1",
+        "material_read": "Abstract; Definitions/Results in Section 1; exact move definitions in Section 3; computation design in Section 5; Table 2 and full untangling sequences/lower-bound discussion in Section 6.",
+        "method": "Full article text inspected with targeted checks for shortest, distance, and minimum-number terminology.",
+        "title": "Some petal diagrams of the unknot are hard",
+        "trigger": "Exact same objects and move set; source of the two hard words and displayed untanglings."
+      },
+      {
+        "assessment": "NOT_COVERING. It proves connectivity of isotopic petal permutations under the move calculus but gives no shortest-distance theorem for the named words.",
+        "evidence": "Theorem 1 asserts existence of a finite move sequence only.",
+        "identifier_or_url": "arXiv:1812.08930v1",
+        "material_read": "Introduction, Theorem 1, and Sections 2.1--2.3 defining the moves.",
+        "method": "Primary full text inspected.",
+        "title": "A Reidemeister type theorem for petal diagrams of knots",
+        "trigger": "Foundational source defining trivial petal moves and crossing exchange; plausible broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "84c0c821-5d06-4781-9a42-9d4327ee34a8",
+  "value": {
+    "rationale": "Shortest move length is the intrinsic graph metric for the chosen petal move calculus and complements the paper's peak-complexity invariant, excess. The two words are canonical representatives of the first hard nine-petal unknots, so certifying their displayed paths as geodesics supplies a natural exact baseline for quantitative untangling complexity.",
+    "status": "PASS"
+  }
+}
