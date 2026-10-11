@@ -1,17 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the joint orbit span exactly in the Weyl basis and then reduces the extremal problem to translation-difference coverage. The upper bound counts at most \(1+2s\) translation rows. The explicit windows make every modulation coordinate on the selected rows nonzero, including the separate antipodal construction for even \(N\). The analytic argument covers all \(N\ge2\) and \(s\ge1\); finite computation is only a replay check.
+## correctness
 
-## Originality
-PASS. The closest single-window source gives the rank from one ambiguity function and lists possible ranks for one two-sparse window. The closest multi-window source gives a simultaneous-nonvanishing criterion for full quantum injectivity. The inspected statements do not provide the sharp multi-window capacity \(N\min\{N,1+2s\}\), its extremizers, or the exact \(\lfloor N/2\rfloor\) two-sparse window threshold as an extremal theorem. Targeted semantic-index and exact-phrase literature searches found no covering statement.
+PASS
 
-The main residual risk is access: the full text of Han--Hu--Liu--Wang (2022) was not available through the lawful open-access sources inspected. Its readable abstract and later scholarly summaries do not state this sparse capacity law, but an unseen example could overlap a special case.
+Weyl matrices form an orthogonal operator basis and conjugation of a rank-one window projector multiplies each Weyl coefficient by a character, so Fourier isolation makes the joint span dimension exactly the union size of nonzero ambiguity coordinates. A support pair can overlap only on translation rows 0 and plus/minus its difference, giving the universal row bound. Unequal-amplitude two-point windows make every modulation coordinate on selected rows nonzero; distinct unoriented differences attain two new rows per window, and an explicit phase handles the even antipodal row. The inspected verifier checks ambiguity support through N=20, direct projector ranks through N=10 and exhaustive support-pair row maxima through N=9; a fresh separate support-pair enumeration reproduced the combinatorial bound.
 
-## Value
-PASS. The theorem is a natural complete classification of the operator-span capacity under the minimal nontrivial support constraint. It quantifies the exact cost of spatial sparsity for Weyl-covariant tomography at every window budget, rather than giving a routine isolated example, and it exposes the even-dimensional antipodal resonance in an explicit optimal construction.
+## originality
 
-## Closest literature and limitations
-Goldberger--Kang--Okoudjou treat single-window informational completeness and rank; Han--Hu--Liu--Wang treat multi-window quantum injectivity; Salanevich treats multi-window phase retrieval and measurement reduction. The new statement is restricted to full cyclic Gabor orbits and exactly two-sparse windows. Support size three and partial lattices remain outside scope.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Goldberger–Kang–Okoudjou give the single-window rank/ambiguity framework and analyze one two-sparse window. Han–Hu–Liu–Wang treat the exact multi-window quantum-injectivity setting, but their full article was unavailable through lawful OA and the authorized institutional attempt returned an unavailable/invalid-worker error. Accessible material and later summaries describe a yes/no simultaneous-nonvanishing condition, not the full budget-by-budget two-sparse capacity law. Fresh Resultary searches found no stronger covering theorem.
+
+## value
+
+PASS
+
+Two-point windows are the minimal nontrivial sparse windows. The theorem gives the full resource tradeoff at every window budget, not just feasibility, and identifies the exact tomography threshold including the even antipodal resonance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

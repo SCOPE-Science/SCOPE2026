@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal statement is analytic. The verification program is a finite consistency replay, not an exhaustive proof for unbounded dimension.
+# Independent mathematical audit
 
-`artifacts/verify.py` performs three checks. First, for every dimension from 2 through 20 and every tested window budget through one above the injective threshold, it constructs the stated two-sparse windows and counts the union of nonzero ambiguity coordinates, comparing it with the formula `N*min(N,1+2*s)`. Second, for dimensions 2 through 10 it explicitly constructs every full Gabor rank-one projector and numerically computes the complex matrix rank of their span, comparing that rank with the ambiguity-support count. Third, for dimensions 2 through 9 it exhausts collections of support pairs and verifies the sharp translation-row coverage bound `min(N,1+2*s)`.
+## correctness
 
-The replay output is:
+PASS
 
-`VERIFY_OK ambiguity_cases=119 projector_rank_cases=34 exhaustive_support_N=2..9`
+Weyl matrices form an orthogonal operator basis and conjugation of a rank-one window projector multiplies each Weyl coefficient by a character, so Fourier isolation makes the joint span dimension exactly the union size of nonzero ambiguity coordinates. A support pair can overlap only on translation rows 0 and plus/minus its difference, giving the universal row bound. Unequal-amplitude two-point windows make every modulation coordinate on selected rows nonzero; distinct unoriented differences attain two new rows per window, and an explicit phase handles the even antipodal row. The inspected verifier checks ambiguity support through N=20, direct projector ranks through N=10 and exhaustive support-pair row maxima through N=9; a fresh separate support-pair enumeration reproduced the combinatorial bound.
 
-Floating-point linear algebra is used only in the finite projector-rank replay. The proof of the theorem uses no numerical approximation: it follows from exact Weyl-character decomposition, support intersections, and explicit nonvanishing formulas.
+## originality
+
+PASS
+
+Goldberger–Kang–Okoudjou give the single-window rank/ambiguity framework and analyze one two-sparse window. Han–Hu–Liu–Wang treat the exact multi-window quantum-injectivity setting, but their full article was unavailable through lawful OA and the authorized institutional attempt returned an unavailable/invalid-worker error. Accessible material and later summaries describe a yes/no simultaneous-nonvanishing condition, not the full budget-by-budget two-sparse capacity law. Fresh Resultary searches found no stronger covering theorem.
+
+## value
+
+PASS
+
+Two-point windows are the minimal nontrivial sparse windows. The theorem gives the full resource tradeoff at every window budget, not just feasibility, and identifies the exact tomography threshold including the even antipodal resonance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
