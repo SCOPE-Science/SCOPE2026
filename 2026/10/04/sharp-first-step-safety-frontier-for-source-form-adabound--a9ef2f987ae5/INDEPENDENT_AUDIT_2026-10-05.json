@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:55:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e3213d1374a0494327dc3e6a18b3b429ba9a1535",
+        "verify.py blob e372a47436f66b3034ab51193869bc6b59f66c75",
+        "arXiv:1902.09843v1 Algorithm 2"
+      ],
+      "rationale": "At \\(t=1\\), the source recurrence gives \\(m_1=(1-\\beta_1)h x_1\\), \\(v_1=(1-\\beta_2)h^2x_1^2\\), and \\(x_2=x_1[1-(1-\\beta_1)h\\widehat\\eta_1]\\). The raw rate ranges over all positive values as \\(|x_1|\\) varies, so its attainable supremum after clipping is exactly \\(u_1\\). Thus the sharp condition follows from \\(|1-z|\\le1\\) iff \\(0\\le z\\le2\\). The unsafe neighborhood is obtained by solving the upper-clip inequality. The inspected verifier independently checks the recurrence, safe/unsafe sides and all stated default numbers. One nonessential sentence in RESULT.md says the clipped rate attains the entire closed interval even when \\(\\ell_1=0\\); in that boundary case the attainable set is \\((0,u_1]\\), but the supremum and every theorem statement are unchanged.",
+      "residual_risks": [
+        "The closed-interval attainability wording at \\(\\ell_1=0\\) is slightly imprecise but does not enter the proof of the universal maximum condition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper motivates clipping by extreme learning rates and proves an online-convex regret bound under dynamic bounds.",
+          "Savarese identifies a flaw in the original regret analysis and constructs arbitrarily slow-convergence instances.",
+          "The nearby Resultary frontiers use different step constructions and do not contain AdaBound's first-step clipping law."
+        ],
+        "reasoning": "The broader literature does not mechanically determine the exact necessary-and-sufficient source-form first-step condition.",
+        "searches": [
+          "Luo–Xiong–Liu–Sun, arXiv:1902.09843v1, Sections 3–5",
+          "Savarese, arXiv:1908.04457v2",
+          "Resultary records on BB, Polyak and OSGM quadratic stability frontiers"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1902.09843v1",
+        "arXiv:1908.04457v2",
+        "Resultary AdaBound/stability query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source algorithm gives the exact ingredients needed to derive the first update, but it does not state a curvature-compatible upper-bound test.",
+          "The global convergence correction neither implies the local necessary-and-sufficient condition nor the constant amplification plateau for all sufficiently small nonzero initializations."
+        ],
+        "reasoning": "The final theorem requires a separate exact first-step reduction, albeit a short one.",
+        "searches": [
+          "arXiv:1902.09843v1 Algorithm 2, lines defining the clip and recommended eta_u",
+          "arXiv:1908.04457v2 convergence correction",
+          "frozen scalar proof and inspected verifier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At the first source step, the clipped coordinate rate is the only variable scalar multiplier once the scalar quadratic gradient and first moments are substituted.",
+          "Universal objective nonincrease is therefore equivalent to the upper endpoint of the clipping range lying in the usual scalar-gradient descent interval."
+        ],
+        "reasoning": "This is an exact first-update stability formulation of AdaBound's source clipping rule, not the global regret question treated in the inspected prior work.",
+        "searches": [
+          "arXiv:1902.09843v1 full HTML, Algorithm 2 and Section 5 defaults",
+          "arXiv:1908.04457v2",
+          "Resultary query: source-form AdaBound first-step safety upper clipping scalar quadratic curvature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published-record hit with the condition or the default-parameter amplification was returned.",
+          "The numerical values are consequences of the source schedule rather than a published parameter table."
+        ],
+        "reasoning": "Database nonappearance is supporting evidence only; the source implication comparison is the main originality evidence.",
+        "searches": [
+          "Resultary query: source-form AdaBound first-step safety upper clipping scalar quadratic curvature",
+          "web query: AdaBound scalar quadratic first step stability upper bound"
+        ]
+      },
+      "rationale": "The defining AdaBound paper gives the source recurrence, the dynamic clipping mechanism, the recommended upper-bound schedule and the default parameters, but its theorem is a regret bound and does not compare the first upper clip with the exact scalar-quadratic descent interval. Savarese's direct correction treats global regret and arbitrarily slow convergence rather than this one-step curvature boundary. Fresh Resultary and web searches returned related quadratic stability frontiers for other algorithms but no theorem implying the exact AdaBound condition or upper-clipping plateau.",
+      "residual_risks": [
+        "An equivalent one-step observation may exist in unindexed optimizer notes or implementation discussions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_RECURRENCE_AND_GLOBAL_REGRET_PRIOR_FIRST_STEP_CURVATURE_FRONTIER_NOT_STATED",
+          "evidence": "Algorithm 2 clips alpha divided by square-root second moment between eta_l and eta_u and divides by square-root time; the paper's theorem controls regret rather than scalar first-step objective monotonicity.",
+          "identifier_or_url": "arXiv:1902.09843v1",
+          "material_read": "Full arXiv HTML through the extreme-learning-rate motivation, Algorithm 2, Theorem 4, the recommended bound functions and the hyperparameter defaults.",
+          "method": "Direct recurrence and theorem-scope comparison.",
+          "title": "Adaptive Gradient Methods with Dynamic Bound of Learning Rate",
+          "trigger": "Defining source for the exact source-form recurrence, bound schedule and defaults."
+        },
+        {
+          "assessment": "GLOBAL_CONVERGENCE_CORRECTION_NOT_FIRST_STEP_FRONTIER",
+          "evidence": "The correction studies long-run regret/convergence dependence on the bound functions rather than the exact first-step scalar clipping threshold.",
+          "identifier_or_url": "arXiv:1908.04457v2",
+          "material_read": "Primary arXiv abstract and theorem scope concerning arbitrarily slow convergence and a revised regret guarantee.",
+          "method": "Failure-mode and implication comparison.",
+          "title": "On the Convergence of AdaBound and its Connection to SGD",
+          "trigger": "Most direct published correction to AdaBound's original convergence analysis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1902.09843v1",
+        "arXiv:1908.04457v2",
+        "Resultary AdaBound/stability query"
+      ],
+      "rationale": "AdaBound's defining mechanism is intended to suppress extreme adaptive rates. The theorem identifies an exact pointwise safety requirement on that upper bound, quantifies the source defaults on the canonical scalar-curvature test, and separates mere finiteness of a clipped rate from curvature-compatible descent. The narrow scope is mathematically motivated by the algorithm's central design feature rather than an arbitrary parameter slice.",
+      "residual_risks": [
+        "An equivalent one-step observation may exist in unindexed optimizer notes or implementation discussions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1902.09843v1",
+    "arXiv:1908.04457v2",
+    "Resultary AdaBound/stability query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For source-form AdaBound on the deterministic scalar quadratic \\(f(x)=h x^2/2\\), universal first-step objective nonincrease over every nonzero initialization holds exactly when \\((1-\\beta_1)h u_1\\le 2\\); when it fails, a whole small-initialization neighborhood is clipped to \\(u_1\\) and has constant amplification \\([1-(1-\\beta_1)h u_1]^2>1\\), yielding the stated exact frontier for the source-recommended schedule and defaults.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent one-step observation may exist in unindexed optimizer notes or implementation discussions.",
+    "The theorem concerns the source theoretical recurrence without Adam bias correction or denominator epsilon and only the first update."
+  ]
+}

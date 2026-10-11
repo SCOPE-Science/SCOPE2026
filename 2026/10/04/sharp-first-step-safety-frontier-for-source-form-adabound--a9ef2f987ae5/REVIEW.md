@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source first step is reconstructed exactly. Varying the nonzero scalar initialization makes the raw rate span all positive values, so the clip spans its entire interval. Universal objective monotonicity therefore reduces to the sharp endpoint condition \((1-\beta_1)h u_1\le2\), and failure creates an exact upper-clipped amplification plateau.
+PASS
 
-Risk: the theorem concerns the source theoretical recurrence without the bias correction and epsilon used by some software implementations.
+At \(t=1\), the source recurrence gives \(m_1=(1-\beta_1)h x_1\), \(v_1=(1-\beta_2)h^2x_1^2\), and \(x_2=x_1[1-(1-\beta_1)h\widehat\eta_1]\). The raw rate ranges over all positive values as \(|x_1|\) varies, so its attainable supremum after clipping is exactly \(u_1\). Thus the sharp condition follows from \(|1-z|\le1\) iff \(0\le z\le2\). The unsafe neighborhood is obtained by solving the upper-clip inequality. The inspected verifier independently checks the recurrence, safe/unsafe sides and all stated default numbers. One nonessential sentence in RESULT.md says the clipped rate attains the entire closed interval even when \(\ell_1=0\); in that boundary case the attainable set is \((0,u_1]\), but the supremum and every theorem statement are unchanged.
 
-## Originality
+## originality
 
-PASS. The defining paper gives dynamic clipping and the recommended schedule; the direct 2019 correction addresses the regret proof and arbitrarily slow convergence; later work qualitatively criticizes task-independent bounds. The inspected literature does not state the exact curvature-sensitive first-step frontier, upper-clipping plateau, or high-\(\beta_2\) amplification law.
+PASS
 
-Residual risk: an equivalent local observation may appear in unindexed optimizer discussions.
+The defining AdaBound paper gives the source recurrence, the dynamic clipping mechanism, the recommended upper-bound schedule and the default parameters, but its theorem is a regret bound and does not compare the first upper clip with the exact scalar-quadratic descent interval. Savarese's direct correction treats global regret and arbitrarily slow convergence rather than this one-step curvature boundary. Fresh Resultary and web searches returned related quadratic stability frontiers for other algorithms but no theorem implying the exact AdaBound condition or upper-clipping plateau.
 
-## Value
+## value
 
-PASS. Dynamic clipping is AdaBound's defining response to extreme adaptive learning rates. The finding shows that a finite upper bound can itself be dynamically unsafe, quantifies the exact curvature limit, and demonstrates the effect at the paper's stated defaults. This gives a concrete safety diagnostic for the core mechanism.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+AdaBound's defining mechanism is intended to suppress extreme adaptive rates. The theorem identifies an exact pointwise safety requirement on that upper bound, quantifies the source defaults on the canonical scalar-curvature test, and separates mere finiteness of a clipped rate from curvature-compatible descent. The narrow scope is mathematically motivated by the algorithm's central design feature rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
