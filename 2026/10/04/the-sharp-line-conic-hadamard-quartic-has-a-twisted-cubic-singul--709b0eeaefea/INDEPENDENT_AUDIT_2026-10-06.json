@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:10:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob fdcc8d1fb818457f587081377f46690f5820565e",
+        "assigned artifacts/verify.py blob 854823c2e355bf3e1c34910ab3c680fa4dc554b6",
+        "Calussi--Carlini--Fatabbi--Lorenzini arXiv:1804.01388, Example 4.3",
+        "fresh independent symbolic rank/vanishing check"
+      ],
+      "rationale": "The package starts from the exact line and conic of Calussi--Carlini--Fatabbi--Lorenzini Example 4.3 and reconstructs their Hadamard quartic. The residual intersection equation for two rulings yields an explicit binary-cubic parametrization of the proposed singular curve. Its four coordinate cubics have coefficient rank four, so the image is a projective linear re-embedding of the standard degree-three Veronese curve. For the quartic Jacobian ideal \\(J\\) and the three displayed quadrics \\(I=(q_1,q_2,q_3)\\), exact identities give \\(J\\subset I\\), while Gröbner reduction gives \\(q_i^3\\in J\\) for every generator. Since \\(I\\) is the prime twisted-cubic ideal, \\(\\sqrt J=I\\). A fresh independent symbolic replay confirmed coefficient rank four and the vanishing of all three quadrics on the parametrization.",
+      "residual_risks": [
+        "Only the reduced singular locus is classified; the nonreduced Jacobian scheme along the curve is not.",
+        "The result is specific to the coefficients of the published sharp example."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ruled-quartic classification includes twisted-cubic singular models but also several other singular-curve types.",
+          "General Hadamard-surface results establish one-dimensional singular phenomena without identifying this example's radical Jacobian curve."
+        ],
+        "reasoning": "No broader inspected theorem mechanically maps the published Example 4.3 coefficients to the twisted-cubic class.",
+        "searches": [
+          "Polo-Blanco--van der Put--Top, DOI 10.1007/s10711-010-9500-0",
+          "Antolini--Ballico--Oneto arXiv:2502.18813"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.01388",
+        "arXiv:0904.2374",
+        "arXiv:2502.18813",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dimension one does not determine the reduced singular curve.",
+          "Recognizing a possible twisted-cubic model in the classical classification does not prove projective equivalence for the published coefficients."
+        ],
+        "reasoning": "The final claim requires the additional explicit parametrization and Jacobian-radical certificate.",
+        "searches": [
+          "published one-dimensional singular-locus statement versus exact twisted-cubic radical",
+          "classical ruled-quartic classification versus coefficient identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's line and conic equations coincide with the audited input.",
+          "The source records only that the singular locus has dimension one."
+        ],
+        "reasoning": "The audited claim refines the exact same example from a dimension statement to a complete reduced-curve identification.",
+        "searches": [
+          "Resultary query: line conic Hadamard quartic Example 4.3 twisted cubic reduced singular locus Calussi Carlini Fatabbi Lorenzini",
+          "Calussi--Carlini--Fatabbi--Lorenzini arXiv:1804.01388 Example 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent table or source naming this exact reduced singular locus as a twisted cubic was retrieved."
+        ],
+        "reasoning": "The exact radical calculation is therefore additional source-specific information.",
+        "searches": [
+          "Resultary current exact/semantic search for the Example 4.3 singular curve",
+          "web searches combining the example, quartic and twisted cubic"
+        ]
+      },
+      "rationale": "The exact primary example states that the Hadamard product is a singular quartic surface with one-dimensional singular locus but does not identify that curve. Classical ruled-quartic classifications contain families with twisted-cubic double curves, but they also contain other one-dimensional singular-locus types; the classification alone does not select the type for these particular Hadamard coefficients. The package supplies that missing identification by an exact radical computation. Current Resultary search returned the assigned result as the exact hit and no prior source-specific identification.",
+      "residual_risks": [
+        "A classical source could conceivably contain a projectively equivalent equation without indexing it by the modern Hadamard example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIMENSION_ONLY_PRIOR",
+          "evidence": "Example 4.3 establishes a singular quartic with one-dimensional singular locus but does not identify the reduced curve.",
+          "identifier_or_url": "arXiv:1804.01388; DOI 10.4171/PM/2029",
+          "material_read": "primary paper around Example 4.3, including the printed line/conic and the dimension-one singularity conclusion",
+          "method": "primary full-text inspection with page-image verification",
+          "title": "On the Hadamard product of degenerate subvarieties",
+          "trigger": "exact source of the sharp line-conic example"
+        },
+        {
+          "assessment": "TWISTED_CUBIC_CLASS_EXISTS_BUT_EXAMPLE_NOT_IDENTIFIED",
+          "evidence": "The classification supplies candidate models, not the source-specific coefficient match proved by the audit.",
+          "identifier_or_url": "arXiv:0904.2374; DOI 10.1007/s10711-010-9500-0",
+          "material_read": "open primary article passages on ruled quartics with twisted-cubic singular loci",
+          "method": "primary full-text web inspection",
+          "title": "Ruled quartic surfaces, models and classification",
+          "trigger": "closest classical classification source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Calussi et al. 2018/2020",
+        "ruled-quartic classification literature",
+        "assigned exact computation"
+      ],
+      "rationale": "The example is used to show sharpness of a singular-locus dimension bound, so identifying its actual singular curve is a natural geometric refinement. The twisted-cubic description supplies an intrinsic projective model and an exact radical certificate, rather than only another finite computation.",
+      "residual_risks": [
+        "The nonreduced singular scheme remains open in the package."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only the reduced singular locus is classified; the nonreduced Jacobian scheme along the curve is not.",
+    "The result is specific to the coefficients of the published sharp example.",
+    "A classical source could conceivably contain a projectively equivalent equation without indexing it by the modern Hadamard example.",
+    "The nonreduced singular scheme remains open in the package."
+  ]
+}

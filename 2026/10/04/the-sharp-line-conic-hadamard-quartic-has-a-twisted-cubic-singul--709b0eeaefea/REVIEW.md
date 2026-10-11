@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source equations are reproduced exactly and independently parametrized. The quartic equation is checked by substitution. The reduced singular-locus equality is proved in both directions: the four partial derivatives lie in \((q_1,q_2,q_3)\), while \(q_i^3\) lies in the Jacobian ideal for each \(i\). The three quadrics define a twisted cubic because the displayed four binary cubics form a basis of the degree-three binary forms.
+## correctness
 
-## Originality
-PASS. Targeted published-finding corpus searches for the source, the explicit Example 4.3, Hadamard line–conic quartics, and twisted-cubic singular loci returned no equivalent finding. The primary paper states only that the singular locus has dimension one. A 2025 Hadamard-product surface paper gives general one-dimensional singularity statements but not this identification. Classical ruled-quartic classification lists twisted-cubic double curves among several possibilities and does not identify the exact Hadamard example.
+PASS
 
-## Value
-PASS. The example is the explicit sharpness witness for a published singular-locus bound. Replacing the dimension-only statement by the exact reduced singular curve places that witness in the classical ruled-quartic taxonomy and supplies explicit equations and a parametrization that can support normalization and local-singularity analysis.
+The package starts from the exact line and conic of Calussi--Carlini--Fatabbi--Lorenzini Example 4.3 and reconstructs their Hadamard quartic. The residual intersection equation for two rulings yields an explicit binary-cubic parametrization of the proposed singular curve. Its four coordinate cubics have coefficient rank four, so the image is a projective linear re-embedding of the standard degree-three Veronese curve. For the quartic Jacobian ideal \(J\) and the three displayed quadrics \(I=(q_1,q_2,q_3)\), exact identities give \(J\subset I\), while Gröbner reduction gives \(q_i^3\in J\) for every generator. Since \(I\) is the prime twisted-cubic ideal, \(\sqrt J=I\). A fresh independent symbolic replay confirmed coefficient rank four and the vanishing of all three quadrics on the parametrization.
 
-## Closest literature and limitations
-The closest prior statements are the dimension-one conclusion in Example 4.3 of arXiv:1804.01388, the general line–curve singularity results of arXiv:2502.18813, and classical ruled-quartic classifications that allow twisted-cubic double curves without identifying this explicit surface. Only the reduced Jacobian locus is claimed; its nonreduced scheme structure and special local points are left open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact primary example states that the Hadamard product is a singular quartic surface with one-dimensional singular locus but does not identify that curve. Classical ruled-quartic classifications contain families with twisted-cubic double curves, but they also contain other one-dimensional singular-locus types; the classification alone does not select the type for these particular Hadamard coefficients. The package supplies that missing identification by an exact radical computation. Current Resultary search returned the assigned result as the exact hit and no prior source-specific identification.
+
+## value
+
+PASS
+
+The example is used to show sharpness of a singular-locus dimension bound, so identifying its actual singular curve is a natural geometric refinement. The twisted-cubic description supplies an intrinsic projective model and an exact radical certificate, rather than only another finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

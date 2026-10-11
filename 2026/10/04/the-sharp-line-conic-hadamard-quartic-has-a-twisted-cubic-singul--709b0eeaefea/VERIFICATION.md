@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` in an environment with SymPy. The checker uses exact integer and rational arithmetic and prints `VERIFY_OK` on success.
+## correctness
 
-It verifies the two source parametrizations against the defining line and conic equations; substitutes the Hadamard parametrization into the complete quartic equation; substitutes the proposed twisted-cubic parametrization into all three quadrics; checks that its four coordinate cubics have rank four as binary cubics; verifies explicit linear-combination identities placing every quartic partial derivative in the three-quadric ideal; and computes an exact Gröbner basis of the Jacobian ideal to verify that the cube of each quadric reduces to zero.
+PASS
 
-These checks prove equality of radicals for the Jacobian ideal and the prime twisted-cubic ideal. The verification does not determine the nilpotent structure of the Jacobian scheme or classify local analytic types along the curve.
+The package starts from the exact line and conic of Calussi--Carlini--Fatabbi--Lorenzini Example 4.3 and reconstructs their Hadamard quartic. The residual intersection equation for two rulings yields an explicit binary-cubic parametrization of the proposed singular curve. Its four coordinate cubics have coefficient rank four, so the image is a projective linear re-embedding of the standard degree-three Veronese curve. For the quartic Jacobian ideal \(J\) and the three displayed quadrics \(I=(q_1,q_2,q_3)\), exact identities give \(J\subset I\), while Gröbner reduction gives \(q_i^3\in J\) for every generator. Since \(I\) is the prime twisted-cubic ideal, \(\sqrt J=I\). A fresh independent symbolic replay confirmed coefficient rank four and the vanishing of all three quadrics on the parametrization.
+
+## originality
+
+PASS
+
+The exact primary example states that the Hadamard product is a singular quartic surface with one-dimensional singular locus but does not identify that curve. Classical ruled-quartic classifications contain families with twisted-cubic double curves, but they also contain other one-dimensional singular-locus types; the classification alone does not select the type for these particular Hadamard coefficients. The package supplies that missing identification by an exact radical computation. Current Resultary search returned the assigned result as the exact hit and no prior source-specific identification.
+
+## value
+
+PASS
+
+The example is used to show sharpness of a singular-locus dimension bound, so identifying its actual singular curve is a natural geometric refinement. The twisted-cubic description supplies an intrinsic projective model and an exact radical certificate, rather than only another finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
