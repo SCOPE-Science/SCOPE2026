@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "For the locally Lipschitz first-order flow, the observable \\(H=a^2/2+xv-\\int_0^v f(s)\\,ds\\) obeys \\(\\dot H=v^2-Aa^2\\) by exact cancellation. Compact invariant measures annihilate its generator and those of \\(x^2/2\\), \\(v^2/2\\), \\(va\\), and \\(x\\), proving both stationary identities and the weighted secant law. Zero velocity variance forces the equilibrium via invariance and continuity. For \\(A\\le0\\), \\(H\\) is nondecreasing and on bounded orbits its limit sets lie in the largest invariant zero-drift subset \\(\\{e\\}\\); both time directions exclude nontrivial bounded complete trajectories. For \\(A>0\\), zero-mean periodic velocity and sharp Wirtinger imply \\(P\\ge2\\pi\\sqrt A\\); equality is exactly fundamental harmonic velocity and requires, and is realized by, critical affine feedback on its whole velocity interval. For \\(f(v)=v^2\\), a nonnegative weighted cubic factor plus zero mean forces nonzero mass both below \\(-1/A\\) and above zero, with periodic crossings and strict period inequality. These proofs are analytic, all quantifiers and support assumptions explicit; the actual package checker independently verifies the key differentiations and harmonic substitution, not the infinite dynamical lemmas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "10.1016/j.physleta.2011.02.028: Eq. (3) defines velocity-feedback jerk; Eq. (5) gives local f-prime spectral condition; pp. 1445–1450 focus on numerical chaos, return maps, and local equilibria, not compact invariant measures.",
+        "10.1016/S0375-9601(97)00088-1: Eq. (3) is the quadratic \\(f(v)=v^2\\) case, pp. 271–274; reports numerical period doubling, divergence -A and approximate period \\(T\\approx11.8\\) near \\(A\\approx2.017\\), not a sharp period theorem.",
+        "10.1016/S0960-0779(00)00237-X: Sec. 1 defines polynomial JD1 with \\(x\\dot x\\) and JD2 with \\(x^2\\), not \\(f(\\dot x)\\) as nonlinear forcing plus linear x.",
+        "2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7: theorem concerns \\(\\dddot x+a\\ddot x+b\\dot x+cx=g(x)\\), and weights \\(-g\\prime(x)(\\dot x)^2\\); different feedback coordinate and derivative rather than secant slope."
+      ],
+      "reasoning": "The 2011 primary source treats many \\(f(v)\\) choices and a local imaginary-pair condition, but states neither the compact-invariant-probability weighted secant identity, the optimal all-feedback period/equality law, nor the global closed-side damping exclusion. The 1997 source treats the quadratic subcase numerically. The 2002 analysis treats two other polynomial jerk classes. None of these inspected results logically entails the fully quantified theorem by specialization; ordinary local Routh–Hurwitz inequalities do not establish finite-amplitude invariant-measure identities.",
+      "searches": [
+        "x''' + A x'' + x = f(x') periodic orbit period bound 2 pi sqrt A weighted secant Hopf",
+        "Munmuangsaen Srisuchinwong Sprott generalized simplest autonomous chaotic 2011 rigorous global bounds period invariant measure",
+        "velocity driven third-order oscillator harmonic equality jerk x''' A x'' x f(x') least period 2pi sqrt A",
+        "2002 Eichhorn Linz Hanggi Simple polynomial classes of chaotic jerky dynamics",
+        "2011 Munmuangsaen Srisuchinwong Sprott generalization of the simplest autonomous chaotic system"
+      ]
+    },
+    "checked_sources": [
+      "Sprott 1997 10.1016/S0375-9601(97)00088-1 (full primary)",
+      "Munmuangsaen et al. 2011 10.1016/j.physleta.2011.02.028 (full primary)",
+      "Eichhorn et al. 2002 10.1016/S0960-0779(00)00237-X (selected primary pages)",
+      "Goodwin global feedback theorem 2026 public published-finding corpus (full result and proof)",
+      "Kocić and Gegovska-Zajkova 2009 journal bibliography (not full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "10.1016/j.physleta.2011.02.028: Eq. (3) defines velocity-feedback jerk; Eq. (5) gives local f-prime spectral condition; pp. 1445–1450 focus on numerical chaos, return maps, and local equilibria, not compact invariant measures.",
+        "10.1016/S0375-9601(97)00088-1: Eq. (3) is the quadratic \\(f(v)=v^2\\) case, pp. 271–274; reports numerical period doubling, divergence -A and approximate period \\(T\\approx11.8\\) near \\(A\\approx2.017\\), not a sharp period theorem.",
+        "2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7: theorem concerns \\(\\dddot x+a\\ddot x+b\\dot x+cx=g(x)\\), and weights \\(-g\\prime(x)(\\dot x)^2\\); different feedback coordinate and derivative rather than secant slope.",
+        "Previously recorded Arneodo–Coullet–Tresser jerk result (item 66247c6d-762f-44ac-97ce-906ae138c052) has restoring xprime and nonlinear f(x), not restoring x and nonlinear \\(f(\\dot x)\\).",
+        "10.1016/S0960-0779(00)00237-X: Sec. 1 defines polynomial JD1 with \\(x\\dot x\\) and JD2 with \\(x^2\\), not \\(f(\\dot x)\\) as nonlinear forcing plus linear x."
+      ],
+      "reasoning": "The final implication chain is \\(\\dot H=v^2-Aa^2\\), hence the invariant-measure variance ratio, hence the weighted velocity-secant identity, followed by a sharp Wirtinger least-period and affine equality criterion; monotonicity additionally yields the closed nonpositive-damping recurrence exclusion, and the 1997 quadratic case has its negative-velocity crossing. The 2011 condition \\(f\\prime(0)=-1\\) is purely spectral for its \\(A=1\\) specialization and does not imply the weighted finite-amplitude result. Goodwin weights a position-feedback derivative, not a velocity-feedback secant. Prior Arneodo and Eichhorn classes have distinct nonlinear couplings and do not imply the parameter-dependent sharp theorem.",
+      "searches": [
+        "Global Hopf-slope balance for third-order feedback cycles and the Goodwin oscillator every non-equilibrium compact recurrent state derivative energy weighted feedback slope exactly Hopf threshold theorem",
+        "Munmuangsaen Srisuchinwong Sprott generalized simplest autonomous chaotic 2011 rigorous global bounds period invariant measure",
+        "velocity driven third-order oscillator harmonic equality jerk x''' A x'' x f(x') least period 2pi sqrt A",
+        "Arneodo Coullet Tresser forced oscillator jerk derivative versus restoring feedback ∫ z² ∫ y²"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7: theorem concerns \\(\\dddot x+a\\ddot x+b\\dot x+cx=g(x)\\), and weights \\(-g\\prime(x)(\\dot x)^2\\); different feedback coordinate and derivative rather than secant slope.",
+        "10.1016/S0960-0779(00)00237-X: Sec. 1 defines polynomial JD1 with \\(x\\dot x\\) and JD2 with \\(x^2\\), not \\(f(\\dot x)\\) as nonlinear forcing plus linear x.",
+        "Previously recorded Arneodo–Coullet–Tresser jerk result (item 66247c6d-762f-44ac-97ce-906ae138c052) has restoring xprime and nonlinear f(x), not restoring x and nonlinear \\(f(\\dot x)\\)."
+      ],
+      "reasoning": "Equivalent views are the coboundary \\(L(a^2/2+xv-F(v))=v^2-Aa^2\\), an invariant-measure weighted velocity-secant-feedback average, and the sharp periodic Wirtinger equality criterion. The inspected Goodwin and Arneodo models use nonlinear position feedback, or other restoring derivatives, rather than the velocity-feedback class; Eichhorn JD1 and JD2 contain, respectively, \\(x\\dot x\\) and \\(x^2\\) nonlinearities. None of their generator identities implies the specific velocity secant slope or \\(\\sqrt A\\)-scaled sharp period with the affine equality classification. The prior Arneodo form has an unforced zero mode where the present class has a nonzero restoring coefficient.",
+      "searches": [
+        "velocity-feedback jerk f(x prime) invariant probability measures exact energy balance secant slope f(v)/v",
+        "Global Hopf-slope balance for third-order feedback cycles and the Goodwin oscillator every non-equilibrium compact recurrent state derivative energy weighted feedback slope exactly Hopf threshold theorem",
+        "velocity driven third-order oscillator harmonic equality jerk x''' A x'' x f(x') least period 2pi sqrt A",
+        "periodic solutions jerk derivative nonlinearity f(v) universal L2 identity",
+        "10.1016/S0960-0779(00)00237-X"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2011 paper Table 1 tabulates numerical Lyapunov exponents and attractor dimensions for 12 nonlinear velocity feedbacks, not exact stationary/period invariants.",
+        "2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7: theorem concerns \\(\\dddot x+a\\ddot x+b\\dot x+cx=g(x)\\), and weights \\(-g\\prime(x)(\\dot x)^2\\); different feedback coordinate and derivative rather than secant slope.",
+        "published-finding corpus searches did not identify a same-system exact secant, quadratic velocity threshold, or period/equality table."
+      ],
+      "reasoning": "Tables of numerical Lyapunov exponents, attractor dimension and parameter windows do not establish universal invariant-measure identities, the absence of nontrivial bounded complete orbits, or the sharp period equality classification. Similar exact balances indexed in published mathematical records concern distinct vector fields and do not supply a matching exact database, table or stronger covering theorem for this velocity-feedback class. Search failure is not independent novelty evidence.",
+      "searches": [
+        "velocity-feedback jerk f(x prime) invariant probability measures exact energy balance secant slope f(v)/v",
+        "x''' + A x'' + x = f(x') periodic orbit period bound 2 pi sqrt A weighted secant Hopf",
+        "Sprott 1997 simplest dissipative flow exact stationary velocity cubic moment v^3 = -v^2/A",
+        "Sprott 1997 simplest chaotic dissipative flow jerk invariant measures y squared A z squared"
+      ]
+    },
+    "rationale": "Complete original-system primary texts from 1997 and 2011, selected relevant pages of the analytical 2002 jerk study, and the full published Goodwin feedback theorem were materially inspected. Each closest result has a different object, feedback coordinate, or only a local Jacobian condition; none of its actual claims implies the combined compact-recurrence obstruction, invariant-measure secant law, or sharp period equality theorem. The uninspected full 2009 piecewise-jerk article and historical multiplier literature remain explicitly recognized possible overlap risks; a failed database search is not treated as novelty proof.",
+    "residual_risks": [
+      "The exact journal text of Kocić–Gegovska-Zajkova (2009) could not be obtained; it discusses a related nonlinear jerk circuit class. The absence of full material prevents a definitive NOT_COVERING judgment for that paper.",
+      "Linz (2000) non-chaos criteria and other older third-order ODE multiplier papers were identified but not exhaustively inspected; their potential overlap may affect an individual damping-sign component, though the present combined global secant/equality theorem was not located.",
+      "Generic integration-by-parts methods are classical; equivalence of an older general theorem under an unexpected change of variables remains possible. The identified existing position-feedback and Arneodo theorems are not such an implication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defining equation and numerical chaos/period evidence; no invariant-measure secant identity, global nonpositive damping recurrence theorem, or universal sharp period/equality theorem stated",
+        "evidence": [
+          "p.271 printed 14 April 1997 and differential equation",
+          "p.272 Eq.(3), parameter \\(A\\) and numerical chaos",
+          "p.273 numerical period approximately 11.8, divergence \\(-A\\), equilibrium eigenvalues",
+          "p.274 numerical basin and references"
+        ],
+        "identifier_or_url": "https://wippl.wisc.edu/pub_files/journal/Sprott116.pdf",
+        "material_read": "Full four-page primary article, pp. 271–274, including all displayed equations, dynamical claims, and references",
+        "method": "Original publisher-format PDF inspected page-by-page as page images",
+        "title": "Simplest dissipative chaotic flow",
+        "trigger": "Exact 1997 quadratic velocity-feedback system and earliest source-date evidence"
+      },
+      {
+        "assessment": "Eq.(3) is the \\(A=1\\) version; local Hopf spectral slope \\(f\\prime(0)=-1\\) and numerical chaos prior covered. Does not state the measure secant law, damping-sign compact recurrence rigidity, or sharp least-period equality classification. Discontinuous/singular Table 1 options exceed the present Lipschitz assumptions.",
+        "evidence": [
+          "p.1445 Eq.(3), online publication 2011-02-16",
+          "p.1446 Table 1 and Eqs.(4)-(5), local eigenvalues and remark no conservative numerical cases",
+          "pp.1447–1449 Poincare map and diode approximation",
+          "p.1449 conclusion"
+        ],
+        "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper354.pdf",
+        "material_read": "All six pages pp.1445–1450 including equation table, local spectra, return-map analysis, conclusion, and references",
+        "method": "Author-posted full PDF parsed text by pages, key page images separately inspected",
+        "title": "Generalization of the simplest autonomous chaotic system",
+        "trigger": "Exact velocity-feedback jerk family and nearest full same-object primary paper"
+      },
+      {
+        "assessment": "JD1 uses nonlinear \\(x\\dot x\\); JD2 nonlinear \\(x^2\\). Non-chaos methods and Hopf analysis are relevant background, but these two classes do not cover arbitrary \\(f(\\dot x)\\) with linear x restoring term. A complete all-page exclusion was not asserted.",
+        "evidence": [
+          "p.2 Eqs.(3)-(4) JD1 and JD2",
+          "p.3 Sec.2 outlines non-chaos and Hopf criteria",
+          "p.9 Eq.(17)-(18) describes JD2"
+        ],
+        "identifier_or_url": "https://www.physik.uni-augsburg.de/theo1/hanggi/Papers/266.pdf",
+        "material_read": "Title, abstract, pp.1–3 defining both polynomial model classes and methods, and p.9 JD2 parametrization; not all 15 pages",
+        "method": "Lawful author-hosted PDF, selected full primary page images",
+        "title": "Simple polynomial classes of chaotic jerky dynamics",
+        "trigger": "Highly relevant analytical paper potentially dominating broad jerk flow results"
+      },
+      {
+        "assessment": "Proves for nonlinear position feedback \\(g(z)\\) a weighted \\(-g\\prime(z)\\) identity; does not imply this velocity-feedback weighted secant \\(f(v)/v\\) law or its \\(\\sqrt A\\) sharp period/equality case.",
+        "evidence": [
+          "Result formula (2): \\(\\int[-g\\prime(z)](z\\prime)^2/\\int(z\\prime)^2=ab-c\\)",
+          "Result Eq.(4) invariant measure counterpart",
+          "Its parameter roles and nonlinearity argument differ from velocity-feedback class"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7",
+        "material_read": "Entire published RESULT.md theorem, proof, prior-work relationship, and limitations",
+        "method": "Read complete result text published in the cited public repository",
+        "title": "Global Hopf-slope balance for third-order feedback cycles and the Goodwin oscillator",
+        "trigger": "Closest mathematical database item with global weighted-slope language"
+      },
+      {
+        "assessment": "Potential exact-class prior-art risk; no basis for declaring its uninspected theorem content NOT_COVERING. The accessible related conference abstract concerns numerical curve approximations, not the present identity; no definitive coverage comparison made.",
+        "evidence": [
+          "2011 source p.1450 reference [12]",
+          "2009 institutional publication list identifies pages 35–44",
+          "2009 related conference abstract describes subdivision-based approximations and numerical examples"
+        ],
+        "identifier_or_url": "Facta Universitatis Series Automatic Control and Robotics 8 (2009), 35–44; Kocić–Gegovska-Zajkova",
+        "material_read": "Bibliographic identification and related 2009 conference abstract; original journal full text unavailable",
+        "method": "Open bibliographic and author-publication records searched; no journal PDF material inspected",
+        "title": "On a jerk dynamical system",
+        "trigger": "2011 source reference [12] names an earlier piecewise nonlinear jerk class"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e188650-8580-449a-92e1-6683fa715b6d",
+  "value": {
+    "rationale": "The 1997 quadratic prototype and 2011 generalization are a motivated nonlinear chaotic jerk class, not an arbitrary slice. A single structural coboundary rigorously clarifies the 2011 numerical search for conservative cases over the full locally Lipschitz velocity-feedback family; identifies exactly the global finite-amplitude velocity-feedback secant slope compatible with compact stationary dynamics, agreeing with the local imaginary-pair threshold; establishes a sharp parameter-scaled least-period floor including all equality cases; and requires an unavoidable negative-velocity excursion in the original quadratic model. These are structural, falsifiable constraints and global boundaries for non-equilibrium recurrence rather than numerical table recomputations. The positive-damping results give necessary conditions, not assertions of orbit existence.",
+    "status": "PASS"
+  }
+}
