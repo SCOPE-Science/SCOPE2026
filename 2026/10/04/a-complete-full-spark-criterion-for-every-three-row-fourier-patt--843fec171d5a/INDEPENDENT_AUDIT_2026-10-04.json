@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T08:54:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three distinct selected columns, division by the first column reduces the determinant to \\(-(u-1)(v-1)(S_m(u)-S_m(v))\\). If the common value of \\(S_m(u)\\) and \\(S_m(v)\\) is zero, three distinct common \\(N\\)-th and \\(m\\)-th roots force \\(\\gcd(N,m)\\ge3\\). If it is nonzero, unit-circle conjugation gives \\(u^{m-1}=v^{m-1}=a\\); the geometric-sum formula then yields \\((1-a)(u-v)=0\\), so \\(a=1\\) and \\(\\gcd(N,m-1)\\ge3\\). The converse subgroup witnesses are immediate. For a three-element row set, divisor-uniformity at every divisor \\(d\\ge3\\) is exactly pairwise distinctness modulo \\(d\\), equivalent to the two gcd conditions. Independent exact regression reproduced the divisor-uniformity equivalence for all 44,551 pairs with \\(3\\le N\\le300\\).",
+      "risks": [
+        "Finite regression is corroboration only; the all-parameter conclusion rests on the analytic determinant proof."
+      ],
+      "sources": [
+        "Frozen RESULT.md and verify_three_row_family.py",
+        "B. Alexeev, J. Cahill, D. G. Mixon, Full Spark Frames, arXiv:1110.3548",
+        "H. K. Achanta et al., Coprime Conditions for Fourier Sampling for Sparse Recovery, DOI:10.1109/SAM.2014.6882460, complete four-page paper",
+        "Independent exact arithmetic checks"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alexeev--Cahill--Mixon give only general necessity plus prime-power sufficiency; Achanta et al. give AP and one-missing-row structures; the same-day prime-square record is restricted to \\(N=p^2\\)."
+        ],
+        "reasoning": "None dominates the all-order two-parameter family.",
+        "searches": [
+          "arXiv:1110.3548",
+          "DOI:10.1109/SAM.2014.6882460",
+          "Resultary records on three-point Fourier uncertainty and prime-square singular minors"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.3548",
+        "DOI:10.1109/SAM.2014.6882460",
+        "DOI:10.1016/j.dsp.2016.07.008 metadata/abstract",
+        "Resultary published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results do not supply sufficiency for general composite order in this row family."
+        ],
+        "reasoning": "The submitted determinant argument closes an implication gap not furnished by the broader prior theorems.",
+        "searches": [
+          "Full Spark Frames, divisor-uniformity theorem",
+          "Achanta et al. Theorems 3.1--4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No inspected source states the two-gcd iff or the equivalent all-divisors uniformity theorem for the variable family \\(\\{0,1,m\\}\\)."
+        ],
+        "reasoning": "Both gcd language and divisor-uniformity language were compared against prior statements.",
+        "searches": [
+          "Resultary query: three-row Fourier submatrix full spark criterion cyclic group arbitrary N row pattern 3 rows uncertainty Vandermonde minors",
+          "web search: \"{0,1,m}\" Fourier full spark gcd N m m-1 theorem",
+          "arXiv:1110.3548"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned nearby findings concern three-point uncertainty, principal minors, or prime-square classifications; none gives this family-wide iff."
+        ],
+        "reasoning": "No exact indexed table/classification was located.",
+        "searches": [
+          "Resultary semantic query above"
+        ]
+      },
+      "rationale": "The foundational full-spark paper supplies divisor-uniformity as a necessary condition in general and an iff criterion only at prime-power order. The complete Achanta et al. conference paper treats arithmetic-progression row sets and row sets obtained by deleting one row from a consecutive block; it explicitly says its general deleted-row results do not give a necessary-and-sufficient condition for all parameters. Except for small boundary cases, \\(\\{0,1,m\\}\\) is neither family. Targeted Resultary and web searches located related three-point uncertainty and prime-square-minor results, but those cover different quantifiers or only special orders and do not imply the submitted all-\\(N,m\\) criterion.",
+      "residual_risks": [
+        "The 2017 journal continuation could contain a differently phrased strengthening not visible in the inspected abstract; the failed full-text retrieval was a source mismatch, so no claim of whole-document noncoverage is made.",
+        "A poorly indexed earlier theorem on three-row DFT minors could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_NOT_FINAL_CLAIM",
+          "evidence": [
+            "General necessity and prime-power iff are present; no general composite-order characterization is given."
+          ],
+          "identifier_or_url": "arXiv:1110.3548",
+          "material_read": "Definition and theorem statements on divisor-uniformity, prime-power sufficiency, and the composite-order failure of unrestricted sufficiency.",
+          "method": "Lawful public full-text inspection.",
+          "title": "Full Spark Frames",
+          "trigger": "Foundational divisor-uniformity criterion for DFT row subsets."
+        },
+        {
+          "assessment": "NOT_COVERING_VARIABLE_THREE_ROW_FAMILY",
+          "evidence": [
+            "The paper treats arithmetic progressions and one row missing from a consecutive block and explicitly notes that its conditions are not a general integer iff."
+          ],
+          "identifier_or_url": "DOI:10.1109/SAM.2014.6882460",
+          "material_read": "Complete four-page paper, including Theorems 2.2--2.3, 3.1--3.4 and 4.1--4.2.",
+          "method": "Authorized full-text inspection after public full text was unavailable.",
+          "title": "Coprime Conditions for Fourier Sampling for Sparse Recovery",
+          "trigger": "Closest structured composite-order coprimeness treatment."
+        },
+        {
+          "assessment": "RESIDUAL_ACCESS_RISK",
+          "evidence": [
+            "The abstract advertises structured coprimeness/vanishing-sum conditions but does not state the submitted \\(\\{0,1,m\\}\\) iff."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.dsp.2016.07.008",
+          "material_read": "Metadata/abstract only; an authorized retrieval attempt returned a mismatched unrelated paper and therefore was not used as scientific evidence.",
+          "method": "Metadata/abstract comparison only.",
+          "title": "The spark of Fourier matrices: Connections to vanishing sums and coprimeness",
+          "trigger": "Later journal continuation that could plausibly strengthen the conference results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a sharp, constant-time arithmetic test for a natural infinite family of nonconsecutive Fourier sampling patterns and identifies a family in which the standard divisor-uniformity necessary condition is sufficient at every composite order. That is a structural classification rather than a finite parameter check.",
+      "risks": [],
+      "sources": [
+        "Frozen proof",
+        "Full Spark Frames",
+        "Achanta et al. 2014"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem classifies only affine-normalized row triples of the form \\(\\{0,1,m\\}\\), not arbitrary three-row sets.",
+    "The 2017 journal continuation remains a stated literature-access risk rather than being treated as noncovering."
+  ],
+  "schema_version": 1
+}

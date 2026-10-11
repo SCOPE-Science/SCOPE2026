@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces an arbitrary three-column minor to equality of two geometric sums. The unit-circle conjugation identity separates the common value into the zero case, forcing three common \(N\)-th and \(m\)-th roots, and the nonzero case, where a second exact cross-multiplication forces three common \(N\)-th and \(m-1\)-st roots. The converse witnesses are immediate subgroup aliases of row \(m\) with row \(0\) or row \(1\). The verifier independently checks the determinant identity and arithmetic consequences exactly.
+## correctness
 
-## Originality
-PASS. The closest inspected source, *Full Spark Frames*, gives the general necessity of divisor-uniformity, prime-power sufficiency, and explicitly says the general DFT characterization is unavailable. The inspected Achanta et al. conference paper treats arithmetic progressions and single-row-deleted consecutive blocks; it does not imply this two-parameter family theorem and explicitly leaves a necessary-and-sufficient gap in its broader deleted-row parameters. Targeted published-finding corpus searches for the exact gcd criterion, the \(\{0,1,m\}\) family, geometric-sum formulation, and divisor-uniformity formulation returned no matching claim. The theorem subsumes the ledger's prior \(m=4\) case, so this is a genuine family extension rather than a separate routine increment.
+PASS
 
-## Value
-PASS. The family is natural: it is the smallest nontrivial nonconsecutive Fourier-row family with one row normalized to \(0\) and another to \(1\). The result converts the general necessary divisor-uniformity condition into a complete all-composite-orders iff criterion for an infinite two-parameter class, with an elementary exact test via two gcds. This directly addresses the characterization gap emphasized by the foundational source without claiming a full general classification.
+For three distinct selected columns, division by the first column reduces the determinant to \(-(u-1)(v-1)(S_m(u)-S_m(v))\). If the common value of \(S_m(u)\) and \(S_m(v)\) is zero, three distinct common \(N\)-th and \(m\)-th roots force \(\gcd(N,m)\ge3\). If it is nonzero, unit-circle conjugation gives \(u^{m-1}=v^{m-1}=a\); the geometric-sum formula then yields \((1-a)(u-v)=0\), so \(a=1\) and \(\gcd(N,m-1)\ge3\). The converse subgroup witnesses are immediate. For a three-element row set, divisor-uniformity at every divisor \(d\ge3\) is exactly pairwise distinctness modulo \(d\), equivalent to the two gcd conditions. Independent exact regression reproduced the divisor-uniformity equivalence for all 44,551 pairs with \(3\le N\le300\).
 
-## Closest literature and limitations
-The strongest overlap is with Alexeev–Cahill–Mixon's divisor-uniformity theorem and Achanta et al.'s coprimeness/vanishing-sum program. Neither inspected source states or implies the final iff criterion for all \(N,m\). The later Digital Signal Processing article was identified and compared through abstract/metadata but not read in full, leaving a residual access risk. A differently phrased or unindexed earlier statement is also possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The foundational full-spark paper supplies divisor-uniformity as a necessary condition in general and an iff criterion only at prime-power order. The complete Achanta et al. conference paper treats arithmetic-progression row sets and row sets obtained by deleting one row from a consecutive block; it explicitly says its general deleted-row results do not give a necessary-and-sufficient condition for all parameters. Except for small boundary cases, \(\{0,1,m\}\) is neither family. Targeted Resultary and web searches located related three-point uncertainty and prime-square-minor results, but those cover different quantifiers or only special orders and do not imply the submitted all-\(N,m\) criterion.
+
+## value
+
+PASS
+
+The result gives a sharp, constant-time arithmetic test for a natural infinite family of nonconsecutive Fourier sampling patterns and identifies a family in which the standard divisor-uniformity necessary condition is sufficient at every composite order. That is a structural classification rather than a finite parameter check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
