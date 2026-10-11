@@ -1,29 +1,21 @@
-# Review of Cross-ratio geometry and nodal singularities of the four-collinear line-multiview correction
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof starts from the published four-collinear correction determinant and the published all-collinear vanishing-ideal theorem. Restriction to the baseline component kills every determinantal minor identically, leaving precisely the correction hypersurface. Exact expansion gives the bracket formula and the fixed-cross-ratio equation.
+PASS
 
-The key singularity calculation is structural rather than experimental: on an affine chart the correction is a quadratic form \(D\) whose Hessian \(H\) has common-shift kernel and whose every principal \(3\times3\) minor equals
-\[
-2\prod_{i<j}(v_j-v_i),
-\]
-which is nonzero for distinct camera parameters. Thus \(\nabla D=0\) exactly on the common-shift line, corresponding to the small diagonal. Simultaneous projective transformations cover the global boundary charts. The transverse equation is a rank-three quadratic form, giving an \(A_1\) node, and Serre's criterion gives normality.
+Restricting the published four-collinear determinant to the baseline gives the exact bracket identity \((v_1-v_4)(v_2-v_3)[13][24]-(v_1-v_3)(v_2-v_4)[14][23]\), which on an affine chart is precisely equality of source and target cross ratios. Every diagonal projective transform therefore lies on the divisor; both its orbit closure and the irreducible divisor have dimension three, so they coincide. The affine equation is a quadratic form in the four target coordinates. Independent symbolic computation for distinct source coordinates gives Hessian rank three, kernel spanned by the common-shift vector, and every principal 3-by-3 minor equal to twice the nonzero Vandermonde. Hence the affine singular locus is exactly the diagonal and the normal quadratic form is nondegenerate. Simultaneous projective changes move any target quadruple into an affine chart, making the statement global. A rank-three quadratic is irreducible; the hypersurface is Cohen--Macaulay and its one-dimensional singular locus has codimension two in the threefold, so Serre's criterion gives normality. Because the defining equation is exactly quadratic transverse to the diagonal, the local analytic germ is \(A_1\).
 
-Risk: the scheme-theoretic intersection statement depends on using the four-camera all-collinear ideal theorem, not merely the earlier set-theoretic exceptional-locus description. That theorem was inspected directly.
+## originality
 
-## Originality
+PASS
 
-**PASS.** The closest line-multiview sources state the extra collinear correction and establish the appropriate ideal-theoretic framework, but the inspected text does not state the cross-ratio interpretation, the exact small-diagonal singular locus, normality, or transverse \(A_1\) type. Targeted published-index and web searches for these formulations did not return a covering result.
+Breiding--Duff--Gustafsson--Rydell--Shehu explicitly derive the four-collinear correction determinant and prove that the augmented collinear ideal is radical/defines the line multiview variety, but they do not identify the baseline restriction as a fixed-cross-ratio orbit closure or classify its singularities. Aluffi--Faber give a classical theory of PGL(2) orbit closures of unordered divisors on \(\mathbb P^1\), including boundary multiplicities and singularity criteria, but their ambient symmetric-power quotient changes the boundary singularities and does not state the ordered \((\mathbb P^1)^4\) divisor's small-diagonal transverse \(A_1\) structure. No inspected source mechanically implies the full audited claim.
 
-Classical work on \(\mathrm{PGL}_2\)-orbit closures of point configurations is broader background and creates a genuine residual risk that an equivalent orbit-closure singularity statement exists in another language. The specific implication checked here is narrower: neither the cited line-multiview papers nor the located general bibliographic record supplies the identification of their four-collinear camera correction with this ordered fixed-cross-ratio divisor together with the stated Hessian singularity certificate.
+## value
 
-## Value
+PASS
 
-**PASS.** The result turns an elimination-style correction equation into intrinsic projective geometry. It identifies what the correction does on the exact component that makes rank minors insufficient, and it classifies the entire singular locus and its transverse local type. This is useful for local geometry of non-generic camera arrangements, for understanding how the extra equation removes the determinantal component, and for future scheme-theoretic or numerical analyses near collinear degeneracies.
+The correction determinant is a canonical exceptional feature of the four-collinear line-multiview problem. Identifying it intrinsically as a fixed-cross-ratio orbit closure and determining its exact singular locus, normality, and transverse node turns an elimination formula into geometric structure that supports subsequent birational analysis. This is a motivated local-geometry result rather than a cosmetic factorization.
 
-## Closest literature and limitations
-
-The principal sources are arXiv:2203.01694 and arXiv:2303.02066. The former explains why four or more collinear cameras require additional constraints; the latter gives the determinant and proves the relevant extended ideal is radical and equals the vanishing ideal for collinear cameras. Aluffi--Faber (1993) is relevant general orbit-closure background. The claim is limited to distinct complex camera parameters and to the correction divisor inside the baseline component.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

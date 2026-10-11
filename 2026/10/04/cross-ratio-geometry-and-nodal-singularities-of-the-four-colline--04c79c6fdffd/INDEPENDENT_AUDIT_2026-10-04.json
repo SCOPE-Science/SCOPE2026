@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:56:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify_crossratio_divisor.py at source tree 432d8727ea971363142e1574c4defb9d67687f44",
+        "arXiv:2303.02066 Example 5.5 and Section 6",
+        "independent symbolic Hessian calculation at source coordinates 0,1,2,3"
+      ],
+      "rationale": "Restricting the published four-collinear determinant to the baseline gives the exact bracket identity \\((v_1-v_4)(v_2-v_3)[13][24]-(v_1-v_3)(v_2-v_4)[14][23]\\), which on an affine chart is precisely equality of source and target cross ratios. Every diagonal projective transform therefore lies on the divisor; both its orbit closure and the irreducible divisor have dimension three, so they coincide. The affine equation is a quadratic form in the four target coordinates. Independent symbolic computation for distinct source coordinates gives Hessian rank three, kernel spanned by the common-shift vector, and every principal 3-by-3 minor equal to twice the nonzero Vandermonde. Hence the affine singular locus is exactly the diagonal and the normal quadratic form is nondegenerate. Simultaneous projective changes move any target quadruple into an affine chart, making the statement global. A rank-three quadratic is irreducible; the hypersurface is Cohen--Macaulay and its one-dimensional singular locus has codimension two in the threefold, so Serre's criterion gives normality. Because the defining equation is exactly quadratic transverse to the diagonal, the local analytic germ is \\(A_1\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multiview papers establish the correction equation and ambient ideal geometry.",
+          "Aluffi--Faber supply a stronger classical orbit-closure framework for unordered configurations but quotient by permutations, producing different boundary behavior."
+        ],
+        "reasoning": "None of the inspected broader sources states the exact ordered hypersurface singular locus, normality, or transverse node.",
+        "searches": [
+          "Line Multiview Ideals, arXiv:2303.02066, full accessible preprint",
+          "Line Multiview Varieties, DOI:10.1137/22M1482263",
+          "Aluffi--Faber 1993 full article"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.02066",
+        "DOI:10.1137/22M1482263",
+        "DOI:10.1515/crll.1993.445.205",
+        "Resultary semantic query: four-collinear correction divisor cross ratio singular locus small diagonal A1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The line-multiview source provides the defining determinant but not its cross-ratio orbit interpretation or singularity computation.",
+          "The symmetric-product orbit closure is a finite quotient of the ordered geometry; its singularities do not directly determine the ordered hypersurface's local analytic type."
+        ],
+        "reasoning": "The final claim requires a new exact factorization and rank-three Hessian analysis beyond the prior defining equation and classical unordered orbit theory.",
+        "searches": [
+          "arXiv:2303.02066 Example 5.5 determinant versus the audited bracket factorization and Hessian calculation",
+          "Aluffi--Faber boundary-multiplicity theory versus the ordered-product divisor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 5.5 rewrites the extra four-camera condition as the same 4-by-4 determinant, and Theorem 6.4/Corollary 6.5 establish the collinear multiview ideal.",
+          "Aluffi--Faber study orbit closures after passing to the symmetric product \\(\\operatorname{Sym}^d\\mathbb P^1\\cong\\mathbb P^d\\), including boundary multiplicities; this is not the ordered-product hypersurface studied here."
+        ],
+        "reasoning": "The determinant, bracket/cross-ratio identity, ordered PGL(2) orbit closure, and line-multiview correction formulations were compared explicitly.",
+        "searches": [
+          "arXiv:2303.02066, Example 5.5 and Section 6",
+          "Paolo Aluffi and Carel Faber, Linear orbits of d-tuples of points in P1, DOI:10.1515/crll.1993.445.205",
+          "Resultary semantic query: four-collinear correction divisor cross ratio singular locus small diagonal A1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A later published finding on the crepant blow-up of this divisor uses the transverse-node structure as input; it is downstream rather than independent prior coverage.",
+          "No earlier exact table/classification with the same small-diagonal singular locus was located."
+        ],
+        "reasoning": "The relevant exact comparison is theorem-level local geometry, not a finite database invariant.",
+        "searches": [
+          "Resultary published-finding corpus for cross-ratio correction / diagonal blow-up / nodal singularity",
+          "targeted searches under ordered four-point PGL(2) orbit closures and cross-ratio hypersurfaces"
+        ]
+      },
+      "rationale": "Breiding--Duff--Gustafsson--Rydell--Shehu explicitly derive the four-collinear correction determinant and prove that the augmented collinear ideal is radical/defines the line multiview variety, but they do not identify the baseline restriction as a fixed-cross-ratio orbit closure or classify its singularities. Aluffi--Faber give a classical theory of PGL(2) orbit closures of unordered divisors on \\(\\mathbb P^1\\), including boundary multiplicities and singularity criteria, but their ambient symmetric-power quotient changes the boundary singularities and does not state the ordered \\((\\mathbb P^1)^4\\) divisor's small-diagonal transverse \\(A_1\\) structure. No inspected source mechanically implies the full audited claim.",
+      "residual_risks": [
+        "Classical invariant-theory or moduli literature may contain the ordered four-point orbit-closure singularity under different terminology.",
+        "The claim concerns the four-camera baseline correction divisor; it does not classify singularities of the full ambient line multiview variety."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_EQUATION_AND_IDEAL_GEOMETRY_NOT_CROSS_RATIO_SINGULARITY_CLASSIFICATION",
+          "evidence": "Example 5.5 gives the 4-by-4 determinant; the later results prove radicality and the vanishing ideal for collinear cameras, but no inspected statement identifies the correction divisor's small-diagonal transverse \\(A_1\\) singularities.",
+          "identifier_or_url": "arXiv:2303.02066",
+          "material_read": "Full accessible preprint around Example 5.5, Corollary 5.6, Theorem 6.2, Proposition 6.3, and Theorem 6.4.",
+          "method": "Direct equation and theorem-scope comparison.",
+          "title": "Line Multiview Ideals",
+          "trigger": "Primary source of the four-collinear correction determinant and collinear multiview ideal."
+        },
+        {
+          "assessment": "RELATED_UNORDERED_ORBIT_CLOSURE_THEORY_NOT_DECISIVE_ORDERED_COVERAGE",
+          "evidence": "The paper works in \\(\\mathbb P^d\\cong\\operatorname{Sym}^d\\mathbb P^1\\) and computes singularity multiplicities after symmetrization; the ordered fixed-cross-ratio hypersurface in \\((\\mathbb P^1)^4\\) and its transverse \\(A_1\\) small-diagonal germ are not stated.",
+          "identifier_or_url": "DOI:10.1515/crll.1993.445.205",
+          "material_read": "Authorized full text, pages 1--12, covering the introduction, orbit degrees, boundaries, boundary multiplicities, and smooth-orbit classification framework.",
+          "method": "Primary full-text object/quotient and implication comparison.",
+          "title": "Linear orbits of d-tuples of points in P1",
+          "trigger": "Highly relevant classical source on PGL(2) orbit closures of point configurations on \\(\\mathbb P^1\\)."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2303.02066",
+        "DOI:10.1515/crll.1993.445.205"
+      ],
+      "rationale": "The correction determinant is a canonical exceptional feature of the four-collinear line-multiview problem. Identifying it intrinsically as a fixed-cross-ratio orbit closure and determining its exact singular locus, normality, and transverse node turns an elimination formula into geometric structure that supports subsequent birational analysis. This is a motivated local-geometry result rather than a cosmetic factorization.",
+      "residual_risks": [
+        "Classical invariant-theory or moduli literature may contain the ordered four-point orbit-closure singularity under different terminology.",
+        "The claim concerns the four-camera baseline correction divisor; it does not classify singularities of the full ambient line multiview variety."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2303.02066",
+    "DOI:10.1137/22M1482263",
+    "DOI:10.1515/crll.1993.445.205",
+    "Resultary semantic query: four-collinear correction divisor cross ratio singular locus small diagonal A1"
+  ],
+  "disposition": "passed",
+  "final_claim": "For four distinct collinear translational cameras, the extra line-multiview correction on the baseline component is the fixed-cross-ratio divisor in \\((\\mathbb P^1)^4\\), equivalently the closure of the diagonal \\(\\mathrm{PGL}_2\\)-orbit of the ordered camera-center quadruple; it is irreducible and normal, its singular locus is exactly the small diagonal \\(\\mathbb P^1\\), and its transverse analytic hypersurface singularity there is \\(A_1\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Classical invariant-theory or moduli literature may contain the ordered four-point orbit-closure singularity under different terminology.",
+    "The claim concerns the four-camera baseline correction divisor; it does not classify singularities of the full ambient line multiview variety."
+  ]
+}
