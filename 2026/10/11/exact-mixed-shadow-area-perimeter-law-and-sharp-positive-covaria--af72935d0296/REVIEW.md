@@ -1,0 +1,11 @@
+# Scientific assessment — exact mixed planar-shadow area and perimeter
+
+**Correctness: PASS.** The planar zonotope area/perimeter formulas reduce the problem to two scalar incidence integrals. A Haar-row beta argument proves the common-index value \(1/4\); the normalized self-dual/anti-self-dual Grassmannian decomposition proves independence of two spherical vectors and yields the disjoint-index value \(\pi/16\). Expansion and a manifest sum-of-squares identity give the exact mixed moment and sharp covariance bound. Independent Gram–Schmidt sampling from 180,000 Gaussian two-frames checks these values and three noncongruent side-length choices, without substituting finite tests for proof.
+
+**Originality: PASS with residual historical risk.** Finch's first-public 2012 manuscript §4.2 reports the four-cube joint expectation only as \(10.7\ldots\). Paouris–Pivovarov–Zinn (2012) addresses asymptotic projected volumes rather than this joint finite-dimensional statistic. The present full side-length mixed-moment identity and uniform sharp positive-covariance inequality are not implications of published formulas for either marginal in isolation. Searches of scholarly text and mathematical research records for area–perimeter mixed moments, their explicit constants and covariance formulations returned no covering source. Equivalent less-obvious classical formulas remain a risk, since no literature search is exhaustive.
+
+**Value: PASS.** The question is a stated numerical gap in the 2012 study. The theorem supplies an exact elementary evaluation for every orthotope, shows that the area and perimeter of the same shadow must correlate positively, and identifies the cube as the unique sharp normalized equality class. The all-side-length inequality is a structural statement, not merely another tabulated numerical moment.
+
+**Limitations and closest literature.** Positive side lengths and Haar-uniform two-planes in ambient dimension four are essential. These arguments do not address arbitrary parallelotopes or other dimensional pairs. Finch (arXiv:1203.2464) is the closest direct source; Paouris–Pivovarov–Zinn (arXiv:1210.7012) supplies related zonotope and asymptotic context. Independent external audit has not been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
