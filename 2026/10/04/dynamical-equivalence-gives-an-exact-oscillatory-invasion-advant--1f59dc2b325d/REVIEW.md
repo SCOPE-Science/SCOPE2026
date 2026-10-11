@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The critical identity is obtained from the published conjugacy and recurrence \(x_n=e^{p_n}h_{n+1}\), followed by invariance of the resident measure. Linearization of the absent alien coordinate is scalar, with factors \(\alpha h_n\) for the adult-specific alien in Model J and \(\alpha x_{n+1}\) for the juvenile-specific alien in the conjugate Model A. This reconstructs the exponent and cycle-multiplier formulas without relying on finite simulation.
+## correctness
 
-## Originality
-PASS. The closest source is Seno–Goyal itself: it proves equilibrium invasion comparisons, explicitly states that it has no analytical invasion result for an oscillatory native state, and then presents numerical evidence that the juvenile-specific alien remains more successful there. Related resident-dynamics work by Weide et al. and Marcinko–Kot, plus general Floquet literature, does not supply the exact cross-stage exponent identity or threshold ratio found here.
+PASS
 
-## Value
-PASS. The result addresses a gap singled out by the motivating paper and replaces a numerical stage-ordering observation with an exact structural local-invasion law on recurrent positive resident states. The quantitative factor \(e^{-\bar p}\) is interpretable and reusable for periodic or more general invariant resident dynamics.
+In native Model J with \(\sigma=0\), the published conjugacy sets \(x_n=r_0h_n/(1+h_n)\) and the first recurrence gives \(h_{n+1}=e^{-p_n}x_n\), hence \(\log x_n=p_n+\log h_{n+1}\). Invariance of a compact positive resident measure therefore gives \(\int\log x\,d\nu=\bar p+\int\log h\,d\mu\). Linearizing the absent adult-specific alien gives factor \(\alpha h_n\); linearizing the absent juvenile-specific alien in the conjugate resident system gives factor \(\alpha x_{n+1}\). Thus \(\chi_J-\chi_A=\bar p\), the zero-exponent thresholds differ by \(e^{-\bar p}\), and on a positive period-\(k\) orbit \(\Lambda_J=e^{\sum_j p_j}\Lambda_A\). This is a local transverse statement only and does not imply nonlinear establishment.
 
-## Closest literature and limitations
-The result is intentionally narrower than a theorem of successful establishment. Positive transverse growth when rare does not determine the nonlinear final attractor once exploitative competition becomes appreciable. The proof also depends on the exact \(\sigma=0\) conjugacy of the specified Beverton–Holt + Nicholson–Bailey model.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete current Seno--Goyal article proves the native-system dynamical equivalence and equilibrium invasion comparisons, then explicitly states that it has no analytical success/failure result for oscillatory resident dynamics and presents numerical evidence instead. The audited invariant-measure identity converts that gap into an exact local transverse-exponent comparison using the source-specific conjugacy. Resultary and targeted literature searches did not locate this identity or threshold ratio.
+
+## value
+
+PASS
+
+The theorem resolves an analytically identified gap in a current ecological model: it replaces a numerical oscillatory-stage ordering with an exact transverse-growth and threshold comparison for arbitrary compact positive invariant resident measures, including periodic and more general recurrent states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

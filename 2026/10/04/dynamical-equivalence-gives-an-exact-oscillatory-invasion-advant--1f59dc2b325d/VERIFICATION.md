@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The scientific check reconstructed the result from equations (27)–(29) of the cited open-access article rather than from a numerical fit. The decisive steps are: (i) the source transformation \(x=r_0h/(1+h)\); (ii) the source recurrence \(h_{n+1}=e^{-p_n}x_n\), hence \(\log x_n=p_n+\log h_{n+1}\); (iii) invariance of the resident measure; and (iv) scalar first-order alien factors \(\alpha h_n\) and \(\alpha x_{n+1}\).
+# Independent mathematical audit
 
-For a period-\(k\) resident cycle, the finite-product check is exact: \(\prod_jx_j=e^{\sum_jp_j}\prod_jh_j\). The accompanying `verify.py` tests both the one-step identity and the product/threshold identities on deterministic positive data and prints `VERIFY_OK` when they agree to floating-point tolerance.
+## correctness
 
-No finite computation is used as a substitute for the infinite-time statement. The invariant-measure conclusion follows analytically from invariance and integrability on a compact positive invariant set. The result is limited to local rare-invader growth and does not certify eventual nonlinear establishment or coexistence.
+PASS
+
+In native Model J with \(\sigma=0\), the published conjugacy sets \(x_n=r_0h_n/(1+h_n)\) and the first recurrence gives \(h_{n+1}=e^{-p_n}x_n\), hence \(\log x_n=p_n+\log h_{n+1}\). Invariance of a compact positive resident measure therefore gives \(\int\log x\,d\nu=\bar p+\int\log h\,d\mu\). Linearizing the absent adult-specific alien gives factor \(\alpha h_n\); linearizing the absent juvenile-specific alien in the conjugate resident system gives factor \(\alpha x_{n+1}\). Thus \(\chi_J-\chi_A=\bar p\), the zero-exponent thresholds differ by \(e^{-\bar p}\), and on a positive period-\(k\) orbit \(\Lambda_J=e^{\sum_j p_j}\Lambda_A\). This is a local transverse statement only and does not imply nonlinear establishment.
+
+## originality
+
+PASS
+
+The complete current Seno--Goyal article proves the native-system dynamical equivalence and equilibrium invasion comparisons, then explicitly states that it has no analytical success/failure result for oscillatory resident dynamics and presents numerical evidence instead. The audited invariant-measure identity converts that gap into an exact local transverse-exponent comparison using the source-specific conjugacy. Resultary and targeted literature searches did not locate this identity or threshold ratio.
+
+## value
+
+PASS
+
+The theorem resolves an analytically identified gap in a current ecological model: it replaces a numerical oscillatory-stage ordering with an exact transverse-growth and threshold comparison for arbitrary compact positive invariant resident measures, including periodic and more general recurrent states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
