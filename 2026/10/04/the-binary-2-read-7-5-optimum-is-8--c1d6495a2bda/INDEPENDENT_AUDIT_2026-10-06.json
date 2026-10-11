@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:02:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary adjacent multisets, the pair is determined by its sum, so the read distance is ordinary Hamming distance between eight-symbol sum vectors. The compatibility graph therefore has exactly the 128 binary words as vertices and codes are cliques. The bundled verifier proves the clique number by two exact searches, and a fresh independent branch-and-bound reconstruction in this audit again returned clique number \\(8\\). The displayed eight-word set was checked pairwise. The classical comparison follows independently from the radius-one Hamming bound and the length-seven Hamming code.",
+      "risk": "The exhaustive proof establishes only this single finite parameter row.",
+      "sources": [
+        "arXiv:2305.10214",
+        "arXiv:2403.11754",
+        "RESULT.md",
+        "verify.py",
+        "fresh independent maximum-clique replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun--Ge Theorem 11 gives redundancy at least \\(\\log_q((q-1)n+1)\\); at \\((q,n)=(2,7)\\) this yields the classical upper bound \\(16\\), not \\(8\\).",
+          "The introducing nanopore-code source defines the model but does not supply this exact finite optimum."
+        ],
+        "reasoning": "The broader asymptotic theory leaves the small exact clique problem genuinely open.",
+        "searches": [
+          "Sun--Ge arXiv:2403.11754 Section VI",
+          "Banerjee--Yehezkeally--Wachter-Zeh--Yaakobi arXiv:2305.10214"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.11754",
+        "arXiv:2305.10214",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior implication gives \\(|C|\\le16\\).",
+          "The audited exact search proves the strictly stronger \\(|C|\\le8\\), so it is not a corollary of the known reduction."
+        ],
+        "reasoning": "The factor-two strengthening requires exploiting the read-vector constraint itself.",
+        "searches": [
+          "Sun--Ge Lemma 17 and Theorem 11",
+          "Classical Hamming bound at length seven"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned no prior exact finite-value record.",
+          "Sun--Ge Lemma 17 only reduces every \\(2\\)-read distance-five code to a classical distance-three code."
+        ],
+        "reasoning": "Nanopore composition vectors, adjacent-pair sum vectors, compatibility-clique numbers, and read-code notation were compared.",
+        "searches": [
+          "Resultary: binary 2-read (7,5) optimum nanopore",
+          "arXiv:2403.11754 full text",
+          "Web exact searches for binary length 7 read-vector distance 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper contains no matching \\((7,5)\\) or \\(n=7\\) entry.",
+          "No exact table with value \\(8\\) was located."
+        ],
+        "reasoning": "This is precisely a finite exact invariant, so table/database coverage was checked directly.",
+        "searches": [
+          "Resultary exact finite-code search",
+          "Full-text search in arXiv:2403.11754 for '(7,5)' and 'n=7'"
+        ]
+      },
+      "rationale": "Sun--Ge's full primary text proves that every \\(2\\)-read \\((n,5)_q\\) code is a classical \\((n,3)_q\\) code and derives only the Hamming-bound redundancy lower bound and asymptotic constructions. For \\(q=2,n=7\\) that prior reduction permits \\(16\\) codewords, so it does not imply the exact value \\(8\\). Searches found no indexed exact \\((7,5)_2\\) optimum or finite table containing it.",
+      "residual_risks": [
+        "A small unindexed computational table could contain this parameter, but no such table was found in the inspected primary literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_DISTANCE_FIVE_BOUNDS_NOT_EXACT_LENGTH_SEVEN_OPTIMUM",
+          "evidence": "Lemma 17 gives only the classical distance-three reduction; Theorem 11 yields a length-seven binary upper bound of \\(16\\), not the exact \\(8\\).",
+          "identifier_or_url": "arXiv:2403.11754",
+          "material_read": "Full open arXiv text, especially Section VI, Lemma 17, Theorem 11, and the subsequent construction/conclusion.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Bounds and Constructions of \\(\\ell\\)-Read Codes under the Hamming Metric",
+          "trigger": "Primary source for \\(2\\)-read codes with minimum distance five."
+        },
+        {
+          "assessment": "MODEL_DEFINITION_NOT_EXACT_PARAMETER_TABLE",
+          "evidence": "The source motivates and defines the nanopore composition-code setting without covering this exact finite optimum.",
+          "identifier_or_url": "arXiv:2305.10214",
+          "material_read": "Accessible primary abstract/model description and indexed source material.",
+          "method": "Lawful open-source inspection.",
+          "title": "Error-Correcting Codes for Nanopore Sequencing",
+          "trigger": "Foundational source for the composition/read-vector model."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural first perfect-Hamming-length benchmark for the distance-five \\(2\\)-read problem. The exact value demonstrates that the read-vector constraint costs a factor of two beyond the known classical-distance reduction, so the finite invariant is mathematically motivated and useful for calibrating general bounds.",
+      "risk": "No asymptotic improvement or neighboring-parameter classification is claimed.",
+      "sources": [
+        "arXiv:2403.11754",
+        "arXiv:2305.10214"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The maximum size of a binary zero-padded \\(2\\)-read length-seven code with read-vector Hamming distance at least \\(5\\) is exactly \\(8\\); an explicit eight-word code attains the bound, whereas the corresponding classical binary \\((7,3)\\) optimum is \\(16\\).",
+  "limitations": [
+    "Exact only for binary alphabet, length seven, read length two, and minimum read distance five.",
+    "The exhaustive clique computation is finite and is not extrapolated to an infinite family."
+  ],
+  "schema_version": 1
+}

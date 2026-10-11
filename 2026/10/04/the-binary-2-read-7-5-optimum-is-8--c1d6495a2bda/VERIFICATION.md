@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` with the standard library. The program constructs all \(128\) binary words of length \(7\), implements the zero-padded \(2\)-read vector both as sorted adjacent multisets and as their binary sums, and confirms the two representations induce identical pair distances.
+# Independent mathematical audit
 
-It builds the compatibility graph for minimum read-vector distance \(5\). An exact coloring-bound maximum-clique search and an independent Bron--Kerbosch maximal-clique search both return maximum size \(8\). The displayed eight-word witness is then checked directly.
+## correctness
 
-For the comparison with classical coding, the program verifies the radius-one counting identity \(16(1+7)=128\) and constructs the standard length-seven binary Hamming code as the kernel of the parity-check syndrome, confirming \(16\) words and minimum Hamming distance \(3\).
+PASS
 
-The computation is exhaustive only for the stated finite parameter. It is not evidence for any unstated infinite family or neighboring length.
+For binary adjacent multisets, the pair is determined by its sum, so the read distance is ordinary Hamming distance between eight-symbol sum vectors. The compatibility graph therefore has exactly the 128 binary words as vertices and codes are cliques. The bundled verifier proves the clique number by two exact searches, and a fresh independent branch-and-bound reconstruction in this audit again returned clique number \(8\). The displayed eight-word set was checked pairwise. The classical comparison follows independently from the radius-one Hamming bound and the length-seven Hamming code.
+
+## originality
+
+PASS
+
+Sun--Ge's full primary text proves that every \(2\)-read \((n,5)_q\) code is a classical \((n,3)_q\) code and derives only the Hamming-bound redundancy lower bound and asymptotic constructions. For \(q=2,n=7\) that prior reduction permits \(16\) codewords, so it does not imply the exact value \(8\). Searches found no indexed exact \((7,5)_2\) optimum or finite table containing it.
+
+## value
+
+PASS
+
+This is a natural first perfect-Hamming-length benchmark for the distance-five \(2\)-read problem. The exact value demonstrates that the read-vector constraint costs a factor of two beyond the known classical-distance reduction, so the finite invariant is mathematically motivated and useful for calibrating general bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
