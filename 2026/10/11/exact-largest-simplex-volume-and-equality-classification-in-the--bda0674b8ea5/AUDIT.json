@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The root polytope is exactly the 4-cube intersected with the L1 ball of radius 2; its 24 octahedral facets at distance 1 give volume 8. For five roots on the radius-sqrt(2) sphere, the augmented Gram identity D²=5 det(G) and trace(G)≤10 give |D|≤25 sqrt(5)/4<14. The D4 even-coordinate-sum condition makes D an even integer, hence |D|≤12. The explicit five-root witness has determinant 12 and simplex volume 1/2. A standalone exhaustive exact census of C(24,5)=42504 sets checks that exactly 48 achieve 12, all in one B4 orbit, none sharing four vertices, and all with edge-square spectrum {4 sixfold,6 fourfold}; independent cofactor and permutation determinant implementations agree on every input. Multiaffine vertex reduction handles arbitrary contained simplices, and the nonshared-four-face property rules out any optimizer having a nonvertex point. Finite enumeration is used solely for an exhaustively finite subset classification, not as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth–Lángi arXiv:1402.6496v3, Corollary 1, states that a regular simplex maximizes volume for five freely placed points on a four-dimensional sphere.",
+        "The universal spherical maximal determinant in the root normalization is 25 sqrt(5)/4, strictly below 14 but strictly above the attained root determinant 12.",
+        "AProPo largest/smallest j-simplex states that at least one largest contained simplex is vertex-supported and that the general optimization problem can be hard."
+      ],
+      "reasoning": "The sphere theorem has a strictly larger feasible set and a different unattainable equality pattern. Combined with elementary D4 parity it yields an upper bound, but does not imply that 12 is attained by D4 roots or that exactly 48 maximizers form one orbit and exclude nonvertex equality. General vertex reduction establishes existence of a vertex-supported maximizer only, not rigidity of all optimizers.",
+      "searches": [
+        "maximum volume polytope with d+1 vertices inscribed in sphere Horvath Langi arXiv 1402.6496",
+        "24-cell D4 root polytope largest maximum-volume inscribed 4-simplex exact ratio 1/16 48 equality cases determinant 12 five vertices",
+        "Gritzmann Klee Larman largest j-simplex in polytope vertex reduction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1106.3433v2, sections 1, 2, and 4: W(D4) and 24-cell orbit construction",
+      "arXiv:1402.6496v3, Corollary 1 and sections 3–5: spherical simplex and other volume extremal results",
+      "2026/10/4/SCOPE-the-d-4-24-cell-is-lattice-reduced-and-complete--f8198b1d9a8f/RESULT.md: D4 24-cell lattice reduced/complete and Voronoi duality",
+      "AProPo Largest/Smallest j-Simplex: vertex reduction and complexity",
+      "MathWorld 24-Cell: coordinate realization and facet data"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Koca et al. construct symmetry orbits and snub polytopes rather than a contained-simplex optimizer.",
+        "Horváth–Lángi give a universal sphere optimum at a regular simplex; the D4-root discrete equality configuration is not regular and requires an additional proof.",
+        "The published result 2026/10/4/SCOPE-the-d-4-24-cell-is-lattice-reduced-and-complete--f8198b1d9a8f proves lattice reduced/complete properties of the same body; neither its statements nor its proof bounds or counts contained 4-simplices.",
+        "The six-simplex reflection result 2026/10/4/SCOPE-exact-reflection-maximum-for-the-regular-six-simplex--331ca70c447d concerns a different dimension and a reflected-convex-hull extremum, with no implication for this contained-simplex problem."
+      ],
+      "reasoning": "No inspected prior theorem has hypotheses and conclusion implying the full combined claim of ratio 1/16, exactly 48 configurations, one symmetry orbit, and vertex rigidity. The general sphere inequality is a useful proof ingredient, not a dominating theorem on the root subset.",
+      "searches": [
+        "24-cell D4 root polytope largest maximum-volume inscribed 4-simplex exact ratio 1/16 48 equality cases determinant 12 five vertices",
+        "arXiv:1106.3433v2",
+        "arXiv:1402.6496v3",
+        "2026/10/4/SCOPE-the-d-4-24-cell-is-lattice-reduced-and-complete--f8198b1d9a8f",
+        "2026/10/4/SCOPE-exact-reflection-maximum-for-the-regular-six-simplex--331ca70c447d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The indexed D4 24-cell finding 2026/10/4/SCOPE-the-d-4-24-cell-is-lattice-reduced-and-complete--f8198b1d9a8f establishes lattice reducedness/completeness through Voronoi duality, not the largest contained 4-simplex or its equality count.",
+        "Koca–Koca–Al-Barwani arXiv:1106.3433v2 discusses the W(D4) structure and snub 24-cell orbits, not maximal determinants of five root vertices.",
+        "The actual complete five-root determinant spectrum is {0:12168,2:11328,4:13776,6:3936,8:1152,10:96,12:48} and was checked independently by exact integer implementations."
+      ],
+      "reasoning": "Equivalent formulations include a largest inscribed pentachoron, maximum five-root determinant, and volume ratio inside the D4 root polytope. The specifically comparable inspected statements neither give the 12 determinant threshold with attainment nor enumerate and rigidify the 48 maxima; name and subject similarity alone do not establish novelty.",
+      "searches": [
+        "24-cell D4 root polytope largest maximum-volume inscribed 4-simplex exact ratio 1/16 48 equality cases determinant 12 five vertices",
+        "four dimensional regular polytope 24-cell inscribed simplex 5-cell maximum volume",
+        "D4 root system five vertices determinant 12 simplex normalized volume 1/16",
+        "\"24-cell\" \"largest simplex\" \"volume\"",
+        "\"24-cell\" \"maximum volume\" \"simplex\" vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The MathWorld 24-Cell entry records 24 root vertices, facet geometry and ordinary metric data, not the 42,504 five-root determinant census or all 48 maximal simplices.",
+        "Searches of relevant indexed literature and mathematical integer-sequence tables did not locate the exact 48-set classification.",
+        "The published D4 lattice result provides polar/Voronoi identities, not a maximum-simplex determinant table."
+      ],
+      "reasoning": "A tabulated determinant maximum together with equality sets could wholly cover the result even without the same title. The checked metric/vertex tables and nearby indexed record do not give such coverage, but classical or unindexed enumerations remain a specific priority risk.",
+      "searches": [
+        "\"24-cell\" \"48\" \"simplices\" maximum",
+        "site:oeis.org 24-cell maximum simplex volume 48",
+        "\"D4 roots\" \"determinant\" \"12\" \"simplex\"",
+        "\"24-cell\" \"5 vertices\" \"volume\" simplex"
+      ]
+    },
+    "rationale": "Literature-led comparison tested equivalence under inscribed pentachora, D4 root determinants, affine-normalized volume ratios, the general sphere upper theorem, and a separate result about precisely the same root 24-cell. The accessible primary mathematical statements do not imply the combined value, complete 48-configuration equality classification, and arbitrary-interior-point rigidity. Published overlap remains possible in unindexed classical regular-polytope tables; failed searches are not a mathematical novelty proof.",
+    "residual_risks": [
+      "A historic Coxeter, F4/D4 root-lattice, or regular-four-polytope determinant table might already contain the exact optimum or count under different terminology.",
+      "A combinatorial equivalent of the 48 root subsets may be known even if the inscribed-simplex phrasing was not indexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The article treats quaternionic representations, D4/F4 orbits and construction of the snub 24-cell; it neither optimizes volume of a 4-simplex contained in the root 24-cell nor lists a 48-member maximum-simplex orbit.",
+        "identifier_or_url": "https://arxiv.org/html/1106.3433v2",
+        "material_read": "Abstract and sections 1, 2, and 4 of the accessible full article, with the article section map and references.",
+        "method": "Read the open-access arXiv HTML article and equations (2.3), (2.6)–(2.10), and section 4 constructions.",
+        "title": "Snub 24-Cell Derived from the Coxeter–Weyl Group W(D4)",
+        "trigger": "Same root lattice, parent 24-cell, group symmetries, possible orbit classification."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_DOMINATING",
+        "evidence": "The paper proves the unconstrained regular-simplex optimum for five points on a sphere; no D4 root-restricted equality classification or arbitrary-simplex rigidity for a containing 24-cell is stated.",
+        "identifier_or_url": "https://arxiv.org/html/1402.6496v3",
+        "material_read": "Abstract, introduction, section 2 Corollary 1, the main volume extremal statements of sections 3 and 4, and section 5 remarks and open problems.",
+        "method": "Read open-access arXiv HTML main results and relevant proof context.",
+        "title": "Maximum volume polytopes inscribed in the unit sphere",
+        "trigger": "Potential stronger or dominating volume theorem for five points on a four-dimensional sphere."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The theorem proves C=(V_D4)^*=2 V_(D4*) and lattice width/diameter reducedness and completeness; it has no contained-simplex volume optimizer, no 48 maximum-simplex enumeration, and no rigidity claim.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-the-d-4-24-cell-is-lattice-reduced-and-complete--f8198b1d9a8f/RESULT.md",
+        "material_read": "The full public RESULT.md including definitions, the double-Voronoi proof, verification, limitations, and references.",
+        "method": "Read the complete published scientific result file.",
+        "title": "The D4 24-cell is lattice reduced and complete",
+        "trigger": "Exact same root 24-cell, hence decisive possible source overlap."
+      },
+      {
+        "assessment": "GENERAL_REDUCTION_ONLY",
+        "evidence": "Existence of a vertex-supported optimum and computational complexity do not determine the root 24-cell volume ratio, all 48 equality simplices, or absence of nonvertex equality.",
+        "identifier_or_url": "https://www2.mathematik.tu-darmstadt.de/~pfetsch/apropo/largest_smallest_j_simplex.html",
+        "material_read": "The entire web page describing vertex reduction and complexity.",
+        "method": "Read a complete public mathematical optimization overview.",
+        "title": "Largest/Smallest j-Simplex",
+        "trigger": "General algorithmic or extremal theorem could subsume the finite body-specific result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bda0674b-8ea5-4d02-9806-68bbf3970845",
+  "value": {
+    "rationale": "The 24-cell is the exceptional regular self-dual 4-polytope and canonical D4 root convex hull. Its normalized largest-simplex volume is a natural affine-invariant extremal quantity, with a complete nonregular equality classification rather than a selected numerical example. The root-lattice parity mechanism and a full rigidity proof distinguish the result from the known universal sphere optimum or a routine determinant substitution. The exact 1/16 ratio and 48-element orbit give a reusable benchmark for inscribed-polytope extremal and root-configuration geometry, without asserting a general-d theorem.",
+    "status": "PASS"
+  }
+}
