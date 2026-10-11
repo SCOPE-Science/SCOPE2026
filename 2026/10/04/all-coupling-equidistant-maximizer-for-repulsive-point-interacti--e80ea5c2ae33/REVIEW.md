@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the actual periodic delta matching conditions. Strict positivity of the ground state places every gap phase in \((0,\pi)\), so the Dirichlet-to-Neumann matrix has positive cyclic off-diagonal weights. Perron--Frobenius, the exact constant-vector Rayleigh quotient, strict Jensen convexity of \(	an\), and monotonicity of \(2k	an(\pi k/N)\) give the stated unique optimizer for every \(N\ge2\) and \(lpha>0\). The bundled transfer-matrix replay supplies independent finite checks but is not the infinite proof.
+## correctness
 
-## Originality — PASS
-The primary source proves the optimizer only for sufficiently weak and sufficiently strong repulsion and explicitly states the arbitrary-positive-coupling claim as Conjecture 5.1. Targeted published-finding corpus and literature searches over the conjecture, periodic-delta aliases, and stronger-coverage formulations found no all-\(N\) covering theorem. The closest own prior item proves only \(N=2\), so it is a strict special case rather than a duplicate.
+PASS
 
-Residual risk: an equivalent solution could be hidden in an unindexed source under different terminology.
+The all-parameter proof reconstructs. A positive ground state on each gap forces \(0<kd_j<\pi\). Solving the gap endpoint problem yields a real symmetric cyclic Dirichlet-to-Neumann matrix with positive off-diagonal weights \(k\csc(kd_j)\); the strictly positive nodal vector therefore belongs to its largest eigenvalue by Perron--Frobenius after a scalar shift, so that eigenvalue equals \(lpha\). Testing the constant vector gives \(lpha\ge(2k/N)\sum_j\tan(kd_j/2)\). Strict convexity of tangent on the positive branch gives \(lpha\ge2k\tan(\pi k/N)\), with strictness off equal gaps. The equal-gap branch has the constant Perron eigenvector and \(F_N(k)=2k\tan(\pi k/N)\) is strictly increasing, proving unique global optimality for every \(N\ge2\) and \(lpha>0\). The finite transfer-matrix code is not needed for the universal quantifier.
 
-## Value — PASS
-This closes the natural all-coupling gap in the motivating paper for every number of interactions, using a short structural mechanism that also explains why the troublesome global resolvent-kernel convexity is unnecessary on the positive ground-state branch.
+## originality
 
-## Closest literature and limitations
-Closest literature: P. Exner, arXiv:1906.01229 / J. Phys. A 52 (2019) 405302, especially Section 5. The result is limited to identical positive delta strengths on a one-dimensional periodic loop and the ground state; no unequal-coupling, magnetic-twist, excited-state, higher-dimensional, or quantitative-stability claim is made.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Exner 2019 is the exact motivating primary source: it proves equal spacing only for sufficiently weak repulsion and sufficiently strong repulsion and explicitly states the every-positive-coupling result as Conjecture 5.1. Fresh Resultary searches for repulsive point interactions, periodic loops, equal spacing and all coupling did not locate a covering prior theorem. The sibling N=2 antipodal result is strictly weaker and does not imply the all-\(N\) statement. Thus the final theorem remains original to best knowledge, with the normal residual risk of differently indexed later work.
+
+## value
+
+PASS
+
+The result closes an explicit all-coupling spectral-optimization conjecture for every number of interactions, replacing disjoint weak/strong regimes by one structural proof. The positive-branch Dirichlet-to-Neumann/Perron mechanism is mathematically explanatory and is materially stronger than the two-site special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

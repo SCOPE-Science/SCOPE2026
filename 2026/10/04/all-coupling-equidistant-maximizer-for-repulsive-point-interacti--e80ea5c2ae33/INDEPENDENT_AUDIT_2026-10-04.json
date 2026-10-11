@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:56:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-parameter proof reconstructs. A positive ground state on each gap forces \\(0<kd_j<\\pi\\). Solving the gap endpoint problem yields a real symmetric cyclic Dirichlet-to-Neumann matrix with positive off-diagonal weights \\(k\\csc(kd_j)\\); the strictly positive nodal vector therefore belongs to its largest eigenvalue by Perron--Frobenius after a scalar shift, so that eigenvalue equals \\(\u0007lpha\\). Testing the constant vector gives \\(\u0007lpha\\ge(2k/N)\\sum_j\\tan(kd_j/2)\\). Strict convexity of tangent on the positive branch gives \\(\u0007lpha\\ge2k\\tan(\\pi k/N)\\), with strictness off equal gaps. The equal-gap branch has the constant Perron eigenvector and \\(F_N(k)=2k\\tan(\\pi k/N)\\) is strictly increasing, proving unique global optimality for every \\(N\\ge2\\) and \\(\u0007lpha>0\\). The finite transfer-matrix code is not needed for the universal quantifier.",
+      "risks": [
+        "The theorem is restricted to equal positive delta strengths, periodic one-dimensional geometry and the ground state."
+      ],
+      "sources": [
+        "Frozen source tree ac182af03d66313d9b95dd01b41cb94bcccfb749",
+        "P. Exner, arXiv:1906.01229, Section 5",
+        "Independent reconstruction of the Dirichlet-to-Neumann/Perron/Jensen argument in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exner covers all \\(N\\) only in weak and sufficiently strong coupling regimes.",
+          "The sibling antipodal theorem covers all positive coupling only for \\(N=2\\)."
+        ],
+        "reasoning": "Neither source covers the Cartesian product of all \\(N\\ge2\\) and all positive couplings established here.",
+        "searches": [
+          "arXiv:1906.01229, Theorems 5.1 and 5.2",
+          "SCOPE2026@cd76f0b741a81ebc64b2fc7846361df5d730832d:2026/10/04/all-coupling-antipodal-optimality-for-two-repulsive-point-intera--fc5e5e69846a/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1906.01229",
+        "Resultary all-coupling/equidistant queries",
+        "SCOPE2026 N=2 sibling tree 50098e7b69dcc26f1a4e94f93af478a6a07d69e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weak-coupling perturbation and large-coupling asymptotics do not imply the missing intermediate interval.",
+          "The N=2 special case cannot imply arbitrary \\(N\\)."
+        ],
+        "reasoning": "No checked proved prior result logically implies the final all-parameter theorem.",
+        "searches": [
+          "arXiv:1906.01229 Section 5 statement comparison",
+          "Frozen N=2 sibling tree 50098e7b69dcc26f1a4e94f93af478a6a07d69e2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary searches did not return an equivalent all-\\(N\\), all-positive-coupling theorem.",
+          "Exner's Conjecture 5.1 is the same target statement but is explicitly conjectural in the primary source."
+        ],
+        "reasoning": "The exact equivalent formulation in the primary literature is an open conjecture, not a proved result.",
+        "searches": [
+          "Resultary: \"All-coupling equidistant maximizer for repulsive point interactions on a loop\"",
+          "Resultary: \"Exner Conjecture 5.1 repulsive point interactions loop equidistant all coupling every N\"",
+          "arXiv:1906.01229, Conjecture 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact theorem/database entry encoding the all-\\(N\\) claim was found."
+        ],
+        "reasoning": "This is a continuum spectral theorem rather than a finite tabulation; the database check found no covering statement.",
+        "searches": [
+          "Resultary repulsive-loop/equidistant/all-coupling queries"
+        ]
+      },
+      "rationale": "Exner 2019 is the exact motivating primary source: it proves equal spacing only for sufficiently weak repulsion and sufficiently strong repulsion and explicitly states the every-positive-coupling result as Conjecture 5.1. Fresh Resultary searches for repulsive point interactions, periodic loops, equal spacing and all coupling did not locate a covering prior theorem. The sibling N=2 antipodal result is strictly weaker and does not imply the all-\\(N\\) statement. Thus the final theorem remains original to best knowledge, with the normal residual risk of differently indexed later work.",
+      "residual_risks": [
+        "A later or differently indexed resolution under periodic measure-potential/Kronig--Penney terminology could exist; targeted searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Theorem 5.1 gives small coupling, Theorem 5.2 gives sufficiently large coupling, and Conjecture 5.1 asks for all positive coupling."
+          ],
+          "identifier_or_url": "arXiv:1906.01229",
+          "material_read": "Full relevant Section 5, including the resolvent discussion, Theorems 5.1 and 5.2, and Conjecture 5.1.",
+          "method": "Primary full-text theorem/hypothesis comparison.",
+          "title": "An optimization problem for finite point interaction families",
+          "trigger": "Exact primary source defining the periodic repulsive model and conjecture."
+        },
+        {
+          "assessment": "SPECIAL_CASE_ONLY",
+          "evidence": [
+            "It treats exactly two interactions; the present theorem proves every \\(N\\ge2\\)."
+          ],
+          "identifier_or_url": "SCOPE2026:2026/10/04/all-coupling-antipodal-optimality-for-two-repulsive-point-intera--fc5e5e69846a@50098e7b69dcc26f1a4e94f93af478a6a07d69e2",
+          "material_read": "Full frozen RESULT.md and proof.",
+          "method": "Direct parameter-coverage comparison.",
+          "title": "All-coupling antipodal optimality for two repulsive point interactions on a loop",
+          "trigger": "Same model and coupling range but possible earlier special-case coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result closes an explicit all-coupling spectral-optimization conjecture for every number of interactions, replacing disjoint weak/strong regimes by one structural proof. The positive-branch Dirichlet-to-Neumann/Perron mechanism is mathematically explanatory and is materially stronger than the two-site special case.",
+      "risks": [
+        "No quantitative stability modulus or unequal-coupling extension is proved."
+      ],
+      "sources": [
+        "arXiv:1906.01229 Conjecture 5.1",
+        "Frozen all-\\(N\\) proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment passes, but the immutable public scientific files contain literal control bytes where TeX commands should appear."
+  ],
+  "schema_version": 1
+}

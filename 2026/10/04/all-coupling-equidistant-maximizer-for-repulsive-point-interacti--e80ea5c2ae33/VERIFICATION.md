@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The checker is a corroborating replay of two independently written representations of the same periodic point-interaction operator.
+# Independent mathematical audit
 
-`verify.py` constructs the cyclic Dirichlet-to-Neumann matrix from gap endpoint data, computes its largest eigenvalue with a Jacobi diagonalization, and locates the positive ground-state root. Independently, it multiplies exact free-propagation and delta-jump transfer matrices around the loop and checks that the resulting monodromy has trace \(2\) at that root. For several unequal gap vectors, dimensions \(N=2,3,4,5,6,7\), and couplings spanning weak to strong repulsion, it checks:
+## correctness
 
-1. every reconstructed ground-state phase satisfies \(0<kd_j<\pi\);
-2. the monodromy trace is numerically \(2\);
-3. the exact Rayleigh/Jensen lower bound on \(\alpha\) holds;
-4. the ground-state wave number is strictly below the equidistant value for unequal gaps;
-5. the equidistant root satisfies \(\alpha=2k_*\tan(\pi k_*/N)\).
+PASS
 
-Run:
+The all-parameter proof reconstructs. A positive ground state on each gap forces \(0<kd_j<\pi\). Solving the gap endpoint problem yields a real symmetric cyclic Dirichlet-to-Neumann matrix with positive off-diagonal weights \(k\csc(kd_j)\); the strictly positive nodal vector therefore belongs to its largest eigenvalue by Perron--Frobenius after a scalar shift, so that eigenvalue equals \(lpha\). Testing the constant vector gives \(lpha\ge(2k/N)\sum_j\tan(kd_j/2)\). Strict convexity of tangent on the positive branch gives \(lpha\ge2k\tan(\pi k/N)\), with strictness off equal gaps. The equal-gap branch has the constant Perron eigenvector and \(F_N(k)=2k\tan(\pi k/N)\) is strictly increasing, proving unique global optimality for every \(N\ge2\) and \(lpha>0\). The finite transfer-matrix code is not needed for the universal quantifier.
 
-`python3 verify.py`
+## originality
 
-Expected terminal line: `VERIFY_OK`.
+PASS
 
-The numerical suite is finite and therefore does not certify the universal quantifier. The universal theorem rests on positivity, the exact Dirichlet-to-Neumann identity, Perron--Frobenius, strict Jensen convexity, and monotonicity, all written out in `RESULT.md`.
+Exner 2019 is the exact motivating primary source: it proves equal spacing only for sufficiently weak repulsion and sufficiently strong repulsion and explicitly states the every-positive-coupling result as Conjecture 5.1. Fresh Resultary searches for repulsive point interactions, periodic loops, equal spacing and all coupling did not locate a covering prior theorem. The sibling N=2 antipodal result is strictly weaker and does not imply the all-\(N\) statement. Thus the final theorem remains original to best knowledge, with the normal residual risk of differently indexed later work.
+
+## value
+
+PASS
+
+The result closes an explicit all-coupling spectral-optimization conjecture for every number of interactions, replacing disjoint weak/strong regimes by one structural proof. The positive-branch Dirichlet-to-Neumann/Perron mechanism is mathematically explanatory and is materially stronger than the two-site special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
