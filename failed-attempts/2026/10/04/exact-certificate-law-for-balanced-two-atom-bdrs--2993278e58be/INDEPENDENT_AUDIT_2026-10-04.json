@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:06:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2bbb3644cc0fae13496afd69e944ef00631b13eb",
+        "assigned verify.py blob 4b561642645ad69448db32e1d2d7b5119cd4b34f",
+        "Chin-Schiffer arXiv:2609.33814v1"
+      ],
+      "rationale": "The balanced two-site specialization is correct. Symmetry forces each scaling vector to remain a scalar multiple of the all-ones vector, so at effective temperature \\(\\varepsilon=\\eta/p\\) the scaled Gibbs kernel is exactly \\(Z=[2(1+z)]^{-1}\\begin{psmallmatrix}1&z\\\\z&1\\end{psmallmatrix}\\), with \\(z=e^{-p\\Delta/\\eta}\\), and it already has both target marginals. The primal cost is therefore \\(U=\\Delta z/(1+z)\\). Substitution into the source dual certificate cancels the arbitrary scalar scaling and gives \\(L=-(\\eta/p)\\log(1+z)\\). The displayed derivative of \\(G=U-L\\) has three strictly negative terms, so the stopping-index ceiling formulas and the asymptotic ratio follow. The actual package verifier at blob 4b561642645ad69448db32e1d2d7b5119cd4b34f was inspected and independently reconstructs the same scalar equations; its numerical checks are supplementary to the analytic proof.",
+      "residual_risks": [
+        "The theorem is only a calibration of one highly symmetric two-atom instance and does not characterize certificate behavior on unequal or larger transport problems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source certificate applies to arbitrary positive discrete marginals and arbitrary cost matrices, strictly broader than the two-atom benchmark.",
+          "The record introduces no new certificate inequality or convergence theorem beyond the source framework."
+        ],
+        "reasoning": "The source theorem dominates the structural content; only an elementary exact evaluation remains.",
+        "searches": [
+          "Chin-Schiffer arXiv:2609.33814v1 general discrete optimal-transport certificate",
+          "Chizat 2024 annealed Sinkhorn regularization-path literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33814v1",
+        "Chizat arXiv:2408.11620",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source schedule fixes \\(p=k+1\\) or \\(p=\\lambda k+1\\).",
+          "The symmetric scaled kernel already satisfies both marginals, so the source repair term is zero.",
+          "Substituting the resulting scalar scaling into the source primal and dual bounds gives the record gap; strict monotonicity then gives the ceiling formulas."
+        ],
+        "reasoning": "No nonstandard lemma, new optimization phenomenon, or unresolved comparison is needed after the published inputs.",
+        "searches": [
+          "Chin-Schiffer effective-temperature schedules plus equations for the certificate",
+          "uniform two-atom Sinkhorn scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source already identifies BDRS and O-BDRS with the effective temperatures used by the record and supplies the general certificate equations.",
+          "For the source kernel with uniform two-point marginals, symmetry collapses every scaling vector to one scalar, so the record formula is the direct closed-form evaluation of those equations."
+        ],
+        "reasoning": "The balanced benchmark is not a different mechanism or equivalent theory; it is the lowest-dimensional symmetric instance of the published general construction.",
+        "searches": [
+          "Resultary query: balanced two atom BDRS O-BDRS certificate exact stopping law annealed Sinkhorn momentum two point optimal transport",
+          "Chin-Schiffer arXiv:2609.33814v1, BDRS/O-BDRS temperature schedule and certificate sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact two-atom formula was retrieved."
+        ],
+        "reasoning": "Exact-number absence is nondecisive because all formulas are immediate consequences of the published general certificate on a symmetric two-by-two instance.",
+        "searches": [
+          "Resultary current published-finding search for the two-atom BDRS/O-BDRS certificate and stopping law"
+        ]
+      },
+      "rationale": "The scientific content is mechanically implied by the primary source once its general certificate is specialized to the symmetric two-atom problem. Chin and Schiffer already state the inverse-linear effective-temperature schedules for BDRS and O-BDRS, the matrix-scaling representation, and the anytime primal-dual certificate. On the uniform two-by-two kernel, one row scaling and one column scaling give the displayed plan immediately; zero repair, the scalar upper and lower bounds, and the stopping-count law then require only elementary substitution and one derivative. The absence of the exact closed form from the paper does not make this routine special case original under the implication-based bar.",
+      "residual_risks": [
+        "No correctness defect is asserted; rejection is implication-based originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_GENERAL_SOURCE_SPECIALIZATION",
+          "evidence": "The source provides the general algorithm and certificate that the record evaluates on the uniform two-site cost matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33814",
+          "material_read": "accessible primary HTML sections containing the BDRS update, inverse-linear effective-temperature interpretation, O-BDRS schedule, and stated anytime primal-dual certificate",
+          "method": "primary-source statement-level inspection",
+          "title": "Annealed Sinkhorn with Momentum: Certified Unregularized Optimal Transport in Linear Memory",
+          "trigger": "exact source of the BDRS/O-BDRS schedules and certificate"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Chin-Schiffer 2026 primary source",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The closed form is a useful unit test for an implementation, but scientifically it is a routine symmetric plug-in to a general certificate specifically designed to be evaluated at each iterate. The exact tolerance ratio is simply the already-published faster effective-temperature schedule passed through a monotone scalar gap. With no new mechanism, boundary, optimality theorem, or nontrivial classification, it does not clear the independent value bar.",
+      "residual_risks": [
+        "The formula may remain useful as a software regression benchmark."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is only a calibration of one highly symmetric two-atom instance and does not characterize certificate behavior on unequal or larger transport problems.",
+    "No correctness defect is asserted; rejection is implication-based originality.",
+    "The formula may remain useful as a software regression benchmark."
+  ]
+}
