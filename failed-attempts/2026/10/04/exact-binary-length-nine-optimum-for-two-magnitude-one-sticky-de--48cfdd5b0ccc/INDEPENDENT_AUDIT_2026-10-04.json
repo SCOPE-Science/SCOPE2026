@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:41:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 8cacb644b5b033018b6e22b53c593b22b78e0a8e",
+        "assigned verify.py blob 708faf228a2cafb1438c1212c2c7ba6d85fc088a",
+        "artifacts/codewords.txt blob a41ceac4a6ddd7ac79c762d247809b388827baac",
+        "artifacts/weights.csv blob e134aa5be32db5d8139a4655c4d51c76a28ab42e",
+        "independent 512-source channel reconstruction and exact set-packing optimization"
+      ],
+      "rationale": "The channel was reconstructed from runs: choose zero, one, or two distinct runs of length at least two and shorten each chosen run by exactly one without erasing it. The two package implementations agree on all 512 sources. Independently, all 512 balls and all 894 possible outputs were rebuilt and an exact set-packing MILP over the output-incidence constraints attained and proved optimum 120. The supplied 120-word packing and exact rational dual weighting of total mass 120 provide a second, transparent primal/dual certificate.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary sticky-deletion paper proves general equivalences and code constructions; the older repetition model permits a different error structure.",
+          "No inspected broader theorem evaluates this finite packing number exactly."
+        ],
+        "reasoning": "General redundancy bounds and a different repetition-error channel do not dominate the exact length-nine optimum.",
+        "searches": [
+          "Wang--Vu--Tan arXiv:2302.02754",
+          "Dolecek--Anantharam repetition-error correcting sets"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.02754",
+        "Dolecek--Anantharam, SIAM J. Discrete Math. 23(4)",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source supplies the channel definition and reduction, but not the finite n=9 packing optimum."
+        ],
+        "reasoning": "The equality 120 needs the new finite primal/dual certificates and is not implied by the published asymptotic/general construction statements.",
+        "searches": [
+          "arXiv:2302.02754 Definition 6 and its asymmetric-error equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 6 uses at most t decreased run-length coordinates, each by at most ell, matching the audited convention.",
+          "The audited value 120 is an exact set-packing number for one finite parameter, not an alternate notation for a construction bound."
+        ],
+        "reasoning": "Equivalent formulations as run-length asymmetric limited-magnitude packing or disjoint sticky-deletion balls were compared.",
+        "searches": [
+          "Resultary: sticky deletion limited magnitude t=2 ell=1 length 9 exact 120",
+          "Wang--Vu--Tan arXiv:2302.02754"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table with binary n=9, t=2, ell=1 and value 120 was returned."
+        ],
+        "reasoning": "Exact finite-table coverage is the relevant database check for this claim.",
+        "searches": [
+          "Resultary exact sticky-deletion small-parameter search"
+        ]
+      },
+      "rationale": "Wang--Vu--Tan define exactly the at-most-\\(t\\), per-run limited-magnitude channel and reduce it to asymmetric limited-magnitude errors, but their results are general constructions and redundancy bounds rather than an exact binary \\(n=9,t=2,\\ell=1\\) packing number. Targeted semantic search found no covering small-parameter value.",
+      "residual_risks": [
+        "An unindexed finite computation for this small parameter remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the exact length-nine optimum.",
+          "evidence": "The source defines the at-most convention and develops general constructions/redundancy; it does not state M(9)=120 for t=2, ell=1.",
+          "identifier_or_url": "arXiv:2302.02754",
+          "material_read": "Full public HTML, including Definitions 5--6, the run-length representation, equivalence with asymmetric limited-magnitude errors, and the construction/results sections.",
+          "method": "Open-access full-text inspection.",
+          "title": "Codes for Correcting t Limited-Magnitude Sticky Deletions",
+          "trigger": "Defining primary source for the exact channel."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang--Vu--Tan arXiv:2302.02754",
+        "assigned finite packing/dual certificates"
+      ],
+      "rationale": "Although the value 120 is correct, original on the bounded search, and rigorously certified, the record does not establish why binary length nine is a mathematically natural cutoff, first exceptional case, or boundary, nor does it classify optima or reveal a structural mechanism beyond the finite packing/dual certificate. Under the shared value standard, a computationally convenient isolated parameter without an independent reason that this exact fact is likely to be needed is too arbitrary; correctness, reproducibility, and novelty alone do not supply value.",
+      "residual_risks": [
+        "A neighboring-length census or a proof that n=9 is the first meaningful threshold could change the value assessment, but that motivation is absent from the final claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "Under the at-most convention for two magnitude-one sticky deletions, the largest binary length-nine correcting code has cardinality \\(120\\).",
+  "limitations": [
+    "Only binary source length \\(9\\), at most two affected runs, and magnitude one are covered.",
+    "The result gives an optimum size but no uniqueness, symmetry classification, neighboring-length classification, or general formula."
+  ],
+  "schema_version": 1
+}
