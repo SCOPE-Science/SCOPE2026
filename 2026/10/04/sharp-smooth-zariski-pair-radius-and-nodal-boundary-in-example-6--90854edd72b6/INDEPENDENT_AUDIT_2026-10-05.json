@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:55:37Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 715cdf4b1e30676a30a76e3bf2de488b24ed85d5.",
+        "Actual package verifier artifacts/verify.py blob 2238fb79ea7cabe0d92eb514dd056784f4d02a01 was read at the frozen tree.",
+        "Fresh independent SymPy elimination reproduced both singular-parameter factors and the boundary Hessian \\(369/25\\).",
+        "arXiv:2103.07639v1 Example 6.2 supplies exactly the two source families and the three conditions."
+      ],
+      "rationale": "The affine singular locus is exhaustive because the homogeneous cubic part is parameter-independent and splits into three distinct directions at infinity, while fresh exact lexicographic elimination of \\(u=u_x=u_t=0\\) reproduced the two factors \\(s^2(s-84)^2(2s+1)(10s+1)(20s+1)\\) and \\(s^2(s-14)^2(s+18)(5s+2)(20s+9)\\). Fresh substitution at \\(s=-1/20\\) reproduced the singular point \\((31/10,45/4)\\) and Hessian determinant \\(369/25\\). The package then checks the remaining exceptional fibers, line discriminants, square restrictions to both conics, overlap values, and exact Rouché inequalities. Those inequalities exclude every other obstruction in the punctured centered disk, while the boundary node makes the radius sharp.",
+      "risks": [
+        "The maximality is for the centered disk in the printed parameter \\(s\\); a nonlinear reparameterization changes the numerical radius.",
+        "No complete topology classification is claimed at all exceptional parameters outside that disk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 6.2 prints the two cubic families and says there exists \\(\\varepsilon>0\\) for which conditions (a)--(c) hold for nonzero \\(s\\) in the disk.",
+          "The published article has the same Zariski-pair construction but no located sharp parameter boundary."
+        ],
+        "reasoning": "The source is broader topologically but strictly weaker on exact parameter geometry; an existential neighborhood does not imply its maximal centered radius or complete singular set.",
+        "searches": [
+          "arXiv:2103.07639v1 full Example 6.2",
+          "DOI:10.1007/s10711-021-00672-5"
+        ]
+      },
+      "checked_sources": [
+        "Fresh Resultary query above",
+        "arXiv:2103.07639v1",
+        "DOI:10.1007/s10711-021-00672-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's statement that a sufficiently small disk works does not identify the first obstruction.",
+          "The new elimination and tangency discriminants determine which obstruction is closest to the origin and prove sharpness."
+        ],
+        "reasoning": "The submitted theorem adds substantive exact boundary geometry, not a mere restatement of the source's local existence argument.",
+        "searches": [
+          "arXiv:2103.07639v1 Example 6.2 conditions (a)--(c)",
+          "Searches for discriminant/singular-fiber follow-ups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit was the audited finding; other high-similarity hits concern unrelated singular surfaces.",
+          "Author-posted arXiv v1 full text states only existence of a sufficiently small parameter disk."
+        ],
+        "reasoning": "Equivalent descriptions through discriminant locus, smoothness radius, singular fibers, nodal boundary, and the exact exceptional parameter values were searched.",
+        "searches": [
+          "Resultary: Zariski pair Example 6.2 Bannai Kawana Masuya Tokunaga singular parameter sharp epsilon nodal boundary",
+          "Web: exact source title plus Example 6.2 epsilon smooth cubics",
+          "Web: arXiv:2103.07639 s=-1/20 discriminant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external database/table or later paper with the two exact five-element singular sets was located."
+        ],
+        "reasoning": "The claim is an exact algebraic-family classification rather than a recomputation of a known table.",
+        "searches": [
+          "Resultary exact-family query above",
+          "Web exact exceptional-value query"
+        ]
+      },
+      "rationale": "The primary source explicitly says only that some sufficiently small \\(\\varepsilon>0\\) exists for which smoothness, three distinct intersections with \\(L_1\\), and six distinct tangencies hold. It does not state the exceptional parameter sets, node locations/types, or the maximal centered radius. Fresh Resultary search returned the audited record as the only exact same-family hit, and targeted source/formula searches found no implication-equivalent prior computation.",
+      "residual_risks": [
+        "An unindexed thesis/note could have performed the same explicit discriminant calculation under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSES_ONLY_AN_EXISTENTIAL_NEIGHBORHOOD; DOES_NOT_COVER_SHARP_RADIUS_OR_SINGULAR_LIST",
+          "evidence": [
+            "The source says there exists \\(\\varepsilon>0\\) for the three conditions and gives no numerical maximal radius."
+          ],
+          "identifier_or_url": "arXiv:2103.07639v1",
+          "material_read": "Author-posted full preprint around Section 6.2 and Example 6.2, including the printed cubics and the statement that some sufficiently small epsilon gives smoothness, three distinct line intersections, and six distinct tangencies.",
+          "method": "Lawful author-posted/public full-text inspection.",
+          "title": "Trisections on Certain Rational Elliptic Surfaces and Families of Zariski Pairs Degenerating to the same Conic-line Arrangement",
+          "trigger": "Exact primary source containing Example 6.2."
+        },
+        {
+          "assessment": "CONSISTENT_WITH_PREPRINT; NO_COVERING_EXACT_BOUNDARY_FOUND",
+          "evidence": [
+            "No published-version statement located the submitted singular parameter sets."
+          ],
+          "identifier_or_url": "DOI:10.1007/s10711-021-00672-5",
+          "material_read": "Current bibliographic and searchable-source material for the published version.",
+          "method": "Public web comparison after the arXiv full text.",
+          "title": "Trisections on certain rational elliptic surfaces and families of Zariski pairs degenerating to the same conic-line arrangement",
+          "trigger": "Published version of the exact source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Sharp centered radius for the source's actual construction.",
+        "Complete singular-parameter sets with nodal classification."
+      ],
+      "rationale": "The parameter family is not an arbitrary slice: it is the explicit family used to construct degenerating Zariski pairs in the source. Replacing an unspecified small neighborhood by the exact first obstruction, and classifying every singular fiber of both printed families, gives reusable local moduli/degeneration data.",
+      "risks": [
+        "The scalar radius is coordinate-dependent, so the more intrinsic value lies in the full discriminant/singularity classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the two cubic families printed in Bannai--Kawana--Masuya--Tokunaga Example 6.2, the exact singular parameter sets are \\(\\{0,84,-1/2,-1/10,-1/20\\}\\) and \\(\\{0,14,-18,-2/5,-9/20\\}\\); every nonzero singular member is an irreducible nodal cubic, and the largest centered parameter disk on which source conditions (a)--(c) all hold is exactly \\(0<|s|<1/20\\), with the first boundary obstruction the node of the first family at \\(s=-1/20\\).",
+  "limitations": [
+    "Specific to Example 6.2 and its printed parameter.",
+    "No maximal connected safe subset away from the centered disk is claimed."
+  ],
+  "schema_version": 1
+}

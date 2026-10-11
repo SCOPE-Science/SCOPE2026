@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced to exact polynomial identities. The projective points at infinity are uniformly nonsingular because the leading cubic splits into three distinct linear factors. Affine singular parameters are obtained by exact lexicographic Gröbner elimination and every listed root is checked by a fixed-parameter Gröbner basis. Each nonzero singular member has one singular point with nonzero Hessian determinant, so it is nodal; Bézout excludes reducibility. Conditions (b) and (c) are reduced to exact discriminants and four explicit overlap tests. Rouché inequalities on \(|s|=1/20\) exclude all additional obstruction roots in the centered disk. The packaged verifier replays these computations.
+## correctness
 
-## Originality
-PASS. The lead source states only existence of a sufficiently small \(\varepsilon\) and prints the two families. Its inspected Example 6.2 and theorem do not state the singular parameter sets, nodal classification, or a sharp centered radius. published-finding corpus searches for the source, exact formulas, parameter values, discriminant/smoothness language, and Zariski-pair degeneration found no covering record. Web searches for the exact formula and \(s=-1/20\) returned the source itself rather than a later covering result. Residual risk remains for an unindexed computation or note using different terminology.
+PASS
 
-## Value
-PASS. The parameter interval is not an arbitrary slice: it is exactly the local family used by the source to prove existence of degenerating Zariski pairs. Replacing an unspecified sufficiently-small neighborhood by the sharp centered radius \(1/20\), and identifying the nodal fiber that blocks enlargement, gives a concrete boundary for the source's construction. The complete singular-fiber sets make the degeneration reusable in further topology or moduli calculations.
+The affine singular locus is exhaustive because the homogeneous cubic part is parameter-independent and splits into three distinct directions at infinity, while fresh exact lexicographic elimination of \(u=u_x=u_t=0\) reproduced the two factors \(s^2(s-84)^2(2s+1)(10s+1)(20s+1)\) and \(s^2(s-14)^2(s+18)(5s+2)(20s+9)\). Fresh substitution at \(s=-1/20\) reproduced the singular point \((31/10,45/4)\) and Hessian determinant \(369/25\). The package then checks the remaining exceptional fibers, line discriminants, square restrictions to both conics, overlap values, and exact Rouché inequalities. Those inequalities exclude every other obstruction in the punctured centered disk, while the boundary node makes the radius sharp.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary source explicitly says only that some sufficiently small \(\varepsilon>0\) exists for which smoothness, three distinct intersections with \(L_1\), and six distinct tangencies hold. It does not state the exceptional parameter sets, node locations/types, or the maximal centered radius. Fresh Resultary search returned the audited record as the only exact same-family hit, and targeted source/formula searches found no implication-equivalent prior computation.
+
+## value
+
+PASS
+
+The parameter family is not an arbitrary slice: it is the explicit family used to construct degenerating Zariski pairs in the source. Replacing an unspecified small neighborhood by the exact first obstruction, and classifying every singular fiber of both printed families, gives reusable local moduli/degeneration data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

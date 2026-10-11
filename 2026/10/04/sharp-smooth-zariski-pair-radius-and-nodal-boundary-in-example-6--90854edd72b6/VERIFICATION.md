@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The embedded checker reconstructs the two cubics from Example 6.2, recomputes the singular-parameter elimination factors over the rationals, verifies the fixed-parameter singular points and Hessian determinants, checks the line and conic discriminants used for conditions (b) and (c), and verifies exact constant-term Rouché bounds on the circle of radius \(1/20\).
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python artifacts/verify.py`
+PASS
 
-Expected terminal line: `VERIFY_OK`.
+The affine singular locus is exhaustive because the homogeneous cubic part is parameter-independent and splits into three distinct directions at infinity, while fresh exact lexicographic elimination of \(u=u_x=u_t=0\) reproduced the two factors \(s^2(s-84)^2(2s+1)(10s+1)(20s+1)\) and \(s^2(s-14)^2(s+18)(5s+2)(20s+9)\). Fresh substitution at \(s=-1/20\) reproduced the singular point \((31/10,45/4)\) and Hessian determinant \(369/25\). The package then checks the remaining exceptional fibers, line discriminants, square restrictions to both conics, overlap values, and exact Rouché inequalities. Those inequalities exclude every other obstruction in the punctured centered disk, while the boundary node makes the radius sharp.
 
-The computation is finite exact algebra. It does not certify any claim about arrangement topology outside the stated centered disk or about literature completeness.
+## originality
+
+PASS
+
+The primary source explicitly says only that some sufficiently small \(\varepsilon>0\) exists for which smoothness, three distinct intersections with \(L_1\), and six distinct tangencies hold. It does not state the exceptional parameter sets, node locations/types, or the maximal centered radius. Fresh Resultary search returned the audited record as the only exact same-family hit, and targeted source/formula searches found no implication-equivalent prior computation.
+
+## value
+
+PASS
+
+The parameter family is not an arbitrary slice: it is the explicit family used to construct degenerating Zariski pairs in the source. Replacing an unspecified small neighborhood by the exact first obstruction, and classifying every singular fiber of both printed families, gives reusable local moduli/degeneration data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
