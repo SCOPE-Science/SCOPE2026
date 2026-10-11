@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone verifier `artifacts/verify_ternary_variable_n5.py` uses only the Python standard library. It reconstructs the full finite compatibility graph from the stated definition rather than loading a precomputed graph.
+## correctness
 
-It checks the following facts exactly:
+PASS
 
-1. There are \(216\) individually self-non-overlapping ternary candidate words of lengths \(2\) through \(5\), with length distribution \(6,18,48,144\).
-2. Exact maximum-clique branch-and-bound, pruned only by a proper-coloring upper bound, returns maximum \(17\).
-3. For each of all \(72\) candidates of length below \(5\), the verifier forces that vertex and exactly solves the clique problem on its neighborhood; the largest resulting code has size \(16\).
-4. The returned \(17\)-word and \(16\)-word witnesses are rechecked directly for self-overlap, pairwise prefix-suffix overlap, and subword containment.
+The package graph model matches the stated non-overlap conditions. There are exactly 216 self-non-overlapping candidates with counts 6,18,48,144 by lengths two through five. The coloring branch-and-bound is an exact clique algorithm: each color is an independent set and therefore gives a rigorous upper bound on every remaining clique branch. Independent reconstruction of the graph and algorithm reproduced clique number 17 and, after forcing each of all 72 short vertices, maximum 16; the supplied 17- and 16-word witnesses were directly rechecked.
 
-The captured output in `artifacts/verification.txt` terminates with `VERIFY_OK`.
+## originality
 
-Limits: this verifies only the finite ternary maximum-length-five claim. No extrapolation to other parameters is certified. Independent audit has not been performed.
+PASS
+
+Prior work gives the fixed-length ternary length-five maximum 17 and a general upper bound saying a variable-length code cannot exceed the corresponding fixed-length maximum, but it does not characterize equality or show that one shorter word forces a drop. The exact forced-short maximum 16 is therefore additional information, and it sharpens the general average-length bound to the exact value five at cardinality 17.
+
+## value
+
+PASS
+
+The result resolves a natural equality case in the variable-length maximum/average-length problem at the first ternary length-five frontier. It is a complete exact finite cutoff tied directly to the general theory, not an arbitrary sample or a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

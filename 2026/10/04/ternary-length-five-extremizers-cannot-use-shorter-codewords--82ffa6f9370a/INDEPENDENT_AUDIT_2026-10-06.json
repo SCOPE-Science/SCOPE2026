@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:47:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "G. Wang and Q. Wang, On the maximum size of variable-length non-overlapping codes, arXiv:2402.18896 / Designs, Codes and Cryptography (2024); primary full text inspected at the maximum-size comparison and average-length bounds.",
+        "L. Stanovnik, M. Moškon and M. Mraz, In search of maximum non-overlapping codes, arXiv:2307.12593 / Designs, Codes and Cryptography 92 (2024), DOI:10.1007/s10623-023-01344-z; primary open full text inspected at the length-five exact table, including S(3,5)=17.",
+        "Resultary query: variable length non-overlapping codes ternary length five shorter codewords maximum 17 16; nearby records include fixed-length length-five optima and a stationary occupancy inequality.",
+        "Assigned RESULT.md, VERIFICATION.md, artifacts/verification.txt and artifacts/verify_ternary_variable_n5.py at exact tree 1b5fa633f804c82d7c0dcd24fc6521c3acd77409.",
+        "Fresh independent reconstruction of all 216 candidate words, compatibility graph, exact clique number 17 and all 72 forced-short subproblems with maximum 16."
+      ],
+      "rationale": "The package graph model matches the stated non-overlap conditions. There are exactly 216 self-non-overlapping candidates with counts 6,18,48,144 by lengths two through five. The coloring branch-and-bound is an exact clique algorithm: each color is an independent set and therefore gives a rigorous upper bound on every remaining clique branch. Independent reconstruction of the graph and algorithm reproduced clique number 17 and, after forcing each of all 72 short vertices, maximum 16; the supplied 17- and 16-word witnesses were directly rechecked.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These broader inequalities permit the possibility of a size-17 variable-length code containing shorter words; they do not force average length five."
+        ],
+        "reasoning": "The audited finite classification closes an equality case that the broader inequalities leave open.",
+        "searches": [
+          "Wang–Wang general variable-length maximum-size upper bound",
+          "Resultary stationary occupancy inequality"
+        ]
+      },
+      "checked_sources": [
+        "G. Wang and Q. Wang, On the maximum size of variable-length non-overlapping codes, arXiv:2402.18896 / Designs, Codes and Cryptography (2024); primary full text inspected at the maximum-size comparison and average-length bounds.",
+        "L. Stanovnik, M. Moškon and M. Mraz, In search of maximum non-overlapping codes, arXiv:2307.12593 / Designs, Codes and Cryptography 92 (2024), DOI:10.1007/s10623-023-01344-z; primary open full text inspected at the length-five exact table, including S(3,5)=17.",
+        "Resultary query: variable length non-overlapping codes ternary length five shorter codewords maximum 17 16; nearby records include fixed-length length-five optima and a stationary occupancy inequality.",
+        "Assigned RESULT.md, VERIFICATION.md, artifacts/verification.txt and artifacts/verify_ternary_variable_n5.py at exact tree 1b5fa633f804c82d7c0dcd24fc6521c3acd77409.",
+        "Fresh independent reconstruction of all 216 candidate words, compatibility graph, exact clique number 17 and all 72 forced-short subproblems with maximum 16."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inequality |S|<=17 allows equality with short codewords and thus does not imply the result.",
+          "The exhaustive graph proof separately certifies every possible shorter word and obtains maximum 16."
+        ],
+        "reasoning": "A new finite classification is required; the conclusion is not a direct corollary of the known size bound.",
+        "searches": [
+          "Wang–Wang |S|<=C(n,q) theorem",
+          "Exact forced-short compatibility-graph classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-length result determines only S(3,5)=17.",
+          "The variable-length theorem gives |S|<=C(5,3) and generic average-length bounds, not the equality structure."
+        ],
+        "reasoning": "The equivalent statement 'every variable-length extremizer of size 17 has no word shorter than five' is exactly what is absent from the prior maximum-size comparison.",
+        "searches": [
+          "Resultary: variable length non-overlapping codes ternary length five shorter codewords maximum 17 16",
+          "Wang–Wang variable-length theorem",
+          "Stanovnik–Moškon–Mraz fixed-length table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known fixed-length tables contain the value 17 but do not solve the 72 forced-short variable-length neighborhoods.",
+          "No database row giving the mixed-length maximum 16 was located."
+        ],
+        "reasoning": "This is not recomputation of the known fixed-length maximum alone; the originality-bearing quantity is the strict mixed-length drop.",
+        "searches": [
+          "Stanovnik–Moškon–Mraz table with S(3,5)=17",
+          "Resultary length-five non-overlapping-code optima record"
+        ]
+      },
+      "rationale": "Prior work gives the fixed-length ternary length-five maximum 17 and a general upper bound saying a variable-length code cannot exceed the corresponding fixed-length maximum, but it does not characterize equality or show that one shorter word forces a drop. The exact forced-short maximum 16 is therefore additional information, and it sharpens the general average-length bound to the exact value five at cardinality 17.",
+      "residual_risks": [
+        "An unindexed exhaustive variable-length census could contain the same mixed-length value, but no such source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL UPPER BOUND, EQUALITY STRUCTURE NOT COVERED",
+          "evidence": "The theorem bounds the cardinality but does not rule out a shorter word in an extremal ternary length-five code.",
+          "identifier_or_url": "arXiv:2402.18896",
+          "material_read": "Primary full text at the theorem bounding variable-length size by the fixed-length maximum and at the average-length bounds.",
+          "method": "Open primary PDF full-text and page inspection.",
+          "title": "On the maximum size of variable-length non-overlapping codes",
+          "trigger": "Exact general theory of the variable-length object and its average-length question."
+        },
+        {
+          "assessment": "FIXED-LENGTH ENDPOINT ONLY",
+          "evidence": "The table establishes the 17-word fixed-length frontier but has no mixed-length constraint.",
+          "identifier_or_url": "arXiv:2307.12593; DOI:10.1007/s10623-023-01344-z",
+          "material_read": "Primary open full text and the exact length-five table containing S(3,5)=17.",
+          "method": "Open primary PDF plus rendered-table inspection.",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Exact fixed-length small-parameter database at q=3,n=5."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "G. Wang and Q. Wang, On the maximum size of variable-length non-overlapping codes, arXiv:2402.18896 / Designs, Codes and Cryptography (2024); primary full text inspected at the maximum-size comparison and average-length bounds.",
+        "L. Stanovnik, M. Moškon and M. Mraz, In search of maximum non-overlapping codes, arXiv:2307.12593 / Designs, Codes and Cryptography 92 (2024), DOI:10.1007/s10623-023-01344-z; primary open full text inspected at the length-five exact table, including S(3,5)=17.",
+        "Resultary query: variable length non-overlapping codes ternary length five shorter codewords maximum 17 16; nearby records include fixed-length length-five optima and a stationary occupancy inequality.",
+        "Assigned RESULT.md, VERIFICATION.md, artifacts/verification.txt and artifacts/verify_ternary_variable_n5.py at exact tree 1b5fa633f804c82d7c0dcd24fc6521c3acd77409.",
+        "Fresh independent reconstruction of all 216 candidate words, compatibility graph, exact clique number 17 and all 72 forced-short subproblems with maximum 16."
+      ],
+      "rationale": "The result resolves a natural equality case in the variable-length maximum/average-length problem at the first ternary length-five frontier. It is a complete exact finite cutoff tied directly to the general theory, not an arbitrary sample or a known-table recomputation.",
+      "residual_risks": [
+        "An unindexed exhaustive variable-length census could contain the same mixed-length value, but no such source was located."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For ternary variable-length non-overlapping codes with allowed lengths two through five, the maximum size is 17, but the maximum drops to 16 if any codeword has length below five; hence every 17-word extremizer is fixed length five and the minimum average length at cardinality 17 is exactly five.",
+  "limitations": [
+    "Specific to q=3 and maximum length five.",
+    "The upper bound is computer-assisted but exhaustive and independently replayed.",
+    "An unindexed exhaustive variable-length census could contain the same mixed-length value, but no such source was located."
+  ],
+  "schema_version": 1
+}
