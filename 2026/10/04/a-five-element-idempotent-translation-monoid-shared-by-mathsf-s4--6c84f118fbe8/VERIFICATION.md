@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reduces the full table to two semantic identities.
+# Independent mathematical audit
 
-For a finite reflexive-transitive frame, the published operator
-\[
-\gamma(p)=\Diamond\Box\Diamond p
-\]
-is inverse image along the relation \(R'\) that keeps exactly edges whose target is maximal. In \(\mathsf{Grz}\), \(\Diamond\Box p\) is equivalent to \(\gamma(p)\).
+## correctness
 
-The first critical check is that evaluating \(\gamma\) on \((W,R')\) again gives the ordinary diamond for \(R'\). The second is that evaluating \(\gamma\) after adding the identity relation, corresponding to \(p\vee g\), still gives that same \(R'\)-diamond. These prove
-\[
-g\star g=g,\qquad h\star g=g.
-\]
-Every other entry follows from preservation of \(p,\bot,\vee\), from \(e=\Diamond p\) being the identity translation, and from \(h=p\vee g\).
+PASS
 
-The bundled `verify.py` independently enumerates all reflexive-transitive relations on up to four labelled points and all valuations of \(p\). For \(\mathsf{Grz}\) it restricts to antisymmetric reflexive-transitive frames. It reconstructs translation syntax, evaluates every one of the twenty-five products, and checks the displayed common table. It prints `VERIFY_OK`.
+Dvorkin's classifications give exactly the five normal classes and Lemma 7.4 gives the composition law. All table entries except \(g\star g=g\) and \(h\star g=g\) are formal substitution consequences. On finite S4 frames, Proposition 2.2 identifies \(g=\Diamond\Box\Diamond p\) with accessibility to maximal worlds; the same relation represents the Grz class because \(\Diamond\Box p\equiv\Diamond\Box\Diamond p\). Applying the operator once more to the maximal-cluster relation leaves it unchanged, and adding identity edges before applying it also leaves the maximal-cluster relation unchanged, proving the two remaining products. Finite completeness lifts the identities to the logics. The actual exhaustive small-frame verifier was inspected and agrees with all 25 products, but is corroborative only.
 
-## Limits
+## originality
 
-The finite checker corroborates rather than proves the unbounded result. The proof uses finite completeness. No claim is made for translations with parameters or for complete additivity on arbitrary infinite \(\mathsf{S4}\)-frames.
+PASS
+
+Dvorkin classifies the five normal classes and states the general substitution-composition identity, but the full primary text does not state the complete multiplication table, the shared abstract monoid, or universal idempotence. Two table entries require an additional semantic idempotence calculation for the maximal-world relation; the source uses composition for interpreted logics but does not mechanically reduce all translation products modulo S4 and Grz.
+
+## value
+
+PASS
+
+Composition is intrinsic to interpretation theory. The result turns two five-class lists into the complete algebra of iteration, proves the two targets share the same monoid, and shows every parameter-free normal self-translation stabilizes after one iteration. This is a natural structural refinement rather than a renamed classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
