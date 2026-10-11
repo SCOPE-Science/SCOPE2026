@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T13:00:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh reconstruction confirms the mathematical correction. A stable linear SDE with an additive compensated-Poisson term has a nonlocal jump generator and stationary Lévy stochastic convolution. For a scalar projection \\(v^T Y\\), the fourth cumulant is \\(\\int_0^\\infty\\!\\int (v^\\top e^{As}h(u))^4\\,\\nu(du)\\,ds\\); a nonzero value rules out a Gaussian law. Independently recomputing the package witness gives R~=26.6251093071, I*=3.3469399491, S*=0.5432290275, V*=0.5435059597, drift eigenvalues about −2.59513, −9.20189, −8.53162, and \\(\\kappa_4(e_1^\\top Y_\\infty)=2.22362604\\times10^{-6}>0\\). The true log-jump variance rate \\(\\log(1.1)^2=0.00908403037\\) differs from 2(0.1−ln 1.1)=0.00937964039. Thus the displayed local Gaussian equation cannot be the exact stationary forward equation of the printed jump process.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary SVI paper contains the jump-driven model and Theorem 5.1.",
+          "Jongbloed–van der Meulen–van der Vaart and Barndorff-Nielsen–Shephard cover general Lévy-driven OU stationary laws/non-Gaussian OU constructions."
+        ],
+        "reasoning": "The general theory supplies the conceptual mechanism, but it does not by itself state that the printed SVI Theorem 5.1 uses the wrong local operator/coefficient or provide the explicit admissible epidemic witness.",
+        "searches": [
+          "DOI:10.3934/math.2023148 full open PDF",
+          "DOI:10.3150/bj/1130077593",
+          "DOI:10.1111/1467-9868.00282"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2023148",
+        "DOI:10.3150/bj/1130077593",
+        "DOI:10.1111/1467-9868.00282",
+        "Resultary semantic index",
+        "targeted web literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General theory implies that genuine jump inputs need not yield Gaussian stationary laws.",
+          "The source paper's theorem statement presents a log-normal density, while its abstract and later wording describe an approximate expression."
+        ],
+        "reasoning": "The source-specific contradiction requires matching the exact printed linearization, checking an admissible stable parameter point, and comparing the source coefficient with the true log-jump covariance. That application is not merely a renamed statement of the general OU literature.",
+        "searches": [
+          "Comparison of general Lévy-OU theory with DOI:10.3934/math.2023148 Theorem 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary record directly covered this SVI theorem correction.",
+          "Searches returned the original AIMS paper and related epidemic-density papers, but no source-specific erratum/correction.",
+          "General Lévy-OU non-Gaussianity exists independently and is treated as prior background."
+        ],
+        "reasoning": "The query set tested both the source-specific theorem and equivalent generator/cumulant formulations.",
+        "searches": [
+          "Resultary: Lévy jump stochastic SVI Gaussian density theorem linearized Ornstein Uhlenbeck non-Gaussian correction",
+          "web: exact article title + Gaussian density error + jump Fokker Planck",
+          "web: stochastic SVI Theorem 5.1 log-normal jump Gaussian correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table resolves the analytical validity of the density theorem.",
+          "The numerical witness is reconstructed from published model formulas, not copied from a table."
+        ],
+        "reasoning": "The claim is an analytic source correction, so exact-table coverage is inapplicable beyond checking the source parameters.",
+        "searches": [
+          "AIMS article and citation searches",
+          "Resultary semantic index"
+        ]
+      },
+      "rationale": "PASS only for the source-specific correction, not for the general Lévy-OU fact. General non-Gaussian Lévy-driven Ornstein–Uhlenbeck theory is old and is excluded from the novelty claim. Fresh searches of the exact SVI title, Theorem 5.1, log-normal density and jump/Fokker–Planck correction found the original article and general Lévy-OU literature but no prior published correction applying the fourth-cumulant/nonlocal-generator objection to this theorem.",
+      "residual_risks": [
+        "The source itself repeatedly calls the density expression approximate outside the theorem statement, so the title 'invalidate the Gaussian density theorem' should be read narrowly as rejecting exactness, not all approximation use.",
+        "A separately specified small-jump/high-frequency diffusion scaling could justify a Gaussian approximation; no such error-controlled regime is claimed here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_CONTAINS_TARGETED_GAUSSIAN_FORMULA",
+          "evidence": "Theorem 5.1 states a log-normal probability density, while the abstract/proof also use approximation language. The printed derivation replaces the jump contribution by a local second-order equation.",
+          "identifier_or_url": "DOI:10.3934/math.2023148",
+          "material_read": "Open full PDF at the stochastic model, jump assumptions, logarithmic linearization, Theorem 5.1, its Fokker–Planck derivation and proof conclusion; article abstract.",
+          "method": "Direct open-access PDF inspection, including rendered theorem/proof pages.",
+          "title": "Global dynamics and density function in a class of stochastic SVI epidemic models with Lévy jumps and nonlinear incidence",
+          "trigger": "Primary target of the correction."
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND_COVERS_MECHANISM_NOT_SOURCE_APPLICATION",
+          "evidence": "The general stationary law retains the driving Lévy structure rather than becoming automatically Gaussian.",
+          "identifier_or_url": "DOI:10.3150/bj/1130077593",
+          "material_read": "Published statement/metadata and relevant stationary-law scope.",
+          "method": "Literature comparison.",
+          "title": "Nonparametric inference for Lévy-driven Ornstein–Uhlenbeck processes",
+          "trigger": "General stationary Lévy-OU theory."
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND_NOT_SOURCE_CORRECTION",
+          "evidence": "Non-Gaussian Lévy-driven OU behavior is prior and not claimed as new.",
+          "identifier_or_url": "DOI:10.1111/1467-9868.00282",
+          "material_read": "Bibliographic/statement-level material sufficient to establish general prior art.",
+          "method": "Literature comparison.",
+          "title": "Non-Gaussian Ornstein–Uhlenbeck-based models and some of their uses in financial economics",
+          "trigger": "Primary prior for explicitly non-Gaussian OU models."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinction between a genuine jump generator and a local diffusion equation is substantive: it changes the exact stationary law and already changes the covariance for an explicit admissible source parameter set. The correction identifies the Brownian-only exact boundary and the nonlocal term required for any exact jump-density calculation. This is more than a cosmetic notation issue, even though the source uses approximation language in places.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Corrects exactness of the linearized density statement, not the nonlinear stationary law.",
+    "Does not rule out a separately justified diffusion approximation with an explicit scaling/error bound."
+  ],
+  "schema_version": 1
+}

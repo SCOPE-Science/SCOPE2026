@@ -1,26 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's linearized logarithmic process retains additive compensated Poisson jumps. For a Hurwitz drift, the stationary jump convolution has fourth cumulant
-\[
-\int_0^\infty\!\!\int_Z
-\bigl(v^\top e^{As}h(u)\bigr)^4\,\nu(du)\,ds.
-\]
-The explicit one-atom witness has a nonzero susceptible jump, so this integral is strictly positive for \(v=e_1\). An exact Gaussian law is therefore impossible. The source forward equation also omits the shifted-density jump operator, and its diagonal jump coefficient differs from the true log-jump second cumulant.
+PASS
 
-## Originality
+Fresh reconstruction confirms the mathematical correction. A stable linear SDE with an additive compensated-Poisson term has a nonlocal jump generator and stationary Lévy stochastic convolution. For a scalar projection \(v^T Y\), the fourth cumulant is \(\int_0^\infty\!\int (v^\top e^{As}h(u))^4\,\nu(du)\,ds\); a nonzero value rules out a Gaussian law. Independently recomputing the package witness gives R~=26.6251093071, I*=3.3469399491, S*=0.5432290275, V*=0.5435059597, drift eigenvalues about −2.59513, −9.20189, −8.53162, and \(\kappa_4(e_1^\top Y_\infty)=2.22362604\times10^{-6}>0\). The true log-jump variance rate \(\log(1.1)^2=0.00908403037\) differs from 2(0.1−ln 1.1)=0.00937964039. Thus the displayed local Gaussian equation cannot be the exact stationary forward equation of the printed jump process.
 
-PASS. Non-Gaussian Lévy-driven Ornstein–Uhlenbeck stationary laws are established prior theory and are treated as such. The new result is the exact application to the published SVI theorem: a source-admissible epidemic parameter set satisfies the theorem threshold, has a Hurwitz quasi-endemic linearization, and still has a nonzero stationary fourth cumulant. Exact source-title, DOI, density, correction, and jump-generator searches found no published source-specific repair.
+## originality
 
-## Value
+PASS
 
-PASS. The source presents the density formula as a central technique for describing fluctuations near the quasi-endemic state. The correction shows that the claimed Gaussian/log-normal law is structurally incompatible with the model's own nonzero Lévy jumps and even uses the wrong second-order jump coefficient. It identifies the correct Brownian-only boundary and the nonlocal operator needed for a genuine jump-density calculation.
+PASS only for the source-specific correction, not for the general Lévy-OU fact. General non-Gaussian Lévy-driven Ornstein–Uhlenbeck theory is old and is excluded from the novelty claim. Fresh searches of the exact SVI title, Theorem 5.1, log-normal density and jump/Fokker–Planck correction found the original article and general Lévy-OU literature but no prior published correction applying the fourth-cumulant/nonlocal-generator objection to this theorem.
 
-## Closest literature and limitations
+## value
 
-The primary source is DOI 10.3934/math.2023148. The closest general literature is the Lévy-driven Ornstein–Uhlenbeck theory of Jongbloed, van der Meulen, and van der Vaart (2005), DOI 10.3150/bj/1130077593, and the non-Gaussian OU construction of Barndorff-Nielsen and Shephard (2001), DOI 10.1111/1467-9868.00282.
+PASS
 
-The result corrects the exact density claim for the linearized process. It does not classify the nonlinear stationary law or rule out separately justified diffusion approximations.
+The distinction between a genuine jump generator and a local diffusion equation is substantive: it changes the exact stationary law and already changes the covariance for an explicit admissible source parameter set. The correction identifies the Brownian-only exact boundary and the nonlocal term required for any exact jump-density calculation. This is more than a cosmetic notation issue, even though the source uses approximation language in places.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
