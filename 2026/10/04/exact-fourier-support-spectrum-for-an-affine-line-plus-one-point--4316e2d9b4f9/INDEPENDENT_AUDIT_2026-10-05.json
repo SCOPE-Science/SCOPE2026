@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T01:06:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Affine normalization reduces the support to four coefficients of \\(P(X,Y)=a+bX+cX^2+eY\\) on the nine pairs \\((X,Y)\\in\\mu_3^2\\), with all four coefficients nonzero. For each fixed \\(X\\), the polynomial is affine with nonzero coefficient in \\(Y\\), hence has at most one zero in that row and at most three zeros total; therefore local Fourier support is at least six. The four supplied coefficient choices have exactly 0, 1, 2 and 3 zeros, respectively, and fresh exact arithmetic in \\(\\mathbb Q(\\omega)\\) independently reproduced those zero counts. Frequencies restrict to the two-dimensional span in equal fibers of size \\(3^{d-2}\\), proving the scaling and exhaustiveness.",
+      "risk": "The support geometry is specifically a three-point affine line plus one point off the line; other four-point affine types can have different exact-support spectra.",
+      "sources": [
+        "Bonami-Ghobber, arXiv:1003.5060v2, Section 4 on \\(\\mathbb Z_p^2\\) uncertainty minima/equality cases",
+        "Delvaux-Van Barel, Linear Algebra and its Applications 429 (2008), DOI:10.1016/j.laa.2008.04.043",
+        "independent exact \\(\\mathbb Q(\\omega)\\) witness check in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 21 gives Meshulam's global minimum function on \\(\\mathbb Z_p^2\\); Theorem 23 classifies equality cases at that minimum.",
+          "The Delvaux-Van Barel papers study maximal rank-deficient Fourier submatrices and exact minimum uncertainty values."
+        ],
+        "reasoning": "Global minimum/rank-deficiency results do not determine the complete zero-count spectrum \\(0,1,2,3\\) for the fixed affine support.",
+        "searches": [
+          "Bonami-Ghobber arXiv:1003.5060v2 full text, Proposition 21 and Theorem 23",
+          "Delvaux-Van Barel DOI:10.1016/j.laa.2008.04.043",
+          "Delvaux-Van Barel DOI:10.1016/j.laa.2007.05.009"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1003.5060v2",
+        "DOI:10.1016/j.laa.2008.04.043",
+        "DOI:10.1016/j.laa.2007.05.009",
+        "Resultary record ae1a86146a92",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work controls minimum support sizes and their extremizers.",
+          "The submitted row-affine argument yields the stronger geometry-specific statement that every function has at most three Fourier zeros and constructs all zero counts from zero through three."
+        ],
+        "reasoning": "The full four-value spectrum is not a corollary of a minimum-only theorem or of the five-point exact-support census.",
+        "searches": [
+          "arXiv:1003.5060v2 Section 4",
+          "DOI:10.1016/j.laa.2008.04.043",
+          "Resultary five-point record ae1a86146a92"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned related three-sparse, Walsh four-sparse, and five-point \\(\\mathbb F_3^2\\) spectra but no distinct four-point line-plus-one result.",
+          "Bonami-Ghobber treat global minima/equality cases rather than all attainable support sizes on one fixed support."
+        ],
+        "reasoning": "Support-spectrum, Fourier-zero, rank-deficient-submatrix, and affine-geometry formulations were compared.",
+        "searches": [
+          "Resultary query: F3^d Fourier support four point affine line plus one support exact spectrum 6 7 8 9",
+          "Web searches for four-sparse Fourier support \\(\\mathbb F_3^2\\) line plus point",
+          "Rank-deficient submatrix searches for four columns of the \\(3\\times3\\) Fourier Kronecker matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact table is the published SCOPE five-point spectrum \\(5,6,7,8,9\\); it concerns support size five and does not imply the four-point line-plus-one spectrum."
+        ],
+        "reasoning": "This record supplies a complete fixed-geometry spectrum rather than recomputing a known global uncertainty table.",
+        "searches": [
+          "Resultary exact-support Fourier spectrum query",
+          "Targeted literature search for \\(\\mathbb F_3^2\\) four-point support tables"
+        ]
+      },
+      "rationale": "Bonami-Ghobber and Delvaux-Van Barel determine or study global uncertainty minima and equality/rank-deficiency phenomena on product Fourier matrices. They do not give the full attainable Fourier-support spectrum for this fixed four-point geometry. Bonami-Ghobber's Section 4 shows that for \\(\\mathbb F_3^2\\), the global function \\(\\theta(k,G)\\) concerns support of size at most \\(k\\), and its equality classification is a minimum problem; that does not determine exact-support size four on a prescribed line-plus-point set. The closest published SCOPE five-point result concerns a different exact support cardinality and geometry.",
+      "residual_risks": [
+        "A small-matrix classification in numerical linear algebra could encode this four-column case without using sparse-Fourier terminology; no such exact spectrum was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GLOBAL_MINIMUM_AND_EQUALITY_CASES_NOT_FULL_FIXED_SUPPORT_SPECTRUM",
+          "evidence": "The paper defines \\(\\theta(k,G)\\) using support at most \\(k\\), gives the global minimum, and classifies equality cases; it does not enumerate all Fourier-support sizes for the four-point line-plus-one geometry.",
+          "identifier_or_url": "arXiv:1003.5060v2",
+          "material_read": "Full open arXiv HTML introduction and Section 4, including Proposition 21 and Theorem 23.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Primary uncertainty result specifically covering \\(\\mathbb Z_p\\times\\mathbb Z_p\\)."
+        },
+        {
+          "assessment": "RANK_DEFICIENCY_MINIMUM_FRAMEWORK_NOT_FIXED_SPECTRUM",
+          "evidence": "The paper concerns maximal rank-deficient submatrices of prime-power Fourier matrices and uncertainty minima, not the submitted all-coefficient zero-count spectrum.",
+          "identifier_or_url": "DOI:10.1016/j.laa.2008.04.043",
+          "material_read": "Accessible bibliographic/abstract material plus Bonami-Ghobber's full-text description of its result and scope.",
+          "method": "Primary abstract and cross-source full-text comparison.",
+          "title": "Rank-deficient Submatrices of Fourier Matrices",
+          "trigger": "Primary Fourier-submatrix source cited by Bonami-Ghobber for precise uncertainty minima."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The line-plus-one set is the basic non-collinear four-point geometry in \\(\\mathbb F_3^d\\). Determining every attainable Fourier-support size on that fixed support gives a complete exact-support uncertainty slice and complements the existing global-minimum and neighboring-support-size classifications. The proof is short but structural, not a mere table lookup.",
+      "risk": "The theorem is a narrow exact-support classification; its value depends on its role as a canonical affine support type.",
+      "sources": [
+        "arXiv:1003.5060v2",
+        "Delvaux-Van Barel 2008",
+        "Resultary exact-support Fourier records"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Let \\(d\\ge2\\) and let a complex-valued function on \\(\\mathbb F_3^d\\) have exact support \\(x+\\{0,u,2u,v\\}\\), where \\(u,v\\) are linearly independent. Then its Fourier-support size is exactly one of \\(6,7,8,9\\) times \\(3^{d-2}\\), and every one of the four values occurs on every such support.",
+  "limitations": [
+    "Only supports affinely equivalent to one full three-point line plus one off-line point.",
+    "The theorem does not classify all four-point affine support orbits in larger characteristic."
+  ],
+  "schema_version": 1
+}
