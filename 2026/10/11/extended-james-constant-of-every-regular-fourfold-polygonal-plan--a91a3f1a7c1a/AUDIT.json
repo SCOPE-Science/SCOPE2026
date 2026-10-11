@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "In the inradius-one regular 4n-gon, the polygonal norm N and Euclidean norm satisfy N(z)<=|z|_2<=sec(alpha)N(z). For every J_4-admissible pair, the smaller polygonal chord is at most the smaller Euclidean chord, which by the parallelogram identity is at most sqrt(|x|_2^2+|y|_2^2), hence at most sqrt(2)sec(alpha). For sharpness, take orthogonal unit-ball vertices u=sec(alpha)e_alpha and v=sec(alpha)e_{alpha+pi/2}, set t=tan(alpha), and rescale by c=sqrt(2/(1+t^2)). Then u+tv and u-tv lie exactly on adjacent facet-normal rays with Euclidean length sec(alpha)^2, so both polygonal chord norms equal sqrt(2)sec(alpha). The asymptotic follows from the Taylor expansion of secant.",
+    "risks": [
+      "The theorem relies on the regular polygon being normalized by inradius one; other displayed normalizations must be linearly rescaled before using the coordinates.",
+      "The checker samples finitely many polygons and pairs and is not used as proof of the infinite statement."
+    ],
+    "sources": [
+      "doi:10.3390/sym14020405 for the definition and equivalent representation of J_4",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining source only provides general inequalities J(X)<=J_4(X)<=A(X) and a modulus-of-smoothness bound, not an exact regular-polygon theorem.",
+        "The 2014 Takahashi--Kato paper introduces A(X) and predates J_4; its public abstract contains no regular-polygon formula.",
+        "Closest published-finding corpus regular-polygon records concern equilateral perimeter, Ptolemy, von Neumann--Jordan, or finite chord-metric invariants."
+      ],
+      "reasoning": "A general inequality involving A(X) does not by itself imply equality for J_4. Even if a matching A(X_{4n}) upper value exists elsewhere, the accepted all-n sharp witness is needed to identify J_4 exactly.",
+      "searches": [
+        "regular 4n-gon modulus smoothness J4",
+        "extended James constant regular 4n-gon sqrt2 sec(pi/(4n))",
+        "extended James constant regular polygon Banach plane"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/sym14020405",
+      "doi:10.1007/s10114-014-2782-7",
+      "own:43da7c19-5740-4098-a7ae-84b4159bda61",
+      "own:cb5156cc-7c0f-45ea-a894-d6228cfaac55",
+      "2026/9/20/SCOPE-constant-equilateral-perimeter-regular-4n-gons--1e63f7004e13",
+      "2026/10/4/SCOPE-exact-parameterized-von-neumann-jordan-profile-of-the-regular-oc--f993e44c6cf5",
+      "2026/10/4/SCOPE-exact-four-point-hyperbolicity-of-regular-polygon-chord-metrics--358bce3a69fa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen--Yang--Liu--Li prove J_4<=A and J<=J_4<=sqrt(2J), but these bounds do not evaluate J_4 on regular polygons.",
+        "The all-4n equilateral-perimeter theorem has a different admissible set and objective.",
+        "The own regular-octagon J_4 result supplies only n=2 and explicitly leaves broader regular polygons outside its claim."
+      ],
+      "reasoning": "The accepted theorem requires both a universal regular-polygon upper bound and a matching admissible pair for every n. None of the compared statements supplies that pair or implies the complete formula.",
+      "searches": [
+        "doi:10.3390/sym14020405 Section 4 J4",
+        "regular polygon extended James constant J4 Takahashi Kato A(X)",
+        "2026/9/20/SCOPE-constant-equilateral-perimeter-regular-4n-gons--1e63f7004e13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 source gives the exact one-parameter reformulation of J_4 over unit vectors and a scalar radius ratio, so searches covered both the original quadratic-normalization wording and the unit-vector parameterization.",
+        "No published-finding corpus hit states sqrt(2)sec(pi/(4n)) for J_4 or an equivalent all-4n polygon formula.",
+        "The isolated own X_8 value agrees with the n=2 specialization but contains no all-n statement."
+      ],
+      "reasoning": "The unit-vector/radius-ratio representation is equivalent to the accepted definition, so a prior formula in that language would cover the claim. None was located; the own octagon result is a strict special case.",
+      "searches": [
+        "J_4(X_{4n}) sqrt2 sec pi 4n",
+        "Chen Yang Liu Li J4 regular polygon exact formula",
+        "regular polygon extended James constant J4 Takahashi Kato A(X)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published-finding corpus record was returned for the J_4 formula.",
+        "Own-ledger search through generation g000066 found the octagon specialization but no all-4n row.",
+        "The source paper tables/examples cover L_p and the Day--James hexagon rather than regular 4n-gons."
+      ],
+      "reasoning": "Exact-symbol, exact-formula, and object-name searches were combined to detect both theorem statements and isolated tabulations. The only exact overlap is the already known n=2 specialization.",
+      "searches": [
+        "extended James constant regular 4n-gon sqrt2 sec(pi/(4n))",
+        "J4 affine regular 4n-gon James constant Chen Yang Liu Li",
+        "Chen Yang Liu Li J4 regular polygon exact formula"
+      ]
+    },
+    "rationale": "The defining 2022 full text was inspected through the J_4 definition, one-parameter representation, modulus-of-smoothness upper bound, James comparison, Examples 3 and 4, and conclusion. It computes L_p and the Day--James hexagon but gives no regular-polygon family. published-finding corpus searches with the exact formula, J_4 notation, regular 4n-gon aliases, and Takahashi--Kato comparison returned no covering statement. Own ledgers were checked: the closest row is the isolated octagon value, which the new theorem strictly extends. Other public regular-polygon records optimize different invariants.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "The 2014 Takahashi--Kato full text was not available from the inspected public sources; it could contain a matching A(X_{4n}) upper formula, although it cannot contain the later-defined J_4 equality statement.",
+      "An equivalent formula may be stated under a different normalization of regular polygons or solely through the one-parameter representation of J_4."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: the paper defines J_4 and computes L_p and a Day--James example, but contains no regular 4n-gonal family calculation.",
+        "evidence": "Symmetry 14 (2022), article 405; DOI 10.3390/sym14020405; published 18 February 2022.",
+        "identifier_or_url": "doi:10.3390/sym14020405",
+        "material_read": "Open publisher full text and CC-BY publisher-supplied mirror: introduction; Section 4 definition and equivalent representation; Proposition 4; Theorem 11; Corollaries 3--4; Examples 3--4; Theorems 12--13; conclusion.",
+        "method": "Open-access HTML/full-text inspection with targeted searches for J_4, regular polygons, examples, and the modulus-of-smoothness representation.",
+        "title": "Some New James Type Geometric Constants in Banach Spaces",
+        "trigger": "Defining primary source for J_4 and the nearest general inequalities."
+      },
+      {
+        "assessment": "RELEVANT_BACKGROUND_NOT_COVERING: the paper predates J_4 by years and therefore cannot state the accepted J_4 formula. It remains a residual risk only for a possibly matching regular-polygon upper bound for A(X).",
+        "evidence": "Acta Mathematica Sinica, English Series 30 (2014), 1526--1538; DOI 10.1007/s10114-014-2782-7.",
+        "identifier_or_url": "doi:10.1007/s10114-014-2782-7",
+        "material_read": "Public publisher/bibliographic metadata, abstract, keywords, and citation context. No lawful full text was available in the inspected web sources during this run.",
+        "method": "Public metadata and abstract inspection after targeted arXiv/open-access search.",
+        "title": "On a New Geometric Constant Related to the Modulus of Smoothness of a Banach Space",
+        "trigger": "Potential dominating comparison because the defining J_4 paper proves J_4(X)<=A(X)."
+      }
+    ],
+    "sources": [
+      "doi:10.3390/sym14020405",
+      "doi:10.1007/s10114-014-2782-7"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a91a3f1a-7c1a-44e0-ad2e-7a998723ad55",
+  "value": {
+    "rationale": "The result converts an isolated octagonal evaluation into a closed formula for an infinite canonical family. The proof exposes a structural mechanism: Euclidean distortion gives the exact upper envelope, while an unequal-radius orthogonal-vertex pair with intrinsic ratio tan(pi/(4n)) simultaneously saturates the two chord norms. This identifies how the extended James domain interacts with polygonal anisotropy, gives the exact square-to-Hilbert decay and its n^{-2} rate, and supplies a reusable benchmark for comparisons with ordinary James and smoothness-based bounds.",
+    "risks": [
+      "The family is restricted to side counts divisible by four; the 4n+2 case may have a different phase structure."
+    ],
+    "sources": [
+      "doi:10.3390/sym14020405",
+      "Bundled RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
