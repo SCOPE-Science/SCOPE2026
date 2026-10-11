@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The flow and quantifiers are explicitly defined for all real \(a\ne0\) and all real \(b\). The cancelling coboundary \(\dot H=1-bz\) is algebraically exact. For \(b=0\) it forces uniform linear escape of \(H\), even when trajectories might otherwise appear confined. For \(b\ne0\), two finite-time averages and Jensen's inequality provide a uniform, explicit finite residence bound for any origin-centered ball smaller than the unique equilibrium radius. All signs of both parameters, the equality boundary, and compact invariant measures are handled without extrapolating from numerics. The conditional stationary law follows by test functions of \(H\), and the strict equality case follows from invariance, not just equality in Jensen. `CHECK.py` independently checks the critical polynomial algebra; the proof supplies all infinite-time steps.
+
+## Originality — PASS, subject to historical priority risk
+The full introducing source (Sprott, 1994) describes case N numerically, including an equilibrium but no uniform ball residence theorem. The complete 2013 case-N technical description plots parameter regimes and supplies no sharp ball-residence proof or height-conditioned law in the cancelling coordinate. Comparisons to nearby results for other quadratic flows require an unproved conjugacy to transfer, and no applicable conjugacy or stronger theorem was established. Searches for aliases, the same parameters, invariant measures, weighted averages, orbit residence, and recurrence thresholds did not disclose a statement that implies this claim. Search non-detection does not establish novelty; unindexed historical work remains a residual risk.
+
+## Mathematical value — PASS
+The exact minimal radius of any potentially unbounded-duration orbit segment is a natural invariant geometry question for an established catalogue example of chaotic flows. The result is sharp because the equilibrium attains it, while the finite-time bound protects against lengthy transients misleading numerical searches. The exact conditional law and strict moment defect independently constrain every compact stationary state at the original chaotic parameter values. Neither a broad existence conjecture nor an arbitrary finite computation is needed for these structural conclusions.
+
+## Closest literature and limits
+The main reference is Sprott, *Some simple chaotic flows*, Phys. Rev. E 50, R647 (1994), DOI 10.1103/PhysRevE.50.R647. A directly relevant parameter normalization is J. C. Sprott, *Dynamic Regions in Simple Chaotic Flows* (2013), https://sprott.physics.wisc.edu/technote/regions.htm. Similar method-level recurrence and stationary-statistical findings for other systems do not imply the exact equations or radius here. The theorem does not prove chaos or limit-cycle existence, classify attractors, or assert the explicit upper bound is optimal. Historical priority cannot be exhaustively certified from indexed sources alone.
+
+Same-model review: passed. Independent audit: not yet performed.

@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact derivation Hdot=1-bz follows by cancellation for a!=0. For b=0 it gives a linear drift and a uniform time limit in each Euclidean ball. For b!=0, integrating Hdot and ydot and applying Jensen twice gives explicit finite residence bound whenever R^2<b^-4+b^-2; the sole equilibrium exactly attains the boundary. Invariant test functions of H yield E[z|H]=1/b, and coordinate/H^2 stationarity yields the mean, covariance and exact radial-defect identity. Zero z-variance forces the single equilibrium by invariance of z and y coordinates. The standalone checker confirms critical polynomial/second-moment algebra; no infinite claim depends on numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The similarly titled indexed threshold for the Rössler model concerns a different vector field and discriminant, not an origin-centered radius in case N.",
+        "The sine-modified Sprott B stationary RMS law comes from a different nonlinear function."
+      ],
+      "reasoning": "Broader Lyapunov and compact-recurrence results for other polynomial ODEs require verifying their hypotheses or a dynamical equivalence; none gives a uniform Sprott-N ball-residence bound, and the source comparison did not reveal a more general theorem whose premises instantiate this result.",
+      "searches": [
+        "Sprott case-N xdot=-a y ydot=x+z^2 zdot=1+y-bz sharp minimum radius sqrt(b^-4+b^-2) for compact invariant measures and any arbitrarily long residence",
+        "Exact Sprott-N coercive ball residence cut-off, Jensen stationary second moment, conditional expectation z given z+x/a",
+        "Sprott N origin-centered Euclidean ball threshold to contain complete bounded solutions, parameter b tends zero recurrence obstruction",
+        "Sprott N flow xdot=-a*y ydot=x+z^2 zdot=1+y-b*z exact b=0 escape, global bounded recurrence threshold, invariant mean x=-1/b^2-Var(z)",
+        "Sprott N flow xdot=-a*y ydot=x+z^2 zdot=1+y-b*z exact b=0 escape, global bounded recurrence threshold, invariant mean x=-1/b^2-Var(z)",
+        "Sprott N flow xdot=-a*y ydot=x+z^2 zdot=1+y-b*z exact b=0 escape, global bounded recurrence threshold, invariant mean x=-1/b^2-Var(z)"
+      ]
+    },
+    "checked_sources": [
+      "Sprott 1994, doi:10.1103/PhysRevE.50.R647",
+      "Sprott 2013, https://sprott.physics.wisc.edu/technote/regions.htm",
+      "Zhao 2014 A new Feigenbaum-like chaotic 3D system (different flow)",
+      "Relevant comparisons: stationary RMS in the sine-modified Sprott-B flow and compact recurrence threshold in the Rössler model"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An equilibrium radius is an upper bound on the least ball admitting a stationary trajectory, not a lower bound on every possible long segment; the latter needs the quantitative Jensen/coboundary proof.",
+        "The compact invariant measure test-function identity is absent from the source descriptions of numerical trajectories."
+      ],
+      "reasoning": "The exact claim asserts a two-way radius criterion and a separate stationary conditional expectation across all compact invariant measures for every nonzero a. Neither is a statement-level consequence of the numerical source assertions. Results on differently defined flows have no established reduction to these equations.",
+      "searches": [
+        "Sprott case N polynomial chaotic system dynamical analysis invariant measure bounded periodic orbit 2010 2015",
+        "Sprott N flow xdot=-a*y ydot=x+z^2 zdot=1+y-b*z exact b=0 escape, global bounded recurrence threshold, invariant mean x=-1/b^2-Var(z)",
+        "Sprott N compact invariant probability measure conditional height moment, covariance z and x and radial crossing",
+        "Exact Sprott-N coercive ball residence cut-off, Jensen stationary second moment, conditional expectation z given z+x/a",
+        "10.1103/PhysRevE.50.R647",
+        "https://sprott.physics.wisc.edu/technote/regions.htm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original 1994 four-page paper lists the case-N flow, critical point and numerical dynamical features, but no identity governing every bounded-duration segment.",
+        "The 2013 atlas prints xdot=-ay, ydot=x+z^2, zdot=1+y-bz verbatim; the cancellation H=z+x/a and resulting ball bound are not given there."
+      ],
+      "reasoning": "The original and normalized formulas were checked term by term. The proposed theorem is equivalent to a geometric radius-minimization statement for all long segments, not merely to identifying the equilibrium. Neither primary text asserts that no nonstationary solution can stay in a smaller ball for arbitrarily long durations; no documented conjugacy to an indexed covering result was located.",
+      "searches": [
+        "Sprott N flow xdot=-a*y ydot=x+z^2 zdot=1+y-b*z exact b=0 escape, global bounded recurrence threshold, invariant mean x=-1/b^2-Var(z)",
+        "Sprott 1994 case N parameter b=0 no bounded trajectories for a nonzero; conditional stationarity z|z+x/a =1/b",
+        "Sprott N compact invariant probability measure conditional height moment, covariance z and x and radial crossing",
+        "published primary DOI 10.1103/PhysRevE.50.R647",
+        "case N equations and parameter normalization in https://sprott.physics.wisc.edu/technote/regions.htm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 1994 case catalogue includes equilibria and numerical Lyapunov data; this is not a theorem about all orbit segments in smaller balls.",
+        "The 2013 parameter atlas uses colored numerical dynamic regions and explicitly notes exceptional initial conditions and transient pitfalls."
+      ],
+      "reasoning": "Numerically reported attractor regions and the known equilibrium point do not prove the sharp exclusion of long trajectories below the equilibrium radius; equally they do not force the conditional invariant probability identity.",
+      "searches": [
+        "Sprott 1994 Some simple chaotic flows Sprott N dx -2y dy x+z^2 dz 1+y-2z Physical Review E 50 R647",
+        "Sprott Some simple chaotic flows 1994 August 1 PDF equations Sprott N a b 2013 atlas",
+        "case N parameters equilibrium and atlas https://sprott.physics.wisc.edu/technote/regions.htm",
+        "Sprott N flow xdot=-a*y ydot=x+z^2 zdot=1+y-b*z exact b=0 escape, global bounded recurrence threshold, invariant mean x=-1/b^2-Var(z)"
+      ]
+    },
+    "rationale": "Statement-by-statement comparison to the full 1994 introducing four-page source and full 2013 parameter atlas found original flow and numerical critical-point/attractor information, not universal sharp orbit-residence or heightwise stationary laws. Actual published-finding corpus queries were run for case N, parameter aliases, invariant measures and radius bounds; closest indexed records concern different, nonconjugate vector fields. Prior canonical-parameter moment identities are acknowledged as overlapping background, not treated as novelty; neither those moments nor the original table implies the radius theorem for all parameters. Historical priority from unindexed work remains a residual risk, not a claimed independent certification.",
+    "residual_risks": [
+      "An unindexed or non-English study of case N could contain an equivalent residence-radius proof.",
+      "An unpublished or incompletely indexed general theorem might imply the exclusion after a nontrivial transformation; no such applicable stronger coverage was verified.",
+      "Original numerical tables identify the equilibrium and need careful separation from the genuinely global sharp lower bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: equations, numerical trajectories, equilibria and linearization are covered, but not the global sharp ball residence exclusion or invariant conditional moment law.",
+        "evidence": [
+          "Case N in original classification of 19 flows; original original-point equilibrium is listed.",
+          "1994-08-01 is the date explicitly shown by Phys. Rev. E."
+        ],
+        "identifier_or_url": "doi:10.1103/PhysRevE.50.R647",
+        "material_read": "Whole four-page primary article R647–R650, including the equation and equilibrium table, figures and closing text.",
+        "method": "Lawfully accessible public PDF pages and page images examined; journal publication metadata checked.",
+        "title": "Some simple chaotic flows",
+        "trigger": "Original Sprott case N and earliest public date, potential complete prior coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: gives equations and experimental parameter regions rather than universal analytical residence or conditional stationary formulas.",
+        "evidence": [
+          "Lines 0–8 give date and numerical classification methodology.",
+          "Lines 102–109 print case N and a=b=2."
+        ],
+        "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+        "material_read": "Complete 169-line technical note, including introduction, numerical plot methodology and case N equations/parameters.",
+        "method": "Read full author-hosted HTML primary note.",
+        "title": "Dynamic Regions in Simple Chaotic Flows",
+        "trigger": "Exact two-parameter normalized case N, same parameters and potential stronger coverage"
+      },
+      {
+        "assessment": "DIFFERENT_SYSTEM: the comparison distinguishes it from case N by its equilibrium structure; no direct implication of Sprott-N threshold.",
+        "evidence": [
+          "The article contrasts a different 3D flow against Sprott case N; its vector field is not the case-N polynomial vector field."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2014/328143",
+        "material_read": "Full openly available article HTML including mathematical system and comparison discussion as inspected during source screening.",
+        "method": "Read article HTML source rather than only search result.",
+        "title": "A new Feigenbaum-like chaotic 3D system",
+        "trigger": "Early work comparing a new simple chaotic system to Sprott N"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "52954af8-7b89-4fd3-9245-75eef1045279",
+  "value": {
+    "rationale": "For a natural 1994 quadratic chaotic benchmark, the sharp minimum Euclidean observation ball for arbitrarily long orbit segments is an exact global geometric invariant, with a computable finite-time transient cutoff below threshold. The result is meaningful for interpreting phase plots and searching for bounded non-equilibrium recurrent behavior, including near the singular forcing boundary b=0. The nontrivial height-conditioned stationarity law and positive strict radial variance defect constrain any recurrence without falsely asserting existence. This is not just an equilibrium lookup or a numerical table.",
+    "status": "PASS"
+  }
+}
