@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved for arbitrary finite connected chain graphs by an exact structural determination of mutually maximally distant pairs and an exact maximum-independent-set argument in the resulting strong resolving graph.
+# Independent mathematical audit
 
-`verify.py` is an independent finite cross-check. It generates every positive canonical chain-graph profile through order \(9\), builds the graph from the block data, and recomputes all-pairs distances. It then:
+## correctness
 
-1. compares every unordered vertex pair against the claimed mutually-maximally-distant classification;
-2. enumerates all vertex subsets below and at the predicted optimum;
-3. tests the literal strong-resolution condition using shortest-path distance equalities;
-4. confirms that no smaller strong resolving set exists; and
-5. checks the exact number of minimum bases against the product-sum formula.
+PASS
 
-Replay command:
+The proof reconstructs exactly. Same-class twins are mutually maximally distant. Distinct classes on the same bipartition side are not mutually maximally distant because a vertex in the larger neighborhood difference witnesses distance three from the lower class. A cross pair is mutually maximally distant exactly for an inversion of the canonical order. Hence the strong resolving graph has class cliques and exactly those inversion cross edges. Any independent set uses at most one vertex per class; if its largest selected B-index is q and smallest selected A-index is r, then q is at most r, so size is at most p+1, with equality only at one cut q=r=t and with all eligible classes represented. Complements give every strong metric basis and the stated count. The K2 boundary is correctly separated. The packaged exhaustive checker is consistent with this proof through order nine and is not needed for the infinite argument.
 
-`python3 verify.py`
+## originality
 
-Expected output:
+PASS
 
-`VERIFY_OK profiles=255 subset_checks=70490 mmd_checks=7423 basis_checks=2829 max_order=9`
+Originality passes. The broad distance-hereditary paper supplies an efficient recursive algorithm, and the chain-graph paper treats ordinary metric and restricted-threshold dimension. Neither inspected source states the chain-specific mutually-maximally-distant relation, the closed strong-dimension formula, or the complete minimum-basis classification. The new content is the exact strong-resolving graph and its unique-cut maximum-independent-set structure.
 
-The finite computation does not establish the infinite theorem by itself. It is a boundary and implementation check for the structural proof. The public-source comparison does not constitute an exhaustive proof of novelty; residual bibliographic risks are recorded in `AUDIT.json`.
+## value
+
+PASS
+
+Strong metric dimension is a natural shortest-path invariant with hard general computation. The theorem turns a natural graph class into an exact canonical structure and classifies every minimum basis, not just its cardinality. The product-sum enumerator also retains information that the scalar dimension forgets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
