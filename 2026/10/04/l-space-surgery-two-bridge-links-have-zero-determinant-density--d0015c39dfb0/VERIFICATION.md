@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source criterion was checked directly under the canonical hypotheses:
-\[
-p\text{ even},\qquad q\text{ odd},\qquad 0<|q|\le p/2,\qquad \gcd(p,q)=1.
-\]
-It states that a two-bridge link \(b(p,q)\) admits a non-trivial L-space surgery exactly when
-\[
-p\equiv\pm1\pmod{|q|}.
-\]
+# Independent mathematical audit
 
-For even \(p\ge4\), this is equivalent to \(q\) being a positive proper divisor of \(p-1\) or \(p+1\), with \(q=1\) shared by the two families. Schubert equivalence up to mirror sends a nontrivial divisor to its complementary divisor. A complementary pair is fixed exactly when the corresponding \(p-1\) or \(p+1\) is a square.
+## correctness
 
-The bundled verifier enumerates all canonical positive denominators, applies the congruence criterion, quotients by modular inversion up to sign, and compares with the closed formula for every even \(p\le1000\). It reports:
+PASS
 
-`VERIFY_OK exact_even_p_through=1000 scaled_density=100:110/313:7.63137269,1000:1629/26156:9.01597735,5000:10107/638096:9.29843265 target_pi2=9.86960440`
+Fresh reconstruction confirms the fixed-numerator orbit formula and both asymptotics, conditional only on the published two-bridge L-space classification premise. For even p, the criterion p≡±1 mod |q| makes the admissible positive canonical q exactly 1 plus nontrivial proper divisors of p−1 and p+1. Because those odd numbers have no nontrivial divisor exceeding (p+1)/3, every such q is in the canonical half-range. Schubert inversion up to mirror sends a divisor to its complementary divisor; the only fixed points are square roots, producing the stated half-orbit correction. The odd-divisor summatory function contributes (1/4)X log X before the final orbit bookkeeping, while the even-totient sum is \(X^2/\pi^2+O(X\log X)\), so \(B(X)\sim X^2/(4\pi^2)\) and \(L(X)/B(X)\sim \pi^2\log X/X\). The package checker is consistent with this proof but was not used as an infinite proof.
 
-The finite computation does not prove the asymptotics. Those follow from
-\[
-\sum_{\substack{n\le X\\n\ {\rm odd}}}\tau(n)
-=
-\frac14X\log X+O(X),
-\]
-the bound on inversion-fixed points, and
-\[
-\sum_{\substack{n\le X\\2\mid n}}\varphi(n)
-=
-\frac{X^2}{\pi^2}+O(X\log X).
-\]
+## originality
 
-No independent audit has been performed.
+PASS
+
+Best-of-knowledge PASS, with a specific access residual. Santoro–Zhou's primary preprint classifies all two-bridge links admitting nontrivial L-space surgeries, and Lyu–Nie's preprint explicitly advertises applications to two-bridge links. Searches targeted fixed Schubert numerator/determinant counts, divisor-orbit formulations and density. No inspected source states the aggregate orbit count or determinant-density theorem. The novelty is not the classification itself but its quotient by Schubert inversion followed by the divisor/totient asymptotics.
+
+## value
+
+PASS
+
+The determinant is a canonical complexity parameter for two-bridge links, and the result converts a qualitative classification into an exact per-determinant census plus a global rarity law. The \(X\log X\) versus \(X^2\) separation is a mathematically natural structural consequence of the p−1/p+1 factorization and is more informative than a finite table or a restatement of the classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
