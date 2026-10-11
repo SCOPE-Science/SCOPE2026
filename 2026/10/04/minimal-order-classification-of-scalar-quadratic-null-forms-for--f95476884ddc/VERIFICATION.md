@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accepted claim is the restricted scalar quadratic classification stated in `RESULT.md`.
+# Independent mathematical audit
 
-## Algebraic checks
-For a polynomial symbol \(b\), the restrictions \(b(t,t)\) and \(b(-t,2t)\) are one-variable polynomials. Vanishing for every positive integer forces each restriction to vanish identically. Therefore \(k-\ell\) and \(2k+\ell\) divide \(b\). Symmetry forces a second factor \(k-\ell\) and the additional factor \(k+2\ell\). The three distinct line factors are coprime, giving
-\[
-(k-\ell)^2(2k+\ell)(k+2\ell)\mid b(k,\ell).
-\]
-The factor is symmetric and invariant under \((k,\ell)\mapsto(-k,-\ell)\), so the quotient inherits the stated symmetries. The converse is direct. Its degree in \(k\) is \(4\), and its degree in \(\ell\) is \(4\); multiplication by any nonconstant quotient raises at least one of these input degrees. Thus the differential order is at least \(4\), with equality only for a constant quotient.
+## correctness
 
-The source differential expression has symbol
-\[
-2(k+\ell)^4-7k\ell(k+\ell)^2-4k^2\ell^2,
-\]
-and exact expansion gives
-\[
-2(k+\ell)^4-7k\ell(k+\ell)^2-4k^2\ell^2
-=(k-\ell)^2(2k+\ell)(k+2\ell).
-\]
+PASS
 
-## Normal-form support check
-The general extraction formulas in arXiv:2608.24376v1 show that quadratic contributions to the cubic coefficients use only the critical mode \(m\) and the second harmonic \(2m\). The proof of Example 6.4 in arXiv:2609.22779v1 shows that vanishing at \((m,m)\) eliminates the added quadratic forcing and vanishing at \((-m,2m)\) eliminates the only added outer interaction that can project from the second harmonic back to the critical mode. The zero-output channel is annihilated by \(K\); the \(3m\) channel misses the critical projection. Hence the perturbation leaves all four cubic extraction coefficients unchanged.
+The algebraic classification is exact. Vanishing of the polynomial restrictions \(b(m,m)\) and \(b(-m,2m)\) for all positive integers forces vanishing on the lines \(k=\ell\) and \(2k+\ell=0\). Symmetry supplies a second \(k-\ell\) factor and the companion line \(k+2\ell=0\), yielding divisibility by \((k-\ell)^2(2k+\ell)(k+2\ell)\). The quotient inherits symmetry and simultaneous-sign evenness. Degree in each variable is at least four, and equality forces a constant quotient. The normal-form invariance follows because the only quadratic interactions feeding cubic order are the critical-critical and critical/second-harmonic channels, while zero output is annihilated by the odd multiplier.
 
-## Boundary and limitation checks
-The proof requires the two symbol cancellations for every critical integer \(m\), not merely one fixed \(m\). It assumes a polynomial constant-coefficient symmetric scalar bilinear operator and simultaneous-sign reflection parity. It does not exclude lower-order invisible perturbations using a different vector or cancellation mechanism. No existence, uniqueness, or classification claim is made outside this domain.
+## originality
+
+PASS
+
+The source null-form paper gives the specific fourth-order example and motivates the lower-order/broader invisible-flux question. The general O(2)-Hopf paper supplies the extraction channels, but neither source located in this run states the polynomial divisibility classification for every critical integer. Resultary returned the assigned classification as the exact hit and no broader published classification.
+
+## value
+
+PASS
+
+The theorem answers a natural minimal-order subproblem explicitly motivated by the published null-form construction: it proves that the known fourth-order example is forced and unique up to scale within a mathematically coherent scalar subclass. That is a meaningful structural boundary, not merely a restatement of the example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

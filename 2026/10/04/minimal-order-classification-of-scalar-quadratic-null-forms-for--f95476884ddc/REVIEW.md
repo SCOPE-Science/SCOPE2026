@@ -1,15 +1,21 @@
-# Review of Minimal-order classification of scalar quadratic null forms for cubic \(O(2)\)-Hopf coefficients
+# Independent mathematical audit
 
-## Correctness
-PASS. The polynomial factorization is exact. Vanishing of \(b(m,m)\) and \(b(-m,2m)\) for every positive integer forces vanishing on the corresponding algebraic lines. Symmetry supplies the second copy of \(k-\ell\) and the line \(k+2\ell=0\). Pairwise coprimality then gives the four-factor product, whose degree in each input wavenumber is \(4\). The converse is immediate. The normal-form invariance follows from the full cubic extraction mechanism: quadratic forcing enters only at the critical mode and second harmonic, the stipulated symbol zeros remove precisely the interactions used by the null-form proof, zero output is killed by \(K\), and there is no direct cubic contribution.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2609.22779v1, gives one order-\(4\) example with the same factor and explicitly leaves lower-order existence and the full invisible-flux classification open. The companion arXiv:2608.24376v1 gives the general extraction formulas but no factorization, minimal-order theorem, or uniqueness statement. Targeted searches for \(O(2)\)-Hopf null forms, resonant symbol cancellation, lower-order invisible fluxes, and the exact factor found no statement that implies the present restricted classification. A published result on an unrelated Stuart–Landau cubic counterterm is not comparable: its objects and cancellation mechanism differ.
+PASS
 
-## Value
-PASS. The source explicitly identifies lower differential order as an unresolved issue. The theorem answers that question completely in the natural scalar quadratic mechanism used by the source example: order \(4\) is forced, and the source null form is the unique minimal symbol up to scale. This also explains why its four linear factors are not an arbitrary construction but are dictated by the resonance geometry.
+The algebraic classification is exact. Vanishing of the polynomial restrictions \(b(m,m)\) and \(b(-m,2m)\) for all positive integers forces vanishing on the lines \(k=\ell\) and \(2k+\ell=0\). Symmetry supplies a second \(k-\ell\) factor and the companion line \(k+2\ell=0\), yielding divisibility by \((k-\ell)^2(2k+\ell)(k+2\ell)\). The quotient inherits symmetry and simultaneous-sign evenness. Degree in each variable is at least four, and equality forces a constant quotient. The normal-form invariance follows because the only quadratic interactions feeding cubic order are the critical-critical and critical/second-harmonic channels, while zero output is annihilated by the odd multiplier.
 
-## Closest literature and limitations
-The result is intentionally narrower than the source's full Problem 3. It does not classify vector-valued quadratic perturbations, cubic perturbations, cancellations between distinct terms, special fixed-wavenumber mechanisms, or cancellations tied to one linear operator. Search coverage cannot rule out obscure unindexed folklore.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source null-form paper gives the specific fourth-order example and motivates the lower-order/broader invisible-flux question. The general O(2)-Hopf paper supplies the extraction channels, but neither source located in this run states the polynomial divisibility classification for every critical integer. Resultary returned the assigned classification as the exact hit and no broader published classification.
+
+## value
+
+PASS
+
+The theorem answers a natural minimal-order subproblem explicitly motivated by the published null-form construction: it proves that the known fourth-order example is forced and unique up to scale within a mathematically coherent scalar subclass. That is a meaningful structural boundary, not merely a restatement of the example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
