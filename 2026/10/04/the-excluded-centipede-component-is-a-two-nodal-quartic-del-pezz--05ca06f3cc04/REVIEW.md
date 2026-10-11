@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source equations were reconstructed exactly. The projective Jacobian-rank condition was checked on all five standard affine charts, yielding exactly two singular points. Analytic elimination at each point produces a hypersurface germ with nondegenerate quadratic part, with Hessian determinants \(384\) and \(17280\), so both points are \(A_1\). The complete-intersection and adjunction argument gives a normal quartic del Pezzo surface. The pencil determinant and kernel vectors are exact.
+## correctness
 
-## Originality
-PASS. The lead paper states only that the second centipede component is a singular quartic surface in a hyperplane. It does not identify the two singular points, their ADE types, or the pencil discriminant. A later paper on dependency-equilibrium boundary cases gives its detailed classification for \((2\times2)\)-games and does not treat the centipede component. General quartic-del-Pezzo literature covers abstract \(2A_1\) surfaces, so the originality claim is limited to the exact identification of this named Spohn component.
+PASS
 
-## Value
-PASS. The source calls attention to the singular excluded component but leaves its geometry coarse. An exact ADE classification and quadric-pencil factorization are natural structural invariants that place the example in the standard degree-\(4\) del Pezzo taxonomy and make the singular mechanism transparent.
+Eliminating the source hyperplane equation gives the two stated quadrics in \(\mathbb P^4\). A fresh exact symbolic reconstruction of the Jacobian rank-drop ideal on all five standard affine charts leaves exactly the two claimed projective singular points. Local elimination at each point has nondegenerate quadratic Hessian, so both are ordinary double points. A prime \((2,2)\) complete intersection with only those rational double points is normal and adjunction gives a quartic del Pezzo surface. Fresh exact matrix reconstruction also reproduced \(54\mu^2(\lambda-\mu)^2(\lambda+4\mu)\) for the pencil discriminant.
 
-## Closest literature and limitations
-The closest direct source is Portakal--Sturmfels, arXiv:2201.05506v1, Example 4. Portakal--Windisch, arXiv:2405.19054v1, is the closest continuation on boundary geometry but centers its detailed analysis on \((2\times2)\)-games. General \(2A_1\) quartic del Pezzo classifications do not identify this game-theoretic component. The present result does not classify arbitrary non-generic Spohn surfaces or the real topology of the component.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Primary full-text inspection of Portakal--Sturmfels Example 4 shows the exact prime component and describes it only as a singular quartic surface in a hyperplane; it does not state the singular points, ADE types, del Pezzo identification or pencil discriminant. Current Resultary search returned the assigned exact result and unrelated singular-surface findings. General \(2A_1\) quartic-del-Pezzo literature does not identify this named game-theoretic component.
+
+## value
+
+PASS
+
+The source explicitly singles out a singular excluded quartic component but leaves its geometry coarse. Determining the complete ADE basket and pencil discriminant is a natural structural classification that identifies the component inside the standard degree-four del Pezzo taxonomy and explains its singularity mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
