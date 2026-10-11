@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:52.368778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6491da5929392bbc78fb91da73b61e33f2271623",
+        "verify_ordering_correction.py blob 0a2db42ca4aa697a0d403e420e21eb31bbc9ca0a",
+        "Oszmaniec--Kuś full PDF",
+        "Uhlmann Proposition 4.1",
+        "independent exact Bell-state replay"
+      ],
+      "rationale": "The primary PDF visually confirms that Eq. (19) is followed by “increasingly ordered eigenvalues”. Uhlmann Proposition 4.1 uses the same roof with nonincreasing order. The literal ascending convention forces the expression nonpositive for every rank at least two. Independently, the Bell-white-noise spectrum gives corrected value \\(\\max\\{0,(3p-1)/2\\}\\); at \\(p=1/2\\) exact arithmetic gives \\(1/4\\), while ascending order gives zero.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uhlmann orders the relevant eigenvalues \\(\\lambda_1\\ge\\lambda_2\\ge\\cdots\\) before taking largest-minus-the-rest.",
+          "The later paper reproduces the same algebraic expression but states the opposite ordering word."
+        ],
+        "reasoning": "The general convex-roof theorem fully covers the mathematical formula and prevents any claim that the formula itself is new. It does not erase the source-specific editorial error or its implementation consequence.",
+        "searches": [
+          "Uhlmann, “Roofs and Convexity”, Proposition 4.1",
+          "Oszmaniec--Kuś full manuscript around Eq. (19)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1111.1005 / DOI:10.1088/1751-8113/45/24/244034 (Oszmaniec--Kuś, full primary PDF)",
+        "DOI:10.3390/e12071799 (Uhlmann, full Proposition 4.1)",
+        "Resultary semantic search: Oszmaniec Kus quasiclassical states Eq 19 increasingly ordered eigenvalues correction Uhlmann descending",
+        "Exact-title/DOI searches for erratum, correction, increasing/decreasing ordering"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uhlmann’s theorem implies the descending convention exactly.",
+          "Under ascending order, nonnegativity gives \\(\\mu_1-\\sum_{j\\ge2}\\mu_j\\le\\mu_1-\\mu_2\\le0\\), so the detector is identically zero whenever at least two eigenvalues are listed."
+        ],
+        "reasoning": "The corrected roof value is prior; the accepted claim is not that prior theorem. The surviving contribution is the documented mismatch in a later paper and its nontrivial failure mode, which was not found as a prior correction.",
+        "searches": [
+          "Compare Eq. (19) directly with Uhlmann Proposition 4.1",
+          "Evaluate the literal ascending interpretation for rank at least two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full Oszmaniec--Kuś manuscript pairs Eq. (19) with “increasingly ordered eigenvalues”.",
+          "No retrieved correction record explicitly changes that descriptor."
+        ],
+        "reasoning": "Equivalent coverage would explicitly identify \\(\\mu_1\\) as the largest eigenvalue in the 2012 paper or correct the word attached to Eq. (19). Uhlmann supplies the antecedent theorem but not a correction to the later text.",
+        "searches": [
+          "Exact-title and DOI searches for “Eq. (19)”, “increasingly ordered”, “decreasingly ordered”, “erratum”, and “correction”",
+          "Resultary semantic query in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact correction/erratum entry was retrieved; the Resultary top matches were unrelated."
+        ],
+        "reasoning": "This is a textual theorem-consistency correction, not a database recomputation.",
+        "searches": [
+          "Resultary semantic query in checked_sources",
+          "Exact-title/DOI correction searches"
+        ]
+      },
+      "rationale": "Uhlmann’s prior theorem already supplies the mathematically correct descending-order roof, and the later paper cites it. The audited originality is therefore deliberately narrow: identifying that the later paper’s accompanying word “increasingly” reverses the required convention and proving that a literal implementation collapses the detector. No indexed correction of that source wording was found.",
+      "residual_risks": [
+        "An informal or unindexed correction to the ordering word may exist outside the searched literature.",
+        "The corrected convex-roof formula itself is prior to the 2012 paper and is explicitly credited to Uhlmann; originality is limited to the source-specific error diagnosis and its consequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "REVERSED_ORDERING_DESCRIPTOR",
+          "evidence": "The printed text says the eigenvalues are increasingly ordered immediately after a largest-minus-the-rest formula.",
+          "identifier_or_url": "arXiv:1111.1005; DOI:10.1088/1751-8113/45/24/244034",
+          "material_read": "Complete primary manuscript around Eq. (19), the sentence defining the eigenvalue order, and subsequent mixed-state discussion.",
+          "method": "lawful full-text PDF with rendered-page confirmation",
+          "title": "On detection of quasiclassical states",
+          "trigger": "Exact source containing Eq. (19) and the disputed ordering descriptor."
+        },
+        {
+          "assessment": "PRIOR_GENERAL_FORMULA_WITH_DESCENDING_ORDER",
+          "evidence": "Proposition 4.1 orders \\(\\lambda_1\\ge\\lambda_2\\ge\\cdots\\) and then uses \\(\\lambda_1-\\sum_{j>1}\\lambda_j\\).",
+          "identifier_or_url": "DOI:10.3390/e12071799",
+          "material_read": "Full primary text of Proposition 4.1 and its ordering convention.",
+          "method": "lawful open-access full text",
+          "title": "Roofs and Convexity",
+          "trigger": "The theorem explicitly cited for the antiunitary roof."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Oszmaniec--Kuś 2012",
+        "Uhlmann 2010",
+        "independent Bell witness"
+      ],
+      "rationale": "Although the correction is one ordering word, it is substantively motivated: the literal text makes the mixed-state detector vanish for every nontrivial multi-eigenvalue instance. A standard Bell-white-noise state changes from \\(1/4\\) to zero at \\(p=1/2\\), so the correction prevents a severe implementation and interpretation error.",
+      "residual_risks": [
+        "The result does not alter or re-prove the representation-theoretic classification in the source."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An informal or unindexed correction to the ordering word may exist outside the searched literature.",
+    "The corrected convex-roof formula itself is prior to the 2012 paper and is explicitly credited to Uhlmann; originality is limited to the source-specific error diagnosis and its consequence."
+  ],
+  "schema_version": 1
+}

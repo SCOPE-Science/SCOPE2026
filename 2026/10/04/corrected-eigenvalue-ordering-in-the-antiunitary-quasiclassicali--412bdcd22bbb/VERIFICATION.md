@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-The primary-paper check is theorem-level: Eq. (19) displays a largest-minus-the-rest expression and the following sentence labels the eigenvalues as increasingly ordered. The cited Uhlmann proposition instead states the same expression after imposing
-\[
-\lambda_1\ge\lambda_2\ge\cdots.
-\]
-These statements cannot both be read literally.
+# Independent mathematical audit
 
-For a nondecreasing list and \(r\ge2\), the inequality
-\[
-\mu_1-\sum_{j=2}^r\mu_j\le\mu_1-\mu_2\le0
-\]
-is exact, so the printed convention collapses the roof to zero.
+## correctness
 
-`verify_ordering_correction.py` uses exact rational arithmetic to check the Bell-white-noise spectrum and corrected roof on a rational grid, including the witness \(p=1/2\), and exhaustively checks the ordering-collapse inequality for bounded integer spectra used as replay cases.
+PASS
 
-The computation is supplementary. The correction follows analytically from the source wording, Uhlmann's ordering convention, and the displayed inequality.
+The primary PDF visually confirms that Eq. (19) is followed by “increasingly ordered eigenvalues”. Uhlmann Proposition 4.1 uses the same roof with nonincreasing order. The literal ascending convention forces the expression nonpositive for every rank at least two. Independently, the Bell-white-noise spectrum gives corrected value \(\max\{0,(3p-1)/2\}\); at \(p=1/2\) exact arithmetic gives \(1/4\), while ascending order gives zero.
+
+## originality
+
+PASS
+
+Uhlmann’s prior theorem already supplies the mathematically correct descending-order roof, and the later paper cites it. The audited originality is therefore deliberately narrow: identifying that the later paper’s accompanying word “increasingly” reverses the required convention and proving that a literal implementation collapses the detector. No indexed correction of that source wording was found.
+
+## value
+
+PASS
+
+Although the correction is one ordering word, it is substantively motivated: the literal text makes the mixed-state detector vanish for every nontrivial multi-eigenvalue instance. A standard Bell-white-noise state changes from \(1/4\) to zero at \(p=1/2\), so the correction prevents a severe implementation and interpretation error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

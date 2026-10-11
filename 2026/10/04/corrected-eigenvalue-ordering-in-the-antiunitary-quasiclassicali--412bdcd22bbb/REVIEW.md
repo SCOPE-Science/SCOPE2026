@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source pairs Eq. (19), \(\max\{0,\mu_1-\sum_{j=2}^r\mu_j\}\), with the statement that the \(\mu_j\) are increasingly ordered. Uhlmann's cited Proposition 4.1 states the same roof with \(\lambda_1\ge\lambda_2\ge\cdots\). Literal increasing order would make the first-minus-rest term nonpositive for every \(r\ge2\), so the source's mixed-state criterion would collapse to zero. The Bell-white-noise family independently yields the nonzero corrected value \(\max\{0,(3p-1)/2\}\), including \(1/4\) at \(p=1/2\).
+PASS
 
-## Originality
+The primary PDF visually confirms that Eq. (19) is followed by “increasingly ordered eigenvalues”. Uhlmann Proposition 4.1 uses the same roof with nonincreasing order. The literal ascending convention forces the expression nonpositive for every rank at least two. Independently, the Bell-white-noise spectrum gives corrected value \(\max\{0,(3p-1)/2\}\); at \(p=1/2\) exact arithmetic gives \(1/4\), while ascending order gives zero.
 
-**PASS, narrowly scoped.** The general roof formula is explicitly credited to Uhlmann and is not claimed as new. The accepted contribution is the diagnosis that the ordering descriptor in Oszmaniec–Kuś Eq. (19) is reversed, together with the proof that the literal wording trivializes the criterion and a concrete two-qubit impact witness. Targeted searches of the paper title, Eq. (19), ordering terminology, erratum, correction, and the cited theorem did not locate an indexed published correction. The wording was checked in both the arXiv manuscript and an author-uploaded journal-text copy.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is not a cosmetic relabeling: the literal printed order makes the advertised mixed-state detector identically zero whenever at least two eigenvalues are listed. The corrected order restores the intended nonclassicality test and prevents a direct implementation from returning false negatives on standard states such as Bell-white-noise mixtures.
+Uhlmann’s prior theorem already supplies the mathematically correct descending-order roof, and the later paper cites it. The audited originality is therefore deliberately narrow: identifying that the later paper’s accompanying word “increasingly” reverses the required convention and proving that a literal implementation collapses the detector. No indexed correction of that source wording was found.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Although the correction is one ordering word, it is substantively motivated: the literal text makes the mixed-state detector vanish for every nontrivial multi-eigenvalue instance. A standard Bell-white-noise state changes from \(1/4\) to zero at \(p=1/2\), so the correction prevents a severe implementation and interpretation error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
