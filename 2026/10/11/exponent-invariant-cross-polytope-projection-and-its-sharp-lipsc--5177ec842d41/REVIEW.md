@@ -1,0 +1,11 @@
+# Review
+
+**Correctness — PASS.** Strict convexity and KKT give a unique exponent-invariant soft threshold for every real \(1<p<\infty\). On each exterior affine cell the Jacobian is a signed centering matrix; every active-set size is realized, proving the sharp global modulus. The mean-zero test vector supplies strict expansion outside the Hilbert exponent. A zero-sum quartic identity, a complete stationary-point analysis, and sharp weighted Hölder duality prove the three-coordinate fourth-power constant. The standalone rational and numerical checks passed, but infinite-parameter conclusions rely on the analytic proof.
+
+**Originality — PASS, with limits.** The Euclidean soft-threshold formula is established by Duchi et al. (2008), and the paper by Kobos (2014) concerns optimal linear hyperplane projections. Neither inspected result states the all-exponent nonlinear Lipschitz phase or the exact \(\ell_4^3\) constant. Closest indexed operator-norm and nonlinear order-cone projection results involve different maps and targets, and no searched claim logically implies this one. The elementary KKT formula alone is not claimed as an original discovery. Equivalent historical formulations or exact centering-operator norm calculations outside the inspected sources remain possible.
+
+**Value — PASS.** The result gives a sharp, geometrically motivated robustness criterion for best sparse approximation and isolates its first genuine non-Hilbertian failure. The three-coordinate radical is motivated by this minimal failure, not an arbitrary low-dimensional slice. It supplies an exact full-family active-set reduction and precise theorem boundaries.
+
+**Sources and scientific limits.** Primary comparisons: Kobos, arXiv:1411.6214v1 (linear projection constants); Duchi et al., DOI:10.1145/1390156.1390191 (Euclidean \(\ell_1\)-ball projection). A related optimal-value Lipschitz paper, DOI:10.1007/s10957-021-01948-2, addresses a different quantity. Results are limited to finite-dimensional real \(\ell_p\) with \(1<p<\infty\) and positive ball radii; there is no full elementary closed expression for every dimension and exponent. Independent validation is not claimed.
+
+Same-model review: passed. Independent audit: not yet performed.
