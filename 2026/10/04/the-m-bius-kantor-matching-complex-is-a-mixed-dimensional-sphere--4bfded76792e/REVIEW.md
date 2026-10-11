@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The packaged verifier reconstructs the ordinary matching complex of \(G(8,3)\), exhausts all \(11{,}068\) graph matchings, checks all \(53{,}256\) face-poset covers, and verifies global acyclicity after reversing the \(5{,}525\) matched covers. The critical-cell profile is one cell in dimension \(0\), ten in dimension \(4\), and six in dimension \(5\). The signed Morse boundary has Smith form \(\operatorname{diag}(1,1,0,0,0,0)\). Because \(\pi_4(\bigvee^{10}S^4)\cong\mathbb{Z}^{10}\), the degree matrix determines the attaching maps and the two unit factors split contractible cell pairs. An independent \(\mathbb{F}_2\) computation gives Betti vector \((1,0,0,0,8,4,0,0)\).
+## correctness
 
-Risk: the proof is a finite exact computation rather than a uniform conceptual derivation, so the transparent exhaustive certificate is essential.
+PASS
 
-## Originality
-PASS relative to the checked literature. Donovan–Scoville's full relevant sections define ordinary matching complexes and compute paths, cycles, and Dutch windmills, not the Möbius–Kantor graph. Exact alias searches found no matching-complex homotopy statement. Broader sources on manifold and outerplanar matching complexes do not imply this exact type. The 2026 Möbius-ladder paper concerns a different graph family and the perfect-matching complex rather than the ordinary matching complex.
+Fresh reconstruction of the generalized Petersen graph \(G(8,3)\) gives \(24\) edges and exactly \(11068\) matchings including the empty matching, with face vector \((24,228,1096,2826,3816,2444,600,33)\). Replaying the package's staged edge-toggle matching leaves one critical \(0\)-cell, ten critical \(4\)-cells, and six critical \(5\)-cells; the full reversed-cover digraph has \(53256\) covers and is acyclic. An independent gradient-path calculation gives a \(10\times6\) integral Morse boundary of rank two whose first two determinantal divisors are both one, so its Smith form is \(\operatorname{diag}(1,1,0,0,0,0)\). The \(4\)-skeleton is therefore \(\bigvee^{10}S^4\), and \(\pi_4(\bigvee^{10}S^4)\cong\mathbb Z^{10}\); pre- and postcomposition by unimodular basis changes reduces the attaching map to Smith form. Two \(4/5\)-cell pairs cancel and four \(5\)-cells attach trivially, yielding \(\bigvee^8S^4\vee\bigvee^4S^5\).
 
-Risk: failed searches are not proof of novelty; an unindexed thesis, computation, or uncommon alias could cover the result.
+## originality
 
-## Value
-PASS. The Möbius–Kantor graph is the canonical \(16\)-vertex cubic symmetric generalized Petersen graph, so the object is natural rather than an arbitrary parameter slice. The exact mixed-dimensional wedge supplies a reproducible benchmark beyond the restricted graph families whose matching-complex homotopy types are explicit.
+PASS
 
-Risk: no general theorem for symmetric cubic or generalized Petersen graphs is claimed.
+Donovan and Scoville's complete primary article treats ordinary matching complexes of paths, cycles, centipedes, and Dutch windmills, and targeted full-text searches contain no Möbius--Kantor occurrence. Current Resultary search returns the assigned \(G(8,3)\) record as the exact same-object hit and nearby but different finite matching/Morse complexes. Exact web searches under both Möbius--Kantor and \(G(8,3)\) found no independent homotopy calculation. The manifold-matching, outerplanar, and Möbius-ladder literature concerns different graph classes or different simplicial-complex functors and does not imply this mixed-dimensional wedge.
 
-## Closest literature and limitations
-The closest methodology source is Donovan–Scoville, arXiv:2207.13780 / New York J. Math. 29 (2023), primary MSC \(57Q70\). Bayer–Goeckner–Jelić Milutinović classify manifold matching complexes but do not give this homotopy type. The outerplanar result is inapplicable, and the recent Möbius-ladder paper treats a different graph and complex.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Möbius--Kantor graph is a canonical highly symmetric cubic graph, and its ordinary matching complex is a natural combinatorial-topology invariant. The exact result exhibits sphere summands in two adjacent dimensions and requires a complete signed Morse certificate rather than a small-table lookup, making it a meaningful finite benchmark for how matching-complex topology changes beyond the standard graph families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
