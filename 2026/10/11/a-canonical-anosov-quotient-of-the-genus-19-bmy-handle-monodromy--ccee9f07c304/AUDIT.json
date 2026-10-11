@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof begins from exact source premises: the degree-\\(38\\) characteristic polynomial, irreducibility of \\(h\\), \\(\\dim\\ker(S^2+I)=2\\), and an integral isotropic basis for that kernel. It then proves coprimality, excludes unit-circle roots of \\(hh^*\\), constructs the invariant symplectic quotient, derives its characteristic polynomial by exact sequences and symplectic duality, and determines the unique rational primary-module type from the kernel dimension. Exact polynomial arithmetic is replayed by `artifacts/verify_spectral_reduction.py`.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source proves pseudo-Anosovness using invariant-plane obstructions, which does not state or subsume the exact quotient spectrum.",
+        "The same-fibration Akhmedov--Yeung paper studies vanishing-cycle transport and explicitly leaves handle monodromies undetermined."
+      ],
+      "reasoning": "General facts about symplectic matrices explain how to pass from the printed data to the quotient, but no broader theorem found in the checked literature supplies this source-specific rank, polynomial, stable/unstable dimensions, and nonsplit primary block as a prior result.",
+      "searches": [
+        "pseudo-Anosov homological action cyclotomic primary block stable unstable quotient",
+        "genus 19 BMY handle monodromy stable unstable homology spectrum",
+        "Cartwright Steger handle monodromy homology hyperbolic quotient"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02261v1 full text",
+      "arXiv:2610.02261v1 ancillary homology.json",
+      "arXiv:2610.01467v1 full text",
+      "targeted exact-title and statement web searches",
+      "semantic mathematical-record searches using the listed formulations",
+      "current and prior own research ledgers for source and claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No own-ledger finding uses arXiv:2610.02261v1 or states the rank-\\(34\\) quotient theorem.",
+        "The prior same-fibration spectral finding concerns reciprocal quadratic traces parameterized by a vanishing-cycle intersection number in arXiv:2610.01467v1, not the explicit \\(38\\)-dimensional handle action of arXiv:2610.02261v1."
+      ],
+      "reasoning": "Neither the own-ledger result nor the Akhmedov--Yeung statements imply the present characteristic polynomial on \\(L^\\perp/L\\) or the nonsplit \\((t^2+1)^2\\) primary module. Conversely, the present result does not determine the vanishing-cycle intersection parameter treated there.",
+      "searches": [
+        "current and prior own ledgers: arXiv:2610.02261, BMY handle monodromy, Anosov quotient, Jordan block",
+        "arXiv:2610.01467v1 Cartwright-Steger monodromy relation homology span"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.02261v1 Appendix D.5 states the characteristic polynomial and two-dimensional finite-orbit kernel but does not formulate the quotient or Jordan-module conclusion.",
+        "arXiv:2610.01467v1 Introduction states that its marked-monodromy work does not yet determine the handle monodromies."
+      ],
+      "reasoning": "Searches covered the same source title, unit-circle-spectrum language, Jordan/rational-canonical aliases, and the exact polynomial factorization. None produced an equivalent statement for this handle map.",
+      "searches": [
+        "\"Small Lefschetz fibrations on the BMY line\" homology spectrum unit circle Jordan block",
+        "\"2610.02261\" \"unit circle\" monodromy homology",
+        "\"2610.02261\" \"t^2+1\" h(t) h*(t) spectrum",
+        "\"Small Lefschetz fibrations on the BMY line\" \"rational canonical\" monodromy",
+        "arXiv:2610.02261v1",
+        "arXiv:2610.01467v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The ancillary `homology.json` contains the printed degree-\\(17\\) ordinary factor and a two-column finite-orbit basis.",
+        "Appendix D.5 explains the finite-field irreducibility certificates and isotropy calculation used by the source."
+      ],
+      "reasoning": "The exact source data were inspected rather than inferred from an abstract or search snippet. The new quotient and module claims are deductions from these entries, not values already tabulated there.",
+      "searches": [
+        "arXiv:2610.02261v1 ancillary homology.json ordinary_factor finite_orbit_basis",
+        "arXiv:2610.02261v1 Appendix D.5 characteristic polynomial"
+      ]
+    },
+    "rationale": "The inspected primary source prints the ingredients but not the canonical Anosov quotient, the \\(17+17\\) hyperbolic split, or the nonsplit four-dimensional cyclotomic primary module. The closest same-fibration comparison explicitly says it does not determine handle monodromies. Targeted statement-level searches found no covering result.",
+    "residual_risks": [
+      "The primary preprint is only days old, so an unindexed contemporaneous note could independently state the same spectral corollary.",
+      "The linear-algebra mechanisms are standard; originality is claimed only for this exact structural consequence for the newly explicit handle monodromy, not for the general lemmas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the premises but does not state the canonical quotient, unit-circle exclusion for \\(hh^*\\), stable/unstable split, or nonsplit primary module.",
+        "evidence": "Appendix D.5 gives \\(\\det(tI-S)=(t^2+1)^2h(t)h^*(t)\\), proves \\(h\\) irreducible, and states \\(\\dim\\ker(S^2+I)=2\\) with an integral isotropic basis.",
+        "identifier_or_url": "arXiv:2610.02261v1",
+        "material_read": "Theorem A; conventions; Appendix D.5, including the characteristic polynomial, irreducibility argument, finite-orbit kernel, integral basis, and isotropy statement.",
+        "method": "Full-text HTML/PDF inspection plus the source ancillary data.",
+        "title": "Small Lefschetz fibrations on the BMY line",
+        "trigger": "Primary source defining the explicit genus-19 handle maps and printing the homology calculation."
+      },
+      {
+        "assessment": "Confirms the coefficient vector and two-column finite-orbit basis used by the source; it does not tabulate the quotient spectrum claimed here.",
+        "evidence": "`ordinary_factor` has \\(18\\) coefficients and `finite_orbit_basis` has \\(38\\) rows and two columns; modular factor data match the irreducibility discussion.",
+        "identifier_or_url": "arXiv:2610.02261v1/anc/homology.json",
+        "material_read": "The handle section containing finite_orbit_basis, ordinary_factor, and modular_factors.",
+        "method": "Direct ancillary JSON inspection.",
+        "title": "homology.json ancillary data for Small Lefschetz fibrations on the BMY line",
+        "trigger": "Exact-data check for the polynomial and finite-orbit lattice used in the proof."
+      },
+      {
+        "assessment": "Not covering: it studies vanishing-cycle transport and a monodromy relation but explicitly says the handle monodromies are not yet determined.",
+        "evidence": "The Introduction states that the results supply a starting point for marked monodromy but do not yet determine the handle monodromies.",
+        "identifier_or_url": "arXiv:2610.01467v1",
+        "material_read": "Abstract and Introduction, including the statement of what the paper does and does not determine about marked monodromy.",
+        "method": "Full-text HTML inspection.",
+        "title": "A monodromy relation for the Cartwright--Steger fibration",
+        "trigger": "Same genus-19 fibration and therefore the closest plausible independent coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ccee9f07-c304-482b-93b7-17eb6fbb357b",
+  "value": {
+    "rationale": "The finite-orbit isotropic lattice is singled out intrinsically by the source. Passing to \\(L^\\perp/L\\) is therefore a canonical, motivated operation, and the result identifies the remaining \\(34\\)-dimensional action as genuinely hyperbolic with exact \\(17+17\\) stable/unstable dimensions. The nonsplit cyclotomic primary block further shows that the neutral generalized eigenspace is twice as large as the finite-orbit plane. These are structural features of a new explicit pseudo-Anosov monodromy rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
