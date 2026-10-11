@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:03:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both norms depend only on the character order \\(L\\). For the positive trinomial, \\(|1+z+z^2|=|1+2\\cos\\theta|\\); the quartic \\(q(x)=15/32+9x^2/16-x^4/32\\) majorizes \\(|x|\\) on \\([-1,3]\\) by the two exact factorizations in the package. For \\(L\\ge5\\), root-of-unity orthogonality gives mean \\(x^2=3\\) and mean \\(x^4=19\\), hence norm at most \\(25/16\\). For the signed trinomial, multiplication by \\(z^{-1}\\) gives magnitude \\(\\sqrt{1+4\\sin^2\\theta}\\); concavity places this above its endpoint chord, and mean \\(\\sin^2\\theta=1/2\\) for every \\(L\\ge3\\), giving the lower bound \\((1+\\sqrt5)/2\\). The two bounds are strictly separated. Direct root-of-unity evaluation yields the \\(L=3,4\\) values. Fresh independent numerical evaluation for every \\(3\\le L\\le1000\\) reproduced strict reversal, while the algebraic inequalities provide the all-\\(L\\) proof.",
+      "risk": "The constants for \\(L\\ge5\\) are separating certificates, not claimed exact norms or an optimal uniform gap.",
+      "sources": [
+        "Krenedits, arXiv:1006.0409",
+        "Bonami--Révész, arXiv:0811.4576",
+        "RESULT.md",
+        "artifacts/verify.py",
+        "fresh independent root-of-unity evaluation"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The continuous theorem is broader over all circle points but does not imply a sign comparison for each discrete mesh.",
+          "Finite-group concentration theorems concern concentration constants/Littlewood bounds rather than the two fixed trinomials."
+        ],
+        "reasoning": "No inspected broader finite-group theorem specializes to the submitted all-orders reversal.",
+        "searches": [
+          "Krenedits 2010 primary abstract/full accessible material",
+          "Bonami--Révész 2008/2010 finite-cyclic concentration source",
+          "Resultary finite-cyclic Fourier records"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1006.0409",
+        "arXiv:0811.4576",
+        "DOI:10.1007/978-0-8176-4888-6_8",
+        "Resultary record b176a6018242",
+        "Resultary record 60a27acbb9f3",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A strict continuous integral inequality permits individual discrete Riemann sums to have either sign at finite mesh and therefore does not imply all \\(L\\).",
+          "Knowing the exact positive norm does not bound the signed norm from below.",
+          "The submitted proof supplies a mesh-uniform polynomial majorant/chord separation that is absent from the inspected sources."
+        ],
+        "reasoning": "The all-finite-quotient persistence and uniform gap require a new discrete certificate.",
+        "searches": [
+          "Krenedits continuous \\(p=1\\) theorem",
+          "Bonami--Révész finite cyclic \\(L^1\\) concentration",
+          "Resultary exact positive three-frequency projection norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krenedits supplies the continuous-circle \\(p=1\\) phenomenon, not all finite cyclic samples.",
+          "The exact projection-norm record determines only the all-positive Dirichlet kernel.",
+          "A different Resultary record concerns \\(1+z\\pm z^3\\) at the third moment, a different exponent and support."
+        ],
+        "reasoning": "Hardy--Littlewood majorant, sampled trigonometric norm, cyclic character, and three-frequency projection formulations were compared.",
+        "searches": [
+          "Resultary query: finite cyclic Hardy Littlewood majorant reversal l1 three term 1+z±z^2 roots of unity",
+          "Resultary: exact three-frequency Fourier projection norm on every cyclic group",
+          "arXiv:1006.0409",
+          "arXiv:0811.4576"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact all-\\(L\\) table or theorem was located.",
+          "The closest exact cyclic record gives the positive norm alone."
+        ],
+        "reasoning": "The finite numerical sweep is not used as novelty evidence.",
+        "searches": [
+          "Resultary exact searches for the signed consecutive trinomial and \\(p=1\\)",
+          "Web exact searches for \\(1+z-z^2\\) root-of-unity averages"
+        ]
+      },
+      "rationale": "Krenedits proves the corresponding continuous-circle three-term majorant reversal; that integral inequality does not determine every finite root-of-unity average. Bonami--Révész treat \\(L^1\\) idempotent concentration on finite cyclic groups but not this signed-versus-positive consecutive-trinomial comparison. Resultary also contains an exact formula for the positive three-frequency projection norm and a different finite-cyclic majorant reversal for \\(1+z\\pm z^3\\) at the third moment; neither implies the signed \\(p=1\\), consecutive-frequency theorem. Direct searches for \\(1+z-z^2\\) on roots of unity found no prior all-orders comparison.",
+      "residual_risks": [
+        "Mockenhaupt's 1996 Habilitationsschrift was not directly available; Krenedits' description places its discrete example in a different exponent/frequency regime, but an unindexed nearby observation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTINUOUS_CIRCLE_RESULT_NOT_FINITE_MESH_THEOREM",
+          "evidence": "It establishes three-term idempotent counterexamples on the circle; no all-root-of-unity-order statement was found.",
+          "identifier_or_url": "arXiv:1006.0409",
+          "material_read": "Public primary abstract/accessible article material describing the three-term family and exponent range.",
+          "method": "Lawful open-source inspection.",
+          "title": "Three-term idempotent counterexamples in the Hardy--Littlewood majorant problem",
+          "trigger": "Same three-term majorant phenomenon and continuous \\(p=1\\) consecutive pair."
+        },
+        {
+          "assessment": "FINITE_CYCLIC_L1_CONTEXT_NOT_FIXED_SIGN_COMPARISON",
+          "evidence": "The source studies concentration and Littlewood-type bounds on finite cyclic groups rather than \\(1+\\chi\\pm\\chi^2\\) norm ordering.",
+          "identifier_or_url": "arXiv:0811.4576; DOI:10.1007/978-0-8176-4888-6_8",
+          "material_read": "Open arXiv abstract and accessible full chapter excerpt describing the finite-cyclic concentration problem.",
+          "method": "Lawful open-source inspection.",
+          "title": "Concentration of the integral norm of idempotents",
+          "trigger": "Primary \\(L^1\\) idempotent work explicitly treating \\(\\mathbb Z/q\\mathbb Z\\)."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result shows that the smallest classical three-frequency majorant counterexample persists on every nondegenerate finite cyclic quotient, not merely asymptotically, and supplies a modulus-independent analytic gap. This is a natural finite-group strengthening with a clean uniform certificate.",
+      "risk": "It is restricted to exponent one, equal coefficient magnitudes, and consecutive frequencies.",
+      "sources": [
+        "arXiv:1006.0409",
+        "arXiv:0811.4576"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite cyclic quotient on which \\(1,\\chi,\\chi^2\\) are distinct, the normalized \\(\\ell^1\\) norm of \\(1+\\chi-\\chi^2\\) is strictly larger than that of \\(1+\\chi+\\chi^2\\); for character order \\(L\\ge5\\) the gap is uniformly at least \\((8\\sqrt5-17)/16\\), with the exact stated values for \\(L=3,4\\).",
+  "limitations": [
+    "Exponent \\(p=1\\) and the three-term arithmetic progression only.",
+    "The uniform bounds for \\(L\\ge5\\) are not claimed optimal.",
+    "Direct full inspection of the cited 1996 thesis was unavailable."
+  ],
+  "schema_version": 1
+}
