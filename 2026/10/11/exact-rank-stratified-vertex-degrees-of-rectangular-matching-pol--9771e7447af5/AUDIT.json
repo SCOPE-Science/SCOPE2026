@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "All 0/1 partial matching incidence points are polytope vertices by bipartite total unimodularity. The classical adjacency theorem reduces degree to one connected alternating path or cycle. Four exhaustive and disjoint types have counts alpha_k, \\(pq\\)*(1+alpha_k), (p+q)*alpha_k, beta_k. The recurrence alpha_{k+1}=(k+1)(alpha_k+1) yields the stated difference, proven positive by all k,p,q cases except the enumerated 2-by-2 and simplex equality. Exact-integer brute checks on 1,011 vertices and 820 parameter pairs independently corroborate, but are not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abreu et al. Theorem 4 states a general graph-dependent sum of good alternating path/cycle counts; Theorems 5–6 analyze general minimum degrees, not a complete rank distribution for the rectangular complete bipartite family.",
+        "Merino–Mütze Corollary 34 handles Gray-code traversal with short alternating changes; it does not assert an enumeration of all incident edges or local degrees.",
+        "Abreu et al. 2019 Theorem 6 proves \\(d(M)\\le d(N)\\) whenever M is contained in N. Symmetry immediately translates this to weak rank monotonicity for \\(K_{a,b}\\); weak rank monotonicity is therefore not claimed as new."
+      ],
+      "reasoning": "The published general criterion is broader in graph domain but weaker in the numerical outcome. It implies an algorithm to compute an individual degree after separate combinatorial counting; it does not supply the strict rank monotonicity theorem or the four closed path/cycle contributions. The claimed new step is the two-parameter enumeration and its global inequality, not a special case of an already explicit published formula. Published Theorem 6 already supplies weak rank monotonicity by restriction and symmetry; only exact strictness, exceptional ties, and the bivariate counts go beyond that consequence.",
+      "searches": [
+        "face adjacency partial permutation matching polytope bipartite matchings rank degree graph 1-skeleton",
+        "number of adjacent matchings to a k-edge matching in complete bipartite matching polytope",
+        "complete bipartite matching polytope graph degree distribution rank alternating paths cycles",
+        "Abreu et al. 2019 Theorems 2–4, DOI:10.5540/tema.2019.020.01.0189",
+        "Merino–Mütze 2023 Section 7.3 arXiv:2304.08567"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.08567 Section 7.3 and tables",
+      "doi:10.5540/tema.2019.020.01.0189 complete public PDF, including Theorem 6 and concluding general maximum-degree problem",
+      "doi:10.1137/23M1612019 publisher MSC metadata",
+      "doi:10.1016/j.laa.2021.11.012 abstract only",
+      "Published mathematical-result searches on matching-polytope rank-degree, subpermutation matrices and rook monoid polytope"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 implies at least \\(ab\\) neighbors for \\(K_{a,b}\\) and gives an unevaluated component counting expression; present formula reduces to that for rank zero but additionally distinguishes every rank and orders them.",
+        "2023/2024 proves traversal statements and restates alternating adjacency without this numerical rank order.",
+        "Cao–Chen 2022 abstract says 1-faces are described for square case. The full text was not accessible after open-access and institutional-access attempts; exact implication comparison with its interior theorems remains unresolved as a residual risk.",
+        "Theorem 6 in Abreu et al. supplies weak monotonicity along inclusion chains, but equality characterization at every rank for complete bipartite graphs and precise factorial local degree numbers require additional work."
+      ],
+      "reasoning": "The claim is not that any matching-polytope adjacency information is new. The exact two-parameter counts and strict inequalities require the four-way enumeration and the monotonicity recurrence. Accessible prior statements do not visibly cover that combined result. A plausible inaccessible source remains a named risk rather than being represented as inspected or shown not to cover. The non-strict ordering is already implied by prior literature and is not an independent novelty assertion.",
+      "searches": [
+        "Abreu et al. 2019 Theorem 4 degree as count of good alternating components",
+        "Merino–Mütze arXiv:2304.08567 Section 7.3 matching skeleton",
+        "Cao–Chen 2022 DOI:10.1016/j.laa.2021.11.012 1-dimensional faces abstract",
+        "Exact rank-stratified vertex degree sequence of rectangular doubly substochastic polytopes: \\(K_{a,b}\\) matching polytope degree per k-matching, increasing with matching size, factorial formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Matching polytope of \\(K_{a,b}\\) equals the rectangular doubly substochastic matrix polytope; vertices are partial permutation matrices (matching incidence vectors).",
+        "Merino–Mütze 2023/2024, Section 7.3 explicitly identifies alternating exchanges as its skeleton edges; no rank-degree formula in that inspected section.",
+        "The matching-polytope skeleton interpretation and alternating path/cycle criterion appear in Abreu et al. 2019, pp. 190–193."
+      ],
+      "reasoning": "Equivalent names and descriptions were compared at the level of vertices and exact adjacency structure. A general alternating-exchange criterion gives a counting route, but the full rectangular rank-degree closed formula, multiplicities, and strict rank ordering are not stated in the inspected sources. Uninspected literature might still cover it.",
+      "searches": [
+        "Exact rank-stratified vertex degree sequence of rectangular doubly substochastic polytopes: \\(K_{a,b}\\) matching polytope degree per k-matching, increasing with matching size, factorial formula",
+        "Partial permutation matrix polytope one-skeleton degree classification rank monotonicity falling factorial alternating paths and cycles",
+        "Combinatorial degree spectrum rook monoid polytope doubly substochastic matrices bivariate matching polytope graph",
+        "web: doubly substochastic matrix polytope vertex degree rank k edges 1-skeleton degree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published-result search returned a harmonic-polytope vertex-degree result whose vertices are indexed by permutation triples, not partial matching matrices.",
+        "Other published-result matches were on homotopy of matching complexes and degree distributions of trace graphs, neither the same object nor a stronger theorem.",
+        "Web searches for rectangular doubly substochastic vertex degree and complete bipartite matching polytope degree returned no exact numerical table/formula."
+      ],
+      "reasoning": "No returned published result directly tabulated the degrees of partial permutation vertices. This is a bounded search with false-negative risk, not certification of nonexistence.",
+      "searches": [
+        "Exact rank-stratified vertex degree sequence of rectangular doubly substochastic polytopes: \\(K_{a,b}\\) matching polytope degree per k-matching, increasing with matching size, factorial formula",
+        "Partial permutation matrix polytope one-skeleton degree classification rank monotonicity falling factorial alternating paths and cycles",
+        "Combinatorial degree spectrum rook monoid polytope doubly substochastic matrices bivariate matching polytope graph",
+        "published harmonic-polytope vertex-degree record 8017b01864fe"
+      ]
+    },
+    "rationale": "The claimed contribution is the complete rectangular two-parameter rank-degree multiset and sharp monotonicity/exception classification, not the known alternating path/cycle criterion. General prior good-component counting and the inclusion-monotonicity theorem (Abreu et al. 2019) and Merino–Mütze traversal (2023) do not explicitly provide this evaluation or its inequalities in inspected portions. Similar square-matrix face work (Cao–Chen 2022) remains an identified full-text access risk; priority is not certified.",
+    "residual_risks": [
+      "Cao–Chen (2022) full text was inaccessible; although its abstract concerns one-dimensional faces, it may already encode or explicitly state the square-case rank-degree formula.",
+      "Alternative rook-monoid/partial permutation matrix terminology could conceal an equivalent earlier numerical degree theorem; search nonappearance is not novelty proof.",
+      "The older general matching-good-path degree theorem provides the starting framework; a reader may consider the new enumeration a specialization rather than a deep conceptual advance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes adjacency and a general good-path/cycle degree count; no rectangular rank-degree formula or global rank-strictness statement found in inspected results.",
+        "evidence": [
+          "Theorem 2: symmetric-difference path/cycle adjacency.",
+          "Theorem 4: degree is number of matching-good paths and cycles.",
+          "Abstract: general minimum-degree theorem and regular skeleton criterion.",
+          "Theorem 6: inclusion of matchings implies nondecreasing polytope vertex degree. Section 4 notes the general maximum-degree problem is unresolved."
+        ],
+        "identifier_or_url": "https://doi.org/10.5540/tema.2019.020.01.0189",
+        "material_read": "Full public PDF, definitions, Theorems 1–4, and local-degree results in Sections 1–3, pp. 189–196.",
+        "method": "Inspected extracted full PDF text and source page images around Theorem 4.",
+        "title": "A Note on the Matching Polytope of a Graph",
+        "trigger": "General degree theorem could dominate rank-specific degree statement"
+      },
+      {
+        "assessment": "Hamilton-path/Gray-code and alternating-exchange results do not supply the proposed complete vertex-degree multiset.",
+        "evidence": [
+          "arXiv version 1 was publicly submitted 2023-04-17.",
+          "Section 7.3 states alternate path/cycle adjacency; Corollary 34 gives short-path enumeration.",
+          "SIAM Journal on Computing publisher record lists MSC 52B05 first."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.08567",
+        "material_read": "Full open-access PDF available; inspected Table 1 and Table 2 and Section 7.3 on matching polytope traversals (pp. 2–4, 28–29). Journal metadata checked for primary MSC 52B05.",
+        "method": "Read PDF extracted text and corresponding relevant page visuals; examined matching traversal claims.",
+        "title": "Traversing combinatorial 0/1-polytopes via optimization",
+        "trigger": "Eligible primary MSC 52B05 original paper studying matching-polytope skeletons"
+      },
+      {
+        "assessment": "Not assessed as not covering. Abstract describes all one-dimensional faces and is a genuine originality risk for the square subcase.",
+        "evidence": [
+          "Journal Linear Algebra and its Applications 637 (2022), 59–81.",
+          "Abstract explicitly says all 1-dimensional faces are described; it does not give a numerical rank-degree formula in accessible text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2021.11.012",
+        "material_read": "Publisher/repository abstracts and bibliographic details only; full text was unavailable from the examined lawful open-access versions.",
+        "method": "Compared accessible abstracts and repository holdings; no full text was available for scientific comparison.",
+        "title": "Faces of the polytope of doubly substochastic matrices",
+        "trigger": "Very close square-matrix face-lattice paper might contain equivalent one-skeleton degree computation"
+      },
+      {
+        "assessment": "Primary MSC 52B05 is verified and first public source date comes from arXiv 2023-04-17, not journal date.",
+        "evidence": [
+          "Publisher lists MSC 52B05 first; journal online 2024-09-09, which is later than arXiv v1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1612019",
+        "material_read": "Publisher abstract, MSC list, publication history.",
+        "method": "Read publisher metadata.",
+        "title": "SIAM Journal on Computing metadata for Merino–Mütze",
+        "trigger": "Verify primary MSC 52B05 assigned to the eligible literature anchor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9771e744-7af5-483f-86be-b20434817385",
+  "value": {
+    "rationale": "The degree multiset is a natural invariant of a 0/1-polytope skeleton. The formula and multiplicities determine every rank stratum for all positive rectangular dimensions, exact total edge count, strictness/equality classification refining the published weak monotonicity theorem, without generating the exponentially many matchings. This is a natural complete classification with direct polyhedral content, not a one-off lookup or repetition of the general adjacency criterion.",
+    "status": "PASS"
+  }
+}
