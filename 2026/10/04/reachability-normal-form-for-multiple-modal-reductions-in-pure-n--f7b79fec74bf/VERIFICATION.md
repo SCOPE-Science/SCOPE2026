@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed at the level of definitions and quantifiers.
+# Independent mathematical audit
 
-1. For each generating pair \((m,n)\) and shift \(k\ge0\), the graph edge \(k+n\to k+m\) is exactly the substituted reduction axiom \(\Box^{k+n}p\to\Box^{k+m}p\).
-2. Predecessor sets satisfy \(E_a\subseteq E_b\) exactly when \(a\) reaches \(b\).
-3. If \(E_r=E_s\), then \(r\) and \(s\) are mutually reachable; shifting both paths by one proves \(E_{r+1}=E_{s+1}\), so the modal operation is well-defined.
-4. The operation fixes top, which validates necessitation, and every positive generating inequality holds on every subset of \(\mathbb N\).
-5. Under \(p=E_0\), the value of \(\Box^r p\) is exactly \(E_r\), so every non-reachable implication has a concrete countervaluation.
+## correctness
 
-A finite sanity check separately enumerated the single-reduction graphs for \(1\le m,n\le5\) and compared all pairs \(0\le a,b<15\) with the expected arithmetic reachability conditions; no mismatch was found. This computation is not used to infer the infinite theorem.
+PASS
 
-The literature comparison inspected recent single-reduction work over pure necessitation, arbitrary-family work over normal modal logic, the foundational pure-necessitation paper, and targeted semantic-index results. The remaining limitation is search coverage: originality is not a proof that no equivalent formulation exists outside the inspected literature.
+Every graph edge is exactly a substituted reduction axiom, so paths compose to derivations. For the converse, predecessor sets satisfy inclusion exactly when the corresponding depths are reachable. The modal operation sending each predecessor set at depth r to that at depth r plus one, fixing top and sending every other subset to empty, is well-defined because mutual reachability is shift-invariant. Positive exponents make every generating reduction valid on every subset. Assigning the variable to the depth-zero predecessor set therefore falsifies every non-reachable implication. A fresh finite test on a two-generator family reproduced the predecessor-set inclusion equivalence.
+
+## originality
+
+PASS
+
+The closest pure-necessitation sources inspected use one modal-reduction principle, while the closest arbitrary-family source works over normal modal logic K and proves a finite-model-property theorem rather than an exact consequence relation. No Resultary hit gave the arbitrary-family reachability iff. The assigned converse is a genuine separating Boolean-algebra construction tailored to the reachability preorder, not an instance of the stated prior results.
+
+## value
+
+PASS
+
+The theorem turns joint reasoning with an arbitrary collection of positive modal reductions into an exact graph problem and supplies explicit independence countermodels. That is a natural structural normal form for the fragment, not a small parameter census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
