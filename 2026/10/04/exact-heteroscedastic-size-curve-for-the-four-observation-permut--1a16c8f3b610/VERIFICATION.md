@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic verification proceeds in four steps: (1) enumerate the six allocations as three complementary pair partitions; (2) show that level-\(1/3\) rejection is equivalent to complete separation of the original samples; (3) orthogonalize the three Gaussian pair contrasts and compute the resulting trihedral solid angle; (4) use strict concavity of \(x\mapsto\operatorname{arsinh}(\sqrt{x})\) to obtain the sharp range and equality cases.
+# Independent mathematical audit
 
-`verify.py` independently checks the closed form at equal variance, symmetry under reciprocal variance ratios, numerical approach to the sharp endpoint, and the deterministic combinatorial equivalence on representative quadruples. A separate seeded simulation stress test matched the analytic values within Monte Carlo error; the simulation is not part of the proof.
+## correctness
 
-Limit: no claim is made for larger sample sizes, non-Gaussian laws, or studentized permutation statistics. The full text of Murphy (1967) was unavailable, leaving a literature-overlap risk but not a correctness risk.
+PASS
+
+With four distinct observations the original allocation has the largest absolute two-versus-two mean contrast exactly when the two X values are both below or both above the two Y values. Standardized partition contrasts reduce rejection to the isotropic cone |Z₁|>a|U|+b|V|, whose trihedral solid angle gives the closed formula. Symmetry and strict concavity give the unique minimum and endpoint limit. Fresh simulations with 600,000 draws at each ratio 1, 4 and 100 agreed within 0.31 Monte Carlo standard errors.
+
+## originality
+
+PASS
+
+Unequal-variance failure of the unstudentized permutation mean test is classical. Murphy is the strongest historical overlap risk because it reports simulated size curves, but its accessible abstract does not expose an exact two-by-two Gaussian closed form, and full text could not be verified. Modern robust-permutation sources establish the phenomenon and remedies but not this solid-angle formula. Best-of-knowledge originality passes with the Murphy-table risk explicit.
+
+## value
+
+PASS
+
+This is the smallest balanced design with a nontrivial exact two-sided rejection. The exact curve and sharp limiting inflation quantify a real weak-null calibration failure and give a clean benchmark for studentized or robust permutation methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

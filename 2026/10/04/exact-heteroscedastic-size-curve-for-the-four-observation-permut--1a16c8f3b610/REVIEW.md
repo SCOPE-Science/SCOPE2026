@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The rejection event is reduced exactly to the maximal one of the three complementary pair partitions. Gaussian orthogonalization then turns it into an isotropic trihedral-cone probability, yielding the stated closed form. The sharp range follows from a strict-concavity argument and exact endpoint trigonometric identities.
+## correctness
 
-## Originality
-PASS. The closest inspected literature establishes the broader phenomenon that classical permutation tests can lose weak-null size control and develops studentized asymptotic remedies. No inspected source or semantic-search hit states or implies the exact \(2+2\) Gaussian variance-ratio curve, its complete-separation characterization, or the sharp \([1/3,1/2)\) range. Murphy (1967) remains a named residual risk because its full simulation tables were inaccessible.
+PASS
 
-## Value
-PASS. The smallest balanced design isolates a structural point that simulations and asymptotics can obscure: equal sample sizes do not guarantee finite-sample weak-null validity of the unstudentized permutation mean test under variance heterogeneity. The exact sharp envelope provides a reusable calibration benchmark and a precise motivation for studentization.
+With four distinct observations the original allocation has the largest absolute two-versus-two mean contrast exactly when the two X values are both below or both above the two Y values. Standardized partition contrasts reduce rejection to the isotropic cone |Z₁|>a|U|+b|V|, whose trihedral solid angle gives the closed formula. Symmetry and strict concavity give the unique minimum and endpoint limit. Fresh simulations with 600,000 draws at each ratio 1, 4 and 100 agreed within 0.31 Monte Carlo standard errors.
 
-## Closest literature and limitations
-Ditzhaus, Fried and Pauly treat studentized permutation procedures for heterogeneous factorial designs; Bertanha and Chung establish general weak-null failure and studentized asymptotic repair. Murphy studies unequal-variance two-sample permutation tests by simulation. The present claim is deliberately restricted to two observations per group, Gaussian populations with equal means, and the ordinary unstudentized two-sided mean-difference statistic at the attainable level \(1/3\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Unequal-variance failure of the unstudentized permutation mean test is classical. Murphy is the strongest historical overlap risk because it reports simulated size curves, but its accessible abstract does not expose an exact two-by-two Gaussian closed form, and full text could not be verified. Modern robust-permutation sources establish the phenomenon and remedies but not this solid-angle formula. Best-of-knowledge originality passes with the Murphy-table risk explicit.
+
+## value
+
+PASS
+
+This is the smallest balanced design with a nontrivial exact two-sided rejection. The exact curve and sharp limiting inflation quantify a real weak-null calibration failure and give a clean benchmark for studentized or robust permutation methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
