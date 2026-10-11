@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier `verify.py` performs two independent finite replays.
+# Independent mathematical audit
 
-First, it enumerates all simple \(2\)-uniform hypergraphs through four vertices and all simple \(3\)-uniform hypergraphs through five vertices. For each hypergraph and each \(n\in\{2,3,4\}\), it constructs the incidence structure having \(n-1\) private lines for every hyperedge, confirms direct \(K_{m,n}\)-freeness, reconstructs the saturation hypergraph, and checks every subset \(S\) of points by direct incidence counting after adjoining a new line through \(S\). The accepted subsets agree exactly with the independent sets.
+## correctness
 
-Second, for every graph through five vertices and every \(m\in\{2,3,4,5\}\), it constructs the common-core \(m\)-uniform hardness gadget and checks
-\[
-i(H_m(G))=(2^{m-2}-1)2^{|V(G)|}+i(G).
-\]
+PASS
 
-Replay command:
+Because the starting structure is already \(K_{m,n}\)-free, any newly created forbidden configuration must use the new line. Such a configuration exists exactly when the chosen neighborhood contains an \(m\)-set already lying on \(n-1\) old lines, which is precisely a hyperedge of the saturation hypergraph. Hence admissible new-line neighborhoods are exactly independent sets. Conversely, replacing each edge of any simple \(m\)-uniform hypergraph by \(n-1\) distinct lines incident exactly with that edge realizes it as the saturation hypergraph without creating \(K_{m,n}\). The hardness gadget adjoining a fixed \((m-2)\)-vertex core to every graph edge has independent-set count \((2^{m-2}-1)2^{|V|}+i(G)\), so one oracle call recovers graph independent-set count. The actual verifier exhaustively checks thousands of small extension instances and gadget identities; the uniform proof does not depend on that enumeration.
 
-`python verify.py`
+## originality
 
-Expected terminal line:
+PASS
 
-`VERIFY_OK`
+Conant--Kruckman introduce exactly the \(K_{m,n}\)-free incidence class and use the same saturation threshold in free-completion arguments, but their inspected paper does not classify all single-line neighborhoods by an independence polynomial, prove universality for arbitrary \(m\)-uniform hypergraphs, or derive the associated counting complexity. The classical #P result supplies only the source problem. Targeted Resultary search produced no implication-equivalent extension-polynomial theorem.
 
-The replay covers 3348 extension instances and 4400 hardness-gadget instances. It is a finite consistency check only; the general theorem is established by the proof in `RESULT.md`.
+## value
+
+PASS
+
+The result gives a complete representation theorem for a natural finite extension statistic in a canonical generic-incidence class and transfers the full expressive and exact-counting complexity of hypergraph independent sets. The universality and hardness consequences make it substantially more than a routine single-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

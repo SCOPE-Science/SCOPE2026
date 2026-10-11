@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The obstruction created by a single new line is exactly an already saturated \(m\)-set of points, so admissible neighborhoods are precisely independent sets in the saturation hypergraph. The converse incidence construction realizes an arbitrary simple \(m\)-uniform hypergraph without creating \(K_{m,n}\), and the hardness gadget has an explicit exact counting identity.
+## correctness
 
-## Originality
-PASS with residual folklore risk. The inspected Conant--Kruckman paper defines the universal \(K_{m,n}\)-free class, its saturation threshold, free completion, and model companion, but does not state an independence-polynomial extension enumerator or the resulting \(\#P\)-completeness. Targeted semantic and web searches for the same formulation found no closer source. The claim is a new synthesis unless an equivalent short observation exists in unindexed literature.
+PASS
 
-## Value
-PASS. One-point extension behavior is a basic finite invariant of hereditary model-theoretic classes. Here it is not merely hard in isolated examples: the entire family of \(m\)-uniform independence polynomials occurs exactly, giving a structural universality statement and a uniform complexity consequence for every fixed \(m,n\ge2\).
+Because the starting structure is already \(K_{m,n}\)-free, any newly created forbidden configuration must use the new line. Such a configuration exists exactly when the chosen neighborhood contains an \(m\)-set already lying on \(n-1\) old lines, which is precisely a hyperedge of the saturation hypergraph. Hence admissible new-line neighborhoods are exactly independent sets. Conversely, replacing each edge of any simple \(m\)-uniform hypergraph by \(n-1\) distinct lines incident exactly with that edge realizes it as the saturation hypergraph without creating \(K_{m,n}\). The hardness gadget adjoining a fixed \((m-2)\)-vertex core to every graph edge has independent-set count \((2^{m-2}-1)2^{|V|}+i(G)\), so one oracle call recovers graph independent-set count. The actual verifier exhaustively checks thousands of small extension instances and gadget identities; the uniform proof does not depend on that enumeration.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Conant--Kruckman introduce exactly the \(K_{m,n}\)-free incidence class and use the same saturation threshold in free-completion arguments, but their inspected paper does not classify all single-line neighborhoods by an independence polynomial, prove universality for arbitrary \(m\)-uniform hypergraphs, or derive the associated counting complexity. The classical #P result supplies only the source problem. Targeted Resultary search produced no implication-equivalent extension-polynomial theorem.
+
+## value
+
+PASS
+
+The result gives a complete representation theorem for a natural finite extension statistic in a canonical generic-incidence class and transfers the full expressive and exact-counting complexity of hypergraph independent sets. The universality and hardness consequences make it substantially more than a routine single-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

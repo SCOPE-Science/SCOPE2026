@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:50:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 78524af3d265f24a5cd8f49329eb6a968462d763",
+        "assigned verify.py blob 88e68abc1a2d83bae02e24b214ea2b51e0684e01",
+        "Conant--Kruckman, Independence in generic incidence structures, arXiv:1709.09626; DOI:10.1017/jsl.2019.8",
+        "Vadhan, The Complexity of Counting in Sparse, Regular, and Planar Graphs, DOI:10.1137/S0097539797321602"
+      ],
+      "rationale": "Because the starting structure is already \\(K_{m,n}\\)-free, any newly created forbidden configuration must use the new line. Such a configuration exists exactly when the chosen neighborhood contains an \\(m\\)-set already lying on \\(n-1\\) old lines, which is precisely a hyperedge of the saturation hypergraph. Hence admissible new-line neighborhoods are exactly independent sets. Conversely, replacing each edge of any simple \\(m\\)-uniform hypergraph by \\(n-1\\) distinct lines incident exactly with that edge realizes it as the saturation hypergraph without creating \\(K_{m,n}\\). The hardness gadget adjoining a fixed \\((m-2)\\)-vertex core to every graph edge has independent-set count \\((2^{m-2}-1)2^{|V|}+i(G)\\), so one oracle call recovers graph independent-set count. The actual verifier exhaustively checks thousands of small extension instances and gadget identities; the uniform proof does not depend on that enumeration.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The model-theory source gives structural ingredients but no all-hypergraph representation theorem.",
+          "Generic independence-polynomial results do not identify the incidence-extension problem."
+        ],
+        "reasoning": "No checked broader theorem supplies both the representation equivalence and the fixed-parameter complexity transfer.",
+        "searches": [
+          "Conant--Kruckman arXiv:1709.09626 full relevant sections",
+          "classical hypergraph independence-polynomial literature",
+          "Vadhan counting-complexity theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1709.09626",
+        "DOI:10.1017/jsl.2019.8",
+        "DOI:10.1137/S0097539797321602",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding separate repair lines to deficient \\(m\\)-sets does not imply a classification of all point sets that may be assigned to one new line.",
+          "The reverse realization and #P reduction require additional constructions not present in the focal source."
+        ],
+        "reasoning": "The final claim therefore adds implication content beyond the prior generic-incidence machinery.",
+        "searches": [
+          "arXiv:1709.09626 free-completion construction versus the audited arbitrary-neighborhood criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The focal model-theory source uses deficient/saturated \\(m\\)-sets but does not identify arbitrary one-line extensions with all independent sets of a finite hypergraph.",
+          "The converse realization shows the extension polynomials are not a restricted subclass of independence polynomials."
+        ],
+        "reasoning": "One-line admissible neighborhoods, independent sets of the saturation hypergraph, and the extension polynomial are equivalent formulations of the audited invariant.",
+        "searches": [
+          "Resultary query: K_mn-free incidence structure one-line extension polynomial independence polynomial hypergraph Conant Kruckman",
+          "arXiv:1709.09626 one-point/free-completion and saturation discussion",
+          "Vadhan independent-set counting hardness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior Resultary entry with this one-line extension polynomial or universality statement was returned."
+        ],
+        "reasoning": "This is an all-instance structural theorem rather than a finite table, but exact database coverage was checked.",
+        "searches": [
+          "Resultary exact extension-polynomial search"
+        ]
+      },
+      "rationale": "Conant--Kruckman introduce exactly the \\(K_{m,n}\\)-free incidence class and use the same saturation threshold in free-completion arguments, but their inspected paper does not classify all single-line neighborhoods by an independence polynomial, prove universality for arbitrary \\(m\\)-uniform hypergraphs, or derive the associated counting complexity. The classical #P result supplies only the source problem. Targeted Resultary search produced no implication-equivalent extension-polynomial theorem.",
+      "residual_risks": [
+        "The core one-line observation is short enough that an equivalent folklore formulation could exist in finite-model or hypergraph-extension literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_INPUT_ONLY_NOT_EXTENSION_POLYNOMIAL",
+          "evidence": "The source does not state the independence-polynomial identity, universality over all finite \\(m\\)-uniform hypergraphs, or #P-completeness of the extension count.",
+          "identifier_or_url": "arXiv:1709.09626; DOI:10.1017/jsl.2019.8",
+          "material_read": "Primary full-text sections on \\(K_{m,n}\\)-free structures, free completion, and the model companion, with targeted comparison to one-line extensions.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Independence in generic incidence structures",
+          "trigger": "Exact source defining the universal \\(K_{m,n}\\)-free incidence theory and saturation threshold."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Conant--Kruckman generic-incidence theory",
+        "classical independent-set counting complexity"
+      ],
+      "rationale": "The result gives a complete representation theorem for a natural finite extension statistic in a canonical generic-incidence class and transfers the full expressive and exact-counting complexity of hypergraph independent sets. The universality and hardness consequences make it substantially more than a routine single-instance count.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every fixed \\(m,n\\ge2\\), the one-line extension polynomial of a finite \\(K_{m,n}\\)-free incidence structure is exactly the independence polynomial of its \\(m\\)-uniform saturation hypergraph; conversely every finite simple \\(m\\)-uniform independence polynomial occurs, and exact counting at \\(z=1\\) is #P-complete under polynomial-time metric reductions.",
+  "limitations": [
+    "The result concerns finite models of the universal \\(K_{m,n}\\)-free theory and a single new line, not complete types in the model companion.",
+    "The parameters \\(m,n\\) are fixed; no approximation-complexity claim is made."
+  ],
+  "schema_version": 1
+}
