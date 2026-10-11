@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:52:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen blob 874cc3b3b68d94f37671ba68f110d18fa4fdb419",
+        "fresh active-branch and witness reconstruction"
+      ],
+      "rationale": "Writing N=max(E,F) with E Euclidean and F=lambda|x_1|, every numerator chooses one of four active-branch combinations. EE and FF satisfy Ptolemy with constant one (the latter after projection to the real line), while each mixed case is at most lambda times the Euclidean Ptolemy numerator because F<=lambda E. Hence C_Pt<=lambda. For x=(1/2,1/2), y=(1/2,-1/2), z=(1,0), the numerator is lambda and, exactly when lambda<=sqrt(2), all four denominator-side norms equal 1/sqrt(2), so the denominator is one and the ratio is lambda. The endpoint is valid because the two branches merely tie. This proves the stated full interval without numerical inference.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Ptolemy criteria have hypotheses that fail for this transformed norm.",
+          "The Euclidean distortion formula is a different invariant and does not force the sharp lower witness needed for the Ptolemy value."
+        ],
+        "reasoning": "No inspected broader theorem dominates the exact interval formula.",
+        "searches": [
+          "Zuo 2012 exact criteria for absolute normalized norms",
+          "Zuo 2018 comparison theorems for concrete Banach spaces",
+          "published SCOPE Euclidean Banach--Mazur distance of the Banaś--Frączek plane"
+        ]
+      },
+      "checked_sources": [
+        "Banaś--Frączek 1993, DML-CZ 118554",
+        "Yang--Yang 2016, DOI:10.7153/jmi-10-43",
+        "Zuo 2012, DOI:10.1186/1029-242X-2012-107",
+        "Zuo 2018, DOI:10.7153/mia-2018-21-64",
+        "Resultary direct query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper bound uses the exact representation as a maximum of a Euclidean norm and a one-dimensional seminorm.",
+          "The explicit three-point configuration attains lambda exactly throughout the stated interval, a lower-bound fact not implied by the general comparison criteria."
+        ],
+        "reasoning": "The final equality is not mechanically implied by the inspected prior theorems.",
+        "searches": [
+          "Zuo comparison criteria versus the audited max-of-Ptolemaic-branches argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1993 source defines the same max deformation but does not state a Ptolemy constant in the inspected full text.",
+          "For the linearized absolute norm, the Euclidean comparison ratio is not maximized at the midpoint; the inspected 2012 exact midpoint criterion therefore does not apply.",
+          "The associated function is not symmetric about one half, so the inspected 2018 off-midpoint symmetric criterion does not imply the claim."
+        ],
+        "reasoning": "The transformed absolute-normalized formulation is equivalent by a linear isometry, and it is the right form for testing Zuo's general criteria.",
+        "searches": [
+          "Banaś--Frączek, Deformation of Banach spaces, DML-CZ 118554",
+          "Yang--Yang, DOI:10.7153/jmi-10-43",
+          "Zuo, DOI:10.1186/1029-242X-2012-107",
+          "Zuo, DOI:10.7153/mia-2018-21-64",
+          "Resultary query: exact Ptolemy constant Banas Fraczek R_lambda^2 lambda first regime"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact Resultary match is the audited finding; no external table or earlier exact value was located."
+        ],
+        "reasoning": "This is a parameterized geometric invariant rather than a standard table lookup.",
+        "searches": [
+          "Resultary published-finding corpus for Banaś--Frączek Ptolemy constants",
+          "targeted searches under absolute normalized norms and Banaś--Frączek deformation"
+        ]
+      },
+      "rationale": "The original Banaś--Frączek paper defines this deformation and studies classical Banach-space geometry, while Yang--Yang compute James/von-Neumann--Jordan type constants. Zuo's exact Ptolemy criteria for absolute normalized norms require comparison-ratio extremum or symmetry hypotheses that the transformed Banaś--Frączek associated function fails. Resultary returned the audited theorem as the direct exact hit and no external exact Ptolemy value for this regime.",
+      "residual_risks": [
+        "Zuo's 2015 reconsideration could not be obtained as full text through open access or the authorized institutional retrieval route; its abstract advertises additional sufficient conditions.",
+        "An older equivalent result may be indexed only under absolute-normalized-norm terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_SPACE_NO_PTOLEMY_VALUE_IN_INSPECTED_TEXT",
+          "evidence": "The source defines the max deformation and studies deformation/convexity properties rather than Ptolemy constants.",
+          "identifier_or_url": "DML-CZ 118554 (1993)",
+          "material_read": "Full lawful DML-CZ article around the definition and geometric discussion.",
+          "method": "Same-object theorem-scope comparison.",
+          "title": "Deformation of Banach spaces",
+          "trigger": "Original source defining the exact Banaś--Frączek plane."
+        },
+        {
+          "assessment": "MIDPOINT_EXTREMUM_HYPOTHESIS_FAILS",
+          "evidence": "The exact criterion requires the comparison ratio to attain its relevant extremum at t=1/2; the audited transformed norm has a strictly larger ratio at its branch-change point.",
+          "identifier_or_url": "DOI:10.1186/1029-242X-2012-107",
+          "material_read": "Full open text around Theorems 2.2--2.3 and the concrete examples.",
+          "method": "Hypothesis and implication comparison.",
+          "title": "The Ptolemy constant of absolute normalized norms on R^2",
+          "trigger": "Closest general exact Ptolemy theorem after the package's linear normalization."
+        },
+        {
+          "assessment": "INSPECTED_OFF_MIDPOINT_THEOREM_DOES_NOT_APPLY",
+          "evidence": "The more general inspected branch assumes symmetry of the associated function; the transformed Banaś--Frączek function is nonsymmetric for lambda>1.",
+          "identifier_or_url": "DOI:10.7153/mia-2018-21-64",
+          "material_read": "Full public PDF around the comparison theorems and Example 1.",
+          "method": "Hypothesis and parameter comparison.",
+          "title": "On the Ptolemy constant of some concrete Banach spaces",
+          "trigger": "Later Ptolemy comparison results potentially covering off-midpoint cases."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Banaś--Frączek 1993, DML-CZ 118554",
+        "Yang--Yang 2016, DOI:10.7153/jmi-10-43",
+        "Zuo 2012, DOI:10.1186/1029-242X-2012-107",
+        "Zuo 2018, DOI:10.7153/mia-2018-21-64",
+        "Resultary direct query"
+      ],
+      "rationale": "The Ptolemy constant is a standard exact geometric invariant of a classical one-parameter Banach-plane deformation. Determining an entire sharp parameter regime, with an explicit extremizing configuration and a boundary where that configuration changes branch, is a natural exact classification rather than an arbitrary computation.",
+      "residual_risks": [
+        "Zuo's 2015 reconsideration could not be obtained as full text through open access or the authorized institutional retrieval route; its abstract advertises additional sufficient conditions.",
+        "An older equivalent result may be indexed only under absolute-normalized-norm terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Banaś--Frączek 1993, DML-CZ 118554",
+    "Yang--Yang 2016, DOI:10.7153/jmi-10-43",
+    "Zuo 2012, DOI:10.1186/1029-242X-2012-107",
+    "Zuo 2018, DOI:10.7153/mia-2018-21-64",
+    "Resultary direct query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the real Banaś--Frączek plane N_lambda(x)=max{lambda|x_1|,sqrt(x_1^2+x_2^2)}, the Ptolemy constant is exactly lambda for every 1<lambda<=sqrt(2).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Zuo's 2015 reconsideration could not be obtained as full text through open access or the authorized institutional retrieval route; its abstract advertises additional sufficient conditions.",
+    "An older equivalent result may be indexed only under absolute-normalized-norm terminology.",
+    "No exact claim is made for lambda>sqrt(2)."
+  ]
+}
