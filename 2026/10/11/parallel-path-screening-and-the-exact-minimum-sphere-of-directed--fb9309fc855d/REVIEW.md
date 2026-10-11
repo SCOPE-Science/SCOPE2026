@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+For every integer \(r\ge2\), every length list \(\ell_i\ge1\) with at most one length-one path, and maximum \(L\ge2\), the proposed potential has a gap at least one on each edge. The nonnegative edge weights \(\lambda_{i,j}=\alpha_i+(j-1)(\ell_i-j)/2\), with \(\alpha_i=L/(2k)\) on the \(k\) longest paths and zero otherwise, reconstruct the potential by their incidence divergence. They total \(N\), and complementary gap equalities show \(\|z\|^2=N\). Accordingly \(c=z/N\) is a convex combination of unit-gap roots, and every root lies within squared radius \(2-1/N\). Averaging the squared distance at an arbitrary competing center against these same probability weights gives \(2-1/N+\|y-c\|^2\), establishing global optimality and uniqueness without assuming symmetry or a restricted affine span. The gap calculation proves the exact contacting-edge list, deficits, and two-edge-path invariance, including length-one and length-two boundaries. The complete exact-rational verifier checks 1,360 admissible instances, 18,925 roots, and 252 invariance instances, but is not used as an infinite proof.
+
+## Originality — PASS, residual risk disclosed
+
+The original contribution is the mixed-length, arbitrary-number-of-paths Euclidean minimum-sphere formula and complete contact screening, not the standard equal-norm projection principle. Numata–Takahashi–Tamaki (arXiv:2203.14521v1) introduce directed edge polytopes and study faces and dimensions, without evaluating their Euclidean minimum spheres. Kálmán–Tóthmérész (arXiv:2105.00960v1) study graph root polytopes and spanning-tree/Ehrhart dissections rather than this metric optimum. An independently published exact oriented-cycle root-polytope Ehrhart calculation determines lattice coefficients and certain two-path cycle special cases but does not determine minimum enclosing Euclidean balls. In addition, the equal-length case is covered by the general graded-graph potential/flow criterion, so it is not independently novel. Distinct existing radius evaluations for orientation-swapped directed paths or cycles do not imply the mixed-length all-path formula. Searches for theta-digraph enclosing spheres, directed-edge-root circumspheres, minimum-norm potentials, and their optimization equivalents did not identify an exact covering theorem. A hidden equivalent evaluation under graph potentials, isotonic regression, or minimax network embeddings remains a residual risk; source search is not a proof of priority.
+
+## Value — PASS
+
+The result gives an explicit sharp radius, every center coordinate, all boundary-root contacts, their count, and exact clearance of noncontacts throughout a natural infinitely parameterized family of directed graph root polytopes. It distinguishes equal-length networks from networks with shorter paths and establishes a metric screening law: inserting any number of two-edge paths strictly changes the root polytope in its enlarged ambient space but leaves the old center and radius unchanged. These structural conclusions are not routine normalization checks or mere finite-table computations, and can be used as exact test cases for root-polytope and network-potential geometry.
+
+## Relationship and limits
+
+The 2022 primary source has MSC2020 52B05 and was first publicly posted on 2022-03-28. Its source-boundary is respected; the general convex-duality identity and covered graded equal-length case are explicitly separated from the evaluated mixed-length formulas. The proof is self-contained on the specified graph family, not a claim about arbitrary acyclic digraphs or all orientations. The exact verifier uses only the standard Python library; independent external examination remains outstanding.
+
+Same-model review: passed. Independent audit: not yet performed.

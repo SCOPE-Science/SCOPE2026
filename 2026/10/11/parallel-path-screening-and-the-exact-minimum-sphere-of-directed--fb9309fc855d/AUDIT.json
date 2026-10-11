@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For r>=2 and admissible positive path lengths, the potential z has edge gaps >=1, with equality at precisely the asserted contacts. Explicit nonnegative multipliers lambda_{i,j} produce its incidence divergence z and have total N; complementarity gives ||z||^2=N, and c=z/N belongs to the convex hull. Every root has norm squared 2, hence ||root-c||^2 <= 2-1/N. The weighted mean-square-distance identity 2-1/N+||y-c||^2 proves global optimality and unique center among all ambient centers. It also proves exact clearance for short terminal roots, counts all contacts, handles the direct edge, and establishes length-two-path invariance. Actual standalone exact-rational checks passed for 1,360 graphs, 18,925 roots, and 252 path-addition cases; finite verification does not replace this proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general literature covers face structure and dimension of directed-edge polytopes, and ranks/nonnegative flows in semibalanced directed graph situations.",
+        "The equal-length directed-path union admits a global unit-step rank function, so its all-contact sphere follows from a general rank/flow criterion; this covered boundary is expressly not newly claimed.",
+        "For unequal lengths there is no rank function whose increment is identically one on every arrow and whose value drops by the same source-to-sink amount on all paths: summing increments along two paths would force their lengths equal."
+      ],
+      "reasoning": "Broader structural and graded-graph sources do not dominate the arbitrary mixed-length result: their common-gap hypothesis fails as soon as two lengths differ. The new proof permits distinct strict source/sink gaps while certifying every interior-path edge. Searches did not locate a stronger published Euclidean theorem for all unequal parallel-path networks.",
+      "searches": [
+        "published-finding corpus: Euclidean minimum enclosing ball of root polytopes of acyclic digraphs; screened arcs minimum norm potential",
+        "published-finding corpus: Semi-balanced root polytopes have a canonical vertex sphere with a flow criterion for minimality",
+        "published-finding corpus: Rank variance determines directed-edge vertex spheres, with an ideal criterion for optimality",
+        "arXiv:2203.14521v1 Faces of Directed Edge Polytopes",
+        "arXiv:2105.00960v1 Root polytopes and Jaeger-type dissections for directed graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.14521v1 (primary MSC2020 52B05; first posted 2022-03-28; relevant full-text sections inspected)",
+      "arXiv:2105.00960v1 (directed root-polytope and semibalanced/lattice results)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-ehrhart-polynomials-of-oriented-cycle-root-polytopes--e32575b66377 (complete public RESULT.md)",
+      "Related general equal-norm convex-hull projection/margins framework; directed path orientation-reversal and graded graph exact-sphere precedents compared at statement level"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Numata–Takahashi–Tamaki results concern faces and dimensions; the inspected definitions, principal statements, and examples do not supply a metric minimum-ball value.",
+        "The Kálmán–Tóthmérész lattice/dissection results do not supply contact clearance formulas in the ambient Euclidean coordinates.",
+        "A generic equal-norm barycentric certificate is weaker than, and requires solving for, the exact mixed-length nonnegative weights. The known equal-length graded case is contained in the new statement but not the claimed new part.",
+        "Alternative path-reversal and special cycle screening formulas concern different graph orientations and do not imply the parameterized all-path family."
+      ],
+      "reasoning": "The new theorem makes one package-level claim: a complete formula for every admissible path-length list, including the unique optimal center, squared radius, the exact full contact set, and new-two-edge-path invariance. The nearest sources and generic convex-dual facts either concern distinct invariants, cover the special equally graded case, or need the nontrivial explicit certificate and gap computation given here. No inspected statement was found to imply all mixed-length conclusions.",
+      "searches": [
+        "published-finding corpus: minimum enclosing Euclidean ball and Chebyshev center of directed edge polytopes of a multi-path theta graph, two-terminal series-parallel graph, parallel source-to-sink paths of unequal lengths, contact and screening",
+        "published-finding corpus: oriented series-parallel graph root polytope minimum sphere John Löwner exact",
+        "published-finding corpus: one reversed arrow is screened from the minimum sphere of a directed path simplex",
+        "arXiv:2203.14521v1, definition and facets/dimensions; searches for Euclidean and minimum",
+        "arXiv:2105.00960v1, directed root-polytope dissection/semibalance sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For any finite vertex set of common norm squared 2, minimum enclosing ball is equivalent to minimizing the norm of a point in its convex hull; this is the standard dual convex-potential criterion, not a novel theorem.",
+        "Reversing all directed edge vectors multiplies the polytope by -1 and does not change its radius or contact combinatorics.",
+        "Our certificate explicitly evaluates this duality for multiple internally disjoint directed paths of arbitrary unequal lengths, and gives contact margins, not just the existence of a minimizer."
+      ],
+      "reasoning": "Equivalent optimization formulations and global orientation reflection reduce to the same Euclidean problem, so terms such as root polytope, directed edge polytope, minimum-norm edge-root barycenter, and maximum-margin graph potential were all searched. The general duality and the uniform-length special case are already known. Neither implies the evaluated piecewise contact classification without solving a distinct length-dependent constrained potential problem.",
+      "searches": [
+        "published-finding corpus: minimum norm unit gradient potential on directed theta graph; isotonic regression constraints source sink multiple paths and Euclidean radius formula",
+        "Web: \"directed edge polytope\" \"circumsphere\"",
+        "Web: \"unit separation\" \"minimum norm\" \"theta graph\" potentials",
+        "arXiv:2105.00960v1 (reverse orientation of root vectors is an orthogonal reflection)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published published-finding corpus/2026 record Exact Ehrhart polynomials of oriented cycle root polytopes determines h-star vectors, normalized volumes, and orientation imbalance; its complete RESULT.md was inspected.",
+        "Some two-path graphs form oriented cycles, but an Ehrhart polynomial and a Euclidean minimum enclosing radius are distinct invariants; no exact enclosing-radius table or formula was present in that result.",
+        "The supplied exact-rational verifier reconstructs all claimed sphere/contact identities for 1,360 parameter instances; these instances are not offered as a literature database."
+      ],
+      "reasoning": "Checked the most relevant cycle-root-polytope published record at full-result level and specifically compared its statements, not merely its title. Its integral-affine lattice invariant does not imply the metric-radius formula or the screening of first and last roots. Targeted published-finding corpus and primary-web queries found no same-invariant database dominating the all-length formula.",
+      "searches": [
+        "published-finding corpus: oriented cycle root polytope one source one sink two parallel paths spherical radius minimum enclosing ball",
+        "published-finding corpus: exact Euclidean circumradius of directed edge root polytopes for theta networks two-terminal parallel paths",
+        "published-finding corpus: Exact Ehrhart polynomials of oriented cycle root polytopes",
+        "Web: \"theta graph\" \"minimum enclosing ball\" polytope oriented"
+      ]
+    },
+    "rationale": "A complete all-mixed-paths metric formula and exact contact screening were not found in the primary directed-edge/graph-root literature or the relevant published oriented-cycle published-finding corpus research record. The standard equal-norm convex duality, the graded equal-length subfamily, and distinct orientation-swapped path/cycle examples are explicitly acknowledged as covered prior principles or disjoint examples. The precise implication comparisons are recorded in the four checks below; an equivalent theorem under other network-optimization terminology remains a genuine residual risk.",
+    "residual_risks": [
+      "Other equivalent formulations may occur under network embeddings, minimax edge potentials, isotonic regression, theta-digraph circumspheres, or optimal design, even if title/phrase searches do not retrieve them.",
+      "The general convex minball duality and covered semibalanced equal-length specialization are not discoveries in this report; these do not by themselves imply the claimed mixed-length contact formula.",
+      "A source search, even including primary full-text relevant sections, does not certify absence from all mathematical literature or unpublished results; independent priority review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces and studies the exact object family at the combinatorial level; inspected statements do not supply its Euclidean minimum enclosing ball, mixed-length formula, or contact screening.",
+        "evidence": "Definition of directed edge polytope as convex hull of incidence roots, main facet/dimension discussion and examples; no Euclidean smallest-enclosing-sphere result found among inspected material.",
+        "identifier_or_url": "arXiv:2203.14521v1; https://arxiv.org/abs/2203.14521",
+        "material_read": "Introduction, directed-edge-polytope definition, facet/dimension results and examples (including Example 5.3), with targeted Euclidean/minimum term checks in the accessible HTML text.",
+        "method": "Read the primary arXiv text/html, inspected main-result and example sections and used targeted in-text searches.",
+        "title": "Faces of Directed Edge Polytopes",
+        "trigger": "Same primary mathematical object and verified MSC2020 52B05, first public version 2022-03-28."
+      },
+      {
+        "assessment": "The work addresses lattice geometry and graph dissections, not the ambient Euclidean smallest enclosing ball and strict mixed-length root contacts.",
+        "evidence": "Oriented graph root-polytope definitions, semibalance framework and Jaeger-type dissections; no matching Euclidean sphere result in inspected relevant sections.",
+        "identifier_or_url": "arXiv:2105.00960v1; https://arxiv.org/abs/2105.00960",
+        "material_read": "Accessible full-text HTML introduction, definition/root-polytope sections, semibalance discussion, and spanning-tree/Ehrhart dissection statements.",
+        "method": "Opened arXiv HTML full text and inspected relevant conceptual and theorem sections.",
+        "title": "Root polytopes and Jaeger-type dissections for directed graphs",
+        "trigger": "Broad root-polytope framework for directed graphs including semibalanced orientations and two-terminal path unions."
+      },
+      {
+        "assessment": "Provides integral Ehrhart h-star and volume information dependent on orientation imbalance, not the ambient Euclidean enclosing radius or contacting-root stratification.",
+        "evidence": "Exact formulas for h-star polynomials and normalized volumes in the published record, with no minimum Euclidean ball theorem.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-ehrhart-polynomials-of-oriented-cycle-root-polytopes--e32575b66377",
+        "material_read": "Complete published RESULT.md, including theorem for both root-polytope forms, proof, relationship, limitations, and references.",
+        "method": "Fetched and read the complete public RESULT.md scientific content.",
+        "title": "Exact Ehrhart polynomials of oriented cycle root polytopes",
+        "trigger": "Highly relevant published root-polytopes of oriented cycles; a union of two directed source-to-sink paths is a special orientation of a cycle."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb9309fc-855d-4810-be96-55e59a08183b",
+  "value": {
+    "rationale": "The theorem completely evaluates a natural high-dimensional geometry invariant on arbitrary internally disjoint directed parallel-path networks, including full center coordinates, all root contacts, exact positive clearance margins, and an unexpected stability law under the canonical operation of attaching short paths. These structural consequences are parameter-uniform, sensitive to unequal path lengths, and useful as benchmarks for graph root polytopes and min-norm potential methods. They are neither a textbook one-line special case nor an arbitrary isolated finite instance.",
+    "status": "PASS"
+  }
+}
