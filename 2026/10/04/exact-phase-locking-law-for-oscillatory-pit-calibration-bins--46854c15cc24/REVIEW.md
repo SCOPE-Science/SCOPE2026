@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The bin integral is evaluated exactly, the origin average is an exact tiling identity, and the aligned-grid formula reduces to finite trigonometric sums after dividing by \(\gcd(k,N)\). The resulting zero criterion and the \(N=2k\) phase law are algebraic consequences. Finite numerical checks were used only as stress tests, not as proof.
+## correctness
 
-## Originality
-PASS. The closest source is the 2026 oscillatory PIT calibration example, which gives an approximate phase-free sinc attenuation and reports about \(64\%\) retention at \(N=2k\). The inspected full manuscript does not state the origin-phase dependence, the parity/gcd closed form, the exact blindness condition \(N\mid2k\), or the interpretation of the sinc curve as the randomized-origin mean. Broader ECE-binning literature checked does not imply these exact identities. The principal residual risk is an equivalent elementary aliasing calculation in older signal-processing or quadrature terminology.
+PASS
 
-## Value
-PASS. The finding is mathematically small but structurally consequential for the motivating benchmark: deterministic bin alignment can change the critical-resolution population discrepancy from roughly \(64\%\) to exactly zero, while a half-bin phase shift recovers \(100\%\). The exact phase-average identity explains the prior curve and isolates a reproducible failure mode of fixed-origin binning.
+Direct integration over each shifted bin gives the displayed sine-difference formula. Averaging the origin tiles a full period and uses the exact integral of \(|\cos|\). For the aligned grid, division by \(g=\gcd(k,N)\) reduces the absolute-cosine sum to standard finite trigonometric sums in the three parity classes; their positivity leaves zeros only at reduced modulus one or two, exactly \(N\mid2k\). The special \(N=2k\) phase law follows by substitution.
 
-## Closest literature and limitations
-The closest literature is A. Kipnis, arXiv:2607.08378v1, together with the associated 2026 workshop manuscript. The result does not claim finite-sample power, minimax optimality, or a multi-frequency classification. Equivalent prior work under general aliasing terminology remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating 2026 calibration sources use the same sinusoidal PIT family and a phase-free sinc approximation, but do not state the offset-dependent exact law, gcd/parity formula, or deterministic blindness criterion. Generic boxcar-filter literature confirms the classical sinc response and therefore reduces the novelty of the prefactor, but it does not by itself state the absolute-bin-discrepancy arithmetic or the critical-grid interpretation. Fresh Resultary search returned no published SCOPE claim covering the calibration theorem.
+
+## value
+
+PASS
+
+The exact law materially changes the interpretation of a current calibration benchmark: at the nominal critical resolution the standard fixed origin can be exactly blind while a half-bin shift recovers the full population discrepancy, and the published sinc curve is identified as an origin average. This is a motivated boundary/counterexample rather than an arbitrary Fourier exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
