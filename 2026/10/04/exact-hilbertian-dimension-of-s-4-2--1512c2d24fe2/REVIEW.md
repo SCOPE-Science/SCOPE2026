@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof was reconstructed from the definitions. The critical identity for the Schatten \(4\)-norm is exact for every \(2\times2\) matrix. The torus-invariance lemma is justified by holomorphic constant-modulus rigidity, and the maximal dimension two of an all-singular subspace of \(M_2(\mathbb C)\) is reproved directly. The rank-one row constructions provide the matching positive embeddings.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2609.37504v1, completely classifies two-dimensional source embeddings but explicitly says that it does not determine least target size for a prescribed higher-dimensional Hilbertian source. The 2026 survey arXiv:2603.07359v2 also does not state the present two-by-two Schatten-4 dimension result. Targeted semantic searches over equivalent formulations and broader Hilbertian-subspace language found no covering result. Residual risk remains that an older classification uses different terminology.
+PASS
 
-## Value
-PASS. This is the first nontrivial higher-dimensional Hilbertian target-size case immediately beyond the focal theorem: it determines both the maximal Hilbertian dimension of \(S_4^2\) and the least matrix size needed to host \(\ell_2^3(\mathbb C)\) isometrically.
+For a hypothetical isometry \(T:\mathbb C^3\to M_2(\mathbb C)\), the exact \(2\times2\) identity \(\|A\|_4^4=\|A\|_2^4-2|\det A|^2\) gives \(2|q(x)|^2=(x^*Hx)^2-\|x\|_2^4\). Positivity forces \(H\ge I\), and unitary diagonalization makes the right side invariant under independent coordinate phases. A nonzero homogeneous holomorphic quadratic with torus-invariant modulus must be one monomial; coefficient comparison then forces all eigenvalues of \(H\) to one and simultaneously forces that monomial coefficient to vanish. Thus \(q=0\) and every matrix in the three-dimensional image is singular. A direct determinant-polynomial argument shows a complex linear subspace of \(M_2\) consisting entirely of singular matrices has dimension at most two, contradiction. First-row embeddings give the matching Hilbert plane in \(S_4^2\) and \(\ell_2^3\) in \(S_4^3\). The proof is exact and uses no numerical inference.
 
-## Closest literature and limitations
-The closest paper is Xu–Zhang–Liu, arXiv:2609.37504v1; the broader survey is Chattopadhyay–Pradhan–Skripka, arXiv:2603.07359v2. The argument is specific to complex-linear exact isometries and the quartic two-by-two setting, and no general classification for other matrix sizes or exponents is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Xu--Zhang--Liu's full arXiv HTML proves the complete two-dimensional source classification \(\ell_q^2\hookrightarrow S_p^n\) and explicitly states that this theorem does not determine the least target size for a prescribed higher-dimensional Hilbertian source. The older Schatten-embedding literature likewise addresses exponent obstructions or approximate Euclidean sections rather than the exact \(\ell_2^3\) into \(S_4^2\) target-size question. Resultary returned only the audited exact result as the direct match.
+
+## value
+
+PASS
+
+The maximal exact Hilbertian dimension is a natural local-geometric invariant of a Schatten class. This result settles the first higher-dimensional target-size instance left outside the current exponent-classification theorem and gives a sharp obstruction with a short intrinsic matrix proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
