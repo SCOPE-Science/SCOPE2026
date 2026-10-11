@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:01:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 675cac037c2ce2ba37e671c26c7b2fc334b1ed54",
+        "assigned verify.py blob 1da1b7a4bfde11b61b18443b99caafd40f38e9d5",
+        "Mushkarov--Nikolov arXiv:2604.01174 full primary PDF",
+        "fresh symbolic second-derivative replay"
+      ],
+      "rationale": "The calculus is correct. Writing \\(n(d)=\\inf_t(G(t)-dH(t))\\) makes concavity immediate. Evaluating at the unique \\(d=0\\) minimizer gives the global tangent upper bound; for \\(a\\ne b\\), \\(H'(t_0)\\ne0\\), so the old minimizer is not stationary for any \\(d>0\\), giving strictness. The source proves a unique nondegenerate minimizer, so the implicit-function/envelope calculation yields \\(n''(0)=-H'(t_0)^2/G''(t_0)\\), and an independent symbolic replay in this audit reproduced the displayed quadratic coefficient. Mushkarov--Nikolov's exact corridor criterion identifies this \\(n(a,b,d)\\) as the true small-width long-side frontier in the three stated corridors. No correctness defect is present.",
+      "residual_risks": [
+        "The expansion is local in \\(d\\); only the tangent bound is global."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 source covers all widths and eight corridor types through exact inequalities and a unique-minimizer description.",
+          "Older work already encodes the fixed-width L-corridor frontier by a sextic equation."
+        ],
+        "reasoning": "The published exact characterization is strictly stronger information than the small-\\(d\\) Taylor expansion.",
+        "searches": [
+          "Mushkarov--Nikolov complete rectangle-feasibility theorem",
+          "Boute 2004 / Moretti 2002 prescribed-width corner equations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.01174v1",
+        "Boute 2004",
+        "Moretti 2002",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tangent bound is one evaluation of the known infimum at \\(t_0\\).",
+          "The coefficient follows from the standard identity \\(n''(0)=-H'(t_0)^2/G''(t_0)\\) once the source's nondegenerate minimizer is known."
+        ],
+        "reasoning": "Only routine calculus remains between the prior exact frontier and the final claim.",
+        "searches": [
+          "published exact \\(n(a,b,d)\\) minimization and unique minimizer versus tangent/quadratic expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appendix B defines exactly \\(n(a,b,d)=\\inf g_{a,b,d}\\) as the shortest tangent segment and proves the unique minimizer.",
+          "Theorem 1 makes that same function the exact feasibility boundary for the relevant corridors."
+        ],
+        "reasoning": "The audited function is not merely analogous; it is the source's exact frontier.",
+        "searches": [
+          "Resultary query: moving rectangle corner finite width asymptotic ladder correction",
+          "Mushkarov--Nikolov arXiv:2604.01174 Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned asymptotic record is the exact hit, but exact-title absence is immaterial because the same frontier is already published in closed variational/implicit form."
+        ],
+        "reasoning": "Implication from the primary exact formula is decisive.",
+        "searches": [
+          "Resultary current finite-width ladder search"
+        ]
+      },
+      "rationale": "The same primary paper already gives a complete exact rectangle-feasibility classification, defines exactly the inverse frontier \\(n(a,b,d)\\) used by the audit, proves its unique nondegenerate minimizing orientation, records the zero-width ladder value and the exact symmetric formula, and notes that the minimizer is governed by a degree-six algebraic equation. Once this stronger exact frontier is published, the audited tangent inequality is obtained by evaluating the published variational formula at the \\(d=0\\) minimizer, and the quadratic coefficient is the routine implicit-function/envelope Taylor expansion of that same published minimization problem. Under the required implication standard, absence of the coefficients in print does not make this independently original.",
+      "residual_risks": [
+        "No access limitation affects the decisive coverage by the 2026 full primary paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_EXACT_FRONTIER_COVERAGE",
+          "evidence": "The source already characterizes the entire finite-width frontier; the audited expansion is a local calculus consequence of that stronger result.",
+          "identifier_or_url": "arXiv:2604.01174v1",
+          "material_read": "full 13-page primary PDF, especially Theorem 1 and Appendix B where \\(n(a,b,d)\\), convexity, uniqueness of the minimizer, the sextic equation, zero-width value, and symmetric formula are stated; relevant pages visually inspected",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Moving rectangular sofas in planar and spatial corridors",
+          "trigger": "exact same finite-width frontier and corridor classification"
+        },
+        {
+          "assessment": "OLDER_SEXTIC_CONTEXT",
+          "evidence": "The 2026 primary source itself reports that earlier work determines the longest prescribed-width rectangle through a degree-six equation.",
+          "identifier_or_url": "DOI 10.1080/00029890.2004.11920096",
+          "material_read": "publisher bibliographic/abstract page; full body not inspected in this run",
+          "method": "primary-source scope inspection with access limitation",
+          "title": "Moving a Rectangle around a Corner—Geometrically",
+          "trigger": "older prescribed-width exact frontier context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Mushkarov--Nikolov 2026 exact frontier",
+        "assigned calculation"
+      ],
+      "rationale": "The finite-width coefficients are geometrically interpretable, but after the exact same frontier and its unique minimizer are already published, the tangent bound, strictness test, and second-order coefficient are textbook calculus consequences. They do not add a new feasibility mechanism, classification, or independently difficult exact invariant under the common value bar.",
+      "residual_risks": [
+        "The expansion can remain a convenient quantitative corollary for applications."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The expansion is local in \\(d\\); only the tangent bound is global.",
+    "No access limitation affects the decisive coverage by the 2026 full primary paper.",
+    "The expansion can remain a convenient quantitative corollary for applications."
+  ]
+}
