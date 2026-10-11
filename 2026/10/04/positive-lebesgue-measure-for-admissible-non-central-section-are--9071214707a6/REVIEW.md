@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced to the exact admissibility conditions of arXiv:2605.00299v1. The continued-fraction tail argument has the correct quantifiers: on a compact \(\gamma\)-interval and under the eventual bound \(a_j\le j^2\), it gives one uniform \(K\) for all parameters in the family. The key parity observation uses only coprimality of consecutive convergent denominators, guaranteeing two odd denominators among four consecutive ones. This supplies two old odd multiples with distance \(O((\log k)^6/k)\), while best approximation gives the new odd multiple a lower bound \(\Omega(1/(k(\log k)^2))\). The source bounds on \(F_{A,+}\) and \(F_{A,-}\) are quadratic in the small angles, so the required strict inequalities follow for all large \(k\). The finite prefix is protected by continuity around the source's explicit admissible point. The cylinder calculation is exact and leaves positive measure.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The motivating preprint proves only positive Hausdorff dimension and explicitly raises positive Lebesgue measure as an open question. Exact-title, arXiv-identifier, positive-measure, Barker--Larman, continued-fraction, and published published-finding corpus searches did not locate a later result implying the claim. The proof mechanism is materially different from the source's global parity-restricted construction: it uses four-denominator parity pigeonholing only for the two previous minima and permits a positive-measure polynomial-digit family.
+PASS
 
-## Value
-PASS. Positive Lebesgue measure is the explicit stronger size property singled out by the source authors as a natural open direction. It upgrades the parameter set for which their geometric rigidity theorem applies from a fractal-size statement to positive ordinary measure without changing the geometric hypotheses.
+The proof is genuinely infinite and analytic. Under the eventual digit bound \(a_j\le j^2\), four consecutive continued-fraction denominators contain at least two odd denominators, giving two previous odd-multiple distances of order at most \((\log k)^6/k\). Best approximation at the next odd multiple gives a lower bound of order \(1/(k(\log k)^2)\). The source bounds make both forbidden-window functions quadratic in the two small distances, hence of order at most \((\log k)^{12}/k^2\), which is eventually strictly smaller. A finite strict prefix is preserved on a cylinder around the source's explicit admissible rotation number. The exact continued-fraction child-cylinder ratio shows that imposing \(a_j\le j^2\) after a sufficiently deep prefix removes total relative mass less than one, so the surviving set has positive measure; the smooth strictly increasing area map has derivative bounded below on that compact cylinder, preserving positive measure.
 
-## Closest literature and limitations
-The closest source is J. Haddad and D. Ryabogin, *On convex bodies with constant non-central sections*, arXiv:2605.00299v1 (2026-05-01). It supplies the geometric theorem, the admissibility conditions, the continued-fraction estimates, and an explicit admissible rotation number; it proves positive Hausdorff dimension rather than positive Lebesgue measure. No claim is made here about the full Barker--Larman conjecture, nonsymmetric bodies, dimensions other than the source setting, or the exact measure of the admissible set.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary source proves only positive Hausdorff dimension and explicitly leaves positive Lebesgue measure open. It even notes that the polynomial-digit set before the parity condition has positive measure and then explains why the parity restriction destroys that measure, ending with Question 15. The submitted four-denominator parity argument removes that obstruction and supplies a uniform tail proof. Targeted Resultary and primary-literature searches found no earlier theorem closing Question 15.
+
+## value
+
+PASS
+
+The theorem answers an explicit open question in the primary source and upgrades a fractal-size existence statement to positive ordinary measure for the natural admissibility set controlling a geometric-rigidity theorem. The four-denominator parity device also explains how to avoid the exact obstruction identified by the source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
