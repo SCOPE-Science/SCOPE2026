@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:56:00.361972Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0e38087698b12646dcffe315c411df647fecda5e",
+        "artifacts/verify.py blob c495ea4d027065e23b3a4e455ae87357c5424c9c",
+        "fresh independent coefficient computation for d=4,5,7,8",
+        "independent two-adic reconstruction"
+      ],
+      "rationale": "The critical dimension equation is correct. Direct coefficient reconstruction independently reproduced \\(P_4=3297280\\), \\(P_5=420760566875\\), \\(P_7=279101475496912988004267637\\), and the displayed huge \\(P_8\\). For even \\(d\\), a factor \\(dx\\) kills the product mod two. For odd \\(d=2m+1\\), parity of the composition factors gives \\(Q_d\\equiv(xyz)^A(x+y+z)^{3q}\\), reducing the target coefficient to \\(K_q\\). Legendre valuation gives the first power-of-two contribution \\(-1\\), all later contributions nonnegative, and for every \\(q\\ge3\\) at least one positive contribution; \\(K_1=1,K_2=5\\). Hence only \\(d=5,7\\) are odd. Complex conjugation then proves the stated real transverse corollary.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Fano-degree and monodromy theorems cover all complete intersections but do not determine odd-degree parity in this plane hypersurface subfamily.",
+          "The published/Resultary line-parity theorem concerns \\(r=1\\), so it does not imply the plane \\(r=2\\) classification."
+        ],
+        "reasoning": "No inspected broader theorem dominates the odd-degree plane parity computation.",
+        "searches": [
+          "Hashimoto--Kadets, 38406501359372282063949 and All That: Monodromy of Fano Problems, DOI:10.1093/imrn/rnaa275",
+          "Debarre--Manivel, Sur la variete des espaces lineaires contenus dans une intersection complete, arXiv:alg-geom/9611033; DOI:10.1007/s002080050235",
+          "Resultary query: planes on general hypersurfaces parity odd count quintic septic Debarre Manivel finite Fano scheme",
+          "Resultary comparison: Parity of finite line counts on complete intersections"
+        ]
+      },
+      "checked_sources": [
+        "Hashimoto--Kadets, 38406501359372282063949 and All That: Monodromy of Fano Problems, DOI:10.1093/imrn/rnaa275",
+        "Debarre--Manivel, Sur la variete des espaces lineaires contenus dans une intersection complete, arXiv:alg-geom/9611033; DOI:10.1007/s002080050235",
+        "Resultary query: planes on general hypersurfaces parity odd count quintic septic Debarre Manivel finite Fano scheme",
+        "Resultary comparison: Parity of finite line counts on complete intersections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After reduction mod two, the audited coefficient becomes \\(K_q=2(3q)!/(q!(q+1)!(q+2)!)\\).",
+          "The explicit valuation argument proves \\(K_q\\) odd only for \\(q=1,2\\), corresponding to \\(d=5,7\\)."
+        ],
+        "reasoning": "Neither the coefficient formula nor the general divisibility lemma implies this odd-degree reduction or the final two-adic classification without new calculation.",
+        "searches": [
+          "Hashimoto--Kadets Theorem 3.3 and Lemma 3.4",
+          "mod-two factorization of the Debarre--Manivel product",
+          "two-adic valuation of \\(K_q\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Debarre--Manivel coefficient formula is the exact starting point of the audited calculation.",
+          "Hashimoto--Kadets divisibility immediately covers even \\(d\\), but is vacuous mod two for odd \\(d\\)."
+        ],
+        "reasoning": "The comparison was made at the coefficient/divisibility level, not by title; the audited mod-two factorization is an additional specialization.",
+        "searches": [
+          "Hashimoto--Kadets, 38406501359372282063949 and All That: Monodromy of Fano Problems, DOI:10.1093/imrn/rnaa275",
+          "Debarre--Manivel, Sur la variete des espaces lineaires contenus dans une intersection complete, arXiv:alg-geom/9611033; DOI:10.1007/s002080050235",
+          "Resultary query: planes on general hypersurfaces parity odd count quintic septic Debarre Manivel finite Fano scheme",
+          "Resultary comparison: Parity of finite line counts on complete intersections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the audited plane theorem as the exact same-object hit and a distinct finite-line parity theorem.",
+          "No independent checked table supplied the all-degree odd/even classification."
+        ],
+        "reasoning": "Isolated classical enumerative values would not by themselves imply the infinite iff classification.",
+        "searches": [
+          "Resultary query: planes on general hypersurfaces parity odd count quintic septic Debarre Manivel finite Fano scheme",
+          "Resultary comparison: Parity of finite line counts on complete intersections",
+          "exact searches for the two large quintic/septic counts"
+        ]
+      },
+      "rationale": "Originality passes. The full accessible Hashimoto--Kadets article was inspected at its Fano numerology section: it restates the Debarre--Manivel coefficient formula and proves divisibility of a finite Fano degree by the defining degrees to the power \\(r+1\\). That explains evenness for even hypersurface degree but gives no parity information for odd degree. The nearby line-count parity result has \\(r=1\\) and a different critical equation. No checked source states that the critical plane count is odd exactly for degrees five and seven.",
+      "residual_risks": [
+        "Classical enumerative tables may record some isolated plane counts or the hook-number parity separately; no source found combines them into the critical hypersurface iff theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_DEGREE_FORMULA_AND_EVEN_DEGREE_DIVISIBILITY_NOT_ODD_PLANE_PARITY",
+          "evidence": "The lemma gives divisibility by \\(d^3\\) for plane hypersurfaces; it decides parity for even \\(d\\) but not odd \\(d\\).",
+          "identifier_or_url": "DOI:10.1093/imrn/rnaa275",
+          "material_read": "Accessible full Oxford Academic article around Section 3, including the expected-dimension formula, Theorem 3.3 degree coefficient formula, and Lemma 3.4 divisibility.",
+          "method": "lawful full primary text",
+          "title": "38406501359372282063949 and All That: Monodromy of Fano Problems",
+          "trigger": "Highly relevant primary paper on finite Fano problems that restates the degree formula and proves a general divisibility lemma."
+        },
+        {
+          "assessment": "FORMULA_PRIOR_NOT_PARITY_CLASSIFICATION",
+          "evidence": "The audited theorem expressly treats the coefficient formula as prior and adds a global parity reduction.",
+          "identifier_or_url": "arXiv:alg-geom/9611033; DOI:10.1007/s002080050235",
+          "material_read": "Bibliographic/original-source identification and its formula as quoted theorem-level in the fully inspected Hashimoto--Kadets article; the original article was not separately reread in full this run.",
+          "method": "primary-source comparison through cited theorem plus bibliographic verification",
+          "title": "Sur la variete des espaces lineaires contenus dans une intersection complete",
+          "trigger": "Original source of the Fano degree coefficient formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hashimoto--Kadets 2022",
+        "Debarre--Manivel 1998"
+      ],
+      "rationale": "Parity is a natural enumerative invariant because odd complex degree forces a real solution on the transverse real locus. The theorem turns the general Fano coefficient machinery into a complete infinite-family parity classification with exactly two exceptional degrees, rather than merely tabulating the known quintic/septic counts.",
+      "residual_risks": [
+        "The theorem does not determine full two-adic valuations or higher-dimensional linear spaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

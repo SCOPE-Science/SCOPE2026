@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-The exact checker reconstructs the coefficient
-\[
-[x^n y^{n-1}z^{n-2}](x-y)(x-z)(y-z)\prod_{i+j+k=d}(ix+jy+kz)
-\]
-with integer arithmetic for several critical degrees. It reproduces the displayed quintic and septic counts and verifies sample even cases without using the parity theorem as an input.
 
-A separate exact path checks the reduced hook-number formula
-\[
-K_q=\frac{2(3q)!}{q!(q+1)!(q+2)!}
-\]
-and its \(2\)-adic valuation. It verifies the predicted parity for every admissible odd degree through \(d=299\) and the valuation classification for \(1\le q\le5000\).
+# Independent mathematical audit
 
-Those bounded replays are regression evidence. The infinite result is proved in RESULT.md by the symbolic reduction of the full top-Chern product modulo \(2\), followed by a uniform floor-sum argument showing \(\nu_2(K_q)>0\) for all \(q\ge3\).
+## correctness
 
-The real consequence uses only conjugation on a zero-dimensional scheme over \(\mathbb R\): non-real closed points contribute even total degree, so odd length forces a real point.
+PASS
+
+The critical dimension equation is correct. Direct coefficient reconstruction independently reproduced \(P_4=3297280\), \(P_5=420760566875\), \(P_7=279101475496912988004267637\), and the displayed huge \(P_8\). For even \(d\), a factor \(dx\) kills the product mod two. For odd \(d=2m+1\), parity of the composition factors gives \(Q_d\equiv(xyz)^A(x+y+z)^{3q}\), reducing the target coefficient to \(K_q\). Legendre valuation gives the first power-of-two contribution \(-1\), all later contributions nonnegative, and for every \(q\ge3\) at least one positive contribution; \(K_1=1,K_2=5\). Hence only \(d=5,7\) are odd. Complex conjugation then proves the stated real transverse corollary.
+
+## originality
+
+PASS
+
+Originality passes. The full accessible Hashimoto--Kadets article was inspected at its Fano numerology section: it restates the Debarre--Manivel coefficient formula and proves divisibility of a finite Fano degree by the defining degrees to the power \(r+1\). That explains evenness for even hypersurface degree but gives no parity information for odd degree. The nearby line-count parity result has \(r=1\) and a different critical equation. No checked source states that the critical plane count is odd exactly for degrees five and seven.
+
+## value
+
+PASS
+
+Parity is a natural enumerative invariant because odd complex degree forces a real solution on the transverse real locus. The theorem turns the general Fano coefficient machinery into a complete infinite-family parity classification with exactly two exceptional degrees, rather than merely tabulating the known quintic/septic counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

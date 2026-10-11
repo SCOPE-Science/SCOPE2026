@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the plane count from the source-backed Debarre--Manivel coefficient formula. The mod-\(2\) factorization for odd degree is exhaustive by parity type of the compositions of \(d\), and the coefficient reduction to \(K_q=2(3q)!/(q!(q+1)!(q+2)!)\) is an exact multinomial identity. The Legendre-floor argument proves evenness for every \(q\ge3\), while \(q=1,2\) are checked exactly. A standalone exact-integer replay independently recomputes the first critical plane counts from the original product formula.
+## correctness
 
-## Originality
-PASS. The primary Fano-scheme paper was inspected in full at the smoothness theorem, degree theorem, examples, and publication-history note. It supplies the enumerative input but not the parity classification. A later paper devoted to finite Fano problems supplies a broad divisibility theorem that settles even defining degree but does not classify odd plane counts; targeted inspection found no quintic/septic formulation. Claim-specific exact-number and semantic searches did not locate an equivalent theorem.
+PASS
 
-The nearest prior result in the checked local literature concerns finite line counts. It is not stronger: its all-odd criterion fails for planes, where the present theorem proves that only degrees \(5\) and \(7\) are odd. Residual risk remains that a dispersed classical table contains isolated values without stating the global law.
+The critical dimension equation is correct. Direct coefficient reconstruction independently reproduced \(P_4=3297280\), \(P_5=420760566875\), \(P_7=279101475496912988004267637\), and the displayed huge \(P_8\). For even \(d\), a factor \(dx\) kills the product mod two. For odd \(d=2m+1\), parity of the composition factors gives \(Q_d\equiv(xyz)^A(x+y+z)^{3q}\), reducing the target coefficient to \(K_q\). Legendre valuation gives the first power-of-two contribution \(-1\), all later contributions nonnegative, and for every \(q\ge3\) at least one positive contribution; \(K_1=1,K_2=5\). Hence only \(d=5,7\) are odd. Complex conjugation then proves the stated real transverse corollary.
 
-## Value
-PASS. The result classifies a natural infinite family of zero-dimensional Fano schemes and identifies a sharp qualitative break between line and plane enumeration. It is a full-family structural parity theorem, not a numerical table or arbitrary finite cutoff, and it gives a direct real-plane consequence in the two exceptional degrees.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The full accessible Hashimoto--Kadets article was inspected at its Fano numerology section: it restates the Debarre--Manivel coefficient formula and proves divisibility of a finite Fano degree by the defining degrees to the power \(r+1\). That explains evenness for even hypersurface degree but gives no parity information for odd degree. The nearby line-count parity result has \(r=1\) and a different critical equation. No checked source states that the critical plane count is odd exactly for degrees five and seven.
+
+## value
+
+PASS
+
+Parity is a natural enumerative invariant because odd complex degree forces a real solution on the transverse real locus. The theorem turns the general Fano coefficient machinery into a complete infinite-family parity classification with exactly two exceptional degrees, rather than merely tabulating the known quintic/septic counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
