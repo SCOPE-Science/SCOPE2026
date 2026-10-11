@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:40:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 82165ff7826cd6a9a0f5898a97ceaf1a42cedeb9",
+        "artifacts/verify.py blob 1ae08532aab26e554e23d9388b948854e2c55bdc",
+        "artifacts/certificate.json blob 68e41fd860b9f46254e97b5aa4967a61f24a7b85",
+        "Abdukhalikov--Ho--Shat arXiv:2609.31300",
+        "Abdukhalikov--Shat DOI:10.3390/e27111096"
+      ],
+      "rationale": "I independently rebuilt \\(\\mathbb F_4\\), the two source generator components and all seven cyclic shifts. Exhausting all \\(4^7\\) messages reproduced the exact weight distribution \\(1+357z^{11}+735z^{12}+1176z^{13}+1869z^{14}+2835z^{15}+3234z^{16}+3045z^{17}+2079z^{18}+756z^{19}+210z^{20}+87z^{21}\\). Independently enumerating every distinct span of up to six generator-matrix columns gave counts \\((1,21,210,1330,5761,12159,2205)\\) and maximal column intersections \\((0,1,2,3,5,7,10)\\); the standard column-span formula therefore gives the claimed hierarchy. Wei duality then gives the stated dual hierarchy. These computations independently reproduce the package certificate rather than relying on its log.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The checked quasi-cyclic papers classify/generate codes and determine ordinary distance, not all support dimensions."
+        ],
+        "reasoning": "No checked broader theorem specializes to the complete hierarchy of this explicit code without doing the same code-specific subspace calculation.",
+        "searches": [
+          "arXiv:2609.31300",
+          "DOI:10.3390/e27111096",
+          "searches for exact hierarchy values"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.31300",
+        "DOI:10.3390/e27111096",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum distance supplies only \\(d_1=11\\); it does not determine \\(d_2,\\ldots,d_7\\).",
+          "Wei duality determines the dual hierarchy only after the primal hierarchy is computed."
+        ],
+        "reasoning": "The remaining six primal weights require additional exact geometry of the generator columns.",
+        "searches": [
+          "source minimum-distance theorem and appendix generator data",
+          "Wei generalized-weight duality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 source's Table A3 row 47 identifies the exact code by its one-generator polynomial triple.",
+          "The 2025 paper's Example 8 supplies a different presentation of an optimal code with the same ordinary parameters, but no GHW sequence."
+        ],
+        "reasoning": "Generalized Hamming weights, maximal intersections of columns with codimension subspaces, and Wei-dual hierarchies were compared as equivalent formulations.",
+        "searches": [
+          "Resultary query: quaternary \\([21,7,11]\\) quasi-cyclic Hermitian LCD generalized Hamming weights",
+          "Abdukhalikov--Ho--Shat arXiv:2609.31300 full primary PDF",
+          "Abdukhalikov--Shat DOI:10.3390/e27111096 full primary article"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source table records \\([21,7,11]\\) and the generators but no hierarchy.",
+          "No indexed table with \\((11,14,16,18,19,20,21)\\) was found."
+        ],
+        "reasoning": "The exact source table establishes object identity but does not contain the audited invariant.",
+        "searches": [
+          "Abdukhalikov--Ho--Shat appendix Table A3",
+          "Resultary exact parameter/hierarchy query"
+        ]
+      },
+      "rationale": "The exact source preprint was inspected in full through its theory section and appendix after ordinary open full-text retrieval failed. Its appendix Table A3 row 47 gives the same \\([21,7,11]\\) Hermitian LCD code and generator data, while the paper studies minimum-distance bounds and LCD constructions rather than generalized Hamming weights. The 2025 index-three quasi-cyclic paper contains another optimal \\([21,7,11]\\) code as a Hermitian dual, but likewise gives parameters and dual structure rather than a hierarchy. Exact hierarchy searches found no prior statement of the seven values.",
+      "residual_risks": [
+        "An unindexed code-table computation may contain the same hierarchy without a paper-level statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CODE_PARAMETERS_AND_GENERATOR_NOT_WEIGHT_HIERARCHY",
+          "evidence": "The source gives the \\([21,7,11]\\) code and generator polynomials but does not state its generalized Hamming hierarchy.",
+          "identifier_or_url": "arXiv:2609.31300",
+          "material_read": "Complete primary PDF sections on the Hermitian LCD construction and minimum-distance framework, plus appendix pages 30--36; Table A3 row 47 was inspected directly and matches the package code.",
+          "method": "Authorized full-primary-PDF inspection after ordinary open full-text retrieval failed.",
+          "title": "New Minimum Distance Bounds and Optimal Hermitian LCD Quasi-Cyclic Codes",
+          "trigger": "Exact source of the audited code."
+        },
+        {
+          "assessment": "SAME_PARAMETERS_DIFFERENT_CODE_PRESENTATION_NO_HIERARCHY",
+          "evidence": "Example 8 gives an optimal \\([21,7,11]\\) Hermitian dual but no generalized Hamming weights.",
+          "identifier_or_url": "DOI:10.3390/e27111096",
+          "material_read": "Complete open primary HTML, including Example 8 and the duality/classification sections.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "On Quasi-Cyclic Codes of Index 3",
+          "trigger": "Earlier exact-parameter quasi-cyclic predecessor."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Abdukhalikov--Ho--Shat 2026",
+        "generalized Hamming-weight literature"
+      ],
+      "rationale": "Generalized Hamming weights are canonical support invariants used in secret sharing and higher-order erasure performance. Computing the entire hierarchy of a newly published optimal Hermitian LCD code gives substantially more structure than its minimum distance alone, and the exact dual hierarchy follows as an immediate additional invariant.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the explicit Hermitian LCD one-generator quasi-cyclic code \\(C\\subset\\mathbb F_4^{21}\\) of dimension \\(7\\) and minimum distance \\(11\\) in Abdukhalikov--Ho--Shat, the generalized Hamming weight hierarchy is \\((11,14,16,18,19,20,21)\\); the Hermitian dual hierarchy is \\((5,7,9,10,12,13,14,15,16,17,18,19,20,21)\\).",
+  "limitations": [
+    "This is the exact hierarchy of the specified optimal code, not a theorem for every quaternary \\([21,7,11]\\) quasi-cyclic code.",
+    "The result uses the coordinate presentation in the source table; hierarchy invariance under monomial equivalence is standard but no equivalence classification is claimed."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library and reconstructs the code from the four quadratic factors printed in the source.
 
-It implements \(\mathbb F_4\) with \(\omega^2+\omega+1=0\), multiplies the factors, builds the seven cyclic shifts of the one-generator index-\(3\) quasi-cyclic word, and checks rank \(7\). It exhausts all \(4^7\) codewords, recovering minimum distance \(11\) and the displayed ordinary weight distribution. It separately computes the Hermitian Gram rank and obtains \(7\).
+# Independent mathematical audit
 
-For generalized Hamming weights, every independent subset of generator columns through size \(6\) is row-reduced to a canonical subspace key. Duplicate spans are removed. The verifier counts how many of the \(21\) columns lie in each distinct span, recovers maxima \((0,1,2,3,5,7,10)\), checks the explicit maximizing witnesses in `artifacts/certificate.json`, and derives \((11,14,16,18,19,20,21)\). The dual hierarchy is then computed from Wei duality. No floating-point arithmetic, heuristic search, or solver status is used.
+## correctness
+
+PASS
+
+I independently rebuilt \(\mathbb F_4\), the two source generator components and all seven cyclic shifts. Exhausting all \(4^7\) messages reproduced the exact weight distribution \(1+357z^{11}+735z^{12}+1176z^{13}+1869z^{14}+2835z^{15}+3234z^{16}+3045z^{17}+2079z^{18}+756z^{19}+210z^{20}+87z^{21}\). Independently enumerating every distinct span of up to six generator-matrix columns gave counts \((1,21,210,1330,5761,12159,2205)\) and maximal column intersections \((0,1,2,3,5,7,10)\); the standard column-span formula therefore gives the claimed hierarchy. Wei duality then gives the stated dual hierarchy. These computations independently reproduce the package certificate rather than relying on its log.
+
+## originality
+
+PASS
+
+The exact source preprint was inspected in full through its theory section and appendix after ordinary open full-text retrieval failed. Its appendix Table A3 row 47 gives the same \([21,7,11]\) Hermitian LCD code and generator data, while the paper studies minimum-distance bounds and LCD constructions rather than generalized Hamming weights. The 2025 index-three quasi-cyclic paper contains another optimal \([21,7,11]\) code as a Hermitian dual, but likewise gives parameters and dual structure rather than a hierarchy. Exact hierarchy searches found no prior statement of the seven values.
+
+## value
+
+PASS
+
+Generalized Hamming weights are canonical support invariants used in secret sharing and higher-order erasure performance. Computing the entire hierarchy of a newly published optimal Hermitian LCD code gives substantially more structure than its minimum distance alone, and the exact dual hierarchy follows as an immediate additional invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

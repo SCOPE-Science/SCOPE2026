@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The code was reconstructed from the published generator factors over \(\mathbb F_4\). Exact enumeration confirms dimension \(7\), minimum distance \(11\), the complete ordinary weight distribution, and a full-rank Hermitian Gram matrix. The generalized-weight proof uses the exact column-subspace characterization and exhausts all distinct column-generated subspaces through dimension \(6\), with explicit maximizers. The resulting intersection maxima are \((0,1,2,3,5,7,10)\), hence the hierarchy is \((11,14,16,18,19,20,21)\). Wei duality gives the stated Hermitian-dual hierarchy because field conjugation preserves supports.
+PASS
 
-## Originality
+I independently rebuilt \(\mathbb F_4\), the two source generator components and all seven cyclic shifts. Exhausting all \(4^7\) messages reproduced the exact weight distribution \(1+357z^{11}+735z^{12}+1176z^{13}+1869z^{14}+2835z^{15}+3234z^{16}+3045z^{17}+2079z^{18}+756z^{19}+210z^{20}+87z^{21}\). Independently enumerating every distinct span of up to six generator-matrix columns gave counts \((1,21,210,1330,5761,12159,2205)\) and maximal column intersections \((0,1,2,3,5,7,10)\); the standard column-span formula therefore gives the claimed hierarchy. Wei duality then gives the stated dual hierarchy. These computations independently reproduce the package certificate rather than relying on its log.
 
-PASS. The closest 2026 source publishes this exact generator and its ordinary \([21,7,11]\) parameters but does not state generalized Hamming weights. A related 2025 index-\(3\) quasi-cyclic paper gives another \([21,7,11]\) example in a dual construction without a higher-weight hierarchy. Exact-parameter, exact-sequence, weight-hierarchy, generalized-Hamming-weight, generator, and dual searches did not locate the claimed sequence. Residual risk remains that an equivalent code has been treated under a different presentation in an unindexed source.
+## originality
 
-## Value
+PASS
 
-PASS. Generalized Hamming weights are a standard structural invariant strictly stronger than minimum distance. Completing all seven weights for a newly reported optimal Hermitian LCD code gives its full dimension-length profile, identifies equality in the generalized Singleton bound from the fourth weight onward, and determines the dual hierarchy as well. The result is a natural complete invariant of the published construction rather than a routine parameter increment.
+The exact source preprint was inspected in full through its theory section and appendix after ordinary open full-text retrieval failed. Its appendix Table A3 row 47 gives the same \([21,7,11]\) Hermitian LCD code and generator data, while the paper studies minimum-distance bounds and LCD constructions rather than generalized Hamming weights. The 2025 index-three quasi-cyclic paper contains another optimal \([21,7,11]\) code as a Hermitian dual, but likewise gives parameters and dual structure rather than a hierarchy. Exact hierarchy searches found no prior statement of the seven values.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Generalized Hamming weights are canonical support invariants used in secret sharing and higher-order erasure performance. Computing the entire hierarchy of a newly published optimal Hermitian LCD code gives substantially more structure than its minimum distance alone, and the exact dual hierarchy follows as an immediate additional invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
