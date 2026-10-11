@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim is: Let \(X\) be a compact metric space and let \(J\) be a closed lattice ideal of \(C(X)\). Then \(J\) is semiprojective if and only if either \(J=0\), or there is a nonempty clopen absolute neighbourhood retract \(U\subseteq X\) such that \(J=\{f\in C(X):f|_{X\setminus U}=0\}\). Equivalently, for closed \(F\subseteq X\), the ideal \(I_F=\{f\in C(X):f|_F=0\}\) is semiprojective exactly when \(X\setminus F=\varnothing\) or \(X\setminus F\) is a clopen absolute neighbourhood retract. If \(X\setminus F\) is not closed, then \(c_0\) is a contractive lattice retract of \(I_F\). In particular, for the middle-third Cantor set \(K\subset[0,1]\), \(I_K\) is not semiprojective.
+# Independent mathematical audit
 
-The verification has three exact steps.
+## correctness
 
-First, if \(U=X\setminus F\) is not closed, choose \(p\in\overline U\setminus U\) and \(x_n\in U\) converging geometrically to \(p\). The radii chosen in the proof force pairwise disjoint open neighborhoods whose closures lie in \(U\). Positive bumps \(h_n\) supported there satisfy \(h_n(x_n)=1\). For \(a\in c_0\), disjointness makes \(\sum_n a_nh_n\) uniformly convergent with norm exactly \(\|a\|_\infty\) and preserves absolute values. For \(f\in I_F\), continuity at \(p\in F\) gives \(f(x_n)\to0\). Thus synthesis and evaluation are contractive lattice homomorphisms whose composition is \(\operatorname{id}_{c_0}\).
+PASS
 
-Second, arXiv:2604.10624v1, Proposition 2.6 says that a contractive lattice retract of a semiprojective Banach lattice is semiprojective, while Corollary 5.8 says \(c_0\) is not semiprojective. Therefore every \(I_F\) with nonclosed support is non-semiprojective.
+For a nonclosed support U, choose points in U converging geometrically to a boundary point in F and pairwise disjoint bump functions supported inside U. Disjoint synthesis gives an isometric lattice embedding of c0, while evaluation at the convergent points maps I_F contractively to c0 and composes to the identity. Published retract permanence and c0 non-semiprojectivity then rule out semiprojectivity. If U is clopen, extension by zero identifies I_F isometrically with C(U), so the published C(Y)-ANR theorem gives the positive classification. The standard closed-ideal correspondence completes the proof.
 
-Third, if \(U\) is clopen, restriction and extension by zero give a lattice isometric isomorphism \(I_F\cong C(U)\). Theorem A of the same source says that for compact metric \(U\), \(C(U)\) is semiprojective exactly when \(U\) is an absolute neighbourhood retract. The zero ideal is semiprojective trivially.
+## originality
 
-The standard closed-ideal correspondence in \(C(X)\) is also checked directly: for a closed ideal \(J\), the common zero set \(F\) gives \(J\subseteq I_F\), and a finite positive lattice supremum plus clipping approximates every \(f\in I_F\) by members of \(J\).
+PASS
 
-No numerical computation, finite enumeration, or unproved limiting heuristic is used. The claim does not extend beyond compact metric \(X\) or beyond closed lattice ideals. No independent audit has been performed.
+The primary source proves semiprojectivity of C(Y) exactly for compact metric ANRs, permanence under contractive lattice retracts, and non-semiprojectivity of c0; it explicitly says the Cantor-set ideal case is unclear. The audited disjoint-bump construction supplies a c0 retract for every nonclosed support, resolving that uncertainty and combining with the clopen case to classify all closed lattice ideals of C(X).
+
+## value
+
+PASS
+
+The theorem resolves an explicit open Cantor-ideal case in the defining recent paper and gives a complete topological classification of all closed ideals of C(X), with a reusable boundary-support obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
