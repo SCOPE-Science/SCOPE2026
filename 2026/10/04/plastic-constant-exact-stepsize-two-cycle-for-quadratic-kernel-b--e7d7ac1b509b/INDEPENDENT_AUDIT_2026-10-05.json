@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:48:46.260918Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b51c61d08a755b61030917b410488f5cc417b3ff",
+        "verify_cycle.py blob 5ca5419e34f04414421e9e61788a837c3ac282f3",
+        "independent branch-selection algebra"
+      ],
+      "rationale": "The scalar quadratic specialization gives the exact normalized recurrence \\(t_{k+1}=t_k\\min\\{\\sqrt{1+t_k/t_{k-1}},[2(t_k^2-t_k)]^{-1/2}\\}\\) on the proposed orbit. For the plastic constant \\(r^3=r+1\\) and the stated \\(a,b=ra\\), direct algebra shows that at state \\((b,a)\\) the growth branch equals \\(r\\) and is smaller, producing \\(b\\), while at \\((a,b)\\) the curvature branch equals \\(1/r\\) and is smaller, producing \\(a\\). Thus the stepsizes alternate forever. Both lie in \\((1,2)\\), so the iterates never hit a degeneracy and the local curvature estimates remain defined. Their two-step contraction factor \\((a-1)(b-1)\\) is strictly between zero and one, proving Q-linear convergence. The high-precision verifier reproduces these identities but is not needed for the exact proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source theory is broader in objective/kernel class but its accessible material does not state an exact closed-form cycle.",
+          "The predecessor is Euclidean and reports seemingly cyclic behavior rather than an exact invariant orbit."
+        ],
+        "reasoning": "General convergence of iterates does not imply convergence of adaptive stepsizes, so broader convergence theory does not cover the claim.",
+        "searches": [
+          "Ou--Latafat--Themelis, Linesearch-free adaptive Bregman proximal gradient for convex minimization under local relative smoothness, arXiv:2508.01353",
+          "Latafat--Themelis--Stella--Patrinos, Adaptive proximal algorithms for convex optimization under local Lipschitz continuity of the gradient, arXiv:2301.04431"
+        ]
+      },
+      "checked_sources": [
+        "Ou--Latafat--Themelis, Linesearch-free adaptive Bregman proximal gradient for convex minimization under local relative smoothness, arXiv:2508.01353",
+        "Latafat--Themelis--Stella--Patrinos, Adaptive proximal algorithms for convex optimization under local Lipschitz continuity of the gradient, arXiv:2301.04431",
+        "Resultary query: adaptive proximal gradient exact period two stepsize plastic constant quadratic B-adaPG"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identities \\(\\sqrt{1+1/r}=r\\) and \\(2b(b-1)=r^2\\) force alternating selection of the growth and curvature branches.",
+          "The iterate factors then alternate while their two-step product remains strictly contractive."
+        ],
+        "reasoning": "The explicit orbit explains a phenomenon only observed qualitatively in accessible prior material and is not implied by the convergence theorem.",
+        "searches": [
+          "Ou--Latafat--Themelis, Linesearch-free adaptive Bregman proximal gradient for convex minimization under local relative smoothness, arXiv:2508.01353",
+          "exact two-branch recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior algorithms empirically exhibit or discuss oscillating stepsizes.",
+          "The audited recurrence fixes the same adaptive rule on a scalar quadratic and solves an exact nonconstant two-cycle."
+        ],
+        "reasoning": "Empirical cyclic-looking behavior and an algebraically exact periodic orbit are not equivalent statements.",
+        "searches": [
+          "Ou--Latafat--Themelis, Linesearch-free adaptive Bregman proximal gradient for convex minimization under local relative smoothness, arXiv:2508.01353",
+          "Latafat--Themelis--Stella--Patrinos, Adaptive proximal algorithms for convex optimization under local Lipschitz continuity of the gradient, arXiv:2301.04431",
+          "Resultary query: adaptive proximal gradient exact period two stepsize plastic constant quadratic B-adaPG"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked indexed result supplied the plastic-constant pair \\(a,b\\) or the exact orbit."
+        ],
+        "reasoning": "Search absence is supporting evidence only; the inaccessible focal full manuscript remains the principal risk.",
+        "searches": [
+          "Resultary query: adaptive proximal gradient exact period two stepsize plastic constant quadratic B-adaPG",
+          "targeted searches for plastic constant, period-two adaptive stepsize, and the exact scalar recurrence"
+        ]
+      },
+      "rationale": "Originality passes on a best-of-knowledge basis with an explicit direct-source access risk. The defining Bregman adaptive-gradient source gives the update and reports alternating/fluctuating stepsizes as behavior needing explanation; the Euclidean predecessor describes seemingly cyclic adaptive stepsizes. The audited theorem supplies an exact period-two orbit on a scalar strongly convex quadratic, with a closed plastic-constant initialization and simultaneous Q-linear iterate convergence. Fresh Resultary search did not return an implication-equivalent exact adaptive cycle. The focal manuscript could not be independently read in full after open-route failure and one authorized institutional attempt failed, so no whole-document noncoverage claim is made.",
+      "residual_risks": [
+        "The complete arXiv:2508.01353 manuscript remained inaccessible in this run after open-route failure and one authorized retrieval error; an equivalent theorem hidden in that paper would affect originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_DIRECT_SOURCE",
+          "evidence": "Accessible material establishes the same update and qualitative oscillation context; whole-document noncoverage of an exact period-two formula is not asserted.",
+          "identifier_or_url": "arXiv:2508.01353",
+          "material_read": "Primary abstract/current record plus accessible material identifying the quadratic-kernel update and oscillating-step discussion. Open full-text routes did not yield the complete manuscript; one authorized institutional retrieval attempt returned an unavailable/invalid worker error and was not retried.",
+          "method": "lawful primary record plus one bounded authorized-access attempt after open-route failure",
+          "title": "Linesearch-free adaptive Bregman proximal gradient for convex minimization under local relative smoothness",
+          "trigger": "Defining source of the exact adaptive recurrence."
+        },
+        {
+          "assessment": "EMPIRICAL_OSCILLATION_NOT_EXACT_CYCLE_THEOREM",
+          "evidence": "The inspected material reports the phenomenon but does not give the plastic-constant exact orbit.",
+          "identifier_or_url": "arXiv:2301.04431",
+          "material_read": "Accessible primary material around the empirical adaptive-stepsize discussion, including the description of seemingly cyclic behavior.",
+          "method": "lawful accessible primary material",
+          "title": "Adaptive proximal algorithms for convex optimization under local Lipschitz continuity of the gradient",
+          "trigger": "Euclidean predecessor explicitly discussing cyclic-looking adaptive stepsizes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ou--Latafat--Themelis, Linesearch-free adaptive Bregman proximal gradient for convex minimization under local relative smoothness, arXiv:2508.01353",
+        "Latafat--Themelis--Stella--Patrinos, Adaptive proximal algorithms for convex optimization under local Lipschitz continuity of the gradient, arXiv:2301.04431",
+        "Resultary query: adaptive proximal gradient exact period two stepsize plastic constant quadratic B-adaPG"
+      ],
+      "rationale": "Whether adaptive stepsizes themselves converge is a meaningful algorithmic behavior distinct from iterate convergence, and the cited line of work explicitly flags oscillatory steps as needing explanation. An exact strongly convex quadratic cycle demonstrates persistent nonconvergence in the cleanest possible setting while retaining rapid convergence of the iterates, sharply separating these two notions.",
+      "residual_risks": [
+        "The cycle is specially initialized and is not claimed to be generic or attracting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complete arXiv:2508.01353 manuscript remained inaccessible in this run after open-route failure and one authorized retrieval error; an equivalent theorem hidden in that paper would affect originality.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
