@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the problem to a four-secant derivative lemma. Its inequality is exact and uses only triangle inequalities and nonnegativity. On a bounded monotone sequence the four secants telescope, giving the universal derivative bound \(hm_i\le M/2\). The Hermite basis then yields the two-sided range envelope, and an explicit rational family approaches the lower constant; reversal-complement symmetry gives upper sharpness. The embedded exact-rational checker returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with explicit residual risk. Akima's method itself and the qualitative fact that it may overshoot are established prior work. Monotonicity-preserving cubic alternatives are also classical. Searches under Akima, monotone-data, overshoot, positivity, exact-bound, Hermite-derivative, and \(2/27\) aliases did not locate an implication-equivalent sharp theorem. The accessible full text of Fritsch--Butland addresses derivative modification to guarantee monotonicity rather than a worst-case range constant for the original Akima rule. The original Akima article was not recovered as verified full text, so hidden overlap there or in older engineering literature remains a stated risk.
+PASS
 
-## Value
-PASS. Akima interpolation is widely used precisely because it suppresses visually objectionable oscillation without global solves, yet it is not shape preserving. A sharp dimensionless bound converts that qualitative limitation into a usable safety margin: no monotone bounded data can exceed the data range by more than \(7.407\%\), and that percentage cannot be improved. The strict-positive sign-reversal witness shows the result is relevant when interpolation must respect physical positivity.
+For nonnegative neighboring secants \(a,b,c,d\), the Akima derivative is a weighted average of \(b,c\). The displayed algebra proves the sharp enough universal estimate \(0\le m\le(a+b+c+d)/2\), including the zero-weight convention. On a uniform grid the four secants telescope, giving \(0\le h m_i\le M/2\). In the Hermite representation, the data-value basis functions are a convex pair, while the two derivative basis functions have signs \(+,-\); their extrema are \(4/27\), so the interpolant lies between \(-2M/27\) and \(M+2M/27\). The explicit monotone family has endpoint derivatives \(\varepsilon\) and \(1/2-2\varepsilon\) and value \((104\varepsilon-2)/27\) at \(t=2/3\), approaching the lower endpoint; reversal-complement symmetry gives the upper endpoint. I independently checked the derivative lemma on the exact integer box \(0\le a,b,c,d\le8\) and the rational sharpness witness, including the strictly positive transformed value \(-2/75\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Akima's original work introduces the local cubic rule; Fried--Zietz explicitly report that Akima interpolation can significantly overshoot abrupt data, so qualitative overshoot is prior. Fritsch--Butland pursue a different derivative rule designed to preserve monotonicity. Targeted web and Resultary searches did not locate the sharp \(2/27\) global range constant, the half-four-secant derivative lemma, or an equivalent extremal Hermite formulation for the original uniform Akima rule. Because the original 1970 article was not recovered in complete verified text and the authorized institutional attempt returned an operational error, it remains a named residual risk rather than being treated as evidence of noncoverage.
+
+## value
+
+PASS
+
+Akima interpolation remains a standard local cubic method, and overshoot on monotone bounded data is a longstanding practical limitation. An exact, scale-free global defect with a sharp family and a strictly positive-data undershoot witness gives a useful method-level stability invariant and a quantitative benchmark for shape-preserving modifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
