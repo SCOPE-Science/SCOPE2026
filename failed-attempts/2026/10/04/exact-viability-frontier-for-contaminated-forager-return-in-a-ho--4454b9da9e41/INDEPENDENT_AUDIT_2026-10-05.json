@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:02:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With \\(B=\\beta/(2\\chi)\\), \\(E=e^{-\\mu}\\), and \\(y=e^\\alpha\\), the source expression reduces to \\(R_1=BE[1+p(y-1-E)]/[(y-E)(1-pE)]\\). Direct differentiation gives \\(\\partial R_1/\\partial p=BE(y-1)/[(y-E)(1-pE)^2]>0\\) and \\(\\partial R_1/\\partial y=BE(p-1)/[(1-pE)(y-E)^2]\\le0\\). Solving \\(R_1=1\\) gives the displayed \\(p_c(\\alpha)\\); its endpoint condition is \\(\\alpha_\\star=\\log(E(1+B))\\), and its limit is \\(1/[E(1+B)]\\). Independent symbolic algebra reproduced these identities and the source numerical thresholds \\(p\\approx0.6768\\) at \\(\\alpha=0.03\\) and \\(\\alpha\\approx0.0362\\) at \\(p=0.8\\).",
+      "risks": [
+        "The frontier is for the exact reduced model and parameter assumptions stated; it is not a robustness result for alternative biological models."
+      ],
+      "sources": [
+        "RESULT.md blob ad0e2d75cf95d7e8fbe81274aaf1cd23e59ad5e5",
+        "verify.py blob ff811e527f6d7f56ad04da780b0902f5514f4a2d",
+        "Magal, Webb and Wu, DOI 10.1007/s11538-019-00662-5"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published \\(R_1\\) formula plus the theorem that \\(R_1<1\\) yields extinction and \\(R_1>1\\) yields positive equilibria already determines the viability boundary."
+        ],
+        "reasoning": "The source result is stronger model-level coverage; the closed form is routine rearrangement.",
+        "searches": [
+          "Full primary PDF equations (13)–(14), Lemma 2, Propositions 1–2, Figures 4–5"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s11538-019-00662-5",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Solving the source rational expression \\(R_1=1\\) for \\(p\\) yields exactly the submitted \\(p_c\\). Differentiating the same formula gives the monotonicity directions."
+        ],
+        "reasoning": "The final claim is a direct corollary of the published equation and threshold criterion.",
+        "searches": [
+          "Algebraic implication check from published \\(R_1\\) formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper gives exact \\(R_1\\), establishes the threshold role of \\(R_1=1\\), and numerically identifies \\(p=0.6768\\) at \\(\\alpha=0.03\\) and \\(\\alpha=0.0362\\) at \\(p=0.8\\)."
+        ],
+        "reasoning": "The audited frontier is the same threshold surface expressed explicitly as \\(p\\) as a function of \\(\\alpha\\).",
+        "searches": [
+          "DOI 10.1007/s11538-019-00662-5 full public PDF, model analysis and Figures 4–5",
+          "Resultary: Magal Webb Wu R1 critical return fraction closed form pesticide frontier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate database duplicate was needed to decide coverage because the original model paper itself is decisive."
+        ],
+        "reasoning": "Exact-table search is inapplicable to the originality decision once the source equation and threshold theorem are read.",
+        "searches": [
+          "Resultary semantic search for exact frontier",
+          "Primary paper's plotted threshold surface"
+        ]
+      },
+      "rationale": "FAIL. Magal–Webb–Wu already derive the exact \\(R_1(p,\\alpha)\\) expression, prove extinction versus positive equilibria according to \\(R_1<1\\) or \\(R_1>1\\), graph the full \\((p,\\alpha)\\) surface, and report the same two numerical threshold crossings. The submitted \\(p_c(\\alpha)\\) is obtained by one rational solve of the published equation \\(R_1=1\\), with monotonicity from elementary differentiation. Under the owner's implication-level rule, the source already covers the final frontier.",
+      "residual_risks": [
+        "No originality uncertainty remains material because the initiating primary paper itself mathematically implies the closed frontier."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_STRONGER_COVERAGE",
+          "evidence": [
+            "The paper states the exact \\(R_1(p,\\alpha)\\), proves its threshold role, plots the two-parameter surface, and prints the same numerical crossings."
+          ],
+          "identifier_or_url": "DOI:10.1007/s11538-019-00662-5",
+          "material_read": "Full public author PDF, especially the contamination model, exact \\(R_1\\) derivation, equilibrium threshold lemmas, and Figures 4–5.",
+          "method": "Public full-text PDF plus rendered-page inspection.",
+          "title": "An Environmental Model of Honey Bee Colony Collapse Due to Pesticide Contamination",
+          "trigger": "Exact source model and reproduction number used by the submission."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The biological threshold is meaningful, but this submission adds only elementary algebra and first derivatives to a source that already gives the exact threshold quantity, its dynamical interpretation, its two-parameter plot, and representative crossings. Under the stated value bar, that is a textbook-level repackaging rather than a substantively new mathematical gap.",
+      "risks": [
+        "The closed form can be convenient for parameter sensitivity, but convenience alone does not satisfy the mathematical value criterion."
+      ],
+      "sources": [
+        "DOI:10.1007/s11538-019-00662-5"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The science verdict is rejection for coverage/value, not a transport failure; the transport status below is separately not_ready because of frozen private metadata."
+  ],
+  "schema_version": 1
+}
