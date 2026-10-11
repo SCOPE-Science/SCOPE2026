@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:57:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected final proof was reconstructed at exponent level. Achilles means every exponent >=2 and exponent gcd 1, so at least one exponent is odd. The principal layer has a unique form p^(2j+1)m^2 with j>=1, p not dividing squarefree m, omega(m)=r-1; it is automatically Achilles. Fixed-order Landau counting for m gives the main term, and on the polylogarithmic truncation log Y=(1/2+o(1))log X, producing the factor 2. The absolutely convergent weight sum is sum_p p^(-3/2)/(1-p^-1). Uniform exclusion of the distinguished prime is lower order. Every nonprincipal pattern has at least two exceptional exponents; summing their p^(-e/2) weights leaves one fewer Landau loglog degree for r>=3, while r=2 is O(X^(1/3+o(1))). Thus the remainder is lower order. The finite verifier's 10^8 enumeration is corroborative only. The ready repair restores TeX control-sequence bytes in RESULT.md without changing the mathematics.",
+      "risks": [
+        "The proof uses standard fixed-k Landau asymptotics and uniform upper bounds rather than reproving them.",
+        "No effective error term or growing-r uniformity is supplied."
+      ],
+      "sources": [
+        "repaired RESULT.md SHA-256 694de9147a5d8daba2ef36c05360f90c2e7635395d068ff9d3504ee2adffdc46",
+        "verify.py blob 4afaf147558b6cc57a4e931b5ec586685b73de8b",
+        "arXiv:2409.10430v1",
+        "OEIS:A052486"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 gives global first and second moments over h-full integers; for h=2 the dominant square layer remains present.",
+          "The submitted theorem removes perfect powers and resolves each fixed-r fiber, a localization not determined by moments."
+        ],
+        "reasoning": "Global moment/normal-order results are broader in ambient set but weaker for the exact local counting regime and do not imply the final asymptotic.",
+        "searches": [
+          "arXiv:2409.10430 Theorem 1.2 and proof",
+          "OEIS A376361 powerful-number omega formulas"
+        ]
+      },
+      "checked_sources": [
+        "OEIS:A052486",
+        "OEIS:A393816",
+        "OEIS:A376361",
+        "arXiv:2409.10430v1",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First/second moments of omega over all powerful numbers do not determine the count of the non-perfect-power subset at any fixed r.",
+          "The leading layer in the final proof is one odd exponent >=3 with all other exponents 2; this layer is not isolated by the prior moment formula."
+        ],
+        "reasoning": "The submitted Landau decomposition is genuinely additional information and is not a mechanical specialization of the checked prior theorem/table.",
+        "searches": [
+          "Direct comparison of Das--Kuo--Liu moment theorem with fixed-r Achilles count",
+          "Direct comparison to OEIS r=2 table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A052486 defines powerful-but-imperfect/Achilles numbers and aggregate counts.",
+          "A393816 is exactly the r=2 Achilles sequence but contains enumeration rather than the asserted sqrt(X)/log X asymptotic.",
+          "The h-full paper studies omega moments on the ambient powerful set, not the Achilles subset at fixed omega."
+        ],
+        "reasoning": "Aliases checked include Achilles, powerful-not-perfect-power, squarefull, exact/fixed omega, distinct prime support, and exponent signatures.",
+        "searches": [
+          "Resultary: Achilles numbers fixed omega distinct prime factors asymptotic powerful non-perfect-power",
+          "OEIS:A052486",
+          "OEIS:A393816",
+          "arXiv:2409.10430"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A393816 is the decisive exact r=2 table and has no leading constant/asymptotic matching the claim.",
+          "A052486's published total below 10^8 is 10553, which the package verifier reproduces."
+        ],
+        "reasoning": "Existing exact tables provide numerical cross-checks but not the all-X fixed-r theorem.",
+        "searches": [
+          "OEIS:A052486",
+          "OEIS:A393816",
+          "OEIS:A376361"
+        ]
+      },
+      "rationale": "PASS. OEIS A052486 gives the Achilles object and aggregate enumeration, while A393816 tabulates the exact two-distinct-prime stratum; neither supplies the fixed-r counting asymptotic or prime-series constant. Das--Kuo--Liu's full arXiv HTML was inspected around Theorem 1.2 and its proof: it establishes first/second moments of omega over all h-full integers and normal order, not fixed-r counts after deleting perfect powers; in-document searches found no 'Achilles' or 'perfect power'. Resultary returned the audited record as the direct match and no independent covering fixed-r theorem among the checked hits.",
+      "residual_risks": [
+        "Older literature may use only squarefull/powerful terminology rather than Achilles.",
+        "No uniformity in growing r is claimed, so global Erdos--Kac/normal-order results are complementary rather than subsumed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_AGGREGATE_TABLE_NOT_COVERING_FIXED_R_ASYMPTOTIC.",
+          "evidence": "The sequence records Achilles numbers and aggregate counts, not a fixed-omega asymptotic.",
+          "identifier_or_url": "OEIS:A052486",
+          "material_read": "Definition, examples, count data, formulas/cross-references and provenance fields.",
+          "method": "Database statement comparison.",
+          "title": "OEIS A052486 — Achilles numbers - powerful but imperfect",
+          "trigger": "Exact object definition and aggregate database."
+        },
+        {
+          "assessment": "SAME_R2_OBJECT_TABLE_NOT_COVERING_ASYMPTOTIC.",
+          "evidence": "It tabulates r=2 values but gives no sqrt(X)/log X theorem or prime-series constant.",
+          "identifier_or_url": "OEIS:A393816",
+          "material_read": "Sequence definition, terms and cross-references.",
+          "method": "Exact-database comparison.",
+          "title": "OEIS A393816 — Achilles numbers with exactly 2 distinct prime factors",
+          "trigger": "Exact first nontrivial fixed-r database stratum."
+        },
+        {
+          "assessment": "BROADER_AMBIENT_MOMENTS_NOT_COVERING_FIXED_R_ACHILLES.",
+          "evidence": "Theorem 1.2 derives global h-full omega moments; the inspected text contains no Achilles/perfect-power deletion result.",
+          "identifier_or_url": "arXiv:2409.10430v1",
+          "material_read": "Full arXiv HTML around Theorem 1.2, its proof for h-full first/second moments, normal-order section, and in-document searches for Achilles/perfect power.",
+          "method": "Full-text theorem/implication comparison.",
+          "title": "Distribution of omega(n) over h-free and h-full numbers",
+          "trigger": "Closest analytic literature on omega over powerful/h-full integers."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem identifies the first non-perfect-power layer inside a classical thin multiplicative set and resolves every fixed number of distinct prime factors with one explicit universal prime-series constant. It explains how removing the dominant square layer changes the fixed-r scale and is a natural asymptotic classification, not a recomputation of a finite table.",
+      "risks": [
+        "The result is local in fixed r and does not replace global distribution results for omega."
+      ],
+      "sources": [
+        "OEIS:A052486",
+        "OEIS:A393816",
+        "arXiv:2409.10430v1",
+        "RESULT.md asymptotic"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Frozen RESULT.md contains thirteen JSON-escape-style TeX corruptions (including six form feeds, three tabs, two carriage returns and two newline substitutions); the ready repair restores only the intended commands.",
+    "The theorem is for each fixed r and is not uniform as r grows."
+  ],
+  "schema_version": 1
+}

@@ -3,14 +3,14 @@
 For a fixed integer \(r\ge 2\), define \(A_r(X)\) to be the number of positive integers \(n\le X\) that are Achilles numbers and satisfy \(\omega(n)=r\). Thus, if
 \[n=\prod_{i=1}^r p_i^{e_i},\]
 then every \(e_i\ge 2\) and \(\gcd(e_1,\ldots,e_r)=1\). The asymptotic is
-\[A_r(X)\sim \kappa\,rac{\sqrt X\,(\log\log X)^{r-2}}{(r-2)!\,\log X},\qquad
-\kappa=2\sum_prac{p^{-3/2}}{1-p^{-1}}.\]
+\[A_r(X)\sim \kappa\,\frac{\sqrt X\,(\log\log X)^{r-2}}{(r-2)!\,\log X},\qquad
+\kappa=2\sum_p\frac{p^{-3/2}}{1-p^{-1}}.\]
 The prime sum converges absolutely. For \(r=1\), there are no Achilles numbers, so \(A_1(X)=0\).
 
 The leading contribution consists precisely of the exponent signatures having one odd exponent \(2j+1\ge3\) and all remaining exponents equal to \(2\). In particular, fixed-prime-factor Achilles numbers lie one logarithmic layer below the dominant square layer among powerful numbers.
 
 ## Assumptions and scope
-The variable \(r\) is fixed while \(X	o\infty\). An Achilles number is a powerful number that is not a perfect power; equivalently, all prime-factor exponents are at least \(2\) and their greatest common divisor is \(1\). The proof uses the standard fixed-\(k\) Landau asymptotic for squarefree integers with exactly \(k\) distinct prime factors, together with its standard uniform upper bound on intervals whose endpoints differ from the main scale by powers of \(\log X\).
+The variable \(r\) is fixed while \(X\to\infty\). An Achilles number is a powerful number that is not a perfect power; equivalently, all prime-factor exponents are at least \(2\) and their greatest common divisor is \(1\). The proof uses the standard fixed-\(k\) Landau asymptotic for squarefree integers with exactly \(k\) distinct prime factors, together with its standard uniform upper bound on intervals whose endpoints differ from the main scale by powers of \(\log X\).
 
 No claim is made about uniformity when \(r\) grows with \(X\), or about a second-order term.
 
@@ -18,27 +18,25 @@ No claim is made about uniformity when \(r\) grows with \(X\), or about a second
 Every Achilles number has at least one odd prime-factor exponent. Indeed, if all exponents were even, their greatest common divisor would be at least \(2\).
 
 Call an Achilles number *principal* if exactly one prime has an odd exponent and every other prime has exponent \(2\). Such a number has a unique form
-\[n=p^{2j+1}m^2,\qquad j\ge1,\quad p
-mid m,\quad m	ext{ squarefree},\quad \omega(m)=r-1.\]
+\[n=p^{2j+1}m^2,\qquad j\ge1,\quad p\nmid m,\quad m\text{ squarefree},\quad \omega(m)=r-1.\]
 Conversely, every integer of this form is Achilles because \(\gcd(2j+1,2)=1\).
 
-Let \(Q_k(Y;p)\) count squarefree \(m\le Y\) with \(\omega(m)=k\) and \(p
-mid m\). For fixed \(k\) and fixed \(p\), Landau's theorem gives
-\[Q_k(Y;p)\sim rac{Y(\log\log Y)^{k-1}}{(k-1)!\log Y}.\]
+Let \(Q_k(Y;p)\) count squarefree \(m\le Y\) with \(\omega(m)=k\) and \(p\nmid m\). For fixed \(k\) and fixed \(p\), Landau's theorem gives
+\[Q_k(Y;p)\sim \frac{Y(\log\log Y)^{k-1}}{(k-1)!\log Y}.\]
 Excluding one fixed prime changes only lower-order terms. Therefore the principal count is
-\[M_r(X)=\sum_p\sum_{j\ge1}Q_{r-1}\!\left(\sqrt{X/p^{2j+1}};pight).\]
+\[M_r(X)=\sum_p\sum_{j\ge1}Q_{r-1}\!\left(\sqrt{X/p^{2j+1}};p\right).\]
 
-To justify summation of the individual asymptotics, split at \(p^{2j+1}\le (\log X)^{12}\). On this range the square-root argument lies between \(\sqrt X/(\log X)^6\) and \(\sqrt X\), so the fixed-order Landau asymptotic is uniform; moreover \(\log Y=(	frac12+o(1))\log X\) and \(\log\log Y=\log\log X+o(1)\). Hence
-\[M_r(X)\sim rac{2\sqrt X(\log\log X)^{r-2}}{(r-2)!\log X}
+To justify summation of the individual asymptotics, split at \(p^{2j+1}\le (\log X)^{12}\). On this range the square-root argument lies between \(\sqrt X/(\log X)^6\) and \(\sqrt X\), so the fixed-order Landau asymptotic is uniform; moreover \(\log Y=(\tfrac12+o(1))\log X\) and \(\log\log Y=\log\log X+o(1)\). Hence
+\[M_r(X)\sim \frac{2\sqrt X(\log\log X)^{r-2}}{(r-2)!\log X}
 \sum_p\sum_{j\ge1}p^{-(2j+1)/2}.\]
 The double series is absolutely convergent and
-\[\sum_{j\ge1}p^{-(2j+1)/2}=rac{p^{-3/2}}{1-p^{-1}}.\]
+\[\sum_{j\ge1}p^{-(2j+1)/2}=\frac{p^{-3/2}}{1-p^{-1}}.\]
 The complementary tail is negligible: the tail of the convergent weight series beyond \((\log X)^{12}\) is \(O((\log X)^{-2})\), and the elementary fixed-order upper bound for \(Q_k\) makes its contribution \(o(\sqrt X(\log\log X)^{r-2}/\log X)\).
 
 It remains to bound nonprincipal Achilles numbers. Such a number has at least two exceptional exponents: one odd exponent at least \(3\), and at least one further exponent at least \(3\). Ignoring the greatest-common-divisor restriction only enlarges this remainder. For \(r\ge3\), designate two exceptional primes and sum over their exponents. The remaining \(r-2\) primes occur at exponent at least \(2\); replacing those exponents by \(2\) gives an upper bound controlled by the fixed-order Landau estimate. Since
 \[\sum_p\sum_{e\ge3}p^{-e/2}<\infty,\]
 the remainder is
-\[O_r\!\left(rac{\sqrt X(\log\log X)^{r-3}}{\log X}ight),\]
+\[O_r\!\left(\frac{\sqrt X(\log\log X)^{r-3}}{\log X}\right),\]
 which is lower order. When \(r=2\), both prime exponents are at least \(3\), so \((pq)^3\le X\); the resulting semiprime count is \(X^{1/3+o(1)}\), again \(o(\sqrt X/\log X)\). This proves the stated asymptotic for every fixed \(r\ge2\).
 
 ## Verification

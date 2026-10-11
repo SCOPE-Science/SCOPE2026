@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates the unique principal exponent layer from the remainder. The main layer reduces to a fixed-order squarefree Landau count with an absolutely convergent prime/exponent weight; a polylogarithmic truncation supplies the needed uniformity. Nonprincipal Achilles signatures necessarily have at least two exceptional exponents and are lower order. The \(r=2\) remainder is bounded separately by a semiprime count at scale \(X^{1/3}\).
+## correctness
 
-## Originality
-PASS. Semantic archive searches for Achilles/fixed-\(\omega\)/prime-signature aliases found no matching statement. OEIS A052486 and the exact two-prime table A393816 were inspected and provide enumeration but not this asymptotic. The closest analytic full text, arXiv:2409.10430v1, treats moments over all \(h\)-full integers and contains no Achilles/perfect-power discussion; its theorems do not imply the local fixed-\(r\) count after perfect powers are removed.
+PASS
 
-## Value
-PASS. The theorem isolates a natural structural layer: fixed-\(r\) powerful integers are led by squares, while Achilles numbers begin one layer later. The explicit constant and all-fixed-\(r\) form give a reusable quantitative description rather than a one-off computation.
+The corrected final proof was reconstructed at exponent level. Achilles means every exponent >=2 and exponent gcd 1, so at least one exponent is odd. The principal layer has a unique form p^(2j+1)m^2 with j>=1, p not dividing squarefree m, omega(m)=r-1; it is automatically Achilles. Fixed-order Landau counting for m gives the main term, and on the polylogarithmic truncation log Y=(1/2+o(1))log X, producing the factor 2. The absolutely convergent weight sum is sum_p p^(-3/2)/(1-p^-1). Uniform exclusion of the distinguished prime is lower order. Every nonprincipal pattern has at least two exceptional exponents; summing their p^(-e/2) weights leaves one fewer Landau loglog degree for r>=3, while r=2 is O(X^(1/3+o(1))). Thus the remainder is lower order. The finite verifier's 10^8 enumeration is corroborative only. The ready repair restores TeX control-sequence bytes in RESULT.md without changing the mathematics.
 
-## Closest literature and limitations
-The closest modern literature is the 2024 \(\omega\)-distribution work on \(h\)-full numbers (MSC 11N37), while the exact Achilles databases are OEIS A052486 and A393816. The theorem is only for fixed \(r\); no growing-\(r\) uniformity or second-order term is claimed. Unindexed literature under older squarefull terminology remains a residual search risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. OEIS A052486 gives the Achilles object and aggregate enumeration, while A393816 tabulates the exact two-distinct-prime stratum; neither supplies the fixed-r counting asymptotic or prime-series constant. Das--Kuo--Liu's full arXiv HTML was inspected around Theorem 1.2 and its proof: it establishes first/second moments of omega over all h-full integers and normal order, not fixed-r counts after deleting perfect powers; in-document searches found no 'Achilles' or 'perfect power'. Resultary returned the audited record as the direct match and no independent covering fixed-r theorem among the checked hits.
+
+## value
+
+PASS
+
+The theorem identifies the first non-perfect-power layer inside a classical thin multiplicative set and resolves every fixed number of distinct prime factors with one explicit universal prime-series constant. It explains how removing the dominant square layer changes the fixed-r scale and is a natural asymptotic classification, not a recomputation of a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
