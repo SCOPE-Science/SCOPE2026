@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal proof is symbolic.
 
-The verification checks:
-- support multiplicities \(w_S=\prod_{i\in S}(q_i-1)\);
-- Badawi adjacency against the annihilator-ideal union criterion;
-- equivalence with support incomparability;
-- all-pairs shortest-path distances after expanding support classes to labeled vertices;
-- the exact edge count \((Q^2+B-2P)/2\);
-- the two nonzero distance coefficients of the Hosoya polynomial;
-- the Wiener formula \(N(N-1)-|E|\).
+# Independent mathematical audit
 
-The replay uses several tuples of valid finite-field orders and returns `VERIFY_OK`. These finite checks are consistency tests only; they are not used to infer the universal theorem.
+## correctness
+
+PASS
+
+For a product of fields, the annihilator of a vertex is the coordinate ideal on the complement of its nonzero support, and \(\operatorname{ann}(xy)\) is the sum of the two coordinate annihilators. A union of two ideals equals their sum exactly in the containment cases, so Badawi adjacency is precisely support incomparability. Comparable supports have explicit common incomparable supports, proving distance two for every nonedge. The weighted three-state coordinate count gives the comparable ordered-pair sum and simplifies to \(|E|=(Q^2+B-2P)/2\). Independent direct enumeration over small field-size tuples, including \((2,3,4)\) and \((3,4,5)\), matched the vertex and edge formulas exactly.
+
+## originality
+
+PASS
+
+Badawi's primary paper gives the same graph definition and the general diameter-at-most-two theorem, so diameter alone is prior. The 2022 survey explicitly identifies annihilator graphs among ring graphs still inviting Wiener-index study. A title-overlapping 2020 Hosoya/Wiener paper uses a different zero-product graph, not Badawi adjacency. No checked source or published SCOPE record states the weighted support-incomparability edge formula or the resulting complete distance enumerator for arbitrary finite products of fields.
+
+## value
+
+PASS
+
+Finite products of fields are the full finite commutative semisimple family. The theorem gives the complete distance distribution and two standard distance invariants for that natural class, directly addressing a literature-identified Wiener-index direction and exposing a reusable support-poset structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

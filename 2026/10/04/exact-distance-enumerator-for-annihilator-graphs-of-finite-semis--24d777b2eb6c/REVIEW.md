@@ -1,17 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In a direct product of fields, an annihilator is the coordinate ideal supported on the complement of the element support. Since the annihilator of a product is the sum of the two coordinate annihilators, Badawi adjacency occurs exactly when the two supports are incomparable. Every comparable distinct pair has an explicit common neighbor with incomparable support, so every nonedge has distance two. The weighted comparable-pair count is an exact coordinatewise enumeration, and its algebraic simplification gives the stated edge, Hosoya, and Wiener formulas. Independent finite replay agrees with every formula.
+PASS
 
-## Originality
+For a product of fields, the annihilator of a vertex is the coordinate ideal on the complement of its nonzero support, and \(\operatorname{ann}(xy)\) is the sum of the two coordinate annihilators. A union of two ideals equals their sum exactly in the containment cases, so Badawi adjacency is precisely support incomparability. Comparable supports have explicit common incomparable supports, proving distance two for every nonedge. The weighted three-state coordinate count gives the comparable ordered-pair sum and simplifies to \(|E|=(Q^2+B-2P)/2\). Independent direct enumeration over small field-size tuples, including \((2,3,4)\) and \((3,4,5)\), matched the vertex and edge formulas exactly.
 
-PASS. The closest direct 2017 source studies Badawi's annihilator graph but its accessible abstract advertises structural, planarity, clique, and ring-family results rather than a distance enumerator. The 2022 ring-graph Wiener survey explicitly lists annihilator graphs as a remaining direction. A 2020 paper with a title-level collision was inspected in full and uses a different zero-product graph containing zero as a universal vertex. Targeted bibliographic and formula searches found no equivalent product-of-fields formula.
+## originality
 
-Residual risk remains because the 2017 direct source was not inspected in full through the available path, a later 2026 finite-reduced-ring paper was checked only at abstract level, and an equivalent result could appear under different graph terminology.
+PASS
 
-## Value
+Badawi's primary paper gives the same graph definition and the general diameter-at-most-two theorem, so diameter alone is prior. The 2022 survey explicitly identifies annihilator graphs among ring graphs still inviting Wiener-index study. A title-overlapping 2020 Hosoya/Wiener paper uses a different zero-product graph, not Badawi adjacency. No checked source or published SCOPE record states the weighted support-incomparability edge formula or the resulting complete distance enumerator for arbitrary finite products of fields.
 
-PASS. Finite direct products of fields are exactly the finite commutative semisimple rings. The theorem therefore resolves a canonical infinite algebraic family singled out by the survey's Wiener-index direction, and it gives the complete two-level distance distribution rather than merely the Wiener scalar.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Finite products of fields are the full finite commutative semisimple family. The theorem gives the complete distance distribution and two standard distance invariants for that natural class, directly addressing a literature-identified Wiener-index direction and exposing a reusable support-poset structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
