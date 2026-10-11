@@ -1,18 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The matrix family is positive definite exactly for \(a>2/3\) by Sylvester's criterion, and its displayed inverse is entrywise positive. Direct substitution into the exact conjugate-gradient recurrence yields \((x_2)_1=N_a(B)/Q_a(B)\). The identity
-\[
-p_1^\mathsf T A_ap_1
-=
-\frac{(B^2+1)^2Q_a(B)}{(2B^2+a)^3}
-\]
-proves \(Q_a(B)>0\). For \(a\le4\), every coefficient of \(N_a\) is nonnegative and its constant term is positive; for \(a>4\), its leading term is negative and forces eventual sign reversal. The one- and two-dimensional minimality argument uses only the positive first stepsize, exact finite termination, and inverse positivity. The packaged exact-rational checker independently replays the witness and formula on rational test parameters.
+## correctness
 
-## Originality
-PASS with material residual risk. Hestenes--Stiefel's finite-step/variational CG theory, Meijerink--van der Vorst's use of CG on symmetric \(M\)-matrices, and Schmelzer--Stoll's broad observation that unconstrained CG does not preserve \(x\ge0\) are all treated as prior work. Semantic and literature searches under symmetric \(M\)-matrix, Stieltjes, inverse-positive, positivity-preserving, negative iterate, and minimal-dimension aliases found no implication-equivalent statement of the three-dimensional minimum or the sharp \(a=4\) family boundary. Two highly relevant full texts were not recovered, so equivalent specialized examples inside them remain an explicit risk rather than being dismissed.
+PASS
 
-## Value
-PASS. Inverse positivity is the canonical matrix property ensuring that nonnegative forcing produces a nonnegative exact solution, so failure of the iterative path inside that class is structurally meaningful. The result identifies the minimum dimension, gives a small exact witness, and supplies a sharp parameter boundary rather than only an isolated counterexample. It clarifies that energy-norm progress and eventual positivity of the exact solution do not imply coordinatewise positivity of intermediate Krylov iterates, which is directly relevant when CG is used inside algorithms with physical or optimization nonnegativity constraints.
+Sylvester's criterion gives positive definiteness of the displayed tridiagonal family exactly for a>2/3, and the stated inverse is entrywise positive there. Direct exact conjugate-gradient algebra gives the second-iterate first coordinate N_a(B)/Q_a(B), with Q_a(B)>0 because it is a positive scalar multiple of p_1^T A_a p_1. For 2/3<a<=4 every coefficient of N_a is nonnegative and its constant term is positive; for a>4 its leading coefficient is negative, so sufficiently large B makes the component negative and the limit is (4-a)/3. The exact witness a=5, B=7 gives x_2=(-5/751,1324/751,6881/1502) while the exact solution is strictly positive. One and two dimensions cannot exhibit the effect because the first CG iterate is a positive multiple of b and the method terminates at the exact inverse-positive solution by step two. The inspected exact-rational verifier and an independent recurrence replay reproduced the witness and formula checks.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Schmelzer--Stoll explicitly observe that ordinary CG on SPD systems need not preserve coordinatewise nonnegativity, but their accessible full text contains no Stieltjes or M-matrix specialization. Meijerink--van der Vorst are highly relevant because they study CG-based solution methods for symmetric M-matrices, but only abstract/bibliographic material was publicly accessible in this run; the permitted institutional retrieval returned no verified PDF and was not retried. Targeted Resultary search for Stieltjes/M-matrix positivity loss, minimal dimension and the a=4 threshold returned no implication-equivalent result. Best-of-knowledge originality therefore survives, with the inaccessible 1977 full text retained as an explicit priority risk rather than treated as failure.
+
+## value
+
+PASS
+
+Inverse positivity is the canonical matrix property guaranteeing a nonnegative exact solution under nonnegative forcing, so leaving the positive cone inside this class is structurally meaningful. The result identifies the minimum dimension, gives a small exact witness, and supplies a sharp threshold within a natural tridiagonal Stieltjes family, making it useful for algorithms that rely on physically or optimization-motivated positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

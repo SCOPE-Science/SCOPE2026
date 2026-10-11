@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:05:43.910207Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 0048462cc6a1ce68a5d2a342ebc90fcfcb9ce926",
+        "assigned verify.py blob f539dfbb0fa611331bfc0f60fe9d967e757db2e4",
+        "Meijerink--van der Vorst, DOI:10.1090/S0025-5718-1977-0438681-4",
+        "Schmelzer--Stoll, arXiv:2607.22121v1",
+        "Hestenes--Stiefel, DOI:10.6028/jres.049.044"
+      ],
+      "rationale": "Sylvester's criterion gives positive definiteness of the displayed tridiagonal family exactly for a>2/3, and the stated inverse is entrywise positive there. Direct exact conjugate-gradient algebra gives the second-iterate first coordinate N_a(B)/Q_a(B), with Q_a(B)>0 because it is a positive scalar multiple of p_1^T A_a p_1. For 2/3<a<=4 every coefficient of N_a is nonnegative and its constant term is positive; for a>4 its leading coefficient is negative, so sufficiently large B makes the component negative and the limit is (4-a)/3. The exact witness a=5, B=7 gives x_2=(-5/751,1324/751,6881/1502) while the exact solution is strictly positive. One and two dimensions cannot exhibit the effect because the first CG iterate is a positive multiple of b and the method terminates at the exact inverse-positive solution by step two. The inspected exact-rational verifier and an independent recurrence replay reproduced the witness and formula checks.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General nonnegative-CG work establishes qualitative positivity failure for SPD systems.",
+          "Classical M-matrix work establishes relevance of CG-type methods to symmetric M-matrices."
+        ],
+        "reasoning": "Neither accessible broader statement supplies the conjunction of inverse positivity, minimal dimension and the exact family threshold.",
+        "searches": [
+          "Schmelzer--Stoll arXiv:2607.22121v1",
+          "Meijerink--van der Vorst DOI:10.1090/S0025-5718-1977-0438681-4",
+          "Hestenes--Stiefel classical CG theory"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.22121v1",
+        "DOI:10.1090/S0025-5718-1977-0438681-4",
+        "DOI:10.6028/jres.049.044",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General SPD negativity does not imply a counterexample inside the inverse-positive Stieltjes subclass.",
+          "Finite termination and inverse positivity guarantee a nonnegative final solution but say nothing about the sign of intermediate Krylov iterates.",
+          "The accessible 1977 description does not state an intermediate-coordinate sign theorem."
+        ],
+        "reasoning": "The family algebra producing the exact threshold and the dimension-minimal witness is additional information not implied by the inspected prior results.",
+        "searches": [
+          "Comparison with general SPD positivity failure and classical finite-termination theory",
+          "Comparison with the accessible 1977 symmetric-M-matrix abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The modern source covers general SPD positivity failure but does not mention the inverse-positive Stieltjes subclass in the inspected full text.",
+          "The 1977 source is on symmetric M-matrix iterative solution methods, but its full article could not be verified through open or authorized access."
+        ],
+        "reasoning": "Stieltjes matrix, symmetric M-matrix, inverse-positive SPD system and positivity-preserving CG were all included as aliases.",
+        "searches": [
+          "Resultary: conjugate gradients Stieltjes M-matrix positivity iterate negative three dimensions threshold a=4",
+          "arXiv:2607.22121v1 full text searched for Stieltjes and M-matrix",
+          "DOI:10.1090/S0025-5718-1977-0438681-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact published record or table with this threshold/witness was returned."
+        ],
+        "reasoning": "The threshold is proved analytically and the finite exact witness is supplementary.",
+        "searches": [
+          "Resultary semantic search for the exact tridiagonal family, dimension-three onset and a=4 threshold"
+        ]
+      },
+      "rationale": "Schmelzer--Stoll explicitly observe that ordinary CG on SPD systems need not preserve coordinatewise nonnegativity, but their accessible full text contains no Stieltjes or M-matrix specialization. Meijerink--van der Vorst are highly relevant because they study CG-based solution methods for symmetric M-matrices, but only abstract/bibliographic material was publicly accessible in this run; the permitted institutional retrieval returned no verified PDF and was not retried. Targeted Resultary search for Stieltjes/M-matrix positivity loss, minimal dimension and the a=4 threshold returned no implication-equivalent result. Best-of-knowledge originality therefore survives, with the inaccessible 1977 full text retained as an explicit priority risk rather than treated as failure.",
+      "residual_risks": [
+        "The full 1977 symmetric-M-matrix article was not obtained after the permitted access attempt, so a specialized overlapping example cannot be excluded.",
+        "Older positivity-preserving Krylov literature using different terminology may contain an equivalent observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SPD_FAILURE_NOT_STIELTJES_THRESHOLD",
+          "evidence": "The inspected text establishes the broad phenomenon but no inverse-positive three-dimensional threshold.",
+          "identifier_or_url": "arXiv:2607.22121v1",
+          "material_read": "Accessible complete article text was inspected at the abstract/introduction and searched throughout for Stieltjes and M-matrix terminology; the paper motivates an active-set method because ordinary SPD CG can violate x>=0.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Non-Negative Conjugate Gradients",
+          "trigger": "Most recent direct source on positivity of CG iterates."
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE_SPECIALIZED_SOURCE",
+          "evidence": "Available material does not show an intermediate-iterate positivity theorem or counterexample; unread full text remains a residual priority risk.",
+          "identifier_or_url": "DOI:10.1090/S0025-5718-1977-0438681-4",
+          "material_read": "Accessible abstract and bibliographic description of regular splittings/incomplete factorization combined with conjugate-gradient solution methods; the full paper was not obtained.",
+          "method": "Open access routes were checked first; the subsequent authorized institutional retrieval returned no verified PDF and was not retried.",
+          "title": "An Iterative Solution Method for Linear Systems of Which the Coefficient Matrix is a Symmetric M-Matrix",
+          "trigger": "Strong plausible priority source for CG and symmetric M-matrices."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Schmelzer--Stoll",
+        "Meijerink--van der Vorst",
+        "Hestenes--Stiefel"
+      ],
+      "rationale": "Inverse positivity is the canonical matrix property guaranteeing a nonnegative exact solution under nonnegative forcing, so leaving the positive cone inside this class is structurally meaningful. The result identifies the minimum dimension, gives a small exact witness, and supplies a sharp threshold within a natural tridiagonal Stieltjes family, making it useful for algorithms that rely on physically or optimization-motivated positivity.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2607.22121v1",
+    "DOI:10.1090/S0025-5718-1977-0438681-4",
+    "DOI:10.6028/jres.049.044",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The threshold a=4 is only for the displayed matrix/right-hand-side family, not all three-dimensional Stieltjes systems.",
+    "Exact arithmetic only.",
+    "The most relevant 1977 symmetric-M-matrix full text remained inaccessible."
+  ],
+  "residual_risks": [
+    "The full 1977 symmetric-M-matrix article was not obtained after the permitted access attempt, so a specialized overlapping example cannot be excluded.",
+    "Older positivity-preserving Krylov literature using different terminology may contain an equivalent observation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_SPD_FAILURE_NOT_STIELTJES_THRESHOLD",
+      "evidence": "The inspected text establishes the broad phenomenon but no inverse-positive three-dimensional threshold.",
+      "identifier_or_url": "arXiv:2607.22121v1",
+      "material_read": "Accessible complete article text was inspected at the abstract/introduction and searched throughout for Stieltjes and M-matrix terminology; the paper motivates an active-set method because ordinary SPD CG can violate x>=0.",
+      "method": "Lawful open full-text inspection.",
+      "title": "Non-Negative Conjugate Gradients",
+      "trigger": "Most recent direct source on positivity of CG iterates."
+    },
+    {
+      "assessment": "PLAUSIBLE_INACCESSIBLE_SPECIALIZED_SOURCE",
+      "evidence": "Available material does not show an intermediate-iterate positivity theorem or counterexample; unread full text remains a residual priority risk.",
+      "identifier_or_url": "DOI:10.1090/S0025-5718-1977-0438681-4",
+      "material_read": "Accessible abstract and bibliographic description of regular splittings/incomplete factorization combined with conjugate-gradient solution methods; the full paper was not obtained.",
+      "method": "Open access routes were checked first; the subsequent authorized institutional retrieval returned no verified PDF and was not retried.",
+      "title": "An Iterative Solution Method for Linear Systems of Which the Coefficient Matrix is a Symmetric M-Matrix",
+      "trigger": "Strong plausible priority source for CG and symmetric M-matrices."
+    }
+  ]
+}
