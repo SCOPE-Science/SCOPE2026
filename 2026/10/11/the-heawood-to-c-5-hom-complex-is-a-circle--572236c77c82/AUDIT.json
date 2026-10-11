@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The exact standard-library verifier reconstructs the Fano incidence graph, exhausts all graph homomorphisms to C5, obtains 3300 vertices and the complete 11340-edge recoloring graph, proves connectivity, computes diameter and radius 35 by BFS from every vertex, and verifies that the published component-orientation criterion is acyclic for an explicit representative. Theorem 5.1 of arXiv:2408.04802 then gives the circle homotopy type of the unique component.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2408.04802 Theorem 1.1 restricts components to points or circles and Theorem 5.1 classifies a chosen component by an associated orientation.",
+        "DOI:10.1137/17M1122578 supplies a general polynomial-time reachability algorithm for C4-free targets."
+      ],
+      "reasoning": "These broader theorems require instance-specific work to determine component structure. They do not imply that all Heawood-to-C5 homomorphisms are mutually reconfigurable, do not give the count 3300 or diameter 35, and therefore do not subsume the final claim.",
+      "searches": [
+        "homotopy types Hom complexes graph homomorphisms codomains cycles Heawood",
+        "Wrochna homomorphism reconfiguration cycles C5 connected bipartite graph",
+        "square-free Hom complex graph homomorphism C5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2408.04802",
+      "DOI:10.1137/17M1122578",
+      "Čukić–Kozlov, Discrete Comput. Geom. 36 (2006), 313–329"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.1 of arXiv:2408.04802 implies only that the component of the explicit acyclic representative is a circle; connectivity of the full 1-skeleton is a separate premise established here exhaustively.",
+        "Wrochna 2020 gives an algorithm for deciding pairwise reachability, not a published all-pairs conclusion or Hom-complex homotopy type for this instance."
+      ],
+      "reasoning": "The final statement adds a complete instance-level implication not present in the general theorems: one component contains every homomorphism, and its exact finite reconfiguration geometry is determined.",
+      "searches": [
+        "Heawood graph Hom complex C5",
+        "Heawood graph C5 colorings connected reconfiguration",
+        "Fano Levi graph C5 homomorphism"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2408.04802 contains the cycle-codomain component theorem but full-text searches return no Heawood or Fano occurrence.",
+        "DOI:10.1137/17M1122578 treats H-recoloring reachability for square-free targets algorithmically, without the Heawood-to-C5 output."
+      ],
+      "reasoning": "The aliases cover the Hom-complex, coloring-reconfiguration, and Fano-incidence formulations. None of the inspected sources states the exact connected 3300-vertex instance or its global circle type.",
+      "searches": [
+        "Heawood Hom C5 circle 3300 graph homomorphisms",
+        "Hom(Heawood,C5) graph homomorphism complex",
+        "Fano incidence graph C5 Hom complex circle",
+        "Heawood graph C5-coloring reconfiguration Hom complex circle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published finding or web result returned the exact numerical profile 3300 homomorphisms, 11340 recoloring edges, or diameter 35.",
+        "The closest indexed Heawood findings concern matching, cut, independence, or other complexes rather than Hom(H,C5)."
+      ],
+      "reasoning": "The exact-number and object-target searches were designed to detect tables or computational catalogues that could silently cover the instance. No covering table was located.",
+      "searches": [
+        "Heawood C5 reconfiguration diameter 35 3300",
+        "Heawood Hom C5 circle 3300 graph homomorphisms",
+        "Heawood 5-cycle homomorphism reconfiguration"
+      ]
+    },
+    "rationale": "The closest cycle-codomain theorem classifies each connected component but does not determine the Heawood component count or recoloring graph. Exact and alias searches found no published Heawood-to-C5 Hom-complex computation. General square-free-target reconfiguration algorithms do not state this finite outcome.",
+    "residual_risks": [
+      "An unindexed or unpublished finite computation of the same Heawood-to-C5 instance may exist.",
+      "A differently named reconfiguration catalogue could contain the same numerical instance without appearing under the searched Hom-complex or Fano aliases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "Theorem 5.1 supplies the acyclic-orientation-to-circle implication. The text contains no Heawood or Fano occurrence and does not state the connectivity, counts, or diameter of this instance.",
+        "identifier_or_url": "arXiv:2408.04802",
+        "material_read": "Abstract and introduction, graph-Hom 1-skeleton description, Definition 2.2, Theorem 5.1 and its proof, references; full-text searches for Heawood and Fano.",
+        "method": "Full-text arXiv PDF inspection with page-level visual check of the title page and classification.",
+        "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are cycles",
+        "trigger": "Primary topology source defining the exact component criterion used in the proof."
+      },
+      {
+        "assessment": "BROADER_ALGORITHM_NOT_COVERING",
+        "evidence": "The paper gives a polynomial-time reachability algorithm for targets with no C4 subgraph, but no Heawood-specific all-pairs result, count, diameter, or global Hom-complex homotopy type.",
+        "identifier_or_url": "DOI:10.1137/17M1122578",
+        "material_read": "Abstract, problem statement, scope and bibliographic metadata.",
+        "method": "Publisher abstract and metadata inspection.",
+        "title": "Homomorphism Reconfiguration via Homotopy",
+        "trigger": "Potential broader coverage of C5-recoloring reachability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "572236c7-7c82-4b05-8a8c-c473211aabaa",
+  "value": {
+    "rationale": "The Heawood graph is the canonical cubic 6-cage and Fano-plane Levi graph, and C5 is the smallest non-complete odd cycle target. The Hom complex simultaneously records topology and recoloring connectivity. The exact conclusion that all 3300 colorings form one essential circle component, with diameter 35, is a natural reproducible benchmark and is not a routine corollary of the component-classification theorem.",
+    "status": "PASS"
+  }
+}
