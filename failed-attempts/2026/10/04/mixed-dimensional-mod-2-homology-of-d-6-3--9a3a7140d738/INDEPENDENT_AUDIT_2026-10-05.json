@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:13:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh independent exact replay enumerated all \\(2^{15}\\) labeled six-vertex graphs, retained exactly 4502 nonempty simplices with face vector \\((15,105,455,1185,1647,915,180)\\), and computed mod-two boundary ranks \\((14,91,364,821,711,180)\\). This gives Betti vector \\((1,0,0,0,115,24,0)\\) and Euler characteristic \\(92\\). The actual frozen verifier was also read; it independently cross-checks domination membership, downward closure, boundary-square identities and a canonical face digest. The non-equidimensional homology conclusion follows immediately.",
+      "risk": "Only mod-two homology is asserted; integral torsion and attaching maps are not determined by this calculation.",
+      "sources": [
+        "arXiv:1901.07130",
+        "fresh exact chain computation in this audit",
+        "frozen verify_d63.py at source tree b960f7f3c470dd4012b17ea4219088c36db377b7"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published stronger theorem identifies the complete mixed-dimensional sphere-wedge homotopy type for the identical complex."
+        ],
+        "reasoning": "This is decisive broader coverage, not title similarity or a neighboring parameter case.",
+        "searches": [
+          "Direct read of Resultary/2026 RESULT for --55d89ec4bab2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.07130",
+        "Resultary SCOPE-a-mixed-dimensional-sphere-wedge-for-d-6-3--55d89ec4bab2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly says its wedge result implies the previously recorded reduced mod-two homology statement."
+        ],
+        "reasoning": "The prior implication is direct: homology of the displayed wedge is precisely the assigned final claim.",
+        "searches": [
+          "SCOPE-a-mixed-dimensional-sphere-wedge-for-d-6-3--55d89ec4bab2 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stronger SCOPE record gives exactly \\(115\\) four-spheres and \\(24\\) five-spheres.",
+          "Its chain-level verification reproduces the same Betti ranks."
+        ],
+        "reasoning": "A wedge decomposition is strictly stronger than the assigned homology statement and specializes to it by taking mod-two homology.",
+        "searches": [
+          "Resultary query: mixed dimensional mod 2 homology D_6,3 domination graph complex Betti 115 24",
+          "Resultary record SCOPE-a-mixed-dimensional-sphere-wedge-for-d-6-3--55d89ec4bab2",
+          "arXiv:1901.07130 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The stronger published record contains the identical f-vector, boundary ranks and Betti profile."
+        ],
+        "reasoning": "Exact numeric and object-level coverage is present in the published corpus.",
+        "searches": [
+          "Resultary exact semantic search for D_6,3 and Betti ranks 115,24"
+        ]
+      },
+      "rationale": "A stronger published SCOPE/Resultary record already determines the full homotopy type \\(D_{6,3}\\simeq\\bigvee^{115}S^4\\vee\\bigvee^{24}S^5\\). Its RESULT explicitly records the same face counts and boundary ranks and states that the earlier mod-two homology computation is implied by the wedge decomposition. Therefore the entire final claim is directly covered by a stronger published same-object theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_SOURCE_LEAVES_D63_OPEN",
+          "evidence": "The paper reports Euler characteristic 92 and asks whether mixed-dimensional sphere wedges occur.",
+          "identifier_or_url": "arXiv:1901.07130",
+          "material_read": "Full open arXiv HTML including the definition, Theorem 1.1, Proposition 1.3, the \\(D_{6,3}\\) Euler-characteristic discussion and Problem 1.4.",
+          "method": "Lawful open full-text inspection.",
+          "title": "On the homotopy type of complexes of graphs with bounded domination number",
+          "trigger": "Foundational primary source for the exact complex and its open problem."
+        },
+        {
+          "assessment": "DECISIVE_STRONGER_PRIOR_COVERAGE",
+          "evidence": "It proves \\(D_{6,3}\\simeq\\bigvee^{115}S^4\\vee\\bigvee^{24}S^5\\) and explicitly identifies the mod-two homology statement as an earlier weaker computation.",
+          "identifier_or_url": "Resultary/2026/10/4/SCOPE-a-mixed-dimensional-sphere-wedge-for-d-6-3--55d89ec4bab2",
+          "material_read": "Complete published RESULT.md from the Resultary repository, including proof, verification and relationship-to-prior-work section.",
+          "method": "Direct read-only repository inspection.",
+          "title": "A mixed-dimensional sphere wedge for D_{6,3}",
+          "trigger": "Resultary search returned a stronger same-object theorem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a standalone finite computation, the exact Betti profile is a natural answer to the boundary example highlighted by the foundational paper and rules out equidimensional sphere wedges. The scientific value is real, but it is already subsumed by the stronger published homotopy theorem, so originality failure prevents acceptance.",
+      "risk": "Standalone publication would duplicate a strict corollary of the stronger published result.",
+      "sources": [
+        "arXiv:1901.07130",
+        "Resultary stronger D_6,3 wedge theorem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the domination complex \\(D_{6,3}\\), the reduced mod-two homology has rank \\(115\\) in degree \\(4\\), rank \\(24\\) in degree \\(5\\), and vanishes in every other degree; hence the complex is not homotopy equivalent to a wedge of spheres all in one common dimension.",
+  "limitations": [
+    "Rejected only on prior coverage; the finite mod-two computation itself is correct.",
+    "No integral-homology or attaching-map claim is made."
+  ],
+  "schema_version": 1
+}
