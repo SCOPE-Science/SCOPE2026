@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:08:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The equilibrium equations give \\(x_2=x_1\\), \\(x_3=x_1/2\\), \\(x_4=r-5/4\\), and \\(x_1^2=2(r-5/4)\\). Independently expanding the actual frozen Jacobian in this audit reproduced \\(\\lambda^4+8\\lambda^3+(2q+65/4)\\lambda^2+(18q+17/2)\\lambda+16q\\), with \\(q=r-5/4\\). The quartic Hurwitz determinants reduce to \\(\\Delta_2=(243-4q)/2\\) and \\(\\Delta_3=-(3/4)(48q^2-1528q-1377)\\). Their signs, the exact boundary factorization, and the Routh first-column sign changes prove the stable interval, simple imaginary pair, and two-dimensional unstable side. The isolated \\(\\Delta_2=0\\) value is not an imaginary-axis crossing because a nonzero imaginary root forces \\(\\Delta_3=0\\).",
+      "risk": "This is a linear local-stability theorem only. It does not establish Hopf nondegeneracy, global attractor existence, basin structure, or the cause of every observed trajectory switch.",
+      "sources": [
+        "Natiq et al., Entropy 21(1):34 (2019), DOI:10.3390/e21010034",
+        "Khan-Ali-Khan, International Journal of Bifurcation and Chaos 35(12) (2025), DOI:10.1142/S021812742550138X",
+        "frozen package verify.py and independent symbolic determinant reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 paper is broader in global bound-set and synchronization analysis but evaluates a different local parameter point.",
+          "General Routh-Hurwitz theory supplies the method but no system-specific threshold."
+        ],
+        "reasoning": "No broader same-system theorem inspected supplies a stability classification for all \\(r\\) on the exact \\(b=2\\) slice.",
+        "searches": [
+          "Natiq et al. 2019 full article",
+          "Khan-Ali-Khan 2025 full-text preview for the same four-dimensional laser system",
+          "Resultary same-system and four-dimensional-flow searches"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/e21010034",
+        "DOI:10.1142/S021812742550138X",
+        "Resultary scientific-record corpus",
+        "targeted same-system web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2019 source supplies the equations, equilibria/Jacobian framework, and numerical \\(b=2\\) motivation but not the submitted exact boundary.",
+          "The 2025 paper supplies ultimate-bound and selected local-spectrum information but does not imply the all-\\(r\\), \\(b=2\\) classification."
+        ],
+        "reasoning": "A fresh determinant and Routh-Hurwitz computation is required to obtain the final claim; it is not a specialization of a stronger inspected theorem.",
+        "searches": [
+          "DOI:10.3390/e21010034",
+          "DOI:10.1142/S021812742550138X"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2019 source uses \\(b=2\\) in the reported chaotic/multistable slice but its displayed analytic characteristic/Routh calculation is not the submitted exact \\(b=2\\) boundary.",
+          "The 2025 same-system paper computes equilibrium eigenvalues for \\(\\mu=4\\), \\(\\zeta=0.5\\), \\(r=27\\), \\(b=1.5\\), and its searchable full text has no match for the submitted threshold."
+        ],
+        "reasoning": "Equivalent Hopf-threshold, local-spectrum, and Routh-Hurwitz formulations were compared on the exact vector field and parameter slice, not by title alone.",
+        "searches": [
+          "Resultary query: four-dimensional laser Natiq b=2 exact local stability threshold Routh Hurwitz 33.960349",
+          "DOI:10.3390/e21010034 local equilibrium and b=2 multistability sections",
+          "DOI:10.1142/S021812742550138X searchable full text: equilibrium, Routh, b=2, 33.960"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current record was the only exact same-system threshold result among the leading Resultary hits.",
+          "No distinct published threshold table or erratum was located."
+        ],
+        "reasoning": "The threshold is derived from the exact third Hurwitz determinant, not looked up from a numerical bifurcation table.",
+        "searches": [
+          "Resultary exact-threshold query containing 33.960349 and the Natiq laser system",
+          "web searches for the exact radical and decimal threshold with the system name"
+        ]
+      },
+      "rationale": "The 2019 primary source analyzes the same vector field and states a local characteristic/Routh calculation on a different parameter specialization while using \\(b=2\\) in its principal multistability computations. The later 2025 same-system full-text preview studies ultimate bounds, energy, synchronization, and a fractional extension; its displayed local spectrum is at \\(b=1.5\\), not the claimed \\(b=2\\) one-parameter boundary. It contains no occurrence of the exact threshold value in the searchable full text. Resultary returned this record as the only exact same-system threshold hit; other leading hits concern different flows.",
+      "residual_risks": [
+        "A non-indexed bifurcation continuation study could contain the same \\(b=2\\) threshold under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_SAME_SYSTEM_COVERAGE_NOT_EXACT_B2_BOUNDARY",
+          "evidence": "The source supplies the system and reports the \\(b=2\\) numerical slice, but does not state the submitted exact \\(r\\)-threshold there.",
+          "identifier_or_url": "DOI:10.3390/e21010034",
+          "material_read": "Full open article around the model, equilibrium/Jacobian analysis, the analytic stability calculation, and the \\(b=2\\) multistability discussion.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Dynamics and Complexity of a New 4D Chaotic Laser System",
+          "trigger": "Defining source for the exact vector field and foregrounded \\(b=2\\) regime."
+        },
+        {
+          "assessment": "RELATED_SAME_SYSTEM_NOT_COVERING_EXACT_SLICE",
+          "evidence": "The paper's displayed local eigenvalues use \\(b=1.5\\); no submitted exact threshold or radical was found in the searchable text.",
+          "identifier_or_url": "DOI:10.1142/S021812742550138X",
+          "material_read": "Author-provided searchable full-text preview including the model, equilibrium section, displayed local eigenvalues, ultimate-bound analysis, and synchronization material.",
+          "method": "Lawful author-provided full-text preview inspection and targeted full-text searches.",
+          "title": "Global Dynamical Analysis of a 4D-Chaotic System with Application in Locating the Hidden Attractors and Synchronization",
+          "trigger": "Later same-system paper that could dominate the local calculation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parameter slice is the primary source's emphasized multistable/chaotic regime. The exact boundary separates local equilibrium destabilization from the source's earlier trajectory switches and gives the full local index classification on that natural one-parameter slice, so it is a motivated structural boundary rather than an arbitrary spot calculation.",
+      "risk": "The value is local interpretive clarification, not a global bifurcation theorem.",
+      "sources": [
+        "DOI:10.3390/e21010034",
+        "DOI:10.1142/S021812742550138X"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On the published four-dimensional laser flow with \\(\\sigma=4\\), \\(\\delta=1/2\\), and \\(b=2\\), the two nonzero equilibria exist for \\(r>5/4\\), are asymptotically stable exactly for \\(5/4<r<(103+\\sqrt{10153})/6\\), have a simple imaginary pair at that boundary with the stated exact frequency, and have unstable dimension two above it.",
+  "limitations": [
+    "No nonlinear Hopf theorem is claimed.",
+    "No global attractor, basin, or hidden-attractor classification is claimed."
+  ],
+  "schema_version": 1
+}

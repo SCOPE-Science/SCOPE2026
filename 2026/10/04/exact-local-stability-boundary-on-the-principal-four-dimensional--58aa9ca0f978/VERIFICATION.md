@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact replay is `verify.py` and requires only the Python standard library. It performs these checks:
+# Independent mathematical audit
 
-1. It forms \(\lambda I-J\) at either nonzero equilibrium using \(k^2=2q\) and reconstructs the determinant by an exact permutation expansion over rational coefficients.
-2. It checks that the determinant is exactly
-\[
-\lambda^4+8\lambda^3+(2q+65/4)\lambda^2+(18q+17/2)\lambda+16q.
-\]
-3. It reconstructs \(\Delta_2\) and \(\Delta_3\) from the quartic coefficients and checks their exact polynomial forms.
-4. It verifies algebraically that \(q_H=191/12+\sqrt{10153}/6\) is the unique positive zero of \(48q^2-1528q-1377\), that \(r_H=q_H+5/4=(103+\sqrt{10153})/6\), and that \(q_H<243/4\).
-5. It checks the exact boundary factorization and the formula \(\omega_H^2=(295+3\sqrt{10153})/8\).
-6. It checks the two Routh first-column sign regimes on either side of \(q=243/4\), and separately checks that the only positive parameter value admitting a nonzero imaginary root is \(q=q_H\).
+## correctness
 
-A successful execution prints `VERIFY_OK`.
+PASS
 
-The replay verifies exact algebra and spectral counting. It does not test nonlinear Hopf coefficients, global attractors, or basin geometry; none of those are claimed.
+The equilibrium equations give \(x_2=x_1\), \(x_3=x_1/2\), \(x_4=r-5/4\), and \(x_1^2=2(r-5/4)\). Independently expanding the actual frozen Jacobian in this audit reproduced \(\lambda^4+8\lambda^3+(2q+65/4)\lambda^2+(18q+17/2)\lambda+16q\), with \(q=r-5/4\). The quartic Hurwitz determinants reduce to \(\Delta_2=(243-4q)/2\) and \(\Delta_3=-(3/4)(48q^2-1528q-1377)\). Their signs, the exact boundary factorization, and the Routh first-column sign changes prove the stable interval, simple imaginary pair, and two-dimensional unstable side. The isolated \(\Delta_2=0\) value is not an imaginary-axis crossing because a nonzero imaginary root forces \(\Delta_3=0\).
+
+## originality
+
+PASS
+
+The 2019 primary source analyzes the same vector field and states a local characteristic/Routh calculation on a different parameter specialization while using \(b=2\) in its principal multistability computations. The later 2025 same-system full-text preview studies ultimate bounds, energy, synchronization, and a fractional extension; its displayed local spectrum is at \(b=1.5\), not the claimed \(b=2\) one-parameter boundary. It contains no occurrence of the exact threshold value in the searchable full text. Resultary returned this record as the only exact same-system threshold hit; other leading hits concern different flows.
+
+## value
+
+PASS
+
+The parameter slice is the primary source's emphasized multistable/chaotic regime. The exact boundary separates local equilibrium destabilization from the source's earlier trajectory switches and gives the full local index classification on that natural one-parameter slice, so it is a motivated structural boundary rather than an arbitrary spot calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
