@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The profile pigeonhole count is exact: more than \(k+(R(\ell,\ell)-1)2^k\) vertices leaves more than \((R(\ell,\ell)-1)2^k\) nonwitness vertices, forcing one profile class of size at least \(R(\ell,\ell)\). A homogeneous \(\ell\)-set supports arbitrary cloning because every assignment of the universal block uses at most \(\ell\) distinct clones and can be injected back into the homogeneous set while preserving equality and adjacency. The sharpness sentence is quantifier-free after the stated prefix and bounds each profile class by the Ramsey definition.
+# Independent mathematical audit
 
-## Originality
-PASS. The nearest published source is the Bernays–Schönfinkel spectrum theorem in Pikhurko–Verbitsky. Its proof already passes through \(R(\ell,\ell)\), so the tightened upper bound is implicit and is not presented here as an independent conceptual discovery. The searched source does not state the exact endpoint or its sharpness construction. The prior ledger contains the \(\ell=2\) special case only. Targeted published-finding corpus and web searches found no equivalent fixed-\((k,\ell)\) optimality theorem.
+## correctness
 
-## Value
-PASS. The maximum finite-spectrum endpoint is a natural extremal quantity for a classical first-order fragment. Determining it exactly in terms of \(R(\ell,\ell)\) explains precisely where Ramsey theory enters the spectrum cutoff and shows the classical coarse threshold cannot be improved beyond the diagonal Ramsey constant. The concrete \(\ell=3\) endpoint \(k+5\cdot2^k\) is immediately explicit.
+PASS
 
-## Closest literature and limitations
-Pikhurko and Verbitsky, arXiv:1003.4865, Section 7.3, state a threshold \(2^k4^\ell\) and use \(R(\ell,\ell)\) inside the proof. The present statement adds the exact pigeonhole count and a Ramsey-critical lower construction. The result does not classify all spectra below the endpoint, and numerical evaluation for larger \(\ell\) is limited by the unknown diagonal Ramsey numbers. The main priority risk is unindexed folklore because the lower construction is short once the exact Ramsey parameter is isolated.
+Fixing the existential witnesses partitions all other vertices into at most \(2^k\) adjacency-profile classes. More than \((R(\ell,\ell)-1)2^k\) nonwitness vertices forces one class of size at least \(R(\ell,\ell)\), hence an \(\ell\)-vertex clique or independent set that can be cloned to arbitrary size without changing any atomic type seen by the \(\ell\) universal variables. For sharpness, a Ramsey-critical \((R-1)\)-vertex graph in each of the \(2^k\) profiles satisfies the quantifier-free prohibition and reaches the claimed order. A fresh exhaustive computation independently verified \(R(3,3)=6\) and the five-cycle critical witness; this finite check only corroborates the symbolic all-\(\ell\) proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pikhurko--Verbitsky's Bernays--Schönfinkel spectrum proof already uses the diagonal Ramsey number before replacing it by a coarse exponential bound, so the exact-Ramsey upper cutoff is prior-implied. However, the inspected theorem does not state optimality at fixed \((k,\ell)\), and no prior source located gives the matching construction that simultaneously saturates all \(2^k\) witness profiles with a Ramsey-critical graph. The originality claim is therefore limited to the exact optimal endpoint and its universal sharpness, not to the cloning argument or Ramsey step themselves.
+
+## value
+
+PASS
+
+The exact optimal endpoint is a natural finite cutoff for a standard first-order prefix class, and the construction identifies precisely how Ramsey-critical graphs saturate every witness type. Although the upper improvement is immediate from the published proof, the matching all-parameter sharpness gives a complete extremal theorem rather than a merely cosmetic constant replacement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
