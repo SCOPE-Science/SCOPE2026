@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact coordinate minimizer gives the stated cyclic sweep matrix. Its nonzero eigenvalues are a conjugate pair with known modulus and real part. Applying the Schur--Cohn criterion to the lifted constant-momentum modal polynomial yields the factor \((1-c)P_c(\alpha)\) exactly. The derivative argument proves that \(P_c\) is strictly decreasing on \([0,1]\), and Descartes' rule plus endpoint signs gives the unique quartic threshold. The two-block comparison follows independently from the real Jury conditions. The packaged checker reproduces the algebraic identities and representative root radii from the final files.
+## correctness
 
-## Originality
-PASS with a stated residual risk. The primary Chambolle--Pock source proves a two-block acceleration mechanism and discusses the difficulty of general cyclic acceleration but does not state this three-block stability boundary. Hong--Yavneh supply the general stationary-iteration momentum recurrence and complex-spectrum framework; that recurrence is treated as prior, while their inspected results do not state the exact spectrum or block-count phase transition here. The 2025 cyclic-BCD worst-case paper studies a different accelerated algorithm and reports deterministic inefficiency numerically, not this sharp global-before-sweep threshold. published-finding corpus searches returned related acceleration and Gauss--Seidel records but no implication-equivalent statement. The main residual risk is older extrapolated or semi-iterative Gauss--Seidel literature using different terminology.
+PASS
 
-## Value
-PASS. The two-block versus three-block transition directly addresses a structural limitation highlighted by the primary source. It is not merely a recomputed convergence factor: the result identifies the first block count at which complex sweep eigenvalues make a natural global momentum extension unstable, gives the complete fixed-momentum stability test, and supplies an exact algebraic boundary. This provides a compact adversarial benchmark for deterministic cyclic acceleration and separates a genuinely safe two-block mechanism from a three-block obstruction.
+Exact block minimization reconstructs the displayed three-by-three cyclic sweep matrix. Its nonzero eigenvalues have product c^3 and real part c^2(3-c)/2 and form a conjugate pair for 0<c<1. Applying Schur--Cohn to the lifted modal quadratic gives exactly the factor (1-c)P_c(alpha), while the remaining zero sweep eigenvalue contributes only zero lifted roots. The derivative bracket of P_c is convex in alpha and negative at both endpoints, hence P_c is strictly decreasing on [0,1]. The unit-momentum value factors as (c-1)(7c^4+2c^3-3c^2-2c-1), whose quartic has one positive root by Descartes and endpoint signs. The two-block Jury conditions are strictly satisfied throughout the parameter rectangle. The inspected verifier and an independent symbolic reconstruction reproduced the characteristic polynomial, factorization and numerical threshold.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Chambolle--Pock establish accelerated alternating minimization in the two-block setting and explicitly discuss the difficulty of extending such acceleration to general deterministic alternating schemes, but do not give this three-block momentum boundary. Hong--Yavneh supply the generic Nesterov/stationary-iteration modal recurrence and complex-spectrum framework, which is treated here as prior; their inspected results do not state the exact cyclic-sweep spectrum or P_c phase diagram for this family. The 2025 cyclic-block paper studies a different auxiliary-sequence per-coordinate acceleration. Targeted Resultary search for cyclic alternating minimization with fixed global momentum returned related iterative-method records but no implication-equivalent three-block threshold.
+
+## value
+
+PASS
+
+The theorem identifies a sharp structural transition in a natural acceleration attempt: the same global fixed momentum that is unconditionally stable for the two-block family develops a complete algebraic instability boundary at three blocks. This gives a compact adversarial benchmark for deterministic cyclic acceleration and directly addresses a limitation highlighted by the motivating two-block literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
