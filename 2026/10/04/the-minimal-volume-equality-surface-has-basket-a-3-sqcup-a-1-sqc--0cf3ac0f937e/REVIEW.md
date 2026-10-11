@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof exhausts all possible coarse singular points by combining the affine-cone singular locus with the two nontrivial positive-dimensional stabilizer strata of \(\mathbf P(2,6,7,9)\). The four local types are then reconstructed on orbifold covers. The two nontrivial quotient-of-Du-Val steps are explicit: \(A_1/\mu_2\) becomes \(\frac14(1,3)\), while \(A_2/\mu_7\) becomes \(\frac1{21}(1,8)\). Exact arithmetic independently checks the group weights, negative continued fraction, canonical index, and discrepancies.
+## correctness
 
-## Originality
-**PASS.** The primary article defines \(X_{18}\), proves normality, computes the affine-cone singular locus, and gives partial boundary singularity information. In the inspected full text it does not state a complete basket for the coarse equality surface, does not identify the \(P_x\) germ as \(A_3\), and does not identify \(P_t\) as \(\frac1{21}(1,8)\) or record its \([-3,-3,-3]\) resolution. Exact-equation and exact-local-type searches located no covering statement. Search failure is not treated as a proof of novelty, and the residual risk of unindexed or differently phrased coverage remains explicit.
+PASS
 
-## Value
-**PASS.** This is a natural complete local invariant of the unique extremal surface attaining Liu--Shao's sharp volume bound. It identifies the only noncanonical surface singularity, its local index and discrepancies, and the entire exceptional configuration of the minimal resolution; this is materially stronger than repeating the known normality or volume computation.
+The source equation and cone singular-locus calculation reduce the search to the coordinate-axis points plus the two nontrivial weighted orbifold strata. The Q2 and Q3 stack germs are smooth with residual tangent weights giving A_1 and A_2. At P_x, the A_1 cover with the residual involution lifts to an order-four action of type \(\frac14(1,3)\). At P_t, an A_2 cover combined with the residual order-seven action gives a cyclic order-21 action equivalent to \(\frac1{21}(1,8)\). Independent exact replay confirms \(21/8=[3,3,3]^-\), canonical index seven, and discrepancy vector \((-4/7,-5/7,-4/7)\).
 
-## Closest literature and limitations
-The closest source is Liu--Shao, arXiv:2609.27259v1, especially Theorem 5.1, Theorem 6.1, and Proposition 6.2. It supplies the fixed weighted hypersurface and partial singularity data but not the complete basket proved here. The present result does not compute deformation spaces, the global Picard lattice, or a complete boundary-versus-exceptional incidence diagram.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating paper uniquely identifies the equality surface, proves normality and computes the affine-cone singular locus, but its complete Section 6 does not state the coarse surface's four-point analytic basket, the \(A_3\) quotient at P_x, or the \(\frac1{21}(1,8)\) germ and its resolution at P_t. Those require additional chart-by-chart stabilizer and quotient-cover calculations. Exact Resultary search returned no independent source with the same basket.
+
+## value
+
+PASS
+
+X_18 is the unique surface attaining the new sharp volume bound, so its complete analytic singularity basket is a natural structural invariant. The noncanonical point's index, minimal-resolution chain and discrepancies are directly relevant to resolution and deformation questions for the extremal model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

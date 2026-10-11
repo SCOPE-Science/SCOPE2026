@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The local analytic proof is in `RESULT.md`. The finite replay checks only exact arithmetic consequences and representation weights.
+# Independent mathematical audit
 
-`verify.py` checks the nontrivial pairwise weight gcds, coordinate-point membership, quotient tangent weights at \(Q_2\) and \(Q_3\), the order-four lift at \(P_x\), the combined order-\(21\) action at \(P_t\), the equivalence to \(\frac1{21}(1,8)\), the continued fraction \(21/8=[3,3,3]^-\), the local canonical index \(7\), the discrepancy vector \((-4/7,-5/7,-4/7)\), and the total exceptional-curve count \(9\).
+## correctness
 
-The replay output stored in `verification_output.txt` must end in `VERIFY_OK`.
+PASS
 
-Unproved limits: the verifier does not certify analytic convergence of coordinate changes, deformation theory, or literature novelty. Those are handled respectively by the mathematical argument and the documented literature comparison.
+The source equation and cone singular-locus calculation reduce the search to the coordinate-axis points plus the two nontrivial weighted orbifold strata. The Q2 and Q3 stack germs are smooth with residual tangent weights giving A_1 and A_2. At P_x, the A_1 cover with the residual involution lifts to an order-four action of type \(\frac14(1,3)\). At P_t, an A_2 cover combined with the residual order-seven action gives a cyclic order-21 action equivalent to \(\frac1{21}(1,8)\). Independent exact replay confirms \(21/8=[3,3,3]^-\), canonical index seven, and discrepancy vector \((-4/7,-5/7,-4/7)\).
+
+## originality
+
+PASS
+
+The initiating paper uniquely identifies the equality surface, proves normality and computes the affine-cone singular locus, but its complete Section 6 does not state the coarse surface's four-point analytic basket, the \(A_3\) quotient at P_x, or the \(\frac1{21}(1,8)\) germ and its resolution at P_t. Those require additional chart-by-chart stabilizer and quotient-cover calculations. Exact Resultary search returned no independent source with the same basket.
+
+## value
+
+PASS
+
+X_18 is the unique surface attaining the new sharp volume bound, so its complete analytic singularity basket is a natural structural invariant. The noncanonical point's index, minimal-resolution chain and discrepancies are directly relevant to resolution and deformation questions for the extremal model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
