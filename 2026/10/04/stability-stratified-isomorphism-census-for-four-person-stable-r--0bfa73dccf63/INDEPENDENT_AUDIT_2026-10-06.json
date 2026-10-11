@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:51:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 6c28bfd0479768969a18359d2389a4e05bd37b5e",
+        "verify_roommates4_orbits.py 182f98dff502d03b10db9056de603c53ce9a792f",
+        "fresh full 1296-profile enumeration"
+      ],
+      "rationale": "A fresh complete enumeration of all 1296 labelled profiles and three perfect matchings reproduces labelled counts 48/1098/150 and canonical orbit counts 2/51/7. The frozen verifier independently cross-checks stability in two implementations and verifies the same result by Burnside fixed-point counting, including orbit sizes and both unsolvable representatives.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mertens determines solvability probability; Irving gives the general algorithm; OEIS counts all orbits."
+        ],
+        "reasoning": "None of these checked sources determines the multiplicity/stabilizer stratification.",
+        "searches": [
+          "Mertens 2015",
+          "Irving 1985",
+          "OEIS A356584"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.06635",
+        "Irving 1985",
+        "OEIS A356584",
+        "OEIS A358648",
+        "Resultary stable-roommates query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing 48 unsolvable labelled profiles and 60 total orbits cannot determine the number of unsolvable orbits or one-versus-two stable matching classes."
+        ],
+        "reasoning": "The complete group-action refinement is additional.",
+        "searches": [
+          "Mertens exact p4 solvability",
+          "OEIS total orbit count",
+          "audited Burnside/canonicalization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "There are 1296 labelled strict profiles and 60 simultaneous-relabeling orbits. The submitted theorem stratifies the orbits by number of stable matchings and stabilizer size."
+        ],
+        "reasoning": "The prior quantities are coarse marginals of the new census.",
+        "searches": [
+          "Mertens arXiv:1502.06635",
+          "OEIS A356584",
+          "Resultary stable-roommates four-agent query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A356584 gives 60 orbits; A358648 gives 1296 labelled profiles; no checked table gives 2,51,7."
+        ],
+        "reasoning": "Known tables supply totals, not the stability refinement.",
+        "searches": [
+          "OEIS A356584",
+          "OEIS A358648",
+          "web searches for 48/1296 and 51/7"
+        ]
+      },
+      "rationale": "Mertens gives exact small-n solvability probabilities, and OEIS A356584 gives the total orbit count 60 at four agents; these account for coarse marginals but not the stability-count split 2/51/7, orbit-size refinement, or the statement that the 48 labelled unsolvable profiles form exactly two isomorphism classes. Resultary returned no covering theorem.",
+      "residual_risks": [
+        "An unindexed thesis, software table or course note may contain the same four-agent stability refinement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOLVABILITY_MARGINAL_PRIOR_STRATIFIED_CENSUS_NOT_CHECKED",
+          "evidence": "Accessible source scope is solvability probability, not number of stable matchings per isomorphism class.",
+          "identifier_or_url": "arXiv:1502.06635; DOI:10.1088/1742-5468/2015/06/P06034",
+          "material_read": "Primary abstract/current indexed description stating explicit p_n and exact values through n=12; full source document not materially available.",
+          "method": "Probability versus orbit-stratification comparison.",
+          "title": "Small random instances of the stable roommates problem",
+          "trigger": "Primary exact small-instance probability source."
+        },
+        {
+          "assessment": "TOTAL_ORBIT_COUNT_ONLY",
+          "evidence": "No stability partition is given.",
+          "identifier_or_url": "OEIS A356584",
+          "material_read": "Complete current entry including Burnside formula and a(4)=60.",
+          "method": "Database comparison.",
+          "title": "OEIS A356584",
+          "trigger": "Exact database for roommate-profile orbits."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1502.06635",
+        "Irving 1985",
+        "OEIS A356584",
+        "OEIS A358648",
+        "Resultary stable-roommates query"
+      ],
+      "rationale": "Four agents are the smallest nontrivial even size with unsolvable stable-roommates instances; the complete stability-stratified orbit census is a natural exact boundary classification and useful algorithmic benchmark.",
+      "residual_risks": [
+        "An unindexed thesis, software table or course note may contain the same four-agent stability refinement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1502.06635",
+    "Irving 1985",
+    "OEIS A356584",
+    "OEIS A358648",
+    "Resultary stable-roommates query"
+  ],
+  "disposition": "passed",
+  "final_claim": "The 60 strict four-person stable-roommates isomorphism classes split as 2 with no stable matching, 51 with exactly one and 7 with exactly two, with the stated orbit-size refinement; the two unsolvable classes are the two orientations of the classical cyclic obstruction.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed thesis, software table or course note may contain the same four-agent stability refinement.",
+    "Four-agent classification only."
+  ]
+}

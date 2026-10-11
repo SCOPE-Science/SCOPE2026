@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_roommates4_orbits.py` exhausts all \(6^4=1296\) strict four-agent roommate profiles. It computes stability using two independent implementations and computes relabeling classes by two independent group-action routes: canonical representatives and stability-stratified Burnside averaging.
 
-Replay command:
+# Independent mathematical audit
 
-`python3 verify_roommates4_orbits.py`
+## correctness
 
-Expected leading output:
+PASS
 
-`VERIFY_OK`
+A fresh complete enumeration of all 1296 labelled profiles and three perfect matchings reproduces labelled counts 48/1098/150 and canonical orbit counts 2/51/7. The frozen verifier independently cross-checks stability in two implementations and verifies the same result by Burnside fixed-point counting, including orbit sizes and both unsolvable representatives.
 
-The replay verifies the labeled split \(48,1098,150\), the unlabeled split \(2,51,7\), the complete orbit-size distribution, the Burnside fixed-count table by conjugacy class, and the exact two unsolvable canonical representatives. Because every profile is enumerated, this is an exhaustive finite certificate rather than a sample or timeout-based inference.
+## originality
+
+PASS
+
+Mertens gives exact small-n solvability probabilities, and OEIS A356584 gives the total orbit count 60 at four agents; these account for coarse marginals but not the stability-count split 2/51/7, orbit-size refinement, or the statement that the 48 labelled unsolvable profiles form exactly two isomorphism classes. Resultary returned no covering theorem.
+
+## value
+
+PASS
+
+Four agents are the smallest nontrivial even size with unsolvable stable-roommates instances; the complete stability-stratified orbit census is a natural exact boundary classification and useful algorithmic benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
