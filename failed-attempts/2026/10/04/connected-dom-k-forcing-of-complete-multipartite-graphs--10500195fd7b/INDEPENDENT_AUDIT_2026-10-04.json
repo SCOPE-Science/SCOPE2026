@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:38:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py",
+        "Susanth--Dominic--Premodkumar 2026 full text",
+        "published SCOPE record: All k-forcing sets of complete multipartite graphs"
+      ],
+      "rationale": "For a connected dominating initial set of size at least two, at least one initially black vertex lies both in and outside any witnessing part. At the first force from part \\(i\\), the outside white count is at most \\(k\\); after that force, the remaining inside white count must also be at most \\(k\\). Initial black vertices on both sides sharpen the capacities to \\(n_i-1\\) and \\(N-n_i-1\\), yielding the lower bound, and choosing whites attaining both capacities gives the two-step construction. The singleton universal-vertex exception is exact. The inspected verifier brute-forces every multipartite type through order nine and every admissible \\(k\\), matching the formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior theorem classifies every initial k-forcing set, which is strictly broader dynamically.",
+          "Connected domination on a complete multipartite graph is determined only by whether the selected set meets at least two parts, except a universal singleton."
+        ],
+        "reasoning": "The broader prior classification plus a textbook support constraint mechanically yields the assigned formula.",
+        "searches": [
+          "published SCOPE all-k-forcing theorem",
+          "complete-multipartite connected domination criterion"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261004-21dd3de55bd1",
+        "Susanth--Dominic--Premodkumar 2026",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior criterion: a witnessing part has inside-white capacity \\(\\min(k,n_i-1)\\) and outside-white capacity \\(\\min(k,N-n_i)\\). Connected domination forces at least one black vertex outside, changing the latter to \\(\\min(k,N-n_i-1)\\)."
+        ],
+        "reasoning": "The final formula is a direct restriction of an already-published all-set characterization.",
+        "searches": [
+          "all-k-forcing first-force criterion versus connected-dom-k formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary surfaced the earlier SCOPE all-k-forcing classification with formula \\(F_k=N-\\max_i(\\min\\{k,n_i-1\\}+\\min\\{k,N-n_i\\})\\).",
+          "The primary connected-dom-k paper gives only complete graphs and the bipartite \\(k=2\\) case."
+        ],
+        "reasoning": "The assigned recurrence uses the same witnessing-part capacities with the one extra black-vertex condition outside that part.",
+        "searches": [
+          "Resultary: connected dom k forcing complete multipartite graphs F_cdk",
+          "published SCOPE: all-k-forcing-sets-of-complete-multipartite-graphs--21dd3de55bd1",
+          "Susanth et al. 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-k-forcing record is a decisive exact prior, so no further table is needed."
+        ],
+        "reasoning": "Exact-database comparison is subsumed by the prior published theorem rather than an external numeric table.",
+        "searches": [
+          "Resultary complete-multipartite forcing records"
+        ]
+      },
+      "rationale": "A previously published SCOPE record already classifies every standard \\(k\\)-forcing set of a complete multipartite graph by the identical first-force argument. Imposing connected domination on that all-set classification is elementary: size at least two means the black set meets at least two parts, which changes only the outside capacity from \\(N-n_i\\) to \\(N-n_i-1\\), plus the obvious universal-singleton exception. Thus the assigned minimum formula is implication-level covered by the prior all-k-forcing theorem and basic complete-multipartite connectivity/domination.",
+      "residual_risks": [
+        "The rejection does not depend on whether an older external paper contains the same formula; the published SCOPE all-set theorem already covers it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING at implication level.",
+          "evidence": "It classifies every k-forcing set by the same two white capacities; adding connected domination only requires one initial black vertex outside the witnessing part.",
+          "identifier_or_url": "SCOPE-20261004-21dd3de55bd1",
+          "material_read": "Complete RESULT.md from the frozen repository, including the iff first-force criterion, minimum formula, proof, and limitations.",
+          "method": "Read-only GitHub full-file inspection.",
+          "title": "All k-forcing sets of complete multipartite graphs",
+          "trigger": "Resultary returned a same-object broader all-set theorem."
+        },
+        {
+          "assessment": "PARTIALLY_COVERING only by itself.",
+          "evidence": "It gives complete graphs for all k and complete bipartite graphs at k=2, not arbitrary multipartite profiles.",
+          "identifier_or_url": "DOI:10.9734/jamcs/2026/v41i22096",
+          "material_read": "Full primary text around definitions and complete/complete-bipartite theorems.",
+          "method": "Public full-text inspection.",
+          "title": "Connected Dom-k-forcing Sets in Graphs",
+          "trigger": "Defining parameter source and published special cases."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-20261004-21dd3de55bd1",
+        "Susanth et al. 2026"
+      ],
+      "rationale": "Once the broader all-k-forcing classification is available, the connected-dom restriction is a routine support constraint and one-unit capacity adjustment. The formula is useful as a corollary but does not constitute a separate mathematical gap.",
+      "residual_risks": [
+        "The corollary may still be convenient for users of the connected-dom parameter."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For \\(G=K_{n_1,\\ldots,n_r}\\), connected dom-\\(k\\)-forcing has value \\(1\\) in the universal-vertex, \\(k=N-1\\) exception and otherwise \\(N-\\max_i(\\min\\{k,n_i-1\\}+\\min\\{k,N-n_i-1\\})\\).",
+  "limitations": [
+    "Complete multipartite graphs and the cited connected dom-k-forcing rule only.",
+    "The theorem gives the minimum size, not all minimum sets or forcing times."
+  ],
+  "schema_version": 1
+}
