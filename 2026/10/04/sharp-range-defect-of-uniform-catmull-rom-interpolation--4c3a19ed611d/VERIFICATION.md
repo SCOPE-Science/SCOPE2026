@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-`verify.py` performs exact rational polynomial algebra. It reconstructs the uniform cardinal Hermite segment and verifies the increment-basis coefficients
-\[
-q_0(t)=1+\sigma t(1-t)^2,
-\]
-\[
-q_1(t)=t\left[\sigma+(1-\sigma)t(3-2t)\right],
-\]
-and
-\[
-q_2(t)=-\sigma t^2(1-t).
-\]
 
-It checks the factorization
-\[
-1-q_1(t)
-=
-(1-t)\left[1+(1-\sigma)t(1-2t)\right],
-\]
-the derivative identities locating the two continuous extrema, their exact value \(4/27\), the standard \(\sigma=1/2\) range endpoints, and the strictly increasing witness formula.
+# Independent mathematical audit
 
-The replay is supplementary. The proof that \(q_1\) remains between zero and one and the optimization over the full monotone data cone are analytic arguments in RESULT.md, not finite sampling claims.
+## correctness
+
+PASS
+
+Changing from ordered samples to nonnegative increments puts the interpolant at each \(t\) as a linear functional on a simplex with coefficients \(1,q_0,q_1,q_2\), where \(q_0=1+\sigma t(1-t)^2\), \(0\le q_1\le1\), and \(q_2=-\sigma t^2(1-t)\). Thus the exact pointwise extrema allocate all variation to \(d_0\) or \(d_2\), and the two cubic shape factors both have maximum \(4/27\). Fresh symbolic algebra independently verified the coefficient factorization and extremizers; the strict-positive witness follows by direct substitution.
+
+## originality
+
+PASS
+
+Huang--Han--Gong's complete primary article explicitly states that original Catmull--Rom overshoots can violate global stability and develops a monotonic/adaptive repair, but it gives no exact bounded-data overshoot constant; indeed it notes the lack of a theoretical stability characterization for the original scheme. The exact \(2/27\) standard defect, the whole \(\sigma\)-profile and the strict-positive monotone witness were not found in targeted Resultary searches. The qualitative overshoot phenomenon is prior; originality is confined to the sharp extremal range.
+
+## value
+
+PASS
+
+The exact global-range defect is a natural stability invariant for a standard interpolation rule whose overshoot is explicitly identified as problematic in the literature. The theorem gives the optimal constant, extremizing data, the entire tension path, and a strictly increasing positive counterexample family, so it is a motivated sharp classification rather than a routine sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

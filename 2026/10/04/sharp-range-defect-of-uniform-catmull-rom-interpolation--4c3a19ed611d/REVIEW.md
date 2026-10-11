@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Hermite formula is rewritten exactly in nonnegative data increments. For \(0\le\sigma\le1/2\), the increment coefficients satisfy \(q_0\ge1\), \(0\le q_1\le1\), and \(q_2\le0\). Linear optimization over the admissible increment simplex therefore selects a single vertex for each side of the range. The remaining two cubic shape factors have exact maximum \(4/27\), proving both sharp constants and their equality cases. The strictly increasing witness follows by direct substitution. The packaged exact-rational polynomial replay returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with explicit residual risk. Qualitative Catmull–Rom overshoot and classical monotonicity-preserving cubic Hermite methods are prior-covered and are excluded from the novelty claim. published-finding corpus and literature searches under Catmull–Rom, cardinal-cubic, overshoot, range-preservation, four-point monotonicity, tension, and exact-\(2/27\) aliases found no implication-equivalent sharp theorem. The inspected sources do not state the exact two-sided bounded-data range, the extremizers, the linear tension law, or the strictly increasing positive witness. Full-text institutional retrieval of the most relevant Catmull–Rom papers was unavailable, and older graphics literature could encode the same constant under another norm or basis formulation; these remain explicit risks.
+PASS
 
-## Value
-PASS. Overshoot is a documented global-stability problem for Catmull–Rom interpolation, and monotonicity filters are widely used to avoid it. The result converts that qualitative concern into a complete, dimensionless worst-case law for the minimal four-sample local operator: exactly \(2/27\) for standard Catmull–Rom, with sharp data and locations and a full tension tradeoff. The strictly increasing positive witness shows that the defect is not caused only by tied or zero samples, making the bound useful as a regression and safeguard benchmark.
+Changing from ordered samples to nonnegative increments puts the interpolant at each \(t\) as a linear functional on a simplex with coefficients \(1,q_0,q_1,q_2\), where \(q_0=1+\sigma t(1-t)^2\), \(0\le q_1\le1\), and \(q_2=-\sigma t^2(1-t)\). Thus the exact pointwise extrema allocate all variation to \(d_0\) or \(d_2\), and the two cubic shape factors both have maximum \(4/27\). Fresh symbolic algebra independently verified the coefficient factorization and extremizers; the strict-positive witness follows by direct substitution.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Huang--Han--Gong's complete primary article explicitly states that original Catmull--Rom overshoots can violate global stability and develops a monotonic/adaptive repair, but it gives no exact bounded-data overshoot constant; indeed it notes the lack of a theoretical stability characterization for the original scheme. The exact \(2/27\) standard defect, the whole \(\sigma\)-profile and the strict-positive monotone witness were not found in targeted Resultary searches. The qualitative overshoot phenomenon is prior; originality is confined to the sharp extremal range.
+
+## value
+
+PASS
+
+The exact global-range defect is a natural stability invariant for a standard interpolation rule whose overshoot is explicitly identified as problematic in the literature. The theorem gives the optimal constant, extremizing data, the entire tension path, and a strictly increasing positive counterexample family, so it is a motivated sharp classification rather than a routine sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
