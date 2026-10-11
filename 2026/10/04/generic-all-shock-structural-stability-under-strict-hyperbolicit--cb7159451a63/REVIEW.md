@@ -1,14 +1,21 @@
-# Same-model review
-## Correctness
-PASS. On every strict Lax \(k\)-shock the shock speed is not an eigenvalue of \(DF\) at the right state, so \(A_k=DF(u^{(k)})-s_kI\) is invertible. The selected state/end-point columns of the total derivative form a block lower-triangular square matrix with diagonal \(A_1,\ldots,A_n\). This proves transversality of the full endpoint-parameterized objective on the admissible locus. Parametric transversality and the Banach-space implicit function theorem then give the generic local persistence claim. The argument proves no existence statement and uses no finite experiment as evidence for an infinite claim.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest 2026 paper proves the mixed shock/rarefaction theorem only under strict hyperbolicity, genuine nonlinearity, and a global regular-manifold hypothesis. It records that genuine nonlinearity is only used for rarefactions and that Lax shock blocks are invertible, but it still invokes the global regular-manifold hypothesis in genericity because its transversality argument ranges over non-admissible zeros. Restricting the parameterized transversality problem to the open strict-Lax all-shock locus removes that second hypothesis as well. No checked source states the resulting arbitrary-dimensional, almost-every-endpoint, flux-perturbation theorem under strict hyperbolicity alone.
+## correctness
 
-## Value
-PASS. The finding isolates a structural reason why the strongest global Hugoniot regularity assumption is unnecessary for physically admissible all-shock solutions. It gives a robust theorem for strong shocks in strictly hyperbolic systems beyond the genuinely nonlinear class and retains perturbations of the flux itself. This is a motivated boundary of the new general theory, not a renaming or a routine numerical slice.
+PASS
 
-## Closest literature and limitations
-Tan--Bertozzi 2026 is the direct source and closest comparison. Schecter--Marchesin--Plohr 1996 treats flux perturbations for two conservation laws in a viscous-profile framework. Kong 2003 treats general \(n\times n\) shock/contact solutions under generalized-Riemann initial-data perturbations of a fixed system; only its published abstract was available for comparison. The present theorem is limited to nondegenerate strict Lax shocks with strict speed ordering and is local in perturbation size. It does not cover rarefactions, contacts, composite waves, undercompressive shocks, or loss of strict hyperbolicity.
+The proof was reconstructed at the level of the full parameterized Rankine--Hugoniot map. The unknown vector has dimension \(n^2\): \(n-1\) intermediate states plus \(n\) speeds. At a strict Lax zero, every right-state block \(A_k=DF(u^{(k)})-s_kI\) is invertible because \(s_k\) lies strictly between characteristic speeds at the right state. In the total derivative with endpoint parameters included, the columns for \(u^{(1)},\ldots,u^{(n-1)},u_r\) form a block lower-triangular square matrix with diagonal \(A_1,\ldots,A_n\); hence the total map is a submersion on the admissible open locus. The finite-dimensional parametric transversality theorem therefore gives regularity of every admissible zero for almost every endpoint pair, and since the fixed-endpoint derivative is square it is invertible. The Banach-space implicit function theorem then gives a unique nearby chain under small endpoint and \(C^2\)-flux perturbations; strict hyperbolicity, Lax inequalities, nonzero jumps and speed order persist by openness. The theorem is conditional on existence and makes no unsupported existence claim.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with explicit access risk. The current Tan--Bertozzi n-by-n primary abstract proves mixed shock/rarefaction structural stability under strict hyperbolicity together with genuine nonlinearity and a regular-manifold hypothesis. The audited theorem narrows the wave pattern to all strict Lax shocks and removes both extra hypotheses by restricting the transversality argument to the admissible locus, where a block-triangular endpoint derivative is automatically surjective. No accessible primary statement or Resultary hit supplied that assumption-reduced all-shock theorem. Because the closest full text was inaccessible, no whole-document noncoverage claim is made.
+
+## value
+
+PASS
+
+The current general structural-stability theorem pays for mixed shock/rarefaction patterns with substantial global regularity assumptions. Showing that the physically important all-shock pattern needs only strict hyperbolicity isolates exactly which hypotheses belong to rarefaction/global-Hugoniot geometry and yields a cleaner arbitrary-dimensional robustness theorem. This is a motivated structural strengthening, not a routine special case, because the conclusion holds for a larger flux class despite the narrower wave pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

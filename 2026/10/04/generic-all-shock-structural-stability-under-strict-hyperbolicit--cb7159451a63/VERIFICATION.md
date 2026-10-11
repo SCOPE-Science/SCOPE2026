@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof was reconstructed from the all-shock Rankine--Hugoniot objective rather than inferred from a numerical experiment.
 
-For each admissible \(k\)-shock, the right-state Lax inequalities imply \(s_k\notin\operatorname{spec}(DF(u^{(k)}))\), hence \(A_k=DF(u^{(k)})-s_kI\) is invertible. In the full derivative with respect to internal variables and endpoint parameters, the columns for \(u^{(1)},\ldots,u^{(n-1)},u_r\) form a square block lower-triangular matrix with diagonal \(A_1,\ldots,A_n\). This verifies surjectivity at every zero of the open admissible locus without invoking a regular-manifold hypothesis.
+# Independent mathematical audit
 
-The parametric-transversality step is applied only on that open locus, where nondegeneracy, strict Lax inequalities, and speed ordering hold. Its source and target dimensions are equal for the restricted map \(x\mapsto\mathcal J(x;p)\), so \(C^1\) regularity is sufficient for the usual Sard/transversality threshold. At generic endpoints the square derivative \(D_x\mathcal J\) is therefore invertible at every admissible zero.
+## correctness
 
-For perturbations of the flux, the all-shock objective depends \(C^1\)-smoothly on \(F\in[C^2(K)]^n\). The implicit function theorem gives a unique nearby Rankine--Hugoniot chain. On compact \(K\), sufficiently small \(C^2\) perturbations preserve strict hyperbolicity; the strict Lax and speed inequalities are open and persist by continuity.
+PASS
 
-Limits: no existence theorem is asserted for all-shock solutions, no global uniqueness across different wave patterns is asserted, and no statement is made for rarefactions or non-Lax waves. The 2003 Kong comparison was limited to its published abstract because lawful full text was unavailable in the checked sources.
+The proof was reconstructed at the level of the full parameterized Rankine--Hugoniot map. The unknown vector has dimension \(n^2\): \(n-1\) intermediate states plus \(n\) speeds. At a strict Lax zero, every right-state block \(A_k=DF(u^{(k)})-s_kI\) is invertible because \(s_k\) lies strictly between characteristic speeds at the right state. In the total derivative with endpoint parameters included, the columns for \(u^{(1)},\ldots,u^{(n-1)},u_r\) form a block lower-triangular square matrix with diagonal \(A_1,\ldots,A_n\); hence the total map is a submersion on the admissible open locus. The finite-dimensional parametric transversality theorem therefore gives regularity of every admissible zero for almost every endpoint pair, and since the fixed-endpoint derivative is square it is invertible. The Banach-space implicit function theorem then gives a unique nearby chain under small endpoint and \(C^2\)-flux perturbations; strict hyperbolicity, Lax inequalities, nonzero jumps and speed order persist by openness. The theorem is conditional on existence and makes no unsupported existence claim.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with explicit access risk. The current Tan--Bertozzi n-by-n primary abstract proves mixed shock/rarefaction structural stability under strict hyperbolicity together with genuine nonlinearity and a regular-manifold hypothesis. The audited theorem narrows the wave pattern to all strict Lax shocks and removes both extra hypotheses by restricting the transversality argument to the admissible locus, where a block-triangular endpoint derivative is automatically surjective. No accessible primary statement or Resultary hit supplied that assumption-reduced all-shock theorem. Because the closest full text was inaccessible, no whole-document noncoverage claim is made.
+
+## value
+
+PASS
+
+The current general structural-stability theorem pays for mixed shock/rarefaction patterns with substantial global regularity assumptions. Showing that the physically important all-shock pattern needs only strict hyperbolicity isolates exactly which hypotheses belong to rarefaction/global-Hugoniot geometry and yields a cleaner arbitrary-dimensional robustness theorem. This is a motivated structural strengthening, not a routine special case, because the conclusion holds for a larger flux class despite the narrower wave pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

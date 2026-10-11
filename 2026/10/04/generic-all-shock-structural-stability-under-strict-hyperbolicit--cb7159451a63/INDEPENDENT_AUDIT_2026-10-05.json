@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:57:42.930927Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 60d8e3c7cefac1531633537c5bc012c08dd0d394",
+        "independent dimension count, block-Jacobian and transversality reconstruction",
+        "Tan--Bertozzi accessible primary theorem statement"
+      ],
+      "rationale": "The proof was reconstructed at the level of the full parameterized Rankine--Hugoniot map. The unknown vector has dimension \\(n^2\\): \\(n-1\\) intermediate states plus \\(n\\) speeds. At a strict Lax zero, every right-state block \\(A_k=DF(u^{(k)})-s_kI\\) is invertible because \\(s_k\\) lies strictly between characteristic speeds at the right state. In the total derivative with endpoint parameters included, the columns for \\(u^{(1)},\\ldots,u^{(n-1)},u_r\\) form a block lower-triangular square matrix with diagonal \\(A_1,\\ldots,A_n\\); hence the total map is a submersion on the admissible open locus. The finite-dimensional parametric transversality theorem therefore gives regularity of every admissible zero for almost every endpoint pair, and since the fixed-endpoint derivative is square it is invertible. The Banach-space implicit function theorem then gives a unique nearby chain under small endpoint and \\(C^2\\)-flux perturbations; strict hyperbolicity, Lax inequalities, nonzero jumps and speed order persist by openness. The theorem is conditional on existence and makes no unsupported existence claim.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Older structural-stability work uses different viscous/maximal-rank or fixed-system generalized-Riemann frameworks.",
+          "No accessible broader theorem was found that combines arbitrary dimension, almost-every endpoint genericity, and simultaneous endpoint plus flux perturbations under strict hyperbolicity alone."
+        ],
+        "reasoning": "The inspected broader theories do not visibly dominate the audited assumption-reduced claim.",
+        "searches": [
+          "Schecter--Marchesin--Plohr 1996",
+          "Kong 2003 accessible abstract",
+          "Tan--Bertozzi 2-by-2 and n-by-n records"
+        ]
+      },
+      "checked_sources": [
+        "Tan--Bertozzi, Generic Structural Stability for Riemann Solutions to n x n Systems of Hyperbolic Conservation Laws, arXiv:2609.28714v1",
+        "Tan--Bertozzi, Generic Structural Stability for Riemann Solutions to 2 x 2 Systems of Hyperbolic Conservation Laws, arXiv:2502.08998; DOI:10.1137/25M1733586",
+        "Schecter--Marchesin--Plohr, Structurally Stable Riemann Solutions, Journal of Differential Equations 126 (1996), 303--354",
+        "Kong, Global structure stability of Riemann solutions of quasilinear hyperbolic systems of conservation laws: Shocks and contact discontinuities, DOI:10.1016/S0022-0396(02)00068-2",
+        "Resultary semantic query: generic structural stability all shock strict hyperbolicity Tan Bertozzi"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At every strict Lax all-shock zero, the derivative columns corresponding to the successive right states form a block lower-triangular \\(n^2\\times n^2\\) matrix with invertible diagonal blocks \\(DF(u^{(k)})-s_kI\\).",
+          "This makes the total parameterized map a submersion on the admissible locus without a global Rankine--Hugoniot regular-manifold assumption; rarefaction regularity/genuine nonlinearity never enters the all-shock objective map."
+        ],
+        "reasoning": "The final implication is a genuine weakening of the visible assumptions in the source theorem, although the inaccessible full paper remains the principal residual coverage risk.",
+        "searches": [
+          "Tan--Bertozzi primary abstract and accessible 2-by-2 transversality framework",
+          "independent block-Jacobian/submersion argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published/current theorem is formulated for arbitrary mixtures of shocks and rarefactions under two additional standing hypotheses.",
+          "The audited statement is not equivalent to that theorem because it asserts stability for fluxes that need not satisfy genuine nonlinearity or the global regular-manifold condition."
+        ],
+        "reasoning": "Mixed-wave and all-shock formulations were compared at the assumption level, not merely by title.",
+        "searches": [
+          "arXiv:2609.28714v1 primary abstract/current record",
+          "arXiv:2502.08998 / DOI:10.1137/25M1733586",
+          "Resultary query listed in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit was the audited finding; no earlier indexed table/theorem supplied the same hypothesis set."
+        ],
+        "reasoning": "Search absence is supporting evidence only, especially because the closest current full text is access-limited.",
+        "searches": [
+          "Resultary query listed in checked_sources",
+          "targeted exact searches for all-shock strict-hyperbolicity-only structural stability"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes with explicit access risk. The current Tan--Bertozzi n-by-n primary abstract proves mixed shock/rarefaction structural stability under strict hyperbolicity together with genuine nonlinearity and a regular-manifold hypothesis. The audited theorem narrows the wave pattern to all strict Lax shocks and removes both extra hypotheses by restricting the transversality argument to the admissible locus, where a block-triangular endpoint derivative is automatically surjective. No accessible primary statement or Resultary hit supplied that assumption-reduced all-shock theorem. Because the closest full text was inaccessible, no whole-document noncoverage claim is made.",
+      "residual_risks": [
+        "The directly relevant 60-page Tan--Bertozzi n-by-n paper could not be independently read in full: open full-text retrieval was unavailable and the single authorized institutional retrieval attempt returned an unavailable/invalid worker error. It was not retried or bypassed. Its primary abstract still states the stronger standing assumptions of genuine nonlinearity and a regular-manifold hypothesis.",
+        "Kong's older full text was not independently inspected; its accessible abstract concerns a fixed system and generalized-Riemann initial-data perturbations, so a closer flux-perturbation theorem hidden in the body remains a residual risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_SAME_PROBLEM_WITH_STRONGER_VISIBLE_ASSUMPTIONS",
+          "evidence": "The accessible primary theorem statement retains both additional assumptions and covers mixed shock/rarefaction patterns; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "arXiv:2609.28714v1",
+          "material_read": "Primary abstract/current record stating the mixed-wave theorem and its strict-hyperbolicity, genuine-nonlinearity, and regular-manifold assumptions. Direct open full-text retrieval failed; one authorized institutional attempt returned an unavailable/invalid worker error and was not retried.",
+          "method": "lawful primary record plus one bounded authorized-access attempt",
+          "title": "Generic Structural Stability for Riemann Solutions to n x n Systems of Hyperbolic Conservation Laws",
+          "trigger": "Immediate same-problem source and strongest possible prior-coverage risk."
+        },
+        {
+          "assessment": "LOWER_DIMENSION_WITH_STRONGER_ASSUMPTIONS",
+          "evidence": "The 2-by-2 theorem retains genuine nonlinearity and regular-manifold assumptions and therefore does not imply the strict-hyperbolicity-only claim.",
+          "identifier_or_url": "arXiv:2502.08998; DOI:10.1137/25M1733586",
+          "material_read": "Accessible primary full/preprint material describing transversality and the regular-manifold and genuine-nonlinearity assumptions.",
+          "method": "lawful open primary material",
+          "title": "Generic Structural Stability for 2 x 2 Systems of Hyperbolic Conservation Laws",
+          "trigger": "Earlier full structural-stability framework by the same authors."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tan--Bertozzi, Generic Structural Stability for Riemann Solutions to n x n Systems of Hyperbolic Conservation Laws, arXiv:2609.28714v1",
+        "Tan--Bertozzi, Generic Structural Stability for Riemann Solutions to 2 x 2 Systems of Hyperbolic Conservation Laws, arXiv:2502.08998; DOI:10.1137/25M1733586",
+        "Schecter--Marchesin--Plohr, Structurally Stable Riemann Solutions, Journal of Differential Equations 126 (1996), 303--354",
+        "Kong, Global structure stability of Riemann solutions of quasilinear hyperbolic systems of conservation laws: Shocks and contact discontinuities, DOI:10.1016/S0022-0396(02)00068-2",
+        "Resultary semantic query: generic structural stability all shock strict hyperbolicity Tan Bertozzi"
+      ],
+      "rationale": "The current general structural-stability theorem pays for mixed shock/rarefaction patterns with substantial global regularity assumptions. Showing that the physically important all-shock pattern needs only strict hyperbolicity isolates exactly which hypotheses belong to rarefaction/global-Hugoniot geometry and yields a cleaner arbitrary-dimensional robustness theorem. This is a motivated structural strengthening, not a routine special case, because the conclusion holds for a larger flux class despite the narrower wave pattern.",
+      "residual_risks": [
+        "The theorem does not treat rarefactions, contacts, composite or undercompressive waves, and it is conditional on an admissible all-shock chain existing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The directly relevant 60-page Tan--Bertozzi n-by-n paper could not be independently read in full: open full-text retrieval was unavailable and the single authorized institutional retrieval attempt returned an unavailable/invalid worker error. It was not retried or bypassed. Its primary abstract still states the stronger standing assumptions of genuine nonlinearity and a regular-manifold hypothesis.",
+    "Kong's older full text was not independently inspected; its accessible abstract concerns a fixed system and generalized-Riemann initial-data perturbations, so a closer flux-perturbation theorem hidden in the body remains a residual risk.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
