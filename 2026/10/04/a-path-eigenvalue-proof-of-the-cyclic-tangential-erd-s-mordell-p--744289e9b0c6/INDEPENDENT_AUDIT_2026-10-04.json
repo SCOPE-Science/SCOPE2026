@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:35:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f2ee571a71e8582adc671dc06eb405f27190694a",
+        "verify_polygon.py blob 5ac908d6caf9ed5e990fcb7cd63914ebd60b2898",
+        "MathOverflow problem 244984",
+        "Dao--Nguyen--Pham Forum Geometricorum 2016",
+        "Lenhard 1961"
+      ],
+      "rationale": "The tangent- and chord-line distance formulas make the deficit affine in P, so vertex checking is sufficient. At a vertex, setting y_j=sin x_j gives exact identities sum D=2 sum y_j^2 and sum d=2 sum y_j y_{j+1}. The sharp Dirichlet path eigenvalue is cos(pi/n), proving the inequality. The equality eigenspace yields equal adjacent half-gap sines; cycling plus sum alpha_i=pi forces every half-gap to pi/n, hence regularity. The actual verifier checks the coordinate identities, path inequality, main inequality, and regular equality on nonuniform cyclic polygons through n=15; the proof itself is exact.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical polygon inequalities use vertex or angle-bisector distance sums; the 2016 paper proves the n=3 tangent version."
+        ],
+        "reasoning": "Those broader-looking formulas do not dominate the tangent-side-line inequality for a general cyclic polygon.",
+        "searches": [
+          "Lenhard 1961 polygon Erdos--Mordell",
+          "Barrow polygon inequality",
+          "Dao--Nguyen--Pham 2016 triangle theorem"
+        ]
+      },
+      "checked_sources": [
+        "MathOverflow 244984",
+        "Forum Geometricorum 16 (2016) 317--321",
+        "Lenhard 1961 DOI 10.1007/BF01650566",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangle theorem gives only one value of n.",
+          "The audited proof needs the affine vertex reduction and exact path identities for arbitrary central gaps."
+        ],
+        "reasoning": "Neither ingredient by itself mechanically implies the geometric all-n statement.",
+        "searches": [
+          "triangle n=3 theorem plus classical discrete Wirtinger inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact inequality appears as the question and asks for a proof of the general case.",
+          "The current page has no posted answer."
+        ],
+        "reasoning": "The audited theorem matches the conjecture statement rather than a renamed known polygon inequality.",
+        "searches": [
+          "Resultary: cyclic tangential Erdos Mordell polygon sec(pi/n) tangent distances path eigenvalue",
+          "MathOverflow 244984"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior complete all-n proof was returned; the problem page remains unanswered in the indexed version."
+        ],
+        "reasoning": "This is a theorem/conjecture comparison, not a finite database lookup.",
+        "searches": [
+          "Resultary exact semantic query above",
+          "current MathOverflow page"
+        ]
+      },
+      "rationale": "The exact all-n inequality was posed explicitly as a conjecture in 2016 and the currently indexed MathOverflow page, last modified in 2024, still contains no answer. The triangle theorem and classical polygonal Erdos--Mordell/Barrow inequalities have different distance terms and do not imply the tangent-line statement.",
+      "residual_risks": [
+        "An older equivalent proof under polar-dual or discrete-Wirtinger terminology remains a bibliographic risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT OPEN PROBLEM, not covering.",
+          "evidence": "The page states the same sec(pi/n) inequality and explicitly asks for a proof of the general case.",
+          "identifier_or_url": "https://mathoverflow.net/questions/244984/an-inequality-in-cyclic-polygon-and-tangential-polygon",
+          "material_read": "Complete currently indexed question page, including formula, triangle reference, edit date, comments, and absence of an answer.",
+          "method": "Primary problem-statement inspection.",
+          "title": "An inequality in cyclic polygon and tangential polygon",
+          "trigger": "Exact public conjecture statement."
+        },
+        {
+          "assessment": "PARTIALLY_COVERING n=3 only.",
+          "evidence": "The conjecture page itself identifies this source as the triangle case.",
+          "identifier_or_url": "Forum Geometricorum 16 (2016), 317--321",
+          "material_read": "The triangle result as cited in the primary problem statement and package comparison.",
+          "method": "Primary-source comparison.",
+          "title": "A Strengthened Version of the Erdős--Mordell Inequality",
+          "trigger": "Triangle case cited by the conjecture."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "MathOverflow conjecture",
+        "triangle theorem",
+        "classical polygon Erdos--Mordell literature"
+      ],
+      "rationale": "The result resolves an explicit all-polygon conjecture, gives the sharp constant, and classifies interior equality. The path-eigenvalue reduction is a reusable structural proof rather than a numerical verification.",
+      "residual_risks": [
+        "The result is limited to convex cyclic polygons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a convex cyclic \\(n\\)-gon with no consecutive antipodal vertices and an interior point \\(P\\), \\(\\sum_iD_i\\ge\\sec(\\pi/n)\\sum_id_i\\); the constant is sharp, with interior equality exactly for regular cyclic polygons.",
+  "limitations": [
+    "Euclidean convex cyclic polygons only; consecutive antipodal vertices are excluded.",
+    "No nonconvex, exterior-point, or non-Euclidean extension is claimed."
+  ],
+  "schema_version": 1
+}

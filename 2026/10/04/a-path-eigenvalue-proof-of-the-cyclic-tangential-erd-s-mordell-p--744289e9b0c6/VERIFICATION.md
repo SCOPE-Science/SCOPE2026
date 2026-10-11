@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is exact and does not depend on finite enumeration. A deterministic standalone checker is bundled as `verify_polygon.py` to test the critical coordinate identities and numerical consequences.
+# Independent mathematical audit
 
-The checker uses cyclic polygons with \(3\le n\le15\), including strongly nonuniform central gaps. Interior points are generated as strictly positive convex combinations of the vertices. It checks:
+## correctness
 
-- nonnegativity of the side and tangent distance formulas on the sampled domain;
-- the direct geometric sums at a vertex against the path formulas \(2\sum y_j^2\) and \(2\sum y_jy_{j+1}\);
-- the sharp path inequality with coefficient \(\cos(\pi/n)\);
-- the full inequality with coefficient \(\sec(\pi/n)\); and
-- equality for regular polygons at sampled interior points.
+PASS
 
-Packaged replay output:
+The tangent- and chord-line distance formulas make the deficit affine in P, so vertex checking is sufficient. At a vertex, setting y_j=sin x_j gives exact identities sum D=2 sum y_j^2 and sum d=2 sum y_j y_{j+1}. The sharp Dirichlet path eigenvalue is cos(pi/n), proving the inequality. The equality eigenspace yields equal adjacent half-gap sines; cycling plus sum alpha_i=pi forces every half-gap to pi/n, hence regularity. The actual verifier checks the coordinate identities, path inequality, main inequality, and regular equality on nonuniform cyclic polygons through n=15; the proof itself is exact.
 
-`VERIFY_OK`
+## originality
 
-`checks 7020`
+PASS
 
-`max_main_violation 0.000e+00`
+The exact all-n inequality was posed explicitly as a conjecture in 2016 and the currently indexed MathOverflow page, last modified in 2024, still contains no answer. The triangle theorem and classical polygonal Erdos--Mordell/Barrow inequalities have different distance terms and do not imply the tangent-line statement.
 
-`max_vertex_formula_error 5.329e-15`
+## value
 
-`max_path_violation 0.000e+00`
+PASS
 
-`max_regular_error 5.329e-15`
+The result resolves an explicit all-polygon conjecture, gives the sharp constant, and classifies interior equality. The path-eigenvalue reduction is a reusable structural proof rather than a numerical verification.
 
-The numerical checks do not establish the theorem for all polygons. The infinite claim rests on the exact affine reduction and the path-matrix eigenvalue calculation in `RESULT.md`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The distance formulas are valid on the stated convex cyclic domain, the target defect is affine in the point, and the vertex values reduce exactly to the quadratic form of a Dirichlet path. The largest path eigenvalue is \(\cos(\pi/n)\), which proves the inequality with the claimed sharp constant. The equality argument uses the unique positive top eigenvector and the identity \(\sum_i\alpha_i=\pi\). The bundled checker confirms the formulas numerically but is not treated as an infinite proof.
+## correctness
 
-## Originality
-PASS. The exact all-\(n\) statement was located as a 2016 conjecture asking for a proof, while the cited Forum Geometricorum paper proves the triangle case. Lenhard's classical polygon theorem has a different left-hand distance sum and does not subsume the tangent-distance statement. Searches under formula, tangent-line, tangential-polygon, Erdős–Mordell, polar, and path-inequality aliases located no general proof. Residual historical-synonym and access risks are recorded in `AUDIT.json`.
+PASS
 
-## Value
-PASS. This is a complete resolution of a natural, explicitly posed polygon generalization of a classical geometric inequality, with a sharp constant and equality classification. The path-eigenvalue reduction also explains why the secant constant appears.
+The tangent- and chord-line distance formulas make the deficit affine in P, so vertex checking is sufficient. At a vertex, setting y_j=sin x_j gives exact identities sum D=2 sum y_j^2 and sum d=2 sum y_j y_{j+1}. The sharp Dirichlet path eigenvalue is cos(pi/n), proving the inequality. The equality eigenspace yields equal adjacent half-gap sines; cycling plus sum alpha_i=pi forces every half-gap to pi/n, hence regularity. The actual verifier checks the coordinate identities, path inequality, main inequality, and regular equality on nonuniform cyclic polygons through n=15; the proof itself is exact.
 
-## Closest literature and limitations
-The closest source is the 2016 conjecture itself, followed by its known triangle case and Lenhard's 1961 polygonal Erdős–Mordell theorem. The claim excludes consecutive antipodal vertices so that the usual tangent polygon is finite. It makes no assertion for star polygons, exterior points, or non-Euclidean metrics. Absolute bibliographic novelty is not certified.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-n inequality was posed explicitly as a conjecture in 2016 and the currently indexed MathOverflow page, last modified in 2024, still contains no answer. The triangle theorem and classical polygonal Erdos--Mordell/Barrow inequalities have different distance terms and do not imply the tangent-line statement.
+
+## value
+
+PASS
+
+The result resolves an explicit all-polygon conjecture, gives the sharp constant, and classifies interior equality. The path-eigenvalue reduction is a reusable structural proof rather than a numerical verification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
