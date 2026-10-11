@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the minimum-ball KKT/contact certificate and solves it explicitly. Without the apex, equal contact distances force c_i=(b_i^2-mu)/(2b_i), while barycentric positivity and containment force a sorted tail and determine mu. The apex-inside test is exactly kappa_B<=mu. If it fails, the apex must carry positive contact weight. Equal apex/base distances and the barycentric sum give two linear equations in K and the apex weight t, yielding the displayed closed formulas. Positivity/containment reduce to a monotone threshold in b_i, proving the tail law. The weighted parallel-axis identity proves global optimality and uniqueness, not merely stationarity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source gives the exact lattice covering radius of S(omega), a distinct geometry-of-numbers invariant.",
+        "The later source proves the standard terminal simplex is lattice reduced and lattice complete and computes lattice width/diameter, not a Euclidean minimum enclosing sphere.",
+        "General regular-base or isosceles-simplex searches did not return a theorem covering arbitrary unequal base weights b_i."
+      ],
+      "reasoning": "The arbitrary weighted family is not a regular-base pyramid unless all b_i agree. The full theorem allows every positive coordinate weight to differ and solves which subset supports the ball, so symmetric-simplex formulas do not dominate it.",
+      "searches": [
+        "Codenotti--Santos--Schymura, Theorem 1.4 and Section 5.1 on S(omega)",
+        "Codenotti--Freyer, Proposition 3.12 on the standard terminal simplex S_d",
+        "published-result database query: isosceles n-simplex minimum enclosing sphere",
+        "published-result database query: regular simplex pyramid circumradius inradius"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1903.02866v1",
+      "doi:10.1007/s00454-021-00330-3",
+      "doi:10.1112/jlms.12982",
+      "published-result database searches for weighted-terminal and axis-simplex minimum-enclosing formulations",
+      "literature searches for standard-terminal, isosceles-simplex, regular-base-pyramid, and smallest-enclosing-ball aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No same-object accepted finding was present in the checked current or prior ledgers.",
+        "Lattice covering radius, lattice width, and lattice diameter are distinct from the Euclidean radius of one enclosing ball and do not determine its contact support.",
+        "The source formulas contain no center or active-set statement from which the new theorem follows."
+      ],
+      "reasoning": "The final theorem requires solving the Euclidean contact KKT system and proving a monotone tail-support law. Neither the published lattice covering formula nor the later reduced/complete statements contains those implications.",
+      "searches": [
+        "current geometry ledger: terminal simplex / S(omega) / weighted terminal",
+        "prior geometry ledger: terminal simplex / S(omega) / weighted terminal",
+        "Codenotti--Santos--Schymura lattice covering-radius formula versus Euclidean minimum enclosing ball",
+        "Codenotti--Freyer lattice width and lattice diameter versus Euclidean minimum enclosing ball"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located result gives a full-weight active-set formula for the Euclidean minimum enclosing ball of S(omega).",
+        "The closest generic hits concern regular simplices, disphenoids, or unrelated weighted-projective simplices rather than the source coordinate family."
+      ],
+      "reasoning": "The same theorem could be hidden under smallest enclosing ball, minimum enclosing sphere, axis simplex, orthant simplex, regular-base pyramid, or isosceles-simplex terminology. Those aliases were searched directly. Generic enclosing-ball optimality is used as a lemma, but it does not state the object-specific tail support or closed K,t formulas.",
+      "searches": [
+        "published-result database query: weighted terminal simplex minimum enclosing ball active set sorted weights",
+        "published-result database query: S(omega) smallest enclosing ball weighted coordinate simplex",
+        "published-result database query: conv{-omega0 1, omega_i e_i} minimum enclosing ball",
+        "published-result database query: axis simplex smallest enclosing sphere weighted orthant simplex",
+        "literature query: \"standard terminal simplex\" inradius circumradius Euclidean",
+        "literature query: \"isosceles simplex\" smallest enclosing ball"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact radius table or symbolic minimum-enclosing formula for S(omega) was returned.",
+        "The closest records concern unrelated simplex radius problems or weighted-projective lattice invariants."
+      ],
+      "reasoning": "A small-dimensional table could reveal the tail-contact pattern even without a theorem. No same-object table or symbolic formula was found in the checked database.",
+      "searches": [
+        "published-result database query: weighted terminal simplex minimum enclosing sphere",
+        "published-result database query: S(omega) simplex Euclidean inradius circumradius",
+        "published-result database query: terminal simplex Chebyshev center Euclidean"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the definition of S(omega), Theorem 1.4, and Section 5.1; it computes lattice covering minima rather than an ordinary Euclidean minimum enclosing sphere. A later full paper returning to the standard terminal simplex was inspected at Proposition 3.12 and contains no inradius, circumradius, or enclosing-sphere result. Published-result and literature searches covered direct object names and the aliases weighted terminal simplex, axis simplex, orthant simplex, smallest enclosing ball, and isosceles/regular-base simplex. No statement implying the sorted-tail active-set formula was located.",
+    "residual_risks": [
+      "A general paper on diagonally structured simplices or orthogonal-axis point sets may contain an equivalent active-set formula without terminal-simplex terminology.",
+      "Generic minimum-enclosing-ball KKT theory covers the optimality certificate but not, in the checked sources, the closed tail formulas.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines the full weighted family and computes a lattice covering invariant, but does not state an ordinary Euclidean minimum enclosing ball or contact-set theorem.",
+        "evidence": "The first public version is dated 2019-03-07. The publication lists 52B20 first. Theorem 1.4 defines S(omega)=conv{-omega_0 1,omega_1 e_1,...,omega_d e_d} and gives its lattice covering radius.",
+        "identifier_or_url": "arXiv:1903.02866v1; DOI 10.1007/s00454-021-00330-3",
+        "material_read": "ArXiv metadata; introduction and Theorem 1.4; Section 5.1 defining and computing the lattice covering radius of S(omega); Mathematics Subject Classification; targeted full-text searches for inradius, circumradius, and Euclidean enclosing-sphere terminology.",
+        "method": "Open-access arXiv and Springer HTML full-text inspection.",
+        "title": "The Covering Radius and a Discrete Surface Area for Non-Hollow Simplices",
+        "trigger": "Primary source defining the exact weighted terminal family S(omega)."
+      },
+      {
+        "assessment": "The paper proves S_d is lattice reduced and complete and computes its lattice width and diameter, but gives no Euclidean minimum-enclosing-sphere theorem.",
+        "evidence": "Proposition 3.12 uses S_d=conv{-1,e_1,...,e_d}; full-text searches returned no inradius, circumradius, or enclosing occurrence relevant to the claimed metric result.",
+        "identifier_or_url": "DOI 10.1112/jlms.12982",
+        "material_read": "Open-access full text around Proposition 3.12 and Remark 3.13; targeted searches for inradius, circumradius, and enclosing.",
+        "method": "Open-access Wiley HTML full-text inspection.",
+        "title": "Lattice reduced and complete convex bodies",
+        "trigger": "Later same-object source revisiting the standard terminal simplex as a principal lattice-geometric example."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb717b1c-78df-4096-bd02-128918734150",
+  "value": {
+    "rationale": "The source family S(omega) is a central exact family in current lattice-covering work and contains the standard terminal simplices used as conjectural extremizers. The result solves a different natural metric question for every positive weight vector, rather than for a low-dimensional or symmetric slice. Its main structural content is that a generic d-dimensional minimum-enclosing problem collapses to sorting plus a tail scan, with an explicit regime test for whether the apex participates. The standard terminal corollary gives a closed Euclidean benchmark for the flagship source example while the full theorem handles arbitrary unequal weights.",
+    "status": "PASS"
+  }
+}
