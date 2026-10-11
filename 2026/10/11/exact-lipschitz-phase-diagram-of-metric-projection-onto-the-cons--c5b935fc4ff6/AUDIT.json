@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Strict convexity yields the unique implicit p-mean and translation/cross-coordinate monotonicity, giving global bound n^(1/p). For n=2 symmetry gives a linear arithmetic mean of norm one; at p=2 orthogonal projection has norm one. For 1<p<2, an explicit centered residual configuration with one zero residual produces m(x+epsilon e1)/epsilon→1 because the remaining scalar residual equation is C1 and epsilon−m=O(epsilon^(1/(p−1)))=o(epsilon). For p>2, implicit differentiation gives nonnegative weights summing to one, and the residual stationarity forces every weight at most one-half; hence the conjugate norm is at most 2^(−1/p). Integration along segments (splitting once if a segment meets the diagonal) supplies the global upper bound (n/2)^(1/p), attained infinitesimally at residuals (1,−1,0,...). All quantifiers n>=2, p>1, real scalars, boundary p=2, and n=2 exception are accounted for. No finite enumeration is used as an infinite proof.",
+    "risks": [
+      "Only sharpness as a limit of nearby point pairs is asserted; actual finite-pair attainment is not established.",
+      "The proof explicitly assumes a real scalar field and finite-dimensional space; complex or nonatomic cases are excluded."
+    ],
+    "sources": [
+      "The main analytic proof is self-contained in RESULT.md.",
+      "Berens et al. 1997, DOI 10.1006/jmaa.1997.5521, supports defining best approximation framework.",
+      "Borodin et al. 2017, DOI 10.1134/S0001434617090188, supports existence/regularity and same-line terminology."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1997 general theorem yields finite uniform constants, not a sharp diagonal constant.",
+        "The 1998 publication describes an extension to polyhedral sets and remains a full-text access residual; its abstract does not claim a sharp diagonal-line value.",
+        "The 2017 full text gives only K(I) <= 2^(1/q)(n-1)^(1/p)+1, not an exact formula; it calls the diagonal asymptotically best.",
+        "Kapoor--Mathur 1983 compute a different supremum, the metric projection bound over all subspaces of dimension-two ℓp; this does not fix the chosen-line Lipschitz profile for n>=3."
+      ],
+      "reasoning": "The strongest inspected source about the exact same I_n object contains bounds strictly weaker than the new formulas; no broader theorem actually implies this sharp n,p profile. A result about the supremum over all two-dimensional projections is a different operator and does not cover n>=3.",
+      "searches": [
+        "doi:10.1006/jmaa.1997.5521 (original Theorem 1 and main proof)",
+        "doi:10.1006/jmaa.1998.6120 (abstract and publication record)",
+        "doi:10.1134/S0001434617090188 (original complete article, especially Theorem 2)",
+        "doi:10.1016/0021-9045(83)90142-9 (original Theorems 1-2)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1006/jmaa.1997.5521",
+      "doi:10.1006/jmaa.1998.6120",
+      "doi:10.1134/S0001434617090188",
+      "doi:10.1016/0021-9045(83)90142-9",
+      "mathematical findings index semantic-index queries recorded above",
+      "Public web queries on best approximation, diagonal p-means and exponent-discontinuity aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete 2017 article gives a finite upper estimate for the same diagonal I_n object, but its theorem does not imply the exact sharp constant or Hilbert-exponent jump.",
+        "The 1983 projection-bound article maximizes a different quantity over all subspaces of a two-dimensional space; it does not yield the fixed diagonal-line Lipschitz constants in dimensions n>=3.",
+        "The mathematical findings index entries on relative projection constants of graph subspaces concern linear complementation rather than nonlinear metric projection."
+      ],
+      "reasoning": "An existence theorem, a general nonsharp upper estimate and a supremum over all two-dimensional subspace projection bounds do not logically determine the exact Lipschitz norm for the fixed diagonal Chebyshev projection in every finite dimension. The stated sharpness examples and discontinuity require separate arguments.",
+      "searches": [
+        "mathematical findings index: nonlinear p mean minimizer Lipschitz operator norm n to the 1 over p for p less than two and n over two for p greater than two",
+        "mathematical findings index: Chebyshev projection onto diagonal vector one in ell p n exact norm worst-case p 2 discontinuity",
+        "doi:10.1134/S0001434617090188, Theorem 2 diagonal subspace and its estimates",
+        "doi:10.1016/0021-9045(83)90142-9, projection bound versus Lipschitz of fixed metric projection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "1997 Berens et al. Theorem 1 gives finite p-uniform existence of some Lipschitz constant for fixed linear subspaces; it does not identify the optimal Lipschitz norm for the all-ones line.",
+        "2017 Borodin et al. p.474 Theorem 2 explicitly provides a nonsharp diagonal-line upper estimate rather than an exact n,p profile.",
+        "mathematical findings index semantic searches for p-means, diagonal Chebyshev projection, p=2 discontinuity and n/2 powers returned related but none claiming the same metric-projection theorem."
+      ],
+      "reasoning": "The same scalar best-approximation map is also called the p-mean, p-centroid, or nonlinear projection onto the constants. Those aliases, exponent, dimension and sharpness were searched; continuity theorems do not logically imply the explicit constant or the two one-sided limits.",
+      "searches": [
+        "sharp exact Lipschitz constant metric projection diagonal line span(1,...,1) in real ell_4^n equal (n/2)^(1/4)",
+        "best approximation onto constant vectors in lp n cubic mean Lipschitz constant n over 2 quarter",
+        "metric projection onto diagonal subspace ell_4^n Lipschitz sharp uniform in dimension",
+        "exact Lipschitz constant of metric projection onto constant vectors in finite dimensional ℓp n for all p, phase transition at p=2",
+        "sharp stability of p-centroids and p-means finite uniform samples non-Hilbert discontinuity in exponent",
+        "public web: \"metric projection\" \"diagonal\" \"Lipschitz\" \"n/2\" lp",
+        "public web: \"best lp approximation\" \"constant vector\" Lipschitz sharp"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected primary table or database entry contains the full exact four-branch dimensional and exponent formula.",
+        "The 2017 primary article supplies a general quantitative upper estimate for diagonal I_n rather than a matching value."
+      ],
+      "reasoning": "The result is a natural sharp parameter-and-dimension theorem, not a recomputation of a pre-existing exact finite table. A failed database search alone is not treated as proof of novelty.",
+      "searches": [
+        "mathematical findings index: sharp exact Lipschitz constant metric projection diagonal line span(1,...,1) in real ell_4^n equal (n/2)^(1/4)",
+        "mathematical findings index: exact Lipschitz constant of metric projection onto constant vectors in finite dimensional ℓp n for all p, phase transition at p=2",
+        "public web: \"p-mean\" \"Lipschitz constant\" n 2",
+        "2017 original Theorem 2, p.474"
+      ]
+    },
+    "rationale": "The defining literature directly addresses finite-dimensional lp best approximation and proves uniform Lipschitz continuity without computing its exact constant. The later complete 2017 paper explicitly singles out the diagonal all-ones line and gives an upper estimate rather than a sharp value, and its exact formula is not a special case of either the general 1997 theorem or the maximum two-dimensional projection bound. New sharp global constants, the subquadratic/superquadratic transition and discontinuity at p=2 are compared by actual statements and implications, not title coincidence.",
+    "residual_risks": [
+      "The complete Finzel--Li 1998 follow-up was not accessible from checked routes; its abstract alone cannot exclude same-formula coverage.",
+      "Unindexed historical literature might phrase the exact profile as a p-mean or p-centroid stability statement rather than a metric projection, despite the investigated aliases.",
+      "The first-public-date 1997-09-01 is verified at day granularity by the bibliographic listing of the archival Berens et al. article; no earlier public preprint date is known from the checked records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXISTENCE_OF_UNIFORM_LIPSCHITZ_BOUND_NOT_EXACT_DIAGONAL_CONSTANT",
+        "evidence": "Theorem 1 proves there exists λ uniformly valid for all p and given subspace; no statement gives exact Lip(P_{I_n,p}) or Hilbert-exponent discontinuity.",
+        "identifier_or_url": "doi:10.1006/jmaa.1997.5521",
+        "material_read": "Complete accessible 19-page primary article, including theorem, Jacobian analysis, detailed proof and references",
+        "method": "Institutionally accessed full text through authorized PDF extraction; read substantive sections and final proof",
+        "title": "Hoffman’s Error Bounds and Uniform Lipschitz Continuity of Best lp-Approximations",
+        "trigger": "Foundational 1997 article on uniform Lipschitz metric approximation in finite ℓp; early historical primary source"
+      },
+      {
+        "assessment": "ABSTRACT_LEVEL_ONLY_FULL_TEXT_RISK",
+        "evidence": "Abstract states Lipschitz continuity uniformly with p for general polyhedral sets, rather than a sharp constant formula; full article cannot be declared not covering.",
+        "identifier_or_url": "doi:10.1006/jmaa.1998.6120",
+        "material_read": "Publisher and institutional repository abstract, publication record; full text unavailable after open-access and institutional attempts",
+        "method": "Article abstract from author-institution repository; attempted lawful full text without success",
+        "title": "Uniform Lipschitz Continuity of Best lp-Approximations by Polyhedral Sets",
+        "trigger": "Same-author follow-up directly extending the 1997 continuity theorem"
+      },
+      {
+        "assessment": "SAME_OBJECT_NONSEXACT_UPPER_ESTIMATE",
+        "evidence": "On p.474 Theorem 2, for I=span(1,...,1), only K(I) <= 2^(1/q)(n-1)^(1/p)+1 is given, with asymptotic discussion; no exact phase formula.",
+        "identifier_or_url": "doi:10.1134/S0001434617090188",
+        "material_read": "Complete ten pages 465–474 of original English-language article, including Theorem 2 and its final diagonal estimate",
+        "method": "Authorized institutional full-text extraction; read pp.465-474",
+        "title": "Finite-Dimensional Subspaces of Lp with Lipschitz Metric Projection",
+        "trigger": "Most relevant later primary source giving estimates for the identical diagonal I_n subspace"
+      },
+      {
+        "assessment": "DIFFERENT_SUPREMUM_TWO_DIMENSIONAL_BOUND",
+        "evidence": "Theorem 2 concerns MPB(ℓp²), supremum over all subspaces and radial-retraction constant, not Lipschitz constant of metric projection onto I_n for n≥3.",
+        "identifier_or_url": "doi:10.1016/0021-9045(83)90142-9",
+        "material_read": "Complete five-page primary article, including both theorems, numerical formulas and final remarks",
+        "method": "Institutionally accessed full-text extraction, pp.66-70",
+        "title": "Metric Projection Bound and the Lipschitz Constant of the Radial Retraction",
+        "trigger": "Historical exact projection-related constant might dominate a fixed-line statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5b935fc-4ff6-4f97-8157-64443ea7c4a5",
+  "value": {
+    "rationale": "The exact stability constant of best ℓp approximation onto the canonical constant-vector line is a natural quantity in nonlinear Chebyshev approximation and p-mean aggregation. The checked 1997 and 2017 sources focus on existence and nonsharp estimates; the new result closes that quantitative gap uniformly for every n and p. It reveals a nontrivial dimension-dependent structural bifurcation at p=2, including an unexpected discontinuity of the optimal global operator Lipschitz norm. The sharp high- and low-p configurations also show why general norm-equivalence continuity is insufficient. This is not an arbitrary instance or routine numerical improvement.",
+    "risks": [
+      "A specialized p-mean literature could contain the sharp constants under terminology not exposed by searches; this is an originality risk.",
+      "Only fixed-line stability is settled, not arbitrary target subspaces."
+    ],
+    "sources": [
+      "doi:10.1006/jmaa.1997.5521 (the foundational finite-dimensional Lipschitz existence theory).",
+      "doi:10.1134/S0001434617090188 (explicit approximate diagonal-line quantitative bound and its motivation)."
+    ],
+    "status": "PASS"
+  }
+}
