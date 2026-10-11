@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:14:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2162bfb910d4be498e5d1d55deb5a684504f8cef",
+        "assigned verify_exceptional_branch.py blob 194951ae6cccdbfc91f4b82b06584b772773bbe4",
+        "Sun arXiv:2607.07638v3 full primary theorem/proof",
+        "fresh finite exact replay"
+      ],
+      "rationale": "Coefficient extraction gives \\(B=[x^{p-1}]F^lF\\prime\\equiv-T_{l,m}(p)\\). In the exceptional case \\(l+1=ap\\), Frobenius in \\(\\mathbb F_p[[x]]/(x^p)\\) gives \\(F^p\\equiv1\\) and hence \\(F^l\\equiv F^{-1}\\). Factoring \\(F=\\prod(1-\\alpha_i x)\\), the required logarithmic-derivative coefficient is \\(-\\sum\\alpha_i^p\\); because the coefficient of \\(x\\) in \\(F\\) is one, \\(\\sum\\alpha_i=-1\\), so Frobenius makes the coefficient exactly one and therefore \\(T\\equiv-1\\). The nonexceptional branch is Sun's derivative argument. A fresh independent exact replay over primes through eleven and a multi-parameter grid reproduced the dichotomy, while the package verifier checks the larger stated grid.",
+      "residual_risks": [
+        "The result is only modulo \\(p\\); no uniform modulo-\\(p^2\\) or exceptional q-analogue is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Domb theorem is stronger modulo \\(p^2\\) but only for the fixed Domb specialization."
+        ],
+        "reasoning": "That special result does not imply the arbitrary-\\(l,m\\) exceptional branch.",
+        "searches": [
+          "Sun arXiv:2607.07638v3 Theorem 1.3 Domb congruence",
+          "current Domb/generalized-Domb Resultary hits"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.07638v3",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proof stops precisely because division by \\(l+1\\) is unavailable in the exceptional case.",
+          "The new Frobenius/logarithmic-derivative step resolves that obstruction."
+        ],
+        "reasoning": "The exceptional value is not implied by Sun's stated theorem or its proof without an additional argument.",
+        "searches": [
+          "Sun proof equation for \\([x^{p-1}]F^lF'\\)",
+          "Sun final use of \\(p mid l+1\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary theorem states only the nonexceptional branch.",
+          "No independently indexed all-parameter residue \\(-1\\) statement was retrieved."
+        ],
+        "reasoning": "The exact source notation, omitted divisibility condition, and logarithmic-derivative formulation were compared.",
+        "searches": [
+          "Resultary query: Sun multinomial prime congruence exceptional case p divides l+1 residue minus one",
+          "arXiv:2607.07638v3 Theorem 1.1",
+          "searches using logarithmic derivative and multinomial power-sum aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finding was the exact hit; no independent general table/formula was found."
+        ],
+        "reasoning": "Finite tables would not imply the theorem; no such broader table was located anyway.",
+        "searches": [
+          "Resultary exact exceptional-branch query",
+          "targeted exact-residue web searches"
+        ]
+      },
+      "rationale": "Sun's Theorem 1.1 explicitly assumes \\(p\\nmid l+1\\), and its proof uses invertibility of \\(l+1\\) at the final step. Full primary inspection of the theorem/proof confirms that the general exceptional branch is not supplied there. Sun's separate Domb theorem covers one specialization only. Current Resultary and targeted searches returned the assigned theorem but no broader all-\\(l,m\\) exceptional formula.",
+      "residual_risks": [
+        "An unindexed or differently phrased derivation of the exceptional branch could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NONEXCEPTIONAL_BRANCH_ONLY",
+          "evidence": "Theorem 1.1 explicitly excludes \\(p\\mid l+1\\); the Domb theorem covers only a fixed specialization.",
+          "identifier_or_url": "arXiv:2607.07638v3",
+          "material_read": "primary PDF/HTML around Theorem 1.1, its coefficient proof and the final invertibility step, plus Theorem 1.3; the load-bearing PDF page was visually inspected",
+          "method": "primary full-text inspection with page-image verification",
+          "title": "A new kind of numbers and related congruences",
+          "trigger": "exact primary source with the omitted branch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sun arXiv:2607.07638v3",
+        "assigned proof"
+      ],
+      "rationale": "The theorem closes the sole divisibility branch excluded from a current main congruence and replaces the hypothesis with a complete two-case law whose exceptional residue is independent of both height and quotient. The logarithmic-derivative mechanism is a natural structural completion, not a routine small-prime extension.",
+      "residual_risks": [
+        "The Domb specialization already covered by Sun's stronger theorem is not counted as new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is only modulo \\(p\\); no uniform modulo-\\(p^2\\) or exceptional q-analogue is proved.",
+    "An unindexed or differently phrased derivation of the exceptional branch could exist.",
+    "The Domb specialization already covered by Sun's stronger theorem is not counted as new."
+  ]
+}
