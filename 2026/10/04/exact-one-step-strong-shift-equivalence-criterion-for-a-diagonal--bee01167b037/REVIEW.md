@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof treats both directions. Sufficiency supplies explicit nonnegative integer factorizations. Necessity uses only the nonsingularity hypothesis to derive the complete form of an elementary factor, then reduces nonnegativity and integrality to the exact equation \(pU+rV=1\). The four resulting cases force one of the two divisibilities. Matrix dimensions and the excluded singular locus are stated explicitly.
+## correctness
 
-## Originality
-PASS with residual historical risk. The motivating 2026 preprint explicitly notes the two elementary cases \(k=4,5\) for \(G_k,H_k\), but its stated result does not give the iff criterion for all \(k\). Exact-formula literature searches and the author's companion proof page did not locate a result implying the divisibility classification. The nearest semantic-index results were mathematically unrelated matrix/equivalence records. This is evidence of noncoverage, not a universal novelty proof.
+PASS
 
-## Value
-PASS. The claim is tied directly to a family singled out in current symbolic-dynamics work, not to an arbitrary matrix slice. It converts two isolated one-step observations into an infinite exact classification and supplies a sharp obstruction to one-step proofs for the complementary parameters. The result is modest in scope: it does not settle strong shift equivalence for the excluded one-step cases.
+Sufficiency is given by direct nonnegative integer factorizations when \(c\mid n\) or \(b\mid n\). For necessity, \(A=RS\), \(B=SR\), and \(\det A\ne0\) force \(R\) and \(S\) nonsingular and hence \(AR=RB\). Writing \(R=\begin{pmatrix}p&q\\r&s\end{pmatrix}\), the intertwining equations give \(q=br\) and \(s=cp\). Solving \(S=R^{-1}A\) yields nonnegative integers \(U,V\) with \(S=\begin{pmatrix}cV&bU\\U&V\end{pmatrix}\). The \((1,2)\) entry of \(RS=A\) gives \(pU+rV=1\), so one of the nonnegative integer products is one and the other zero. The \((1,1)\) entry then forces \(n=cp\) or \(n=br\), proving \(c\mid n\) or \(b\mid n\). Fresh bounded enumeration of the reduced intertwiner form for \(1\le n\le8\) and \(1\le b,c\le5\) found an elementary factorization exactly in the predicted divisibility cases.
 
-## Closest literature and limitations
-Jeandel, arXiv:2609.03567v1, is the closest source: it introduces the relevant generalized Baker constructions and the \(G_k,H_k\) family, reports \(k=4,5\) as elementary, and uses broader SSE theorems for larger parameters. Baker's 1983 paper gives classical sufficient conditions for SSE of positive \(2\times2\) matrices, but does not cover this exact one-step iff statement in the material inspected. The singular locus \(n^2=bc\) is not classified here, and folklore or unindexed coverage remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Baker's classical theorem concerns strong shift equivalence through a chain and explicitly uses higher-dimensional intermediate matrices; it does not classify a single elementary factorization. Jeandel's recent work returns to Baker-type examples and gives explicit multi-step SSE proofs for small parameters, but the accessible primary abstract/author companion does not state the all-parameter one-step divisibility criterion. Targeted Resultary search returned the assigned record as the direct exact hit and no earlier elementary classification. Full Jeandel text could not be obtained in this run, so that source remains an explicit access residual rather than negative evidence.
+
+## value
+
+PASS
+
+Elementary SSE is the atomic move underlying strong shift equivalence, and recent work is explicitly constructing and shortening paths for difficult two-by-two examples. An exact all-parameter criterion identifying when a natural diagonal Baker-type family collapses to one step is therefore a motivated structural classification, with a simple divisibility obstruction that can guide path searches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

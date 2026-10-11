@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:37:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 653d07eccb7a09318cfb36a2c15df64a97f076b0",
+        "fresh bounded enumeration of the derived nonnegative intertwiner equations",
+        "Baker, Strong shift equivalence of 2 x 2 matrices of non-negative integers, ETDS 3 (1983), 501-508",
+        "Jeandel, arXiv:2609.03567 abstract and author SSE companion page"
+      ],
+      "rationale": "Sufficiency is given by direct nonnegative integer factorizations when \\(c\\mid n\\) or \\(b\\mid n\\). For necessity, \\(A=RS\\), \\(B=SR\\), and \\(\\det A\\ne0\\) force \\(R\\) and \\(S\\) nonsingular and hence \\(AR=RB\\). Writing \\(R=\\begin{pmatrix}p&q\\\\r&s\\end{pmatrix}\\), the intertwining equations give \\(q=br\\) and \\(s=cp\\). Solving \\(S=R^{-1}A\\) yields nonnegative integers \\(U,V\\) with \\(S=\\begin{pmatrix}cV&bU\\\\U&V\\end{pmatrix}\\). The \\((1,2)\\) entry of \\(RS=A\\) gives \\(pU+rV=1\\), so one of the nonnegative integer products is one and the other zero. The \\((1,1)\\) entry then forces \\(n=cp\\) or \\(n=br\\), proving \\(c\\mid n\\) or \\(b\\mid n\\). Fresh bounded enumeration of the reduced intertwiner form for \\(1\\le n\\le8\\) and \\(1\\le b,c\\le5\\) found an elementary factorization exactly in the predicted divisibility cases.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baker proves positive two-by-two matrices of nonnegative determinant that are integer-similar are strongly shift equivalent, using a chain and 3 by 3 intermediate matrices.",
+          "Jeandel's companion page says it supplies SSE proofs for Baker matrices at small sizes, not a one-step all-parameter factorization criterion."
+        ],
+        "reasoning": "Multi-step SSE does not imply elementary SSE, so these broader results do not dominate the audited lag-one classification.",
+        "searches": [
+          "Baker 1983 full primary PDF",
+          "Jeandel arXiv:2609.03567 abstract",
+          "Jeandel author companion SSE proofs page"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0143385700002091",
+        "arXiv:2609.03567",
+        "HAL:hal-05729251v1 metadata",
+        "Jeandel author SSE companion page",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither a chain of elementary SSEs nor existence of small-parameter computational paths implies that the endpoints factor in one step.",
+          "The audited necessity uses the special diagonal form to force \\(q=br\\), \\(s=cp\\), and then the integer equation \\(pU+rV=1\\)."
+        ],
+        "reasoning": "The divisibility obstruction is new object-specific content rather than a corollary of known multi-step SSE.",
+        "searches": [
+          "Baker 1983 theorem and definition",
+          "Jeandel 2026 abstract/author companion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elementary SSE is exactly existence of nonnegative \\(R,S\\) with \\(A=RS\\) and \\(B=SR\\).",
+          "The audited criterion classifies this lag-one factorization, which is strictly stronger than merely belonging to the same transitive SSE class."
+        ],
+        "reasoning": "Equivalent formulations through lag-one shift equivalence, elementary SSE, and nonnegative matrix factorization were compared.",
+        "searches": [
+          "Resultary query: elementary strong shift equivalence Baker family G_k H_k divisibility one step",
+          "Resultary query: exact one-step strong shift equivalence diagonal generalized Baker family",
+          "Baker 1983 definition of elementary SSE",
+          "arXiv:2609.03567 abstract/metadata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned current record is the direct exact Resultary hit; no earlier one-step table or classification for this family was returned."
+        ],
+        "reasoning": "Because Jeandel's work contains computational small-parameter paths, an exact one-step table was a plausible covering route and was checked.",
+        "searches": [
+          "Resultary exact elementary-SSE divisibility query"
+        ]
+      },
+      "rationale": "Baker's classical theorem concerns strong shift equivalence through a chain and explicitly uses higher-dimensional intermediate matrices; it does not classify a single elementary factorization. Jeandel's recent work returns to Baker-type examples and gives explicit multi-step SSE proofs for small parameters, but the accessible primary abstract/author companion does not state the all-parameter one-step divisibility criterion. Targeted Resultary search returned the assigned record as the direct exact hit and no earlier elementary classification. Full Jeandel text could not be obtained in this run, so that source remains an explicit access residual rather than negative evidence.",
+      "residual_risks": [
+        "The full Jeandel preprint could not be inspected in this run; an unobserved remark about elementary SSE in this exact subfamily remains a concrete access risk.",
+        "Older symbolic-dynamics literature may contain an equivalent one-step factorization criterion under different parametrization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_TRANSITIVE_SSE_NOT_COVERING_ONE_STEP",
+          "evidence": "Baker proves strong shift equivalence using chains and higher-dimensional intermediates, not the exact one-step condition \\(A=RS\\), \\(B=SR\\).",
+          "identifier_or_url": "DOI:10.1017/S0143385700002091",
+          "material_read": "Full eight-page primary PDF text, with the first page visually inspected; the introduction, elementary-SSE definition, and main multi-step theorem were read.",
+          "method": "Publisher full-PDF inspection with screenshot of the structured first page.",
+          "title": "Strong shift equivalence of 2 x 2 matrices of non-negative integers",
+          "trigger": "Classical primary theorem for Baker-type positive two-by-two matrices."
+        },
+        {
+          "assessment": "ACCESS_LIMITED; BEST_OF_KNOWLEDGE_NOT_COVERING_ONE_STEP_CLASSIFICATION",
+          "evidence": "Accessible primary material describes multi-step SSE computations for small instances, not the audited all-parameter elementary criterion.",
+          "identifier_or_url": "arXiv:2609.03567; HAL:hal-05729251v1",
+          "material_read": "Primary arXiv abstract, author publication metadata, and the author's SSE companion page stating that it contains proofs for small Baker instances. Full paper text was not readable in this run: direct arXiv PDF retrieval was disabled, the HAL record denied automated access, and the authorized institutional fallback returned an unavailable-worker error.",
+          "method": "Bounded lawful open-access attempts followed by one authorized institutional fallback; no bypass or repeated retry after the valid fallback failed.",
+          "title": "Combinatorial Search for Strong Shift Equivalence",
+          "trigger": "Recent same-topic work returning to Baker matrices with explicit computational SSE paths."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Baker 1983",
+        "Jeandel arXiv:2609.03567 accessible material"
+      ],
+      "rationale": "Elementary SSE is the atomic move underlying strong shift equivalence, and recent work is explicitly constructing and shortening paths for difficult two-by-two examples. An exact all-parameter criterion identifying when a natural diagonal Baker-type family collapses to one step is therefore a motivated structural classification, with a simple divisibility obstruction that can guide path searches.",
+      "residual_risks": [
+        "The theorem does not decide total SSE length when the elementary obstruction fires."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For positive integers \\(n,b,c\\) with \\(n^2\\ne bc\\), let \\(A_{n;b,c}=\\begin{pmatrix}n&b\\\\c&n\\end{pmatrix}\\) and \\(B_{n;b,c}=\\begin{pmatrix}n&bc\\\\1&n\\end{pmatrix}\\). These matrices are elementary strong-shift equivalent over \\(\\mathbb Z_+\\) if and only if \\(b\\mid n\\) or \\(c\\mid n\\). In particular, the displayed \\((b,c)=(5,4)\\) family is elementary exactly for parameters divisible by 4 or 5.",
+  "limitations": [
+    "The theorem classifies one-step (elementary) SSE only; it does not decide whether non-elementary SSE exists when neither divisibility condition holds.",
+    "All entries are positive and the nonsingularity condition \\(n^2\\ne bc\\) is essential to the proof through invertibility of the elementary factors.",
+    "No claim is made for arbitrary two-by-two nonnegative matrix pairs."
+  ],
+  "schema_version": 1
+}

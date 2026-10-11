@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is self-contained exact arithmetic over nonnegative integers. The critical chain is:
+## correctness
 
-1. For \(n^2\ne bc\), an elementary factorization \(A=RS\), \(B=SR\) has nonsingular \(R\), hence \(AR=RB\).
-2. Solving \(AR=RB\) entrywise forces \(R=\begin{pmatrix}p&br\\r&cp\end{pmatrix}\).
-3. Writing \(S=R^{-1}A\) and using that its bottom row is nonnegative integral gives nonnegative integers \(U,V\) with \(S=\begin{pmatrix}cV&bU\\U&V\end{pmatrix}\).
-4. The \((1,2)\)-entry of \(RS=A\) gives \(pU+rV=1\). Nonnegative integrality leaves only four cases, each forcing \(b\mid n\) or \(c\mid n\).
-5. Conversely, each divisibility condition has an explicit two-by-two factorization written in RESULT.md.
+PASS
 
-A separate bounded sanity check over \(1\le n,b,c\le8\), excluding \(n^2=bc\), and candidate parameters \(0\le p,r\le30\) found no disagreement with the theorem. That computation is not used to certify the universal statement.
+Sufficiency is given by direct nonnegative integer factorizations when \(c\mid n\) or \(b\mid n\). For necessity, \(A=RS\), \(B=SR\), and \(\det A\ne0\) force \(R\) and \(S\) nonsingular and hence \(AR=RB\). Writing \(R=\begin{pmatrix}p&q\\r&s\end{pmatrix}\), the intertwining equations give \(q=br\) and \(s=cp\). Solving \(S=R^{-1}A\) yields nonnegative integers \(U,V\) with \(S=\begin{pmatrix}cV&bU\\U&V\end{pmatrix}\). The \((1,2)\) entry of \(RS=A\) gives \(pU+rV=1\), so one of the nonnegative integer products is one and the other zero. The \((1,1)\) entry then forces \(n=cp\) or \(n=br\), proving \(c\mid n\) or \(b\mid n\). Fresh bounded enumeration of the reduced intertwiner form for \(1\le n\le8\) and \(1\le b,c\le5\) found an elementary factorization exactly in the predicted divisibility cases.
 
-Limit: the singular locus \(n^2=bc\) is outside the theorem. No claim about arbitrary-length strong shift equivalence is made for the non-elementary cases.
+## originality
+
+PASS
+
+Baker's classical theorem concerns strong shift equivalence through a chain and explicitly uses higher-dimensional intermediate matrices; it does not classify a single elementary factorization. Jeandel's recent work returns to Baker-type examples and gives explicit multi-step SSE proofs for small parameters, but the accessible primary abstract/author companion does not state the all-parameter one-step divisibility criterion. Targeted Resultary search returned the assigned record as the direct exact hit and no earlier elementary classification. Full Jeandel text could not be obtained in this run, so that source remains an explicit access residual rather than negative evidence.
+
+## value
+
+PASS
+
+Elementary SSE is the atomic move underlying strong shift equivalence, and recent work is explicitly constructing and shortening paths for difficult two-by-two examples. An exact all-parameter criterion identifying when a natural diagonal Baker-type family collapses to one step is therefore a motivated structural classification, with a simple divisibility obstruction that can guide path searches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
