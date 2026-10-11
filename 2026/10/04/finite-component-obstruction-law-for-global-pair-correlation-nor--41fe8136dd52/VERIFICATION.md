@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the stated hypotheses. Once \(r_n<\Delta\), support separation gives \(\mu(B(x,r_n))=p_i\mu_i(B(x,r_n))\) for \(x\in X_i\), hence \(C_\mu(n)=\sum_i p_i^2C_i(n)\). Invariance keeps single orbits inside their starting component, and positive separation forces cross-component two-orbit counts to vanish for all sufficiently large \(n\). Combining these exact facts with the assumed componentwise local laws gives the displayed limits.
+# Independent mathematical audit
 
-The contradiction for a putative global single-orbit limit \(1\) uses only positivity of \(A\) and \(\sum_i p_i^2<1\) when at least two weights are positive. The same-component equal-scale factor is then \(1/\sum_i p_i^2\).
+## correctness
 
-Limits not verified because they are outside the claim: no assertion is made for touching supports, infinitely many components, nonconvergent relative correlation-integral scales, or systems in which the componentwise local pair-correlation laws themselves fail.
+PASS
+
+For sufficiently small radii, a ball centered in component i sees only p_i times the i-th measure, giving the exact identity C_mu equals the sum of p_i squared times C_i. Invariance keeps single orbits in their starting component; cross-component two-orbit counts eventually vanish. Substitution of the assumed local laws yields the stated a_i over A limits. A putative limit one on every positive-weight component would force the sum of squared weights to equal one, impossible for a nontrivial mixture.
+
+## originality
+
+PASS
+
+A public audit already records one equal-weight two-component failure mechanism, which is treated as prior. The audited theorem gives the exact finite-component law for arbitrary positive weights and asymptotically comparable local correlation integrals, simultaneously for one- and two-orbit counts. No inspected source states that general formula. The current primary body was not obtainable, so this remains best-of-knowledge with an explicit access risk.
+
+## value
+
+PASS
+
+The theorem upgrades a known two-component failure example to a complete finite-mixture law, including unequal weights and unequal local scales, and treats one- and two-orbit normalizations together. This is a useful structural boundary for nonergodic applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
