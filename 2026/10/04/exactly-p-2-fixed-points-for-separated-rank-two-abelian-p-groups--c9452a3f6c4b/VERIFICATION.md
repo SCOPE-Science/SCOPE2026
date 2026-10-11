@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-For
-\[
-A=C_{p^a}\oplus C_{p^b},
-\]
-the checker enumerates every matrix
-\[
-\begin{pmatrix}
-\alpha&\beta\\
-p^{b-a}\gamma&\delta
-\end{pmatrix}
-\]
-with unit diagonal entries.
 
-For each matrix it forms the six \(2\times2\) minors of the cokernel presentation of \(\varphi-I\). Their gcd is the fixed-subgroup order. The checker compares the exact number of matrices with gcd \(p^2\) against each displayed formula branch.
+# Independent mathematical audit
 
-The tested branches include
-\[
-a=1,\ b\ge4;
-\quad
-a=2,\ b=4;
-\quad
-a=2,\ b\ge5;
-\quad
-a\ge3,\ b=a+2;
-\quad
-a\ge3,\ b\ge a+3.
-\]
+## correctness
 
-For the smallest examples it also applies every automorphism to every group element and checks that the direct number of fixed points equals the presentation-minor value.
+PASS
 
-Finally, it evaluates the excluded pair
-\[
-(a,b)=(1,3)
-\]
-and recovers the published boundary formula.
+Using the standard automorphism matrix \(\begin{pmatrix}\alpha&\beta\\p^{b-a}\gamma&\delta\end{pmatrix}\), the fixed subgroup is \(\ker(\varphi-I)\), whose order equals the cokernel order. A two-generator presentation makes that order the gcd of six explicit \(2\times2\) minors, so the condition is exactly a minimum of six p-adic valuations. For gap at least three, the determinant minor is congruent modulo \(p^3\) to the product of diagonal displacements and the valuation strata separate cleanly; at gap two the off-diagonal product can cancel and the proof counts that extra residue condition separately. The actual frozen verifier was read and independently enumerates every formula branch, directly comparing fixed points in the smallest cases. Manual recounting of the non-cancellation strata agrees with the formulas.
 
-The packaged checker returns `VERIFY_OK`.
+## originality
 
-Finite enumeration is not used to prove the universal formulas.
+PASS
+
+The 2018 primary article was read in full through authorized institutional access after the open page was rate-limited. It gives the complete \((1,2)\) table, the arbitrary-exponent fixed-point-free formula, and ends by asking for exact theta formulas for direct sums with distinct exponents. The known \((1,3)\) complete table is explicitly excluded, and the \((2,3)\) table is adjacent-exponent and outside the claim. Senden determines which fixed-point cardinalities occur, not how many automorphisms realize them. No searched source implies the five multiplicity formulas.
+
+## value
+
+PASS
+
+This resolves a full natural layer of the explicit distinct-exponent theta problem on an infinite rank-two domain and exposes a genuine gap-two cancellation transition; it is not a finite table extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
