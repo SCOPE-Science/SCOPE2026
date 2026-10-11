@@ -1,18 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The primary source proves the existence of a continuous compactly supported endpoint counterexample and gives an explicit shrinking family of admissible balls whose \(p\)-sum of Hölder coefficients diverges. Translating this function to pairwise separated supports gives, for \(c\in\ell_p\), the exact identity
-\[
-\|T(c)\|_{W^{1,p}}^p=\|u\|_{W^{1,p}}^p\sum_k|c_k|^p.
-\]
-Thus the range is closed. For any nonzero coefficient, sufficiently small translated bad balls meet no other support, so the original divergence survives without cancellation. Continuity follows from local finiteness of the translated supports. No finite computation is used in place of an infinite proof.
+## correctness
 
-## Originality — PASS
-The closest result is Theorem 5.1 of Alvarado–Chrontsios Garitsis, which constructs one function outside the endpoint modified compactly Hölder class. The full text contains no spaceability, closed-subspace, or \(\ell_p\)-copy statement. Searches for those formulations and broader endpoint-spaceability variants found no covering result. The new implication requires an additional disjoint-translation and localization argument; strict inclusion by itself does not imply spaceability.
+PASS
 
-Residual risk remains that an abstract general spaceability theorem, indexed under different terminology, may apply to this setting, and the focal preprint is recent.
+The primary endpoint counterexample is a compactly supported sum of pairwise-disjoint smooth bumps whose bad-ball families shrink to the accumulation point and force a harmonic divergence in the modified compactly Hölder \(p\)-sum. Translating this function to uniformly separated centers gives disjoint supports and exact \(W^{1,p}\) norm additivity. Thus \(T(c)=\sum_k c_k u(\cdot-z_k)\) is an isomorphic, in fact scalar-multiple isometric, embedding of \(\ell_p\) with closed range. For any nonzero coefficient, sufficiently small translated bad balls around the corresponding center miss every other support, so the source divergence survives after multiplication by that coefficient. Local finiteness of the separated translates gives continuity. This proves every nonzero vector in the closed range remains outside the endpoint modified class.
 
-## Value — PASS
-The result turns a strict endpoint inclusion into a structural statement: endpoint failure contains every nonzero vector of a closed infinite-dimensional subspace with natural \(\ell_p\) geometry. This is a motivated strengthening of the source's endpoint boundary and is useful for distinguishing isolated counterexamples from robust failure of the characterization.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Alvarado and Chrontsios Garitsis prove existence of one endpoint counterexample and give the exact localized bad-ball mechanism; their complete paper contains no spaceability or closed-subspace theorem. General lineability/spaceability literature does treat nonlinear subsets of Sobolev spaces, but the inspected 2022 work studies different regularity and integrability pathologies and does not imply preservation of this new modified-compactly-Hölder failure under a closed \(\ell_p\) family. Current Resultary and web searches found no prior theorem for this endpoint class.
+
+## value
+
+PASS
+
+Upgrading an isolated sharp-endpoint counterexample to a closed infinite-dimensional \(\ell_p\) family shows the failure is structurally large rather than exceptional. That is a standard but meaningful functional-analytic strengthening, and the proof depends on the source's localized obstruction rather than only abstract linear algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The primary endpoint construction was checked in arXiv:2609.24520v1 at Definition 2.1 and Theorem 5.1, including the explicit disjoint bumps, summability of their Sobolev energies, admissibility of the shrinking ball families, and the harmonic-series lower bound that forces failure of the modified compactly Hölder condition.
+# Independent mathematical audit
 
-For the new closed-subspace step, choose pairwise separated translates of the compact support. Disjointness gives the exact \(\ell_p\) norm identity for both the function and its weak gradient, so the image of \(\ell_p\) is closed. The translations escape to infinity, hence the supports are locally finite and every image function is continuous. Given a nonzero coefficient, select one nonzero coordinate. The source's bad balls shrink to the corresponding translated accumulation point; from some scale onward they miss every other translated support. On those balls the linear combination is exactly the selected scalar multiple of one source counterexample, and the divergent lower bound is unchanged up to the positive factor given by that coefficient.
+## correctness
 
-The conclusion is limited to the Euclidean scalar-valued endpoint \(\alpha=1-n/p\) for \(p>n\). No complementedness, metric-space extension, or classification of the entire endpoint complement is asserted.
+PASS
+
+The primary endpoint counterexample is a compactly supported sum of pairwise-disjoint smooth bumps whose bad-ball families shrink to the accumulation point and force a harmonic divergence in the modified compactly Hölder \(p\)-sum. Translating this function to uniformly separated centers gives disjoint supports and exact \(W^{1,p}\) norm additivity. Thus \(T(c)=\sum_k c_k u(\cdot-z_k)\) is an isomorphic, in fact scalar-multiple isometric, embedding of \(\ell_p\) with closed range. For any nonzero coefficient, sufficiently small translated bad balls around the corresponding center miss every other support, so the source divergence survives after multiplication by that coefficient. Local finiteness of the separated translates gives continuity. This proves every nonzero vector in the closed range remains outside the endpoint modified class.
+
+## originality
+
+PASS
+
+Alvarado and Chrontsios Garitsis prove existence of one endpoint counterexample and give the exact localized bad-ball mechanism; their complete paper contains no spaceability or closed-subspace theorem. General lineability/spaceability literature does treat nonlinear subsets of Sobolev spaces, but the inspected 2022 work studies different regularity and integrability pathologies and does not imply preservation of this new modified-compactly-Hölder failure under a closed \(\ell_p\) family. Current Resultary and web searches found no prior theorem for this endpoint class.
+
+## value
+
+PASS
+
+Upgrading an isolated sharp-endpoint counterexample to a closed infinite-dimensional \(\ell_p\) family shows the failure is structurally large rather than exceptional. That is a standard but meaningful functional-analytic strengthening, and the proof depends on the source's localized obstruction rather than only abstract linear algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
