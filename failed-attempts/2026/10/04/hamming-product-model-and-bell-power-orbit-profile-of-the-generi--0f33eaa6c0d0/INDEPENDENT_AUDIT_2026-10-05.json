@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:05:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob cf88cd3c2a6b02fbfe4a3fa6c1479d9199ead3bd",
+        "assigned verify.py blob 93007e3391241647e6f6d5786502b46cba852e4a",
+        "Braunfeld--Simon arXiv:1807.07110, Proposition 7 and Definition 10",
+        "Canfield, DOI 10.37236/1559, Theorem 1"
+      ],
+      "rationale": "The structural and enumerative statements are correct. For \\(\\Lambda=B_d=\\mathcal P([d])\\), the coordinate relations \\(E_i\\) defined by equality in coordinate \\(i\\) are equivalence relations with common intersection equality, and conversely any such family defines the stated Boolean-valued ultrametric. Every finite object embeds into \\(\\mathbb N^d\\) by assigning labels to the \\(E_i\\)-classes, and any finite partial isometry induces finite partial permutations of the coordinate labels, which extend in \\(S_\\infty\\); hence the model is universal and homogeneous and its isometry group is \\(S_\\infty^d\\). For an ordered tuple, each coordinate contributes exactly one set partition of the tuple indices, so all-tuple orbits number \\(B_n^d\\); injectivity is exactly discreteness of the meet of those partitions. Canfield's prior partition theorem gives the signed-Stirling inversion. The actual package verifier checks the Bell/Stirling transform through \\(n=10\\), brute-forces partition tuples for \\(d\\le3,n\\le5\\), and reproduces Canfield's \\(d=2\\) values.",
+      "residual_risks": [
+        "Automorphisms are required to preserve the labeled Boolean coordinates; allowing automorphisms of the Boolean lattice enlarges the group by coordinate permutations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source treats arbitrary finite distributive lattices, strictly broader than the Boolean specialization.",
+          "The second treats arbitrary tuple length and arbitrary number of partitions, exactly covering the enumerative half."
+        ],
+        "reasoning": "The audited formula arises by applying these general frameworks to the Boolean coordinate presentation.",
+        "searches": [
+          "Braunfeld--Simon generic finite-distributive-lattice ultrametric framework",
+          "Canfield all-d meet/join partition enumeration"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.07110 / DOI 10.37236/8321",
+        "DOI 10.37236/1559",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a Boolean lattice, class labels for the d generating equivalence relations are precisely d coordinates; extending finite class-label bijections proves the Fraïssé realization with no additional nonstandard lemma.",
+          "An injective tuple has no pair equal in every coordinate, exactly the condition that the d equality partitions have discrete meet."
+        ],
+        "reasoning": "The claimed profile follows immediately once these prior notions are put in the same notation.",
+        "searches": [
+          "Braunfeld--Simon equivalence-relation presentation versus N^d product model",
+          "Canfield meet-discrete partition count versus injective tuple orbits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Braunfeld--Simon identify Lambda-ultrametrics with lattice-indexed equivalence relations and preserve homogeneity.",
+          "Canfield's \\(M_n^{(d)}\\) is exactly the number of d-tuples of partitions with discrete meet."
+        ],
+        "reasoning": "The model-theoretic orbit invariant is the same equality-partition data counted by Canfield.",
+        "searches": [
+          "Resultary query: generic Boolean lattice ultrametric N^d automorphism S_infinity^d Bell power orbit profile set partitions discrete meet Canfield",
+          "Braunfeld--Simon arXiv:1807.07110, Proposition 7 and Definition 10",
+          "Canfield DOI 10.37236/1559, meet-discrete partition tuples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separately indexed prior source using the same combined title or Hamming-product phrasing was retrieved."
+        ],
+        "reasoning": "A new phrase for a direct specialization does not establish originality.",
+        "searches": [
+          "Resultary exact-title query for Hamming-product model and Bell-power orbit profile",
+          "Resultary semantic query for Boolean-ultrametric tuple orbits"
+        ]
+      },
+      "rationale": "The final orbit profile is a direct synthesis of two stronger prior frameworks rather than a new implication. Braunfeld and Simon prove that finite \\(\\Lambda\\)-ultrametric spaces are equivalent to systems of equivalence relations indexed by \\(\\Lambda\\), with homogeneity preserved, and define the generic object as the Fraïssé limit of all finite such spaces. For the Boolean lattice, choosing the \\(d\\) coordinate equivalence relations gives the canonical Cartesian realization \\(\\mathbb N^d\\); universality, homogeneity, and the product symmetric group then follow by extending partial bijections of equivalence classes. Canfield already defines and counts exactly the \\(d\\)-tuples of set partitions whose meet is discrete and proves the Bell-power transform used for the injective orbit count. Once the standard Boolean specialization is made, the all-tuple and injective orbit formulas are therefore mechanically the prior Bell and Canfield counts. The audited bridge is correct and convenient, but under an implication-based originality rule it does not create a new mathematical result.",
+      "residual_risks": [
+        "No same-title source was found, but the implication-based prior coverage is already decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_GENERAL_BOOLEAN_SPECIALIZATION_FRAMEWORK",
+          "evidence": "Proposition 7 identifies Lambda-ultrametrics with lattice-indexed equivalence relations and states that the correspondence preserves homogeneity; Definition 10 defines the generic Fraïssé limit.",
+          "identifier_or_url": "arXiv:1807.07110; DOI 10.37236/8321",
+          "material_read": "primary PDF at Definition 6, Proposition 7, Proposition 8, and Definition 10; the relevant equivalence-relation passage was read in full",
+          "method": "primary full-text PDF inspection",
+          "title": "The classification of homogeneous finite-dimensional permutation structures",
+          "trigger": "general source for generic Lambda-ultrametric spaces"
+        },
+        {
+          "assessment": "DECISIVE_ENUMERATIVE_COVERAGE",
+          "evidence": "Canfield already counts exactly the partition tuples that the audited injective tuple orbits encode.",
+          "identifier_or_url": "DOI 10.37236/1559",
+          "material_read": "complete accessible article introduction and Theorem 1, including the definition of \\(M_n^{(t)}\\) and its Bell-number generating relation",
+          "method": "primary full-text web inspection",
+          "title": "Meet and Join within the Lattice of Set Partitions",
+          "trigger": "exact prior enumeration of discrete-meet partition tuples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Braunfeld--Simon 2020",
+        "Canfield 2001",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The Cartesian picture is a useful exposition of the Boolean case, but it is obtained by assigning coordinates to the generating equivalence classes in the existing generic-ultrametric framework. The nontrivial-looking injective profile is then exactly Canfield's already-published discrete-meet partition count, while the all-tuple profile is simply \\(d\\) independent Bell partitions. This is a clean cross-language identification, but it does not supply a new structural lemma or unknown exact invariant beyond the prior general theory and enumeration.",
+      "residual_risks": [
+        "The product model can still be useful pedagogically and for translating between model theory and partition enumeration."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Automorphisms are required to preserve the labeled Boolean coordinates; allowing automorphisms of the Boolean lattice enlarges the group by coordinate permutations.",
+    "No same-title source was found, but the implication-based prior coverage is already decisive.",
+    "The product model can still be useful pedagogically and for translating between model theory and partition enumeration."
+  ]
+}
