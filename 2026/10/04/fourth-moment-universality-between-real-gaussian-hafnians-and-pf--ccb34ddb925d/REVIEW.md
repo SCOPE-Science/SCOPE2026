@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof conditions on the edges incident to one vertex, turning the hafnian into an exact centered Gaussian with variance equal to a sum of squared cofactors. For two distinct cofactors, a second deletion exposes two independent Gaussian linear forms with the same random variance. That random variance is exactly the conditional variance appearing in an order-
-\(n-1\) hafnian, yielding the mixed identity \(\mathbb E[A_j^2A_k^2]=M_{n-1}/3\). Counting diagonal and ordered off-diagonal pairs gives \(M_n=(2n-1)(2n+1)M_{n-1}\), and the base case \(M_1=3\) gives the stated formula. The second-moment recurrence and sign symmetry are immediate from the same expansion. The proof handles \(n=1\) separately through the base case and uses no limiting argument.
+## correctness
 
-## Originality
-**PASS.** The full text of arXiv:2609.06526v1 was inspected at the symmetric Gaussian theorem, the comparison table, the low-order discussion, the cofactor expansion, and the Pfaffian appendix. It proves the symmetric hafnian's second moment and density bound, records the Pfaffian product law, and notes equality in law only at orders \(n=1,2\); it does not state the symmetric hafnian fourth moment. arXiv:2608.17065v1 is a close moment paper but its stated object is the complex finite-row Gaussian Gram hafnian, not the independent-entry real symmetric Gaussian hafnian. Focused semantic and web searches for the exact fourth-moment and kurtosis identity returned no covering source.
+PASS
 
-## Value
-**PASS.** Fourth moment is a natural quantitative invariant in the same anticoncentration program as the motivating paper. The exact kurtosis \(2n+1\) shows linear growth of normalized fourth moment, while the same literature proves bounded densities and polynomial peak control. The all-order equality of the first four centered moments with the Gaussian Pfaffian is structurally informative because the literature only gives equality in law for the first two hafnian orders and otherwise treats the signed and unsigned models separately.
+Expanding along one vertex makes the hafnian conditionally Gaussian with variance \(V=\sum_j A_j^2\), so \(M_n=3\mathbb E V^2\). The diagonal cofactor terms contribute \((2n-1)M_{n-1}\). For distinct cofactors, deleting both labeled vertices and conditioning on the remaining internal edges gives two independent Gaussian linear forms with common variance \(U\); adjoining one fresh vertex identifies \(M_{n-1}=3\mathbb E U^2\). Therefore \(M_n=(2n-1)(2n+1)M_{n-1}\), and the base \(M_1=3\) yields the formula. The second moment and symmetry follow from the same expansion. An independent Wick-expansion replay in this audit gives fourth moments 3, 45, and 1575 for \(n=1,2,3\), exactly matching the recurrence.
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.06526v1 for the real symmetric Gaussian model and Pfaffian comparison, arXiv:2608.17065v1 for exact fourth moments of complex Gaussian Gram hafnians, and arXiv:0904.2216v2 for the Gaussian antisymmetric reduction behind the Pfaffian benchmark. The principal residual originality risk is an older unindexed calculation of the same real symmetric hafnian fourth moment under perfect-matching-polynomial terminology. The claim is deliberately limited to moments through order four and does not infer equality in law for \(n\ge3\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The accessible primary abstract of Zhao 2609.06526 explicitly advertises the exact second moment for the same real symmetric Gaussian-hafnian limit, not a fourth-moment formula. Zhao 2608.17065 concerns a different complex finite-row Gram hafnian. Dumitriu-Forrester concern the antisymmetric Gaussian/Pfaffian benchmark. Resultary searches found no published record with the real symmetric hafnian fourth moment. Full text of the exact same-model Zhao paper could not be obtained in this run: after open/arXiv full-text routes failed, the valid authorized institutional request returned `Oxford worker unavailable or request invalid`; no further retry was made. This is retained as a concrete residual risk, not treated as negative evidence.
+
+## value
+
+PASS
+
+The fourth standardized moment is a natural quantitative invariant in the same Gaussian-hafnian anticoncentration program. The exact linear kurtosis law measures heavy normalized tails and the all-order first-four-moment coincidence with the Pfaffian is a structural comparison beyond the known low-order equality in law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

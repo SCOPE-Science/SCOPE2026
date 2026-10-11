@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:03:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding along one vertex makes the hafnian conditionally Gaussian with variance \\(V=\\sum_j A_j^2\\), so \\(M_n=3\\mathbb E V^2\\). The diagonal cofactor terms contribute \\((2n-1)M_{n-1}\\). For distinct cofactors, deleting both labeled vertices and conditioning on the remaining internal edges gives two independent Gaussian linear forms with common variance \\(U\\); adjoining one fresh vertex identifies \\(M_{n-1}=3\\mathbb E U^2\\). Therefore \\(M_n=(2n-1)(2n+1)M_{n-1}\\), and the base \\(M_1=3\\) yields the formula. The second moment and symmetry follow from the same expansion. An independent Wick-expansion replay in this audit gives fourth moments 3, 45, and 1575 for \\(n=1,2,3\\), exactly matching the recurrence.",
+      "risk": "The theorem concerns moments through order four only; no equality in law for \\(n\\ge3\\) is inferred.",
+      "sources": [
+        "Zhao, arXiv:2609.06526v1",
+        "Zhao, arXiv:2608.17065v1",
+        "Dumitriu-Forrester, arXiv:0904.2216",
+        "fresh independent low-order Wick replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model accessible statement supplies the second moment and shifted anticoncentration.",
+          "The complex Gram source has a different random-polynomial model.",
+          "The antisymmetric Gaussian reduction covers the signed Pfaffian benchmark only."
+        ],
+        "reasoning": "None of the accessible prior statements logically determines the unsigned symmetric-hafnian fourth moment.",
+        "searches": [
+          "arXiv:2609.06526v1",
+          "arXiv:2608.17065v1",
+          "arXiv:0904.2216"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.06526v1",
+        "arXiv:2608.17065v1",
+        "arXiv:0904.2216",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact variance plus anticoncentration bound does not determine a fourth moment.",
+          "A fourth moment for a complex Gram hafnian does not specialize to the independent-entry real symmetric model.",
+          "The Pfaffian product law determines the signed benchmark but not the unsigned hafnian recurrence."
+        ],
+        "reasoning": "The conditional-Gaussian mixed-cofactor recurrence is additional mathematical content.",
+        "searches": [
+          "arXiv:2609.06526v1 abstract",
+          "arXiv:2608.17065v1 abstract",
+          "arXiv:0904.2216"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-model primary abstract explicitly highlights an exact second moment and anticoncentration, not the submitted fourth moment.",
+          "The exact-moment Gram paper defines a complex \\(\\operatorname{haf}(X^{\\mathsf T}X)\\) object rather than an independent-entry real symmetric matrix."
+        ],
+        "reasoning": "Kurtosis, normalized fourth moment, perfect-matching Gaussian chaos, symmetric hafnian, and Pfaffian-benchmark formulations were searched.",
+        "searches": [
+          "Resultary query: real symmetric Gaussian hafnian fourth moment kurtosis Pfaffian symmetric Gaussian hafnian",
+          "arXiv:2609.06526v1",
+          "arXiv:2608.17065v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary hit with the real symmetric hafnian formula \\(2n+1\\) was returned."
+        ],
+        "reasoning": "No exact prior table was located; this remains supporting rather than conclusive evidence because the same-model full text was inaccessible.",
+        "searches": [
+          "Resultary exact fourth-moment/kurtosis searches",
+          "same-model abstract and comparison-table context identified in the audited package"
+        ]
+      },
+      "rationale": "The accessible primary abstract of Zhao 2609.06526 explicitly advertises the exact second moment for the same real symmetric Gaussian-hafnian limit, not a fourth-moment formula. Zhao 2608.17065 concerns a different complex finite-row Gram hafnian. Dumitriu-Forrester concern the antisymmetric Gaussian/Pfaffian benchmark. Resultary searches found no published record with the real symmetric hafnian fourth moment. Full text of the exact same-model Zhao paper could not be obtained in this run: after open/arXiv full-text routes failed, the valid authorized institutional request returned `Oxford worker unavailable or request invalid`; no further retry was made. This is retained as a concrete residual risk, not treated as negative evidence.",
+      "residual_risks": [
+        "The inaccessible full text of arXiv:2609.06526v1 could contain an unadvertised fourth-moment remark.",
+        "Older Gaussian perfect-matching-polynomial literature could contain the same recurrence without hafnian terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGHLY_RELEVANT_FULL_TEXT_ACCESS_LIMITED",
+          "evidence": "The accessible abstract states exact second moment and shifted anticoncentration for the model/limit; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "arXiv:2609.06526v1",
+          "material_read": "Primary arXiv abstract and metadata; open full-text routes failed. A subsequent authorized institutional request with valid pagination returned `Oxford worker unavailable or request invalid`.",
+          "method": "Lawful arXiv/OA attempt followed by one valid authorized institutional attempt; no further retry or bypass.",
+          "title": "Shifted Anticoncentration for Real Gram Hafnians and Symmetric Gaussian Hafnians",
+          "trigger": "Exact same real symmetric Gaussian hafnian model."
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_HAFNIAN_MODEL",
+          "evidence": "The object is a complex Gaussian Gram hafnian, not the independent-entry real symmetric Gaussian hafnian.",
+          "identifier_or_url": "arXiv:2608.17065v1",
+          "material_read": "Primary abstract defining the complex finite-row Gram hafnian and its exact moment problem.",
+          "method": "Lawful primary-source inspection.",
+          "title": "Exact Moments of Gaussian Gram Hafnians Reveal an n^2/log n Threshold for Weak Anticoncentration",
+          "trigger": "Closest exact fourth-moment hafnian paper."
+        },
+        {
+          "assessment": "PFaffian_BENCHMARK_ONLY",
+          "evidence": "The source concerns antisymmetric Gaussian matrices, not the unsigned symmetric hafnian fourth moment.",
+          "identifier_or_url": "arXiv:0904.2216",
+          "material_read": "Primary arXiv abstract/source record describing the independent tridiagonal reduction of the antisymmetric Gaussian ensemble.",
+          "method": "Lawful primary-source inspection.",
+          "title": "Tridiagonal realization of the anti-symmetric Gaussian beta-ensemble",
+          "trigger": "Primary antisymmetric Gaussian source behind the Pfaffian product benchmark."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fourth standardized moment is a natural quantitative invariant in the same Gaussian-hafnian anticoncentration program. The exact linear kurtosis law measures heavy normalized tails and the all-order first-four-moment coincidence with the Pfaffian is a structural comparison beyond the known low-order equality in law.",
+      "risk": "The result does not identify higher moments, density peaks, or full distributional equivalence.",
+      "sources": [
+        "arXiv:2609.06526v1",
+        "arXiv:0904.2216"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the real independent-entry symmetric Gaussian hafnian \\(H_n\\) of order \\(n\\), \\(\\mathbb E H_n^2=(2n-1)!!\\) and \\(\\mathbb E H_n^4=(2n+1)((2n-1)!!)^2\\). Thus its RMS-normalized kurtosis is \\(2n+1\\), and it has the same first four centered moments as the corresponding real Gaussian Pfaffian for every \\(n\\).",
+  "limitations": [
+    "Real independent-entry symmetric Gaussian hafnians only.",
+    "No equality in law with Pfaffians is claimed for order at least three.",
+    "The same-model 2026 paper full text was inaccessible in this run after a valid institutional request returned an operational error."
+  ],
+  "schema_version": 1
+}
