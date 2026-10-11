@@ -1,0 +1,15 @@
+# Scientific review: Wagner graph matching-complex classification
+
+## Correctness — PASS
+The exact vertex and edge sets, the five finite chain complexes, and the two edge orbits are fixed explicitly. The included certificate exhaustively enumerates 105, 84, 20, 83, and 21 nonempty matching faces, constructs respectively 49, 40, 8, 39, and 9 disjoint Hasse match pairs, and verifies acyclicity over all 244, 189, 28, 185, and 31 directed cover incidences. The surviving critical-cell dimensions give the five claimed *integral homotopy types* by discrete Morse theory; the link inclusion is null-homotopic because a wedge of circles maps to a simply connected wedge of two-spheres. The proof checks all edge cases through explicit dihedral symmetries. A separately implemented simplicial-chain verifier confirms reduced Betti numbers over characteristics 2, 3, 5, and 101. These field calculations are corroboration only; correctness of the integral claim follows from the complete acyclic matchings and the elementary attaching argument.
+
+## Originality — PASS
+Barmak's Theorem 5.5/Corollary 5.10 provides general claw-free matching-complex connectivity, not these exact sphere counts. Bayer, Jelić Milutinović and Vega's Theorem 2 applies to outerplanar graphs, whereas the Wagner graph is nonplanar. Crucially, Agarwal and Basak's 2026 Möbius-ladder classification concerns the independence and *perfect* matching complexes; their Definition 3 specifies matchings extendable to a perfect matching, and Problem 26 explicitly identifies the **ordinary matching complex** of Möbius ladders as a distinct future question. Their full text, original statements, and relevant appendices/sections were examined. Indexed prior-claim comparisons under graph aliases, line-graph equivalence, edge-orbit classification, and stronger family results did not identify coverage; the similarly named published Wagner total 3-cut complex computes a distinct invariant. Residual risk: an equivalent calculation could occur in unindexed or unpublished material, so novelty is assessed on inspected public evidence rather than proclaimed absolute priority.
+
+## Value — PASS
+The Wagner graph is a canonical nonplanar cubic Möbius ladder; this supplies an exact integral topology benchmark directly within the matching-complex research question stated in Agarwal and Basak's Problem 26. The two inequivalent edge-orbit links/deletions demonstrate structurally different cofibration decompositions of the same complex, beyond a single Euler-characteristic calculation or an isolated face count. The result does not claim an infinite-family classification.
+
+## Closest literature and limitations
+Barmak, arXiv:1007.0418v1, Section 5; Bayer–Jelić Milutinović–Vega, arXiv:2411.04601, Theorem 2; Agarwal–Basak, arXiv:2608.30601v2, Definition 3/Main Theorem 1/Problem 26. Relevant full papers and actual statements were inspected. The complete theorem is restricted to the eight-vertex Möbius ladder; finite-field checks are not substituted for integral homotopy verification, and unindexed overlap remains possible.
+
+Same-model review: passed. Independent audit: not yet performed.
