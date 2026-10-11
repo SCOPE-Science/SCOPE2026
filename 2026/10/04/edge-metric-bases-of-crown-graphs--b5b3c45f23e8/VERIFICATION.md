@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has three independently checkable steps.
+# Independent mathematical audit
 
-1. For every edge \(e_{ij}=a_i b_j\) with \(i\ne j\), direct graph distances yield the exact \(0/2/1\) coordinate formula at every matched index.
-2. If two matched pairs are absent from a candidate generator, a third index produces two distinct edges with identical representations, proving the lower bound \(n-1\).
-3. If one matched pair is absent and every other pair contributes exactly one landmark, each represented index distinguishes tail, head, and neither; equality of all coordinates therefore forces equality of the edges.
+## correctness
 
-`artifacts/verify.py` independently constructs the graphs and breadth-first-search distance matrices, then exhaustively checks all subsets smaller than \(n-1\) and every subset of size \(n-1\) for \(3\le n\le8\). Replay output:
+PASS
 
-`VERIFY_OK n_range=3..8 subset_checks=34896 basis_checks=1788 distance_formula_checks=2176 max_order=16`
+The proof was reconstructed directly from graph distances. For an edge \(e_{ij}=a_i b_j\), \(a_k\) reports 0 at the tail index, 2 at the missing matched head index, and 1 otherwise, with the symmetric rule for \(b_k\). If two matched pairs are absent, two edges using a third index have identical codes, so at least \(n-1\) matched pairs must be represented. Conversely, choosing one vertex from every matched pair except one makes every represented index distinguish tail, head, and neither, which uniquely identifies every edge. Minimum size then forces exactly one chosen vertex in each represented pair and gives \(n2^{n-1}\) bases. Independent exhaustive enumeration for \(3\le n\le7\) matched the theorem exactly.
 
-The exhaustive range is finite corroboration and is not used as evidence for the universal quantifier beyond checking proof boundary cases and implementation consistency.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives statement-level comparison. The founding edge-metric paper proves the complete-bipartite value but does not treat crown graphs or perfect-matching deletion, and edge metric dimension is not monotone under that deletion. Focused searches under crown, bipartite cocktail-party, complete-bipartite-minus-perfect-matching, edge-resolving-set, and edge-metric-basis terminology found no earlier formula or all-bases classification. The closest later general papers concern the maximum-value regime or other variants and do not imply the retained theorem.
+
+## value
+
+PASS
+
+Crown graphs are a canonical symmetric family and a minimal structured deletion of \(K_{n,n}\). The theorem gives the exact parameter, classifies every optimizer, and exhibits a substantial sensitivity phenomenon: deleting one perfect matching changes the edge metric dimension from \(2n-2\) to \(n-1\). This is a natural family theorem, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

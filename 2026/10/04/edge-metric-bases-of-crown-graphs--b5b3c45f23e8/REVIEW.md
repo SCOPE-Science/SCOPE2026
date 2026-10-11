@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(n\ge3\), the graph distances give the stated three-valued edge-coordinate formula exactly. Two completely unrepresented matched pairs produce an explicit unresolved pair of edges, so every generator meets at least \(n-1\) matched pairs. Conversely, one landmark from every matched pair except one makes each represented index report tail, head, or neither, which uniquely determines every edge. The basis count follows from the lower bound and pigeonhole. The packaged verifier exhaustively confirms the formulas and basis classification through \(n=8\).
+## correctness
 
-## Originality
-PASS. The founding full text defines edge metric dimension and proves the complete-bipartite value \(r+t-2\), but does not contain “crown” or “matching.” The complete-bipartite theorem does not survive as an implication under perfect-matching deletion because both the edge set and graph distances change. The later maximum-edge-metric-dimension characterization addresses only \(\operatorname{edim}(G)=|V(G)|-1\), and the \(k\)-size literature imposes a different admissibility condition. Searches using the crown name, \(K_{n,n}\) minus a perfect matching, edge resolving set, and edge metric basis found no stronger covering statement. The remaining risk is an unindexed source under unexpected terminology.
+PASS
 
-## Value
-PASS. The result gives a natural complete classification on a canonical graph family and exposes sharp sensitivity of edge metric dimension: deleting one perfect matching from \(K_{n,n}\) changes the optimum from \(2n-2\) to \(n-1\). Counting all \(n2^{n-1}\) bases records the full optimizer structure, not only the scalar invariant.
+The proof was reconstructed directly from graph distances. For an edge \(e_{ij}=a_i b_j\), \(a_k\) reports 0 at the tail index, 2 at the missing matched head index, and 1 otherwise, with the symmetric rule for \(b_k\). If two matched pairs are absent, two edges using a third index have identical codes, so at least \(n-1\) matched pairs must be represented. Conversely, choosing one vertex from every matched pair except one makes every represented index distinguish tail, head, and neither, which uniquely identifies every edge. Minimum size then forces exactly one chosen vertex in each represented pair and gives \(n2^{n-1}\) bases. Independent exhaustive enumeration for \(3\le n\le7\) matched the theorem exactly.
 
-## Closest literature and limitations
-The closest exact predecessor is the complete-bipartite formula in arXiv:1602.00291v1. Later work on topful graphs and \(k\)-size edge resolving sets does not imply this theorem. The finite verification covers only \(3\le n\le8\); the infinite statement rests on the symbolic proof. No claim is made for disconnected \(\operatorname{Cr}_2\) or for fault-tolerant, mixed, local, or \(k\)-size variants.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives statement-level comparison. The founding edge-metric paper proves the complete-bipartite value but does not treat crown graphs or perfect-matching deletion, and edge metric dimension is not monotone under that deletion. Focused searches under crown, bipartite cocktail-party, complete-bipartite-minus-perfect-matching, edge-resolving-set, and edge-metric-basis terminology found no earlier formula or all-bases classification. The closest later general papers concern the maximum-value regime or other variants and do not imply the retained theorem.
+
+## value
+
+PASS
+
+Crown graphs are a canonical symmetric family and a minimal structured deletion of \(K_{n,n}\). The theorem gives the exact parameter, classifies every optimizer, and exhibits a substantial sensitivity phenomenon: deleting one perfect matching changes the edge metric dimension from \(2n-2\) to \(n-1\). This is a natural family theorem, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

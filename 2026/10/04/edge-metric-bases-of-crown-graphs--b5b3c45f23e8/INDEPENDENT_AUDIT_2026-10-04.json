@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:00:01.937819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e5e4c6b535580054b0badc46fabd43667019c304",
+        "artifacts/verify.py blob 23d46d72e61b7485f28f185c3490978522fa0403",
+        "Actual source tree 4754b189dfc7528130786b763f022157e2efeb83",
+        "Independent breadth-first-search enumeration in this audit"
+      ],
+      "rationale": "The proof was reconstructed directly from graph distances. For an edge \\(e_{ij}=a_i b_j\\), \\(a_k\\) reports 0 at the tail index, 2 at the missing matched head index, and 1 otherwise, with the symmetric rule for \\(b_k\\). If two matched pairs are absent, two edges using a third index have identical codes, so at least \\(n-1\\) matched pairs must be represented. Conversely, choosing one vertex from every matched pair except one makes every represented index distinguish tail, head, and neither, which uniquely identifies every edge. Minimum size then forces exactly one chosen vertex in each represented pair and gives \\(n2^{n-1}\\) bases. Independent exhaustive enumeration for \\(3\\le n\\le7\\) matched the theorem exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kelenc--Tratnik--Yero prove \\(\\operatorname{edim}(K_{r,t})=r+t-2\\).",
+          "Later work on the maximum edge metric dimension concerns \\(\\operatorname{edim}(G)=|V(G)|-1\\), while the crown value here is \\(n-1\\) on \\(2n\\) vertices.",
+          "The connected-bipartite \\(n-2\\) characterization likewise does not cover the claimed value."
+        ],
+        "reasoning": "The broader theorems have incompatible hypotheses or numerical regimes; none determines what happens after deleting a perfect matching from a complete bipartite graph.",
+        "searches": [
+          "arXiv:1602.00291v1",
+          "DOI:10.1016/j.dam.2018.08.031",
+          "DOI:10.3934/math.2020286",
+          "Fresh 2026 edge-metric literature search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.00291v1",
+        "DOI:10.1016/j.dam.2018.05.052",
+        "DOI:10.1016/j.dam.2018.08.031",
+        "DOI:10.3934/math.2020286",
+        "Resultary exact-object search",
+        "Fresh web alias searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deleting the perfect matching changes both the edge set and graph distances, so the complete-bipartite formula does not imply the crown value.",
+          "The crown theorem additionally classifies every minimum basis, information absent from the scalar prior formulas."
+        ],
+        "reasoning": "The final claim needs the crown-specific three-valued coordinate structure and omitted-pair argument; it is not a corollary of the inspected broader statements.",
+        "searches": [
+          "Implication check against the complete-bipartite formula in arXiv:1602.00291v1",
+          "Implication check against maximum and bipartite-extremal edge-metric theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The targeted published-finding search returned the assigned crown result itself as the exact-object hit and no earlier equivalent result.",
+          "The founding full text contains the complete-bipartite formula and no crown or matching treatment.",
+          "Fresh exact web searches did not retrieve a prior crown edge-metric theorem."
+        ],
+        "reasoning": "The object was searched by its standard name and by its defining deletion construction, with both edge-metric and edge-resolving terminology. No equivalent theorem was located.",
+        "searches": [
+          "Resultary semantic query: edge metric dimension crown graph complete bipartite minus perfect matching all edge metric bases",
+          "Web search: \"crown graph\" \"edge metric dimension\"",
+          "Web search: \"complete bipartite minus perfect matching\" \"edge resolving\"",
+          "Web search: bipartite cocktail party graph edge metric dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved table or database entry supplied the crown value, the optimizer classification, or the exact basis count.",
+          "Independent enumeration reproduced 12, 32, 80, 192, and 448 bases for \\(n=3,4,5,6,7\\), matching \\(n2^{n-1}\\)."
+        ],
+        "reasoning": "The finite checks derive from the graph definition and are not a recomputation of a located published table.",
+        "searches": [
+          "Resultary query above",
+          "Exact web searches for \\(n2^{n-1}\\) crown edge metric bases and \\(\\operatorname{edim}(\\operatorname{Cr}_n)=n-1\\)"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives statement-level comparison. The founding edge-metric paper proves the complete-bipartite value but does not treat crown graphs or perfect-matching deletion, and edge metric dimension is not monotone under that deletion. Focused searches under crown, bipartite cocktail-party, complete-bipartite-minus-perfect-matching, edge-resolving-set, and edge-metric-basis terminology found no earlier formula or all-bases classification. The closest later general papers concern the maximum-value regime or other variants and do not imply the retained theorem.",
+      "residual_risks": [
+        "An obscure source under an unexpected name for crown graphs or an unindexed thesis could contain the same formula.",
+        "Search failure is not treated as novelty proof; acceptance rests on direct non-implication from the closest inspected primary statements plus the alias search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_NOT_COVERING",
+          "evidence": "It proves the complete-bipartite value but gives no theorem for crowns or perfect-matching deletion.",
+          "identifier_or_url": "arXiv:1602.00291v1; DOI:10.1016/j.dam.2018.05.052",
+          "material_read": "Full primary preprint around the definition, basic families, and Remark 2; text was also checked for crown/matching terminology.",
+          "method": "Lawful public full-text inspection.",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Foundational source and strongest exact complete-bipartite predecessor."
+        },
+        {
+          "assessment": "BROADER_REGIME_NOT_COVERING",
+          "evidence": "The theorem concerns connected bipartite graphs with edge metric dimension order minus two, not crown graphs with the claimed \\(n-1\\) value.",
+          "identifier_or_url": "DOI:10.3934/math.2020286",
+          "material_read": "Publisher article statement and theorem scope for the \\(n-2\\) characterization.",
+          "method": "Lawful publisher text inspection.",
+          "title": "On the edge metric dimension of graphs",
+          "trigger": "General theorem for connected bipartite graphs in an extremal edge-metric regime."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Foundational edge-metric paper",
+        "Assigned structural proof",
+        "Independent exhaustive replay"
+      ],
+      "rationale": "Crown graphs are a canonical symmetric family and a minimal structured deletion of \\(K_{n,n}\\). The theorem gives the exact parameter, classifies every optimizer, and exhibits a substantial sensitivity phenomenon: deleting one perfect matching changes the edge metric dimension from \\(2n-2\\) to \\(n-1\\). This is a natural family theorem, not an arbitrary finite slice.",
+      "residual_risks": [
+        "The result is restricted to connected crowns \\(n\\ge3\\) and ordinary edge metric dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An obscure source under an unexpected name for crown graphs or an unindexed thesis could contain the same formula.",
+    "Search failure is not treated as novelty proof; acceptance rests on direct non-implication from the closest inspected primary statements plus the alias search."
+  ],
+  "schema_version": 1
+}
