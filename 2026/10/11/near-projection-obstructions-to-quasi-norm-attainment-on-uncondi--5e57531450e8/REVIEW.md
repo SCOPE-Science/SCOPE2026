@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The norm-one unconditional block-multiplier axiom bounds every diagonal map and gives exact equality via the first and late blocks. For every nonzero vector, a Hahn–Banach supporting functional proves strict contraction by comparing an absolutely convergent scalar series with coefficients strictly below one. The contractive projection identifies the unit-ball image as the image of a closed ball under a Banach-space automorphism, so it is closed and cannot meet the unit sphere. These steps prove non-quasi-norm-attainment and the exact operator norm and perturbation size in both scalar fields. The theorem does not depend on computational extrapolation.
+
+## Originality — PASS with residual risk
+Choi–Choi–Jung–Martín (arXiv:2004.11025v1; published 2022), Definition 1.1, Lemma 2.1, Propositions 4.3–4.4 and Section 7.4, motivate the endomorphism question but do not give this blockwise near-projection family: their universal construction has target \(c_0\), not necessarily the original space. Ostrovskii's 2005 necessary condition for all operators to attain their norm excludes spaces with particular complemented approximation-property subspaces but does not establish the stated no-approximation-property block family or its exact approximation to the projection. The \(\ell_2\) diagonal example was explicitly described in public comments in 2016 and is excluded from any novelty claim. Relevant subsequent work on norm attainment of adjoints concerns a different operator class. The remaining risk is that the contractively complemented block formulation is implicit or stated in unindexed Banach-space literature.
+
+## Mathematical value — PASS
+The exact construction gives a structural necessary restriction on any potential positive example to the published universal-endomorphism quasi-norm-attainment problem. It works for arbitrary nonzero blocks without approximation-property hypotheses, including nonatomic \(L_1\), and identifies every projection onto such a sum as a norm-boundary point of quasi norm attainment. Exact perturbation and inverse-norm constants show that the obstruction persists arbitrarily near invertible isometries when the whole space is decomposed. The statement is deliberately limited to those hypotheses and does not claim to solve the general problem.
+
+Same-model review: passed. Independent audit: not yet performed.
