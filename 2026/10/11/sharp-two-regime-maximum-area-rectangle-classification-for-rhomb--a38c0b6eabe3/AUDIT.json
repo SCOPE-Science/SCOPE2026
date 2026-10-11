@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The reduction from arbitrary translations to centered rectangles is exact by convexity and central symmetry. Equal-length diagonals encode every rectangle. At any optimizer one diagonal vertex lies on the rhombus boundary; an interior equal-length partner must be perpendicular by angular first variation. Orthogonal pairs are bounded using endpoint minima of a strictly concave trigonometric denominator and AM-GM. Boundary pairs are classified exactly by equal values of one quadratic and sharp endpoint bounds. Both constructions attain the respective sharp values, and equality constraints plus supporting sides exclude other optima or translations. The standalone finite verifier returned VERIFY_OK; it is diagnostic, not an exhaustive proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cabello et al. (2014), Theorem 4: algorithm solves any convex polygon in cubic time.",
+        "Knauer et al. (2012), Theorem 1: approximate maximum area with given epsilon, no explicit rhombus phase law."
+      ],
+      "reasoning": "The arbitrary-polygon computability theorem covers input instances algorithmically, but does not mathematically imply the explicit max{AB,2B^2} formula or optimizer threshold absent a new argument. Approximation certificates cannot imply exact optimizer uniqueness.",
+      "searches": [
+        "arXiv:1405.1223v2; sections 1-6",
+        "DOI:10.1016/j.jda.2012.01.002, author-hosted full text",
+        "web: maximum area rectangles in a parallelogram analytic formula maximum inscribed rectangles rhombus"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1405.1223v2",
+      "DOI:10.1016/j.jda.2012.01.002",
+      "DOI:10.1007/BF01263495",
+      "2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427",
+      "https://math.stackexchange.com/questions/4453119/maximum-rectangle-within-a-parallelogram"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Square is a rhombus at A=B and the resulting maximum fills the ambient square; regular-even-polygon prior includes this case.",
+        "Lassak universal area fraction >= 1/2 matches a lower bound but does not exclude >1/2 or supply the optimizer switch.",
+        "General exact-algorithm statement does not provide the advertised analytical inequality without solving the problem."
+      ],
+      "reasoning": "The candidate extends square-only extremality to all rhombus aspect ratios and identifies non-square sharp equality geometry; no examined source logically states the two-regime formula or its all-case uniqueness.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427",
+        "arXiv:1405.1223v2",
+        "DOI:10.1007/BF01263495",
+        "DOI:10.1016/j.jda.2012.01.002"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rhombus can equivalently be written as a weighted planar cross-polytope and the optimizing rectangle as equal-length diagonals.",
+        "No retrieved published-finding corpus hit asserted max{AB,2B^2} for arbitrary A>=B; closest geometry-specific public result addresses regular even polygons only."
+      ],
+      "reasoning": "The exact weighted-diamond determinant bound and equality bifurcation do not follow as statements from the square-only or axis-parallel constructions; name aliases were compared rather than titles alone.",
+      "searches": [
+        "maximal area rectangle contained in rhombus acute angle phase transition threshold tan half one half",
+        "largest inscribed Euclidean rectangle diamond l1 ball rhombus two maximizers midpoint square",
+        "maximum area inscribed rectangle arbitrary parallelogram rhombus 53.130102 degree angle",
+        "web: largest area rectangle inscribed rhombus rotated square diagonal half length optimum ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved problem-specific pages concern the reverse containment (a rhombus inside a rectangle) or an isolated diagram with axis-aligned assumptions; neither gives an unrestricted rectangle-in-rhombus parameter table.",
+        "published-finding corpus closest 2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427 determines regular even polygons, square included."
+      ],
+      "reasoning": "No exact table or parameterized closed-form database match was found; failure of search is not itself proof of novelty.",
+      "searches": [
+        "maximal area rectangle contained in rhombus acute angle phase transition threshold tan half one half",
+        "largest inscribed Euclidean rectangle diamond l1 ball rhombus two maximizers midpoint square",
+        "maximum area inscribed rectangle arbitrary parallelogram rhombus 53.130102 degree angle",
+        "web: maximum inscribed rectangle rhombus 53 degree transition area half"
+      ]
+    },
+    "rationale": "Specific arXiv 2014 exact-algorithm source and its 2012 approximate predecessor were inspected in full: neither states the explicit sharp rhombus two-branch envelope, optimizer uniqueness, or the two-maximizer critical ratio. Generic convex-polygon algorithms produce an optimum for supplied coordinates but do not prove this closed analytic classification. published-finding corpus geometric-alias searches returned the regular-even-polygon theorem, whose square case is subsumed but not the non-square rhombus behavior. Historical unindexed geometric exercises remain a residual risk.",
+    "residual_risks": [
+      "Simple geometry problems may have equivalent older solutions in unindexed books, classroom notes, or different terminology.",
+      "Only the abstract and theorem excerpt of the 1993 Lassak article were accessible; its general bound appears strictly weaker but its complete details were not assessed.",
+      "A complete original-literature search is not a substitute for independent historical priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the explicit two-branch rhombus formula: its general algorithm computes any polygon optimum, but no rhombus specialization, optimizer switch, or two-equality threshold is derived",
+        "evidence": [
+          "Theorem 4 gives an O(n^3) exact algorithm on arbitrary convex polygons via six-variable optimization; introduction and exact-algorithm section contain no rhombus-specific phase formula (arXiv:1405.1223v2, sections 1-3)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1405.1223v2",
+        "material_read": "Complete sections 1-6 and bibliography, especially Theorem 4 and its proof",
+        "method": "Read publicly accessible arXiv full-text HTML; independently looked at PDF first page",
+        "title": "Finding Largest Rectangles in Convex Polygons",
+        "trigger": "2014 initiating exact-algorithm paper on unrestricted inscribed rectangles"
+      },
+      {
+        "assessment": "NOT_COVERING: approximation algorithm, and discussion of square-with-two-vertex-corners versus side contacts; no rhombus-specific exact value/equality bifurcation found",
+        "evidence": [
+          "Knauer et al., 2012, Theorem 1 approximates rectangle optimum; page 3 structural alternatives do not specify sharp rhombus constants."
+        ],
+        "identifier_or_url": "https://kam.mff.cuni.cz/~hansraj/publications/rectangle.pdf",
+        "material_read": "PDF pages 1-13, focusing on introduction, structural optimum discussion and algorithmic statements",
+        "method": "Read arXiv-sourced citation and author-hosted full-text PDF with visual check of page 2",
+        "title": "Largest Inscribed Rectangles in Convex Polygons",
+        "trigger": "2012 main same-object predecessor cited by Cabello et al."
+      },
+      {
+        "assessment": "PARTIAL_ACCESS: gives inscribed rectangle area at least half ambient convex area, rather than rhombus exact upper envelope or equality classification",
+        "evidence": [
+          "Lassak (1993), theorem guarantees an inscribed rectangle with area at least one-half of a planar convex body; this is only the lower branch and cannot bound the rhombus upper branch."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01263495",
+        "material_read": "Publisher-indexed abstract and available original theorem excerpt, not entire full text",
+        "method": "Bibliographic search and available published-article textual excerpt",
+        "title": "Approximation of Convex Bodies by Rectangles",
+        "trigger": "Historical fundamental lower area existence result invoked by Cabello et al."
+      },
+      {
+        "assessment": "NOT_COVERING: discussion proposes numerical or 2-variable optimization and does not state the rhombus two-branch formula; later publication risk persists",
+        "evidence": [
+          "Mathematics Stack Exchange question 4453119 (2022): exploratory constructions, no analytic sharp solution."
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/4453119/maximum-rectangle-within-a-parallelogram",
+        "material_read": "Question, answers and threaded discussion on entire page",
+        "method": "Read posted responses and hypotheses, 2022",
+        "title": "Maximum rectangle within a parallelogram",
+        "trigger": "Close public discussion directly asks general parallelogram optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a38c0b6e-abe3-4da3-94bc-b343b14f43a5",
+  "value": {
+    "rationale": "Unrestricted maximum-area inscribed rectangles are a motivated canonical convex geometry problem (Cabello et al. 2014). This computes an entire natural one-parameter family with a genuine sharp bifurcation between non-square side-midpoint and vertex-anchored square optima, including the exactly two optimizer coexistence point and uniqueness elsewhere. The distinct geometric mechanisms are not captured by the universal half-area existence theorem, axis-parallel textbook computation, or the square case alone. The result is a complete geometric classification, not a renaming or arbitrary finite table.",
+    "status": "PASS"
+  }
+}
