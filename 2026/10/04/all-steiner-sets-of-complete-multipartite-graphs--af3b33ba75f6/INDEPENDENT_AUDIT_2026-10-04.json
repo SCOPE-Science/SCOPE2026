@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:42:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 35cdea9df23bf6f6de46715b9f7ace9cea250a72",
+        "assigned verify.py blob d37d2f3af74cec720f51fff4e0caffa006d028b6",
+        "Chartrand--Zhang 2002",
+        "Hernando et al. 2005",
+        "Gnanasekar 2017"
+      ],
+      "rationale": "If \\(W\\) meets at least two parts, the induced graph on \\(W\\) is connected, so a Steiner \\(W\\)-tree already exists on exactly \\(W\\); no minimum tree can contain extra vertices, and the Steiner interval is \\(W\\). If \\(W\\) lies in one part and has at least two vertices, every minimum Steiner tree uses exactly one outside center, and varying that center makes the interval \\(W\\cup(V\\setminus V_i)\\), which equals all vertices exactly when \\(W=V_i\\). Singletons cannot be Steiner. These cases give the enumerator and inclusion-minimal lower/upper values. Independent brute-force interval rechecks on several small multipartite profiles agreed with the theorem.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hernando et al. prove general implications among Steiner/geodetic/hull notions, not the exact complete-multipartite feasible-set list.",
+          "Gnanasekar's complete-bipartite scalar formula is narrower and does not enumerate all Steiner sets or upper Steiner number for arbitrary multipartite profiles."
+        ],
+        "reasoning": "General implication theorems and a bipartite scalar special case do not mechanically determine the current classification.",
+        "searches": [
+          "Hernando--Jiang--Mora--Pelayo--Seara 2005",
+          "Gnanasekar 2017 complete bipartite Steiner number"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1016/S0012-365X(00)00456-8",
+        "DOI 10.1016/j.disc.2004.08.039",
+        "Gnanasekar 2017",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior scalar results determine at most the minimum size in special cases.",
+          "The audited theorem identifies every feasible terminal set and every inclusion-minimal Steiner set, which immediately yields both lower and upper parameters."
+        ],
+        "reasoning": "A scalar minimum does not imply the complete all-set classification or its enumerator.",
+        "searches": [
+          "Chartrand--Zhang/Gnanasekar scalar results versus current interval argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record; nearby complete-multipartite records concern geodetic/hull or domination invariants.",
+          "Chartrand--Zhang introduce Steiner number/set theory and characterize several extremal values, not this family-wide all-set theorem."
+        ],
+        "reasoning": "Equivalent formulations via Steiner intervals, all minimum Steiner-terminal sets, and the size enumerator were compared.",
+        "searches": [
+          "Resultary query: Steiner sets complete multipartite graphs all sets Steiner interval",
+          "Chartrand--Zhang DOI 10.1016/S0012-365X(00)00456-8",
+          "Hernando et al. DOI 10.1016/j.disc.2004.08.039"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No pre-existing all-set cardinality table or polynomial was located.",
+          "The current polynomial has one term for every non-singleton part plus the full set, including multiplicity of equal part sizes."
+        ],
+        "reasoning": "The exact database/table comparison is inapplicable beyond confirming no all-set table was found; the theorem is symbolic for every part profile.",
+        "searches": [
+          "Resultary complete-multipartite Steiner search",
+          "published scalar complete-bipartite formulas"
+        ]
+      },
+      "rationale": "The foundational Steiner-number paper and the later relation paper were checked at primary-source level and do not state the arbitrary complete-multipartite all-set classification. Gnanasekar gives the scalar Steiner number for complete bipartite graphs, a strict special case. Resultary searches found the assigned theorem as the exact complete-multipartite all-set hit but no distinct prior record implying its enumerator or upper-Steiner classification.",
+      "residual_risks": [
+        "An older poorly indexed special-class paper could state the same elementary complete-multipartite classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the complete-multipartite all-set theorem.",
+          "evidence": "The source develops general Steiner-number theory and extremal values rather than enumerating Steiner sets of complete multipartite graphs.",
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(00)00456-8",
+          "material_read": "Primary abstract and theorem-level bibliographic material describing the extremal-number classifications.",
+          "method": "Primary-source comparison.",
+          "title": "The Steiner number of a graph",
+          "trigger": "Foundational primary source defining Steiner sets and numbers."
+        },
+        {
+          "assessment": "NOT_COVERING.",
+          "evidence": "The inspected results establish implications among set notions, not the exact complete-multipartite Steiner interval classification.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2004.08.039",
+          "material_read": "Open primary source/abstract and theorem context on implications among the three notions.",
+          "method": "Open full-text comparison where available.",
+          "title": "On the Steiner, geodetic and hull numbers of graphs",
+          "trigger": "Closest general relationship theorem that might collapse Steiner sets on distance-hereditary classes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chartrand--Zhang 2002",
+        "Hernando et al. 2005",
+        "Gnanasekar 2017"
+      ],
+      "rationale": "Complete multipartite graphs are a canonical test family, and the theorem gives a complete feasible-set classification rather than only a minimum value. The resulting exact enumerator and simultaneous lower/upper Steiner parameters are natural structural data that a later researcher could directly reuse.",
+      "residual_risks": [
+        "The proof is short because the multipartite connectivity structure is simple."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a connected complete multipartite graph, the Steiner sets are exactly the full vertex set and the full non-singleton partite classes; hence the exact size enumerator, Steiner number, and upper Steiner number are those stated in the record.",
+  "limitations": [
+    "Ordinary vertex Steiner sets on finite connected complete multipartite graphs only.",
+    "The scalar complete-bipartite Steiner number is prior-covered and is not the originality-critical part."
+  ],
+  "schema_version": 1
+}

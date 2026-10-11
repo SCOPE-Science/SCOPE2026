@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the literal Steiner-tree definition to two exhaustive cases. When terminals occupy at least two parts, they induce a connected graph and a minimum tree cannot contain any extra vertex. When all terminals lie in one part and there are at least two of them, exactly one outside vertex is necessary and sufficient, and every outside vertex can be the center of a minimum star. This reconstructs the Steiner interval exactly. Singleton terminals and complete graphs are treated separately. The bundled verifier independently confirms every subset for all complete multipartite profiles through order \(9\).
+## correctness
 
-## Originality
-PASS. The final claim is the arbitrary complete-multipartite all-set classification and exact size enumerator, not the known complete-bipartite scalar formula. A directly relevant 2017 full text gives the complete-bipartite Steiner number, which is treated as prior-covered. Full-text inspection of the broader 2005 Steiner/geodetic paper found general implications but no multipartite theorem. Searches under Steiner set, Steiner interval, upper Steiner number, cograph, complete bipartite, and complete multipartite terminology found no stronger arbitrary-multipartite statement. The principal residual risk is uninspected older full text or alternate terminology.
+PASS
 
-## Value
-PASS. This is a natural complete classification of a standard invariant, not an arbitrary finite slice. It proves that the Steiner-set family of a complete multipartite graph has extreme rigidity, immediately giving its full cardinality enumerator, all inclusion-minimal Steiner sets, and both lower and upper Steiner numbers. The result unifies complete graphs, stars, bicliques, and higher-part Turán-type graphs in one structural statement.
+If \(W\) meets at least two parts, the induced graph on \(W\) is connected, so a Steiner \(W\)-tree already exists on exactly \(W\); no minimum tree can contain extra vertices, and the Steiner interval is \(W\). If \(W\) lies in one part and has at least two vertices, every minimum Steiner tree uses exactly one outside center, and varying that center makes the interval \(W\cup(V\setminus V_i)\), which equals all vertices exactly when \(W=V_i\). Singletons cannot be Steiner. These cases give the enumerator and inclusion-minimal lower/upper values. Independent brute-force interval rechecks on several small multipartite profiles agreed with the theorem.
 
-The complete-bipartite specialization is not presented as novel in isolation, and finite computation is not used to infer the infinite theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The foundational Steiner-number paper and the later relation paper were checked at primary-source level and do not state the arbitrary complete-multipartite all-set classification. Gnanasekar gives the scalar Steiner number for complete bipartite graphs, a strict special case. Resultary searches found the assigned theorem as the exact complete-multipartite all-set hit but no distinct prior record implying its enumerator or upper-Steiner classification.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical test family, and the theorem gives a complete feasible-set classification rather than only a minimum value. The resulting exact enumerator and simultaneous lower/upper Steiner parameters are natural structural data that a later researcher could directly reuse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
