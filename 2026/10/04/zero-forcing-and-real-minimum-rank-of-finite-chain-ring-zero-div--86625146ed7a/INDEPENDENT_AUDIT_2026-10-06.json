@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:01:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Valuation layers \\(V_i=\\mathfrak m^i\\setminus\\mathfrak m^{i+1}\\) are nonempty and satisfy \\(xy=0\\) exactly when \\(i+j\\ge\\ell\\). The \\((\\ell-1)\\times(\\ell-1)\\) layer matrix \\(H_{ij}=1_{i+j\\ge\\ell}\\) becomes triangular with unit diagonal after reversing columns, hence has rank \\(\\ell-1\\). Inflating it through the layer-incidence matrix gives a real symmetric graph-pattern matrix of the same rank. Leaving one white representative in each valuation layer gives a forcing chain from low layers to high layers and finally back to \\(V_1\\), so \\(Z\\le N-(\\ell-1)\\); \\(M\\le Z\\) closes the equality. Fresh exact reconstruction reproduced the claimed \\((Z,\\operatorname{rank})\\) for \\((q,\\ell)=(3,2),(2,3),(3,3),(2,4)\\), including exhaustive zero forcing in those small cases.",
+      "risk": "The result is for standard zero-divisor graphs and real symmetric minimum rank; it does not classify all minimum forcing sets.",
+      "sources": [
+        "Rattanakangwanwong--Meemark, DOI:10.1080/03081087.2021.1917501",
+        "Spiroff--Wickham, arXiv:0801.0086 / DOI:10.1080/00927872.2010.488675",
+        "AIM Minimum Rank Work Group, DOI:10.1016/j.laa.2007.10.009",
+        "frozen RESULT.md and verify.py",
+        "fresh exact layer reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The spectral paper is broader over principal ideal rings but computes fixed adjacency spectral data, not minimum rank over the pattern class.",
+          "Spiroff--Wickham compress annihilator-equivalent zero divisors and recover associated-prime information.",
+          "AIM supplies only \\(M\\le Z\\)."
+        ],
+        "reasoning": "No inspected source supplies the anti-triangular low-rank pattern matrix or the layer-by-layer forcing equality.",
+        "searches": [
+          "Rattanakangwanwong--Meemark DOI:10.1080/03081087.2021.1917501 primary article metadata/abstract",
+          "Spiroff--Wickham arXiv:0801.0086 full open text",
+          "AIM zero-forcing minimum-rank framework"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1080/03081087.2021.1917501",
+        "arXiv:0801.0086",
+        "DOI:10.1080/00927872.2010.488675",
+        "DOI:10.1016/j.laa.2007.10.009",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the ordinary adjacency rank does not bound graph minimum rank sharply because diagonal and nonzero edge weights may vary.",
+          "Annihilator compression reveals the valuation-type structure but does not imply the rank-\\(\\ell-1\\) symmetric realization or a matching forcing set."
+        ],
+        "reasoning": "The final claim requires a distinct inverse-eigenvalue construction and zero-forcing proof.",
+        "searches": [
+          "Rattanakangwanwong--Meemark adjacency-spectrum theorem",
+          "Spiroff--Wickham annihilator-compression results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the assigned record as the exact zero-forcing/minimum-rank hit; nearby chain-ring records concern metric dimension, reconstruction, or domination.",
+          "The 2022 spectral paper's 'rank' is adjacency-matrix rank, not graph minimum rank.",
+          "No equivalent Loewy-length inverse-eigenvalue theorem was located."
+        ],
+        "reasoning": "Valuation-layer threshold graphs, graph minimum rank, adjacency rank, maximum nullity, and zero forcing were distinguished explicitly.",
+        "searches": [
+          "Resultary: finite chain ring zero divisor graph zero forcing minimum rank",
+          "Web: finite chain ring zero divisor graph minimum rank Loewy length",
+          "Web: zero forcing zero divisor graph chain ring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact parameter table matching the theorem was located."
+        ],
+        "reasoning": "The same numerical expression occurs for other invariants in related chain-ring graphs, but that does not imply the zero-forcing/minimum-rank statement.",
+        "searches": [
+          "Resultary exact query for chain-ring zero-divisor graph zero forcing/minimum rank",
+          "Targeted searches for \\(q^{\\ell-1}-\\ell\\) zero forcing"
+        ]
+      },
+      "rationale": "The closest spectral paper studies the ordinary adjacency-matrix rank, determinant, and eigenvalues of zero-divisor graphs over finite chain/principal-ideal rings. That fixed adjacency rank is not the graph minimum rank obtained by optimizing all real symmetric edge weights and diagonals. Spiroff--Wickham study annihilator compression rather than zero forcing/minimum rank. Resultary searches found no prior theorem identifying real graph minimum rank with \\(\\ell-1\\) or matching it to zero forcing on every finite chain ring.",
+      "residual_risks": [
+        "The complete 2022 spectral article was not openly readable in this run; its abstract strongly indicates ordinary adjacency rank, but uninspected internal remarks remain an access risk.",
+        "A threshold-graph minimum-rank theorem under a different graph-theoretic encoding could imply the formula without mentioning rings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ADJACENCY_MATRIX_RANK_NOT_GRAPH_MINIMUM_RANK",
+          "evidence": "The source explicitly describes rank/determinant/eigenvalues of the zero-divisor graph's adjacency matrix, a different invariant from minimum rank over all symmetric pattern matrices.",
+          "identifier_or_url": "DOI:10.1080/03081087.2021.1917501",
+          "material_read": "Primary publisher abstract and article metadata describing finite-chain-ring adjacency rank, determinant, eigenvalues, inertia, and principal-ideal-ring extension; full theorem text was not openly available in this run.",
+          "method": "Lawful publisher inspection; no access bypass.",
+          "title": "Eigenvalues of zero divisor graphs of principal ideal rings",
+          "trigger": "Exact zero-divisor graph family with rank/eigenvalue language."
+        },
+        {
+          "assessment": "COMPRESSED_GRAPH_STRUCTURE_NOT_ZERO_FORCING_OR_MINIMUM_RANK",
+          "evidence": "The paper studies annihilator-equivalence classes and associated primes, not zero forcing or real symmetric graph minimum rank.",
+          "identifier_or_url": "arXiv:0801.0086; DOI:10.1080/00927872.2010.488675",
+          "material_read": "Open full primary text covering the equivalence-class graph, associated-prime recovery, and structural motivation.",
+          "method": "Lawful open full-text inspection.",
+          "title": "A Zero Divisor Graph Determined by Equivalence Classes of Zero Divisors",
+          "trigger": "Primary structural source using annihilator classes for zero-divisor graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem exactly recovers a ring's nilpotency length from a graph inverse-eigenvalue parameter and proves simultaneous equality with zero forcing/maximum nullity throughout the finite chain-ring family. The anti-triangular layer witness is a structural mechanism that is reusable beyond one numerical example.",
+      "risk": "The theorem is restricted to chain rings and does not address arbitrary local rings with multidimensional valuation layers.",
+      "sources": [
+        "DOI:10.1080/03081087.2021.1917501",
+        "DOI:10.1016/j.laa.2007.10.009"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a finite commutative chain ring with residue-field order \\(q\\) and nilpotency length \\(\\ell\\ge2\\), the nonzero zero-divisor graph has \\(Z=M=q^{\\ell-1}-\\ell\\) and real symmetric minimum rank \\(\\ell-1\\), except at \\((q,\\ell)=(2,2)\\), where the graph is \\(K_1\\), \\(Z=M=1\\), and \\(\\operatorname{mr}=0\\).",
+  "limitations": [
+    "Finite commutative chain rings only.",
+    "Real symmetric minimum rank only.",
+    "The one-vertex boundary is exceptional.",
+    "No classification of all minimum zero forcing sets is claimed."
+  ],
+  "schema_version": 1
+}

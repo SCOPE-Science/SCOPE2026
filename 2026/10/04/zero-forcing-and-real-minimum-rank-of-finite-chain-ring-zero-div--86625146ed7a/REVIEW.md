@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In a finite chain ring, valuation layers \(V_i\) have sizes \((q-1)q^{\ell-i-1}\), and two vertices from layers \(i,j\) are adjacent exactly when \(i+j\ge\ell\). The layer-pattern matrix \(H\) is nonsingular because reversing its columns makes it triangular with unit diagonal. Blowing \(H\) up along the valuation layers gives a real symmetric graph-pattern matrix of rank \(\ell-1\). Conversely, leaving one white vertex in every layer gives a forcing chain from the lowest layers inward, followed by the top layer forcing the final \(V_1\) representative. The standard inequality \(M(G)\le Z(G)\) closes equality. The single-vertex case is handled separately.
+PASS
 
-Sources and risks: the zero-divisor/annihilator framework and primary algebra classification were checked in a public full text; the graph-minimum-rank inequality was checked against the foundational source. The finite checker reconstructs layer graphs, exact rational ranks, and forcing sequences.
+Valuation layers \(V_i=\mathfrak m^i\setminus\mathfrak m^{i+1}\) are nonempty and satisfy \(xy=0\) exactly when \(i+j\ge\ell\). The \((\ell-1)\times(\ell-1)\) layer matrix \(H_{ij}=1_{i+j\ge\ell}\) becomes triangular with unit diagonal after reversing columns, hence has rank \(\ell-1\). Inflating it through the layer-incidence matrix gives a real symmetric graph-pattern matrix of the same rank. Leaving one white representative in each valuation layer gives a forcing chain from low layers to high layers and finally back to \(V_1\), so \(Z\le N-(\ell-1)\); \(M\le Z\) closes the equality. Fresh exact reconstruction reproduced the claimed \((Z,\operatorname{rank})\) for \((q,\ell)=(3,2),(2,3),(3,3),(2,4)\), including exhaustive zero forcing in those small cases.
 
-## Originality
+## originality
 
-PASS. The inspected archive source contains neither zero-forcing nor minimum-rank terminology. Targeted searches combining zero-divisor graphs, finite chain rings, valuation layers, zero forcing, maximum nullity, and minimum rank did not locate the theorem. A later spectral paper is highly relevant because it determines the rank and eigenvalues of the ordinary adjacency matrix for finite chain-ring zero-divisor graphs, but its accessible abstract does not state graph minimum rank or zero forcing. Full text for that later paper was not available through the accessible path, so this remains the principal residual comparison risk.
+PASS
 
-The closest semantic-database records concern zero forcing for trees or minimum rank in unrelated graph families. No returned record covered the chain-ring formula or the equality between zero forcing and maximum nullity.
+The closest spectral paper studies the ordinary adjacency-matrix rank, determinant, and eigenvalues of zero-divisor graphs over finite chain/principal-ideal rings. That fixed adjacency rank is not the graph minimum rank obtained by optimizing all real symmetric edge weights and diagonals. Spiroff--Wickham study annihilator compression rather than zero forcing/minimum rank. Resultary searches found no prior theorem identifying real graph minimum rank with \(\ell-1\) or matching it to zero forcing on every finite chain ring.
 
-## Value
+## value
 
-PASS. The theorem identifies a ring-theoretic nilpotency invariant with a standard inverse-eigenvalue invariant: outside one boundary case, \(\operatorname{mr}(\Gamma(R))=\ell-1\). It simultaneously determines zero forcing and maximum nullity for every finite chain ring. The anti-triangular witness is structural and independent of the sizes of the valuation layers beyond their nonemptiness.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The theorem exactly recovers a ring's nilpotency length from a graph inverse-eigenvalue parameter and proves simultaneous equality with zero forcing/maximum nullity throughout the finite chain-ring family. The anti-triangular layer witness is a structural mechanism that is reusable beyond one numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

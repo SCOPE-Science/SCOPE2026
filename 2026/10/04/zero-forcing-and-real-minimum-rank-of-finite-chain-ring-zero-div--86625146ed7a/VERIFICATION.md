@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,33 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-For each tested pair \((q,\ell)\), the checker constructs the valuation layers with sizes
-\[
-(q-1)q^{\ell-i-1}
-\]
-and joins two vertices exactly when their layer indices satisfy
-\[
-i+j\ge\ell.
-\]
+## correctness
 
-It then builds the anti-triangular layer matrix \(H\), expands it to the full graph-pattern matrix, verifies every off-diagonal zero/nonzero entry against the graph, and computes exact rational ranks.
+PASS
 
-The checker also constructs the theorem's zero forcing set by leaving one white representative in each layer and replays the forcing process. For every tested graph with at most \(15\) vertices, it exhaustively determines the zero forcing number independently.
+Valuation layers \(V_i=\mathfrak m^i\setminus\mathfrak m^{i+1}\) are nonempty and satisfy \(xy=0\) exactly when \(i+j\ge\ell\). The \((\ell-1)\times(\ell-1)\) layer matrix \(H_{ij}=1_{i+j\ge\ell}\) becomes triangular with unit diagonal after reversing columns, hence has rank \(\ell-1\). Inflating it through the layer-incidence matrix gives a real symmetric graph-pattern matrix of the same rank. Leaving one white representative in each valuation layer gives a forcing chain from low layers to high layers and finally back to \(V_1\), so \(Z\le N-(\ell-1)\); \(M\le Z\) closes the equality. Fresh exact reconstruction reproduced the claimed \((Z,\operatorname{rank})\) for \((q,\ell)=(3,2),(2,3),(3,3),(2,4)\), including exhaustive zero forcing in those small cases.
 
-Exact replay output:
+## originality
 
-```text
-q=2, ell=2: K1 boundary, Z=1, mr=0
-q=3, ell=2: n=2, exhaustive Z=1, min_sets=2, witness_rank=1, forces=1
-q=5, ell=2: n=4, exhaustive Z=3, min_sets=4, witness_rank=1, forces=1
-q=2, ell=3: n=3, exhaustive Z=1, min_sets=2, witness_rank=2, forces=2
-q=3, ell=3: n=8, exhaustive Z=6, min_sets=12, witness_rank=2, forces=2
-q=2, ell=4: n=7, exhaustive Z=4, min_sets=8, witness_rank=3, forces=3
-q=3, ell=4: n=26, constructed Z=23, witness_rank=3, forces=3
-q=2, ell=5: n=15, exhaustive Z=11, min_sets=64, witness_rank=4, forces=4
-VERIFY_OK
-```
+PASS
 
-The finite checks do not prove the general theorem. The all-\((q,\ell)\) result follows from the symbolic rank witness, the explicit forcing chain, and the standard inequality \(M(G)\le Z(G)\).
+The closest spectral paper studies the ordinary adjacency-matrix rank, determinant, and eigenvalues of zero-divisor graphs over finite chain/principal-ideal rings. That fixed adjacency rank is not the graph minimum rank obtained by optimizing all real symmetric edge weights and diagonals. Spiroff--Wickham study annihilator compression rather than zero forcing/minimum rank. Resultary searches found no prior theorem identifying real graph minimum rank with \(\ell-1\) or matching it to zero forcing on every finite chain ring.
+
+## value
+
+PASS
+
+The theorem exactly recovers a ring's nilpotency length from a graph inverse-eigenvalue parameter and proves simultaneous equality with zero forcing/maximum nullity throughout the finite chain-ring family. The anti-triangular layer witness is a structural mechanism that is reusable beyond one numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
