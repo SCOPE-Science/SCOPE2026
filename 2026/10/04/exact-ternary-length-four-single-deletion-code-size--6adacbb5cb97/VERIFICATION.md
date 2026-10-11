@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run:
-```text
-python3 artifacts/verify.py
-```
+# Independent mathematical audit
 
-Expected first line:
-```text
-VERIFY_OK q=3 n=4 optimum=11 words=81 witness_size=11 equality_triples=8 feasible_c42_triples=0 search_nodes=271
-```
+## correctness
 
-The program uses only the Python standard library. It reconstructs all 81 ternary length-four words, computes distinct one-deletion shadows, verifies the displayed 11-word code, and solves the complete compatibility graph exactly by branch-and-bound with a greedy coloring upper bound. It separately enumerates all eight equality-case triples of type \((a,b,c,a)\) and confirms that none has pairwise disjoint deletion shadows.
+PASS
 
-The exhaustive search is finite and complete for \(q=3,n=4\). It is not used to infer any statement for larger alphabet sizes. The symbolic proof in `RESULT.md` supplies the mathematical upper-bound mechanism; the exhaustive search is an independent finite replay.
+The displayed 11-word code has pairwise disjoint one-deletion shadows. Independently, a complete maximum-clique search on the 81-word compatibility graph returned maximum 11. The symbolic upper-bound route is also coherent: the Kim–Lee–Oh normalized count gives at most 12 at q=3; equality would force one C_{4,2} word for each outer repeated symbol, but the two orientations per symbol produce only eight triples and every one has a deletion-output collision. Therefore 12 is impossible.
+
+## originality
+
+PASS
+
+PASS with a specific thesis-priority risk. Kim–Lee–Oh's primary theorem is explicitly for even alphabet size, so it does not cover q=3. Kulkarni–Kiyavash's full accessible numerical section lists the q=3,n=4 row as Levenshtein upper 16, their upper 13, fractional-matching upper 12, and best known Tenengolts code 8, demonstrating that their table does not contain the unrestricted optimum 11. Fresh Resultary search returned only the adjacent quinary exact result, not the ternary theorem.
+
+## value
+
+PASS
+
+This closes the smallest nonbinary odd-alphabet length-four case left outside the even-q theorem and sharpens an explicit published q=3,n=4 interval whose strongest listed LP upper bound is 12 and restricted-family lower bound is 8. The equality obstruction explains structurally why the natural counting/LP endpoint 12 is unattainable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

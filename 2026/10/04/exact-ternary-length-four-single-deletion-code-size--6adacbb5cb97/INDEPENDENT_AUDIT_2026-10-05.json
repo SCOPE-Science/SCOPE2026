@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:06:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed 11-word code has pairwise disjoint one-deletion shadows. Independently, a complete maximum-clique search on the 81-word compatibility graph returned maximum 11. The symbolic upper-bound route is also coherent: the Kim–Lee–Oh normalized count gives at most 12 at q=3; equality would force one C_{4,2} word for each outer repeated symbol, but the two orientations per symbol produce only eight triples and every one has a deletion-output collision. Therefore 12 is impossible.",
+      "risks": [
+        "The symbolic normalization relies on a published classification, but the independent complete 81-vertex search removes dependence on that premise for this finite parameter."
+      ],
+      "sources": [
+        "RESULT.md blob 35eb2c645f0f892df7526f6f404ff71c8346117e",
+        "artifacts/verify.py blob d66e32517603336c5f2de7f8185f999477433a67",
+        "arXiv:1003.4057"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1003.4057 states its sharp length-four result for even alphabet size.",
+          "arXiv:1211.3128 Table I(b) gives q=3,n=4 values 16,13,12,8 rather than exact 11.",
+          "The q=5 exact theorem does not imply q=3."
+        ],
+        "reasoning": "Known broader bounds and adjacent exact parameters leave the ternary case unresolved and do not dominate the audited equality.",
+        "searches": [
+          "arXiv:1003.4057",
+          "arXiv:1211.3128 full accessible numerical section",
+          "Resultary adjacent q=5 exact record"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1003.4057",
+        "arXiv:1211.3128",
+        "DOI:10.1109/CIT.2012.137",
+        "Resultary:2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The even-q theorem excludes the ternary parameter.",
+          "The fractional upper value 12 cannot imply an integer code of size 12; the submitted eight-case C_{4,2} equality obstruction and independent exact clique search are needed to sharpen it to 11."
+        ],
+        "reasoning": "The final exact equality is not a corollary of the inspected upper/lower bounds.",
+        "searches": [
+          "Statement comparison with Kim–Lee–Oh even-q theorem",
+          "Statement comparison with Kulkarni–Kiyavash q=3,n=4 row"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited disjoint-shadow formulation is exactly the maximum matching/independent-code formulation used in the primary deletion-code literature.",
+          "No Resultary hit gives the ternary value; the nearest exact published finding is q=5, n=4."
+        ],
+        "reasoning": "Equivalent notation and channel formulations were searched without locating an exact 11 statement.",
+        "searches": [
+          "Resultary: ternary length four single deletion correcting code exact maximum 11 N(4,3,1)",
+          "web N(4,3,1)=11, ternary deletion length four",
+          "insertion-deletion metric/one-deletion code aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected published table records an LP upper bound 12 and best known Tenengolts construction 8 at q=3,n=4, not the optimum 11."
+        ],
+        "reasoning": "The exact value improves the located table interval rather than reproducing it.",
+        "searches": [
+          "arXiv:1211.3128 Table I(b) q=3,n=4",
+          "Resultary exact-value query",
+          "web small deletion-code tables"
+        ]
+      },
+      "rationale": "PASS with a specific thesis-priority risk. Kim–Lee–Oh's primary theorem is explicitly for even alphabet size, so it does not cover q=3. Kulkarni–Kiyavash's full accessible numerical section lists the q=3,n=4 row as Levenshtein upper 16, their upper 13, fractional-matching upper 12, and best known Tenengolts code 8, demonstrating that their table does not contain the unrestricted optimum 11. Fresh Resultary search returned only the adjacent quinary exact result, not the ternary theorem.",
+      "residual_risks": [
+        "Zhiyuan Li's 2011 ternary deletion-code thesis is highly relevant; a complete machine-readable inspection was not available here, so an unindexed exact 11 statement remains a priority risk.",
+        "An older computational note/table may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EVEN_Q_ONLY",
+          "evidence": [
+            "The stated sharp length-four theorem applies to alphabets of even size, excluding q=3."
+          ],
+          "identifier_or_url": "arXiv:1003.4057",
+          "material_read": "Accessible arXiv page/HTML and theorem scope; abstract explicitly restricts the sharp bound to even alphabet size.",
+          "method": "Public arXiv inspection.",
+          "title": "Construction of optimal codes in deletion and insertion metric",
+          "trigger": "Primary length-four optimality theorem whose scope might dominate the claim."
+        },
+        {
+          "assessment": "BOUNDS_NOT_EXACT",
+          "evidence": [
+            "For q=3,n=4 the row is 16 (Levenshtein), 13 (new upper), 12 (fractional matching), 8 (best known Tenengolts); no optimum 11 is stated."
+          ],
+          "identifier_or_url": "arXiv:1211.3128",
+          "material_read": "Full accessible HTML numerical section, including Table I(b) and its explanation.",
+          "method": "Public full-text HTML inspection.",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Published numerical table containing the exact q=3,n=4 parameter row."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This closes the smallest nonbinary odd-alphabet length-four case left outside the even-q theorem and sharpens an explicit published q=3,n=4 interval whose strongest listed LP upper bound is 12 and restricted-family lower bound is 8. The equality obstruction explains structurally why the natural counting/LP endpoint 12 is unattainable.",
+      "risks": [
+        "It remains a single finite parameter rather than an odd-q formula."
+      ],
+      "sources": [
+        "arXiv:1211.3128",
+        "arXiv:1003.4057",
+        "RESULT.md blob 35eb2c645f0f892df7526f6f404ff71c8346117e"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact ternary length-four one-deletion result only; no classification of all 11-word optima."
+  ],
+  "schema_version": 1
+}
