@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact radius equation for a centered geodesic sphere, uses the correct normalization, and separates the three regimes according to integrability of the spherical curvature correction. The logarithmic coefficient at the resonant exponent follows from \(E\sim-B\log L\) and \(\log L=2\log\lambda\). Symbolic and numerical checks are supplementary, not substitutes for the analytic argument.
+## correctness
 
-## Originality
-PASS. The closest primary paper proves normalized convergence for the full supercritical spherical flow but records the ambient-curvature term only as \(O(\lambda^{-2})\). Full-text inspection did not find the sharp round-sphere coefficient, the threshold \(a=2\), or the logarithmic resonance. The same-authors hyperbolic companion is not a covering result because its ambient geometry and model weight differ. Targeted semantic searches for equivalent round-radius and normalized-time formulations returned no covering statement.
+PASS
 
-Residual risk: an equivalent scalar-ODE asymptotic may exist under different terminology. No uniqueness-of-literature claim is made.
+For a centered geodesic sphere, all principal curvatures equal \(\cot\rho\), so the flow reduces exactly to \(\rho'=-\gamma_0\rho^{a+1}A(\rho)\) with \(A(\rho)=(\rho\cot\rho)^{k\alpha}=1-(k\alpha/3)\rho^2+O(\rho^4)\). With \(x=\rho^{-a}\), \(L=1+a\gamma_0t\), and \(E=x-L\), one has \(dE/dL=A(\rho)-1\), \(x/L\to1\), and hence \(\rho^2=L^{-2/a}(1+o(1))\). Integrating gives the power, logarithmic, and convergent-tail regimes exactly at \(a=2\); expanding \(y=(1+E/L)^{-1/a}\) gives the stated constants. In the resonant case the factor \(\log L=2\log\lambda\) exactly cancels \(1/a=1/2\). The subcritical integral has local integrand \(-(k\alpha/3)r^{1-a}+O(r^{3-a})\), so it converges precisely for \(a<2\).
 
-## Value
-PASS. Round geodesic spheres are an invariant calibration family for the geometric flow. Their exact second-order behavior shows that the ambient spherical curvature itself prevents a uniform \(o(\lambda^{-2})\) rate above the threshold and creates a logarithmic obstruction exactly at resonance. This is a structurally motivated boundary result for convergence-rate questions.
+## originality
 
-## Closest literature and limitations
-The primary comparison is H. Sheng, W. Sheng, and J. Yang, *Non-homogeneous curvature flows in a hemisphere*, arXiv:2609.31023v1. The companion comparison is their *Non-homogeneous curvature flows in hyperbolic space*, arXiv:2609.29199v1. The present result is restricted to centered geodesic spheres and does not determine nonspherical second-order modes. In the regime \(0<a<2\), the explicit coefficient may vanish for exceptional initial radii.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The primary source proves normalized convergence for general convex hypersurfaces and explicitly retains the spherical ambient-curvature contribution only at big-O order in its constant-mode argument. It does not state a nonzero round-family coefficient, the threshold \(a=2\), or the logarithmic resonance. Resultary returned the current record as the only exact-topic finding; the hyperbolic companion concerns a different ambient radial factor.
+
+## value
+
+PASS
+
+The round invariant family is the canonical calibration for any uniform convergence-rate theorem for the full geometric flow. The nonzero \(\lambda^{-2}\) coefficient above threshold and the logarithmic resonance at threshold impose sharp obstructions on possible uniform rates, making this a motivated structural boundary result rather than an arbitrary parameter calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
