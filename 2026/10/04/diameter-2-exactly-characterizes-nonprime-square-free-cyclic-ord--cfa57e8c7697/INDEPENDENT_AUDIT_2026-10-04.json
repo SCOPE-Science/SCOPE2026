@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:49:21.607190Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 389945e8523c9beeaa6b156c218c0bb47dca1c6d",
+        "artifacts/verify.py blob 077adc51a8e0a39d4d11faa879416d98bf422bd7",
+        "Lazorec arXiv:2203.00071 full source material",
+        "Independent exact graph replay in this audit"
+      ],
+      "rationale": "The proof was reconstructed independently. For a repeated exponent \\(n=p^\\alpha m\\) with \\(m>1\\), the Bertrand-prime choice gives \\(t\\) with \\(2t+1\\) prime and \\(\\alpha<3t-2\\). The incomparable vertices \\(C_{p^t}\\) and \\(C_{p^{t-1}m}\\) cannot have a common lower neighbor because that would give a nontrivial proper divisor of \\(2t+1\\), and cannot have a common upper neighbor because \\(2t-1\\mid 2s+1\\) forces \\(s\\ge3t-2>\\alpha\\). The square-free direction follows from multiplicativity and the universal top vertex. Independent exact graph construction found no counterexample for \\(2\\le n\\le400\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lazorec provides the graph definition and prime-power divisibility criterion but leaves diameter two open.",
+          "Kumar--Kumar--Sehgal 2026 explicitly studies extreme vertices of \\(\\Psi_{\\mathbb Z_{p^n}}\\), a different prime-power question."
+        ],
+        "reasoning": "The broader psi-divisibility results do not imply that a cyclic graph of diameter two must have square-free order.",
+        "searches": [
+          "arXiv:2203.00071",
+          "DOI:10.22342/jims.v32i2.2145",
+          "Resultary related hit: cyclic-Sylow obstruction to psi-divisibility and classification of Z-groups"
+        ]
+      },
+      "checked_sources": [
+        "M.-S. Lazorec, A graph related to the sum of element orders of a finite group, arXiv:2203.00071, DOI:10.55016/ojs/cdm.v18i2.73182",
+        "A. Kumar, V. Kumar, A. Sehgal, Extreme Vertices of the Psi-Divisible Graph of the Group \\(Z_{p^n}\\), DOI:10.22342/jims.v32i2.2145",
+        "Resultary semantic query: psi-divisibility graph cyclic group diameter 2 square-free order Problem 2.9 Lazorec",
+        "Fresh exact web searches for Problem 2.9, diameter two, and square-free cyclic orders"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lazorec's existing lemmas do not themselves exclude a mixed-prime nonsquare-free diameter-two graph; that exclusion is precisely the open direction.",
+          "The audited Bertrand-prime construction supplies two vertices with no common neighbor for every repeated prime exponent."
+        ],
+        "reasoning": "The proof closes an explicit gap rather than specializing a stronger known theorem.",
+        "searches": [
+          "Implication check against Lazorec Lemma 2.1/prime-power divisibility criterion and Problem 2.9",
+          "Comparison with 2026 extreme-vertices paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lazorec Problem 2.9 asks exactly to prove that diameter two forces at least two prime divisors and square-free order.",
+          "No retrieved later source supplied an equivalent proof; recent hits concern extreme vertices or other divisibility classifications."
+        ],
+        "reasoning": "The exact source problem and its obvious converse match the audited theorem statement.",
+        "searches": [
+          "Resultary semantic query: psi-divisibility graph cyclic group diameter 2 square-free order Problem 2.9 Lazorec",
+          "Web search: Problem 2.9 psi-divisibility diameter square-free",
+          "Web search: diameter two psi-divisibility graph cyclic square-free 2024 2025 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published source still presents the statement as an open problem.",
+          "No later exact database/result entry settling it was retrieved."
+        ],
+        "reasoning": "There is no finite table being repackaged; this is a uniform structural theorem.",
+        "searches": [
+          "Exact search for the phrase Problem 2.9 and the diameter-two implication",
+          "Resultary query above"
+        ]
+      },
+      "rationale": "The foundational paper explicitly states the missing implication as Problem 2.9 and says the converse is clear. Fresh exact web searches and Resultary retrieval found the assigned solution itself and recent work on other invariants, but no earlier solution. The 2026 extreme-vertices paper is confined to prime-power cyclic groups and does not settle the mixed-prime diameter classification.",
+      "residual_risks": [
+        "A differently phrased or unindexed solution of Lazorec's open problem could have escaped the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_PROBLEM_NOT_COVERING",
+          "evidence": "Problem 2.9 asks for exactly the nontrivial implication proved by the audited package; the source notes that the converse is clear.",
+          "identifier_or_url": "arXiv:2203.00071; DOI:10.55016/ojs/cdm.v18i2.73182",
+          "material_read": "Primary full-text web/PDF material around the graph definition, cyclic diameter discussion, Figure 5, and Problem 2.9.",
+          "method": "Lawful primary full-text inspection.",
+          "title": "A graph related to the sum of element orders of a finite group",
+          "trigger": "Foundational source and explicit open-problem statement."
+        },
+        {
+          "assessment": "NOT_COVERING_DIFFERENT_INVARIANT_AND_PRIME_POWER_SCOPE",
+          "evidence": "The article studies extreme vertices for prime-power cyclic groups, not the mixed-prime diameter-two classification.",
+          "identifier_or_url": "DOI:10.22342/jims.v32i2.2145",
+          "material_read": "Journal full-text HTML/abstract and scope statement.",
+          "method": "Lawful journal text inspection.",
+          "title": "Extreme Vertices of the Psi-Divisible Graph of the Group \\(Z_{p^n}\\)",
+          "trigger": "Most recent directly named psi-divisibility-graph paper retrieved."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lazorec 2023 Problem 2.9",
+        "assigned proof",
+        "independent graph replay"
+      ],
+      "rationale": "This is a natural complete classification of a basic graph invariant for cyclic groups and closes an explicitly numbered open problem from the paper that introduced the graph. The proof also supplies a uniform structural distance obstruction, not merely a bounded census.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A differently phrased or unindexed solution of Lazorec's open problem could have escaped the targeted searches."
+  ],
+  "schema_version": 1
+}
