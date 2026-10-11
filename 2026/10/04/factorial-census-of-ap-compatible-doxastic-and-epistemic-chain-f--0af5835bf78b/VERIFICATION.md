@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The general theorem is proof-based. A finite checker is included only as a consistency test.
+# Independent mathematical audit
 
-For the \(n\)-element chain, the proof verifies directly that each incoming column of an \(\mathbf{AP}\)-compatible doxastic relation is a downset of \(\{0,\ldots,j\}\), hence an initial segment. The \(j\)-th column therefore has exactly \(j+2\) possibilities, independently of the other columns.
+## correctness
 
-The founded count is checked from the literal basic-frame definition: one edge \(vRt\) suffices at every state \(s\) using \(u=\max\{s,v\}\), and the empty relation fails.
+PASS
 
-The epistemic count is checked from the literal visionary condition and \(\mathbf{AP}\)-compatibility: visionaryness becomes seriality. Doxasticity leaves the top state only the top as a possible successor, so seriality is equivalent to the top loop. AP-compatibility then fills the entire top incoming column. Balbiani's general theorem identifies visionary and futuristic on doxastic frames.
+For target j, doxasticity confines incoming vertices to {0,...,j}; AP compatibility makes the column downward closed, hence uniquely empty or {0,...,c_j}, giving j+2 independent choices and total (n+1)!. A nonempty edge vRt witnesses basicity at every s via u=max(s,v), so founded frames are exactly the nonempty ones. Under AP, visionaryness is seriality; doxasticity at the top forces the top loop, which fills the top incoming column. Hence epistemic frames are exactly c_{n-1}=n-1, giving n! and fraction 1/(n+1). Independent small-n enumeration agrees; the proof is the all-n column bijection.
 
-`verify.py` exhaustively enumerates every binary relation for \(1\le n\le4\), applies the definitions literally, and checks the predicted counts. It prints `VERIFY_OK`.
+## originality
 
-## Limits
+PASS
 
-The finite checker does not prove the infinite family; it corroborates the closed-form proof. The theorem applies to fixed finite chains, not arbitrary preorders.
+Originality passes. Balbiani's complete open primary article defines all frame conditions used and proves the doxastic visionary/futuristic equivalence, but does not classify or count those relations on finite chains. Fresh Resultary and exact-term searches found no cutoff-vector normal form or factorial census.
+
+## value
+
+PASS
+
+Finite chains are canonical linearly ordered intuitionistic frames. The theorem gives a complete normal form and simultaneous exact counts for natural doxastic, founded and epistemic subclasses, with a transparent top-column characterization of epistemicity. This is a natural complete finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
