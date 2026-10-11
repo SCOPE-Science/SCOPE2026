@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,37 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For \(1<c<2\), every vertex has active-normal pattern
-\[
-s_i e_i,
-\qquad
-s_i e_i+s_j e_j+e_k,
-\qquad
-s_i e_i+s_j e_j-e_k.
-\]
-Choosing the unique tetrahedral direction with
-\[
-d_i=-s_i,
-\qquad d_j=-s_j
-\]
-gives active dot products \(-1\), \(-1\), and \(-3\) in some order.
+## correctness
 
-At \(c=2\), the second coordinate facet becomes active as well and has dot product \(-1\) with the same direction.
+PASS
 
-For \(2<c<3\), the active-normal pattern is
-\[
-s_i e_i,
-\qquad s_j e_j,
-\qquad s=(s_1,s_2,s_3),
-\]
-and the same rule gives dot products \(-1\), \(-1\), and either \(-1\) or \(-3\).
+The active-normal proof was reconstructed in both combinatorial chambers and at \(c=2\). For \(1<c<2\), each vertex is a signed permutation of \((1,c-1,0)\); for \(2<c<3\), of \((1,1,c-2)\). In each case a unique tetrahedral direction has dot products \(-1\) or \(-3\) against every active outer normal. The universal three-dimensional lower bound gives equality at four. Endpoint arguments correctly show that one direction can illuminate at most one octahedron or cube vertex, yielding six and eight. The package verifier blob 8b977d72798cd50d3a2b24f64faef50cc6162349 independently exhausts all sign/normal patterns and the endpoint constructions.
 
-The packaged `verify.py` exhausts all coordinate choices and sign patterns for these three cases. It also checks the explicit endpoint illuminating sets and the discrete incompatibility structure used in the endpoint lower bounds.
+## originality
 
-The actual replay output was:
+PASS
 
-`VERIFY_OK cube-octahedron illumination phase profile`
+Sun--Vritsiou give a general six-direction upper bound in dimension three for the relevant non-cubic 1-symmetric setting, not the sharp four-direction profile. A previously published SCOPE record gives illumination number four for one canonical truncated-octahedron representative, covering only the special point \(c=3/2\). It does not imply the cuboctahedron, regular truncated cube, or the uniform continuous-family statement. Targeted searches found no ordinary-illumination source covering the full profile.
 
-The universal lower bound \(\mathfrak I(K)\ge4\) is proved analytically by convex separation. The endpoint lower bounds are likewise analytic. No finite sample is used to infer a statement for a continuum of parameters.
+## value
+
+PASS
+
+The family continuously interpolates between two classical extremal polytopes and passes through three named Archimedean solids. Determining both endpoint jumps and the dimension-minimal constant on the entire open interval, with one fixed illuminating tetrahedron, is a natural complete phase classification rather than an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
