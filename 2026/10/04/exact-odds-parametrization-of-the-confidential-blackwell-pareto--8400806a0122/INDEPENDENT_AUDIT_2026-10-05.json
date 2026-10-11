@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:10:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary source gives the exact capacity union \\([0,H(Y_1\\mid Y_2)]\\times[0,H(Y_2\\mid Y_1)]\\) over input distributions. For a positive support weight, the submitted weighted entropy objective has strictly negative second variation on the simplex tangent space and its maximizer is interior. Eliminating the Lagrange multiplier from the two stationary equations yields \\(\\ln x\\ln y=\\ln(1+x)\\ln(1+y)\\), equivalently \\(\\psi(x)\\psi(y)=1\\). Strict monotonicity of \\(\\psi\\) gives uniqueness and the converse reconstructs the support weight. Fresh numerical root solves for representative \\(x\\) values independently satisfied both KKT equations to numerical precision; the continuum conclusion is analytic. At symmetry the relation gives \\(x=y=\\varphi^{-1}\\), consistent with the source's exact maximum-sum point.",
+      "risk": "The theorem is specific to the classical deterministic Blackwell map and this mutually-confidential-message capacity formula.",
+      "sources": [
+        "Belzig--Ghosal--Salek--Smith, arXiv:2609.26750v1, Eq. (146), Proposition 6.5 and Figure 3 discussion",
+        "independent KKT numerical cross-check in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The focal paper is broader in communication model and proves the capacity region, but leaves the curved boundary in numerical support-function form beyond the symmetry point.",
+          "Nearby cooperative-secrecy broadcast results use a different message/cooperation model and do not imply this optimizer locus."
+        ],
+        "reasoning": "Knowing the region as a union over input distributions does not itself give the submitted single-valued analytic parametrization.",
+        "searches": [
+          "arXiv:2609.26750v1 full Blackwell section",
+          "searches for classical Blackwell confidential-message capacity and cooperative-secrecy variants"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.26750v1",
+        "Resultary semantic corpus",
+        "targeted Blackwell confidential-broadcast searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: the capacity region is the union of rectangles indexed by \\(p_X\\), and the sum optimum is the golden-ratio symmetric point.",
+          "Prior: the paper samples the remaining curved boundary numerically via weighted optimization."
+        ],
+        "reasoning": "The submitted KKT elimination and strict-concavity/monotonicity argument are required to obtain a unique analytic Pareto parametrization; the source does not state it.",
+        "searches": [
+          "arXiv:2609.26750v1 Eq. (146), Proposition 6.5, Figure 3 text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's full capacity formula is equivalent to optimizing weighted conditional entropies over the input simplex.",
+          "The source explicitly describes the curved boundary as a numerical rendering sampled over support weights."
+        ],
+        "reasoning": "Weighted-support, entropy-gradient, odds-ratio, and Pareto-frontier formulations were compared on the same channel.",
+        "searches": [
+          "Resultary query: confidential Blackwell broadcast channel Pareto frontier odds parametrization weighted conditional entropy",
+          "arXiv:2609.26750v1 searches for Blackwell, boundary, weighted optimization, golden ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact odds-parametrization record was returned."
+        ],
+        "reasoning": "The result replaces numerical boundary sampling by an analytic continuum law; it is not a table recomputation.",
+        "searches": [
+          "Resultary exact query for \\(\\psi(x)\\psi(y)=1\\) Blackwell",
+          "targeted web searches for Blackwell golden-ratio weighted conditional-entropy boundary"
+        ]
+      },
+      "rationale": "The focal paper gives the exact two-dimensional union, proves the symmetric maximum-sum point, and explicitly says the curved boundary in Figure 3 is sampled numerically by maximizing weighted conditional entropies over the input distribution. Its full text does not supply the submitted analytic odds relation or unique involution. Focused Resultary and web searches did not locate this \\(\\psi(x)\\psi(y)=1\\) parametrization in earlier Blackwell secrecy literature.",
+      "residual_risks": [
+        "An equivalent KKT parametrization could occur in older deterministic-broadcast optimization literature under different secrecy terminology; no such same-region statement was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CAPACITY_FORMULA_AND_SYMMETRIC_POINT_ONLY; CURVED_BOUNDARY_NUMERIC",
+          "evidence": "Equation (146) gives the full union, Proposition 6.5 gives the golden-ratio sum optimum, and the following text says Figure 3 samples the boundary numerically.",
+          "identifier_or_url": "arXiv:2609.26750v1",
+          "material_read": "Full 51-page open PDF, with detailed inspection of the classical Blackwell formulas, Proposition 6.5, and the page stating that the curved frontier is numerically sampled by weighted entropy maximization.",
+          "method": "Lawful arXiv full-text inspection with screenshots of the Blackwell capacity pages.",
+          "title": "Quantum Broadcast Channels with Mutually Confidential Messages",
+          "trigger": "Exact source of the classical Blackwell confidential-capacity region."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Blackwell channel is the focal explicit example in the new confidential-broadcast capacity paper. Replacing repeated two-dimensional numerical support optimization by a unique one-dimensional analytic involution gives a natural exact description of the entire Pareto curve and recovers the known golden-ratio point as a special case.",
+      "risk": "The frontier is implicit through a monotone transcendental relation rather than an elementary closed form.",
+      "sources": [
+        "arXiv:2609.26750v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the classical Blackwell broadcast channel with two mutually confidential messages, every non-axis Pareto-optimal input has odds \\(x=b/a\\), \\(y=c/a\\in(0,1)\\) satisfying \\(\\psi(x)\\psi(y)=1\\), where \\(\\psi(t)=-\\ln t/\\ln(1+t)\\); this relation is a one-dimensional involutive parametrization of the full curved frontier, with symmetry at \\(x=y=\\varphi^{-1}\\) and rates \\((\\log_2\\varphi,\\log_2\\varphi)\\).",
+  "limitations": [
+    "Classical Blackwell deterministic map and the exact confidential-message capacity notion of the source paper only.",
+    "Axis endpoints are treated separately from the interior odds parametrization."
+  ],
+  "schema_version": 1
+}

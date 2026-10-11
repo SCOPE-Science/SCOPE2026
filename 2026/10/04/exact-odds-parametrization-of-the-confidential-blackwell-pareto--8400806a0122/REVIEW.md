@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact confidential Blackwell region in arXiv:2609.26750v1. The weighted support functional has an explicit negative second variation; on the simplex tangent space it is strictly negative except at the zero perturbation. Positive weights force an interior optimizer, so the Lagrange system is necessary and sufficient. Eliminating the multiplier gives the two logarithmic odds equations, their product gives \(\psi(x)\psi(y)=1\), and the converse reconstructs the unique support weight. The strict monotonicity of \(\psi\) proves the one-dimensional parametrization is single-valued. The verifier confirms representative stationary points and numerical global maximization, but the analytic argument is the proof.
+## correctness
 
-Risk: all entropy rates are base two while natural logarithms are used in differentiation. This changes derivatives by the same positive factor \(1/\ln 2\) and therefore does not change optimizers or stationarity.
+PASS
 
-## Originality
-PASS. The closest source, arXiv:2609.26750v1, gives the exact union-of-rectangles capacity formula, the symmetric optimum \(2\log_2\varphi\), and a numerically sampled curved boundary. It does not state the exact odds involution, the unique optimal input for every positive supporting weight, or the converse parametrization of every non-axis Pareto point. Claim-specific semantic searches, exact-source searches, aliases involving conditional entropies and Pareto frontiers, and the cumulative own ledger found no equivalent or stronger statement.
+The primary source gives the exact capacity union \([0,H(Y_1\mid Y_2)]\times[0,H(Y_2\mid Y_1)]\) over input distributions. For a positive support weight, the submitted weighted entropy objective has strictly negative second variation on the simplex tangent space and its maximizer is interior. Eliminating the Lagrange multiplier from the two stationary equations yields \(\ln x\ln y=\ln(1+x)\ln(1+y)\), equivalently \(\psi(x)\psi(y)=1\). Strict monotonicity of \(\psi\) gives uniqueness and the converse reconstructs the support weight. Fresh numerical root solves for representative \(x\) values independently satisfied both KKT equations to numerical precision; the continuum conclusion is analytic. At symmetry the relation gives \(x=y=\varphi^{-1}\), consistent with the source's exact maximum-sum point.
 
-The nearby 2017 cooperative-broadcast secrecy paper is a different communication model; its abstract/model description was inspected only to establish that specific inapplicability, not as a whole-document novelty exclusion. Residual risk remains that an equivalent KKT parametrization occurs in older literature under different terminology.
+## originality
 
-## Value
-PASS. The source itself represents the curved confidential Blackwell boundary through repeated numerical weighted maximization. The new theorem turns that into a canonical one-dimensional monotone involution and identifies every supporting input distribution and weight. This gives a reusable exact description of the full tradeoff curve, with the golden-ratio point and axis endpoints appearing as intrinsic fixed/limit cases. The result is a structural refinement of an exact capacity region rather than a routine recomputation of one numerical point.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The focal paper gives the exact two-dimensional union, proves the symmetric maximum-sum point, and explicitly says the curved boundary in Figure 3 is sampled numerically by maximizing weighted conditional entropies over the input distribution. Its full text does not supply the submitted analytic odds relation or unique involution. Focused Resultary and web searches did not locate this \(\psi(x)\psi(y)=1\) parametrization in earlier Blackwell secrecy literature.
+
+## value
+
+PASS
+
+The Blackwell channel is the focal explicit example in the new confidential-broadcast capacity paper. Replacing repeated two-dimensional numerical support optimization by a unique one-dimensional analytic involution gives a natural exact description of the entire Pareto curve and recovers the known golden-ratio point as a special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
