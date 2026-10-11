@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The final claim is finite and exhaustive. `verify.py` regenerates all \(720\) permutations, the complete threshold graph, every four-clique and five-clique, every distance profile, and every image under the stated \(1{,}440\)-element symmetry group. It obtains \(3{,}960\) maximum codes, no five-code, universal pair-distance profile \(\{10,10,10,10,10,10\}\), and orbit sizes \(360,720,1{,}440,1{,}440\). The argument does not infer impossibility from a timeout or failed search.
+## correctness
 
-## Originality
-**PASS.** The closest prior result is the known exact value \(P(6,10)=4\), contained in small-order exact work and in a later range theorem. The accepted claim does not present that value as new. Searches over exact parameters, Kendall/inversion aliases, equidistance, the number \(3{,}960\), and symmetry/orbit terminology did not locate a source giving or implying the full census. The full text of the 2016 small-order paper was unavailable, so a hidden classification there is explicitly retained as residual risk.
+PASS
 
-## Value
-**PASS.** The case \(n=6,d=10\) is the smallest boundary instance of a published infinite constant-optimum regime. Determining all extremizers reveals rigidity invisible from the number \(P(6,10)=4\): every maximum is equidistant and only four natural symmetry types occur.
+The actual verifier was inspected and its computation independently reconstructed: the threshold graph on 720 permutations has 60,840 edges and degree 169, exactly 3,960 four-cliques and no five-clique; every four-clique has six distances 10; exhaustive natural symmetry action gives orbit sizes 360,720,1440,1440.
 
-## Closest literature and limitations
-The archive-era source establishes the metric and coding problem. Vijayakumaran determines the small-order optimum values and examples, while Parvaresh et al. give the broader optimum-size theorem. The present classification is finite and specific to \(S_6\), and its orbit statement is only for the explicitly defined natural \(1{,}440\)-element isometry group. The unavailable full text of the 2016 paper and an unindexed prior census are the main originality risks.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary exact-value paper proves \(P(6,10)=4\) and lists an attaining code, but does not classify all maxima, equidistance, or symmetry orbits.
+
+## value
+
+PASS
+
+A complete extremal classification at a natural small exact coding parameter adds structural geometry beyond the known scalar optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

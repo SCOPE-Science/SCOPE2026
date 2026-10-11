@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in this directory. The script uses only the Python standard library and reconstructs the complete finite computation from definitions. It verifies the 720 vertices, 60,840 threshold edges, constant degree 169, exactly 3,960 four-cliques, no five-clique, universal six-distance profile equal to 10, and the four orbit sizes 360, 720, 1,440, 1,440 under the stated relabeling-and-reversal action.
+# Independent mathematical audit
 
-The computation is exhaustive over the finite domain; there is no probabilistic step, search cutoff, or timeout certificate. It proves no statement for other values of n or d and does not assert that the natural 1,440-element symmetry group is the full isometry group.
+## correctness
+
+PASS
+
+The actual verifier was inspected and its computation independently reconstructed: the threshold graph on 720 permutations has 60,840 edges and degree 169, exactly 3,960 four-cliques and no five-clique; every four-clique has six distances 10; exhaustive natural symmetry action gives orbit sizes 360,720,1440,1440.
+
+## originality
+
+PASS
+
+The primary exact-value paper proves \(P(6,10)=4\) and lists an attaining code, but does not classify all maxima, equidistance, or symmetry orbits.
+
+## value
+
+PASS
+
+A complete extremal classification at a natural small exact coding parameter adds structural geometry beyond the known scalar optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
