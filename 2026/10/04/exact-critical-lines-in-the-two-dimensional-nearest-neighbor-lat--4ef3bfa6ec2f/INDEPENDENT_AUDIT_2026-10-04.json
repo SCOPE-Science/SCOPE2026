@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:57:03.443763Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e8d8398123704f47a88a1b5487a91f237055f469",
+        "verify_threshold_constants.py blob cafef83edc73ce8875956fc386d74b8d87f8ab21",
+        "independent derivation and quadrature"
+      ],
+      "rationale": "The proof was reconstructed from the source-normalized torus integrals. With \\(a_j=1-\\cos p_j\\), symmetry gives \\(\\langle a_1/E\\rangle=1/n\\) and \\(\\langle a_1^2/E\\rangle+(n-1)\\langle a_1a_2/E\\rangle=1\\). Combining this with \\(c(0)-d(0)=\\tfrac12\\langle(a_1-a_2)^2/E\\rangle\\) and \\(\\sin^2p_1=a_1(2-a_1)\\) yields the dimension-wide identity exactly. In two dimensions the remaining integral reduces to \\(1-2/\\pi\\), giving the stated two couplings and hyperbola intersections. Independent quadrature and algebra reproduced the constants to numerical tolerance; that computation was corroborative only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The initiating source gives the full spectral phase classification in terms of unevaluated critical constants.",
+          "The 2021 abstract describes a related two-parameter small-rank perturbation but exposes no formula sufficient to imply the audited constants."
+        ],
+        "reasoning": "The broader phase-classification theorem uses the constants but does not evaluate them. The inaccessible later article is retained as risk, not treated as proof of absence.",
+        "searches": [
+          "DOI:10.1080/03081087.2020.1750547 full primary text",
+          "DOI:10.1016/j.jmaa.2020.124827 abstract/index search",
+          "broader two-dimensional lattice Schrödinger threshold searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.05339v1",
+        "DOI:10.1080/03081087.2020.1750547",
+        "DOI:10.1016/j.jmaa.2020.124827",
+        "Resultary semantic query: two dimensional nearest-neighbor lattice delta Schrödinger exact critical couplings lambda_s lambda_c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source ordering alone does not determine either constant.",
+          "The relation between the two constants follows from a new symmetry reduction of their defining integrals, and the two-dimensional values require the remaining one-dimensional integral evaluation."
+        ],
+        "reasoning": "The result is not inferred merely from differently named source constants; an additional exact calculation is required.",
+        "searches": [
+          "Reconstructed the source definitions and Lemma 5.1",
+          "checked whether the source ordering and hyperbola equation imply the audited identities without new integral evaluation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source defines the identical two constants and uses them as vertical transition lines, but its Lemma 5.1 states only \\(\\lambda_s\\le\\lambda_c\\).",
+          "No retrieved exact-form result supplied \\(\\lambda_s=\\pi/(\\pi-2)\\) or \\(\\lambda_c=\\pi/(4-\\pi)\\)."
+        ],
+        "reasoning": "The aliases were searched through both the integral definitions and the source symbols. The same objects are present in prior work, but the exact relation and evaluations are not.",
+        "searches": [
+          "arXiv:1804.05339v1 equations defining \\(s(0)\\), \\(c(0)-d(0)\\), \\(\\lambda_s\\), and \\(\\lambda_c\\)",
+          "web exact-form searches for pi/(pi-2), pi/(4-pi), lambda_s, lambda_c",
+          "Resultary semantic query for exact critical couplings in the nearest-neighbor lattice delta model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary table/figure labels the critical lines and points symbolically; it does not list the audited closed forms.",
+          "No exact database hit returned the claimed evaluations."
+        ],
+        "reasoning": "The named phase-diagram objects were checked directly because a printed table would decisively cover the claim.",
+        "searches": [
+          "Primary source Table 2 and the two-dimensional phase figure",
+          "exact web searches for the two closed forms and points A,B",
+          "Resultary semantic database query"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives. The complete primary paper defining the same threshold constants was read at the definitions, threshold-ordering lemma, phase table, and figure: it leaves the constants as integrals and proves only their ordering. The audited relation and the two-dimensional closed forms are not printed there. A later same-family article remains an explicit access risk rather than negative evidence.",
+      "residual_risks": [
+        "The closely related 2021 JMAA article DOI:10.1016/j.jmaa.2020.124827 remained full-text inaccessible in this run. Public search exposed only its abstract, and the authorized institutional retrieval returned an unavailable-or-invalid worker error. No noncoverage claim is based on that inaccessible text.",
+        "Equivalent elementary evaluations could occur in older lattice Green-function literature under different notation, although exact-form and alias searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_NOT_COVERING_EXACT_EVALUATION",
+          "evidence": "The paper defines \\(\\lambda_s=1/s(0)\\) and \\(\\lambda_c=1/(c(0)-d(0))\\), proves their ordering, and uses them symbolically; it does not print the audited relation or closed forms.",
+          "identifier_or_url": "arXiv:1804.05339v1; DOI:10.1080/03081087.2020.1750547",
+          "material_read": "Complete primary PDF with the definitions, Lemma 5.1, threshold theorem, Table 2, and two-dimensional phase diagram; the relevant PDF pages were also visually inspected.",
+          "method": "lawful open full text plus PDF page inspection",
+          "title": "Threshold of discrete Schrödinger operators with delta potentials on n-dimensional lattice",
+          "trigger": "Same operator, same constants, and strongest direct coverage risk."
+        },
+        {
+          "assessment": "PLAUSIBLE_SOURCE_ACCESS_RISK",
+          "evidence": "The abstract confirms a related two-parameter threshold analysis but provides no formula adequate to resolve coverage.",
+          "identifier_or_url": "DOI:10.1016/j.jmaa.2020.124827",
+          "material_read": "Public abstract and indexing metadata only. Open full text was not found. One authorized institutional retrieval attempt returned an unavailable-or-invalid worker error and was not retried.",
+          "method": "abstract-level screening; full text inaccessible",
+          "title": "Spectral and threshold analysis of a small rank perturbation of the discrete Laplacian",
+          "trigger": "Later paper on a closely matching two-parameter lattice perturbation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "primary phase diagram and threshold definitions",
+        "independent exact reduction"
+      ],
+      "rationale": "The constants are structural transition lines in the published spectral phase diagram, and the named intersection points depend on them. Converting these source-defining threshold integrals into exact closed forms and exposing their all-dimensional relation is a motivated exact invariant calculation, not an arbitrary numerical slice.",
+      "residual_risks": [
+        "The closed forms themselves are specific to the two-dimensional nearest-neighbor model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The closely related 2021 JMAA article DOI:10.1016/j.jmaa.2020.124827 remained full-text inaccessible in this run. Public search exposed only its abstract, and the authorized institutional retrieval returned an unavailable-or-invalid worker error. No noncoverage claim is based on that inaccessible text.",
+    "Equivalent elementary evaluations could occur in older lattice Green-function literature under different notation, although exact-form and alias searches did not locate one."
+  ],
+  "schema_version": 1
+}
