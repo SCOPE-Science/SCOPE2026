@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify_compat5.py` uses only the Python standard library. It performs the complete \(3^4=81\) census twice in the same pass: first with exact `Fraction` arithmetic and second through
-\[
-A=12-60w_1-30w_2-20w_3-15w_4,
-\qquad
-\operatorname{num}(R)=A/\gcd(|A|,60).
-\]
-It asserts equality of the two representations for every coefficient vector, asserts that no residual is zero, checks the exact set of \(32\) absolute reduced numerators, factors them by trial division, and checks both the incompatible-prime set and its prime complement through \(137\).
+# Independent mathematical audit
 
-Expected successful output begins with `VERIFY_OK`. The finite program establishes only the exact compatibility classification. The propagation to \(5p^k\in\mathcal U\) for every \(k\ge1\) is proved symbolically in `RESULT.md`; no finite experiment is used as a substitute for that infinite argument.
+## correctness
 
-Limit: the verifier does not constitute an independent audit and does not establish literature novelty.
+PASS
+
+For \(m=5\), every signed residual has denominator dividing 60 and numerator \(A=12-60w_1-30w_2-20w_3-15w_4\). Independent exact enumeration of all 81 coefficient choices reproduced the repository's 32 absolute reduced numerators and their complete prime-divisor union, with maximum numerator 137. Thus every prime above 137 is automatically compatible and the ten compatible primes through 137 are exactly the displayed list. The propagation proof is a correct p-adic localization argument: after isolating indices divisible by \(p^k\), every remaining term has positive p-adic valuation after multiplication, forcing p to divide the reduced residual numerator, contradicting compatibility. The final doubling equivalence follows directly from the two translates defining \(E_N\).
+
+## originality
+
+PASS
+
+The primary source defines \(\mathcal U\), compatibility, and the propagation lemma, but for the seed 5 it only uses the coarse sufficient condition \(p>g_5=137\). Its text explicitly exhibits one exceptional low prime for seed 4, not the complete low-prime spectrum for seed 5. The audited 81-case exact census therefore refines, rather than restates, the published mechanism. Resultary returned the assigned finding as the only direct exact hit.
+
+## value
+
+PASS
+
+The seed \(m=5\) is not arbitrary: it is explicitly used in the current recursive lower-bound construction with the coarse threshold 137. Computing its exact compatibility spectrum identifies every low-prime exception and converts nine of them into infinite doubling rays. Even without changing the leading asymptotic constant, this is a natural exact local invariant of the published mechanism and can support sharper finite or hybrid constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

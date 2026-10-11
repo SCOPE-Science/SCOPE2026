@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite core is exhaustive: the compatibility definition at \(m=5\) has exactly \(3^4=81\) residuals. Exact rational enumeration and the closed integer formula agree on every residual, no residual vanishes, and the union of prime divisors of all reduced numerators is exactly the stated incompatible set. The propagation argument is reconstructed p-adically and the doubling equivalence follows directly from the two translated copies of \(E_{N-1}\).
+## correctness
 
-## Originality
-PASS with a stated residual search risk. The recent primary paper defines compatibility and proves the general propagation lemma, but for \(m=5\) it uses only the sufficient cutoff \(p>137\); its inspected discussion does not list the low compatible primes. It explicitly treats a low exceptional prime for \(m=4\), which makes the missing \(m=5\) spectrum a natural comparison point. Targeted exact-list, phrase, alias, and implication searches found no source stating the classification in this package. The older Bleicher--Erdős paper concerns the broader distinct-subsum problem rather than this compatibility spectrum.
+PASS
 
-## Value
-PASS. The classification resolves the complete finite obstruction set at the first seed that the recent paper uses to improve its explicit lower bound beyond the \(m\le4\) construction. It identifies nine mixed exceptional prime rays below the coarse cutoff \(137\), replacing a sufficient threshold by an exact local rule. This is useful for exact recursive censuses and for any refinement that tracks low-prime branches, while the limitation that it does not alter the leading asymptotic constant is explicit.
+For \(m=5\), every signed residual has denominator dividing 60 and numerator \(A=12-60w_1-30w_2-20w_3-15w_4\). Independent exact enumeration of all 81 coefficient choices reproduced the repository's 32 absolute reduced numerators and their complete prime-divisor union, with maximum numerator 137. Thus every prime above 137 is automatically compatible and the ten compatible primes through 137 are exactly the displayed list. The propagation proof is a correct p-adic localization argument: after isolating indices divisible by \(p^k\), every remaining term has positive p-adic valuation after multiplication, forcing p to divide the reduced residual numerator, contradicting compatibility. The final doubling equivalence follows directly from the two translates defining \(E_N\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary source defines \(\mathcal U\), compatibility, and the propagation lemma, but for the seed 5 it only uses the coarse sufficient condition \(p>g_5=137\). Its text explicitly exhibits one exceptional low prime for seed 4, not the complete low-prime spectrum for seed 5. The audited 81-case exact census therefore refines, rather than restates, the published mechanism. Resultary returned the assigned finding as the only direct exact hit.
+
+## value
+
+PASS
+
+The seed \(m=5\) is not arbitrary: it is explicitly used in the current recursive lower-bound construction with the coarse threshold 137. Computing its exact compatibility spectrum identifies every low-prime exception and converts nine of them into infinite doubling rays. Even without changing the leading asymptotic constant, this is a natural exact local invariant of the published mechanism and can support sharper finite or hybrid constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

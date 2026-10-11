@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:40:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 48101329457d8202e7b45f816dd860649c055558",
+        "assigned verify_compat5.py blob f3fbe15ad9b32dbbd7b1105a860cc5a2f383cd8f",
+        "independent exact rational enumeration of all 81 residuals",
+        "Bettin--Grenié--Molteni--Sanna, arXiv:2509.10030v1"
+      ],
+      "rationale": "For \\(m=5\\), every signed residual has denominator dividing 60 and numerator \\(A=12-60w_1-30w_2-20w_3-15w_4\\). Independent exact enumeration of all 81 coefficient choices reproduced the repository's 32 absolute reduced numerators and their complete prime-divisor union, with maximum numerator 137. Thus every prime above 137 is automatically compatible and the ten compatible primes through 137 are exactly the displayed list. The propagation proof is a correct p-adic localization argument: after isolating indices divisible by \\(p^k\\), every remaining term has positive p-adic valuation after multiplication, forcing p to divide the reduced residual numerator, contradicting compatibility. The final doubling equivalence follows directly from the two translates defining \\(E_N\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recent source proves the propagation principle for arbitrary compatible p, but does not classify which low p are compatible for m=5.",
+          "The older subsum paper supplies the general asymptotic setting rather than this finite compatibility table."
+        ],
+        "reasoning": "The general propagation theorem needs compatibility as an input; it cannot imply the newly enumerated input set.",
+        "searches": [
+          "arXiv:2509.10030v1 compatibility lemma and explicit lower-bound construction",
+          "Bleicher--Erdős 1975 distinct reciprocal subsums"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.10030v1",
+        "Bleicher--Erdős 1975",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper's coarse cutoff certifies all primes above 137 but is silent on most primes below it.",
+          "The audited enumeration establishes nine additional compatible primes and then legitimately reuses the published propagation mechanism."
+        ],
+        "reasoning": "Only the propagation consequence is prior; the exact low-prime classification is not implied by the cutoff.",
+        "searches": [
+          "arXiv:2509.10030v1 lines using \\(5\\in\\mathcal U\\) and \\(p>137\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's compatibility definition is exactly divisibility avoidance for reduced signed reciprocal residual numerators.",
+          "The audited finite spectrum is equivalently the complement of the prime-divisor union of all 81 seed-five residual numerators."
+        ],
+        "reasoning": "Compatibility, exceptional low primes, and prime-divisor spectra of the residual set were treated as equivalent formulations.",
+        "searches": [
+          "Resultary: Bettin Grenie Molteni Sanna compatibility prime seed 5 g5 137 Egyptian fractions",
+          "arXiv:2509.10030v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table with the nine exceptional mixed primes was located."
+        ],
+        "reasoning": "The claim is precisely a finite exact spectrum, so table/database duplication was directly checked.",
+        "searches": [
+          "Resultary exact seed-five compatibility search",
+          "web searches for m=5 compatible primes Egyptian fractions 59 71 79 89 101 103 109 127 131"
+        ]
+      },
+      "rationale": "The primary source defines \\(\\mathcal U\\), compatibility, and the propagation lemma, but for the seed 5 it only uses the coarse sufficient condition \\(p>g_5=137\\). Its text explicitly exhibits one exceptional low prime for seed 4, not the complete low-prime spectrum for seed 5. The audited 81-case exact census therefore refines, rather than restates, the published mechanism. Resultary returned the assigned finding as the only direct exact hit.",
+      "residual_risks": [
+        "The same finite list could have been computed informally or in unindexed supplementary material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_MECHANISM_ONLY",
+          "evidence": "The paper uses the coarse condition p>137 for seed 5 and does not print the complete exceptional spectrum below that cutoff.",
+          "identifier_or_url": "arXiv:2509.10030v1",
+          "material_read": "Full accessible primary text around the definitions, compatibility lemma, explicit small seeds, and the lower-bound construction using \\(5\\) with primes above \\(g_5=137\\).",
+          "method": "Open full-text inspection.",
+          "title": "A lower bound for the number of Egyptian fractions",
+          "trigger": "Exact source defining \\(\\mathcal U\\), compatibility, and the seed-five cutoff."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bettin--Grenié--Molteni--Sanna arXiv:2509.10030v1",
+        "assigned exact census"
+      ],
+      "rationale": "The seed \\(m=5\\) is not arbitrary: it is explicitly used in the current recursive lower-bound construction with the coarse threshold 137. Computing its exact compatibility spectrum identifies every low-prime exception and converts nine of them into infinite doubling rays. Even without changing the leading asymptotic constant, this is a natural exact local invariant of the published mechanism and can support sharper finite or hybrid constructions.",
+      "residual_risks": [
+        "The finite refinement has limited asymptotic impact by itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Bettin--Grenié--Molteni--Sanna compatibility notion at the seed \\(m=5\\), the compatible primes are exactly \\(\\{5,59,71,79,89,101,103,109,127,131\\}\\cup\\{p\\text{ prime}:p>137\\}\\); each of the nine mixed primes below 137 therefore gives \\(5p^k\\in\\mathcal U\\) and \\(|E_{5p^k}|=2|E_{5p^k-1}|\\) for every \\(k\\ge1\\).",
+  "limitations": [
+    "Exact classification for the single seed m=5 only.",
+    "The nine additional prime rays do not by themselves improve the leading asymptotic constant in the cited lower bound."
+  ],
+  "schema_version": 1
+}
