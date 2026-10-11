@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Cut switching acts by independently distinguishing sign characters of distinct edges and forces the unique global John ellipsoid to have half-vector center and diagonal positive definite shape. The exact published Barahona--Mahjoub K5-minor-free facet list converts containment to coordinate caps and odd cycle supports. Every induced cycle of length k>=4 is automatically satisfied by the caps because k<=(k-2)^2; triangle sums alone remain. Strictly concave log determinant gives a unique positive optimum, and exact equality of support/slack yields the complete contact classification. Wheel and book formulas satisfy rational KKT certificates. Embedded verify.py checked 22 exact-rational graph instances with 1,522 signed-cycle inequalities on 12,840 cut assignments. Finite instances corroborate but are not a proof for all graphs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chimani--Juhnke-Kubitzke--Nover--Römer 2019, arXiv:1903.01817, Sections 2-4: facets and simple/simplicial structure, no inscribed ellipsoid statement.",
+        "Gartsman--Linial 2023, arXiv:2305.02113, Section 4: explicitly asks to find cut-polytope ellipsoids; main ellipsoids concern metric polytope.",
+        "Generic maximal-inscribed-ellipsoid log-determinant methods apply to any finite facet system, but do not yield the triangle-only or exact contact statements without further argument."
+      ],
+      "reasoning": "General facet and generic ellipsoid machinery are broader premises but not a published stronger geometric classification. Graphs containing a K5 minor may have additional hyperplanes, so neither the candidate nor the source theorem covers all graph cut polytopes. The theorem cannot be inferred as a special case of the metric-polytope ellipsoid calculation because the convex bodies and their facet sets differ.",
+      "searches": [
+        "cut polytope graph ellipsoid logarithmic determinant triangle constraints Barahona Mahjoub 1986",
+        "Cut Polytopes of Minor-free Graphs arXiv:1903.01817",
+        "Löwner John metric polytope cut polytope arXiv:2305.02113",
+        "CUT(G) cut polytope graph John inscribed ellipsoid"
+      ]
+    },
+    "checked_sources": [
+      "Barahona--Mahjoub (1986), DOI:10.1007/BF02592023, full published PDF, especially Corollary 3.10",
+      "Gartsman--Linial (2023), arXiv:2305.02113v1, complete relevant sections",
+      "Nikolaev (2024), arXiv:2402.13591v1, original primary source and first-posted date",
+      "Chimani--Juhnke-Kubitzke--Nover--Römer (2019), arXiv:1903.01817v1, original open-access PDF",
+      "Relevant public mathematical research record searches using cut polytope, John ellipsoid, diagonal covariance and K5-minor-free aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1986 Corollary 3.10: full-dimensional K5-minor-free cut-polytopes have box facets for nontriangle edges and odd signed facets for chordless cycles.",
+        "2023 metric-polytope ellipsoid proof does not impose all cut-polytope inequalities; its center and covariance are not a sufficient solution to this candidate.",
+        "2024 1-skeleton graph distance is a shortest-path length in edge adjacency, unrelated to Euclidean semiaxes and facet-support equality."
+      ],
+      "reasoning": "The 1986 facet result plus generic ellipsoid theory allows setting up a convex optimization with all cycle facets, but does not state or automatically identify the switching-diagonal form, redundancy of all cycles of length at least four in the shape optimization, complete length-four contact equality, or the nonuniform wheel/book formulas. These are proved separately in the present work. No inspected statement dominates these precise assertions.",
+      "searches": [
+        "Barahona Mahjoub cut polytope cycle facet Corollary 3.10",
+        "Gartsman Linial Cut Polytope how good approximation Section 4",
+        "CUT(G) cut polytope graph John inscribed ellipsoid",
+        "graph cut polytope max volume ellipsoid triangle switching covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gartsman--Linial 2023, arXiv:2305.02113, Section 4 poses the cut-polytope ellipsoid question, while their Theorems 1.2/1.3 address the metric polytope.",
+        "Barahona--Mahjoub 1986 Corollary 3.10 provides facets but neither a covariance matrix nor any contact-equality maximization."
+      ],
+      "reasoning": "Equivalences considered: maximum-volume inscribed/John ellipsoid; logdet or D-optimal determinant; cut switching / balanced signed-graph coordinates. Metric-polytope formulas are not equivalent: they optimize a different convex body. No explicit equivalent statement emerged from the searched and inspected sources, although an unlocated optimization formulation remains possible.",
+      "searches": [
+        "\"John ellipsoid\" \"cut polytope\" triangles graph",
+        "\"inscribed ellipsoid\" \"cut polytope\" K5",
+        "\"D-optimal\" \"cut polytope\" ellipsoid",
+        "graphical cut polytope diagonal John ellipsoid switching triangle constraints"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nikolaev 2024, arXiv:2402.13591, sections on cacti, complete bipartite and multipartite graphs: tables of 1-skeleton clique number and graph diameter, not Euclidean ellipsoid radii.",
+        "Barahona--Mahjoub 1986 Corollary 3.10 is a complete inequality inventory; no ellipsoid shape table is present."
+      ],
+      "reasoning": "No directly matching finite dimension table, ellipsoid semiaxis catalog, or graph-family formula was identified in the relevant inspected material. The new result is not a known cut-vertex or polytope 1-skeleton enumeration reinterpreted as an ellipsoid formula.",
+      "searches": [
+        "cut polytope inner ellipsoid triangle incidence exact semi axes",
+        "wheel graph cut polytope Löwner-John facet contact triangle",
+        "K5 minor free graphs cut polytope inscribed ellipsoid edge triangle incidence matrix",
+        "On 1-skeleton of the cut polytopes arXiv:2402.13591"
+      ]
+    },
+    "rationale": "The direct 1986 K5-minor-free facet theorem, the 2019 minor-free combinatorial classification, and the 2024 cut-polytope 1-skeleton study do not explicitly classify maximal-volume inscribed ellipsoids or their contact hyperplanes. A 2023 source analyzes a different metric polytope and asks about the cut polytope. The new structural implication is that triangle incidence alone determines the diagonal shape, with no longer-cycle restriction for the optimum and an exact facet-contact dichotomy. General methods for inscribed ellipsoids do not alone establish that graph-theoretic simplification. Material primary-source checks and published-result searches revealed no dominating result, but bibliographic equivalence risk remains.",
+    "residual_risks": [
+      "A semantically equivalent determinant-optimal design or signed cut-cone ellipsoid classification could appear under different terminology; no complete exhaustive global survey or independent priority verification was possible.",
+      "The proof invokes the published K5-minor-free facet description as a premise rather than reproving its full graph-minor theorem.",
+      "The mathematical claim does not extend to graphs with a K5 minor or the circumscribed ellipsoid, and numerical tests do not establish universality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the essential facet premise, not an extremal-volume ellipsoid or its contact classification.",
+        "evidence": [
+          "Corollary 3.10: box facets only for nontriangle edges and odd signed inequalities for each chordless cycle.",
+          "Theorem 3.4: coordinate boxes cease to be facets when an edge lies in a triangle."
+        ],
+        "identifier_or_url": "https://www.lamsade.dauphine.fr/~mahjoub/Papers/BM86.pdf",
+        "material_read": "Full journal PDF, especially definitions, Theorems 3.3/3.4 and Corollary 3.10 on journal p.169 (PDF p.13), plus original statement and context.",
+        "method": "Direct PDF text inspection and page-image inspection of the corollary.",
+        "title": "On the cut polytope",
+        "trigger": "Primary candidate requires an exact complete cut-facet theorem for K5-minor-free graphs."
+      },
+      {
+        "assessment": "The exact inscribed ellipsoid pertains to the metric polytope; the discussion asks rather than solves the cut-polytope problem.",
+        "evidence": [
+          "Theorem 1.3 determines inner ellipsoid of the metric polytope.",
+          "Section 4 asks: Can one find the Löwner-John ellipsoid of the Cut Polytope?"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.02113v1",
+        "material_read": "Primary full-text Introduction, Theorems 1.2/1.3, inner ellipsoid calculation and Section 4 Discussion and Open Problems.",
+        "method": "Open-access arXiv HTML, theorem-and-scope comparison.",
+        "title": "On the Löwner-John Ellipsoids of the Metric Polytope",
+        "trigger": "Highly plausible title, metric/cut-polytope relationship, and John ellipsoid technique."
+      },
+      {
+        "assessment": "Describes graph-of-polytope diameter and clique counts, not Euclidean maximal-volume ellipsoids or contact sets.",
+        "evidence": [
+          "arXiv v1 first posted 2024-02-21; MSC 52B05 first.",
+          "Theorem/discussion concerns 1-skeleton diameter and clique numbers for graph classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2402.13591v1",
+        "material_read": "Complete HTML sections on adjacency, trees/cacti, complete bipartite/multipartite graphs and conclusion; original arXiv metadata for earliest public date and primary MSC.",
+        "method": "Open-access first-version full-text direct reading.",
+        "title": "On 1-skeleton of the cut polytopes",
+        "trigger": "Eligible primary paper with identical cut-polytope objects and geometry MSC."
+      },
+      {
+        "assessment": "Facet classes and simple/simplicial status, not Euclidean John ellipsoid or triangle-only covariance determination.",
+        "evidence": [
+          "Sections 3/4 focus on facet descriptions for K3,3-minor-free graphs and simple/simplicial cut-polytopes.",
+          "No inscribed ellipsoid statement in inspected text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1903.01817",
+        "material_read": "Open-access PDF abstract, introduction, Section 2 preliminaries, organization/results of Sections 3 and 4; checked complete searchable text for ellipsoid language.",
+        "method": "Primary arXiv PDF textual inspection and full-text keyword cross-check.",
+        "title": "Cut Polytopes of Minor-free Graphs",
+        "trigger": "Nearer structural paper on cut-polytope facets and minor-free graph classes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "812c76a9-c9cc-4408-9e5a-bd38bf61f692",
+  "value": {
+    "rationale": "Determines a canonical Euclidean extremal ellipsoid for every finite K5-minor-free graph cut polytope, reducing potentially long and numerous cycle facets to edge-triangle incidence constraints. The result specifies every principal semiaxis, exact volume and all facet contacts, including the distinct quadrilateral equality case and strict exclusion of longer cycles. Nonuniform wheel and triangle-book formulas show concrete shape transitions that are not vertex count/tabulation exercises. The result is a finite strictly concave variational determination for arbitrary graph input rather than a claim of universal radicals or downstream optimization breakthroughs.",
+    "status": "PASS"
+  }
+}
