@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source explicitly supplies the Fraïssé class and the invariant being counted. For a fixed finite base, monotonicity converts the relation matrix into a nondecreasing threshold sequence. A new second-order cut has only one free Ferrers-block choice; the new row threshold is forced past the new point’s own column by irreflexivity. Summing all compatible row insertions gives \((m+1)(2m+1)\) types with the realization distinct from the base, independently of the base configuration. Adding the \(m\) equality types gives \(2(m+1)^2-1\). The bundled executable exhausts every valid finite base through five parameters and all threshold shapes through eight parameters and returns `VERIFY_OK`.
+PASS
 
-## Originality
+The finite base relation is encoded by a nondecreasing Ferrers-threshold sequence. For a new point, fixing its second-order cut \(c\) and the number \(q\) of threshold rows in the cut block gives the submitted number of compatible first-order insertion cuts; summing over \(q\) and \(c\) cancels all dependence on the base permutation and threshold data. The non-equality types sum to \((m+1)(2m+1)\), and the \(m\) equality types give \(2(m+1)^2-1\). A fresh independent enumeration over every nondecreasing threshold sequence through \(m=7\) reproduced the symbolic count; the all-\(m\) proof is the algebraic summation, not the finite replay.
 
-PASS, with a real folklore risk. The primary paper was inspected at the definition of \(f_M\), at the example defining this Fraïssé class, and at the later intertwining definition. It does not state the exact profile in the inspected material. Searches were run under the source terminology “intertwining”, the combinatorial terminology “Ferrers” and “monotone relation”, the exact polynomial, and the initial numerical values. No covering statement was located. Because the final derivation is elementary once the threshold representation is written down, an unindexed equivalent observation remains plausible; the claim is restricted to the exact count and its independence from the finite base.
+## originality
 
-## Value
+PASS
 
-PASS. Simon’s \(f_M\) is the motivating finite-parameter type-growth invariant for the classification. The result computes it exactly for one of the paper’s named basic examples and proves a stronger uniformity property: the maximizing set is not special because every finite base gives the same count. This gives a compact benchmark for quantitative comparisons among finitely homogeneous NIP structures.
+Simon defines \(f_M(n)\), gives linear-order and random-graph examples, and explicitly introduces this monotone two-order Fraïssé class as an example in the polynomial-type-growth framework. His full open text does not state the exact quadratic profile, and an exact-formula search within it found no submitted expression. Targeted Resultary searches over the model, Ferrers relation, type-growth and exact sequence found no distinct matching published record.
 
-## Limitations
+## value
 
-The finite checker is corroborative rather than a proof for all \(m\); the general statement relies on the symbolic summation. The Fraïssé and model-theoretic setup is imported from the primary source. Bibliographic searches cannot rule out unindexed folklore or notes using different terminology.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact one-type profile is the quantitative invariant Simon uses to define polynomial growth in this classification program. Computing it for a canonical nontrivial Example 1.1 structure gives a natural structural invariant and proves base-independence, rather than merely checking a few finite instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

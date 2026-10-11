@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:06:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite base relation is encoded by a nondecreasing Ferrers-threshold sequence. For a new point, fixing its second-order cut \\(c\\) and the number \\(q\\) of threshold rows in the cut block gives the submitted number of compatible first-order insertion cuts; summing over \\(q\\) and \\(c\\) cancels all dependence on the base permutation and threshold data. The non-equality types sum to \\((m+1)(2m+1)\\), and the \\(m\\) equality types give \\(2(m+1)^2-1\\). A fresh independent enumeration over every nondecreasing threshold sequence through \\(m=7\\) reproduced the symbolic count; the all-\\(m\\) proof is the algebraic summation, not the finite replay.",
+      "risk": "The model-theoretic setup and Fraïssé-limit existence are imported from Simon's source; the counting proof itself is finite combinatorics.",
+      "sources": [
+        "Pierre Simon, arXiv:1807.07102, Example 1.1 and definition of \\(f_M\\)",
+        "frozen RESULT.md and verify.py",
+        "fresh independent threshold-sequence replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source classifies rank-one NIP structures and identifies the example, but its general classification does not enumerate one-types over arbitrary finite parameter sets for this relation.",
+          "The multi-order theorem treats pure collections of orders and does not remove the additional monotone relation."
+        ],
+        "reasoning": "The structural classification establishes polynomial growth and context, not the exact coefficient-level profile.",
+        "searches": [
+          "Pierre Simon arXiv:1807.07102 full text",
+          "classification context for homogeneous multi-orders in the same paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.07102",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper identifies the object and asks/uses polynomial type growth as an invariant.",
+          "Obtaining the exact count still requires a base-independent enumeration of all compatible cuts of the monotone relation."
+        ],
+        "reasoning": "The exact polynomial is not a direct corollary of the inspected classification statements.",
+        "searches": [
+          "arXiv:1807.07102 lines defining \\(f_M\\) and Example 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No distinct Resultary hit with this one-type polynomial was returned among the leading results.",
+          "Simon defines \\(f_M\\) and the exact Fraïssé class, but the full source contains no submitted exact formula."
+        ],
+        "reasoning": "The search included model-theoretic type growth, automorphism-orbit language, Ferrers/monotone-relation language and the exact polynomial sequence.",
+        "searches": [
+          "Resultary query: exact quadratic 1-type profile Simon monotone two-order Fraisse",
+          "Resultary query: Simon monotone two order Fraisse 2(m+1)^2-1 type growth",
+          "arXiv:1807.07102 full-text search for the exact formula and Example 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct indexed table or theorem tying that sequence to this structure was located."
+        ],
+        "reasoning": "A sequence match without identification to this structure would not by itself cover the claim.",
+        "searches": [
+          "Resultary exact sequence/formula searches for \\(1,7,17,31,49,71,\\ldots\\) and the Simon example"
+        ]
+      },
+      "rationale": "Simon defines \\(f_M(n)\\), gives linear-order and random-graph examples, and explicitly introduces this monotone two-order Fraïssé class as an example in the polynomial-type-growth framework. His full open text does not state the exact quadratic profile, and an exact-formula search within it found no submitted expression. Targeted Resultary searches over the model, Ferrers relation, type-growth and exact sequence found no distinct matching published record.",
+      "residual_risks": [
+        "The elementary Ferrers count may exist in unindexed model-theory notes, a thesis, or folklore under a different description of the monotone relation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OBJECT_AND_FRAMEWORK_NOT_EXACT_PROFILE",
+          "evidence": "The paper defines \\(f_M(n)\\), gives other sample growth functions and introduces the exact Fraïssé class, but does not state \\(2(m+1)^2-1\\).",
+          "identifier_or_url": "arXiv:1807.07102",
+          "material_read": "Open full arXiv text around the definition of \\(f_M\\), Example 1.1, and the paper's classification summary; the exact formula was also searched in the full text.",
+          "method": "Lawful open full-text inspection.",
+          "title": "NIP omega-categorical structures: the rank 1 case",
+          "trigger": "Defines both the invariant \\(f_M\\) and the exact monotone two-order Fraïssé example."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact one-type profile is the quantitative invariant Simon uses to define polynomial growth in this classification program. Computing it for a canonical nontrivial Example 1.1 structure gives a natural structural invariant and proves base-independence, rather than merely checking a few finite instances.",
+      "risk": "The result is a precise profile computation for one canonical example rather than a new classification theorem.",
+      "sources": [
+        "arXiv:1807.07102"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Simon's Fraïssé limit of finite structures with two linear orders and an irreflexive monotone relation, every \\(m\\)-element parameter set has exactly \\(f_M(m)=2(m+1)^2-1\\) complete one-types.",
+  "limitations": [
+    "The claim is specific to Simon's Example 1.1 Fraïssé limit and one-types over finite parameter sets.",
+    "The finite executable replay is corroborative only; the all-size statement rests on the symbolic summation."
+  ],
+  "schema_version": 1
+}

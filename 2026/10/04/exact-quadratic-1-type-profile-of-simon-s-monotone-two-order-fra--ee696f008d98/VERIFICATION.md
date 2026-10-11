@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The bundled `verify.py` uses only the Python standard library and performs two independent finite replays of the counting reduction.
+## correctness
 
-First, for each \(m\leq 8\), it enumerates every nondecreasing threshold sequence \((t_0,\ldots,t_{m-1})\) with values in \(\{0,\ldots,m\}\). For every second-order cut \(c\) and every admissible split of the block \(t_i=c\), it evaluates the exact number of compatible new-row thresholds and first-order insertion cuts. Every threshold shape gives the same count \((m+1)(2m+1)\).
+PASS
 
-Second, for each \(m\leq 5\), it exhausts every actual finite base: every relative permutation of the two linear orders and every nondecreasing threshold sequence satisfying the diagonal irreflexivity constraints. For each base it explicitly constructs a set of one-point extension signatures recording the two order cuts and both directions of the relation to the old points. The number is constant on all bases. The numbers of valid bases for \(m=0,1,2,3,4,5\) are
-\[
-1,1,3,15,105,945.
-\]
-The corresponding counts of types with the realization distinct from the base are
-\[
-1,6,15,28,45,66,
-\]
-and after adding equality types the complete \(1\)-type counts are
-\[
-1,7,17,31,49,71.
-\]
-The program ends with `VERIFY_OK`.
+The finite base relation is encoded by a nondecreasing Ferrers-threshold sequence. For a new point, fixing its second-order cut \(c\) and the number \(q\) of threshold rows in the cut block gives the submitted number of compatible first-order insertion cuts; summing over \(q\) and \(c\) cancels all dependence on the base permutation and threshold data. The non-equality types sum to \((m+1)(2m+1)\), and the \(m\) equality types give \(2(m+1)^2-1\). A fresh independent enumeration over every nondecreasing threshold sequence through \(m=7\) reproduced the symbolic count; the all-\(m\) proof is the algebraic summation, not the finite replay.
 
-This finite replay checks the extension parametrization and all small cases. It does not replace the all-\(m\) algebraic summation in the proof, and it does not independently reprove the source’s Fraïssé statement. No independent audit has been performed.
+## originality
+
+PASS
+
+Simon defines \(f_M(n)\), gives linear-order and random-graph examples, and explicitly introduces this monotone two-order Fraïssé class as an example in the polynomial-type-growth framework. His full open text does not state the exact quadratic profile, and an exact-formula search within it found no submitted expression. Targeted Resultary searches over the model, Ferrers relation, type-growth and exact sequence found no distinct matching published record.
+
+## value
+
+PASS
+
+The exact one-type profile is the quantitative invariant Simon uses to define polynomial growth in this classification program. Computing it for a canonical nontrivial Example 1.1 structure gives a natural structural invariant and proves base-independence, rather than merely checking a few finite instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
