@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:03:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct propagation gives \\(p_2=(c^2/2,s^2,c^2/2)\\) and \\(p_3=(c^4/2,(1-c^4)/2,(1-c^4)/2,c^4/2)\\). Shannon entropy on three or four accessible sites is maximized exactly by uniformity, yielding the stated unique angles on \\([0,\\pi/2]\\). Fresh independent state propagation reproduced exact numerical uniformity at both angles and the Hadamard deficits. At one step the two position probabilities are one half for every angle, establishing earliest strict failure at step two. The frozen verifier was read and independently propagates the same walk.",
+      "risk": "The theorem is only about position Shannon entropy at steps one through three for the cited initial state and coin convention.",
+      "sources": [
+        "Chandrashekar-Srikanth-Laflamme, arXiv:0711.1882 / DOI:10.1103/PhysRevA.77.032326",
+        "Erratum DOI:10.1103/PhysRevA.82.019902",
+        "Ide-Konno-Machida, arXiv:1012.4164",
+        "frozen RESULT.md and verify_short_time_entropy.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source numerics concern substantially larger step numbers and do not prove the first three exact cases.",
+          "The later entanglement analysis is a different quantity and does not imply finite-time position entropy maximizers."
+        ],
+        "reasoning": "Large-time numerical and entanglement results do not dominate the exact finite-time position-entropy classification.",
+        "searches": [
+          "Chandrashekar et al. full measurement-entropy section",
+          "2010 erratum",
+          "Ide-Konno-Machida full Shannon-entropy section"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0711.1882",
+        "DOI:10.1103/PhysRevA.82.019902",
+        "arXiv:1012.4164",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior sources assert or numerically suggest Hadamard maximality, not the submitted non-Hadamard optima.",
+          "The exact step-two and step-three distributions falsify that implication while leaving asymptotic questions untouched."
+        ],
+        "reasoning": "The submitted result is a correction/boundary theorem, not a corollary of the prior statements.",
+        "searches": [
+          "arXiv:0711.1882 measurement-entropy statement",
+          "DOI:10.1103/PhysRevA.82.019902",
+          "arXiv:1012.4164 Shannon-entropy discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No distinct Resultary theorem with the exact short-time optimizers was located.",
+          "The later primary paper phrases the prior numerical conclusion directly as a finite-time monotonicity suggestion for any \\(n\\)."
+        ],
+        "reasoning": "Uniformizing the accessible support is the equivalent entropy-maximization formulation; the inspected literature does not identify these short-time uniformizing angles.",
+        "searches": [
+          "Resultary: short-time entropy maximizers symmetric SU(2) quantum walk two steps three steps",
+          "searches for \\(\\arcsin(1/\\sqrt3)\\), \\(\\arccos(2^{-1/4})\\), uniform short-time walk and Hadamard entropy counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table containing these optimizer angles for the same model was located."
+        ],
+        "reasoning": "The finding is analytic and corrects a universal finite-time suggestion rather than recomputing a known table.",
+        "searches": [
+          "Resultary exact optimizer searches and formula searches for the two angles"
+        ]
+      },
+      "rationale": "The original paper says the Hadamard coin has maximum measurement entropy and supports the discussion with much larger-step plots. The erratum does not alter that conclusion. Ide-Konno-Machida later state that numerical results suggest entropy increases to \\(\\pi/4\\) and decreases after it for any \\(n\\). The audited exact two- and three-step formulas directly contradict that universal finite-time suggestion, while targeted searches found no prior exact optimizer angles or earliest-counterexample statement.",
+      "residual_risks": [
+        "The elementary short-time observation may exist in unindexed notes, code, or another coin-angle convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_CONTAINS_THE_CORRECTED_FINITE_TIME_CLAIM",
+          "evidence": "The paper links Hadamard maximum uncertainty to maximum measurement entropy; its supporting plots are at much larger times.",
+          "identifier_or_url": "arXiv:0711.1882; DOI:10.1103/PhysRevA.77.032326",
+          "material_read": "Open full-text portions defining the symmetric initial state and coin, plus the measurement-entropy section and entropy figure.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Optimizing the discrete time quantum walk using a SU(2) coin",
+          "trigger": "Direct source of the model and measurement-entropy claim."
+        },
+        {
+          "assessment": "DOES_NOT_REPAIR_ENTROPY_STATEMENT",
+          "evidence": "It corrects the unitary parametrization/equation and states that figures and conclusions are unaffected.",
+          "identifier_or_url": "DOI:10.1103/PhysRevA.82.019902",
+          "material_read": "Complete erratum.",
+          "method": "Lawful full-text inspection.",
+          "title": "Erratum: Optimizing the discrete time quantum walk using a SU(2) coin",
+          "trigger": "Potential published correction."
+        },
+        {
+          "assessment": "REPEATS_UNIVERSAL_NUMERICAL_SUGGESTION",
+          "evidence": "It states that numerics suggest entropy is increasing to the Hadamard angle and decreasing after it for any step number.",
+          "identifier_or_url": "arXiv:1012.4164",
+          "material_read": "Open full-text Shannon-entropy section and model discussion.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Entanglement for discrete-time quantum walks on the line",
+          "trigger": "Later paper explicitly restating the finite-time entropy suggestion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the earliest boundary test of a published universal finite-time entropy statement, and the corrected angles attain the absolute information-theoretic maximum by uniformizing every accessible position. The correction is mathematically motivated and directly relevant to finite-time quantum-walk spreading.",
+      "risk": "No large-time or asymptotic optimizer claim is made.",
+      "sources": [
+        "arXiv:0711.1882",
+        "arXiv:1012.4164"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the cited symmetric one-dimensional quantum walk, the unique position-entropy maximizers are \\(\\theta_2^*=\\arcsin(1/\\sqrt3)\\) at two steps and \\(\\theta_3^*=\\arccos(2^{-1/4})\\) at three steps, attaining uniform distributions and entropies \\(\\log_2 3\\) and two respectively. The Hadamard angle is strictly suboptimal at both times, and two steps is the earliest nontrivial failure of the published finite-time Hadamard-maximality statement.",
+  "limitations": [
+    "Only the cited symmetric initial state, coin family and steps one through three are classified.",
+    "Position Shannon entropy, not coin-position entanglement entropy, is optimized."
+  ],
+  "schema_version": 1
+}
