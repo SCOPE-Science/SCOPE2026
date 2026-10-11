@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "PASS: The minimizer is unique by strict convexity. Each maximal constant block is a scalar p-mean. For \\(p<2\\) coordinate monotonicity and translation give a sharp upper \\(n^{1/p}\\), while \\(p>2\\) stationarity implies each normalized derivative weight <=1/2 and hence a sharp \\((n/2)^{1/p}\\) upper; the finite-selection lemma pastes block maps globally. All-pooling KKT multipliers remain positive near two explicit samples. The unique-zero perturbation proves lower \\(n^{1/p}\\) below two; endpoint-supported gradient proves lower \\((n/2)^{1/p}\\) above two. Dimension <=2 and \\(p=2\\) have Lip 1, attained since the projection fixes feasible data. Analytic derivations, not numerical checks, cover all real inputs and n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1507.00710 gives all-p algorithmic approximation guarantees for DAGs; it does not state input-data-to-solution stability. arXiv:1503.08458 treats order isotonicity of Euclidean projections, so does not dominate non-Hilbert p-norm stability."
+      ],
+      "reasoning": "A theorem on more general partial orders would dominate the present chain theorem if it specified these constants or strictly stronger perturbation bounds. Inspected general-DAG results instead concern computation and order preservation; neither yields the sharp n-dependent p-Lipschitz profile.",
+      "searches": [
+        "Nonexpansiveness of p isotonic regression best approximation order cone only at p=2 or dimension 2; p mean derivative stability",
+        "boundedness of metric projection on monotone cones l_p three coordinates sharp operator norm",
+        "monotone cone nearest point projection nonexpansive iff Hilbert p=2 or n=2, jump in Lipschitz constant at p=2",
+        "arXiv:1507.00710 Theorems 1.1-1.3, Sections 3-4 and appendices",
+        "arXiv:1503.08458 Theorems on order-isotonic projection"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1104.1779 original 2011 source and v2 full HTML",
+      "arXiv:1503.08458 original 2015 source and v2 full HTML",
+      "arXiv:1507.00710 original 2015 source and v2 full HTML",
+      "doi:10.1016/0021-9045(90)90028-O abstract only",
+      "doi:10.1007/s10957-008-9477-0 abstract only",
+      "MSC2020 41A29 taxonomy",
+      "prior published findings discovered by targeted mathematical semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The convex-loss stationarity and full-pooling block identities of Luss--Rosset are used as prior structure in the proof. The new step is a globally sharp bound for scalar p-mean sensitivities and a matching interior-block lower construction.",
+        "Kyng--Rao--Sachdeva algorithmic complexity and Németh--Németh Euclidean monotonicity do not imply the claimed non-Hilbert constants."
+      ],
+      "reasoning": "Prior convex optimization algorithms imply existence/computability of the projection; they do not imply the exact Lipschitz constant. Hilbert nonexpansivity covers p=2 only. Order monotonicity implies at most a crude n^(1/p) bound and does not imply the smaller sharp p>2 branch or the sharp p<2 witnesses.",
+      "searches": [
+        "Nonexpansiveness of p isotonic regression best approximation order cone only at p=2 or dimension 2; p mean derivative stability",
+        "Lipschitz stability Lp isotonic regression projection l_p norm exact 2 3 4",
+        "isotonic regression Lp norm Lipschitz mapping exact constants p mean metric projection",
+        "arXiv:1104.1779 Sections 1-2 and Appendix",
+        "arXiv:1503.08458 Euclidean isotonic projection",
+        "arXiv:1507.00710 Sections 1-4 and appendices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1104.1779 Sections 1-2 prove solvability and block optimality for convex losses, not sharp input perturbation constants; arXiv:1507.00710 Theorems 1.1-1.3 give computational complexity, not global Lipschitz norm."
+      ],
+      "reasoning": "Aliases checked: generalized isotonic regression, pooled p-mean, p-centroid, finite-chain monotone best approximation, Chebyshev metric projection, and stability of pool-adjacent-violators. A generalized-solver theorem produces the mapping but does not imply the exact two sharp constants or their discontinuous dependence on p.",
+      "searches": [
+        "Sharp exact Lipschitz constant of metric projection onto monotone regression cone x1<=...<=xn in real ell_p finite dimensions n^{1/p} for p<2 (n/2)^{1/p} for p>2",
+        "generalized pool-adjacent-violators ℓp projection nearest monotone sequence Lipschitz modulus global",
+        "sharp Lipschitz stability constant of Lp isotonic regression for a totally ordered chain, p<2 n^(1/p) p>2 (n/2)^(1/p)",
+        "power means p-centroid best constant sensitivity derivative 1/2 weights and unique-zero p<2",
+        "arXiv:1104.1779 Section 2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matched exact constant in targeted scientific query results. The closest published nearby database entries concern different geometric constants or unrelated linear projections; they do not store this Lp isotonic-chain profile.",
+        "AMS MSC2020 labels 41A29 as approximation with constraints."
+      ],
+      "reasoning": "This is a full-dimensional sharp operator stability constant, not an entry in a finite combinatorial table. Absence of an exact match is a limited negative search result, not proof of novelty; the mathematical comparison with full-text prior articles supplies the positive basis for O.",
+      "searches": [
+        "Sharp exact Lipschitz constant of metric projection onto monotone regression cone x1<=...<=xn in real ell_p finite dimensions n^{1/p} for p<2 (n/2)^{1/p} for p>2",
+        "sharp Lipschitz stability constant of Lp isotonic regression for a totally ordered chain, p<2 n^(1/p) p>2 (n/2)^(1/p)",
+        "power means p-centroid best constant sensitivity derivative 1/2 weights and unique-zero p<2",
+        "pool adjacent violators sensitivity full pooling output instability general p",
+        "isotonic regression metric projection l_p Lipschitz continuity sharp constants monotone sequences p mean",
+        "arxiv.org searches for isotonic projection Lipschitz sharp constants",
+        "MSC2020 41A29 approximation with constraints"
+      ]
+    },
+    "rationale": "PASS with residual historical bibliographic risk: Scientific searches and full-text comparisons were performed for both generalized convex isotonic regression and all-p algorithms. They establish computation/order/KKT structure, but not the all-dimensional sharp p-dependent input-to-output Lipschitz profile, nor the discontinuous \\(p=2\\) transition. A possibly relevant 1990 continuous best-monotone-approximation paper was unavailable in full; its abstract does not support a definitive noncoverage claim and remains a named risk. The general solver and Hilbert projection do not imply the two non-Hilbert sharp branches.",
+    "residual_risks": [
+      "Uninspected full text of Swetits--Weinstein (1990) could contain a historical equivalent in an Lp function-space or discrete special-case formulation.",
+      "Database searches are incomplete evidence, not mathematical proof of priority.",
+      "Broader DAG or weighted analogues are not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides block/optimality foundations but does not contain the p-dependent sharp Lipschitz stability theorem",
+        "evidence": [
+          "arXiv:1104.1779, Section 2.2 stationarity and Section 2.4 distinction from Euclidean-transformable losses"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1104.1779v2",
+        "material_read": "Sections 1, 2.1-2.5, 3, 4 and 5 Appendix, with full-text searches for Lipschitz, stability and norm",
+        "method": "read open-access arXiv HTML scientific content and inspect named theorems and appendices",
+        "title": "Generalized Isotonic Regression",
+        "trigger": "same loss family; convex differentiable objective and block KKT theory"
+      },
+      {
+        "assessment": "Studies order-preserving behavior of Euclidean projection and does not provide non-Hilbert sharp constants",
+        "evidence": [
+          "arXiv:1503.08458, stated principal Euclidean cone projection theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1503.08458v2",
+        "material_read": "Complete 10-page open-access article in HTML, including Euclidean cone projection statements and references",
+        "method": "read public arXiv full text and search for Lipschitz/nonexpansive",
+        "title": "Isotonic regression and isotonic projection",
+        "trigger": "same isotonic cone; possible stronger projection theorem"
+      },
+      {
+        "assessment": "Computes near-optimal isotonic fits with complexity bounds, without sharp global input-output Lipschitz norm",
+        "evidence": [
+          "arXiv:1507.00710, Theorems 1.1-1.3 and Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1507.00710v2",
+        "material_read": "Full open-access HTML (abstract, principal theorems, techniques, all-p algorithm, ell_infinity algorithm and appendices), targeted searches for stability, sensitivity and nonexpansivity",
+        "method": "read arXiv full text and compare output guarantees versus input perturbation inequality",
+        "title": "Fast, Provable Algorithms for Isotonic Regression in all ell_p-norms",
+        "trigger": "same objects for all p; possible general DAG theorem dominating chain result"
+      },
+      {
+        "assessment": "No whole-document noncoverage claim; potential historical overlap explicitly retained as residual risk",
+        "evidence": [
+          "Swetits--Weinstein, Journal of Approximation Theory (1990), DOI 10.1016/0021-9045(90)90028-O"
+        ],
+        "identifier_or_url": "doi:10.1016/0021-9045(90)90028-O",
+        "material_read": "Bibliographic description/abstract only; primary full text not accessible",
+        "method": "consulted bibliographic landing and lawful repository; arXiv/open-access primary full text not found; institutional full-text access unavailable",
+        "title": "Construction of the Best Monotone Approximation on Lp [0,1]",
+        "trigger": "historical same monotone Lp best-approximation objects"
+      },
+      {
+        "assessment": "The Lipschitz condition bounds the slope of fitted functions, rather than sensitivity of the projection to data; no stronger covering result inferred from abstract",
+        "evidence": [
+          "Yeganova--Wilbur (2009), abstract: LPAV fits a continuous monotonic Lipschitz function"
+        ],
+        "identifier_or_url": "doi:10.1007/s10957-008-9477-0",
+        "material_read": "Abstract and online article introduction/description; complete text not established",
+        "method": "read PubMed abstract and open abstract-level material",
+        "title": "Isotonic Regression under Lipschitz Constraint",
+        "trigger": "potential terminology collision with Lipschitz stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f78c1252-27d5-41c7-a234-30827853001f",
+  "value": {
+    "rationale": "PASS: Quantifies the exact worst-case data sensitivity of a standard constrained best-approximation operator for every finite chain length and every strictly convex real exponent, identifies the sharp nonexpansivity boundary \\(n\\le2\\) or \\(p=2\\), and distinguishes two geometrically different extremizer mechanisms. This is a coherent all-parameter classification rather than an arbitrary finite slice or an unmotivated increment.",
+    "status": "PASS"
+  }
+}
