@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:42:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "R. F. Barber, E. J. Candès, A. Ramdas, R. J. Tibshirani, Predictive inference with the jackknife+, Annals of Statistics 49 (2021), 486–507, arXiv:1905.02928; complete arXiv HTML inspected for the finite quantile convention, jackknife+ interval, full conformal definition, and generic coverage guarantees.",
+        "J. R. Paul and M. E. Schaffer, An introduction to conformal inference for economists (2024 working paper); primary PDF text inspected for its explicit full-conformal sample-mean example and later separate jackknife+ section. Screenshot calls were attempted but the web screenshot endpoint returned content-type errors.",
+        "N. Amann, Conditional validity and a fast approximation formula of full conformal prediction sets, arXiv:2508.05272 (2025); primary abstract inspected for generic/asymptotic relationships among full conformal and jackknife-type methods.",
+        "Resultary semantic search: sample mean intercept-only jackknife plus full conformal exact same prediction interval.",
+        "Fresh independent symbolic factorization and exact-rational sample checks of full-conformal membership against the closed jackknife+ interval."
+      ],
+      "rationale": "The leave-one-out mean is \\(\\bar Y-d_i/(n-1)\\) and its residual is \\(n|d_i|/(n-1)\\), giving the stated jackknife+ endpoints. For a candidate offset \\(x=y-\\bar Y\\), fresh symbolic expansion verifies exactly \\(((n+1)d_i-x)^2-n^2x^2=(n+1)(n-1)(d_i-x)(x+c_nd_i)\\). Therefore the candidate residual is no larger than training residual i exactly when y lies in the corresponding endpoint interval. Every such interval contains \\(\\bar Y\\), so the points lying in at least \\(j=\\lfloor\\alpha(n+1)\\rfloor\\) intervals form one interval with endpoints \\(\\ell_{(j)}\\) and \\(u_{(n-j+1)}\\); the integer identity \\(n-j+1=\\lceil(1-\\alpha)(n+1)\\rceil\\) gives exact equality. Exact-rational spot checks independently matched full-conformal membership, including the infinite-interval convention.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barber et al. prove assumption-free jackknife+ coverage at least \\(1-2\\alpha\\) and full-conformal coverage at least \\(1-\\alpha\\).",
+          "Amann discusses asymptotic conditional-coverage relationships under stability."
+        ],
+        "reasoning": "General guarantees and asymptotic equivalence do not imply that two algorithms return exactly the same finite-sample set for every realized sample in a specific model.",
+        "searches": [
+          "Barber et al. generic jackknife+ and full conformal theory",
+          "Amann 2025 generic/asymptotic comparison"
+        ]
+      },
+      "checked_sources": [
+        "R. F. Barber, E. J. Candès, A. Ramdas, R. J. Tibshirani, Predictive inference with the jackknife+, Annals of Statistics 49 (2021), 486–507, arXiv:1905.02928; complete arXiv HTML inspected for the finite quantile convention, jackknife+ interval, full conformal definition, and generic coverage guarantees.",
+        "J. R. Paul and M. E. Schaffer, An introduction to conformal inference for economists (2024 working paper); primary PDF text inspected for its explicit full-conformal sample-mean example and later separate jackknife+ section. Screenshot calls were attempted but the web screenshot endpoint returned content-type errors.",
+        "N. Amann, Conditional validity and a fast approximation formula of full conformal prediction sets, arXiv:2508.05272 (2025); primary abstract inspected for generic/asymptotic relationships among full conformal and jackknife-type methods.",
+        "Resultary semantic search: sample mean intercept-only jackknife plus full conformal exact same prediction interval.",
+        "Fresh independent symbolic factorization and exact-rational sample checks of full-conformal membership against the closed jackknife+ interval."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the sample mean, leave-one-out endpoints simplify to the intervals \\([\\ell_i,u_i]\\).",
+          "The exact factorization \\(((n+1)d_i-x)^2-n^2x^2=(n+1)(n-1)(d_i-x)(x+c_nd_i)\\) shows the full-conformal residual comparison is precisely membership in the same interval.",
+          "Because all intervals contain the training mean, the required depth set is a single interval whose order-statistic endpoints are exactly the jackknife+ endpoints."
+        ],
+        "reasoning": "The definitions make the proof short once specialized, but the deterministic coincidence is not a mechanical named corollary in the inspected sources: it depends on a model-specific factorization and common-center interval geometry.",
+        "searches": [
+          "Barber et al. Equations (9) and (15)",
+          "Fresh residual-difference factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barber et al. has no 'sample mean', 'intercept', or 'location' specialization in the inspected full text.",
+          "Paul–Schaffer use the sample mean to illustrate full conformal, then treat jackknife+ generically without an equality theorem.",
+          "No Resultary finding states the exact samplewise identity."
+        ],
+        "reasoning": "The deterministic set equality, the common-center interval-depth formulation, and the strengthened exact coverage grid are equivalent formulations of the audited phenomenon and were not found as prior statements.",
+        "searches": [
+          "Resultary: sample mean intercept-only jackknife plus full conformal exact same prediction interval",
+          "Barber et al. searches for sample mean / intercept / location",
+          "Paul–Schaffer full-conformal sample-mean example plus jackknife+ section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior theorem or table was located.",
+          "Tutorial examples provide numerical conformal intervals but not the all-sample closed form."
+        ],
+        "reasoning": "The identity is a symbolic finite-sample theorem, not a database value.",
+        "searches": [
+          "Resultary exact-topic search",
+          "Web searches for intercept-only/sample-mean jackknife+ equals full conformal"
+        ]
+      },
+      "rationale": "Barber et al. define jackknife+ and full conformal separately and emphasize their different generic guarantees and computational behavior; the complete inspected text contains no sample-mean, intercept-only, or location-model specialization. A later tutorial explicitly works through full conformal with the sample mean and separately presents jackknife+, but does not state their deterministic equality. Later relationship papers discuss generic or asymptotic equivalences, not this exact finite-sample identity. No exact Resultary match was found.",
+      "residual_risks": [
+        "The identity is elementary enough that it may exist as folklore, lecture notes, or an unindexed exercise in conformal prediction.",
+        "A later specialized exact-comparison paper not surfaced by the bounded searches could duplicate the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES BOTH METHODS BUT DOES NOT STATE THE SAMPLE-MEAN IDENTITY",
+          "evidence": "The paper treats jackknife+ and full conformal as distinct general methods, with generic guarantees \\(1-2\\alpha\\) and \\(1-\\alpha\\), and contains no inspected intercept-only specialization.",
+          "identifier_or_url": "arXiv:1905.02928v3; DOI:10.1214/20-AOS1965",
+          "material_read": "Complete arXiv HTML with focused inspection of Section 2, Equation (9), Section 3.3, Equation (15), coverage theorems, summary, and full-text searches for sample-mean/intercept/location terminology.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Predictive inference with the jackknife+",
+          "trigger": "Defining source for both procedures and their finite-sample quantile conventions."
+        },
+        {
+          "assessment": "BOTH INGREDIENTS PRESENT, NO EXACT EQUALITY STATEMENT FOUND",
+          "evidence": "The paper recalculates augmented sample means in its full-conformal examples and later gives the generic jackknife+ formula, but does not derive the all-sample coincidence.",
+          "identifier_or_url": "Heriot-Watt AEF Working Paper 2024-13",
+          "material_read": "PDF text for the full-conformal sample-mean examples and the later jackknife+ section. Screenshot calls were attempted but unavailable through the web screenshot endpoint.",
+          "method": "Primary working-paper PDF text inspection with screenshot-tool failure recorded.",
+          "title": "An introduction to conformal inference for economists",
+          "trigger": "Highly relevant source explicitly using the sample mean for full conformal and later presenting jackknife+."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "R. F. Barber, E. J. Candès, A. Ramdas, R. J. Tibshirani, Predictive inference with the jackknife+, Annals of Statistics 49 (2021), 486–507, arXiv:1905.02928; complete arXiv HTML inspected for the finite quantile convention, jackknife+ interval, full conformal definition, and generic coverage guarantees.",
+        "J. R. Paul and M. E. Schaffer, An introduction to conformal inference for economists (2024 working paper); primary PDF text inspected for its explicit full-conformal sample-mean example and later separate jackknife+ section. Screenshot calls were attempted but the web screenshot endpoint returned content-type errors.",
+        "N. Amann, Conditional validity and a fast approximation formula of full conformal prediction sets, arXiv:2508.05272 (2025); primary abstract inspected for generic/asymptotic relationships among full conformal and jackknife-type methods.",
+        "Resultary semantic search: sample mean intercept-only jackknife plus full conformal exact same prediction interval.",
+        "Fresh independent symbolic factorization and exact-rational sample checks of full-conformal membership against the closed jackknife+ interval."
+      ],
+      "rationale": "The intercept-only location model is the canonical exact benchmark for regression conformal methods. Showing that jackknife+ recovers full conformal samplewise—thereby improving its generic worst-case guarantee from \\(1-2\\alpha\\) to the full conformal grid in this model—clarifies a real boundary between the two procedures and supplies a clean test case for approximation and stability theory.",
+      "residual_risks": [
+        "The identity is elementary enough that it may exist as folklore, lecture notes, or an unindexed exercise in conformal prediction.",
+        "A later specialized exact-comparison paper not surfaced by the bounded searches could duplicate the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For intercept-only least squares with absolute residuals and the Barber–Candès–Ramdas–Tibshirani finite-sample quantile convention, jackknife+ and full conformal return exactly the same prediction set for every realized sample and every \\(\\alpha\\in(0,1)\\); the common set has the stated order-statistic endpoints, hence exchangeable coverage at least \\(1-\\alpha\\) and exact grid coverage when augmented residuals are almost surely distinct.",
+  "limitations": [
+    "The equality is specific to the sample-mean predictor and absolute-residual conformity score.",
+    "It does not extend by this proof to covariate-dependent least squares, ridge, nonlinear models, or arbitrary conformity scores.",
+    "Coverage is marginal under exchangeability, not training-conditional.",
+    "The identity is elementary enough that it may exist as folklore, lecture notes, or an unindexed exercise in conformal prediction.",
+    "A later specialized exact-comparison paper not surfaced by the bounded searches could duplicate the result."
+  ],
+  "schema_version": 1
+}
