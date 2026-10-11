@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was rechecked line by line against the standard prime-power formulas for bi-unitary divisor sum and count. The critical implication chain is:
+# Independent mathematical audit
 
-1. integrality gives \(AB\mid 8bp^3q^{2b}\);
-2. because \(b\) is a power of two, odd primes in \(A\) are forced to be \(q\), giving \(p+1=2^u\) and \(p^2+1=2q^v\);
-3. odd primes in \(B\) are forced to be \(p\), while even \(b\) gives \(q+1\mid B\);
-4. hence \(q+1=2p^s\), which together with the previous equation forces \(p=3,q=5\);
-5. then \(B>25^b>216b\), contradicting the required divisibility \(B\mid216b\).
+## correctness
 
-The bundled `verify.py` uses only Python standard-library integer arithmetic. It verifies the prime-power formulas on sample inputs, exhaustively checks distinct primes below `2000` for \(1\le t\le5\), and confirms the final size branch for \(1\le t\le11\). Its expected output is `VERIFY_OK`. The bounded computation is a consistency check only and is not treated as proof of the infinite statement.
+PASS
+
+Let \(b=2^t\). Bi-unitary harmonicity gives \((p+1)(p^2+1)B\mid 8bp^3q^{2b}\), where \(B=\sum_{j=0}^{2b}q^j-q^b\). Because \(b\) is a power of two, prime-support forcing and \(\gcd(p+1,p^2+1)=2\) reduce the first factor to \(p+1=2^u\), \(p^2+1=2q^v\), so \(q\equiv1\pmod4\). Also \(B\equiv1\pmod q\), while even \(b\) gives \(q+1\mid B\); hence \(q+1=2p^s\). Size comparisons force \(s=v=1\), then \(p=3,q=5\). For that pair harmonicity would require \(B\mid216b\), but \(B>25^b>216b\) for every \(b\ge2\), contradiction. The finite verifier is consistent with the argument but is not used as the infinite proof.
+
+## originality
+
+PASS
+
+Sándor's primary paper was inspected at the relevant theorem: it excludes \(p^3q^2\) and immediately remarks that \(p^3q^4\) is also impossible, but it does not give the full power-of-two exponent family. Manea and Minculete's 2016 full text repeats the fixed exclusions and studies other factorization forms. OEIS A286325 is a finite list and does not imply the uniform theorem. Fresh Resultary search found the audited record itself but no stronger pre-existing bi-unitary result covering all \(t\ge1\).
+
+## value
+
+PASS
+
+The theorem turns a previously isolated fixed-exponent exclusion into an infinite, naturally parameterized obstruction and identifies a reusable arithmetic mechanism—prime-support collapse plus the divisor \(q+1\) of the bi-unitary divisor sum. This is a motivated structural extension rather than a finite table check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

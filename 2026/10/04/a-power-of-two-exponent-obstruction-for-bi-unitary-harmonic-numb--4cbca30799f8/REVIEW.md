@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the bi-unitary divisor formulas, derives the exact divisibility condition, and checks all boundary cases used in the support argument. In particular, \(p=2\) is excluded before odd-prime congruences are used, \(q\) is then shown odd, and the step \(q+1\mid B\) uses only that \(b=2^t\) is even. The terminal inequality is valid from \(b=2\) onward. The finite checker is supplementary and is not used to infer the infinite theorem.
+## correctness
 
-## Originality
-PASS relative to the sources checked. Sándor 2011 proves the \(p^3q^2\) case and explicitly notes the \(p^3q^4\) case. Manea–Minculete 2016 repeats those fixed exclusions while investigating other forms. Two focused published-finding corpus searches returned related but non-implicating records about other harmonic/divisor notions. OEIS A286325 is consistent with the claim but supplies only finite tabulation. No source inspected states the full \(p^3q^{2^{t+1}}\) family.
+PASS
 
-Residual originality risk: literature search is not logically exhaustive, so an unindexed or inaccessible prior statement remains possible.
+Let \(b=2^t\). Bi-unitary harmonicity gives \((p+1)(p^2+1)B\mid 8bp^3q^{2b}\), where \(B=\sum_{j=0}^{2b}q^j-q^b\). Because \(b\) is a power of two, prime-support forcing and \(\gcd(p+1,p^2+1)=2\) reduce the first factor to \(p+1=2^u\), \(p^2+1=2q^v\), so \(q\equiv1\pmod4\). Also \(B\equiv1\pmod q\), while even \(b\) gives \(q+1\mid B\); hence \(q+1=2p^s\). Size comparisons force \(s=v=1\), then \(p=3,q=5\). For that pair harmonicity would require \(B\mid216b\), but \(B>25^b>216b\) for every \(b\ge2\), contradiction. The finite verifier is consistent with the argument but is not used as the infinite proof.
 
-## Value
-PASS. This is a motivated extension of a named fixed-exponent obstruction in the foundational bi-unitary harmonic literature. The new argument is parameter-uniform and isolates the divisibility mechanism \(q+1\mid\sigma^{**}(q^{2b})\) for even \(b\), which may be useful in neighboring two-prime-support classifications.
+## originality
 
-## Closest literature and limitations
-Closest is Sándor, arXiv:1105.0294v1, Theorem 4 and its following remark; Manea–Minculete 2016 is the most relevant inspected follow-up. The result does not handle arbitrary \(p^3q^{2b}\) with non-power-of-two \(b\), and it is not a complete two-prime classification.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Sándor's primary paper was inspected at the relevant theorem: it excludes \(p^3q^2\) and immediately remarks that \(p^3q^4\) is also impossible, but it does not give the full power-of-two exponent family. Manea and Minculete's 2016 full text repeats the fixed exclusions and studies other factorization forms. OEIS A286325 is a finite list and does not imply the uniform theorem. Fresh Resultary search found the audited record itself but no stronger pre-existing bi-unitary result covering all \(t\ge1\).
+
+## value
+
+PASS
+
+The theorem turns a previously isolated fixed-exponent exclusion into an infinite, naturally parameterized obstruction and identifies a reusable arithmetic mechanism—prime-support collapse plus the divisor \(q+1\) of the bi-unitary divisor sum. This is a motivated structural extension rather than a finite table check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

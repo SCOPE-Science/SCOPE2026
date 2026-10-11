@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:17:12.130038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let \\(b=2^t\\). Bi-unitary harmonicity gives \\((p+1)(p^2+1)B\\mid 8bp^3q^{2b}\\), where \\(B=\\sum_{j=0}^{2b}q^j-q^b\\). Because \\(b\\) is a power of two, prime-support forcing and \\(\\gcd(p+1,p^2+1)=2\\) reduce the first factor to \\(p+1=2^u\\), \\(p^2+1=2q^v\\), so \\(q\\equiv1\\pmod4\\). Also \\(B\\equiv1\\pmod q\\), while even \\(b\\) gives \\(q+1\\mid B\\); hence \\(q+1=2p^s\\). Size comparisons force \\(s=v=1\\), then \\(p=3,q=5\\). For that pair harmonicity would require \\(B\\mid216b\\), but \\(B>25^b>216b\\) for every \\(b\\ge2\\), contradiction. The finite verifier is consistent with the argument but is not used as the infinite proof.",
+      "risks": [
+        "The theorem is restricted to the exponent subsequence \\(2^{t+1}\\) on the second prime."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "verify.py",
+        "Sándor arXiv:1105.0294",
+        "Manea–Minculete 2016"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "No inspected broader bi-unitary theorem implies exclusion for every exponent \\(2^{t+1}\\).",
+          "Nearby Resultary hits concern ordinary power-harmonic, unitary, infinitary, or exponential-unitary notions and are not equivalent."
+        ],
+        "reasoning": "The surviving claim strictly extends the fixed \\(p^3q^4\\) exclusion along an infinite exponent family.",
+        "searches": [
+          "Sándor Theorems 4–5",
+          "Manea–Minculete particular-form propositions",
+          "current Resultary number-theory search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1105.0294",
+        "Manea–Minculete 2016",
+        "OEIS A286325",
+        "current Resultary semantic search",
+        "assigned verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known \\(p^3q^4\\) exclusion is exactly the \\(t=1\\) case.",
+          "The audited proof adds a uniform prime-support argument using \\(q+1\\mid B\\) for every even power-of-two \\(b\\)."
+        ],
+        "reasoning": "A single fixed-exponent special case does not imply the infinite family.",
+        "searches": [
+          "statement-by-statement comparison with Sándor 2011 and Manea–Minculete 2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sándor covers \\(p^3q^2\\) and the single \\(p^3q^4\\) case only.",
+          "The 2016 paper explicitly lists the same fixed exclusions and then studies different forms."
+        ],
+        "reasoning": "Equivalent formulations by exponent parameterization, divisor-sum divisibility, and two-prime factorization type were compared.",
+        "searches": [
+          "Resultary semantic query: bi-unitary harmonic p^3 q^8 p^3 q^(2^t) power of two exponent obstruction",
+          "Sándor arXiv:1105.0294 full-text theorem/remark",
+          "Manea–Minculete 2016 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists known bi-unitary harmonic numbers and references Sándor but supplies no all-\\(t\\) two-prime exclusion theorem."
+        ],
+        "reasoning": "Finite tables are consistency checks and cannot establish the infinite obstruction.",
+        "searches": [
+          "OEIS A286325",
+          "Sándor finite table"
+        ]
+      },
+      "rationale": "Sándor's primary paper was inspected at the relevant theorem: it excludes \\(p^3q^2\\) and immediately remarks that \\(p^3q^4\\) is also impossible, but it does not give the full power-of-two exponent family. Manea and Minculete's 2016 full text repeats the fixed exclusions and studies other factorization forms. OEIS A286325 is a finite list and does not imply the uniform theorem. Fresh Resultary search found the audited record itself but no stronger pre-existing bi-unitary result covering all \\(t\\ge1\\).",
+      "residual_risks": [
+        "Unindexed older arithmetic literature could contain the same uniform observation under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE only: the \\(t=1\\) case is known.",
+          "evidence": "Theorem 4 excludes \\(p^3q^2\\); the following remark states the \\(p^3q^4\\) exclusion but no higher power-of-two exponent family.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.0294",
+          "material_read": "Accessible full-text material around Theorem 4, its proof, the following remark, and Theorem 5.",
+          "method": "Primary theorem/factorization comparison.",
+          "title": "On bi-unitary harmonic numbers",
+          "trigger": "Primary source defining the object and treating closest two-prime forms."
+        },
+        {
+          "assessment": "NOT_COVERING the infinite \\(p^3q^{2^{t+1}}\\) family.",
+          "evidence": "It repeats \\(pq^4,p^3q^2,p^3q^4\\) exclusions and studies forms such as \\(2^kn\\), \\(pqt^2\\), and \\(p^2q^2t\\).",
+          "identifier_or_url": "https://webbut.unitbv.ro/index.php/Series_III/article/download/1820/1566/3270",
+          "material_read": "Full-text introduction/Remark 1 and the section describing the particular prime-factorization families.",
+          "method": "Factorization-scope comparison.",
+          "title": "Types of integer harmonic numbers (II)",
+          "trigger": "Later full paper on particular bi-unitary harmonic factorizations."
+        },
+        {
+          "assessment": "CONSISTENT_BUT_NOT_COVERING.",
+          "evidence": "The finite sequence table contains no theorem implying the parameter-uniform exclusion.",
+          "identifier_or_url": "https://oeis.org/A286325",
+          "material_read": "Definition, listed terms, links and references.",
+          "method": "Database coverage comparison.",
+          "title": "OEIS A286325 — Bi-unitary harmonic numbers",
+          "trigger": "Exact database check."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem turns a previously isolated fixed-exponent exclusion into an infinite, naturally parameterized obstruction and identifies a reusable arithmetic mechanism—prime-support collapse plus the divisor \\(q+1\\) of the bi-unitary divisor sum. This is a motivated structural extension rather than a finite table check.",
+      "risks": [
+        "It does not classify arbitrary exponents \\(2b\\) or all two-prime bi-unitary harmonic numbers."
+      ],
+      "sources": [
+        "Sándor's fixed \\(p^3q^4\\) exclusion",
+        "uniform divisibility argument"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Distinct primes and exponent family \\(p^3q^{2^{t+1}}\\) with \\(t\\ge1\\) only.",
+    "Finite computation is corroboration, not the infinite proof.",
+    "Originality is best-of-knowledge."
+  ],
+  "schema_version": 1
+}
