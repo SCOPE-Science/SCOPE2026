@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof uses two independent source pullback identities and the norm of the finite flat degree-\(2\) cover to identify \(A^{\otimes2}\) with \(\omega_X^{-2}\). It then identifies \(A^{\otimes2}\) with the degree-two invariant kernel and computes that kernel exactly. The \(t^3\) and \(x_it^2\) coefficients force away the possible \(Q\)-multiple, \(D(B)=C\) reduces to the polynomial kernel, and the latter is exactly the span of seven squares. Basepoint-freeness follows from the coordinate-square basis. The degree-\(8\) statement is the function-field degree identity \(2^4/2=8\).
+## correctness
 
-## Originality
-**PASS.** The initiating paper proves the cover, canonical pullback formula, ample line bundle, and differential-form injection, but the inspected full text does not compute \(H^0(A^{\otimes2})\), identify the complete bi-anticanonical map, or state its degree. The closest public follow-up gives only \(h^0(X,\Omega_X^1)\ge6\) and an exceptional-object result. Exact searches found no covering statement. Because the example is very recent, unindexed discussion remains an explicit residual risk.
+PASS
 
-## Value
-**PASS.** The complete bi-anticanonical system is a natural global invariant of a Fano fourfold. Here it produces an explicit finite purely inseparable projective model of degree \(8\) and simultaneously improves the known lower bound on global one-forms to \(7\). These are structural consequences of the new irregular Fano construction, with direct use in its projective and differential geometry.
+The two source pullback identities imply that \(A\otimes\omega_X\) pulls back trivially along the finite flat degree-two map, and the norm gives its square trivial, hence \(A^2\cong\omega_X^{-2}\). The foliation derivation identifies degree-two descended sections with the kernel of \(D:R_2\to R_3\). The support of \(D(q)\) forces away a possible linear multiple of the quadric; after subtracting the cubic relation it reduces to the polynomial kernel, which is exactly the seven coordinate squares. A fresh independent \(\mathbf F_2\) rank computation found rank \(21\) on the 28-dimensional quadratic space and kernel dimension \(7\). The seven squares have no common zero. Their pullback map is relative Frobenius on the integral fourfold, of degree \(16\); dividing by the degree-two cover gives degree \(8\).
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.29924v1 and Pieter Belmans's 25 September 2026 follow-up note. The result does not determine the full Hodge diamond or whether \(h^0(X,\Omega_X^1)=7\) is exact, and it does not compute the Picard group.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison found no earlier computation of the complete bi-anticanonical system, its seven sections, or the degree-eight Frobenius factorization. The defining paper's accessible abstract announces the irregular Fano fourfold but not these invariants, while a contemporaneous detailed secondary exposition records the cover and ample-line-bundle setup without the submitted bi-anticanonical conclusion. Full primary text was unavailable through lawful open and authorized routes in this audit, so that access gap is retained as a material residual risk rather than converted into failure.
+
+## value
+
+PASS
+
+The complete bi-anticanonical system and purely inseparable degree-eight model give concrete birational and differential-form structure for a newly constructed pathological Fano fourfold. The result connects the finite cover, Frobenius, and global one-forms in a way likely to be useful in subsequent study of the example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

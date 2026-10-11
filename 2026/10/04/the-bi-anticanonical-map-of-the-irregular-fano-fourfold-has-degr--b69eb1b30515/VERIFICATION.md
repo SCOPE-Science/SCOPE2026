@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact proof is in `RESULT.md`. The bundled verifier checks the finite algebraic skeleton used in the section computation.
+# Independent mathematical audit
 
-The script enumerates every quadratic monomial in \(x_0,\ldots,x_5,t\), represents the characteristic-two derivation
-\[
-D=\sum_{i=0}^5x_i^2\partial_{x_i},
-\]
-and verifies that its degree-two kernel has dimension \(7\), with basis
-\[
-x_0^2,\ldots,x_5^2,t^2.
-\]
-It separately checks
-\[
-D(x_0x_1+x_2x_3+x_4x_5)=C,
-\]
-and verifies the support facts used to force the linear coefficient \(\ell\) in \(D(q)=\ell Q+\mu C\) to vanish: \(D(S_2)\) contains neither \(t^3\) nor any \(x_it^2\), while those coefficients in \(\ell Q\) recover exactly the coefficients of \(\ell\).
+## correctness
 
-The script also checks the degree arithmetic
-\[
-\deg(F_{H/k})=2^4=16,\qquad 16/2=8.
-\]
-Its stored output ends in `VERIFY_OK`.
+PASS
 
-The verifier does not certify the sheaf-theoretic norm, descent of invariant sections, or originality. Those are established by the proof and literature comparison.
+The two source pullback identities imply that \(A\otimes\omega_X\) pulls back trivially along the finite flat degree-two map, and the norm gives its square trivial, hence \(A^2\cong\omega_X^{-2}\). The foliation derivation identifies degree-two descended sections with the kernel of \(D:R_2\to R_3\). The support of \(D(q)\) forces away a possible linear multiple of the quadric; after subtracting the cubic relation it reduces to the polynomial kernel, which is exactly the seven coordinate squares. A fresh independent \(\mathbf F_2\) rank computation found rank \(21\) on the 28-dimensional quadratic space and kernel dimension \(7\). The seven squares have no common zero. Their pullback map is relative Frobenius on the integral fourfold, of degree \(16\); dividing by the degree-two cover gives degree \(8\).
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison found no earlier computation of the complete bi-anticanonical system, its seven sections, or the degree-eight Frobenius factorization. The defining paper's accessible abstract announces the irregular Fano fourfold but not these invariants, while a contemporaneous detailed secondary exposition records the cover and ample-line-bundle setup without the submitted bi-anticanonical conclusion. Full primary text was unavailable through lawful open and authorized routes in this audit, so that access gap is retained as a material residual risk rather than converted into failure.
+
+## value
+
+PASS
+
+The complete bi-anticanonical system and purely inseparable degree-eight model give concrete birational and differential-form structure for a newly constructed pathological Fano fourfold. The result connects the finite cover, Frobenius, and global one-forms in a way likely to be useful in subsequent study of the example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
