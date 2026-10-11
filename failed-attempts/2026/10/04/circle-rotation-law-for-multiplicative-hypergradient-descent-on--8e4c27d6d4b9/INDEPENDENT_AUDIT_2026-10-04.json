@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:48:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 4c62ef701e62789fee88a10d6bc6292f83515afe",
+        "Martínez Rubio, Oxford MSc thesis 2017, full primary PDF pages 29--30 of the quadratic proof",
+        "Baydin et al., arXiv:1703.04782v3"
+      ],
+      "rationale": "With \\(q_t=\\lambda\\alpha_t\\), the sign of consecutive scalar gradients gives exactly the multiplicative factors \\(1+\\beta\\) for \\(q_t<1\\) and \\(1-\\beta\\) for \\(q_t>1\\), matching the primary quadratic analysis after the normalization \\(\\lambda=2a\\). Repeated multiplication enters \\([1-\\beta,1+\\beta]\\); there \\(|1-q_t|\\le\\beta\\), so \\(|x_{t+1}|\\le\\beta|x_t|\\). Put \\(A=\\log(1+\\beta)\\), \\(C=-\\log(1-\\beta)\\), and reduce \\(\\log q+C\\) modulo \\(A+C\\); both branches become addition by \\(A\\). Standard circle-rotation dynamics then gives exact period equal to the denominator of rational \\(A/(A+C)\\), and dense orbits when it is irrational. The bundled verifier checks band entry, the conjugacy identity, a period-three example, dense-bin behavior, and contraction; these are corroborative of the exact proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary proof already establishes the piecewise learning-rate recurrence and trapping band.",
+          "The remaining rational/irrational dichotomy is a textbook property of a rigid rotation."
+        ],
+        "reasoning": "The prior scalar analysis is strong enough to dominate the audited phase classification after a standard coordinate change.",
+        "searches": [
+          "Martínez Rubio Theorem 3.2.4 and its proof",
+          "standard circle-rotation theorem"
+        ]
+      },
+      "checked_sources": [
+        "Martínez Rubio 2017 Oxford MSc thesis",
+        "arXiv:1703.04782v3",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives \\(\\alpha_t=\\alpha_{t-1}(1-\\beta)\\) above the optimum and \\(\\alpha_t=\\alpha_{t-1}(1+\\beta)\\) below it, plus the same trapping interval."
+        ],
+        "reasoning": "Taking logarithms and quotienting by the total log jump is a standard conjugacy, so the periodic/dense conclusion is a direct corollary.",
+        "searches": [
+          "Martínez Rubio scalar quadratic recurrence versus audited log conjugacy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary did not return an earlier record with the exact rotation wording.",
+          "The thesis explicitly states the \\(1\\pm\\beta\\) learning-rate updates in the three scalar-quadratic regimes and the eventual invariant interval.",
+          "Baydin et al. supply the normalized multiplicative hypergradient update."
+        ],
+        "reasoning": "Equivalent formulations as a two-interval multiplicative map, an interval exchange in log coordinates, or a rigid circle rotation are mathematically the same dynamics once the thesis recurrence is fixed.",
+        "searches": [
+          "Resultary query: multiplicative hypergradient descent quadratic circle rotation learning rate periodic dense",
+          "Martínez Rubio 2017 thesis",
+          "arXiv:1703.04782v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table of rotation numbers for \\(\\beta\\) was found."
+        ],
+        "reasoning": "A database comparison is inapplicable; the decisive issue is theorem implication from the published recurrence.",
+        "searches": [
+          "Resultary optimization/dynamical-system searches"
+        ]
+      },
+      "rationale": "The 2017 Oxford thesis already derives the same multiplicative rule on one-dimensional quadratics, gives the three learning-rate regimes, proves eventual trapping in the identical \\((1-\\beta,1+\\beta)\\)-scaled interval, and notes geometric contraction there. After that published analysis, passing to logarithms turns the two multiplicative branches into a translation modulo \\(\\log((1+\\beta)/(1-\\beta))\\); rational-periodic versus irrational-dense behavior is the standard circle-rotation classification. The final claim is therefore an implication-level dynamical corollary of the thesis rather than an uncovered scalar-quadratic theorem.",
+      "residual_risks": [
+        "The exact circle-language formulation may be new exposition, but the mathematical orbit classification is a standard consequence of the published scalar recurrence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING at implication level.",
+          "evidence": "The proof explicitly gives the \\(1\\pm\\beta\\) recurrence, exact optimal threshold, invariant interval, and geometric contraction.",
+          "identifier_or_url": "https://damaru2.github.io/convergence_analysis_hypergradient_descent/dissertation_hypergradients.pdf",
+          "material_read": "Full primary thesis chapter context and the scalar quadratic proof, especially pages 29--30; these pages were visually inspected.",
+          "method": "Open-access full-text PDF inspection.",
+          "title": "Convergence Analysis of an Adaptive Method of Gradient Descent",
+          "trigger": "Primary source with a dedicated scalar-quadratic analysis of the same multiplicative method."
+        },
+        {
+          "assessment": "FOUNDATIONAL; the thesis supplies the decisive scalar recurrence.",
+          "evidence": "The method definition agrees with the audited normalized multiplicative update.",
+          "identifier_or_url": "arXiv:1703.04782v3",
+          "material_read": "Primary public full text around the hypergradient update and multiplicative variant.",
+          "method": "Open-access primary-source comparison.",
+          "title": "Online Learning Rate Adaptation with Hypergradient Descent",
+          "trigger": "Original Hypergradient Descent update and multiplicative normalization."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Martínez Rubio 2017",
+        "Baydin et al. 2017"
+      ],
+      "rationale": "The rotation viewpoint gives a clean explanation of why the optimization variable can converge while the adaptive learning rate is periodic or dense, and it yields exact phase behavior for every \\(\\beta\\). This is a useful structural interpretation, but it cannot pass acceptance because the underlying theorem is already implication-level covered.",
+      "residual_risks": [
+        "The result is restricted to a scalar quadratic and does not establish analogous quasiperiodicity in higher dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "On the one-dimensional quadratic \\(f(x)=\\lambda x^2/2\\), normalized multiplicative Hypergradient Descent with \\(0<\\beta<1\\) has normalized learning-rate dynamics \\(q_{t+1}=(1+\\beta)q_t\\) below \\(1\\) and \\((1-\\beta)q_t\\) above \\(1\\); every nonresonant orbit eventually lies in \\([1-\\beta,1+\\beta]\\), where its logarithm is conjugate to a circle rotation of angle \\(\\theta=\\log(1+\\beta)/\\log((1+\\beta)/(1-\\beta))\\). Thus rational \\(\\theta\\) gives exact periodic learning rates and irrational \\(\\theta\\) gives dense nonconvergent learning rates, while the iterates still contract geometrically.",
+  "limitations": [
+    "The theorem is for the scalar quadratic and the normalized multiplicative variant.",
+    "Resonant orbits that hit the exact optimal learning rate terminate at the minimizer and are excluded from the rotation classification."
+  ],
+  "schema_version": 1
+}
