@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The primary source gives the exact graph-plane formula Theta(Gamma_B)=C(1-S+sum_i lambda_i B_ii/(1+lambda_i^2))/sqrt(det(I+B^T B)). For equal singular values this becomes a constant plus a scalar multiple of tr(B). The trace inequality bounds the numerator by a function of the singular values b_i. After b_i=tan(theta_i), pairwise angle averaging increases the bound by exactly Q sin^2(v), so the global maximum reduces to b_1=...=b_r=t. The resulting derivative has one positive zero. It is t=lambda in the comass-one regime and t=1/((r-1)lambda) in the supercritical regime. The latter is attained by B=-tI, so no gap remains between upper bound and witness. The symbolic replay verifies all closed-form identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tsai--Wang arXiv:2604.04336v1, Section 4, reduces comass to a Grassmannian optimization and proves sufficient singular-value conditions.",
+        "Tsai--Wang Proposition 4.3 gives a general upper estimate assembled from absolute-value bounds; it is not an exact supercritical isotropic norm formula.",
+        "Chen--Lien explicitly describe their 2026 result as the exact comass-one criterion, rather than a formula for comass values above one."
+      ],
+      "reasoning": "General calibration criteria do not imply the quantitative norm once the form fails to calibrate. The new pairwise smoothing step uses the special isotropic trace structure to close the optimization exactly.",
+      "searches": [
+        "minimal graph calibration equal singular values comass profile",
+        "arXiv 2604.04336 Tsai Wang calibration minimal graph form",
+        "\"Tsai-Wang form\" \"comass\" singular values"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.39159v1",
+      "arXiv:2604.04336v1",
+      "Targeted published-record searches for exact supercritical comass, equal singular values, conformal linear maps, and reciprocal maximizing slopes",
+      "Current and prior geometry-recent ledgers by source ID and claim aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen--Lien equation (2.4) expresses Theta(Gamma_B) as a trace numerator divided by sqrt(det(I+B^T B)).",
+        "Chen--Lien Section 4.2 tests B=-diag(lambda_i), obtaining 1-2S, solely to prove necessity.",
+        "Tsai--Wang's earlier estimate does not identify the exact norm after the calibration threshold is crossed."
+      ],
+      "reasoning": "The prior statements imply that the norm is greater than one in the supercritical region, but do not determine its value. The present statement requires a new global matrix optimization. On the isotropic locus the trace inequality and smoothing argument close that gap, and the equality witness proves the resulting upper bound is exact.",
+      "searches": [
+        "arXiv:2609.39159v1 equation 2.4 necessity S greater than 1",
+        "arXiv:2609.39159v1 Theorem 1.1 comass one criterion",
+        "arXiv:2604.04336v1 Proposition 4.3 comass estimate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen--Lien arXiv:2609.39159v1, equation (2.4), gives the exact graph-plane evaluation used here.",
+        "Chen--Lien Theorem 1.1 characterizes only the level set where the comass is exactly one.",
+        "In Section 4.2 Chen--Lien use B=-diag(lambda_i) to prove the comass exceeds one when S>1; no supercritical maximization formula is stated.",
+        "No searched published finding returned an equal-singular-value formula or the reciprocal maximizing slope."
+      ],
+      "reasoning": "An equivalent result would have to give the actual norm of the form, not merely a sufficient or necessary calibration condition. The searches covered the isotropic/conformal linear locus, the exact norm language, and the maximizing-plane formulation. The closest source gives only threshold information plus a nonoptimal supercritical witness.",
+      "searches": [
+        "arXiv 2609.39159 isotropic equal singular values exact comass supercritical",
+        "Tsai Wang form exact comass equal singular values lambda supercritical",
+        "Tsai Wang calibration comass conformal linear map exact norm",
+        "supercritical comass Tsai Wang form graph of minus inverse slope"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed finding contains arXiv:2609.39159 together with an exact supercritical comass value.",
+        "No checked record contains the maximizing slope 1/((r-1)lambda) for the Tsai--Wang form.",
+        "The current and prior geometry ledgers contain no source ID or claim on this comass profile."
+      ],
+      "reasoning": "The quantity is an analytic operator norm, not a standard database invariant. Exact-source and exact-formula searches were used to detect direct coverage and found none.",
+      "searches": [
+        "2609.39159 supercritical comass equal lambda",
+        "Tsai Wang form reciprocal slope 1 over (r-1) lambda",
+        "Tsai Wang isotropic comass closed formula"
+      ]
+    },
+    "rationale": "Chen--Lien determine the exact yes/no criterion for comass one and, in the supercritical region, use B=-diag(lambda_i) only as a witness with value 1-2S. Their inspected Sections 2--4 do not optimize the comass magnitude for S>1 or state the equal-singular-value profile. Tsai--Wang's earlier paper supplies broader sufficient estimates but likewise does not state this supercritical exact norm. Targeted source-specific, equal-singular-value, conformal-linear, reciprocal-slope, and exact-comass searches found no covering statement.",
+    "residual_risks": [
+      "A very recent or unindexed note could independently optimize the same isotropic matrix problem.",
+      "The theorem does not address unequal singular values, where the matrix optimization can have a more complicated structure.",
+      "The maximizing-plane formula is expressed in paired SVD coordinates; equivalent invariant notation may appear elsewhere under different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: it proves exactly when the comass equals one and supplies a supercritical witness, but does not compute the supercritical norm on the isotropic locus.",
+        "evidence": "Equation (2.4) is the exact optimization formula. Section 4.2 evaluates only B=-diag(lambda_i) and concludes that S>1 forces a value below -1; the paper stops after proving the threshold criterion.",
+        "identifier_or_url": "arXiv:2609.39159v1",
+        "material_read": "Abstract and Theorems 1.1--1.2; Section 2 through equation (2.4); Section 3 matrix inequality setup; Section 4.1 sufficiency; Section 4.2 necessity; calibrated-plane discussion; full-text searches for equal-singular-value and supercritical formulas.",
+        "method": "Full primary PDF text inspection with page-image inspection of the reduced form and the necessity section.",
+        "title": "The Exact Comass Criterion for the Tsai--Wang Form",
+        "trigger": "Primary recent source giving the exact reduced form, graph-plane evaluation, and sharp comass-one threshold."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_COVERING: it provides sufficient conditions and an upper-bound reduction, but no exact supercritical isotropic comass profile or reciprocal maximizing slope.",
+        "evidence": "Proposition 4.3 is an upper estimate obtained by Hadamard, Cauchy--Schwarz, and Maclaurin inequalities. The paper does not specialize those estimates to compute the exact norm of the equal-singular-value supercritical family.",
+        "identifier_or_url": "arXiv:2604.04336v1",
+        "material_read": "Introduction; coordinate expression of Theta; Section 4 definition of comass; Lemma 4.2; Proposition 4.3; Theorems 4.4--4.5; full-text searches for equal-singular-value, conformal, and homothety specializations.",
+        "method": "Full primary PDF/HTML inspection focused on norm estimates and possible isotropic special cases.",
+        "title": "Calibrating Forms for Minimal Graphs in Arbitrary Codimension",
+        "trigger": "Original primary source introducing the form and broader comass estimates, potentially capable of dominating the new claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b13c12b8-cdff-4bb5-92d1-e4798ce7dc5c",
+  "value": {
+    "rationale": "The primary source establishes a sharp phase boundary but leaves the quantitative size of calibration failure unresolved beyond it. Equal singular values are the canonical isotropic family in every rank, not an arbitrary parameter slice. The exact profile reveals a structural transition in the extremizing plane: the source-scale negative graph is optimal only at the boundary, while the genuinely supercritical optimizer moves to a reciprocal slope. This supplies a benchmark norm and equality witness for future work on the full supercritical comass problem.",
+    "status": "PASS"
+  }
+}
