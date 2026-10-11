@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Arbitrary antiderivative tests in the real voltage coordinate give \\(\\mathbb E[\\sin\\phi\\mid v]=I-\\gamma v\\). The periodic test \\(\\cos\\phi\\) gives \\(\\mathbb E[v\\sin\\phi]=0\\), and combining the two yields \\(\\gamma\\mathbb E[v^2]=I\\mathbb E[v]\\) and the exact variance parabola. The acceleration is the conditional-regression residual, so orthogonality gives the exact sine-current variance defect and covariance. Zero mean or zero residual energy forces invariant support onto the Josephson equilibria. For \\(I>1\\), strict residual energy together with \\(|\\sin\\phi|\\le1\\) yields the strict lower mean-voltage floor. The packaged checker verifies all algebraic reductions with exact arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stewart's foundational source models the junction as a driven damped pendulum and studies dc current-voltage curves.",
+        "Belykh–Pedersen–Soerensen analyze the autonomous shunted model through phase portraits, parameter regions, and dc current-voltage response.",
+        "The 2020 global-dynamics work classifies bifurcations of the Josephson equation on the cylinder.",
+        "The complete 2023/2024 study bounds the number and configurations of contractible and non-contractible limit cycles."
+      ],
+      "reasoning": "Current-voltage curves, phase-plane classification, and limit-cycle bifurcations do not implication-wise determine the conditional expectation of the sine current at every voltage under every compact invariant probability measure.",
+      "searches": [
+        "Current-Voltage Characteristics of Josephson Junctions Stewart 1968",
+        "Shunted-Josephson-junction model I autonomous case",
+        "Global dynamics and bifurcations of the Josephson equation",
+        "The number of limit cycles of Josephson equation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1063/1.1651991",
+      "doi:10.1103/PhysRevB.16.4853",
+      "doi:10.1016/j.jde.2020.03.048",
+      "doi:10.3934/dcdsb.2023208"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A dc current-voltage characteristic specifies a branch-level mean response, not the conditional distribution of sine current at fixed instantaneous voltage.",
+        "The 1977 autonomous study's stated results are qualitative parameter-space regions, phase portraits, and approximate dc current-voltage formulas.",
+        "The complete 2023/2024 article develops Abel-equation transformations and limit-cycle counts without a matching stationary-statistical theorem."
+      ],
+      "reasoning": "Neither phase-plane classification nor a branch current-voltage formula determines the infinite family of voltage-weighted identities in the accepted conditional law; the strict floor additionally depends on the positive acceleration defect.",
+      "searches": [
+        "Josephson equation stationary covariance mean voltage exact balance invariant measure",
+        "Josephson junction exact mean square voltage bias average voltage balance",
+        "Shunted-Josephson-junction model I autonomous case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The conditional law is equivalent to \\(\\mathbb E[f(v)(\\sin\\phi-I+\\gamma v)]=0\\) for every bounded one-coordinate test.",
+        "The power law is equivalent to the voltage variance parabola after subtracting the square of the mean.",
+        "The mean-voltage floor is equivalent to combining the exact parabola with the strict residual-energy inequality and the boundedness of the sine current."
+      ],
+      "reasoning": "The searches covered conditional expectation, weighted residuals, mean-square voltage, stationary power, variance-parabola language, and overcritical mean-voltage bounds.",
+      "searches": [
+        "autonomous Josephson equation E[sin phase | velocity] = bias - damping velocity invariant measure",
+        "Josephson stationary variance velocity mean parabola bias damping",
+        "Josephson junction exact mean square voltage bias average voltage balance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked semantic-index hit with the autonomous Josephson junction as object states the accepted conditional sine-force regression or strict overcritical mean-voltage floor.",
+        "The closest variance and power-law records concern distinct dynamical systems.",
+        "Recoverable finding IDs and claims in the current and previous completed own ledgers contain no Josephson-junction finding."
+      ],
+      "reasoning": "The exact object was queried with invariant measure, stationary voltage, covariance, conditional sine force, mean-square voltage, bias, damping, and voltage-parabola aliases; search absence is supporting evidence rather than a proof of novelty.",
+      "searches": [
+        "Josephson junction damped driven pendulum invariant measure stationary mean voltage variance",
+        "Josephson equation stationary covariance mean voltage exact balance invariant measure",
+        "tilted pendulum invariant measure conditional expectation sin theta given velocity",
+        "autonomous Josephson equation E[sin phase | velocity] = bias - damping velocity invariant measure",
+        "Josephson stationary variance velocity mean parabola bias damping",
+        "Josephson junction exact mean square voltage bias average voltage balance"
+      ]
+    },
+    "rationale": "The checked classical Josephson sources emphasize phase portraits and dc current-voltage response, while modern mathematical work emphasizes global bifurcation and limit-cycle counts. The complete modern same-equation text contains no matching average, variance, covariance, or stationary-measure formulation. Direct semantic searches for the exact conditional force regression, voltage parabola, and overcritical mean-voltage floor returned no same-object published record. The claim is implication-wise stronger than an ordinary averaged power balance because it encodes every voltage-weighted residual identity and adds a strict residual-energy floor.",
+    "residual_risks": [
+      "The full 1968 Stewart article was not accessible in the checked route.",
+      "The 2020 global-dynamics article was not inspected as a complete local full text.",
+      "Josephson current-voltage literature is extensive, and a scalar averaged power balance could be implicit in older engineering treatments.",
+      "A differently phrased conditional-regression identity could remain in unindexed literature.",
+      "No novelty is claimed for the Josephson equation, its critical current, equilibrium threshold, hysteresis, phase portraits, or limit-cycle bifurcations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper develops parameter-space phase portraits and approximate dc current-voltage curves rather than an all-invariant-measures conditional regression.",
+        "evidence": "The opening page states the autonomous shunted model and constant-current bias; the abstract identifies qualitative junction behavior and dc current-voltage curves as the main objective.",
+        "identifier_or_url": "doi:10.1103/PhysRevB.16.4853",
+        "material_read": "Publisher abstract and metadata together with the full public PDF's opening equation/page, phase-plane scope, and final page/references.",
+        "method": "Page-image and parsed-text statement/implication comparison.",
+        "title": "Shunted-Josephson-junction model. I. The autonomous case",
+        "trigger": "Classical full autonomous shunted-junction analysis with constant bias and dc current-voltage response."
+      },
+      {
+        "assessment": "The article studies existence, number, and configuration of limit cycles and does not state the accepted invariant-measure voltage regression.",
+        "evidence": "Targeted full-text searches found no matching `average`, `variance`, or `covariance` formulation; the article lists MSC 34C07 first.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2023208",
+        "material_read": "Complete open text including the Josephson equation, cylinder formulation, transformations, Abel-equation reduction, main limit-cycle theorems, bifurcation configurations, and references.",
+        "method": "Full-document statement and implication comparison with targeted statistical-term searches.",
+        "title": "The number of limit cycles of Josephson equation",
+        "trigger": "Complete modern same-equation mathematical source and MSC anchor."
+      },
+      {
+        "assessment": "Used for model provenance and date, not for blanket full-document noncoverage.",
+        "evidence": "The record gives public date 15 April 1968 and describes a Josephson-junction model analogous to a driven simple pendulum with damping producing dc current-voltage curves.",
+        "identifier_or_url": "doi:10.1063/1.1651991",
+        "material_read": "Bibliographic record and abstract.",
+        "method": "Historical provenance and statement-level comparison; a full-text retrieval attempt did not succeed.",
+        "title": "Current-Voltage Characteristics of Josephson Junctions",
+        "trigger": "Foundational damped-pendulum Josephson model and earliest verified day-resolved public date."
+      },
+      {
+        "assessment": "The checked material concerns complete dynamics and bifurcations, not invariant-measure conditional voltage statistics.",
+        "evidence": "Its published abstract describes global dynamics and bifurcation classification for the Josephson equation on the cylinder.",
+        "identifier_or_url": "doi:10.1016/j.jde.2020.03.048",
+        "material_read": "Published abstract and the detailed summary and use of its results in the complete later same-equation study.",
+        "method": "Statement-level implication comparison.",
+        "title": "Global dynamics and bifurcations of the Josephson equation",
+        "trigger": "Broad modern same-equation global-dynamics result that could dominate orbit-level statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "74eb252a-3784-4b89-b01c-1c7154eff3a0",
+  "value": {
+    "rationale": "The instantaneous velocity is the normalized junction voltage and its stationary mean is the central dc observable in Josephson current-voltage theory, so the accepted quantity is physically intrinsic rather than an arbitrary moment. The theorem identifies the entire conditional mean of the Josephson sine current at fixed voltage, converts it into an exact voltage-variance parabola, and measures the failure of perfect regression by mean-square acceleration. Above the critical bias it yields a parameter-only strict lower bound on every compact stationary mean voltage, independent of the particular running branch. These identities provide exact consistency checks for autonomous running-state computations and separate equilibrium-supported states sharply from genuinely moving recurrent statistics.",
+    "status": "PASS"
+  }
+}
