@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof was checked by reconstructing the reduced Świątkowski complex after vertex explosion and identifying the relevant weight-two and weight-three syzygies with the Koszul complex on the edge differences. The key unbounded step is exactness of that Koszul complex; the finite computation is not used to infer the theorem for all \(m\).
+# Independent mathematical audit
 
-`verify_theta_relations.py` builds the theta-to-exterior coordinate map for \(4\le m\le10\), checks the exact five-edge boundary relations over the integers, verifies reduction of every non-fixed-edge theta class to the fixed-edge basis, and checks the expected ranks modulo \(2,3,5,7,101\). Its recorded run ended with `VERIFY_OK`.
+## correctness
 
-The literature checks separately identified that prior work already controls the numerical rank through first-homology and Euler-characteristic information. Verification therefore concerns the stronger equivariant module and complete relation claim, not novelty of the rank formula.
+PASS
+
+Reconstructing the exploded-star reduced Świątkowski complex gives a regular sequence of edge differences. Weight-two first homology is the second exterior module, and the vertex-explosion kernel in weight three is exactly the image of the injective third Koszul differential, yielding \(\bigwedge^3 A_m\). Naturality identifies four-edge theta classes with the displayed wedges; exterior expansion gives the five-term relations and reduction to a fixed-edge basis proves completeness. Fresh exact integer matrices for \(4\le m\le8\) reproduce the expected ranks and exact boundary-to-theta zero composition; these finite checks only corroborate the unbounded Koszul proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the integral edge-permutation module and complete theta-relation lattice. The closest primary paper supplies the vertex-explosion machinery and the rank-one four-edge theta class, and explicitly asks for universal degree-two relations and combinatorial bases; it does not state the all-m exterior-cube module or the complete five-term presentation. Later same-family sources supply numerical invariants or manifold models rather than this named-generator relation lattice.
+
+## value
+
+PASS
+
+This gives a natural integral representation, explicit basis, and complete relation presentation for a canonical family of graph configuration spaces, directly resolving on this slice the source paper's stated questions about degree-two relations and combinatorial bases. It is substantially more reusable than the already-known numerical rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
