@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:01:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 6f2780a92664e671c10828b0e0f370ea8d3d69cd",
+        "assigned verify.py blob 26ecebbee9dd85cd384bee22e462daa63ef6e7a8",
+        "Fritsch--Carlson, DOI 10.1137/0717021 full primary article",
+        "Berzins, DOI 10.1137/050625667",
+        "fresh independent coefficient/simplex replay"
+      ],
+      "rationale": "On normalized nodes \\(-1,0,1,2\\), rewriting the cubic Lagrange interpolant in nonnegative monotone increments gives coefficient ordering \\(q_0(t)\\ge1\\ge q_1(t)\\ge0\\ge q_2(t)\\) throughout \\(0\\le t\\le1\\). Linear optimization over the increment simplex therefore makes the lower and upper extrema the step data \\((0,0,0,M)\\) and \\((0,M,M,M)\\). The defect is \\((t-t^3)/6\\), whose unique maximum occurs at \\(t=1/\\sqrt3\\) with value \\(\\sqrt3/27\\); the upper defect is its reflection. The strictly increasing positive witness follows by exact substitution. A fresh dense-grid simplex replay reproduced the two sharp extrema and their reflected locations.",
+      "residual_risks": [
+        "Only the central cell of the uniform four-point degree-three Lagrange stencil is classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fritsch--Carlson classifies cubic monotonicity given endpoint derivatives, not the worst range defect induced by a fixed four-sample Lagrange stencil.",
+          "Berzins constructs bounded adaptive polynomials rather than a sharp bound for the unmodified stencil."
+        ],
+        "reasoning": "No inspected broader theorem specializes directly to the stated constant.",
+        "searches": [
+          "Fritsch--Carlson complete nine-page article",
+          "Berzins equal-grid adaptive interpolation abstract/scope",
+          "general shape-preserving cubic interpolation literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1137/0717021",
+        "DOI 10.1137/050625667",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Hermite monotonicity conditions can diagnose derivative choices but do not directly state the extremal overshoot of the specific four-value interpolation operator over the monotone data simplex.",
+          "The audited coefficient ordering identifies the exact simplex vertices and then solves the remaining one-variable extremum."
+        ],
+        "reasoning": "The stated sharp range is an additional exact operator invariant.",
+        "searches": [
+          "general monotone cubic criteria versus sharp range of the fixed Lagrange stencil"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior literature addresses monotonicity/data-boundedness of cubic interpolation but via Hermite derivative conditions or adaptive local selection.",
+          "The audited rule is the fixed ordinary Lagrange cubic through four consecutive equal-grid values."
+        ],
+        "reasoning": "The problems are closely motivated but not equivalent at the operator level.",
+        "searches": [
+          "Resultary: sharp monotone range defect uniform four point cubic Lagrange interpolation",
+          "Fritsch--Carlson DOI 10.1137/0717021",
+          "Berzins DOI 10.1137/050625667"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table or theorem for this monotone-data defect was retrieved."
+        ],
+        "reasoning": "Search absence supplements, but does not replace, comparison with the primary shape-preserving literature.",
+        "searches": [
+          "Resultary current four-point cubic-Lagrange range-defect search",
+          "web exact searches for \\(\\sqrt3/27\\) and \\(0.06415003\\) in interpolation contexts"
+        ]
+      },
+      "rationale": "Fritsch and Carlson's complete primary paper proves general necessary and sufficient conditions for a single Hermite cubic to be monotone and develops a modified monotone scheme; it does not state the sharp range of the unmodified four-value Lagrange cubic. Berzins explicitly motivates adaptive equal-grid interpolation by the need for data-bounded monotone polynomials, again modifying the local polynomial rather than quantifying the unmodified four-point defect. Current Resultary and exact-constant web searches found no prior statement of the \\(\\sqrt3/27\\) monotone-data range defect or the exact step extremizers.",
+      "residual_risks": [
+        "The constant is elementary enough that it may occur in interpolation tables or teaching material without being framed as a theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_HERMITE_MONOTONICITY_PRIOR_NOT_FIXED_LAGRANGE_RANGE",
+          "evidence": "The source derives necessary and sufficient Hermite-cubic monotonicity conditions and modified algorithms, not the audited four-value Lagrange range constant.",
+          "identifier_or_url": "DOI 10.1137/0717021",
+          "material_read": "complete nine-page primary article, including the single-interval monotonicity region and comparisons with unmodified cubic methods",
+          "method": "authorized institutional full-text inspection after the public route exposed only an abstract",
+          "title": "Monotone Piecewise Cubic Interpolation",
+          "trigger": "foundational primary source for shape-preserving cubic interpolation"
+        },
+        {
+          "assessment": "ADAPTIVE_BOUNDED_METHOD_CONTEXT",
+          "evidence": "The source addresses oscillatory equal-grid interpolation by adapting local polynomials to enforce boundedness and monotonicity.",
+          "identifier_or_url": "DOI 10.1137/050625667",
+          "material_read": "primary abstract and scope description",
+          "method": "primary-source abstract inspection",
+          "title": "Adaptive Polynomial Interpolation on Evenly Spaced Meshes",
+          "trigger": "same equal-grid shape-preservation motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fritsch--Carlson 1980",
+        "Berzins 2007",
+        "assigned RESULT/verifier"
+      ],
+      "rationale": "The uniform four-point cubic is a canonical local interpolation stencil, while avoiding range and sign violations is a standard shape-preservation objective. The exact \\(6.415\\%\\) worst defect and its extremizing monotone steps provide a precise baseline against which modified monotone schemes can be judged. Although the proof is elementary, the invariant is natural rather than an arbitrary finite slice.",
+      "residual_risks": [
+        "This is a small exact benchmark, not a general interpolation theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only the central cell of the uniform four-point degree-three Lagrange stencil is classified.",
+    "The constant is elementary enough that it may occur in interpolation tables or teaching material without being framed as a theorem.",
+    "This is a small exact benchmark, not a general interpolation theorem."
+  ]
+}

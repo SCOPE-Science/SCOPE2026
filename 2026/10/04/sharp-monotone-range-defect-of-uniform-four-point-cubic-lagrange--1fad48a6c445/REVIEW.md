@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cubic is rewritten exactly in the nonnegative increments of the monotone data. On the central cell its increment coefficients satisfy
-\[
-q_0\ge1\ge q_1\ge0\ge q_2,
-\]
-with the nontrivial upper bound on \(q_1\) supplied by an exact factorization. Linear optimization over the full admissible simplex therefore reduces both range extremes to single vertices. The two remaining cubic shape factors are reflections, and exact differentiation gives the unique extremal value \(\sqrt3/27\). The strictly increasing positive witness is obtained by direct substitution. The packaged exact checker returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with explicit residual risk. Classical literature establishes Lagrange interpolation on equally spaced nodes, the general oscillation problem, data-bounded adaptive remedies, and monotone cubic Hermite conditions. Direct searches for four-point cubic Lagrange monotonicity, range preservation, negative basis mass, the exact constant \(\sqrt3/27\), and equivalent local central-cell formulations did not locate a statement implying the sharp theorem. The full Fritsch--Carlson and Berzins articles were inspected and do not state the result. A survey chapter on equidistant Lagrange interpolation was only partially accessible, and older interpolation tables may encode the same coefficient extrema without the monotone-data interpretation; these are retained as residual risks.
+PASS
 
-## Value
-PASS. Data-boundedness and positivity are established design goals for interpolation on equal grids, and the four-point cubic is the smallest standard local polynomial where negative Lagrange weights appear on the central cell. The theorem replaces a qualitative warning about overshoot by a complete dimensionless worst-case law, equality cases, and a strict-positive sign-reversal example. The exact constant is directly usable as a guardrail and regression benchmark for local cubic interpolation.
+On normalized nodes \(-1,0,1,2\), rewriting the cubic Lagrange interpolant in nonnegative monotone increments gives coefficient ordering \(q_0(t)\ge1\ge q_1(t)\ge0\ge q_2(t)\) throughout \(0\le t\le1\). Linear optimization over the increment simplex therefore makes the lower and upper extrema the step data \((0,0,0,M)\) and \((0,M,M,M)\). The defect is \((t-t^3)/6\), whose unique maximum occurs at \(t=1/\sqrt3\) with value \(\sqrt3/27\); the upper defect is its reflection. The strictly increasing positive witness follows by exact substitution. A fresh dense-grid simplex replay reproduced the two sharp extrema and their reflected locations.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fritsch and Carlson's complete primary paper proves general necessary and sufficient conditions for a single Hermite cubic to be monotone and develops a modified monotone scheme; it does not state the sharp range of the unmodified four-value Lagrange cubic. Berzins explicitly motivates adaptive equal-grid interpolation by the need for data-bounded monotone polynomials, again modifying the local polynomial rather than quantifying the unmodified four-point defect. Current Resultary and exact-constant web searches found no prior statement of the \(\sqrt3/27\) monotone-data range defect or the exact step extremizers.
+
+## value
+
+PASS
+
+The uniform four-point cubic is a canonical local interpolation stencil, while avoiding range and sign violations is a standard shape-preservation objective. The exact \(6.415\%\) worst defect and its extremizing monotone steps provide a precise baseline against which modified monotone schemes can be judged. Although the proof is elementary, the invariant is natural rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
