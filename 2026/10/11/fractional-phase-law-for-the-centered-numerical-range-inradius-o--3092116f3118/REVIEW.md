@@ -1,0 +1,15 @@
+# Scientific review: fractional-phase centered-inradius law
+
+## Correctness
+**PASS.** The weighted Dirichlet basis diagonalizes the contraction with eigenvalues \(a^n e^{in\theta}\), permitting an exact probability-barycenter description. The most negative imaginary eigenvalue gives the upper bound on the centered disk radius; a triangle from three actual eigenvalues supplies a matching lower bound up to a factor \(1+O_a(a^{\lfloor\pi/\theta\rfloor})\). Uniform Taylor control gives the claimed error, and elementary discrete differences yield the maximizing integer and periodic prefactor. The triangle construction also proves finite polygonality for sufficiently small positive arguments. Tests reproduce finite cases; none is used as an infinite proof.
+
+## Originality
+**PASS, subject to stated bibliographic risk.** The direct 2026 source describes numerical-range questions on weighted Dirichlet spaces but excludes complex dilations from its relevant general theorem and obtains centered disks through multiplier assumptions not met here. The closely related 2025 weighted Bergman article gives disk radii under origin-vanishing multipliers, not the quantitative optimal radius for constant multiplier and varying tiny argument. Earlier papers on numerical ranges of dilations and Fock-space operators potentially describe convex hulls, but a general convex-hull characterization is not the new claim: the new content is the uniform optimal-radius asymptotic and explicit nonconstant phase modulation. Searches of available mathematical literature and indexed research records found no statement implying that asymptotic. The complete 2001 Matache and 2019 Fatehi articles could not be inspected, and unindexed equivalent derivations remain possible.
+
+## Value
+**PASS.** The central geometric invariant is the largest *closed origin-centered disk* in a natural numerical range, directly quantifying the collapse of interior under approach to the positive-real dilation axis. The theorem determines a sharp exponential rate, an explicit nontrivial phase-dependent leading constant, all leading maximizing integers, and universality across the weighted Dirichlet parameter. It distinguishes the quantitative degeneration from qualitative zero-containment and supplies a structural bridge between operator numerical ranges and discrete logarithmic spirals.
+
+## Sources and limitations
+Primary motivating article: Barik, Sen, Paul, arXiv:2602.09481v1 (2026-02-10), inspected theorem statements and relevant sections. Direct comparison: Sen, Halder, Birbonshi, Paul, arXiv:2502.02833 / Canadian Mathematical Bulletin DOI:10.4153/S0008439525101355, inspected relevant full-text sections. Related inspected preprints: arXiv:2601.00646 and arXiv:1901.07736. Residual coverage risks: Matache (2001), DOI:10.1016/S0024-3795(01)00262-2, and Fatehi (2019), DOI:10.1016/j.jmaa.2019.04.072, available bibliographic descriptions but not complete manuscripts. The proof applies for fixed \(0<a<1\) with \(\theta\downarrow0\), not for uniform modulus limits or finite-angle exact polygon combinatorics.
+
+Same-model review: passed. Independent audit: not yet performed.
