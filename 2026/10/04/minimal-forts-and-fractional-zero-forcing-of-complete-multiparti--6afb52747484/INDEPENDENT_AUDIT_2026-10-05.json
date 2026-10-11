@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:06:59Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 172c03e021eb9c1dd42e2cd1e1ffffbc80299986",
+        "verify.py blob 44db6da5abaaf86c74bdb240816680293bb9e55c",
+        "verify_output.txt blob 36d243b366bf4c1e0760348fddb127e9b131f8b9",
+        "Fresh exhaustive fort/minimality/matching replay for every connected complete multipartite profile through order 8"
+      ],
+      "rationale": "For a candidate fort F in a complete multipartite graph, an outside vertex in part i has exactly \\(|F|-|F\\cap X_i|\\) neighbors in F. This condition immediately yields the complete minimal classification: same-part pairs in non-singleton parts, pairs of singleton vertices, and 3-part transversal triples with at most one singleton. The count formulas follow by choosing these edges. The fort-number formula is supported by the exchange normalization of triple forts and the parity-leftover argument; the fractional zero-forcing formula follows from all pair constraints and explicit half-weight feasible solutions (with the lone singleton weighted zero when q=1). A fresh definition-level brute-force replay through order 8 reproduced the entire minimal-fort hypergraph, edge counts and exact maximum matching for every part profile; the package also records a larger order-10 LP replay. Finite computation is corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron et al. provide the broader fort-hypergraph framework and complete-bipartite/star special cases.",
+          "Becker et al. provide broader minimal-fort enumeration across several graph families but no arbitrary complete-multipartite theorem."
+        ],
+        "reasoning": "The broader sources set up the invariants but do not dominate the submitted arbitrary-part classification or its formulas.",
+        "searches": [
+          "arXiv:2310.17904 full text complete bipartite fort number fractional zero forcing",
+          "arXiv:2404.05963 full text minimal forts graph families"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.17904v1",
+        "arXiv:2404.05963v1",
+        "Resultary semantic query: minimal forts complete multipartite fractional zero forcing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bipartite pair-only result does not imply the new transversal triples possible with three or more parts.",
+          "The arbitrary-part fort-number parity correction and q=1 fractional exception are not determined by the bipartite formulas alone."
+        ],
+        "reasoning": "The audited theorem strictly extends, rather than merely restates, the prior complete-bipartite special case.",
+        "searches": [
+          "Cameron et al Example complete bipartite minimal forts",
+          "Becker et al Proposition complete bipartite minimal forts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No retrieved source stated the arbitrary complete-multipartite three-family minimal-fort classification.",
+          "The known complete-bipartite case has only pair forts and therefore is not equivalent once r>=3."
+        ],
+        "reasoning": "An equivalent formulation would describe the same minimal-fort hypergraph or its exact matching/fractional transversal for arbitrary part profiles. None was found.",
+        "searches": [
+          "Resultary: minimal forts complete multipartite fractional zero forcing",
+          "web: minimal forts complete multipartite",
+          "web: fractional zero forcing complete multipartite",
+          "web: fort hypergraph complete multipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact table/formula for arbitrary complete multipartite minimal forts, fort number, or fractional zero forcing was located."
+        ],
+        "reasoning": "The result is a symbolic classification over all part profiles, not a recomputation of a known finite table.",
+        "searches": [
+          "Resultary minimal forts complete multipartite fractional zero forcing",
+          "exact phrase searches for complete multipartite fort number"
+        ]
+      },
+      "rationale": "The decisive 2023 fort-hypergraph source and 2024 minimal-fort enumeration paper were inspected in full accessible arXiv text. They cover complete bipartite graphs (including the exact special-case fort/fractional values) and several other graph families, but not arbitrary complete multipartite graphs. The audited theorem introduces a genuinely new rank-3 transversal-triple phenomenon once three or more parts interact and derives arbitrary-profile matching and fractional-transversal formulas. Exact searches and Resultary did not locate prior complete-multipartite coverage.",
+      "residual_risks": [
+        "A differently phrased or non-indexed arbitrary complete-multipartite fort-hypergraph result may exist.",
+        "The exact package LP replay depends on SciPy as an implementation check, but the fractional formula has a direct analytic proof and does not depend on the solver."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BIPARTITE_SPECIAL_CASE_NOT_ARBITRARY_MULTIPARTITE",
+          "evidence": [
+            "For complete bipartite graphs with both parts nontrivial, minimal forts are same-part pairs and the source gives the corresponding fort/fractional values; no arbitrary multipartite classification was found."
+          ],
+          "identifier_or_url": "arXiv:2310.17904v1",
+          "material_read": "Open full text covering fort definitions, fractional-transversal formulation, and the complete-bipartite/star examples.",
+          "method": "Public arXiv full-text statement and implication comparison.",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+          "trigger": "Primary source introducing fort number, fort hypergraph and fractional zero forcing; strongest special-case overlap risk."
+        },
+        {
+          "assessment": "NO_ARBITRARY_COMPLETE_MULTIPARTITE_THEOREM_IN_INSPECTED_TEXT",
+          "evidence": [
+            "The source counts complete-bipartite minimal forts but does not state the submitted arbitrary-part rank-3 hypergraph classification."
+          ],
+          "identifier_or_url": "arXiv:2404.05963v1",
+          "material_read": "Open full text covering definitions, named graph-family results and the complete-bipartite count.",
+          "method": "Public arXiv full-text family-scope comparison and text search.",
+          "title": "On the number of minimal forts of a graph",
+          "trigger": "Primary paper focused on minimal-fort enumeration and therefore strongest enumeration-overlap risk."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete structural classification of all minimal forts.",
+        "Closed exact fort-number and fractional-zero-forcing formulas extending known bipartite special cases."
+      ],
+      "rationale": "Minimal forts are the irredundant obstruction hyperedges underlying fort-cover formulations of zero forcing. Complete multipartite graphs are a canonical family, and the transition from pair-only bipartite forts to rank-3 transversal triples is structurally meaningful. The theorem simultaneously resolves the full minimal-fort hypergraph, its edge count, maximum disjoint-fort packing and fractional transversal number for every part profile, so it is mathematically useful rather than a routine finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Standard zero-forcing forts only; no claim for PSD/skew/other forcing rules.",
+    "Finite exhaustive replays are corroborative, not the universal proof."
+  ],
+  "schema_version": 1
+}
