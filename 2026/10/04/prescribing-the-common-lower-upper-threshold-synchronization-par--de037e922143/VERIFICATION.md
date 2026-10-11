@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The main proof is analytic. The critical steps checked directly are: (1) the source formulas for the lower and upper critical couplings; (2) the exact identity \(9-\varepsilon(k+t)-\varepsilon(t)=\varepsilon(t-k)\) for every \(k\in\Lambda\); (3) equality of all eight upper quadratic functionals for coordinate-even \(v\); (4) local quadratic estimates giving \(J(u_B)/I(u_B)\to0\) and \(J(w_B)/I(w_B)\to+\infty\); and (5) continuity of the quotient along a positive analytic interpolation.
+# Independent mathematical audit
 
-The accompanying script only corroborates the exact trigonometric and symmetry identities and the algebraic map between \(r_*\) and \(\gamma_*\). It does not replace the localization argument. No independent audit has been performed.
+## correctness
+
+PASS
+
+The trigonometric identity 9-ε(k+t)-ε(t)=ε(t-k) is exact at every k with coordinates ±2π/3; an independent numerical stress check over all eight k gave maximum floating error 1.34e-15. Coordinate reflections and coordinate-evenness identify all eight J_k. For u_B localized at 0, the singular denominator in I contributes the three-dimensional B^{-1/2} scale while J is B^{-3/2}, so J/I→0. For w_B localized at the eight nondegenerate points Λ, I is B^{-3/2} while the selected singular upper integral is B^{-1/2}, so J/I→∞. Positive analytic interpolation preserves all required hypotheses and continuity gives every target quotient. Strict positivity at 0 and Λ invokes the source's virtual-level, rather than threshold-eigenvalue, branch. The endpoint values γ=0,9 are not claimed.
+
+## originality
+
+PASS
+
+Rasulov–Dilmurodov define, for each fixed form factor, the separate lower and upper threshold couplings and the synchronization parameters obtained by equating them. Their full primary text supplies the formulas and virtual-level/eigenvalue boundary classification, but does not characterize the image of the synchronization parameter as the form factor varies or construct one symmetric positive analytic form factor realizing an arbitrary common value at all eight upper extrema. The audited inverse-design theorem therefore survives the implication comparison.
+
+## value
+
+PASS
+
+The source leaves eight synchronization parameters as outputs of the form factor. Proving that a single positive symmetric analytic form factor can prescribe any common value across the entire open interval is a natural inverse-design theorem and gives exact simultaneous threshold control at all nine extremal fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

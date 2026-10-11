@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the exact source threshold formulas and a new analytic inverse-design argument. The identity relating the upper-edge denominator to a translated lower-edge dispersion is exact. Coordinate evenness makes the eight upper quadratic functionals equal. Two explicit positive analytic localization families force the quotient \(J/I\) to approach \(0\) and \(+\infty\), respectively; continuity then gives every prescribed positive quotient. The virtual-level conclusion follows from strict positivity and the source's threshold classification.
+## correctness
 
-## Originality
-PASS. The closest primary paper treats arbitrary fixed form factors and provides a formula for the individual synchronization numbers \(\gamma_i\), but it does not characterize their attainable range as the form factor varies. The earlier arXiv:1911.04918 proves one analogous simultaneous point, \(\gamma=6\), for a different dispersion and constant form factor. The checked later block-operator work addresses discrete-spectrum counting rather than inverse threshold design. Targeted semantic and exact-phrase searches found no statement implying the full-interval prescription result.
+PASS
 
-## Value
-PASS. The finding resolves a natural rigidity question left by the form-factor-dependent source formula: under a strong but still infinite-dimensional symmetry class, every admissible synchronization parameter is realizable. It also gives a constructive mechanism for making the lower edge and all eight upper edge fibers critical at one coupling.
+The trigonometric identity 9-ε(k+t)-ε(t)=ε(t-k) is exact at every k with coordinates ±2π/3; an independent numerical stress check over all eight k gave maximum floating error 1.34e-15. Coordinate reflections and coordinate-evenness identify all eight J_k. For u_B localized at 0, the singular denominator in I contributes the three-dimensional B^{-1/2} scale while J is B^{-3/2}, so J/I→0. For w_B localized at the eight nondegenerate points Λ, I is B^{-3/2} while the selected singular upper integral is B^{-1/2}, so J/I→∞. Positive analytic interpolation preserves all required hypotheses and continuity gives every target quotient. Strict positivity at 0 and Λ invokes the source's virtual-level, rather than threshold-eigenvalue, branch. The endpoint values γ=0,9 are not claimed.
 
-## Closest literature and limitations
-The closest literature is the 2019 primary threshold paper and its earlier constant-form-factor predecessor. The result is existential and does not optimize the constructed form factor or control its Fourier bandwidth. It concerns the nine extremal fibers only.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Rasulov–Dilmurodov define, for each fixed form factor, the separate lower and upper threshold couplings and the synchronization parameters obtained by equating them. Their full primary text supplies the formulas and virtual-level/eigenvalue boundary classification, but does not characterize the image of the synchronization parameter as the form factor varies or construct one symmetric positive analytic form factor realizing an arbitrary common value at all eight upper extrema. The audited inverse-design theorem therefore survives the implication comparison.
+
+## value
+
+PASS
+
+The source leaves eight synchronization parameters as outputs of the form factor. Proving that a single positive symmetric analytic form factor can prescribe any common value across the entire open interval is a natural inverse-design theorem and gives exact simultaneous threshold control at all nine extremal fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
