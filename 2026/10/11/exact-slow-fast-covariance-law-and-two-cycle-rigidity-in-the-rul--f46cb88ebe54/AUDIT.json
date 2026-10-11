@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Stationarity of the slow increment gives the exact mean \\(\\mathbb E[x]=\\sigma-1\\). Stationarity of \\(y^2\\) gives \\(\\operatorname{Cov}(x,y)=(\\mu/2)\\operatorname{Var}(x)\\) with no use of the piecewise fast-map formula. Positive semidefiniteness of the covariance matrix yields the variance bound. Equality in Cauchy–Schwarz gives the affine slow–fast relation; combining it with the slow update at the image point forces reflection about \\(x=\\sigma-1\\), hence period dividing two. The packaged checker verifies all moment and parameter algebra exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2002 source develops the fast–slow map and regimes of silence, spiking, periodic bursting, and chaotic bursting.",
+        "The 2003 same-map paper develops fixed-point, Hopf, canard, and homoclinic mechanisms for chaos.",
+        "The 2022 open study maps periodic and chaotic phases using Lyapunov exponents and isospike/periodicity diagrams."
+      ],
+      "reasoning": "Bifurcation and orbit-geometry results do not determine the exact covariance of every invariant probability measure; the accepted theorem quantifies all compact stationary regimes at once.",
+      "searches": [
+        "Modeling of Spiking-Bursting Neural Behavior Using Two-Dimensional Map Rulkov",
+        "Origin of chaos in a two-dimensional map modeling spiking-bursting neural activity",
+        "Distribution of spiking and bursting in Rulkov neuron model"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:nlin/0201006",
+      "doi:10.1103/PhysRevE.65.041922",
+      "doi:10.1142/S0218127403008521",
+      "doi:10.1140/epjs/s11734-021-00413-5",
+      "doi:10.3390/math11030597"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source statement \\(x_s=-1+\\sigma\\) identifies where instantaneous slow drift vanishes; it does not imply the covariance law without a stationary second-moment argument.",
+        "The 2003 chaos mechanisms classify local/global orbit geometry rather than all invariant measures.",
+        "The 2022 parameter diagrams distinguish periodic and chaotic phases but do not provide an exact second-order stationary constraint."
+      ],
+      "reasoning": "The accepted claim is not a special case of a prior bifurcation theorem: its universal quantifier ranges over every compact invariant measure, and its equality case converts a covariance determinant into a period-two dynamical obstruction.",
+      "searches": [
+        "Rulkov map mean fast variable sigma minus one invariant measure covariance",
+        "Rulkov slow-fast variance inequality covariance period two rigidity",
+        "Rulkov map stationary statistics slow fast variables"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The covariance identity is equivalently the stationarity equation for the second moment of the slow coordinate.",
+        "The variance inequality is equivalently nonnegativity of the determinant of the stationary covariance matrix.",
+        "Equality is equivalently an affine slow–fast relation together with reflection of the fast coordinate about its stationary mean."
+      ],
+      "reasoning": "Searches covered mean/nullcline language, covariance, covariance determinant, slow increment, variance inequality, affine equality, reflection, and period-two rigidity.",
+      "searches": [
+        "Rulkov map mean fast variable sigma minus one invariant measure covariance",
+        "Rulkov map Cov(x,y)=mu Var(x)/2 stationary",
+        "Rulkov slow-fast variance inequality covariance period two rigidity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked semantic-index result with the Rulkov map as object states the exact covariance coefficient or equality rigidity.",
+        "The closest covariance and variance records concern distinct systems.",
+        "Recoverable claims in both the current-week and previous completed-week ledgers contain no Rulkov finding."
+      ],
+      "reasoning": "The database search used the exact object name together with invariant measure, mean, covariance, slow-fast statistics, variance inequality, and two-cycle rigidity; database absence is supporting evidence rather than a novelty proof.",
+      "searches": [
+        "Rulkov map invariant measure stationary mean covariance",
+        "Rulkov neuron map exact average x sigma covariance y",
+        "Rulkov map stationary statistics slow fast variables",
+        "Rulkov map mean fast variable sigma minus one invariant measure covariance",
+        "Rulkov map Cov(x,y)=mu Var(x)/2 stationary",
+        "Rulkov slow-fast variance inequality covariance period two rigidity"
+      ]
+    },
+    "rationale": "The original full-text source states the instantaneous slow-nullcline level and studies spiking/bursting regimes, but does not formulate stationary covariance or variance. The complete classical chaos analysis focuses on fixed points, Hopf bifurcation, canards, homoclinic structure, and chaos, with targeted full-text searches finding no covariance, variance, or invariant-measure theorem. A modern full open parameter study focuses on periodicity and Lyapunov diagrams and likewise contains no covariance or variance formulation. Direct semantic-index searches for the exact mean, covariance coefficient, variance inequality, and period-two equality rigidity returned no same-object result.",
+    "residual_risks": [
+      "The covariance proof is short enough that an equivalent identity could appear incidentally in unindexed neuron-map literature.",
+      "The 2003 author-hosted PDF was text-readable but its page-image rendering was unavailable in the checked route.",
+      "The later classification source treats a coupled Rulkov-neuron ring rather than the isolated map and is used only for MSC verification.",
+      "No novelty is claimed for the Rulkov equations, slow-nullcline level, spiking/bursting regimes, Hopf/canard mechanisms, or known chaotic parameter regions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the exact slow update and the pointwise zero-drift level but not the stationary covariance theorem.",
+        "evidence": "The source writes \\(y_{n+1}=y_n-\\mu(x_n+1)+\\mu\\sigma\\), identifies \\(x_s=-1+\\sigma\\), and reports periodic and chaotic spiking-bursting regimes; targeted searches found no covariance or variance formulation.",
+        "identifier_or_url": "arxiv:nlin/0201006",
+        "material_read": "Full arXiv text including the defining equations, piecewise fast map, slow-nullcline level, spiking and bursting regimes, and chaotic examples.",
+        "method": "Full-text statement and implication comparison with targeted covariance/variance searches.",
+        "title": "Modeling of Spiking-Bursting Neural Behavior Using Two-Dimensional Map",
+        "trigger": "Foundational full-text source and earliest verified public date."
+      },
+      {
+        "assessment": "The paper explains chaos formation but does not supply the accepted invariant-measure covariance or equality-rigidity theorem.",
+        "evidence": "Full-text searches found no matches for covariance, variance, or invariant measure; the article explicitly gives the same slow equation and chaotic parameter examples.",
+        "identifier_or_url": "doi:10.1142/S0218127403008521",
+        "material_read": "Complete author-hosted PDF text covering the map definition, fixed point, subcritical Andronov–Hopf bifurcation, canards, homoclinic geometry, and chaotic spiking-bursting mechanisms.",
+        "method": "Full-document statement/implication comparison and targeted term searches; page-image rendering was unavailable in the checked route.",
+        "title": "Origin of Chaos in a Two-Dimensional Map Modeling Spiking-Bursting Neural Activity",
+        "trigger": "Strongest classical same-map chaos analysis."
+      },
+      {
+        "assessment": "The study quantifies periodicity organization and chaos regions, not exact stationary second moments.",
+        "evidence": "Full-text searches found no covariance or variance formulation.",
+        "identifier_or_url": "doi:10.1140/epjs/s11734-021-00413-5",
+        "material_read": "Full open HTML including the exact model, Lyapunov diagrams, periodicity diagrams, isospike analysis, and parameter-plane results.",
+        "method": "Full-text statement/implication comparison with targeted covariance and variance searches.",
+        "title": "Distribution of spiking and bursting in Rulkov’s neuron model",
+        "trigger": "Modern full open same-object parameter study that could plausibly contain stationary statistics."
+      },
+      {
+        "assessment": "Used only to verify primary MSC ownership, not to support originality or correctness.",
+        "evidence": "The article lists MSC 37D45 first, followed by 37E10, 37H20, and 37M10.",
+        "identifier_or_url": "doi:10.3390/math11030597",
+        "material_read": "Publisher article metadata, abstract, and classification block.",
+        "method": "Classification check only.",
+        "title": "Coexisting Attractors and Multistate Noise-Induced Intermittency in a Cycle Ring of Rulkov Neurons",
+        "trigger": "Dynamical-systems classification support for Rulkov-neuron dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f46cb88e-be54-4402-8e4a-4b64d014b420",
+  "value": {
+    "rationale": "The Rulkov model is built around a slow feedback variable driven by the fast membrane-potential coordinate, so the slow–fast covariance is a natural structural statistic rather than an arbitrary moment. The theorem shows that this covariance is not free: every compact stationary regime, from tonic spiking to chaotic bursting, has the same exact proportionality between covariance and fast variance. The determinant bound gives a parameter-scaled lower limit on slow-variable fluctuations, while equality has a sharp dynamical meaning—period at most two—so higher-period and chaotic regimes must lie strictly above it. This supplies a simple exact consistency test for simulated invariant statistics and separates minimal cycles from genuine bursting dynamics without relying on a local bifurcation approximation.",
+    "status": "PASS"
+  }
+}
