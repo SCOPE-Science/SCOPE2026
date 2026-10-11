@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:42:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ca72891e5cd4fb377a9c3dd6042cad32841fb74b",
+        "assigned artifacts/verify.py blob 1c963292082050ddf8d8f0a0106db96eb1202eca",
+        "Cheraghpour--Ghosseiri--Jafari--Seyfpour, On Commuting graphs of triangular rings, arXiv:2402.12619"
+      ],
+      "rationale": "Direct multiplication gives commutation exactly when the determinant of \\(\\rho(A)=(a-c,b)\\) and \\(\\rho(B)\\) vanishes. Each nonzero \\(\\rho\\)-fiber is a clique, so the problem reduces to the largest set of nonzero vectors with pairwise nonzero determinants. Every nonzero vector is a scalar multiple of a unimodular vector after Chinese-remainder decomposition; hence each chosen vector can be assigned a projective line, and two determinant-independent vectors cannot share one. Conversely, unimodular generators of distinct projective points have nonzero determinant, since a basis change sends one to \\((1,0)\\). Thus the maximum is \\(|\\mathbb P^1(\\mathbb Z/n\\mathbb Z)|\\), whose standard unimodular-vector count is Dedekind's psi function. The inspected verifier independently checks projective geometry through n=40, the matrix criterion through n=10, and exact branch-and-bound optima through n=6.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest same-object prior result covers finite fields and graph diameter over nonfields but does not supply the correct composite-modulus independence number.",
+          "No stronger later published Resultary theorem with the projective-line formula was found."
+        ],
+        "reasoning": "The prior finite-field theorem is a boundary case; it does not dominate rings with zero divisors.",
+        "searches": [
+          "arXiv:2402.12619 full relevant sections",
+          "Resultary published commuting/noncommuting graph search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.12619",
+        "Resultary semantic search",
+        "standard projective-line cardinality identity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published/proposed expression is not merely weaker; it is contradicted by the n=4 exact determinant packing.",
+          "Knowing |P^1(Z/nZ)| alone does not imply it is the commuting-graph independence number without both the upper injection and lower construction."
+        ],
+        "reasoning": "The audited theorem answers/corrects the source question rather than following from its stated results.",
+        "searches": [
+          "arXiv:2402.12619 proposed formula versus determinant reduction",
+          "standard projective-line cardinality over Z/nZ"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source asks for the composite-modulus independence number and proposes a different expression.",
+          "The source's finite-field value q+1 agrees with psi(p), while the proposed composite expression gives 48 at n=4 versus the audited exact value 6."
+        ],
+        "reasoning": "Equivalent formulations as a determinant graph on nonzero residue vectors, a projective-line packing, and the commuting-graph independence number were compared.",
+        "searches": [
+          "Resultary query: commuting graph upper triangular matrices Z_n independence number Dedekind psi projective line",
+          "arXiv:2402.12619, independence-number theorem/question and finite-field theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finding was the direct exact hit; no earlier table or database entry for this graph invariant appeared in the bounded results."
+        ],
+        "reasoning": "The standard cardinality of the projective line is known, but its role as this independence number is the nontrivial object-specific assertion.",
+        "searches": [
+          "Resultary exact psi/projective-line formula search"
+        ]
+      },
+      "rationale": "The 2024 primary source explicitly poses the independence-number problem over \\(\\mathbb Z/n\\mathbb Z\\) and proposes \\(n\\varphi(n)(2n-\\varphi(n))\\). Its nearby prime-power claim yields the same incompatible value at \\(n=4\\). The audited determinant/projective-line argument therefore does not restate prior coverage; it corrects a published/proposed composite-modulus formula while agreeing with the source's finite-field boundary. A dedicated Resultary search returned the assigned record as the only direct exact match.",
+      "residual_risks": [
+        "A later correction to the 2024 paper may exist outside the indexes searched; none was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_POSES_OR_MISSTATES_THE_COMPOSITE_PROBLEM",
+          "evidence": "The paper gives q+1 over finite fields but proposes a different composite-modulus formula, which the n=4 audited calculation disproves.",
+          "identifier_or_url": "arXiv:2402.12619",
+          "material_read": "Primary PDF sections containing the finite-field independence theorem, the prime-power/composite discussion, and the final independence-number question/proposed formula.",
+          "method": "Open-access full-PDF inspection with the relevant question page visually checked.",
+          "title": "On Commuting graphs of triangular rings",
+          "trigger": "Exact source paper for commuting graphs of 2 by 2 triangular residue rings and the stated independence-number question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cheraghpour et al. arXiv:2402.12619",
+        "assigned exact verifier"
+      ],
+      "rationale": "The result gives a uniform exact solution to a concrete published problem, identifies the governing projective geometry, and corrects a proposed formula that fails already at the smallest nonfield example. It is an all-modulus theorem with a natural invariant, not a small numerical counterexample.",
+      "residual_risks": [
+        "Higher triangular dimensions require genuinely different coupled commutator equations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every \\(n\\ge2\\), the commuting graph on noncentral matrices in \\(\\operatorname{Tr}_2(\\mathbb Z/n\\mathbb Z)\\) has independence number \\(\\psi(n)=n\\prod_{p\\mid n}(1+1/p)=|\\mathbb P^1(\\mathbb Z/n\\mathbb Z)|\\). In particular, the proposed value in the 2024 source is false for composite moduli; at \\(n=4\\) the exact value is \\(6\\), not \\(48\\).",
+  "limitations": [
+    "Only 2 by 2 upper triangular matrices over \\(\\mathbb Z/n\\mathbb Z\\) are covered.",
+    "The theorem determines the independence number but does not classify all maximum independent sets up to automorphism."
+  ],
+  "schema_version": 1
+}

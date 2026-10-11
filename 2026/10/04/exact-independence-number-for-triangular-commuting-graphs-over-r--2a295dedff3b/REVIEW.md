@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Matrix commutation is exactly determinant zero after quotienting by scalar translations. Fibers of this quotient are cliques, so independence becomes a pairwise nonzero-determinant problem. Every nonzero vector lies on a unimodular projective line by local prime-power factorization and the Chinese remainder theorem, yielding the upper bound. Distinct unimodular projective lines have nonzero determinant, yielding the lower bound. Counting unimodular vectors modulo unit scaling gives Dedekind's psi function. The packaged replay verifies the structural proof for \(2\le n\le40\) and exact reduced maxima for \(2\le n\le6\).
+## correctness
 
-## Originality
-PASS. The 2024 primary source explicitly poses the general independence-number question and proposes a different formula. Its finite-field theorem covers the prime boundary but not composite moduli. Searches across the original graph formulation, the determinant formulation, projective-line terminology, the source identifier, and Dedekind psi did not locate an equivalent solution. The standard projective-line count is prior work; the novelty claim is its exact extremal role here, including the nonprimitive-vector upper bound. A later or differently indexed solution remains a bibliographic risk.
+PASS
 
-## Value
-PASS. The theorem completely answers a stated problem for all moduli and replaces the proposed expression with a clean arithmetic invariant. The projective-line interpretation explains the answer structurally and gives a reusable reduction from triangular-matrix commutation to modular determinant geometry.
+Direct multiplication gives commutation exactly when the determinant of \(\rho(A)=(a-c,b)\) and \(\rho(B)\) vanishes. Each nonzero \(\rho\)-fiber is a clique, so the problem reduces to the largest set of nonzero vectors with pairwise nonzero determinants. Every nonzero vector is a scalar multiple of a unimodular vector after Chinese-remainder decomposition; hence each chosen vector can be assigned a projective line, and two determinant-independent vectors cannot share one. Conversely, unimodular generators of distinct projective points have nonzero determinant, since a basis change sends one to \((1,0)\). Thus the maximum is \(|\mathbb P^1(\mathbb Z/n\mathbb Z)|\), whose standard unimodular-vector count is Dedekind's psi function. The inspected verifier independently checks projective geometry through n=40, the matrix criterion through n=10, and exact branch-and-bound optima through n=6.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2024 primary source explicitly poses the independence-number problem over \(\mathbb Z/n\mathbb Z\) and proposes \(n\varphi(n)(2n-\varphi(n))\). Its nearby prime-power claim yields the same incompatible value at \(n=4\). The audited determinant/projective-line argument therefore does not restate prior coverage; it corrects a published/proposed composite-modulus formula while agreeing with the source's finite-field boundary. A dedicated Resultary search returned the assigned record as the only direct exact match.
+
+## value
+
+PASS
+
+The result gives a uniform exact solution to a concrete published problem, identifies the governing projective geometry, and corrects a proposed formula that fails already at the smallest nonfield example. It is an all-modulus theorem with a natural invariant, not a small numerical counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
