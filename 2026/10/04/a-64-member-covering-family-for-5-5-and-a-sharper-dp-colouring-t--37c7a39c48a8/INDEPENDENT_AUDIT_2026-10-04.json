@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:19:58.249466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual certificate contains \\(64\\) distinct five-tuples of permutations of \\([5]\\). I independently replayed all \\(5^5=3125\\) input tuples: every coordinate entry is a genuine permutation, every input is covered at least once, and the coverage multiplicities range from \\(1\\) to \\(8\\). Hence \\(\\kappa(5)\\le64\\). The primary Kaul–Mudrock–Psyhogios–Sharma–Siutkin–Upadhyay theorem gives \\(\\mu(\\ell)=\\kappa(\\ell)\\), so \\(\\mu(5)\\le64\\) and the stated DP-colouring threshold follows.",
+      "risks": [
+        "The certificate proves only an upper bound; no optimality claim is justified."
+      ],
+      "sources": [
+        "assigned RESULT.md blob b2305e02bbc6f7cdf1722b16dbeb1a371a3b2454",
+        "covering_family_5.json blob 773112833e6f21eba01ec6edf66a480fcd936fb6",
+        "verify_covering_family.py blob 03e425678a963c0a72a8bc21771ea697ba288ea5",
+        "Kaul et al., arXiv:2609.33966, Theorem 7"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The newer primary theorem gives the exact reduction but only a \\(134\\) construction at \\(\\ell=5\\); older DP-colouring bounds are weaker."
+        ],
+        "reasoning": "The prior general framework does not imply existence of a \\(64\\)-member family without the explicit new construction.",
+        "searches": [
+          "Kaul et al. full primary text",
+          "Mudrock 2018 complete-bipartite DP-colouring bound"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33966",
+        "Mudrock arXiv:1803.09141 / DOI 10.1016/j.disc.2018.08.003",
+        "current Resultary covering-family search",
+        "assigned certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7 transfers any covering family to the DP threshold but does not construct a family of size \\(64\\)."
+        ],
+        "reasoning": "Only the transfer is prior; the smaller finite construction is not a corollary of the previous \\(134\\)-member family.",
+        "searches": [
+          "claim-versus-Theorem 7 and the published \\(\\ell=5\\) bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kaul et al. list \\(28\\le\\mu(5)\\le134\\) and leave the exact value open.",
+          "The audited certificate supplies a concrete family of size \\(64\\)."
+        ],
+        "reasoning": "The covering-family and complete-bipartite DP-colouring formulations are equivalent by the published theorem, so both were searched.",
+        "searches": [
+          "Resultary: covering family \\([5]^5\\) 64 \\(\\kappa(5)\\) \\(\\mu(5)\\)",
+          "web: \\(\\mu(5)\\) 64 DP coloring",
+          "Kaul et al. arXiv:2609.33966"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published table's upper bound is \\(134\\), not \\(64\\)."
+        ],
+        "reasoning": "The certificate changes the known parameter interval rather than recomputing a known table entry.",
+        "searches": [
+          "Kaul et al. table for \\(\\mu(5)\\)",
+          "current Resultary exact-parameter search"
+        ]
+      },
+      "rationale": "The primary 2026 paper introduces the covering-family formulation, proves \\(\\mu(\\ell)=\\kappa(\\ell)\\), records \\(\\mu(5)\\) as unknown, and gives the then-current upper bound \\(134\\). The audited explicit family lowers that bound to \\(64\\). Current Resultary and web searches found no stronger published \\(\\mu(5)\\) or \\(\\kappa(5)\\) upper bound.",
+      "residual_risks": [
+        "Because the subject is very recent, a concurrent unindexed construction could improve the same bound; none was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the \\(64\\)-member construction.",
+          "evidence": "The paper records the upper bound \\(134\\) for \\(\\mu(5)\\) and leaves the exact value open.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33966",
+          "material_read": "Full relevant primary text, including Theorem 7 and the table/bounds for \\(\\ell=5\\).",
+          "method": "Primary theorem and parameter comparison.",
+          "title": "Covering Families for DP-Coloring of Cartesian Products with Complete Bipartite Graphs",
+          "trigger": "Primary source defining \\(\\kappa\\), proving \\(\\mu=\\kappa\\), and giving the prior \\(\\ell=5\\) interval."
+        },
+        {
+          "assessment": "Valid covering family.",
+          "evidence": "All \\(3125\\) points are covered; family size is \\(64\\), with minimum coverage \\(1\\) and maximum \\(8\\).",
+          "identifier_or_url": "covering_family_5.json",
+          "material_read": "Complete certificate.",
+          "method": "Independent exhaustive replay of all \\(3125\\) points.",
+          "title": "Assigned 64-member covering certificate",
+          "trigger": "Core finite construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact parameter \\(\\mu(5)\\) is explicitly open in the initiating paper. Cutting the published upper bound from \\(134\\) to \\(64\\) with a fully replayable construction is a substantial finite improvement and immediately sharpens the complete-bipartite DP-colouring threshold.",
+      "risks": [
+        "The lower bound \\(28\\) is unchanged, so the exact parameter remains open."
+      ],
+      "sources": [
+        "Kaul et al. open \\(\\ell=5\\) interval",
+        "exact 64-member certificate"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only an upper-bound improvement is proved.",
+    "No optimality claim for the 64-member family.",
+    "The lower bound remains \\(28\\)."
+  ],
+  "schema_version": 1
+}

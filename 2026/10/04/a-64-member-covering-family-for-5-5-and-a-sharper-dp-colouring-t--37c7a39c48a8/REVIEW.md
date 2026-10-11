@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The final claim separates the finite certificate statement from its literature-dependent consequence. The included certificate contains exactly 64 distinct elements of \(S_5^5\). The deterministic verifier checks permutation validity and evaluates every one of the \(5^5=3125\) input tuples, finding minimum coverage multiplicity 1. This proves \(\kappa(5)\le64\). The implication \(\mu(5)\le64\) then follows from the published identity \(\mu(\ell)=\kappa(\ell)\). No finite experiment is used to claim optimality or exactness.
+## correctness
 
-## Originality
-**PASS.** The initiating full text was checked at the definition of covering families, the theorem \(\mu(\ell)=\kappa(\ell)\), the lower-bound theorem, the upper-bound theorem, and the table of small values. It records the exact value \(\mu(5)\) as unknown and gives upper bound 134, so it does not cover the 64-member certificate. The earlier complete-bipartite DP-colouring paper supplies a weaker general upper bound. Searches using covering-family, permutation-family, DP-colouring threshold, complete-bipartite, and \(\mu(5)\)/\(\kappa(5)\) formulations found no statement implying the bound 64. The remaining risk is an unindexed equivalent construction under different terminology.
+PASS
 
-## Value
-**PASS.** The source identifies \(\mu(5)\) as the first unresolved small case after \(\mu(4)=12\). Lowering the published upper bound from 134 to 64 is a substantial improvement to that natural finite extremal parameter, and the witness is compact enough for complete deterministic replay.
+The actual certificate contains \(64\) distinct five-tuples of permutations of \([5]\). I independently replayed all \(5^5=3125\) input tuples: every coordinate entry is a genuine permutation, every input is covered at least once, and the coverage multiplicities range from \(1\) to \(8\). Hence \(\kappa(5)\le64\). The primary Kaul–Mudrock–Psyhogios–Sharma–Siutkin–Upadhyay theorem gives \(\mu(\ell)=\kappa(\ell)\), so \(\mu(5)\le64\) and the stated DP-colouring threshold follows.
 
-## Closest literature and limitations
-Kaul et al. establish the exact covering-family equivalence and the prior bracket but leave \(\mu(5)\) unresolved. Mudrock's earlier complete-bipartite theorem is broader in \(k\) but quantitatively weaker at \(k=5\). The present claim provides no new lower bound and no proof that 64 is optimal.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2026 paper introduces the covering-family formulation, proves \(\mu(\ell)=\kappa(\ell)\), records \(\mu(5)\) as unknown, and gives the then-current upper bound \(134\). The audited explicit family lowers that bound to \(64\). Current Resultary and web searches found no stronger published \(\mu(5)\) or \(\kappa(5)\) upper bound.
+
+## value
+
+PASS
+
+The exact parameter \(\mu(5)\) is explicitly open in the initiating paper. Cutting the published upper bound from \(134\) to \(64\) with a fully replayable construction is a substantial finite improvement and immediately sharpens the complete-bipartite DP-colouring threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The certificate `covering_family_5.json` is finite and self-contained. The script `verify_covering_family.py` uses only the Python standard library and performs the following checks:
+# Independent mathematical audit
 
-1. the parameter is \(\ell=5\);
-2. the family has exactly 64 distinct members;
-3. each member contains five genuine permutations of \([5]\);
-4. every one of the \(5^5=3125\) tuples in \([5]^5\) is covered in the required pairwise-distinct-image sense.
+## correctness
 
-The finalized replay output is:
+PASS
 
-`ALL CHECKS PASSED; family_size=64; tuples=3125; minimum_coverage=1; maximum_coverage=8`
+The actual certificate contains \(64\) distinct five-tuples of permutations of \([5]\). I independently replayed all \(5^5=3125\) input tuples: every coordinate entry is a genuine permutation, every input is covered at least once, and the coverage multiplicities range from \(1\) to \(8\). Hence \(\kappa(5)\le64\). The primary Kaul–Mudrock–Psyhogios–Sharma–Siutkin–Upadhyay theorem gives \(\mu(\ell)=\kappa(\ell)\), so \(\mu(5)\le64\) and the stated DP-colouring threshold follows.
 
-This exhausts the finite certificate domain. It does not prove that 64 is optimal, and no such claim is made. The consequence for \(\mu(5)\) additionally uses the published theorem \(\mu(\ell)=\kappa(\ell)\) from arXiv:2609.33966v1.
+## originality
+
+PASS
+
+The primary 2026 paper introduces the covering-family formulation, proves \(\mu(\ell)=\kappa(\ell)\), records \(\mu(5)\) as unknown, and gives the then-current upper bound \(134\). The audited explicit family lowers that bound to \(64\). Current Resultary and web searches found no stronger published \(\mu(5)\) or \(\kappa(5)\) upper bound.
+
+## value
+
+PASS
+
+The exact parameter \(\mu(5)\) is explicitly open in the initiating paper. Cutting the published upper bound from \(134\) to \(64\) with a fully replayable construction is a substantial finite improvement and immediately sharpens the complete-bipartite DP-colouring threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
