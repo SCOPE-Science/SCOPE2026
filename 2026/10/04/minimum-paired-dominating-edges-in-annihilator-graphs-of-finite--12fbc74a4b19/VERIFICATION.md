@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-The theorem was checked at both the ring-operation and support-combinatorics levels.
+# Independent mathematical audit
 
-1. **Direct annihilator computation.** For nine products of prime fields, the checker enumerates every ring element, identifies every nonzero zero-divisor, computes \(\operatorname{ann}(x)\), \(\operatorname{ann}(y)\), and \(\operatorname{ann}(xy)\) directly, and constructs the graph from Badawi’s defining inequality.
+## correctness
 
-2. **Minimum-witness classification.** Every vertex pair is tested for adjacency and domination. The successful pairs are checked to have disjoint supports whose union is the full coordinate set, and every complementary-support pair is checked to succeed.
+PASS
 
-3. **Exact enumeration.** For every tested ring profile, the number of successful pairs is compared with
-\[
-(2^{r-1}-1)\prod_{i=1}^r(q_i-1).
-\]
+Coordinatewise multiplication makes \(\operatorname{ann}(x)\) depend only on the complement of \(\operatorname{supp}(x)\), and Badawi adjacency is exactly incomparability of supports. A total-dominating two-set must itself be an edge. If its supports intersect, the intersection-support vertex is comparable with both and undominated; if their union is proper, the union-support vertex is undominated. Thus the supports are complementary. Conversely, any proper nonempty support must be incomparable with at least one side of a complementary bipartition, proving domination. Counting unordered support bipartitions and the vertices in each support class gives the formula. The finite checker is corroborative only.
 
-4. **Support-level exhaustion.** Independently of any ring arithmetic, every pair of nonempty proper subsets is checked for the required incomparability/domination property for \(2\le r\le7\). Exactly the complementary pairs survive, with count \(2^{r-1}-1\).
+## originality
 
-Exact output:
+PASS
 
-```text
-VERIFY_OK
-direct_ring_profiles=9
-largest_direct_ring_order=30
-support_levels_r=2..7
-complementary_support_classification=passed
-minimum_pair_count_formula=passed
-```
+The same-object literature defines annihilator graphs and gives coarse ordinary domination information, but no inspected source classifies minimum total or paired dominating sets in finite products of fields or counts them. Resultary returns several closely analogous domination theorems for different ring-associated graphs, which were treated as different objects rather than conflated. The complementary-support classification is therefore best-of-knowledge original.
 
-The calculations are corroborative. The general proof uses exact annihilator identities in a product of arbitrary finite fields and does not infer an infinite theorem from the finite tests.
+## value
+
+PASS
+
+The result upgrades a coarse ordinary domination invariant to a complete structural and enumerative theorem for the canonical reduced finite-ring family, retaining explicit information about every residue-field order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

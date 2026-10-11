@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In a product of fields, an annihilator is determined by the complementary coordinate support, so two vertices are adjacent exactly when their supports are incomparable. Any total-dominating pair must be an edge. A nonempty support intersection produces an undominated intersection-support vertex, and a proper support union produces an undominated union-support vertex; therefore a dominating edge has complementary supports. Conversely, complementary supports dominate every proper nonempty support. The count follows because each complementary support bipartition contributes exactly \(\prod_i(q_i-1)\) vertex pairs.
+PASS
 
-Risk: the executable checks only finite samples; the arbitrary-field and arbitrary-factor statement rests on the symbolic support argument.
+Coordinatewise multiplication makes \(\operatorname{ann}(x)\) depend only on the complement of \(\operatorname{supp}(x)\), and Badawi adjacency is exactly incomparability of supports. A total-dominating two-set must itself be an edge. If its supports intersect, the intersection-support vertex is comparable with both and undominated; if their union is proper, the union-support vertex is undominated. Thus the supports are complementary. Conversely, any proper nonempty support must be incomparable with at least one side of a complementary bipartition, proving domination. Counting unordered support bipartitions and the vertices in each support class gives the formula. The finite checker is corroborative only.
 
-## Originality
+## originality
 
-PASS. The closest finite-annihilator-graph paper establishes only that the ordinary domination number is in \(\{1,2\}\), while the foundational paper studies structural properties such as equality with the zero-divisor graph, girth, and completeness. Searches for total domination, paired domination, dominating pairs, and domination-polynomial formulations in the annihilator-graph setting did not locate the complementary-support classification or its exact count. The theorem is not implied by the ordinary domination number because a two-vertex dominating set need not be adjacent, whereas total and paired domination require internal adjacency; the enumeration additionally classifies all minimum witnesses.
+PASS
 
-Risk: an unindexed short note could contain the same complementary-support observation under different graph terminology.
+The same-object literature defines annihilator graphs and gives coarse ordinary domination information, but no inspected source classifies minimum total or paired dominating sets in finite products of fields or counts them. Resultary returns several closely analogous domination theorems for different ring-associated graphs, which were treated as different objects rather than conflated. The complementary-support classification is therefore best-of-knowledge original.
 
-## Value
+## value
 
-PASS. The theorem upgrades a coarse minimum-cardinality statement to a complete structural and enumerative classification on the canonical reduced finite-ring family. The number of minimum strengthened dominating sets records the full product \(\prod_i(q_i-1)\) and the number of field factors through the factor \(2^{r-1}-1\), giving substantially more information than the ordinary domination value alone.
+PASS
 
-Risk: the count does not determine the individual field orders by itself and is not a complete domination polynomial.
+The result upgrades a coarse ordinary domination invariant to a complete structural and enumerative theorem for the canonical reduced finite-ring family, retaining explicit information about every residue-field order.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
