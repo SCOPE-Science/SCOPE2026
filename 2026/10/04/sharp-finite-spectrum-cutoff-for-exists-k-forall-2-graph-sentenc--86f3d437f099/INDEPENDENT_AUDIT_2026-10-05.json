@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:01:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 907e9786cc05e76dd12958a46a2fce46bd36932c",
+        "assigned verify.py blob 9b9934ba05fe9c7fe5da48821314e9823e3fe8bb",
+        "Pikhurko--Verbitsky arXiv:1003.4865, Theorem 7.7"
+      ],
+      "rationale": "Fix a witnessing tuple and let \\(U\\) be its set of distinct values, \\(|U|=u\\le k\\). If a model has more than \\(k+2^k\\) vertices then more than \\(2^u\\) vertices lie outside \\(U\\), so two have the same adjacency vector to \\(U\\). In the induced graph on \\(U\\) plus those two vertices they are twins over the witnesses. Replacing the twin pair by any \\(t\\ge2\\) clones preserves every atomic \\((y,z)\\)-type over the witnesses: same-clone assignments realize the old diagonal type and distinct-clone assignments realize the old twin-pair type. Hence every order \\(n\\ge k+2\\) is obtained. The sharp sentence enforces distinct witnesses and distinct witness-neighbourhood bit vectors on outsiders, giving exactly \\(2^k\\) outsider slots and realizing every size through the endpoint. The \\(k=0\\) case is correctly separated. The bundled checker verifies the finite profile and clone-type table but the proof is symbolic.",
+      "residual_risks": [
+        "The numerical cutoff is graph-vocabulary specific and does not directly extend to richer relational languages or three universal variables."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem establishes finite/cofinite behavior but leaves a nonsharp Ramsey-size bound.",
+          "The later two-variable-universal work studies added transitive closure and does not provide the plain-graph endpoint in the located material."
+        ],
+        "reasoning": "No inspected broader theorem mechanically yields the exact bound and sharpness construction.",
+        "searches": [
+          "Ramsey spectrum theorem as reproduced in arXiv:1003.4865",
+          "Kieroński--Michaliszyn two-universal-variable logic literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1003.4865",
+        "Kieroński--Michaliszyn CSL 2012",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two universal variables a duplicate pair of one-point types suffices; the classical proof asks for a Ramsey-homogeneous \\(\\ell\\)-set and uses a much coarser general Ramsey bound.",
+          "The matching sharp sentence is not supplied by the classical quantitative statement."
+        ],
+        "reasoning": "The exact optimum needs an additional special-case argument.",
+        "searches": [
+          "Ramsey Theorem 7.7 versus the \\(\\ell=2\\) pigeonhole sharpening"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical theorem concerns the same Bernays--Schönfinkel graph spectra and clones homogeneous outside vertices.",
+          "Its printed quantitative bound is \\(2^k4^\\ell\\), not the audited exact \\(\\ell=2\\) endpoint."
+        ],
+        "reasoning": "The audited theorem is a sharpened special case of the same spectrum problem, not a different satisfiability notion.",
+        "searches": [
+          "Resultary query: exists k forall 2 graph spectrum cutoff k plus 2^k Bernays Schonfinkel",
+          "Pikhurko--Verbitsky arXiv:1003.4865 Theorem 7.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact endpoint table or theorem was retrieved."
+        ],
+        "reasoning": "Search absence is corroborative only.",
+        "searches": [
+          "Resultary current search for \\(k+2^k\\) finite-spectrum endpoint and twin/neighborhood formulations"
+        ]
+      },
+      "rationale": "The full Pikhurko--Verbitsky survey was inspected at Ramsey's Bernays--Schönfinkel spectrum theorem and proof. That classical theorem gives the finite/cofinite dichotomy and, using a general Ramsey bound, the much larger threshold \\(2^k4^\\ell\\); for \\(\\ell=2\\) it does not state the exact additive cutoff \\(k+2^k\\). The audited argument replaces the Ramsey step by a sharp pigeonhole duplicate among the \\(2^u\\) one-point witness types and gives an exact extremal sentence. Current Resultary search did not surface an earlier \\(k+2^k\\) endpoint.",
+      "residual_risks": [
+        "Because the sharpening is elementary, an older note or textbook exercise may contain the exact two-universal bound under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL_FINITE_COFINITE_THEOREM_NONSHARP_AT_TWO_UNIVERSALS",
+          "evidence": "Theorem 7.7 states the finite/cofinite dichotomy and the \\(2^k4^\\ell\\) threshold; its proof uses Ramsey-homogeneous outside vertices.",
+          "identifier_or_url": "arXiv:1003.4865",
+          "material_read": "full 57-page PDF at Section 7.3 and Theorem 7.7; theorem/proof page visually inspected",
+          "method": "full-text literature inspection with page-image verification",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "standard source reproducing Ramsey's Bernays--Schönfinkel spectrum theorem with its quantitative bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ramsey/Pikhurko--Verbitsky spectrum theorem",
+        "assigned proof/verifier"
+      ],
+      "rationale": "Exact finite-spectrum endpoints are natural quantitative invariants of a classical decidable prefix class. The theorem replaces a Ramsey-scale bound by the sharp \\(k+2^k\\) cutoff and provides matching sentences for every \\(k\\), so it is a complete exact boundary rather than a minor constant improvement.",
+      "residual_risks": [
+        "The result is special to simple graphs and exactly two universal variables."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The numerical cutoff is graph-vocabulary specific and does not directly extend to richer relational languages or three universal variables.",
+    "Because the sharpening is elementary, an older note or textbook exercise may contain the exact two-universal bound under different terminology.",
+    "The result is special to simple graphs and exactly two universal variables."
+  ]
+}
