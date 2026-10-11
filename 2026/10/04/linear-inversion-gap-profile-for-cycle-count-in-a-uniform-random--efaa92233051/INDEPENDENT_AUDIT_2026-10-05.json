@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:47:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "J. He, T. Müller, T. W. Verstraaten, Cycles in Mallows random permutations, arXiv:2201.11610 / Random Structures & Algorithms 63 (2023); primary full HTML inspected, including the ordinary inversion definition and main cycle-count theorems.",
+        "A. Gladkich, R. Peled, On the Cycle Structure of Mallows Permutations, arXiv:1601.06991 / Annals of Probability 46 (2018); primary abstract/scope inspected.",
+        "R. Parviainen, Cycles and patterns in permutations, arXiv:math/0610616; different standard-cycle-word inversion statistic compared.",
+        "Resultary searches for cycle-count versus ordinary inversion covariance, positional-gap profiles and the Mallows derivative at q=1.",
+        "Assigned RESULT.md and verify_cycle_inversion_covariance.py at the exact frozen tree.",
+        "Fresh independent brute-force recomputation for uniform permutations through n=7."
+      ],
+      "rationale": "Right multiplication by the transposition of i and j swaps the two images, flips the inversion sign, and changes the cycle count by plus or minus one according to whether i and j are in the same cycle. Conditioning on their two images gives the exact same-cycle probabilities 0, 1, or 1/2 in the three completion classes, which yields the gap coefficient. Summation produces the total covariance; the correlation follows from the classical marginal variances, and differentiation of the Mallows exponential family gives the response identity. Fresh exhaustive recomputation through n=7 and the package checker through n=8 agree exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These works are broader in q-regimes and cycle statistics but do not state the finite-n mixed moment at q=1.",
+          "Their theorems do not determine how individual inversion indicators contribute by positional gap."
+        ],
+        "reasoning": "Asymptotic Mallows cycle laws do not imply the exact finite uniform covariance profile.",
+        "searches": [
+          "He–Müller–Verstraaten cycle-count limit laws for fixed q",
+          "Gladkich–Peled cycle-structure asymptotics near q=1"
+        ]
+      },
+      "checked_sources": [
+        "J. He, T. Müller, T. W. Verstraaten, Cycles in Mallows random permutations, arXiv:2201.11610 / Random Structures & Algorithms 63 (2023); primary full HTML inspected, including the ordinary inversion definition and main cycle-count theorems.",
+        "A. Gladkich, R. Peled, On the Cycle Structure of Mallows Permutations, arXiv:1601.06991 / Annals of Probability 46 (2018); primary abstract/scope inspected.",
+        "R. Parviainen, Cycles and patterns in permutations, arXiv:math/0610616; different standard-cycle-word inversion statistic compared.",
+        "Resultary searches for cycle-count versus ordinary inversion covariance, positional-gap profiles and the Mallows derivative at q=1.",
+        "Assigned RESULT.md and verify_cycle_inversion_covariance.py at the exact frozen tree.",
+        "Fresh independent brute-force recomputation for uniform permutations through n=7."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exponential-family identity converts a covariance into a derivative but does not evaluate that covariance.",
+          "Classical marginal variances likewise do not determine the mixed moment.",
+          "The audited involution plus exact same-cycle completion calculation supplies the missing mixed term."
+        ],
+        "reasoning": "No inspected prior theorem mechanically yields either the local or total covariance.",
+        "searches": [
+          "Mallows exponential-family definition",
+          "Classical uniform-permutation cycle and inversion marginals"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary Mallows paper defines the same ordinary inversion number but has no covariance or derivative match in the inspected text.",
+          "No Resultary finding states the local formula depending on j-i."
+        ],
+        "reasoning": "The total covariance and derivative at q=1 are equivalent by exponential-family differentiation, while the local positional-gap formula is strictly finer.",
+        "searches": [
+          "Resultary: uniform permutation cycle count ordinary inversion covariance positional gap",
+          "Searches for Mallows derivative of expected cycle count at q=1",
+          "He–Müller–Verstraaten full-text searches for covariance and derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table or formula was located."
+        ],
+        "reasoning": "The claim is an all-n identity, not an extrapolation from finite enumeration.",
+        "searches": [
+          "Resultary exact searches for -(2n-1)/12 and the local gap coefficient"
+        ]
+      },
+      "rationale": "The Mallows literature studies cycle counts under the same ordinary inversion weighting, but the inspected primary full text contains no covariance or derivative statement and targets fixed nonunit q asymptotics. Parviainen's joint generating functions use an inversion statistic in standardized cycle form, not ordinary one-line inversions. Targeted Resultary searches returned no exact local gap profile or total covariance. The image-swap involution therefore survives best-of-knowledge originality.",
+      "residual_risks": [
+        "Older enumerative permutation literature may encode the same mixed first moment under a different bivariate generating function."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME MODEL, DIFFERENT FINITE MIXED MOMENT",
+          "evidence": "The paper studies fixed-q asymptotic cycle counts rather than the finite-n derivative at q=1.",
+          "identifier_or_url": "arXiv:2201.11610",
+          "material_read": "Primary full HTML introduction, ordinary-inversion definition and main cycle-count theorem statements; targeted full-text searches for covariance and derivative returned no match.",
+          "method": "Open primary full-text inspection and targeted search.",
+          "title": "Cycles in Mallows random permutations",
+          "trigger": "Same ordinary inversion statistic and cycle-count object."
+        },
+        {
+          "assessment": "NO EXPOSED EXACT UNIFORM COVARIANCE",
+          "evidence": "Its stated results concern cycle-structure asymptotics rather than the local inversion-gap mixed moment.",
+          "identifier_or_url": "arXiv:1601.06991",
+          "material_read": "Primary abstract and scope describing cycle lengths, expected cycles and near-one regimes.",
+          "method": "Primary source scope inspection.",
+          "title": "On the Cycle Structure of Mallows Permutations",
+          "trigger": "Earlier main Mallows cycle-structure source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "J. He, T. Müller, T. W. Verstraaten, Cycles in Mallows random permutations, arXiv:2201.11610 / Random Structures & Algorithms 63 (2023); primary full HTML inspected, including the ordinary inversion definition and main cycle-count theorems.",
+        "A. Gladkich, R. Peled, On the Cycle Structure of Mallows Permutations, arXiv:1601.06991 / Annals of Probability 46 (2018); primary abstract/scope inspected.",
+        "R. Parviainen, Cycles and patterns in permutations, arXiv:math/0610616; different standard-cycle-word inversion statistic compared.",
+        "Resultary searches for cycle-count versus ordinary inversion covariance, positional-gap profiles and the Mallows derivative at q=1.",
+        "Assigned RESULT.md and verify_cycle_inversion_covariance.py at the exact frozen tree.",
+        "Fresh independent brute-force recomputation for uniform permutations through n=7."
+      ],
+      "rationale": "Cycle structure and inversion bias are central observables of the Mallows model. The exact local contribution by positional gap and its finite-n aggregate give a natural first-order bridge between them that is not supplied by marginal or asymptotic cycle results.",
+      "residual_risks": [
+        "Older enumerative permutation literature may encode the same mixed first moment under a different bivariate generating function."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a uniform permutation, the covariance between total cycle count and the ordinary inversion indicator at positions i<j is exactly minus (2(j-i)-1)/(2n(n-1)); summing gives covariance with total inversion number minus (2n-1)/12 and the corresponding exact Mallows linear response at q=1.",
+  "limitations": [
+    "The result is a first-order statement at the uniform point q=1 and does not determine the full expected-cycle function for q away from one.",
+    "The local statistic is ordinary one-line inversion, not cycle-word inversion.",
+    "Older enumerative permutation literature may encode the same mixed first moment under a different bivariate generating function."
+  ],
+  "schema_version": 1
+}

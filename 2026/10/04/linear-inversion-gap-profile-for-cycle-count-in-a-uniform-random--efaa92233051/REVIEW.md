@@ -1,22 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Swapping the two images at positions \(i<j\) flips the inversion indicator and changes cycle count by exactly one, with sign determined by whether the positions lie in the same cycle. Conditioning on the two images gives an exact three-case same-cycle probability: zero for a forced fixed point, one for a forced direct connection, and one half for two disjoint prescribed arrows. The resulting signed count is \(2(j-i)-1\), giving the local covariance. Summing over gaps gives the total covariance. Classical independent representations of cycle count and inversion number give the exact variances and correlation.
+PASS
 
-## Originality
+Right multiplication by the transposition of i and j swaps the two images, flips the inversion sign, and changes the cycle count by plus or minus one according to whether i and j are in the same cycle. Conditioning on their two images gives the exact same-cycle probabilities 0, 1, or 1/2 in the three completion classes, which yields the gap coefficient. Summation produces the total covariance; the correlation follows from the classical marginal variances, and differentiation of the Mallows exponential family gives the response identity. Fresh exhaustive recomputation through n=7 and the package checker through n=8 agree exactly.
 
-PASS, with a residual mixed-moment risk. The full Gladkich--Peled Mallows paper was inspected at its model definition, uniform point, and expected-cycle theorem. It studies the expected number and lengths of cycles across Mallows regimes, but does not state the exact derivative at \(q=1\), covariance with inversion number, or a positional gap profile.
+## originality
 
-The full He--Müller--Verstraaten article was searched for covariance and uniform-point derivatives; it develops cycle counts under Mallows weighting but does not state the present mixed first moment.
+PASS
 
-Parviainen's full paper was inspected because its abstract advertises cycles and inversions. Its Section 2 explicitly defines the relevant inversion statistic after standard cycle-form encoding, not the ordinary one-line inversion number. Its generating function therefore does not cover the statistic in this finding.
+The Mallows literature studies cycle counts under the same ordinary inversion weighting, but the inspected primary full text contains no covariance or derivative statement and targets fixed nonunit q asymptotics. Parviainen's joint generating functions use an inversion statistic in standardized cycle form, not ordinary one-line inversions. Targeted Resultary searches returned no exact local gap profile or total covariance. The image-swap involution therefore survives best-of-knowledge originality.
 
-## Value
+## value
 
-PASS. The Mallows parameter is conjugate to inversion number, so covariance with inversion count is the exact statistical response of any observable at the uniform point. Cycle count is a central random-permutation observable, and Gladkich--Peled specifically study how it changes across Mallows regimes. The theorem supplies the exact finite-\(n\) uniform-point slope and resolves that response into a simple positional profile, showing that long-gap inversions contribute more strongly than short-gap inversions.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Cycle structure and inversion bias are central observables of the Mallows model. The exact local contribution by positional gap and its finite-n aggregate give a natural first-order bridge between them that is not supplied by marginal or asymptotic cycle results.
 
-
-Exact replay: `VERIFY_OK permutations_checked=46232 local_cov_checks=84 completion_rule_checks=3192 total_cov_checks=7 variance_checks=14 correlation_checks=7`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

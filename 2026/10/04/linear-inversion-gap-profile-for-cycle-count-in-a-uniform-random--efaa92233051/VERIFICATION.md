@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic and exhaustive permutation enumeration.
+# Independent mathematical audit
 
-For every \(2\le n\le8\), it enumerates all permutations and computes cycle count, every ordinary inversion indicator, total inversion number, and same-cycle relations.
+## correctness
 
-It checks every local covariance against
-\[
--\frac{2(j-i)-1}{2n(n-1)},
-\]
-checks the exact total covariance, and verifies the conditional same-cycle probabilities used in the proof.
+PASS
 
-It also verifies the cycle-count and inversion variances and the exact squared correlation formula.
+Right multiplication by the transposition of i and j swaps the two images, flips the inversion sign, and changes the cycle count by plus or minus one according to whether i and j are in the same cycle. Conditioning on their two images gives the exact same-cycle probabilities 0, 1, or 1/2 in the three completion classes, which yields the gap coefficient. Summation produces the total covariance; the correlation follows from the classical marginal variances, and differentiation of the Mallows exponential family gives the response identity. Fresh exhaustive recomputation through n=7 and the package checker through n=8 agree exactly.
 
-The finite replay is supplementary. The all-\(n\) theorem is the image-swap involution and completion count in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact replay result: `VERIFY_OK permutations_checked=46232 local_cov_checks=84 completion_rule_checks=3192 total_cov_checks=7 variance_checks=14 correlation_checks=7`.
+The Mallows literature studies cycle counts under the same ordinary inversion weighting, but the inspected primary full text contains no covariance or derivative statement and targets fixed nonunit q asymptotics. Parviainen's joint generating functions use an inversion statistic in standardized cycle form, not ordinary one-line inversions. Targeted Resultary searches returned no exact local gap profile or total covariance. The image-swap involution therefore survives best-of-knowledge originality.
+
+## value
+
+PASS
+
+Cycle structure and inversion bias are central observables of the Mallows model. The exact local contribution by positional gap and its finite-n aggregate give a natural first-order bridge between them that is not supplied by marginal or asymptotic cycle results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
