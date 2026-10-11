@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:11:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 32dceec09c959c5eb8ab03a4b6ed4dc4fb4e4e38",
+        "assigned verify.py blob b3898b0e713ec7b6fd7029fccd1c029f052fbaf1",
+        "independent exhaustive replay of all 462 five-query multisets for the displayed witness",
+        "Oksner--Hollmann--Riet--Skachek arXiv:2601.12302 full searchable primary text"
+      ],
+      "rationale": "For five repeated copies of a nonzero query \\(q\\), every minimal locality-two recovery is either one column of type \\(q\\) or one of the three complementary type-pairs \\(\\{u,u+q\\}\\). Thus the maximum repeated-query capacity is \\(A_q=c_q+\\sum\\min(c_u,c_v)\\), which must be at least five for all seven nonzero vectors. Summing over \\(q\\) counts each unordered pair of distinct column types exactly once and gives \\(35\\le n+\\sum_{u<v}\\min(c_u,c_v)\\). For seven nonnegative integer multiplicities of total ten, the pair-minimum sum is Schur-concave under unit balancing and is maximized by a \\(2,2,2,1,1,1,1\\) profile with value 24, contradicting the required 35. Hence \\(n\\ge11\\). For the witness multiplicities \\(1,1,1,2,2,2,2\\), the exact package verifier checks every one of the 462 five-query multisets and finds disjoint locality-two recoveries. An independent reimplementation also verified all 462 query multisets for that witness. The lower bound is analytic and the upper bound is a complete finite check.",
+      "residual_risks": [
+        "The upper-bound certificate is a finite exhaustive computation specialized to dimension three and five queries.",
+        "The theorem is for binary linear functional batch codes with locality at most two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bounded-locality paper develops general lower bounds and simplex constructions but leaves this intermediate request count without an exact value.",
+          "The broader unrestricted code problem permits larger recovery sets and therefore does not dominate the audited locality-two statement."
+        ],
+        "reasoning": "No inspected general theorem specializes to the matching lower and upper value eleven.",
+        "searches": [
+          "Oksner et al., On the Minimum Length of Functional Batch Codes with Small Recovery Sets, arXiv:2601.12302",
+          "Kılıç--Ravagnani--Salizzoni, The Length of Functional Batch and PIR Codes, arXiv:2508.02586"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.12302",
+        "arXiv:2508.02586",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general counting lower bounds do not force \\(n\\ge11\\) at this small parameter.",
+          "The known endpoint constructions do not by themselves certify every five-query multiset at length eleven."
+        ],
+        "reasoning": "Both the sharp lower bound and the intermediate witness require parameter-specific structure absent from the inspected prior theorems.",
+        "searches": [
+          "general generating-function lower bounds versus the repeated-query pair-minimum obstruction",
+          "simplex and doubled-simplex constructions versus the explicit five-request multiplicity vector"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary 2026 paper uses the same \\([n,k,t,r]\\) bounded-recovery-set definition.",
+          "Its \\(r=2\\) results provide bounds, not the exact \\((k,t)=(3,5)\\) value.",
+          "Unrestricted functional-batch length does not imply the locality-two optimum."
+        ],
+        "reasoning": "The exact parameter tuple and locality restriction were matched explicitly.",
+        "searches": [
+          "Resultary query: binary functional batch code dimension 3 five requests locality 2 length 11",
+          "Oksner--Hollmann--Riet--Skachek arXiv:2601.12302, definitions, \\(r=2\\) lower bounds and numerical tables",
+          "Kılıç--Ravagnani--Salizzoni arXiv:2508.02586, functional batch minimum-length framework without the same locality-two restriction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-result table was returned.",
+          "The primary table lists \\(k=3,t=8,r=2\\) rather than the audited \\(t=5\\) row."
+        ],
+        "reasoning": "The exact parameter was checked against both the research corpus and the closest source's numerical tables.",
+        "searches": [
+          "Resultary current search for dimension-three five-request locality-two functional batch codes",
+          "primary 2026 numerical table inspection"
+        ]
+      },
+      "rationale": "Oksner, Hollmann, Riet and Skachek introduce and analyze exactly the bounded-recovery-set \\([n,k,t,r]\\) functional-batch framework, including general lower bounds for \\(r=2\\) and numerical tables. Their full searchable text does not state the exact \\(k=3,t=5,r=2\\) value; its displayed \\(r=2\\) table focuses on the simplex/double-simplex request counts such as \\(t=8\\) at \\(k=3\\). The unrestricted functional-batch literature treats a different optimization without the locality-two cap. Current Resultary searches for dimension three, five requests and locality two returned neighboring four-request and general-code results but no exact length-eleven theorem. The repeated-query lower obstruction and the complete length-eleven witness therefore remain a new parameter determination.",
+      "residual_risks": [
+        "A thesis or code repository could contain the same small-parameter exhaustive value without being indexed by the main literature searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_FIVE_REQUEST_VALUE",
+          "evidence": "The paper defines the same problem and gives broad \\(r=2\\) bounds, but its displayed numerical results do not state the exact \\(k=3,t=5,r=2\\) minimum.",
+          "identifier_or_url": "arXiv:2601.12302",
+          "material_read": "full searchable primary text was inspected through the definitions, generating-function lower bounds, \\(r=2\\) specialization and numerical tables",
+          "method": "primary full-text inspection",
+          "title": "On the Minimum Length of Functional Batch Codes with Small Recovery Sets",
+          "trigger": "exact primary bounded-locality framework"
+        },
+        {
+          "assessment": "UNRESTRICTED_RECOVERY_SETS",
+          "evidence": "This source studies the broader functional-batch length problem without the same locality-two cap, so its exact values do not imply the audited bounded-locality optimum.",
+          "identifier_or_url": "arXiv:2508.02586",
+          "material_read": "searchable primary text inspected at exact-value sections and the dimension-three framework",
+          "method": "primary-source comparison",
+          "title": "The Length of Functional Batch and PIR Codes",
+          "trigger": "broader minimum-length literature for functional batch codes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Oksner et al. 2026",
+        "assigned RESULT.md and verifier"
+      ],
+      "rationale": "The parameter is the first intermediate request count beyond the seven-column four-request simplex point in dimension three and before the doubled-simplex eight-request point. Proving that locality two forces length eleven gives a sharp small-parameter benchmark for the newly formalized bounded-recovery model, while the repeated-query obstruction is a simple structural lower-bound device that may transfer to neighboring cases. The finite computation is exhaustive on a natural boundary problem rather than an arbitrary census.",
+      "residual_risks": [
+        "The result does not classify optimal length-eleven generator matrices up to equivalence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The upper-bound certificate is a finite exhaustive computation specialized to dimension three and five queries.",
+    "The theorem is for binary linear functional batch codes with locality at most two.",
+    "A thesis or code repository could contain the same small-parameter exhaustive value without being indexed by the main literature searches.",
+    "The result does not classify optimal length-eleven generator matrices up to equivalence."
+  ]
+}
