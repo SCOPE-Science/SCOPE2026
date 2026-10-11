@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:01:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Specializing the published edge criterion to consecutive layers gives exactly add/delete edges between adjacent weights and same-layer swaps only at weights \\(a\\) and \\(b\\). The submitted proof constructs paths of the three stated lengths \\(H,L,U\\). For the reverse inequality, \\(D_B=\\min(H,L,U)\\) is one-Lipschitz on every edge: all candidates change by at most one on add/delete edges; on the lower boundary \\(H-L=a-r\\ge0\\), and on the upper boundary \\(H-U=q-r\\ge0\\), leaving the minimum of the two boundary candidates, each changing by at most one under a swap. Hence \\(D_B\\) is a valid lower-bound potential. Complement symmetry and explicit endpoint pairs then give diameter \\(\\min(b,d-a)\\). Independent finite replay through small dimensions agrees with the closed formula and is corroborative only.",
+      "risks": [
+        "The theorem is restricted to consecutive cardinality intervals; arbitrary gapped S are not covered."
+      ],
+      "sources": [
+        "RESULT.md blob 689b58ad77aefb7298fbc0a9c80fa23b5cbe0fd2",
+        "artifacts/verify_interval_metric.py blob 63423fd79d1dd500c3744955a6d447166b6a24e3",
+        "Manecke--Sanyal--So, DOI:10.37236/8457, Theorem 1"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper gives the edge structure and studies faces/triangulations/monotone paths, not undirected all-pairs graph distance.",
+          "Older sources emphasize linear descriptions, optimization, facets and separation."
+        ],
+        "reasoning": "Local adjacency and broader optimization descriptions do not imply the closed shortest-path metric without the additional global argument.",
+        "searches": [
+          "Manecke--Sanyal--So DOI:10.37236/8457 full text",
+          "Groetschel, Cardinality Homogeneous Set Systems, ZIB-Report-02-19",
+          "Maurras--Stephan arXiv:0902.1932"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.07491",
+        "DOI:10.37236/8457",
+        "ZIB-Report-02-19",
+        "arXiv:0902.1932",
+        "Resultary semantic search for exact S-hypersimplex graph metrics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem determines which pairs are adjacent; final theorem computes the length of every shortest path and the sharp diameter."
+        ],
+        "reasoning": "An edge criterion alone does not mechanically yield the submitted distance formula; the lower-bound potential is new mathematical content.",
+        "searches": [
+          "Statement comparison with Manecke--Sanyal--So Theorem 1",
+          "Historical cardinality-homogeneous/polytope terminology searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the assigned finding as the only close same-object exact-metric result.",
+          "The older cardinality-homogeneous terminology was explicitly checked because it describes the same convex hull family."
+        ],
+        "reasoning": "Equivalent polytope names do not expose a prior three-route distance formula in the inspected sources.",
+        "searches": [
+          "Resultary: S-hypersimplex graph distance diameter cardinality homogeneous set system",
+          "S-hypersimplices shortest path graph diameter",
+          "cardinality homogeneous set systems graph metric consecutive cardinalities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table covering the interval family was found; the ordinary hypersimplex Johnson graph is only the single-layer boundary analogue."
+        ],
+        "reasoning": "The claimed metric is an infinite structural formula rather than a finite table entry.",
+        "searches": [
+          "Resultary exact S-hypersimplex metric query",
+          "hypersimplex Delta(d,[a,b]) diameter one-skeleton"
+        ]
+      },
+      "rationale": "The primary S-hypersimplex paper supplies the local edge criterion but does not determine global all-pairs shortest paths or the diameter. Searches under S-hypersimplex, cardinality-homogeneous, cardinality-constrained, cube-slab and exact-diameter terminology did not uncover a theorem implying the three-route metric. The new one-Lipschitz potential is the substantive step converting the local edge description into a global metric theorem.",
+      "residual_risks": [
+        "Older cardinality-homogeneous literature may contain an unindexed equivalent observation; the historically older report was not fully searchable at theorem-level depth."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTING_NOT_COVERING",
+          "evidence": [
+            "Theorem 1 gives the two edge types; no all-pairs distance or graph-diameter theorem was located in the inspected full text."
+          ],
+          "identifier_or_url": "arXiv:1812.07491 / DOI:10.37236/8457",
+          "material_read": "Introduction, definition, Theorem 1 edge criterion, monotone-path discussion and further questions.",
+          "method": "Lawful public full-text inspection.",
+          "title": "S-hypersimplices, pulling triangulations, and monotone paths",
+          "trigger": "Same objects and exact edge structure used by the proof."
+        },
+        {
+          "assessment": "PLAUSIBLE_ALIAS_SOURCE_NOT_DECISIVE",
+          "evidence": [
+            "Accessible descriptions emphasize linear descriptions, greedy optimization, duality and separation rather than shortest-path metrics."
+          ],
+          "identifier_or_url": "ZIB-Report-02-19 / DOI:10.1137/1.9780898718805.ch8",
+          "material_read": "Public abstract/metadata and targeted searches under metric aliases.",
+          "method": "Public report/chapter descriptions and searches.",
+          "title": "Cardinality Homogeneous Set Systems, Cycles in Matroids, and Associated Polytopes",
+          "trigger": "Older equivalent terminology for the same polytope family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-skeleton metric is a basic invariant of this natural polytope family. The theorem gives every pairwise distance, identifies the two precise boundary shortcuts to Hamming motion, and yields the sharp diameter in all dimensions; this is a structural result rather than a small-case computation.",
+      "risks": [],
+      "sources": [
+        "Manecke--Sanyal--So edge theorem",
+        "RESULT.md exact one-Lipschitz proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Consecutive S only; no claim for gapped S-hypersimplices.",
+    "Public scientific files were scanned and contain no flagged C0 controls or operational/platform language."
+  ],
+  "schema_version": 1
+}

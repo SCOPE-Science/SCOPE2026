@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and valid for every integer \(d\ge2\) and \(0\le a<b\le d\). The finite program is a separate stress test, not a replacement for the proof.
+# Independent mathematical audit
 
-The packaged script `artifacts/verify_interval_metric.py` constructs the graph directly from the edge criterion specialized to consecutive layers. For every interval in dimensions \(2\) through \(8\), it runs breadth-first search from every vertex and checks both the closed all-pairs distance formula and the diameter \(\min\{b,d-a\}\).
+## correctness
 
-Replay command:
+PASS
 
-`python artifacts/verify_interval_metric.py`
+Specializing the published edge criterion to consecutive layers gives exactly add/delete edges between adjacent weights and same-layer swaps only at weights \(a\) and \(b\). The submitted proof constructs paths of the three stated lengths \(H,L,U\). For the reverse inequality, \(D_B=\min(H,L,U)\) is one-Lipschitz on every edge: all candidates change by at most one on add/delete edges; on the lower boundary \(H-L=a-r\ge0\), and on the upper boundary \(H-U=q-r\ge0\), leaving the minimum of the two boundary candidates, each changing by at most one under a swap. Hence \(D_B\) is a valid lower-bound potential. Complement symmetry and explicit endpoint pairs then give diameter \(\min(b,d-a)\). Independent finite replay through small dimensions agrees with the closed formula and is corroborative only.
 
-Observed output:
+## originality
 
-`VERIFY_OK consecutive-layer S-hypersimplex metric intervals=119 ordered_pairs=1382942 max_d=8`
+PASS
 
-The checked finite range does not certify the theorem in unbounded dimension. The unbounded statement rests on the explicit route constructions and the one-Lipschitz lower-bound argument in `RESULT.md`.
+The primary S-hypersimplex paper supplies the local edge criterion but does not determine global all-pairs shortest paths or the diameter. Searches under S-hypersimplex, cardinality-homogeneous, cardinality-constrained, cube-slab and exact-diameter terminology did not uncover a theorem implying the three-route metric. The new one-Lipschitz potential is the substantive step converting the local edge description into a global metric theorem.
+
+## value
+
+PASS
+
+The one-skeleton metric is a basic invariant of this natural polytope family. The theorem gives every pairwise distance, identifies the two precise boundary shortcuts to Hamming motion, and yields the sharp diameter in all dimensions; this is a structural result rather than a small-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
