@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and exact. The companion checker `verify_turan_5_2.py` uses only the Python standard library.
+# Independent mathematical audit
 
-It verifies the polynomial identity
-\[
-32r_a(x)^2
-=
-(128a^6-20a^2+5)T_0(x)
--4a(64a^4-40a^2+5)T_1(x)
-+4(5a^2-1)T_4(x)+4aT_5(x)+T_6(x),
-\]
-so the forbidden \(T_2\) and \(T_3\) coefficients vanish identically.
+## correctness
 
-After clearing denominators in the dual quadratic, the checker performs exact polynomial division modulo the cubic and verifies the \(T_1\), \(T_4\), and \(T_5\) moments exactly. For \(T_6\), the residual is exactly a multiple of
-\[
-F(a)=256a^7+256a^6-96a^5-80a^4+40a^3+30a^2-15a-5,
-\]
-and therefore vanishes at \(a=a_\ast\).
+PASS
 
-Exact rational interval arithmetic verifies
-\[
-0.53305<a_\ast<0.53306
-\]
-with \(F'(a)>71\) throughout the bracket, as well as the three simple-root brackets
-\[
--0.9163<x_1<-0.9161,\quad
--0.4146<x_2<-0.4143,\quad
-0.7975<x_3<0.7978.
-\]
-On those brackets the signs of the cleared dual quadratic match the signs of the cubic derivative, so every dual weight is strictly positive.
+Fu--Li--Wang--Wang reduce this rational continuous problem exactly to half the discrete Turán problem on \(\{0,\pm1,\pm4,\pm5,\pm6\}\). The package's primal polynomial is the normalized square of a cubic; exact Chebyshev expansion removes every forbidden frequency. The upper certificate uses its three real roots and positive Lagrange-residue weights whose moments at frequencies \(1,4,5,6\) all equal \(-1\); the degree-seven equation for \(a\) makes the final moment and objective equality exact. I independently solved the defining polynomial in the stated interval and reproduced \(a=0.533051836754696\ldots\) and \(\mathcal T_{\mathbb R}=2.135307178876396\ldots\). The inspected checker verifies the polynomial identities and all root/weight signs by exact rational interval arithmetic.
 
-The displayed decimal values are calculated only after all exact checks pass. They are not used to prove equality.
+## originality
 
-Checker output is stored in `verification_output.txt`.
+PASS
+
+The exact same recent source identifies this finite support and proves only the strict lower bound \((559+80\sqrt{42})/506\), explicitly saying that no optimality of the finite problem is claimed. The audited positive three-node dual certificate supplies the missing global upper bound at a different, larger primal value. A fresh Resultary search returns this assigned result as the direct exact match and no earlier set-specific optimum.
+
+## value
+
+PASS
+
+The motivating paper singles out \(\lambda=5/2\) as its first separated rational example beyond the universal value two but leaves the exact finite optimum open. Closing that explicit model with matched primal and positive dual certificates completes a natural endpoint of the paper's reduction program and gives a reusable exact sparse-trigonometric optimization certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

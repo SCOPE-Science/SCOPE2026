@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The continuous claim is reduced by the cited rational-endpoint theorem to the finite support \(\{0,\pm1,\pm4,\pm5,\pm6\}\). The lower certificate is a globally nonnegative normalized square. The matching upper certificate is a positive three-node measure at the cubic zeros whose four required Chebyshev moments are exactly \(-1\). Exact rational interval bounds certify the algebraic parameter, simple roots, denominator signs, and positivity of all dual weights. The included checker replays the nonstandard algebraic identities and sign certificates.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2608.15643v1, treats precisely \(\lambda=5/2\), supplies a feasible lower-bound polynomial, and explicitly states that no optimality of the finite problem is claimed. The present equality is not implied by that lower bound. Targeted published-finding corpus and web searches for the exact support, Carathéodory–Fejér aliases, defining polynomial, and numerical constant did not locate prior coverage. Residual risk remains for an older table under a different normalization.
+PASS
 
-## Value
-PASS. This closes the finite arithmetic model used by the recent paper to demonstrate non-integer behavior and determines the true constant rather than another feasible value. The positive dual quadrature also exposes why the optimal square-cubic certificate is globally extremal.
+Fu--Li--Wang--Wang reduce this rational continuous problem exactly to half the discrete Turán problem on \(\{0,\pm1,\pm4,\pm5,\pm6\}\). The package's primal polynomial is the normalized square of a cubic; exact Chebyshev expansion removes every forbidden frequency. The upper certificate uses its three real roots and positive Lagrange-residue weights whose moments at frequencies \(1,4,5,6\) all equal \(-1\); the degree-seven equation for \(a\) makes the final moment and objective equality exact. I independently solved the defining polynomial in the stated interval and reproduced \(a=0.533051836754696\ldots\) and \(\mathcal T_{\mathbb R}=2.135307178876396\ldots\). The inspected checker verifies the polynomial identities and all root/weight signs by exact rational interval arithmetic.
 
-## Closest literature and limitations
-The closest literature is X.-Y. Fu, Y.-K. Li, W.-J. Wang, X. Wang, arXiv:2608.15643v1, especially Theorem 1.2 and Section 4.3. The result here is restricted to \(\lambda=5/2\) and does not classify other rational parameters or assert uniqueness of the extremizer.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same recent source identifies this finite support and proves only the strict lower bound \((559+80\sqrt{42})/506\), explicitly saying that no optimality of the finite problem is claimed. The audited positive three-node dual certificate supplies the missing global upper bound at a different, larger primal value. A fresh Resultary search returns this assigned result as the direct exact match and no earlier set-specific optimum.
+
+## value
+
+PASS
+
+The motivating paper singles out \(\lambda=5/2\) as its first separated rational example beyond the universal value two but leaves the exact finite optimum open. Closing that explicit model with matched primal and positive dual certificates completes a natural endpoint of the paper's reduction program and gives a reusable exact sparse-trigonometric optimization certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
