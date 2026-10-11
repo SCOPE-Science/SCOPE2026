@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:01:55.151320Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6969a319a1876901264830b7509295e0ccfcabdc",
+        "verify.py blob b7f0d4b7d2e2b5921bde3dae9a26aa8b7239ecb1",
+        "certificate.json blob 342099655463dcf33065568bd720681aa3a5a5e5",
+        "fresh independent finite replay",
+        "arXiv:2310.13563v1"
+      ],
+      "rationale": "The finite classification in the package is correct. Normalizing any pair by row/symbol symmetry leaves four Hamming-distance cases. The inspected exhaustive backtracking certificate proves a size-nine family containing the pair exists only at distance three. Thus every pair in any maximum has distance three, making every two-coordinate projection injective and giving the upper bound nine. The displayed affine-plane family has nine columns and separates every triple. At equality, projection to two coordinates is bijective and the remaining two coordinate functions form an ordered orthogonal pair of Latin squares of order three. There are twelve Latin squares and seventy-two ordered orthogonal pairs; the full row/symbol orbit of the displayed family also has size seventy-two, yielding one orbit and stabilizer 31104/72=432. A fresh independent replay earlier in this run reproduced all four normalized pair-search outcomes and the Latin/orthogonal-pair counts. These computations are exhaustive for the stated finite parameter set.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kurz's Table 1 classifies all non-equivalent trifferent codes through length six, so it is strictly broader than the single four-row maximum classification.",
+          "Its appendix explicitly states uniqueness up to equivalence and maximum T(4)=9."
+        ],
+        "reasoning": "This broader finite classification directly dominates the headline maximum and uniqueness claims.",
+        "searches": [
+          "Kurz, Trifferent codes with small lengths, arXiv:2310.13563v1, complete open full text",
+          "Walker--Colbourn, Perfect Hash Families: Constructions and Existence, DOI:10.1515/JMC.2007.008"
+        ]
+      },
+      "checked_sources": [
+        "Kurz, Trifferent codes with small lengths, arXiv:2310.13563v1, complete open full text",
+        "Walker--Colbourn, Perfect Hash Families: Constructions and Existence, DOI:10.1515/JMC.2007.008",
+        "Bshouty, Linear time Constructions of some d-Restriction Problems, arXiv:1406.2108",
+        "Resultary query: PHF(4;9,3,3) ternary perfect hash family maximum 9 affine plane classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published result already proves no ten-column family exists and that all nine-column maxima lie in one equivalence class.",
+          "The package's affine-plane representative is one representative of that already unique class; the remaining labeled orbit-size/stabilizer counts refine a known class rather than establish a new maximum family."
+        ],
+        "reasoning": "Because the final claim includes known central assertions, it is prior-covered even though the integers 72 and 432 are not stated verbatim in the inspected source.",
+        "searches": [
+          "Kurz, Trifferent codes with small lengths, arXiv:2310.13563v1, complete open full text",
+          "comparison of the package equivalence group with Kurz's equivalence definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kurz defines trifferent codes by exactly the same three-column separation property.",
+          "Kurz defines equivalence using row, symbol and column permutations, matching the package's row/symbol action on an unordered column set."
+        ],
+        "reasoning": "The perfect-hash and trifferent-code formulations are mathematically identical after transposing the representation.",
+        "searches": [
+          "Kurz, Trifferent codes with small lengths, arXiv:2310.13563v1, complete open full text",
+          "Resultary query: PHF(4;9,3,3) ternary perfect hash family maximum 9 affine plane classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 records exactly one non-equivalent length-four code of cardinality nine; Table 2 records T(4,3)=9; Appendix A states the unique maximum directly."
+        ],
+        "reasoning": "This is a decisive exact database/table match, not an inference from search absence.",
+        "searches": [
+          "arXiv:2310.13563v1 Table 1, Table 2 and Appendix A",
+          "Resultary query: PHF(4;9,3,3) ternary perfect hash family maximum 9 affine plane classification"
+        ]
+      },
+      "rationale": "Originality fails decisively. A ternary strength-three perfect-hash family with four rows is exactly a trifferent code of length four when columns are viewed as codewords. Kurz's 2023 complete classification uses the same equivalence operations: permutations of columns, rows, and symbols. It explicitly tabulates one equivalence class at length four/cardinality nine and states in the appendix that there is, up to equivalence, a unique length-four trifferent code of maximum cardinality T(4)=9. Thus both the sharp maximum and the one-equivalence-class extremizer theorem are already published. The audited exact labeled count 72 and stabilizer 432 are secondary orbit bookkeeping for this known unique maximum and do not restore originality of the final claim.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PRIOR_COVERAGE",
+          "evidence": "The paper defines the same equivalence, lists a(4,9)=1, gives maximum cardinality nine for the relevant distance regime, and explicitly states a unique length-four maximum trifferent code with T(4)=9.",
+          "identifier_or_url": "arXiv:2310.13563v1",
+          "material_read": "Complete open PDF. The equivalence definition, Tables 1--2, and Appendix A were read; the pages containing the tables and the explicit unique length-four maximum statement were visually inspected.",
+          "method": "lawful open-access primary full text with page-image inspection",
+          "title": "Trifferent codes with small lengths",
+          "trigger": "Exact equivalent formulation and complete small-length classification."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Kurz, Trifferent codes with small lengths, arXiv:2310.13563v1, complete open full text",
+        "Walker--Colbourn, Perfect Hash Families: Constructions and Existence, DOI:10.1515/JMC.2007.008",
+        "Bshouty, Linear time Constructions of some d-Restriction Problems, arXiv:1406.2108",
+        "Resultary query: PHF(4;9,3,3) ternary perfect hash family maximum 9 affine plane classification"
+      ],
+      "rationale": "The package gives a clean independent proof and useful labeled orbit statistics, but the scientifically central finite boundary and classification are already known: maximum nine and a unique equivalence class at length four are explicitly published in Kurz's complete small-length census. Once that class and representative are known, the additional labeled-count and stabilizer calculation is secondary group-action bookkeeping and is not enough to make the unchanged final claim a distinct worthwhile finding under the required value bar.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
