@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The gradient ideal is solved exactly on \(x_3=1\) and \(x_3=0\), exhausting the singular locus. Every listed point has matrix rank \(2\). Seven local Hessians are nondegenerate. At \(D\), the quadratic block is nondegenerate in two variables and the split one-variable term begins with \(w^6/17\), so the germ is \(A_5\). Exact characteristic polynomials distinguish the four semidefinite real rank-two points from the two indefinite real ones. Direct restrictions certify the three singular trisecant lines.
+## correctness
 
-## Originality
-PASS. The closest primary source is Helsø, arXiv:2007.01121, which displays the \((8,6,4)\) matrix and records rank-two/real/boundary counts but does not give its singular coordinates or local analytic types. The source's general bounds and conjecture concern counts under simple/node hypotheses and therefore do not imply the \(A_5+7A_1\) basket. published-finding corpus searches over the exact identifier, tuple, ADE aliases, spectrahedral aliases, and trisecant formulations returned no covering record; the highest-ranked quartic hits concern unrelated apolar or Hessian problems.
+PASS
 
-Residual risk remains that an unindexed computation may have independently analyzed the same printed matrix.
+Independent symbolic reconstruction of the displayed Hermitian matrix gives the stated determinant and, on \(x_3=1\), the exact gradient Gröbner basis \(2x_0+x_2+1\), \(x_1^2+x_2\), \(4x_2^2-x_2-1\), yielding exactly four affine singular points. The projective infinity equations add exactly \(A,B,C,D\). At the seven claimed nodes the local Hessian is nondegenerate. At \(D\), the stated local polynomial has nondegenerate transverse quadratic form with determinant \(-17\); solving its transverse critical equations gives \(p=-2w^3/17-22w^5/289+\cdots\), \(q=-3w^3/17+w^5/289+\cdots\), and critical value \(h(w)=w^6/17+11w^8/289+\cdots\), so the germ is \(A_5\). The rank-two, real/semidefinite, and line-containment claims are exact algebraic checks and are consistent with the displayed matrix.
 
-## Value
-PASS. The distinction between eight essential rank-two points and eight nodes matters here: this concrete matrix realizes the stated rank-two/real/semidefinite counts but has a non-node rational double point. That is directly relevant to the paper's node-based existence program and provides a precise diagnostic for future replacement or deformation of the \((8,6,4)\) example. The singular-trisecant structure is additional intrinsic geometry rather than a routine recount.
+## originality
 
-## Limitations
-The claim applies only to the printed \((8,6,4)\) matrix. It does not rule out a different nodal realization of that numerical configuration, and it does not settle the conjecture globally.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Helsø's full text displays the exact \((8,6,4)\) matrix under a program formulated for isolated essential nodes, but Section 4.9 records rank-two configurations rather than local analytic singularity types. The paper contains no \(A_5\) occurrence. Resultary returned the assigned record as the exact \(A_5+7A_1\) hit and otherwise unrelated quartic singularity records.
+
+## value
+
+PASS
+
+Correcting the local singularity type of a named example used in a nodal-classification program is mathematically substantive: it preserves the real/rank counts while changing the intrinsic singularity basket and the example's relationship to a node-based conjectural table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
