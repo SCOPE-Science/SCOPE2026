@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,49 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact sparse-polynomial arithmetic.
 
-For
-\[
-\dot x=-yz+ax,\qquad
-\dot y=xz+by,\qquad
-\dot z=\frac13xy+cz,
-\]
-it verifies
-\[
-L\left(\frac{x^2}{2}\right)
-=
--xyz+ax^2,
-\]
-\[
-L\left(\frac{y^2}{2}\right)
-=
-xyz+by^2,
-\]
-and
-\[
-L\left(\frac{z^2}{2}\right)
-=
-\frac13xyz+cz^2.
-\]
+# Independent mathematical audit
 
-For the classical source parameters
-\[
-\left(5,-10,-\frac{19}{5}\right),
-\]
-it verifies the exact stationary coefficients
-\[
-5,\qquad
-10,\qquad
-\frac{57}{5},
-\]
-and the nonzero-equilibrium square relations
-\[
-x^2=114,\qquad
-y^2=57,\qquad
-z^2=50.
-\]
+## correctness
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+PASS
 
-The checker validates algebraic certificates. The conditional laws use arbitrary test functions through antiderivatives; the sign-rigidity theorem additionally uses invariant-support tangency and bounded completeness.
+For any continuous test function of one coordinate, an antiderivative converts invariance of the flow into the corresponding conditional law. Applying this to the quadratic coordinate energies gives the common cubic-flux identity. If one second moment vanishes, the invariant support lies in the corresponding coordinate plane; vector-field tangency then reduces the remaining coordinates to nonzero exponential equations, whose only trajectory bounded for all positive and negative time is the origin because the relevant parameters are nonzero. Thus every non-origin invariant measure has all three positive second moments and forces the sign condition. Conversely, under that sign condition the displayed squared coordinates are positive and four sign choices give real nonzero equilibria, whose Dirac masses establish sufficiency. Fresh exact algebra independently checked the equilibrium-product compatibility and the classical parameter ratios.
+
+## originality
+
+PASS
+
+The same-system literature gives the sign regime as part of chaos/dissipativity conditions and explicitly solves the five equilibria. Those facts cover the sufficiency direction for invariant-measure existence when the four equilibria are real, but they do not imply the necessity direction for arbitrary compact invariant measures, nor the three conditional expectation laws. Fresh Resultary searches using the exact equations, sign criterion, moment ratios and conditional-flux aliases returned only other dynamical systems, not a Chen--Lee covering result.
+
+## value
+
+PASS
+
+The theorem turns a familiar local/equilibrium sign pattern into an exact global criterion for any compact stationary recurrence and adds coordinate-resolved conditional flux laws. It therefore constrains every periodic, chaotic, or mixed compact invariant measure rather than merely recomputing equilibria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
