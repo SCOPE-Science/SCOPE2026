@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_irv11_noshow.py` provides an exact finite replay.
 
-The profile-first route enumerates every weak composition into the six strict ballot types for each electorate size from \(1\) through \(11\). For every profile with a unique IRV winner, every nonempty homogeneous abstention group is tested. It verifies zero bad profiles through \(10\) voters and exactly \(60\) bad profiles with \(60\) harmful moves at \(11\).
+# Independent mathematical audit
 
-The event-first route independently enumerates each possible post-abstention profile, ballot type, and group size that reconstructs an \(11\)-voter election. It is required to reproduce the identical harmful-event set.
+## correctness
 
-The replay additionally verifies:
-- \(4{,}368\) total anonymous \(11\)-voter profiles and \(4{,}080\) with a unique full-election winner;
-- incidences \(5/364\) and \(1/68\);
-- every harmful group has size \(2\);
-- the abstainers always improve from their last-ranked full winner to their second-ranked post-abstention winner;
-- exactly \(10\) candidate-relabeling classes, all of orbit size \(6\);
-- the exact two-family normalized classification;
-- ballot-type-count strata \(2,5,3\) across the ten classes for three, four, and five distinct ballot types, respectively.
+PASS
 
-Run:
+The proof was reconstructed from the winner-switch inequalities. Normalizing the abstainers as A>B>C forces the eliminated candidate to switch from B to A; strict first-choice and runoff inequalities give at least 11 voters. Equality forces first-choice totals 4,3,4, group size 2, no ACB ballots, and BAC count 0 or 1, yielding exactly the two stated five-member families. Independent exact enumeration found no paradox through 10 voters and exactly 60 events on 60 profiles at 11, all with group size 2; symmetry replay gave 10 classes, all orbit size 6.
 
-`python3 verify_irv11_noshow.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+The closest prior work covers the phenomenon, analytical occurrence conditions/frequencies, and the sharp 11-voter minimum, but the inspected sources do not give the tie-independent complete boundary classification. The audited two-family normal form, exact 60-profile count, 10 candidate orbits, uniqueness of the harmful move, and both incidence fractions are additional finite structure.
 
-The exhaustive computation is finite and is not used to infer claims for larger candidate sets or unrestricted electorates.
+## value
+
+PASS
+
+The sharp no-show boundary is mathematically natural and already known to matter in the literature; classifying every tie-independent equality case, its unique harmful abstention, and the exact orbit/incidence structure is a substantive finite classification rather than a single-example recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
