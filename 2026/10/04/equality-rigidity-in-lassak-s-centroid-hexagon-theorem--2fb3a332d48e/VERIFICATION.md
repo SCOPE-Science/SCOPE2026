@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,46 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The equality-critical polynomial from the high-support branch is
-\[
-f(w,z)=28z^2(w^2-3w+2)+20zw(2-w)+w^2(7w^2+3w-34).
-\]
-Direct expansion gives
-\[
-f(w,z)=(w-2)q(w,z),
-\]
-with
-\[
-q(w,z)=7w^3+17w^2+28wz^2-20wz-28z^2.
-\]
-After completing the square,
-\[
-q(w,z)=28(w-1)\left(z-\frac{5w}{14(w-1)}\right)^2+
-\frac{w^2(7w-8)(7w+18)}{7(w-1)}.
-\]
-The relevant root \(w_0\) of
-\[
-w^3+w^2-2w-4=0
-\]
-satisfies \(w_0>8/7\): the polynomial equals \(-1196/343\) at \(8/7\), while its derivative is positive and increasing from that point onward. Hence \(q(w,z)>0\) throughout the high branch, so the sharp value requires \(w=2\).
+## correctness
 
-For the low branch,
-\[
-\frac4{21}-\operatorname{cen}_y(P_w)
-=-\frac{(w-2)(7w^3+17w^2+8w-28)}{21w(w^2+3w+4)}.
-\]
-The cubic factor is already \(4\) at \(w=1\) and has positive derivative for \(w\ge1\), while \(w<2\) on the low branch. The deficit is therefore strict.
+PASS
 
-The normalized candidate extremizer
-\[
-P_*=\operatorname{conv}\{(0,2),(-2,0),(-1,-1),(1,-1),(2,0)\}
-\]
-has exact shoelace area \(7\) and centroid \((0,4/21)\).
+After affine normalization and vertical Steiner symmetrization, Lassak's support parameter is \(w\in[1,2]\). On the low branch the exact deficit factorization is strictly positive for every relevant \(w<2\). On the high branch \(f(w,z)=(w-2)q(w,z)\) and the completed-square identity gives \(q>0\) because the branch begins beyond \(8/7\); hence equality forces \(w=2\). At that endpoint the comparison polygon is the stated pentagon. Undoing Steiner symmetrization is rigid because its slice half-width is affine on each side of height zero; convexity/concavity force the slice center to be affine, and the three required hexagon slices fix it identically at zero. Exact rational checks confirm the algebra, area \(7\), and centroid \((0,4/21)\).
 
-The embedded `verify.py` replays these algebraic identities with exact rational arithmetic. Polynomial equalities are certified on interpolation grids larger than their degree bounds, and the shoelace computation is exact. The replay output is
+## originality
 
-`VERIFY_OK centroid-hexagon equality rigidity`
+PASS
 
-Finite replay is not used as a substitute for the geometric proof. The final reversal of Steiner symmetrization uses convexity of the horizontal endpoint functions and the three fixed slice widths forced by the inscribed hexagon.
+The primary theorem proves the sharp \(4/21\) inclusion and exhibits the pentagonal extremizer, but closes by saying the author expects there are no further examples beyond affine images. The submitted theorem proves exactly that missing equality classification. Searches under the constant, affine-regular-hexagon language, extremizer/equality aliases, and Resultary found no prior proof of the uniqueness statement.
+
+## value
+
+PASS
+
+This resolves an explicit equality-case question attached to a sharp affine-geometric constant and gives a complete extremizer classification. Equality rigidity for a sharp convex-geometric inequality is a natural structural result, not a finite or cosmetic check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
