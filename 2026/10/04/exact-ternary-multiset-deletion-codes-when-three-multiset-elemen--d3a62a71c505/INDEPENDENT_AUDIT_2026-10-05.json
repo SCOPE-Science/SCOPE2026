@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:15:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 1bb940cbcde1e9c2a130a61e5737471f44965ef0",
+        "assigned verify.py blob 4ebc628abd61f0a23e71c789347cdef6ecafefd1",
+        "Kreindel--Essayag--Zabokritskiy arXiv:2601.05636 full primary PDF",
+        "Kovačević--Tan arXiv:1612.08837 framework"
+      ],
+      "rationale": "The heavy-coordinate argument proves the complete infinite statement. If two codewords both have a coordinate of multiplicity at least three in the same alphabet position, their multiset intersection has size at least three, so their heavy-coordinate sets must be pairwise disjoint. For length at least seven every ternary composition has a heavy coordinate, giving at most three codewords and the three constant words attain the bound. At length six the unique heavy-free composition is \\((2,2,2)\\); at length five the heavy-free words are the three permutations of \\((2,2,1)\\), any two of which intersect in four symbols. These facts give the sharp upper bound four at lengths five and six, attained by the displayed witnesses. The package verifier exhaustively confirms the two boundary lengths, and an independent exact set-packing reconstruction also returned maxima four, four, and three at lengths five, six, and seven. The unbounded part rests on the analytic pigeonhole argument, not the finite computations.",
+      "residual_risks": [
+        "The result is specific to alphabet size three and received-multiset size three."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The newer source provides all-alphabet upper bounds for the \\(n-3\\) regime but not the exact ternary value.",
+          "The older framework develops general constructions and bounds without the audited piecewise ternary classification."
+        ],
+        "reasoning": "The broad results leave a genuine gap between the known upper bound six and the exact ternary values.",
+        "searches": [
+          "Kreindel--Essayag--Zabokritskiy arXiv:2601.05636",
+          "Kovačević--Tan arXiv:1612.08837"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.05636",
+        "arXiv:1612.08837",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The certificate bound gives only \\(S_3\\le6\\), so it does not imply upper bounds four or three.",
+          "The one-deletion exact results concern a different received-multiset size and do not imply the growing-deletion regime."
+        ],
+        "reasoning": "The heavy-coordinate disjointness argument is an additional sharp mechanism.",
+        "searches": [
+          "general certificate bound \\(q+\\binom q2\\) at \\(q=3\\)",
+          "source exact ternary one-deletion results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source states that correcting \\(n-3\\) deletions is governed by pairwise multiset intersection at most two.",
+          "The discrete-simplex formulation is the same code space expressed as multiplicity vectors."
+        ],
+        "reasoning": "The deletion, intersection, and discrete-simplex formulations were compared as the same finite-metric problem.",
+        "searches": [
+          "Resultary query: ternary multiset deletion codes received multiset size three exact S_3(n,n-3)",
+          "arXiv:2601.05636 high-deletion section",
+          "arXiv:1612.08837 discrete-simplex multiset-code formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact same-result table or theorem was retrieved."
+        ],
+        "reasoning": "Search absence is only supporting evidence and is paired with full inspection of the closest primary source.",
+        "searches": [
+          "Resultary current corpus search for exact ternary \\(n-3\\) multiset deletion optima",
+          "targeted current web search for the piecewise values 4,4,3 in the same model"
+        ]
+      },
+      "rationale": "The closest primary paper studies exactly the same multiset deletion model. Its high-deletion section gives the general certificate bound \\(S_q(n,n-3)\\le q+\\binom q2\\), which yields only six for the ternary case, while its exact ternary benchmark concerns a different one-deletion regime. Full primary-text inspection did not locate the piecewise ternary values four, four, then three. Current Resultary and equivalent discrete-simplex/intersection searches likewise returned no stronger theorem implying the audited formula.",
+      "residual_risks": [
+        "The elementary extremal fact could appear in older lattice-code or discrete-simplex literature under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUND_NOT_EXACT_TERNARY_HIGH_DELETION",
+          "evidence": "The source gives the \\(n-3\\) certificate bound and separate exact regimes, but not the audited ternary piecewise optimum.",
+          "identifier_or_url": "arXiv:2601.05636",
+          "material_read": "complete primary PDF with the introductory exact-result summary and the high-deletion certificate-bound section inspected; the relevant page was also visually checked",
+          "method": "primary full-text PDF inspection",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "same channel and same high-deletion regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kreindel--Essayag--Zabokritskiy 2026",
+        "assigned RESULT.md"
+      ],
+      "rationale": "This resolves a natural first small-alphabet instance in the source's high-deletion regime and closes a factor-two gap between a general certificate bound and the true ternary optimum. The proof also identifies the simple structural reason for the collapse to three codewords beyond the two exceptional boundary lengths. That is a complete natural classification, not an arbitrary finite table.",
+      "residual_risks": [
+        "It does not extend the exact formula to alphabets of size four or larger."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is specific to alphabet size three and received-multiset size three.",
+    "The elementary extremal fact could appear in older lattice-code or discrete-simplex literature under different notation.",
+    "It does not extend the exact formula to alphabets of size four or larger."
+  ]
+}

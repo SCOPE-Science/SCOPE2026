@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim reduces deletion correction to the exact intersection condition \(\iota(x,y)\le2\). The heavy-coordinate lemma is immediate: a shared coordinate of multiplicity at least three forces intersection at least three. For \(n\ge7\), pigeonhole forces every composition to have a heavy coordinate, so pairwise disjoint nonempty heavy sets give at most three codewords. The exceptional heavy-free compositions at \(n=5,6\) are fully classified, and the stated witnesses attain the resulting upper bounds. The embedded verifier independently exhausts the two exceptional finite cases.
+## correctness
 
-## Originality — PASS
-The closest primary source is arXiv:2601.05636v2. Its Section 4.4 gives the same intersection formulation but only the certificate bound \(S_q(n,n-3)\le q+\binom q2\) for \(n\ge q+2\), which specializes to six for \(q=3\). Its exact ternary section concerns one deletion, not \(t=n-3\). The foundational Kovačević–Tan multiset-code paper supplies the discrete-simplex framework and general bounds rather than this exact ternary extremal classification. Searches under deletion, intersection, discrete-simplex, and minimum-distance aliases found no stronger statement implying the piecewise formula. Residual risk: an older equivalent lattice-code result may exist under notation not retrieved by the searches.
+PASS
 
-## Value — PASS
-This is a natural complete classification for the first nontrivial fixed-output extremal deletion regime over the smallest nonbinary alphabet. It sharpens a recent general upper bound from six to the exact values four and three, and it identifies the sharp threshold \(n=7\) at which only three codewords are possible. The proof is structural rather than a table recomputation.
+The heavy-coordinate argument proves the complete infinite statement. If two codewords both have a coordinate of multiplicity at least three in the same alphabet position, their multiset intersection has size at least three, so their heavy-coordinate sets must be pairwise disjoint. For length at least seven every ternary composition has a heavy coordinate, giving at most three codewords and the three constant words attain the bound. At length six the unique heavy-free composition is \((2,2,2)\); at length five the heavy-free words are the three permutations of \((2,2,1)\), any two of which intersect in four symbols. These facts give the sharp upper bound four at lengths five and six, attained by the displayed witnesses. The package verifier exhaustively confirms the two boundary lengths, and an independent exact set-packing reconstruction also returned maxima four, four, and three at lengths five, six, and seven. The unbounded part rests on the analytic pigeonhole argument, not the finite computations.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest primary paper studies exactly the same multiset deletion model. Its high-deletion section gives the general certificate bound \(S_q(n,n-3)\le q+\binom q2\), which yields only six for the ternary case, while its exact ternary benchmark concerns a different one-deletion regime. Full primary-text inspection did not locate the piecewise ternary values four, four, then three. Current Resultary and equivalent discrete-simplex/intersection searches likewise returned no stronger theorem implying the audited formula.
+
+## value
+
+PASS
+
+This resolves a natural first small-alphabet instance in the source's high-deletion regime and closes a factor-two gap between a general certificate bound and the true ternary optimum. The proof also identifies the simple structural reason for the collapse to three codewords beyond the two exceptional boundary lengths. That is a complete natural classification, not an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
