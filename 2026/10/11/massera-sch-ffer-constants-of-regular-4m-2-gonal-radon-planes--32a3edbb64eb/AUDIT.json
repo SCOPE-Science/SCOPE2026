@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Fu–Li Theorem 4.4 reduces MS_B on a polyhedral Radon plane exactly to the largest norm distance between Birkhoff-orthogonal extreme points. The polar of the inradius-one regular N=4m+2 polygon becomes cos(alpha) times the primal polygon after a quarter-turn, so the plane is Radon. At a fixed vertex, the adjacent two norming facets show that, modulo sign, only vertex indices m and m+1 can be Birkhoff-orthogonal. The resulting two Euclidean chords have lengths 2 sec(alpha) sin(pi/4 minus or plus alpha/2), and their directions have parity-dependent distance 0 or alpha from the facet-normal lattice. This gives the two displayed polygonal norms. The plus chord is strictly larger in both parity cases, producing the modulo-8 formula.",
+    "risks": [
+      "The Radon conclusion uses the standard planar polar/antinorm characterization; the concrete quarter-turn polar identity is stated explicitly.",
+      "The checker is finite and supplementary; the proof itself classifies all possible orthogonal extreme-point indices for every m."
+    ],
+    "sources": [
+      "doi:10.2298/FIL2415247F, especially Lemma 4.3 and Theorem 4.4 on pp. 5257–5258",
+      "doi:10.1007/978-3-030-86695-2_4 for the planar Radon/Birkhoff framework",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fu–Li prove the universal range sqrt(2)<=MS_B<=2 and a general Radon-plane reduction, but do not evaluate arbitrary polygonal Radon planes.",
+        "Their explicit family after Theorem 4.4 is the smooth conjugate Day–James family l_p-l_q.",
+        "The published-finding corpus regular-polygon records returned by the searches concern equilateral perimeter, Banach–Mazur distance, harmonic symmetrization, or other constants."
+      ],
+      "reasoning": "The general reduction does not determine which extreme-point chords are Birkhoff-orthogonal nor their polygonal lengths. Those are exactly the new geometric steps that produce the modulo-8 formula.",
+      "searches": [
+        "Massera Schaffer inequality Birkhoff regular 4n polygon",
+        "Massera-Schaffer constant affine regular hexagon",
+        "Massera Schaffer regular 14-gon"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2298/FIL2415247F",
+      "doi:10.1007/978-3-030-86695-2_4",
+      "2026/10/4/SCOPE-banach-mazur-distance-from-the-parallelogram-to-the-regular-deca--762b51c74443",
+      "2026/9/20/SCOPE-constant-equilateral-perimeter-regular-4n-gons--1e63f7004e13",
+      "2026/10/4/SCOPE-euclidean-banach-mazur-profile-of-a-classical-hexagonal-family--19a906569c60",
+      "Current own ledger through generation g000054"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fu–Li Theorem 4.4 supplies a reduction, not the regular-polygon evaluation; the subsequent theorem treats l_p-l_q instead.",
+        "The regular-decagon Banach–Mazur result optimizes affine containment rather than Birkhoff-orthogonal unit chords.",
+        "The regular-4n equilateral-perimeter result uses a different side-count residue and a triangle objective."
+      ],
+      "reasoning": "The accepted theorem requires both a complete orthogonal-vertex incidence classification and an exact evaluation of the two surviving chord directions. No inspected prior statement performs or implies both steps.",
+      "searches": [
+        "doi:10.2298/FIL2415247F Theorem 4.4",
+        "Massera Schaffer constant regular 4m+2 polygon formula",
+        "2026/10/4/SCOPE-banach-mazur-distance-from-the-parallelogram-to-the-regular-deca--762b51c74443",
+        "2026/9/20/SCOPE-constant-equilateral-perimeter-regular-4n-gons--1e63f7004e13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fu–Li Theorem 4.4 identifies MS_B on Radon planes with a Birkhoff-orthogonal unit-chord supremum, so searches under either the invariant name or orthogonal-chord language are relevant.",
+        "The accepted formula is invariant under affine scaling of the polygonal unit ball; the proof uses the inradius-one normalization only to expose the angular lattice.",
+        "No published-finding corpus record states the regular 4m+2 formula under either MS_B or a matching orthogonal-chord description."
+      ],
+      "reasoning": "The key equivalent formulation is the Fu–Li Radon-plane chord supremum, not merely a notational alias. The literature check therefore compared statements that could imply the full regular-polygon formula rather than only exact notation matches.",
+      "searches": [
+        "Massera Schaffer Birkhoff constant regular polygon",
+        "Massera Schaffer constant regular 4m+2 polygon formula",
+        "MS_B regular polygon 2 sin(pi/4+pi/(2N))"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit reports MS_B for the regular decagon, dodecagon, or an infinite regular-polygon family.",
+        "The closest regular-decagon hit is Banach–Mazur distance from a parallelogram, a different invariant.",
+        "The own ledger contains an affine-regular decagon James-constant result but no MS_B computation."
+      ],
+      "reasoning": "Concrete small-polygon values were searched because a table or isolated exact computation could cover low-order cases even if the infinite-family terminology differed. None was found for MS_B.",
+      "searches": [
+        "MS_B regular decagon exact golden ratio",
+        "Massera Schaffer regular decagon phi",
+        "MSB regular dodecagon Banach"
+      ]
+    },
+    "rationale": "The defining Fu–Li paper was inspected directly through its Radon-plane section, including the exact extreme-point reduction and its subsequent conjugate Day–James calculation. No regular-polygon, decagon, dodecagon, or modulo-8 formula occurs in the inspected material. published-finding corpus searches covered the exact invariant name and notation, regular-polygon aliases, the decagonal golden-ratio specialization, and the trigonometric formula. The own ledger through g000054 was searched for Massera, MS_B/MSB and related Schaffer terminology; no overlapping Massera–Schäffer finding was present.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "An equivalent formula could appear under an antinorm/Radon-curve parametrization rather than the MS_B notation.",
+      "The hexagonal endpoint is consistent with prior examples; novelty is claimed for the infinite formula and modulo-8 structure, not for MS_B(X_6)=2 in isolation."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: Theorem 4.4 is the exact reduction needed here, but the paper does not state or compute the regular 4m+2 polygonal family.",
+        "evidence": "Filomat 38 (2024), no. 15, 5247–5259; primary MSC 46B20.",
+        "identifier_or_url": "doi:10.2298/FIL2415247F",
+        "material_read": "Open-access full PDF: title/abstract/MSC page; definition and universal bounds; Section 4 introduction to Radon planes; Lemma 4.3; Theorem 4.4 and proof; Lemma 4.5; Theorem 4.6 and the l_p-l_q calculation.",
+        "method": "Lawful open-access publisher PDF text inspection plus page-image inspection of pp. 5256–5258.",
+        "title": "The Massera-Schäffer inequality related to Birkhoff orthogonality in Banach spaces",
+        "trigger": "Defining source for MS_B and decisive Radon-plane reduction."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING: predates MS_B and cannot contain the new constant, but supports the Radon-plane framework.",
+        "evidence": "Public date 18 November 2022; primary MSC includes 46B20.",
+        "identifier_or_url": "doi:10.1007/978-3-030-86695-2_4",
+        "material_read": "Bibliographic record, subject classification, and Radon/Birkhoff scope metadata.",
+        "method": "Public MaRDI/Springer-indexed bibliographic inspection.",
+        "title": "Orthogonality Types in Normed Linear Spaces",
+        "trigger": "Background source for Birkhoff orthogonality and Radon-plane polar geometry; also supplies an exact public date."
+      }
+    ],
+    "sources": [
+      "doi:10.2298/FIL2415247F",
+      "doi:10.1007/978-3-030-86695-2_4",
+      "published-finding corpus records listed in the comparison checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "32a3edbb-64eb-41c9-8880-c24d05f6ceea",
+  "value": {
+    "rationale": "MS_B was introduced as a quantitative orthogonality constant and Fu–Li singled out Radon planes as the setting where it becomes an exact orthogonal-chord invariant. Regular 4m+2-gons are the canonical polygonal Radon family, so an exact all-m formula is a natural missing benchmark rather than an arbitrary slice. The modulo-8 split is structural: it records whether the longer orthogonal vertex chord lies on a facet-normal or vertex ray, and it yields a nontrivial decagonal golden-ratio value. The result also quantifies convergence of this canonical polygonal Radon family toward the Hilbert endpoint sqrt(2).",
+    "risks": [
+      "The theorem is an exact canonical-family computation, not a classification of MS_B over all Radon planes."
+    ],
+    "sources": [
+      "doi:10.2298/FIL2415247F",
+      "doi:10.1007/978-3-030-86695-2_4",
+      "Bundled RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
