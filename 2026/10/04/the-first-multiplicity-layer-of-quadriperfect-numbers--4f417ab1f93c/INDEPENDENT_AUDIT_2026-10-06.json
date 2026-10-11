@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:54:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 4a5d79e499be8e3a98ca9d1f626c34ea44e4a313",
+        "verify.py blob 473843769cb714de5313f62f3587be7df5f17988",
+        "fresh rational exponent-partition maximum replay",
+        "Zhou thesis historical cross-check"
+      ],
+      "rationale": "For a fixed exponent partition, abundancy is maximized by using the smallest available primes, while all assignments of exponents to those primes can be checked exactly. Fresh rational recomputation reproduced the maxima below multiplicity eight, all strictly below four. At multiplicity eight only the partitions \\((3,2,1,1,1)\\), \\((3,1,1,1,1,1)\\) and \\((2,2,1,1,1,1)\\) have maximal abundancy at least four. The inspected verifier performs an exact monotone branch-and-bound over increasing prime assignments; its future-prime abundancy bound is valid and leaves only \\(2^3\\cdot3^2\\cdot5\\cdot7\\cdot13\\), whose divisor sum is exactly four times itself.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carmichael's results classify multiperfect numbers with up to five distinct primes, not every exponent partition of total multiplicity at most eight.",
+          "Broughan–Zhou's 22-prime result is restricted to odd quadriperfect numbers."
+        ],
+        "reasoning": "Neither broader result eliminates all even exponent patterns with \\(\\Omega\\le8\\).",
+        "searches": [
+          "Zhou thesis full PDF",
+          "Broughan–Zhou author-version full text",
+          "Carmichael classifications as summarized in Zhou"
+        ]
+      },
+      "checked_sources": [
+        "hdl:10289/4138",
+        "DOI:10.1016/j.jnt.2007.02.001",
+        "Flammenkamp:MPN",
+        "OEIS:A027687",
+        "Resultary quadriperfect multiplicity search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Small distinct-support classifications do not determine the minimum total multiplicity because exponent partitions with larger support still have to be excluded.",
+          "The submitted proof first excludes every partition of total size below eight by exact maximal abundancy, then closes all three surviving size-eight partitions."
+        ],
+        "reasoning": "The global total-multiplicity conclusion requires additional exhaustive structural analysis not supplied by the checked prior results.",
+        "searches": [
+          "Zhou historical classifications and \\(\\omega/\\Omega\\) definitions",
+          "Broughan–Zhou odd branch",
+          "audited exponent-partition abundancy bounds and branch-and-bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted invariant counts prime factors with multiplicity, not merely distinct prime support.",
+          "Flammenkamp's abundance-4 record line numerically reports eight as the fewest factors, while Zhou's thesis separately defines \\(\\omega\\) and \\(\\Omega\\)."
+        ],
+        "reasoning": "The exact theorem upgrades a database extremum to an unrestricted proof and classifies the equality layer.",
+        "searches": [
+          "Zhou, Multiply perfect numbers of low abundancy, PhD thesis, hdl:10289/4138",
+          "Broughan–Zhou, Odd multiperfect numbers of abundancy four, JNT 128 (2008)",
+          "Flammenkamp Multiply Perfect Numbers database",
+          "Resultary query: quadriperfect Omega eight 32760"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Flammenkamp reports 'Fewest factors' equal to 8 for abundance 4.",
+          "OEIS lists 30240, 32760 and further quadriperfect numbers.",
+          "Neither database provides the submitted proof that no unrecorded quadriperfect integer can have smaller \\(\\Omega\\), nor the exhaustive equality-layer branch analysis."
+        ],
+        "reasoning": "The databases are corroborating numerical evidence, not theorem-level prior coverage.",
+        "searches": [
+          "Flammenkamp Multiply Perfect Numbers database, abundance-4 row",
+          "OEIS A027687",
+          "Resultary quadriperfect multiplicity search"
+        ]
+      },
+      "rationale": "Zhou's complete thesis was materially inspected and explicitly distinguishes \\(\\omega(N)\\), the number of distinct primes, from \\(\\Omega(N)\\), total multiplicity. Its historical section records Carmichael's classifications through five distinct prime factors, including 30240 and 32760, while later chapters study restricted flat/even or odd quadriperfect shapes. Broughan–Zhou prove a strong 22-distinct-prime lower bound only on the odd branch. Flammenkamp's current database reports 'Fewest factors' 8 for abundance 4, but is a computational record rather than an unrestricted proof. No checked source states the submitted all-quadriperfect \\(\\Omega\\ge8\\) theorem plus unique equality case.",
+      "residual_risks": [
+        "Older multiply-perfect literature is not uniformly searchable, so an unlinked proof of the same total-multiplicity statement could exist.",
+        "The theorem does not classify quadriperfect numbers beyond the boundary layer \\(\\Omega=8\\)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_SUPPORT_AND_RESTRICTED_SHAPE_RESULTS_PRIOR_GLOBAL_OMEGA_LAYER_NOT_STATED",
+          "evidence": "The thesis explicitly distinguishes total from distinct prime counts and records 30240 in the four-distinct-prime class and 32760 among the five-distinct-prime class, without an \\(\\Omega=8\\) minimum theorem.",
+          "identifier_or_url": "hdl:10289/4138",
+          "material_read": "Complete 152-page thesis was searchable in full; definitions of \\(\\omega,\\Omega\\), the historical classifications, chapter outline and even quadriperfect sections were inspected. The page summarizing Carmichael's \\(\\omega=3,4,5\\) classifications was visually inspected.",
+          "method": "Full-text invariant and theorem-scope comparison.",
+          "title": "Multiply perfect numbers of low abundancy",
+          "trigger": "Closest full primary historical/structural source on low-abundancy multiperfect numbers."
+        },
+        {
+          "assessment": "ODD_BRANCH_ONLY",
+          "evidence": "The paper states that any odd quadriperfect number has at least 22 distinct prime factors, which does not classify small even total-multiplicity patterns.",
+          "identifier_or_url": "DOI:10.1016/j.jnt.2007.02.001",
+          "material_read": "Author-version primary full text and principal theorem scope were inspected.",
+          "method": "Parity/domain implication comparison.",
+          "title": "Odd multiperfect numbers of abundancy four",
+          "trigger": "Strongest directly relevant prime-factor lower bound on quadriperfect numbers."
+        },
+        {
+          "assessment": "CORROBORATING_DATABASE_RECORD_NOT_UNRESTRICTED_PROOF",
+          "evidence": "The abundance-4 row reports fewest prime factors equal to 8.",
+          "identifier_or_url": "Flammenkamp:MPN",
+          "material_read": "Current abundance table including the abundance-4 row.",
+          "method": "Database/table comparison.",
+          "title": "Multiply Perfect Numbers",
+          "trigger": "Exact current computational record for minimum factor counts by abundancy."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "hdl:10289/4138",
+        "DOI:10.1016/j.jnt.2007.02.001",
+        "Flammenkamp:MPN",
+        "OEIS:A027687",
+        "Resultary quadriperfect multiplicity search"
+      ],
+      "rationale": "Quadriperfect numbers are not completely classified, and total prime-factor multiplicity is a natural invariant complementary to classical distinct-support bounds. Proving the exact minimum and rigid equality case turns a database record into a complete first structural layer.",
+      "residual_risks": [
+        "Older multiply-perfect literature is not uniformly searchable, so an unlinked proof of the same total-multiplicity statement could exist.",
+        "The theorem does not classify quadriperfect numbers beyond the boundary layer \\(\\Omega=8\\)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "hdl:10289/4138",
+    "DOI:10.1016/j.jnt.2007.02.001",
+    "Flammenkamp:MPN",
+    "OEIS:A027687",
+    "Resultary quadriperfect multiplicity search"
+  ],
+  "disposition": "passed",
+  "final_claim": "Every quadriperfect integer \\(n\\), meaning \\(\\sigma(n)=4n\\), satisfies \\(\\Omega(n)\\ge8\\); equality occurs exactly for \\(32760=2^3\\cdot3^2\\cdot5\\cdot7\\cdot13\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older multiply-perfect literature is not uniformly searchable, so an unlinked proof of the same total-multiplicity statement could exist.",
+    "The theorem does not classify quadriperfect numbers beyond the boundary layer \\(\\Omega=8\\)."
+  ]
+}

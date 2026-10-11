@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,40 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The unrestricted argument is in `RESULT.md`. The packaged checker uses exact
-`Fraction` arithmetic throughout.
+# Independent mathematical audit
 
-For every total multiplicity \(1\le m\le8\), it generates every unordered
-exponent partition of \(m\). For each partition it tries every distinct
-assignment of those exponents to the first required primes, thereby computing
-an exact global abundancy upper bound for that partition.
+## correctness
 
-It confirms the lower-layer maxima
-\[
-\frac32,\ 2,\ \frac{12}{5},\ \frac{14}{5},\
-\frac{16}{5},\ \frac{192}{55},\ \frac{208}{55}
-\]
-for \(m=1,\ldots,7\).
+PASS
 
-At \(m=8\), it confirms that only
-\[
-(3,2,1,1,1),\quad
-(3,1,1,1,1,1),\quad
-(2,2,1,1,1,1)
-\]
-have optimistic abundancy at least \(4\). It then searches those three
-patterns with the monotone future-prime upper bound described in the proof.
+For a fixed exponent partition, abundancy is maximized by using the smallest available primes, while all assignments of exponents to those primes can be checked exactly. Fresh rational recomputation reproduced the maxima below multiplicity eight, all strictly below four. At multiplicity eight only the partitions \((3,2,1,1,1)\), \((3,1,1,1,1,1)\) and \((2,2,1,1,1,1)\) have maximal abundancy at least four. The inspected verifier performs an exact monotone branch-and-bound over increasing prime assignments; its future-prime abundancy bound is valid and leaves only \(2^3\cdot3^2\cdot5\cdot7\cdot13\), whose divisor sum is exactly four times itself.
 
-The exact search returns one assignment only:
-\[
-(2,3),(3,2),(5,1),(7,1),(13,1).
-\]
-Finally it directly computes the divisor sum and verifies
-\[
-\sigma(32760)=131040=4\cdot32760.
-\]
+## originality
 
-No floating-point thresholds or finite size cutoffs are used in the
-classification.
+PASS
+
+Zhou's complete thesis was materially inspected and explicitly distinguishes \(\omega(N)\), the number of distinct primes, from \(\Omega(N)\), total multiplicity. Its historical section records Carmichael's classifications through five distinct prime factors, including 30240 and 32760, while later chapters study restricted flat/even or odd quadriperfect shapes. Broughan–Zhou prove a strong 22-distinct-prime lower bound only on the odd branch. Flammenkamp's current database reports 'Fewest factors' 8 for abundance 4, but is a computational record rather than an unrestricted proof. No checked source states the submitted all-quadriperfect \(\Omega\ge8\) theorem plus unique equality case.
+
+## value
+
+PASS
+
+Quadriperfect numbers are not completely classified, and total prime-factor multiplicity is a natural invariant complementary to classical distinct-support bounds. Proving the exact minimum and rigid equality case turns a database record into a complete first structural layer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
