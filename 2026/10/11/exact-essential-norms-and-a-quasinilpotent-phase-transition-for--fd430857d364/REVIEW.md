@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness (C): PASS
+The differentiation model on the codimension-one zero-value subspace is unitary; finite-rank blocks do not affect the Calkin class. The Cayley transform and weighted Laplace realization give the exact scalar \((ab)^{-\alpha/2}\) and the two distinct positive exponents \(c_1\) and \(c_2\). The norm of a multiplication operator on a nonatomic weighted \(L^2\) space equals its essential norm. The exponent difference is strictly positive; differentiation gives the stated unique maximizing \(t_*\). The off-diagonal iterate estimate is uniform over the entire half-line and gives superexponential norm decay. The diagonal essential spectrum follows from the full essential range of the multiplier. All parameter endpoints used in the theorem are stated explicitly.
+
+## Originality (O): PASS, with residual risks
+The closest motivating source is He–Yan–Zhang–Zhao, arXiv:2609.29897v1, particularly Theorems 5.13–5.14, which give only comparability estimates for *separate products* when \(-1<\alpha<0\). Its other theorems concern compactness or exact norms in \(\alpha\ge0\). MacCluer–Narayan–Weir (2013, DOI:10.1080/17476933.2010.551202), especially Theorem 3.1, gives a compactness classification for commutators on weighted Bergman spaces; that does not entail an exact weighted-Dirichlet essential norm or the off-diagonal quasinilpotent Calkin spectrum. Gu–He–Wang–Yan (arXiv:2609.23667v1) and the half-plane composition-operator spectral literature treat individual operators, not the difference of products. Scientific literature searches showed no equivalent theorem. A 2012 commutator compactness paper was not fully accessible, so an implicit older norm/spectral treatment remains a possible source risk; novelty is not certified merely by absence from searches.
+
+## Value (V): PASS
+The commutator tests essential commutativity/normality in the same family for which current literature supplies product-level boundary geometry but no singular-weight sharp commutator norm. The closed form gives a quantitative obstruction to compactness for every slope pair, while the drastic transition from a positive essential spectral interval to a nonzero quasinilpotent Calkin element distinguishes norm size from spectral size. The proof identifies the exact mechanism—simultaneous small-scale and large-scale damping along multiplicative orbits—rather than a small numerical sharpening or a one-off example. It leaves general linear-fractional pairs open.
+
+Same-model review: passed. Independent audit: not yet performed.
