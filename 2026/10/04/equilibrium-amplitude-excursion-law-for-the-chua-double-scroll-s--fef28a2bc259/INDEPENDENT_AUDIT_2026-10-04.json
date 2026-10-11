@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:07:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For compact invariant support, antiderivatives of arbitrary continuous one-coordinate test functions give \\(\\mathbb E[y\\mid z]=0\\) and \\(\\mathbb E[x+z\\mid y]=y\\). Coordinate stationarity gives \\(\\mathbb E[h(x)]=0\\); the observables \\(x^2/2\\) and \\((\\beta y^2+z^2)/2\\) give \\(\\mathbb E[xy]=\\mathbb E[xh(x)]=\\mathbb E[y^2]\\). The piecewise-linear geometry has \\(xh(x)\\le0\\) on \\(|x|\\le r\\), with zeros only at \\(-r,0,r\\), and \\(xh(x)>0\\) outside. If no mass lies outside, the defect forces \\(y=0\\) and invariance reduces every support orbit to one of the three equilibria. Applying the same law to a periodic orbit forces one point outside; the zero-mean law for \\(h(x)\\) rules out remaining entirely in either exterior half-line, so the orbit also enters \\(|x|<r\\) and has at least two threshold crossings. The exact checker independently verifies the polynomial generator identities and the canonical value \\(r=3/2\\).",
+      "risk": "The theorem assumes compact invariant support and does not assert existence of a chaotic attractor for every slope pair satisfying the sign hypotheses.",
+      "sources": [
+        "Frozen RESULT.md and verify.py at the assigned tree",
+        "Chua--Komuro--Matsumoto, UCB/ERL M85/102; IEEE Trans. Circuits and Systems 33 (1986), DOI 10.1109/TCS.1986.1085869"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1985/1986 primary work proves chaos and analyzes the global piecewise-linear dynamics.",
+          "Luo--Xue 2009 analytically predicts periodic flows using switching boundaries and mappings."
+        ],
+        "reasoning": "These broader dynamical analyses do not, in the material inspected, imply the exact measure identity or the universal \\(|x|=r\\) excursion statement.",
+        "searches": [
+          "UCB/ERL M85/102",
+          "DOI 10.1109/TCS.1986.1085869",
+          "DOI 10.1142/S0218127409023998"
+        ]
+      },
+      "checked_sources": [
+        "UCB/ERL M85/102",
+        "DOI:10.1109/TCS.1986.1085869",
+        "DOI:10.1142/S0218127409023998",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work supplies the system and detailed orbit/bifurcation structure but no stationary-generator identity matching \\(\\mathbb E[y^2]=\\mathbb E[xh(x)]\\).",
+          "The threshold conclusion uses the sign of \\(xh(x)\\) together with the new exact stationary balance."
+        ],
+        "reasoning": "The submitted implication from stationary balance to a universal amplitude barrier is not a direct corollary of the checked Poincare-map or switching results.",
+        "searches": [
+          "DOI 10.1109/TCS.1986.1085869",
+          "DOI 10.1142/S0218127409023998"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary hits were stationary-balance results for other vector fields, not Chua's three-segment system.",
+          "Classic Chua sources found under Poincare-map, switching and bifurcation terminology did not expose an equivalent stationary-measure law in accessible material."
+        ],
+        "reasoning": "Searches included invariant measure, time average, stationary balance, voltage-amplitude threshold, and periodic-crossing formulations.",
+        "searches": [
+          "Resultary: Chua double scroll invariant measure stationary average x h(x) equilibrium amplitude excursion periodic crossing",
+          "Web: Chua circuit invariant measure stationary average xh(x) mean-square equilibrium amplitude"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or stored classification of compact invariant measures by the threshold \\(r\\) was located."
+        ],
+        "reasoning": "The theorem is analytic and all-parameter within the stated slope class; it is not a numerical orbit catalogue.",
+        "searches": [
+          "Resultary Chua/double-scroll recurrence searches"
+        ]
+      },
+      "rationale": "The classic double-scroll work develops the same piecewise-linear family through conjugacy, Poincare maps, homoclinic structure and bifurcations. A later periodic-flow paper treats regionwise solutions, switching, grazing, mappings and stability. No checked source states the invariant-measure defect or the equilibrium-amplitude recurrence barrier. Resultary likewise returned no same-object theorem other than the audited record.",
+      "residual_risks": [
+        "Full text of the 2009 periodic-flow article was not available in the inspected lawful source, so overlap with its detailed periodic formulas cannot be excluded absolutely.",
+        "The Berkeley archive PDF itself returned an access error, although stable metadata and alternate article renderings were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_WITH_ACCESS_RISK",
+          "evidence": "Accessible material describes chaos, conjugacy, Poincare maps and bifurcations, not invariant-probability stationary moment laws.",
+          "identifier_or_url": "UCB/ERL M85/102; DOI:10.1109/TCS.1986.1085869",
+          "material_read": "Berkeley report metadata plus accessible publisher/search-rendered article material describing the rigorous piecewise-linear family, normal form, Poincare maps and bifurcation analysis; a direct archive-PDF fetch was blocked in this run.",
+          "method": "lawful public web material; direct PDF access attempt returned 403",
+          "title": "The Double Scroll Family",
+          "trigger": "Foundational primary source for the normalized double-scroll family."
+        },
+        {
+          "assessment": "POTENTIALLY_RELATED_NOT_DECISIVE",
+          "evidence": "The accessible description does not state the invariant-measure defect or an equilibrium-amplitude threshold theorem.",
+          "identifier_or_url": "DOI:10.1142/S0218127409023998",
+          "material_read": "Publisher/preview abstract material describing regionwise solutions, switching boundaries, grazing, mappings, periodic responses and local stability.",
+          "method": "lawful public preview/abstract",
+          "title": "An Analytical Prediction of Periodic Flows in the Chua Circuit System",
+          "trigger": "Closest primary source specifically treating periodic trajectories and switching thresholds."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonzero-equilibrium voltage is a natural circuit amplitude, and the theorem turns a standard stationary balance into a parameter-exact recurrence barrier valid for every compact stationary state and every nonconstant periodic orbit. That is a structural global constraint on a canonical chaotic circuit, not merely a simulation observation.",
+      "risk": "The positive-mass conclusion is qualitative and does not quantify how much time is spent beyond the threshold.",
+      "sources": [
+        "UCB/ERL M85/102",
+        "DOI:10.1109/TCS.1986.1085869"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the normalized three-segment Chua double-scroll system with inner slope \\(m_0<0\\), outer slope \\(m_1>0\\), and \\(r=(m_1-m_0)/m_1\\), every compact invariant probability measure satisfies the stated conditional stationary laws and \\(\\mathbb E[y^2]=\\mathbb E[xh(x)]\\ge0\\); equality is exactly a mixture of the three equilibria, every other compact stationary state gives positive mass to \\(|x|>r\\), and every nonconstant periodic orbit visits both sides of the threshold \\(|x|=r\\).",
+  "limitations": [
+    "No existence or uniqueness of chaotic invariant measures is proved.",
+    "The result is for the standard three-segment dimensionless normalization."
+  ],
+  "schema_version": 1
+}
