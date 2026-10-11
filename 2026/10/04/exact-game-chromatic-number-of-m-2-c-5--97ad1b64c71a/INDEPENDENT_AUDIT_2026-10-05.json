@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:15:03.010276Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 1c2e696e80d277e56c47595c6491dd4cbe38431b",
+        "assigned artifacts/verify_game.cpp blob 40de5d381f123f4796cb76890ca102038373f0f2",
+        "fresh independent compilation/replay of the verifier"
+      ],
+      "rationale": "The exact finite-game claim was reconstructed from the audited graph and verifier. The source tree defines a 16-vertex, 30-edge two-layer generalized Mycielski graph. The inspected minimax code implements the literal alternating quantifiers: Alice positions are existential over legal moves and Bob positions universal from Alice's perspective; a full legal coloring is accepting and an uncolored vertex seeing all palette colors is rejecting. The only quotients are ten verified dihedral automorphisms and global color permutations. In this audit the C++17 verifier was freshly compiled and run without a cutoff: three colors returned Alice_win=0 after 241 canonical states and four colors returned Alice_win=1 after 3,734,489 canonical states. Thus \\(\\chi_g(M_2(C_5))=4\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary abstract states the all-\\(k\\ge2,n\\ge5\\) cycle bound \\(4\\le\\chi_g\\le5\\).",
+          "Its exact statements advertised in the abstract are \\(M_2(P_5)\\) and \\(M_2(P_6)\\), not the target cycle."
+        ],
+        "reasoning": "The strongest accessible broader theorem leaves exactly the two possibilities that the finite computation resolves.",
+        "searches": [
+          "Mou--Sun--Zhang, arXiv:2609.02283",
+          "targeted searches for later papers citing the generalized-cycle theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.02283",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader result gives only a lower and upper bound differing by one.",
+          "The fresh exhaustive minimax certificate decides which endpoint holds."
+        ],
+        "reasoning": "Neither bound logically selects four; the new finite certificate supplies the missing endpoint decision.",
+        "searches": [
+          "statement-level comparison with arXiv:2609.02283 abstract",
+          "searches for transfer of one-layer cycle strategies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit supplied the exact target value.",
+          "The current primary abstract gives only the interval for generalized cycles and exact values for two paths."
+        ],
+        "reasoning": "Searches covered the exact notation, generalized-Mycielski cycle wording, and the coloring-game invariant; no equivalent exact theorem was located.",
+        "searches": [
+          "Resultary: game chromatic number generalized Mycielski graph M_2(C_5) exact 4 cycle",
+          "web searches for \"M_2(C_5)\" game chromatic number and generalized Mycielski 5-cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table entry or published exact value for the target graph was located."
+        ],
+        "reasoning": "The claim is a finite exact invariant, so table coverage was material; the targeted searches did not find one.",
+        "searches": [
+          "Resultary exact-parameter search",
+          "web exact-phrase searches for M2(C5) and game chromatic"
+        ]
+      },
+      "rationale": "The current Mou--Sun--Zhang abstract is directly on generalized Mycielski paths and cycles. It states only \\(4\\le\\chi_g(M_k(C_n))\\le5\\) for \\(k\\ge2,n\\ge5\\), while naming exact two-layer values only for \\(P_5\\) and \\(P_6\\). Targeted web and Resultary searches did not locate a source stating the exact value for \\(M_2(C_5)\\). The unavailable complete primary text is retained as a residual access risk rather than used for a whole-document noncoverage assertion.",
+      "residual_risks": [
+        "Complete primary text of arXiv:2609.02283 was not available in this run after the permitted institutional route returned an error; an unadvertised exact C5 lemma there would affect priority.",
+        "A very recent unindexed finite computation could duplicate the same equality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_BUT_NOT_COVERING_ON_ACCESSIBLE_STATEMENT",
+          "evidence": "The accessible theorem summary leaves generalized cycles in a 4-or-5 interval and advertises exact depth-two results only for paths P5 and P6.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.02283",
+          "material_read": "Primary arXiv abstract, including the all-cycle interval and the two exact path values.",
+          "method": "Open arXiv/web inspection; complete primary text was not obtained. An authorized institutional retrieval attempt returned a worker error and was not repeated.",
+          "title": "The game chromatic number of generalized Mycielski graphs of paths and cycles",
+          "trigger": "Exact same invariant and graph family, with parameters containing the target."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mou--Sun--Zhang arXiv:2609.02283 abstract",
+        "fresh exact game-tree replay"
+      ],
+      "rationale": "The target is the smallest cycle in the exact unresolved regime highlighted by the current generalized-Mycielski paper. Deciding the lower endpoint by an exhaustive finite certificate is a motivated boundary result rather than an arbitrary small-graph census, and it provides a concrete cyclic benchmark for the open family.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.02283",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only \\(M_2(C_5)\\) is decided; no larger cycle or depth is classified.",
+    "The four-color upper bound is computer-assisted rather than represented by a short explicit strategy."
+  ],
+  "residual_risks": [
+    "Complete primary text of arXiv:2609.02283 was not available in this run after the permitted institutional route returned an error; an unadvertised exact C5 lemma there would affect priority.",
+    "A very recent unindexed finite computation could duplicate the same equality."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "ACCESS_LIMITED_BUT_NOT_COVERING_ON_ACCESSIBLE_STATEMENT",
+      "evidence": "The accessible theorem summary leaves generalized cycles in a 4-or-5 interval and advertises exact depth-two results only for paths P5 and P6.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.02283",
+      "material_read": "Primary arXiv abstract, including the all-cycle interval and the two exact path values.",
+      "method": "Open arXiv/web inspection; complete primary text was not obtained. An authorized institutional retrieval attempt returned a worker error and was not repeated.",
+      "title": "The game chromatic number of generalized Mycielski graphs of paths and cycles",
+      "trigger": "Exact same invariant and graph family, with parameters containing the target."
+    }
+  ]
+}

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is a finite exact game value. The graph construction was matched to the published generalized-Mycielski definition, and the checker independently reconstructs the 16-vertex, 30-edge graph. It evaluates the literal alternating quantifiers of the coloring game for three and four colors. The only quotienting uses the ten dihedral graph automorphisms and global color permutations; adjacency preservation is checked before the game search. The finalized replay gives a Bob win for three colors and an Alice win for four colors.
+## correctness
 
-## Originality
-PASS. The closest primary paper, arXiv:2609.02283v1, leaves every generalized Mycielski cycle with depth at least two and order at least five in the interval from four to five. Its exact depth-two statements are for two paths. Earlier exact cycle results cited there are for the classical one-layer Mycielski construction. Parameter-specific and alias searches did not locate an exact value for the target graph. Residual risk remains from unindexed literature, and the earlier one-layer paper was not separately read in full; neither issue supplies a known implication covering the target equality.
+PASS
 
-## Value
-PASS. The 5-cycle is the smallest cycle in the unresolved regime of the initiating paper, so deciding its endpoint is a natural boundary case. It directly tests whether the four-color behavior proved for the smallest depth-two paths survives closure into a cycle. The result is finite and computer-assisted, but it is tied to an explicit current structural question rather than an arbitrary small-graph calculation.
+The exact finite-game claim was reconstructed from the audited graph and verifier. The source tree defines a 16-vertex, 30-edge two-layer generalized Mycielski graph. The inspected minimax code implements the literal alternating quantifiers: Alice positions are existential over legal moves and Bob positions universal from Alice's perspective; a full legal coloring is accepting and an uncolored vertex seeing all palette colors is rejecting. The only quotients are ten verified dihedral automorphisms and global color permutations. In this audit the C++17 verifier was freshly compiled and run without a cutoff: three colors returned Alice_win=0 after 241 canonical states and four colors returned Alice_win=1 after 3,734,489 canonical states. Thus \(\chi_g(M_2(C_5))=4\).
 
-## Limitations and closest literature
-The theorem does not extend to larger cycles or larger generalized-Mycielski depth. The proof is an exhaustive minimax certificate rather than a compact explicit strategy. The closest literature is Mou–Sun–Zhang (2026), whose cycle theorem gives only the two-value interval containing this graph.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The current Mou--Sun--Zhang abstract is directly on generalized Mycielski paths and cycles. It states only \(4\le\chi_g(M_k(C_n))\le5\) for \(k\ge2,n\ge5\), while naming exact two-layer values only for \(P_5\) and \(P_6\). Targeted web and Resultary searches did not locate a source stating the exact value for \(M_2(C_5)\). The unavailable complete primary text is retained as a residual access risk rather than used for a whole-document noncoverage assertion.
+
+## value
+
+PASS
+
+The target is the smallest cycle in the exact unresolved regime highlighted by the current generalized-Mycielski paper. Deciding the lower endpoint by an exhaustive finite certificate is a motivated boundary result rather than an arbitrary small-graph census, and it provides a concrete cyclic benchmark for the open family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

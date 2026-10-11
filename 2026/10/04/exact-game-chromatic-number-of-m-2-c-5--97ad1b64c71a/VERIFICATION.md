@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone source `artifacts/verify_game.cpp` reconstructs the generalized Mycielski graph \(M_2(C_5)\) from its defining layers and root. It checks that the graph has \(30\) edges and that each of the ten dihedral maps used in state canonicalization preserves adjacency.
+## correctness
 
-For a fixed palette size, every position is evaluated by exact minimax. Completed positions are Alice wins; positions with an uncolored vertex seeing every available color are Bob wins. At Alice nodes the recurrence is existential over legal moves, while at Bob nodes it is universal from Alice's perspective. Canonicalization uses only verified graph automorphisms and a global relabeling of colors.
+PASS
 
-The finalized replay produced:
+The exact finite-game claim was reconstructed from the audited graph and verifier. The source tree defines a 16-vertex, 30-edge two-layer generalized Mycielski graph. The inspected minimax code implements the literal alternating quantifiers: Alice positions are existential over legal moves and Bob positions universal from Alice's perspective; a full legal coloring is accepting and an uncolored vertex seeing all palette colors is rejecting. The only quotients are ten verified dihedral automorphisms and global color permutations. In this audit the C++17 verifier was freshly compiled and run without a cutoff: three colors returned Alice_win=0 after 241 canonical states and four colors returned Alice_win=1 after 3,734,489 canonical states. Thus \(\chi_g(M_2(C_5))=4\).
 
-`M2(C5), q=3: Alice_win=0, canonical_states=241`
+## originality
 
-`M2(C5), q=4: Alice_win=1, canonical_states=3734489`
+PASS
 
-`ALL CHECKS PASSED`
+The current Mou--Sun--Zhang abstract is directly on generalized Mycielski paths and cycles. It states only \(4\le\chi_g(M_k(C_n))\le5\) for \(k\ge2,n\ge5\), while naming exact two-layer values only for \(P_5\) and \(P_6\). Targeted web and Resultary searches did not locate a source stating the exact value for \(M_2(C_5)\). The unavailable complete primary text is retained as a residual access risk rather than used for a whole-document noncoverage assertion.
 
-There is no search-depth cutoff, randomized branch selection, floating-point criterion, or timeout-based conclusion. The computation proves only these two finite game outcomes. The equality follows because three colors fail and four colors succeed.
+## value
+
+PASS
+
+The target is the smallest cycle in the exact unresolved regime highlighted by the current generalized-Mycielski paper. Deciding the lower endpoint by an exhaustive finite certificate is a motivated boundary result rather than an arbitrary small-graph census, and it provides a concrete cyclic benchmark for the open family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
