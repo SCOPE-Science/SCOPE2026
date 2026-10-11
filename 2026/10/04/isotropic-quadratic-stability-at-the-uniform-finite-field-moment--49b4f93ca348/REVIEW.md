@@ -1,27 +1,21 @@
-# Review of Isotropic quadratic stability at the uniform finite-field moment-curve extremizer
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For normalized \(f\), the exact source identities identify the \(2d\)-th power of the endpoint extension norm with \(F_{d,q}(\theta)=\mathbb E_\theta M(T)\), where \(\theta_\xi=|f(\gamma(\xi))|^2/q\). The Hessian at the uniform law is scalar on the simplex tangent space by full permutation symmetry. Along the tangent direction \(e_a-e_b\), the source's exact pair-merging formula freezes the merged law and leaves only \(H_S(\rho)\). Writing \(c=\rho(1-\rho)\) makes the perturbation exactly quadratic in the path parameter. Differentiating the explicit polynomial \(H_s=P_s(c)\), then summing the merged-sample multiplicities, gives the stated closed coefficient. The \(s=2\) term proves positivity. Polynomial Taylor expansion gives the cubic remainder in arbitrary tangent directions.
+PASS
 
-The normalization transfer \(h=v/q\) is explicit, so the extension coefficient is \(C_{d,q}/q^2\). The \(d=2\) case agrees with the exact source identity \(F_{2,q}=2-\sum\theta_\xi^2\). An exact-rational direct Hessian enumerator was replayed from the packaged artifact for several admissible \((d,q)\) and matched the formula coefficient-by-coefficient.
+Permutation symmetry at the uniform distribution forces the Hessian on the tangent hyperplane to be a scalar. Along \(t(e_a-e_b)\), the source-form pair-merging polynomial depends on \(c=1/4-q^2t^2/4\); differentiating its exact positive-coefficient expression gives \(P_s'(1/4)=\frac{2s(s-1)}{2s-1}2^{-s}\binom{2s}{s}\). Averaging over the merged occupancy yields the stated finite sum and hence \(C_{d,q}=q^2\gamma_{d,q}>0\). The conversion from probability coordinates to squared-amplitude perturbations is \(h=v/q\). Independent exact direct Hessian enumeration reproduces the formula for \((d,q)=(2,3),(3,5),(4,5)\), giving respectively \(1,33/5,858/25\) for \(C_{d,q}\); for \(d=2\) the source-form functional is exactly quadratic. The finite checks validate the algebra only; the symmetry/pair-merging proof is all-parameter.
 
-No finite experiment is used to infer the all-\(d,q\) statement.
+## originality
 
-## Originality
+PASS
 
-PASS, with one disclosed access risk. The full 2026 primary source was inspected at its extension identity, probabilistic reformulation, pair-merging identity, and \(H_s\)-polynomial formula. It proves uniqueness of the uniform probabilistic maximizer and constant-modulus extension maximizers but does not state a Hessian, local stability inequality, or exact quadratic curvature coefficient.
+Originality passes. The source theorem identifies the uniform distribution as the unique maximizer, and Gonçalves gives a stronger qualitative component-wise inequality. A prior SCOPE record imported seven seconds before the audited record proves a global quadratic lower bound with coefficient \(d(d-1)/2\), so qualitative/local quadratic stability is not new here. The surviving contribution is the exact isotropic Hessian coefficient \(C_{d,q}\), which that earlier global bound explicitly does not claim optimal and does not determine. Fresh Resultary search found both records and no earlier exact curvature formula.
 
-The full follow-up paper on component-wise permutation matches was inspected. It strengthens the order/majorization comparison and recovers the uniform maximizer, but searches of its complete text found no stability, Hessian, quadratic, or Taylor statement. The full earlier moment-curve endpoint paper was also inspected and contains no corresponding local stability result.
+## value
 
-Candidate-specific searches of the published-finding database covered the source identifier, finite-field moment-curve stability, uniform-distribution Hessians, permutation-match local stability, and equivalent deficit formulations. No returned finding stated or implied the present curvature formula.
+PASS
 
-The source cites Rinott's 1973 theorem for Schur-concavity. Only bibliographic metadata and an abstract-level description were accessible during this review. Because the complete paper was inaccessible, an equivalent differential formula hidden there remains a residual risk; the accessible material and the 2026 source describe the antecedent as a Schur-concavity result, not as a quantitative Hessian computation.
+After the earlier global stability result, the exact Hessian remains a natural local invariant: it identifies the true isotropic second-order stiffness of the extremizer rather than merely a certified lower bound. The closed occupancy formula can distinguish how local rigidity depends on both \(d\) and \(q\) and is useful for sharp near-extremizer analysis. Its value is therefore the exact curvature refinement, not the already-known fact of quadratic stability itself.
 
-## Value
-
-PASS. The sharp endpoint theorem completely identifies extremizers but gives no quantitative near-extremizer behavior. The new coefficient is the first local stability invariant of the sharp inequality: it shows that every modulus direction transverse to the constant-modulus extremizer set has the same strictly positive curvature and gives that curvature exactly for every admissible finite field.
-
-This is structurally motivated rather than an arbitrary parameter slice. Stability of sharp inequalities is the natural next question after identifying maximizers, and isotropy is not visible from the pairwise symmetrization argument until the full permutation representation is combined with the exact pair-merging polynomial. The formula also gives a concrete finite-field occupancy interpretation of the endpoint curvature.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

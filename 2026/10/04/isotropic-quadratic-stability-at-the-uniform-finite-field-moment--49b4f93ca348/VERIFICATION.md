@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-The proof is analytic and applies to every admissible \(d\ge2\) and prime power \(q=p^n\) with \(p>d\).
+# Independent mathematical audit
 
-The packaged checker independently verifies the closed curvature coefficient in several admissible finite cases. It constructs
-\[
-F_{d,q}(\theta)
-=
-\sum_{t\in\{1,\ldots,q\}^d}
-M(t)\prod_j\theta_{t_j},
-\]
-differentiates this finite polynomial exactly at the uniform law, evaluates the second derivative in the tangent direction \(e_1-e_2\), and compares the resulting coefficient with the formula
-\[
-C_{d,q}
-=
-\frac{q^{2-d}}4
-\sum_{s=2}^{d}
-\binom ds^2 B_{d-s,q-2}
-\frac{s(s-1)}{2s-1}\binom{2s}{s}.
-\]
-All arithmetic is rational.
+## correctness
 
-The finite replay is a consistency check only. The general statement follows from permutation symmetry, the exact pair-merging identity, the explicit \(H_s\)-polynomial, and Taylor expansion.
+PASS
 
-The literature-comparison limitation is separate from mathematical verification: the complete 1973 Schur-concavity antecedent was not accessible during this review.
+Permutation symmetry at the uniform distribution forces the Hessian on the tangent hyperplane to be a scalar. Along \(t(e_a-e_b)\), the source-form pair-merging polynomial depends on \(c=1/4-q^2t^2/4\); differentiating its exact positive-coefficient expression gives \(P_s'(1/4)=\frac{2s(s-1)}{2s-1}2^{-s}\binom{2s}{s}\). Averaging over the merged occupancy yields the stated finite sum and hence \(C_{d,q}=q^2\gamma_{d,q}>0\). The conversion from probability coordinates to squared-amplitude perturbations is \(h=v/q\). Independent exact direct Hessian enumeration reproduces the formula for \((d,q)=(2,3),(3,5),(4,5)\), giving respectively \(1,33/5,858/25\) for \(C_{d,q}\); for \(d=2\) the source-form functional is exactly quadratic. The finite checks validate the algebra only; the symmetry/pair-merging proof is all-parameter.
+
+## originality
+
+PASS
+
+Originality passes. The source theorem identifies the uniform distribution as the unique maximizer, and Gonçalves gives a stronger qualitative component-wise inequality. A prior SCOPE record imported seven seconds before the audited record proves a global quadratic lower bound with coefficient \(d(d-1)/2\), so qualitative/local quadratic stability is not new here. The surviving contribution is the exact isotropic Hessian coefficient \(C_{d,q}\), which that earlier global bound explicitly does not claim optimal and does not determine. Fresh Resultary search found both records and no earlier exact curvature formula.
+
+## value
+
+PASS
+
+After the earlier global stability result, the exact Hessian remains a natural local invariant: it identifies the true isotropic second-order stiffness of the extremizer rather than merely a certified lower bound. The closed occupancy formula can distinguish how local rigidity depends on both \(d\) and \(q\) and is useful for sharp near-extremizer analysis. Its value is therefore the exact curvature refinement, not the already-known fact of quadratic stability itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
