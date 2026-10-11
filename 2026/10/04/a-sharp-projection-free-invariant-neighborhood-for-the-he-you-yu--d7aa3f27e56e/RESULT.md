@@ -120,7 +120,7 @@ Bailey, Gidel, and Piliouras later prove an exact conserved quadratic energy and
 Later analyses of PDHG for linear programming study convergent extrapolated/modern PDHG variants, active-set identification, and local rates under standard step restrictions. They do not supply the threshold or resonant family stated here for the original non-extrapolated Arrow--Hurwicz PDHG counterexample.
 
 ## Limitations
-The result is a two-dimensional phase-space calculation for one scalar LP. It does not characterize the global piecewise-linear dynamics once a projection activates. It also does not imply that the original zero initialization is periodic for every small step. The originality comparison found no statement matching the sharp threshold or resonant constrained family, but an unindexed note could contain the same calculation. The result has received same-model review only; no independent audit has been performed.
+The result is a two-dimensional phase-space calculation for one scalar LP. It does not characterize the global piecewise-linear dynamics once a projection activates. It also does not imply that the original zero initialization is periodic for every small step. The originality comparison found no statement matching the sharp threshold or resonant constrained family, but an unindexed note could contain the same calculation. The result has received self-review only; no independent audit has been performed.
 
 ## References
 1. B. He, Y. You, and X. Yuan, *On the Convergence of Primal-Dual Hybrid Gradient Algorithm*, SIAM Journal on Imaging Sciences 7(4), 2526--2537 (2014), DOI: 10.1137/140963467.

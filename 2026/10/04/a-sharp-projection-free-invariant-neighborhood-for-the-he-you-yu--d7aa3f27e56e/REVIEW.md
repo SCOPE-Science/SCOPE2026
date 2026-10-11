@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the projection-free update to an explicit \(2\times2\) matrix, verifies the exact quadratic invariant, and identifies positive definiteness for \(\tau\sigma<4\). The two completed-square identities locate the exact lowest invariant level on each projection boundary. This proves both forward projection-freeness of the strict sublevel and sharpness of the stated threshold. The characteristic polynomial then yields the exact resonance periods. The embedded checker reproduces the algebra and representative orbits.
+## correctness
 
-## Originality
-PASS with a stated residual risk. He--You--Yuan supply the constrained scalar recurrence and the \(r=s=1\) six-cycle. Bailey--Gidel--Piliouras later supply a broader unconstrained conserved-energy theorem whose scalar specialization is exactly the interior invariant, so that invariant is expressly treated as prior art. The finding is the exact largest invariant-energy neighborhood avoiding the projections and the constrained exact-period family that follows from it. Targeted searches found no source stating that threshold or family. The main residual risk is unindexed expository material carrying out the same elementary boundary calculation.
+PASS
 
-## Value
-PASS. The result gives a rigorous mechanism for nonconvergence at arbitrarily small fixed steps in the canonical published counterexample, replacing finite-horizon numerical evidence by an exact theorem on an open set of starts. The sharp boundary also identifies precisely where projection effects can first enter, which is useful for understanding why a constraint can hide or reveal the conservative alternating-gradient dynamics.
+Centering at the saddle gives the projection-free matrix \(M=\begin{pmatrix}1&\tau\\-\sigma&1-\tau\sigma\end{pmatrix}\). Direct multiplication verifies \(M^{\mathsf T}QM=Q\) for \(Q=\begin{pmatrix}\sigma&\tau\sigma/2\\\tau\sigma/2&\tau\end{pmatrix}\), whose determinant is \(\tau\sigma(1-\tau\sigma/4)>0\) exactly when \(\tau\sigma<4\). Completing squares on \(u=-1\) and \(v=-1\) gives boundary minima \(\sigma(1-\tau\sigma/4)\) and \(\tau(1-\tau\sigma/4)\), so the stated \(c_*\) is exactly the largest strict invariant-energy sublevel contained in the positive orthant. Since the linear candidate preserves energy, induction proves projections never activate. At \(\tau\sigma=4\sin^2(\pi/m)\), the characteristic roots are the primitive pair \(e^{\pm2\pi i/m}\), so every nonzero orbit in the sublevel has exact period \(m\). The inspected checker independently reproduces these identities; finite resonant samples are corroboration only.
 
-## Closest literature and limitations
-The closest conceptual predecessor is arXiv:1907.04392, which explains conserved energy and recurrence for unconstrained alternating gradient descent--ascent. The primary constrained example is DOI 10.1137/140963467. Modern PDHG-for-LP analysis such as arXiv:2307.03664 concerns a different extrapolated/convergent regime. The present theorem remains local and does not classify global projected dynamics or the zero-start orbit for every small step.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2014 primary source was read through its full counterexample section: it gives the same projected recurrence, the exact six-cycle for \(r=s=1\), and finite 1000-iteration tiny-step tests, but not the sharp invariant-energy sublevel or the all-period resonance family. Bailey–Gidel–Piliouras was read through its exact conserved-energy theorem: it covers the unconstrained alternating bilinear dynamics and its one-dimensional ellipses, so the invariant itself is prior art. The surviving contribution is the exact largest ellipse sublevel guaranteed never to hit either nonnegativity projection, plus the resulting exact constrained \(m\)-cycles for arbitrarily small steps. Resultary search found no earlier finding implying those constrained statements.
+
+## value
+
+PASS
+
+The result resolves the mechanism behind a canonical published tiny-step nonconvergence example: it gives the exact largest local neighborhood on which projection effects disappear and upgrades finite numerical warnings to explicit exact cycles with arbitrarily small steps. This is a motivated sharp boundary statement, not merely a restatement of the known unconstrained invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

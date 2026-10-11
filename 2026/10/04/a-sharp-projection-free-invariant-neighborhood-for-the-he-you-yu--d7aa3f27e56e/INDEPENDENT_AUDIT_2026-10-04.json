@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:26:41.955554Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Centering at the saddle gives the projection-free matrix \\(M=\\begin{pmatrix}1&\\tau\\\\-\\sigma&1-\\tau\\sigma\\end{pmatrix}\\). Direct multiplication verifies \\(M^{\\mathsf T}QM=Q\\) for \\(Q=\\begin{pmatrix}\\sigma&\\tau\\sigma/2\\\\\\tau\\sigma/2&\\tau\\end{pmatrix}\\), whose determinant is \\(\\tau\\sigma(1-\\tau\\sigma/4)>0\\) exactly when \\(\\tau\\sigma<4\\). Completing squares on \\(u=-1\\) and \\(v=-1\\) gives boundary minima \\(\\sigma(1-\\tau\\sigma/4)\\) and \\(\\tau(1-\\tau\\sigma/4)\\), so the stated \\(c_*\\) is exactly the largest strict invariant-energy sublevel contained in the positive orthant. Since the linear candidate preserves energy, induction proves projections never activate. At \\(\\tau\\sigma=4\\sin^2(\\pi/m)\\), the characteristic roots are the primitive pair \\(e^{\\pm2\\pi i/m}\\), so every nonzero orbit in the sublevel has exact period \\(m\\). The inspected checker independently reproduces these identities; finite resonant samples are corroboration only.",
+      "risks": [
+        "The theorem is local to the scalar LP and does not classify global projected dynamics after a boundary hit."
+      ],
+      "sources": [
+        "assigned RESULT.md at blob bc14bf01667e70128f9ed30711a9ffb3592c028f",
+        "assigned check.py at blob 27a21891807adda61bc6c4623d5c57340135229b",
+        "He–You–Yuan 2014 publisher PDF, Section 3",
+        "Bailey–Gidel–Piliouras 2020 PMLR paper, Theorem 4"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader alternating-gradient theorem covers energy conservation without orthant constraints.",
+          "Modern convergent PDHG results concern extrapolated/modified variants or convergent regimes and do not imply the original Arrow–Hurwicz map's sharp local cycling sublevel."
+        ],
+        "reasoning": "Broader interior dynamics do not determine the maximal constrained safe sublevel; the boundary minimization is an additional sharp statement.",
+        "searches": [
+          "Bailey–Gidel–Piliouras Theorems 4–6",
+          "modern PDHG-for-LP literature searched through the cited Lu–Yang line",
+          "current Resultary PDHG search"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1137/140963467",
+        "PMLR 125 Bailey–Gidel–Piliouras",
+        "current Resultary semantic search",
+        "assigned RESULT.md/check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The six-cycle is only one projected orbit and does not imply all periods or a maximal local invariant neighborhood.",
+          "The unconstrained conserved ellipse does not by itself assert that an entire ellipse sublevel remains inside the positive orthant; that requires the sharp boundary minimization."
+        ],
+        "reasoning": "The final constrained theorem is not a corollary of either inspected statement alone; it combines the interior invariant with exact projection geometry.",
+        "searches": [
+          "direct implication comparison with He–You–Yuan Section 3 and Bailey–Gidel–Piliouras Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He–You–Yuan Section 3 gives recurrence (3.4), an exact six-cycle at unit reciprocal steps, and only finite-horizon evidence for very large \\(r,s\\).",
+          "Bailey–Gidel–Piliouras Theorem 4 gives the exact unconstrained perturbed energy and describes scalar elliptical trajectories."
+        ],
+        "reasoning": "The constrained PDHG recurrence is an alternating bilinear map only while both projections are inactive; the audited threshold is precisely the missing projection-boundary condition.",
+        "searches": [
+          "Resultary: PDHG Arrow Hurwicz scalar linear program projection-free invariant neighborhood exact periodic cycles arbitrarily small step",
+          "He–You–Yuan DOI 10.1137/140963467",
+          "Bailey–Gidel–Piliouras arXiv:1907.04392 / PMLR 125"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior Resultary record matched \\(c_*=\\min\\{\\tau,\\sigma\\}(1-\\tau\\sigma/4)\\) or \\(\\tau\\sigma=4\\sin^2(\\pi/m)\\) for this constrained example."
+        ],
+        "reasoning": "This is a continuous dynamical classification, not a database/table value.",
+        "searches": [
+          "current Resultary search for the threshold and resonance formula"
+        ]
+      },
+      "rationale": "The 2014 primary source was read through its full counterexample section: it gives the same projected recurrence, the exact six-cycle for \\(r=s=1\\), and finite 1000-iteration tiny-step tests, but not the sharp invariant-energy sublevel or the all-period resonance family. Bailey–Gidel–Piliouras was read through its exact conserved-energy theorem: it covers the unconstrained alternating bilinear dynamics and its one-dimensional ellipses, so the invariant itself is prior art. The surviving contribution is the exact largest ellipse sublevel guaranteed never to hit either nonnegativity projection, plus the resulting exact constrained \\(m\\)-cycles for arbitrarily small steps. Resultary search found no earlier finding implying those constrained statements.",
+      "residual_risks": [
+        "The projection-boundary calculation is elementary once the conserved form is known, so an unindexed note could contain the same local threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE only.",
+          "evidence": "It proves the unit-step six-cycle and reports finite tiny-step tests, but does not state the sharp projection-free energy threshold or arbitrary-period resonance family.",
+          "identifier_or_url": "https://doi.org/10.1137/140963467",
+          "material_read": "Publisher-version PDF, especially Section 3 including equations (3.1)–(3.5), the six-cycle, and the tiny-step experiments.",
+          "method": "Full primary-text theorem/equation comparison; PDF page image inspected.",
+          "title": "On the Convergence of Primal-Dual Hybrid Gradient Algorithm",
+          "trigger": "Primary source for the exact scalar LP and original nonconvergence example."
+        },
+        {
+          "assessment": "COVERS the invariant interior dynamics, not the constrained threshold.",
+          "evidence": "Theorem 4 gives exact perturbed energy conservation for unconstrained AltGD and scalar ellipses, without nonnegativity projection geometry.",
+          "identifier_or_url": "https://proceedings.mlr.press/v125/bailey20a.html",
+          "material_read": "Full PMLR paper around Sections 4.1 and Theorem 4, including the scalar ellipse interpretation.",
+          "method": "Full theorem/equation comparison; PDF page image inspected.",
+          "title": "Finite Regret and Cycles with Fixed Step-Size via Alternating Gradient Descent-Ascent",
+          "trigger": "Closest broader theorem for the projection-free alternating linear recurrence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves the mechanism behind a canonical published tiny-step nonconvergence example: it gives the exact largest local neighborhood on which projection effects disappear and upgrades finite numerical warnings to explicit exact cycles with arbitrarily small steps. This is a motivated sharp boundary statement, not merely a restatement of the known unconstrained invariant.",
+      "risks": [
+        "It is a two-dimensional local result and does not address global projected or modern extrapolated PDHG dynamics."
+      ],
+      "sources": [
+        "He–You–Yuan's tiny-step nonconvergence example",
+        "Bailey–Gidel–Piliouras conserved-energy theorem",
+        "assigned sharp boundary proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scalar LP only.",
+    "Local projection-free sublevel only.",
+    "The conserved quadratic itself is prior art; originality is attached to the constrained sharp threshold and resonance consequences."
+  ],
+  "schema_version": 1
+}
