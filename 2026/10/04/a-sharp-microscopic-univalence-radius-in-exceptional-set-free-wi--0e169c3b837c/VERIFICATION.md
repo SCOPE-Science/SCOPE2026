@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,102 +19,24 @@
 }
 ---
 
-The primary estimate is
-\[
-\left|
-\frac{F(w_r+A\eta)}{F(w_r)}
-e^{-\eta L_r}
--
-1
-\right|
-\le
-\frac{
-|\eta|\varkappa(r)L_r
-}{
-\delta(r)
-},
-\qquad
-|\eta|
-\le
-\frac{\delta(r)}{L_r},
-\]
-with
-\[
-\delta(r)\to\infty
-\]
-and bounded \(\varkappa(r)\).
+# Independent mathematical audit
 
-Setting
-\[
-\eta=\frac{\zeta}{L_r}
-\]
-gives
-\[
-\left|
-G_r(\zeta)e^{-\zeta}-1
-\right|
-\le
-\frac{
-|\zeta|\varkappa(r)
-}{
-\delta(r)
-}.
-\]
-Hence
-\[
-G_r\to e^\zeta
-\]
-locally uniformly. Cauchy estimates give local uniform convergence of derivatives.
+## correctness
 
-For every
-\[
-R<\pi,
-\]
-the exponential is injective on a slightly larger centered disk. If two points for \(G_r\) collided infinitely often, compactness would give either two distinct limit points with the same exponential value or a coalescing pair whose difference quotient tends to
-\[
-e^\zeta\ne0.
-\]
-Both alternatives are impossible.
+PASS
 
-For the sharpness witness
-\[
-F(z)=\exp(e^z),
-\]
-one has
-\[
-L_r=e^r.
-\]
-With
-\[
-a_r
-=
-\arcsin\!\left(\frac{\pi}{L_r}\right),
-\]
-the exact identity
-\[
-L_r
-\left(
-e^{ia_r}-e^{-ia_r}
-\right)
-=
-2\pi i
-\]
-gives
-\[
-F(r+ia_r)=F(r-ia_r).
-\]
-The rescaled collision radius is
-\[
-R_r
-=
-L_ra_r
-=
-L_r\arcsin\!\left(\frac{\pi}{L_r}\right)
-\longrightarrow\pi.
-\]
+The source local estimate gives \(G_r(\zeta)=F(w_r+A\zeta/L_r)/F(w_r)\to e^{\zeta}\) locally uniformly, and Cauchy estimates give local uniform derivative convergence. For \(R<R_1<\pi\), a hypothetical sequence of collisions in \(|\zeta|\le R\) has a convergent subsequence. Distinct limiting points would contradict injectivity of \(e^z\) on the centered disk of radius \(R_1<\pi\); coalescing points contradict the nonzero limit of the integrated difference quotient. For \(F(z)=\exp(e^z)\), the two symmetric scaled points corresponding to imaginary shifts \(\pm i\arcsin(\pi e^{-r})\) have equal values and radius \(e^r\arcsin(\pi e^{-r})\to\pi\). The MDPI primary article explicitly includes iterated exponentials in the admissible class.
 
-Class membership of the witness is checked directly with
-\[
-\delta(r)=\frac12e^{r/2}.
-\]
-No numerical experiment or finite enumeration is used in the proof.
+## originality
+
+PASS
+
+The full 2026 primary article proves exceptional-set-free local Wiman--Valiron asymptotics and derivative relations, and explicitly notes iterated exponentials as admissible, but it does not formulate a universal injectivity radius or the sharp constant \(\pi\). Searches for Wiman--Valiron univalence/inverse-branch constants did not locate an equivalent theorem.
+
+## value
+
+PASS
+
+A sharp universal injectivity scale is a natural geometric refinement of local exponential asymptotics, and the exact \(\pi\) constant is tied to the first period collision of the limiting exponential. The theorem supplies both a positive uniform result and a matching admissible extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

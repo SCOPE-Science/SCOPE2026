@@ -1,56 +1,21 @@
-# Review of A sharp microscopic univalence radius in exceptional-set-free Wiman–Valiron scaling
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The inspected source gives
-\[
-\left|
-\frac{F(w_r+A\eta)}{F(w_r)}
-e^{-\eta L_r}
--
-1
-\right|
-\le
-\frac{|\eta|\varkappa(r)L_r}{\delta(r)}
-\]
-on a neighborhood whose rescaled radius tends to infinity. Substituting
-\[
-\eta=\zeta/L_r
-\]
-therefore gives local uniform convergence of the normalized slice to
-\[
-e^\zeta.
-\]
-A compactness argument, together with convergence of derivatives on a slightly larger disk, transfers injectivity from the exponential to every fixed disk of radius less than \(\pi\).
+PASS
 
-For
-\[
-F(z)=\exp(e^z),
-\]
-the source-class regularity is checked directly with
-\[
-L(r)=e^r,
-\qquad
-\delta(r)=\frac12e^{r/2}.
-\]
-The symmetric points determined by
-\[
-\sin a_r=\pi e^{-r}
-\]
-have equal function values, and their rescaled radius tends to \(\pi\). This proves sharpness against every larger universal fixed radius.
+The source local estimate gives \(G_r(\zeta)=F(w_r+A\zeta/L_r)/F(w_r)\to e^{\zeta}\) locally uniformly, and Cauchy estimates give local uniform derivative convergence. For \(R<R_1<\pi\), a hypothetical sequence of collisions in \(|\zeta|\le R\) has a convergent subsequence. Distinct limiting points would contradict injectivity of \(e^z\) on the centered disk of radius \(R_1<\pi\); coalescing points contradict the nonzero limit of the integrated difference quotient. For \(F(z)=\exp(e^z)\), the two symmetric scaled points corresponding to imaginary shifts \(\pm i\arcsin(\pi e^{-r})\) have equal values and radius \(e^r\arcsin(\pi e^{-r})\to\pi\). The MDPI primary article explicitly includes iterated exponentials in the admissible class.
 
-## Originality
+## originality
 
-PASS. The full 2026 source contains the local exponential approximation but does not state a centered univalence theorem or the constant \(\pi\). Classical Wiman–Valiron literature studies local disks, derivative asymptotics, logarithmic univalence, inverse branches, and disk-size estimates, generally with exceptional sets or different geometric hypotheses.
+PASS
 
-Published-finding searches used the source topic together with local exponential scaling, maximum-modulus univalence, injectivity, iterated-exponential sharpness, and the radius \(\pi\). No implication-equivalent finding was returned. General literature searches likewise surfaced classical local-growth and Wiman–Valiron-disk results but no matching sharp centered constant.
+The full 2026 primary article proves exceptional-set-free local Wiman--Valiron asymptotics and derivative relations, and explicitly notes iterated exponentials as admissible, but it does not formulate a universal injectivity radius or the sharp constant \(\pi\). Searches for Wiman--Valiron univalence/inverse-branch constants did not locate an equivalent theorem.
 
-The main residual risk is that the \(\pi\) conclusion may be implicit in older inverse-branch arguments under different terminology. No inspected source made that quantitative statement, and the exact sharpness example is specific to the exceptional-set-free exponential scaling used here.
+## value
 
-## Value
+PASS
 
-PASS. The source theorem gives a powerful local asymptotic model but leaves its injective geometry unstated. The finding extracts the maximal universal centered domain on which that model forces the original directional slice itself—not merely its logarithm—to be one-to-one.
+A sharp universal injectivity scale is a natural geometric refinement of local exponential asymptotics, and the exact \(\pi\) constant is tied to the first period collision of the limiting exponential. The theorem supplies both a positive uniform result and a matching admissible extremizer.
 
-The constant is structural rather than arbitrary: it is exactly half the exponential period, and the iterated exponential realizes collisions asymptotically at that scale. This turns the local asymptotic formula into a sharp inverse-branch statement suitable for later applications in complex dynamics and local value distribution.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
