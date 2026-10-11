@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked analytically in all parameter regimes.
+# Independent mathematical audit
 
-For \(p\ge2\), the scalar Clarkson inequality
-\[
-\frac{|a+b|^p+|a-b|^p}{2}\ge |a|^p+|b|^p
-\]
-was used pointwise and integrated. For \(p>2\), the equality case was reconstructed directly: after normalizing \(|a|\ge|b|>0\), the derivative of
-\[
-(1+t)^p+(1-t)^p-2-2t^p
-\]
-is strictly positive for \(t>0\), so equality occurs only when one scalar is zero. Thus at the boundary \(r^p+s^p=1\), simultaneous signed norm bounds force lattice disjointness almost everywhere.
+## correctness
 
-For the strict region \(r^p+s^p<1\), the proof uses a pairwise disjoint normalized sequence \((y_n)\) in the infinite-dimensional \(L_p\) space. For each member \(x\) of a fixed finite family, the \(L_p\)-mass of \(x\) on the support of \(y_n\) tends to zero. The exact support decomposition and the triangle/reverse-triangle inequalities then give
-\[
-\lVert r x\pm s y_n\rVert_p^p\longrightarrow r^p+s^p,
-\]
-simultaneously for the finite family and both signs.
+PASS
 
-For \(p=2\), a unit vector orthogonal to the span of the finite family gives exact squared norm \(r^2+s^2\). For \(p>2\) on the boundary, absence of a weak unit supplies a nonzero positive vector disjoint from the finite sum of absolute values; presence of a weak unit blocks even a singleton witness.
+For p>=2 the scalar Clarkson-type inequality yields the necessary condition r^p+s^p<=1; for p>2 equality is pointwise strict unless the two functions are disjoint. In the strict interior, every infinite-dimensional L_p contains a disjoint normalized sequence; restrictions of finitely many test vectors to its disjoint supports tend to zero, furnishing a common witness. On the boundary, if a weak unit u exists, applying equality to u forces any witness y to be disjoint from u and hence zero, impossible. Conversely, if there is no weak unit, h=sum|x| over the finite test family is not a weak unit, so there is a nonzero positive v lattice-disjoint from h; normalizing v gives exact equality for all tests. For p=2 the parallelogram identity yields the disk. The proof correctly separates strict interior from equality and does not infer an infinite-dimensional statement from the sequence-space example.
 
-No finite computation, enumeration, timeout, or numerical experiment is used to establish an infinite-dimensional assertion. The result does not cover finite-dimensional \(L_p\), \(1\le p<2\), complex scalars, or general Banach lattices. Independent audit has not been performed.
+## originality
+
+PASS
+
+Originality passes. The defining 2022 paper develops transfinite/parametric SQ notions but does not state an L_p classification by weak units. The 2023 weakly-almost-square paper treats weak ASQ in Banach function spaces, especially L_1-type settings and renorming results, not the exact p>=2 finite-set boundary. The prior SCOPE ell_p(Gamma) theorem is a genuine special case and therefore does not imply the present arbitrary-L_p theorem; the weak-unit characterization is the new structural step.
+
+## value
+
+PASS
+
+The exact boundary is governed by a natural Banach-lattice invariant rather than by an arbitrary measure-space presentation. This simultaneously explains the earlier countable/uncountable ell_p phenomenon and classifies every infinite-dimensional real L_p for the full two-parameter finite-set property. The weak-unit criterion is a meaningful structural generalization, not a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

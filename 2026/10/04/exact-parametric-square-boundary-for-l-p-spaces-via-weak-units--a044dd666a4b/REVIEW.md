@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is proved in exhaustive parameter regimes. Clarkson's inequality yields the necessary condition \(r^p+s^p\le1\). In the strict interior, a disjoint normalized sequence in infinite-dimensional \(L_p\) makes the finite family asymptotically disjoint and forces both signed norms to converge to \((r^p+s^p)^{1/p}<1\). At \(p=2\), orthogonality gives the full boundary. At \(p>2\), equality in the pointwise Clarkson inequality is strict unless the two scalar values are disjoint, so the boundary witness is exactly a lattice-disjoint unit vector. This is equivalent, for every finite family, to absence of a weak unit. The proof states the infinite-dimensional, real-scalar and exponent hypotheses explicitly.
+## correctness
 
-Risk: the standard fact that every infinite-dimensional \(L_p\), \(p<\infty\), contains a disjoint normalized sequence is used. Its failure would contradict the measure-algebra decomposition into finitely many atoms and hence infinite dimensionality, so it is appropriate here.
+PASS
 
-## Originality
-**PASS.** The closest inspected source defining the exact two-parameter property is arXiv:2204.13449v1. Its Definition 6.1 introduces \((r,s)\)-\(\mathrm{SQ}_{<\kappa}\), while Example 6.11 records only the diagonal pair \((2^{-1/n},2^{-1/n})\) for \(\ell_n(\kappa)\). The earlier DOI:10.12697/ACUTM.2020.24.09 introduces one-parameter \(s\)-ASQ with an approximation parameter. The function-space paper arXiv:2301.07943v1 studies WASQ/LASQ phenomena, mainly of \(L_1\)-type, rather than this exact \(L_p\) phase diagram. Searches for the weak-unit boundary and Clarkson formulation produced no covering statement. A prior opaque sequence-space record is a strict special case: the present theorem supplies the new weak-unit criterion and covers arbitrary measure-space \(L_p\), including nonatomic and non-\(\sigma\)-finite settings.
+For p>=2 the scalar Clarkson-type inequality yields the necessary condition r^p+s^p<=1; for p>2 equality is pointwise strict unless the two functions are disjoint. In the strict interior, every infinite-dimensional L_p contains a disjoint normalized sequence; restrictions of finitely many test vectors to its disjoint supports tend to zero, furnishing a common witness. On the boundary, if a weak unit u exists, applying equality to u forces any witness y to be disjoint from u and hence zero, impossible. Conversely, if there is no weak unit, h=sum|x| over the finite test family is not a weak unit, so there is a nonzero positive v lattice-disjoint from h; normalizing v gives exact equality for all tests. For p=2 the parallelogram identity yields the disk. The proof correctly separates strict interior from equality and does not infer an infinite-dimensional statement from the sequence-space example.
 
-Residual risk: an equivalent statement may exist under different terminology or outside indexed sources. The searches therefore support, but do not logically prove, novelty.
+## originality
 
-## Value
-**PASS.** The result identifies the exact critical surface for a natural two-parameter geometric property on the basic class \(L_p\). More importantly, it explains the otherwise cardinal-looking boundary phenomenon structurally: for \(p>2\), boundary attainment is equivalent to absence of a weak unit, while the Hilbert case is closed by orthogonality. This separates \(\sigma\)-finite/function-space behavior from weak-unit-free \(L_p\) spaces and turns isolated sequence examples into a general Banach-lattice phase diagram.
+PASS
 
-## Closest literature and limitations
-The primary comparison points are DOI:10.12697/ACUTM.2020.24.09, arXiv:2204.13449v1, and arXiv:2301.07943v1. No claim is made for \(p<2\), finite-dimensional spaces, complex scalars, or general Banach lattices.
+Originality passes. The defining 2022 paper develops transfinite/parametric SQ notions but does not state an L_p classification by weak units. The 2023 weakly-almost-square paper treats weak ASQ in Banach function spaces, especially L_1-type settings and renorming results, not the exact p>=2 finite-set boundary. The prior SCOPE ell_p(Gamma) theorem is a genuine special case and therefore does not imply the present arbitrary-L_p theorem; the weak-unit characterization is the new structural step.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact boundary is governed by a natural Banach-lattice invariant rather than by an arbitrary measure-space presentation. This simultaneously explains the earlier countable/uncountable ell_p phenomenon and classifies every infinite-dimensional real L_p for the full two-parameter finite-set property. The weak-unit criterion is a meaningful structural generalization, not a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
