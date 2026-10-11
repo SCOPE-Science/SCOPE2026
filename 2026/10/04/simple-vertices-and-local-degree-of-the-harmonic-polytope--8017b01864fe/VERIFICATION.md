@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for every integer \(n\ge2\). The accompanying `artifacts/verify.py` provides a finite replay that does not assume the closed degree formula when counting local coarsenings.
+# Independent mathematical audit
 
-For each relative permutation through \(n=8\), the program identifies all marked right-to-left maxima, directly counts the two allowed kinds of codimension-one harmonic coarsenings, and compares that count with \(2n+s-3-\varepsilon_- -\varepsilon_+\). It then checks the exact simple marked-permutation count \(3(n-1)!+(n-2)!H_{n-2}\). The final line is `VERIFY_OK harmonic-polytope simple-vertex classification n=2..8`.
+## correctness
 
-The computation is finite and therefore does not establish the theorem for untested \(n\); the all-\(n\) proof is the combinatorial argument in `RESULT.md`. No independent audit has been performed.
+PASS
+
+The source dimension/order formula makes the incident-edge classification exact: a codimension-one coarsening either performs one adjacent merge while keeping K={k}, or keeps both permutations and enlarges K by one product maximum. The two possible predecessor merges fail exactly in the two stated adjacency cases, while set enlargement contributes s-1 choices, giving degree 2n+s-3-epsilon_- -epsilon_+. Setting this equal to dimension 2n-2 yields the three simple forms. A fresh independent exhaustive replay over all relative permutations through n=6 matched the direct codimension-one count for every marked right-to-left maximum and reproduced fixed-first-permutation simple counts 3,7,21,83,410 for n=2,...,6.
+
+## originality
+
+PASS
+
+Originality passes. Ardila--Escobar give the full harmonic-triple face-poset encoding, global vertex/facet counts, and note that the harmonic fan is already non-simple for n=3, but they do not extract vertex degrees, classify simple maximal cones, or enumerate them. Those quantities require a nontrivial codimension-one coarsening classification and a marked right-to-left-maxima enumeration. The bipermutahedron paper concerns the related simple refinement, not local degrees in the harmonic polytope.
+
+## value
+
+PASS
+
+Simplicity is a canonical local invariant of a polytope and is especially natural here because the defining paper already flags non-simplicity of the harmonic fan. The exact local formula identifies all regular maximal cones, the closed count quantifies how rare they are, and the density tends to zero. This is structural information rather than a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
