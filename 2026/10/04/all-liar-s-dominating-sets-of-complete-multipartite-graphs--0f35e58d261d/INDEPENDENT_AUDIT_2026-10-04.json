@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:52:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at blob ee09cb38e286a77fd472aae68a3882909276992e"
+      ],
+      "rationale": "Direct neighborhood reconstruction gives \\(N[v]=(V\\setminus V_i)\\cup\\{v\\}\\). Different-part pairs force only \\(s\\ge3\\); same-part pairs reduce to outside-part counts \\(q_i\\ge3,2,1\\) according to two/one/zero omitted vertices. When \\(n_i<s\\) these inequalities are automatic, while when \\(n_i\\ge s\\) they are equivalent to \\(s_i\\le s-3\\). The generating function and minimum criterion are then exact bounded-composition counting. An independent exhaustive check over all ordered part profiles of total order 3 through 8 and all 43,176 vertex subsets matched the criterion exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.5 is genuinely broader for any decomposition into two connected join factors and therefore covers many complete multipartite graphs with at least four parts after grouping parts.",
+          "Its hypotheses do not cover a nontrivial independent part, so it does not directly cover all bipartite/tripartite cases or state the capacity enumerator."
+        ],
+        "reasoning": "The prior join theorem gives strong partial coverage, but not a theorem whose stated hypotheses imply the final arbitrary-part result in full.",
+        "searches": [
+          "Canoy–Balandra 2017 full PDF, Theorem 2.5 and proof",
+          "Roden–Slater complete-bipartite liar-domination literature as cited by the primary join paper"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.5556/j.tkjm.48.2017.2188",
+        "DOI:10.1016/j.disc.2008.07.019",
+        "Resultary semantic query: liar domination complete multipartite graphs all subsets exact enumerator minimum sets capacity characterization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r>=4 the join theorem can cover grouped connected factors, so that portion is prior-implied after specialization.",
+          "For arbitrary r, especially tripartite graphs with all parts nontrivial, the theorem's connected-factor hypothesis blocks the obvious recursive application; scalar complete-bipartite minima also do not determine the all-set enumerator."
+        ],
+        "reasoning": "The final theorem is not wholly implied by the inspected priors, but its originality is narrower than the package prose suggests because the r>=4 portion has substantial prior coverage.",
+        "searches": [
+          "Canoy–Balandra Theorem 2.5 versus K_{n_1,...,n_r} capacity condition",
+          "Roden–Slater complete-bipartite scalar results versus all-set profiles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published-result search returned the audited theorem itself as the direct same-object match.",
+          "Theorem 2.5 of Canoy–Balandra classifies liar's dominating sets of joins of two nontrivial connected graphs, a partially overlapping but differently hypothesized formulation."
+        ],
+        "reasoning": "The all-set complete-multipartite statement is not textually prior; the closest equivalent framework is the join theorem, which was compared at theorem level.",
+        "searches": [
+          "Resultary: liar domination complete multipartite graphs all subsets exact enumerator minimum sets capacity characterization",
+          "Canoy–Balandra, Liar's domination in graphs under some operations, DOI:10.5556/j.tkjm.48.2017.2188"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior table/polynomial for all liar's dominating sets of arbitrary complete multipartite graphs was located; nearby corpus hits concern other domination variants."
+        ],
+        "reasoning": "The object is a parametric graph-family classification rather than a standard finite table; exact theorem/corpus comparison is the relevant database check.",
+        "searches": [
+          "Resultary semantic corpus for the exact capacity rule and liar-domination enumerator",
+          "Primary join-paper theorem list"
+        ]
+      },
+      "rationale": "Fresh comparison found substantial partial prior coverage: Canoy–Balandra's join theorem already classifies liar-dominating sets whenever a complete multipartite graph is expressed as a join of two nontrivial connected factors. It does not, under its stated hypotheses, cover all arbitrary part profiles (notably general tripartite decompositions), nor does it state the unified capacity enumerator and minimum-set count. Resultary found no earlier theorem completing those remaining cases. Best-of-knowledge originality therefore survives, but only for the genuinely uncovered arbitrary-part/unified-enumerator content.",
+      "residual_risks": [
+        "Roden–Slater 2009 full text was not materially inspected this round.",
+        "The r>=4 all-set portion is substantially covered by the 2017 join theorem; novelty rests on the uncovered arbitrary-part cases plus the unified capacity/enumerator formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_STRONG_COVERAGE_NOT_FULLY_DOMINATING",
+          "evidence": "Theorem 2.5 gives an iff classification for G+H when both factors are nontrivial connected graphs; complete multipartite graphs with enough parts can satisfy this after grouping, but a nontrivial independent factor violates the stated hypothesis.",
+          "identifier_or_url": "DOI:10.5556/j.tkjm.48.2017.2188",
+          "material_read": "Full 11-page journal PDF around the definition, Section 2, Theorem 2.5, and the beginning of its proof; rendered page 5 was visually inspected.",
+          "method": "Lawful journal full-text and page-image inspection.",
+          "title": "Liar’s domination in graphs under some operations",
+          "trigger": "Strongest plausible broader all-set theorem via graph joins."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_SCALAR_PRIOR_RISK",
+          "evidence": "The inspected later primary source cites Roden–Slater as foundational prior work; the package's scalar bipartite claims are treated as prior rather than novelty.",
+          "identifier_or_url": "DOI:10.1016/j.disc.2008.07.019",
+          "material_read": "Bibliographic identification and citation context in the inspected 2017 primary paper; full article text was not obtained in this round.",
+          "method": "Primary-reference tracing with access limitation recorded.",
+          "title": "Liar's domination in graphs",
+          "trigger": "Primary earlier source associated with complete-bipartite scalar formulas."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.5556/j.tkjm.48.2017.2188"
+      ],
+      "rationale": "Despite partial prior join coverage, the surviving content is a compact all-part-size classification and exact enumerator that includes cases not covered by the connected-factor join theorem and upgrades scalar information to all feasible sets. This is a natural structural refinement of an established fault-tolerant domination invariant.",
+      "residual_risks": [
+        "Roden–Slater 2009 full text was not materially inspected this round.",
+        "The r>=4 all-set portion is substantially covered by the 2017 join theorem; novelty rests on the uncovered arbitrary-part cases plus the unified capacity/enumerator formulation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.5556/j.tkjm.48.2017.2188",
+    "DOI:10.1016/j.disc.2008.07.019",
+    "Resultary semantic query: liar domination complete multipartite graphs all subsets exact enumerator minimum sets capacity characterization"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every connected complete multipartite graph \\(K_{n_1,\\ldots,n_r}\\) of order at least three, a set \\(S\\) of size \\(s\\) is liar's dominating exactly when \\(s\\ge3\\) and every part with \\(n_i\\ge s\\) contributes at most \\(s-3\\) selected vertices; this gives the stated exact cardinality enumerator, minimum size, and minimum-set count.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Roden–Slater 2009 full text was not materially inspected this round.",
+    "The r>=4 all-set portion is substantially covered by the 2017 join theorem; novelty rests on the uncovered arbitrary-part cases plus the unified capacity/enumerator formulation."
+  ]
+}
