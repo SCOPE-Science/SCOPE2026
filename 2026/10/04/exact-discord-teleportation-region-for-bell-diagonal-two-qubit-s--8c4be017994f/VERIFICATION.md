@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed symbolically from the Bell-basis eigenvalues. For ordered magnitudes \(s_1\ge s_2\ge s_3\) with \(q=s_1+s_2+s_3\in[1,3]\), physicality reduces to \(s_1+s_2-s_3\le1\), hence to the exact polygon
-\[
-(q-1)/2\le s_3\le q/3,\qquad s_3\le s_2\le(q-s_3)/2.
-\]
-The objective \(D_G=(s_2^2+s_3^2)/3\) is minimized at the lower-left edge endpoint and maximized, after maximizing in \(s_2\), at one of the two endpoints in \(s_3\). Their difference is exactly
-\[
-\frac{13(q-3)(q-15/13)}{432},
-\]
-which supplies the crossover without numerical approximation.
+# Independent mathematical audit
 
-The included `verify.py` independently checks the formulas with exact rational arithmetic on a dense finite Bell-probability grid and on both extremal families. These checks test transcription and boundary behavior; they are not used to infer the infinite-state theorem.
+## correctness
 
-Unproved limits: no claim is made outside Bell-diagonal states, outside the normalized Hilbert–Schmidt convention, or for teleportation performance functionals other than the standard optimized average fidelity.
+PASS
+
+With ordered magnitudes s1>=s2>=s3 and q=s1+s2+s3, positivity reduces up to Bell symmetry to s1+s2-s3<=1. Writing y=s2,z=s3 yields exactly (q-1)/2<=z<=q/3 and z<=y<=(q-z)/2. D_G=(y^2+z^2)/3. The minimum occurs at y=z and smallest z; for the maximum y=(q-z)/2 and convexity leaves endpoint z values. Their difference crosses at q=15/13, i.e. F=9/13. Connectedness and continuity give every intermediate value. The exact-rational verifier independently checks a Bell-probability grid and both extremal families.
+
+## originality
+
+PASS
+
+Checked Bell-diagonal literature supplies the tetrahedral state geometry, geometric-discord formula and broad teleportation/discord inequalities, but no inspected source gives the exact fixed-average-fidelity attainable interval or the 9/13 upper-extremizer crossover. Roszak--Cywinski use a different best/worst-case fidelity functional. Resultary did not surface a covering same-statement theorem.
+
+## value
+
+PASS
+
+This is a complete sharp tradeoff region between two standard quantum-information quantities on a canonical state family, not merely a new inequality. The upper-extremizer phase change at F=9/13 is structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

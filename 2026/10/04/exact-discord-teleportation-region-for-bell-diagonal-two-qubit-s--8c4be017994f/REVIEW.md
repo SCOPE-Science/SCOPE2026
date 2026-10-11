@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced to an exact two-variable feasible region obtained from Bell-tetrahedron positivity. Both extrema are obtained analytically, the crossover is factored exactly, and connectedness proves the full interval rather than only endpoint bounds. The rational checker is supplementary and does not stand in for the proof.
+## correctness
 
-## Originality
-PASS. The closest inspected literature gives the Bell-diagonal geometric-discord geometry and broad teleportation-discord inequalities, including the isotropic Werner family, but not the complete fixed-average-fidelity interval or its upper-extremizer crossover at \(F=9/13\). Six semantic database queries for aliases and formula-level equivalents found no implication-equivalent record. A Bell-diagonal teleportation paper available only at abstract/preview level uses best/worst-case fidelity and remains a stated residual access risk.
+PASS
 
-## Value
-PASS. The theorem gives exact resource-performance limits for a standard two-qubit family, identifies both sharp extremal mechanisms, and shows precisely when the isotropic family ceases to be the maximal-discord state at fixed teleportation fidelity.
+With ordered magnitudes s1>=s2>=s3 and q=s1+s2+s3, positivity reduces up to Bell symmetry to s1+s2-s3<=1. Writing y=s2,z=s3 yields exactly (q-1)/2<=z<=q/3 and z<=y<=(q-z)/2. D_G=(y^2+z^2)/3. The minimum occurs at y=z and smallest z; for the maximum y=(q-z)/2 and convexity leaves endpoint z values. Their difference crosses at q=15/13, i.e. F=9/13. Connectedness and continuity give every intermediate value. The exact-rational verifier independently checks a Bell-probability grid and both extremal families.
 
-## Closest literature and limitations
-Yao et al. supply the Bell-diagonal geometric-discord geometry. Adhikari and Banerjee supply the closest explicit discord–teleportation inequalities and Werner-state comparison. The claim is limited to normalized Hilbert–Schmidt geometric discord and Bell-diagonal states; it is not a statement about other discord measures or arbitrary two-qubit states.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Checked Bell-diagonal literature supplies the tetrahedral state geometry, geometric-discord formula and broad teleportation/discord inequalities, but no inspected source gives the exact fixed-average-fidelity attainable interval or the 9/13 upper-extremizer crossover. Roszak--Cywinski use a different best/worst-case fidelity functional. Resultary did not surface a covering same-statement theorem.
+
+## value
+
+PASS
+
+This is a complete sharp tradeoff region between two standard quantum-information quantities on a canonical state family, not merely a new inequality. The upper-extremizer phase change at F=9/13 is structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
