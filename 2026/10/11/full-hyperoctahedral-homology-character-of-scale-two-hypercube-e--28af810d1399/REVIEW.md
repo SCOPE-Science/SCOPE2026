@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The source's exact intrinsic graph Čech definition and published scale-two sphere-wedge theorem supply the homology concentration. A new uniform signed simplicial Lefschetz proof counts fixed vertices, fixed and reversed edges, and uniquely-centered higher faces for every affine cube automorphism; the cycle-consistency argument and translation averaging establish the complete formula and exterior-square invariant module. The standalone finite verifier independently reconstructs and checks every group element in dimensions two through five and thirty-five further elements in dimension six. The proof, not finite enumeration, justifies arbitrary dimension.
+
+**Originality — PASS, with residual risk.** The 2022 source proves the nonequivariant wedge type and Betti numbers, and a prior translation-restricted character already determines the normal translation subgroup; neither implies traces of coordinate permutations or identifies the translation-fixed module as an exterior square. The same-object primary full text was examined through the relevant definitions and complete proof of its scale-two theorem; no such complete-group result is stated there. Matsushita addresses general closed neighborhood equivalences; Galetto–Montaño–Wellner address Vietoris–Rips group actions, not Čech group actions. Actual targeted literature and mathematical-record queries found no stronger covering statement, but unindexed or unpublished equivalents remain a risk. Literature search does not prove universal uniqueness.
+
+**Value — PASS.** A full representation of the canonical hyperoctahedral symmetry group is a natural structural invariant of the published hypercube Čech family. Its complete character and the explicit \(S_n\)-module \(\bigwedge^2\mathbb Q^n\) reveal symmetry invisible to Betti numbers or a translation-group decomposition, including vanishing full-group invariants for every dimension.
+
+**Limitations.** Rational representations, exact intrinsic scale two, all dimensions at least two; no full irreducible constituent table for the nonabelian group or integral equivariant homology. The full-size proof relies on the published nonequivariant theorem, and independent validation has not occurred.
+
+Same-model review: passed. Independent audit: not yet performed.
