@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:36:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob b354206ccfe56d2b8956a91870740c35cd21173b",
+        "assigned verify.py blob 0c3045b5a7bb9d7584a95ae629386251fb5c83af",
+        "W. Szuminski, Integrability analysis of chaotic and hyperchaotic finance systems, DOI:10.1007/s11071-018-4370-3",
+        "M. R. Candido, J. Llibre and C. Valls, Invariant algebraic surfaces and Hopf bifurcation of a finance model, DOI:10.1142/S021812741850150X"
+      ],
+      "rationale": "Stationarity of arbitrary one-variable antiderivatives in \\(y\\) and \\(z\\) gives the two conditional expectations. Nonnegativity of \\(\\mathbb E[x^2\\mid y]\\) yields the support ceiling. Stationarity of \\(z^2/2\\) gives \\(\\mathbb E[xz]=-c\\mathbb E[z^2]\\), while stationarity of \\((x^2+z^2)/2\\) gives \\(c\\mathbb E[z^2]=\\mathbb E[x^2(y-a)]\\). Eliminating \\(z^2\\) produces \\(\\mathbb E[\\dot z^2]=c\\mathbb E[x^2(a+1/c-y)]\\), and conditioning on \\(y\\) gives the factorized defect. Zero defect forces \\(\\dot z=0\\) on invariant support and then exactly the equilibrium set. Weighting by \\(x^2\\) yields the stated mean interval, with the lower inequality strict because noncentral invariant support has positive \\(z^2\\). If \\(a+1/c<1/b\\) and a non-equilibrium measure never went below \\(a+1/c\\), the factorized defect would be nonpositive, contradicting its strict positivity.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest inspected results are nonintegrability, invariant-algebraic-surface and bifurcation statements, none of which imply the conditional expectations.",
+          "The inaccessible Gao--Ma full text is not treated as evidence of noncoverage."
+        ],
+        "reasoning": "No checked broader invariant-measure theorem for this finance model was found.",
+        "searches": [
+          "Szuminski 2018 full article",
+          "Candido--Llibre--Valls 2018",
+          "Gao--Ma 2009 bibliographic/abstract material"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s11071-018-4370-3",
+        "DOI:10.1142/S021812741850150X",
+        "DOI:10.1007/s11071-009-9472-5",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equilibrium coordinates do not imply the law for every compact invariant probability measure.",
+          "The key conditional expectation \\(\\mathbb E[x^2\\mid y]=1-by\\) requires using arbitrary test functions in the invariant generator, and the defect requires two additional quadratic stationarity identities."
+        ],
+        "reasoning": "The final stationary theorem is not a routine specialization of the inspected source statements.",
+        "searches": [
+          "Szuminski 2018 same-system equations and invariant-measure discussion",
+          "Candido--Llibre--Valls same-system equilibrium analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected finance-system literature uses the same variables and positive-parameter ODE but focuses on equilibria, bifurcations, integrability and numerical chaos.",
+          "No inspected primary theorem conditions the squared interest-rate variable on investment demand or derives the factorized adjustment-speed defect."
+        ],
+        "reasoning": "Stationary time-average identities and compact invariant-measure identities were treated as equivalent formulations because periodic and ergodic orbit measures are included.",
+        "searches": [
+          "Resultary: Huang Li finance stationary invariant measure price adjustment defect investment ceiling",
+          "DOI:10.1007/s11071-018-4370-3",
+          "DOI:10.1142/S021812741850150X"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-model Resultary record with the conditional laws, support ceiling or defect formula appeared among the direct matches."
+        ],
+        "reasoning": "This is an analytic stationary identity rather than a finite data-table question; exact symbolic coverage was searched.",
+        "searches": [
+          "Resultary exact finance-system stationary-defect query"
+        ]
+      },
+      "rationale": "Szuminski's full primary article was inspected for the same three-dimensional finance system. It studies integrability and recurrent numerical dynamics and explicitly raises an invariant-measure question for the zero-parameter limit, while the positive-parameter discussion does not state the audited conditional stationary laws or mean-square price-adjustment defect. Candido--Llibre--Valls study equilibria, Hopf bifurcation and invariant algebraic surfaces rather than invariant-probability moments. Targeted Resultary searches found no same-model stationary formula. Full text of Gao--Ma 2009 was not securely available, so it is retained as a residual risk rather than used as negative evidence.",
+      "residual_risks": [
+        "The complete Gao--Ma 2009 article was not securely inspected and could contain a differently phrased time-average identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_NONINTEGRABILITY_NOT_STATIONARY_CONDITIONAL_LAWS",
+          "evidence": "The source explicitly discusses an invariant-measure question in a special zero-parameter limit but does not derive the positive-parameter conditional laws or adjustment-speed defect.",
+          "identifier_or_url": "DOI:10.1007/s11071-018-4370-3",
+          "material_read": "Complete open primary article sections defining the three-dimensional system, its integrability analysis and numerical recurrent dynamics; the discussion of the zero-parameter invariant-measure question was also read.",
+          "method": "Open-access primary full-text web inspection.",
+          "title": "Integrability analysis of chaotic and hyperchaotic finance systems",
+          "trigger": "Closest accessible full-text mathematical treatment of the same finance ODE and recurrent dynamics."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_RESIDUAL_RISK",
+          "evidence": "The accessible material emphasizes chaos, strange nonchaotic attractors, feedback, stability and Hopf bifurcation; full-text overlap with stationary identities could not be excluded.",
+          "identifier_or_url": "DOI:10.1007/s11071-009-9472-5",
+          "material_read": "Primary bibliographic and abstract-level material only; a secure complete full text was not obtained in the bounded audit window.",
+          "method": "Access-limited primary-source comparison; no whole-document noncoverage inference.",
+          "title": "Chaos and Hopf bifurcation of a finance system",
+          "trigger": "Earlier same-system source plausibly containing long-time identities."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Szuminski 2018",
+        "Candido--Llibre--Valls 2018",
+        "Gao--Ma 2009 accessible material"
+      ],
+      "rationale": "The finance system is a widely studied nonlinear model, but its literature is dominated by bifurcation, chaos and integrability. The audited theorem gives exact support and mean-square restrictions on every compact recurrent statistical state, identifies precisely when adjustment energy vanishes, and forces non-equilibrium recurrence below a natural equilibrium investment level. These are substantive constraints on the model's recurrent economics rather than a transient normalization check.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the positive-parameter Huang--Li finance system \\(\\dot x=z+x(y-a)\\), \\(\\dot y=1-by-x^2\\), \\(\\dot z=-x-cz\\), every compactly supported invariant probability measure satisfies \\(\\mathbb E[x^2\\mid y]=1-by\\), \\(\\mathbb E[x\\mid z]=-cz\\), the support ceiling \\(y\\le1/b\\), and the exact price-adjustment defect \\(\\mathbb E[\\dot z^2]=bc\\mathbb E[(1/b-y)(a+1/c-y)]\\); the defect vanishes exactly on equilibrium-supported measures, and when the two nonzero equilibria exist every non-equilibrium compact invariant measure gives positive mass below their investment level \\(a+1/c\\).",
+  "limitations": [
+    "Parameters \\(a,b,c\\) are strictly positive.",
+    "Claims concern compactly supported invariant probability measures, not arbitrary transients.",
+    "The theorem does not prove existence or uniqueness of a chaotic invariant measure.",
+    "The complete Gao--Ma 2009 article was not securely available for full-text comparison; this remains a literature-access residual risk."
+  ],
+  "schema_version": 1
+}
