@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For diagonal matching-field vertices, row \\(i\\) can use only columns \\(i,\\ldots,i+n-k\\) and has row sum one. The resulting active-band row-sum affine space has dimension \\(k(n-k)\\), equal to the source dimension from Theorem 2.15, so it is the exact affine hull. Its orthogonal projection of the origin is uniform on each active row, with squared norm \\(k/(n-k+1)\\). Every vertex has squared norm \\(k\\) and scalar product \\(k/(n-k+1)\\) with the center, giving the displayed radius. The \\(n-k+1\\) consecutive-block vertices cover each active coordinate exactly once, so their average is the center; the parallel-axis identity then proves global minimum-enclosing optimality and uniqueness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 source gives the exact exponent-vector realization and its unimodular equivalence with the Grassmannian Gelfand--Tsetlin order polytope but no metric sphere theorem.",
+        "The four targeted metric terms have no matches in the 2022 primary full text.",
+        "Earlier matching-field literature defines the polytope construction and diagonal degeneration, while broader Gelfand--Tsetlin literature studies marked order/flow models rather than this native-coordinate Euclidean sphere."
+      ],
+      "reasoning": "Lattice equivalence and mutation do not preserve Euclidean radii. The final theorem therefore requires a separate affine-hull computation in the matching-field coordinates and a positive contact certificate, neither supplied by the broader structural results.",
+      "searches": [
+        "full text: Clarke--Higashitani--Mohammadi, Section 2.2, Example 2.6, Definition 2.13, Theorem 2.15",
+        "full-text terms in arXiv:2208.04521v1: Euclidean, radius, sphere, circum",
+        "Mohammadi--Shaw, matching-field-polytope Section 5 and diagonal degeneration discussion",
+        "Liu--Meszaros--St. Dizier: Gelfand--Tsetlin polytopes as flow and order polytopes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.04521v1",
+      "doi:10.1016/j.jpaa.2024.107637",
+      "arXiv:1809.01026",
+      "doi:10.5802/alco.77",
+      "arXiv:1903.08275",
+      "published-result database searches for matching-field/Gelfand--Tsetlin circumsphere and minimum-enclosing formulations",
+      "own current cumulative geometry-middle ledger",
+      "own prior-week cumulative geometry-middle ledger"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves an affine unimodular identification and explicitly locates row \\(i\\) in columns \\(i,\\ldots,i+n-k\\), but it does not identify a Euclidean center or enclosing radius.",
+        "The current cumulative ledger has no matching-field, Gelfand--Tsetlin, or Grassmannian-polytope finding.",
+        "The prior cumulative ledger has no matching-field, Gelfand, or Grassmannian match."
+      ],
+      "reasoning": "The final implication needs three new steps: identify the affine hull as the active-band row-sum space, compute the orthogonal projection of the origin, and prove minimum-enclosing optimality using the consecutive-block barycenter. None of these metric implications follows from unimodular equivalence or toric degeneration alone.",
+      "searches": [
+        "Clarke--Higashitani--Mohammadi Theorem 2.15 and its explicit affine map",
+        "Mohammadi--Shaw matching-field-polytope definition and diagonal example",
+        "own current cumulative ledger: matching field / Gelfand / Grassmannian",
+        "own prior cumulative ledger: matching field / Gelfand / Grassmannian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located result states the radius \\(\\sqrt{k(n-k)/(n-k+1)}\\), the row-uniform center, or the \\(n-k+1\\)-vertex consecutive-block certificate.",
+        "Searches covered the direct object name, the Gelfand--Tsetlin identification, row-sum geometry, 0/1 exponent vectors, and partial-permutation language."
+      ],
+      "reasoning": "A covering theorem could be phrased as a circumsphere theorem, a minimum-enclosing-sphere theorem, a row-uniform center theorem, or a metric statement on monotone partial permutation matrices. All of those formulations were searched without locating a prior implication.",
+      "searches": [
+        "published-result database query: diagonal matching field polytope Euclidean circumradius minimum enclosing sphere",
+        "published-result database query: Gelfand Tsetlin matching field polytope circumcenter Euclidean sphere",
+        "published-result database query: matching field polytope row uniform center circumsphere",
+        "published-result database query: diagonal matching field polytope 0/1 vertices circumsphere active band",
+        "published-result database query: monotone partial permutation polytope circumsphere matching field",
+        "literature query: \"diagonal matching field polytope\" circumradius",
+        "literature query: \"matching field polytope\" Euclidean sphere circumradius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed Euclidean-center records concern unrelated simplices, covering problems, and cube--cross-polytope intersections.",
+        "No indexed matching-field or Grassmannian Gelfand--Tsetlin radius table or symbolic formula was returned."
+      ],
+      "reasoning": "The claim is a closed all-parameter formula. Exact-object database searches were used to detect either a symbolic theorem or a low-dimensional table that would already imply the pattern; neither was found.",
+      "searches": [
+        "published-result database query: Grassmannian matching field polytope Euclidean radius",
+        "published-result database query: Gelfand Tsetlin Grassmannian polytope matching field minimum enclosing sphere",
+        "published-result database query: matching field polytope circumcenter 0/1 row sums"
+      ]
+    },
+    "rationale": "The exact 2022 primary full text was inspected at the matching-field polytope definition, diagonal matching field, Grassmannian poset, Theorem 2.15, and its explicit affine map. Full-text searches found no Euclidean, radius, sphere, or circum occurrence. The earlier open matching-field paper was inspected as broader same-object background. Published-result searches covered direct matching-field, Gelfand--Tsetlin, circumsphere, minimum-enclosing, row-sum, and partial-permutation aliases and returned no theorem implying the center, radius, or consecutive-block contact certificate.",
+    "residual_risks": [
+      "A general theorem on minimum enclosing spheres of structured 0/1 exponent configurations could subsume the calculation without using matching-field terminology.",
+      "The cosphericity portion is elementary after the affine hull is identified; the stronger consecutive-block positive contact certificate reduces but does not eliminate folklore risk.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the exact vertices, active row-coordinate structure, dimension through the order-polytope isomorphism, and the GT identification. It does not state a Euclidean circumsphere or minimum-enclosing theorem.",
+        "evidence": "The first public version is dated 2022-08-09 and lists MSC 52B20 as primary. Example 2.6 gives the vertex formula, and Theorem 2.15 gives the affine unimodular equivalence with the Grassmannian order polytope.",
+        "identifier_or_url": "arXiv:2208.04521v1; DOI 10.1016/j.jpaa.2024.107637",
+        "material_read": "ArXiv metadata and first-version date; Section 2.2 matching-field polytope definition; Example 2.6 diagonal matching field; Definition 2.13 Grassmannian poset; Theorem 2.15 and its full explicit affine-map proof; targeted full-text searches for Euclidean, radius, sphere, and circum.",
+        "method": "Open-access arXiv full-text HTML inspection.",
+        "title": "Combinatorial Mutations of Gelfand--Tsetlin Polytopes, Feigin--Fourier--Littelmann--Vinberg Polytopes, and Block Diagonal Matching Field Polytopes",
+        "trigger": "Exact geometry source identifying the Grassmannian Gelfand--Tsetlin polytope with the diagonal matching-field realization used in the theorem."
+      },
+      {
+        "assessment": "The paper develops matching fields, their polytopes, and toric degenerations. It does not provide the native-coordinate Euclidean minimum enclosing sphere proved here.",
+        "evidence": "The first public preprint is dated 2018-09-04. The paper defines matching-field polytopes as convex hulls of exponent vectors and discusses the diagonal degeneration.",
+        "identifier_or_url": "arXiv:1809.01026; DOI 10.5802/alco.77",
+        "material_read": "Abstract; matching-field-polytope Section 5 definition in the open published text; diagonal and block-diagonal degeneration discussion.",
+        "method": "Open-access published text and indexed full-text inspection.",
+        "title": "Toric degenerations of Grassmannians from matching fields",
+        "trigger": "Earlier matching-field-polytope literature that could contain a stronger metric statement or prior diagonal realization calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43dcb9c8-a20f-419d-8d1a-cd580b4886b7",
+  "value": {
+    "rationale": "The diagonal matching-field polytope is the native exponent-vector realization of the Grassmannian Gelfand--Tsetlin polytope and the base object for mutation families of Newton--Okounkov bodies and toric degenerations. Its Euclidean metric is not preserved by the unimodular equivalence to the familiar order-polytope model, so an exact minimum enclosing sphere in these coordinates is genuinely realization-specific information. The theorem gives a closed all-\\(k,n\\) formula, shows every Pluecker-indexed vertex is a contact point, and supplies a sparse explicit positive certificate using only \\(n-k+1\\) consecutive minors.",
+    "status": "PASS"
+  }
+}
