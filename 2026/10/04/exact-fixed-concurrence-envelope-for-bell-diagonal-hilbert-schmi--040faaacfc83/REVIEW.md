@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(C>0\), the proof converts the Bell-eigenvalue simplex at fixed concurrence exactly into \(r_i=C+2q_i\), sorts the three absolute correlation coordinates, and reduces the discord optimization to a compact triangle. The minimum, all maximum vertices, and the crossover factorization are analytic. The separate \(C=0\) octahedral argument avoids extending the entangled parametrization past its domain. The exact-rational verifier is supplementary rather than a substitute for proof.
+## correctness
 
-## Originality
-PASS. The closest inspected source, Yao et al. (arXiv:1303.4830), contains the Bell-diagonal Hilbert–Schmidt discord formula, sharp Bell-violation-versus-discord bounds, and a sharp Bell-violation interval at fixed concurrence. It does not optimize geometric discord at fixed concurrence. Lang and Caves treat entropic discord. A later experimental/theoretical article supplies the separable endpoint phenomenon but not the full envelope. Searches for fixed-concurrence, Werner, rank-three, extremal, and \(1/13\) formulations did not locate the claimed theorem.
+PASS
 
-## Value
-PASS. A fixed-concurrence tradeoff is a natural cross-section of the Bell-state tetrahedron. The theorem gives the entire attainable interval, identifies sharp extremizers, and reveals a non-obvious change of upper extremizer at \(C=1/13\). This is structurally stronger than recomputing one special family or one endpoint.
+For positive concurrence a Bell-diagonal state has a unique eigenvalue above one half; relabel it as \(p_1=(1+C)/2\) and write the other three masses as \(q_i\). The absolute correlation coordinates are exactly \(r_i=C+2q_i\), hence \(r_i\ge C\) and \(r_1+r_2+r_3=1+2C\), with the converse reconstruction \(q_i=(r_i-C)/2\). Ordering \(x\ge y\ge z\), Hilbert--Schmidt geometric discord is \((y^2+z^2)/4\) and the feasible slice is the triangle \(z\ge C\), \(y\ge z\), \(2y+z\le1+2C\). Its vertices give the lower value \(C^2/2\), the rank-three face value \((1+2C+5C^2)/16\), and the isotropic value \((1+2C)^2/18\). Convexity places the maximum at a vertex, and the difference factors as \((1-C)(13C-1)/144\), yielding the exact crossover \(C=1/13\). At \(C=0\), direct optimization on the separable octahedron gives lower zero and upper \(1/16\). Connectedness of the fixed-concurrence slice and continuity of discord prove that the full interval between endpoints is attained. The exact-rational verifier independently checks extremal families, crossover, and a large rational grid; the continuum theorem rests on the triangle proof.
 
-## Closest literature and limitations
-The main comparison is arXiv:1303.4830, which is close in objects and formulas but optimizes a different observable. arXiv:1006.2775 is close in state-space geometry but uses entropic discord. The Hilbert–Schmidt measure has known monotonicity limitations under local operations on the unmeasured subsystem; the present result is therefore a geometric classification, not a claim of unrestricted operational resource value. Bibliographic search cannot prove absolute uniqueness.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Yao et al. give the Bell-diagonal geometric-discord formula and sharp bounds for a different optimization: CHSH Bell violation versus geometric discord. Their full text also quotes the sharp Bell-violation interval at fixed concurrence and records the Werner concurrence--discord relation, but it does not optimize Hilbert--Schmidt discord itself over the fixed-concurrence Bell-diagonal slice. In particular their Werner branch supplies only one feasible family, while the audited maximum switches from a rank-three face family to the isotropic family at the nontrivial value \(1/13\). Lang--Caves study tetrahedral Bell-diagonal geometry for entropy-based discord, a different invariant. Current Resultary and web searches for fixed concurrence, Bell-diagonal Hilbert--Schmidt discord, the exact envelope and the \(1/13\) crossover found no prior equivalent statement.
+
+## value
+
+PASS
+
+Concurrence and geometric discord are standard, mathematically distinct correlation measures, and Bell-diagonal states are the canonical tetrahedral test family. A complete fixed-concurrence attainable interval with explicit extremizers and a genuine branch switch at \(1/13\) is a natural exact state-space classification. Its value is structural rather than dependent on the disputed operational status of Hilbert--Schmidt discord.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
