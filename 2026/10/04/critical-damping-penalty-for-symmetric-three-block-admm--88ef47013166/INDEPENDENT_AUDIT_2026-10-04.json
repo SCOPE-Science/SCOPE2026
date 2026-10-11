@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:45:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "C. Chen, Y. Shen, Y. You, On the Convergence Analysis of the Alternating Direction Method of Multipliers with Three Blocks, DOI 10.1155/2013/183961; open publisher full text inspected, including the direct scheme, penalty restrictions, and the distinct relaxed optimal-step variant.",
+        "T. Lin, S. Ma, S. Zhang, On the Global Linear Convergence of the ADMM with Multi-Block Variables, arXiv:1408.4266; primary abstract and convergence scope inspected.",
+        "Y. Ke, C. Ma, H. Zhang, Convergence of ADMM for Three-Block Separable Quadratic Programming Problems with Linear Constraints, DOI 10.4208/eajam.240817.010318; publisher abstract inspected; open-access routes did not yield full text and one authorized institutional retrieval returned no verified PDF.",
+        "Resultary semantic search for three-block ADMM symmetric scalar quadratic optimal penalty, spectral-radius minimization, and critical damping.",
+        "Fresh independent symbolic reconstruction of the 3-by-3 recurrence characteristic polynomial and discriminant, with the unique transition root numerically isolated."
+      ],
+      "rationale": "Fresh elimination gives \\(\\det(\\lambda I-M)=\\lambda(\\lambda^2+(2t^3-6t^2+3t-1)\\lambda+t^3)\\). Its discriminant is \\((1-t)^2(4t^4-16t^3+12t^2-4t+1)\\), with one root \\(t_*=0.5947955253657324\\) in \\((0,1)\\). Before that root the dominant positive real eigenvalue decreases (with only a horizontal derivative at \\(t=1/2\\)); afterward the conjugate modulus is \\(t^{3/2}\\) and increases. This independently reproduces \\(\\rho_*/a=1.4678898250138708\\) and factor \\(0.4587240807118043\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin--Ma--Zhang prove global linear convergence under multi-block assumptions.",
+          "Ke--Ma--Zhang study the broader three-block separable quadratic class from matrix-computation and numerical-optimization viewpoints."
+        ],
+        "reasoning": "Broader convergence coverage does not by itself determine the exact scalar spectral-radius minimizer. The inaccessible later pages of Ke--Ma--Zhang are retained as residual risk rather than asserted noncoverage.",
+        "searches": [
+          "Lin--Ma--Zhang arXiv:1408.4266",
+          "Ke--Ma--Zhang DOI 10.4208/eajam.240817.010318"
+        ]
+      },
+      "checked_sources": [
+        "C. Chen, Y. Shen, Y. You, On the Convergence Analysis of the Alternating Direction Method of Multipliers with Three Blocks, DOI 10.1155/2013/183961; open publisher full text inspected, including the direct scheme, penalty restrictions, and the distinct relaxed optimal-step variant.",
+        "T. Lin, S. Ma, S. Zhang, On the Global Linear Convergence of the ADMM with Multi-Block Variables, arXiv:1408.4266; primary abstract and convergence scope inspected.",
+        "Y. Ke, C. Ma, H. Zhang, Convergence of ADMM for Three-Block Separable Quadratic Programming Problems with Linear Constraints, DOI 10.4208/eajam.240817.010318; publisher abstract inspected; open-access routes did not yield full text and one authorized institutional retrieval returned no verified PDF.",
+        "Resultary semantic search for three-block ADMM symmetric scalar quadratic optimal penalty, spectral-radius minimization, and critical damping.",
+        "Fresh independent symbolic reconstruction of the 3-by-3 recurrence characteristic polynomial and discriminant, with the unique transition root numerically isolated."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two sources establish convergence/rate conditions without this exact direct-method tuning law.",
+          "The 2018 abstract is structurally closest but supplies no accessible theorem implying the quartic critical-damping optimum."
+        ],
+        "reasoning": "No inspected stronger conclusion mechanically yields the stated optimizer. The inaccessible 2018 body prevents a stronger negative claim.",
+        "searches": [
+          "Chen--Shen--You 2013",
+          "Lin--Ma--Zhang 2014/2015",
+          "Ke--Ma--Zhang 2018 accessible material"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No exact Resultary hit was returned.",
+          "Chen--Shen--You's 'optimal step size' belongs to an added relaxation update, not the penalty parameter of the direct iteration."
+        ],
+        "reasoning": "Penalty tuning, augmented-Lagrangian parameter tuning, and relaxation-step tuning were distinguished; only the first is the audited claim.",
+        "searches": [
+          "Resultary: symmetric three-block ADMM scalar quadratic optimal penalty critical damping",
+          "Chen--Shen--You direct versus relaxed schemes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact formula or matching table was located."
+        ],
+        "reasoning": "The optimizer is an analytic root of the derived characteristic discriminant, not a tabulated parameter.",
+        "searches": [
+          "Resultary exact-topic search",
+          "searches for the quartic \\(4t^4-16t^3+12t^2-4t+1\\) and numerical optimizer"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. The accessible prior work establishes convergence regions or optimizes a distinct relaxation step; no inspected statement gives the exact penalty minimizing the spectral radius of the unmodified symmetric scalar three-block iteration. The closest 2018 quadratic paper remains an explicit full-text access risk.",
+      "residual_risks": [
+        "The inaccessible body of Ke--Ma--Zhang (2018) could contain a scalar specialization or matrix formula from which the quartic optimizer follows immediately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING THE DIRECT PENALTY OPTIMUM",
+          "evidence": "The paper's optimal step is an additional predictor-corrector relaxation parameter; the direct ADMM penalty is only restricted for convergence.",
+          "identifier_or_url": "DOI:10.1155/2013/183961",
+          "material_read": "Open publisher full text through the direct scheme, convergence theorem, and relaxed-ADMM section",
+          "method": "Primary full-text inspection",
+          "title": "On the Convergence Analysis of the Alternating Direction Method of Multipliers with Three Blocks",
+          "trigger": "Same direct three-block ADMM and a potentially confusing 'optimal step size' claim"
+        },
+        {
+          "assessment": "ACCESS-LIMITED PLAUSIBLE COVERAGE RISK",
+          "evidence": "Accessible material states convergence analysis from matrix-computation and optimization viewpoints but no exact symmetric-scalar penalty optimizer.",
+          "identifier_or_url": "DOI:10.4208/eajam.240817.010318",
+          "material_read": "Publisher abstract and bibliographic page; full open-access search failed and authorized institutional retrieval found no verified PDF",
+          "method": "Accessible primary material plus bounded lawful full-text retrieval attempt",
+          "title": "Convergence of ADMM for Three-Block Separable Quadratic Programming Problems with Linear Constraints",
+          "trigger": "Same algorithm on a broader quadratic class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "C. Chen, Y. Shen, Y. You, On the Convergence Analysis of the Alternating Direction Method of Multipliers with Three Blocks, DOI 10.1155/2013/183961; open publisher full text inspected, including the direct scheme, penalty restrictions, and the distinct relaxed optimal-step variant.",
+        "T. Lin, S. Ma, S. Zhang, On the Global Linear Convergence of the ADMM with Multi-Block Variables, arXiv:1408.4266; primary abstract and convergence scope inspected.",
+        "Y. Ke, C. Ma, H. Zhang, Convergence of ADMM for Three-Block Separable Quadratic Programming Problems with Linear Constraints, DOI 10.4208/eajam.240817.010318; publisher abstract inspected; open-access routes did not yield full text and one authorized institutional retrieval returned no verified PDF.",
+        "Resultary semantic search for three-block ADMM symmetric scalar quadratic optimal penalty, spectral-radius minimization, and critical damping.",
+        "Fresh independent symbolic reconstruction of the 3-by-3 recurrence characteristic polynomial and discriminant, with the unique transition root numerically isolated."
+      ],
+      "rationale": "Exact penalty selection for direct multi-block ADMM is a natural calibration question because convergence-safe penalties need not be rate-optimal. The smallest symmetric strongly convex three-block model already exhibits a sharp real/complex phase transition, giving a reusable benchmark for broader tuning theory.",
+      "residual_risks": [
+        "The inaccessible body of Ke--Ma--Zhang (2018) could contain a scalar specialization or matrix formula from which the quartic optimizer follows immediately."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the symmetric scalar three-block quadratic with one sum constraint, the unmodified direct ADMM has a unique rate-optimal penalty \\(\\rho_*/a=1.4678898250\\ldots\\), corresponding to the unique \\(t_*\\in(0,1)\\) root of \\(4t^4-16t^3+12t^2-4t+1=0\\); the optimum is exactly the real-to-complex repeated-root transition and has factor \\(t_*^{3/2}\\).",
+  "limitations": [
+    "The result is exact only for identical scalar blocks and the standard multiplier step.",
+    "The inaccessible body of Ke--Ma--Zhang (2018) could contain a scalar specialization or matrix formula from which the quartic optimizer follows immediately."
+  ],
+  "schema_version": 1
+}
