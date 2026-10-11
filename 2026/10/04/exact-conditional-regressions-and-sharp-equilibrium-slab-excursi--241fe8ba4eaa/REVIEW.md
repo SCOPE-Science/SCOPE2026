@@ -1,26 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The three conditional laws follow from the invariant-measure generator identity applied to arbitrary one-coordinate test functions. The two critical exact coboundaries are
-\[
-L(ax+y-z)=az^2+bz
-\]
-and
-\[
-L\!\left(abz^2+ab^2x+b^2y\right)
-=
-a x\left(x+\frac{b^2}{a}\right)-a(x-bz)^2.
-\]
-They yield the height circle and horizontal square defect. Equality is rigid because an invariant support contained in \(x=bz\), or in the two height planes, must satisfy the flow tangency equations and hence consists only of the two equilibria. The excursion and periodic-crossing statements then follow from exact sign analysis and continuity. The packaged checker verifies all nonstandard polynomial algebra exactly.
+## correctness
 
-Risk: the periodic horizontal crossing statement uses the strict interior orbit mean together with an exterior value; the corresponding interior-mass assertion is not made for a general invariant measure.
+PASS
 
-## Originality
-PASS. The primary-author parameter survey supplies the exact two-parameter Case H object and numerical dynamical-region map. The inspected full same-object circuit paper reproduces the canonical equations and studies phase portraits and hardware realization, while a second same-object article concerns synchronization and secure communication. None of the inspected statements gives the conditional regressions, the height-circle identity, the horizontal square defect, or their equilibrium-slab consequences. Focused semantic searches returned only analogous results for different vector fields.
+For arbitrary one-coordinate test functions, invariance of the generator gives \(\mathbb E[x-bz\mid z]=0\), \(\mathbb E[x+ay\mid y]=0\), and \(\mathbb E[-y+z^2\mid x]=0\). The pointwise coboundary \(L(ax+y-z)=az^2+bz\) yields \(\mathbb E[z(z+b/a)]=0\). The second inspected exact identity, \(L(abz^2+ab^2x+b^2y)=a x(x+b^2/a)-a(x-bz)^2\), gives the horizontal defect. If the square defect vanishes, support invariance forces \(x=bz\), then \(y=z^2\) and \(z(b+az)=0\), so only the two equilibria remain; the converse is immediate. The zero-mean height product must take both signs for any non-equilibrium measure, giving the sharp interior/exterior height excursion, and strict positivity of the horizontal quadratic expectation forces mass outside its closed equilibrium slab. For a periodic orbit the invariant orbit measure plus continuity gives at least two boundary crossings. The checker exactly verifies both polynomial coboundaries and the canonical equilibria.
 
-Risk: the broad 2004 analytical paper on all nineteen Sprott flows was available only at indexed/abstract level, and the 1994 foundational source was not inspected line by line. These access limits are retained rather than converted into noncoverage claims.
+## originality
 
-## Value
-PASS. The equilibrium slabs are intrinsic to the two equilibrium coordinate levels of the generalized Case H family. The theorem turns a parameter-region picture into universal recurrent-state restrictions: every non-equilibrium compact stationary state must both enter and leave the height slab, and periodic orbits must cross both equilibrium-coordinate slab boundaries. The exact conditional laws and square defect also provide reusable analytical constraints for studying periodic, quasiperiodic, or chaotic compact components.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The inspected Sprott source fixes exactly the two-parameter Case H normalization and maps numerical dynamical regions, while the same-object circuit/synchronization paper is concerned with simulation and implementation. Targeted searches for invariant measures, conditional regressions, stationary moments, slab recurrence, and exact defects did not locate an implication-equivalent same-object theorem. The broad Panchev analytical paper remains an access-limited bibliographic risk, but no strong coverage evidence was found.
+
+## value
+
+PASS
+
+The theorem converts a standard chaotic-flow model into parameter-uniform, exact statistical constraints on every compact recurrent state and gives sharp excursion barriers tied to its two equilibrium coordinate levels. Conditional regressions and the defect-rigidity criterion are structural information that can constrain periodic, quasiperiodic, and chaotic invariant measures without simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
