@@ -1,19 +1,21 @@
-# Same-model review of: A positive-parameter counterexample to a coexistence shortcut in a prey-taxis model
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The equilibrium reduction was reconstructed from the source rather than inferred from a numerical plot. The exact parameter tuple satisfies the printed hypotheses \(r>\beta_1\eta\), \(\gamma_1>\beta_2\), and \(\beta<C_1\). It yields \(L=-11/10\), \(L_0=0\), \(U=9/10\), and
-\[
-f(u)=-u^2-\frac{u}{5}-\frac{341}{100}<0\qquad (u>0).
-\]
-Hence no root lies in \((L_0,U)\). The source's proof explicitly identifies admissible coexistence equilibria with roots in that interval. Exact arithmetic is replayed by `verify.py`.
+## correctness
 
-## Originality
-**PASS.** Direct inspection of Liu and Tan's Section 3 shows the precise statement/proof mismatch: the theorem and its ecological shortcut use \(L\), whereas the positivity derivation and proof use \(L_0=\max\{0,L\}\). DOI-, theorem-, alias-, endpoint-, and conclusion-targeted published-finding corpus searches did not locate a covering statement. The closest published records concern different predator–prey, reaction–diffusion, or memory models and do not imply this counterexample. A related 2025 memory-diffusion/fear article was accessible only at abstract level; this is a residual access risk, but its distinct model does not create a decisive unresolved comparison.
+PASS
 
-## Value
-**PASS.** The issue changes the predicted number of positive coexistence equilibria for an admissible positive-parameter regime. Since later local stability and bifurcation calculations presuppose such an equilibrium, a reliable existence classification is mathematically consequential. The result supplies a sharp diagnostic and the necessary endpoint correction for the sign-change step while avoiding claims about unrelated parameter regimes.
+The publisher PDF was read through the coexistence derivation and Theorem 3.1. The source itself derives the admissible interval \((L_0,U)\) with \(L_0=\max\{0,L\}\), but its theorem statement uses the sign test at \(L\) and then states the weak-Allee shortcut. For the assigned positive parameter tuple, exact arithmetic gives \(C_1=21/10\), \(C_2=-1\), \(L=-11/10\), \(L_0=0\), \(U=9/10\), and \(f(u)=-u^2-u/5-341/100\). Hence \(f(u)<0\) for every \(u>0\), so there is no admissible positive coexistence root despite satisfying \(r>\beta_1\eta\), \(\gamma_1>\beta_2\), and \(\beta<C_1\). The source proof itself switches to \(f(L_0)f(U)<0\), confirming the precise endpoint mismatch.
 
-## Closest literature and limitations
-The closest inspected literature treats different memory-based predator–prey or cognitive-taxis systems. This finding is intentionally limited to the printed weak-Allee coexistence shortcut and the lower endpoint used in its proof. It does not claim a complete replacement for all of Theorem 3.1(b), nor does it reassess the source's numerical bifurcation examples.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full relevant primary text was obtained and inspected. It contains the inconsistency targeted by the finding: equation (3.3) defines \(L_0=\max\{0,L\}\); Theorem 3.1(a) states its premise using \(f(L)f(U)<0\) and says the weak-Allee inequalities imply it; the proof instead uses \(f(L_0)f(U)<0\). Fresh Resultary searches found no published correction or exact counterexample for this model. The explicit all-positive parameter witness is therefore original to the best of current evidence.
+
+## value
+
+PASS
+
+Positive coexistence is a prerequisite for the source's subsequent stability and bifurcation analysis. An exact positive-parameter counterexample shows that the printed ecological shortcut can assert a coexistence equilibrium that does not exist and identifies the precise mathematical correction: use the actual admissible lower endpoint \(L_0\). That is a substantive correction, not a cosmetic typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

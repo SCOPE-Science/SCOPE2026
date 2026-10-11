@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:17:12.130038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The publisher PDF was read through the coexistence derivation and Theorem 3.1. The source itself derives the admissible interval \\((L_0,U)\\) with \\(L_0=\\max\\{0,L\\}\\), but its theorem statement uses the sign test at \\(L\\) and then states the weak-Allee shortcut. For the assigned positive parameter tuple, exact arithmetic gives \\(C_1=21/10\\), \\(C_2=-1\\), \\(L=-11/10\\), \\(L_0=0\\), \\(U=9/10\\), and \\(f(u)=-u^2-u/5-341/100\\). Hence \\(f(u)<0\\) for every \\(u>0\\), so there is no admissible positive coexistence root despite satisfying \\(r>\\beta_1\\eta\\), \\(\\gamma_1>\\beta_2\\), and \\(\\beta<C_1\\). The source proof itself switches to \\(f(L_0)f(U)<0\\), confirming the precise endpoint mismatch.",
+      "risks": [
+        "The result corrects the printed sufficient shortcut; it does not replace the source's entire equilibrium classification."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "verify.py",
+        "Liu–Tan, DOI 10.3934/math.2026729, Section 3 and Theorem 3.1"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nearby results concern different equations, stability exchanges, or pattern formation and do not imply this exact source-specific counterexample."
+        ],
+        "reasoning": "No broader theorem found subsumes the arithmetic witness or repairs this source theorem automatically.",
+        "searches": [
+          "current Resultary predator-prey equilibrium corrections",
+          "recent memory/taxis predator-prey models"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3934/math.2026729",
+        "current Resultary semantic search",
+        "assigned exact-rational verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's own derivation says admissible roots lie in \\((L_0,U)\\), while the printed shortcut reasons from \\(L\\).",
+          "For the explicit tuple the quadratic is strictly negative on the entire positive axis, so the claimed unique equilibrium cannot exist."
+        ],
+        "reasoning": "The counterexample directly refutes a printed implication rather than being implied by it.",
+        "searches": [
+          "direct implication comparison with Theorem 3.1 and its proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary theorem statement and proof use different lower endpoints exactly in the regime exploited by the counterexample.",
+          "No current Resultary hit gives an equivalent \\(L<0\\) correction."
+        ],
+        "reasoning": "Equivalent formulations as a false weak-Allee sufficient condition, an inadmissible-endpoint sign test, and a positive-parameter no-coexistence witness were compared.",
+        "searches": [
+          "Resultary semantic query: Liu Tan memory prey taxis Theorem 3.1 L0 max 0 L weak Allee coexistence counterexample",
+          "DOI 10.3934/math.2026729 Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database or erratum containing this parameter tuple or endpoint correction was located."
+        ],
+        "reasoning": "The result is a theorem-level counterexample, not a recomputation of a known table.",
+        "searches": [
+          "exact DOI + coexistence endpoint search",
+          "current Resultary source-title search"
+        ]
+      },
+      "rationale": "The full relevant primary text was obtained and inspected. It contains the inconsistency targeted by the finding: equation (3.3) defines \\(L_0=\\max\\{0,L\\}\\); Theorem 3.1(a) states its premise using \\(f(L)f(U)<0\\) and says the weak-Allee inequalities imply it; the proof instead uses \\(f(L_0)f(U)<0\\). Fresh Resultary searches found no published correction or exact counterexample for this model. The explicit all-positive parameter witness is therefore original to the best of current evidence.",
+      "residual_risks": [
+        "A later erratum or correction not indexed by the searches could independently report the same issue."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source itself exhibits the \\(L\\)-versus-\\(L_0\\) mismatch; it does not contain the audited counterexample.",
+          "evidence": "Equation (3.3) uses \\(L_0=\\max\\{0,L\\}\\); Theorem 3.1(a) states \\(f(L)f(U)<0\\), while the proof begins Case (a) with \\(f(L_0)f(U)<0\\).",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026729",
+          "material_read": "Publisher PDF pages covering equations (3.1)–(3.6), the admissible interval, Theorem 3.1, and its proof.",
+          "method": "Primary full-text theorem/proof comparison with exact arithmetic substitution.",
+          "title": "Memory-based prey-taxis and environmental stress shape spatiotemporal predator-prey dynamics",
+          "trigger": "Primary source containing the equilibrium theorem being tested."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive coexistence is a prerequisite for the source's subsequent stability and bifurcation analysis. An exact positive-parameter counterexample shows that the printed ecological shortcut can assert a coexistence equilibrium that does not exist and identifies the precise mathematical correction: use the actual admissible lower endpoint \\(L_0\\). That is a substantive correction, not a cosmetic typo.",
+      "risks": [
+        "The finding does not supply a complete replacement classification for every parameter regime."
+      ],
+      "sources": [
+        "primary Theorem 3.1 and proof",
+        "exact counterexample"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the printed coexistence shortcut and endpoint sign-change logic are refuted/corrected.",
+    "No claim about nonhomogeneous steady states or later bifurcation results at parameter sets where a valid coexistence equilibrium exists.",
+    "Originality is best-of-knowledge."
+  ],
+  "schema_version": 1
+}
