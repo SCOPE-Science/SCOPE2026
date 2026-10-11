@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:19:54.327396Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify_heterogeneous_gdp.py",
+        "Kuang–Gang–Xia arXiv:2605.29388v2"
+      ],
+      "rationale": "Independent canonical noises give total log-noise \\(N(V/2,V)\\) with \\(V=\\sum_k\\Delta_k^2/\\mu_k^2\\). Disjoint adjacency gives product log sensitivity \\(\\Delta_{\\max}\\), so the sharp equal-variance Gaussian shift parameter is \\(\\Delta_{\\max}/\\sqrt V\\). Hence \\(2L\\mu_{\\rm prod}^2=\\Delta_{\\max}^2\\), and the cap frontier is exactly the scalar constraint \\(V\\ge\\max\\{V_0,T\\}\\), attained by lowering one \\(\\mu_k\\) if needed.",
+      "residual_risks": [
+        "Only the scalar product release on disjoint blocks is covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source already supplies per-block canonical Gaussian noises and heterogeneous component parameters."
+        ],
+        "reasoning": "These ingredients dominate the assigned mechanism.",
+        "searches": [
+          "Kuang–Gang–Xia canonical-noise theorems and general aggregation proposition"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.29388",
+        "https://arxiv.org/abs/2510.18654",
+        "Resultary published-result corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source uses \\(\\Delta_{\\max}\\) and \\(\\sum_k\\Delta_k^2/\\mu^2\\); substitution gives \\(V=\\sum_k\\Delta_k^2/\\mu_k^2\\)."
+        ],
+        "reasoning": "The assigned formula and frontier are routine corollaries.",
+        "searches": [
+          "Compared source Theorem 5 proof term-by-term"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5 gives the same quotient for common \\(\\mu\\)."
+        ],
+        "reasoning": "The heterogeneous statement is the same Gaussian-shift calculation with unequal variance summands.",
+        "searches": [
+          "Kuang–Gang–Xia Theorem 5",
+          "Resultary heterogeneous-product query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant numeric table; this is analytic."
+        ],
+        "reasoning": "Database absence cannot overcome direct theorem implication.",
+        "searches": [
+          "Resultary exact/semantic query"
+        ]
+      },
+      "rationale": "Kuang–Gang–Xia already prove the same sharp product mechanism for a common budget and separately define the blockwise canonical Gaussian mechanism/general aggregation for heterogeneous parameters. Their product proof depends only on maximum log sensitivity and the summed independent Gaussian variance, so replacing the common variance terms by \\(\\Delta_k^2/\\mu_k^2\\) mechanically yields the assigned heterogeneous formula. The invariant and budget frontier are then immediate algebra.",
+      "residual_risks": [
+        "Rejection is by implication, not by title matching."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_IMPLICATION",
+          "evidence": "The proof already reduces privacy to maximum sensitivity divided by total Gaussian standard deviation.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.29388",
+          "material_read": "Full current arXiv text around canonical noise, general aggregation, product theorem, and proof.",
+          "method": "Primary arXiv full text.",
+          "title": "Gaussian Differentially Private e-values: Construction, Threshold Calibration, and Multiple Testing",
+          "trigger": "Same mechanism and product theorem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Kuang–Gang–Xia arXiv:2605.29388v2"
+      ],
+      "rationale": "After the source theorem, the heterogeneous law is a direct variance substitution and the frontier is a one-variable monotone optimization; it is useful bookkeeping but not a distinct research gap.",
+      "residual_risks": [
+        "Value rejection does not question correctness."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2605.29388",
+    "https://arxiv.org/abs/2510.18654",
+    "Resultary published-result corpus"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is for originality/value, not correctness.",
+    "Applies to independent disjoint blocks and release of the scalar product only."
+  ],
+  "residual_risks": [
+    "Rejection is by implication, not by title matching."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING_BY_IMPLICATION",
+      "evidence": "The proof already reduces privacy to maximum sensitivity divided by total Gaussian standard deviation.",
+      "identifier_or_url": "https://arxiv.org/abs/2605.29388",
+      "material_read": "Full current arXiv text around canonical noise, general aggregation, product theorem, and proof.",
+      "method": "Primary arXiv full text.",
+      "title": "Gaussian Differentially Private e-values: Construction, Threshold Calibration, and Multiple Testing",
+      "trigger": "Same mechanism and product theorem."
+    }
+  ]
+}
