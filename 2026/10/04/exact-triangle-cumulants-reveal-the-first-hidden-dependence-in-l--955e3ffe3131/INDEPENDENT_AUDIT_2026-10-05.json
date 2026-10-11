@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:43:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 968fcee647c1d67b937445c0f61a407bfaffd80c",
+        "Hansen, Correlation Matrices in High Dimensions: The Elliptope as a Sample-Correlation Ensemble, arXiv:2608.04162",
+        "Lewandowski--Kurowicka--Joe 2009, DOI:10.1016/j.jmva.2009.04.008"
+      ],
+      "rationale": "For a three-vertex principal block, the determinant identity \\(\\det R=(1-x^2)(1-y^2)-(z-xy)^2\\) makes the conditional LKJ density even about \\(z=xy\\), so \\(\\mathbb E[z\\mid x,y]=xy\\). Hansen's exact pairwise independence and variance \\(\\mathbb E[x^2]=1/\\nu\\) then give the triangle moment \\(\\nu^{-2}\\). For any nontriangle set of three distinct edges, some graph vertex has odd degree, and conjugation by the corresponding diagonal sign matrix reverses the product while preserving the LKJ law, forcing expectation zero. The cubic trace is then the sum over ordered distinct vertex triples. I independently re-expanded the determinant and checked the normalization at representative parameters.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected modern LKJ source establishes pairwise independence and the spectral limit, not the exact third-order graph law.",
+          "General vine constructions describe the distribution but do not provide an already-stated stronger theorem implying this exact moment without the new conditional calculation."
+        ],
+        "reasoning": "No checked broader moment theorem supplied the audited triangle coefficient and its zero pattern.",
+        "searches": [
+          "arXiv:2608.04162",
+          "Lewandowski--Kurowicka--Joe 2009",
+          "Joe--Kurowicka 2026 random-correlation moment work"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.04162",
+        "DOI:10.1016/j.jmva.2009.04.008",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise independence alone does not determine a third mixed moment.",
+          "The determinant symmetry and graph sign-flip argument are additional deductions, and the cubic trace then aggregates them globally."
+        ],
+        "reasoning": "The claim is not a special case of pairwise independence or of Marchenko--Pastur convergence.",
+        "searches": [
+          "Hansen arXiv:2608.04162 pairwise-independence theorem and LKJ representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining density and Hansen's pairwise theorem are prior ingredients, but no checked source states the triangle graph support of the third cumulant.",
+          "The same statement is equivalently the first nonzero graph moment on a 3-cycle or the expectation of the cubic centered trace."
+        ],
+        "reasoning": "Joint third moment, third cumulant, triangle graph moment, and cubic centered spectral moment were compared.",
+        "searches": [
+          "web: LKJ correlation matrix third joint moment r12 r13 r23 triangle moment",
+          "Resultary: LKJ correlation matrix triangle third moment three-wise independence cubic trace",
+          "arXiv:2608.04162"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table hit with \\(\\nu^{-2}\\) on triangles and zero otherwise was located."
+        ],
+        "reasoning": "The main novelty evidence is statement-level source comparison, with the negative search only supplementary.",
+        "searches": [
+          "Resultary exact LKJ triangle-cumulant search",
+          "web exact searches for the product moment"
+        ]
+      },
+      "rationale": "Hansen proves exact pairwise independence for distinct LKJ off-diagonal entries and develops the high-dimensional spectral limit, while explicitly leaving higher-order dependence present; the checked source does not state the exact triangle-supported third joint moment or the cubic-trace identity. Focused searches for \\(\\mathbb E[C_{12}C_{13}C_{23}]\\), LKJ third moments, and triangle cumulants found no implication-equivalent published formula.",
+      "residual_risks": [
+        "Older sample-correlation moment literature may contain an algebraically equivalent \\(\\mathbb E[r_{12}r_{13}r_{23}]\\) identity under Wishart notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_PAIRWISE_STRUCTURE_ONLY",
+          "evidence": "The source proves exact pairwise independence but does not state the audited triangle third moment or cubic-trace expectation.",
+          "identifier_or_url": "arXiv:2608.04162",
+          "material_read": "Accessible extracted primary text and theorem-level sections on LKJ representation, pairwise independence, higher-order dependence, and the Marchenko--Pastur regime.",
+          "method": "Open primary-source full-text/result inspection.",
+          "title": "Correlation Matrices in High Dimensions: The Elliptope as a Sample-Correlation Ensemble",
+          "trigger": "Closest primary source proving exact pairwise independence under every LKJ law."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hansen arXiv:2608.04162",
+        "LKJ/vine literature"
+      ],
+      "rationale": "The theorem pinpoints the first obstruction hidden beyond an exact pairwise-independence result and converts it into an explicit finite-dimensional spectral statistic that matches the third centered moment of the limiting law. This is a natural structural statistic of the LKJ ensemble, not a parameter-only restatement.",
+      "residual_risks": [
+        "Only order three is resolved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(C\\sim\\operatorname{LKJ}_n(\\eta)\\), \\(n\\ge3\\), \\(\\eta>0\\), and \\(\\nu=n+2\\eta-1\\), the product moment of three distinct off-diagonal entries equals \\(\\nu^{-2}\\) exactly when their edges form a triangle and is zero otherwise; hence \\(\\mathbb E\\operatorname{tr}((C-I_n)^3)=n(n-1)(n-2)/\\nu^2\\).",
+  "limitations": [
+    "Only this third-order statistic is classified; no full higher-cumulant theory or fluctuation theorem is claimed.",
+    "The asymptotic Marchenko--Pastur comparison in the package concerns \\(\\eta_n/n\\) converging to a finite nonnegative limit."
+  ],
+  "schema_version": 1
+}
