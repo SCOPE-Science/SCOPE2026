@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The graph is fixed by an explicit standard Pappus edge set. The verifier enumerates all 2597 nonempty independent sets, constructs 1293 disjoint Hasse-cover pairs, and checks acyclicity over all 11430 covers by complete topological sorting. The only critical cells are one in dimension 0 and ten in dimension 4, which implies a wedge of ten 4-spheres. An independent mod-2 boundary computation gives reduced Betti rank 10 only in degree 4 and Euler characteristic 11. Risk: the conclusion uses the standard discrete-Morse theorem relating an acyclic matching to a homotopy-equivalent CW complex; no unverified computational shortcut is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Matsushita--Wakatsuki treat square-grid families, not the Pappus graph.",
+        "Tsukuda proves that bipartite incidence-graph independence complexes are suspensions, which is strictly weaker than identifying this one as a wedge of ten 4-spheres.",
+        "The Pappus graph has girth 6, so results for graphs with no induced cycle of length divisible by 3 are inapplicable because a girth-6 cycle is induced."
+      ],
+      "reasoning": "The broader theorems located constrain or transform the homotopy type but do not dominate the exact claim. In particular, being a suspension does not determine the number or dimension of wedge summands.",
+      "searches": [
+        "independence complexes cubic graphs homotopy girth",
+        "\"Pappus graph\" \"circle graph\"",
+        "homotopy type independence complexes graph families"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.10363",
+      "doi:10.55016/ojs/cdm.v12i1.62277",
+      "standard Pappus-graph reference giving the LCF representation and Levi-graph identification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2207.10363 gives exact homotopy types for rectangular grid graphs and states the general difficulty of independence-complex computations.",
+        "Tsukuda Corollary 4.11 yields an abstract homotopy equivalence for any incidence graph, but its target still depends on the hypergraph-specific Alexander dual and is not evaluated for Pappus."
+      ],
+      "reasoning": "Neither inspected theorem has the Pappus wedge statement as a stated special case with evaluated target; obtaining the exact result still requires the instance-specific acyclic matching supplied here.",
+      "searches": [
+        "arXiv:2207.10363 full text",
+        "doi:10.55016/ojs/cdm.v12i1.62277 full text",
+        "\"Pappus graph\" \"independence complex\" exact homotopy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tsukuda, doi:10.55016/ojs/cdm.v12i1.62277, Corollary 4.11 gives a suspension/Alexander-dual model for incidence graphs but contains no Pappus instance.",
+        "Matsushita--Wakatsuki, arXiv:2207.10363, inspected full text contains no occurrence of Pappus or incidence."
+      ],
+      "reasoning": "The natural equivalent descriptions are independence complex of the Pappus graph, independence complex of the Levi/incidence graph of the Pappus configuration, and Tsukuda’s suspended Alexander-dual model. The general equivalence does not supply the exact wedge multiplicity or dimension for this configuration.",
+      "searches": [
+        "\"Pappus graph\" \"independence complex\"",
+        "\"Pappus graph\" independence homotopy simplicial",
+        "\"Pappus configuration\" incidence graph independence complex Alexander dual"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard Pappus-graph references identify the graph as the 18-vertex cubic symmetric Levi graph and give its LCF representation, but the located graph reference does not tabulate an independence-complex homotopy type.",
+        "No exact table or database entry located in these searches reports the wedge of ten 4-spheres."
+      ],
+      "reasoning": "Known graph tables certify the underlying canonical graph but did not provide the topological invariant claimed here.",
+      "searches": [
+        "\"Pappus graph\" \"independence polynomial\"",
+        "Pappus Graph MathWorld independence complex",
+        "Pappus graph exact homotopy independence"
+      ]
+    },
+    "rationale": "The closest primary literature gives general independence-complex methods and an incidence-graph suspension/Alexander-dual equivalence, but the inspected texts do not state or imply the exact Pappus homotopy type without an additional instance-specific computation. Exact-claim and alias searches found no published Pappus independence-complex wedge result. Residual risk from differently indexed older literature is recorded explicitly.",
+    "residual_risks": [
+      "An older or differently indexed source may have computed this exact finite example without using the phrases searched.",
+      "The general Alexander-duality literature could contain an equivalent Pappus-configuration calculation under a dual complex name."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: scope is square grids; no Pappus or incidence-graph instance occurs.",
+        "evidence": "The paper defines independence complexes, states that determining their homotopy types is generally difficult, and treats only the specified grid family.",
+        "identifier_or_url": "arXiv:2207.10363",
+        "material_read": "Abstract, introduction, Theorem 1.1, definitions on pages 1--3, plus full-text searches for Pappus and incidence.",
+        "method": "Full-text inspection of the arXiv PDF.",
+        "title": "Independence complexes of (n x 6)-grid graphs",
+        "trigger": "Primary literature on exact independence-complex homotopy types with primary MSC 55P10."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: gives a suspension/Alexander-dual equivalence for incidence graphs but does not evaluate the Pappus instance.",
+        "evidence": "Corollary 4.11 identifies the general incidence-graph independence complex up to homotopy; the document contains no occurrence of Pappus.",
+        "identifier_or_url": "doi:10.55016/ojs/cdm.v12i1.62277",
+        "material_read": "Abstract, introduction, Theorem 4.10, Corollary 4.11, and the bipartite-graph discussion in Section 5; full-text search for Pappus.",
+        "method": "Full-text inspection of the journal PDF.",
+        "title": "Independence complexes and incidence graphs",
+        "trigger": "The Pappus graph is a Levi/incidence graph, so this is the strongest plausible structural coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "81f85f0c-c9c6-408e-952c-b0ba0b55785c",
+  "value": {
+    "rationale": "The Pappus graph is a canonical cubic symmetric graph and the Levi graph of the classical Pappus configuration, while incidence-graph theory makes its independence complex a natural topological object rather than an arbitrary slice. The exact homotopy type supplies a concrete nontrivial benchmark for a graph class where general theorems give only a suspension/Alexander-dual description. The result determines all homotopy and homology consequences of this complex at once. Risk: it is still a single finite example, so its value is as an exact canonical benchmark rather than as a family theorem.",
+    "status": "PASS"
+  }
+}
