@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** For the stated smooth three-dimensional quadratic flow and every fixed \(b>0\), the characteristic polynomial, adjoint normalization, bilinear resolvents and cubic focus coefficient were rederived and verified symbolically. The coefficient \(\ell_1(b)=-2b/[(b^2+1)(b^2+4)]\) is strictly negative, so standard nondegenerate Hopf theory supplies the local stable cycles. The critical inverse-time law follows analytically from the cubic center radial equation and exponential stable-foliation tracking. The actual symbolic checker is supplied. Numerical checks only corroborate, and do not prove, the infinite-time claim.
+
+**Originality — PASS with risk.** Sprott's original 1994 four-page source and complete 2013 dynamic-regions technical note concern the exact case-F ODE and were inspected; they report numerical chaotic examples and parameter regions, not the explicit all-\(b\) cubic coefficient or the exact critical relaxation constant. Related indexed studies of weak foci and Hopf bifurcations use different vector fields, and no published-finding corpus or accessible scholarly search result found an implying case-F statement. General Hopf theory covers conditional steps, not the nonstandard coefficient itself. The main residual risk is an unindexed earlier case-F normal-form derivation under another name.
+
+**Value — PASS.** The result settles the direction and nondegeneracy of the entire natural positive-damping Hopf boundary for a well-studied minimal-chaos benchmark and identifies a sharp, physically normalized inverse-time decay constant at its weak-focus transition. These determine quantitatively how stable small cycles emerge from a region plotted previously numerically. Global coexistence, large attractors, and the singular \(b\to0\) boundary are outside scope.
+
+Same-model review: passed. Independent audit: not yet performed.
