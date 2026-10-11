@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The symbolic proof is the primary correctness argument. The packaged checker reconstructs finite weak orders directly from level sizes, exhaustively enumerates all order-preserving maps in six representative unequal-height cases, checks the image-level dichotomy used in the proof for every map, and computes connected components in the pointwise-comparability graph of each finite function space.
 
-The replayed cases include target levels of unequal sizes. Every tested map either has a singleton occupied target level or has exactly one distinct two-point image level for each binary source level with an unused target level when the source height is smaller. Each tested mapping space has one comparability component.
+# Independent mathematical audit
 
-The finite computations are sanity checks only. They do not replace the all-heights proof, and no claim is made for source levels larger than two or for equal source and target heights.
+## correctness
+
+PASS
+
+The proof dichotomy is valid. A singleton occupied target level contracts the image by two pointwise comparisons. If no occupied level is a singleton, each binary source level must map to two distinct points of one target level, and these target levels strictly increase with source level. Thus h>k is impossible in this branch, while h<k leaves an omitted target level whose point gives a comparable contraction of the image inclusion. Independent recomputation of the exact Git tree confirmed the assigned source snapshot, and the transparent finite checker is consistent with the symbolic proof but is not used to prove all heights.
+
+## originality
+
+PASS
+
+At the time of public import, no earlier inspected source implied finite-space nullity across unequal heights. A strictly stronger same-day SCOPE theorem now subsumes the result by allowing arbitrary source-level cardinalities at least two, but Git chronology places that stronger record one second later, so it is later superseding coverage rather than prior art. The older map-rigidity record only concerns the induced order-complex map and therefore does not imply finite-space homotopy.
+
+## value
+
+PASS
+
+The theorem separates direct finite-space homotopy from the weaker classical statement after passage to order complexes and gives a natural exact boundary for maps between canonical finite pseudospheres. Although immediately superseded by a broader same-day result, the binary-level theorem was itself a substantive finite-space strengthening at its import time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

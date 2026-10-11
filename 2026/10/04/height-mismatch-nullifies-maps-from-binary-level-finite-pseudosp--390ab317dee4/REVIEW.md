@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates maps by whether an occupied target level contains exactly one image point. Such a singleton level gives an explicit zigzag \(1_R\le u\ge c_R\) contracting the image. If no occupied target level is a singleton, the two-point source-level hypothesis forces both points of each source level into one target level with distinct images, and different source levels must occupy strictly increasing target levels. Height excess is therefore impossible without a singleton; height deficit leaves an unused target level whose chosen point gives an explicit zigzag contracting the inclusion of the image. These comparisons are order-preserving and Stong's finite-space homotopy criterion applies directly.
+## correctness
 
-## Originality
-PASS. Searches were performed over minimal finite sphere models, finite mapping spaces, weak orders, ordinal sums, pseudospheres, unequal heights, path components, and null-homotopy. Barmak--Minian establishes the minimal sphere objects, while Stong supplies the general finite mapping-space homotopy criterion. Neither inspected source states the cross-height theorem. The closest published internal results concern induced order-complex nullity for unequal-dimensional minimal sphere models and finite-space homotopy classifications at equal height; neither implies this finite-space nullity theorem. published-finding corpus's closest weak-order hit concerns an interval-endomorphism algebra invariant, not map homotopy.
+PASS
 
-## Value
-PASS. The distinction between classical nullity after passage to order complexes and nullity inside the finite model is substantive: weak equivalence to a sphere does not make finite-space homotopy classes coincide with classical sphere homotopy classes. The theorem gives a sharp height-mismatch obstruction in the finite mapping space itself and explains that, for unequal-dimensional minimal sphere models, every direct map can actually be deformed to a constant without subdividing or enlarging either model. The extension to arbitrary weak-order targets shows that the mechanism is structural rather than sphere-specific.
+The proof dichotomy is valid. A singleton occupied target level contracts the image by two pointwise comparisons. If no occupied level is a singleton, each binary source level must map to two distinct points of one target level, and these target levels strictly increase with source level. Thus h>k is impossible in this branch, while h<k leaves an omitted target level whose point gives a comparable contraction of the image inclusion. Independent recomputation of the exact Git tree confirmed the assigned source snapshot, and the transparent finite checker is consistent with the symbolic proof but is not used to prove all heights.
 
-## Closest literature and limitations
-The closest foundational sources are Stong's function-space description of finite-space homotopy and Barmak--Minian's minimal finite sphere models. A prior direct-map result establishes only classical nullity of the induced order-complex map across unequal sphere dimensions; finite-space homotopy is finer, so that result does not cover the present claim. The theorem does not cover source levels of size greater than two or equal source and target heights.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+At the time of public import, no earlier inspected source implied finite-space nullity across unequal heights. A strictly stronger same-day SCOPE theorem now subsumes the result by allowing arbitrary source-level cardinalities at least two, but Git chronology places that stronger record one second later, so it is later superseding coverage rather than prior art. The older map-rigidity record only concerns the induced order-complex map and therefore does not imply finite-space homotopy.
+
+## value
+
+PASS
+
+The theorem separates direct finite-space homotopy from the weaker classical statement after passage to order complexes and gives a natural exact boundary for maps between canonical finite pseudospheres. Although immediately superseded by a broader same-day result, the binary-level theorem was itself a substantive finite-space strengthening at its import time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
