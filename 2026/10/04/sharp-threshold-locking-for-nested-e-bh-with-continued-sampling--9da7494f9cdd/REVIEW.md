@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. If the current rejection count is \(r>0\), every old rejected e-value is at least \(c_r=K/(\alpha r)\). Keeping those same coordinates above \(c_r\) makes the next \(r\)-th order statistic at least \(c_r\), so the next e-BH rejection count is at least \(r\) and its cutoff is no larger than \(c_r\). The one-coordinate counterexample proves sharpness. The lock-and-bet update is a nonnegative supermartingale step because its conditional expectation is at most the current e-value whenever the one-step factor has conditional null mean at most one.
+## correctness
 
-## Originality
-PASS, with a residual terminology/indexing risk. The recent adaptive-sampling source proves nested rejection sets under a sufficient policy that samples only currently unrejected hypotheses. Base e-BH supplies the rank cutoff but not a prospective post-rejection continuation rule. The carefree multiple-testing paper handles revocation using running suprema and adjusters, rather than by locking the current e-BH threshold inside each rejected e-process. The stopped e-BH paper addresses the global-filtration condition. Targeted semantic searches did not reveal the cutoff-locking lemma, its sharp one-coordinate obstruction, or the maximal-active-capital corollary.
+PASS
 
-## Value
-PASS. The result relaxes a concrete restriction in a new adaptive multiple-testing procedure: an already rejected hypothesis need not become permanently unsampleable. The theorem gives an exact amount of evidence that must be protected, allows any surplus to keep accumulating information, and shows that the protected amount is worst-case minimal. Because additional discoveries lower the e-BH cutoff, the rule also yields an explicit mechanism for progressively releasing locked evidence.
+If \(r\) old coordinates stay at least \(K/(\alpha r)\), the next \(r\)-th order statistic qualifies, so the new rejection count is at least \(r\) and its cutoff is no larger; every old rejection therefore persists. For sharpness, starting with exactly \(r\) coordinates at the old cutoff and outsiders zero, lowering one coordinate to any smaller value makes rank \(r\) fail, every lower rank fail because its threshold is strictly larger, and every higher rank fail at zero. The affine rule is predictable, stays above the lock pathwise, and has conditional expectation at most the current e-value. A fresh bounded replay independently checked persistence and the one-coordinate collapse for every \(2\le K\le8\) and all ranks.
 
-## Closest literature and limitations
-The closest recent source is Lin–Ma–Ren–Wei, arXiv:2609.26651v1. Foundational e-BH is Wang–Ramdas, DOI 10.1111/rssb.12489. The closest alternative treatment of revocation is Tavyrikov–Goeman–de Heide, DOI 10.1214/26-EJS2546, and the filtration caveat is treated by Wang–Dandapanthula–Ramdas, DOI 10.1016/j.spl.2025.110512. The claim is limited to base e-BH, pathwise coordinatewise persistence, and globally valid sequential factors. It does not claim optimality for power, expected stopping time, or adaptive allocation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Wang–Ramdas define base e-BH and its cutoff \(K/(\alpha k)\). Lin–Ma–Ren–Wei's current adaptive-data paper advertises nested e-BH rejection sets under conditionally valid e-increments and an e-PS sampling rule, but the accessible primary material does not state the coordinatewise persistence floor, the one-coordinate sharpness counterexample, or the affine lock-and-bet maximal-active-capital rule. Resultary search found no equivalent theorem. Full text of the very recent Lin et al. preprint was not materially available in this run, so that same-source overlap remains a named residual risk rather than negative novelty evidence.
+
+## value
+
+PASS
+
+Nested discoveries are operationally important in continuing experiments. The theorem identifies exactly how much evidence may remain actively at risk after rejection while guaranteeing worst-case pathwise persistence, improving on the crude policy of freezing an entire rejected stream. The sharpness and capital interpretation make it a substantive design rule rather than a restatement of e-BH.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

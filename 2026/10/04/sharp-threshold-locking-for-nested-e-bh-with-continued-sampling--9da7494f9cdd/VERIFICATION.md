@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-The deterministic proof has two components. First, keeping all current e-BH rejections above the current cutoff forces the next rank-
-\(r\) order statistic to satisfy the same cutoff, so the next cutoff cannot increase. Second, lowering one old rejection below that cutoff while holding the other old rejections at the cutoff and all outsiders at zero makes every e-BH rank fail.
+# Independent mathematical audit
 
-For the sequential construction, the update
-\[
-E_{t+1}=c_t+(E_t-c_t)X_{t+1}
-\]
-is nonnegative and has conditional null expectation at most \(E_t\) whenever \(E_t\ge c_t\) and \(\mathbb E[X_{t+1}\mid\mathcal F_t]\le1\).
+## correctness
 
-`verify_lock_and_bet.py` checks the e-BH implication and sharp counterexamples over multiple finite grids and randomized outsider values, and checks the affine expectation calculation for discrete factors. It returned `VERIFY_OK` on the packaged version.
+PASS
 
-Scientific limits: base e-BH; coordinatewise worst-case pathwise nesting; common-filtration conditionally valid factors for the sequential interpretation; no claim of optimal sampling cost or power.
+If \(r\) old coordinates stay at least \(K/(\alpha r)\), the next \(r\)-th order statistic qualifies, so the new rejection count is at least \(r\) and its cutoff is no larger; every old rejection therefore persists. For sharpness, starting with exactly \(r\) coordinates at the old cutoff and outsiders zero, lowering one coordinate to any smaller value makes rank \(r\) fail, every lower rank fail because its threshold is strictly larger, and every higher rank fail at zero. The affine rule is predictable, stays above the lock pathwise, and has conditional expectation at most the current e-value. A fresh bounded replay independently checked persistence and the one-coordinate collapse for every \(2\le K\le8\) and all ranks.
+
+## originality
+
+PASS
+
+Wang–Ramdas define base e-BH and its cutoff \(K/(\alpha k)\). Lin–Ma–Ren–Wei's current adaptive-data paper advertises nested e-BH rejection sets under conditionally valid e-increments and an e-PS sampling rule, but the accessible primary material does not state the coordinatewise persistence floor, the one-coordinate sharpness counterexample, or the affine lock-and-bet maximal-active-capital rule. Resultary search found no equivalent theorem. Full text of the very recent Lin et al. preprint was not materially available in this run, so that same-source overlap remains a named residual risk rather than negative novelty evidence.
+
+## value
+
+PASS
+
+Nested discoveries are operationally important in continuing experiments. The theorem identifies exactly how much evidence may remain actively at risk after rejection while guaranteeing worst-case pathwise persistence, improving on the crude policy of freezing an entire rejected stream. The sharpness and capital interpretation make it a substantive design rule rather than a restatement of e-BH.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:51:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6f608b32585e63c67946178af20dce2b11b7ea2d",
+        "verify_lock_and_bet.py blob 2f7798607c8abd4b7af9e0ff458b03a371f40e88",
+        "fresh order-statistic and supermartingale reconstruction"
+      ],
+      "rationale": "If \\(r\\) old coordinates stay at least \\(K/(\\alpha r)\\), the next \\(r\\)-th order statistic qualifies, so the new rejection count is at least \\(r\\) and its cutoff is no larger; every old rejection therefore persists. For sharpness, starting with exactly \\(r\\) coordinates at the old cutoff and outsiders zero, lowering one coordinate to any smaller value makes rank \\(r\\) fail, every lower rank fail because its threshold is strictly larger, and every higher rank fail at zero. The affine rule is predictable, stays above the lock pathwise, and has conditional expectation at most the current e-value. A fresh bounded replay independently checked persistence and the one-coordinate collapse for every \\(2\\le K\\le8\\) and all ranks.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Ramdas supplies FDR control and self-consistency, not nonrevocation under later coordinate changes.",
+          "Lin et al. state nested rejection sets for their adaptive e-PS procedure; accessible descriptions emphasize sampling design, while the audited rule permits continued betting on rejected streams after locking their current cutoff.",
+          "Carefree/stopped-e-BH work modifies evidence or stopping guarantees rather than proving this exact current-e-value floor."
+        ],
+        "reasoning": "These procedures are broader in sequential multiple testing but do not, from the inspected material, imply the sharp coordinatewise floor and affine optimality.",
+        "searches": [
+          "Wang–Ramdas 2022 full publisher text",
+          "Lin et al. arXiv:2609.26651 abstract",
+          "Tavyrikov–Goeman–de Heide, Carefree multiple testing with e-processes",
+          "Wang–Dandapanthula–Ramdas, stopped e-BH"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1111/rssb.12489",
+        "arXiv:2609.26651",
+        "Carefree multiple testing with e-processes",
+        "Anytime-valid FDR control with the stopped e-BH procedure",
+        "Resultary e-BH locking search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Self-consistency alone says what current rejected e-values exceed, but does not state the future worst-case floor or sharp failure if a single old coordinate drops below it.",
+          "The sharp construction makes every lower rank fail simultaneously, establishing minimality for affine rules whose factor can be zero."
+        ],
+        "reasoning": "The new statement is a nontrivial dynamic consequence of the static e-BH cutoff rather than a quoted theorem in the checked sources.",
+        "searches": [
+          "Wang–Ramdas e-BH rank definition",
+          "Lin et al. nested-rejection abstract",
+          "audited order-statistic proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Base e-BH rejects at rank \\(k^*=\\max\\{k:e_{[k]}\\ge K/(\\alpha k)\\}\\).",
+          "The audited deterministic theorem says an existing size-\\(r\\) rejection set is invariant under arbitrary outsider changes exactly under the uniform coordinate floor \\(K/(\\alpha r)\\) in the worst-case sense."
+        ],
+        "reasoning": "The cutoff-locking lemma is a persistence interpretation of the base e-BH order statistic, and the sequential rule is its predictable supermartingale implementation.",
+        "searches": [
+          "Wang–Ramdas, DOI:10.1111/rssb.12489, base e-BH definition",
+          "Lin–Ma–Ren–Wei, arXiv:2609.26651",
+          "Resultary query: nested e-BH continued sampling rejected hypotheses cutoff locking persistence threshold K alpha r"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published SCOPE finding or coefficient/table analogue was found."
+        ],
+        "reasoning": "The result is a deterministic order-statistic lemma, so exact-database comparison is inapplicable beyond checking for an already-published equivalent statement.",
+        "searches": [
+          "Resultary semantic search above",
+          "targeted search for e-BH lock-and-bet cutoff persistence"
+        ]
+      },
+      "rationale": "Wang–Ramdas define base e-BH and its cutoff \\(K/(\\alpha k)\\). Lin–Ma–Ren–Wei's current adaptive-data paper advertises nested e-BH rejection sets under conditionally valid e-increments and an e-PS sampling rule, but the accessible primary material does not state the coordinatewise persistence floor, the one-coordinate sharpness counterexample, or the affine lock-and-bet maximal-active-capital rule. Resultary search found no equivalent theorem. Full text of the very recent Lin et al. preprint was not materially available in this run, so that same-source overlap remains a named residual risk rather than negative novelty evidence.",
+      "residual_risks": [
+        "The complete very recent Lin–Ma–Ren–Wei preprint was not materially retrievable in this run; an unadvertised equivalent locking lemma there remains a specific originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASE_CUTOFF_PRIOR_LOCKING_PERSISTENCE_NOT_STATED",
+          "evidence": "The source defines \\(k_e^*\\) by \\(e_{[k]}\\ge K/(\\alpha k)\\) and proves FDR control; it does not formulate continued-sampling nonrevocation via a locked cutoff.",
+          "identifier_or_url": "DOI:10.1111/rssb.12489",
+          "material_read": "Full publisher HTML including the base e-BH order-statistic definition, self-consistency condition and main FDR theorem.",
+          "method": "Definition and implication comparison.",
+          "title": "False Discovery Rate Control with E-values",
+          "trigger": "Defining primary source for base e-BH."
+        },
+        {
+          "assessment": "PLAUSIBLE_OVERLAP_FULL_TEXT_ACCESS_LIMITED",
+          "evidence": "The abstract states nested rejection sets under conditionally valid increments but does not expose the audited sharp cutoff-locking lemma or maximal-active-capital affine rule.",
+          "identifier_or_url": "arXiv:2609.26651",
+          "material_read": "Primary arXiv abstract and indexed descriptions of e-PS were read; complete full text was not materially retrievable in this run.",
+          "method": "Access-limited same-problem comparison.",
+          "title": "Sample-Efficient Multiple Testing with Adaptive Data Collection",
+          "trigger": "Recent same-problem paper claiming nested e-BH rejection sets."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1111/rssb.12489",
+        "arXiv:2609.26651",
+        "Carefree multiple testing with e-processes",
+        "Anytime-valid FDR control with the stopped e-BH procedure",
+        "Resultary e-BH locking search"
+      ],
+      "rationale": "Nested discoveries are operationally important in continuing experiments. The theorem identifies exactly how much evidence may remain actively at risk after rejection while guaranteeing worst-case pathwise persistence, improving on the crude policy of freezing an entire rejected stream. The sharpness and capital interpretation make it a substantive design rule rather than a restatement of e-BH.",
+      "residual_risks": [
+        "The complete very recent Lin–Ma–Ren–Wei preprint was not materially retrievable in this run; an unadvertised equivalent locking lemma there remains a specific originality risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1111/rssb.12489",
+    "arXiv:2609.26651",
+    "Carefree multiple testing with e-processes",
+    "Anytime-valid FDR control with the stopped e-BH procedure",
+    "Resultary e-BH locking search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For base e-BH with current nonempty rejection size \\(r\\), the current cutoff \\(c=K/(\\alpha r)\\) is the sharp coordinatewise persistence floor: keeping every old rejection at least \\(c\\) guarantees pathwise nonrevocation regardless of outsiders, while lowering one old coordinate below \\(c\\) can erase all rejections. The affine update \\(E^+=c+(E-c)X\\), with nonnegative conditionally valid e-factor \\(X\\), preserves both the floor and null supermartingale validity, and \\(c\\) is the minimal uniformly safe lock when \\(X\\) may be zero.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete very recent Lin–Ma–Ren–Wei preprint was not materially retrievable in this run; an unadvertised equivalent locking lemma there remains a specific originality risk.",
+    "Any anytime-valid FDR interpretation still needs the stated common-filtration e-process assumptions; the deterministic persistence lemma itself is criterion-specific and worst-case."
+  ]
+}
