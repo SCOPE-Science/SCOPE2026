@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:03:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Party-local orthogonal mode changes split off pure relative modes, reducing each replica determinant to at most three collective modes. For the tripartite determinant the top eigenspace of the rank-pattern matrix intersects its replica-shifted copy in exactly the one-dimensional vector fixed by both row and column replica cycles, so \\(2N\\) is a simple top eigenvalue; every other eigenvalue is strictly smaller. Consequently the determinant has exactly one vanishing factor as \\(\\lambda\\to0\\). The corresponding bipartite determinant has the analogous simple factor. The source-state parameter satisfies \\(\\lambda=(N-1)(N^2a^2)^{-1}+O(a^{-4})\\), independently rederived symbolically here. Fresh numerical eigenspectrum checks for replica indices \\(3,4,5\\) and unequal block sizes confirmed top-eigenvalue multiplicity one. The frozen verifier was read and additionally matches published small exact cases.",
+      "risk": "The proof is for integer replica index; analytic continuation in \\(n\\) is not claimed.",
+      "sources": [
+        "arXiv:2609.30754",
+        "frozen RESULT.md and artifacts/verify.py",
+        "fresh symbolic and numerical replica-matrix checks"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper proves the special \\(n=2\\) vanishing theorem for arbitrary pure Gaussian states but leaves the fully symmetric \\(n>2\\) asymptotic conjectural.",
+          "Selected exact \\(n=3,4\\) values do not imply all integer \\(n\\ge3\\)."
+        ],
+        "reasoning": "The audited nullity argument covers the full integer-replica range of the stated conjecture.",
+        "searches": [
+          "arXiv:2609.30754 current abstract and detailed public reading"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.30754",
+        "current public detailed paper record",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source itself labels the target asymptotic as conjectural.",
+          "Its \\(n=2\\) theorem has zero coefficient and is structurally separate from the \\(n\\ge3\\) statement."
+        ],
+        "reasoning": "The final theorem closes, rather than follows from, the source's stated conjectural gap for integer replica index.",
+        "searches": [
+          "arXiv:2609.30754 abstract/conjecture statement and small-case descriptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source describes the all-replica large-squeezing formula as a conjecture.",
+          "The source exact data cover only selected small mode and replica cases."
+        ],
+        "reasoning": "GHZ-like asymptotic, determinant nullity, replica contraction and collective-mode formulations were compared.",
+        "searches": [
+          "Resultary query: Genuine Multi-Entropy fully symmetric Gaussian \\((2-n)/(2n)\\log a\\) replica nullity",
+          "arXiv:2609.30754 current abstract/current public record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct all-integer proof of the conjectured coefficient was located."
+        ],
+        "reasoning": "Finite source tables were treated as checks, not as proof of the unrestricted theorem.",
+        "searches": [
+          "Resultary semantic searches using the exact coefficient, Gaussian multi-entropy and replica-nullity terminology"
+        ]
+      },
+      "rationale": "The current primary abstract explicitly says the general large-squeezing formula is conjectured and only a few exact mode/replica cases are obtained; a current detailed public review likewise identifies the all-\\(n\\), all-\\(N\\) asymptotic as the paper's load-bearing conjecture. Fresh Resultary searches did not return a distinct proof of that conjecture. The audited argument supplies the missing all-integer-replica nullity proof rather than merely another finite check.",
+      "residual_risks": [
+        "The primary full text could not be directly retrieved in this run, so formula-level comparison relied on the primary abstract plus a detailed public reading; this is an access residual risk.",
+        "A very recent post-publication proof not yet indexed could exist because the source is less than two weeks old."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_STATES_TARGET_AS_CONJECTURE",
+          "evidence": "The current abstract says exact results are obtained only for a few modes and that the large-squeezing formula as a function of replica index is conjectured.",
+          "identifier_or_url": "arXiv:2609.30754",
+          "material_read": "Current primary abstract plus current public detailed reading of the paper's exact cases, determinant setup, conjecture and limitations. Direct full-PDF retrieval was unavailable in this run.",
+          "method": "Lawful open-source inspection followed by one authorized institutional retrieval attempt after OA full-text failure; the latter returned an operational error and was not retried.",
+          "title": "Genuine Multi-Entropy of Fully Symmetric Gaussian States",
+          "trigger": "Direct source of the conjectured asymptotic and the fully symmetric Gaussian family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This proves an explicit conjecture posed by the source across every integer replica index and every nonempty tripartition, while identifying a concrete spectral reason for universality: a unique replica-constant top mode. The simple-nullity mechanism is structural and reusable beyond checking a finite table.",
+      "risk": "The result does not address noninteger analytic continuation or nonsymmetric Gaussian states for \\(n>2\\).",
+      "sources": [
+        "arXiv:2609.30754"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every fully symmetric pure \\(N\\)-mode Gaussian state in the Camargo-Nishida family, every nonempty tripartition, and every integer replica index \\(n\\ge3\\), the large-squeezing genuine tripartite multi-entropy has leading term \\((2-n)(2n)^{-1}\\log a\\), with a finite positive determinant constant and error \\(O(a^{-2})\\).",
+  "limitations": [
+    "Integer replica indices \\(n\\ge3\\) only.",
+    "Fully symmetric pure Gaussian family and nonempty tripartitions only.",
+    "Primary full text was access-limited in this audit."
+  ],
+  "schema_version": 1
+}
