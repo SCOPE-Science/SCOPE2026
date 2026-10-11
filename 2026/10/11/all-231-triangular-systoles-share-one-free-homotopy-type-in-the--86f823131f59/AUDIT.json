@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The verifier reconstructs all faces, derives the 91-generator spanning-tree edge presentation, checks all 180 triangular relators in an explicit permutation representation, enumerates the image group to order 120, and verifies surjectivity. The published Poincaré-sphere fundamental group also has order 120, making the representation faithful. Every one of the 231 nonfacial triangular loops is then proved to have order 10 and to lie in one inverse-stable conjugacy class of size 12.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Björner--Lutz introduce a 16-vertex Poincaré homology-sphere triangulation as an application of bistellar flips.",
+        "Lutz Section 1.5 gives the exact 90 facets, face vector, Poincaré-sphere identification, and trivial automorphism group.",
+        "Standard exact-object documentation records the fundamental group as the binary icosahedral group of order 120."
+      ],
+      "reasoning": "Those broader facts supply the object and the global group, but do not logically determine which three-edge loops are nontrivial, their orders, or their conjugacy distribution.",
+      "searches": [
+        "DOI:10.1080/10586458.2000.10504652",
+        "Lutz dissertation 1999 Section 1.5 Poincare 16 vertices",
+        "SageMath PoincareHomologyThreeSphere fundamental group order 120"
+      ]
+    },
+    "checked_sources": [
+      "Bjorner-Lutz:manuscript-1999-02-14",
+      "DOI:10.1080/10586458.2000.10504652",
+      "Lutz-dissertation:1999",
+      "Hachimori:poincare.dat",
+      "SageMath:PoincareHomologyThreeSphere",
+      "Published semantic-index searches listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing \\(\\pi_1\\cong 2I\\) only gives the ambient group and does not determine images of particular graph cycles.",
+        "Knowing the triangulation has trivial automorphism group cannot imply transitivity of its shortest loops; indeed the one-class phenomenon is a homotopy statement rather than a simplicial-symmetry statement.",
+        "The exact finite verifier supplies the missing inclusion-sensitive map from each of the 231 loops into the ambient group."
+      ],
+      "reasoning": "The new conclusion requires faithful evaluation of every candidate loop and comparison of their conjugacy classes. None of the inspected prior global invariants implies those data.",
+      "searches": [
+        "16 vertex Poincare homology sphere fundamental group binary icosahedral",
+        "16 vertex Poincare sphere trivial automorphism group",
+        "Poincare homology sphere missing triangle free homotopy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No queried indexed record stated that all 231 nonfacial triangular loops are essential, order 10, and mutually freely homotopic up to orientation.",
+        "Queries included missing-triangle and empty-triangle language, simple systole language, binary-icosahedral element-order language, and free-homotopy/conjugacy language."
+      ],
+      "reasoning": "These formulations cover the natural combinatorial, geometric-topological, and group-theoretic aliases of the claim. A failed search is not itself a novelty proof, so exact-object primary sources were separately inspected.",
+      "searches": [
+        "16 vertex Poincare homology sphere missing triangles noncontractible loops order 10 binary icosahedral",
+        "Bjorner Lutz Poincare sphere 231 empty triangles shortest noncontractible cycles",
+        "Poincare homology sphere triangulation triangular loops fundamental group order 10 missing triangles",
+        "Poincare 16 vertex simple 1-systole 3 missing triangles",
+        "binary icosahedral conjugacy order 10 missing triangle triangulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Hachimori datum gives the complete 90-facet 16-vertex complex and face vector.",
+        "The dissertation prints the same exact facet presentation.",
+        "The standalone package independently reconstructs the 106 edges and 180 triangles from those tetrahedra."
+      ],
+      "reasoning": "The exact object tables define the finite input; they do not contain a table classifying the 231 nonfacial triangular loops by fundamental-group order or conjugacy.",
+      "searches": [
+        "Hachimori Simplicial Complex Library poincare.dat",
+        "SageMath PoincareHomologyThreeSphere exact facets",
+        "Lutz dissertation Theorem 1.5 facet list"
+      ]
+    },
+    "rationale": "Exact-object, alias, numerical, group-order, conjugacy, and free-homotopy searches returned no indexed statement covering the 231-loop theorem. Inspected exact-object sources establish the triangulation and global topology, but do not state the complete shortest noncontractible triangular-loop layer in the material read.",
+    "residual_risks": [
+      "Some older exact-object literature and historical program output were not available as fully searchable text.",
+      "An unindexed computation could contain the same 231-loop conjugacy census even though no indexed statement located in the searches covers it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_OBJECT_SOURCE_NOT_COVERING_IN_INSPECTED_MATERIAL",
+        "evidence": "The inspected material introduces the 16-vertex triangulation and its construction; no 231-loop order/conjugacy census appears there.",
+        "identifier_or_url": "DOI:10.1080/10586458.2000.10504652",
+        "material_read": "Publicly indexed manuscript header dated 14 February 1999, abstract/introduction material, and the opening of the Poincaré-sphere section.",
+        "method": "Statement-level comparison against the shortest-loop and conjugacy claim.",
+        "title": "Simplicial manifolds, bistellar flips and a 16-vertex triangulation of the Poincaré homology 3-sphere",
+        "trigger": "Primary exact-object paper and earliest dated manuscript source."
+      },
+      {
+        "assessment": "EXACT_OBJECT_SOURCE_NOT_COVERING",
+        "evidence": "The section proves existence/topology and trivial simplicial symmetry but does not classify nonfacial triangular loops by fundamental-group element.",
+        "identifier_or_url": "Lutz-dissertation:1999",
+        "material_read": "Section 1.5, including Theorem 1.5, the complete facet list, the Poincaré-sphere identification, and the automorphism-group discussion.",
+        "method": "Full page-text and page-image inspection of the relevant theorem section.",
+        "title": "Triangulated Manifolds with Few Vertices and Vertex-Transitive Group Actions",
+        "trigger": "Exact facet presentation and detailed proof of the 16-vertex Poincaré triangulation."
+      },
+      {
+        "assessment": "OBJECT_DEFINITION_ONLY",
+        "evidence": "The datum supplies the combinatorial complex, not a fundamental-group loop census.",
+        "identifier_or_url": "Hachimori:poincare.dat",
+        "material_read": "Complete 90-facet datum and header metadata.",
+        "method": "Direct data inspection and exact reconstruction.",
+        "title": "Simplicial Complex Library: poincare.dat",
+        "trigger": "Independent exact facet data."
+      },
+      {
+        "assessment": "SUPPORTING_GLOBAL_INVARIANTS",
+        "evidence": "The documentation supplies the group order needed for faithfulness but does not state the 231-loop class distribution.",
+        "identifier_or_url": "SageMath:PoincareHomologyThreeSphere",
+        "material_read": "Example documentation identifying the 16-vertex complex and its binary-icosahedral fundamental group of order 120.",
+        "method": "Documentation-level invariant comparison.",
+        "title": "PoincareHomologyThreeSphere",
+        "trigger": "Independent topology and fundamental-group order cross-check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86f82313-1f59-4bc5-9a71-efe1f0e4e308",
+  "value": {
+    "rationale": "Because the Poincaré homology sphere has trivial first homology, shortest essential loops are invisible to abelian homology and probe genuinely nonabelian topology. The result completely classifies the first possible simple-loop layer and finds a strong structural concentration into one order-10 free-homotopy type, despite the triangulation itself having no nontrivial simplicial automorphism.",
+    "status": "PASS"
+  }
+}
