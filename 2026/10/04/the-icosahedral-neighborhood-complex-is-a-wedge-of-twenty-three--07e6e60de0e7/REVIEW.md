@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The explicit 12-vertex, 30-edge graph is reconstructed and checked 5-regular. Its neighborhood complex is exhaustively generated with 264 nonempty faces and face vector \( (12,60,120,60,12) \). The archived 120-pair face-poset matching is regenerated from its vertex order, every pair is checked to be a Hasse cover, and acyclicity is verified on all 780 oriented covers. The only critical cells are one in dimension 0 and twenty-three in dimension 2. Forman's theorem therefore yields a CW model \(\bigvee^{23}S^2\). A separate mod-2 boundary computation returns Betti vector \( (1,0,23,0,0) \).
+## correctness
 
-## Originality
-PASS relative to the checked literature. Shukla's closest classification treats maximum-degree-at-most-3 graphs and 4-regular circulants, while the icosahedral graph is 5-regular. Matsushita's fundamental-group machinery does not determine this 2-sphere multiplicity. Exact web and research-index searches using neighborhood-complex, box/Hom-complex, and icosahedral aliases returned no equivalent statement. Residual risk is an obscure or unindexed finite computation.
+PASS
 
-## Value
-PASS. The icosahedral graph is a canonical Platonic 5-regular graph lying immediately beyond the degree ranges in the closest neighborhood-complex classification. The result gives an exact homotopy type, not only homology, and supplies a compact reproducible benchmark for degree-5 neighborhood-complex topology.
+A fresh independent replay from the archived icosahedral edge list generated all 264 nonempty neighborhood-complex faces with f-vector 12,60,120,60,12. Rebuilding the documented vertex-toggle order gives exactly 120 matched covers and leaves one critical zero-simplex plus twenty-three critical two-simplices. The orientation of all 780 Hasse covers is acyclic under a complete topological sort. Forman theory therefore gives a wedge of twenty-three two-spheres. The package's mod-two Betti vector is an independent consistency check, not the sole homotopy argument.
 
-## Closest literature and limitations
-The closest inspected source is Shukla, arXiv:1802.04526 / DOI 10.37236/7549, which studies the same functor but different graph classes. Matsushita, *Fundamental Groups of Neighborhood Complexes*, gives a complementary invariant. The claim does not extend to arbitrary 5-regular graphs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes relative to the inspected literature. Shukla's full primary theorem treats graphs of maximum degree at most three and four-regular circulant graphs; the icosahedral graph is five-regular and is not covered. Fundamental-group machinery cannot determine the exact twenty-three-sphere multiplicity. Resultary searches under neighborhood-complex and Hom(K2,G) aliases returned the assigned record as the exact hit and no stronger published result.
+
+## value
+
+PASS
+
+The icosahedral graph is a canonical Platonic five-regular graph immediately beyond the degree range of the closest neighborhood-complex classification. An exact homotopy type with a compact certificate is a natural benchmark for extending that topology, and it determines much more than a chromatic lower bound or fundamental group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
