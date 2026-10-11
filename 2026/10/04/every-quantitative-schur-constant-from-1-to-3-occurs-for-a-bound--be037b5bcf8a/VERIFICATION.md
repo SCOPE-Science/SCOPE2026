@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed directly from the two metric definitions and the quantitative Schur definitions.
+# Independent mathematical audit
 
-1. For \(M_q^{(A)}\), every nonzero distance is \(1\) or \(q\). The only nontrivial triangle restriction is \(q\le2\).
-2. The evaluation sequence \(\delta(1),\delta(-1),\delta(2),\delta(-2),\ldots\) has norm-tail diameter \(q\). A unit Lipschitz function can have value gap greater than \(1\) on at most one antipodal pair, so its scalar tail oscillation is at most \(1\); the positive-versus-nonpositive indicator attains \(1\). Thus the witness has exactly \(\operatorname{ca}=q\) and \(\delta=1\).
-3. For \(M_q^{(B)}\), the distances are \(1,2,q\). An antipodal side is bounded by the path length \(2+1=3\), and a same-sign side of length \(2\) has a \(1+1\) path, so the metric is valid for \(2\le q\le3\).
-4. For \(y_n=\delta(n)-\delta(-n)\), one has \(\|y_n\|=q\). For every unit Lipschitz function, all but at most two antipodal differences lie in \([-1,1]\), so every weak-star cluster point of \((y_n)\) has norm at most \(1\). The equivalence in Proposition 5.1 of arXiv:2505.12893v1 therefore excludes every Schur constant below \(q\).
-5. Proposition 8.2 of arXiv:2505.12893v1 gives the matching \(q\)-Schur upper bound in both families because the minimum nonzero distance is \(1\) and the diameter is \(q\).
-6. The universal lower bound \(1\) follows from the alternating sequence \(u,-u,u,-u,\ldots\) in any nonzero Banach space. The universal upper bound \(3\) for uniformly discrete Lipschitz-free spaces is Theorem 1.1 of arXiv:2604.01875v1.
+## correctness
 
-Endpoint replay: at \(q=2\), the first family is the distance pattern of Example 8.3 in arXiv:2505.12893v1; at \(q=3\), the second family is the distance pattern of Example 8.5. No finite experiment is used as a substitute for the interval proofs. No independent audit has been performed.
+PASS
+
+For the first family \(1\le q\le2\), the only nonunit distance is the antipodal distance \(q\), so the metric axioms hold and Kalenda's Proposition 8.2 gives the matching \(q\)-Schur upper bound. The alternating evaluation sequence has tail diameter \(q\). A unit Lipschitz function can have an antipodal value gap exceeding 1 on at most one pair; after deleting it the scalar tail range is at most 1, and an explicit sign function attains 1. Hence \(\delta=1\) and the optimal constant is at least \(q\). For the second family \(2\le q\le3\), the distances \(1,2,q\) satisfy the triangle inequalities. Antipodal molecules have norm \(q\), while any unit Lipschitz function has all but at most two antipodal differences in \([-1,1]\); therefore every weak-star cluster point has norm at most 1. Kalenda's Proposition 5.1 then excludes every constant below \(q\), and Proposition 8.2 supplies the upper bound. The universal lower bound 1 and the 2026 universal 3-Schur theorem complete the exact spectrum \([1,3]\).
+
+## originality
+
+PASS
+
+Kalenda's full primary text gives the general \(b/a\) upper bound and exact endpoint examples at constants 2 and 3, but it explicitly says that although those ratios are optimal, it is not clear how to construct examples with worse constants. The audited one-parameter deformations supply precisely those missing intermediate sharp constants. The later universal theorem proves the ceiling 3 but does not determine which intermediate optimal constants occur. Resultary returned the assigned finding as the only exact interval-realization hit.
+
+## value
+
+PASS
+
+Once the sharp universal ceiling 3 is known, the attainable spectrum of optimal quantitative Schur constants is a natural exact invariant of the class. Realizing every value with explicit bounded uniformly discrete metrics resolves the gap left between published endpoint examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
