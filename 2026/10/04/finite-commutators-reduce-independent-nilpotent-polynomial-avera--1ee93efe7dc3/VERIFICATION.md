@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim was checked symbolically from its stated hypotheses.
+# Independent mathematical audit
 
-For a class-two group, centrality of commutators gives \([x^q,y]=[x,y]^q\). Taking \(q\) to be the exponent of the finite subgroup \([H,H]\) therefore makes every \(T_i^q\) commute with every generator. No stronger group-theoretic claim is used.
+## correctness
 
-For \(p\in\mathbb Z[n]\) and a residue \(r\), expansion of each monomial shows that \(p(qm+r)-p(r)\) is divisible by \(q\), so the reduced iterate is again an integer polynomial. Polynomial independence survives affine substitution and subtraction of constants. Total ergodicity survives passage from \(T_i\) to \(T_i^q\).
+PASS
 
-The published commuting independent-polynomial joint-ergodicity theorem is then applied separately on each residue class. All residue-class limits are the same because measure preservation fixes the integrals of the translated functions. The incomplete final block contains only finitely many bounded summands and vanishes after normalization.
+Let q be the exponent of the finite central commutator subgroup. Class-two commutator calculus makes all powered generators T_i^q commute. On each residue class modulo q, the reduced polynomial is again integer-valued and polynomial independence is preserved. Total ergodicity passes to the powered transformations, so the published commuting theorem gives the same product limit on every residue class; finite recombination gives the full limit.
 
-No numerical computation, finite enumeration, or unproved infinite extrapolation is used. The argument does not verify the infinite-commutator case and does not establish a non-totally-ergodic seminorm estimate.
+## originality
+
+PASS
+
+The motivating preprint explicitly leaves the all-independent 2-step nilpotent extension open and identifies the commuting case as known. The audited theorem adds a finite-commutator reduction: a common power kills every central commutator, and a residue decomposition converts the original iterates to the commuting theorem. No inspected source or independent Resultary record covers that reduction.
+
+## value
+
+PASS
+
+Finite commutator is a natural structural boundary of an explicit open 2-step nilpotent problem. The theorem resolves all independent polynomial shapes on that boundary and isolates infinite commutator directions as the remaining genuinely noncommutative regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

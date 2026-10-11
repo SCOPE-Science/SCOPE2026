@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the class-two action to commuting powers using the exponent of the finite central commutator subgroup. The residue polynomials remain integral and independent, total ergodicity passes to the powered transformations, and the known commuting independent-polynomial theorem applies on each residue class. Recombining finitely many residue classes gives the claimed \(L^2(\mu)\) limit.
+## correctness
 
-## Originality
-PASS. The motivating paper explicitly leaves the all-independent-polynomial 2-step nilpotent extension open while identifying the commuting case as known. Targeted searches for finite-commutator, torsion-commutator, virtually abelian, and same-degree formulations did not locate an equivalent statement. The closest inspected noncommutative literature proves different convergence statements under entropy hypotheses. The main residual risk is unindexed folklore: the powering reduction is elementary enough that it may have been observed without being stated as this consequence.
+PASS
 
-## Value
-PASS. The claim resolves the source's independent-polynomial conjecture on a natural structural boundary rather than on an arbitrary parameter slice. It shows that finite central noncommutativity creates no new obstruction and localizes the genuinely new difficulty to actions with infinite commutator directions.
+Let q be the exponent of the finite central commutator subgroup. Class-two commutator calculus makes all powered generators T_i^q commute. On each residue class modulo q, the reduced polynomial is again integer-valued and polynomial independence is preserved. Total ergodicity passes to the powered transformations, so the published commuting theorem gives the same product limit on every residue class; finite recombination gives the full limit.
 
-## Closest literature and limitations
-Koutsogiannis--Kuca--Sun, arXiv:2607.29368v1, prove the distinct-degree 2-step nilpotent theorem and formulate the all-independent extension as an open problem. Frantzikinakis--Kuca prove the corresponding commuting theorem. Frantzikinakis--Host treat certain noncommuting polynomial averages under different hypotheses. The present result does not cover infinite commutator subgroups or the stronger seminorm problem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating preprint explicitly leaves the all-independent 2-step nilpotent extension open and identifies the commuting case as known. The audited theorem adds a finite-commutator reduction: a common power kills every central commutator, and a residue decomposition converts the original iterates to the commuting theorem. No inspected source or independent Resultary record covers that reduction.
+
+## value
+
+PASS
+
+Finite commutator is a natural structural boundary of an explicit open 2-step nilpotent problem. The theorem resolves all independent polynomial shapes on that boundary and isolates infinite commutator directions as the remaining genuinely noncommutative regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
