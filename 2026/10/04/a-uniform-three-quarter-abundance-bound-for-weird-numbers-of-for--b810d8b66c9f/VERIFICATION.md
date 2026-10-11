@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The symbolic proof uses only the exact identities and necessary-and-sufficient criterion stated in the cited primary source. The critical steps checked are:
+## correctness
 
-1. \(a=M(M+1)-(p-M)(q-M)\).
-2. The forbidden equation \(pq=r+sp+tq\), with \(1\le r,s,t\le M\), is exactly equivalent to forbidding \(a-M+1\le up+vq\le a\) for \(0\le u,v\le M-1\).
-3. In the case \(q\le a\), the residues \((a-vq)\bmod p\) for \(0\le v\le\lfloor a/q\rfloor\) are distinct and all lie in the terminal interval of length \(p-M\), which gives \(a<(p-M)q\).
-4. In the case \(q>a\), direct substitution gives \((q-M)(p-M+1)>M^2\).
-5. Both cases imply \((p-M)(q-M)>M^2/4\), hence the stated abundance bound.
+PASS
 
-The included `verify.py` performs exact integer arithmetic. It re-enumerates candidate prime pairs for \(1\le k\le8\), reproduces the published counts \(1,1,5,3,10,23,29,53\), and checks the theorem on every weird pair found. Its successful output is:
+Using Iannucci's exact semiperfectness obstruction, the forbidden equation is equivalent to the absence of \(up+vq\) in \([a-M+1,a]\) for \(0\le u,v\le M-1\). If \(q\le a\), the residues \((a-vq)\bmod p\), \(0\le v\le\lfloor a/q\rfloor\), are distinct and forced into the terminal interval of length \(x=p-M\), giving \(a<xq\) and hence \(2xy>M(M+1-x)\); splitting at \(x=M/2\) yields \(xy>M^2/4\). If \(q>a\), then \(y(x+1)>M^2\) and even \(x\ge2\) gives the stronger \(xy>2M^2/3\). The actual exact-integer verifier was inspected and its finite census through \(k=8\) is corroborative, not the infinite proof.
 
-`VERIFY_OK counts=[1, 1, 5, 3, 10, 23, 29, 53] prime_pairs_checked=29490 max_a_over_M2=(0.4444444444444444, (1, 5, 7, 4, 3))`
+## originality
 
-The finite computation is not an exhaustive proof over all \(k\). The infinite theorem is established by the symbolic argument in `RESULT.md`.
+PASS
+
+Iannucci proves the identity and the weaker universal bound \(M<a<M(M+1)\), gives the exact forbidden-representation criterion used here, and conjectures a substantially stronger bound; the audited residue-packing step is not present in the inspected source. No later source or published-result record located the intermediate uniform \(3/4\) bound.
+
+## value
+
+PASS
+
+This gives a uniform quantitative improvement of the best proved abundance bound in the exact family where a substantially stronger conjecture remains open. The residue-packing mechanism is reusable structural information, not merely a small finite improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
