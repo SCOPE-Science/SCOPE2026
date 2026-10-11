@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:05:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Procházka--Rueda Zoca characterization reduces octahedrality to the long trapezoid property. If \\(c\\le b\\), choosing two fresh points \\(x_i,x_j\\) gives the LTP inequalities exactly for every finite test set; the only nontrivial cases reduce to \\(c\\le b\\) and \\(a\\le2b\\). If \\(c>b\\), exhaustive pair-type reduction for the test set \\(\\{o,z\\}\\) gives the exact supremum \\(\\max\\{(a+b)/(a+c),a/(b+c)\\}\\), and both terms are strictly below one under the metric constraints. The repository pair-type checker verifies the finite case split over many exact rational triples, but the symbolic case reduction is the proof.",
+      "risk": "The formula is specific to this homogeneous countable metric family and the standard basepoint convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2016 paper characterizes octahedrality by LTP and supplies the isolated prototype counterexample.",
+          "The 2019 paper treats octahedrality in duals/biduals and different metric classes."
+        ],
+        "reasoning": "The characterization is a tool, not a classification of this family; the audited case analysis is additional.",
+        "searches": [
+          "arXiv:1612.03808 full text",
+          "arXiv:1905.09061"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1612.03808",
+        "arXiv:1905.09061",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work supplies the criterion and one boundary-failing instance, but not the all-parameter iff or exact ratio."
+        ],
+        "reasoning": "Applying the criterion still requires the complete pair-type optimization and fresh-point sufficiency argument.",
+        "searches": [
+          "Procházka--Rueda Zoca Theorem 3.1 and Example 3.6",
+          "later octahedrality literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3.6 is the single point \\((1,1,2)\\) in the audited family.",
+          "No source stated an equivalent c<=b phase boundary."
+        ],
+        "reasoning": "The LTP and Lipschitz-free octahedrality formulations were both checked.",
+        "searches": [
+          "Resultary: Lipschitz-free octahedral three parameter metric long trapezoid c b",
+          "web: Prochazka Rueda Zoca Example 3.6 parameter family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No parameter table or stored exact obstruction profile for M(a,b,c) was located."
+        ],
+        "reasoning": "The theorem is an analytic classification rather than a database lookup.",
+        "searches": [
+          "Resultary Lipschitz-free-space corpus"
+        ]
+      },
+      "rationale": "The primary LTP paper contains exactly the special non-octahedral example \\(a=b=1,c=2\\), but not the three-parameter phase diagram or exact obstruction ratio. Later octahedrality work concerns other classes and bidual questions. Resultary returned no broader theorem covering this parameter family.",
+      "residual_risks": [
+        "Because the extension from Example 3.6 is elementary, an unpublished or unindexed note could have observed the same parameter threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SPECIAL_CASE_ONLY",
+          "evidence": "Example 3.6 is precisely (a,b,c)=(1,1,2), with no three-parameter threshold.",
+          "identifier_or_url": "arXiv:1612.03808",
+          "material_read": "Full text around Theorem 3.1 and Example 3.6, which takes d=1 except d(o,z)=2 and proves failure of LTP.",
+          "method": "lawful arXiv full text",
+          "title": "A characterisation of octahedrality in Lipschitz-free spaces",
+          "trigger": "Defines LTP as the exact criterion and contains the prototype metric example."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "It addresses bidual octahedrality and other metric classes, not this homogeneous parameter family.",
+          "identifier_or_url": "arXiv:1905.09061",
+          "material_read": "Primary abstract and scope statements.",
+          "method": "lawful arXiv source",
+          "title": "Octahedral norms in duals and biduals of Lipschitz-free spaces",
+          "trigger": "Later primary work on nearby octahedrality questions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is the natural three-distance deformation of a canonical counterexample in the foundational paper, and the result turns one isolated example into a complete sharp phase diagram with an exact obstruction constant. This is a motivated structural classification.",
+      "risk": "The parameter family is deliberately low-dimensional and the proof is an explicit finite case analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the metric family \\(M(a,b,c)=\\{o,z\\}\\cup\\{x_n:n\\in\\mathbb N\\}\\) with \\(d(o,x_n)=d(x_n,x_m)=a\\), \\(d(z,x_n)=b\\), and \\(d(o,z)=c\\), subject to the metric inequalities, \\(\\mathcal F(M(a,b,c))\\) has an octahedral norm exactly when \\(c\\le b\\); when \\(c>b\\), the exact two-point long-trapezoid obstruction ratio for \\(\\{o,z\\}\\) is \\(\\max\\{(a+b)/(a+c),a/(b+c)\\}\\).",
+  "limitations": [
+    "No claim is made for arbitrary bounded uniformly discrete metric spaces."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof checks the exact metric constraints, gives a universal fresh-point witness for the positive region, and exhausts all witness-pair types for the negative region. The strict inequality in the \(\{z,x_n\}\) type when \(c>b\) follows from \(a\le2b\), so no boundary case is missed. The exact-rational checker reproduces the symbolic obstruction formula on an admissible parameter grid.
+## correctness
 
-## Originality
-PASS. The closest primary source proves the general long-trapezoid characterization and exhibits only the special non-octahedral point \((a,b,c)=(1,1,2)\). Targeted searches for parameterized one-point/equilateral extensions, the threshold \(c=b\), and the exact obstruction formula did not locate an equivalent statement. A later dual/bidual paper was also inspected and did not cover this classification in the material checked.
+PASS
 
-## Value
-PASS. A single counterexample becomes a full, exact phase diagram for a natural symmetric family. The formula for the best two-point obstruction quantifies the distance from the octahedral regime rather than only deciding failure, and the positive side has exact witnesses rather than asymptotic ones.
+The Procházka--Rueda Zoca characterization reduces octahedrality to the long trapezoid property. If \(c\le b\), choosing two fresh points \(x_i,x_j\) gives the LTP inequalities exactly for every finite test set; the only nontrivial cases reduce to \(c\le b\) and \(a\le2b\). If \(c>b\), exhaustive pair-type reduction for the test set \(\{o,z\}\) gives the exact supremum \(\max\{(a+b)/(a+c),a/(b+c)\}\), and both terms are strictly below one under the metric constraints. The repository pair-type checker verifies the finite case split over many exact rational triples, but the symbolic case reduction is the proof.
 
-## Closest literature and limitations
-The closest literature is Procházka--Rueda Zoca (2018), especially Theorem 3.1 and Example 3.6, with Langemets--Rueda Zoca (2019) as a related follow-up. The result is deliberately narrow: it does not classify arbitrary uniformly discrete metrics or arbitrary one-point extensions. A residual literature risk remains for differently indexed or unindexed equivalent formulations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary LTP paper contains exactly the special non-octahedral example \(a=b=1,c=2\), but not the three-parameter phase diagram or exact obstruction ratio. Later octahedrality work concerns other classes and bidual questions. Resultary returned no broader theorem covering this parameter family.
+
+## value
+
+PASS
+
+The family is the natural three-distance deformation of a canonical counterexample in the foundational paper, and the result turns one isolated example into a complete sharp phase diagram with an exact obstruction constant. This is a motivated structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
