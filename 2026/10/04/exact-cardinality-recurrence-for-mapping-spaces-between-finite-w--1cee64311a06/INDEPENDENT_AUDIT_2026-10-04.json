@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:57:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a prefix ending at target level u, the common upper bounds of the previous source level are exactly the higher target levels if at least two distinct points of B_u were used, and are those levels plus the unique used point of B_u in the singleton case. This proves the two-state sufficiency and gives exactly x_{u,j} versus x_{u,j}+1. The unchanged-top transition can occur only from a singleton state and contributes the carry S_j. Summing terminal states partitions all monotone maps. I independently replayed all 225 source-target weak-order composition pairs of total size at most four against brute force and recovered the four larger transfer anchors 44, 738, 143, and 17.",
+      "risks": [
+        "\\(O(hk^2)\\) is an arithmetic-operation count, not bit complexity."
+      ],
+      "sources": [
+        "RESULT.md blob 85f129329aad0fbb316a8e334c777cb7713f5a40",
+        "artifacts/verify.py blob 5cebcd7ae11ab8a7b8da7fed169d8fc669b73e31",
+        "Independent 225-pair brute-force replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pouzet--Zaguia's full web text concerns perpendicularity and shared endomorphisms.",
+          "Du--Hou's full PDF defines P-partitions to nonnegative integers and recurrence systems for repeated partially ordinal sums."
+        ],
+        "reasoning": "Neither framework yields the submitted arbitrary weak-order-to-weak-order count by direct specialization.",
+        "searches": [
+          "Pouzet--Zaguia DOI:10.1016/j.disc.2006.05.038",
+          "Du--Hou DOI:10.37236/2524 / arXiv:1111.0245"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.disc.2006.05.038",
+        "DOI:10.37236/2524",
+        "arXiv:1111.0245",
+        "Fresh Resultary search",
+        "Source tree f5ba85969c4376f7b650a8516dccd9c1a3e17f66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither source contains a theorem implying the submitted state compression by parameter substitution."
+        ],
+        "reasoning": "The key new step is the common-upper-bound compression specific to maps between two weak orders.",
+        "searches": [
+          "Statement comparison with Pouzet--Zaguia",
+          "Statement comparison with Du--Hou full PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No prior exact two-state arbitrary source-target recurrence was located.",
+          "Pouzet--Zaguia identify weak orders with lexicographic sums of antichains but give no map-cardinality formula."
+        ],
+        "reasoning": "Searches covered weak-order, complete-multipartite-order, ordinal-sum, endomorphism-count and mapping-space terminology.",
+        "searches": [
+          "Resultary: exact number order-preserving maps between finite weak orders ordinal sums of antichains transfer recurrence homomorphism count",
+          "Web: order preserving maps weak orders enumeration ordinal sum antichains homomorphism count",
+          "Web: complete multipartite order homomorphism count weak order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table with the vector-to-vector formula or two-state recurrence was found."
+        ],
+        "reasoning": "Database non-detection is corroborative only.",
+        "searches": [
+          "Fresh Resultary weak-order mapping-cardinality query",
+          "Web weak-order endomorphism-count searches"
+        ]
+      },
+      "rationale": "Pouzet--Zaguia provide the weak-order/complete-multipartite structural framework but study perpendicular orders, not exact counts of all maps between arbitrary source and target weak orders. Du--Hou develop P-partition generating-function recurrences for repeated partially ordinal sums, but their codomain and invariant differ and do not specialize to this arbitrary finite source-target mapping cardinality. Fresh Resultary comparison returned the present record as the exact match and adjacent weak-order records concern different invariants.",
+      "residual_risks": [
+        "Equivalent folklore may exist in unindexed finite-poset enumeration literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_BACKGROUND_NOT_COVERING",
+          "evidence": [
+            "Weak orders are identified with complete multipartite orders; results concern perpendicularity, not all-map counts."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.disc.2006.05.038",
+          "material_read": "Full publisher-rendered abstract/introduction, weak-order equivalences and theorem statements.",
+          "method": "Compared object, map class and theorem output.",
+          "title": "Weak orders admitting a perpendicular linear order",
+          "trigger": "Same finite weak-order objects and endomorphism terminology."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": [
+            "P-partitions map to nonnegative integers; recurrence is for repeated source constructions, not arbitrary finite targets."
+          ],
+          "identifier_or_url": "DOI:10.37236/2524; arXiv:1111.0245",
+          "material_read": "Open full PDF text with page-1 screenshot inspection, introduction, definitions and recurrence framework.",
+          "method": "Compared codomain and recurrence quantifiers.",
+          "title": "Partially Ordinal Sums and P-partitions",
+          "trigger": "Potential broader recurrence theory for ordinal sums."
+        },
+        {
+          "assessment": "NO_BROADER_SCOPE_MATCH_FOUND",
+          "evidence": [
+            "Nearby records concern homotopy, fixed-point-free maps, or algebra dimensions."
+          ],
+          "identifier_or_url": "Fresh semantic query recorded above",
+          "material_read": "Top returned titles and summaries.",
+          "method": "Object/invariant implication comparison.",
+          "title": "Published Resultary corpus",
+          "trigger": "Required SCOPE comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mapping-space cardinality is a natural invariant, and the theorem gives a reusable two-state compression for arbitrary level-size vectors rather than a finite census.",
+      "risks": [
+        "It counts maps but does not determine mapping-space homotopy or order."
+      ],
+      "sources": [
+        "Exact transfer proof",
+        "Independent exhaustive small replay"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Map count only; no mapping-space homotopy classification.",
+    "Arithmetic rather than bit complexity."
+  ],
+  "schema_version": 1
+}

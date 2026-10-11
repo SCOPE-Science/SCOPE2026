@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and applies to every positive source-level vector and target-level vector. Its critical step is the common-upper-bound classification for the image of one source level: at the maximum occupied target level, either there is one occupied point, which remains an allowed upper bound, or there are at least two incomparable occupied points, in which case no point on that same target level is a common upper bound.
+# Independent mathematical audit
 
-`artifacts/verify.py` implements two independent procedures: the transfer recurrence and direct enumeration of all functions with an explicit order-preservation test. It compares them for all \(225\) ordered pairs of weak-order compositions with total source and target size at most four. It also checks the larger anchors \(44\), \(738\), \(143\), and \(17\) stated in the result.
+## correctness
 
-Finite enumeration is not used to infer the theorem for unbounded sizes. The checker is a reproducibility aid for boundary cases, singleton levels, and indexing.
+PASS
 
-No claim is made about the order structure or homotopy type of the resulting mapping space.
+For a prefix ending at target level u, the common upper bounds of the previous source level are exactly the higher target levels if at least two distinct points of B_u were used, and are those levels plus the unique used point of B_u in the singleton case. This proves the two-state sufficiency and gives exactly x_{u,j} versus x_{u,j}+1. The unchanged-top transition can occur only from a singleton state and contributes the carry S_j. Summing terminal states partitions all monotone maps. I independently replayed all 225 source-target weak-order composition pairs of total size at most four against brute force and recovered the four larger transfer anchors 44, 738, 143, and 17.
+
+## originality
+
+PASS
+
+Pouzet--Zaguia provide the weak-order/complete-multipartite structural framework but study perpendicular orders, not exact counts of all maps between arbitrary source and target weak orders. Du--Hou develop P-partition generating-function recurrences for repeated partially ordinal sums, but their codomain and invariant differ and do not specialize to this arbitrary finite source-target mapping cardinality. Fresh Resultary comparison returned the present record as the exact match and adjacent weak-order records concern different invariants.
+
+## value
+
+PASS
+
+Mapping-space cardinality is a natural invariant, and the theorem gives a reusable two-state compression for arbitrary level-size vectors rather than a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
