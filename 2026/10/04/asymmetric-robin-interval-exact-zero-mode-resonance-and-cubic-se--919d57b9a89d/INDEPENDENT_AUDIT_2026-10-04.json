@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:37:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify_robin_interval.py at tree e0346005de1da9c2fbf1a47d048cdb7aedaf6da8",
+        "Bolte--Egger--Steiner, arXiv:1311.5485 / AHP 2015, primary full text",
+        "Bolte--Endres 2009"
+      ],
+      "rationale": "An affine zero mode gives a two-by-two boundary system whose determinant vanishes exactly when \\(\\lambda_0+\\lambda_\\ell-\\lambda_0\\lambda_\\ell\\ell=0\\), and then the kernel is one-dimensional. Since both Robin parameters are nonzero, the zero-energy scattering matrix is \\(-I_2\\), giving scattering multiplicity one. Expanding the exact secular function gives a linear coefficient proportional to \\(\\ell-\\lambda_0^{-1}-\\lambda_\\ell^{-1}\\); on resonance the cubic coefficient is nonzero because \\(\\lambda_0^{-3}+\\lambda_\\ell^{-3}=\\ell(\\lambda_0^2-\\lambda_0\\lambda_\\ell+\\lambda_\\ell^2)/(\\lambda_0^2\\lambda_\\ell^2)>0\\). The inspected exact formal-series checker was independently replayed across positive and mixed-sign cases and agrees with the symbolic proof.",
+      "residual_risks": [
+        "No correctness defect was found."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general quantum-graph theory supplies definitions and trace-formula context, but the source's concrete anomaly calculation is symmetric.",
+          "Standard interval spectral theory gives the zero-mode determinant but does not, in the checked sources, state the paired secular/scattering multiplicity classification."
+        ],
+        "reasoning": "No broader inspected theorem was found that explicitly implies all three audited multiplicities for arbitrary unequal nonzero Robin parameters.",
+        "searches": [
+          "Bolte--Egger--Steiner general zero-mode/index theorem",
+          "general Robin Sturm--Liouville literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1311.5485",
+        "DOI 10.1007/s00023-014-0347-z",
+        "Bolte--Endres 2009",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source covers the diagonal \\(\\lambda_0=\\lambda_\\ell\\).",
+          "The audited determinant and cubic coefficient show the anomaly persists exactly on the full reciprocal-sum surface, including admissible mixed-sign pairs."
+        ],
+        "reasoning": "The source example is a special case; extending it requires a fresh asymmetric secular calculation and nonvanishing argument.",
+        "searches": [
+          "Bolte--Egger--Steiner symmetric example versus unequal-parameter secular expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary search did not surface a covering asymmetric classification.",
+          "The primary source's worked one-edge example fixes equal Robin parameters at the two endpoints."
+        ],
+        "reasoning": "Equivalent formulations as zero-mode determinant resonance, order-three secular zero, and unequal Robin endpoint classification were compared.",
+        "searches": [
+          "Resultary query: asymmetric Robin interval zero mode secular multiplicity cubic order three Bolte Egger Steiner",
+          "arXiv:1311.5485"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database entry for the asymmetric resonance surface was found."
+        ],
+        "reasoning": "The claim is a continuous two-parameter symbolic classification, so database coverage is not the natural mechanism.",
+        "searches": [
+          "Resultary asymmetric-Robin search",
+          "primary one-edge example"
+        ]
+      },
+      "rationale": "Bolte--Egger--Steiner explicitly analyze the same one-edge Robin anomaly only on the symmetric diagonal \\(L=\\lambda I_2\\), obtaining resonance \\(\\ell=2/\\lambda\\), secular order three there and order one otherwise, and scattering multiplicity one. The audited theorem classifies the full unequal-endpoint two-parameter family. Targeted searches found no published asymmetric version.",
+      "residual_risks": [
+        "Because the asymmetric formula is elementary, equivalent Sturm--Liouville folklore under different terminology remains a genuine priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING only: equal endpoint Robin parameters.",
+          "evidence": "The worked example assumes \\(L=\\lambda I_2\\) and obtains resonance \\(\\ell=2/\\lambda\\); it does not state the unequal-parameter reciprocal-sum surface.",
+          "identifier_or_url": "arXiv:1311.5485 / DOI 10.1007/s00023-014-0347-z",
+          "material_read": "Full primary section containing the one-edge Robin example and its symmetric formulas for \\(g_0\\), \\(N\\), \\(\\widetilde N\\), and the trace-formula term.",
+          "method": "Primary full-text reading.",
+          "title": "Zero modes of quantum graph Laplacians and an index theorem",
+          "trigger": "Source introducing the three multiplicities and the closest one-edge anomaly example."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bolte--Egger--Steiner 2015",
+        "Bolte--Endres 2009"
+      ],
+      "rationale": "The result gives the complete two-parameter continuation of the exact zero-energy multiplicity anomaly that motivated the source example, showing that it is a codimension-one resonance surface rather than an equal-parameter accident and that the trace-formula correction remains invariant. This is a natural complete classification even though its final algebra is elementary.",
+      "residual_risks": [
+        "Its value is local and classificatory rather than a new general theory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For an interval with independent finite nonzero real Robin parameters \\(\\lambda_0,\\lambda_\\ell\\), the zero eigenvalue occurs exactly on \\(\\ell=\\lambda_0^{-1}+\\lambda_\\ell^{-1}\\); the secular zero at \\(k=0\\) has order three on this resonance surface and order one otherwise, while the zero-energy scattering multiplicity is always one, so \\(g_0-N/2=-1/2\\) throughout the family.",
+  "limitations": [
+    "Both Robin parameters are finite, real, and nonzero; Dirichlet/Neumann limits and non-self-adjoint conditions are excluded.",
+    "The contribution is the complete asymmetric one-edge anomaly classification, not a general quantum-graph theorem."
+  ],
+  "schema_version": 1
+}
