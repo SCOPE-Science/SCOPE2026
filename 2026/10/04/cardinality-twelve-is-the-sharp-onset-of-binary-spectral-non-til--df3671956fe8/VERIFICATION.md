@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two finite combinatorial cores, both replayed by `verify.py` with exact integer and \(\mathbb F_2\) arithmetic.
+# Independent mathematical audit
 
-For the lower bound, the script enumerates the seven-triple systems on seven points in which every two triples meet in exactly one point. It finds exactly \(30\) labeled systems and verifies for every one that the corresponding eight normalized sign rows are closed under coordinatewise multiplication. This is the finite Fano-plane step used in the analytic proof.
+## correctness
 
-For sharpness, the script constructs the normalized Paley Hadamard matrix of order \(12\) from the quadratic character modulo \(11\), checks
-\[
-HH^{\mathsf T}=12I,
-\]
-converts signs to a binary log-Hadamard matrix, computes its exact \(\mathbb F_2\)-rank as \(10\), computes a rank factorization \(M=AB^{\mathsf T}\), and verifies that the twelve rows on both sides are distinct and reproduce the Hadamard evaluation matrix. Since \(12\) does not divide \(2^{10}\), this gives an explicit spectral non-tile.
+PASS
 
-The dimension-free step is analytic: row closure passes to closure of the image of \(E\) modulo the annihilator \(K\); that image is an order-eight subspace, and choosing a linear complement produces the subspace tiling partner. No finite ambient-dimension enumeration is used for this universal statement.
+After normalizing an eight-point spectral pair, orthogonality makes the seven nonfirst plus-position triples a Steiner triple system on seven points. Their pairwise-intersection structure is the Fano plane, so the eight sign rows are closed under pointwise multiplication. Modulo the annihilator \(K\) of the spectrum, the image of the eight points is therefore an eight-element additive subspace, and the original set is a transversal for \(K\) in its preimage; adjoining a linear complement gives a subspace tiling partner. Smaller possible Hadamard orders below twelve are only 1, 2, 4, and 8, and the four-point case tiles. Fresh independent enumeration found all 30 labeled Fano-plane systems and verified row closure; an independently built Paley order-12 matrix was Hadamard with dephased binary rank 10, giving the known non-tile because 12 does not divide \(2^{10}\).
 
-The checker completed with `VERIFY_OK`.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the dimension-free eight-point theorem and hence the sharp cardinality lower boundary. Ferguson--Sothanaphan prove the binary conjecture only through dimension six, explicitly say their simple four-dimensional method does not extend, and use brute-force checks for size eight in dimension five. They supply the known order-12 rank-10 non-tile witness. The assigned quotient/Fano-plane argument removes ambient dimension entirely and gives a subspace complement.
+
+## value
+
+PASS
+
+The theorem replaces dimension-bounded computation by a dimension-free structural classification at the first unresolved power-of-two cardinality and pins the exact minimum size of a binary spectral non-tile. A subspace complement is stronger and more reusable than mere existence of some tiling partner.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
