@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the source characteristic equation. At zero advection the mixed Neumann--Dirichlet eigenvalues are explicit, reducing the (1,1) versus (2,0) branch intersection to one scalar function G. Exact endpoint inequalities give opposite signs, an explicit derivative bound proves G is strictly decreasing, and the resulting root lies where exactly modes 1 and 2 satisfy the imaginary-root condition. Simplicity follows directly from the characteristic derivative. The gauge-transformed spatial eigenproblem has simple roots, so the implicit-function theorem continues the transverse intersection to sufficiently small positive advection. The included checker only reproduces the representative numerical point and characteristic residuals; no numerical experiment is used as the existence proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1804.03775 treats general delayed reaction--diffusion systems with homogeneous Neumann conditions and gives examples with diffusion/delay double-Hopf points.",
+        "doi:10.15388/namc.2021.26.20561 treats a diffusive predator--prey strong-Allee model with two delays."
+      ],
+      "reasoning": "These sources demonstrate broader double-Hopf mechanisms, but neither specializes to the one-species Liu--Wei advection model with its modified NF/H boundary conditions and single delay. Their theorems therefore do not imply the explicit branch intersection constructed here.",
+      "searches": [
+        "reaction diffusion advection NF H boundary double Hopf strong Allee",
+        "simultaneous Hopf modes n=1 n=2 scalar delayed reaction diffusion advection",
+        "double Hopf delayed reaction diffusion diffusion rate time delay"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.20944/preprints202512.0404.v1",
+      "doi:10.3934/math.2026476",
+      "arXiv:1804.03775",
+      "doi:10.1007/s10884-018-9725-4",
+      "doi:10.15388/namc.2021.26.20561"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source supplies the branch formula but uses only the ordering of the first stability boundary to infer global nonintersection.",
+        "Du et al. identify intersections of Hopf curves as the defining linear geometry of double-Hopf points in delayed reaction--diffusion systems."
+      ],
+      "reasoning": "The new statement is not a corollary of the source because it contradicts the source conclusion; its proof compares a higher branch of mode 1 with the principal branch of mode 2. General double-Hopf theory does not determine whether these particular curves intersect, so the explicit spectral calculation is essential.",
+      "searches": [
+        "two Hopf curves intersect diffusion delay reaction-diffusion double Hopf",
+        "strong Allee double Hopf diffusion delay spatial modes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.20944/preprints202512.0404.v1, Lemma 2 states no Hopf--Hopf bifurcations when delay and diffusion vary together.",
+        "doi:10.3934/math.2026476, Lemma 2.5 repeats the exclusion in the peer-reviewed version.",
+        "arXiv:1804.03775 develops double-Hopf normal forms for different delayed reaction--diffusion systems."
+      ],
+      "reasoning": "Equivalent formulations were searched using the exact characteristic equation, two-spatial-mode language, branch-index language, and the source title/DOI. The closest general double-Hopf literature permits such intersections in other systems but contains neither the mixed NF/H spectrum nor the present scalar strong-Allee branch equation.",
+      "searches": [
+        "10.3934/math.2026476 Hopf-Hopf bifurcation reaction diffusion advection delay",
+        "Liu Wei strong Allee advection delay Hopf-Hopf d tau",
+        "lambda + mu_n + r(K-1) exp(-lambda tau) two spatial modes Hopf-Hopf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The verified preprint v1 posted 2025-12-03 and the peer-reviewed 2026 article both contain the no-Hopf--Hopf assertion.",
+        "No correction, corrigendum, or erratum was located in targeted searches."
+      ],
+      "reasoning": "The exact source record and its public preprint/journal versions were checked rather than relying on title similarity. No later source record located in the bounded search supersedes the exclusion.",
+      "searches": [
+        "10.3934/math.2026476 correction corrigendum erratum",
+        "Hopf bifurcation analysis reaction-diffusion-advection strong Allee correction",
+        "10.20944/preprints202512.0404 Hopf-Hopf"
+      ]
+    },
+    "rationale": "The motivating source explicitly excludes Hopf--Hopf bifurcations for simultaneous diffusion/delay variation, whereas the new claim constructs a transverse intersection between branch indices (1,1) and (2,0) and proves its persistence to positive advection. Exact-title, DOI, characteristic-equation, same-model alias, and general double-Hopf searches found no prior statement of this same-model intersection or correction. The closest general literature concerns different systems and does not imply the result.",
+    "residual_risks": [
+      "An equivalent same-model calculation could exist in unindexed commentary or unpublished notes not found by the bounded searches.",
+      "The nonlinear four-dimensional double-Hopf normal form is not computed, so no claim is made about nearby invariant tori, periodic orbits, resonance, or stability beyond the spectral crossing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The preprint derives the exact ingredients used here but states that simultaneous variation of diffusion and delay produces no Hopf--Hopf bifurcation. It does not compare higher branch indices across modes.",
+        "evidence": "Equations (7)--(14) give the spatial spectrum and Hopf branches; Lemma 2 states the no-Hopf--Hopf conclusion.",
+        "identifier_or_url": "doi:10.20944/preprints202512.0404.v1",
+        "material_read": "Full public HTML through the model, spatial eigenproblem, characteristic equation, Hopf-delay formula, Lemmas 1--4, theorem, and conclusion.",
+        "method": "Direct full-text inspection.",
+        "title": "Hopf Bifurcation Analysis in a Reaction-Diffusion-Advection Model with Strong Allee Effect and Delay",
+        "trigger": "Earliest verified public version and exact motivating source."
+      },
+      {
+        "assessment": "The peer-reviewed article retains the no-Hopf--Hopf claim. Its boundary argument does not exclude intersections away from the first stability boundary.",
+        "evidence": "Characteristic equation (2.7), branch formula (2.14), Lemma 2.5 and the discussion around Figure 1.",
+        "identifier_or_url": "doi:10.3934/math.2026476",
+        "material_read": "PDF sections covering the model, mixed boundary eigenproblem, characteristic equation, Hopf branches, codimension-two discussion, transversality, and numerical parameter cases; visual page inspection was also performed.",
+        "method": "Direct PDF text and page inspection.",
+        "title": "Hopf bifurcation analysis in a reaction-diffusion-advection model with strong Allee effect and delay",
+        "trigger": "Peer-reviewed version of the motivating source."
+      },
+      {
+        "assessment": "Provides general theory and different examples; it does not cover the scalar mixed-boundary strong-Allee model or the branch equation used in the new claim.",
+        "evidence": "The paper defines double-Hopf points as intersections of Hopf curves and studies homogeneous Neumann delayed reaction--diffusion systems.",
+        "identifier_or_url": "arXiv:1804.03775",
+        "material_read": "ArXiv full-text introduction and general system setup, including the definition of double-Hopf intersections and scope of the Neumann-boundary normal-form theory.",
+        "method": "Direct arXiv full-text inspection.",
+        "title": "Double Hopf bifurcation in delayed reaction-diffusion systems",
+        "trigger": "Closest broad primary literature on double-Hopf points generated by diffusion and delay."
+      },
+      {
+        "assessment": "Related biological motif but a different two-species, two-delay system. It is not used to make a whole-document noncoverage claim.",
+        "evidence": "The abstract states a diffusive predator--prey system with two delays and double-Hopf stability-switching curves.",
+        "identifier_or_url": "doi:10.15388/namc.2021.26.20561",
+        "material_read": "Article record and abstract.",
+        "method": "Primary journal abstract inspection.",
+        "title": "Double Hopf bifurcation of a diffusive predator-prey system with strong Allee effect and two delays",
+        "trigger": "Same first author and strong-Allee/diffusion terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c62ded41-f1e9-400d-85fd-d53b1392e8e1",
+  "value": {
+    "rationale": "The claim changes a central codimension-two conclusion of the motivating paper. It identifies an omitted interaction between spatial mode number and Hopf branch index, proves that the omitted intersections persist for genuinely positive advection, and isolates a natural four-dimensional local bifurcation problem. This is not a parameter-table recomputation or a tiny numerical shift.",
+    "status": "PASS"
+  }
+}
