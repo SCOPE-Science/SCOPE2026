@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The all-\(n\) proof is symbolic. For every agent and every top-\(k\) set, being among the first \(k\) priority positions guarantees receipt of a top-\(k\) object, giving probability at least \(k/n\). With two preference types of multiplicities \(r,s\), equal treatment of equals gives lotteries \(x^A,x^B\), while bistochastic feasibility gives \(r x^A(T)+s x^B(T)=k\) for each \(k\)-object top set \(T\). Combining these identities yields \(x^A(T)\ge x^B(T)\), and symmetrically for type \(B\). This proves stochastic-dominance envy-freeness. The embedded verifier separately confirms the sharp three-agent witness, the complete \(n=3\) census, the symmetry quotient, and \(4{,}166\) normalized two-type test profiles through \(n=6\).
+## correctness
 
-Risk: the finite replay is only a consistency check for the infinite theorem, not its proof. No independent external audit has been performed.
+PASS
 
-## Originality
-**PASS.** Bogomolnaia--Moulin prove that Random Priority is weakly envy-free but can fail full stochastic-dominance envy-freeness for \(n\ge3\). Hosseini--Larson--Cohen explicitly give the three-agent failure profile and empirically investigate how RSD envy depends on preference structure. The inspected material does not state the two-distinct-preference-order domain theorem, and targeted published-finding corpus/web searches by “two preference types,” “two rankings,” stochastic-dominance envy, and the exact \(72\)-profile boundary did not locate an equivalent statement.
+For any agent \(i\) and her top-\(k\) set \(T_i(k)\), appearing among the first \(k\) priority positions guarantees that at least one object in \(T_i(k)\) remains, so RSD gives \(p_i(T_i(k))\ge k/n\). With exactly two preference types \(A,B\), equal treatment of equals gives common lotteries \(x^A,x^B\) for the two types. If there are \(r\) agents of type \(A\) and \(s=n-r\) of type \(B\), feasibility over a type-\(A\) top-\(k\) set \(T\) gives \(r x^A(T)+s x^B(T)=k\). Hence \(s(x^A(T)-x^B(T))=n x^A(T)-k\ge0\). Thus type \(A\) does not stochastically envy type \(B\); the symmetric argument handles type \(B\), and same-type agents have identical lotteries. The printed three-agent witness indeed violates stochastic-dominance envy-freeness, and the exact package census finds 72 failures among 216 strict labeled profiles, all using three distinct orders, in two symmetry classes of size 36.
 
-Risk: search failure is not proof of novelty; an unindexed thesis, note, exercise, or software table may contain the same argument or census. The three-agent witness itself is prior work and is not claimed as novel.
+## originality
 
-## Value
-**PASS.** The theorem identifies a natural, interpretable preference-heterogeneity boundary at which the canonical strategyproof random-priority mechanism recovers the strong fairness property it lacks in general. The restriction is sharp already in the smallest possible square market, and the exact boundary census separates the structural theorem from a one-off example. This directly refines the classical fairness comparison between Random Priority and Probabilistic Serial.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Bogomolnaia and Moulin establish the general stochastic-dominance fairness benchmark and show that Random Priority need not be envy-free. Hosseini, Larson and Cohen give the same three-agent failing preference pattern used here, so that witness is treated as prior. Their complete accessible text does not state the all-\(n\) two-preference-type domain theorem. Targeted searches for two rankings or two preference types under RSD found no equivalent theorem; a recent axiomatic characterization of RSD addresses market-size consistency rather than this preference-domain restriction.
+
+## value
+
+PASS
+
+Random Priority is a canonical allocation mechanism whose stochastic-dominance envy failure is a standard limitation. The theorem identifies a simple, maximal-at-the-smallest-failure structural preference-diversity regime where full stochastic-dominance envy-freeness is restored, and the three-agent census shows that three distinct types are already sufficient for failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

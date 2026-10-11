@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:07:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 1a2379fa12a50f0ce775aa69684e8290fcd8e2d7",
+        "assigned verify_rsd_two_type_envy.py blob cfad3c27f415ec318eb028c4d3137ad22bb142a9",
+        "Hosseini--Larson--Cohen arXiv:1503.01488 complete primary text",
+        "Bogomolnaia--Moulin DOI 10.1006/jeth.2000.2710"
+      ],
+      "rationale": "For any agent \\(i\\) and her top-\\(k\\) set \\(T_i(k)\\), appearing among the first \\(k\\) priority positions guarantees that at least one object in \\(T_i(k)\\) remains, so RSD gives \\(p_i(T_i(k))\\ge k/n\\). With exactly two preference types \\(A,B\\), equal treatment of equals gives common lotteries \\(x^A,x^B\\) for the two types. If there are \\(r\\) agents of type \\(A\\) and \\(s=n-r\\) of type \\(B\\), feasibility over a type-\\(A\\) top-\\(k\\) set \\(T\\) gives \\(r x^A(T)+s x^B(T)=k\\). Hence \\(s(x^A(T)-x^B(T))=n x^A(T)-k\\ge0\\). Thus type \\(A\\) does not stochastically envy type \\(B\\); the symmetric argument handles type \\(B\\), and same-type agents have identical lotteries. The printed three-agent witness indeed violates stochastic-dominance envy-freeness, and the exact package census finds 72 failures among 216 strict labeled profiles, all using three distinct orders, in two symmetry classes of size 36.",
+      "residual_risks": [
+        "The proof uses a square unit-capacity market, strict preferences, and uniform random priority.",
+        "The exact three-agent census is a sharpness certificate, not a claim about failure counts for larger markets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older sources establish general failures and compare mechanisms, not a two-type safe domain.",
+          "The 2026 characterization concerns axioms across market sizes, not stochastic-dominance envy on profiles with two rankings."
+        ],
+        "reasoning": "No inspected broader theorem specializes to the assigned two-type sufficiency statement.",
+        "searches": [
+          "Bogomolnaia--Moulin general random-assignment fairness results",
+          "Hosseini--Larson--Cohen RSD versus Probabilistic Serial analysis",
+          "Ben Zaquen--Holzman arXiv:2602.01224 on axiomatic RSD characterization"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1006/jeth.2000.2710",
+        "arXiv:1503.01488",
+        "arXiv:2602.01224",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General RSD fairness properties do not imply stochastic-dominance envy-freeness.",
+          "The assigned proof adds the feasibility identity across the two type lotteries and combines it with the \\(k/n\\) top-set lower bound to force every stochastic-dominance inequality."
+        ],
+        "reasoning": "The two-type conclusion is a structural domain argument, not a restatement of the known witness.",
+        "searches": [
+          "known top-set behavior of RSD and equal treatment of equals versus the two-type envy theorem",
+          "known three-agent counterexample versus sharpness of the type bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The literature uses the same square strict-assignment model and stochastic-dominance envy criterion.",
+          "The known three-agent failure pattern is identical to the package witness and is therefore not credited as new."
+        ],
+        "reasoning": "The novel assertion is the domain theorem that every profile with at most two distinct rankings is fully stochastic-dominance envy-free under RSD.",
+        "searches": [
+          "Resultary: random serial dictatorship two preference types stochastic dominance envy free two rankings",
+          "Hosseini--Larson--Cohen arXiv:1503.01488",
+          "Bogomolnaia--Moulin DOI 10.1006/jeth.2000.2710"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent theorem or exact three-agent orbit census matching the assigned statement was retrieved."
+        ],
+        "reasoning": "The lack of an exact database hit is supporting evidence only.",
+        "searches": [
+          "Resultary exact/semantic searches for RSD, two preference types, two rankings, and stochastic-dominance envy-freeness",
+          "targeted literature searches for two-ranking RSD envy domains"
+        ]
+      },
+      "rationale": "Bogomolnaia and Moulin establish the general stochastic-dominance fairness benchmark and show that Random Priority need not be envy-free. Hosseini, Larson and Cohen give the same three-agent failing preference pattern used here, so that witness is treated as prior. Their complete accessible text does not state the all-\\(n\\) two-preference-type domain theorem. Targeted searches for two rankings or two preference types under RSD found no equivalent theorem; a recent axiomatic characterization of RSD addresses market-size consistency rather than this preference-domain restriction.",
+      "residual_risks": [
+        "The assignment literature on domain restrictions is broad, and an older thesis or note could contain the same two-ranking argument without prominent indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FAILURE_AND_WITNESS_PRIOR_TWO_TYPE_DOMAIN_NOT_STATED",
+          "evidence": "The source gives the identical three-agent failure pattern but no theorem that all two-ranking profiles are stochastic-dominance envy-free.",
+          "identifier_or_url": "arXiv:1503.01488",
+          "material_read": "complete accessible primary text covering the stochastic-dominance envy definition, RSD mechanism, the standard failure example, and fairness discussion",
+          "method": "primary full-text inspection",
+          "title": "Random Serial Dictatorship versus Probabilistic Serial Rule: A Tale of Two Random Mechanisms",
+          "trigger": "closest source discussing RSD envy and the exact three-agent witness"
+        },
+        {
+          "assessment": "GENERAL_FAIRNESS_FRAMEWORK_PRIOR",
+          "evidence": "The source establishes the benchmark and general mechanism comparison rather than the assigned two-type safe domain.",
+          "identifier_or_url": "DOI 10.1006/jeth.2000.2710",
+          "material_read": "primary article material on stochastic-dominance envy-freeness and Random Priority versus Probabilistic Serial",
+          "method": "primary-source inspection",
+          "title": "A New Solution to the Random Assignment Problem",
+          "trigger": "foundational stochastic-dominance envy-freeness source"
+        },
+        {
+          "assessment": "DIFFERENT_DOMAIN_QUESTION",
+          "evidence": "The paper characterizes RSD axiomatically across market sizes rather than by restricting the number of distinct preference rankings.",
+          "identifier_or_url": "arXiv:2602.01224",
+          "material_read": "accessible primary preprint text and indexed scope",
+          "method": "primary-source inspection",
+          "title": "Domain of RSD Characterization by Efficiency, Symmetry, and Strategy-Proofness",
+          "trigger": "recent RSD domain/axiom result with potentially overlapping terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bogomolnaia--Moulin 2001",
+        "Hosseini--Larson--Cohen 2015",
+        "assigned proof and census"
+      ],
+      "rationale": "Random Priority is a canonical allocation mechanism whose stochastic-dominance envy failure is a standard limitation. The theorem identifies a simple, maximal-at-the-smallest-failure structural preference-diversity regime where full stochastic-dominance envy-freeness is restored, and the three-agent census shows that three distinct types are already sufficient for failure.",
+      "residual_risks": [
+        "The theorem does not extend to ties, unequal market sizes, or nonuniform priority lotteries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The proof uses a square unit-capacity market, strict preferences, and uniform random priority.",
+    "The exact three-agent census is a sharpness certificate, not a claim about failure counts for larger markets.",
+    "The assignment literature on domain restrictions is broad, and an older thesis or note could contain the same two-ranking argument without prominent indexing.",
+    "The theorem does not extend to ties, unequal market sizes, or nonuniform priority lotteries."
+  ]
+}
