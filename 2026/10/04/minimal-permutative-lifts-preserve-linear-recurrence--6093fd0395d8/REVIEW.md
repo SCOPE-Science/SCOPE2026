@@ -1,19 +1,21 @@
-# Review of Minimal permutative lifts preserve linear recurrence
+# Independent mathematical audit
 
-## Correctness
-PASS. Kang and Jäger's conjugacy reduces the lift to a finite permutation skew product. For a length-\(n\) lifted word, its base word and initial fiber state determine the entire lifted word. Linear recurrence bounds the lengths and multiplicities of return words uniformly. Inducing on \([w]\times F\) produces a minimal finite permutation extension of the derived shift, and the finite-derived-system argument used by Bruin yields a uniform bound on fiber-state return in return-word time. Multiplying this bound by the base return-length bound gives a global linear recurrence constant.
+## correctness
 
-The periodic base case is finite. Higher-block recoding needed to make the cocycle one-block preserves linear recurrence. No computational evidence is needed for the proof.
+PASS
 
-## Originality
-PASS. The closest primary source, Kang and Jäger, explicitly gives the skew-product representation and states linear recurrence for minimal lifts over primitive substitution bases, with the general primitive-substitution proof deferred to work in preparation. The present statement assumes only that the base itself is linearly recurrent. Bruin's theorem is about homeomorphic speedups and its finite permutation-extension lemma occurs inside that specialized construction; the inspected text does not state the general permanence theorem for arbitrary minimal finite permutation extensions or permutative lifts.
+After higher-block recoding, the lift is a finite locally constant permutation skew product. A lifted word is determined by a base word and one initial fiber state. Linear recurrence gives uniformly bounded return-word lengths and finitely many derived systems. Minimality of the finite extension makes each induced return system transitive on the relevant finite fiber component. Because the derived-system types and permutation labels range over finite sets, there is a uniform bound on the number of return steps needed to revisit any prescribed fiber state; multiplying by the base return-length bound gives a linear return bound for every lifted word.
 
-Searches for equivalent formulations involving finite group extensions, finite-to-one extensions, skew products, and permutative lifts did not find a stronger published statement implying the claim. This negative search evidence is supplementary rather than a proof of novelty. The unavailable work in preparation remains a residual overlap risk.
+## originality
 
-## Value
-PASS. Linear recurrence is a strong quantitative form of uniform recurrence that implies unique ergodicity and strong complexity/return-word control. Permutative lifts are a natural finite-extension construction in the recent source, and extending the recurrence conclusion from primitive substitution bases to every linearly recurrent base isolates the actual dynamical hypothesis needed by the finite-state argument. The result gives a reusable permanence principle rather than a parameter-specific computation.
+PASS
 
-## Closest literature and limitations
-The closest inspected mechanisms are Kang and Jäger's finite skew-product model and Bruin's return-word finite-group argument. The result requires minimality of the extension and does not provide an optimized recurrence constant. A cited work in preparation could eventually overlap, but it was not publicly inspectable.
+Kang and Jäger establish the finite permutation-skew-product model for permutative lifts and discuss linearly recurrent substitution examples. Bruin proves preservation of linear recurrence for homeomorphic speedups of linearly recurrent subshifts. The audited statement is a different permanence theorem for arbitrary minimal finite permutation extensions. The inspected current abstracts do not state that theorem, and Resultary returned only the assigned result as an exact hit. Because the proof reuses a finite-derived-system mechanism close to Bruin's argument, overlap risk is explicitly retained.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Linear recurrence is a standard strong form of minimality with major dynamical consequences, and finite permutation extensions arise naturally from permutative block codes. Showing that minimality upgrades the extension to linear recurrence gives a reusable permanence theorem and immediately yields unique ergodicity. This is a natural structural result rather than a cosmetic reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
