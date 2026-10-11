@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact published degree-three scattering matrix and boundary amplitude relation, solves the two relevant equations algebraically, and treats the mesoscopic and critical scalings separately. The critical denominator has two order-\(k\) contributions whose balance gives the stated profile. The edge-mass limit uses the exact oscillatory integral, whose cross term is \(O(k^{-1})\). The standalone verifier reconstructs the exact scattering residual and representative limiting sequences.
+## correctness
 
-## Originality
-PASS. The closest source is Exner--Lipovský, arXiv:2001.10735v1. Its Theorem 1 fixes a positive phase exclusion width and therefore does not cover any sequence with \(|k\ell_2-n\pi|\to0\). Its discussion notes narrow almost-flat exceptional bands but does not state their inverse-momentum local scale or the explicit Bloch-phase transfer profile. The earlier Exner--Tater vertex-scattering paper supplies the local coupling formalism but not the strip-edge double scaling. Targeted searches using boundary suppression, narrow intervals, resonance window, boundary layer, preferred orientation, and Bloch phase found no equivalent result.
+PASS
 
-## Value
-PASS. The exceptional narrow intervals are the precise limitation of the published edge-suppression theorem. Locating the crossover at phase width \(1/k\) and resolving the critical profile explains when the topological boundary-decoupling picture ceases to be uniform. The singular curve exposed by the formula also identifies a concrete target for finer asymptotic analysis.
+Starting from the exact boundary scattering equations, the common denominator has leading term \(2ik e^{-i\theta}(\varepsilon\xi-2\sin\theta)\) when \(\delta=\xi/k\). Dividing the exact amplitude numerators by this term gives \((\varepsilon-e^{i\theta})/[i(\varepsilon\xi-2\sin\theta)]\); the two vertical amplitudes have the same limit and the horizontal transmitted amplitude tends to one. Direct integration of the edge plane waves then gives the stated mass ratio. In the intermediate regime \(k|\delta|\to\infty\), the \(k^2\sin\delta\) term dominates and restores suppression. The resonance exclusion \(\varepsilon\xi\ne2\sin\theta\) is exactly where the leading denominator is nonzero.
 
-## Closest literature and limitations
-The claim is conditional on actual spectral pairs of the full strip and does not classify the global dispersion branches. The singular curve \(\varepsilon\xi=2\sin\theta\) is excluded. An equivalent asymptotic corollary could in principle exist under different terminology because the starting scattering relation is published.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating primary theorem deliberately assumes a fixed exclusion width \(|\delta|>K>0\) and proves only \(O(k^{-1})\) edge suppression there. The audited result resolves the singular shrinking window where that theorem no longer applies and identifies the exact \(1/k\) transition profile. Resultary returned no implication-equivalent published finding.
+
+## value
+
+PASS
+
+The result identifies the sharp boundary-layer scale at which the source's high-energy edge suppression breaks down and gives the explicit surviving Bloch profile. That transition separates two qualitatively different transport regimes and explains the narrow exceptional windows left unresolved by the fixed-width theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

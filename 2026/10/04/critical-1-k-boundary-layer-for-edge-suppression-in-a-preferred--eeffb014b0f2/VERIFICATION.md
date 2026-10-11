@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the exact degree-three scattering matrix rather than from a coarse big-O relation. Solving the first two scattering equations produces the common denominator used in `RESULT.md`; direct substitution verifies those formulas.
+# Independent mathematical audit
 
-`verify.py` performs three numerical replays using only the Python standard library. Two sequences impose the critical relation \(k\ell_2=n\pi+\xi/k\) exactly, one for each parity, and compare the exact amplitude ratios and exact edge-mass ratio with the claimed limits. It also checks the full three-component scattering equation to floating-point tolerance. A third sequence uses \(k\ell_2-n\pi\asymp k^{-1/2}\), for which \(k|\delta|\to\infty\), and confirms the predicted decay of the local mass ratio.
+## correctness
 
-The script returns `VERIFY_OK`. These finite calculations verify algebraic implementation and representative convergence only. They are not used to infer the universal asymptotic claim. The analytic proof supplies the quantifiers. No claim is made on the singular curve \(\varepsilon\xi=2\sin\theta\) or about existence of a global dispersion branch for every prescribed critical parameter.
+PASS
+
+Starting from the exact boundary scattering equations, the common denominator has leading term \(2ik e^{-i\theta}(\varepsilon\xi-2\sin\theta)\) when \(\delta=\xi/k\). Dividing the exact amplitude numerators by this term gives \((\varepsilon-e^{i\theta})/[i(\varepsilon\xi-2\sin\theta)]\); the two vertical amplitudes have the same limit and the horizontal transmitted amplitude tends to one. Direct integration of the edge plane waves then gives the stated mass ratio. In the intermediate regime \(k|\delta|\to\infty\), the \(k^2\sin\delta\) term dominates and restores suppression. The resonance exclusion \(\varepsilon\xi\ne2\sin\theta\) is exactly where the leading denominator is nonzero.
+
+## originality
+
+PASS
+
+The initiating primary theorem deliberately assumes a fixed exclusion width \(|\delta|>K>0\) and proves only \(O(k^{-1})\) edge suppression there. The audited result resolves the singular shrinking window where that theorem no longer applies and identifies the exact \(1/k\) transition profile. Resultary returned no implication-equivalent published finding.
+
+## value
+
+PASS
+
+The result identifies the sharp boundary-layer scale at which the source's high-energy edge suppression breaks down and gives the explicit surviving Bloch profile. That transition separates two qualitatively different transport regimes and explains the narrow exceptional windows left unresolved by the fixed-width theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
