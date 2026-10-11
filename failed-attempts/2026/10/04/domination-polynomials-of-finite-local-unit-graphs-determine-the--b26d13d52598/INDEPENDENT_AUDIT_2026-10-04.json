@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:05:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Residue fibers \\(C_a\\) all have size \\(s\\), and distinct \\(x\\in C_a,y\\in C_b\\) are adjacent exactly when \\(a+b\\ne0\\) in the residue field. In characteristic two each fiber is independent and all distinct fibers are completely joined, so the ordinary and total formulas reduce to the known complete-multipartite support counts. In odd characteristic, \\(C_0\\) is independent, each nonzero \\(C_a\\) is a clique, opposite fibers \\(C_a,C_{-a}\\) have no cross edges, and every other pair is completely joined. Every set meeting at least two fibers dominates; total domination fails exactly for a set supported on one nonzero opposite pair when one selected side has size one, yielding the displayed correction term. The reconstruction from \\(D\\) by the highest coefficient differing from \\((1+x)^N\\) correctly separates characteristic two from odd characteristic and recovers \\(s\\) and \\(q=N/s\\).",
+      "risk": "The theorem is confined to finite commutative local rings; nonlocal residue products do not have the same one-fiber/opposite-pair support classification.",
+      "sources": [
+        "Frozen RESULT.md and verify.py at the assigned tree",
+        "Akbari--Estaji--Khorsandi, arXiv:1108.2863",
+        "Subramanian--Selvakumar, Filomat 39:1 (2025), DOI 10.2298/FIL2501267S",
+        "Selvakumar--Manikandan--Murugan, Filomat 39:24 (2025), DOI 10.2298/FIL2524519A"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The total-domination source covers arbitrary connected \\(H\\)-join graphs and counts all total dominating sets.",
+          "The ordinary-domination source covers arbitrary \\(H\\)-generalized join graphs and counts all dominating sets."
+        ],
+        "reasoning": "These graph-theoretic theorems strictly dominate the counting problem once the local unit graph is expressed as its standard residue-fiber join.",
+        "searches": [
+          "DOI 10.2298/FIL2501267S",
+          "DOI 10.2298/FIL2524519A"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1108.2863",
+        "doi:10.2298/FIL2501267S",
+        "doi:10.2298/FIL2524519A",
+        "doi:10.3390/axioms14060399",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The residue map partitions the unit graph into equal fibers with adjacency determined solely by whether residue sums vanish.",
+          "Applying the prior H-join formulas to those fiber graphs yields the ordinary and total domination polynomials; in characteristic two the prior papers explicitly display the complete-multipartite formulas.",
+          "Once \\(D\\) is known, the submitted parity and \\((q,s)\\) reconstruction is immediate from the highest coefficient that differs from \\((1+x)^N\\)."
+        ],
+        "reasoning": "The final claim is a direct specialization plus coefficient extraction rather than a new theorem not implied by prior broader results.",
+        "searches": [
+          "Akbari--Estaji--Khorsandi arXiv:1108.2863",
+          "Subramanian--Selvakumar DOI 10.2298/FIL2501267S",
+          "Selvakumar--Manikandan--Murugan DOI 10.2298/FIL2524519A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akbari--Estaji--Khorsandi identify the complete multipartite local-unit-graph structure in residue characteristic two.",
+          "The 2025 total-domination paper gives a general polynomial formula for every \\(H\\)-join and an explicit complete-multipartite specialization.",
+          "The 2025 ordinary-domination paper gives the analogous general domination-polynomial framework and explicit multipartite formula."
+        ],
+        "reasoning": "The local unit graph is exactly an \\(H\\)-join of residue fibers, so the submitted polynomial formulas are direct instances of the general prior theorems, even though the ring parameters are not used in their titles.",
+        "searches": [
+          "arXiv:1108.2863 local unit graph complete multipartite structure",
+          "DOI 10.2298/FIL2501267S total domination polynomial of H-join graphs",
+          "DOI 10.2298/FIL2524519A domination polynomial of H-generalized join graphs",
+          "Resultary: unit graph finite local ring domination polynomial total domination polynomial residue field"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database table is needed: the prior sources give symbolic all-graph-family polynomial formulas."
+        ],
+        "reasoning": "The coverage is theorem-level rather than an empirical table, so exhaustive checks on small rings do not establish novelty.",
+        "searches": [
+          "Resultary local-unit domination-polynomial query",
+          "Filomat H-join polynomial sources"
+        ]
+      },
+      "rationale": "The final formulas are routine specializations of prior general graph-polynomial theorems once the standard residue-fiber structure of local unit graphs is recognized. A local unit graph is an \\(H\\)-join over the residue classes: the base graph has \\(a\\sim b\\) exactly when \\(a+b\\ne0\\), and the fiber graph is empty in residue characteristic two, while in odd characteristic it is empty at \\(a=0\\) and complete at \\(a\\ne0\\). Subramanian--Selvakumar already characterize all total dominating sets and give the total-domination polynomial for arbitrary \\(H\\)-join graphs; Selvakumar--Manikandan--Murugan do the same for ordinary domination in the more general \\(H\\)-generalized-join setting. The characteristic-two ordinary and total formulas are even written explicitly in those papers for complete multipartite graphs. The submitted residue-parity formulas follow by direct substitution/support enumeration, and the reconstruction statement is then a short coefficient inspection. Under the rule that stronger prior coverage and direct corollaries count as covered, the final claim does not clear originality.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_BROADER_COVERAGE",
+          "evidence": "It characterizes all total dominating sets of H-join graphs and gives their polynomial; its complete-multipartite specialization exactly covers the characteristic-two local-unit case.",
+          "identifier_or_url": "doi:10.2298/FIL2501267S",
+          "material_read": "Full public PDF, including the general H-join total-domination theorem and Sections 4.3--4.4; the complete-multipartite page image was inspected.",
+          "method": "lawful public full PDF and page image",
+          "title": "Total domination and minimal total domination polynomial of H-join graphs",
+          "trigger": "Broader primary theorem potentially covering the submitted total-domination polynomial."
+        },
+        {
+          "assessment": "DECISIVE_BROADER_COVERAGE",
+          "evidence": "It provides the ordinary domination polynomial for the broad join framework containing every residue-fiber unit graph here.",
+          "identifier_or_url": "doi:10.2298/FIL2524519A",
+          "material_read": "Full public PDF text, including the general H-join/H-generalized-join polynomial theorem and Section 5.2 complete multipartite formula.",
+          "method": "lawful public full PDF text extraction",
+          "title": "Domination and minimal domination polynomial of H-generalized join graphs",
+          "trigger": "Broader primary theorem potentially covering ordinary domination counts."
+        },
+        {
+          "assessment": "STRUCTURAL_PRIOR",
+          "evidence": "It identifies the residue-coset multipartite structure used by the characteristic-two specialization.",
+          "identifier_or_url": "arXiv:1108.2863",
+          "material_read": "Public arXiv abstract/full-text material describing local unit graphs and the complete \\(r\\)-partite characterization when the residue field has characteristic two.",
+          "method": "lawful arXiv source",
+          "title": "On the Unit Graph of a Noncommutative Ring",
+          "trigger": "Primary structural source for local unit graphs."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The residue-fiber observation is standard, the all-set counting is supplied by general H-join polynomial theorems, and the reconstruction is a short coefficient read-off. Under the stated value rule requiring a motivated non-implied exact fact, this is a routine specialization rather than a substantive new invariant or structural lemma.",
+      "risk": "The ring-language closed forms may be convenient for users, but convenience does not supply independent mathematical value at the required threshold.",
+      "sources": [
+        "doi:10.2298/FIL2501267S",
+        "doi:10.2298/FIL2524519A",
+        "arXiv:1108.2863"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a finite commutative local ring \\(R\\) with residue-field size \\(q\\), maximal-ideal size \\(s\\), and \\(N=qs\\), the submitted closed ordinary and total domination polynomials of the unit graph depend only on \\((q,s)\\) and residue-characteristic parity, and the ordinary polynomial recovers \\(q\\), \\(s\\), the parity case, and hence the unit-graph isomorphism type within the local class.",
+  "limitations": [
+    "Scientific rejection is for originality and value, not correctness."
+  ],
+  "schema_version": 1
+}
