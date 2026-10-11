@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:41:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 00d10496a21723bb6e8686f8c8ad4164135701c2",
+        "assigned artifacts/verify.py blob 7ec4716e46e8118165f9ff7a2712209a23d17bde",
+        "Dolinka--Mašulović, A universality result for endomorphism monoids of some ultrahomogeneous structures, DOI:10.1017/S0013091510001161",
+        "Provan--Ball, The Complexity of Counting Cuts and of Computing the Probability that a Graph is Connected, DOI:10.1137/0212053"
+      ],
+      "rationale": "The admissible-pair characterization is exactly the finite one-point-extension condition for a poset: transitivity forces downward/upward closure and \\(L<U\\), and conversely those conditions define a valid extension realized by the random poset. Algebraic types are the parameter equalities. Membership in #P follows from ternary labels. For \\(Q_m=P\\oplus C_m\\), splitting the top-chain status into all-U, an initial incomparable block with no L, and a nonempty L block gives \\(c(Q_m)=c(P)+mJ(P)+\\binom{m+1}{2}\\); subtracting total type counts at \\(m=1,2\\) recovers \\(J(P)\\) with two queries, both having greatest elements. The inspected verifier independently checks every naturally labelled poset through five points and the reduction identity for \\(m=1,2,3\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known hardness theorem applies to ideals/antichains, not directly to model-theoretic types.",
+          "Random-poset homogeneity realizes each admissible finite extension but does not by itself encode the number of ideals."
+        ],
+        "reasoning": "No checked general model-theoretic orbit-count theorem gives the two-query reduction.",
+        "searches": [
+          "Provan--Ball #P-completeness of antichain counting",
+          "Kurilić--Kuzeljević random-poset/Fraïssé literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0013091510001161",
+        "DOI:10.1137/0212053",
+        "arXiv:1904.00656",
+        "Resultary:2026/9/30/SCOPE-exact-ordered-tuple-orbit-profiles-of-the-five-random-poset-redu--635ca0d5aff9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identity \\(c(P\\oplus C_m)=c(P)+mJ(P)+\\binom{m+1}{2}\\) is the missing bridge between the two prior facts.",
+          "Using \\(m=1,2\\) also preserves the promised greatest element."
+        ],
+        "reasoning": "The final hardness theorem is not a direct corollary of either prior result alone; the reduction construction supplies new implication content.",
+        "searches": [
+          "known one-point-extension characterization plus Provan--Ball hardness versus the audited Q_m identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior one-point-extension work supplies the admissible-pair representation but not the top-chain counting identity or complexity transfer.",
+          "The closest Resultary hit concerns ordered tuple orbits of reduct groups, not pointwise-stabilizer type counts over an input finite poset."
+        ],
+        "reasoning": "Finite-parameter 1-types, stabilizer orbits of one-point extensions, and admissible L/U extension patterns were compared as equivalent formulations.",
+        "searches": [
+          "Resultary query: random poset finite parameter 1-type counting #P-complete ideals one-point extension",
+          "Dolinka--Mašulović one-point extension L/U description"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database entry with the top-chain formula or #P-completeness statement was returned."
+        ],
+        "reasoning": "The search explicitly separated global oligomorphic orbit profiles from finite-parameter stabilizer types.",
+        "searches": [
+          "Resultary exact random-poset finite-parameter type-count query"
+        ]
+      },
+      "rationale": "The lower-set/upper-set description of finite one-point poset extensions is prior, and #P-completeness of counting antichains/ideals is prior. The new content is the explicit top-chain identity that transfers that hardness to finite-parameter random-poset 1-type counts, including the greatest-element promise. Resultary search found only global tuple-orbit profiles of random-poset reducts, a different invariant with no input parameter poset and no counting-complexity statement.",
+      "residual_risks": [
+        "Older finite-model-theory or CSP literature may encode the same admissible-pair count under a different name; no equivalent reduction was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXTENSION_DATA_ONLY",
+          "evidence": "It gives the structural extension language but not the top-chain counting reduction or #P-completeness of type counting.",
+          "identifier_or_url": "DOI:10.1017/S0013091510001161",
+          "material_read": "The cited one-point-extension result and its role were checked against accessible primary-source descriptions.",
+          "method": "Primary-source/result comparison.",
+          "title": "A universality result for endomorphism monoids of some ultrahomogeneous structures",
+          "trigger": "Prior source for the L/U data of one-point extensions of finite posets."
+        },
+        {
+          "assessment": "HARDNESS_INPUT_NOT_TYPE-COUNTING_RESULT",
+          "evidence": "It establishes the source counting problem used in the reduction, not the random-poset target problem.",
+          "identifier_or_url": "DOI:10.1137/0212053",
+          "material_read": "Primary theorem/abstract-level material identifying antichain counting as #P-complete.",
+          "method": "Primary-source comparison.",
+          "title": "The Complexity of Counting Cuts and of Computing the Probability that a Graph is Connected",
+          "trigger": "Primary hardness input for counting antichains in a partial order."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "random-poset Fraïssé literature",
+        "Dolinka--Mašulović",
+        "Provan--Ball"
+      ],
+      "rationale": "Finite-parameter type counting is a natural quantitative model-theoretic task, and the random poset is a canonical homogeneous structure. The theorem gives an exact combinatorial representation and a sharp counting-complexity barrier, including a strong greatest-element promise, so it is useful beyond a small-instance census.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a finite parameter subposet \\(P\\) of the countable random poset, nonalgebraic complete 1-types are exactly admissible pairs \\((L,U)\\) with \\(L\\) a down-set, \\(U\\) an up-set, and every \\(l\\in L\\) below every \\(u\\in U\\); exact counting of all 1-types is #P-complete under polynomial-time Turing reductions, even for inputs with a greatest element.",
+  "limitations": [
+    "The hardness is under a two-query polynomial-time Turing reduction, not claimed parsimonious or many-one.",
+    "Only exact counting is addressed; no approximation-complexity result or restricted-poset tractability classification is claimed."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In a one-point extension of a finite poset, the lower neighbors form an ideal, the upper neighbors form a filter, and transitivity requires every lower neighbor to lie below every upper neighbor; these conditions are also sufficient. Fraïssé universality and ultrahomogeneity therefore identify those finite extensions with nonalgebraic 1-types/orbits over the parameter set. The top-chain case split is exhaustive and gives \(c(P\oplus C_m)=c(P)+mJ(P)+\binom{m+1}{2}\). The two-query subtraction recovers the ideal count exactly, while membership in #P is immediate from a ternary status certificate.
+## correctness
 
-## Originality
-**PASS, with residual folklore risk.** Dolinka–Mašulović already use the \(L/U\) description of finite-poset one-point extensions, and Provan–Ball already prove #P-completeness of antichain counting. The inspected random-poset literature and targeted searches did not state the top-chain identity or transfer the classical hardness result to exact finite-parameter 1-type counting. A semantic search found a recent random-poset reduct tuple-orbit profile as the closest record; that is a different global oligomorphic invariant.
+PASS
 
-## Value
-**PASS.** The result gives a concrete complexity-theoretic obstruction inside a canonical homogeneous structure: even though the random poset has a simple Fraïssé extension property and finitely many 1-types over each finite set, computing the exact number of those types from the induced parameter poset is #P-complete. The hardness persists under the natural promise that the parameter poset has a greatest element.
+The admissible-pair characterization is exactly the finite one-point-extension condition for a poset: transitivity forces downward/upward closure and \(L<U\), and conversely those conditions define a valid extension realized by the random poset. Algebraic types are the parameter equalities. Membership in #P follows from ternary labels. For \(Q_m=P\oplus C_m\), splitting the top-chain status into all-U, an initial incomparable block with no L, and a nonempty L block gives \(c(Q_m)=c(P)+mJ(P)+\binom{m+1}{2}\); subtracting total type counts at \(m=1,2\) recovers \(J(P)\) with two queries, both having greatest elements. The inspected verifier independently checks every naturally labelled poset through five points and the reduction identity for \(m=1,2,3\).
 
-## Closest literature and limitations
-The primary structural source is Kurilić–Kuzeljević, which explicitly includes the random universal ultrahomogeneous poset and recalls finite-stabilizer orbits and the one-point Fraïssé extension property. Dolinka–Mašulović supply the prior lower/upper-set extension description. Provan–Ball supply the #P-complete antichain-counting input. The present result does not claim the extension characterization or antichain hardness as new, and it does not establish a one-query many-one reduction or approximation hardness.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The lower-set/upper-set description of finite one-point poset extensions is prior, and #P-completeness of counting antichains/ideals is prior. The new content is the explicit top-chain identity that transfers that hardness to finite-parameter random-poset 1-type counts, including the greatest-element promise. Resultary search found only global tuple-orbit profiles of random-poset reducts, a different invariant with no input parameter poset and no counting-complexity statement.
+
+## value
+
+PASS
+
+Finite-parameter type counting is a natural quantitative model-theoretic task, and the random poset is a canonical homogeneous structure. The theorem gives an exact combinatorial representation and a sharp counting-complexity barrier, including a strong greatest-element promise, so it is useful beyond a small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
