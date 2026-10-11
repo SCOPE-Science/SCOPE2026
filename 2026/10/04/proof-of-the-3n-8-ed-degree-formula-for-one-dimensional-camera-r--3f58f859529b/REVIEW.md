@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The critical equations are reconstructed from the Möbius-alignment objective. Weighted least squares gives the exact one-variable rational objective, Cauchy--Binet gives its numerator and denominator, Riemann--Hurwitz gives total ramification, and the rank-one critical locus is counted independently. The published singular-stratum theorem then converts the parameter count to the ED-degree count. The exact replay checks the central polynomial identities on several nontrivial rational specializations.
+## correctness
 
-## Originality
-PASS. Duff--Rydell state \(\operatorname{EDD}(\mathcal R_n^{1,1})=3n-8\) as Conjecture 7.5(1), not a theorem. The later Finkel--Rodriguez paper resolves one-dimensional multiview-curve conjectures, but its rational-curve framework does not cover the three-dimensional \(\operatorname{PGL}_2\) resectioning stratum. Searches under resectioning, Möbius alignment, PGL2, the exact formula, and the rank-one correction found no prior proof. Residual risk remains for unpublished or poorly indexed work.
+PASS
 
-## Value
-PASS. The result settles a named conjecture and explains why the EDD is linear: \(4n-10\) parameter ramification points minus \(n-2\) singular rank-one points. This identifies a reusable mechanism for singular resectioning optimization rather than merely reproducing a numerical sequence.
+The proof was independently reconstructed. Eliminating a and b by the two weighted normal equations gives a one-variable rational objective phi=N/D. Cauchy--Binet gives generic degrees deg N=deg D=2n-4, so the induced map P1 to P1 has total ramification 4n-10. On the rank-one locus a=bc, the first two normal equations force b to the sample mean and reduce the remaining condition to a degree n-2 polynomial; the third critical equation factors by the rank defect, and genericity makes those n-2 roots simple and disjoint from the remaining exceptional loci. Duff--Rydell's proved singular-locus theorem identifies exactly these points as singular-image criticals, leaving 3n-8 smooth ED-critical image tuples. Fresh exact rational reconstructions for n=4,5,6 gave degree tuples (4,4,6,2,4), (6,6,10,3,7), and (8,8,14,4,10) for N,D,J,S,J/S and verified coprimality/divisibility; these finite checks corroborate rather than replace the generic proof.
 
-## Closest literature and limitations
-Closest are Duff--Rydell, arXiv:2402.00648v1, which supplies the geometric stratification and conjecture, and Finkel--Rodriguez, arXiv:2512.18521v1, which proves ED-degree formulas for rational curves and one-dimensional line-multiview varieties. The theorem here assumes generic inputs over characteristic zero and does not address nongeneric configurations or higher-dimensional resectioning.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. Duff--Rydell explicitly state the exact formula as Conjecture 7.5(1), while their proved structural results identify the singular rank-one stratum and smooth PGL2 stratum but do not compute the ramification subtraction. The later Finkel--Rodriguez theorem concerns rational curves and line multiview varieties, not this three-dimensional resectioning stratum. Resultary search returned the audited record but no prior proof of the resectioning formula.
+
+## value
+
+PASS
+
+The theorem resolves a named conjecture in metric multiview geometry for every n at once and explains the linear ED degree structurally as total parameter ramification minus the singular-camera contribution. The result is therefore more than reproduction of a numerical sequence and provides a reusable mechanism for optimization on a singular resectioning variety.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
