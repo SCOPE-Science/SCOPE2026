@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:57:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen blob b3672df5f67e48cc500298ab8a3e3758f39d742a",
+        "assigned artifacts/verify.py at frozen blob eb6ca4983f8dc44f66efb2fda6052f622f35077b",
+        "DOI:10.3934/amc.2026052 Example 2",
+        "fresh independent GL(3,2) multiset-stabilizer enumeration"
+      ],
+      "rationale": "After deleting the duplicate generator row, the nine columns have multiplicities 4,2,2,1 for types a=(1,1,1), b=(1,1,0), c=(0,1,1), d=(0,1,0). Any coordinate automorphism of a full-rank generator satisfies \\(AH=HP\\) for a unique \\(A\\in GL(3,2)\\), so A preserves the column multiset. Multiplicities force a and d fixed and permit only fixing or interchanging b,c. Since b,c,d are a basis and a=b+c+d, these choices give exactly two row actions. Each supports \\(4!2!2!=96\\) coordinate bijections, yielding 192. The nontrivial action swaps the two size-two classes, giving \\(S_4\\times((S_2\\times S_2)\\rtimes S_2)\\). A fresh independent enumeration of all 168 matrices in GL(3,2) found exactly these two multiset preservers; the frozen verifier independently exhausts all 9! coordinate permutations and the source-generated subgroup.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source gives a lower-bound subgroup construction for automorphisms of SR-sums.",
+          "No broader theorem in the inspected source forces the stabilizer of this repeated-column multiset to have exactly two row actions."
+        ],
+        "reasoning": "The audited calculation closes the residual stabilizer exactly.",
+        "searches": [
+          "Kwiatkowski Proposition 2.5 and Example 2",
+          "standard linear-code row-space criterion \\(AH=HP\\)"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/amc.2026052",
+        "MacWilliams--Sloane code automorphism background",
+        "Resultary query: SR-sum linear codes Example 2 automorphism group binary 9 3 3 code 192"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source symmetries provide inclusion in Aut(D), not the reverse inclusion.",
+          "Multiplicity 4 and 1 force two column types fixed; the two multiplicity-2 types may only be fixed or swapped, and because three of those types form a basis these are the only two row actions."
+        ],
+        "reasoning": "The full-group equality requires the upper-bound stabilizer argument absent from the inspected source.",
+        "searches": [
+          "source-generated symmetry subgroup versus audited full column-multiset stabilizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source lists the exact generator matrix and identifies several automorphisms, including the \\(S_4\\) on four identical columns and transposition of the two factors.",
+          "The inspected source text stops at these exhibited subgroups/symmetries rather than an equality theorem for the full group."
+        ],
+        "reasoning": "The column-multiset stabilizer in \\(\\mathrm{GL}(3,2)\\) is an equivalent formulation of the full coordinate-permutation automorphism group of the rank-three binary code.",
+        "searches": [
+          "Mariusz Kwiatkowski, SR-sum of linear codes, DOI:10.3934/amc.2026052, Example 2 and Proposition 2.5",
+          "Resultary query: SR-sum linear codes Example 2 automorphism group binary 9 3 3 code 192"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact group-order/orbit table for this example was located."
+        ],
+        "reasoning": "This is a finite exact invariant, and the relevant database check found no precomputed code-automorphism entry matching it.",
+        "searches": [
+          "Resultary published-finding corpus for the exact binary SR-sum example",
+          "targeted searches using group order 192, \\(S_4\\times(S_2\\wr S_2)\\), and the [9,3,3] weight enumerator"
+        ]
+      },
+      "rationale": "Kwiatkowski's full source explicitly exhibits the \\(S_4\\) repeated-column symmetry, the componentwise factor symmetries, and the factor transposition for this exact example, but does not determine the full automorphism group, its order, or the coordinate-orbit decomposition. Resultary search by the exact example, parameters, order 192, and wreath-product type found no prior covering statement.",
+      "residual_risks": [
+        "A code-database computation could contain the same group without being indexed to the SR-sum example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_EXHIBITS_GENERATORS_NOT_FULL_GROUP",
+          "evidence": "The source shows the present automorphism group is larger than the componentwise subgroup and lists concrete extra symmetries, but does not state order 192 or the wreath-product decomposition in the inspected text.",
+          "identifier_or_url": "DOI:10.3934/amc.2026052",
+          "material_read": "Full accessible article material around Proposition 2.5, Example 2, its displayed generator matrix, repeated-column \\(S_4\\), component swaps, and factor transposition.",
+          "method": "Direct same-object theorem/implication comparison.",
+          "title": "SR-sum of linear codes",
+          "trigger": "Primary same-example source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kwiatkowski 2026",
+        "Resultary same-example search"
+      ],
+      "rationale": "The source itself raises the natural symmetry question by showing that the obvious componentwise subgroup is not the full automorphism group. Determining the exact group, orbit decomposition, and proving that the displayed symmetries already generate everything closes that finite structural question and provides a precise benchmark for SR-sum automorphism phenomena.",
+      "residual_risks": [
+        "A code-database computation could contain the same group without being indexed to the SR-sum example."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3934/amc.2026052",
+    "MacWilliams--Sloane code automorphism background",
+    "Resultary query: SR-sum linear codes Example 2 automorphism group binary 9 3 3 code 192"
+  ],
+  "disposition": "passed",
+  "final_claim": "For Kwiatkowski's binary Example 2 SR-sum \\(D=C\\oplus_{\\mathrm{sr}}C\\subseteq\\mathbb F_2^9\\), the full coordinate-permutation automorphism group is \\(S_4\\times(S_2\\wr S_2)\\) of order 192, with coordinate orbits \\(\\{1,2,4,5\\}\\), \\(\\{3,6,7,8\\}\\), and \\(\\{9\\}\\); the symmetries explicitly exhibited in the source generate the full group.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A code-database computation could contain the same group without being indexed to the SR-sum example."
+  ]
+}

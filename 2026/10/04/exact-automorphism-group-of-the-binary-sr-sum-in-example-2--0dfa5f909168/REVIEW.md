@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For the full-rank \(3\times9\) generator \(H\), every coordinate automorphism \(P\) has a unique row action \(A\in\operatorname{GL}(3,2)\) satisfying \(AH=HP\). The generator columns occur with multiplicities \(4,2,2,1\), forcing the unique multiplicity-\(4\) and multiplicity-\(1\) types to be fixed and allowing only identity or interchange of the two multiplicity-\(2\) types. Thus there are exactly two row actions and \(4!2!2!=96\) coordinate matchings for each, so the group has order \(192\). The displayed source symmetries generate a subgroup of that order. Independent exhaustive enumeration of all \(9!\) coordinate permutations reproduces the same group and orbit decomposition.
+PASS
 
-## Originality
+After deleting the duplicate generator row, the nine columns have multiplicities 4,2,2,1 for types a=(1,1,1), b=(1,1,0), c=(0,1,1), d=(0,1,0). Any coordinate automorphism of a full-rank generator satisfies \(AH=HP\) for a unique \(A\in GL(3,2)\), so A preserves the column multiset. Multiplicities force a and d fixed and permit only fixing or interchanging b,c. Since b,c,d are a basis and a=b+c+d, these choices give exactly two row actions. Each supports \(4!2!2!=96\) coordinate bijections, yielding 192. The nontrivial action swaps the two size-two classes, giving \(S_4\times((S_2\times S_2)\rtimes S_2)\). A fresh independent enumeration of all 168 matrices in GL(3,2) found exactly these two multiset preservers; the frozen verifier independently exhausts all 9! coordinate permutations and the source-generated subgroup.
 
-PASS. The primary paper prints this exact example and discusses its automorphism group, but gives only subgroup containments and the factor-transposition automorphism. It does not state the exact order, isomorphism type, coordinate orbits, or that its exhibited symmetries are complete. Searches by example, generator, order \(192\), group type \(S_4\times(S_2\wr S_2)\), exact parameters, and weight-enumerator fingerprint found no prior same-object statement. A residual risk remains that an unindexed short-code classification contains an equivalent representative.
+## originality
 
-## Value
+PASS
 
-PASS. Automorphism groups are a central structural theme of the source and are explicitly connected there to permutation decoding. Example 2 is designed to show that the SR-sum can have more symmetry than the product construction reveals, so closing the group exactly is a natural completion of the example. The result quantifies the excess symmetry, gives the orbit geometry, and proves that no additional hidden automorphisms occur.
+Kwiatkowski's full source explicitly exhibits the \(S_4\) repeated-column symmetry, the componentwise factor symmetries, and the factor transposition for this exact example, but does not determine the full automorphism group, its order, or the coordinate-orbit decomposition. Resultary search by the exact example, parameters, order 192, and wreath-product type found no prior covering statement.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The source itself raises the natural symmetry question by showing that the obvious componentwise subgroup is not the full automorphism group. Determining the exact group, orbit decomposition, and proving that the displayed symmetries already generate everything closes that finite structural question and provides a precise benchmark for SR-sum automorphism phenomena.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
