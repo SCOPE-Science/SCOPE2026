@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:52:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a prescribed center \\(c\\), every centrally symmetric subset of \\(K\\) lies in \\(S(c)=K\\cap(2c-K)\\), which is itself centrally symmetric. The submitted Brunn--Minkowski argument correctly shows \\(|S(c)|^{1/2}\\) is concave, so averaging a center over the regular polygon's rotation orbit proves the polygon center is optimal. For odd \\(n\\), the outward normals of \\(P_n\\) and \\(-P_n\\) interlace into \\(2n\\) equally spaced normals with the same inradius, hence the centered overlap is a regular \\(2n\\)-gon. The standard inradius area formula then gives \\(2\\tan(\\pi/(2n))/\\tan(\\pi/n)=1-\\tan^2(\\pi/(2n))\\); even \\(n\\) is already centrally symmetric.",
+      "risks": [
+        "The numerical polygon intersections in the package are only sanity checks; the proof is analytic."
+      ],
+      "sources": [
+        "RESULT.md blob b7f42b9045ece9867c8f09a3b1b9a136de9024b3",
+        "Moszyńska--Żukowski, Glasnik Matematički 33(53) (1998), 251--265",
+        "Fáry--Rédei uniqueness theorem as explicitly recalled in the 1998 full text"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader theorem applies to every convex body, not merely polygons, and gives uniqueness plus affine-equivariant center."
+        ],
+        "reasoning": "That general theorem already settles the only nontrivial optimization over centers for a regular polygon; what remains is elementary area evaluation.",
+        "searches": [
+          "Moszyńska--Żukowski 1998 full PDF, introduction and equivariance statement",
+          "Fáry--Rédei 1950 theorem as cited and stated by the 1998 source"
+        ]
+      },
+      "checked_sources": [
+        "Moszyńska--Żukowski 1998 full PDF",
+        "Fáry--Rédei 1950 theorem as stated in the 1998 source",
+        "Resultary regular-polygon Kovner--Besicovitch search",
+        "Goenka--Moore--Sun--White arXiv:2309.12597 context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniqueness plus rotation equivariance forces center zero.",
+          "At center zero the largest symmetric subset is \\(P_n\\cap(-P_n)\\); for odd \\(n\\) this is a regular \\(2n\\)-gon with the same inradius."
+        ],
+        "reasoning": "These prior and elementary facts directly imply the submitted theorem, including the maximizing body and area ratio.",
+        "searches": [
+          "Statement comparison with Moszyńska--Żukowski lines recalling uniqueness and affine equivariance",
+          "Elementary centered-overlap computation for a regular odd polygon"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1998 paper recalls the unique centrally symmetric kernel theorem and explicitly states affine equivariance of the pseudo-centre.",
+          "For a regular polygon, every rotation is an affine automorphism, so the unique pseudo-centre must be the unique common fixed point, the polygon center."
+        ],
+        "reasoning": "The kernel/pseudo-centre formulation is mathematically equivalent to the Kovner--Besicovitch maximization used in the final claim.",
+        "searches": [
+          "Web: Fary Redei unique maximum area centrally symmetric subset convex body regular polygon Kovner Besicovitch",
+          "Full PDF: Moszyńska--Żukowski On G-pseudo-centres of convex bodies",
+          "Resultary: Kovner Besicovitch regular polygon centrally symmetric kernel exact measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-formula database entry was found apart from the assigned record."
+        ],
+        "reasoning": "Failure to locate the literal formula is not novelty evidence because the stronger classical theorem mechanically yields it.",
+        "searches": [
+          "Resultary exact Kovner--Besicovitch regular polygon query",
+          "Web exact tangent-formula search"
+        ]
+      },
+      "rationale": "The classical centrally symmetric kernel theorem already gives a unique maximum-volume centrally symmetric subset for every convex body, and Moszyńska--Żukowski explicitly state that its pseudo-centre is equivariant under affine automorphisms. For a regular polygon, rotational equivariance therefore forces the unique pseudo-centre to be the polygon center. Once the center is fixed, the maximal symmetric subset is immediately \\(P_n\\cap(-P_n)\\); for odd \\(n\\) its edge normals visibly interlace to a regular \\(2n\\)-gon, and the displayed measure is the standard area ratio. Thus the all-\\(n\\) formula is a routine specialization of the classical uniqueness/equivariance theorem plus elementary regular-polygon geometry, even if the exact tangent expression was not located verbatim.",
+      "residual_risks": [
+        "The original 1950 paper was not directly material-read in this run, but the decisive theorem and equivariance needed for the implication are explicitly stated in the accessible 1998 full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_GENERAL_THEOREM",
+          "evidence": [
+            "The unique kernel exists for every convex body and its center is equivariant under affine automorphisms, forcing the center of a regular polygon to be its rotation center."
+          ],
+          "identifier_or_url": "Glasnik Matematički 33(53) (1998), 251--265",
+          "material_read": "Full accessible PDF opening sections; page image of the first page inspected. The introduction states uniqueness of the maximal centrally symmetric kernel and affine equivariance of its pseudo-centre.",
+          "method": "Direct PDF text and page-image inspection.",
+          "title": "On G-pseudo-centres of convex bodies",
+          "trigger": "Direct source recalling the Fáry--Rédei centrally symmetric kernel theorem and describing pseudo-centre equivariance."
+        },
+        {
+          "assessment": "HISTORICAL_PRIMARY_NOT_DIRECTLY_READ",
+          "evidence": [
+            "The later source explicitly states that Fáry and Rédei proved existence and uniqueness in 1950."
+          ],
+          "identifier_or_url": "Fáry--Rédei, Mathematische Annalen 122 (1950), 205--220",
+          "material_read": "The theorem was verified through the later full-text source that explicitly attributes and states it; the original paper itself was not needed for the decisive implication.",
+          "method": "Cross-source theorem verification.",
+          "title": "Der zentralsymmetrische Kern und die zentralsymmetrische Hülle von konvexen Körpern",
+          "trigger": "Original source of the uniqueness theorem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The regular-polygon profile is natural, but once the classical unique affine-equivariant kernel theorem is brought to bear, the optimizer is forced by symmetry and the value is a standard regular-polygon area ratio. The residual work is a textbook-level specialization rather than a substantive new mathematical gap.",
+      "risks": [
+        "This value judgment does not challenge the formula's correctness or expository usefulness."
+      ],
+      "sources": [
+        "Moszyńska--Żukowski 1998 full text",
+        "RESULT.md blob b7f42b9045ece9867c8f09a3b1b9a136de9024b3"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The result is rejected as a routine implication of classical kernel uniqueness/equivariance, not for mathematical error."
+  ],
+  "schema_version": 1
+}
