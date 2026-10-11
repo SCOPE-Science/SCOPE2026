@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:56:32.923018Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 9c7a850c7e04dd5c40669fda1c46ea0c3fb7da7d",
+        "verify.py blob 07df1783ce723447560f063885cf02c27b42963a",
+        "independent SymPy characteristic/Jury/Bernstein reconstruction"
+      ],
+      "rationale": "For one coordinate, the Bernoulli row choice closes the exact covariance recursion on (q,r,s) with the displayed 3x3 matrix T. Independent symbolic expansion reproduced the cubic coefficients and the factorization of the first Jury quantity. After substituting c=1-beta and u=cM, an independent exact Bernstein conversion reproduced all 49 degree-(6,6) coefficients of the third Jury quantity with minimum exactly 3/16, while the second condition is manifestly positive. Under the first inequality the determinant condition is strictly inside the unit disk. The source initialization has nonzero projection on the unit/unstable real mode, so equality is marginal and supercritical parameters do not converge in mean square. The beta=0 signed-mean 2x2 Jury test gives M<1, while mean-square requires M<1/sqrt(2); the M=1 algebra yields beta>(5-sqrt(17))/2.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Loizou--Richtárik prove L2 convergence for stochastic heavy-ball methods under sufficient conditions.",
+          "Their momentum is ordinary displacement/heavy-ball momentum rather than KGSM's geometrically smoothed velocity state."
+        ],
+        "reasoning": "The broader theorem does not mechanically specialize to the KGSM covariance matrix or determine necessity of the audited boundary.",
+        "searches": [
+          "arXiv:1712.09677v2 primary record/full paper context",
+          "arXiv:2401.09415v1 references and discussion"
+        ]
+      },
+      "checked_sources": [
+        "Alderman--Luikart--Marshall, Randomized Kaczmarz with geometrically smoothed momentum, arXiv:2401.09415v1 / DOI:10.1137/24M1633820, full PDF",
+        "Loizou--Richtárik, Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods, arXiv:1712.09677v2",
+        "Resultary query: KGSM geometrically smoothed momentum exact mean square stability orthonormal identity signed mean"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Signed expectation convergence does not imply convergence of second moments.",
+          "At beta=0 the audited exact calculation exhibits parameters where the signed mean decays but the second moment does not, so the source theorem cannot imply the claim."
+        ],
+        "reasoning": "The final theorem resolves a genuinely stronger observable on a canonical instance rather than restating the signed-mean result.",
+        "searches": [
+          "arXiv:2401.09415v1 full PDF",
+          "arXiv:1712.09677v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source recurrence and initialization match the audited model.",
+          "The source asks for the critical M/(M,beta) region and for absolute/l2 error convergence, while its main theorem is a signed directional expectation result."
+        ],
+        "reasoning": "Equivalent formulations through mean-square convergence, covariance Schur stability and a nondecaying second-moment mode were compared to the source's signed expectation theorem.",
+        "searches": [
+          "arXiv:2401.09415v1 full PDF, algorithm and limitations/open questions",
+          "Resultary query: KGSM geometrically smoothed momentum exact mean square stability orthonormal identity signed mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent database hit supplied beta+2(1-beta)M=sqrt(beta+2), the beta=0 blind spot, or the full-mass threshold."
+        ],
+        "reasoning": "Search absence is supporting evidence; the decisive comparison is with the source that explicitly leaves the relevant stronger observables open.",
+        "searches": [
+          "Resultary query above",
+          "exact searches around the defining source's critical-momentum and l2 questions"
+        ]
+      },
+      "rationale": "Originality passes. The defining KGSM paper was inspected in full, including visual inspection of the algorithm and limitations/open-question pages: its proved observable is signed directional expectation, and it explicitly asks for a critical momentum region and convergence of expected absolute or Euclidean error. It does not contain the exact three-dimensional covariance recursion or the audited Schur boundary. The broader heavy-ball source treats a different unsmoothed recurrence and gives sufficient L2 rates, not this necessity-and-sufficiency KGSM frontier.",
+      "residual_risks": [
+        "An unindexed note could contain the same identity-system covariance calculation.",
+        "The result is an exact baseline for A=I_2, not a universal KGSM stability region."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_SOURCE_LEAVES_EXACT_MEAN_SQUARE_REGION_OPEN",
+          "evidence": "The source proves a signed expected directional-error result and explicitly asks for critical momentum and expected absolute/l2 convergence.",
+          "identifier_or_url": "arXiv:2401.09415v1",
+          "material_read": "Full PDF, including the KGSM recurrence/initialization and the limitations section; the algorithm page and the page containing the critical-momentum and l2-convergence questions were visually inspected.",
+          "method": "lawful open-access arXiv PDF with page screenshots",
+          "title": "Randomized Kaczmarz with geometrically smoothed momentum",
+          "trigger": "Defining source and explicit open directions."
+        },
+        {
+          "assessment": "BROADER_DIFFERENT_RECURRENCE",
+          "evidence": "It analyzes heavy-ball/stochastic momentum rather than KGSM's extra smoothed state and gives sufficient convergence results rather than the exact identity-system boundary.",
+          "identifier_or_url": "arXiv:1712.09677v2",
+          "material_read": "Primary arXiv record and the paper's convergence scope identifying L2 primal-iterate rates for heavy-ball stochastic methods.",
+          "method": "lawful open-access arXiv",
+          "title": "Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods",
+          "trigger": "Broader L2 stochastic heavy-ball theory."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "defining KGSM full paper",
+        "Loizou--Richtárik broader momentum theory",
+        "independent covariance analysis"
+      ],
+      "rationale": "The defining paper explicitly asks for critical momentum and stronger unsigned/Euclidean convergence. The orthonormal two-row system is the natural geometry-free baseline, and the exact blind spot demonstrates why signed expectation is insufficient. The result therefore resolves a motivated mathematical boundary, not an arbitrary toy calculation.",
+      "residual_risks": [
+        "No claim is made that the same boundary governs nonorthogonal matrices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed note could contain the same identity-system covariance calculation.",
+    "The result is an exact baseline for A=I_2, not a universal KGSM stability region.",
+    "The current read connector exposed exact file blobs at the frozen commit but no read action that enumerates a directory Git tree object by SHA. The assignment tree SHA is preserved exactly, and reviewed blobs were fetched at the frozen commit, but the tree SHA was not independently recomputed from a complete enumerated tree.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

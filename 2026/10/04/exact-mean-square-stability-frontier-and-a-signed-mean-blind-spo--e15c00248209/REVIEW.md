@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The row choice closes the coordinate covariance in a \(3\times3\) deterministic recursion. The cubic characteristic polynomial is derived exactly, and the Jury criterion reduces to the single boundary \(\beta+2(1-\beta)M=\sqrt{\beta+2}\). The remaining nontrivial Jury inequality is certified on the full source parameter rectangle by exact rational Bernstein coefficients with minimum \(3/16\). The source initialization is proved to excite every marginal or unstable real mode.
+PASS
 
-Risk: the exact frontier is specific to the orthonormal two-equation system.
+For one coordinate, the Bernoulli row choice closes the exact covariance recursion on (q,r,s) with the displayed 3x3 matrix T. Independent symbolic expansion reproduced the cubic coefficients and the factorization of the first Jury quantity. After substituting c=1-beta and u=cM, an independent exact Bernstein conversion reproduced all 49 degree-(6,6) coefficients of the third Jury quantity with minimum exactly 3/16, while the second condition is manifestly positive. Under the first inequality the determinant condition is strictly inside the unit disk. The source initialization has nonzero projection on the unit/unstable real mode, so equality is marginal and supercritical parameters do not converge in mean square. The beta=0 signed-mean 2x2 Jury test gives M<1, while mean-square requires M<1/sqrt(2); the M=1 algebra yields beta>(5-sqrt(17))/2.
 
-## Originality
+## originality
 
-PASS. The defining KGSM paper explicitly asks for a critical momentum region and for absolute or \(\ell_2\)-error convergence, while proving a signed directional expectation result. The broader randomized-Kaczmarz momentum source treats ordinary heavy-ball displacement momentum and supplies sufficient \(L_2\) conditions rather than this smoothed recurrence's exact phase boundary. Focused published-record searches found no implication-equivalent result.
+PASS
 
-Residual risk: an equivalent identity-system calculation may exist in unindexed notes.
+Originality passes. The defining KGSM paper was inspected in full, including visual inspection of the algorithm and limitations/open-question pages: its proved observable is signed directional expectation, and it explicitly asks for a critical momentum region and convergence of expected absolute or Euclidean error. It does not contain the exact three-dimensional covariance recursion or the audited Schur boundary. The broader heavy-ball source treats a different unsmoothed recurrence and gives sufficient L2 rates, not this necessity-and-sufficiency KGSM frontier.
 
-## Value
+## value
 
-PASS. The result resolves both motivating questions on the canonical geometry-free test system and exposes a qualitative gap: without smoothing, signed expectation can converge throughout \(M<1\) while mean-square convergence already fails at \(M=1/\sqrt2\). The exact full-mass smoothing threshold \((5-\sqrt{17})/2\) further quantifies how geometric smoothing restores stability.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The defining paper explicitly asks for critical momentum and stronger unsigned/Euclidean convergence. The orthonormal two-row system is the natural geometry-free baseline, and the exact blind spot demonstrates why signed expectation is insufficient. The result therefore resolves a motivated mathematical boundary, not an arbitrary toy calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
