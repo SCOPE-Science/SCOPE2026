@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checks are replayable with `python3 verify.py`. The script reconstructs the printed vector field, verifies \(\dot H\equiv0\), verifies zero divergence, checks uniqueness of the equilibrium under \(a\ne0\) and \(b\ne0\) by the four stationarity equations, and checks the source example's energy and reported finite numerical Lyapunov arithmetic.
+# Independent mathematical audit
 
-The two-zero-exponent conclusion is an analytic cocycle argument, not a numerical inference. On a nonzero sphere, the vector field is nonvanishing and therefore supplies a bounded flow-direction cocycle with exponent zero. The identity \(dH_{\phi_t(p)}D\phi_t(p)=dH_p\), together with constant \(\lVert dH\rVert=2R\) on the sphere, supplies a second zero exponent on the normal quotient. Since divergence vanishes, Liouville's formula makes the total exponent sum zero, leaving an opposite pair.
+## correctness
 
-Limits: no value or positivity of the remaining exponent is certified; finite-time numerical exponents and discretized integrator dynamics are outside the theorem.
+PASS
+
+Direct differentiation of \(H=x^2+y^2+z^2+w^2\) along the printed vector field cancels identically, and the divergence is identically zero. With \(a,b\ne0\), the origin is the only equilibrium, so every nonzero invariant sphere is compact and contains no equilibrium. The flow direction therefore supplies one zero Lyapunov exponent. Conservation gives \(dH_{\phi_t(p)}D\phi_t(p)=dH_p\); because \(\|dH\|=2R\) on the sphere, the one-dimensional normal quotient has a second zero exponent. Liouville's formula gives zero total exponent sum, leaving an opposite pair \(\lambda,-\lambda\). Independent symbolic reconstruction verified both exact cancellations and the source example's energy.
+
+## originality
+
+PASS
+
+The introducing paper gives the exact ODE, notes zero divergence, reports a four-number spectrum with two positive values, and calls the model conservative hyperchaotic. It does not state the quadratic first integral, invariant-sphere foliation, or the forced two-neutral spectrum. Targeted Resultary searches found the submitted record and analogous first-integral corrections for different systems but no earlier result for the Lu--Yu--Zhu equations. General first-integral and Liouville facts do not cover the source-specific conclusion until the conserved quadratic is identified.
+
+## value
+
+PASS
+
+The invariant changes the exact geometry from an ambient four-dimensional conservative flow to dynamics confined to three-spheres and rules out the paper's defining two-positive-exponent hyperchaos criterion. Because the source uses that classification to motivate an encryption construction, the correction is mathematically and interpretively substantive despite the short algebraic discovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

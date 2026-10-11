@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact differentiation gives \(\dot H=0\) and \(\nabla\!\cdot F=0\). With \(a,b\ne0\), the origin is the unique equilibrium, so every nonzero invariant sphere has a nonvanishing flow direction. The flow direction gives one neutral tangent exponent; conservation of \(H\) gives a distinct neutral quotient exponent; Liouville's formula then forces the other pair to sum to zero. `verify.py` reproduces the algebra exactly.
+## correctness
 
-## Originality
-PASS. The introducing article was read in full where it defines the ODE and interprets two positive numerical Lyapunov exponents as hyperchaos. Targeted searches by title, DOI, exact equations, quadratic invariant, equivalent formulations, and broader first-integral and Lyapunov language did not locate prior coverage of this system-specific theorem. Closest retrieved results concern different flows and do not imply this claim. Residual risk remains from unindexed literature.
+PASS
 
-## Value
-PASS. The result changes the exact invariant geometry and rules out the defining two-positive-exponent interpretation for a flow explicitly used as the dynamical source of an encryption construction. It is therefore more than a finite-time numerical refinement.
+Direct differentiation of \(H=x^2+y^2+z^2+w^2\) along the printed vector field cancels identically, and the divergence is identically zero. With \(a,b\ne0\), the origin is the only equilibrium, so every nonzero invariant sphere is compact and contains no equilibrium. The flow direction therefore supplies one zero Lyapunov exponent. Conservation gives \(dH_{\phi_t(p)}D\phi_t(p)=dH_p\); because \(\|dH\|=2R\) on the sphere, the one-dimensional normal quotient has a second zero exponent. Liouville's formula gives zero total exponent sum, leaving an opposite pair \(\lambda,-\lambda\). Independent symbolic reconstruction verified both exact cancellations and the source example's energy.
 
-## Closest literature and limitations
-The closest primary source is Lu, Yu and Zhu, *Symmetry* 13 (2021), 2317, DOI 10.3390/sym13122317. General results on first integrals and Lyapunov exponents supply standard ingredients, but no retrieved source applies them to this vector field. The theorem concerns the continuous-time ODE; it neither computes \(\lambda\) nor proves or disproves one-positive-exponent chaos, and it does not assess the security of the full encryption algorithm.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The introducing paper gives the exact ODE, notes zero divergence, reports a four-number spectrum with two positive values, and calls the model conservative hyperchaotic. It does not state the quadratic first integral, invariant-sphere foliation, or the forced two-neutral spectrum. Targeted Resultary searches found the submitted record and analogous first-integral corrections for different systems but no earlier result for the Lu--Yu--Zhu equations. General first-integral and Liouville facts do not cover the source-specific conclusion until the conserved quadratic is identified.
+
+## value
+
+PASS
+
+The invariant changes the exact geometry from an ambient four-dimensional conservative flow to dynamics confined to three-spheres and rules out the paper's defining two-positive-exponent hyperchaos criterion. Because the source uses that classification to motivate an encryption construction, the correction is mathematically and interpretively substantive despite the short algebraic discovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

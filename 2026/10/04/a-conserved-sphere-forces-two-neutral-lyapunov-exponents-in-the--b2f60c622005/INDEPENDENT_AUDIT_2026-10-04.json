@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T08:55:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct differentiation of \\(H=x^2+y^2+z^2+w^2\\) along the printed vector field cancels identically, and the divergence is identically zero. With \\(a,b\\ne0\\), the origin is the only equilibrium, so every nonzero invariant sphere is compact and contains no equilibrium. The flow direction therefore supplies one zero Lyapunov exponent. Conservation gives \\(dH_{\\phi_t(p)}D\\phi_t(p)=dH_p\\); because \\(\\|dH\\|=2R\\) on the sphere, the one-dimensional normal quotient has a second zero exponent. Liouville's formula gives zero total exponent sum, leaving an opposite pair \\(\\lambda,-\\lambda\\). Independent symbolic reconstruction verified both exact cancellations and the source example's energy.",
+      "risks": [
+        "The theorem concerns exact continuous-time asymptotic exponents, not finite-time output of a non-structure-preserving integrator."
+      ],
+      "sources": [
+        "Frozen RESULT.md and verify.py",
+        "Q. Lu, L. Yu, C. Zhu, Symmetry 13 (2021), 2317, DOI:10.3390/sym13122317, publisher full text",
+        "Independent symbolic reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nearby findings concern different vector fields; classical general facts do not single out this system's hidden invariant."
+        ],
+        "reasoning": "The new source-specific first integral is the essential input absent from broader prior statements.",
+        "searches": [
+          "Resultary same-topic search",
+          "general conservative/first-integral Lyapunov literature screened in the source package"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/sym13122317",
+        "Resultary published-finding corpus",
+        "Frozen symbolic verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zero divergence alone forces only the sum of exponents to vanish; it does not force a second zero exponent. The conserved sphere supplies the missing independent neutral quotient."
+        ],
+        "reasoning": "The source's published observations do not imply the final spectrum without the newly identified first integral.",
+        "searches": [
+          "DOI:10.3390/sym13122317",
+          "Resultary query above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's exact system and numerical hyperchaos claim were located; no invariant-sphere/two-neutral theorem appears there."
+        ],
+        "reasoning": "Quadratic-integral, invariant-sphere and two-zero-exponent formulations were compared.",
+        "searches": [
+          "Resultary query: Lu Yu Zhu conservative hyperchaotic system conserved sphere x^2+y^2+z^2+w^2 two zero Lyapunov exponents",
+          "DOI:10.3390/sym13122317"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior indexed correction for DOI 10.3390/sym13122317 was located."
+        ],
+        "reasoning": "The paper's numerical table conflicts with, rather than covers, the exact asymptotic constraint.",
+        "searches": [
+          "Resultary exact DOI/title/equation semantic searches"
+        ]
+      },
+      "rationale": "The introducing paper gives the exact ODE, notes zero divergence, reports a four-number spectrum with two positive values, and calls the model conservative hyperchaotic. It does not state the quadratic first integral, invariant-sphere foliation, or the forced two-neutral spectrum. Targeted Resultary searches found the submitted record and analogous first-integral corrections for different systems but no earlier result for the Lu--Yu--Zhu equations. General first-integral and Liouville facts do not cover the source-specific conclusion until the conserved quadratic is identified.",
+      "residual_risks": [
+        "An unindexed note could have observed the same elementary quadratic invariant.",
+        "The system-specific novelty is the invariant and its consequence for the published classification; the general Lyapunov mechanisms are classical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_CONFLICT_NOT_COVERAGE",
+          "evidence": [
+            "The paper supplies zero divergence and two positive reported values but does not identify \\(x^2+y^2+z^2+w^2\\) as a first integral."
+          ],
+          "identifier_or_url": "DOI:10.3390/sym13122317",
+          "material_read": "Publisher full text around the system definition, divergence calculation, numerical Lyapunov spectrum and hyperchaos interpretation, plus article conclusions.",
+          "method": "Open publisher full-text inspection.",
+          "title": "A New Conservative Hyperchaotic System-Based Image Symmetric Encryption Scheme with DNA Coding",
+          "trigger": "Exact introducing source for the audited vector field and two-positive-exponent claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant changes the exact geometry from an ambient four-dimensional conservative flow to dynamics confined to three-spheres and rules out the paper's defining two-positive-exponent hyperchaos criterion. Because the source uses that classification to motivate an encryption construction, the correction is mathematically and interpretively substantive despite the short algebraic discovery.",
+      "risks": [
+        "No separate claim is made about cryptographic security once the hyperchaos rationale is removed."
+      ],
+      "sources": [
+        "Primary source model",
+        "Exact first-integral and Lyapunov argument"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The remaining exponent \\(\\lambda\\) is not shown to be positive.",
+    "No claim is made about the discretized numerical sequence used by the encryption implementation."
+  ],
+  "schema_version": 1
+}
