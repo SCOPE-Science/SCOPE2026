@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof was reconstructed from the support model of ideals in a finite direct product of fields and the definition of metric-dimension threshold.
 
-Exact symbolic checks:
-- the annihilating-ideal graph is the graph on nonempty proper subsets with disjointness adjacency;
-- for every pair \(A,B\), the four region sizes
-  \(a=|A\cap B|\), \(b=|A\setminus B|\), \(c=|B\setminus A|\), \(d=|[n]\setminus(A\cup B)|\)
-  determine the number of distinguishing vertices;
-- the five possible pair configurations reduce to the four displayed formulas, with the two nested orientations symmetric;
-- the nested formula is minimized exactly when the inclusion adds one coordinate and \(a,d\) are balanced;
-- every nonnested formula is strictly larger for \(n\ge4\);
-- the threshold is therefore
-  \(2^n-2^{\lfloor(n-1)/2\rfloor}-2^{\lceil(n-1)/2\rceil}-2\)
-  for \(n\ge4\), with direct exceptions \(1\) and \(3\) at \(n=2,3\).
+# Independent mathematical audit
 
-`artifacts/verify.py` independently builds the graph for every \(2\le n\le9\), computes all-pairs shortest paths, finds every distinguishing set \(D(A,B)\), verifies the threshold formula, and checks the complete structural classification of minimizing pairs for \(4\le n\le9\). It returns `VERIFY_OK`.
+## correctness
 
-Finite computation is not used to justify the universal statement.
+PASS
+
+The semisimple annihilating-ideal graph is the strong Boolean disjointness graph on nonempty proper subsets. For any connected graph, a landmark set fails on a pair exactly when it avoids that pair’s distinguishing set, so the threshold is \(|V|-\min|D(u,v)|+1\). Partitioning two supports into intersection, the two one-sided differences, and the outside region yields the four exhaustive formulas in RESULT.md. Minimizing them gives the unique sharp mechanism: a nested pair differing in one coordinate with the lower support and upper complement as balanced as possible. The exceptional ranks \(n=2,3\) are handled directly. An independent breadth-first replay for ranks through 8 reproduced the threshold and the full minimizing-pair classification; the finite replay is corroborative only.
+
+## originality
+
+PASS
+
+Fresh source comparison found the graph model and the threshold invariant separately, but no source combining them into this exact family computation. The primary metric-threshold paper treats standard families/Petersen and gives the general invariant framework; the strong-Boolean/annihilating-ideal source supplies the graph identification but not metric-threshold data. Resultary returned the audited record itself and related algebraic-graph invariants, not an earlier equivalent threshold formula.
+
+## value
+
+PASS
+
+Metric-dimension threshold is a natural robustness invariant for resolving sets, and the strong Boolean graph is a canonical algebraic/combinatorial family. The theorem gives both an exact all-rank formula and a complete description of every sharp obstruction pair, which is structurally useful beyond a single numerical endpoint and is not a routine table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

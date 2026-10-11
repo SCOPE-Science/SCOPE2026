@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:06:59Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 3fae6a5210487a2d5d68b65979e3a708ff184e0c",
+        "artifacts/verify.py blob 54abbc7b9c06de28ec301f649d0c08314c337dea",
+        "Fresh independent exact distance/minimizer replay for n=2..8 matched the formula and classification"
+      ],
+      "rationale": "The semisimple annihilating-ideal graph is the strong Boolean disjointness graph on nonempty proper subsets. For any connected graph, a landmark set fails on a pair exactly when it avoids that pair’s distinguishing set, so the threshold is \\(|V|-\\min|D(u,v)|+1\\). Partitioning two supports into intersection, the two one-sided differences, and the outside region yields the four exhaustive formulas in RESULT.md. Minimizing them gives the unique sharp mechanism: a nested pair differing in one coordinate with the lower support and upper complement as balanced as possible. The exceptional ranks \\(n=2,3\\) are handled directly. An independent breadth-first replay for ranks through 8 reproduced the threshold and the full minimizing-pair classification; the finite replay is corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Korivand–Khashyarmanesh–Tavakoli define metric-dimension threshold and analyze several graph classes but not this strong Boolean family.",
+          "Guo–Wu–Yu identify the relevant strong Boolean structure for products of fields but do not give the threshold."
+        ],
+        "reasoning": "Neither broader framework specializes automatically to the displayed minimum distinguishing-set calculation; the family-specific four-region optimization is additional content.",
+        "searches": [
+          "doi:10.1155/2022/1838719 full text",
+          "doi:10.4134/JKMS.j160283 strong Boolean graph product fields"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1155/2022/1838719",
+        "doi:10.4134/JKMS.j160283",
+        "Resultary semantic query: metric dimension threshold strong Boolean graph annihilating ideal product of fields disjointness graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The threshold paper’s general definitions do not determine \\(\\min |D(A,B)|\\) for this family.",
+          "The ring paper’s graph isomorphism does not determine a metric-threshold invariant without the new counting argument."
+        ],
+        "reasoning": "The audited theorem is not a direct corollary of either source separately; it requires the exact distance-state count and global minimization over support-pair types.",
+        "searches": [
+          "Metric Dimension Threshold of Graphs 2022 Boolean",
+          "On rings whose annihilating-ideal graphs are blow-ups of Boolean graphs metric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No retrieved prior result stated the displayed threshold formula or balanced one-coordinate minimizing pairs.",
+          "Searches under both ring-theoretic and subset-disjointness aliases were used."
+        ],
+        "reasoning": "An equivalent formulation would be the same threshold for the strong Boolean/disjointness graph, irrespective of ring language. No such prior statement was located.",
+        "searches": [
+          "Resultary: metric dimension threshold strong Boolean graph annihilating ideal product of fields disjointness graph",
+          "web searches for strong Boolean graph metric dimension threshold and Boolean disjointness graph metric threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table or database value for this family appeared.",
+          "The returned Resultary self-hit was the current SCOPE record, not independent prior coverage."
+        ],
+        "reasoning": "The claim is an infinite closed formula and structural minimizer classification, not a recomputation of a known finite table.",
+        "searches": [
+          "Resultary exact family query above",
+          "exact phrase searches for metric-dimension threshold strong Boolean graph"
+        ]
+      },
+      "rationale": "Fresh source comparison found the graph model and the threshold invariant separately, but no source combining them into this exact family computation. The primary metric-threshold paper treats standard families/Petersen and gives the general invariant framework; the strong-Boolean/annihilating-ideal source supplies the graph identification but not metric-threshold data. Resultary returned the audited record itself and related algebraic-graph invariants, not an earlier equivalent threshold formula.",
+      "residual_risks": [
+        "An equivalent computation could exist in unindexed literature under another name for the full Boolean-lattice disjointness graph.",
+        "Search failure is not a proof of novelty; the PASS is best-of-knowledge based on the inspected primary sources and semantic search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INVARIANT_FRAMEWORK_NOT_COVERING_STRONG_BOOLEAN_FAMILY",
+          "evidence": [
+            "The paper defines the threshold but the inspected family results do not include strong Boolean/disjointness graphs."
+          ],
+          "identifier_or_url": "doi:10.1155/2022/1838719",
+          "material_read": "Open article text covering the definition, motivation, pair-equidistance formulation and its family examples including paths, cycles and Petersen.",
+          "method": "Public full-text inspection and family-scope comparison.",
+          "title": "Metric Dimension Threshold of Graphs",
+          "trigger": "Primary source for the invariant."
+        },
+        {
+          "assessment": "GRAPH_IDENTIFICATION_ONLY",
+          "evidence": [
+            "It supplies the graph model needed to translate the ring problem but not the metric-threshold formula."
+          ],
+          "identifier_or_url": "doi:10.4134/JKMS.j160283",
+          "material_read": "Accessible journal material around the strong Boolean graph definition and product-of-fields structural identification.",
+          "method": "Primary-source structural comparison.",
+          "title": "On rings whose annihilating-ideal graphs are blow-ups of a class of Boolean graphs",
+          "trigger": "Primary structural source for the semisimple annihilating-ideal graph."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Closed formula valid for every n with small-rank exceptions.",
+        "Complete equality classification of balanced one-coordinate nested pairs."
+      ],
+      "rationale": "Metric-dimension threshold is a natural robustness invariant for resolving sets, and the strong Boolean graph is a canonical algebraic/combinatorial family. The theorem gives both an exact all-rank formula and a complete description of every sharp obstruction pair, which is structurally useful beyond a single numerical endpoint and is not a routine table lookup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is restricted to products of fields/strong Boolean graphs, not arbitrary blow-ups or nonreduced annihilating-ideal graphs."
+  ],
+  "schema_version": 1
+}

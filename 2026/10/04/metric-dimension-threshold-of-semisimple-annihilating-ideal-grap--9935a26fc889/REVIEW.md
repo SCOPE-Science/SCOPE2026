@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The product-of-fields annihilating-ideal graph is exactly the strong Boolean graph on nonempty proper supports. For any connected graph, the metric-dimension threshold equals the order minus the minimum number of vertices distinguishing a pair, plus one. The four-region decomposition of a support pair yields exact formulas for the distinguishing-set size in all possible containment/intersection configurations. Elementary convexity and exponential bounds show that the unique minimum mechanism for \(n\ge4\) is a one-coordinate inclusion with the lower support and upper complement balanced. The exceptional ranks \(n=2,3\) are handled separately.
+## correctness
 
-## Originality
-PASS. The inspected 2017 structural paper identifies the product-of-fields graph with \(B_n\) but contains no metric terminology. The 2022 paper introducing metric-dimension threshold treats standard families and the Petersen graph but not Boolean graphs. The indexed 2021 Boolean-graph survey contains neither “metric dimension” nor “threshold”. published-finding corpus and web searches across ring, Boolean, strong-Boolean, and disjointness terminology found no equivalent formula.
+PASS
 
-## Value
-PASS. The threshold measures robustness of resolving sets under arbitrary landmark choice and is therefore a natural exact invariant, not merely a recomputation of ordinary metric dimension. The result covers every finite product of fields and identifies all extremal indistinguishable-pair configurations, giving both a closed invariant and a structural explanation.
+The semisimple annihilating-ideal graph is the strong Boolean disjointness graph on nonempty proper subsets. For any connected graph, a landmark set fails on a pair exactly when it avoids that pair’s distinguishing set, so the threshold is \(|V|-\min|D(u,v)|+1\). Partitioning two supports into intersection, the two one-sided differences, and the outside region yields the four exhaustive formulas in RESULT.md. Minimizing them gives the unique sharp mechanism: a nested pair differing in one coordinate with the lower support and upper complement as balanced as possible. The exceptional ranks \(n=2,3\) are handled directly. An independent breadth-first replay for ranks through 8 reproduced the threshold and the full minimizing-pair classification; the finite replay is corroborative only.
 
-The principal residual risk is bibliographic: an equivalent calculation could exist in unindexed literature under another name for the Boolean disjointness graph.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh source comparison found the graph model and the threshold invariant separately, but no source combining them into this exact family computation. The primary metric-threshold paper treats standard families/Petersen and gives the general invariant framework; the strong-Boolean/annihilating-ideal source supplies the graph identification but not metric-threshold data. Resultary returned the audited record itself and related algebraic-graph invariants, not an earlier equivalent threshold formula.
+
+## value
+
+PASS
+
+Metric-dimension threshold is a natural robustness invariant for resolving sets, and the strong Boolean graph is a canonical algebraic/combinatorial family. The theorem gives both an exact all-rank formula and a complete description of every sharp obstruction pair, which is structurally useful beyond a single numerical endpoint and is not a routine table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
