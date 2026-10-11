@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:41:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a90aac140bc0e60f5a7bc5d8d1f36aa1871a6908",
+        "assigned verify.py blob c3116db581936845b17ad688b331166e5e3a3cc0",
+        "assigned independent_check.py blob 999fd466ec08edde7341166be08ee343781c0974",
+        "assigned classification.json blob ca1431e6e4a03f1194578c5293de26f18689306b",
+        "independent compatibility-graph clique census and symmetry-orbit reduction"
+      ],
+      "rationale": "The error ball was independently reconstructed by deleting one coordinate and then making zero or one substitutions in the surviving length-(n-1) word. Exact clique enumeration in the compatibility graphs independently found no 4-clique at n=7, exactly 12 5-cliques at n=8, and no 6-clique at n=8. All 12 n=8 optima contain both constant words. Independent orbit reduction under identity, complement, reversal, and reverse-complement gives exactly four classes of sizes 2,2,4,4 with the same representatives as classification.json. Thus both the maxima and complete finite classification are exhaustive.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former supplies general non-asymptotic theory; the latter improves constructions for two-edit correction.",
+          "Neither inspected result gives the complete binary length-eight optimum classification."
+        ],
+        "reasoning": "Broader asymptotic coding theorems do not determine these exact small compatibility graphs.",
+        "searches": [
+          "Smagloy et al. arXiv:2005.09352",
+          "Sun--Ge arXiv:2403.11766"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2005.09352",
+        "arXiv:2403.11766",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source bounds DS_{s,q}(n) in general but does not force equality at n=7,8 nor enumerate optima."
+        ],
+        "reasoning": "The exhaustive 12-code census supplies information not implied by the published general inequalities.",
+        "searches": [
+          "arXiv:2005.09352 definitions and upper-bound section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's B^{DS}_{t,s} definition matches one deletion and up to one substitution.",
+          "The exact 3,5 values and optimum-code orbit census are not a restatement of its general bounds."
+        ],
+        "reasoning": "Equivalent formulations as clique numbers of the finite compatibility graphs, exact code cardinalities, and minimum length for four messages were compared.",
+        "searches": [
+          "Resultary: single deletion one substitution binary DS_1,2(7) DS_1,2(8) 3 5",
+          "Smagloy et al. arXiv:2005.09352"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact n=7,8 table or classification was returned among the published findings."
+        ],
+        "reasoning": "A small-parameter database/table was explicitly checked because it could cover the claim without a theorem.",
+        "searches": [
+          "Resultary small-parameter DS_{1,2}(n) search"
+        ]
+      },
+      "rationale": "Smagloy--Welter--Wachter-Zeh--Yaakobi define this exact deletion-plus-substitution channel and give non-asymptotic bounds/constructions, while later work improves asymptotic redundancy. The inspected sources do not contain exact binary n=7 or n=8 values or the 12-code symmetry classification, and targeted Resultary searches found no covering record.",
+      "residual_risks": [
+        "An unindexed exhaustive small-code table could duplicate these values, though none was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the exact n=7,8 classification.",
+          "evidence": "The paper gives general bounds and constructions, not exact values 3 and 5 or the twelve optimal length-eight codes.",
+          "identifier_or_url": "arXiv:2005.09352",
+          "material_read": "Complete six-page primary paper, including the error-ball definition, DS notation, non-asymptotic upper bound, and construction statements.",
+          "method": "Open-access full-PDF inspection with the definition and bound pages visually checked.",
+          "title": "Single-Deletion Single-Substitution Correcting Codes",
+          "trigger": "Defining primary source for the exact channel and notation."
+        },
+        {
+          "assessment": "NOT_COVERING this exact finite classification.",
+          "evidence": "The contribution is improved redundancy/constructions rather than the n=7,8 exact optimum and orbit census.",
+          "identifier_or_url": "arXiv:2403.11766",
+          "material_read": "Primary abstract and result-level public material.",
+          "method": "Open-access primary-source comparison.",
+          "title": "Binary Codes for Correcting Two Edits",
+          "trigger": "Later binary construction result for closely related two-edit channels."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Smagloy et al. arXiv:2005.09352",
+        "complete n=7,8 exhaustive classification"
+      ],
+      "rationale": "The result identifies a natural operational cutoff: blocklength eight is the first binary length that can support at least four messages under this error model. It also completely classifies every optimal code at that cutoff up to the natural reversal/complement symmetry, so it is substantially more informative than an isolated numerical optimum.",
+      "residual_risks": [
+        "The classification does not yet reveal a general-length structure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary codes correcting one deletion followed by at most one substitution, the exact maxima are \\(DS_{1,2}(7)=3\\) and \\(DS_{1,2}(8)=5\\); there are exactly 12 optimal length-eight codes, all contain \\(0^8\\) and \\(1^8\\), and they form four reversal/complement orbits of sizes \\(2,2,4,4\\). Hence length eight is the minimum blocklength supporting at least four messages.",
+  "limitations": [
+    "Only binary lengths seven and eight are classified.",
+    "No formula for general blocklength or nonbinary alphabets is asserted."
+  ],
+  "schema_version": 1
+}

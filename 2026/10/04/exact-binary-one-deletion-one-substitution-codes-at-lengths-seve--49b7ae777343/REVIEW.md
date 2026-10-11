@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The channel ball matches the primary source: one deletion and at most one substitution. Valid codes are cliques in the compatibility graph. At length seven an explicit three-word code is checked and an exhaustive four-clique search returns none. At length eight all five-cliques are enumerated: exactly 12 occur, and none has a common extending neighbor, proving that no six-clique exists. The classification and symmetry counts are read from this exhaustive list. A second implementation using different data structures and recursion reproduces the key counts.
+## correctness
 
-## Originality
-PASS with a residual indexing risk. The inspected 2020 primary paper defines the parameter and proves broad non-asymptotic bounds/constructions, not the exact binary values at lengths seven and eight. The inspected 2024 follow-up improves asymptotic redundancy and likewise does not state the finite classification. Targeted published-finding corpus and web searches for the exact notation, values, channel aliases, and length-eight classification returned no equivalent claim. The closest exact-small-parameter published-finding corpus records concern different deletion channels or different coding problems.
+PASS
 
-## Value
-PASS. The claim pins down the first binary blocklength capable of carrying a full two-bit payload under simultaneous synchronization and substitution protection, and it completely classifies every optimum at that threshold. The 12-code census and four symmetry classes give reusable finite benchmarks for constructions and search algorithms, rather than only a single witness.
+The error ball was independently reconstructed by deleting one coordinate and then making zero or one substitutions in the surviving length-(n-1) word. Exact clique enumeration in the compatibility graphs independently found no 4-clique at n=7, exactly 12 5-cliques at n=8, and no 6-clique at n=8. All 12 n=8 optima contain both constant words. Independent orbit reduction under identity, complement, reversal, and reverse-complement gives exactly four classes of sizes 2,2,4,4 with the same representatives as classification.json. Thus both the maxima and complete finite classification are exhaustive.
 
-## Closest literature and limitations
-The closest source is Smagloy--Welter--Wachter-Zeh--Yaakobi, arXiv:2005.09352 / ISIT 2020 / IEEE TIT 2023, which introduces the model and notation and supplies general upper bounds and constructions. Sun--Ge, arXiv:2403.11766, improves asymptotic constructions for the same binary error pattern. Neither inspected source gives the exact length-seven/length-eight values or classifies optimal length-eight codes. The result remains finite and computational and makes no general-\(n\) claim.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Smagloy--Welter--Wachter-Zeh--Yaakobi define this exact deletion-plus-substitution channel and give non-asymptotic bounds/constructions, while later work improves asymptotic redundancy. The inspected sources do not contain exact binary n=7 or n=8 values or the 12-code symmetry classification, and targeted Resultary searches found no covering record.
+
+## value
+
+PASS
+
+The result identifies a natural operational cutoff: blocklength eight is the first binary length that can support at least four messages under this error model. It also completely classifies every optimal code at that cutoff up to the natural reversal/complement symmetry, so it is substantially more informative than an isolated numerical optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
