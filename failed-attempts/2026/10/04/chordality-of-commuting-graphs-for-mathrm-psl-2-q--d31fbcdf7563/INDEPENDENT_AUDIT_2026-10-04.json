@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:48:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify.py at tree 965ffa54137ff7f481569862b679325e750906b0",
+        "Bryden--Rowley, arXiv:2509.25901v2, full primary PDF",
+        "Arvind--Cameron--Ma--Maslova, DOI 10.1016/j.jalgebra.2025.07.020"
+      ],
+      "rationale": "For even \\(q\\), nonidentity centralizers are abelian and the nonidentity commuting graph is a disjoint union of cliques; adjoining the identity preserves chordality. The same holds for \\(q=5\\cong A_5\\). For odd \\(q>5\\), the unique involution class has \\(n=q(q+\\chi)/2\\) vertices, with \\(\\chi=1\\) for \\(q\\equiv1\\pmod4\\) and \\(-1\\) otherwise, and degree \\(k=(q-\\chi)/2\\ge4\\). A commuting involution clique has size at most three because an involution centralizer is dihedral with elementary abelian two-subgroups of order at most four. Thus the induced involution graph has \\(nk/2\\ge2n\\) edges, while every chordal graph with clique number at most three has at most \\(2n-3\\) edges. Hence the involution graph, and therefore the full commuting graph, is nonchordal. The bundled verifier checks the exact involution counts for prime fields \\(5,7,11,13\\), an induced six-cycle at \\(q=7\\), and the arithmetic inequality; the proof covers all prime powers, including \\(q=9\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The odd involution graph is vertex-transitive with dihedral involution centralizers; its degree and clique bound follow immediately.",
+          "The identity/universal central element does not create an induced cycle."
+        ],
+        "reasoning": "These published structural ingredients cover the family strongly enough that the chordality decision is a routine graph-theoretic corollary.",
+        "searches": [
+          "Bryden--Rowley Section 2.1",
+          "standard \\(\\mathrm{PSL}_2(q)\\) involution class-size and centralizer formulas"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.25901v2",
+        "DOI 10.1016/j.jalgebra.2025.07.020",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly identifies the even graph as a union of cliques and the odd involution graph as having very small common-neighborhood intersections; standard centralizer arithmetic supplies \\(k\\ge4\\)."
+        ],
+        "reasoning": "The final iff is a concise corollary rather than an uncovered theorem.",
+        "searches": [
+          "Bryden--Rowley Theorem 1 and Lemma 3 plus chordal edge bound \\(|E|\\le2|V|-3\\) when \\(\\omega\\le3\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returns the assigned statement as the exact semantic hit.",
+          "Bryden--Rowley state that even-q involution graphs are unions of \\(q+1\\) copies of \\(K_{q-1}\\), and for odd q give the relevant centralizer and local-structure facts.",
+          "Arvind et al. present chordality of finite-group commuting graphs as an open classification problem."
+        ],
+        "reasoning": "The audited full-graph statement is equivalent, for nonchordality, to detecting the same odd-q involution induced subgraph; even q is already visibly chordal from the published decomposition.",
+        "searches": [
+          "Resultary query: PSL2(q) commuting graph chordal chordality commuting involution graph",
+          "arXiv:2509.25901v2",
+          "DOI 10.1016/j.jalgebra.2025.07.020"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older explicit chordality table was located."
+        ],
+        "reasoning": "The absence of an explicit table does not restore originality because the published graph structure already implies the decision.",
+        "searches": [
+          "Resultary published corpus for PSL2 chordality"
+        ]
+      },
+      "rationale": "Bryden--Rowley already give the structural facts from which the classification follows by a standard chordal-graph bound: for even \\(q\\) the commuting involution graph is explicitly a disjoint union of complete graphs, while for odd \\(q\\ge7\\) they analyze the same involution graph, record dihedral involution centralizers, and prove the small-neighborhood-intersection/4-cycle-free structure. Together with the standard class-size and centralizer counts for \\(\\mathrm{PSL}_2(q)\\), the edge-density contradiction with chordal graphs of clique number three is a short corollary. The broader commuting-graph paper explicitly poses the finite-simple chordal classification problem, but that motivation does not undo implication-level coverage by the later involution-graph structure.",
+      "residual_risks": [
+        "The exact chordal iff may not have been stated verbatim before, but the implication from the 2026 involution-graph structure is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING at implication level when combined with standard chordal and PSL2 counting facts.",
+          "evidence": "The source supplies the same involution graph's decomposition/local structure from which the audited chordality decision follows.",
+          "identifier_or_url": "arXiv:2509.25901v2",
+          "material_read": "Full primary PDF sections around Theorem 1 and Section 2.1, including the even-q complete-component statement, dihedral centralizers, and Lemma 3; relevant pages were visually inspected.",
+          "method": "Open-access full-text inspection.",
+          "title": "Automorphism Groups of the PSL_2(q) Commuting Involution Graphs",
+          "trigger": "Exact induced graph used for the odd obstruction and the even decomposition."
+        },
+        {
+          "assessment": "MOTIVATING but not independently covering the odd-q chordality conclusion.",
+          "evidence": "The paper asks the chordal classification question and solves the cograph simple-group slice, including the even characteristic PSL2 family.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2025.07.020",
+          "material_read": "Primary public full text around Question 2, the simple-group problem, and the cograph classification.",
+          "method": "Open-access full-text inspection.",
+          "title": "Aspects of the commuting graph",
+          "trigger": "Primary source posing the finite-group cograph/chordal classification and treating finite simple cographs."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Bryden--Rowley 2026",
+        "Arvind--Cameron--Ma--Maslova 2025"
+      ],
+      "rationale": "Isolating the \\(\\mathrm{PSL}_2(q)\\) answer does settle a natural infinite slice of an explicitly posed finite-simple chordality problem, and the density obstruction is mathematically informative. The rejection is originality, not lack of mathematical usefulness.",
+      "residual_risks": [
+        "The result does not advance the classification outside the PSL2 family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every prime power \\(q\\ge4\\), the commuting graph of \\(\\mathrm{PSL}_2(q)\\) is chordal exactly when \\(q\\) is even or \\(q=5\\).",
+  "limitations": [
+    "The statement concerns the ordinary commuting graph of \\(\\mathrm{PSL}_2(q)\\); the odd-case obstruction is witnessed already on the involution class.",
+    "No classification beyond the \\(\\mathrm{PSL}_2(q)\\) family is claimed."
+  ],
+  "schema_version": 1
+}
