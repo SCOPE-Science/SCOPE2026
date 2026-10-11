@@ -1,0 +1,9 @@
+# Same-model scientific review
+
+**Correctness — PASS.** The limiting intrinsic-volume functionals are taken from Hoehner's 2026 Theorem 3.1 with the exact planar exponents and curvature weights. Their conversion to angular coordinates is explicit, including every factor of \(2\pi\). Hölder gives a sharp universal lower bound; strict concavity of the scalar dual forces a unique interior balance parameter and equality density. The resulting density saturates both objectives, and the uniform Taylor expansion gives the coefficient \(3/8\). A standalone numerical verifier independently confirms selected parameter cases; it is not the proof of the continuum statement.
+
+**Originality — PASS, with literature uncertainty.** Hoehner (2026), Sections 3.1–3.2, determines individual optima and qualitative ball rigidity, but does not present the exact ellipse minimax compromise, uniqueness of the balanced density, or the coefficient \(3/8\). Böröczky–Fodor–Hug (2011) supplies asymptotics rather than this two-objective optimum. Besau–Hoehner–Kur (2019/2020) addresses primarily the Euclidean ball and simultaneous approximation up to constants. Earlier curvature-law separation statements also establish incompatibility rather than the sharp compromise. Equivalent unindexed research remains a residual originality risk.
+
+**Value — PASS.** A noncircle cannot optimize both errors separately. Rather than merely measuring this incompatibility, the theorem completely optimizes the first natural two-objective compromise for the entire nontrivial family of ellipses, determines a unique geometric sampling law, and quantifies its near-circle price with a sharp, scale-free constant. The conclusion is a leading-order asymptotic statement, not a fixed-sample-size theorem.
+
+Same-model review: passed. Independent audit: not yet performed.
