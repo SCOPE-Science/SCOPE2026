@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_boston3_common_priority.py` is an exact finite replay for the common-priority Boston/immediate-acceptance environment.
 
-The script implements the mechanism twice:
-1. a round-by-round application algorithm; and
-2. an independent rank-level scan over schools.
+# Independent mathematical audit
 
-The two implementations are required to agree for every truthful and false-report profile tested.
+## correctness
 
-For the \(3\times3\) unit-capacity market, the verifier exhausts all \(6^3=216\) strict preference profiles, each of three potential manipulators, and all five false reports. It verifies:
-- exactly \(36\) manipulable profiles;
-- exactly \(36\) vulnerable student-profile pairs;
-- exactly \(72\) profitable report triples;
-- profile, distinguished-student, and report-triple incidences \(1/6\), \(1/18\), and \(1/45\);
-- one vulnerable student per bad profile;
-- exactly two profitable reports per vulnerable student;
-- every gain is from third sincere choice to second sincere choice;
-- vulnerable priority ranks split as \(24\) middle-priority and \(12\) lowest-priority profiles;
-- exact equality between the enumerated bad set and the analytic if-and-only-if criterion in `RESULT.md`;
-- exactly six school-relabeling classes, each of orbit size \(6\).
+PASS
 
-The verifier separately exhausts the \(2\times2\) common-priority unit-capacity market and finds no profitable report.
+With common priority \(1\succ2\succ3\), student 1 always receives her sincere first choice and cannot profit. If student 2's first choice differs from student 1's, the two high-priority students permanently occupy distinct schools and no profitable unilateral deviation remains. When both first choose \(A\) and student 2 ranks \(A\succ X\succ Y\), case analysis on student 3's first two choices gives exactly the two bad families stated in the package; the vulnerable student moves from sincere rank three to rank two by exactly the two reports with \(X\) first. An independent exhaustive implementation over all \(216\) truthful profiles and all false reports confirmed exactly \(36\) bad profiles, \(36\) vulnerable student-profile pairs, \(72\) profitable reports, the vulnerable-priority split, and zero two-student events.
 
-Run:
+## originality
 
-`python3 verify_boston3_common_priority.py`
+PASS
 
-The first output line must be:
+The foundational Boston paper defines the mechanism and proves/illustrates its lack of strategy-proofness; later work characterizes priority or capacity domains where Boston becomes strategy-proof. Those theorem-level results establish susceptibility or immunity, not the exact profile-level geometry for one fixed three-by-three common-priority market. Targeted web and Resultary searches found no prior statement of the \(36\)-profile census, the exact vulnerable reports, or the six school-relabeling classes.
 
-`VERIFY_OK`
+## value
 
-The executable proves only the stated finite unit-capacity common-priority boundary. The broader conclusions are those justified by the analytic case proof in `RESULT.md`.
+PASS
+
+Immediate acceptance is a canonical school-choice mechanism, and a common priority is a natural benchmark. The theorem completely resolves the smallest balanced square common-priority market where manipulation appears, including exact prevalence, unique vulnerable student, profitable reports, and symmetry classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

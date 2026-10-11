@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The final claim has both a direct proof and an exhaustive exact replay. The proof partitions profiles by the first choices of the three priority-ranked students and derives an if-and-only-if condition for profitable manipulation. The verifier independently implements immediate acceptance twice, exhausts all \(216\) profiles and all false reports, and checks exact agreement with the analytic criterion, the counts, and the six school-relabeling classes. The \(2\times2\) sharpness claim is proved directly and replayed exhaustively.
+## correctness
 
-Risk: the six-class quotient and incidence counts are finite computations, but they are consequences of the symbolic classification as well as the independent exhaustive replay.
+PASS
 
-## Originality
-**PASS.** The foundational literature establishes that Boston/immediate acceptance is manipulable; Kumano and Chen characterize priority/capacity domains on which it becomes strategy-proof; Harless compares its manipulability with neighboring rules. None of the inspected accessible material states the fixed common-priority \(3\times3\) if-and-only-if profile criterion, the \(36\)-profile census, the \(1/6\) and \(1/18\) incidences, two profitable reports per vulnerable student, or the six school-relabeling types. Exact and alias-based searches found no equivalent published statement.
+With common priority \(1\succ2\succ3\), student 1 always receives her sincere first choice and cannot profit. If student 2's first choice differs from student 1's, the two high-priority students permanently occupy distinct schools and no profitable unilateral deviation remains. When both first choose \(A\) and student 2 ranks \(A\succ X\succ Y\), case analysis on student 3's first two choices gives exactly the two bad families stated in the package; the vulnerable student moves from sincere rank three to rank two by exactly the two reports with \(X\) first. An independent exhaustive implementation over all \(216\) truthful profiles and all false reports confirmed exactly \(36\) bad profiles, \(36\) vulnerable student-profile pairs, \(72\) profitable reports, the vulnerable-priority split, and zero two-student events.
 
-Risk: an unindexed note, thesis, supplementary file, or unavailable full text could contain the same small-market classification. Chen's 2014 full text remained behind a human-verification barrier after open-access and lawful institutional-access attempts, so the comparison to that paper relies only on its accessible theorem abstract and does not assert whole-document noncoverage.
+## originality
 
-## Value
-**PASS.** The Boston mechanism's manipulability is a central practical and theoretical issue in school choice. A common priority is a natural special case corresponding to a single common lottery or score ordering. The result turns a qualitative defect into a complete first-square-market geometry: a necessary-and-sufficient profile condition, exact prevalence, identity of the vulnerable priority rank, the entire profitable-report set, and a compact symmetry quotient. These are natural mechanism-design invariants rather than an arbitrary slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The foundational Boston paper defines the mechanism and proves/illustrates its lack of strategy-proofness; later work characterizes priority or capacity domains where Boston becomes strategy-proof. Those theorem-level results establish susceptibility or immunity, not the exact profile-level geometry for one fixed three-by-three common-priority market. Targeted web and Resultary searches found no prior statement of the \(36\)-profile census, the exact vulnerable reports, or the six school-relabeling classes.
+
+## value
+
+PASS
+
+Immediate acceptance is a canonical school-choice mechanism, and a common priority is a natural benchmark. The theorem completely resolves the smallest balanced square common-priority market where manipulation appears, including exact prevalence, unique vulnerable student, profitable reports, and symmetry classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
