@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:13:29.095150Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at audited Git tree",
+        "Braun, arXiv:2609.11558v1, full 31-page primary PDF with relevant radial SDE and Proposition 3.20 pages",
+        "independent symbolic constant simplification"
+      ],
+      "rationale": "Braun's centered radial semimartingale and Barenblatt coefficient have the exact self-similar scaling used in the package. Under logarithmic time and \\(Y_s=e^{-s/\\beta}r_{e^s}\\), direct Itô calculation makes the coefficient time-homogeneous. For \\(J=(\\kappa/C)Y^q\\), the diffusion coefficient simplifies to \\(2KJ(1-J)\\) and the drift to \\(K\\{\\alpha-(\\alpha+\\eta)J\\}\\); independent symbolic reduction confirms \\(K=pM/((p-1)^2\\beta)\\) and \\(q/(\\beta K)=\\gamma\\). Braun's Proposition 3.20 transforms exactly to the Beta \\((\\alpha,\\eta)\\) marginal. Standard one-dimensional uniqueness for the square-root Jacobi coefficient identifies the scalar path law, and the centered first Jacobi eigenfunction gives the exact exponential covariance in log time, hence \\((s/t)^\\Lambda\\) in physical time.",
+      "residual_risks": [
+        "The scalar path-law identification does not establish any Markov or uniqueness property for the full nonlinear vector process."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sources construct/analyze the nonlinear processes and Barenblatt marginals."
+        ],
+        "reasoning": "Those broader process results do not state the transformed scalar Jacobi generator or its covariance law.",
+        "searches": [
+          "Braun arXiv:2609.11558 Sections 2–3",
+          "Barbu–Grube–Rehmeier–Röckner arXiv:2508.12979",
+          "Barbu–Rehmeier–Röckner arXiv:2409.18744"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.11558",
+        "https://arxiv.org/abs/2508.12979",
+        "https://arxiv.org/abs/2409.18744",
+        "Resultary published findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A stationary one-time Beta-shaped marginal does not by itself determine two-time correlations; the audited Itô transformation and scalar uniqueness are essential."
+        ],
+        "reasoning": "The exact correlation requires identifying the time-homogeneous Jacobi dynamics, so it is not implied by the source's marginal statement alone.",
+        "searches": [
+          "Direct comparison with Braun Proposition 3.20 and radial semimartingale formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Jacobi or correlation occurrence appears in the source; Proposition 3.20 states only a time-independent one-time rescaled radial law."
+        ],
+        "reasoning": "The audited path-law identification is not a wording variant of the marginal scaling theorem.",
+        "searches": [
+          "Resultary: Leibenson radial Jacobi diffusion logarithmic time Barenblatt correlation",
+          "Braun full-text searches for Jacobi and correlation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior record was returned."
+        ],
+        "reasoning": "The theorem is a pathwise stochastic transformation, not a table or fitted distribution.",
+        "searches": [
+          "Resultary exact search on Jacobi/Beta/log-time correlation"
+        ]
+      },
+      "rationale": "Braun proves the centered radial semimartingale and the time-independent one-time law of the self-similar radius, then develops exit/moment estimates. Full-text searches return no Jacobi or correlation statement. The earlier Leibenson/p-Brownian construction papers establish the nonlinear process and Barenblatt marginals, not this logarithmic-time scalar diffusion or exact two-time correlation. Resultary returned no implication-equivalent finding.",
+      "residual_risks": [
+        "A classical self-similar-diffusion transformation under Jacobi/Wright–Fisher terminology may exist outside the indexed Leibenson literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_INGREDIENT_NOT_FINAL",
+          "evidence": "It supplies the radial SDE and stationary rescaled marginal but contains no Jacobi or correlation statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.11558",
+          "material_read": "Primary 31-page PDF: parameter definitions, centered radial dynamics, semimartingale/local-time discussion, and Proposition 3.20 with its proof; relevant pages visually inspected.",
+          "method": "Lawful public full PDF.",
+          "title": "The radial part of p-Brownian motion",
+          "trigger": "Direct source for the exact centered radial semimartingale and rescaled marginal."
+        },
+        {
+          "assessment": "BROADER_PROCESS_NOT_COVERING",
+          "evidence": "No equivalent normalized radial Jacobi path law was located.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.12979",
+          "material_read": "Primary-source description of the McKean–Vlasov/Barenblatt process and its marginal law.",
+          "method": "Lawful arXiv/public material.",
+          "title": "The Leibenson process",
+          "trigger": "Foundational construction of the nonlinear diffusion."
+        },
+        {
+          "assessment": "BROADER_PROCESS_NOT_COVERING",
+          "evidence": "The work does not state the audited logarithmic-time Jacobi reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.18744",
+          "material_read": "Primary-source process and Barenblatt context.",
+          "method": "Lawful arXiv/public material.",
+          "title": "p-Brownian motion and the p-Laplacian",
+          "trigger": "Earlier special-case process construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Braun Proposition 3.20 and radial SDE",
+        "assigned Jacobi transformation"
+      ],
+      "rationale": "Identifying a hidden classical reversible diffusion behind a nonlinear self-similar radial process upgrades a one-time scaling law to an exact scalar path law and gives a closed two-time correlation. That is a natural structural strengthening with reusable probabilistic content.",
+      "residual_risks": [
+        "The result concerns only the normalized radial power, not the full vector path."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.11558",
+    "https://arxiv.org/abs/2508.12979",
+    "https://arxiv.org/abs/2409.18744",
+    "Resultary published findings"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Centered slow-diffusion regime only.",
+    "Exact correlation is for the normalized radial \\(q\\)-power, not the raw radius.",
+    "No pathwise uniqueness claim is made for the ambient McKean–Vlasov process."
+  ],
+  "residual_risks": [
+    "A classical self-similar-diffusion transformation under Jacobi/Wright–Fisher terminology may exist outside the indexed Leibenson literature."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING_INGREDIENT_NOT_FINAL",
+      "evidence": "It supplies the radial SDE and stationary rescaled marginal but contains no Jacobi or correlation statement.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.11558",
+      "material_read": "Primary 31-page PDF: parameter definitions, centered radial dynamics, semimartingale/local-time discussion, and Proposition 3.20 with its proof; relevant pages visually inspected.",
+      "method": "Lawful public full PDF.",
+      "title": "The radial part of p-Brownian motion",
+      "trigger": "Direct source for the exact centered radial semimartingale and rescaled marginal."
+    },
+    {
+      "assessment": "BROADER_PROCESS_NOT_COVERING",
+      "evidence": "No equivalent normalized radial Jacobi path law was located.",
+      "identifier_or_url": "https://arxiv.org/abs/2508.12979",
+      "material_read": "Primary-source description of the McKean–Vlasov/Barenblatt process and its marginal law.",
+      "method": "Lawful arXiv/public material.",
+      "title": "The Leibenson process",
+      "trigger": "Foundational construction of the nonlinear diffusion."
+    },
+    {
+      "assessment": "BROADER_PROCESS_NOT_COVERING",
+      "evidence": "The work does not state the audited logarithmic-time Jacobi reduction.",
+      "identifier_or_url": "https://arxiv.org/abs/2409.18744",
+      "material_read": "Primary-source process and Barenblatt context.",
+      "method": "Lawful arXiv/public material.",
+      "title": "p-Brownian motion and the p-Laplacian",
+      "trigger": "Earlier special-case process construction."
+    }
+  ]
+}
