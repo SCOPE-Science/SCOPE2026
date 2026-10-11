@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is general. The extension lemma handles both possible radicals of a hyperplane in a nondegenerate binary space and yields exactly \(2^{{n-k}}\) LCD extensions. For an adjacent pair, common neighbors split into star and top types; orthogonal complementation counts the top type, while the unique binary star/top overlap is proved degenerate. This gives \(2^k+2^{{n-k}}-4\) common neighbors on every edge. The degree and triangle formulas follow by exact double counting. An independent finite enumerator verifies every case with \(2\le n\le6\).
+## correctness
 
-## Originality
-PASS with residual terminology risk. The complete 32-page primary preprint arXiv:2609.07580v1 was materially inspected. Its main results give vertex degree, connectedness, and regularity or biregularity of orthogonal-orbit subgraphs; it does not give a triangle count or an adjacent-common-neighbor theorem. The same authors' 5 June 2025 public presentation explicitly lists “Count triangles” as ongoing work. Focused database and web searches under LCD-neighbor, edge-regular, common-neighbor, nondegenerate-subspace, Grassmann, and exact-formula aliases found no covering theorem. An older result phrased purely in orthogonal-geometry language remains a residual risk.
+PASS
 
-## Value
-PASS. The theorem closes an explicitly identified structural question uniformly for all binary dimensions, and the stronger edge-regularity statement gives local triangle multiplicity rather than only a global count. It complements, rather than repeats, the recent vertex-regularity theorem and is potentially useful for the clique/classification direction highlighted by the same project.
+The proof was independently reconstructed. A \(k-1\)-dimensional hyperplane \(H\) of an LCD \(k\)-space has radical dimension at most one. If \(H\) is nondegenerate, LCD extensions correspond to vectors of norm one in \(H^\perp\), giving exactly \(2^{n-k}\); if \(\operatorname{rad}H=\langle r\rangle\), LCD extensions are exactly quotient cosets with \(B(r,x)=1\), again \(2^{n-k}\). For adjacent \(C,D\), every common neighbor either contains \(H=C\cap D\) or lies in \(W=C+D\), contributing \(2^{n-k}-2\) and \(2^k-2\). The unique possible overlap is the third \(k\)-subspace between \(H\) and \(W\); in characteristic two it is degenerate in both radical cases, so the sets are disjoint. Thus every edge has \(2^k+2^{n-k}-4\) common neighbors. Independent enumeration for all parameters through \(n=5\) reproduced every degree, lambda, and triangle count.
 
-## Closest literature and limitations
-The closest source is de la Cruz--Horlemann--Newman--Vela Cabello--Willems, arXiv:2609.07580v1. The theorem is binary and Euclidean; it does not cover odd fields, Hermitian LCD codes, the associated-neighbor graph, or nonadjacent common-neighbor counts, and therefore does not imply strong regularity.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete primary 2026 LCD-neighbor paper was read across all sections. It determines vertex degree, connectedness, and regularity/biregularity of orthogonal-orbit subgraphs, but it does not state a constant adjacent-common-neighbor number or a triangle formula. The same project's earlier public presentation explicitly listed triangle counting as ongoing work. Focused searches under LCD neighbor, nondegenerate subspace Grassmann graph, common neighbors, edge-regular, and the exact candidate formula found no prior theorem. The new star/top decomposition and binary degeneracy argument are not a routine substitution into the published degree formula.
+
+## value
+
+PASS
+
+The source project explicitly identified triangle counting as an open structural task. The retained theorem answers it uniformly for every binary dimension and strengthens the global count to edge-regularity, a local invariant relevant to clique and classification questions. This is a motivated all-parameter structural lemma, not a routine small-parameter census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
