@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a proper selected set \(D\), connectivity of the complement is exactly the singleton-or-two-parts condition because every two vertices in different partite classes are adjacent, while a multi-vertex subset of one part is independent. Domination is exactly the two-selected-parts-or-whole-one-part condition. These statements are biconditionals, and the three excluded families used in the polynomial are disjoint. The standalone verifier checks the literal definition and every coefficient through order \(10\), and also checks the prior scalar and star specializations.
+## correctness
 
-## Originality
-PASS. The closest full-text source, arXiv:1112.0846, introduces the outer-connected domination polynomial and states the complete-multipartite minimum. It computes the polynomial for complete graphs, paths, cycles, stars, and a connected-factor join setting, but does not state the arbitrary complete-multipartite all-set classification or formula. The new claim deliberately excludes the scalar minimum and star polynomial from novelty. Targeted searches using “outer-connected,” “outer connected,” “ocd,” “complete multipartite,” “complete bipartite,” “polynomial,” and “all sets” found no stronger covering statement.
+PASS
 
-Residual risk remains from obscure or poorly indexed equivalent terminology. The 2007 foundational paper was not treated as whole-document negative evidence because the originality comparison can be made against the later full-text polynomial paper that already contains the closest complete-multipartite result.
+For a proper selected set \(D\), the complement of a complete multipartite graph is connected exactly when it is a singleton or meets at least two parts. Domination holds exactly when \(D\) meets at least two parts or equals one entire part. These biconditionals give three disjoint failure families: the empty set; a nonempty proper subset of one part; and sets whose complement has at least two vertices contained in one part. Subtracting their cardinality-generating functions from \((1+x)^N\) gives the displayed polynomial, and evaluation at \(x=1\) simplifies to the stated total. The frozen verifier independently checks literal domination/connectivity and every coefficient over all part profiles through order ten; arbitrary order rests on the symbolic proof.
 
-## Value
-PASS. The source literature itself treats both the complete-multipartite minimum and the ocd polynomial as natural objects. Determining every coefficient for arbitrary part sizes is therefore a motivated completion rather than an arbitrary slice. The all-set theorem is strictly stronger than the known scalar minimum and yields the exact total number of ocd-sets as a direct consequence.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary polynomial paper introduces the outer-connected domination polynomial and computes several special families; accessible public material confirms the same invariant and specific-graph focus. Targeted searches for an arbitrary complete-multipartite all-set polynomial found no earlier formula; the fresh Resultary search returns the current assigned record itself and other domination variants, not an earlier same-invariant result. The known complete-multipartite minimum and star cases do not imply the full coefficient profile. The primary arXiv/author-upload body could not be fully recovered from the available extraction path in this run, and the authorized institutional fallback returned worker unavailable; that access limitation is retained as residual risk rather than used as negative evidence.
+
+## value
+
+PASS
+
+The all-cardinality polynomial is a natural completion of a published scalar invariant on a canonical graph class. It classifies every feasible set and every coefficient for arbitrary part sizes, which is substantially more informative than the minimum number and supports coefficient/root/equivalence questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
