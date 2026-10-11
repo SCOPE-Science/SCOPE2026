@@ -1,22 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exponential order-statistic spacings are independent with the stated rates. Translation invariance of sample variance makes the minimum independent of the pair \((R,S^2)\). Writing sample variance as the exact quadratic form in the later spacings reduces the covariance to independent-coordinate second and third central moments. The diagonal third-moment contribution cancels one term from the linear-quadratic covariance, leaving a triangular harmonic double sum. The range variance and the standard exact variance formula for \(S^2\) yield the correlation and asymptotic rate.
+PASS
 
-## Originality
+The exponential-spacing proof is sound. The spacings are independent with \(D_k\sim\mathrm{Exp}((n-k+1)\lambda)\); therefore the minimum \(D_1\) is independent of all later spacings, while both range and translation-invariant sample variance depend only on those later spacings, proving joint independence. Writing the later spacings as independent coordinates \(Z_i\) gives \(S^2=Z^\top A Z\) with \(A_{ij}=\min(i,j)(n-\max(i,j))/(n(n-1))\). For independent coordinates, centered expansion yields \(\operatorname{Cov}(\sum Z_i,Z^\top AZ)=2\sum_i v_i(A\mu)_i+\sum_iA_{ii}\tau_i\). Substituting exponential moments reduces the sum to \(2((n-1)\lambda^3)^{-1}\sum_{1\le r\le k\le n-1}(rk)^{-1}\), hence the stated \((H_{n-1}^2+H_{n-1}^{(2)})/((n-1)\lambda^3)\). Independent exact-rational reconstruction for \(2\le n\le20\) reproduced the unsimplified quadratic-form covariance and closed harmonic formula. Combining the standard range variance and unbiased-sample-variance variance yields the stated correlation and its asymptotic.
 
-PASS, with an explicit access risk. Vellaisamy--Zeleke's full arXiv text was inspected at its exponential order-statistic and spacing results. It gives the independent spacing representation and associated harmonic moments, but searches within the paper found no sample-range, sample-variance, or covariance result.
+## originality
 
-Royen's full arXiv text was inspected at its gamma sample-variance theorem. It gives the marginal distribution of \(S^2\), including the exponential shape-one case, but searches within the full text found no range, order-statistic, or covariance treatment.
+PASS
 
-Lam's 1980 article is a plausible older source because its abstract concerns exact exponential sample-variance distributions for small sample sizes. Only abstract/bibliographic material was accessible in the inspected sources. This is recorded as a residual risk rather than treated as evidence of noncoverage.
+The primary spacing paper confirms the independent-exponential representation underlying the proof but does not study range jointly with sample variance. Lam's highly plausible 1980 source was first sought through open web routes; only its abstract was available there, so the authorized institutional copy was then read in full. It derives exact marginal sample-variance densities for \(n=2,3,4\), discusses moments, and does not present a range--variance covariance or joint law. Royen's gamma-sample work concerns the marginal sample-variance distribution. Fresh Resultary and web searches for range/sample-variance covariance, correlation, harmonic numbers and exponential sampling returned no equivalent formula. The audited covariance is thus a new joint-statistic calculation to best current knowledge.
 
-## Value
+## value
 
-PASS. Range and variance are two canonical measures of dispersion computed from the same sample. For exponential data, the range is an extreme-order statistic while \(S^2\) uses every observation. The theorem gives a complete exact finite-sample covariance law, establishes its sign for all \(n\), and shows that dependence nevertheless vanishes at an explicit logarithmic-over-root-\(n\) rate. The joint independence of the minimum from \((R,S^2)\) cleanly isolates the source of dependence.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Range and sample variance are standard dispersion statistics, and the exponential law is the canonical memoryless lifetime model. The exact positive covariance, closed correlation, and vanishing \((\log n)^2/\sqrt n\) correlation scale give a clean joint-statistic description not supplied by the known marginal laws. The minimum's joint independence from the pair is a useful structural companion fact.
 
-
-Exact replay: `VERIFY_OK matrix_cov_checks=119 harmonic_identity_checks=499 variance_checks=998 correlation_checks=998`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

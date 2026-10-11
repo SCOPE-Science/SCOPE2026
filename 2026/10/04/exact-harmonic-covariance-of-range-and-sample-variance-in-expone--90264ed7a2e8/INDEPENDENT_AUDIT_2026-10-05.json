@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 111b277a47df5c357cdcb7d26c8150ca7a88c8c4",
+        "assigned verify_exponential_range_variance.py blob cf1922efe842652a51cd28b9dbb65b134fa58982",
+        "Vellaisamy--Zeleke arXiv:1604.02644",
+        "Lam DOI 10.1080/03610918008812181 full 10-page primary text"
+      ],
+      "rationale": "The exponential-spacing proof is sound. The spacings are independent with \\(D_k\\sim\\mathrm{Exp}((n-k+1)\\lambda)\\); therefore the minimum \\(D_1\\) is independent of all later spacings, while both range and translation-invariant sample variance depend only on those later spacings, proving joint independence. Writing the later spacings as independent coordinates \\(Z_i\\) gives \\(S^2=Z^\\top A Z\\) with \\(A_{ij}=\\min(i,j)(n-\\max(i,j))/(n(n-1))\\). For independent coordinates, centered expansion yields \\(\\operatorname{Cov}(\\sum Z_i,Z^\\top AZ)=2\\sum_i v_i(A\\mu)_i+\\sum_iA_{ii}\\tau_i\\). Substituting exponential moments reduces the sum to \\(2((n-1)\\lambda^3)^{-1}\\sum_{1\\le r\\le k\\le n-1}(rk)^{-1}\\), hence the stated \\((H_{n-1}^2+H_{n-1}^{(2)})/((n-1)\\lambda^3)\\). Independent exact-rational reconstruction for \\(2\\le n\\le20\\) reproduced the unsimplified quadratic-form covariance and closed harmonic formula. Combining the standard range variance and unbiased-sample-variance variance yields the stated correlation and its asymptotic.",
+      "residual_risks": [
+        "The formula is specific to exponential spacings and to the unbiased sample variance with divisor \\(n-1\\)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lam treats exact marginal sample-variance distributions for small n and moments.",
+          "Royen treats the marginal sample-variance law for gamma parents.",
+          "Vellaisamy--Zeleke provide the spacing representation but not this joint covariance."
+        ],
+        "reasoning": "The broader sources supply the marginal ingredients separately; none inspected mechanically gives the cross-covariance with range.",
+        "searches": [
+          "Lam, Remarks on the distribution of the sample variance in exponential sampling, DOI 10.1080/03610918008812181",
+          "Royen, On the Laplace transform of some quadratic forms and the exact distribution of the sample variance from a gamma or uniform parent distribution, arXiv:0710.5749",
+          "Vellaisamy--Zeleke, Exponential Order Statistics, the Basel problem and Combinatorial Identities, arXiv:1604.02644"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1080/03610918008812181",
+        "arXiv:1604.02644",
+        "arXiv:0710.5749",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent spacings alone do not state the covariance of a linear spacing statistic with a quadratic one; the matrix calculation is required.",
+          "Marginal distributions of \\(S^2\\) do not determine its covariance with the range."
+        ],
+        "reasoning": "The new identity is not a routine restatement of a marginal distribution theorem.",
+        "searches": [
+          "independent spacing representation plus marginal sample-variance literature versus joint covariance formula",
+          "Lam small-sample marginal densities versus all-n range covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The range is the sum of all nonminimum spacings and the sample variance is a quadratic form in the same spacings.",
+          "No retrieved source states the resulting harmonic covariance or correlation."
+        ],
+        "reasoning": "Order-statistic spacing and joint-statistic formulations were compared directly.",
+        "searches": [
+          "Resultary: exponential sample range sample variance covariance harmonic numbers correlation",
+          "web: range sample variance exponential distribution covariance",
+          "Vellaisamy--Zeleke arXiv:1604.02644 independent exponential spacings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-result published table or formula was retrieved.",
+          "The full Lam paper's tables concern sample-variance percentage points and moments for small samples, not the range covariance."
+        ],
+        "reasoning": "The exact database check is especially relevant because a small-n table could otherwise dominate a finite claim; here the audited theorem is all n.",
+        "searches": [
+          "Resultary current query for exact harmonic covariance of range and sample variance in exponential sampling",
+          "web exact search using the covariance/statistic names and Lam DOI"
+        ]
+      },
+      "rationale": "The primary spacing paper confirms the independent-exponential representation underlying the proof but does not study range jointly with sample variance. Lam's highly plausible 1980 source was first sought through open web routes; only its abstract was available there, so the authorized institutional copy was then read in full. It derives exact marginal sample-variance densities for \\(n=2,3,4\\), discusses moments, and does not present a range--variance covariance or joint law. Royen's gamma-sample work concerns the marginal sample-variance distribution. Fresh Resultary and web searches for range/sample-variance covariance, correlation, harmonic numbers and exponential sampling returned no equivalent formula. The audited covariance is thus a new joint-statistic calculation to best current knowledge.",
+      "residual_risks": [
+        "An older joint-order-statistics paper may contain the same covariance under different notation despite the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_SAMPLE_VARIANCE_ONLY",
+          "evidence": "The article studies the marginal distribution and moments of sample variance and does not present a range--sample-variance covariance.",
+          "identifier_or_url": "https://doi.org/10.1080/03610918008812181",
+          "material_read": "complete 10-page primary article, including density formulas for n=2,3,4, the moments section, summary and bibliography",
+          "method": "open/OA full text unavailable; authorized institutional full-text retrieval and complete reading",
+          "title": "Remarks on the distribution of the sample variance in exponential sampling",
+          "trigger": "highly plausible older source with exactly the parent law and sample-variance statistic"
+        },
+        {
+          "assessment": "SPACING_INPUT_NOT_JOINT_RANGE_VARIANCE_RESULT",
+          "evidence": "It supplies the key order-statistic representation used by the proof but not the audited covariance.",
+          "identifier_or_url": "arXiv:1604.02644",
+          "material_read": "accessible primary material establishing the sum-of-independent-exponentials representation and standardized spacing laws",
+          "method": "primary open-source inspection",
+          "title": "Exponential Order Statistics, the Basel problem and Combinatorial Identities",
+          "trigger": "primary source for the independent exponential spacing representation"
+        },
+        {
+          "assessment": "MARGINAL_DISTRIBUTION_CONTEXT",
+          "evidence": "No whole-document noncoverage claim is based on the abstract; it is used only to identify the neighboring marginal problem.",
+          "identifier_or_url": "arXiv:0710.5749",
+          "material_read": "primary abstract/scope material identifying its focus on the marginal sample-variance distribution",
+          "method": "primary-source scope inspection",
+          "title": "On the Laplace transform of some quadratic forms and the exact distribution of the sample variance from a gamma or uniform parent distribution",
+          "trigger": "broader exact sample-variance distribution source for gamma parents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lam 1980 full paper",
+        "Vellaisamy--Zeleke 2016",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Range and sample variance are standard dispersion statistics, and the exponential law is the canonical memoryless lifetime model. The exact positive covariance, closed correlation, and vanishing \\((\\log n)^2/\\sqrt n\\) correlation scale give a clean joint-statistic description not supplied by the known marginal laws. The minimum's joint independence from the pair is a useful structural companion fact.",
+      "residual_risks": [
+        "The result is distribution-specific and does not extend unchanged to general gamma parents."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The formula is specific to exponential spacings and to the unbiased sample variance with divisor \\(n-1\\).",
+    "An older joint-order-statistics paper may contain the same covariance under different notation despite the targeted searches.",
+    "The result is distribution-specific and does not extend unchanged to general gamma parents."
+  ]
+}
