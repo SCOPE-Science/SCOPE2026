@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The argument starts from the published connected-subchain characterization for two-disk covers of a convex polygon. A half-perimeter subchain of a regular even polygon has antipodal endpoints. After placing its start at \((t,a)\) on one side, two explicit cross-chain distances give the lower bound
-\[
-r\ge\sqrt{a^2+\frac{b^2}{4}}.
-\]
-The midpoint construction attains that radius, because every vertex in one half satisfies the exact squared-distance inequality
-\[
-R^2+bu+\frac{b^2}{4}\le R^2-\frac{3b^2}{4}.
-\]
-Convexity then covers the full half-polygon. Equality is strict unless the half-chain starts at a side midpoint, and the two extremal diameter pairs force the disk center. No finite experiment is used as a substitute for proof.
+PASS
 
-## Originality
+The general convex-polygon two-center reduction permits assignment of complementary connected boundary chains. One chain has at least half the perimeter; any half-perimeter subchain starts at \(x=(t,a)\) on a side and ends at \(-x\), and the two fixed left-side vertices force diameter at least \(\sqrt{4a^2+(b+|t|)^2}\). This yields the lower bound \(\sqrt{a^2+b^2/4}\). For the midpoint cut, the disk centered at \((-b/2,0)\) contains every left-half vertex because \(R^2+bu+b^2/4\le R^2-3b^2/4\), and convexity fills the half-polygon. Equality forces \(t=0\), and the two diameter pairs force the center, proving the optimizer classification. Independent algebraic checks reproduced the square, hexagon and general formula.
 
-PASS with an explicit residual risk. published-finding corpus was queried for exact two-disk covering formulas, regular even polygons, regular polygon two-center problems, and the trigonometric expression in the claim. No indexed finding with an equivalent statement or implication was found. The 2021 convex-polygon paper was inspected in full at the relevant structural and algorithmic sections; searches within that text for “regular,” “symmetric,” and “even” found no special-family theorem. A later general planar two-center paper was also checked for regular-polygon or symmetry specializations without finding one.
+## originality
 
-The closest literature gives algorithms for arbitrary convex polygons, not a symbolic value or optimizer classification for the regular even family. The present theorem is therefore not merely an instance of a quoted formula from those papers, though it uses their boundary-subchain structural observation.
+PASS
 
-## Value
+The complete accessible primary text of Choi--Jeong--Ahn gives the exact general algorithm and the connected-subchain structural reduction, but a full-text search finds no regular-polygon specialization. Resultary returns the assigned theorem as the exact hit; broader two-center sources are algorithmic. No source located states the closed regular-even formula or the uniqueness classification.
 
-PASS. The convex-polygon two-center problem is a standard exact optimization problem with a sequence of increasingly efficient general algorithms. The theorem gives a complete closed-form solution and optimizer classification for an infinite canonical family, and it isolates a continuous-boundary effect that is invisible if one covers only the vertices. It supplies exact benchmark instances for implementations of general two-center algorithms and a geometric model for studying symmetry reductions.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The regular even polygons are the canonical symmetric test family for the continuous two-center problem. The result gives an exact radius and complete optimizer classification for every member of that family, including the side-interior effect that distinguishes polygon covering from covering only the vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

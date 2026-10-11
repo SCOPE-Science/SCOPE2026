@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:14:05.499375Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 67ff63a119a5318fa4215667e4d040bc9a7c183d",
+        "Choi--Jeong--Ahn, arXiv:2105.02483 / DOI 10.1016/j.comgeo.2022.101936"
+      ],
+      "rationale": "The general convex-polygon two-center reduction permits assignment of complementary connected boundary chains. One chain has at least half the perimeter; any half-perimeter subchain starts at \\(x=(t,a)\\) on a side and ends at \\(-x\\), and the two fixed left-side vertices force diameter at least \\(\\sqrt{4a^2+(b+|t|)^2}\\). This yields the lower bound \\(\\sqrt{a^2+b^2/4}\\). For the midpoint cut, the disk centered at \\((-b/2,0)\\) contains every left-half vertex because \\(R^2+bu+b^2/4\\le R^2-3b^2/4\\), and convexity fills the half-polygon. Equality forces \\(t=0\\), and the two diameter pairs force the center, proving the optimizer classification. Independent algebraic checks reproduced the square, hexagon and general formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper solves arbitrary convex polygons algorithmically in \\(O(n\\log n)\\) time.",
+          "It explicitly states that a feasible cover can be represented by complementary connected boundary subchains."
+        ],
+        "reasoning": "The general algorithm is broader in input class but does not mechanically provide the closed symbolic regular-even radius and equality geometry without the submitted specialization argument.",
+        "searches": [
+          "Choi--Jeong--Ahn arXiv:2105.02483",
+          "DOI 10.1016/j.comgeo.2022.101936",
+          "earlier convex-polygon two-center algorithm literature cited there"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2105.02483",
+        "https://doi.org/10.1016/j.comgeo.2022.101936",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior structural reduction narrows feasible covers to chain partitions.",
+          "The lower diameter bound, midpoint equality case and forced-center uniqueness still require additional regular-polygon geometry."
+        ],
+        "reasoning": "The prior algorithm does not imply the stated closed form by a cited theorem specialized only through parameters.",
+        "searches": [
+          "direct comparison with the connected-subchain observation in arXiv:2105.02483"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact hit is the assigned record.",
+          "The primary paper contains no occurrence of a regular-polygon specialization.",
+          "General point-set and convex-polygon two-center algorithms were located without the submitted symbolic family."
+        ],
+        "reasoning": "Continuous polygon covering and planar two-center formulations were checked separately from vertex-only covering.",
+        "searches": [
+          "Resultary query: regular even polygon two congruent disks exact covering radius regular polygon two center",
+          "arXiv:2105.02483 full-text search for regular",
+          "literature search: regular polygon two center congruent disks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or database of the regular-even continuous polygon two-center radius was located."
+        ],
+        "reasoning": "The claim is an all-even symbolic classification, not table recomputation.",
+        "searches": [
+          "Resultary semantic search",
+          "exact-formula web searches for the square/hexagon and all-even family"
+        ]
+      },
+      "rationale": "The complete accessible primary text of Choi--Jeong--Ahn gives the exact general algorithm and the connected-subchain structural reduction, but a full-text search finds no regular-polygon specialization. Resultary returns the assigned theorem as the exact hit; broader two-center sources are algorithmic. No source located states the closed regular-even formula or the uniqueness classification.",
+      "residual_risks": [
+        "An older computational-geometry note could contain the elementary regular-polygon specialization under a different two-center terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_ALGORITHM_NOT_REGULAR_CLOSED_FORM",
+          "evidence": "The paper states the connected-boundary-subchain reduction; full-text search found no regular-polygon specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.02483",
+          "material_read": "Complete searchable arXiv text, including the introduction, connected-subchain observation, decision algorithm, characterizations and conclusion.",
+          "method": "Lawful open arXiv full-text inspection.",
+          "title": "Covering Convex Polygons by Two Congruent Disks",
+          "trigger": "Exact primary source for the continuous convex-polygon two-center problem and the structural reduction used in the proof."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Choi--Jeong--Ahn primary paper"
+      ],
+      "rationale": "The regular even polygons are the canonical symmetric test family for the continuous two-center problem. The result gives an exact radius and complete optimizer classification for every member of that family, including the side-interior effect that distinguishes polygon covering from covering only the vertices.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2105.02483",
+    "https://doi.org/10.1016/j.comgeo.2022.101936",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only regular even polygons are classified.",
+    "Odd regular polygons, unequal radii, more than two disks and general centrally symmetric polygons are outside scope."
+  ],
+  "residual_risks": [
+    "An older computational-geometry note could contain the elementary regular-polygon specialization under a different two-center terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_ALGORITHM_NOT_REGULAR_CLOSED_FORM",
+      "evidence": "The paper states the connected-boundary-subchain reduction; full-text search found no regular-polygon specialization.",
+      "identifier_or_url": "https://arxiv.org/abs/2105.02483",
+      "material_read": "Complete searchable arXiv text, including the introduction, connected-subchain observation, decision algorithm, characterizations and conclusion.",
+      "method": "Lawful open arXiv full-text inspection.",
+      "title": "Covering Convex Polygons by Two Congruent Disks",
+      "trigger": "Exact primary source for the continuous convex-polygon two-center problem and the structural reduction used in the proof."
+    }
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,40 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof was reconstructed from the stated hypotheses and checked without numerical approximation.
+## correctness
 
-For a regular even \(n\)-gon of circumradius \(R\), set
-\[
-a=R\cos\!\left(\frac{\pi}{n}\right),\qquad
-b=R\sin\!\left(\frac{\pi}{n}\right).
-\]
-A half-perimeter boundary chain starting at \((t,a)\) ends at its antipode and contains the two left endpoints \((-b,a)\) and \((-b,-a)\). Its diameter is therefore at least
-\[
-\sqrt{4a^2+(b+|t|)^2},
-\]
-so any covering disk has radius at least
-\[
-\sqrt{a^2+\frac{b^2}{4}}.
-\]
-Equality in this lower bound forces \(t=0\).
+PASS
 
-For the midpoint cut, the proposed left center is \((-b/2,0)\). Every original left-side vertex \((u,v)\) satisfies
-\[
-u^2+v^2=R^2,\qquad u\le-b,
-\]
-and hence
-\[
-\left(u+\frac b2\right)^2+v^2
-=R^2+bu+\frac{b^2}{4}
-\le
-R^2-\frac{3b^2}{4}.
-\]
-Thus the proposed disk contains all vertices of the half-polygon and, by convexity, the whole half-polygon.
+The general convex-polygon two-center reduction permits assignment of complementary connected boundary chains. One chain has at least half the perimeter; any half-perimeter subchain starts at \(x=(t,a)\) on a side and ends at \(-x\), and the two fixed left-side vertices force diameter at least \(\sqrt{4a^2+(b+|t|)^2}\). This yields the lower bound \(\sqrt{a^2+b^2/4}\). For the midpoint cut, the disk centered at \((-b/2,0)\) contains every left-half vertex because \(R^2+bu+b^2/4\le R^2-3b^2/4\), and convexity fills the half-polygon. Equality forces \(t=0\), and the two diameter pairs force the center, proving the optimizer classification. Independent algebraic checks reproduced the square, hexagon and general formula.
 
-The two endpoint-crossing pairs in an optimal half-chain each have distance twice the claimed radius and the same midpoint, forcing the disk center. If an assigned boundary chain were longer than half the perimeter, it would contain half-perimeter windows with non-midpoint starts and would violate the strict lower bound. This verifies the equality classification.
+## originality
 
-Sanity checks give \(\sqrt5/4\) for a unit square and \(\sqrt{13}\,R/4\) for a regular hexagon of circumradius \(R\).
+PASS
 
-The proof does not establish any corresponding formula for regular odd polygons or for more than two disks.
+The complete accessible primary text of Choi--Jeong--Ahn gives the exact general algorithm and the connected-subchain structural reduction, but a full-text search finds no regular-polygon specialization. Resultary returns the assigned theorem as the exact hit; broader two-center sources are algorithmic. No source located states the closed regular-even formula or the uniqueness classification.
+
+## value
+
+PASS
+
+The regular even polygons are the canonical symmetric test family for the continuous two-center problem. The result gives an exact radius and complete optimizer classification for every member of that family, including the side-interior effect that distinguishes polygon covering from covering only the vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
