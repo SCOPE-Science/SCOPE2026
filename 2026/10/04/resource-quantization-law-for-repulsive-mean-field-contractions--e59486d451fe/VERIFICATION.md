@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically from the defining quantile identities. For atomless states, the probability-integral identity \(F_\mu(Q_\mu(u))=u\) gives the resource-targeted quantile update. The exact cancellation of the common \(R(u)\) term was verified inside the one-dimensional \(W_1\) integral before the \(L\)-Lipschitz microscopic map is applied.
+# Independent mathematical audit
 
-For the equilibrium law, the critical step is not merely \(Q_*(v)-Q_*(u)\ge\tau\varepsilon[R(v)-R(u)]\). The self-term was retained and solved:
-\[
-Q_*(v)-Q_*(u)
-\ge
-\frac{\tau\varepsilon}{1-\tau(1-\varepsilon)}[R(v)-R(u)].
-\]
-The matching upper inequality uses \(L\) in the same way. Integrating these inequalities over the \(N\) left-endpoint quantile cells gives the two-sided equilibrium estimate exactly.
+## correctness
 
-For finite-time approximation, each ordered empirical quantile cell was compared with the continuum quantile after one update. Integration yields
-\[
-W_1(\eta_{N,n+1},\mu_{n+1})
-\le L(1-\varepsilon)W_1(\eta_{N,n},\mu_n)+L\varepsilon e_N(\rho),
-\]
-and the displayed geometric-series bound follows.
+PASS
 
-Limits checked: \(0<\varepsilon<1\), \(0<\tau\le L<1\), one-dimensional monotone \(T\), atomless continuum states for the exact rank-quantile identity, and continuous strictly increasing bi-Lipschitz \(R\). No claim is made beyond these boundaries. No external independent validation has been performed.
+For atomless \(\mu\), monotonicity gives the exact quantile update \(Q\mapsto T((1-\varepsilon)Q+\varepsilon R)\), so the common resource term cancels in the one-dimensional \(W_1\) formula before applying \(T\). The fixed-point increment equation and \(\tau\le T'\le L\) yield the two-sided Lipschitz comparison of \(Q_*\) with \(R\), with denominators \(1-\tau(1-\varepsilon)\) and \(1-L(1-\varepsilon)\). Integrating those increment bounds cellwise over the lower-rank empirical quantile gives the exact two-sided \(e_N(\rho)\) equilibrium law. The same cellwise comparison gives the affine transient recurrence. Bi-Lipschitz \(R\) makes \(Q_*\) bi-Lipschitz and hence its pushforward absolutely continuous. No finite experiment is used as an infinite proof.
+
+## originality
+
+PASS
+
+The accessible primary predecessor describes the same model with uniformly distributed resources and finite-particle convergence, while the audited theorem replaces the uniform rank target by an arbitrary regular resource quantile and identifies its own quantization error as the exact finite-size scale. The strengthened lower constant also changes the homogeneous specialization. Full-text comparison of the 2026 predecessor was operationally unavailable, so the possibility that a remark there already anticipates this extension remains an explicit residual risk rather than being treated as automatic failure.
+
+## value
+
+PASS
+
+The resource distribution is part of the model's motivating interpretation, so replacing the homogeneous resource field by an arbitrary regular target law is a natural structural extension. The theorem identifies the exact finite-size statistic that replaces \(1/N\) and sharpens the lower equilibrium constant even in the original homogeneous case, giving information a future analysis of nonuniform resources can directly use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
