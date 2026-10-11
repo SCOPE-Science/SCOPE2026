@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct multiplication reduces every commutator to the vector equation
-\[
-(a-c)w-(d-f)v=z.
-\]
-This equation classifies the center and all element-centralizers. It also makes every commutator-fiber count a finite-field linear-algebra calculation. The zero and nonzero fiber counts sum to the total number of ordered pairs. The formula for equal centralizer counts follows from fixing \(q^r\), and the resulting probabilities are strictly ordered by the field exponent. The packaged checker independently reconstructs the multiplication, all centralizers, and all commutator fibers in seven cases, including \(\mathbf F_4\).
+## correctness
 
-## Originality
-PASS. The closest primary source studies the same commuting-probability invariant through \(n\)-centralizer finite rings. It covers the prime rank-two central-factor boundary and several small-\(n\) situations, but its displayed \(6\)-centralizer probability theorem expressly excludes the additive central factor \(C_2^4\). The specialization \(A_{1,4}\) lies in that excluded case and gives \(19/64\). Targeted searches found no generalized-Kronecker centralizer decomposition, uniform nonzero commutator-fiber formula, or the \(19/64\) specialization. The main residual risk is an equivalent formulation under bilinear-map or ring-isoclinism terminology.
+PASS
 
-## Value
-PASS. The theorem gives an exact probabilistic and centralizer profile for a standard path-algebra family, rather than an isolated small ring. It also shows that the number of centralizers does not determine commuting probability even within one natural family, and it concretely resolves one instance of a central-factor case left outside the closest six-centralizer probability calculation.
+Direct multiplication gives [x,y]=(0,(a-c)w-(d-f)v,0). This equation yields the center, the single centralizer H for delta=0,v nonzero, and q^r distinct q^2 centralizers C_u for delta nonzero, hence q^r+2 in total. For a prescribed radical commutator z, counting coefficient pairs (delta,epsilon) gives q^(2r)+(q^2-1)q^r reduced zero solutions and (q^2-1)q^r reduced solutions for each z nonzero; each has q^2 lifts to algebra elements. Dividing the zero fiber by |A|^2 gives the stated probability. In the divisor family q^r=p^M is fixed and the probability is strictly decreasing in the field exponent a, so the collision claim follows.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The direct Kronecker-algebra formulas are not implied by the closest n-centralizer results: those cover a lower-rank boundary and explicitly omit the C_2^4 six-centralizer probability case. No prior uniform commutator-fiber theorem was located.
+
+## value
+
+PASS
+
+The theorem gives complete centralizer geometry and the full additive commutator distribution for a standard path-algebra family, then uses it to show structurally that centralizer count does not determine commuting probability. The C_2^4 six-centralizer specialization directly fills a case omitted from the closest published probability list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
