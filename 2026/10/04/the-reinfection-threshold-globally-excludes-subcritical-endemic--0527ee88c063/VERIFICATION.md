@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical verification uses the scalar endemic-equilibrium equation from the source and checks the following exact implications.
+# Independent mathematical audit
 
-1. Positive endemic equilibria are equivalent to positive roots of
-\[
-F(I;\beta,B)=
-\frac{\Lambda\beta(M+\beta\sigma I)}{(A+\beta I)(\mu+\beta\sigma I)}
-+\frac{\delta BI}{\mu+BI}-K.
-\]
-2. For every \(I>0\), both \(\partial F/\partial\beta\) and \(\partial F/\partial B\) are strictly positive.
-3. At \(\beta=\beta_1^\ast\) and \(B=\beta_2^\ast\), clearing the positive denominator gives
-\[
--\frac{I^2K(\beta_1^\ast)^2}{AM^2\delta}(C_0+C_1I),
-\]
-with
-\[
-C_0=(K-\delta)P^2+A\delta\mu\sigma(M-\mu)(M-A\sigma)>0,
-\qquad
-C_1=M\beta_1^\ast\sigma(K-\delta)P>0.
-\]
-Therefore the corner value is strictly negative for every \(I>0\), and parameter monotonicity propagates that sign to the full claimed rectangle.
+## correctness
 
-The bundled `verify.py` uses only the Python standard library. It evaluates the threshold formulas and the corner factorization with exact rational arithmetic on multiple nondegenerate rational parameter sets and checks representative monotonicity comparisons. Running it from the extracted packaged artifact prints `VERIFY_OK`.
+PASS
 
-The checker is not an exhaustive proof over real parameters; the universal proof is the symbolic sign argument above. No independent audit has been performed.
+The source's Lemma B.1 reduces positive endemic equilibria to positive roots of the scalar function \(F\). Direct differentiation shows strict monotonicity in both \(\beta_1\) and \(\beta_2\) for every positive \(I\). A fresh symbolic calculation verified the package derivative simplification and, after substituting the source thresholds, verified identically that the cleared corner value equals a negative positive-prefactor times \(I^2(C_0+C_1I)\). Under \(0<\sigma\le1\), both \(C_0\) and \(C_1\) are positive. Thus the corner is strictly negative for all \(I>0\), and monotonicity propagates this to the claimed rectangle.
+
+## originality
+
+PASS
+
+The full primary paper explicitly labels the \(\beta_2\le\beta_2^\ast\), \(R_0<1\) equilibrium-exclusion observation as Numerical Finding 7.1, while its proved subcritical two-equilibrium theorem treats \(\beta_2>\beta_2^\ast\). The audited monotonicity-plus-corner factorization promotes exactly the unproved equilibrium sentence to a theorem and strengthens it to the boundary \(R_0=1\). Resultary found no later covering result.
+
+## value
+
+PASS
+
+The theorem closes an explicit gap between the source's proved backward-bifurcation regime and its numerical complementary regime. It sharply separates the existence of endemic equilibria from the stronger, still-unproved global-convergence claim and settles the threshold boundary as well.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

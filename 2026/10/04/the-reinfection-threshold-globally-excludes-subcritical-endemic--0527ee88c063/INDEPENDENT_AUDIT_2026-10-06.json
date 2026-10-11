@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:58:43Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob d030f383d32be6f71d203d312b04d6d7b0627705",
+        "verify.py blob b6eddf9017033ce37b7edf7bb319a1a3a6cf58fb",
+        "Fresh symbolic verification of the corner factorization.",
+        "Khan--Wang--Liu--Xiong, Journal of Biological Dynamics 20 (2026) 2713881, DOI:10.1080/17513758.2026.2713881, full primary HTML."
+      ],
+      "rationale": "The source's Lemma B.1 reduces positive endemic equilibria to positive roots of the scalar function \\(F\\). Direct differentiation shows strict monotonicity in both \\(\\beta_1\\) and \\(\\beta_2\\) for every positive \\(I\\). A fresh symbolic calculation verified the package derivative simplification and, after substituting the source thresholds, verified identically that the cleared corner value equals a negative positive-prefactor times \\(I^2(C_0+C_1I)\\). Under \\(0<\\sigma\\le1\\), both \\(C_0\\) and \\(C_1\\) are positive. Thus the corner is strictly negative for all \\(I>0\\), and monotonicity propagates this to the claimed rectangle.",
+      "risks": [
+        "The theorem excludes endemic equilibria only; it does not prove global convergence to the disease-free equilibrium."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact source proves the backward-bifurcation regime when \\(\\beta_2>\\beta_2^\\ast\\) and leaves the complementary global equilibrium exclusion numerical.",
+          "Earlier reinfection models use different compartments and thresholds."
+        ],
+        "reasoning": "No broader inspected model theorem specializes mechanically to the source's scalar equation and exact \\(\\beta_2^\\ast\\).",
+        "searches": [
+          "DOI:10.1080/17513758.2026.2713881",
+          "arXiv:2205.07258",
+          "DOI:10.1155/2020/9435819"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "DOI:10.1080/17513758.2026.2713881",
+        "arXiv:2205.07258",
+        "DOI:10.1155/2020/9435819"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma B.1 supplies the scalar equation but does not determine its sign over the full subcritical rectangle.",
+          "The existing theorems treat the opposite \\(\\beta_2>\\beta_2^\\ast\\) backward-bifurcation regime."
+        ],
+        "reasoning": "The new factorization at the codimension-two corner is the substantive implication that closes the numerical observation.",
+        "searches": [
+          "Primary paper Lemma B.1, Section 5 theorems, Numerical Finding 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No returned Resultary finding states the theorem.",
+          "The primary full text itself calls the corresponding \\(R_0<1\\) statement a numerical finding."
+        ],
+        "reasoning": "Equivalent formulations through positive zeros of the scalar equilibrium equation, backward bifurcation and reinfection-threshold geometry were compared.",
+        "searches": [
+          "Resultary: SEIRV reinfection threshold beta2 star subcritical endemic equilibrium exclusion R0 <=1",
+          "Web: exact title + Numerical Finding 7.1 + beta2 threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No correction, erratum or later theorem for Numerical Finding 7.1 was located."
+        ],
+        "reasoning": "The claim is symbolic and all-parameter, not a numerical table extrapolation.",
+        "searches": [
+          "Resultary exact threshold search",
+          "Web exact source-title and Numerical Finding search"
+        ]
+      },
+      "rationale": "The full primary paper explicitly labels the \\(\\beta_2\\le\\beta_2^\\ast\\), \\(R_0<1\\) equilibrium-exclusion observation as Numerical Finding 7.1, while its proved subcritical two-equilibrium theorem treats \\(\\beta_2>\\beta_2^\\ast\\). The audited monotonicity-plus-corner factorization promotes exactly the unproved equilibrium sentence to a theorem and strengthens it to the boundary \\(R_0=1\\). Resultary found no later covering result.",
+      "residual_risks": [
+        "A very recent follow-up not yet indexed could independently prove the same numerical finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_POSES_THE_COMPLEMENTARY_EXCLUSION_AS_NUMERICAL_FINDING",
+          "evidence": [
+            "Numerical Finding 7.1 says simulations suggest no subcritical endemic equilibrium when \\(R_0<1\\) and \\(\\beta_2\\le\\beta_2^\\ast\\)."
+          ],
+          "identifier_or_url": "DOI:10.1080/17513758.2026.2713881",
+          "material_read": "Full primary HTML, including the model, endemic-equilibrium reduction, reinfection-threshold discussion, numerical section and Lemma B.1.",
+          "method": "Publisher full-text inspection.",
+          "title": "Dynamics of an SEIRV endemic model: effects of reinfection",
+          "trigger": "Exact source and explicit numerical finding."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All positive endemic equilibria are excluded throughout the full \\(R_0\\le1\\), \\(\\beta_2\\le\\beta_2^\\ast\\) rectangle."
+      ],
+      "rationale": "The theorem closes an explicit gap between the source's proved backward-bifurcation regime and its numerical complementary regime. It sharply separates the existence of endemic equilibria from the stronger, still-unproved global-convergence claim and settles the threshold boundary as well.",
+      "risks": [
+        "The dynamical half of Numerical Finding 7.1 remains open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Khan--Wang--Liu--Xiong SEIRV model, if \\(R_0\\le1\\) and the reinfection parameter satisfies \\(0<\\beta_2\\le\\beta_2^\\ast\\), then no positive endemic equilibrium exists; this proves the equilibrium-exclusion part of the paper's Numerical Finding 7.1 and includes the boundary \\(R_0=1\\).",
+  "limitations": [
+    "Equilibrium exclusion only, not global disease-free convergence.",
+    "Uses the source model and \\(0<\\sigma\\le1\\)."
+  ],
+  "schema_version": 1
+}

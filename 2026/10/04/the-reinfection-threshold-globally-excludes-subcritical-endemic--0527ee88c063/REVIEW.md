@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source’s Lemma B.1 reduces positive endemic equilibria to positive zeros of the displayed scalar function \(F\). Direct differentiation shows \(F\) is strictly increasing in both \(\beta_1\) and \(\beta_2\) for every \(I>0\). At the extremal corner \((\beta_1,\beta_2)=(\beta_1^\ast,\beta_2^\ast)\), clearing positive denominators yields a factor \(-I^2(C_0+C_1I)\), with \(C_0>0\) and \(C_1>0\) under \(0<\sigma\le1\). Therefore \(F<0\) for every \(I>0\) at the corner and hence throughout the claimed rectangle. The exact-rational checker replays the threshold and factorization identities on several nondegenerate parameter sets.
+## correctness
 
-## Originality
-PASS. The motivating article explicitly labels the absence of subcritical endemic equilibria for \(\beta_2\le\beta_2^\ast\) as part of “Numerical Finding 7.1” and says simulations suggest it; the article proves only the local bifurcation-direction threshold and the \(\beta_2>\beta_2^\ast\) lower-critical-threshold regime. published-finding corpus searches for the source title, the numerical-finding language, threshold aliases, and equivalent no-positive-root formulations returned no covering finding. Searches of related reinfection literature found different SEIRE, SEIR, and SVEIRE systems, not this source-specific monotonicity-plus-corner factorization.
+PASS
 
-## Value
-PASS. The result converts a highlighted numerical observation into an exact structural theorem and gives the local bifurcation threshold a stronger interpretation: below it, the entire subcritical parameter region is free of positive endemic equilibria. This closes a natural bifurcation-geometry gap in the source while carefully leaving its separate global-convergence conjecture open.
+The source's Lemma B.1 reduces positive endemic equilibria to positive roots of the scalar function \(F\). Direct differentiation shows strict monotonicity in both \(\beta_1\) and \(\beta_2\) for every positive \(I\). A fresh symbolic calculation verified the package derivative simplification and, after substituting the source thresholds, verified identically that the cleared corner value equals a negative positive-prefactor times \(I^2(C_0+C_1I)\). Under \(0<\sigma\le1\), both \(C_0\) and \(C_1\) are positive. Thus the corner is strictly negative for all \(I>0\), and monotonicity propagates this to the claimed rectangle.
 
-## Closest literature and limitations
-The closest source is the motivating 2026 SEIRV article itself, which states the target equilibrium-exclusion claim numerically but does not prove it. Wang et al. treat a different SEIRE reinfection model with a basic reinfection number and a lower critical threshold; Wangari treats a different SEIR exogenous-reinfection system; Sulayman et al. treat an SVEIRE tuberculosis model. General backward-bifurcation literature does not imply the exact threshold rectangle for the present scalar equation. The theorem excludes equilibria only and does not establish global disease-free convergence or rule out other recurrent dynamics.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full primary paper explicitly labels the \(\beta_2\le\beta_2^\ast\), \(R_0<1\) equilibrium-exclusion observation as Numerical Finding 7.1, while its proved subcritical two-equilibrium theorem treats \(\beta_2>\beta_2^\ast\). The audited monotonicity-plus-corner factorization promotes exactly the unproved equilibrium sentence to a theorem and strengthens it to the boundary \(R_0=1\). Resultary found no later covering result.
+
+## value
+
+PASS
+
+The theorem closes an explicit gap between the source's proved backward-bifurcation regime and its numerical complementary regime. It sharply separates the existence of endemic equilibria from the stronger, still-unproved global-convergence claim and settles the threshold boundary as well.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
