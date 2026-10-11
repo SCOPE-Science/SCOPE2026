@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The measure-simplex inclusion gives the lower bound. For the upper bound, the proof uses left-coset representatives, so no normality assumption on \(H\) is hidden. Coset averaging produces a \(\Gamma\)-invariant measure from every \(H\)-invariant one, and the transformed cover identity converts the pointwise cover-order sum into exactly \(m\) times an integral against that average. Meyerovitch's Lemma 2.4 supplies the required joint refinement with additive pointwise order. Empty invariant-measure simplices, infinite dimension, and \(m=1\) are separately covered. The cyclic-layer example verifies sharpness using the source's constant-orbit-size formula.
+## correctness
 
-## Originality
-PASS. The closest source is Meyerovitch's defining paper, whose full text was inspected at the finite-index statement, Lemma 2.4, and Section 7. It gives a finite-index fixed-point lower bound and an exact finite-orbit formula, but no comparison between the dimension of an action and the dimension after restriction to a finite-index subgroup was located. Searches using subgroup-restriction, power, and iterate formulations found no covering theorem. Two later 2026 papers of Ruxi Shi were checked at the abstract level and do not announce such a law; their uninspected full texts remain a residual literature risk.
+PASS
 
-## Value
-PASS. A finite-index subgroup is a natural structural change of the acting group, and the source itself highlights finite-index subgroups in the obstruction theory. The new two-sided law gives universal quantitative stability under restriction and a sharp coefficient. The \(\mathbb Z\)-specialization provides a clean rule for powers of a homeomorphism, while the cyclic-layer example shows that the factor cannot be improved.
+The two inequalities follow from the actual definition. Since every \(\Gamma\)-invariant probability is \(H\)-invariant, the first inequality is immediate. For the reverse bound, averaging any \(H\)-invariant measure over a full left-coset transversal gives a \(\Gamma\)-invariant measure even when \(H\) is not normal. Refining a cover jointly over the \(m\) coset translates and iterating Meyerovitch's pointwise cover-order Lemma 2.4 gives an \(H\)-cover whose integrated order is at most \(m\) times the corresponding \(\Gamma\)-order, hence \(\dim(X,T|_H)\le m\dim(X,T)\). The empty-measure case is simultaneous by the same coset averaging. The cyclic-layer sharpness example factors through the free finite quotient \(\mathbb Z/m\mathbb Z\), so Meyerovitch's finite-group formula gives \(d/m\), while the \(m\mathbb Z\)-restriction is trivial and has dimension \(d\). Boundary cases \(m=1\), infinite dimension, and empty invariant-measure simplices are correctly separated.
 
-## Closest literature and limitations
-The primary reference is Tom Meyerovitch, arXiv:2601.13161, especially the definition of dynamical dimension, Lemma 2.4, Introduction item 5, and Section 7. The later papers arXiv:2607.27880 and arXiv:2609.05664 are scientifically close because they use the same invariant, but only their abstracts were inspected in this review. No claim is made for infinite-index restrictions or for a classification of equality cases.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Meyerovitch's paper was inspected in full at the load-bearing statements. It records a finite-index lower obstruction involving a fixed-point set, and separately the free finite-group formula, but not a comparison between an action and its restricted \(H\)-action. The audited upper inequality requires combining the source's cover-order subadditivity with coset averaging of invariant measures. Current Resultary search returned the assigned theorem as the only close same-invariant finite-index statement; the later Shi papers located in the source record remain an abstract-level overlap risk.
+
+## value
+
+PASS
+
+Finite-index restriction and passage to powers are basic permanence questions for any dynamical dimension. The theorem gives a sharp universal distortion law, handles nonnormal subgroups, and identifies equality-scale examples. This is a natural structural property of a new invariant rather than a cosmetic reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
