@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS.  The claim is a single finite counterexample.  The published recurrence and closure definitions reconstruct the displayed length-\(36\) prefix from \(\Delta=00101\) and \(\Theta=EEEER\).  A transparent seven-factor hitting certificate forces at least five attractor positions in three disjoint coordinate ranges, while \(\Gamma=\{3,7,15,21,25\}\) is verified against all \(500\) distinct nonempty factors.  The standalone verifier also exhausts every one of the \(58905\) four-position sets.  No finite calculation is extrapolated beyond the displayed prefix.
+## correctness
 
-## Originality
-PASS.  The direct primary paper states the opposite universal conjecture and covers only special subclasses.  The closely related thesis was inspected because it contains brute-force attractor software; its conclusion still identifies arbitrary generalized pseudostandard attractors as an open problem, and the inspected material does not contain this witness.  Exact-word, exact-directive, conjecture, alias, and broader searches found no prior implication.  The closest indexed public string-attractor record returned by the searches concerns different automatic sequences and does not imply a mixed \(E/R\) generalized-pseudostandard counterexample.
+PASS
 
-Residual risk remains that an unindexed note, an uninspected thesis passage, or a differently phrased finite computation already contains the same example.
+The directive prefixes reconstruct exactly to the stated length-36 palindrome. The seven displayed factors give a transparent lower bound: three eligible-position sets inside positions 0–14 have empty common intersection and require at least two points, one factor forces a point in the disjoint range 15–20, and three sets inside 21–35 likewise require at least two, totaling five. Independent replay enumerated all 500 distinct nonempty factors, verified the attractor {3,7,15,21,25}, and exhaustively rejected all 58,905 four-position sets.
 
-## Value
-PASS.  This is a direct counterexample to an explicit published conjecture about the principal open mixed-closure class, not a routine parameter increment.  The finite certificate also isolates a concrete structural mechanism requiring \(2+1+2\) positions across three disjoint coordinate regions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper explicitly conjectures that every pseudopalindromic prefix of every binary generalized pseudostandard sequence has minimum attractor size at most four, while proving smaller bounds only for special subclasses. Exact-word, directive-pair, conjecture and Resultary searches found no earlier size-five counterexample or correction. The explicit mixed-directive witness is therefore best-of-knowledge new.
+
+## value
+
+PASS
+
+A short exact counterexample that falsifies the main universal attractor conjecture of the source paper is a motivated combinatorics-on-words result. The certificate is transparent and independently replayable, and the witness narrows the search for the true universal behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

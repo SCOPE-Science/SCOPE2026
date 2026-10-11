@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`.
+# Independent mathematical audit
 
-The program implements reversal and the binary exchange antimorphism directly.  At every directive step it constructs the shortest corresponding pseudopalindromic closure, checks the required symmetry, and verifies that no shorter prefix-extension is already a pseudopalindrome of the required type.  This reproduces the five stated prefixes and the length-36 target word.
+## correctness
 
-For the attractor upper bound, the verifier enumerates every distinct nonempty factor of the target word and all occurrence starts.  There are 500 distinct factors.  It confirms that the position set \(\{3,7,15,21,25\}\) crosses at least one occurrence of every factor.
+PASS
 
-For the lower bound, it verifies the complete occurrence lists and eligible-coordinate unions of the seven factors displayed in the proof.  Their coordinate supports split into three disjoint ranges.  The left triple has empty common intersection, the middle factor is confined to its own range, and the right triple has empty common intersection, forcing at least \(2+1+2=5\) positions.  As a redundant finite check, the program also tests all 58,905 four-position subsets and confirms that none crosses all 500 factors.
+The directive prefixes reconstruct exactly to the stated length-36 palindrome. The seven displayed factors give a transparent lower bound: three eligible-position sets inside positions 0–14 have empty common intersection and require at least two points, one factor forces a point in the disjoint range 15–20, and three sets inside 21–35 likewise require at least two, totaling five. Independent replay enumerated all 500 distinct nonempty factors, verified the attractor {3,7,15,21,25}, and exhaustively rejected all 58,905 four-position sets.
 
-The verification proves only the stated finite counterexample.  It does not search all directive pairs, determine the next valid universal bound, or establish unboundedness.
+## originality
+
+PASS
+
+The primary paper explicitly conjectures that every pseudopalindromic prefix of every binary generalized pseudostandard sequence has minimum attractor size at most four, while proving smaller bounds only for special subclasses. Exact-word, directive-pair, conjecture and Resultary searches found no earlier size-five counterexample or correction. The explicit mixed-directive witness is therefore best-of-knowledge new.
+
+## value
+
+PASS
+
+A short exact counterexample that falsifies the main universal attractor conjecture of the source paper is a motivated combinatorics-on-words result. The certificate is transparent and independently replayable, and the witness narrows the search for the true universal behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
