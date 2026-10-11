@@ -1,0 +1,108 @@
+{
+  "claim": "For every finite nonempty edge-transitive simple graph \\(H=(V,E)\\), put \\(G=\\mathbb F_2^V\\), \\(\\Omega_H=\\{0\\}\\cup\\{e_u+e_v:uv\\in E\\}\\), \\(m=|E|\\), and \\(M=\\operatorname{MAXCUT}(H)\\). Then the Turán extremum \\(\\tau(H)=\\sup\\{\\sum_{x\\in G}f(x):f(0)=1,\\ f\\text{ positive definite},\\ \\operatorname{supp}f\\subseteq\\Omega_H\\}\\) satisfies \\(\\tau(H)=2M/(2M-m)=\\chi_q(H)\\), where \\(\\chi_q\\) is Šámal's cubical chromatic number. A sharp extremizer is given by \\(f(0)=1\\) and \\(f(e_u+e_v)=1/(2M-m)\\) on every edge. For every odd cycle \\(H=C_{2k+1}\\), this normalized extremizer is unique and \\(\\tau(C_{2k+1})=4k/(2k-1)\\).",
+  "correctness": {
+    "rationale": "On \\(\\mathbb F_2^V\\), positive definiteness makes the edge coefficients real and is equivalent to nonnegative Fourier values. Each Fourier inequality is exactly a cut inequality \\(1+W-2a(C)\\ge0\\). Averaging a maximum cut over automorphisms is valid because edge transitivity gives incidence frequency \\(M/m\\), yielding the sharp upper bound. The uniform edge coefficient \\(1/(2M-m)\\) has Fourier minimum zero exactly at maximum cuts. Odd-cycle uniqueness follows because every maximum cut omits one edge, forcing all edge coefficients equal. All hypotheses, quantifiers, and the strict positivity \\(2M-m>0\\) are accounted for.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2003 harmonic paper gives general finite-group bounds through spectral/packing structures.",
+        "Later cut-cover papers treat graph optimization and semidefinite bounds, including symmetry, without a positive-definite Boolean-shell theorem."
+      ],
+      "reasoning": "The closest broader theories cover either the harmonic side or the cut side, but the inspected results do not dominate the claimed cross-framework identity or odd-cycle harmonic rigidity.",
+      "searches": [
+        "arXiv:math/0312218 finite abelian Turan spectral sets",
+        "arXiv:2311.15346 weighted fractional cut-cover gauge duality",
+        "arXiv:2505.10548 fractional cut-cover highly regular graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0312218",
+      "arXiv:0911.2589",
+      "arXiv:1108.6280",
+      "arXiv:2311.15346",
+      "arXiv:2505.10548"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No inspected source states that the Turán extremum for \\(\\Omega_H\\) equals \\(2M/(2M-m)\\) or \\(\\chi_q(H)\\).",
+        "The prior harmonic and graph statements can be connected by the new cut inequality and automorphism averaging proof."
+      ],
+      "reasoning": "Neither cited framework, as stated, implies the claim without the missing Fourier/cut translation. Once that translation is proved, Šámal's edge-transitive formula identifies the same numerical invariant, while the odd-cycle coefficient rigidity remains an additional equality statement.",
+      "searches": [
+        "positive definite finite group graph edge support maximum cut",
+        "fractional cut cover positive definite Fourier",
+        "Turan constant graph Boolean Fourier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Šámal defines fractional cut-cover and cubical chromatic number and proves the edge-transitive formula; targeted full-text checks found no harmonic formulation.",
+        "Kolountzakis–Révész formulate the positive-definite Turán problem and finite-group Fourier methods but not this cut identity."
+      ],
+      "reasoning": "The graph parameter and the harmonic extremum become equivalent only after the character-to-cut calculation in the present proof; the inspected statements do not supply that equivalence.",
+      "searches": [
+        "\"Boolean edge shell\" positive definite Turan maxcut",
+        "\"cubical chromatic number\" positive definite",
+        "arXiv:0911.2589 full text: \"positive definite\", \"Fourier\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Šámal already records exact cubical-chromatic values for standard symmetric graphs, including odd cycles and the Petersen graph."
+      ],
+      "reasoning": "Those exact graph values are treated as prior data. The accepted claim is not a new maximum-cut table; it proves that those graph values are exactly the Turán constants of specified Boolean supports and identifies the corresponding positive-definite extremizer, with uniqueness for odd cycles.",
+      "searches": [
+        "edge-transitive fractional cut cover exact maxcut",
+        "odd cycle cubical chromatic number exact",
+        "Petersen cubical chromatic number 8/3"
+      ]
+    },
+    "rationale": "The inspected harmonic source develops the Turán problem and finite-group Fourier bounds but does not state a graph maximum-cut/cubical-coloring identity. The inspected cubical-coloring source proves the edge-transitive cut-cover formula and exact graph examples but contains no positive-definite or Fourier formulation. The claim is the explicit bridge between these frameworks, plus an odd-cycle extremizer classification. A complete-graph specialization already present in the private overlap record was excluded as a novelty basis.",
+    "residual_risks": [
+      "An older equivalent statement may exist under positive-type kernels on Cayley graphs, cut-polytopes, or cubical embeddings; targeted alias searches did not locate one.",
+      "The theorem does not claim the analogous formula for non-edge-transitive graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general Turán/Fourier setting but not the Boolean-edge-shell maximum-cut or cubical-coloring identity.",
+        "evidence": "First posted 2003-12-10; primary MSC 43A35. The finite-group theorem inspected is formulated through spectral-set bounds.",
+        "identifier_or_url": "arXiv:math/0312218",
+        "material_read": "Full arXiv HTML: abstract, problem definition, positive-definite preliminaries, and finite abelian group theorem.",
+        "method": "Statement and implication comparison.",
+        "title": "Turán's extremal problem for positive definite functions on groups",
+        "trigger": "Primary harmonic framework and MSC ownership."
+      },
+      {
+        "assessment": "Proves \\(x(H)=m/M\\) for edge-transitive graphs and \\(\\chi_q(H)=2/(2-x(H))\\), but does not formulate positive-definite functions or Fourier analysis.",
+        "evidence": "First posted 2009-11-13; targeted full-text searches for “positive definite” and “Fourier” returned no occurrence.",
+        "identifier_or_url": "arXiv:0911.2589",
+        "material_read": "Full arXiv HTML/PDF: definitions, LP section, edge-transitive lemma, exact examples, and cubical chromatic relation.",
+        "method": "Full-text statement search and implication comparison.",
+        "title": "Cubical coloring — fractional covering by cuts and semidefinite programming",
+        "trigger": "Closest graph parameter: fractional cut-cover and cubical chromatic number."
+      },
+      {
+        "assessment": "Develops the graph optimization duality but does not supply the harmonic Boolean-shell identity.",
+        "evidence": "The relevant duality is posed in nonnegative graph edge weights; no positive-definite finite-group formulation was identified.",
+        "identifier_or_url": "arXiv:2311.15346",
+        "material_read": "Relevant full-text sections defining weighted fractional cut cover and its max-cut/gauge duality.",
+        "method": "Implication comparison.",
+        "title": "Weighted fractional cut covers and maximum-cut gauge duality",
+        "trigger": "Potential broader cut-duality coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8b1ea7ca-3db1-4409-949f-200f98c39f23",
+  "value": {
+    "rationale": "The result is a structural infinite-family theorem rather than a finite recomputation: it identifies a harmonic Turán invariant with cubical chromatic number for every finite nonempty edge-transitive graph. This transfers exact maximum-cut information to positive-definite extremal functions, supplies an explicit universal extremizer, and gives a complete uniqueness statement for odd cycles. The bridge is reusable across symmetric graph families and is not motivated by an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
