@@ -1,15 +1,21 @@
-# Review of The marked-point discriminant of the \(B_3\) unexpected quartic is the non-Fano arrangement
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the source's explicit quartic and computes the complete local expansion at the marked point on three affine parameter charts. The binary-cubic discriminants have exactly the seven stated reduced components. Componentwise factorization distinguishes triple-line from double-plus-simple tangent cones. Exact projective incidence enumeration gives six triple and three double intersections, equal to the nine source points. At each such point the cubic term vanishes and the quartic initial form is a squarefree product of four lines, proving an ordinary quadruple point rather than merely observing a high-order vanishing.
+## correctness
 
-## Originality
-PASS. The closest source gives the family, the nine points, and equality of the two BMSS tangent cones, but its full-text terminology search and inspected discussion do not state the parameter discriminant, non-Fano arrangement, componentwise degeneration types, or the nine quadruple specializations. The uniqueness paper classifies the nine-point configuration but contains no corresponding tangent-cone degeneration result in the inspected text. Published-record searches for the claim and its aliases returned no statement implying this stratification.
+PASS
 
-## Value
-PASS. The exact failure locus for the word “general” in the marked triple-point geometry is a natural invariant of this canonical unexpected-quartic family. Identifying that locus with the non-Fano arrangement and recovering the original nine-point configuration as its singular set ties together the family, its tangent-cone degeneration, and arrangement combinatorics. The result also gives a complete boundary stratification of the marked singularity from ordinary triple points through two nonordinary triple-point types to ordinary quadruple specializations.
+On the \(c=1\) chart, direct expansion at \(B=[a:b:1]\) has no terms below degree three and gives \(T_3=-(bu-av)^3+bu^3-av^3\) and \(T_4=uv(u-v)(u+v)\). A fresh symbolic discriminant calculation gives \(-27a^2b^2(a-b-1)(a-b+1)(a+b-1)(a+b+1)\); cyclic charts therefore give the seven projective lines \(abc(a+b+c)(a+b-c)(a-b+c)(-a+b+c)=0\). Independent projective intersection enumeration gives exactly six triple and three double intersections, precisely the nine fixed \(B_3\) points. Specializing the published quartic at each of those nine points factors it into four distinct concurrent linear factors, proving multiplicity four there; away from the discriminant the binary cubic has three distinct tangent directions, and the displayed component factorizations give the stated triple-line versus double-plus-simple stratification.
 
-## Closest literature and limitations
-The closest literature is arXiv:1907.04832, which explicitly writes the family and proves the relevant BMSS tangent-cone relation, together with the uniqueness/classification paper for the nine-point unexpected-quartic configuration. Only the reduced discriminant support is claimed here. The scheme structure of the discriminant and unrelated singularities of specialized quartics remain outside scope.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2020 primary paper prints the exact \(B_3\) quartic family, the nine fixed points, the dual cubic, and the equality of tangent cones under BMSS duality. Targeted full-text searches in that source found no discriminant or non-Fano statement. The 2025 matrixwise-reloaded paper prominently uses the same seven-line weak combinatorics of the nine points to prove existence, but its inspected material does not identify that arrangement as the repeated-tangent-direction locus or give the singularity stratification. Current Resultary search returns the assigned discriminant theorem as the exact hit and no stronger same-object degeneration theorem.
+
+## value
+
+PASS
+
+The parameter locus where the defining unexpected triple point changes analytic type is a natural geometric invariant of the canonical \(B_3\) family. Identifying it with the non-Fano arrangement and classifying its smooth-component and intersection strata explains exactly where ordinary triple points fail and where the quartic degenerates to four concurrent lines; this is more informative than a standalone symbolic discriminant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
