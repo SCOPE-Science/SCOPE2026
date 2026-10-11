@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The lower bound 2^(1/p) follows by unit witnesses on coordinates where the base vector has arbitrarily small fiber norm. For q>=2, the rotated fiber vector (s,-r) has the same ell_q norm as (r,s), and scalar Clarkson gives both symmetric fiber chords at least 2^(1/q); scaling this witness coordinatewise gives the global lower bound 2^(1/q). For the one-coordinate base point, one sign makes the first fiber coordinate contract, yielding min-fiber^q<=1+a^q. The outer remainder has p-mass 1-a^p, so the problem is exactly H(a)=(1+a^q)^(p/q)+1-a^p. For p<=q, subadditivity gives H<=2; for p>=q, H is increasing in a^q and H<=2^(p/q). The q=infinity endpoint is direct.",
+    "risks": [
+      "The lower fresh-coordinate argument uses only a supremum when the outer support is all of a countably infinite index set; coordinates tending to zero suffice.",
+      "The checker samples parameters and is not the proof of the continuum theorem."
+    ],
+    "sources": [
+      "Hardtke, arXiv:1705.06610v1 and doi:10.12697/ACUTM.2018.22.13 for the local-octahedrality symmetric-chord framework",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hardtke's paper gives qualitative local-octahedrality results for absolute sums, not an exact quantitative index for non-LOH ell_p sums.",
+        "The indexed Hilbert-fiber theorem gives phase transition p=2, not p=q.",
+        "The average-roughness law is a different modulus."
+      ],
+      "reasoning": "Qualitative stability and the q=2 specialization do not determine the q-dependent sharp value for q>2. The new proof needs the exact rotated ell_q^2 Clarkson witness and the p/q scalar envelope.",
+      "searches": [
+        "Hardtke local-octahedrality ell_p ell_q sequence spaces",
+        "quantitative local octahedrality ell_p sum Banach exact",
+        "ell_p ell_q^2 local octahedrality phase transition p=q"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1705.06610v1",
+      "doi:10.12697/ACUTM.2018.22.13",
+      "2026/10/4/SCOPE-exact-local-octahedrality-index-of-hilbert-valued-ell-p-sequence--5d5da336f7e9",
+      "2026/10/4/SCOPE-sharp-average-roughness-law-for-finite-and-infinite-ell-p-sums--5be3ad135f99",
+      "own:56ed8ffd-bf9e-47e6-bf6d-f9dd802408c2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Hilbert theorem is recovered only when q=2.",
+        "The diamond-fiber own theorem lies at q=1 and has a different pointwise mechanism.",
+        "Hardtke's qualitative condition only detects the endpoint value 2 and does not determine intermediate quantitative values."
+      ],
+      "reasoning": "Neither neighboring endpoint q=1 nor q=2 results imply the continuum q>2 formula, and qualitative local octahedrality cannot determine an exact non-octahedral index below 2.",
+      "searches": [
+        "local octahedrality index ell_p Gamma ell_q^2 q>=2 exact",
+        "Hardtke local octahedrality absolute sums quantitative",
+        "ell_p ell_q^2 local octahedrality phase transition p=q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem is equivalently the exact worst-base-point value of the symmetric chord problem sup_y min(||x+y||,||x-y||).",
+        "No published-finding corpus hit states this formula for q>2 or its one-coordinate extremal base point.",
+        "The Hilbert hit fixes q=2 only."
+      ],
+      "reasoning": "Searches used both the index terminology and its symmetric-chord formulation, plus the exact formula, to avoid treating a notation change as novelty.",
+      "searches": [
+        "local octahedrality index ell_p Gamma ell_q^2 q>=2 exact",
+        "exact local octahedrality l_p(l_q^2) 2^(1/min(p,q))",
+        "pointwise local octahedrality ell_q fiber ell_p sum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-formula searches returned the Hilbert q=2 record but no q>2 table or theorem.",
+        "The q=3 object-specific search likewise returned no covering record.",
+        "Own-ledger searches found no ell_q^2 local-octahedrality formula for q>2."
+      ],
+      "reasoning": "The q=3 specialization and exact formula were searched separately to catch isolated tables or examples that might not advertise a general q theorem.",
+      "searches": [
+        "local octahedrality index ell_p(Gamma;ell_3^2) exact",
+        "2^(1/min(p,q)) local octahedrality Banach",
+        "exact local octahedrality l_p(l_q^2) 2^(1/min(p,q))"
+      ]
+    },
+    "rationale": "published-finding corpus searches covered the exact object, ell_p(ell_q^2) aliases, the formula 2^(1/min(p,q)), q=3 specialization, pointwise/local-octahedrality wording, and phase-transition language. The closest indexed formula is the Hilbert-fiber q=2 case. The current and immediate-prior own ledgers were checked for local-octahedrality, ell_q-fiber, and vector-valued ell_p claims; the only nearby own result is the ell_1^2 diamond-fiber theorem. Hardtke's full paper was inspected at the local-octahedrality definition and symmetric-chord characterization and at its qualitative p-direct-sum discussion; it contains no quantitative index formula, and full-text searches found no 'index' or 'quantitative' statement.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "An equivalent quantitative formula could exist under another local-octahedrality modulus notation.",
+      "The q=2 boundary case is already covered by the indexed Hilbert-fiber theorem; the originality claim concerns the q>2 extension and the p=q phase law."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FRAMEWORK_NOT_COVERING: the paper supplies the qualitative symmetric-chord framework and absolute-sum context but no exact quantitative index formula for ell_p(Gamma;ell_q^2).",
+        "evidence": "arXiv v1 was submitted 18 May 2017. Publisher PDF page 149 states 2010 Mathematics Subject Classification 46B20; the introduction states the equivalent LOH condition ||x+-y||>=2-epsilon and discusses p-direct sums.",
+        "identifier_or_url": "arXiv:1705.06610v1; doi:10.12697/ACUTM.2018.22.13",
+        "material_read": "Publisher PDF first page and introduction, including the LOH definition, the equivalent symmetric-chord characterization, the p-direct-sum qualitative results, and publication metadata; full-text searches for 'index' and 'quantitative'.",
+        "method": "Open-access publisher PDF text plus page-image inspection and arXiv metadata.",
+        "title": "Summands in locally almost square and locally octahedral spaces",
+        "trigger": "Primary literature anchor for local octahedrality and absolute sums."
+      }
+    ],
+    "sources": [
+      "arXiv:1705.06610v1",
+      "doi:10.12697/ACUTM.2018.22.13"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46638236-44aa-446c-9c06-1fdf8ed528e3",
+  "value": {
+    "rationale": "The theorem gives a closed phase law for a two-parameter classical family of vector-valued sequence spaces and identifies which geometry controls the worst local symmetric chord. The transition moves with the intrinsic fiber exponent q rather than remaining at the Hilbert value 2. The proof isolates two sharp mechanisms—almost-disjoint outer support and a rotated Clarkson fiber witness—and shows exactly where each dominates.",
+    "risks": [
+      "The theorem is deliberately restricted to two-dimensional super-Hilbert fibers; the sub-Hilbert and higher-dimensional cases may have different behavior."
+    ],
+    "sources": [
+      "Hardtke, arXiv:1705.06610v1",
+      "Bundled RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
