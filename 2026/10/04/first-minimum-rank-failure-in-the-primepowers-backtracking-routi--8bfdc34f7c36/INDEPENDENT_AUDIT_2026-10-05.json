@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:54:27.251229Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 266f1403704cf3eb2641865312cba8721f2484ad",
+        "verify_minimality.py blob ca10c05fde4b6a6454df357881e78d50688fd3fd",
+        "independent exact exhaustive rank replay for 24 through 50",
+        "released source blob 2a1a0f4485e60b783542da37e5f2aa7ca4ea6079"
+      ],
+      "rationale": "The source routine was independently reimplemented from its frozen code path. For every integer from 24 through 49, the number of terms in its first depth-first solution equals the exact minimum found by an independent increasing-rank exhaustive search. At 50 the routine returns \\(32+9+9\\), while \\(25+25\\) is a valid two-term representation and one term is excluded by the paper's own requirement of at least two summands, so rank two is optimal. The showcased value also satisfies \\(512550=659^2+5^7+2^7+2^4\\), a four-term decomposition. These are finite claims and the enumerations are exhaustive over their stated finite ranges.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper establishes only computational evidence for representations using at most five terms.",
+          "The repository documentation, not a theorem in the paper, supplies the minimum-seeking interpretation being corrected."
+        ],
+        "reasoning": "No broader additive-number-theory theorem inspected determines the first failure of this particular depth-first implementation.",
+        "searches": [
+          "arXiv:2508.01686v1 full text",
+          "PrimePowers README/source",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "Stricker, On the Representation of Integers as Sums of Limited Prime Powers, arXiv:2508.01686v1",
+        "PrimePowers/PrimePowers source blob 2a1a0f4485e60b783542da37e5f2aa7ca4ea6079",
+        "PrimePowers/PrimePowers README blob 6adf409a056f3fbf8f413b869abf0ef24aaa82ed",
+        "Resultary semantic query: PrimePowers backtracking minimum decomposition first failure n=50 25+25 prime powers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source control flow itself does not compare solution lengths: it stops at first success.",
+          "At 50 its first branch begins at 32 and finds 32+9+9 before any two-term alternative is considered."
+        ],
+        "reasoning": "The precise first-failure threshold and the minimum witness require exhaustive comparison against every smaller target in the claimed range.",
+        "searches": [
+          "source blob 2a1a0f4485e60b783542da37e5f2aa7ca4ea6079",
+          "independent exact rank search through 50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The released routine iterates candidate prime powers from largest downward and returns immediately on the first recursive success.",
+          "Independent exhaustive increasing-rank search gives source output \\(32+9+9\\) at 50 but true optimum \\(25+25\\), with no rank mismatch for 24 through 49."
+        ],
+        "reasoning": "The claim was checked both as a software-algorithm statement and as a minimum-term additive representation statement. The paper's existence conjecture is weaker and does not imply source-output minimality.",
+        "searches": [
+          "Stricker, On the Representation of Integers as Sums of Limited Prime Powers, arXiv:2508.01686v1",
+          "PrimePowers/PrimePowers source blob 2a1a0f4485e60b783542da37e5f2aa7ca4ea6079",
+          "PrimePowers/PrimePowers README blob 6adf409a056f3fbf8f413b869abf0ef24aaa82ed",
+          "Resultary semantic query: PrimePowers backtracking minimum decomposition first failure n=50 25+25 prime powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked indexed correction or minimum-rank table predating the audited finding was located."
+        ],
+        "reasoning": "The novelty claim is about a concrete released algorithm/version; absence of a search hit is supporting evidence, not the sole basis.",
+        "searches": [
+          "Resultary query above",
+          "web exact searches for 50=25+25 together with the PrimePowers routine",
+          "source paper example table"
+        ]
+      },
+      "rationale": "Originality passes as a precise correction of a released computational artifact. The source paper proves no minimum-rank theorem and only uses the listed representations as existence evidence. The accompanying repository README says the backtracking routine aims for the minimum number of terms, while the actual source code is a descending depth-first first-success search. Fresh exact and semantic searches found no prior identification of 50 as the first rank failure or the shorter decomposition of the showcased 512550 example.",
+      "residual_risks": [
+        "The first-failure statement is version-specific to the inspected released source blob; later code changes could alter the cursor but not this audited historical claim.",
+        "The paper's five-term representation of 512550 is an example rather than an explicit minimality assertion, so the scientifically stronger correction concerns the repository's minimum-seeking description and output rank."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_EVIDENCE_NOT_MINIMUM_RANK_THEOREM",
+          "evidence": "The paper states an at-most-five conjecture and lists 512550 with five summands; it does not certify that example or every output as minimum length.",
+          "identifier_or_url": "arXiv:2508.01686v1",
+          "material_read": "Full accessible preprint text including definitions, computational methodology, support range, and the example list containing 512550.",
+          "method": "lawful open full text",
+          "title": "On the Representation of Integers as Sums of Limited Prime Powers",
+          "trigger": "Primary paper behind the released computational evidence and showcased five-term example."
+        },
+        {
+          "assessment": "FIRST_SUCCESS_DFS_DESCRIBED_AS_MINIMUM_SEEKING",
+          "evidence": "The function returns the first descending depth-first solution; the README says the routine aims for the minimum number of terms.",
+          "identifier_or_url": "GitHub blobs 2a1a0f4485e60b783542da37e5f2aa7ca4ea6079 and 6adf409a056f3fbf8f413b869abf0ef24aaa82ed",
+          "material_read": "Complete source function and README description.",
+          "method": "read-only public Git source",
+          "title": "PrimePowers released backtracking routine and README",
+          "trigger": "Exact computational artifact whose rank behavior is the claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Stricker, On the Representation of Integers as Sums of Limited Prime Powers, arXiv:2508.01686v1",
+        "PrimePowers/PrimePowers source blob 2a1a0f4485e60b783542da37e5f2aa7ca4ea6079",
+        "PrimePowers/PrimePowers README blob 6adf409a056f3fbf8f413b869abf0ef24aaa82ed",
+        "Resultary semantic query: PrimePowers backtracking minimum decomposition first failure n=50 25+25 prime powers"
+      ],
+      "rationale": "The released data are presented as computational evidence for a new additive conjecture, and the repository explicitly describes the routine as minimum-seeking while recording a solution length. Identifying the first exact rank error prevents those lengths from being used as minimum certificates and gives a compact regression test for any corrected search. The additional shorter decomposition of a prominent five-term example reinforces the methodological issue without being overstated as a refutation of the at-most-five conjecture.",
+      "residual_risks": [
+        "The result corrects minimum-rank interpretation of the computation; it neither disproves nor proves the underlying at-most-five conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The first-failure statement is version-specific to the inspected released source blob; later code changes could alter the cursor but not this audited historical claim.",
+    "The paper's five-term representation of 512550 is an example rather than an explicit minimality assertion, so the scientifically stronger correction concerns the repository's minimum-seeking description and output rank.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
