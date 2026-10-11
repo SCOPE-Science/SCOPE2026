@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The affine substitution
-\[
-X=x+\beta/\alpha
-\]
-maps the Theorem III.2 defining set to the Theorem III.5 defining set with
-\[
-\gamma'=\gamma+\operatorname{Tr}(\beta/\alpha)\ne0,
-\]
-and
-\[
-c'=c-\operatorname{Tr}(a\beta/\alpha)
-\]
-preserves the codeword coordinates. The discriminant count is exhaustive, the resulting frequencies sum to \(p^{2m+1}\), and independent direct reconstructions over \(\mathbb F_9\) and \(\mathbb F_{25}\) match the formulas. MacWilliams transformation gives no dual words of weight \(1\) or \(2\) and a positive closed count at weight \(3\).
+PASS
 
-## Originality
+The affine change \(X=x+\beta/\alpha\) transforms the first trace equation to the second with \(\gamma'=\gamma+\operatorname{Tr}(\beta/\alpha)\), and the accompanying parameter change \(c'=c-\operatorname{Tr}(a\beta/\alpha)\) preserves codeword coordinates, proving permutation equivalence. For each nonzero \(b\), the relevant trace map in \(a\) is a surjective \(\mathbb F_p\)-linear functional with fibers of size \(p^{m-1}\), while \(c\) makes the other scalar uniform. Independently recounting the discriminant classes gives \(p-1\) zero, \((p-1)(p-2)/2\) nonzero-square, and \(p(p-1)/2\) nonsquare cases, yielding the displayed frequencies. Independent MacWilliams calculations for \((p,m)=(3,2),(5,2),(3,3)\) gave dual coefficients \((1,0,0,A_3^\perp)\) with the claimed positive formula. The four weights order with \(w_3\) minimal, and subtraction gives the claimed correction. The frozen direct GF(9)/GF(25) verifier and certificate were also read in full.
 
-PASS. The primary article explicitly omits both complete weight distributions in Remarks III.3 and III.6. Focused exact, alias, affine-equivalence, projectivity, and correction searches found no prior statement of the common enumerator or the universal correction to Theorem III.5. The source's finite ternary examples agree with the formula but do not imply the general multiplicities.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves two explicit omissions simultaneously, explains an otherwise unexplained coincidence between the source's example rows, adds projectivity and exact dual distance, and corrects the minimum-distance term of a named theorem. Because the paper's applications depend on few-weight structure, the complete enumerator is mathematically consequential rather than a routine census.
+Accessible primary metadata confirms the exact code paper and its four augmented families. A detailed secondary paper assessment specifically reports that Theorems III.2 and III.5 leave the two weight distributions undetermined, while the frozen package gives the source theorem labels and table consistency. Fresh Resultary and exact-web searches found no public correction, common enumerator, affine equivalence, or dual-distance completion. The primary full text could not be obtained through open routes, and one authorized institutional retrieval returned an operational error; under the owner rule this access limitation is recorded as a residual risk rather than converted into failure.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Complete weight distributions are central invariants of the source's few-weight-code program. Closing two explicit omissions simultaneously, explaining their equivalence, proving exact dual distance/projectivity, and correcting a theorem-level minimum-distance formula constitute a substantive source-specific completion rather than a single finite recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
