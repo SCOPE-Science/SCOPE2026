@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:06:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a complete multipartite graph, a selected set is total dominating exactly when it meets at least two partite classes. A nonempty complement induces one connected component exactly when it meets at least two parts or is a singleton; if it lies in one part with \\(c\\) vertices it has exactly \\(c\\) components. These two equivalences immediately give the profile criterion and every coefficient. For \\(k\\ge2\\), the complement must be exactly \\(k\\) vertices of one part. When there are at least three parts, deleting an entire part still leaves selected vertices in at least two other parts; in the bipartite case it does not, which forces the strict endpoint. The published \\(K_{m,n}\\) formula therefore fails at \\(k=n\\), and the source's own \\(C_4\\) theorem independently exposes that conflict. The frozen exhaustive verifier matches the formulas for every multipartite profile through order ten.",
+      "risk": "The classification is specific to complete multipartite graphs and a nonempty complement convention.",
+      "sources": [
+        "Rad--Volkmann, DOI:10.1051/ro/2015016",
+        "RESULT.md",
+        "verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.11 is a general extremal statement \\(\\gamma_{tc}^k=n-k\\) for a structural class but does not classify all complete multipartite feasible sets.",
+          "Proposition 3.2 is narrower in graph family and is incorrect at the upper endpoint."
+        ],
+        "reasoning": "No inspected broader theorem supplies the bivariate enumerator or removes the bipartite endpoint defect.",
+        "searches": [
+          "Rad--Volkmann 2016 Theorem 2.6, Theorem 2.11 and Proposition 3.2",
+          "Resultary complete-multipartite domination records"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1051/ro/2015016",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At \\(k=n\\) in \\(K_{m,n}\\), the source proposes the whole opposite part as the selected set, but that set induces no edges and violates total domination.",
+          "For \\(K_{2,2}=C_4\\), Theorem 2.6 says the \\(k=2\\) value is zero, contradicting the non-strict branch of Proposition 3.2."
+        ],
+        "reasoning": "The final theorem is not implied by the prior formula; it repairs a false boundary and gives a stronger all-set classification.",
+        "searches": [
+          "Rad--Volkmann Proposition 3.2",
+          "Rad--Volkmann Theorem 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact assigned theorem is not duplicated by another Resultary record.",
+          "The 2016 source treats complete bipartite scalar minima rather than arbitrary complete-multipartite all-set enumeration."
+        ],
+        "reasoning": "TO\\(k\\)CDS, complement-component profile, complete multipartite support, and bipartite endpoint formulations were compared.",
+        "searches": [
+          "Resultary query: total outer k connected component domination complete multipartite graphs enumerator bipartite endpoint",
+          "Rad--Volkmann DOI:10.1051/ro/2015016 full primary text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No later exact correction or arbitrary multipartite coefficient table was located."
+        ],
+        "reasoning": "The current result is compared against the defining paper directly rather than inferred novel from search absence.",
+        "searches": [
+          "Resultary semantic search for TOkCDS complete multipartite and endpoint \\(k=n\\)",
+          "Targeted web searches for later corrections to Proposition 3.2"
+        ]
+      },
+      "rationale": "The defining 2016 paper introduces the parameter and gives exact values for complete and complete-bipartite graphs, but not arbitrary complete multipartite graphs or an all-set enumerator. More importantly, its Proposition 3.2 includes the endpoint \\(k=n\\) for \\(K_{m,n}\\), while at that endpoint the proof's proposed selected set is an independent part and is not total dominating. The same paper's Theorem 2.6 gives \\(\\gamma_{tc}^2(C_4)=0\\), confirming the boundary inconsistency. Fresh Resultary comparison found no later source that both repairs this endpoint and supplies the multipartite enumerator.",
+      "residual_risks": [
+        "A later poorly indexed correction may have noticed the endpoint without providing the full multipartite enumerator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_SOURCE_WITH_DECISIVE_ENDPOINT_ERROR_AND_NO_MULTIPARTITE_ENUMERATOR",
+          "evidence": "Proposition 3.2 states the positive branch through \\(k=n\\), but its construction at equality leaves an independent selected part; Theorem 2.6 separately gives zero for \\(C_4\\) at \\(k=2\\).",
+          "identifier_or_url": "DOI:10.1051/ro/2015016",
+          "material_read": "Complete seven-page open primary PDF, including Theorem 2.6, Theorem 2.11, Proposition 3.2 and its proof; the page containing Proposition 3.2 was visually inspected.",
+          "method": "Lawful open full-text PDF inspection.",
+          "title": "Generalization of the total outer-connected domination in graphs",
+          "trigger": "Defining paper and exact complete-bipartite comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Correcting the feasibility endpoint of the defining published exact family is mathematically meaningful, and the complete multipartite support theorem explains the error structurally while upgrading scalar minima to an exact bivariate enumeration of every feasible set.",
+      "risk": "The proof is elementary because complete multipartite connectivity is rigid.",
+      "sources": [
+        "DOI:10.1051/ro/2015016"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a connected complete multipartite graph, total outer-\\(k\\)-connected component dominating sets are characterized exactly by selected support in at least two parts and by whether the nonempty complement meets at least two parts or lies in one part. This yields the stated bivariate all-set enumerator, the exact \\(k\\ge2\\) minima, and the strict complete-bipartite feasibility boundary \\(k<\\max_i n_i\\), correcting the published non-strict endpoint.",
+  "limitations": [
+    "Finite connected complete multipartite graphs only.",
+    "The complement is required to be nonempty under the stated convention."
+  ],
+  "schema_version": 1
+}

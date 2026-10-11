@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces total domination to support in at least two partite classes and reduces complement connectivity to whether the complement meets one or at least two classes. These are exact equivalences. The resulting formulas were replayed exhaustively through order \(10\), including every vertex subset and every \(k\).
+## correctness
 
-## Originality
-PASS. The defining 2016 paper gives a complete-bipartite scalar formula but no arbitrary complete-multipartite all-set classification or bivariate enumerator. Its Proposition 3.2 includes the endpoint \(k=n\), whereas its own definition rules that endpoint out and its Theorem 2.6 already gives \(\gamma_{tc}^2(C_4)=0\). Targeted semantic and literature searches found no later published correction or broader result implying the theorem here. Residual risk is limited to poorly indexed terminology.
+PASS
 
-## Value
-PASS. Correcting the feasibility boundary of a published exact family formula is mathematically substantive, and the arbitrary complete-multipartite classification explains the boundary structurally: deleting an entire part preserves total domination only when at least two other parts remain. The bivariate enumerator records every feasible set, not just a minimum.
+In a complete multipartite graph, a selected set is total dominating exactly when it meets at least two partite classes. A nonempty complement induces one connected component exactly when it meets at least two parts or is a singleton; if it lies in one part with \(c\) vertices it has exactly \(c\) components. These two equivalences immediately give the profile criterion and every coefficient. For \(k\ge2\), the complement must be exactly \(k\) vertices of one part. When there are at least three parts, deleting an entire part still leaves selected vertices in at least two other parts; in the bipartite case it does not, which forces the strict endpoint. The published \(K_{m,n}\) formula therefore fails at \(k=n\), and the source's own \(C_4\) theorem independently exposes that conflict. The frozen exhaustive verifier matches the formulas for every multipartite profile through order ten.
 
-## Closest literature and limitations
-Rad--Volkmann (2016), DOI 10.1051/ro/2015016, is the closest source. The claim is restricted to complete multipartite graphs and does not address general bipartite or cograph instances.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining 2016 paper introduces the parameter and gives exact values for complete and complete-bipartite graphs, but not arbitrary complete multipartite graphs or an all-set enumerator. More importantly, its Proposition 3.2 includes the endpoint \(k=n\) for \(K_{m,n}\), while at that endpoint the proof's proposed selected set is an independent part and is not total dominating. The same paper's Theorem 2.6 gives \(\gamma_{tc}^2(C_4)=0\), confirming the boundary inconsistency. Fresh Resultary comparison found no later source that both repairs this endpoint and supplies the multipartite enumerator.
+
+## value
+
+PASS
+
+Correcting the feasibility endpoint of the defining published exact family is mathematically meaningful, and the complete multipartite support theorem explains the error structurally while upgrading scalar minima to an exact bivariate enumeration of every feasible set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
