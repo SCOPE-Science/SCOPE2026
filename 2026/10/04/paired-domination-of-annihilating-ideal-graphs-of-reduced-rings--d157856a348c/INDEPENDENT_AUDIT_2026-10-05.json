@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:15:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 712a0698bf4a5e3d623c6429597daf10a5080bb7",
+        "assigned verify.py blob 330b637768f9eef88800a3854a53b9d4bfefe307",
+        "Chelvam--Selvakumar, JCMCC 88 (2014), Corollary 3.6",
+        "Nikandish--Maimani--Kiani, Domination number in the annihilating-ideal graphs of commutative rings, Theorem 2.4",
+        "Badie, DOI 10.2478/auom-2021-0018",
+        "fresh product-of-fields support-graph checks for \\(m=2,3,4,5\\)"
+      ],
+      "rationale": "Let the distinct minimal primes be \\(P_1,\\ldots,P_m\\) and \\(A_i=\\prod_{j\\ne i}P_j\\). Reducedness and minimal-prime incomparability imply \\(A_i\\ne0\\), while \\(A_iP_i=0\\), so all \\(A_i\\) are vertices. For \\(i\\ne k\\), \\(A_iA_k\\) lies in every minimal prime and is therefore zero, so the \\(A_i\\) form a clique. Every annihilating ideal \\(I\\) is contained in some \\(P_i\\): choose nonzero \\(x\\in\\operatorname{Ann}(I)\\) and a minimal prime avoiding \\(x\\), then primality forces \\(I\\subseteq P_i\\). Hence the \\(A_i\\) totally dominate. The proof that each \\(P_i\\) is maximal among proper annihilating ideals gives the matching lower bound \\(m\\) for total domination without relying on the flawed general theorem noted in later literature. Parity yields the paired lower bound, and the clique attains it when \\(m\\) is even; when \\(m\\) is odd, adding \\(P_1\\) and matching it to \\(A_1\\) attains \\(m+1\\). A fresh independent support-graph reconstruction for products of two through five copies of \\(\\mathbb F_2\\) returned paired-domination values \\(2,4,4,6\\), matching the formula.",
+      "residual_risks": [
+        "The theorem assumes reducedness and finitely many minimal primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Artinian result uses finite direct-product decomposition.",
+          "The reduced-ring results concern domination and total domination rather than perfect matchings in a dominating set."
+        ],
+        "reasoning": "The audited theorem adds the paired condition on the broader reduced class and re-proves the needed lower bound independently.",
+        "searches": [
+          "2014 Artinian paired-domination theorem",
+          "2015 reduced-ring ordinary/total domination theorem",
+          "2021 Badie reduced-ring correction framework"
+        ]
+      },
+      "checked_sources": [
+        "JCMCC 88 (2014), 277-288",
+        "Nikandish--Maimani--Kiani 2015",
+        "DOI 10.2478/auom-2021-0018",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A total dominating set of size \\(m\\) need not generally contain a perfect matching.",
+          "The audited proof identifies a specific pairwise-annihilating clique \\(A_1,\\ldots,A_m\\) and handles the odd case by adjoining a minimal prime."
+        ],
+        "reasoning": "The perfect-matching conclusion requires additional ring-theoretic structure beyond the numerical total-domination statement.",
+        "searches": [
+          "total domination \\(m\\) versus paired domination \\(2\\lceil m/2 ceil\\)",
+          "Artinian parity formula versus non-Artinian reduced rings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2014 Artinian formula is \\(m\\) for even factor count and \\(m+1\\) for odd factor count.",
+          "The reduced-ring literature establishes ordinary/total domination finiteness and values from minimal-prime structure, but the inspected sources do not state the paired extension."
+        ],
+        "reasoning": "The final numerical parity law matches the Artinian special case, while the audited domain allows arbitrary reduced rings with finite minimal spectrum.",
+        "searches": [
+          "Resultary query: paired domination annihilating ideal graph reduced ring finite minimal primes",
+          "Chelvam--Selvakumar 2014, Corollary 3.6",
+          "Nikandish--Maimani--Kiani, Theorem 2.4",
+          "Badie DOI 10.2478/auom-2021-0018"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned theorem is the exact hit; a neighboring Resultary theorem treats finite reduced products of fields, a strict special case."
+        ],
+        "reasoning": "The primary-literature comparison, not database absence alone, supports originality.",
+        "searches": [
+          "Resultary current annihilating-ideal paired-domination search"
+        ]
+      },
+      "rationale": "Chelvam and Selvakumar prove the parity formula for commutative Artinian rings in terms of the number of local factors. Nikandish, Maimani, and Kiani later prove that for reduced rings with finitely many minimal primes the ordinary and total domination numbers equal the number of minimal primes, while Badie revisits the total-domination theory and records flaws in an earlier general theorem. No inspected source states paired domination for arbitrary non-Artinian reduced rings with finite minimal spectrum. The audited proof supplies a self-contained maximal-annihilator lower bound and a clique of complementary minimal-prime products, extending the Artinian parity phenomenon to the full reduced finite-minimal-spectrum class. Current Resultary search returned the assigned theorem and narrower product-of-fields/ideal-intersection records, but no prior broader paired theorem.",
+      "residual_risks": [
+        "The paired formula is a short extension once the complementary minimal-prime clique is recognized, so unindexed ring-graph literature could contain the same observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ARTINIAN_SPECIAL_CASE_PRIOR",
+          "evidence": "The source gives the parity formula only in the Artinian direct-product setting.",
+          "identifier_or_url": "J. Comb. Math. Comb. Comput. 88 (2014), 277-288",
+          "material_read": "complete open primary PDF; Corollary 3.6 was visually inspected and states the paired-domination number as \\(n\\) for even \\(n\\) and \\(n+1\\) for odd \\(n\\)",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Central Sets in the Annihilating-Ideal Graph of Commutative Rings",
+          "trigger": "prior Artinian paired-domination formula"
+        },
+        {
+          "assessment": "ORDINARY_AND_TOTAL_PRIOR_NOT_PAIRED",
+          "evidence": "The source provides the reduced-ring domination baseline but does not state paired domination.",
+          "identifier_or_url": "Nikandish--Maimani--Kiani, 2015",
+          "material_read": "complete primary text as reproduced by the accessible full-text host, including Theorems 2.2 and 2.4; Theorem 2.4 states \\(\\gamma=\\gamma_t=|\\operatorname{Min}(R)|\\) for the reduced finite-minimal-prime case",
+          "method": "primary full-text inspection",
+          "title": "Domination number in the annihilating-ideal graphs of commutative rings",
+          "trigger": "closest reduced finite-minimal-prime domination theorem"
+        },
+        {
+          "assessment": "CORRECTION_CONTEXT",
+          "evidence": "The audit does not rely on the earlier flawed general theorem; its lower bound is re-established directly.",
+          "identifier_or_url": "DOI 10.2478/auom-2021-0018",
+          "material_read": "current open primary abstract and accessible full-text passages noting mistakes in the earlier general total-domination theorem and characterizing finiteness via minimal primes",
+          "method": "primary-source full-text/abstract inspection",
+          "title": "Notes on the zero-divisor graph and annihilating-ideal graph of a reduced ring",
+          "trigger": "later correction-sensitive reduced-ring domination source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chelvam--Selvakumar 2014",
+        "Nikandish--Maimani--Kiani 2015",
+        "Badie 2021",
+        "assigned proof/verifier"
+      ],
+      "rationale": "The theorem extends an Artinian paired-domination parity formula to all reduced rings with finite minimal spectrum, a substantially broader algebraic class, and supplies a direct proof robust to known issues in older total-domination arguments. The complementary-minimal-prime clique gives a reusable structural description of optimal paired dominating sets rather than merely a numerical extrapolation.",
+      "residual_risks": [
+        "The numerical parity law itself is simple once the clique construction is known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem assumes reducedness and finitely many minimal primes.",
+    "The paired formula is a short extension once the complementary minimal-prime clique is recognized, so unindexed ring-graph literature could contain the same observation.",
+    "The numerical parity law itself is simple once the clique construction is known."
+  ]
+}

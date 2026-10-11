@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The construction uses the nonzero ideals \(A_i=\prod_{j\ne i}P_j\), proves that they form a clique and totally dominate, proves each minimal prime is maximal among proper annihilating ideals, and injects the minimal primes into every total dominating set. Paired domination then adds only the unavoidable even-cardinality constraint. For odd \(m\), the extra vertex \(P_1\) is proved distinct from the clique vertices and supplies the additional matched vertex.
+PASS
 
-Risk: the argument depends essentially on reducedness and on a finite set of minimal primes; neither hypothesis is silently extended.
+Let the distinct minimal primes be \(P_1,\ldots,P_m\) and \(A_i=\prod_{j\ne i}P_j\). Reducedness and minimal-prime incomparability imply \(A_i\ne0\), while \(A_iP_i=0\), so all \(A_i\) are vertices. For \(i\ne k\), \(A_iA_k\) lies in every minimal prime and is therefore zero, so the \(A_i\) form a clique. Every annihilating ideal \(I\) is contained in some \(P_i\): choose nonzero \(x\in\operatorname{Ann}(I)\) and a minimal prime avoiding \(x\), then primality forces \(I\subseteq P_i\). Hence the \(A_i\) totally dominate. The proof that each \(P_i\) is maximal among proper annihilating ideals gives the matching lower bound \(m\) for total domination without relying on the flawed general theorem noted in later literature. Parity yields the paired lower bound, and the clique attains it when \(m\) is even; when \(m\) is odd, adding \(P_1\) and matching it to \(A_1\) attains \(m+1\). A fresh independent support-graph reconstruction for products of two through five copies of \(\mathbb F_2\) returned paired-domination values \(2,4,4,6\), matching the formula.
 
-## Originality
+## originality
 
-PASS. The closest full-text source, Chelvam--Selvakumar (2014), proves the same parity formula only under a standing commutative Artinian hypothesis. Nikandish--Maimani--Kiani (2015) proves total domination for reduced rings with finitely many minimal primes, but does not impose a perfect-matching condition. Badie (2021) likewise treats total domination in the finite-minimal-spectrum setting. A 2024 reduced-ring domination paper contains no paired-domination terminology in the full text. Searches using paired-domination, reduced-ring, minimal-prime, and annihilating-ideal aliases found no broader theorem.
+PASS
 
-Risk: an unindexed source may contain the same extension. The claim is therefore limited to the exact theorem proved here and does not assert priority beyond the searches described in the structured audit.
+Chelvam and Selvakumar prove the parity formula for commutative Artinian rings in terms of the number of local factors. Nikandish, Maimani, and Kiani later prove that for reduced rings with finitely many minimal primes the ordinary and total domination numbers equal the number of minimal primes, while Badie revisits the total-domination theory and records flaws in an earlier general theorem. No inspected source states paired domination for arbitrary non-Artinian reduced rings with finite minimal spectrum. The audited proof supplies a self-contained maximal-annihilator lower bound and a clique of complementary minimal-prime products, extending the Artinian parity phenomenon to the full reduced finite-minimal-spectrum class. Current Resultary search returned the assigned theorem and narrower product-of-fields/ideal-intersection records, but no prior broader paired theorem.
 
-## Value
+## value
 
-PASS. The 2014 formula is natural but confined to Artinian decompositions. The new theorem shows that nilpotent-free minimal-prime structure, not Artinianity, is sufficient: every reduced ring with finite minimal spectrum has the same exact parity law, including standard non-Artinian affine examples. This cleanly links a matching-constrained domination invariant to the cardinality of the minimal spectrum.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The theorem extends an Artinian paired-domination parity formula to all reduced rings with finite minimal spectrum, a substantially broader algebraic class, and supplies a direct proof robust to known issues in older total-domination arguments. The complementary-minimal-prime clique gives a reusable structural description of optimal paired dominating sets rather than merely a numerical extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
