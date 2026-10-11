@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The thermal state was reconstructed from the stated Hamiltonian, its four Bell probabilities were converted to the corresponding Pauli channel, and two independent channel uses were applied to the source input family. The resulting \(X\)-state concurrence is exactly twice the positive value printed in Eq. (14). The asymptotic expansion shows \(C_{\mathrm{out}}=C_{\mathrm{in}}/(1+D^2)+O(e^{-|J|\sqrt{1+D^2}/T})\), proving eventual positivity at large finite \(D\). Direct matrix replay agrees on both signs of \(J\).
+PASS
 
-## Originality
+Bell overlaps of the Gibbs state define a Pauli channel. Applying two independent copies to the source input gives C_out=max{C_in lambda_perp^2-(1-lambda_z^2)/2,0}, which simplifies to the package's prefactor-4 formula. Independent direct Hamiltonian diagonalization, Bell probabilities, two-copy channel application and Wootters concurrence agreed across both signs of J and several D,T,theta values. Expanding at large |D| gives C_in/(1+D^2)+O(exp(-|J|sqrt(1+D^2)/T)), proving eventual positivity. A bibliographic detail is wrong but non-mathematical: arXiv v1 labels the printed formula Eq. (8), not Eq. (14).
 
-**PASS, narrowly scoped.** The source prints the half-sized concurrence and interprets strong DM coupling as destroying the output entanglement while noting the zero limiting value. Targeted searches for the DOI, the output formula, a factor-two correction, re-entrant large-\(D\) concurrence, and a \(D^{-2}\) asymptotic did not locate a correction. A later XXZ teleportation paper studies related DM effects but does not state this correction in the inspected material.
+## originality
 
-The claim does not take ownership of the thermal channel or the standard teleportation protocol.
+PASS
 
-## Value
+Best-of-knowledge originality passes. The primary arXiv PDF was read directly: it prints the same two-copy Pauli-channel construction and the concurrence bracket with prefactor 2, then says the output reaches zero for large DM coupling. Direct reconstruction gives prefactor 4 and shows that for fixed nonzero J, positive T and nonzero input concurrence the zero limit is approached through a positive algebraic tail. No checked later source or Resultary result supplied the correction or asymptotic.
 
-**PASS.** Concurrence is the paper's primary quantitative measure of transmitted entanglement. A factor-two normalization error changes every positive output-entanglement value, while the strong-\(D\) analysis changes the qualitative interpretation from permanent destruction to asymptotically small revival. The universal \(D^{-2}\) tail gives the correct scale of the surviving resource.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Concurrence is the source's primary teleportation measure. A factor-two normalization error changes every positive output value, while the asymptotic analysis changes the qualitative strong-coupling picture by proving finite-D revival with an algebraic tail. This is a substantive source correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
