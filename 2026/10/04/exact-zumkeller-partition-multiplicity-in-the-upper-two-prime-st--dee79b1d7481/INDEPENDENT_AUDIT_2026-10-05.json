@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:53:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6f03d723d2c30795b9a30319af7ceef44f9e8404",
+        "verify.py blob 73f1f29bed2d9f19c30a8dbdb370cadd9e4c16f3",
+        "fresh carry-argument reconstruction",
+        "known two-prime Zumkeller existence criterion"
+      ],
+      "rationale": "At each p^j level, choosing a subset of 1,2,...,2^a is equivalent to an integer x_j in [0,S], S=2^(a+1)-1. Setting y_j=2x_j-S turns equal partition sums into sum y_j p^j=0 with every y_j odd and |y_j|<=S. Since p>2^a, S<2p and S+1<2p. Modulo p, y_0 must be a nonzero odd multiple of p of magnitude below 2p, so y_0=-epsilon_0 p. After division by p, p divides y_1-epsilon_0; that difference is even and has magnitude below 2p, hence it vanishes and y_1=epsilon_0. Repeating gives y_{2k}=-epsilon_k p and y_{2k+1}=epsilon_k independently for each pair. Thus there are 2^((b+1)/2) oriented partitions, and global sign reversal is exactly block swap with no fixed point, leaving 2^((b-1)/2) unordered partitions. The verifier independently enumerates bounded signed-coefficient solutions for representative upper-strip cases and a below-strip counterexample.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existence theory determines when at least one equal-sum partition exists but not how many.",
+          "The subset-sum collision theorem concerns all divisor subset sums and a different practical/non-practical threshold.",
+          "The b=1 count is a strict special case of the submitted odd-b formula."
+        ],
+        "reasoning": "None of the inspected broader results determines the full multiplicity for b=3,5,... in the stated upper strip.",
+        "searches": [
+          "Mahanta--Saikia--Yaqubi existence characterization for 2^a p^b",
+          "Resultary complete-or-injective divisor subset sums on 2^a p^b",
+          "Resultary exact b=1 Zumkeller partition counts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0912.0052",
+        "DOI:10.1016/j.jnt.2020.05.003",
+        "Resultary/2026 8a0ca297bd59",
+        "Resultary Zumkeller multiplicity search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence only guarantees at least one solution when p<=2^(a+1)-1 and b is odd.",
+          "For p>2^a, reducing the bounded odd coefficient equation modulo p forces y_0=±p and then y_1=∓1; iterating gives one independent sign per adjacent exponent pair.",
+          "That recursive classification yields 2^((b+1)/2) oriented partitions and the stated unordered count after quotienting block swap."
+        ],
+        "reasoning": "The multiplicity for b>1 is not implied by the existence theorem or the b=1 count; the carry rigidity is the additional structural result.",
+        "searches": [
+          "Mahanta--Saikia--Yaqubi existence theorem",
+          "published b=1 partition-count theorem",
+          "submitted bounded base-p carry argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equal-sum divisor bipartitions of 2^a p^b are equivalently bounded odd coefficient vectors y_j with sum y_j p^j=0.",
+          "The known b=1 exact count specializes to one throughout 2^a<p<=2^(a+1)-1, matching the submitted formula at b=1."
+        ],
+        "reasoning": "The signed-digit equation is a reformulation of the partition problem; the new content is the upper-strip carry rigidity for every odd b.",
+        "searches": [
+          "Rao--Peng, arXiv:0912.0052 / DOI:10.1016/j.jnt.2012.09.020",
+          "Mahanta--Saikia--Yaqubi, DOI:10.1016/j.jnt.2020.05.003",
+          "Resultary record 2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest direct count is the published b=1 formula floor((2^(a+1)-1+p)/(2p)).",
+          "No all-odd-b exact multiplicity table was returned among the leading results."
+        ],
+        "reasoning": "The new formula strictly extends the available exact table from b=1 to every odd exponent in a natural parameter strip.",
+        "searches": [
+          "Resultary query: Zumkeller partitions 2^a p^b exact number equal-sum bipartitions",
+          "Resultary exact two-prime partition-count record for b=1"
+        ]
+      },
+      "rationale": "Rao--Peng and Mahanta--Saikia--Yaqubi supply existence theory for Zumkeller numbers and the two-prime family, while a published Resultary finding gives the exact partition count only for the exponent-one family 2^a p. In the upper strip that special case equals one. No inspected source gives the all-odd-exponent multiplicity 2^((b-1)/2) or the rigid adjacent-pair sign classification. The submitted carry argument therefore extends the known b=1 count and refines the existence theorem throughout the natural upper strip.",
+      "residual_risks": [
+        "The 2020 primary article was not materially reread in full in this run; an unadvertised counting remark remains possible.",
+        "An equivalent signed-digit count may appear in obscure divisor-partition literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_FRAMEWORK_NOT_PARTITION_MULTIPLICITY",
+          "evidence": "The source develops Zumkeller existence properties rather than enumerating all complementary equal-sum divisor bipartitions of 2^a p^b.",
+          "identifier_or_url": "arXiv:0912.0052; DOI:10.1016/j.jnt.2012.09.020",
+          "material_read": "Accessible primary abstract/theorem-level material defining the class and existence framework; a full multiplicity theorem for this family was not encountered.",
+          "method": "Invariant and theorem-scope comparison.",
+          "title": "On Zumkeller Numbers",
+          "trigger": "Foundational primary source for Zumkeller numbers and practical-number criteria."
+        },
+        {
+          "assessment": "EXISTENCE_CHARACTERIZATION_NOT_MULTIPLICITY",
+          "evidence": "The theorem determines when the family is Zumkeller but does not in the inspected material enumerate every partition in the upper strip.",
+          "identifier_or_url": "DOI:10.1016/j.jnt.2020.05.003",
+          "material_read": "Accessible theorem-level description of the 2^a p^b existence criterion; full primary text was not materially reread end to end in this run.",
+          "method": "Existence-versus-count comparison.",
+          "title": "Some properties of Zumkeller numbers and k-layered numbers",
+          "trigger": "Primary source for the two-prime-support existence characterization."
+        },
+        {
+          "assessment": "STRICT_B1_SPECIAL_CASE",
+          "evidence": "Its formula equals one in the upper strip, recovering only b=1 of the submitted all-odd-b theorem.",
+          "identifier_or_url": "Resultary/2026 record 8a0ca297bd59",
+          "material_read": "Published Resultary title, summary and exact b=1 formula returned by semantic search.",
+          "method": "Parameter-specialization comparison.",
+          "title": "Exact Zumkeller partition counts for the family 2^a p",
+          "trigger": "Closest published exact partition-count result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:0912.0052",
+        "DOI:10.1016/j.jnt.2020.05.003",
+        "Resultary/2026 8a0ca297bd59",
+        "Resultary Zumkeller multiplicity search"
+      ],
+      "rationale": "Partition multiplicity is the natural refinement of Zumkeller existence. The theorem classifies every equal-sum divisor bipartition across an infinite, structurally distinguished upper strip and extends the known exact b=1 count to all odd exponents by a rigid signed-carry mechanism.",
+      "residual_risks": [
+        "The 2020 primary article was not materially reread in full in this run; an unadvertised counting remark remains possible.",
+        "An equivalent signed-digit count may appear in obscure divisor-partition literature under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0912.0052",
+    "DOI:10.1016/j.jnt.2020.05.003",
+    "Resultary/2026 8a0ca297bd59",
+    "Resultary Zumkeller multiplicity search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a>=1, odd prime p with 2^a<p<=2^(a+1)-1, and odd b>=1, the divisors of 2^a p^b have exactly 2^((b-1)/2) unordered equal-sum complementary bipartitions.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The 2020 primary article was not materially reread in full in this run; an unadvertised counting remark remains possible.",
+    "An equivalent signed-digit count may appear in obscure divisor-partition literature under different terminology.",
+    "The count is not asserted for p<=2^a, where additional carry patterns occur and multiplicities can be larger."
+  ]
+}
