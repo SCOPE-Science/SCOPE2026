@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,62 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-It constructs the simple valuation graph with vertex set
-\[
-\prod_i\{0,1,\ldots,\ell_i\}
-\setminus
-\{(0,\ldots,0),(\ell_1,\ldots,\ell_r)\}
-\]
-and adjacency given by the coordinatewise thresholds
-\[
-a_i+b_i\ge\ell_i.
-\]
-It checks every claimed unique-neighbor witness, exhaustive total minima, and exhaustive paired minima over the tested parameter boxes.
+## correctness
 
-A second layer of the checker constructs actual rings
-\[
-\prod_i \mathbb Z/(2^{\ell_i})
-\]
-from multiplication tables, computes annihilator sets directly, forms equivalence classes, and verifies that their simple compressed graph agrees with the valuation graph.
+PASS
 
-Exact replay output:
+In each chain factor, annihilator classes are exactly valuation levels, so product classes are valuation vectors and adjacency is coordinatewise threshold addition. For r>=2 the vertex w_i with valuation one in coordinate i and zero elsewhere has the unique neighbour d_i with all other coordinates maximal and coordinate i one below maximal; hence every total dominating set contains all d_i. The d_i form a clique and every nonunit/nonzero valuation vector has a positive coordinate, so that clique totally dominates. Even r gives a perfect matching inside the core; odd r requires one extra vertex, which can always be matched to a core vertex corresponding to a positive coordinate. Fresh exhaustive checks on representative local, two-factor and three-factor valuation graphs reproduced the claimed total and paired minima and counts.
 
-```text
-(1,): empty graph
-(2,): one isolated vertex; no total/paired domination
-(3,): |V|=2 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(4,): |V|=3 gamma_t=2 min_total=2 gamma_pr=2 min_paired=2
-(5,): |V|=4 gamma_t=2 min_total=3 gamma_pr=2 min_paired=3
-(6,): |V|=5 gamma_t=2 min_total=4 gamma_pr=2 min_paired=4
-(1, 1): |V|=2 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(1, 2): |V|=4 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(1, 3): |V|=6 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(2, 1): |V|=4 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(2, 2): |V|=7 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(2, 3): |V|=10 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(3, 1): |V|=6 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(3, 2): |V|=10 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(3, 3): |V|=14 gamma_t=2 min_total=1 gamma_pr=2 min_paired=1
-(1, 1, 1): |V|=6 gamma_t=3 min_total=1 gamma_pr=4 min_paired=3
-(1, 1, 2): |V|=10 gamma_t=3 min_total=1 gamma_pr=4 min_paired=7
-(1, 2, 1): |V|=10 gamma_t=3 min_total=1 gamma_pr=4 min_paired=7
-(1, 2, 2): |V|=16 gamma_t=3 min_total=1 gamma_pr=4 min_paired=13
-(2, 1, 1): |V|=10 gamma_t=3 min_total=1 gamma_pr=4 min_paired=7
-(2, 1, 2): |V|=16 gamma_t=3 min_total=1 gamma_pr=4 min_paired=13
-(2, 2, 1): |V|=16 gamma_t=3 min_total=1 gamma_pr=4 min_paired=13
-(2, 2, 2): |V|=25 gamma_t=3 min_total=1 gamma_pr=4 min_paired=22
-(1, 1, 1, 1): |V|=14 gamma_t=4 min_total=1 gamma_pr=4 min_paired=1
-(1, 1, 1, 2): |V|=22 gamma_t=4 min_total=1 gamma_pr=4 min_paired=1
-(1, 1, 2, 2): |V|=34 gamma_t=4 min_total=1 gamma_pr=4 min_paired=1
-direct R=product Z/(2^L), L=(3,): 2 compressed vertices OK
-direct R=product Z/(2^L), L=(2, 1): 4 compressed vertices OK
-direct R=product Z/(2^L), L=(2, 2): 7 compressed vertices OK
-direct R=product Z/(2^L), L=(3, 1): 6 compressed vertices OK
-direct R=product Z/(2^L), L=(3, 2): 10 compressed vertices OK
-direct R=product Z/(2^L), L=(2, 2, 1): 16 compressed vertices OK
-VERIFY_OK
-```
+## originality
 
-These finite computations do not prove the arbitrary-ring theorem. The general proof is the symbolic chain-ring annihilator calculation together with the forced-core and matching arguments in `RESULT.md`.
+PASS
+
+Prior work defines the compressed graph and studies ordinary domination, while total-domination results located in the literature concern the ordinary zero-divisor graph rather than annihilator classes. A same-day Resultary theorem for annihilating-ideal graphs of products of fields has a parallel forced-core/parity form but is a different graph and at most overlaps the reduced all-length-one boundary. No inspected source gives the valuation-core theorem, unique minimum total set, paired parity correction and exact odd-rank count for compressed graphs of arbitrary finite principal ideal rings.
+
+## value
+
+PASS
+
+The compressed graph is a standard algebraic graph whose ordinary domination had already been studied. The theorem exposes a rigid factor-by-factor total-domination core and a complete paired-domination parity law, including all minimum sets, which is a natural strengthened invariant tied directly to the ring decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

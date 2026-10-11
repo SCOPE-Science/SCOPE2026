@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In each finite chain-ring factor, the annihilator of valuation \(a\) is the ideal at complementary valuation, so an annihilator class in the product is exactly a valuation vector. Adjacency is the coordinatewise threshold condition. For every local factor, a valuation-one witness has exactly one graph neighbor, forcing the complementary near-zero class into every total dominating set. Those forced classes form a clique and dominate every vertex. The paired formulas then follow from parity and an explicit perfect matching. The local one-factor boundary is handled separately.
+PASS
 
-Sources and risks: the graph definition was checked in the foundational full text, and the principal-ideal-ring staircase structure was checked in a full preprint. A standalone checker also reconstructs several actual product rings from multiplication tables. The computation is finite corroboration only.
+In each chain factor, annihilator classes are exactly valuation levels, so product classes are valuation vectors and adjacency is coordinatewise threshold addition. For r>=2 the vertex w_i with valuation one in coordinate i and zero elsewhere has the unique neighbour d_i with all other coordinates maximal and coordinate i one below maximal; hence every total dominating set contains all d_i. The d_i form a clique and every nonunit/nonzero valuation vector has a positive coordinate, so that clique totally dominates. Even r gives a perfect matching inside the core; odd r requires one extra vertex, which can always be matched to a core vertex corresponding to a positive coordinate. Fresh exhaustive checks on representative local, two-factor and three-factor valuation graphs reproduced the claimed total and paired minima and counts.
 
-## Originality
+## originality
 
-PASS. Ordinary domination of the compressed graph is prior coverage: a later conference abstract explicitly gives the ordinary domination number as the number of local factors under the principal-local hypothesis, and the 2020 ring-graph domination paper studies ordinary domination of the compressed graph. The accepted claim does not present that ordinary value as new. Searches under annihilator-compressed, valuation, chain-ring, total-domination, and paired-domination formulations did not locate the forced total-domination core, uniqueness theorem, parity formula for paired domination, classification of every minimum paired set, or the odd-rank enumeration. The closest full total-domination paper concerns the ordinary zero-divisor graph on elements rather than the compressed graph on annihilator classes.
+PASS
 
-Sources and risks: the full text of the 2020 ordinary-domination paper was inaccessible through the inspected lawful open routes, so only its abstract was compared. This is a residual risk, along with terminology variation between annihilator compression and associatedness compression. The principal-ideal-ring valuation proof independently identifies the graph used here.
+Prior work defines the compressed graph and studies ordinary domination, while total-domination results located in the literature concern the ordinary zero-divisor graph rather than annihilator classes. A same-day Resultary theorem for annihilating-ideal graphs of products of fields has a parallel forced-core/parity form but is a different graph and at most overlaps the reduced all-length-one boundary. No inspected source gives the valuation-core theorem, unique minimum total set, paired parity correction and exact odd-rank count for compressed graphs of arbitrary finite principal ideal rings.
 
-## Value
+## value
 
-PASS. The result is a complete strengthened-domination classification for a natural ring family rather than a routine numerical example. It identifies a canonical forced core indexed by local factors, proves uniqueness of the total minimum, gives the exact paired parity correction, classifies every minimum paired dominating set, and counts them in odd rank. The local nilpotency-length boundary is also exact.
+PASS
 
-Risk: once the valuation model and its degree-one witnesses are recognized, the graph-theoretic part of the proof is short; the value lies in the complete algebraic classification and minimum-set rigidity rather than technical length.
+The compressed graph is a standard algebraic graph whose ordinary domination had already been studied. The theorem exposes a rigid factor-by-factor total-domination core and a complete paired-domination parity law, including all minimum sets, which is a natural strengthened invariant tied directly to the ring decomposition.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
