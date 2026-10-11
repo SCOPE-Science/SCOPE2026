@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The dual ball is exactly described by six coordinate inequalities and six pair-difference inequalities. Permutation averaging is valid for arbitrary positive-definite forms, and the proof determines the maximum from all fourteen vertices and the minimum from both types of boundary facets. The one-parameter quotient decreases to the explicit unique minimizer and increases thereafter. The accompanying exact rational checks reconstruct vertices independently at nine rational parameter values. The checks are finite corroboration, not a substitute for the proof.
+
+**Originality — PASS, subject to literature-indexing risk.** The closest inspected primary work of Dilworth--Kutzarova--Ostrovskii gives \(\ell_1\) approximation bounds for finite ultrametrics; Alexander--Fradelizi--García-Lirola--Zvavitch gives graph/isometry and volume-product structure; Kobos--Varivoda computes cube--cross-polytope distances; Grundbacher--Kobos treats direct sums and cone constructions. None of their examined relevant statements yields the parameter-dependent Hilbert distance for the coupled fourteen-vertex Lipschitz ball. A known result phrased as an optimal ellipsoid for this same constrained polytope would cover the theorem; no such result was identified in the searches, which does not prove worldwide novelty. Different three-short-edge graph patterns require separate analyses and do not provide a dominating published formula for this family.
+
+**Mathematical value — PASS.** The theorem computes a natural and nontrivial isomorphic Banach-space invariant exactly for a continuous family of four-point ultrametrics, with an explicit optimal Euclidean form, a strict interpolation law, and a meaningful singular limit. It is a full classification of that one-parameter family, not a numerical re-tabulation or a restatement of a standard \(\ell_1\)-approximation bound.
+
+**Scope and residual risks.** Only real four-point metrics with one isolated point and an equilateral cluster are covered. The limit as \(t\downarrow0\) is not a metric at the endpoint. Similar formulas could occur in unindexed literature on centrally symmetric fourteen-vertex polytopes. No independent audit or validation has been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
