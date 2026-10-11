@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For positive margins the polytope has the standard affine hull and a strictly positive feasible point. The orthogonal projection of E_ij onto the tangent space of zero row and column sums is (e_i-1/m)(e_j-1/n)^T, with squared Frobenius norm (m-1)(n-1)/(mn). Hence the centered-ball radius at X is exactly min_ij X_ij divided by this common norm. The maximum possible minimum entry is bounded by every row and column average and reaches their minimum t_* by subtracting t_* from every entry and filling the nonnegative residual margins with the product construction. The same equivalence gives the complete center set; the Birkhoff specialization follows exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The affine projection theorem of Bauschke--Singh--Wang is broader as an orthogonal-projection result but does not optimize distance to all nonnegativity walls.",
+        "The Birkhoff geometry papers treat operator or Schatten norm enclosing balls; those results do not imply a largest intrinsic inscribed ball.",
+        "The complete arbitrary-margin center set is not a consequence of monotone-diameter bounds for transportation polytopes."
+      ],
+      "reasoning": "Potentially dominating sources were compared by implication, not by title. Projection-to-affine-space formulas and smallest-enclosing-ball theorems solve different optimization problems and do not imply the inradius statement.",
+      "searches": [
+        "\"transportation polytope\" Frobenius radius",
+        "\"Birkhoff polytope\" Frobenius \"smallest enclosing ball\"",
+        "\"Projecting onto rectangular matrices with prescribed row and column sums\"",
+        "\"On the Geometry of the Birkhoff Polytope II\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2001.09575v1",
+      "doi:10.1137/20M1315646",
+      "arXiv:2105.12222v1",
+      "doi:10.1186/s13663-021-00708-1",
+      "arXiv:2310.14043v1",
+      "doi:10.1007/s44146-024-00153-7",
+      "semantic searches for transportation/Birkhoff inradius, largest inscribed balls, Frobenius radius, and equivalent center formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The transportation-polytope source uses the class for monotone paths and graph diameter.",
+        "The prescribed-margins source identifies the affine row/column-sum space and orthogonal projection onto it.",
+        "The Birkhoff geometry source explicitly formulates a ball containing the polytope, not a ball contained in it."
+      ],
+      "reasoning": "The new theorem needs two additional steps absent from the compared sources: the restricted norm of every coordinate normal and the exact max-min entry optimization over fixed margins. Those steps yield both the radius and all optimal centers.",
+      "searches": [
+        "full-text comparison: Blanchard--De Loera--Louveaux, transportation-polytope section",
+        "full-text comparison: Bauschke--Singh--Wang, rectangular matrices with prescribed row and column sums",
+        "full-text comparison: Bouthat--Mashreghi--Morneau-Guérin, Birkhoff polytope geometry"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blanchard--De Loera--Louveaux study transportation polytopes but their stated metric is monotone path length/diameter, not an inscribed Euclidean radius.",
+        "Bauschke--Singh--Wang give the affine projection geometry for fixed row and column sums but do not state the displayed max-min entry or inradius formula.",
+        "Bouthat--Mashreghi--Morneau-Guérin define Chebyshev center/radius through the smallest enclosing ball of the Birkhoff polytope, which reverses the containment direction."
+      ],
+      "reasoning": "The searches covered the standard aliases for transportation matrices, Birkhoff/doubly stochastic matrices, inradius, insphere, largest inscribed ball, and Chebyshev-center language. The closest metric work concerns enclosing rather than inscribed balls.",
+      "searches": [
+        "\"transportation polytope\" inradius",
+        "\"transportation polytope\" \"largest inscribed ball\"",
+        "\"transportation polytope\" \"Chebyshev center\"",
+        "\"Birkhoff polytope\" inradius",
+        "\"doubly stochastic\" inradius polytope",
+        "arXiv:2001.09575 transportation polytope",
+        "arXiv:2105.12222 prescribed row and column sums projection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic result searches returned no transportation- or Birkhoff-inradius finding matching the displayed formula.",
+        "The closest returned transportation item concerned Markov-fiber graph diameters, a discrete move-graph invariant rather than Euclidean inradius.",
+        "Other nearest hits concerned unrelated inradius, covering-radius, or facet-spectrum problems."
+      ],
+      "reasoning": "No exact database/table entry located the formula, its Birkhoff specialization, or the complete center-set classification. Absence from the searched database is supporting evidence only, not a novelty certificate.",
+      "searches": [
+        "transportation polytope inradius effective resistance cycle space Hall slack",
+        "transportation polytope Euclidean inradius Frobenius smallest row margin smallest column margin",
+        "transportation polytope largest inscribed ball intrinsic affine hull",
+        "Birkhoff polytope Euclidean inradius 1/(n-1)",
+        "doubly stochastic polytope insphere Frobenius inradius"
+      ]
+    },
+    "rationale": "The motivating transportation-polytope paper, the affine-projection paper, and the closest Birkhoff metric papers were compared at the statement/implication level. None gives the intrinsic largest-inscribed-ball formula or its full center set. Targeted semantic/database and web searches using inradius, insphere, largest-inscribed-ball, Frobenius, transportation, Birkhoff, and doubly-stochastic aliases found no matching result.",
+    "residual_risks": [
+      "An older operations-research or matrix-analysis source may contain the Birkhoff special case or the arbitrary-margin formula under different terminology.",
+      "Search coverage cannot exclude unindexed manuscripts or results embedded in textbooks.",
+      "The claim deliberately excludes sparse transportation supports, where coordinate-normal lengths are not constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Treats monotone paths, heights, and diameters of transportation polytopes; no intrinsic Euclidean inradius or largest-ball center theorem was located.",
+        "evidence": "First public version dated 2020-01-27; publisher lists MSC 52B12 first.",
+        "identifier_or_url": "arXiv:2001.09575 / doi:10.1137/20M1315646",
+        "material_read": "Abstract, classification metadata, and the transportation-polytope section in the accessible full text.",
+        "method": "Open-access preprint/full-text and publisher metadata comparison.",
+        "title": "On the Length of Monotone Paths in Polyhedra",
+        "trigger": "Primary geometry source treating transportation polytopes; also fixes slot ownership through primary MSC 52B12."
+      },
+      {
+        "assessment": "Provides affine projection formulas and explicitly identifies transportation polytopes, but does not state the inradius or full optimal-center formula.",
+        "evidence": "The article describes transportation polytopes as the nonnegative intersection with prescribed row/column sums and specializes projection formulas to that affine space.",
+        "identifier_or_url": "arXiv:2105.12222 / doi:10.1186/s13663-021-00708-1",
+        "material_read": "Abstract, motivation, main projection theorem, rectangular-matrix specialization, Romero projection formula, and numerical transportation example.",
+        "method": "Open-access full-text inspection.",
+        "title": "Projecting onto rectangular matrices with prescribed row and column sums",
+        "trigger": "Closest source for the orthogonal geometry of the row/column-sum affine space."
+      },
+      {
+        "assessment": "Studies minimal bounding balls containing the Birkhoff polytope; that Chebyshev-radius problem is distinct from the intrinsic largest inscribed ball computed here.",
+        "evidence": "The paper defines the radius as the supremal distance from a center to points of the polytope and minimizes that enclosing radius.",
+        "identifier_or_url": "arXiv:2310.14043 / doi:10.1007/s44146-024-00153-7",
+        "material_read": "Problem definition and center/radius discussion available in the full-text record.",
+        "method": "Full-text comparison of the optimization direction and metric setting.",
+        "title": "On the Geometry of the Birkhoff Polytope II: The Schatten p-norms",
+        "trigger": "Closest metric-geometry work on the most symmetric special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dbb208ea-5834-4f8b-a92c-002b74d8cb76",
+  "value": {
+    "rationale": "Transportation polytopes are a canonical family in polyhedral combinatorics and optimization. The theorem gives an exact Euclidean robustness radius for every positive margin vector, identifies every optimal center, and shows that a high-dimensional metric invariant depends only on the smallest normalized marginal. The Birkhoff inradius emerges as a sharp closed-form corollary. This is a natural complete classification, not an arbitrary finite slice or recomputation.",
+    "status": "PASS"
+  }
+}
