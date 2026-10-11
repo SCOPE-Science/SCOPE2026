@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The three codes are explicitly reconstructed over \(\mathbb F_{23}\) from a primitive \(24\)-th root in \(\mathbb F_{23^2}\). Exact multiplication gives degree-\(20\) generators. Exhaustion of all \(23^4\) messages per code proves the three displayed weight enumerators. Exact projective column reduction gives maximum line counts \(6,4,2\) and point multiplicities \(3,2,1\); together with the exact minimum distance \(12\), these yield generalized Hamming hierarchies \((12,18,21,24)\), \((12,20,22,24)\), and \((12,22,23,24)\).
+PASS
 
-## Originality
+The field model \(\mathbb F_{23}[u]/(u^2-5)\) is valid because 5 is nonsquare modulo 23. Independently of the package verifier, this audit checked that \(\beta=4+7u\) has order 24, reconstructed all eleven quadratic minimal polynomials, and multiplied the appropriate factors to recover all three displayed degree-20 generators. A fresh exhaustive enumeration of all \(23^4=279841\) messages for each generator reproduced every coefficient of all three weight enumerators. Independently projectivizing the 24 generator-matrix columns gave 8 points of multiplicity 3 with maximum line count 6, 12 points of multiplicity 2 with maximum line count 4, and 24 distinct points with maximum line count 2. The standard projective-system formula for generalized weights then gives exactly the three stated hierarchies. Distinct weight enumerators already force monomial inequivalence.
 
-PASS. The closest source, Zhang–Cao–Luo, publicly lists the three pair-index members only through the common parameters \(k=4,d=12\). Exact literature and research-record searches for the source notation, coefficient sequences, and generalized-weight sequences found no same-object statement. The broad Yang–Xiong–Ding–Luo weight-distribution paper has a different \([24,4,12]\) example over \(\mathbb F_7\) and its displayed equal-degree parity-check-factor hypotheses do not directly cover these mixed-degree parity checks. The complete primary article was not obtainable through the lawful full-text routes checked, which remains a literature-access risk.
+## originality
 
-## Value
+PASS
 
-PASS. Three newly published family members that are indistinguishable by \([n,k,d]\) turn out to have sharply different complete spectra and projective support geometries. The result both proves pairwise monomial inequivalence and supplies complete higher-support fingerprints, with the \(\{2,3\}\) member distinguished by \(24\) projectively distinct columns and a largest line intersection of only \(2\).
+The defining 2026 source's accessible article page and Table 1 identify exactly these three choices as \([24,4,12]_{23}\) codes but do not expose weight enumerators or generalized Hamming weights. Full article text could not be obtained through the available open route, and the authorized institutional retrieval returned an operational error; that is retained as a material residual risk rather than treated as failure. The broad Yang--Xiong--Ding arbitrary-zero weight-distribution theorem was read in full and uses a different equal-degree/arithmetic-progression zero setup; it does not directly specialize to the present mixed linear/quadratic parity-check factors. Exact coefficient and support-hierarchy searches found no independent prior statement.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Weight distributions and generalized Hamming weights are standard, intrinsic coding-theoretic invariants. Here they separate three natural codes that the defining source leaves indistinguishable at the basic \([n,k,d]\) level, and the support hierarchies quantify subcode support geometry relevant to higher-order erasure and wiretap behavior. This is a motivated exact finite classification rather than an arbitrary statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
