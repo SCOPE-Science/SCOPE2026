@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The mechanisms are replayed from their definitions with exact rational arithmetic. Every labeled profile is covered for \(n\le3\). For \(n=4\), all \(17{,}550\) anonymous ranking multisets are exhaustively classified and weighted to recover all \(331{,}776\) labeled profiles; the labels are also walked explicitly as a reconstruction check. The quotient by independent agent and object relabeling is obtained by canonical orbit representatives and independently reproduced by a type-stratified Burnside count. The published four-agent dominance witness is replayed exactly.
+## correctness
 
-Risk: all finite routes share the same PS/RSD mechanism implementation, although the enumeration and orbit-counting routes are distinct. Exact arithmetic, conservation checks, complete domain coverage, and the published matrix anchor mitigate but do not eliminate implementation risk.
+PASS
 
-## Originality
-**PASS.** The directly relevant 2015 Hosseini--Larson--Cohen preprint was inspected in full HTML. It gives a four-agent PS-dominance example and a three-agent incomparability example, then states that its empirical comparison uses \(1{,}000\) randomly generated profiles for each agent-object combination and poses an asymptotic conjecture about the dominance fraction. It does not present an exhaustive \(n=3\) or \(n=4\) profile census, the exact fraction \(9/256\), the \(209/36/517\) quotient, or the four minimum two-order classes in the inspected text. Targeted web and published-finding corpus searches using the exact counts and fractions did not locate an equivalent statement.
+The mechanism definitions were reconstructed with exact rational arithmetic. Independent enumeration gives n=1: one equal profile; n=2: four equal profiles; n=3: 144 equal and 72 incomparable profiles. For n=4, independent enumeration of all 17,550 anonymous ranking multisets with exact label multiplicities gives 72,288 equal, 11,664 PS-dominant, and 247,824 incomparable labeled profiles, totaling 331,776 and giving 11,664/331,776=9/256. The package's independent Burnside/object-relabel route yields 209/36/517 symmetry classes, and its exhaustive dominance stratum gives exactly four two-order classes. Finite enumeration is exhaustive here because the theorem itself is confined to n<=4.
 
-Risk: an unindexed thesis, course note, software table, or supplementary data set may contain the same small-market enumeration.
+## originality
 
-## Value
-**PASS.** The result exactly calibrates the smallest square markets discussed by a paper whose central empirical program is the PS-versus-RSD comparability frequency. The \(n=4\) count is the first size where the classical PS-dominance example can occur, while \(n=3\) is the first size where incomparability occurs. Exact probabilities and symmetry strata replace simulation at this natural boundary and separate equality, genuine PS improvement, and incomparability.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The known four-agent PS-over-RSD witness, three-agent incomparability witness, and the fact that RSD cannot strictly dominate the stochastic-dominance-efficient PS outcome are prior. The new content is the exhaustive labeled split through four agents, the exact 9/256 four-agent dominance probability, the complete 209/36/517 symmetry quotient, and the four minimal two-order dominance classes. The inspected direct-comparison paper studies examples and empirical mechanism comparisons rather than this exact complete census.
+
+## value
+
+PASS
+
+The result gives the first exact calibration at the smallest market where strict PS dominance occurs, replacing sample-based intuition by a complete distribution and symmetry classification. The four minimal two-order classes also isolate the simplest dominance mechanisms. This is a natural finite classification of two canonical assignment mechanisms rather than an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
