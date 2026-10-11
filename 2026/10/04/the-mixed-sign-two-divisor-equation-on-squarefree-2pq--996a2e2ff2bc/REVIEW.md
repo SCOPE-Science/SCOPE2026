@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(n=2pq\), the mixed-sign equation is exactly
-\[
-d_1-d_2=-pq+3p+3q+3.
-\]
-The cases \(p=3,5,7\) reduce to finite coefficient equations using the two divisor blocks \(\{1,2,p,2p\}\) and their \(q\)-multiples. For \(p\ge11\), an exact size bound excludes two non-\(q\) divisors, a congruence excludes two \(q\)-multiples, and the remaining mixed case contradicts elementary inequalities. All eight witnesses are checked directly, and the packaged verifier independently replays the finite reductions.
+## correctness
 
-## Originality
-PASS. Aryan–Madhavani–Parikh–Slattery–Zelinsky explicitly propose the one-plus-one-minus equation as future research and remark that mixed signs may be harder. The later Fearon–Foushee–Porosoff–Skula–Zelinsky–Zhang paper again labels the same equation a hybrid future-work variant and reports initial computations rather than a theorem. Its proved classifications concern other sign patterns and two-prime support. Exact, structural, database-style, and semantic searches found no prior complete \(2pq\) classification. Residual risk remains from unindexed or unpublished work.
+PASS
 
-## Value
-PASS. The result completely resolves the first natural squarefree three-prime-support slice of a specifically proposed research direction. It is not a bounded census: the proof excludes all larger primes symbolically and supplies exact divisor witnesses for every surviving integer.
+Direct algebra gives the required difference D=-pq+3p+3q+3. For p at least 11, setting E=-D excludes two non-q divisors by size and two q-multiples modulo q; the only remaining mixed case gives incompatible lower and upper bounds. Thus p is 3,5,7, where the divisor sets are finite and yield exactly the eight values. A fresh independent prime sweep below 150 reproduced exactly those eight values and explicit witness pairs; the proof supplies the unbounded exclusion.
 
-## Closest literature and limitations
-The closest primary source is Vedant Aryan, Dev Madhavani, Savan Parikh, Ingrid Slattery, and Joshua Zelinsky, “On \(2\)-Near Perfect Numbers.” The closest later source is the 2025 two-prime-factor classification by Fearon and coauthors, whose Future Work section again identifies hybrid forms. The present theorem does not classify nonsquarefree \(2^a p^b q^c\) solutions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2024 2-near-perfect paper explicitly proposes changing the signs and singles out the mixed-sign relation as a future direction; the later two-prime classification again lists hybrid forms as future work and reports only computational exploration. Neither source classifies the squarefree three-prime slice 2pq. Resultary returned the audited record as the exact hit and no distinct prior theorem that implies the eight-value classification.
+
+## value
+
+PASS
+
+The mixed-sign equation is explicitly proposed by the source literature, and 2pq is its first natural squarefree three-prime support slice. A complete infinite-family classification with an analytic large-prime obstruction is a motivated arithmetic result rather than an arbitrary finite search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

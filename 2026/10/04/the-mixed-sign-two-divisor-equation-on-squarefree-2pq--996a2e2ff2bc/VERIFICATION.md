@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-Run `python3 verify.py`.
 
-The checker directly verifies the eight ordered divisor witnesses for
-\[
-\sigma(2pq)=4pq+d_1-d_2.
-\]
-It also reconstructs the finite algebraic reductions for \(p=3,5,7\).
+# Independent mathematical audit
 
-For \(p\ge11\), the proof uses the symbolic inequalities
-\[
-pq-3p-3q-3>2p-1,
-\]
-together with the congruence obstruction for two \(q\)-multiples and the two remaining coefficient cases \(t=1,2\). The verifier checks the boundary inequalities used in that argument.
+## correctness
 
-As an independent regression test, the program scans all odd prime pairs below \(2000\) and finds exactly
-\[
-30,42,70,78,110,130,154,170.
-\]
-This bounded scan is not used to infer the infinite theorem.
+PASS
 
-A successful replay prints `VERIFY_OK`.
+Direct algebra gives the required difference D=-pq+3p+3q+3. For p at least 11, setting E=-D excludes two non-q divisors by size and two q-multiples modulo q; the only remaining mixed case gives incompatible lower and upper bounds. Thus p is 3,5,7, where the divisor sets are finite and yield exactly the eight values. A fresh independent prime sweep below 150 reproduced exactly those eight values and explicit witness pairs; the proof supplies the unbounded exclusion.
+
+## originality
+
+PASS
+
+The primary 2024 2-near-perfect paper explicitly proposes changing the signs and singles out the mixed-sign relation as a future direction; the later two-prime classification again lists hybrid forms as future work and reports only computational exploration. Neither source classifies the squarefree three-prime slice 2pq. Resultary returned the audited record as the exact hit and no distinct prior theorem that implies the eight-value classification.
+
+## value
+
+PASS
+
+The mixed-sign equation is explicitly proposed by the source literature, and 2pq is its first natural squarefree three-prime support slice. A complete infinite-family classification with an analytic large-prime obstruction is a motivated arithmetic result rather than an arbitrary finite search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
