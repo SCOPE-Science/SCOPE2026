@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:50:46.113746Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0f0d21871191f35dde2bebfb48148e051d1264f7",
+        "verify.py blob ee9c12159ce6d2af4646ee86737f45222d1eba21",
+        "independent analytic reconstruction"
+      ],
+      "rationale": "Direct differentiation gives \\(H=x_3+x_1^2/(2a)\\) and \\(\\dot H=b-x_1^2\\) exactly. Boundedness makes the endpoint correction divided by time vanish, proving the long-time mean-square law and excluding negative forcing. At zero forcing, recurrence returns the continuous nonincreasing H to its initial value, forcing \\(x_1\\equiv0\\), then the vector field forces \\(x_2=x_4=0\\) and constant \\(x_3\\). For compact invariant measures, the Lie derivatives of \\(x_4,x_1,H,x_3\\) give the four stated moment identities. Positive variance and zero mean force both signs; periodic-orbit RMS then gives the zero crossing and amplitude lower bound.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The predecessor is a polynomial modification of Sprott B and is not the sine-modified four-dimensional flow.",
+          "Analogous balance laws for other named flows do not imply this model-specific identity."
+        ],
+        "reasoning": "No broader theorem was found that identifies this particular coboundary automatically.",
+        "searches": [
+          "DOI:10.1142/S0218127416501777 abstract/publisher preview",
+          "Resultary searches for exact balance laws in Sprott systems"
+        ]
+      },
+      "checked_sources": [
+        "Lai--Kuate--Pei--Fotsin, Infinitely Many Coexisting Attractors in No-Equilibrium Chaotic System, DOI:10.1155/2020/8175639",
+        "Lai--Chen, Generating Multiple Chaotic Attractors from Sprott B System, DOI:10.1142/S0218127416501777",
+        "Resultary query: sine modified Sprott B exact balance Hdot b-x1^2 invariant measure RMS forcing selected"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's simulations do not imply the all-bounded-orbit average law.",
+          "The exact cancellation creating H is the missing model-specific step."
+        ],
+        "reasoning": "The final claim is not a corollary of the periodic-copy symmetry or numerical attractor plots.",
+        "searches": [
+          "direct differentiation of the exact 2020 vector field",
+          "comparison with the source's numerical boundedness discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same source system was compared under coboundary, long-time RMS, invariant-measure and recurrence formulations.",
+          "No inspected source statement fixes the exact second moment to the forcing parameter."
+        ],
+        "reasoning": "Equivalent time-average and stationary-measure formulations were searched because the source literature is largely numerical.",
+        "searches": [
+          "DOI:10.1155/2020/8175639 full article",
+          "Resultary query above"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry supplied the forcing-selected RMS law."
+        ],
+        "reasoning": "The theorem is an analytic identity rather than a numerical table; absence is supporting evidence only.",
+        "searches": [
+          "Resultary query above",
+          "source-specific searches combining the DOI/title with mean square, average, invariant measure and RMS"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. The introducing 2020 full article gives the exact sine-modified vector field, translated-attractor mechanism, and numerical bounded/chaotic regimes, but the inspected material does not state the coboundary \\(\\dot H=b-x_1^2\\) or its recurrence and stationary-moment consequences. The closest 2016 predecessor uses a different modification and remained only abstract-accessible, so it is a named residual risk rather than negative evidence.",
+      "residual_risks": [
+        "The 2016 Sprott-B predecessor was available only at abstract/publisher-preview level in this run; an uninspected related identity is retained as a residual risk.",
+        "Differently phrased dynamical-systems literature could record the same coboundary without the stationary-measure terminology used in searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_SYSTEM_WITHOUT_EXACT_RECURRENCE_BALANCE",
+          "evidence": "The source studies bounded dynamics numerically and does not state the forcing-selected mean-square identity in the inspected text.",
+          "identifier_or_url": "DOI:10.1155/2020/8175639",
+          "material_read": "Accessible full article text around the system equations, symmetry/translated-copy discussion, boundedness discussion, and numerical recurrent regimes.",
+          "method": "Lawful open-access publisher full text.",
+          "title": "Infinitely Many Coexisting Attractors in No-Equilibrium Chaotic System",
+          "trigger": "Defining paper for the exact vector field."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_RESIDUAL_RISK",
+          "evidence": "The accessible material concerns a different polynomial modification; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "DOI:10.1142/S0218127416501777",
+          "material_read": "Abstract and publisher-preview metadata only.",
+          "method": "Lawful accessible primary metadata/abstract.",
+          "title": "Generating Multiple Chaotic Attractors from Sprott B System",
+          "trigger": "Closest named Sprott-B predecessor."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lai--Kuate--Pei--Fotsin, Infinitely Many Coexisting Attractors in No-Equilibrium Chaotic System, DOI:10.1155/2020/8175639",
+        "Lai--Chen, Generating Multiple Chaotic Attractors from Sprott B System, DOI:10.1142/S0218127416501777"
+      ],
+      "rationale": "The introducing paper relies on numerical evidence for its bounded recurrent regimes. The exact balance gives a global, parameter-selected consistency law for every bounded trajectory and compact stationary state, including a sharp forcing-sign trichotomy. This is a structural restriction on the source's principal dynamical objects rather than another simulation statistic.",
+      "residual_risks": [
+        "The theorem gives necessary recurrence constraints and does not prove existence of the reported attractors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 2016 Sprott-B predecessor was available only at abstract/publisher-preview level in this run; an uninspected related identity is retained as a residual risk.",
+    "Differently phrased dynamical-systems literature could record the same coboundary without the stationary-measure terminology used in searches.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
