@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:57:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen blob 95cf465b3e7ae61108c113e0d64f22fc742068cd",
+        "assigned verify.py at frozen blob 6faa45375589a0319d5727c6659123191c8df5ed",
+        "arXiv:1908.03265",
+        "fresh independent root/activation calculation"
+      ],
+      "rationale": "For fixed b, \\(tb^t/(1-b^t)\\) strictly decreases in t, so \\(\\rho_t\\) strictly increases and tends to \\((1+b)/(1-b)\\), proving the exact no-activation boundary b<=3/5. Since \\(\\rho_t<t\\), activation cannot precede step five. Algebra gives \\(\\rho_t>4\\) iff \\(F_t(b)>0\\), with \\(F_t=(b-1)^2P_t\\). The coefficients of \\(P_t\\) have exactly one sign change; \\(P_t(3/5)<0<P_t(1)\\), so Descartes plus continuity gives one positive root in the required interval. Monotonicity of \\(\\rho_t\\) orders the roots. The exact root identity for \\(\\delta_t=b_t-3/5\\) implies exponential smallness and then \\(\\delta_t\\sim(4/25)t(3/5)^t\\). A fresh independent numerical replay reproduced b_5 through b_11 and the stated activation indices for 0.8, 0.9, 0.99, 0.999, 0.7, 0.65, and 0.61.",
+      "residual_risks": [
+        "The theorem applies to the original strict \\(\\rho_t>4\\) gate; implementations using a different gate need a different sequence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior material motivates automatic warmup and supplies the deterministic schedule, but not the exact parameter-space partition."
+        ],
+        "reasoning": "No stronger inspected theorem converts the gate formula into the complete first-hit phase diagram.",
+        "searches": [
+          "arXiv:1908.03265 defining algorithm and effective-SMA discussion",
+          "official RAdam project documentation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1908.03265",
+        "official RAdam public repository/documentation",
+        "Resultary query: RAdam rho_t > 4 exact first rectification step beta2 threshold polynomial automatic warmup length"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's \\(\\beta_2\\le0.6\\) degeneracy statement determines only whether activation ever occurs.",
+          "The audited argument proves, for every t, the unique parameter boundary where activation first becomes possible at that step and derives its asymptotic spacing."
+        ],
+        "reasoning": "The result is not a direct special case of a source theorem; it solves a new first-passage problem for the published schedule.",
+        "searches": [
+          "RAdam source gate and the audited factorization \\(F_t(b)=(b-1)^2P_t(b)\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper defines \\(\\rho_t=2/(1-\\beta_2)-1-2t\\beta_2^t/(1-\\beta_2^t)\\), uses the gate \\(\\rho_t>4\\), and notes degeneration to momentum SGD when \\(\\beta_2\\le0.6\\).",
+          "No leading Resultary result states the exact threshold sequence \\(b_t\\) or the exponential approach to 0.6."
+        ],
+        "reasoning": "The equivalent formulation is the first integer t at which the deterministic effective-SMA sequence crosses four.",
+        "searches": [
+          "Liu et al., On the Variance of the Adaptive Learning Rate and Beyond, arXiv:1908.03265",
+          "Resultary query: RAdam rho_t > 4 exact first rectification step beta2 threshold polynomial automatic warmup length"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or theorem with the root thresholds was located."
+        ],
+        "reasoning": "The software/default documentation gives examples and behavior, not this exact symbolic threshold database.",
+        "searches": [
+          "Resultary published-finding corpus for RAdam activation/warmup thresholds",
+          "targeted searches for b_t, rho_t first crossing, and beta2=0.6 accumulation"
+        ]
+      },
+      "rationale": "The defining RAdam paper gives the effective-SMA statistic, the \\(\\rho_t>4\\) gate, and the degeneracy statement for \\(\\beta_2\\le0.6\\), but its inspected full text does not partition \\(\\beta_2\\) into exact first-activation intervals, give the root polynomials, or derive the threshold accumulation law. Resultary searches for exact activation indices and warmup phase diagrams found no covering published result.",
+      "residual_risks": [
+        "A software issue or implementation note could have tabulated some thresholds without being indexed as a paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_SCHEDULE_PRESENT_EXACT_FIRST_HIT_PHASE_DIAGRAM_NOT_STATED",
+          "evidence": "The source gives \\(\\rho_t\\), the strict \\(>4\\) test, and the 0.6 no-activation boundary but no inspected exact \\(b_t\\) sequence or first-activation interval theorem.",
+          "identifier_or_url": "arXiv:1908.03265",
+          "material_read": "Full accessible paper material around the effective-SMA formula, Algorithm 2 gate, and discussion that \\(\\beta_2\\le0.6\\) degenerates to SGD with momentum.",
+          "method": "Direct source-formula and theorem-scope comparison.",
+          "title": "On the Variance of the Adaptive Learning Rate and Beyond",
+          "trigger": "Defining RAdam paper containing the exact statistic and gating rule."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1908.03265",
+        "Resultary RAdam threshold search"
+      ],
+      "rationale": "The activation time is an intrinsic, gradient-independent part of a widely used optimizer and the exact parameter dependence is not captured by the source's binary degeneration statement. The theorem explains why common \\(\\beta_2\\) values all rectify at step five while the unadapted phase becomes arbitrarily long near 0.6, giving a natural exact phase diagram rather than an arbitrary numerical slice.",
+      "residual_risks": [
+        "A software issue or implementation note could have tabulated some thresholds without being indexed as a paper."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1908.03265",
+    "official RAdam public repository/documentation",
+    "Resultary query: RAdam rho_t > 4 exact first rectification step beta2 threshold polynomial automatic warmup length"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the source RAdam gate \\(\\rho_t>4\\), rectification never activates exactly for \\(0<\\beta_2\\le3/5\\); for each \\(t\\ge5\\) there is a unique root \\(b_t\\in(3/5,1)\\) of \\(P_t(b)=-3-b+\\sum_{j=2}^{t-1}(2j-3)b^j\\), the roots decrease to \\(3/5\\), and the first rectified step is exactly t iff \\(b_t<\\beta_2\\le b_{t-1}\\). Moreover \\(b_t-3/5\\sim(4/25)t(3/5)^t\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A software issue or implementation note could have tabulated some thresholds without being indexed as a paper."
+  ]
+}
