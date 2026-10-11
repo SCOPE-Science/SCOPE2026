@@ -1,12 +1,21 @@
-# Review of Power domination polynomials of spider trees and extremal arm balances
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates center-containing sets from center-free sets. For a center-free choice, every selected arm propagates to the center; the process succeeds exactly when at most one arm is untouched, while two untouched arms block the center permanently. This gives the exact polynomial. For extremality, with all other arms fixed, the center-free contribution for two lengths \(a,b\) is an affine strictly decreasing function of \(t^a+t^b\) for \(t=1+x>1\). Balancing therefore strictly increases and concentration strictly decreases the polynomial. The included definition-level exhaustive checker agrees on all tested spiders and the finite extremal census.
+## correctness
 
-## Originality
-PASS. The foundational 2018 source introduces the polynomial and computes several standard families but does not state the spider formula; its relevant path-attachment theorem explicitly excludes endpoint attachment. The 2022 spider paper concerns minimum power domination and Mycielskian constructions rather than all-set enumeration. The inspected 2025 polynomial-entropy paper treats additional named families but no spiders. Targeted exact and semantic searches using spider, starlike-tree, and subdivided-star terminology did not locate the all-set formula or the strict arm-balance extremal theorem. Residual risk remains for differently phrased or non-indexed prior work.
+PASS
 
-## Value
-PASS. The ordinary power domination number of every spider is one, so it discards all arm-length geometry. The polynomial records the full size distribution of feasible monitoring sets, while the extremal theorem identifies, uniformly for every positive activity \(x\), the unique arm profiles with greatest and least redundancy at fixed size and branch count. This is a structural counting refinement of a standard graph-monitoring invariant rather than a routine restatement of the minimum parameter.
+For a spider with center \(c\), any set containing \(c\) power-dominates every arm. Without \(c\), a selected vertex in a touched arm propagates along that arm to the center; once the center is observed it can enter a last untouched arm exactly when at most one arm is untouched. If at least two arms are untouched the center sees at least two unobserved first vertices and forcing stalls. This proves the all-set criterion and therefore the product-sum polynomial. For fixed total arm length and \(x>0\), writing \(t=1+x\) and \(u_m=t^m-1\), the contribution depending on two arm lengths \(a,b\) of fixed sum is an affine decreasing function of \(X=t^a+t^b\). Balancing unequal parts strictly lowers \(X\) and raises the polynomial; concentrating two parts strictly raises \(X\) and lowers it. Repetition gives the unique balanced maximum and concentrated minimum. The verifier independently exhausts hundreds of small spiders and checks exact rational extremizers for all partitions through total arm length twenty.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete 2018 power-domination-polynomial paper computes several standard graph families but explicitly identifies trees as a future all-set counting direction; its decomposition theorem excludes the endpoint path attachment that would be needed to read a spider off directly. Later spider literature located in this run concerns the power-domination number or Mycielskian constructions rather than the full polynomial of arbitrary arm lengths. No Resultary hit or inspected primary source supplies either the product-sum spider polynomial or the all-positive-\(x\) balanced/concentrated extremal theorem.
+
+## value
+
+PASS
+
+Spiders are the canonical one-branching-vertex tree family and were not covered by the defining polynomial paper's standard-family formulas. The result gives both the entire feasible-set enumerator and a sharp shape optimization valid for every positive evaluation point: balancing arms uniquely maximizes while concentrating length uniquely minimizes. That combination is a natural structural and extremal theorem, not a mere formula lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
