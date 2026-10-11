@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:43:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify.py at the frozen tree",
+        "Tărnăuceanu, On the number of edges of cyclic subgroup graphs of finite groups, 2023 primary paper",
+        "Tărnăuceanu--Lazorec, On some probabilistic aspects of (generalized) dicyclic groups, 2016 full primary text",
+        "Cameron--Reddy--Sharma, Cyclic Subgroup Graph of a Group, 2026 update metadata"
+      ],
+      "rationale": "Every outside element \\(a\\gamma\\) has square \\(y\\), so \\(\\langle a\\gamma\\rangle=\\{1,y,a\\gamma,ya\\gamma\\}\\) has order four. Two outside elements determine the same cyclic subgroup exactly when they differ by y, giving \\(m/2\\) such subgroups. Each meets A exactly in \\(\\langle y\\rangle\\), has no other nontrivial proper cyclic subgroup, and is maximal among cyclic subgroups, so each contributes one leaf attached at \\(\\langle y\\rangle\\). Thus \\(e(G)=e(A)+m/2\\). Since A is nilpotent, Tărnăuceanu’s theorem gives \\(e(A)\\ge e(C_m)\\). Writing \\(m=2^as\\) with s odd, the remaining cyclic arithmetic reduces to \\(2^{a-1}s\\ge\\tau(s)+e(C_s)\\), whose elementary divisor-product proof has equality only at \\(s=1,3\\), yielding m=2 or 6 after combining with equality in the nilpotent bound. The package verifier independently checks numerous abelian kernels/involutions and the arithmetic through odd \\(s\\le401\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The updated cyclic-subgroup-graph paper advertises ordinary dicyclic and generalized quaternion families, not arbitrary generalized dicyclic kernels.",
+          "Generalized dihedral groups have outside involutions and a different cyclic-subgroup attachment pattern."
+        ],
+        "reasoning": "Neither broader nearby family dominates the audited generalized-dicyclic theorem.",
+        "searches": [
+          "Cameron--Reddy--Sharma arXiv:2409.13796v2",
+          "generalized-dihedral edge-minimality public result"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.05784",
+        "arXiv:1612.01967",
+        "arXiv:2409.13796v2",
+        "semantic corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two sources provide the group presentation and a comparison theorem for the kernel A.",
+          "They do not state that all outside cyclic subgroups are maximal order-four leaves, nor do they perform the even-order cyclic arithmetic/equality analysis."
+        ],
+        "reasoning": "Obtaining the all-A leaf structure and exact equality cases requires additional group-poset and arithmetic arguments rather than direct substitution into a prior formula.",
+        "searches": [
+          "2016 generalized-dicyclic definition plus 2023 nilpotent edge theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact semantic hit is the assigned record; related public records concern generalized dihedral or other graphs.",
+          "The 2023 theorem does not cover these generally nonnilpotent even-order groups.",
+          "The 2016 paper defines arbitrary generalized dicyclic groups but its explicit cyclic-subgroup formulas are for ordinary dicyclic groups and selected \\(C_2\\times C_n\\) kernels."
+        ],
+        "reasoning": "Equivalent formulations as a Hasse-poset leaf extension, edge-count identity, or an even-order slice of the edge-minimality conjecture were compared.",
+        "searches": [
+          "semantic-search: generalized dicyclic cyclic subgroup graph edge count arbitrary abelian kernel",
+          "Tărnăuceanu 2023 edge-minimality conjecture",
+          "Tărnăuceanu--Lazorec 2016 generalized dicyclic cyclic subgroups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ordinary dicyclic edge counts are known and agree with the cyclic-kernel special case.",
+          "No all-abelian-kernel table or formula was located."
+        ],
+        "reasoning": "The arbitrary-A theorem is not a recomputation of the ordinary dicyclic table.",
+        "searches": [
+          "semantic-search: dicyclic cyclic subgroup graph edge formula",
+          "published ordinary Dic_n edge formulas"
+        ]
+      },
+      "rationale": "Tărnăuceanu proves cyclic edge-minimality only for nilpotent groups and groups of odd order and explicitly conjectures the arbitrary finite-group case. The 2016 generalized-dicyclic paper defines arbitrary abelian kernels but carries its explicit subgroup/cyclic-subgroup formulas only through special kernels such as \\(C_2\\times C_n\\). The current cyclic-subgroup-graph paper treats ordinary dicyclic groups, not arbitrary generalized dicyclic kernels. No prior source found states the leaf-attachment theorem or the equality classification for all finite abelian A.",
+      "residual_risks": [
+        "Because the leaf argument is elementary from the presentation, an unindexed folklore observation is plausible even though no prior theorem covering the edge-minimality/equality claim was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the generalized dicyclic even-order family.",
+          "evidence": "The paper proves the minimum only for nilpotent groups or groups of odd order and conjectures the general case.",
+          "identifier_or_url": "arXiv:2302.05784",
+          "material_read": "Primary abstract and full public article material identifying the nilpotent/odd-order theorem and arbitrary-group conjecture.",
+          "method": "Open full-text/source inspection.",
+          "title": "On the number of edges of cyclic subgroup graphs of finite groups",
+          "trigger": "The edge-minimality conjecture and the kernel comparison used in the proof."
+        },
+        {
+          "assessment": "PARTIALLY_COVERING group structure, not the arbitrary-kernel cyclic-subgroup graph theorem.",
+          "evidence": "The paper defines Dic(A,y) for arbitrary abelian A but explicitly develops formulas only for narrower kernel families.",
+          "identifier_or_url": "arXiv:1612.01967",
+          "material_read": "Full primary text around the general definition and Sections 2--3, including the explicit cyclic-subgroup formulas for ordinary dicyclic and selected C2 x Cn kernels.",
+          "method": "Open full-text inspection.",
+          "title": "On some probabilistic aspects of (generalized) dicyclic groups",
+          "trigger": "Most plausible prior source describing generalized dicyclic cyclic subgroups."
+        },
+        {
+          "assessment": "NOT_COVERING arbitrary generalized dicyclic kernels.",
+          "evidence": "The listed family is dicyclic (cyclic kernel), not generalized dicyclic with arbitrary abelian kernel.",
+          "identifier_or_url": "arXiv:2409.13796v2",
+          "material_read": "Current public abstract/metadata and accessible earlier full-text material describing the treated families.",
+          "method": "Open-source comparison.",
+          "title": "Cyclic Subgroup Graph of a Group",
+          "trigger": "Current dedicated cyclic-subgroup-graph paper and likely source of a dicyclic edge formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tărnăuceanu 2023",
+        "generalized dicyclic subgroup literature",
+        "cyclic-subgroup-graph literature"
+      ],
+      "rationale": "The result verifies an explicit infinite even-order slice of a published edge-minimality conjecture, gives the entire cyclic-subgroup graph as a transparent leaf extension for arbitrary abelian kernels, and determines the equality cases. That is a natural family-level structural theorem rather than a narrow numerical check.",
+      "residual_risks": [
+        "The core leaf observation is simple, but its arbitrary-kernel scope and equality classification give it substantive content."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every generalized dicyclic group \\(G=\\operatorname{Dic}(A,y)\\) with finite abelian kernel \\(A\\) of even order \\(m\\), the cyclic-subgroup graph is obtained from that of \\(A\\) by attaching exactly \\(m/2\\) leaves at \\(\\langle y\\rangle\\); consequently \\(e(G)=e(A)+m/2\\ge e(C_{2m})\\), with equality exactly for \\(A\\cong C_2\\) or \\(A\\cong C_6\\).",
+  "limitations": [
+    "The equality classification is within generalized dicyclic groups.",
+    "The statement concerns the Hasse graph of cyclic subgroups, not the commuting graph or power graph."
+  ],
+  "schema_version": 1
+}

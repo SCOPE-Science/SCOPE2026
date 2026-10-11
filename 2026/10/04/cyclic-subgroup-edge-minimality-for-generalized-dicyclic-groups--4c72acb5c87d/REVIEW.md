@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The generalized dicyclic multiplication forces every element outside the abelian kernel to have order \(4\) and square to the same involution \(y\). The outside elements therefore form exactly \(|A|/2\) maximal cyclic \(C_4\) subgroups, each covering \(\langle y\rangle\) and no other cyclic subgroup. This gives the exact edge decomposition. The kernel comparison follows from the published nilpotent theorem. The remaining cyclic arithmetic term is reduced by the published coprime product formula and proved nonnegative by a prime-power factor argument, with equality only at kernel orders \(2\) and \(6\).
+## correctness
 
-## Originality
-PASS. The 2016 generalized-dicyclic paper studies subgroup-commutativity probabilities, not cyclic-subgroup-graph edge extremality. The 2023 source explicitly leaves the even-order inequality conjectural. The 2024 first public cyclic-subgroup-graph preprint gives the ordinary dicyclic edge formula but has no generalized-dicyclic treatment. Targeted statement, alias, and semantic searches found no arbitrary-abelian-kernel edge formula or equality classification.
+PASS
 
-## Value
-PASS. The theorem settles the conjectured fixed-order edge comparison for a natural infinite class of even-order groups outside the previously proved nilpotent/odd-order cases. It also upgrades a cyclic-kernel dicyclic calculation to arbitrary abelian kernels and determines every equality case.
+Every outside element \(a\gamma\) has square \(y\), so \(\langle a\gamma\rangle=\{1,y,a\gamma,ya\gamma\}\) has order four. Two outside elements determine the same cyclic subgroup exactly when they differ by y, giving \(m/2\) such subgroups. Each meets A exactly in \(\langle y\rangle\), has no other nontrivial proper cyclic subgroup, and is maximal among cyclic subgroups, so each contributes one leaf attached at \(\langle y\rangle\). Thus \(e(G)=e(A)+m/2\). Since A is nilpotent, Tărnăuceanu’s theorem gives \(e(A)\ge e(C_m)\). Writing \(m=2^as\) with s odd, the remaining cyclic arithmetic reduces to \(2^{a-1}s\ge\tau(s)+e(C_s)\), whose elementary divisor-product proof has equality only at \(s=1,3\), yielding m=2 or 6 after combining with equality in the nilpotent bound. The package verifier independently checks numerous abelian kernels/involutions and the arithmetic through odd \(s\le401\).
 
-The principal residual risk is bibliographic: an equivalent argument may occur under alternate generalized-dicyclic notation or in unindexed literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Tărnăuceanu proves cyclic edge-minimality only for nilpotent groups and groups of odd order and explicitly conjectures the arbitrary finite-group case. The 2016 generalized-dicyclic paper defines arbitrary abelian kernels but carries its explicit subgroup/cyclic-subgroup formulas only through special kernels such as \(C_2\times C_n\). The current cyclic-subgroup-graph paper treats ordinary dicyclic groups, not arbitrary generalized dicyclic kernels. No prior source found states the leaf-attachment theorem or the equality classification for all finite abelian A.
+
+## value
+
+PASS
+
+The result verifies an explicit infinite even-order slice of a published edge-minimality conjecture, gives the entire cyclic-subgroup graph as a transparent leaf extension for arbitrary abelian kernels, and determines the equality cases. That is a natural family-level structural theorem rather than a narrow numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
