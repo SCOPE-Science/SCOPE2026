@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` uses only the Python standard library and independently evaluates the displayed power expressions by deterministic Gauss-Legendre quadrature.
+# Independent mathematical audit
 
-It checks four items:
+## correctness
 
-1. At \(\delta=0\), exact beta-integral arithmetic applied to the finite-\(B\) formula agrees with the uniform-rank size \(\lfloor\alpha(B+1)\rfloor/(B+1)\) for several budgets.
-2. For \(n=20\), \(\delta=0.5\), and \(\alpha=0.05\), it reproduces the finite-\(B\) powers for \(B=19,39,99\) and the exact-quantile power stated in `RESULT.md`.
-3. In the local limit with \(h=2\) and \(\alpha=0.05\), it reproduces \(\Pi_B\) for \(B=19,39,99,199\) and the infinite-resample value \(\Phi(h-z_{0.95})\).
-4. It computes the analytic first-order coefficient and verifies that \((\Pi_B-\Pi_\infty)(B+2)\) moves toward that coefficient between \(B=99\) and \(B=199\), within a conservative numerical tolerance.
+PASS
 
-A clean replay from the embedded file prints `VERIFY_OK`. This verifies the algebraic/numerical content of the specified Gaussian CRT claim, not its literature originality or any non-Gaussian extension.
+Conditioning on Y gives the observed standardized covariance score \(S=(\delta R+Z)/\sqrt{1+\delta^2}\), while each null-resampled standardized score is iid N(0,1). Conditional exceedance counts are therefore binomial and give the exact finite-n, finite-B power integral and exact null size. Under \(\delta=h/\sqrt n\), \(R/\sqrt n\to1\) yields the fixed-B local limit. On the exact-size subsequence the rejection threshold is a beta order statistic; a Taylor expansion at its mean yields the displayed negative \(1/B\) coefficient. Independent numerical evaluation reproduced the quoted h=2, alpha=.05 powers and coefficient.
+
+## originality
+
+PASS
+
+The most directly relevant CRT power paper explicitly separates the empirical finite-resample cutoff from its analytical power calculation and states that its power results cover empirical resampling only when the number of resamples diverges. Generic Monte Carlo randomization-test literature establishes rank corrections and studies simulation budgets, but no inspected result supplied this Gaussian marginal-covariance finite-n power integral or the explicit local \(1/B\) loss coefficient. The final claim therefore resolves a concrete finite-resampling question not implied by the inspected CRT asymptotics.
+
+## value
+
+PASS
+
+Finite resampling is a documented computational bottleneck in CRT practice. The theorem converts a concrete resampling budget into exact finite-sample power and a sharp local \(1/B\) penalty for a canonical Gaussian statistic, including the minimum feasible 5-percent budget. This is a motivated statistical design fact rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

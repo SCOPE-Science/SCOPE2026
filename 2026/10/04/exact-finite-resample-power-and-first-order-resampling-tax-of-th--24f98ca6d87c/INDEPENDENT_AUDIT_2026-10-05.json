@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T01:17:02.659269Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 093550eac8d829706d1ac5a66a6667bb550f4bc7",
+        "Wang--Janson, arXiv:2010.02304, CRT marginal-covariance power analysis",
+        "Candès--Fan--Janson--Lv, arXiv:1610.02351, model-X CRT/resampling background"
+      ],
+      "rationale": "Conditioning on Y gives the observed standardized covariance score \\(S=(\\delta R+Z)/\\sqrt{1+\\delta^2}\\), while each null-resampled standardized score is iid N(0,1). Conditional exceedance counts are therefore binomial and give the exact finite-n, finite-B power integral and exact null size. Under \\(\\delta=h/\\sqrt n\\), \\(R/\\sqrt n\\to1\\) yields the fixed-B local limit. On the exact-size subsequence the rejection threshold is a beta order statistic; a Taylor expansion at its mean yields the displayed negative \\(1/B\\) coefficient. Independent numerical evaluation reproduced the quoted h=2, alpha=.05 powers and coefficient.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang--Janson derive asymptotic power for the marginal-covariance CRT but treat the empirical-resample version through a diverging resample count.",
+          "Candès et al. establish the CRT and finite Monte Carlo p-value mechanics, not the alternative-power law.",
+          "Katsevich--Ramdas study optimal statistics/local power rather than a fixed resampling-budget expansion."
+        ],
+        "reasoning": "The broader CRT theory does not dominate the fixed-B exact-power and first-order resampling-tax statement.",
+        "searches": [
+          "Wang--Janson arXiv:2010.02304",
+          "Candès et al. arXiv:1610.02351",
+          "Katsevich--Ramdas arXiv:2005.05506"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2010.02304",
+        "https://arxiv.org/abs/1610.02351",
+        "https://arxiv.org/abs/2005.05506",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary power paper notes a finite-sample empirical CRT correction but sends the resample count to infinity for its power conclusions.",
+          "Holding B fixed changes the local limit and requires integrating a binomial tail, then analyzing a beta threshold for large B."
+        ],
+        "reasoning": "Those extra finite-resampling steps are not a parameter substitution into the inspected asymptotic result.",
+        "searches": [
+          "Wang--Janson finite-resample discussion versus their analytical-cutoff theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent specialized Gaussian CRT formula was returned.",
+          "The exact beta-order-statistic correction was not found under generic Monte Carlo-test terminology."
+        ],
+        "reasoning": "Both CRT-specific and generic Monte Carlo rank-test formulations were checked.",
+        "searches": [
+          "Resultary query: conditional randomization test finite resamples exact power Gaussian marginal covariance Monte Carlo CRT local power first order",
+          "literature searches under Monte Carlo CRT, randomization rank, beta order statistic and resampling budget"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database or published table containing the displayed all-n,B formula or coefficient was located."
+        ],
+        "reasoning": "The result is analytic rather than a finite table.",
+        "searches": [
+          "Resultary search and exact coefficient/benchmark searches"
+        ]
+      },
+      "rationale": "The most directly relevant CRT power paper explicitly separates the empirical finite-resample cutoff from its analytical power calculation and states that its power results cover empirical resampling only when the number of resamples diverges. Generic Monte Carlo randomization-test literature establishes rank corrections and studies simulation budgets, but no inspected result supplied this Gaussian marginal-covariance finite-n power integral or the explicit local \\(1/B\\) loss coefficient. The final claim therefore resolves a concrete finite-resampling question not implied by the inspected CRT asymptotics.",
+      "residual_risks": [
+        "Older generic Monte Carlo testing literature may contain a general smooth-threshold expansion that can be specialized after nontrivial translation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ASYMPTOTIC_RESAMPLING_NOT_FIXED_B",
+          "evidence": "It does not provide the fixed-B power law or first-order resampling-budget coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.02304",
+          "material_read": "Primary PDF portions covering the empirical CRT finite-sample correction, analytical cutoff, and the condition that resample count tends to infinity for transfer of the power results.",
+          "method": "Lawful full-PDF inspection, including rendered-page verification.",
+          "title": "A High-Dimensional Power Analysis of the Conditional Randomization Test and Knockoffs",
+          "trigger": "Closest primary source on marginal-covariance CRT power."
+        },
+        {
+          "assessment": "FOUNDATIONAL_NOT_POWER_FORMULA",
+          "evidence": "It establishes the simulation-based CRT and computational cost but not the audited alternative-power calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.02351",
+          "material_read": "Relevant CRT and Monte Carlo p-value discussion.",
+          "method": "Lawful open primary-text inspection.",
+          "title": "Panning for Gold: Model-X Knockoffs for High-dimensional Controlled Variable Selection",
+          "trigger": "Original model-X CRT/resampling source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang--Janson",
+        "Candès et al.",
+        "Katsevich--Ramdas"
+      ],
+      "rationale": "Finite resampling is a documented computational bottleneck in CRT practice. The theorem converts a concrete resampling budget into exact finite-sample power and a sharp local \\(1/B\\) penalty for a canonical Gaussian statistic, including the minimum feasible 5-percent budget. This is a motivated statistical design fact rather than an arbitrary numerical slice.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2010.02304",
+    "https://arxiv.org/abs/1610.02351",
+    "https://arxiv.org/abs/2005.05506",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One predictor, Gaussian model-X law, homoskedastic Gaussian noise and one-sided marginal covariance only.",
+    "The displayed large-B expansion is on exact-size reciprocal-level subsequences."
+  ],
+  "residual_risks": [
+    "Older generic Monte Carlo testing literature may contain a general smooth-threshold expansion that can be specialized after nontrivial translation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "ASYMPTOTIC_RESAMPLING_NOT_FIXED_B",
+      "evidence": "It does not provide the fixed-B power law or first-order resampling-budget coefficient.",
+      "identifier_or_url": "https://arxiv.org/abs/2010.02304",
+      "material_read": "Primary PDF portions covering the empirical CRT finite-sample correction, analytical cutoff, and the condition that resample count tends to infinity for transfer of the power results.",
+      "method": "Lawful full-PDF inspection, including rendered-page verification.",
+      "title": "A High-Dimensional Power Analysis of the Conditional Randomization Test and Knockoffs",
+      "trigger": "Closest primary source on marginal-covariance CRT power."
+    },
+    {
+      "assessment": "FOUNDATIONAL_NOT_POWER_FORMULA",
+      "evidence": "It establishes the simulation-based CRT and computational cost but not the audited alternative-power calculation.",
+      "identifier_or_url": "https://arxiv.org/abs/1610.02351",
+      "material_read": "Relevant CRT and Monte Carlo p-value discussion.",
+      "method": "Lawful open primary-text inspection.",
+      "title": "Panning for Gold: Model-X Knockoffs for High-dimensional Controlled Variable Selection",
+      "trigger": "Original model-X CRT/resampling source."
+    }
+  ]
+}
