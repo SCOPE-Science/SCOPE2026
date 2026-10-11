@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The \(2r\)-fold sumset of \(B_1\) is exactly the Hamming ball \(B_{\min(2r,d)}\). For every nontrivial Walsh character, an explicit injection from the odd-weight part of that ball into its negative-sign set gives \(\widehat{1_B}(\xi)\le E-O\). This implies the affine Fourier majorant needed to compare \(\sum_B f\) with \(f(0)\) and the weight-one mass for every positive definite \(f\). Nonnegativity of \(f\), together with \(O\le dE\), gives the sharp upper bound. The even-parity subgroup indicator is a valid nonnegative positive definite function and attains equality.
+## correctness
 
-## Originality
-PASS relative to the checked literature and database. Gaál--Révész introduce the general Shapiro quantity \(Q(U,k)\) and treat general LCA duality, but their open full text contains no Hamming-ball specialization. The earlier real-line work and Gorbachev's cyclic-group interval inequality concern different geometries and do not imply this Boolean-cube formula. Exact-form, alias, parameter, Krawtchouk, and semantic-database searches found no covering statement.
+PASS
 
-## Value
-PASS. The result gives an exact infinite family of sharp constants for a general extremal problem whose finite-group specializations are not tabulated in the source. It identifies a parity subgroup as the sharp extremizer and reduces the upper bound to a reusable Fourier-combinatorial injection for Hamming balls. The theorem covers all dimensions and all even dilations, not an isolated finite computation.
+The proof correctly identifies 2r U with the Hamming ball B_R, R=min(2r,d). For every nonzero character support S, the injection from odd-weight ball points into points with odd S-intersection gives the strong Walsh bound \hat 1_B<=E-O, hence the affine majorant used after Fourier inversion. The combinatorial injection O<=dE then converts that bound to E times the B_1 mass. The even-parity subgroup indicator is nonnegative positive definite and has denominator one and numerator E. The bundled exact verifier checks every character for d<=10,r<=6, but the all-d proof is analytic.
 
-## Closest literature and limitations
-The closest primary source is Gaál--Révész, arXiv:1803.06409, which supplies the Shapiro framework. Gorbachev's 2015 discrete inequality is the closest older finite/discrete comparison located, but it is for cyclic intervals. The result leaves odd dilations and extremizer classification open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Gaál--Révész develop the general Shapiro-type extremal problem for nonnegative positive-definite functions on LCA groups, but their inspected full open PDF is general and contains no Boolean-cube/Hamming-ball specialization. Resultary returned the audited theorem as the direct exact match and nearby cyclic/Boolean results do not imply this even-dilate formula.
+
+## value
+
+PASS
+
+This gives a sharp closed formula and extremizer for a natural Hamming-ball instance of a general positive-definite extremal problem; the parity structure is mathematically motivated and not a tiny isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

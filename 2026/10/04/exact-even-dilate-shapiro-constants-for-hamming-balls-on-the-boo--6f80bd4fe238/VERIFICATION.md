@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the finite Walsh transform with the convention
-\[
-\widehat f(\xi)=\sum_x f(x)(-1)^{\xi\cdot x}.
-\]
-For an even-radius Hamming ball \(B\), the critical combinatorial step is that every nonzero character has at least \(O\) negative-sign points in \(B\), where \(O\) is the number of odd-weight points of \(B\). This is certified by the explicit parity-toggle injection in `RESULT.md`.
+# Independent mathematical audit
 
-The accompanying `verify.py` checks, in exact integer arithmetic, every character for
-\[
-1\le d\le10,\qquad 1\le r\le6.
-\]
-It verifies
-\[
-\widehat{1_B}(\xi)\le E-O
-\]
-for every nonzero \(\xi\), the affine majorant
-\[
-\widehat{1_B}(\xi)\le E+\frac{O}{d}(d-2|\xi|),
-\]
-the combinatorial inequality \(O\le dE\), and exact attainment by the even-parity subgroup indicator. The executable returns `VERIFY_OK`.
+## correctness
 
-The finite replay is not used to infer the universal theorem. All dimensions and all even dilation parameters are covered by the analytic injection and Fourier argument in `RESULT.md`.
+PASS
+
+The proof correctly identifies 2r U with the Hamming ball B_R, R=min(2r,d). For every nonzero character support S, the injection from odd-weight ball points into points with odd S-intersection gives the strong Walsh bound \hat 1_B<=E-O, hence the affine majorant used after Fourier inversion. The combinatorial injection O<=dE then converts that bound to E times the B_1 mass. The even-parity subgroup indicator is nonnegative positive definite and has denominator one and numerator E. The bundled exact verifier checks every character for d<=10,r<=6, but the all-d proof is analytic.
+
+## originality
+
+PASS
+
+Gaál--Révész develop the general Shapiro-type extremal problem for nonnegative positive-definite functions on LCA groups, but their inspected full open PDF is general and contains no Boolean-cube/Hamming-ball specialization. Resultary returned the audited theorem as the direct exact match and nearby cyclic/Boolean results do not imply this even-dilate formula.
+
+## value
+
+PASS
+
+This gives a sharp closed formula and extremizer for a natural Hamming-ball instance of a general positive-definite extremal problem; the parity structure is mathematically motivated and not a tiny isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
