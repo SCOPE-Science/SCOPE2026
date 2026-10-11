@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:59:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on \\(I_i=1\\) leaves all remaining values uniformly permuted. If \\(i\\notin\\{j,j+1\\}\\), exchangeability of \\(\\Pi(j)\\) and \\(\\Pi(j+1)\\) gives \\(\\Pr(D_j=1\\mid I_i=1)=1/2\\), hence zero covariance. For \\(i=j\\) and \\(i=j+1\\), direct counting gives conditional probabilities \\((j-1)/(n-1)\\) and \\((n-j-1)/(n-1)\\), yielding exactly the two displayed adjacent-entry formulas. Summing them gives every column sum \\(-1/[n(n-1)]\\); summing along each fixed-point row cancels in the interior and leaves \\(-1/(2n)\\) at the two endpoints. The wrap descent contributes \\(+1/(2n)\\) at those endpoints and zero elsewhere, proving exact cyclic orthogonality. With the standard \\(\\operatorname{Var}(F)=1\\) and \\(\\operatorname{Var}(D)=(n+1)/12\\), the correlation formula follows. The exhaustive checker through \\(n=9\\) was inspected only as finite corroboration.",
+      "risks": [
+        "Zero covariance is not independence; the theorem is for the uniform measure on the full symmetric group."
+      ],
+      "sources": [
+        "Frozen source tree ec1131d700bfc87ce86d5d3d00661364ea7836a8",
+        "Direct conditional-exchangeability/counting reconstruction",
+        "Frozen exhaustive verifier inspected as supplementary evidence",
+        "Diaconis--Evans--Graham 2014; Désarménien--Wachs 1993 for neighboring fixed-point statistics"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected sources give stronger information in other directions, but none dominates the coordinate-local theorem."
+        ],
+        "reasoning": "Counting by total fixed-point number or by descent class can in principle be refined, but no checked theorem immediately yields the submitted endpoint/cyclic cancellation statement.",
+        "searches": [
+          "Désarménien--Wachs, Descent classes of permutations with a given number of fixed points",
+          "Diaconis--Evans--Graham, Unseparated pairs and fixed points in random permutations",
+          "Searches for fixed-point/descent joint distributions and cyclic descents"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/0097-3165(93)90100-M",
+        "arXiv:1308.5459",
+        "Resultary query returned no exact hit",
+        "SCOPE repository semantic search returned no exact hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1993 result conditions on the total count of fixed points, losing location labels.",
+          "The 2014 result concerns fixed points and unseparated adjacent-value pairs, not ordinary descent indicators by position."
+        ],
+        "reasoning": "Neither prior statement logically implies the coordinate cross-covariance matrix or cyclic cancellation without a new local calculation.",
+        "searches": [
+          "Statement comparison with 1993 descent-class theorem",
+          "Statement comparison with 2014 fixed-point random-set theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Désarménien--Wachs tracks descent classes against the number of fixed points, not individual fixed-point positions.",
+          "Diaconis--Evans--Graham identifies the fixed-point random set with another adjacent-pair random set but not descent cross-covariances."
+        ],
+        "reasoning": "Global joint-enumeration formulations do not encode which fixed-point coordinate causes which descent covariance, so they do not imply the local matrix without additional position-resolved derivation.",
+        "searches": [
+          "Resultary: uniform permutation fixed point descent covariance coordinate cyclic descents boundary",
+          "Web: fixed points descents permutation covariance fixed point descent classes Desarmenien Wachs",
+          "Web: maximizing fixed-point location descent covariance cyclic permutation",
+          "SCOPE repository search: fixed point descent covariance cyclic permutation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry with the local covariance formulas was returned."
+        ],
+        "reasoning": "The formulas are derived structurally, not recomputed from a known covariance table.",
+        "searches": [
+          "Resultary exact covariance query",
+          "SCOPE repository semantic search",
+          "Web exact-formula searches for fixed-point/descent covariance"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives targeted comparison. Classical work treats the fixed-point set, descent classes with a prescribed total number of fixed points, and global joint fixed-point/descent statistics. Those statements collapse fixed-point locations or study other adjacent-pair encodings; they do not imply the submitted sparse coordinate cross-covariance matrix, endpoint-only row sums, or the exact restoration of covariance zero after cyclic closure. Resultary, SCOPE and exact web searches found no position-resolved equivalent.",
+      "residual_risks": [
+        "A very refined classical descent-set identity could encode the same covariance after nontrivial extraction; no such position-resolved formula was located in the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "It refines by the total number of fixed points rather than by fixed-point location, so it does not state the coordinate covariance law."
+          ],
+          "identifier_or_url": "doi:10.1016/0097-3165(93)90100-M",
+          "material_read": "Primary bibliographic/abstract material describing descent classes refined by the number of fixed points.",
+          "method": "Statement/parameter comparison.",
+          "title": "Descent classes of permutations with a given number of fixed points",
+          "trigger": "Closest classical source linking descents and fixed points."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "The paper compares fixed points with unseparated adjacent-value pairs; ordinary descent indicators and their covariance with fixed-point coordinates are not the stated object."
+          ],
+          "identifier_or_url": "arXiv:1308.5459; Adv. Appl. Math. 61 (2014) 102--124",
+          "material_read": "Public primary abstract/report material describing the distributional equivalence for fixed-point sets and circular permutations.",
+          "method": "Object/statistic comparison.",
+          "title": "Unseparated pairs and fixed points in random permutations",
+          "trigger": "Primary source on the random set of fixed-point positions and a circular analogue."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result is a natural structural refinement of a classical joint-statistics problem: it identifies the entire cross-covariance matrix, proves that the aggregate \\(-1/n\\) dependence is purely an open-boundary effect, and shows cyclic closure restores exact coordinatewise orthogonality. This localization is potentially useful in multivariate limit/Stein calculations because it exposes the sparse dependence structure rather than merely another aggregate moment.",
+      "risks": [
+        "The proof is elementary once the right coordinates are chosen; its value rests on the structural localization and cyclic cancellation, not technical depth."
+      ],
+      "sources": [
+        "Exact coordinate covariance derivation",
+        "Classical fixed-point/descent literature"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem gives second-order dependence only; it does not determine higher mixed moments or independence."
+  ],
+  "schema_version": 1
+}

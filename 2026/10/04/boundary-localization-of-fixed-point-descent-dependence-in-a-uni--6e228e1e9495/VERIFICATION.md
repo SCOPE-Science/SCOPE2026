@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic and exhaustive enumeration.
+# Independent mathematical audit
 
-For every \(2\le n\le9\), it enumerates all permutations and reconstructs every fixed-point indicator and every ordinary and cyclic descent indicator.
+## correctness
 
-It verifies all \(240\) coordinate cross-covariances in the tested range, the endpoint/interior row sums, the equal column sums, the coordinatewise cyclic cancellations, the global covariance formulas, and the two marginal variance formulas.
+PASS
 
-The exhaustive replay covers \(409112\) permutations.
+Conditioning on \(I_i=1\) leaves all remaining values uniformly permuted. If \(i\notin\{j,j+1\}\), exchangeability of \(\Pi(j)\) and \(\Pi(j+1)\) gives \(\Pr(D_j=1\mid I_i=1)=1/2\), hence zero covariance. For \(i=j\) and \(i=j+1\), direct counting gives conditional probabilities \((j-1)/(n-1)\) and \((n-j-1)/(n-1)\), yielding exactly the two displayed adjacent-entry formulas. Summing them gives every column sum \(-1/[n(n-1)]\); summing along each fixed-point row cancels in the interior and leaves \(-1/(2n)\) at the two endpoints. The wrap descent contributes \(+1/(2n)\) at those endpoints and zero elsewhere, proving exact cyclic orthogonality. With the standard \(\operatorname{Var}(F)=1\) and \(\operatorname{Var}(D)=(n+1)/12\), the correlation formula follows. The exhaustive checker through \(n=9\) was inspected only as finite corroboration.
 
-Finite replay is supplementary. The all-\(n\) theorem is the conditional symmetry calculation in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact replay result: `VERIFY_OK permutations_checked=409112 local_cov_checks=240 row_sum_checks=44 column_sum_checks=36 cyclic_checks=44 global_checks=16 variance_checks=16`.
+Best-of-knowledge originality survives targeted comparison. Classical work treats the fixed-point set, descent classes with a prescribed total number of fixed points, and global joint fixed-point/descent statistics. Those statements collapse fixed-point locations or study other adjacent-pair encodings; they do not imply the submitted sparse coordinate cross-covariance matrix, endpoint-only row sums, or the exact restoration of covariance zero after cyclic closure. Resultary, SCOPE and exact web searches found no position-resolved equivalent.
+
+## value
+
+PASS
+
+The result is a natural structural refinement of a classical joint-statistics problem: it identifies the entire cross-covariance matrix, proves that the aggregate \(-1/n\) dependence is purely an open-boundary effect, and shows cyclic closure restores exact coordinatewise orthogonality. This localization is potentially useful in multivariate limit/Stein calculations because it exposes the sparse dependence structure rather than merely another aggregate moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
