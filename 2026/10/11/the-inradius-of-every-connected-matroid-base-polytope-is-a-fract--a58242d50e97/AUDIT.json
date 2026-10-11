@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Edmonds' exact rank-inequality description is used in the correct intrinsic affine hull. Each subset normal is orthogonally projected to the zero-sum translation space, giving norm \\(c(S)=\\sqrt{|S|(n-|S|)/n}\\). A radius-\\(t\\) ball is therefore feasible exactly when all shifted rank inequalities hold. The resulting finite linear program is dualized explicitly: free center coordinates impose equal element-cover weights, normalization gives fractional partitions, and strong duality yields the ratio. The complete center set follows by fixing the optimal radius in the same exact inequalities. Connectedness guarantees full intrinsic dimension and positive inradius; finite examples are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferroni studies connected matroid base polytopes and Ehrhart geometry, with no inradius or Chebyshev-center theorem located in the inspected text.",
+        "Joswig–Schröter give connected-dimension and facet/rank-inequality structure, which are premises rather than a metric-radius result.",
+        "Truong–Poggi-Corradini optimize modulus and universal densities to recover strength, fractional arboricity, and principal partitions, a different objective from the Euclidean largest-ball problem."
+      ],
+      "reasoning": "The strongest adjacent theories either supply the polyhedral constraints or optimize different matroid functionals. Neither broader structural source determines the projected-normal weights, the ratio in the claim, or all optimal Euclidean centers.",
+      "searches": [
+        "Full-text inspection: Ferroni, Matroids are not Ehrhart positive, arXiv:2105.04465",
+        "Full-text inspection: Joswig–Schröter, Matroids from hypersimplex splits, DOI 10.1016/j.jcta.2017.05.001",
+        "Full-text inspection: Truong–Poggi-Corradini, Base Modulus for Matroid Truncation, Strength, and Fractional Arboricity, arXiv:2604.11946"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.04465v1",
+      "doi:10.1016/j.aim.2022.108337",
+      "doi:10.1016/j.jcta.2017.05.001",
+      "arXiv:2604.11946",
+      "Published-result database searches for matroid base-polytope inradius, Chebyshev center, fractional covers, strength, hypersimplex radius, and rank-inequality formulations",
+      "Literature searches using direct and equivalent largest-inscribed-ball formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The rank-inequality description gives the halfspaces but does not by itself state their intrinsic distances or optimize a common ball radius.",
+        "The new argument projects each subset normal to the affine hull and then dualizes the simultaneous distance constraints, producing equal element-cover equations and hence fractional partitions.",
+        "Classical strength-type objectives use related rank deficits but do not have the geometric denominator \\(\\sqrt{|S|(n-|S|)/n}\\) or the center polytope in the claim."
+      ],
+      "reasoning": "The claim requires an additional metric and duality step beyond the known facet descriptions. It is not a corollary of a strength or principal-partition identity without deriving the different geometric objective.",
+      "searches": [
+        "Source comparison: Edmonds-style rank inequalities as presented in Joswig–Schröter, Section 2",
+        "Source comparison: Ferroni, connected matroid base-polytope geometry and dimension discussion",
+        "Source comparison: Truong–Poggi-Corradini, base-polytope modulus, strength, and fractional-arboricity objectives"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches used the direct Euclidean-inradius formulation and the equivalent Chebyshev-center, fractional-cover, and rank-inequality formulations.",
+        "The inspected matroid-polytope sources provide rank inequalities and dimensions but no fractional-partition radius formula."
+      ],
+      "reasoning": "The theorem can be hidden as a Chebyshev-center LP, a largest inscribed ball, or a fractional cover of rank inequalities. Those aliases were searched explicitly; no covering result was located.",
+      "searches": [
+        "Published-result database query: matroid base polytope Euclidean inradius fractional partition rank connectivity",
+        "Published-result database query: matroid base polytope Chebyshev radius fractional cover rank inequalities",
+        "Published-result database query: Chebyshev center matroid base polytope",
+        "Literature search: matroid base polytope inradius Euclidean Chebyshev center fractional partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records concern basis exchange, generalized permutohedra, and unrelated Euclidean invariants rather than matroid-base-polytope Chebyshev radii.",
+        "No exact database item supplied a table or symbolic formula matching the fractional-partition ratio."
+      ],
+      "reasoning": "The result is a family theorem rather than a table lookup, but exact-object database searches were run to exclude known tabulations or packaged formulas.",
+      "searches": [
+        "Published-result database query: matroid strength Euclidean inradius base polytope",
+        "Published-result database query: hypersimplex Euclidean inradius connected matroid base polytope",
+        "Published-result database query: matroid base polytope fractional partition radius"
+      ]
+    },
+    "rationale": "The closest geometric sources were inspected at the statement level for matroid base-polytope dimension and rank/facet descriptions, and a recent source on matroid strength and base-polytope optimization was compared for possible stronger coverage. None states or implies the Euclidean inradius ratio with projected-normal weights or the complete Chebyshev-center set. Direct and equivalent-formulation searches did not locate a covering theorem, while explicit residual risks are retained for general LP-duality and older strength literature.",
+    "residual_risks": [
+      "An equivalent specialization of general Chebyshev-center linear-programming duality may exist in polyhedral-optimization literature without matroid terminology.",
+      "Older matroid-strength or principal-partition literature may contain a differently normalized fractional-rank ratio that can be transformed into this formula.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper studies Ehrhart coefficients and connected matroid polytopes but does not state the Euclidean inradius or Chebyshev-center characterization proved here.",
+        "evidence": "The journal metadata lists primary MSC 52B40, and the preprint first appeared 2021-05-10. The mathematical focus is Ehrhart positivity rather than Euclidean largest-inscribed-ball geometry.",
+        "identifier_or_url": "arXiv:2105.04465 / DOI 10.1016/j.aim.2022.108337",
+        "material_read": "Abstract, article metadata and MSC, introductory geometric discussion, and the sections reviewing matroid/base-polytope structure; targeted full-text searches for metric-radius terminology.",
+        "method": "Open-access article and preprint inspection.",
+        "title": "Matroids are not Ehrhart positive",
+        "trigger": "Middle-period geometry source centered on connected matroid base polytopes and selected for the literature-led direction."
+      },
+      {
+        "assessment": "The paper supplies structural halfspace data used in the proof but no Euclidean inradius, Chebyshev center, or fractional-partition radius theorem.",
+        "evidence": "Its facet section states that the dimension equals the ground-set size minus the number of connected components and describes rank-defined facets.",
+        "identifier_or_url": "DOI 10.1016/j.jcta.2017.05.001",
+        "material_read": "Section 2 on matroid polytopes and facets, including the connected-dimension formula, flacets, hypersimplex facets, and rank-flat inequalities.",
+        "method": "Full-text article inspection.",
+        "title": "Matroids from hypersimplex splits",
+        "trigger": "Highly relevant polyhedral source with an explicit discussion of matroid-polytope dimensions and facet/rank inequalities."
+      },
+      {
+        "assessment": "The optimization objective and resulting invariants differ from the Euclidean largest-ball problem; no statement covering the claimed ratio or center set was located.",
+        "evidence": "The paper explicitly concerns base modulus and universal density, not distances to the rank facets.",
+        "identifier_or_url": "arXiv:2604.11946",
+        "material_read": "Abstract and sections describing universal density, base-polytope optimization, strength, fractional arboricity, and principal partitions.",
+        "method": "Open-access preprint inspection and targeted searches for Euclidean inradius and Chebyshev terminology.",
+        "title": "Base Modulus for Matroid Truncation, Strength, and Fractional Arboricity",
+        "trigger": "Potential broader coverage because it connects matroid base-polytope optimization with strength, fractional arboricity, and principal partitions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a58242d5-0e97-4865-93f5-eb69b4d6dac1",
+  "value": {
+    "rationale": "The theorem converts a canonical Euclidean invariant of every connected matroid base polytope into a purely rank-theoretic fractional-partition optimization and simultaneously describes all Chebyshev centers. It applies in arbitrary rank, contains hypersimplices as an exact closed-form specialization, and exposes a geometric weighting of rank deficits distinct from classical strength objectives. This is a structural all-rank result rather than a finite table, parameter substitution, or isolated computation.",
+    "status": "PASS"
+  }
+}
