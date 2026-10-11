@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` is the evidence for the infinite theorem. Its critical steps are: pairing the samples indexed by \(k\) and \(k+N/2\); the exact covering radius \(2\pi/N\) for the \(N/2\)-th roots; the identity reducing the two-term bound to \((1-q)(a-c)^2\); weighted Cauchy--Schwarz; and the explicit equality construction.
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` for a finite regression check. The script evaluates the proposed extremizer for every even \(N\) with \(4\le N\le200\), compares its measured ratio with \(\sqrt{1+\sec^2(\pi/N)}\), and tests the proved upper bound on randomized complex coefficient triples. The packaged script was replayed successfully before serialization and printed `VERIFY_OK`.
+## correctness
 
-The numerical checks do not certify the theorem for untested orders and are not used as a substitute for the analytic proof. Odd \(N\) and arbitrary three-point frequency sets are unproved here.
+PASS
+
+The upper bound follows from pairing the grid samples at \(k\) and \(k+N/2\), the parallelogram identity, nearest-root alignment of the outer coefficients, and one weighted Cauchy--Schwarz inequality. Equality is attained by the explicit phase choice in RESULT.md, for which the outer sum and middle term are orthogonal at every phase and the grid maximum is exact. I independently evaluated the extremizer at representative even orders and obtained the stated constant; the infinite proof is analytic, not numerical.
+
+## originality
+
+PASS
+
+Neuwirth's exact theorem for three integer frequencies uses the supremum over the continuous circle and gives \(\sqrt2\) for \(\{0,1,2\}\). The finite cyclic problem samples only N roots and has a strictly larger residue-dependent value. Graham's whole-group Sidon constant is a different invariant. No prior finite-grid formula was found.
+
+## value
+
+PASS
+
+The theorem exactly quantifies the finite-sampling penalty relative to a classical continuous Sidon constant for every even cyclic order, with an explicit extremizer and asymptotic limit. This is a natural all-parameter harmonic-analysis invariant, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:45:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f1cbd917a673c967bb95412633e1538b0df24d4a",
+        "artifacts/verify.py blob 86b43e31c2af0e818fdaa0aa76396864d786164b",
+        "independent extremizer evaluation"
+      ],
+      "rationale": "The upper bound follows from pairing the grid samples at \\(k\\) and \\(k+N/2\\), the parallelogram identity, nearest-root alignment of the outer coefficients, and one weighted Cauchy--Schwarz inequality. Equality is attained by the explicit phase choice in RESULT.md, for which the outer sum and middle term are orthogonal at every phase and the grid maximum is exact. I independently evaluated the extremizer at representative even orders and obtained the stated constant; the infinite proof is analytic, not numerical.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The continuous theorem does not determine the exact sampling penalty; the whole-group constant is not the constant of a prescribed subset."
+        ],
+        "reasoning": "Neither broader result implies the finite even-N formula.",
+        "searches": [
+          "Neuwirth continuous three-frequency theorem",
+          "Graham whole finite-group theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0102145",
+        "Graham 1978",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous-circle maximization is over a strictly larger domain than the N-point grid, so its \\(\\sqrt2\\) constant is only the limit and does not force the finite values."
+        ],
+        "reasoning": "The parity pairing and exact grid extremizer supply new finite-sampling content.",
+        "searches": [
+          "arXiv:math/0102145"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Neuwirth treats the continuous torus, not the finite sample grid.",
+          "The audited formula converges to the continuous value but is strictly larger for finite even N."
+        ],
+        "reasoning": "Equivalent formulations as finite cyclic interpolation/Sidon norm, sampled three-term trigonometric polynomial, and three-character coefficient \\(\\ell^1\\)-to-grid-supremum ratio were compared.",
+        "searches": [
+          "Resultary query: Sidon constant three consecutive characters even cyclic group exact formula finite cyclic",
+          "Neuwirth arXiv:math/0102145",
+          "Graham 1978 finite abelian group Sidon constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct Resultary hit was the assigned record; no earlier exact table/formula was found."
+        ],
+        "reasoning": "Exact finite-grid coverage was explicitly checked.",
+        "searches": [
+          "Resultary exact finite cyclic Sidon search",
+          "searches for \\(\\sqrt{1+\\sec^2(\\pi/N)}\\) with Sidon terminology"
+        ]
+      },
+      "rationale": "Neuwirth's exact theorem for three integer frequencies uses the supremum over the continuous circle and gives \\(\\sqrt2\\) for \\(\\{0,1,2\\}\\). The finite cyclic problem samples only N roots and has a strictly larger residue-dependent value. Graham's whole-group Sidon constant is a different invariant. No prior finite-grid formula was found.",
+      "residual_risks": [
+        "Finite-group interpolation literature under different terminology may contain an equivalent formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTINUOUS_PROBLEM_NOT_COVERING_FINITE_GRID",
+          "evidence": "For the consecutive triple the continuous value is \\(\\sqrt2\\), while the audited finite-grid constant has the explicit N-dependent excess.",
+          "identifier_or_url": "arXiv:math/0102145",
+          "material_read": "Primary theorem/result material giving the exact continuous-circle three-frequency Sidon constant, including the arithmetic-progression specialization.",
+          "method": "Open-access primary-source inspection.",
+          "title": "The Sidon constant of sets with three elements",
+          "trigger": "Closest exact theorem for the same three frequencies."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Neuwirth",
+        "Graham"
+      ],
+      "rationale": "The theorem exactly quantifies the finite-sampling penalty relative to a classical continuous Sidon constant for every even cyclic order, with an explicit extremizer and asymptotic limit. This is a natural all-parameter harmonic-analysis invariant, not an arbitrary finite instance.",
+      "residual_risks": [
+        "Odd cyclic orders remain untreated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every even \\(N\\ge4\\), the Sidon constant of the three consecutive characters \\(\\{0,1,2\\}\\subset\\widehat{\\mathbb Z_N}\\) is \\(\\sqrt{1+\\sec^2(\\pi/N)}\\).",
+  "limitations": [
+    "Even cyclic orders only; odd orders and arbitrary three-character subsets are not classified."
+  ],
+  "schema_version": 1
+}
