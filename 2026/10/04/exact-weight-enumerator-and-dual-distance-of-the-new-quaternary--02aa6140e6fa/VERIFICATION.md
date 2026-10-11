@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library and exact arithmetic in \(\mathbb F_4\).
 
-The verifier reconstructs the \(10\times22\) matrix from the public source, checks row rank \(10\), and checks rank \(10\) of the Hermitian Gram matrix \(G\overline{G}^{\,T}\). It then enumerates all \(4^{10}=1{,}048{,}576\) messages and reproduces every coefficient of the stated Hamming weight enumerator.
+# Independent mathematical audit
 
-For the dual-distance claim it tests all \(\binom{22}{6}=74{,}613\) six-column subsets and verifies that each has rank \(6\). It then exhausts all \(\binom{22}{7}=170{,}544\) seven-column subsets, finds exactly \(88\) of rank \(6\), and confirms the stored witness. Since every six-subset is independent, each dependent seven-set is a circuit and contributes exactly three scalar-multiple dual words. A separate MacWilliams calculation checks \(A_7(C'^\perp)=264\). The orthogonal-array strength follows from the verified surjectivity of every six-coordinate projection.
+## correctness
+
+PASS
+
+The published generator matrix of the new \([22,10,9]_4\) Hermitian LCD code was independently reconstructed over \(\mathbb F_4\). Enumerating all \(4^{10}=1,048,576\) messages reproduced every coefficient of the stated Hamming weight enumerator and minimum weight nine. The Hermitian Gram matrix has rank ten. Independently testing all \(74,613\) six-column subsets found none dependent, while exactly 88 of the \(170,544\) seven-column subsets have rank six. Hence the Euclidean dual distance is seven, and conjugation gives the same Hermitian-dual distance. A separate MacWilliams computation gives \(A_6^\perp=0\) and \(A_7^\perp=264\), agreeing with the circuit count and implying orthogonal-array strength six.
+
+## originality
+
+PASS
+
+Abdukhalikov and Ho publish the explicit generator matrix and prove that this code is a new best-known \([22,10,9]_4\) Hermitian LCD code. Their complete searchable article does not contain a weight enumerator, and the inspected Example 2 states only the parameters and LCD property. The dual minimum distance, exact number of dependent seven-sets, and orthogonal-array strength are not implied by the parameter triple or LCD property without additional finite computation. Current Resultary and web searches did not locate those invariants for this code.
+
+## value
+
+PASS
+
+The object is a newly identified best-known Hermitian LCD code, so its complete weight spectrum and dual strength are natural reference invariants rather than an arbitrary code sample. The dual distance seven and OA strength six provide structural information relevant to projections, designs, and comparisons that is not encoded in the headline \([22,10,9]\) parameters. The exact exhaustive certificate makes these reusable finite facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

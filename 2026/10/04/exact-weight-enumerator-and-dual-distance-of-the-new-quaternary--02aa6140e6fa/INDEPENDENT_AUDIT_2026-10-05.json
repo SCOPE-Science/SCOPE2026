@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:11:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 915c29ed09b08e1a5435183d6e6a015a4e0f325a",
+        "assigned artifacts/verify.py blob ed059add876056a2fd25a6314e06dd3515c1444e",
+        "assigned artifacts/certificate.json blob 5baa51349f455372f98849002fd1c9a357f3809c",
+        "Abdukhalikov--Ho, On the equivalence between additive and linear codes, arXiv:2603.15071v2"
+      ],
+      "rationale": "The published generator matrix of the new \\([22,10,9]_4\\) Hermitian LCD code was independently reconstructed over \\(\\mathbb F_4\\). Enumerating all \\(4^{10}=1,048,576\\) messages reproduced every coefficient of the stated Hamming weight enumerator and minimum weight nine. The Hermitian Gram matrix has rank ten. Independently testing all \\(74,613\\) six-column subsets found none dependent, while exactly 88 of the \\(170,544\\) seven-column subsets have rank six. Hence the Euclidean dual distance is seven, and conjugation gives the same Hermitian-dual distance. A separate MacWilliams computation gives \\(A_6^\\perp=0\\) and \\(A_7^\\perp=264\\), agreeing with the circuit count and implying orthogonal-array strength six.",
+      "residual_risks": [
+        "The proof is exhaustive finite computation; it does not classify all inequivalent codes with the same parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source establishes the improved minimum distance but not the full spectrum or dual projection strength.",
+          "Best-known-distance tables do not determine a particular code's complete weight distribution or dual distance."
+        ],
+        "reasoning": "No inspected general theorem fixes these additional invariants from \\([22,10,9]\\) plus LCD alone.",
+        "searches": [
+          "Abdukhalikov--Ho full article",
+          "Araya--Harada 2024 Hermitian LCD minimum-weight tables"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.15071v2",
+        "Araya--Harada, Cryptography and Communications 16 (2024), 1539--1558",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matrix determines these invariants in principle, but recovering them requires an exhaustive million-word enumeration and exhaustive projection-rank/circuit computation; they are not a theorem-level parameter substitution.",
+          "LCD only says the code and its Hermitian dual intersect trivially and does not determine the dual minimum weight."
+        ],
+        "reasoning": "The final exact invariants are new finite facts about a newly published best-known code.",
+        "searches": [
+          "published generator matrix/parameters versus complete enumerator",
+          "Hermitian LCD property versus dual minimum distance and OA strength"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 2 prints exactly the same ten-by-twenty-two generator matrix and proves the \\([22,10,9]_4\\) Hermitian LCD parameters.",
+          "The primary full text has no weight-enumerator statement for this code and does not state its dual distance or OA strength."
+        ],
+        "reasoning": "The audited invariants are attached to the identical explicit code, not merely to a parameter-equivalent code.",
+        "searches": [
+          "Resultary query: quaternary Hermitian LCD 22 10 9 weight enumerator dual distance orthogonal array",
+          "Abdukhalikov--Ho arXiv:2603.15071v2, Example 2 and conclusion",
+          "full-text search of the primary article for weight enumerator and dual"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior table containing the audited spectrum or dual distance was retrieved."
+        ],
+        "reasoning": "The database check is coupled to complete inspection of the paper that introduced the linear code.",
+        "searches": [
+          "Resultary current search for the \\([22,10,9]_4\\) enumerator and dual distance",
+          "web search for the explicit code plus weight enumerator"
+        ]
+      },
+      "rationale": "Abdukhalikov and Ho publish the explicit generator matrix and prove that this code is a new best-known \\([22,10,9]_4\\) Hermitian LCD code. Their complete searchable article does not contain a weight enumerator, and the inspected Example 2 states only the parameters and LCD property. The dual minimum distance, exact number of dependent seven-sets, and orthogonal-array strength are not implied by the parameter triple or LCD property without additional finite computation. Current Resultary and web searches did not locate those invariants for this code.",
+      "residual_risks": [
+        "The authors' unreleased MAGMA scripts or private calculations may already contain the same enumerator even though it is not stated in the paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CODE_INTRODUCED_NO_AUDITED_ENUMERATOR",
+          "evidence": "Example 2 proves only the \\([22,10,9]_4\\) Hermitian LCD status and the improvement from minimum distance eight to nine.",
+          "identifier_or_url": "arXiv:2603.15071v2",
+          "material_read": "complete experimental HTML with Example 2, the full displayed generator matrix, Table 2, and the conclusion inspected; targeted full-text searches for weight enumerator and dual invariants were also performed",
+          "method": "primary full-text inspection",
+          "title": "On the equivalence between additive and linear codes",
+          "trigger": "primary source of the exact generator matrix"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Abdukhalikov--Ho 2026",
+        "assigned exact certificate and independent enumeration"
+      ],
+      "rationale": "The object is a newly identified best-known Hermitian LCD code, so its complete weight spectrum and dual strength are natural reference invariants rather than an arbitrary code sample. The dual distance seven and OA strength six provide structural information relevant to projections, designs, and comparisons that is not encoded in the headline \\([22,10,9]\\) parameters. The exact exhaustive certificate makes these reusable finite facts.",
+      "residual_risks": [
+        "The contribution is a code-instance invariant calculation rather than a family theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The proof is exhaustive finite computation; it does not classify all inequivalent codes with the same parameters.",
+    "The authors' unreleased MAGMA scripts or private calculations may already contain the same enumerator even though it is not stated in the paper.",
+    "The contribution is a code-instance invariant calculation rather than a family theorem."
+  ]
+}

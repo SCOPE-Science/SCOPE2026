@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The explicit \(10\times22\) generator matrix was reconstructed from Example 2. Exact finite-field checks give row rank \(10\) and Hermitian Gram rank \(10\). Exhaustion of all \(4^{10}\) words yields the stated Hamming enumerator and minimum distance \(9\). Every six-column subset is independent, exactly \(88\) seven-column subsets have rank \(6\), and the MacWilliams transform independently gives \(A_7(C'^\perp)=264\). Thus both Euclidean and Hermitian dual minimum distances are exactly \(7\).
+PASS
 
-## Originality
+The published generator matrix of the new \([22,10,9]_4\) Hermitian LCD code was independently reconstructed over \(\mathbb F_4\). Enumerating all \(4^{10}=1,048,576\) messages reproduced every coefficient of the stated Hamming weight enumerator and minimum weight nine. The Hermitian Gram matrix has rank ten. Independently testing all \(74,613\) six-column subsets found none dependent, while exactly 88 of the \(170,544\) seven-column subsets have rank six. Hence the Euclidean dual distance is seven, and conjugation gives the same Hermitian-dual distance. A separate MacWilliams computation gives \(A_6^\perp=0\) and \(A_7^\perp=264\), agreeing with the circuit count and implying orthogonal-array strength six.
 
-PASS. The closest source prints this code and establishes its Hermitian LCD \([22,10,9]\) parameters but does not state a weight enumerator, dual distance, or orthogonal-array strength. Focused published-finding corpus and primary-literature searches covered exact parameters, weight-distribution aliases, generalized/higher-support terminology, dual distance, orthogonal arrays, additive/linear equivalence, and distinctive numerical coefficients. No covering statement was located. A residual risk is an unindexed computation for an equivalent presentation, especially the earlier additive representative.
+## originality
 
-## Value
+PASS
 
-PASS. This code is presented as a new best-known Hermitian LCD construction. Its full Hamming spectrum is a standard complete invariant, and dual distance \(7\) adds a strong six-coordinate uniformity property not determined by \([22,10,9]\). The exact count of \(88\) seven-column circuits identifies the first obstruction and fixes the first nonzero dual coefficient. Together these form a natural structural fingerprint of the new record code.
+Abdukhalikov and Ho publish the explicit generator matrix and prove that this code is a new best-known \([22,10,9]_4\) Hermitian LCD code. Their complete searchable article does not contain a weight enumerator, and the inspected Example 2 states only the parameters and LCD property. The dual minimum distance, exact number of dependent seven-sets, and orthogonal-array strength are not implied by the parameter triple or LCD property without additional finite computation. Current Resultary and web searches did not locate those invariants for this code.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The object is a newly identified best-known Hermitian LCD code, so its complete weight spectrum and dual strength are natural reference invariants rather than an arbitrary code sample. The dual distance seven and OA strength six provide structural information relevant to projections, designs, and comparisons that is not encoded in the headline \([22,10,9]\) parameters. The exact exhaustive certificate makes these reusable finite facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
