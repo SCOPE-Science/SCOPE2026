@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Invariant symmetrization preserves mass and Fourier positivity; Fourier Krawtchouk expansion is exact and normalized. The polynomial with zeros at consecutive integer weights is feasible because of integer-grid positivity. The dual identity with explicitly nonnegative alpha and beta bounds every feasible polynomial and gives the complete radial equality analysis. Exact tests: 558 rational cases and six full Fourier transforms passed; the infinite theorem uses the algebraic proof, not finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2004 Theorem 4 upper bounds Turan mass via a spectral set containing the relevant differences. The 2019 paper develops general upper bounds on locally compact groups rather than an evaluation for Hamming two-balls. The 2023 uniqueness paper treats code minimum-distance LP problems, whose optimizer variables differ from the support-restricted Fourier-positive quadratic here."
+      ],
+      "reasoning": "Neither a general packing inequality nor a coding-distance uniqueness criterion evaluated at different hypotheses implies the exact support-ball mass or the arithmetic radial equality classification; the possible application of more specialized coding theory is recorded separately.",
+      "searches": [
+        "arxiv:math/0312218, Kolountzakis–Révész, group Turan packing and spectral-set bounds",
+        "arxiv:1904.03614, Berdysheva–Révész, Delsarte packing bounds",
+        "arxiv:2204.06090, Li, Delsarte LP uniqueness"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.03614 (first public 2019-04-07)",
+      "arxiv:math/0312218",
+      "arxiv:2204.06090",
+      "https://doc.sagemath.org/html/en/reference/coding/sage/coding/delsarte_bounds.html",
+      "published-finding corpus ID 2026/10/4/SCOPE-sharp-tur-n-constant-and-all-extremizers-for-the-weight-two-bool--e912a3cb52c4",
+      "published-finding corpus ID 2026/10/4/SCOPE-exact-even-dilate-shapiro-constants-for-hamming-balls-on-the-boo--6f80bd4fe238"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior Boolean shell theorem has the support sphere of exact weight two in characteristic two; it neither includes the zero and weight-one spheres nor proves the nonbinary formulas. The Shapiro-doubling result maximizes a dilation functional rather than positive-definite counting mass. The two external primary sources develop general frameworks and different coding-LP conditions."
+      ],
+      "reasoning": "The present all-q and all-d arithmetic mass plus radial optimizer degeneracy is not a statement-level corollary of those precise results. Nonetheless standard Hamming association-scheme theory supplies much of the machinery and is explicitly credited.",
+      "searches": [
+        "published-finding corpus ID 2026/10/4/SCOPE-sharp-tur-n-constant-and-all-extremizers-for-the-weight-two-bool--e912a3cb52c4",
+        "published-finding corpus ID 2026/10/4/SCOPE-exact-even-dilate-shapiro-constants-for-hamming-balls-on-the-boo--6f80bd4fe238",
+        "arxiv:1904.03614",
+        "arxiv:2204.06090"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The support-restricted positive-definite extremum can be interpreted as a Fourier/association-scheme theta optimization for the graph whose edges have Hamming length one or two. The searches surfaced general Lovasz-theta methods, not the displayed all-field rational formula or radial equality segment."
+      ],
+      "reasoning": "A graph-theta restatement alone would be equivalent, but no inspected result computed the precise q,d constant and optimizer face. The literature search cannot rule out such a calculation in unindexed coding theory.",
+      "searches": [
+        "published-finding corpus: Exact Turan positive-definite mass radius two Hamming ball q-ary additive group full dimension formula Krawtchouk",
+        "web: \"theta\" \"Hamming\" \"distance 2\" Krawtchouk",
+        "web: Lovasz theta square Hamming graph exact formula q n graph distance 1 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned a binary weight-two Hamming SHELL Turan constant and a Boolean Hamming-ball Shapiro constant, different support and objective. Sage provides a general LP solver, not a precomputed formula or equality family for these support-restricted q-ary instances."
+      ],
+      "reasoning": "Computability by a pre-existing LP package does not itself imply a pre-existing general symbolic classification; no exact matching table was located. A table with the formula under different terminology remains possible.",
+      "searches": [
+        "published-finding corpus: positive definite functions supported at Hamming weight at most two on Fq^d explicit sharp mass",
+        "published-finding corpus: discrete q-ary Hamming ball two neighboring roots unique optimal Fourier transform quadratic polynomial",
+        "Sage docs: delsarte_bound_hamming_space(n,d,q), as public programmatic LP interface"
+      ]
+    },
+    "rationale": "The normalized exact mass and radial optimizer phase transition are not implied by the specific inspected broad Turán, Delsarte packing, or coding-distance uniqueness theorems. Targeted published-record queries found related binary shell and discrete polynomial findings but no covering statement. Unindexed equivalence to classical theta or association-scheme computations remains a serious but not decisive residual bibliographic risk.",
+    "residual_risks": [
+      "A classic or poorly indexed exact Lovász-theta evaluation for the square of the Hamming graph may be equivalent to the numerical mass formula.",
+      "Known Delsarte/association-scheme LP identities could imply the present equality case under a different normalization; targeted textual comparisons found no decisive proof of coverage.",
+      "Only radial equality classification is proved; general nonradial optimizers could have additional geometry."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NO_IDENTICAL_FORMULA_LOCATED",
+        "evidence": [
+          "Initial arXiv date 2019-04-07; q-ary Hamming distance-two radius is not treated in inspected sections or indexed full-text Hamming search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.03614",
+        "material_read": "Title, abstract, introduction, positivity and packing formulation, full-text search for Hamming, and relevant packing-bound discussions",
+        "method": "Lawful open-access full-text PDF read and page-image examination",
+        "title": "Delsarte’s Extremal Problem and Packing on Locally Compact Abelian Groups",
+        "trigger": "2019 motivating paper and possible dominating general theorem"
+      },
+      {
+        "assessment": "GENERAL_BOUND_NOT_EXACT_HAMMING_FAMILY",
+        "evidence": [
+          "Theorem 4 states a spectral-set upper bound for general support sets, not q-ary two-ball numerical values."
+        ],
+        "identifier_or_url": "https://eigen-space.org/ps/turan-groups.pdf",
+        "material_read": "Abstract, first four sections and the stated Theorem 4 upper bound, bibliography, full-text Hamming search",
+        "method": "Full-text PDF with page-image examination of opening page and relevant theorem text",
+        "title": "Turán’s extremal problem for positive definite functions on groups",
+        "trigger": "Closest broad finite-group support-mass theorem, including spectral upper bounds"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_AND_CONSTRAINTS",
+        "evidence": [
+          "The article concerns quasicode LP upper bounds for prescribed minimum distances, particularly d≤2 and parity extension/puncturing, not unrestricted radial Turan mass for support radius two."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-023-01191-y",
+        "material_read": "Open-access article abstract, introductory coding-LP definitions, statements of distance-constraint uniqueness and parity results",
+        "method": "HTML full text read and targeted term checks",
+        "title": "Unique optima of the Delsarte linear program",
+        "trigger": "Possible uniqueness theorem for Hamming association-scheme LPs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "44314235-0f41-48f3-bcea-923abc450964",
+  "value": {
+    "rationale": "The exact all-alphabet, all-dimension positive-definite Turan invariant of a canonical Hamming metric ball solves a natural harmonic extremal problem, not an arbitrary numerical slice. The sharp congruence transition from one radial optimizer to a line segment and fractional mass values such as 27/2 for q=3,d=5 are motivated structural facts. A Fourier dual certificate is reusable in coding and packing contexts without claiming new code bounds.",
+    "status": "PASS"
+  }
+}
