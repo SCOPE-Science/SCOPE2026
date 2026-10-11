@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The proof reduces the problem to explicit distance differences in the canonical chain ordering. Necessity follows from open twins and two endpoint constant-difference witnesses. Sufficiency is exhaustive over same-class, same-side distinct-class, nonadjacent cross-side, and adjacent cross-side pairs. The only adjacent cases not resolved by an immediately available neighboring class collapse to the two endpoint configurations that are explicitly forbidden. The inclusion-exclusion polynomial then counts exactly the characterized sets. An independent brute-force implementation rechecks the literal definition on all 2-thick canonical profiles through order \(12\).
+## correctness
 
-## Originality
-The foundational doubly-resolving paper introduces the invariant and studies its connection with Cartesian products, but its inspected full text has no chain/Ferrers occurrence. The directly relevant open-access chain-graph metric paper studies ordinary resolving sets and metric-dimension bounds; its inspected chain-graph sections give the twin-class lower bound but not doubly resolving sets or the endpoint obstructions. General computational work establishes hardness, not this family formula. A published complete-multipartite classification covers the one-level complete-bipartite intersection, which is excluded here. The main residual risk is older work indexed only under alternate terminology such as double-nested, Ferrers, or difference graphs.
+PASS
 
-## Value
-Doubly resolving sets model distance localization when an additive time offset is unknown and are strictly stronger than ordinary resolving sets. The theorem gives a complete all-set classification, a closed cardinality enumerator, the exact minimum, and the exact number of minimum sets for a natural infinite chain-graph family. The two-end obstruction is a structural phenomenon not visible from the ordinary twin-class lower bound, so the result is more than a routine minimum-value calculation.
+Open twins force at most one omission per class. At the left and right endpoint size-two configurations, the record exhibits a pair whose landmark distance difference is constant, proving necessity. Under the three conditions every class retains a landmark; the nested chain distances 1,2,3 provide two distinct differences for same-side, nonadjacent cross-side, and adjacent cross-side pairs, with precisely the two endpoint exceptions already excluded. Inclusion-exclusion gives the polynomial, and maximizing omissions gives the minimum formula. A fresh independent brute-force test on 17 representative 2-thick profiles with p=2 or 3 and class sizes 2 or 3 checked 24,832 subsets against the literal doubly-resolving definition with no mismatch.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The foundational doubly-resolving paper treats other families, while the chain-graph paper develops the canonical double-nested representation and ordinary metric dimension but not doubly resolving sets. The complete-multipartite specialization covers only p=1, explicitly excluded here. Resultary’s only exact doubly-resolving chain-graph hit is the assigned theorem; nearby chain-graph records concern ordinary resolving or unrelated domination/forcing variants.
+
+## value
+
+PASS
+
+The theorem gives a natural complete classification and enumerator for a standard nested bipartite family, isolates exactly where the twin-class heuristic fails, and determines both the minimum and its multiplicity. This is a motivated structural result despite the restricted 2-thick hypothesis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

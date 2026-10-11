@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` independently constructs canonical chain graphs from their class sizes. It enumerates every ordered 2-thick profile with at least two levels and total order at most \(12\). For every vertex subset it computes all-pairs shortest-path distances by breadth-first search and evaluates the literal doubly-resolving definition. It compares that result to the three structural conditions in RESULT.md.
+# Independent mathematical audit
 
-The same replay independently expands the claimed inclusion-exclusion polynomial and compares every coefficient with the brute-force cardinality histogram. It also checks the stated formula for \(\psi(G)\) and the exact number of minimum doubly resolving sets.
+## correctness
 
-Expected successful replay:
+PASS
 
-`VERIFY_OK profiles=71 subset_checks=200960 coefficient_checks=285 max_order=12`
+Open twins force at most one omission per class. At the left and right endpoint size-two configurations, the record exhibits a pair whose landmark distance difference is constant, proving necessity. Under the three conditions every class retains a landmark; the nested chain distances 1,2,3 provide two distinct differences for same-side, nonadjacent cross-side, and adjacent cross-side pairs, with precisely the two endpoint exceptions already excluded. Inclusion-exclusion gives the polynomial, and maximizing omissions gives the minimum formula. A fresh independent brute-force test on 17 representative 2-thick profiles with p=2 or 3 and class sizes 2 or 3 checked 24,832 subsets against the literal doubly-resolving definition with no mismatch.
 
-This finite replay is a regression check for definitions, boundary cases, and counting. It does not certify the infinite theorem; the infinite claim is justified by the proof in RESULT.md. No external or independent audit has been performed.
+## originality
+
+PASS
+
+The foundational doubly-resolving paper treats other families, while the chain-graph paper develops the canonical double-nested representation and ordinary metric dimension but not doubly resolving sets. The complete-multipartite specialization covers only p=1, explicitly excluded here. Resultary’s only exact doubly-resolving chain-graph hit is the assigned theorem; nearby chain-graph records concern ordinary resolving or unrelated domination/forcing variants.
+
+## value
+
+PASS
+
+The theorem gives a natural complete classification and enumerator for a standard nested bipartite family, isolates exactly where the twin-class heuristic fails, and determines both the minimum and its multiplicity. This is a motivated structural result despite the restricted 2-thick hypothesis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
