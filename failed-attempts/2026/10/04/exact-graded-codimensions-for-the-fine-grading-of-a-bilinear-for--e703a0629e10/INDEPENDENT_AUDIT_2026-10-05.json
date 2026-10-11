@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:01:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed labeled fine-degree tuple, every input homogeneous component is zero- or one-dimensional, so the multilinear quotient has dimension at most one. If two or more nonzero basis degrees occur with odd multiplicity, the total degree lies outside the support and the component is zero. If at most one occurs oddly, pairing equal-degree variables first gives a nonzero evaluation because each orthogonal basis vector has nonzero square. Thus the per-tuple dimension is exactly the stated parity indicator. Fourier inversion on \\((\\mathbb Z/2)^n\\) then gives the closed character sum and hence the binomial formula; the unique leading absolute base \\(n+1\\) gives the growth exponent. The bundled finite checker agrees with the symbolic count and is used only as a consistency check.",
+      "risks": [
+        "Characteristic two is excluded; the claim concerns multilinear codimensions for the fine grading."
+      ],
+      "sources": [
+        "RESULT.md blob 5644a8abb965cbf41466b7889b88551bf1999024",
+        "verify.py blob aeabdb074c125c76741bc1a3f72d97eeb1d333ae",
+        "Fideles--Salomao--Riva, DOI:10.1016/j.ffa.2026.102826"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 source covers the exact fine grading on B_n over both infinite and finite fields and supplies bases for the relatively free graded algebras.",
+          "The older 2020 source concerns different Z2 gradings and is not decisive."
+        ],
+        "reasoning": "The quotient-basis theorem is broader structural information from which the submitted multilinear dimensions follow immediately.",
+        "searches": [
+          "DOI:10.1016/j.ffa.2026.102826 full open text, Proposition 3.24, Lemma 3.25, Theorem 3.26",
+          "arXiv:2009.02530 scope comparison"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.ffa.2026.102826",
+        "arXiv:2009.02530",
+        "Resultary semantic search for fine-graded codimension/parity formulations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published basis condition: all s_i even except possibly one; multilinearity removes the finite-field exponent restriction.",
+          "The submitted zero/one criterion is exactly that condition translated to a labeled degree tuple."
+        ],
+        "reasoning": "After the published basis theorem, the remaining character sum is elementary finite-group counting. The final claim is therefore mechanically implied.",
+        "searches": [
+          "Statement comparison with Lemma 3.25/Theorem 3.26 and Proposition 3.24 of DOI:10.1016/j.ffa.2026.102826"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's Lemma 3.25 describes basis monomials with all nonzero-degree multiplicities even except possibly one.",
+          "Proposition 3.24 supplies the corresponding infinite-field quotient basis."
+        ],
+        "reasoning": "Counting multilinear basis elements and calling the result a graded codimension is an equivalent enumerative formulation of the published quotient basis.",
+        "searches": [
+          "Resultary: fine grading bilinear form Jordan algebra exact graded codimensions PI exponent parity",
+          "Web: Theorem 3.26 codimension Jordan algebra fine grading",
+          "Web: Lemma 3.25 fine grading Jordan algebra bilinear form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent table was needed because the primary quotient basis already determines every multilinear component."
+        ],
+        "reasoning": "Failure to find the closed sequence verbatim cannot overcome direct theorem-level implication.",
+        "searches": [
+          "Resultary exact-formula query",
+          "Web exact closed-form searches for the Klein specialization"
+        ]
+      },
+      "rationale": "The decisive primary source already gives essentially the same parity basis. Proposition 3.24 states, for infinite fields, that the quotient basis is the set from Lemma 3.22; Lemma 3.25 and Theorem 3.26 give the finite-field basis, whose monomials have all degree multiplicities even except possibly one. In the multilinear component each variable occurs once, so the finite-field exponent cap is irrelevant, and the published basis immediately makes each labeled degree component zero or one with exactly the submitted parity criterion. Summing those components by elementary character orthogonality yields the displayed codimension formula. Under the implication standard, this is a routine enumerative corollary of the published basis, not an original theorem merely because the word 'codimension' is absent.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_STRUCTURAL_COVERAGE",
+          "evidence": [
+            "Lemma 3.25's basis monomials have all fine-degree multiplicities even except possibly one; Theorem 3.26 makes this a basis of the quotient over finite fields; Proposition 3.24 gives the analogous infinite-field quotient basis."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.ffa.2026.102826",
+          "material_read": "Open-access full text around the fine grading, Proposition 3.24, Lemma 3.25 and Theorem 3.26.",
+          "method": "Publisher full-text HTML inspection.",
+          "title": "Graded identities for the Jordan algebra of the symmetric matrices of order two over finite fields",
+          "trigger": "Same algebra, same fine grading and the relatively free basis from which codimensions are computed."
+        },
+        {
+          "assessment": "DIFFERENT_GRADING",
+          "evidence": [
+            "The B_n extension uses the scalar Z2 grading rather than the fine (Z/2)^n grading."
+          ],
+          "identifier_or_url": "arXiv:2009.02530",
+          "material_read": "Abstract and grading scope.",
+          "method": "ArXiv metadata/abstract inspection.",
+          "title": "2-graded polynomial identities for the Jordan algebra of the symmetric matrices of order two",
+          "trigger": "Older identities literature on the same Jordan family."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Graded codimensions are natural invariants, but once the published quotient basis is available the submitted result is a routine count of its multilinear elements followed by standard Fourier inversion. The exact formula and exponent do not clear the required value bar against textbook-level deductions from a known structural theorem.",
+      "risks": [],
+      "sources": [
+        "DOI:10.1016/j.ffa.2026.102826, Proposition 3.24, Lemma 3.25 and Theorem 3.26"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is based on implication-level coverage and routine value, not correctness.",
+    "The finite checker does not substitute for the symbolic proof and was not used to justify originality."
+  ],
+  "schema_version": 1
+}
