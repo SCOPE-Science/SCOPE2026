@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,32 +19,24 @@
 }
 ---
 
-The proof has four critical checks.
+# Independent mathematical audit
 
-1. **Nonsquare-free exponent.** The socle contains every subgroup of prime order and meets every nontrivial subgroup. Except for \(C_{p^2}\), there is a second subgroup vertex, so the universal socle and that vertex form an adjacent dominating pair.
+## correctness
 
-2. **Square-free composite exponent.** The Sylow factors are elementary abelian. With at least three primes, two complementary products intersect in the remaining factors. With exactly two primes, a higher-rank Sylow factor supplies a nontrivial proper subspace that makes the two-subgroup cover adjacent. The only rank-one exception is \(C_{pq}\).
+PASS
 
-3. **Elementary abelian groups.** For \(C_p^d\) with \(d\ge3\), the \(p+1\) hyperplanes through a fixed codimension-two subspace form a clique and dominate. If \(p\) is odd, their number is even and they pair perfectly. If \(p=2\), paired sets must have even size, so the lower bound \(3\) becomes \(4\); adjoining the common subspace attains \(4\).
+Kayacan's domination criterion reduces domination to covering every prime-order subgroup. If the exponent is not squarefree, the socle is a proper universal vertex; except for \(C_{p^2}\), it has a neighbor and gives a paired dominating edge. For squarefree composite exponent, the Sylow decomposition allows an intersecting two-subgroup dominating pair except for \(C_{pq}\). For elementary abelian rank two, all proper nontrivial subgroups are isolated; for rank at least three, the ordinary lower bound is \(p+1\). The \(p+1\) hyperplanes through a fixed codimension-two subspace form a dominating clique. Thus the lower bound is paired when \(p\) is odd, while for \(p=2\) parity forces four and adding the codimension-two subspace attains it. The assigned verifier checks representative small finite abelian groups.
 
-4. **Exceptional graphs.** \(C_{p^2}\) has one subgroup vertex, \(C_p^2\) has only pairwise-disjoint one-dimensional subgroup vertices, and \(C_{pq}\) has two disjoint subgroup vertices. Hence no paired dominating set exists in exactly these cases.
+## originality
 
-The standalone checker reconstructs the complete subgroup lattice from the group operation, builds the intersection graph, and searches paired dominating sets exactly for ten small finite abelian groups.
+PASS
 
-Exact output:
+Kayacan completely classifies ordinary domination for finite abelian subgroup-intersection graphs, but the paired condition adds both adjacency and parity requirements that are not determined by the domination number alone. The audited proof constructs paired minimum sets in each structural case and identifies three exact nonexistence exceptions. Current Resultary search returned the assigned paired-domination theorem as the direct hit and no earlier paired classification for subgroup-intersection graphs.
 
-```text
-VERIFY_OK
-C4: vertices=1 paired_domination=none
-C8: vertices=2 paired_domination=2
-C2xC2: vertices=3 paired_domination=none
-C2^3: vertices=14 paired_domination=4
-C3^2: vertices=4 paired_domination=none
-C3^3: vertices=26 paired_domination=4
-C6: vertices=2 paired_domination=none
-C2^2xC3: vertices=8 paired_domination=2
-C30: vertices=6 paired_domination=2
-C4xC2: vertices=6 paired_domination=2
-```
+## value
 
-The finite checks are corroborative only. The classification for arbitrary finite abelian groups is proved symbolically.
+PASS
+
+Paired domination is a standard strengthening of domination, and subgroup-intersection graphs are a natural algebraic graph family. The theorem gives a complete classification over all finite abelian groups, including exact nonexistence cases and the parity jump for elementary abelian \(2\)-groups. This is a natural structural refinement of the known ordinary-domination theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

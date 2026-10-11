@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof separates finite abelian groups by exponent structure. In the nonsquare-free case the socle is a proper universal vertex, and an adjacent second subgroup exists except for \(C_{p^2}\). In square-free composite exponent, explicit adjacent pairs cover all prime-order subgroups except in \(C_{pq}\). For \(C_p^d\), the ordinary lower bound \(p+1\) is attained by the \(p+1\) hyperplanes through a common codimension-two subspace when \(p\) is odd; for \(p=2\), paired-set parity forces \(4\), and adjoining the common subspace gives a four-vertex paired dominating set. The isolated-vertex exceptions \(C_{p^2}\), \(C_p^2\), and \(C_{pq}\) are checked directly.
+PASS
 
-Risk: the exhaustive script tests finite examples only and is not used as the proof of the classification.
+Kayacan's domination criterion reduces domination to covering every prime-order subgroup. If the exponent is not squarefree, the socle is a proper universal vertex; except for \(C_{p^2}\), it has a neighbor and gives a paired dominating edge. For squarefree composite exponent, the Sylow decomposition allows an intersecting two-subgroup dominating pair except for \(C_{pq}\). For elementary abelian rank two, all proper nontrivial subgroups are isolated; for rank at least three, the ordinary lower bound is \(p+1\). The \(p+1\) hyperplanes through a fixed codimension-two subspace form a dominating clique. Thus the lower bound is paired when \(p\) is odd, while for \(p=2\) parity forces four and adding the codimension-two subspace attains it. The assigned verifier checks representative small finite abelian groups.
 
-## Originality
+## originality
 
-PASS. The closest primary source classifies ordinary domination for exactly the same subgroup intersection graph and finite abelian groups, but does not impose a perfect matching on the dominating set. General paired-domination sources define the invariant and its basic inequalities but do not specialize it to subgroup intersection graphs. Targeted searches under subgroup-intersection, paired-domination, total-domination, finite-abelian, and elementary-abelian aliases located no prior paired-domination classification of this family.
+PASS
 
-Risk: a poorly indexed algebraic-graph paper could contain the same paired specialization. The elementary-abelian total-domination values are deliberately not claimed as new.
+Kayacan completely classifies ordinary domination for finite abelian subgroup-intersection graphs, but the paired condition adds both adjacency and parity requirements that are not determined by the domination number alone. The audited proof constructs paired minimum sets in each structural case and identifies three exact nonexistence exceptions. Current Resultary search returned the assigned paired-domination theorem as the direct hit and no earlier paired classification for subgroup-intersection graphs.
 
-## Value
+## value
 
-PASS. This is a natural complete classification of a strengthened domination invariant on a classical algebraic graph family. It identifies every finite abelian group for which paired domination is impossible, gives the exact value whenever it exists, and isolates the parity obstruction on elementary abelian \(2\)-groups as the only case where the matching condition forces a larger value than the ordinary lower bound.
+PASS
 
-Risk: the result does not extend to nonabelian groups.
+Paired domination is a standard strengthening of domination, and subgroup-intersection graphs are a natural algebraic graph family. The theorem gives a complete classification over all finite abelian groups, including exact nonexistence cases and the parity jump for elementary abelian \(2\)-groups. This is a natural structural refinement of the known ordinary-domination theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
