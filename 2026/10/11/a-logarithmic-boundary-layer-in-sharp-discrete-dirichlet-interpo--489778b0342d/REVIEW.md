@@ -1,0 +1,11 @@
+# Scientific assessment: sharp discrete Dirichlet boundary layer
+
+**Correctness — PASS.** The Dirichlet resolvent Cauchy–Schwarz inequality supplies a universal upper bound at any node, and the reflection formula yields its exact scalar maximization. The logarithmic derivative has a unique zero, and the stationary Green vector has exactly the energy-to-mass ratio required to attain the multiplicative bound. The boundary asymptotic comes from the exact equation for the optimizer and a controlled hyperbolic-function expansion. The extracted standalone checker produced 1007 successful numerical/symbolic corroborations; it was not used as a replacement for the infinite-dimensional proof.
+
+**Originality — PASS, with priority uncertainty.** The precise full-line inequality and Green-function variational method of Ilyin–Laptev–Zelik (arXiv:1407.0675) are prior. The Jacobi half-line resolvent kernel is available explicitly in Krejčiřík–Laptev–Štampach (arXiv:2111.08265), and Liao (arXiv:1406.1984) treats a different Hardy-summation inequality. Consequently neither the general method nor the kernel is claimed new. The separately optimized nodewise constants, strict monotonicity, equality classification, and especially the three-term logarithmic boundary deficit are not stated in these inspected works. Semantic record searches for aliases and parameter-equivalent formulations did not identify an equivalent published conclusion, although search incompleteness and older discrete interpolation literature leave residual risk.
+
+**Value — PASS.** This computes the full natural boundary-distance profile of a sharp Hilbert-sequence interpolation invariant, resolving both equality at each finite node and how the exact best constants approach the translation-invariant lattice limit. The \((\log m)^2/m^2\) rate, including its logarithmic correction, measures a genuine discrete boundary effect rather than an arbitrary finite cutoff or routine numeric table.
+
+The result is confined to one-dimensional homogeneous nearest-neighbor Dirichlet energy, and the asymptotic proof is analytic. Independent mathematical examination is still required for publication-level confirmation.
+
+Same-model review: passed. Independent audit: not yet performed.
