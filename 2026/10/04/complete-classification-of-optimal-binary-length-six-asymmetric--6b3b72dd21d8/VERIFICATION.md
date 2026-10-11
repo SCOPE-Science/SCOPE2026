@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` reconstructs the complete finite problem from definitions. It generates all \(64\) binary words of length six, computes asymmetric distance for every pair, and performs an exact maximum-clique enumeration of the compatibility graph. It then generates the matching/transversal family independently and checks equality with the complete extremizer list.
+# Independent mathematical audit
 
-Expected output:
+## correctness
 
-`VERIFY_OK maximum=12 labeled_maxima=30 matchings=15 maxima_per_matching=2 coordinate_orbit=30 stabilizer=24 nodes=118645`
+PASS
 
-The computation is exhaustive for this finite domain. It does not establish any analogous statement for other block lengths or error radii. The literature comparison is separate from the finite verification and retains the access risk described in REVIEW.md.
+A fresh exact reconstruction of the asymmetric distance on all \(64\) binary words independently enumerated the maximum cliques and reproduced maximum size \(12\) with exactly 30 maxima. Independently generating all 15 perfect matchings and the two transversal-cube bipartition classes gives exactly 30 valid codes, and the generated set equals the exhaustive maximum-clique set. Exhausting all 720 coordinate permutations gives one orbit of size 30 and stabilizer 24.
+
+## originality
+
+PASS
+
+Grassl--Shor--Smith--Smolin--Zeng give exactly the audited representative and state that it is an optimal length-six 1-code, but their inspected full text does not state a converse classification of every optimum. Fresh semantic search did not locate the count 30, one-orbit theorem, or perfect-matching/transversal characterization. The older Weber--de Vroedt--Boekee short-code paper remains a residual risk because its full text was not materially inspected this round.
+
+## value
+
+PASS
+
+The scalar optimum and one example were known, but classifying every optimizer and exposing the perfect-matching/transversal mechanism is a natural complete finite extremal result. It explains uniqueness up to coordinate permutation rather than merely recomputing size 12.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

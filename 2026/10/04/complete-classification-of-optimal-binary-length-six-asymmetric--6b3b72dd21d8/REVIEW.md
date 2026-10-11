@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The asymmetric distance and compatibility graph are rebuilt from definitions on all \(64\) words. The exact clique enumeration finds maximum size \(12\) and exactly \(30\) maxima. A second explicit generator produces \(15\times2=30\) matching/transversal codes and verifies set equality with the full extremizer list. All \(720\) coordinate permutations of one representative are also checked. The construction itself has a direct pairwise-distance proof.
+## correctness
 
-Risk: the completeness argument depends on the correctness of the small exhaustive search implementation. This risk is reduced by checking the same \(30\) objects from a separate structural generator and by independently checking their full permutation orbit.
+PASS
 
-## Originality
-PASS. The closest inspected full text is Grassl--Shor--Smith--Smolin--Zeng, which displays exactly the representative code and states that it is optimal, but does not classify all optimal length-six codes. The exact optimum-size table in Butenko et al. likewise gives size \(12\), not an extremizer census. Semantic searches for exact parameters, the count \(30\), Constantin--Rao aliases, the representative, and perfect-matching terminology found no statement implying the classification.
+A fresh exact reconstruction of the asymmetric distance on all \(64\) binary words independently enumerated the maximum cliques and reproduced maximum size \(12\) with exactly 30 maxima. Independently generating all 15 perfect matchings and the two transversal-cube bipartition classes gives exactly 30 valid codes, and the generated set equals the exhaustive maximum-clique set. Exhausting all 720 coordinate permutations gives one orbit of size 30 and stabilizer 24.
 
-Risk: Weber--de Vroedt--Boekee and older thesis/code-list material were not available in full text during this check. Their accessible descriptions concern short-code bounds and optimum sizes, so an unadvertised equivalent census remains possible.
+## originality
 
-## Value
-PASS. The primary construction paper singles out this length-six optimum as a concrete example produced by a ternary concatenation method. Showing that every optimum is obtained from that example by permuting coordinates answers a natural structural question about the smallest nontrivial optimum beyond length four. The perfect-matching plus cube-bipartition description explains the exact labeled count \(30\) and identifies the full symmetry class rather than merely recomputing the already-known optimum size.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Grassl--Shor--Smith--Smolin--Zeng give exactly the audited representative and state that it is an optimal length-six 1-code, but their inspected full text does not state a converse classification of every optimum. Fresh semantic search did not locate the count 30, one-orbit theorem, or perfect-matching/transversal characterization. The older Weber--de Vroedt--Boekee short-code paper remains a residual risk because its full text was not materially inspected this round.
+
+## value
+
+PASS
+
+The scalar optimum and one example were known, but classifying every optimizer and exposing the perfect-matching/transversal mechanism is a natural complete finite extremal result. It explains uniqueness up to coordinate permutation rather than merely recomputing size 12.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
