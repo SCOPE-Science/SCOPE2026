@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:42:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e5dd838ab13708b9c8fd8e6fc5f57cefa38423e0",
+        "assigned verify.py blob 954ef382fcd1ec6cb40f111aa4a49e2c09e5fc4d",
+        "Bartusel--Führ--Oussa, Phase retrieval for affine groups over prime fields, arXiv:2109.07123; Linear Algebra Appl. 677 (2023), 161--193"
+      ],
+      "rationale": "Equality of the deleted intensities gives, for every nonzero Fourier shift \\(r\\), the exact recurrence \\(d_\\ell+d_{\\ell-r}=T\\) for Gram-entry differences \\(d_m\\), with \\(d_0=d_{-r}=0\\). When \\(n\\) is odd every \\(r\\)-orbit has odd length. Solving the recurrence cycle-by-cycle and summing gives \\(T=(n-1)T/2\\), so for odd \\(n\\ge5\\), \\(T=0\\) and every off-diagonal Fourier Gram entry agrees. The zero-shift equations similarly give the diagonal entries, hence the entire rank-one Gram matrices agree and the signals differ by a unimodular scalar. For even \\(n\\), two frequencies separated by the order-two character with coefficient pairs \\((1,i)\\) and \\((1,-i)\\) give an exact ambiguity; \\(n=2,3\\) fail separately. The inspected verifier exactly checks the associated linear systems on representative orders but is not used as the infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The affine-group paper leaves the nonprime cyclic case open.",
+          "The nilpotent-group paper studies representation classes and does not supply this deletion-parity classification."
+        ],
+        "reasoning": "No checked broader phase-retrieval theorem specializes to the all-cyclic statement.",
+        "searches": [
+          "arXiv:2109.07123 full relevant section",
+          "Führ--Oussa, Phase Retrieval for Nilpotent Groups, DOI:10.1007/s00041-023-10031-5",
+          "general finite phase-retrieval literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.07123",
+        "DOI:10.1007/s00041-023-10031-5",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prime-order cycle structure does not imply the composite case, because nonzero shifts in composite groups split into several shorter cycles.",
+          "The audited proof resolves precisely those multiple-cycle recurrences and shows parity, not primality, is decisive."
+        ],
+        "reasoning": "The composite argument is not a parameter substitution into the prime proof; it supplies the missing cycle decomposition and the even-order counterexample.",
+        "searches": [
+          "arXiv:2109.07123 prime-field proof and Remark 6.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source's prime-order statement uses the same deleted-Fourier magnitude data and zero-mean representation.",
+          "The audited theorem extends the exact property to odd composite groups and identifies the complete even obstruction."
+        ],
+        "reasoning": "Deleted-frequency phase retrieval, equality of all deleted autocorrelations, and recovery of the Fourier rank-one Gram matrix are equivalent formulations of the same uniqueness problem.",
+        "searches": [
+          "Resultary: frequency deletion phase retrieval cyclic groups prime Remark 6.12 odd composite even classification",
+          "arXiv:2109.07123 Remark 6.12",
+          "web search for cyclic frequency-deletion phase retrieval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the assigned exact finding was returned as a direct match."
+        ],
+        "reasoning": "The decisive evidence is the explicit open question in the primary source, not merely database absence.",
+        "searches": [
+          "Resultary exact odd/even cyclic deletion search"
+        ]
+      },
+      "rationale": "Bartusel--Führ--Oussa establish the prime-field deletion observation and, in Remark 6.12, explicitly ask whether it extends from prime order to general cyclic groups. The audited result answers that question with a sharp parity classification: every odd composite order at least five works, while every even order has a uniform order-two obstruction. Resultary and broader phase-retrieval searches found no intervening theorem resolving this cyclic question.",
+      "residual_risks": [
+        "An equivalent theorem under Pauli-pair or autocorrelation terminology could exist outside the searches, but no such source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSES_THE_GENERAL_CYCLIC_PROBLEM",
+          "evidence": "The source proves the prime case and explicitly does not settle arbitrary cyclic order.",
+          "identifier_or_url": "arXiv:2109.07123",
+          "material_read": "Primary section containing the prime-field deletion observation and Remark 6.12 asking whether the statement persists for general cyclic groups.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Phase retrieval for affine groups over prime fields",
+          "trigger": "Exact prime-field predecessor and explicit cyclic-group question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bartusel--Führ--Oussa arXiv:2109.07123",
+        "general group phase-retrieval literature"
+      ],
+      "rationale": "The theorem completely answers an explicit source question and reveals the actual arithmetic boundary: oddness rather than primality. The even-order ambiguity is structural and the odd composite proof handles genuinely new shift-orbit geometry, making this a natural complete classification rather than a small extension.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On the zero-mean subspace of \\(\\mathbb C^{\\mathbb Z/n\\mathbb Z}\\), the family of pointwise magnitudes obtained by deleting each nonzero Fourier coefficient in turn performs phase retrieval up to global phase exactly for odd \\(n\\ge5\\); every even \\(n\\) and \\(n=2,3\\) fail.",
+  "limitations": [
+    "All nonzero-frequency deletions are used.",
+    "No stability bound, minimal deletion subfamily, or classification for noncyclic finite abelian groups is claimed."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run:
+# Independent mathematical audit
 
-`python verify.py`
+## correctness
 
-Expected output begins with `VERIFY_OK`.
+PASS
 
-The verifier uses exact rational Gaussian elimination for the linear systems extracted from the proof. For every odd \(n\in\{5,7,\ldots,31\}\) and every nonzero shift \(r\), it checks that
-\[
-d_0=d_{-r}=0,
-\qquad
-\sum_m d_m-d_\ell-d_{\ell-r}=0\quad(\ell\ne0)
-\]
-has only the zero solution. It separately checks the zero-shift system. It also verifies the symbolic magnitude identities behind the explicit counterexamples for every even \(n\) from \(4\) through \(30\), together with the small failures at \(2\) and \(3\).
+Equality of the deleted intensities gives, for every nonzero Fourier shift \(r\), the exact recurrence \(d_\ell+d_{\ell-r}=T\) for Gram-entry differences \(d_m\), with \(d_0=d_{-r}=0\). When \(n\) is odd every \(r\)-orbit has odd length. Solving the recurrence cycle-by-cycle and summing gives \(T=(n-1)T/2\), so for odd \(n\ge5\), \(T=0\) and every off-diagonal Fourier Gram entry agrees. The zero-shift equations similarly give the diagonal entries, hence the entire rank-one Gram matrices agree and the signals differ by a unimodular scalar. For even \(n\), two frequencies separated by the order-two character with coefficient pairs \((1,i)\) and \((1,-i)\) give an exact ambiguity; \(n=2,3\) fail separately. The inspected verifier exactly checks the associated linear systems on representative orders but is not used as the infinite proof.
 
-These are bounded consistency checks. They do not substitute for the universal proof, whose decisive step is the odd-cycle recurrence and the identity \(T=T(n-1)/2\). No numerical determinant threshold, random search, or exhaustive claim beyond the stated finite replay is used.
+## originality
+
+PASS
+
+Bartusel--Führ--Oussa establish the prime-field deletion observation and, in Remark 6.12, explicitly ask whether it extends from prime order to general cyclic groups. The audited result answers that question with a sharp parity classification: every odd composite order at least five works, while every even order has a uniform order-two obstruction. Resultary and broader phase-retrieval searches found no intervening theorem resolving this cyclic question.
+
+## value
+
+PASS
+
+The theorem completely answers an explicit source question and reveals the actual arithmetic boundary: oddness rather than primality. The even-order ambiguity is structural and the odd composite proof handles genuinely new shift-orbit geometry, making this a natural complete classification rather than a small extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

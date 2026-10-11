@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof translates equality of every deletion magnitude into exact Fourier-autocorrelation equations. For a nonzero shift \(r\), the difference variables satisfy \(T=d_\ell+d_{\ell-r}\). On odd-order \(r\)-cycles this recurrence has the stated form, and summing all cycles forces \(T=T(n-1)/2\); hence \(T=0\) for odd \(n\ge5\). The zero-shift equations then recover every Fourier magnitude, so all entries of the rank-one Fourier Gram matrix agree. The even-order and small-order failures are explicit and directly checked. The packaged verifier independently replays the derived finite linear systems over \(\mathbb Q\).
+## correctness
 
-## Originality
-PASS. The closest primary source is Bartusel--Führ--Oussa, arXiv:2109.07123. Its Remark 6.12 proves the deletion observation in the prime-field setting and explicitly says that it is unclear whether the observation extends to general cyclic groups. The present statement gives a complete cyclic classification, including all odd composite orders and explicit failure at every even order. Focused searches using the deletion, Pauli-pair, cyclic-group, and Fourier-projection formulations found no equivalent or stronger indexed result. The main residual risk is an equivalent theorem under different terminology in literature not surfaced by those searches.
+PASS
 
-## Value
-PASS. This is a sharp answer to an explicit finite-Fourier-analysis question in the primary source. It exposes a structural parity mechanism: odd additive cycles force the autocorrelation-difference system to collapse, while the order-two character creates a universal obstruction in even cyclic groups. The result is a complete infinite-family classification rather than a finite census or a parameter-only refinement.
+Equality of the deleted intensities gives, for every nonzero Fourier shift \(r\), the exact recurrence \(d_\ell+d_{\ell-r}=T\) for Gram-entry differences \(d_m\), with \(d_0=d_{-r}=0\). When \(n\) is odd every \(r\)-orbit has odd length. Solving the recurrence cycle-by-cycle and summing gives \(T=(n-1)T/2\), so for odd \(n\ge5\), \(T=0\) and every off-diagonal Fourier Gram entry agrees. The zero-shift equations similarly give the diagonal entries, hence the entire rank-one Gram matrices agree and the signals differ by a unimodular scalar. For even \(n\), two frequencies separated by the order-two character with coefficient pairs \((1,i)\) and \((1,-i)\) give an exact ambiguity; \(n=2,3\) fail separately. The inspected verifier exactly checks the associated linear systems on representative orders but is not used as the infinite proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
 
-## Closest literature and limitations
-The primary comparison is Remark 6.12 of arXiv:2109.07123. The theorem here does not address noisy measurements, optimal conditioning, sparse subsets of deletion operators, or noncyclic finite abelian groups. Those remain outside the claim.
+PASS
+
+Bartusel--Führ--Oussa establish the prime-field deletion observation and, in Remark 6.12, explicitly ask whether it extends from prime order to general cyclic groups. The audited result answers that question with a sharp parity classification: every odd composite order at least five works, while every even order has a uniform order-two obstruction. Resultary and broader phase-retrieval searches found no intervening theorem resolving this cyclic question.
+
+## value
+
+PASS
+
+The theorem completely answers an explicit source question and reveals the actual arithmetic boundary: oddness rather than primality. The even-order ambiguity is structural and the odd composite proof handles genuinely new shift-orbit geometry, making this a natural complete classification rather than a small extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
