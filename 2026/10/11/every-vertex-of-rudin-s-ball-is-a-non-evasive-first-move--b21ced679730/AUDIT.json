@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The claim is a finite consequence of the standard recursive definition of non-evasiveness. The exact published 41-facet complex is reconstructed and its face vector is checked. Exhaustive memoized recursion verifies both deletion and link for every first vertex, then every possible second vertex; the resulting profile is 11 repeated six times, 9 repeated four times, and 5 repeated four times, summing to 122. The verifier terminates exhaustively and uses no heuristic inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benedetti--Lutz Theorem 6.2 proves vertex-decomposable balls are non-evasive, while Theorem 6.3 uses Rudin's ball to show the converse fails.",
+        "Electronic Geometry Models describes Rudin's ball as non-shellable and not vertex-decomposable."
+      ],
+      "reasoning": "General vertex-decomposability results cannot dominate the claim because the object is specifically not vertex-decomposable. Ordinary non-evasiveness only asserts existence of one successful root, not universal first-step admissibility or the second-step profile.",
+      "searches": [
+        "Rudin's ball non-evasive deletion vertex",
+        "Rudin ball non-evasive vertex choices",
+        "Rudin ball vertex-decomposable non-evasive"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1303.2070v1",
+      "DOI 10.37236/3319",
+      "DOI 10.1090/S0002-9904-1958-10168-8",
+      "Electronic Geometry Model 2004.08.001",
+      "Hachimori Simplicial Complex Library: Rudin's ball"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Benedetti--Lutz explicitly exhibit the sequence beginning 3,4,5,12,13 and conclude non-evasiveness.",
+        "No inspected source states that each of the other thirteen vertices is also a valid first query."
+      ],
+      "reasoning": "Prior work implies only existence of a successful recursion. The universal quantifier over all fourteen first vertices and the exact second-step multiset are strictly stronger finite statements and are not corollaries of the displayed single witness.",
+      "searches": [
+        "Rudin ball non-evasive theorem 6.3 sequence 3 4 5 12 13",
+        "Rudin ball all first vertices non-evasive",
+        "Rudin ball admissible vertices deletion link"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Benedetti--Lutz, arXiv:1303.2070v1, Theorem 6.3 states that Rudin's ball is non-evasive and gives one explicit recursion beginning with vertex 3.",
+        "The same full text defines non-evasiveness recursively through deletion and link."
+      ],
+      "reasoning": "The new statement was compared against the equivalent deletion/link formulation of an admissible first query, not merely against title words. The published theorem proves existence of at least one admissible first vertex; it does not imply that all fourteen are admissible.",
+      "searches": [
+        "Rudin ball every vertex deletion non-evasive all vertices non-evasive roots",
+        "Rudin ball robust non-evasive deletion of any vertex",
+        "Rudin non-evasive all vertex deletions links"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact 41-facet table in Benedetti--Lutz Theorem 6.3 was inspected in full text.",
+        "Rudin's original two-page paper was inspected for the underlying construction.",
+        "Hachimori's simplicial-complex library and Electronic Geometry Models list standard global properties but not this root profile."
+      ],
+      "reasoning": "The most plausible exact-object tables and full text were checked. They supply the triangulation and known global properties, but no all-roots or 122-pair census was found.",
+      "searches": [
+        "Rudin ball 14 vertices 41 facets non-evasive",
+        "Rudin ball exact facet list non-evasive Theorem 6.3",
+        "Rudin ball every vertex first query"
+      ]
+    },
+    "rationale": "The primary full text proves Rudin's ball non-evasive by one displayed recursion but does not state universal first-step admissibility or the exact two-step profile. Exact-object and equivalent-formulation searches found no stronger covering result.",
+    "residual_risks": [
+      "An unindexed older computation or unpublished note could have recorded the same all-roots or two-step profile.",
+      "Search absence is not a proof of novelty; originality is supported by statement-level comparison with the closest full-text theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Theorem 6.3 states non-evasiveness and gives one recursion beginning with vertex 3; no universal all-vertex first-step statement or second-step count is present in the inspected section.",
+        "identifier_or_url": "arXiv:1303.2070v1 / DOI 10.37236/3319",
+        "material_read": "Abstract, Section 6 including Theorems 6.2 and 6.3 and the displayed Rudin facet list/proof sequence.",
+        "method": "Open-access full-text inspection.",
+        "title": "Knots in collapsible and non-collapsible balls",
+        "trigger": "Exact object, exact non-evasiveness theorem, facet list, and primary MSC ownership."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper constructs the unshellable triangulation and predates the non-evasiveness notion used here; it contains no deletion/link recursion claim.",
+        "identifier_or_url": "DOI 10.1090/S0002-9904-1958-10168-8",
+        "material_read": "Both pages of the available PDF.",
+        "method": "Full two-page paper inspection.",
+        "title": "An unshellable triangulation of a tetrahedron",
+        "trigger": "Original construction of the exact classical ball."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The page records non-shellability, constructibility, and non-vertex-decomposability, but no universal non-evasive root statement or two-step profile.",
+        "identifier_or_url": "Electronic Geometry Model 2004.08.001",
+        "material_read": "Description, properties, classification, references, and submission metadata.",
+        "method": "Structured web-page inspection.",
+        "title": "Rudin's non-shellable ball",
+        "trigger": "Exact-object data and catalogued structural properties."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b21ced67-9730-427a-bd4b-ca5c72a12076",
+  "value": {
+    "rationale": "Rudin's ball is a canonical counterexample separating shellability/vertex-decomposability from weaker combinatorial simplification properties. The 2013 proof of non-evasiveness exhibits one successful recursion; showing that every first vertex works reveals a qualitatively stronger robustness of that phenomenon. The exact second-step profile quantifies how quickly this flexibility narrows and is directly tied to the decision-tree structure of non-evasiveness, rather than to an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
