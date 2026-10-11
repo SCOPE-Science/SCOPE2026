@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof handles the translation infimum in the definition of Fraenkel asymmetry rather than assuming symmetry of the optimizer. For any translated equal-area disk, the intersections with the rotated copies of its center have equal area. Their Minkowski average lies in the centered intersection, and Brunn--Minkowski shows that the centered disk has maximal overlap. The equal-area radius is proved to lie strictly between the inradius and circumradius, so the outside portions are exactly \(n\) disjoint circular caps. Their area gives the closed form. The large-\(n\) constants follow by ordinary Taylor expansion. A radial numerical integration independently replays selected finite cases but is not used as the infinite proof.
+PASS
 
-## Originality
+With circumradius one, the polygon inradius is \(r=\cos(\pi/n)\) and the equal-area disk radius \(s=\sqrt{\sin(2\pi/n)/(2\pi/n)}\) satisfies \(r<s<1\). For any translated disk center \(x\), rotate the intersection \(P_n\cap(x+B_s)\) through the polygon symmetry group. The Minkowski average of the rotated intersections lies in \(P_n\cap B_s\): convexity keeps the polygon component inside \(P_n\), while the rotated centers average to zero and the averaged disk offsets remain in \(B_s\). Brunn--Minkowski therefore shows the centered disk maximizes overlap. Since \(s<1\), the disk portions beyond adjacent polygon sides do not overlap before the vertices, so the symmetric-difference area is twice \(n\) identical circular caps. The cap formula gives the exact expression. Standard Taylor expansion gives the stated \(n^{-2}\) coefficient and, combined with \(P(S_n)=2\sqrt{n\tan(\pi/n)}\) for unit area, the ratio constant. The package verifier independently integrates the centered intersection and numerically checks the asymptotics; independent evaluations reproduced the finite values and limiting coefficient.
 
-PASS with a residual historical risk. The closest source, Ftouhi--Lamboley, states only the proportional asymptotic \(P(S_n)-P(B)\sim\mu_2\mathcal A_F(S_n)\) with an unnamed positive constant. Paoli later computes the regular-polygon order needed for sharpness of a reverse quantitative inequality, but does not state the finite-\(n\) profile or prove the global translation minimization used here. Alvino--Ferone--Nitsch characterize the convex set of least perimeter deficit at fixed Fraenkel asymmetry; that inverse extremal problem does not determine the asymmetry of a prescribed regular polygon.
+## originality
 
-Exact-profile searches were run under Fraenkel asymmetry, symmetric-difference distance, equal-area disk, regular polygon, and centered-disk aliases. No equivalent finite-\(n\) theorem or stronger statement implying it was located. Because the cap calculation is elementary once centering is known, older weakly indexed geometry literature remains a genuine risk.
+PASS
 
-## Value
+Ftouhi--Lamboley use unit-area regular polygons and state only that the perimeter deficit is asymptotic to an unspecified positive constant times the Fraenkel asymmetry. Paoli likewise uses regular polygons to establish the sharp \(n^{-2}\) scale in a reverse quantitative inequality. Neither inspected primary source gives the exact finite-\(n\) Fraenkel formula together with a proof that the centered equal-area disk is globally optimal among translations, nor does Ftouhi--Lamboley identify the proportionality constant. Targeted Resultary searches found no earlier exact profile.
 
-PASS. Regular polygons are a canonical sharpness family in quantitative isoperimetry and in the spectral stability literature that motivated the question. The exact formula converts an order-of-magnitude benchmark into a closed finite-\(n\) invariant, identifies the translation optimizer, and supplies the previously unnamed proportionality constant \(3\sqrt{3\pi}/4\). This is useful for calibrating quantitative inequalities on the standard polygon-to-disk approximation path.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fraenkel asymmetry is a canonical quantitative-isoperimetric invariant, and regular polygons are a standard calibration family already used in the literature. An exact formula for every \(n\), a proof of the optimizing disk center, and the exact calibration constant convert a previously order-level/asymptotic benchmark into a complete geometric profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

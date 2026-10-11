@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T01:47:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 50c5773f0cb1c002fa39e90f6b7f03c33ce4916f",
+        "assigned verify.py blob c327b9cbb9c48732153286dd34ca0c07bc683286",
+        "independent check of the centering argument, cap decomposition, and asymptotic coefficients"
+      ],
+      "rationale": "With circumradius one, the polygon inradius is \\(r=\\cos(\\pi/n)\\) and the equal-area disk radius \\(s=\\sqrt{\\sin(2\\pi/n)/(2\\pi/n)}\\) satisfies \\(r<s<1\\). For any translated disk center \\(x\\), rotate the intersection \\(P_n\\cap(x+B_s)\\) through the polygon symmetry group. The Minkowski average of the rotated intersections lies in \\(P_n\\cap B_s\\): convexity keeps the polygon component inside \\(P_n\\), while the rotated centers average to zero and the averaged disk offsets remain in \\(B_s\\). Brunn--Minkowski therefore shows the centered disk maximizes overlap. Since \\(s<1\\), the disk portions beyond adjacent polygon sides do not overlap before the vertices, so the symmetric-difference area is twice \\(n\\) identical circular caps. The cap formula gives the exact expression. Standard Taylor expansion gives the stated \\(n^{-2}\\) coefficient and, combined with \\(P(S_n)=2\\sqrt{n\\tan(\\pi/n)}\\) for unit area, the ratio constant. The package verifier independently integrates the centered intersection and numerically checks the asymptotics; independent evaluations reproduced the finite values and limiting coefficient.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources use regular polygons only asymptotically; the latter solves a different extremal problem over all convex sets at prescribed asymmetry."
+        ],
+        "reasoning": "No broader checked theorem evaluates the Fraenkel asymmetry of each prescribed regular polygon.",
+        "searches": [
+          "DOI 10.1137/20M1345396 full primary PDF",
+          "arXiv:2105.03243 full primary PDF",
+          "Alvino--Ferone--Nitsch DOI 10.4171/JEMS/248"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1137/20M1345396",
+        "arXiv:2105.03243",
+        "DOI:10.4171/JEMS/248",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published asymptotic statements do not supply the global centering theorem or exact cap-angle expression.",
+          "The audited formula determines the previously unspecified proportionality constant from the exact geometry."
+        ],
+        "reasoning": "The all-\\(n\\) result is a strict refinement rather than a restatement of the prior sharpness-scale calculations.",
+        "searches": [
+          "Ftouhi--Lamboley Remark 4.1",
+          "Paoli Remark 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ftouhi--Lamboley state a proportional asymptotic with an unspecified constant \\(\\mu_2>0\\).",
+          "Paoli uses regular polygons to verify the same quadratic-order sharpness and performs an asymptotic overlap calculation, not an all-\\(n\\) minimization over translated disks."
+        ],
+        "reasoning": "Equivalent formulations as maximizing overlap with an equal-area disk, symmetric-difference asymmetry, and the regular-polygon calibration constant were compared.",
+        "searches": [
+          "Resultary query: regular polygon Fraenkel asymmetry exact formula equal-area disk centered asymptotic n^-2",
+          "Ftouhi--Lamboley, DOI 10.1137/20M1345396, Remark 4.1",
+          "Paoli, arXiv:2105.03243, Remark 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact all-\\(n\\) table or formula matching the displayed cap-angle expression was located."
+        ],
+        "reasoning": "This exact geometric invariant could have appeared as an elementary formula, so exact-profile searches were specifically included.",
+        "searches": [
+          "Resultary exact regular-polygon Fraenkel search",
+          "literature searches using equal-area disk symmetric difference and \\(L^1\\)-asymmetry terminology"
+        ]
+      },
+      "rationale": "Ftouhi--Lamboley use unit-area regular polygons and state only that the perimeter deficit is asymptotic to an unspecified positive constant times the Fraenkel asymmetry. Paoli likewise uses regular polygons to establish the sharp \\(n^{-2}\\) scale in a reverse quantitative inequality. Neither inspected primary source gives the exact finite-\\(n\\) Fraenkel formula together with a proof that the centered equal-area disk is globally optimal among translations, nor does Ftouhi--Lamboley identify the proportionality constant. Targeted Resultary searches found no earlier exact profile.",
+      "residual_risks": [
+        "An older elementary overlap computation may exist under different terminology; none was located.",
+        "Paoli's asymptotic calculation is close context, so only the exact finite profile and centering theorem are credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_ASYMPTOTIC_RELATION_ONLY",
+          "evidence": "It states \\(P(S_n)-P(B)\\sim\\mu_2\\mathcal A_F(S_n)\\) for some positive \\(\\mu_2\\) but does not give the exact asymmetry formula or evaluate \\(\\mu_2\\).",
+          "identifier_or_url": "DOI:10.1137/20M1345396",
+          "material_read": "Full primary PDF around Remark 4.1 and the regular-polygon asymptotic comparison.",
+          "method": "Full-text PDF inspection.",
+          "title": "Blaschke--Santaló Diagram for Volume, Perimeter, and First Dirichlet Eigenvalue",
+          "trigger": "Primary source explicitly using regular polygons and Fraenkel asymmetry in the motivating asymptotic relation."
+        },
+        {
+          "assessment": "ASYMPTOTIC_SCALE_ONLY",
+          "evidence": "The source establishes the \\(n^{-2}\\) sharpness scale; it does not prove the exact all-\\(n\\) translated-disk minimization formula used here.",
+          "identifier_or_url": "arXiv:2105.03243",
+          "material_read": "Full primary PDF around Remark 3.2 and its regular-polygon overlap asymptotics.",
+          "method": "Open-access full-PDF inspection.",
+          "title": "A reverse quantitative isoperimetric type inequality for the Dirichlet Laplacian",
+          "trigger": "Primary source computing the regular-polygon sharpness scale with Fraenkel asymmetry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ftouhi--Lamboley 2021",
+        "Paoli 2021",
+        "Alvino--Ferone--Nitsch 2011"
+      ],
+      "rationale": "Fraenkel asymmetry is a canonical quantitative-isoperimetric invariant, and regular polygons are a standard calibration family already used in the literature. An exact formula for every \\(n\\), a proof of the optimizing disk center, and the exact calibration constant convert a previously order-level/asymptotic benchmark into a complete geometric profile.",
+      "residual_risks": [
+        "The contribution is specialized to one highly symmetric family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every regular Euclidean \\(n\\)-gon \\(P_n\\), \\(n\\ge3\\), the equal-area disk centered at the polygon center minimizes the Fraenkel symmetric difference, and with \\(t=\\pi/n\\), \\(q_n=\\sqrt{\\sin(2t)/(2t)}\\), and \\(\\beta_n=\\arccos(\\cos t/q_n)\\), \\[\\mathcal A_F(P_n)=\\frac{2n}{\\pi}\\bigl(\\beta_n-\\sin\\beta_n\\cos\\beta_n\\bigr).\\] Consequently \\(\\mathcal A_F(P_n)=4\\pi^2/(9\\sqrt3)n^{-2}+O(n^{-4})\\), and the regular-polygon perimeter/Fraenkel asymptotic proportionality constant is \\(3\\sqrt{3\\pi}/4\\).",
+  "limitations": [
+    "Only filled regular Euclidean polygons and equal-area Euclidean comparison disks are covered.",
+    "The result does not classify all centers that could tie the optimum for more general polygons."
+  ],
+  "schema_version": 1
+}
