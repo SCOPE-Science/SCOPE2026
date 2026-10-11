@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify_classification.py` with Python 3. The script uses only the standard library.
+# Independent mathematical audit
 
-It first reconstructs every minimal recovery set for each of the three requests by exact span tests over \(\mathbb F_2\). It checks that each request has exactly eleven minimal recovery sets and that the request-1 list matches the list printed in Example IV.22.
+## correctness
 
-For \(L=2\), every selected service has multiplicity at most two because it intersects every copy of itself. The script therefore exhausts all \(3^{11}\) multiplicity vectors per request. Requiring at least five service occurrences and the same-request exclusion bound leaves exactly \(141\) candidates for each request, with total-size distribution \(82,45,11,3\) at sizes \(5,6,7,8\). Pairwise cross-request exclusion leaves exactly \(306\) compatible candidate pairs for each of the three request pairs. Intersecting those relations yields exactly two global triples, both with totals \((5,5,5)\); the script prints the two claimed multisets and terminates with `VERIFY_OK`.
+PASS
 
-The computation is finite and exhaustive for the stated claim. It does not inspect structures with other values of \(L\), and it does not quotient the two labeled solutions by automorphisms.
+The definition depends only on minimal recovery sets, multiplicities and pairwise intersections. Fresh independent exact enumeration reconstructed 11 minimal recovery sets for each request. With \(L=2\), every selected service has multiplicity at most two because it intersects every copy of itself, so all possibilities lie in the finite domain \(\{0,1,2\}^{11}\) per request. Requiring at least five occurrences and the same-request exclusion bound leaves 141 candidates for each request; cross-request constraints leave 306 compatible pairs for each request pair; intersecting all three relations leaves exactly two global triples, both with totals \((5,5,5)\). This independently reproduces the frozen exhaustive certificate.
+
+## originality
+
+PASS
+
+The complete open arXiv v2 source was read. Definition IV.19 introduces the exact multiset model; Example IV.22 proves a service-set obstruction and then displays one \((5,2)\) multiset witness, but it does not classify all multiset solutions or display the second one. Fresh Resultary searches using the example, parameters and generator did not find a prior two-solution classification.
+
+## value
+
+PASS
+
+This is the canonical example used by the new paper to show why multiset services matter. A complete classification showing exactly two labeled realizations is a natural finite benchmark for the new recovery model, not a random matrix census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

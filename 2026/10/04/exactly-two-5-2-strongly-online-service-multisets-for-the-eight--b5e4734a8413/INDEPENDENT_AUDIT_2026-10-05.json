@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:02:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The definition depends only on minimal recovery sets, multiplicities and pairwise intersections. Fresh independent exact enumeration reconstructed 11 minimal recovery sets for each request. With \\(L=2\\), every selected service has multiplicity at most two because it intersects every copy of itself, so all possibilities lie in the finite domain \\(\\{0,1,2\\}^{11}\\) per request. Requiring at least five occurrences and the same-request exclusion bound leaves 141 candidates for each request; cross-request constraints leave 306 compatible pairs for each request pair; intersecting all three relations leaves exactly two global triples, both with totals \\((5,5,5)\\). This independently reproduces the frozen exhaustive certificate.",
+      "risk": "The theorem is a labeled finite classification; it does not quotient the two solutions by code automorphisms.",
+      "sources": [
+        "Düzgün-Hollmann-Riet-Skachek-Taranchuk, arXiv:2605.09748v2, Definition IV.19 and Example IV.22",
+        "fresh exhaustive enumeration in this audit",
+        "frozen verify_classification.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem proves that an \\((m,L)\\) structure implies a strongly-online code; it does not enumerate structures.",
+          "Example IV.22 exhausts service sets for its no-go argument but only exhibits one service multiset."
+        ],
+        "reasoning": "Existence of one witness and general sufficient theory do not imply the complete feasible-set classification.",
+        "searches": [
+          "arXiv:2605.09748v2 Definition IV.19, Theorem IV.20, Example IV.22"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.09748v2",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper's displayed multiset proves nonemptiness only.",
+          "The alternate feasible multiset and uniqueness-up-to-two result require enumerating all admissible multiplicity vectors."
+        ],
+        "reasoning": "The final claim is strictly stronger than the source example.",
+        "searches": [
+          "arXiv:2605.09748v2 lines defining IV.19 and Example IV.22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source gives exactly one displayed multiset witness.",
+          "No distinct Resultary hit stated that there are exactly two labeled solutions."
+        ],
+        "reasoning": "Service-multiset, strongly-online and exact generator formulations were compared.",
+        "searches": [
+          "Resultary: strongly online batch code (5,2) service multiset Example IV.22 eight column exactly two classifications",
+          "arXiv:2605.09748v2 full HTML"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact classification table for this generator and \\((5,2)\\) was located."
+        ],
+        "reasoning": "The finite exhaustive computation establishes the classification; database absence only supports originality.",
+        "searches": [
+          "Resultary exact example/parameter/generator queries"
+        ]
+      },
+      "rationale": "The complete open arXiv v2 source was read. Definition IV.19 introduces the exact multiset model; Example IV.22 proves a service-set obstruction and then displays one \\((5,2)\\) multiset witness, but it does not classify all multiset solutions or display the second one. Fresh Resultary searches using the example, parameters and generator did not find a prior two-solution classification.",
+      "residual_risks": [
+        "The shorter ISITA 2026 submission cited by the long version was not separately inspected; the public long version is explicitly the expanded version.",
+        "An unindexed finite computation could duplicate the labeled classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ONE_WITNESS_NOT_COMPLETE_CLASSIFICATION",
+          "evidence": "Example IV.22 displays one five-service multiset per request and verifies it; it does not state that exactly two labeled structures exist.",
+          "identifier_or_url": "arXiv:2605.09748v2",
+          "material_read": "Full open arXiv HTML, including recovery-set minimality, Definition IV.19, Theorem IV.20, all of Example IV.22 and its open question.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Recovery Models for Linear Batch Codes",
+          "trigger": "Defines \\((m,L)\\)-strongly-online service multisets and contains the exact matrix."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the canonical example used by the new paper to show why multiset services matter. A complete classification showing exactly two labeled realizations is a natural finite benchmark for the new recovery model, not a random matrix census.",
+      "risk": "It does not optimize other \\((m,L)\\) parameters or classify automorphism orbits.",
+      "sources": [
+        "arXiv:2605.09748v2"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the fixed labeled eight-column binary generator matrix in Example IV.22 of arXiv:2605.09748v2, there are exactly two labeled service multisets making it \\((5,2)\\)-strongly online, and both have exactly five service occurrences for each request.",
+  "limitations": [
+    "Fixed labeled matrix and \\((m,L)=(5,2)\\) only.",
+    "No assertion that the two labeled solutions are inequivalent under all code automorphisms."
+  ],
+  "schema_version": 1
+}
