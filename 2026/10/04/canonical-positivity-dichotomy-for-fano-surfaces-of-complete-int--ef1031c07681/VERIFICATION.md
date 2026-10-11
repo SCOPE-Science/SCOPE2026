@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-The argument uses the exact canonical formula
-\[
-K_F
-\simeq
-\mathcal O_F(B),
-\qquad
-B=
-\sum_i\binom{d_i+k}{k+1}-r-1.
-\]
 
-For
-\[
-q=k+1,
-\qquad
-R_i=\binom{d_i+k}{k},
-\]
-the expected-surface equation implies
-\[
-qB
-=
-\sum_i(d_i-1)R_i-(q^2+2).
-\]
-The proof then bounds each summand from below and treats separately one, two, or at least three defining equations. Equality survives only for two quadrics with \(q=2\), which forces \(r=5\).
+# Independent mathematical audit
 
-The bundled checker exhausts a finite box of degrees, codimensions, and plane dimensions satisfying the exact expected-dimension equation and the standard ambient range. It verifies nonnegativity and finds the unique zero. It also rechecks the symbolic inequalities over a larger \(q\)-range.
+## correctness
 
-Those finite checks are regression evidence only. The infinite statement is established by the displayed identities and inequalities.
+PASS
 
-Limits: general complex complete intersections, \(k\ge1\), expected dimension exactly two, and \(r\ge2k+m\).
+The canonical formula and expected-dimension equation give the exact identity \(qB=\sum_i(d_i-1)\binom{d_i+k}{k}-(q^2+2)\), with \(q=k+1\). The lower bounds in the cases of at least three equations, two equations, one equation of degree at least three, and a single quadric establish nonnegativity and isolate equality. The two-quadric equality forces \(q=2\) and \(r=5\). The apparent boundary \(r=2k+m\) does not produce an expected surface under the stated degree constraints, so the smooth expected-surface regime is consistent. Fresh bounded replay over 3,065 valid parameter tuples corroborated the proof and found the unique zero only.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. Ciliberto--Zaidenberg give the exact canonical-class coefficient for arbitrary Fano schemes and compute the exceptional two-quadric surface, but the inspected complete text does not state or prove the global nonnegativity/equality dichotomy over every expected surface in the standard range. The assigned result adds a uniform arithmetic classification rather than merely repeating one example.
+
+## value
+
+PASS
+
+This is a natural complete Kodaira-sign classification for all expected two-dimensional Fano schemes of linear spaces in a standard complete-intersection range. It rules out whole surface types and isolates the unique abelian boundary case, giving a reusable structural corollary of the canonical formula rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
