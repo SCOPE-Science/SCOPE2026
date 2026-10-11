@@ -1,0 +1,15 @@
+# Review of the finite-crown configuration core
+
+## Correctness — PASS
+For every \(n\ge2\), the four incidences per adjacent index account for precisely \(4n\) comparable ordered pairs. Their strict lower sets are singletons in the deleted product, so all are down beat points and mutually incomparable. The intrinsic witness map is order preserving, fixes the incomparable-pair set and lies below the identity, giving an equivariant strong deformation retraction. A case split on both coordinates proves the remainder has no up or down beat points; the \(n=2\) crown and \(n\ge3\) height computations complete the structural conclusion. Actual packaged verifier execution returned `VERIFY_OK` for every \(2\le n\le12\). Its enumerations are consistency checks, not the basis of universal quantification.
+
+## Originality — PASS, with residual risk
+A published exact same-object theorem establishes only the weak equivalence of two-point crown configurations to the finite circle and explicitly does not identify finite-space homotopy. This does not imply a Stong core, an equivariant retraction or the negative strong-homotopy result. A related finite-sphere configuration theorem gives a core only for different sphere-model posets. Product-core rigidity studies the full Cartesian product rather than the diagonal complement. The full primary treatments by Minian and by Barmak–Minian develop the poset and beat-point machinery but do not provide the claimed crown formula, and Wiltshire-Gordon studies geometric-simplicial configuration models. Targeted searches for deleted crown products, equivalent incomparable-pair cores and equivariant reductions found no covering result. The remaining risk is an unindexed treatment or recognition of this result as an implicit readily extractable refinement; absent a decisive stronger theorem, the direct new core classification survives that uncertainty.
+
+## Value — PASS
+This solves the natural stronger homotopy question left open by a same-object weak-equivalence theorem. It identifies an exact and symmetry-compatible minimal finite model for the complete infinite crown family, and proves that weak circle equivalence cannot in general be upgraded to finite-space homotopy. The height-three obstruction and sharp four-point boundary are structural invariants, not a disconnected finite enumeration or a routine consequence of the known first Betti number.
+
+## Sources and limitations
+Owning source: Minian, *Morse theory of Bestvina–Brady type for posets and matchings*, arXiv:2205.11062v1, public May 23, 2022, primary MSC 55U05. Core theory: Barmak–Minian, arXiv:math/0611156v1. Same-object prior: *Two-point configurations of finite crowns retain the circle weak type*, published-finding corpus published record `SCOPE-two-point-configurations-of-finite-crowns-retain-the-circle-weak--1687da25925a`. Nearby sphere and product-core results were inspected in full as well. The claim concerns the finite Alexandrov ordered configuration space, not the geometric circle. Unindexed equivalent literature remains possible.
+
+Same-model review: passed. Independent audit: not yet performed.
