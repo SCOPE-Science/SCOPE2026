@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:47:47.922722Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0ef84089868446f3b1099fd4cb91ddc6eb028f05",
+        "VERIFY.py blob 912032fe3e93d158ec0e20baa44c0027d73d8d8b",
+        "fresh symbolic cumulant substitution",
+        "C. A. J. Klaassen and B. van Es, Inference via the Skewness-Kurtosis Set, DOI:10.1111/insr.70007"
+      ],
+      "rationale": "The mathematics is correct. Differentiating the published posterior score-MGF gives κ2=σ²r', κ3=σ⁴r'', and κ4=σ⁶r'''. Pearson's inequality in cumulant form is κ2κ4+2κ2³-κ3² at least zero, which expands exactly to the package's score-jet inequality. Equality with positive variance means a two-point posterior; positivity of the Gaussian likelihood makes prior and posterior supports identical. Solving two-point mean, variance, and third central moment gives the displayed atom gap, support points, and posterior mass, and Bayes odds recover the prior weight. The package verifier correctly checks representative equal/strict/violating cases.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The focal score-MGF identity determines all posterior cumulants, strictly broader than only the first four used here.",
+          "Older exponential-family cumulant theory supplies even broader context."
+        ],
+        "reasoning": "The published score-to-posterior identity plus a universal moment inequality dominates the central audited constraint.",
+        "searches": [
+          "S. Sugasawa and Z. Zhao, Beyond Tweedie's Formula: Conditional Score Modeling for Empirical Bayes Inference, arXiv:2609.11136v1",
+          "L. R. Pericchi, B. Sansó, A. F. M. Smith, Posterior Cumulant Relationships in Bayesian Inference Involving the Exponential Family, DOI:10.1080/01621459.1993.10476427"
+        ]
+      },
+      "checked_sources": [
+        "S. Sugasawa and Z. Zhao, Beyond Tweedie's Formula: Conditional Score Modeling for Empirical Bayes Inference, arXiv:2609.11136v1",
+        "C. A. J. Klaassen and B. van Es, Inference via the Skewness-Kurtosis Set, DOI:10.1111/insr.70007",
+        "L. R. Pericchi, B. Sansó, A. F. M. Smith, Posterior Cumulant Relationships in Bayesian Inference Involving the Exponential Family, DOI:10.1080/01621459.1993.10476427",
+        "Resultary semantic query: Gaussian empirical Bayes score derivatives Pearson inequality two point prior recovery"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The posterior variance, third cumulant, and fourth cumulant are immediate derivatives of the published MGF identity.",
+          "Pearson gives v times fourth central moment minus third central moment squared minus v cubed nonnegative with equality exactly for two-point laws.",
+          "Gaussian likelihood positivity preserves prior and posterior support, and the support/mass formulas follow from solving the first three moments of a two-point distribution."
+        ],
+        "reasoning": "The full final claim is a short composition of published general identities and standard two-point algebra, so new wording in score-jet coordinates does not establish originality.",
+        "searches": [
+          "S. Sugasawa and Z. Zhao, Beyond Tweedie's Formula: Conditional Score Modeling for Empirical Bayes Inference, arXiv:2609.11136v1",
+          "C. A. J. Klaassen and B. van Es, Inference via the Skewness-Kurtosis Set, DOI:10.1111/insr.70007",
+          "direct cumulant substitution and two-point moment reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The focal source's score-MGF identity is exactly equivalent to the cumulant derivative identities used in the package.",
+          "Pearson's boundary theorem is exactly equivalent to the nonnegative squared-residual inequality and two-valued equality condition."
+        ],
+        "reasoning": "The score-jet and posterior-moment formulations were explicitly reduced to one another.",
+        "searches": [
+          "S. Sugasawa and Z. Zhao, Beyond Tweedie's Formula: Conditional Score Modeling for Empirical Bayes Inference, arXiv:2609.11136v1",
+          "C. A. J. Klaassen and B. van Es, Inference via the Skewness-Kurtosis Set, DOI:10.1111/insr.70007",
+          "L. R. Pericchi, B. Sansó, A. F. M. Smith, Posterior Cumulant Relationships in Bayesian Inference Involving the Exponential Family, DOI:10.1080/01621459.1993.10476427"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database table is needed: the exact boundary is the classical Pearson parabola and its two-valued equality case.",
+          "Resultary did not need to match the derivative formula verbatim because implication coverage is decisive."
+        ],
+        "reasoning": "Direct theorem implication is stronger evidence than a matching database entry.",
+        "searches": [
+          "Resultary semantic query: Gaussian empirical Bayes score derivatives Pearson inequality two point prior recovery",
+          "DOI:10.1111/insr.70007 Section 2.1"
+        ]
+      },
+      "rationale": "Originality fails under the required implication standard. The focal 2026 source explicitly gives the posterior moment-generating function as an integral of the conditional score, hence all posterior cumulants are obtained by differentiation. The 2025 open Pearson treatment states the classical sharp inequality kurtosis at least skewness squared plus one and identifies boundary distributions as exactly two-valued. Substituting the score-derived second through fourth cumulants into that classical inequality gives the audited differential inequality immediately. The two-point support conclusion follows directly because a Gaussian likelihood is everywhere positive, and the reconstruction formulas are standard two-point moment algebra plus Bayes odds. This is a useful observation but is mechanically implied by published ingredients.",
+      "residual_risks": [
+        "The complete focal and 1993 articles were not independently available through the full-text routes used in this run; however the rejection does not depend on asserting their whole-document coverage because the accessible focal MGF identity and open Pearson boundary theorem already imply the central score inequality and equality case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PUBLISHED_GENERAL_SCORE_TO_POSTERIOR_IDENTITY",
+          "evidence": "The displayed MGF determines all cumulants by differentiation, including every derivative used by the package.",
+          "identifier_or_url": "arXiv:2609.11136v1",
+          "material_read": "Primary abstract/current record plus a detailed public article reader reproducing the exact Gaussian posterior MGF and variance identity. Direct arXiv full text was unavailable; one authorized institutional attempt returned an unavailable/invalid worker error.",
+          "method": "lawful primary record and formula-level accessible exposition",
+          "title": "Beyond Tweedie's Formula: Conditional Score Modeling for Empirical Bayes Inference",
+          "trigger": "Exact same Gaussian conditional empirical-Bayes model and source of the score MGF."
+        },
+        {
+          "assessment": "DECISIVE_CLASSICAL_MOMENT_BOUNDARY",
+          "evidence": "The article states the exact Pearson parabola and constructs/identifies the two-valued boundary distributions.",
+          "identifier_or_url": "DOI:10.1111/insr.70007",
+          "material_read": "Open full HTML, especially Introduction and Section 2.1, including the inequality and the statement that equality is attained by two-valued laws.",
+          "method": "lawful open-access full text",
+          "title": "Inference via the Skewness-Kurtosis Set",
+          "trigger": "Modern open primary treatment of Pearson's inequality and equality boundary."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "S. Sugasawa and Z. Zhao, Beyond Tweedie's Formula: Conditional Score Modeling for Empirical Bayes Inference, arXiv:2609.11136v1",
+        "C. A. J. Klaassen and B. van Es, Inference via the Skewness-Kurtosis Set, DOI:10.1111/insr.70007",
+        "L. R. Pericchi, B. Sansó, A. F. M. Smith, Posterior Cumulant Relationships in Bayesian Inference Involving the Exponential Family, DOI:10.1080/01621459.1993.10476427",
+        "Resultary semantic query: Gaussian empirical Bayes score derivatives Pearson inequality two point prior recovery"
+      ],
+      "rationale": "Gaussian score realizability is a meaningful topic, but this particular result is a routine transformation of a newly published score-MGF identity by the century-old Pearson moment inequality, followed by standard two-point reconstruction algebra. Under the required value bar, correctness and practical interpretability do not make this mechanically implied corollary an independently worthwhile finding.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The complete focal and 1993 articles were not independently available through the full-text routes used in this run; however the rejection does not depend on asserting their whole-document coverage because the accessible focal MGF identity and open Pearson boundary theorem already imply the central score inequality and equality case.",
+    "Publication is withheld because the frozen packages contain operational workflow fields in existing public AUDIT.json, METADATA.json, and VERIFICATION.md files. The complete 37-file recursive trees were read and semantically scanned; RESULT.md, SLOGAN.txt, REVIEW.md, and computational artifacts were clear of the checked platform/workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}
