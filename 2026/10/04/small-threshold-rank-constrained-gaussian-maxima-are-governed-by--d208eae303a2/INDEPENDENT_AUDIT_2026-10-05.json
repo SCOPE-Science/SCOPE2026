@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:59:52Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 9ec5b724e0e7c6f885e51944766207cb57d48609.",
+        "Mulgund, arXiv:2609.28452v2, full primary paper, Problem 7.2 on rank-constrained Gaussian maxima.",
+        "Tarnai–Gáspár–Lengyel, DOI:10.1080/14786435.2013.800652, identifies the trigonal prism as the proven five-faced roundest/circumscribed solution.",
+        "Lengyel–Gáspár–Tarnai, DOI:10.3390/sym9030041, explains the Lindelöf equivalence between unit-sphere circumscription and minimum volume/surface-area formulations."
+      ],
+      "rationale": "Every rank-at-most-d correlation matrix is represented by unit normals in \\(\\mathbb R^d\\), and for fixed normals the event at threshold \\(t\\) is the dilation \\(tK\\). Gaussian density convergence at the origin gives the fixed-configuration asymptotic. The nontrivial uniform lower bound is handled by truncating \\(K\\) in a ball: compactness of the normal configuration space and boundary-null continuity give minima \\(a_R\\), and monotone exhaustion forces \\(a_R\\uparrow V_{d,n}\\); otherwise a convergent sequence of minimizers would produce a limiting polyhedron of full volume below \\(V_{d,n}\\). This controls even \\(t\\)-dependent near-minimizers. In three dimensions with five facets, the minimum-volume unit-inradius circumscribed polyhedron is the right equilateral triangular prism; its cross-section has side \\(2\\sqrt3\\), area \\(3\\sqrt3\\), and height two, hence volume \\(6\\sqrt3\\).",
+      "risks": [
+        "The theorem is asymptotic as \\(t\\downarrow0\\); it does not identify the exact minimizer for any fixed positive threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Problem 7.2 asks for the exact fixed-threshold minimization and says the general configurations are unknown.",
+          "The convex-geometry papers supply the three-dimensional tangent-polyhedron minimizer, not the Gaussian small-threshold transfer or the all-d,n uniform limit."
+        ],
+        "reasoning": "The prior strands cover the Gaussian problem and tangent-volume problem separately; the asymptotic equivalence linking them is the additional theorem.",
+        "searches": [
+          "Mulgund arXiv:2609.28452v2 Problem 7.2",
+          "Tarnai–Gáspár–Lengyel DOI:10.1080/14786435.2013.800652",
+          "Lengyel–Gáspár–Tarnai DOI:10.3390/sym9030041"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches above",
+        "arXiv:2609.28452v2",
+        "DOI:10.1080/14786435.2013.800652",
+        "DOI:10.3390/sym9030041"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pointwise Gaussian density convergence for each fixed configuration is insufficient because the minimizing normals may vary with \\(t\\).",
+          "The submitted truncated-volume compactness argument supplies the missing uniform passage to the infimum."
+        ],
+        "reasoning": "The all-configuration asymptotic is not a routine substitution into the known prism-volume theorem.",
+        "searches": [
+          "Mulgund Problem 7.2 and compactness discussion",
+          "classical minimum-volume circumscribed polyhedron results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No published-finding hit with the general \\(t^d\\) tangent-volume asymptotic was located.",
+          "The closest current Gaussian source instead poses the finite-threshold optimization as open."
+        ],
+        "reasoning": "Searches used Gaussian orthant/common-threshold, rank-constrained covariance, tangent/circumscribed polyhedra and small-threshold aliases.",
+        "searches": [
+          "Resultary: small-threshold rank-constrained Gaussian maxima tangent polyhedron V d n t^d",
+          "Resultary: rank constrained Gaussian maxima small threshold tangent polyhedron minimum volume d=3 n=5 triangular prism"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database containing the general constant \\((2\\pi)^{-d/2}V_{d,n}\\) was found."
+        ],
+        "reasoning": "The result is an analytic asymptotic for a compact optimization problem, not a finite census.",
+        "searches": [
+          "Resultary exact small-threshold query"
+        ]
+      },
+      "rationale": "Mulgund's current primary paper explicitly poses the fixed-threshold rank-constrained problem for \\(d\\ge3,n\\ge d+2\\) and states that outside a few special cases the optimal configurations are unknown. The triangular-prism tangent-volume fact itself is classical, so it is not counted as new. The surviving contribution is the general small-threshold reduction, including the uniformity over varying covariance configurations, and its consequence that the first open \\((d,n)=(3,5)\\) case has a rigorous leading constant.",
+      "residual_risks": [
+        "Mulgund notes unpublished partial results on Problem 7.2; unpublished material cannot be compared here.",
+        "A classical Gaussian cone-asymptotic result may exist under different terminology, though no source located supplied the uniform optimization statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSES_RANK_CONSTRAINED_FIXED_THRESHOLD_PROBLEM; DOES_NOT_STATE_SMALL_THRESHOLD_TANGENT_VOLUME_THEOREM",
+          "evidence": [
+            "Problem 7.2 asks to determine the rank-constrained minimum; for \\(d=3,n=5\\) it is among the cases the paper says are not known."
+          ],
+          "identifier_or_url": "arXiv:2609.28452v2",
+          "material_read": "Complete 34-page primary PDF, including Theorem 1.1, Section 7 and Problem 7.2, appendices and references.",
+          "method": "Authorized institutional PDF retrieval after public full-text route was inadequate.",
+          "title": "Stochastic Domination of Gaussian Maxima by the Regular Simplex",
+          "trigger": "Exact recent source for Gaussian common-threshold minimization and rank-constrained open problem."
+        },
+        {
+          "assessment": "COVERS_THE_CLASSICAL_PRISM_GEOMETRY_ONLY",
+          "evidence": [
+            "The five-face minimum-volume/unit-sphere circumscribed solution is the trigonal prism."
+          ],
+          "identifier_or_url": "DOI:10.1080/14786435.2013.800652",
+          "material_read": "Accessible article material and bibliographic statement identifying the trigonal prism among the proven small-face solutions.",
+          "method": "Public-web primary/author-copy inspection.",
+          "title": "From spherical circle coverings to the roundest polyhedra",
+          "trigger": "Potential prior coverage of the five-facet tangent polyhedron used in the specialization."
+        },
+        {
+          "assessment": "CONVEX_GEOMETRY_BACKGROUND_NOT_GAUSSIAN_ASYMPTOTIC",
+          "evidence": [
+            "It relates tangent unit-sphere polyhedra and minimum volume/surface area but contains no rank-constrained Gaussian threshold asymptotic."
+          ],
+          "identifier_or_url": "DOI:10.3390/sym9030041",
+          "material_read": "Open-access full text describing the Lindelöf reduction and known roundest polyhedra.",
+          "method": "Public open-access inspection.",
+          "title": "The Roundest Polyhedra with Symmetry Constraints",
+          "trigger": "Modern full-text account of the minimum-volume circumscribed-polyhedron formulation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "General all-\\(d,n\\) small-threshold reduction.",
+        "Exact \\((3,5)\\) leading constant from a classical extremal polyhedron."
+      ],
+      "rationale": "The theorem gives a structural reduction of a current Gaussian extremal problem to a natural Euclidean tangent-polyhedron invariant. It also resolves the leading-order behavior of the first three-dimensional five-direction case left open at fixed threshold, with an exact constant.",
+      "risks": [
+        "It is a leading-order boundary theorem, not the full fixed-threshold solution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For centered Gaussian vectors with unit marginal variances and covariance rank at most \\(d\\), the minimum common-threshold probability among \\(n\\) coordinates has the small-positive-threshold asymptotic \\(m_{d,n}(t)\\sim (2\\pi)^{-d/2}V_{d,n}t^d\\), where \\(V_{d,n}\\) is the minimum volume of an origin-centered unit-inradius polyhedron cut out by \\(n\\) unit halfspaces. In particular, \\(V_{3,5}=6\\sqrt3\\), attained by the right equilateral triangular prism.",
+  "limitations": [
+    "Small positive thresholds only.",
+    "Unit marginal variances and covariance rank at most \\(d\\).",
+    "The prism statement gives the leading asymptotic, not an exact optimizer for every positive threshold."
+  ],
+  "schema_version": 1
+}

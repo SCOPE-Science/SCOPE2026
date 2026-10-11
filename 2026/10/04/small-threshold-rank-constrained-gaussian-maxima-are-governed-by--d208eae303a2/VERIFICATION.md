@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked by reconstructing the proof from the definitions rather than by numerical sampling.
+# Independent mathematical audit
 
-For a feasible rank-at-most-\(d\) correlation matrix, choose unit Gram vectors \(u_i\in\mathbb R^d\). With \(W\sim N(0,I_d)\), the event is exactly \(W\in tK(u)\). The lower bound is uniform over all configurations because it is expressed through
-\[
-a_R=\min_u\operatorname{vol}_d(K(u)\cap B_R),
-\]
-not through a pointwise asymptotic. Compactness and dominated convergence at fixed \(R\) give existence and continuity; a convergent-minimizer subsequence proves \(a_R\uparrow V_{d,n}\). Restricting the Gaussian integral to a fixed ball yields the liminf. A single finite-volume near-minimizer and dominated convergence yield the limsup.
+## correctness
 
-For the five-direction rank-three specialization, the cited classical five-face theorem gives the right equilateral triangular prism. With unit inradius, its equilateral triangular base has side \(2\sqrt3\) and area \(3\sqrt3\), while its tangent top and bottom planes are distance \(2\) apart. Hence its volume is \(6\sqrt3\), producing the coefficient \(6\sqrt3/(2\pi)^{3/2}\).
+PASS
 
-Checks do not establish a convergence rate, a fixed-positive-threshold minimizer, or uniqueness of asymptotically minimizing configurations. The historical five-face theorem is used from modern sources that report the proved result; the original nineteenth-century proof was not independently reconstructed.
+Every rank-at-most-d correlation matrix is represented by unit normals in \(\mathbb R^d\), and for fixed normals the event at threshold \(t\) is the dilation \(tK\). Gaussian density convergence at the origin gives the fixed-configuration asymptotic. The nontrivial uniform lower bound is handled by truncating \(K\) in a ball: compactness of the normal configuration space and boundary-null continuity give minima \(a_R\), and monotone exhaustion forces \(a_R\uparrow V_{d,n}\); otherwise a convergent sequence of minimizers would produce a limiting polyhedron of full volume below \(V_{d,n}\). This controls even \(t\)-dependent near-minimizers. In three dimensions with five facets, the minimum-volume unit-inradius circumscribed polyhedron is the right equilateral triangular prism; its cross-section has side \(2\sqrt3\), area \(3\sqrt3\), and height two, hence volume \(6\sqrt3\).
+
+## originality
+
+PASS
+
+Mulgund's current primary paper explicitly poses the fixed-threshold rank-constrained problem for \(d\ge3,n\ge d+2\) and states that outside a few special cases the optimal configurations are unknown. The triangular-prism tangent-volume fact itself is classical, so it is not counted as new. The surviving contribution is the general small-threshold reduction, including the uniformity over varying covariance configurations, and its consequence that the first open \((d,n)=(3,5)\) case has a rigorous leading constant.
+
+## value
+
+PASS
+
+The theorem gives a structural reduction of a current Gaussian extremal problem to a natural Euclidean tangent-polyhedron invariant. It also resolves the leading-order behavior of the first three-dimensional five-direction case left open at fixed threshold, with an exact constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

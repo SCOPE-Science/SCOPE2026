@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The covariance/Gram representation, Gaussian dilation identity, compactness of truncated-volume minimizers, proof that the truncated minima converge to the full minimum, and the matching liminf/limsup argument were reconstructed directly. The proof is uniform over threshold-dependent configurations. The explicit five-face constant is checked from the right equilateral triangular prism with unit inradius.
+## correctness
 
-## Originality
-PASS. The directly relevant 2026 source poses the lower-rank fixed-threshold Gaussian problem and explicitly leaves the three-dimensional five-direction case outside its known list. The classical pentahedron literature supplies the deterministic five-face optimizer but not the Gaussian small-threshold infimum theorem. Focused searches over aliases, tangent-halfspace formulations, pentahedron terminology, and the exact source problem found no stronger covering statement. Residual risks are inaccessible unpublished partial results noted by the source and possible older terminology not recovered by the searches.
+PASS
 
-## Value
-PASS. The finding gives a structural low-threshold solution mechanism for a current open probability problem and an exact sharp coefficient in its first unresolved three-dimensional five-direction case. The compactness/truncation step is needed to justify optimization over varying configurations and is not a mere recomputation for one fixed model.
+Every rank-at-most-d correlation matrix is represented by unit normals in \(\mathbb R^d\), and for fixed normals the event at threshold \(t\) is the dilation \(tK\). Gaussian density convergence at the origin gives the fixed-configuration asymptotic. The nontrivial uniform lower bound is handled by truncating \(K\) in a ball: compactness of the normal configuration space and boundary-null continuity give minima \(a_R\), and monotone exhaustion forces \(a_R\uparrow V_{d,n}\); otherwise a convergent sequence of minimizers would produce a limiting polyhedron of full volume below \(V_{d,n}\). This controls even \(t\)-dependent near-minimizers. In three dimensions with five facets, the minimum-volume unit-inradius circumscribed polyhedron is the right equilateral triangular prism; its cross-section has side \(2\sqrt3\), area \(3\sqrt3\), and height two, hence volume \(6\sqrt3\).
 
-## Closest literature and limitations
-The closest probability source is Mulgund, arXiv:2609.28452, Problem 7.2. The closest geometric sources are the modern roundest-polyhedra literature recording Lindelöf's solved five-face case. The result is limited to the leading \(t\downarrow0\) asymptotic: it gives no fixed-positive-threshold optimizer, rate, or full asymptotic-minimizer classification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Mulgund's current primary paper explicitly poses the fixed-threshold rank-constrained problem for \(d\ge3,n\ge d+2\) and states that outside a few special cases the optimal configurations are unknown. The triangular-prism tangent-volume fact itself is classical, so it is not counted as new. The surviving contribution is the general small-threshold reduction, including the uniformity over varying covariance configurations, and its consequence that the first open \((d,n)=(3,5)\) case has a rigorous leading constant.
+
+## value
+
+PASS
+
+The theorem gives a structural reduction of a current Gaussian extremal problem to a natural Euclidean tangent-polyhedron invariant. It also resolves the leading-order behavior of the first three-dimensional five-direction case left open at fixed threshold, with an exact constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
