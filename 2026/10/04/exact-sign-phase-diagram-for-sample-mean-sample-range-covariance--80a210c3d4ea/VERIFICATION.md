@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. The accompanying checker uses exact rational arithmetic whenever a square root is not required.
+# Independent mathematical audit
 
-For small sample sizes, it enumerates every iid sample from random rational three-point laws and compares the direct covariance of the sample mean and range with the closed form in `RESULT.md`.
+## correctness
 
-For larger randomized families, it checks the four cut-indicator covariance identities, the reflection relation, and the sign assertions at rational support locations.
+PASS
 
-In the two-minority-endpoint regime it verifies that the transformed quadratic has negative root product and exactly one positive root. Floating point is used only to locate that root for sign sampling around it; the proof of uniqueness is algebraic.
+Decomposing the mean and range into the two nested support-gap indicator pairs yields four elementary covariance terms. Recombination gives the displayed quadratic exactly. The function \(\phi_n(u)\) is strictly decreasing through zero at one half, proving the majority-endpoint sign cases. With both endpoint masses below one half, the transformed expression is a concave quadratic in \(r=t/(1-t)\) with negative root product, hence exactly one positive root and the stated sign change. Independent exact enumeration of bounded rational samples reproduced the formula.
 
-Independent audit has not been performed.
+## originality
 
-Exact-rational replay result: `VERIFY_OK enumeration_checks=3500 identity_checks=40000 sign_checks=39989 reflection_checks=40000 root_checks=26481`.
+PASS
+
+The closest inspected literature characterizes normality from independence of the sample mean and range or proves deterministic sample-range inequalities. Those results neither compute stochastic covariance for a fixed discrete law nor imply its support-shape sign diagram. Targeted Resultary search found no equivalent three-point covariance formula or unique zero threshold.
+
+## value
+
+PASS
+
+Sample mean and sample range are classical statistics, and zero covariance is a natural weaker dependence question distinct from the well-known independence characterization. The theorem gives the complete support-geometry phase diagram for the smallest nontrivial discrete family, including asymmetric uncorrelated examples and sharp endpoint-mass regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

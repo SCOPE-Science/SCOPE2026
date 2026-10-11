@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:45:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob dedf8daee0e06ceb1498c1f1e30f9222a637dfa7",
+        "assigned verify_three_point_mean_range_covariance.py blob 7fa9c0ee134798a23e05160d0a7b9aea722678d3",
+        "independent exact enumeration of rational three-point laws"
+      ],
+      "rationale": "Decomposing the mean and range into the two nested support-gap indicator pairs yields four elementary covariance terms. Recombination gives the displayed quadratic exactly. The function \\(\\phi_n(u)\\) is strictly decreasing through zero at one half, proving the majority-endpoint sign cases. With both endpoint masses below one half, the transformed expression is a concave quadratic in \\(r=t/(1-t)\\) with negative root product, hence exactly one positive root and the stated sign change. Independent exact enumeration of bounded rational samples reproduced the formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Normal-characterization results do not classify non-normal zero-covariance examples or covariance sign.",
+          "Deterministic range inequalities are not a broader stochastic covariance theorem."
+        ],
+        "reasoning": "No checked broader theorem implies the fixed-mass three-point phase diagram.",
+        "searches": [
+          "Hwang--Hu 2000",
+          "Hu--Lin 2022",
+          "Hu--Lin 2026"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.11650/twjm/1500407259",
+        "DOI:10.1007/s10463-021-00805-3",
+        "DOI:10.1007/s13171-026-00457-6",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independence implies zero covariance, but the converse fails; therefore a characterization of distributions yielding independence cannot determine the many uncorrelated three-point support shapes."
+        ],
+        "reasoning": "The audited theorem addresses a distinct and strictly weaker dependence statistic with a complete support-geometry classification.",
+        "searches": [
+          "Hwang--Hu independence result",
+          "Hu--Lin normal characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independence-characterization theorems are strictly stronger probabilistic conditions but answer a different question; they do not determine where covariance alone vanishes for a fixed non-normal discrete law.",
+          "The recent sample-range inequality paper studies deterministic ordered vectors rather than repeated-sampling covariance."
+        ],
+        "reasoning": "Equivalent formulations via support-gap indicator covariances, uncorrelatedness, and stochastic sample-mean/range covariance were compared.",
+        "searches": [
+          "Resultary query: sample mean sample range covariance three point distribution sign phase diagram",
+          "Hwang--Hu DOI:10.11650/twjm/1500407259",
+          "Hu--Lin DOI:10.1007/s10463-021-00805-3",
+          "Hu--Lin DOI:10.1007/s13171-026-00457-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or published SCOPE result with the quadratic/threshold was found."
+        ],
+        "reasoning": "A small-discrete-distribution table was a plausible coverage route and was checked.",
+        "searches": [
+          "Resultary exact three-point covariance search",
+          "targeted searches for the threshold formula"
+        ]
+      },
+      "rationale": "The closest inspected literature characterizes normality from independence of the sample mean and range or proves deterministic sample-range inequalities. Those results neither compute stochastic covariance for a fixed discrete law nor imply its support-shape sign diagram. Targeted Resultary search found no equivalent three-point covariance formula or unique zero threshold.",
+      "residual_risks": [
+        "Older order-statistics or quality-control literature could contain a special-case covariance calculation under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_INDEPENDENCE_PROBLEM",
+          "evidence": "It characterizes normality via independence, not covariance sign for discrete populations.",
+          "identifier_or_url": "DOI:10.11650/twjm/1500407259",
+          "material_read": "Primary abstract/result material describing independence characterizations including the range.",
+          "method": "Primary-source inspection.",
+          "title": "On Some Characterizations of Population Distributions",
+          "trigger": "Classical result linking sample mean and sample range."
+        },
+        {
+          "assessment": "NOT_COVERING_COVARIANCE_PHASE_DIAGRAM",
+          "evidence": "Its conclusion is an independence characterization, not a fixed-profile covariance formula.",
+          "identifier_or_url": "DOI:10.1007/s10463-021-00805-3",
+          "material_read": "Primary paper/result sections including the sample-mean/sample-range independence corollary.",
+          "method": "Primary-source comparison.",
+          "title": "Characterizations of the normal distribution via the independence of the sample mean and the feasible definite statistics with ordered arguments",
+          "trigger": "Modern full treatment explicitly including sample range."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hwang--Hu",
+        "Hu--Lin"
+      ],
+      "rationale": "Sample mean and sample range are classical statistics, and zero covariance is a natural weaker dependence question distinct from the well-known independence characterization. The theorem gives the complete support-geometry phase diagram for the smallest nontrivial discrete family, including asymmetric uncorrelated examples and sharp endpoint-mass regimes.",
+      "residual_risks": [
+        "The three-point geometry does not directly extend to higher support sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For iid samples from a three-point law with endpoint masses \\(a,c\\), middle mass \\(b\\), normalized support \\((0,t,1)\\), and sample size \\(n\\ge2\\), the covariance of sample mean and sample range is the exact quadratic in RESULT.md; it is positive for all supports when \\(a\\ge1/2\\), negative for all supports when \\(c\\ge1/2\\), and otherwise has exactly one zero support shape given by the displayed radical threshold.",
+  "limitations": [
+    "Three-point finite laws only; covariance sign/uncorrelatedness rather than independence; no four-or-more-point phase diagram."
+  ],
+  "schema_version": 1
+}
