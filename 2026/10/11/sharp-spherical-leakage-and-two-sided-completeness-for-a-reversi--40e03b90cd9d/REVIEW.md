@@ -1,0 +1,12 @@
+# Review of exact radial geometry
+
+## Correctness — PASS
+The identical field of the cited source has \(\dot V=-2q\) with the positive-definite centered quadratic form \(q+1/3\). Completing the square and integrating over its ellipse determines the constants in the two spherical asymptotics. Uniformity of the expansions follows from \(\rho^2\le2\) on the entire projected ellipse. The proper quadratic time-bound proves non-explosion in positive time; the verified reversing symmetry proves negative-time completeness. Compact-support invariance justifies integration of Lie derivatives. Symbolic polynomial/ellipse checks were executed in the bundled checker; continuation and integral geometry were proved analytically.
+
+## Originality — PASS, with access and indexing risk
+The entire three-page original article (Sprott, 2014) identifies the small polar leakage qualitatively, but its numerical radial discussion does not state an exact ellipse, precise outgoing-area fraction, positive-flux asymptotic, or covariance constraint. The full seven-page 2015 Sprott article restates the system, with emphasis on symmetry and attractors, not these geometric constants. The 2019 follow-up studies Hopf-zero/KAM dynamics and hence does not immediately imply outgoing sphere flux, but full-text access could not be completed; this remains a real unresolved priority risk, rather than a claim of exhaustive exclusion. Related indexed findings concern different vector fields or distinct invariants; the reviewed statement does not follow from their reported formulas. Failure of a database search is not a novelty certificate.
+
+## Mathematical value — PASS
+The original article explicitly motivated large-radius inward-pointing spheres punctured by small holes, without quantitatively resolving the holes. The new result determines the entire leaking region for all sufficiently large radii and exact asymptotic constants for both its area and flow. It simultaneously establishes a rigorous global non-explosion theorem for a quadratic vector field, and identities that constrain both toroidal and chaotic compact invariant measures. This is a natural geometric quantity attached to an identified mathematical question, not an arbitrary parameter slice, and is stronger than a pointwise numerical sign check. It does not resolve global boundedness or the detailed attractor-basin problem.
+
+Same-model review: passed. Independent audit: not yet performed.
