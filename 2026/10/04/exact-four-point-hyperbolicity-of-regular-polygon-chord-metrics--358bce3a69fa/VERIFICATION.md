@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,39 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is proved analytically; the finite checker is only a replay aid.
+## correctness
 
-For a cyclically ordered quadruple with positive gap counts \(a,b,c,d\), the diagonal pair-sum exceeds the two side-pair sums by
-\[
-8R\cos\!\left(\frac{A-C}{2}\right)\sin\!\left(\frac B2\right)\sin\!\left(\frac D2\right)
-\]
-and
-\[
-8R\cos\!\left(\frac{B-D}{2}\right)\sin\!\left(\frac A2\right)\sin\!\left(\frac C2\right),
-\]
-respectively. Therefore the quartet contribution is half the smaller of these two differences.
+PASS
 
-Writing \(p=a+c\), \(q=n-p\), and \(h=\pi/(2n)\), balancing the integer splits gives the upper bound
-\[
-U_n(p)=
-4R\cos(\varepsilon_q h)
-\sin\!\left(\left\lfloor\frac p2\right\rfloor h\right)
-\sin\!\left(\left\lceil\frac p2\right\rceil h\right).
-\]
-The consecutive-step identities
-\[
-\cos h\,\sin((m+1)h)-\sin(mh)=\sin h\,\cos((m+1)h)
-\]
-and
-\[
-\sin((m+1)h)-\cos h\,\sin(mh)=\sin h\,\cos(mh)
-\]
-show that \(U_n(p)\) increases strictly until \(p=\lfloor n/2\rfloor\). Balanced gap patterns at that endpoint attain the bound, yielding the four residue-class formulas.
+Writing a cyclic quadruple by gap angles \(A,B,C,D\) with sum \(\pi\), the chord identity reduces the two relevant excesses to \(8R\cos((A-C)/2)\sin(B/2)\sin(D/2)\) and its symmetric counterpart. Thus the quadruple hyperbolicity is four times the minimum of the two corresponding products after the standard half-difference convention. For fixed opposite-gap total, concavity/balancing maximizes the sine product and minimizes the parity cosine penalty; the resulting upper envelope increases until the opposite totals are as equal as possible. Substitution gives exactly the four residue-class formulas and the listed balanced gaps. A fresh independent brute-force enumeration of every four-subset for \(4\le n\le30\) matched the closed formula to numerical precision; this finite replay supplements, rather than replaces, the analytic balancing proof.
 
-The embedded `verify.py` was replayed from its actual package path before packaging. It enumerates every four-subset for every \(4\le n\le60\), compares the brute-force maximum with the closed formula, and checks the balanced witness. Its output was:
+## originality
 
-`VERIFY_OK n=4..60`
+PASS
 
-Finite enumeration is not used as evidence for the all-\(n\) step. No numerical tolerance enters the symbolic proof.
+The general literature defines and computes four-point hyperbolicity for arbitrary finite metric spaces and studies its relationship with tree metrics and Ptolemaic geometry, but no inspected source states an exact regular-polygon chord-metric formula. The full Bauer-Roll text contains no occurrence of polygon or circle. The closest published SCOPE result on the same vertex sets computes a different invariant, the convexity gap, and does not imply this hyperbolicity formula.
+
+## value
+
+PASS
+
+Regular polygons are canonical finite samples of a Euclidean circle, and four-point hyperbolicity is a standard quantitative tree-likeness invariant. An exact all-\(n\) formula with maximizer geometry and the circle-limit constant is a natural closed classification, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
