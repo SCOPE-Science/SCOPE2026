@@ -1,25 +1,21 @@
-# Review of Sharp order of convexity for the sine-over-pole Ma--Minda class
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For each \(r<1\), harmonic minimum principles reduce the problem to a circle. The only singular boundary point is controlled by the expansion
-\[
-\xi(z)=1+\frac{\sin1}{1-z}-\cos1+O(|1-z|)
-\]
-and the disk inequality \(\operatorname{Re}(1/(1-z))>1/2\), so it cannot create the infimum. On the unit circle, conjugation symmetry reduces the minimization to \((0,\pi)\). The included interval certificate proves the derivative sign change exactly once in the central interval and certifies positive second derivative on the root bracket; elementary endpoint bounds remain far above the candidate minimum. The resulting infimum is therefore the displayed \(\mu_*\). Subordination immediately transfers this infimum to all members of \(\mathcal C_\xi\), and the canonical extremal makes the constant sharp in the boundary limit.
+PASS
 
-## Originality
+Harmonic minimum principles reduce the target infimum to boundary behavior. Near the singular point z=1 the expansion and the disk half-plane inequality for 1/(1-z) give lower limit about 0.8804, well above the candidate. Conjugation symmetry reduces the regular boundary to (0,pi). The inspected interval verifier certifies negative derivative up to 1.8086448, positive derivative from 1.8086449 to pi-0.1, and positive second derivative on the root bracket; analytic endpoint bounds remain above 0.57. Fresh high-precision solving reproduced the stated critical point and value. Subordination transfers the infimum to every class member, and the canonical equality-subordination solution approaches the minimizing boundary value, proving sharpness.
 
-PASS. The full source article defines the class and develops coefficient, growth, rotation, distortion, and determinant estimates, while its conclusion explicitly leaves geometric properties for future study. It does not state or imply a numerical order of convexity without solving the target-domain minimization. Exact-target and implication-level searches found no published statement of the constant, critical equation, or equivalent sharp inclusion \(\mathcal C_\xi\subset\mathcal C(\mu_*)\).
+## originality
 
-The closest published records concern other Ma--Minda targets, normalized-arcsine leaf classes, and general convexity radii. Their target functions and sharp constants differ and do not dominate this statement. A residual risk remains that an unindexed note has minimized the same target under different notation.
+PASS
 
-## Value
+The August 2026 primary article introduces the exact target xi(z)=1+sin(z)/(1-z) and the classical Ma–Minda class C_xi, develops coefficient and determinant estimates, and explicitly lists geometric properties of the new subclass as future work. It does not state the sharp order of convexity or minimize Re xi. General Ma–Minda theory supplies the transfer principle once a target real-part infimum is known, but not this target-specific minimization. Fresh Resultary search returned the audited theorem as the exact hit and different target functions thereafter.
 
-PASS. The source itself identifies geometric properties as the next problem for the newly introduced class. The order of convexity is the first canonical quantitative geometric invariant of a convex Ma--Minda family. Determining it sharply converts a coefficient-focused definition into the optimal classical inclusion
-\[
-\mathcal C_\xi\subset\mathcal C(\mu_*),
-\]
-with a matching extremal mechanism. The result is therefore a natural geometric completion rather than a routine coefficient substitution.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source itself identifies geometric properties as a next problem. The sharp order of convexity is the canonical first geometric invariant and gives the best classical convex-of-order inclusion with a matching extremal mechanism, not a routine coefficient reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

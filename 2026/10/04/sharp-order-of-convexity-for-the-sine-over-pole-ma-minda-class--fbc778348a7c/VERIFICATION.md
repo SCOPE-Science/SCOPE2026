@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,52 +19,24 @@
 }
 ---
 
-For
-\[
-\xi(z)=1+\frac{\sin z}{1-z},
-\]
-the boundary real-part function is
-\[
-F(t)=\operatorname{Re}\xi(e^{it}).
-\]
-The exact derivative formula used by the checker is
-\[
-F'(t)
-=
-\operatorname{Re}\!\left(
- i e^{it}
- \frac{(1-e^{it})\cos(e^{it})+\sin(e^{it})}{(1-e^{it})^2}
-\right).
-\]
+# Independent mathematical audit
 
-The included interval-arithmetic replay certifies
-\[
-F'<0\quad\text{on }[0.1,1.8086448],
-\]
-\[
-F'>0\quad\text{on }[1.8086449,\pi-0.1],
-\]
-and
-\[
-0.7302132125\ldots<F''<0.7302151004\ldots
-\]
-on \([1.8086448,1.8086449]\). Hence that bracket contains exactly one critical point. High-precision evaluation inside the certified bracket gives
-\[
-t_*=1.808644860488715898679582852398313963676602879316\ldots
-\]
-and
-\[
-\mu_*=F(t_*)=0.39072298833669261703444293158667137888774859706022\ldots .
-\]
+## correctness
 
-The intervals near \(0\) and \(\pi\) are controlled analytically in `RESULT.md`; they stay above \(0.87\) and \(0.57\), respectively. The boundary singularity at \(z=1\) has lower limiting real part at least
-\[
-1+\frac{\sin1}2-\cos1=0.8804331865\ldots .
-\]
-Thus none of the omitted endpoint neighborhoods can compete with \(\mu_*\).
+PASS
 
-Sharpness uses the canonical solution of
-\[
-1+\frac{zf_*''}{f_*'}=\xi(z),
-\]
-so no numerical experiment is used to infer extremality. The computation only certifies the one-variable critical-point location and sign pattern.
+Harmonic minimum principles reduce the target infimum to boundary behavior. Near the singular point z=1 the expansion and the disk half-plane inequality for 1/(1-z) give lower limit about 0.8804, well above the candidate. Conjugation symmetry reduces the regular boundary to (0,pi). The inspected interval verifier certifies negative derivative up to 1.8086448, positive derivative from 1.8086449 to pi-0.1, and positive second derivative on the root bracket; analytic endpoint bounds remain above 0.57. Fresh high-precision solving reproduced the stated critical point and value. Subordination transfers the infimum to every class member, and the canonical equality-subordination solution approaches the minimizing boundary value, proving sharpness.
+
+## originality
+
+PASS
+
+The August 2026 primary article introduces the exact target xi(z)=1+sin(z)/(1-z) and the classical Ma–Minda class C_xi, develops coefficient and determinant estimates, and explicitly lists geometric properties of the new subclass as future work. It does not state the sharp order of convexity or minimize Re xi. General Ma–Minda theory supplies the transfer principle once a target real-part infimum is known, but not this target-specific minimization. Fresh Resultary search returned the audited theorem as the exact hit and different target functions thereafter.
+
+## value
+
+PASS
+
+The source itself identifies geometric properties as a next problem. The sharp order of convexity is the canonical first geometric invariant and gives the best classical convex-of-order inclusion with a matching extremal mechanism, not a routine coefficient reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
