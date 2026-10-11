@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is proved analytically; there is no finite search, numerical certificate, or external computation on which the universal statement depends.
+# Independent mathematical audit
 
-The following checks were reconstructed directly from the packaged proof.
+## correctness
 
-1. For a segment \(UV\) of length \(\ell\), direct one-dimensional integration of \(1/|P-Q|\) gives
-   \[
-   \int_{UV}\frac{ds}{|P-Q|}=\log\!\left(\frac{PU+PV+\ell}{PU+PV-\ell}\right).
-   \]
-   The denominator is positive whenever \(P\) is not on the segment.
+PASS
 
-2. For exterior \(P\), the area integral defining \(E(P)\) is absolutely convergent. Componentwise divergence theorem applied to \(Q\mapsto |P-Q|^{-1}\) therefore gives the exact boundary expression \(E(P)=n_aJ_a+n_bJ_b+n_cJ_c\).
+For an exterior point \(P\), the elementary segment integral identity turns each logarithmic factor into the side integral \(J_a=\int_{BC}|P-Q|^{-1}\,ds\) and cyclic analogues. Applying the planar divergence theorem to \(Q\mapsto |P-Q|^{-1}\) gives \(E(P)=n_aJ_a+n_bJ_b+n_cJ_c\). Nicollier equality therefore gives \(J_a/a=J_b/b=J_c/c\), and the polygonal normal balance \(a n_a+b n_b+c n_c=0\) forces \(E(P)=0\). Strict separation of an exterior point from the compact convex triangle gives a unit vector \(u\) with \(u\cdot(P-Q)>0\) for every \(Q\) in the triangle, hence \(u\cdot E(P)>0\), contradiction. Boundary points are outside the quantified exterior domain and all side integrals are finite there.
 
-3. For a nondegenerate triangle, \(a n_a+b n_b+c n_c=0\), because these three vectors are the common quarter-turn of the three directed edge vectors of the closed polygon.
+## originality
 
-4. Nicollier's equality is equivalent, after taking logarithms, to \(J_a/a=J_b/b=J_c/c\). Combining this with item 3 forces \(E(P)=0\).
+PASS
 
-5. If \(P\) is exterior to the compact convex triangle, strict separation gives a unit vector \(u\) with \(u\cdot(P-Q)>0\) for every \(Q\) in the triangle. Hence \(u\cdot E(P)>0\), contradicting item 4.
+The final claim closes an explicit conjecture rather than restating the known uniqueness of the interior gravitational center. The strongest prior full-text comparison contains two adjacent ingredients—exterior field nonvanishing and an interior stationary-point distance relation—but does not supply the converse implication from Nicollier's distance equation at an exterior point to field vanishing. The submitted side-integral boundary identity supplies that missing bridge.
 
-The argument proves exactly the stated exterior nonexistence. It does not rely on the numerical location of the interior gravitational center and does not prove any broader polygonal analogue.
+## value
+
+PASS
+
+This is a motivated structural result: it settles an explicitly published conjecture and explains the obstruction geometrically through a boundary representation of the inverse-distance field. The bridge is useful independently of numerical localization and is not a routine normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
