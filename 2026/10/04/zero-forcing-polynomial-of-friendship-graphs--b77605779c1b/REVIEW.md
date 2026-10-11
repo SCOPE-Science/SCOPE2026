@@ -1,12 +1,21 @@
-# Review of Zero forcing polynomial of friendship graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof gives necessary and sufficient conditions in the two center-status cases. With the center blue, an unrepresented outer pair is permanently inaccessible, whereas one blue vertex in every pair suffices. With the center white, one blue vertex in every pair gives a dead initial state, while a fully blue pair forces the center and then completes all remaining pairs. The two disjoint families yield the polynomial directly. Exhaustive direct simulation through \(k=8\) matches the classification and every coefficient.
+## correctness
 
-## Originality
-PASS. The 2018 foundational source defining the zero forcing polynomial was inspected directly and contains no friendship, windmill, Dutch windmill, or cactus treatment. A later same-invariant operations paper gives broad inequalities and closure results rather than this coefficient formula. Targeted semantic and exact-phrase searches located general zero forcing polynomial work and an unrelated general-position polynomial for windmill graphs, but no exact friendship zero forcing polynomial. The closest published results therefore do not imply the all-set classification or coefficient sequence.
+PASS
 
-## Value
-PASS. The zero forcing polynomial records the complete cardinality distribution of zero forcing sets, not merely the minimum zero forcing number. Friendship graphs are a standard infinite graph family with repeated cut-vertex structure, and the theorem turns that forcing dynamics into a closed polynomial with immediate exact counts for all set sizes, minimum sets, and the total census. This is a natural complete enumerative result rather than an arbitrary finite slice.
+If an outer pair is initially empty, its twin vertices cannot be entered by a first force. With the center blue, meeting every pair lets each singly represented pair complete. With the center white, exactly one selected vertex in every pair gives no first force, while any full pair forces the center and then all singly represented pairs. The two disjoint cases count to the displayed polynomial. The inspected verifier exhaustively checks all subsets for \(1\le k\le8\); independent brute force reproduced the full coefficient vectors through \(k=5\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The foundational zero-forcing-polynomial source contains no friendship, windmill, Dutch-windmill, or cactus family formula in the inspected full text. Menon--Singh provide operation inequalities rather than an exact windmill enumeration. Resultary searches returned a generalized-windmill result for the different general-position polynomial, confirming the importance of definition-level comparison, but no friendship zero-forcing formula. The assigned pair-occupancy characterization is not implied by the checked generic coefficient results.
+
+## value
+
+PASS
+
+Friendship graphs are a standard infinite family, and the theorem determines the entire zero-forcing-set distribution rather than only the minimum number. The simple pair-occupancy mechanism supplies an exact reusable benchmark for graph-operation and counting questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
