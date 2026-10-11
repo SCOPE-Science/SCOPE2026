@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:44:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 787c48adb380bb59401dd208421f1b274050e4ce",
+        "assigned verify_cube_morse.py blob e54183e76747de57952f32a71616f858b153a643",
+        "arXiv:2004.10481",
+        "arXiv:2105.05388"
+      ],
+      "rationale": "A graph Morse simplex is an acyclic partial orientation with outdegree at most one. Exhaustive enumeration of all \\(3^{12}\\) cube-edge states reproduces the face vector \\((24,240,1296,4080,7488,7424,3072)\\), independently matching \\(t(t+2)^3(t+4)^3(t+6)\\). Exact mod-2 boundary elimination gives ranks \\((1,23,217,1079,3001,4487,2933)\\), hence Betti ranks \\(4\\) and \\(139\\) in degrees \\(5,6\\). The verifier also checks all faces and \\(\\partial^2=0\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Connectivity does not determine exact homology.",
+          "The Laplacian generating identity fixes the f-vector, not boundary ranks.",
+          "Exact-family results checked do not include Q3."
+        ],
+        "reasoning": "No accessible stronger theorem specializes to this exact homology.",
+        "searches": [
+          "arXiv:2004.10481",
+          "arXiv:2105.05388",
+          "arXiv:2207.13780"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1909.11440",
+        "arXiv:2004.10481",
+        "arXiv:2105.05388",
+        "arXiv:2207.13780",
+        "DOI:10.18122/td/1684/boisestate",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Many chain complexes share the same f-vector/connectivity but different homology.",
+          "The exact boundary ranks are additional data."
+        ],
+        "reasoning": "The prior results do not imply the audited groups.",
+        "searches": [
+          "general connectivity theorem",
+          "Laplacian face-enumerator theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Morse simplices are directed forests/acyclic partial functional orientations.",
+          "No accessible source states the \\((4,139)\\) Betti pair."
+        ],
+        "reasoning": "Both Morse-complex and directed-forest aliases were checked.",
+        "searches": [
+          "Resultary: Morse complex Q3 mod 2 homology directed forest",
+          "arXiv:2004.10481",
+          "DOI:10.18122/td/1684/boisestate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the exact hit; nearby entries concern other graphs."
+        ],
+        "reasoning": "No separate exact table was found.",
+        "searches": [
+          "Resultary exact Q3-Morse query"
+        ]
+      },
+      "rationale": "Checked Morse-complex papers give exact families or general connectivity, and the Laplacian identity gives face counts, but none determines Q3 boundary ranks. A plausible thesis on directed forest complexes of Cayley graphs could overlap; only its abstract was accessible and lawful full-text retrieval found no verified PDF, so that remains a named residual risk.",
+      "residual_risks": [
+        "The inaccessible Courtney thesis may contain an equivalent Q3 computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CONNECTIVITY_ONLY",
+          "evidence": "No exact Q3 Betti ranks.",
+          "identifier_or_url": "arXiv:2004.10481",
+          "material_read": "Full primary paper and regular-graph connectivity results.",
+          "method": "Open-access full text.",
+          "title": "Higher connectivity of the Morse complex",
+          "trigger": "Strong general theorem for graph Morse complexes."
+        },
+        {
+          "assessment": "OTHER_FAMILIES",
+          "evidence": "Q3 is not treated.",
+          "identifier_or_url": "arXiv:2207.13780",
+          "material_read": "Full matching/Morse sections and covered families.",
+          "method": "Open-access full text.",
+          "title": "Star clusters in the Matching, Morse, and Generalized Morse complex",
+          "trigger": "Recent exact graph Morse-complex computations."
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE_SOURCE",
+          "evidence": "Exact Q3 overlap could not be resolved.",
+          "identifier_or_url": "DOI:10.18122/td/1684/boisestate",
+          "material_read": "Public abstract only; public full text was inaccessible, and authorized institutional retrieval returned no verified PDF.",
+          "method": "Abstract plus lawful access attempts; no whole-document inference.",
+          "title": "The Directed Forest Complex of Cayley Graphs",
+          "trigger": "Q3 is a Cayley graph and directed-forest terminology is closely related."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "graph Morse-complex exact-family literature"
+      ],
+      "rationale": "Q3 is the first noncycle hypercube and a canonical regular Cayley graph; exact mixed adjacent-degree homology is a natural benchmark beyond general connectivity and face counts.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the ordinary Morse complex of \\(Q_3\\), reduced \\(\\mathbb F_2\\)-homology is \\(\\mathbb F_2^4\\) in degree \\(5\\), \\(\\mathbb F_2^{139}\\) in degree \\(6\\), and zero elsewhere.",
+  "limitations": [
+    "Only \\(Q_3\\) and mod-2 homology; no integral or full homotopy classification.",
+    "Full text of a plausible Cayley directed-forest thesis remained inaccessible."
+  ],
+  "schema_version": 1
+}
