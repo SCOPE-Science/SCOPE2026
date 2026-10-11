@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the explicit top chain complex of the join \(A_1*\cdots*A_h\). Boundary components omitting different levels land in separate direct summands, so top cycles are exactly \(\bigotimes_i\ker\varepsilon_i\). For an arbitrary endomorphism, the induced top-chain map factors through partial same-level maps. If the tensor action is nonzero, each partial map is nonzero on its augmentation kernel; the cycle condition then forces the same-level indicator to be constant and nonzero, hence every source level is preserved. The rank \(\prod_i(s_i-1)\), nonzero criterion, count, and homeomorphism criterion follow. Exact exhaustive checks on three small weak orders agree with the symbolic theorem.
+## correctness
 
-## Originality
-PASS. The closest inspected literature supplies three ingredients separately: finite spaces and order complexes; finite weak orders and endomorphisms; and joins/pseudospheres with wedge-of-spheres topology. None of the inspected statements gives the level-preservation criterion for nonzero top-homology action, the arbitrary-map rank formula, or the closed count. The closest published weak-order database result concerns interval-endomorphism algebra global dimension and does not imply the claim.
+PASS
 
-## Value
-PASS. The result is a structural classification for a natural infinite class of finite spaces, not a finite-window observation. It identifies exactly which arbitrary self-endomorphisms are visible to top homology, measures their rank, counts them, and characterizes homeomorphisms by top-homology isomorphism.
+The order complex of \(A_1\oplus\cdots\oplus A_h\) is the join of the discrete levels, so \(H_{h-1}\cong\bigotimes_i\ker(\varepsilon_i)\). Projecting an order-preserving self-map to nondegenerate top simplices gives a tensor product of level maps \(g_i\). If the top action is nonzero, every \(g_i\) is nonzero on the augmentation kernel; the chain-map condition forces the indicator of points mapped back into level \(i\) to be constant, hence identically one. Thus every level is preserved. For a level map with image size \(s_i\), the induced augmentation-kernel image has rank \(s_i-1\), yielding rank \(\prod_i(s_i-1)\). Nonzero action is therefore equivalent to levelwise nonconstancy, and maximal rank to levelwise bijectivity. The counting formula \(\prod_i(r_i^{r_i}-r_i)\) follows independently level by level. The bundled exact enumeration agrees in the listed small weak orders.
 
-## Closest literature and limitations
-Barmak--Minian (2006) provide the finite-space/order-complex framework and minimal sphere special family. Pouzet--Zaguia (2007) provide the weak-order/endomorphism setting. The later pseudosphere literature identifies these order complexes as joins of discrete sets and records their topology. The claim is restricted to at least two points per level and only classifies top integral homology. A residual originality risk remains for results phrased exclusively in simplicial-join or distributed-computing language; the searches and inspected primary text did not locate such a theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full open pseudosphere article identifies finite joins of discrete sets and develops their topology, but its searchable full text does not classify arbitrary self-map actions on top homology. Pouzet--Zaguia study weak-order endomorphisms; the inspected full-text scope has no homology discussion. Current Resultary search returned the assigned theorem as the exact record and related finite-space results, but no independent broader theorem giving the level-preservation iff criterion, rank product, and map count. The theorem therefore survives best-of-knowledge originality.
+
+## value
+
+PASS
+
+Finite weak orders and joins of discrete sets are natural finite topological models. The theorem gives a complete structural classification of which self-maps are detected by top homology, the exact rank of every nonzero action, and the exact count of such maps. This is a reusable map-level invariant, not merely a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
