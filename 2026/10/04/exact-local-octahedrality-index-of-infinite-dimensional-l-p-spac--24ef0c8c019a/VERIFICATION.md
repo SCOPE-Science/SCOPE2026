@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The verification replay checked the exact domain, quantifiers, and all three cases of the formula for \(s(L_p(\mu))\).
+# Independent mathematical audit
 
-For the common lower bound, the argument uses pairwise disjoint positive finite-measure supports \((E_n)\) and the fact that \(\|x\mathbf 1_{E_n}\|_p\to0\) along a subsequence. The disjoint-support identity then yields both signs simultaneously.
+## correctness
 
-For \(1<p\le2\), the conjugate-exponent Clarkson inequality yields the upper bound \(2^{1/p}\). For \(2<p<\infty\), the \(p\)-Clarkson inequality yields the universal upper bound \(2^{1-1/p}\). In the atomless case, splitting \(|x|^p d\mu\) into two sets of mass \(1/2\) attains this value exactly for every \(x\in S_{L_p}\). In the atomic case, the normalized atom vector yields the scalar bound \((1-a)^p+1-a^p\le2\), with strict negative derivative on \([0,1]\).
+PASS
 
-The endpoint \(p=1\) uses only the support lower bound and the diameter bound \(2\); the endpoint \(p=2\) gives \(\sqrt2\) from either branch. No finite computation is used to establish any infinite-dimensional case.
+A disjoint-support escape argument gives the universal lower bound 2^(1/p) in every infinite-dimensional sigma-finite Lp. For p<=2 the appropriate Clarkson inequality gives the matching upper bound. For p>2 atomless, the probability measure |x|^p dmu can be split exactly in half, and y=(2 1_A-1)x makes both distances exactly 2^(1-1/p), matching Clarkson. If an atom A exists, the normalized indicator of A is a base vector; any y is scalar on A, and the smaller sign has pth-power distance (1-a)^p+1-a^p<=2, forcing 2^(1/p). The measure-theoretic and p=2 boundaries are correct.
 
-Unproved limits: no assertion is made for \(p=\infty\), finite-dimensional \(L_p\)-spaces, or measure spaces outside the stated complete sigma-finite setting. Literature searches support but do not certify global novelty.
+## originality
+
+PASS
+
+The checked primary literature defines the invariant and supplies qualitative preservation tools; the atomless/atomic exact values require additional sharp witnesses and were not found as prior statements.
+
+## value
+
+PASS
+
+The theorem gives a complete sharp classification for a canonical Banach-space family and shows that above p=2 the numerical local-octahedrality index detects the presence of even one atom. That atomicity dichotomy is a substantive structural fact, not a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
