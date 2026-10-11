@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is proved symbolically in `RESULT.md`. The accompanying `verifier.py` is a finite regression checker.
+## correctness
 
-It enumerates every connected threshold creation string of orders \(2\) through \(10\), constructs the graph directly from the creation rule, and for every positive integer \(k\) up to the order tests every subset \(S\) against the definition
-\[
-|N(v)\cap S|\ge k\qquad\text{for every vertex }v.
-\]
-It separately evaluates the claimed criterion
-\[
-|S\cap B_p|\ge k\quad\text{and}\quad |S|\ge k+1,
-\]
-compares the complete size histogram with the closed binomial formula, and tests that inclusion-minimal feasible sets are exactly those of size \(k+1\).
+PASS
 
-Exact replay output:
+A vertex in the last zero-block has neighborhood exactly the final one-block, forcing at least \(k\) selections there. Any selected vertex in a kTDS needs \(k\) distinct selected neighbors, so the set has size at least \(k+1\). Conversely every earlier vertex is adjacent to every final-block vertex, an unselected final-block vertex is universal, and a selected final-block vertex sees all other selected vertices; the two inequalities are therefore sufficient. The polynomial subtracts only the size-\(k\) subsets wholly inside the final block, and every larger feasible set contains a feasible size-\(k+1\) subset. Fresh literal replay checked 167,480 cases through order eight.
 
-`VERIFY_OK graphs=511 subset_k_checks=3378744 coefficient_checks=47102 minimal_checks=344405 max_order=10`
+## originality
 
-The computation checks finite instances only. It does not certify the infinite theorem, which rests on the universal-neighborhood proof in `RESULT.md`. No external solver or unverified certificate is used.
+PASS
+
+Best-of-knowledge originality passes. Henning--Kazemi develop the exact parameter and complete-multipartite minimum results; Cicalese--Milanič--Vaccaro give optimization algorithms for total vector domination on threshold graphs; Chiarelli--Milanič cover ordinary total domination through total-domishold structure. None of the inspected statements gives the all-\(k\), all-cardinality feasible family, polynomial, inclusion-minimal classification, or the collapse to only \(N\) and the final one-block size.
+
+## value
+
+PASS
+
+The result upgrades optimization-only threshold coverage to a complete feasible-family theorem for every multiplicity, yields every coefficient and every inclusion-minimal set, and proves a striking profile collapse: all earlier creation blocks are forgotten once \(N\) and the final universal block size are fixed. That is a natural structural fact for a standard domination parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

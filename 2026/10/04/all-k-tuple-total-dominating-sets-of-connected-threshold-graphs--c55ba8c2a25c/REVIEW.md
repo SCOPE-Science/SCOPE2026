@@ -1,15 +1,21 @@
-# Review of All \(k\)-tuple total dominating sets of connected threshold graphs
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The last \(0\)-block has open neighborhood exactly the final \(1\)-block \(B_p\), so every \(k\)-tuple total dominating set must contain at least \(k\) vertices of \(B_p\). Any selected vertex needs \(k\) distinct selected neighbors, forcing size at least \(k+1\). Conversely every vertex outside \(B_p\) sees all selected vertices of \(B_p\), every unselected vertex in \(B_p\) sees all selected vertices there, and every selected vertex in \(B_p\) is universal and sees the other \(|S|-1\) selected vertices. These observations prove the iff condition without hidden cases. The generating formula and minimum-set count then follow by direct binomial counting. The packaged verifier checks all connected threshold creation strings through order \(10\), all subsets, all feasible and infeasible \(k\), every coefficient, and minimality.
+## correctness
 
-## Originality
-**PASS.** The closest archival literature separates into three levels. Henning–Kazemi define \(k\)-tuple total domination and develop general/minimal-set and hypergraph-transversal theory, with exact work on complete multipartite graphs. Cicalese–Milanič–Vaccaro explicitly include \(k\)-tuple total domination as a uniform special case of total vector domination and note polynomial/linear optimization on threshold graphs, but their threshold section does not enumerate all feasible sets or derive the two-parameter polynomial collapse. Chiarelli–Milanič treat ordinary total domination through total-domishold separation, which is the \(k=1\) feasibility case only. Direct semantic and web searches under threshold, double total domination, \(k\)-tuple total domination, total vector domination, polynomial, and all-set enumeration produced no statement implying the present classification. The remaining risk is alternate terminology or poorly indexed enumeration literature.
+PASS
 
-## Value
-**PASS.** This is not only a minimum-number computation. It classifies the entire feasible family simultaneously for every multiplicity \(k\), proves that every inclusion-minimal feasible set has the extremal size \(k+1\), gives every coefficient of the natural enumerator, and identifies an exact information collapse: all internal creation-block structure except \(N\) and \(b\) disappears from every uniform \(k\)-tuple total-domination count. That strengthens prior optimization-only threshold results and provides a compact benchmark family for domination-polynomial and multicover questions.
+A vertex in the last zero-block has neighborhood exactly the final one-block, forcing at least \(k\) selections there. Any selected vertex in a kTDS needs \(k\) distinct selected neighbors, so the set has size at least \(k+1\). Conversely every earlier vertex is adjacent to every final-block vertex, an unselected final-block vertex is universal, and a selected final-block vertex sees all other selected vertices; the two inequalities are therefore sufficient. The polynomial subtracts only the size-\(k\) subsets wholly inside the final block, and every larger feasible set contains a feasible size-\(k+1\) subset. Fresh literal replay checked 167,480 cases through order eight.
 
-## Closest literature and limitations
-The threshold-graph optimization result in arXiv:1012.1529 is the closest broader algorithmic coverage; the 2010 Henning–Kazemi paper is the closest parameter-specific source; arXiv:1303.0944 is the closest ordinary-total-domination threshold source. None of the inspected statements gives all-set threshold enumeration. The theorem does not address non-uniform requirements, weights, disconnected graphs with isolated vertices, or closed-neighborhood variants. Finite verification is limited to order \(10\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes. Henning--Kazemi develop the exact parameter and complete-multipartite minimum results; Cicalese--Milanič--Vaccaro give optimization algorithms for total vector domination on threshold graphs; Chiarelli--Milanič cover ordinary total domination through total-domishold structure. None of the inspected statements gives the all-\(k\), all-cardinality feasible family, polynomial, inclusion-minimal classification, or the collapse to only \(N\) and the final one-block size.
+
+## value
+
+PASS
+
+The result upgrades optimization-only threshold coverage to a complete feasible-family theorem for every multiplicity, yields every coefficient and every inclusion-minimal set, and proves a striking profile collapse: all earlier creation blocks are forgotten once \(N\) and the final universal block size are fixed. That is a natural structural fact for a standard domination parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
