@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the conormal-bundle formula for projective-dual degree. For \(X_{d,e}\subset\mathbb P^5\), the only source-dependent input is
-\[
-\deg X^\vee=\int_X\frac1{c(N^*(1))},
-\]
-together with the fact that a nonlinear smooth complete intersection has dual hypersurface. Both were checked in the cited full texts.
+# Independent mathematical audit
 
-With \(x=d-1\), \(y=e-1\), the coefficient extraction was replayed directly:
-\[
-[H^3]\frac1{(1-xH)(1-yH)}=x^3+x^2y+xy^2+y^3,
-\]
-and \(\int_XH^3=de\). Substituting \(q=x+y\) and \(s=y-x\) gives the factored formula and then the completed-square identity used for optimization.
+## correctness
 
-The tie analysis was checked symbolically: adjacent parity-lattice values \(s,s+2\) tie exactly when \(2q=s(s+2)\), hence \(s=2k\) and \(q=2k(k+1)\); both candidates are admissible precisely for \(k\ge2\). The asymptotic uses only that the fixed-parity lattice has mesh two near \(\sqrt{2(q+1)}\).
+PASS
 
-The standalone program `artifacts/verify_dual_degree_mode.py` was executed from its packaged path and returned:
+The Katz–Kleiman conormal formula gives dual degree de times the cubic complete homogeneous polynomial in d-1 and e-1. With q=d+e-2 and s=e-d, algebra reduces this to a constant in q minus (q/8)(s squared minus 2(q+1)) squared. Thus the optimizer is exactly the admissible parity-lattice square nearest to 2(q+1). Adjacent admissible gaps tie iff 2q=s(s+2), forcing s=2k and q=2k(k+1), with the stated bidegrees. Mesh-two approximation gives the square-root asymptotic. Fresh exact enumeration through q=2000 reproduced every optimizer and the tie sequence.
 
-`VERIFY_OK q=2..2000 admissible_pairs=1000000 first_tie_q=12`
+## originality
 
-It checks every admissible pair in that range, formula equality, exact maximizers, the tie classification, and stated small examples. The program is a regression check and does not certify cases beyond its finite range; the infinite statement rests on the algebraic proof.
+PASS
+
+The primary duality source supplies the pointwise projective-dual degree formula, but no inspected source optimizes that polynomial across codimension-two bidegrees with fixed sum. Fresh Resultary search returned the assigned theorem itself and nearby fixed-sum results for different invariants, not a stronger dual-degree statement. The completed-square reduction, nearest-square mode, tie sequence and square-root imbalance therefore survive best-of-knowledge originality.
+
+## value
+
+PASS
+
+Projective-dual degree is a standard discriminant complexity, and fixing d+e fixes the adjunction coefficient. The complete optimizer classification exposes a non-obvious square-root imbalance and infinite exact tie law, making it a natural structural result rather than a finite parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
