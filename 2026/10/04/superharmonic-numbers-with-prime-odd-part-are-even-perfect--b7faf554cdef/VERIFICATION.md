@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The unrestricted theorem is proved symbolically in `RESULT.md`. The proof uses exact formulas for \(\sigma(2^a p)\) and \(\tau(2^a p)\), Cohen's published prime-support/valuation criterion, multiplicative orders, and the standard lifting-the-exponent identity.
+# Independent mathematical audit
 
-The bundled `verify.py` independently checks the original superharmonic divisibility condition for every integer \(1\le a\le20\) and every odd prime \(p\le200000\). It returns exactly the even-perfect cases in that domain and reports each with index \(1\). The expected output is:
+## correctness
 
-`VERIFY_OK a_max=20 p_bound=200000 hits=[(1, 3, 1), (2, 7, 1), (4, 31, 1), (6, 127, 1), (12, 8191, 1), (16, 131071, 1)]`
+PASS
 
-This enumeration is only a finite consistency check. It is not used to infer the infinite classification. The theorem does not cover \(2^a p^b\) with \(b>1\) or odd superharmonic numbers.
+With \(A=a+1\), \(M=2^A-1\), one has \(\tau=2A\) and \(\sigma=M(p+1)\). Cohen's prime-support and valuation criterion plus LTE shows every prime divisor of \(M\) must be \(p\), so \(M=p^c\). A multiplicative-order argument then forces \(\operatorname{ord}_p(2)=A\). Any odd prime dividing \(p+1\) would divide both \(A\) and \(p-1\), impossible, so \(p+1\) is a power of two; primality forces the Mersenne exponent to equal \(A\), hence \(c=1\). The converse is the standard even-perfect identity. A fresh brute-force defining-condition replay for \(a\le12\) and odd primes through 2000 found only \((a,p)=(1,3),(2,7),(4,31),(6,127)\), all with index one.
+
+## originality
+
+PASS
+
+Cohen's primary paper supplies the prime-support/valuation criterion and explicitly notes that the classical two-prime harmonic classification does not carry over to superharmonic numbers although the analogous conclusion appears true. The audited theorem proves a natural infinite squarefree-odd-part slice of that open structural problem. Resultary searches found nearby but different harmonic-type invariants, not this superharmonic classification.
+
+## value
+
+PASS
+
+This is a natural infinite structural slice of an explicitly identified two-prime superharmonic classification problem. It connects the superharmonic condition sharply back to the Euclid–Euler even-perfect family and determines the exact index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

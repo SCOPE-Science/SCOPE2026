@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:57:03Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 05a7e26eea8a10d213fb5824c446cd3ec4087e4e",
+        "VERIFICATION.md blob 25654a4ea2e0bb4fd3c6aaf8bab7213161f9f027",
+        "Inspected checker blob 478434d0d1bc818432051f59ea70a374b7e8c68c",
+        "Cohen, Mathematics of Computation 78 (2009), DOI:10.1090/S0025-5718-08-02147-9."
+      ],
+      "rationale": "With \\(A=a+1\\), \\(M=2^A-1\\), one has \\(\\tau=2A\\) and \\(\\sigma=M(p+1)\\). Cohen's prime-support and valuation criterion plus LTE shows every prime divisor of \\(M\\) must be \\(p\\), so \\(M=p^c\\). A multiplicative-order argument then forces \\(\\operatorname{ord}_p(2)=A\\). Any odd prime dividing \\(p+1\\) would divide both \\(A\\) and \\(p-1\\), impossible, so \\(p+1\\) is a power of two; primality forces the Mersenne exponent to equal \\(A\\), hence \\(c=1\\). The converse is the standard even-perfect identity. A fresh brute-force defining-condition replay for \\(a\\le12\\) and odd primes through 2000 found only \\((a,p)=(1,3),(2,7),(4,31),(6,127)\\), all with index one.",
+      "risks": [
+        "The proof depends essentially on the odd part occurring to the first power; extra odd-prime exponent factors change \\(\\tau(n)\\)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohen provides necessary-and-sufficient prime-support/valuation conditions but says the two-prime classification does not follow from the harmonic proof.",
+          "Pollack–Pomerance study global distribution and prime-perfect variants rather than this exact slice."
+        ],
+        "reasoning": "The general criterion is a tool, not a theorem already asserting the squarefree-odd-part classification; the order/LTE argument is additional.",
+        "searches": [
+          "Cohen DOI:10.1090/S0025-5718-08-02147-9",
+          "Pollack–Pomerance DOI:10.1515/integers-2012-0044"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches above",
+        "Cohen DOI:10.1090/S0025-5718-08-02147-9",
+        "Pollack–Pomerance DOI:10.1515/integers-2012-0044"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cohen's criterion leaves nontrivial constraints to solve; the paper itself says the standard harmonic two-prime proof does not carry through.",
+          "The audited proof resolves those constraints on the \\(p^1\\) odd-part slice by valuation and multiplicative-order arguments."
+        ],
+        "reasoning": "Thus the result is not merely the criterion with renamed variables.",
+        "searches": [
+          "Cohen Theorem 1 and two-prime discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned related two-prime results for different harmonic variants, not the audited superharmonic theorem.",
+          "No later source located in the targeted web search stated the same \\(2^a p\\) classification."
+        ],
+        "reasoning": "Searches covered superharmonic, power-harmonic, two-prime support, squarefree odd part, Mersenne and even-perfect formulations.",
+        "searches": [
+          "Resultary query: superharmonic prime odd part squarefree two-prime classification",
+          "Web query: superharmonic numbers even perfect two distinct prime factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database or published table covering all \\(a\\) and prime \\(p\\) was located."
+        ],
+        "reasoning": "The finite replay is only corroborative; the result is an infinite symbolic classification.",
+        "searches": [
+          "Resultary superharmonic two-prime query above"
+        ]
+      },
+      "rationale": "Cohen's primary paper supplies the prime-support/valuation criterion and explicitly notes that the classical two-prime harmonic classification does not carry over to superharmonic numbers although the analogous conclusion appears true. The audited theorem proves a natural infinite squarefree-odd-part slice of that open structural problem. Resultary searches found nearby but different harmonic-type invariants, not this superharmonic classification.",
+      "residual_risks": [
+        "A later note may have solved this squarefree-odd-part slice without being indexed under the same terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_CRITERION_AND_OPEN_TWO_PRIME_DIRECTION",
+          "evidence": [
+            "The source explicitly says the harmonic two-prime classification proof does not carry through to superharmonic numbers although the same classification appears likely."
+          ],
+          "identifier_or_url": "DOI:10.1090/S0025-5718-08-02147-9",
+          "material_read": "Primary full PDF including Theorem 1's prime-support/valuation criterion and the subsequent discussion of the unresolved two-distinct-prime-factor analogue.",
+          "method": "Public full-text PDF inspection.",
+          "title": "Superharmonic numbers",
+          "trigger": "Foundational source defining the invariant and strongest coverage candidate."
+        },
+        {
+          "assessment": "RELATED_STRONGER_VARIANT_NOT_COVERING_SUPERHARMONIC_SLICE",
+          "evidence": [
+            "Its prime-perfect condition is different and stronger than superharmonicity."
+          ],
+          "identifier_or_url": "DOI:10.1515/integers-2012-0044",
+          "material_read": "Accessible bibliographic/statement-level comparison of its prime-perfect and distribution results.",
+          "method": "Public source search.",
+          "title": "Prime-perfect numbers",
+          "trigger": "Later source on related divisor-sum support restrictions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete classification for every \\(a\\ge1\\) with prime odd part.",
+        "The result isolates exactly where the classical even-perfect structure survives under the weaker superharmonic condition."
+      ],
+      "rationale": "This is a natural infinite structural slice of an explicitly identified two-prime superharmonic classification problem. It connects the superharmonic condition sharply back to the Euclid–Euler even-perfect family and determines the exact index.",
+      "risks": [
+        "The full case \\(2^a p^b\\) with \\(b>1\\) remains open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(a\\ge1\\) and odd prime \\(p\\), the number \\(2^a p\\) is superharmonic if and only if \\(a+1\\) is prime and \\(p=2^{a+1}-1\\) is prime; equivalently this squarefree-odd-part two-prime slice consists exactly of even perfect numbers and has superharmonic index one.",
+  "limitations": [
+    "Odd part is one prime to the first power.",
+    "No claim for odd superharmonic numbers or general two-prime exponents."
+  ],
+  "schema_version": 1
+}
