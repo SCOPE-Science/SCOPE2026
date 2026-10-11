@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:47:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob aa2f39b7c49660a169906e3748d7ac65023a1833",
+        "verify.py blob f037411fc5a08068170970d8a880126776726a99",
+        "Sándor 2005 definition/value table",
+        "fresh bounded sigma replay plus independent symbolic reconstruction"
+      ],
+      "rationale": "If \\(\\sigma(n)\\) is odd, the standard parity criterion gives \\(n=2^c m^2\\) with odd \\(m\\). The pure two-power case reduces to \\(2^{c+1}-1=3^b\\), whose only nontrivial solution is \\(c=1,b=1\\). If an odd prime \\(p^{2e}\\) divides \\(n\\), multiplicativity forces \\(1+p+\\cdots+p^{2e}\\) to be a power of three. For \\(p\\equiv0\\) or \\(2\\pmod3\\) that sum is not divisible by three; for \\(p\\equiv1\\pmod3\\), divisibility requires \\(2e+1=3t\\), and the factor \\(p^{2t}+p^t+1\\) has 3-adic valuation exactly one but is larger than three, so has another prime factor. A fresh divisor-sum sweep through 50,000 found only \\(n=1,2\\), corroborating the symbolic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sándor gives general inequalities and exact formulas on other input families, but not this prime-power ray.",
+          "OEIS A379473 records the highest power of three dividing \\(\\sigma(n)\\), a different valuation statistic and not a classification of pure powers."
+        ],
+        "reasoning": "No checked broader source determines when the entire divisor sum, rather than only its 3-part, is a power of three.",
+        "searches": [
+          "Sándor 2005 full primary PDF",
+          "current OEIS divisor-sum and 3-adic sigma entries",
+          "Resultary inverse-divisor-sum semantic search"
+        ]
+      },
+      "checked_sources": [
+        "Sándor 2005 full primary PDF",
+        "OEIS A000203",
+        "OEIS A379473",
+        "Resultary ternary-ray/inverse-sigma searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three tabulated cases and general upper bounds do not imply an infinite constant ray.",
+          "The proof uses the oddness classification for \\(\\sigma(n)\\), then excludes every odd prime-square factor by congruence and a cyclotomic factor with 3-adic valuation exactly one."
+        ],
+        "reasoning": "The infinite classification requires a new argument beyond the foundational table.",
+        "searches": [
+          "Sándor value table and general bounds",
+          "audited parity and cyclotomic-factor argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By definition \\(\\Sigma^*(3^a)>2\\) would require some \\(n>2\\) with \\(\\sigma(n)\\) a power of three.",
+          "Thus the ray theorem is equivalent to classifying all integer solutions of \\(\\sigma(n)=3^b\\) as \\(n=1,2\\)."
+        ],
+        "reasoning": "The inverse-sigma formulation was searched explicitly rather than relying only on the maximum-function terminology.",
+        "searches": [
+          "Sándor, The sum-of-divisors minimum and maximum functions, NNTDM 11 (2005), definition (15) and value table",
+          "searches for inverse divisor-sum equation sigma(n)=power of 3",
+          "Resultary semantic query: sum-of-divisors maximum function powers of 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source table contains \\(\\Sigma^*(3)=2,\\Sigma^*(9)=2,\\Sigma^*(27)=2\\), agreeing with the theorem at the first three points.",
+          "No checked database states constancy for every exponent."
+        ],
+        "reasoning": "The existing table motivates and corroborates the theorem but does not prove its infinite continuation.",
+        "searches": [
+          "Sándor's explicit table through \\(\\Sigma^*(28)\\)",
+          "OEIS A000203 and A379473",
+          "Resultary exact ternary-ray query"
+        ]
+      },
+      "rationale": "Sándor's foundational paper was materially reread in full around the definition and initial values of the maximum sum-of-divisors function \\(\\Sigma^*\\). It tabulates \\(\\Sigma^*(3)=\\Sigma^*(9)=\\Sigma^*(27)=2\\) and proves general bounds, but it does not state the all-exponent ternary ray. Fresh searches for the inverse divisor-sum equation \\(\\sigma(n)=3^b\\), including OEIS and Resultary aliases, did not locate a stronger published classification. The submitted proof is symbolic and closes the whole ray.",
+      "residual_risks": [
+        "Older inverse-divisor-sum literature is poorly indexed; an equivalent elementary lemma may exist under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIRST_THREE_TERNARY_VALUES_PRIOR_ALL_EXPONENT_RAY_NOT_STATED",
+          "evidence": "The table explicitly gives value 2 at 3, 9 and 27, while the paper describes itself as an initial study and gives no all-\\(3^a\\) theorem.",
+          "identifier_or_url": "NNTDM 11 (2005), no. 2, 1–8",
+          "material_read": "Complete eight-page primary PDF; the value-table page and later theorem/bound page were visually inspected.",
+          "method": "Definition, exact-table and theorem-scope comparison.",
+          "title": "The sum-of-divisors minimum and maximum functions",
+          "trigger": "Defining primary source for \\(\\Sigma^*\\) and the first ternary values."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sándor 2005 full primary PDF",
+        "OEIS A000203",
+        "OEIS A379473",
+        "Resultary ternary-ray/inverse-sigma searches"
+      ],
+      "rationale": "The theorem closes an infinite prime-power ray that the defining paper explicitly begins with the values 3, 9 and 27, and gives a complete inverse-divisor-sum classification behind it. This is a natural exact structural continuation of a foundational arithmetic-function table, not a bounded recomputation.",
+      "residual_risks": [
+        "Older inverse-divisor-sum literature is poorly indexed; an equivalent elementary lemma may exist under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sándor 2005 full primary PDF",
+    "OEIS A000203",
+    "OEIS A379473",
+    "Resultary ternary-ray/inverse-sigma searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer \\(a\\ge1\\), the sum-of-divisors maximum function satisfies \\(\\Sigma^*(3^a)=2\\); equivalently, \\(\\sigma(n)\\) is a power of three only for \\(n=1\\) or \\(n=2\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older inverse-divisor-sum literature is poorly indexed; an equivalent elementary lemma may exist under different terminology.",
+    "The theorem addresses powers of three only and does not classify \\(\\Sigma^*(p^a)\\) for arbitrary primes."
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof was checked case by case: the parity criterion for odd divisor sums, the equation for pure powers of two, all three residue classes of an odd prime modulo \(3\), and the lifting-the-exponent step. The critical local identity is
-\[v_3(p^{2t}+p^t+1)=v_3(p^{3t}-1)-v_3(p^t-1)=1\]
-when \(p\equiv1\pmod3\). Since the displayed factor is greater than \(3\), it cannot be a pure power of \(3\).
+# Independent mathematical audit
 
-The bundled `verify.py` performs two finite consistency checks without being used as proof: it enumerates exact ordinary divisor sums through \(200000\), and it computes the maximum-function values at \(3^a\) for \(1\le a\le8\). Its expected terminal line begins with `VERIFY_OK`.
+## correctness
 
-The verification does not certify originality beyond the documented literature comparison, does not extend the theorem to prime-power rays other than powers of \(3\), and does not replace the unrestricted symbolic argument with finite enumeration.
+PASS
+
+If \(\sigma(n)\) is odd, the standard parity criterion gives \(n=2^c m^2\) with odd \(m\). The pure two-power case reduces to \(2^{c+1}-1=3^b\), whose only nontrivial solution is \(c=1,b=1\). If an odd prime \(p^{2e}\) divides \(n\), multiplicativity forces \(1+p+\cdots+p^{2e}\) to be a power of three. For \(p\equiv0\) or \(2\pmod3\) that sum is not divisible by three; for \(p\equiv1\pmod3\), divisibility requires \(2e+1=3t\), and the factor \(p^{2t}+p^t+1\) has 3-adic valuation exactly one but is larger than three, so has another prime factor. A fresh divisor-sum sweep through 50,000 found only \(n=1,2\), corroborating the symbolic proof.
+
+## originality
+
+PASS
+
+Sándor's foundational paper was materially reread in full around the definition and initial values of the maximum sum-of-divisors function \(\Sigma^*\). It tabulates \(\Sigma^*(3)=\Sigma^*(9)=\Sigma^*(27)=2\) and proves general bounds, but it does not state the all-exponent ternary ray. Fresh searches for the inverse divisor-sum equation \(\sigma(n)=3^b\), including OEIS and Resultary aliases, did not locate a stronger published classification. The submitted proof is symbolic and closes the whole ray.
+
+## value
+
+PASS
+
+The theorem closes an infinite prime-power ray that the defining paper explicitly begins with the values 3, 9 and 27, and gives a complete inverse-divisor-sum classification behind it. This is a natural exact structural continuation of a foundational arithmetic-function table, not a bounded recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
