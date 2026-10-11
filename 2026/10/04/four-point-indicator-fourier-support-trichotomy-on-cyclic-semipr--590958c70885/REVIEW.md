@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is exhaustive over frequency types. For nonzero even frequencies the character has odd order, excluding antipodal cancellation. At \(k=p\), vanishing is exactly the two-even/two-odd condition. Every other odd frequency is primitive, and the four-unit cancellation lemma converts vanishing exactly into two antipodal pairs in the original set. The counting formulas follow from disjoint structural classes. Exact cyclotomic replay corroborates all cases for the tested primes without being used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest inspected source is Mercer's 2012 length-four Newman-polynomial work. It contains the local antipodal cancellation lemma and an existence classification for unimodular roots, but not the fixed-order \(2p\) zero sets, the complete support trichotomy, or the exact number of subsets in each stratum. Bonami–Ghobber and Meshulam concern arbitrary-coefficient uncertainty minima rather than this indicator-restricted census. Residual risk remains that older Newman-polynomial literature contains the same enumeration under different language.
+PASS
 
-## Value
-PASS. The result completely resolves a natural indicator-restricted uncertainty slice on the first mixed-prime cyclic family. It records every attainable Fourier-support size and the exact multiplicity of each, rather than only a lower bound or extremizer.
+If four unit complex numbers sum to zero they split into antipodal pairs. At a nonzero even frequency the character has odd order dividing p, so antipodes are unavailable and no zero occurs. At k=p the sum is the parity difference and vanishes exactly for two even and two odd residues. For odd k≠p, k is a unit modulo 2p; an antipodal pairing of character values forces the paired exponents to differ by p, so A is a union of two antipodal pairs. Conversely such pairs cancel at every odd frequency. The three zero sets therefore have cardinalities p,1,0, and elementary counting gives C(p,2), C(p,2)^2-C(p,2), and C(2p,4)-C(p,2)^2. The exact cyclotomic verifier exhausts representative primes, and an independent replay for small odd primes reproduced the classification; the universal proof is analytic.
 
-## Closest literature and limitations
-Mercer (2012) is the closest structural comparison; Bonami–Ghobber (2010/2013) and Meshulam (2003/2006) provide the broader finite-Fourier uncertainty context. The result is limited to indicator coefficients and cyclic order twice an odd prime; additional composite factors permit more frequency orders and potentially more zero patterns.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Meshulam and Bonami--Ghobber treat uncertainty bounds and equality/minimum cases for arbitrary complex coefficients, while Mercer's length-four Newman-polynomial analysis gives the four-unit-vector antipodal cancellation mechanism. None of the inspected sources states the complete fixed-modulus Fourier-zero trichotomy and exact counts for four-point indicators on Z_{2p}. Resultary's direct exact match is the audited record.
+
+## value
+
+PASS
+
+This is a complete exact indicator-restricted uncertainty distribution for an infinite natural family of cyclic groups, including zero-set structure and multiplicities. It refines broad uncertainty minima into a usable classification and is more than a single small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
