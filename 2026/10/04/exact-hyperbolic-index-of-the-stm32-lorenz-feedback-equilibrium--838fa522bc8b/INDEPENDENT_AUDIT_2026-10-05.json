@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:06:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equilibrium elimination is immediate from \\(dx/dt\\) in the fourth coordinate when \\(d>0\\). Direct determinant expansion of the actual Jacobian gives the submitted factorization; an independent symbolic characteristic-polynomial calculation in this audit matched it. For the cubic, the exact sign evaluations are \\(q_d(-40)=16000+65d>0\\), \\(q_d(0)=25d>0\\), and \\(q_d(25)=-10000<0\\), together with the cubic end behavior, producing one root in each stated interval. These three disjoint real roots exhaust the cubic; \\(-3\\) is a distinct negative root because \\(q_d(-3)>0\\).",
+      "risk": "The result concerns only the local equilibrium spectrum and does not validate global hyperchaos, Lyapunov exponents, attractor existence or cryptographic performance.",
+      "sources": [
+        "Cheng et al., Scientific Reports 14 (2024) 20452, DOI:10.1038/s41598-024-71338-x",
+        "Research Square DOI:10.21203/rs.3.rs-3637346/v1",
+        "independent symbolic determinant reconstruction in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source studies parameter variation and numerical hyperchaos but preserves the erroneous printed local spectrum.",
+          "Other index-two or equilibrium-correction records concern different vector fields."
+        ],
+        "reasoning": "No broader theorem inspected specializes to the exact Jacobian in a way that already gives the submitted interval classification.",
+        "searches": [
+          "Scientific Reports 2024 full article",
+          "Research Square 2023 preprint",
+          "related Lorenz-feedback equilibrium-correction records returned by Resultary"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1038/s41598-024-71338-x",
+        "DOI:10.21203/rs.3.rs-3637346/v1",
+        "Resultary semantic corpus",
+        "targeted exact-vector-field searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior source prints a zero eigenvalue and one positive eigenvalue, conflicting with its own \\(d\\)-dependent Jacobian.",
+          "The submitted determinant factorization corrects that calculation and proves two positive roots uniformly for all \\(d>0\\)."
+        ],
+        "reasoning": "The source does not imply the correction; it asserts the opposite local index.",
+        "searches": [
+          "Scientific Reports source system/Jacobian/eigenvalue section",
+          "Research Square preprint spectrum statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Scientific Reports/Research Square source lineage was compared directly at the system and Jacobian level.",
+          "No distinct same-system correction with the cubic factorization or root intervals was located."
+        ],
+        "reasoning": "Equilibrium-index, characteristic-polynomial, saddle-index and hyperbolicity formulations were all compared.",
+        "searches": [
+          "Resultary: STM32 Lorenz feedback hyperchaotic system equilibrium characteristic polynomial d eigenvalues",
+          "Exact-vector-field searches using the four printed equations and DOI"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted record was the only exact same-system correction among the leading semantic matches."
+        ],
+        "reasoning": "This is an exact symbolic correction, not a finite table; database search was used only to look for an existing erratum or duplicate result.",
+        "searches": [
+          "Resultary exact-system search",
+          "targeted searches for DOI plus characteristic polynomial/eigenvalue correction"
+        ]
+      },
+      "rationale": "The source article and preprint print the same four-dimensional system and Jacobian but report the parameter-independent eigenvalue list \\(-40,25,-3,0\\). Focused same-system searches did not locate a correction deriving the \\(d\\)-dependent cubic or the all-\\(d>0\\) index-two hyperbolicity theorem. Resultary returned the submitted record and corrections for other Lorenz-type systems, not a prior same-system factorization.",
+      "residual_risks": [
+        "A post-publication correction or comment not indexed in the bounded searches could independently note the spectrum error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_CONTAINS_THE_CORRECTED_ERROR",
+          "evidence": "The paper prints the \\(d\\)-dependent Jacobian but lists \\(-40,25,-3,0\\), so the zero eigenvalue is inconsistent with direct determinant expansion for \\(d>0\\).",
+          "identifier_or_url": "DOI:10.1038/s41598-024-71338-x",
+          "material_read": "Open full article section containing the system, equilibrium, Jacobian and printed eigenvalues, plus the parameter-variation context.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Dynamic analysis of a novel hyperchaotic system based on STM32 and application in image encryption",
+          "trigger": "Published source of the exact four-dimensional flow and printed equilibrium spectrum."
+        },
+        {
+          "assessment": "SAME_PRINTED_ERROR_NOT_CORRECTION",
+          "evidence": "The preprint carries the same local spectrum statement rather than the corrected \\(d\\)-dependent polynomial.",
+          "identifier_or_url": "DOI:10.21203/rs.3.rs-3637346/v1",
+          "material_read": "Accessible primary preprint material around the model and local eigenvalue statement.",
+          "method": "Lawful public full-text/source comparison.",
+          "title": "A new hyperchaotic system with dynamical analysis and its application in image encryption based on STM32",
+          "trigger": "Earlier source lineage for the same equations and spectrum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The correction changes the qualitative local geometry from a nonhyperbolic equilibrium with one unstable direction to a uniformly hyperbolic saddle with a two-dimensional unstable manifold throughout the whole positive parameter family. That is a substantive structural correction relevant to any interpretation of the reported hyperchaotic dynamics.",
+      "risk": "It corrects local dynamics only and should not be presented as a refutation or proof of the paper's global numerical attractor claims.",
+      "sources": [
+        "Scientific Reports 14 (2024) 20452",
+        "Research Square rs-3637346/v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(\\dot x=40(y-x)+w\\), \\(\\dot y=10x+25y-xz\\), \\(\\dot z=xy-3z\\), \\(\\dot w=dx\\) with \\(d>0\\), the origin is the unique equilibrium and has characteristic polynomial \\((\\lambda+3)(\\lambda^3+15\\lambda^2-(1400+d)\\lambda+25d)\\). The cubic has one root in each of \\(( -\\infty,-40)\\), \\((0,25)\\), and \\((25,\\infty)\\), so the origin is hyperbolic with two negative and two positive real eigenvalues for every \\(d>0\\), correcting the source's printed parameter-independent list containing a zero eigenvalue.",
+  "limitations": [
+    "Local equilibrium result only.",
+    "No claim is made about global boundedness, attractor existence, Lyapunov spectrum away from the equilibrium or image-encryption performance."
+  ],
+  "schema_version": 1
+}
