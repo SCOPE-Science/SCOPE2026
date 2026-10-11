@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:55:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating the three frozen ODE components gives an exact nonsingular linear system for the finite-time averages \\(X_T,Y_T,Z_T\\), with only endpoint differences divided by \\(T\\) on the right. Boundedness makes those terms vanish, so convergence follows to the unique stated vector without ergodicity. The same three generator identities hold for every compactly supported invariant probability measure, and one-period integration gives the periodic-orbit case. Exact rational substitution independently reproduced both reported parameter specializations and the equilibrium squared magnitudes.",
+      "risks": [
+        "Boundedness is assumed, not proved; the theorem does not establish chaos, existence, uniqueness, or basin properties of any attractor."
+      ],
+      "sources": [
+        "RESULT.md blob 15eedc626566154bd8c6746a9004091c0efac47d",
+        "verify.py blob be63b99ef5100fcde61778dd3040be6c53db87a5",
+        "doi:10.3390/math12040612"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic invariant-measure facts that \\(\\int Lf\\,d\\mu=0\\) provide a method, but do not supply this model-specific closed, nonsingular three-moment system.",
+          "Other SCOPE moment identities concern different equations and parameter structures."
+        ],
+        "reasoning": "No stronger inspected theorem directly implies the exact vector for this model.",
+        "searches": [
+          "doi:10.3390/math12040612 full public article",
+          "Resultary semantic search for stationary moment laws on chaotic flows"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math12040612",
+        "Resultary published-record search for quadratic chaotic-flow moment laws"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's equilibrium coordinates happen to have the same squared magnitudes, but it does not state that every bounded orbit has those time-averaged squares.",
+          "The generic identity requires identifying three closing observables and solving the resulting nonsingular system; the submitted conclusion is model-specific."
+        ],
+        "reasoning": "The final claim is not entailed by the source's reported multistability statements alone.",
+        "searches": [
+          "Statement comparison with doi:10.3390/math12040612",
+          "Statement comparison with generic stationary-generator identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary article describes the same quadratic-only system and its multistable regime but its stated contributions are dynamical/numerical, not exact time-average balances.",
+          "Resultary returns the present same-system record and moment-law records for different vector fields."
+        ],
+        "reasoning": "Equivalent formulations as stationary second moments, RMS amplitudes, or generator balance laws were checked; no same-system covering statement was located.",
+        "searches": [
+          "Resultary query: quadratic chaotic flow exact time averaged squares invariant measure second moments",
+          "doi:10.3390/math12040612 article search for mean square, RMS, invariant measure, time average"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source tabulates/numerically studies trajectories and equilibria but does not provide an exact RMS table for every bounded orbit or stationary measure."
+        ],
+        "reasoning": "The theorem is analytic rather than a recomputation of numerical trajectory statistics.",
+        "searches": [
+          "Resultary exact-system query",
+          "Primary source equilibrium/multistability sections"
+        ]
+      },
+      "rationale": "The 2024 Almatroud--Rajagopal--Pham--Grassi article is the exact-system primary source and analyzes equilibria, stability, bifurcation, Lyapunov spectra, basins and multistability. Its full public article record and same-system searches did not state coordinate time-average identities, invariant-measure second moments, or the consequence that the chaotic and period-three branches share the same RMS vector. Resultary surfaced analogous coboundary/moment laws for other flows, not this system.",
+      "residual_risks": [
+        "The proof method is elementary once the three equations are juxtaposed, so an unindexed note may have made the same observation; no such same-system statement was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Defines and numerically studies the exact system but does not state the universal bounded-orbit or invariant-measure second-moment vector."
+          ],
+          "identifier_or_url": "doi:10.3390/math12040612",
+          "material_read": "Public full-article material covering the system definition, equilibrium/stability program, bifurcation/Lyapunov/basin analyses, multistability description, abstract and conclusions.",
+          "method": "Lawful open HTML inspection and targeted same-title/system searches.",
+          "title": "A Novel Chaotic System with Only Quadratic Nonlinearities: Analysis of Dynamical Properties and Stability",
+          "trigger": "Primary source defining the exact ODE and the nominal/multistable parameter regimes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three exact second moments are natural dynamical invariants of the published multistable system, not arbitrary statistics. They hold for every bounded forward trajectory and every compact stationary state and force nominally very different coexisting branches to have identical RMS amplitudes. That structural rigidity is useful for checking simulations and separating amplitude information from temporal/chaotic organization despite the short proof.",
+      "risks": [
+        "It constrains only second moments and does not distinguish invariant measures sharing them."
+      ],
+      "sources": [
+        "RESULT.md blob 15eedc626566154bd8c6746a9004091c0efac47d",
+        "doi:10.3390/math12040612"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only bounded forward trajectories and compactly supported invariant probabilities are covered; no a priori boundedness or attractor-existence theorem is supplied."
+  ],
+  "schema_version": 1
+}
