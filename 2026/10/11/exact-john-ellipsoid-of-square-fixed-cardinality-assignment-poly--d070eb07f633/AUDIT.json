@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For all integer n>=2 and 1<=k<n the polytope is full-dimensional in its n²−1 affine hull; the two orthogonal Frobenius projections give exact coordinate and row/column facet support conditions. Optimizing the strictly concave logdet gives the stated phase boundary and semiaxes. An explicit weighted set of all active standardized facet contacts has zero first moment and identity second moment, proving globally unique John optimality via John's theorem; exact rational verifier checked 4,950 (n,k) pairs and 1,510 separate projection identities. The general proof is analytic, not an extrapolation from those finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "John's theorem characterizes optimal ellipsoids by contact moments; it does not specify this family's support matrix.",
+        "Cao, A Short Note on Doubly Substochastic Analog of Birkhoff's Theorem (arXiv:1801.01232v1), treats convex decompositions of matrices of varying cardinality, not ellipsoid optimization.",
+        "A previously derived Euclidean inradius formula on the same k-assignment polytope determines the largest inscribed ball and its square-root contact transition, but not the full non-round John ellipsoid."
+      ],
+      "reasoning": "Neither the general contact theorem nor the more extensive variable-cardinality matrix polytope result is an implication of the new determinant solution: John ellipsoids do not generally commute with affine slicing, and an inradius only determines the least semiaxis radius, not the larger doubly-centered semiaxis or optimal volume.",
+      "searches": [
+        "\"John or Loewner ellipsoid of hypersimplex Birkhoff polytope k matching\"",
+        "\"inradius of fixed-cardinality assignment polytope row column facets transition square root n\"",
+        "web: \"Birkhoff polytope\" \"John ellipsoid\" \"matching\"",
+        "John (1948) extremum problems; Henk (2012) Löwner--John ellipsoids",
+        "https://arxiv.org/html/1801.01232v1"
+      ]
+    },
+    "checked_sources": [
+      "https://www.diva-portal.org/smash/get/diva2:210918/fulltext01.pdf",
+      "https://arxiv.org/abs/2306.11910",
+      "https://arxiv.org/html/1801.01232v1",
+      "John 1948 / Henk 2012 contact theorem",
+      "Khachiyan half-cone John ellipsoid (different object)",
+      "Two-matching complex of K_{3,4} (different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The k-assignment facet H-representation provides only inequalities; optimization and contact weights must be computed.",
+        "The prior inradius transition gives a sphere radius and center loci, whereas the present second semiaxis is [k²−2(n−k)²]/[n²(n−1)²], unequal to the inball squared radius above threshold.",
+        "For n=4,k=3, the squared eigenvalues are 1/48 and 7/144, giving nonround shape and a strict volume gain; neither follows from the scalar inradius."
+      ],
+      "reasoning": "The round branch agrees with the largest inball, but the strong branch is strictly larger in determinant while remaining contained in every coordinate and row/column facet. This nonround John statement is logically stronger than, not a reformulation of, a previously known inradius and it does not follow from Gill--Linusson normality/facet counts. No inspected primary source has a stronger theorem subsuming it.",
+      "searches": [
+        "\"Löwner ellipsoid of k-matching polytope complete bipartite graph covariance row column subspaces\"",
+        "\"John ellipsoid fixed-cardinality partial assignment square k-subpermutation polytope phase transition from round ball to two-eigenvalue anisotropy\"",
+        "\"John inscribed ellipsoid of k-assignment polytope k non-attacking rooks square n by n phase transition at k equals n plus one minus square root n plus one; shape U row column contrast and W doubly centered\"",
+        "web: \"John ellipsoid\" \"k-assignment polytope\"",
+        "https://www.diva-portal.org/smash/get/diva2:210918/fulltext01.pdf",
+        "https://arxiv.org/abs/2306.11910"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gill--Linusson (2009), Theorem 3: the k-assignment polytope equals the nonnegative fixed-sum partial-assignment H-model, https://www.diva-portal.org/smash/get/diva2:210918/fulltext01.pdf; Torres (2023), Section 3: k-matching polynomial equals fractional k-matching for bipartite graphs, https://arxiv.org/abs/2306.11910.",
+        "An alternative description is the n-by-n doubly substochastic polytope sliced by the hyperplane of total entry sum k; equality as sets is verified from these H-descriptions."
+      ],
+      "reasoning": "The natural aliases k-assignment, fixed-cardinality bipartite matching, nonattacking k-rook polytope, and fixed-sum doubly substochastic section are the same object. Their facet and integral representations do not contain or imply a formula for the maximum-volume ellipsoid and its covariance spectrum.",
+      "searches": [
+        "\"John ellipsoid fixed-cardinality partial assignment square k-subpermutation polytope phase transition from round ball to two-eigenvalue anisotropy\"",
+        "\"John inscribed ellipsoid of k-assignment polytope k non-attacking rooks square n by n phase transition at k equals n plus one minus square root n plus one; shape U row column contrast and W doubly centered\"",
+        "web: \"k-assignment polytope\" \"John ellipsoid\"",
+        "web: \"inscribed ellipsoid\" \"k-matching polytope\"",
+        "https://www.diva-portal.org/smash/get/diva2:210918/fulltext01.pdf",
+        "https://arxiv.org/abs/2306.11910"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest generic John-ellipsoid result was the Khachiyan half-cone article, about a different convex body and not partial matchings.",
+        "Matching-themed semantic results concern topology of matching complexes of complete bipartite graphs, not polytope ellipsoids.",
+        "Gill--Linusson enumerates dimensions, facets, and one-skeleton invariants; numerical combinatorial tables do not tabulate or determine covariance semiaxes."
+      ],
+      "reasoning": "The searched exact invariant was the intrinsic Frobenius John ellipsoid shape and volume for all (n,k). Existing enumerations and other-body ellipsoid results are neither an equal formula nor a dominating invariant. A failed semantic search alone is not proof of originality.",
+      "searches": [
+        "\"ellipsoid phase transition at k=n+1-sqrt(n+1) for k assignment polytope\"",
+        "\"maximum volume inscribed ellipsoid of cardinality k matching polytope square complete bipartite graph coordinate and degree facets\"",
+        "\"k-matching polytope of complete bipartite graph unique maximum volume inscribed ellipsoid squared semiaxes u v\"",
+        "\"minimum volume enclosing ellipsoid of rectangular partial matching fixed cardinality assignment polytope\"",
+        "web: \"subpermutation\" \"John ellipsoid\" \"fixed\""
+      ]
+    },
+    "rationale": "The full-text H-representation papers [Gill--Linusson 2009; Torres 2023] address the same fixed-cardinality matching objects but not the intrinsic Euclidean determinant-maximizing inscribed ellipsoid. General John theory supplies a characterization, not the two-mode closed form. Prior inradius mathematics reaches the same facet-distance transition but does not imply the anisotropic eigenvalue, determinant maximum, or new positive contact orbit. Search of scientific records found no covering same-object statement, with explicit residual equivalence risk.",
+    "residual_risks": [
+      "Equivalent earlier formulas may be published under optimal-design, matrix section, or partial permutation terminology not indexed by the searches.",
+      "Historical inradius results include the same numerical transition: novelty is only claimed for the maximum-volume ellipsoid shape, orbit weights, and determinant/volume.",
+      "The primary comparison covers substantive inspected material but not every possible earlier monograph or unindexed manuscript."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives exact H-description, dimension, facets, faces, graph-theoretic diameter; no John volume-ellipsoid analysis identified in inspected material",
+        "evidence": "Gill--Linusson (2009), Theorem 3 and immediately following facet table, pp. 4--5 of PDF; pages 2--3 state paper scope.",
+        "identifier_or_url": "https://www.diva-portal.org/smash/get/diva2:210918/fulltext01.pdf",
+        "material_read": "25-page lawful postprint: abstract, introductory scope, Section 2 Theorem 3 and facet table, section descriptions, and electronically searched full text for ellipsoid/inradius",
+        "method": "Read paper text including H representation and its proof; inspected page image and checked whole-text term occurrences",
+        "title": "The k-assignment polytope",
+        "trigger": "Same fixed-cardinality square partial-permutation object, plausible direct coverage"
+      },
+      {
+        "assessment": "Proves integrality/fractional matching equivalence and normality, not optimal inscribed ellipsoid semiaxes, volume or contact decomposition",
+        "evidence": "arXiv:2306.11910v1, source v1 dated 2023-06-20; printed publication primary MSC2020 52B11, 52B12, 52B20.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.11910",
+        "material_read": "Freely available arXiv primary PDF: setup, Section 3 fractional matching H-representation, Section 4 normality proof, references, and abstract",
+        "method": "Read arXiv full text (including relevant theorem statement and proof) and source front matter",
+        "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+        "trigger": "Primary eligible source with verified primary MSC 52B11 and 2023-06-20 first public submission"
+      },
+      {
+        "assessment": "Describes convex combinations and extremal decompositions, not the determinant-maximizing inscribed ellipsoid of fixed-k slices",
+        "evidence": "arXiv:1801.01232v1, January 2018, Section 1 and Theorem 8.",
+        "identifier_or_url": "https://arxiv.org/html/1801.01232v1",
+        "material_read": "Open arXiv HTML introduction, theorems on subpermutation decompositions and worked examples",
+        "method": "Read primary open HTML and compare mathematical statement to fixed-k John ellipsoid",
+        "title": "A Short Note on Doubly Substochastic Analog of Birkhoff's Theorem",
+        "trigger": "Same ambient doubly substochastic matrix setting under alias of fixed-sum section"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d070eb07-f633-468b-9010-4fcac5a83bf2",
+  "value": {
+    "rationale": "The fixed-cardinality assignment family is a canonical interpolation between simplex and Birkhoff behavior. Its full John ellipsoid is a meaningful natural metric invariant, with a closed two-eigenspace spectrum, exact volume, contact-orbit transition, and strict anisotropy/volume gain in the near-perfect cardinality regime. An inradius alone does not determine these; the result is a global infinite-family classification rather than an arbitrary instance or routine table entry.",
+    "status": "PASS"
+  }
+}
