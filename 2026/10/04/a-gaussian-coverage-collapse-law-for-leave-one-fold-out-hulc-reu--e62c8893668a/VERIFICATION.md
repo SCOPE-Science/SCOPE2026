@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic verification has four layers. First, direct substitution verifies the affine identity \(\widehat\mu_i-\mu=\sigma(S-Z_i)/(\sqrt m(B-1))\). Second, the covariance calculation gives diagonal \(B-1\), off-diagonal \(B-2\), and therefore equicorrelation \((B-2)/(B-1)\), yielding the one-factor integral. Third, Gaussian orthogonal projection makes \(S/\sqrt B\) independent of the centered residual vector and produces the exact conditional coverage representation in terms of residual extrema; a Taylor bound and standard Gaussian extreme-value estimates give the asymptotic constant. Fourth, the range of \(S-Z_i\) is exactly the range of \(Z_i\), which proves the samplewise width factor and expected-width formula.
 
-The supplied `verify.py` uses only the Python standard library. It numerically checks the exact coverage integral at \(B=2,3,6,10,20,100\), the samplewise range identity, the independent-hull coverage at \(B=6\), and consistency with the large-\(B\) scale. Numerical quadrature is a reproducibility check, not the proof of the asymptotic statement.
+# Independent mathematical audit
 
-Scientific limits: the exact law is for iid Gaussian location observations, equal folds, and the stated leave-one-fold-out reuse rule. It does not validate dependent HulC variants generally and does not claim that the published independent-subsample HulC fails.
+## correctness
+
+PASS
+
+The Gaussian calculation reconstructs exactly. Standardizing the independent fold means gives leave-one-fold-out errors proportional to \(S-Z_i\), so their realized range is the independent-fold range divided by \(B-1\). The vector \((S-Z_i)\) has common variance \(B-1\) and covariance \(B-2\), yielding the stated one-factor equicorrelated-normal integral. Orthogonal decomposition into the grand-mean coordinate and centered residuals gives \(C_B=\mathbb E[\Phi(a_BM_B)-\Phi(a_Bm_B)]\); Taylor expansion at zero together with \(\mathbb E\max Z_i\sim\sqrt{2\log B}\) gives \(C_B\sim2\sqrt{\log B/(\pi B)}\). Independent numerical integration reproduced \(C_2=C_3=1/2\) and \(C_6=0.452918829563530\ldots\), and the bundled verifier's identities were inspected completely.
+
+## originality
+
+PASS
+
+The primary HulC article explicitly assumes independent estimators and constructs them from disjoint data batches; its coverage lemma uses that independence. The audited leave-one-fold-out rule deliberately violates this premise and creates a different equicorrelated Gaussian geometry. Classical orthant-probability theory covers evaluation of the resulting Gaussian event after the covariance is identified, but the exact samplewise \(B-1\) shrinkage together with the HulC coverage-collapse law and its sharp asymptotic were not found in the inspected sources or current Resultary corpus.
+
+## value
+
+PASS
+
+This is a motivated failure boundary for a tempting reuse modification of a modern confidence construction: it proves that a hull can become deterministically narrower while its coverage collapses to zero. The exact finite-sample law and sharp asymptotic quantify the pathology rather than merely warning that independence is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

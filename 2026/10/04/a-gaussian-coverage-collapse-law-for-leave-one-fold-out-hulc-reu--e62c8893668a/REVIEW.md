@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The leave-one-fold-out algebra gives \(\widehat\mu_i-\mu=\sigma(S-Z_i)/(\sqrt m(B-1))\). The range identity is exact. The vector \((S-Z_i)\) is equicorrelated with correlation \((B-2)/(B-1)\), yielding the stated conditional-normal integral. Orthogonal Gaussian decomposition separates the grand-mean coordinate from centered residuals and reduces coverage to a Taylor expansion whose remainder is lower order by standard Gaussian extreme-value moment bounds. The finite numerical anchors are replayed by the supplied verifier.
+## correctness
 
-## Originality
-PASS, with a stated residual literature risk. The direct HulC source explicitly assumes independent estimators from disjoint batches and uses that independence in its coverage lemma. Targeted searches for HulC with dependent, overlapping, leave-one-out, leave-one-fold-out, and K-fold estimators did not locate this result. Classical equicorrelated-normal orthant theory covers the probability integral after covariance reduction, but not the leave-one-fold-out confidence-hull mapping, the exact samplewise \(B-1\) width shrinkage, or the combined vanishing-coverage law. The closest database hit on deletion dependence concerns jackknife pseudo-values and does not imply this confidence-hull theorem.
+PASS
 
-## Value
-PASS. Reusing \(B-1\) folds per estimator is a natural attempt to avoid the apparent inefficiency of disjoint splitting. The theorem shows that this seemingly attractive modification can make a confidence interval deterministically much narrower while destroying calibration, and quantifies both effects exactly. The result therefore gives a concrete diagnostic for why the source method's independence condition matters.
+The Gaussian calculation reconstructs exactly. Standardizing the independent fold means gives leave-one-fold-out errors proportional to \(S-Z_i\), so their realized range is the independent-fold range divided by \(B-1\). The vector \((S-Z_i)\) has common variance \(B-1\) and covariance \(B-2\), yielding the stated one-factor equicorrelated-normal integral. Orthogonal decomposition into the grand-mean coordinate and centered residuals gives \(C_B=\mathbb E[\Phi(a_BM_B)-\Phi(a_Bm_B)]\); Taylor expansion at zero together with \(\mathbb E\max Z_i\sim\sqrt{2\log B}\) gives \(C_B\sim2\sqrt{\log B/(\pi B)}\). Independent numerical integration reproduced \(C_2=C_3=1/2\) and \(C_6=0.452918829563530\ldots\), and the bundled verifier's identities were inspected completely.
 
-## Closest literature and limitations
-The HulC paper is the method source; Steck's equicorrelated-normal orthant paper is the main classical probability antecedent. The theorem is restricted to equal-fold Gaussian location data and one explicit reuse rule. It does not claim failure of the published HulC algorithm or a universal result for dependent convex-hull intervals. An older dependent-confidence-region formulation under different terminology remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary HulC article explicitly assumes independent estimators and constructs them from disjoint data batches; its coverage lemma uses that independence. The audited leave-one-fold-out rule deliberately violates this premise and creates a different equicorrelated Gaussian geometry. Classical orthant-probability theory covers evaluation of the resulting Gaussian event after the covariance is identified, but the exact samplewise \(B-1\) shrinkage together with the HulC coverage-collapse law and its sharp asymptotic were not found in the inspected sources or current Resultary corpus.
+
+## value
+
+PASS
+
+This is a motivated failure boundary for a tempting reuse modification of a modern confidence construction: it proves that a hull can become deterministically narrower while its coverage collapses to zero. The exact finite-sample law and sharp asymptotic quantify the pathology rather than merely warning that independence is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

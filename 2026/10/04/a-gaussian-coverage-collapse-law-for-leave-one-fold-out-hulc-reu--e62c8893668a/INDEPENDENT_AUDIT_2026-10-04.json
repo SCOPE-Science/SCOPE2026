@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:17:06.501468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Gaussian calculation reconstructs exactly. Standardizing the independent fold means gives leave-one-fold-out errors proportional to \\(S-Z_i\\), so their realized range is the independent-fold range divided by \\(B-1\\). The vector \\((S-Z_i)\\) has common variance \\(B-1\\) and covariance \\(B-2\\), yielding the stated one-factor equicorrelated-normal integral. Orthogonal decomposition into the grand-mean coordinate and centered residuals gives \\(C_B=\\mathbb E[\\Phi(a_BM_B)-\\Phi(a_Bm_B)]\\); Taylor expansion at zero together with \\(\\mathbb E\\max Z_i\\sim\\sqrt{2\\log B}\\) gives \\(C_B\\sim2\\sqrt{\\log B/(\\pi B)}\\). Independent numerical integration reproduced \\(C_2=C_3=1/2\\) and \\(C_6=0.452918829563530\\ldots\\), and the bundled verifier's identities were inspected completely.",
+      "risks": [
+        "The sharp coverage law is Gaussian and equal-fold specific; it does not establish a general dependent-HulC theorem."
+      ],
+      "sources": [
+        "assigned RESULT.md blob 0828e1c5fe47e7ac76de5e8a77d58069be4e5e2c",
+        "verify.py blob a8abc5b0255026f39bd7edecc6101ac478892130",
+        "Kuchibhotla–Balakrishnan–Wasserman, DOI 10.1093/jrsssb/qkad134",
+        "classical equicorrelated-normal orthant theory"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "HulC gives the independent-estimator method; Steck supplies generic orthant machinery, but neither inspected source maps leave-one-fold-out reuse to the exact shrinking hull or derives the \\(B^{-1/2}\\sqrt{\\log B}\\) coverage collapse."
+        ],
+        "reasoning": "The combination is not a corollary of either source alone.",
+        "searches": [
+          "Kuchibhotla–Balakrishnan–Wasserman 2024",
+          "Steck 1962 equicorrelated normal orthant probabilities"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1093/jrsssb/qkad134",
+        "DOI 10.1093/biomet/49.3-4.433",
+        "current Resultary semantic search",
+        "assigned verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source repeatedly invokes independence; replacing disjoint estimators by overlapping leave-one-fold-out means changes both covariance and calibration.",
+          "The audited asymptotic follows from the new dependent geometry, not from the source's independent miscoverage formula."
+        ],
+        "reasoning": "The final claim is not implied by the published HulC theorem.",
+        "searches": [
+          "claim-versus-HulC Lemma 1 and width analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published HulC statement is for independent estimators from disjoint batches.",
+          "The audited reuse estimators have pairwise correlation \\((B-2)/(B-1)\\), so the prior independence formula is inapplicable."
+        ],
+        "reasoning": "Equivalent formulations as a dependent confidence hull, an equicorrelated Gaussian orthant event, and a range-shrinkage identity were compared.",
+        "searches": [
+          "Resultary: leave-one-fold-out HulC dependent estimators Gaussian coverage collapse convex hull orthant",
+          "Kuchibhotla–Balakrishnan–Wasserman full article"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or database entry for these coverage constants was located."
+        ],
+        "reasoning": "The statement is a uniform analytic law, not a finite table lookup.",
+        "searches": [
+          "current Resultary statistics findings",
+          "searches for dependent/overlapping convex-hull confidence intervals"
+        ]
+      },
+      "rationale": "The primary HulC article explicitly assumes independent estimators and constructs them from disjoint data batches; its coverage lemma uses that independence. The audited leave-one-fold-out rule deliberately violates this premise and creates a different equicorrelated Gaussian geometry. Classical orthant-probability theory covers evaluation of the resulting Gaussian event after the covariance is identified, but the exact samplewise \\(B-1\\) shrinkage together with the HulC coverage-collapse law and its sharp asymptotic were not found in the inspected sources or current Resultary corpus.",
+      "residual_risks": [
+        "An older paper on dependent confidence hulls could contain an equivalent special case under different terminology; no specific covering source was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the dependent reuse rule.",
+          "evidence": "The article explicitly assumes independent estimators and says they may be obtained by splitting observations into disjoint batches.",
+          "identifier_or_url": "https://doi.org/10.1093/jrsssb/qkad134",
+          "material_read": "Full accessible article sections on the univariate HulC, Lemma 1, Algorithm 1, width comparison, and conclusions.",
+          "method": "Primary statement-and-assumption comparison.",
+          "title": "The HulC: confidence regions from convex hulls",
+          "trigger": "Primary method source whose data-splitting premise is being modified."
+        },
+        {
+          "assessment": "Correct corroboration.",
+          "evidence": "Independent integration reproduces the reported anchors, including \\(C_6=0.452918829563530\\ldots\\).",
+          "identifier_or_url": "verify.py at the assigned tree",
+          "material_read": "Complete source.",
+          "method": "Line-by-line inspection plus independent high-precision integration.",
+          "title": "Assigned verify.py",
+          "trigger": "Integral and finite-value checks."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated failure boundary for a tempting reuse modification of a modern confidence construction: it proves that a hull can become deterministically narrower while its coverage collapses to zero. The exact finite-sample law and sharp asymptotic quantify the pathology rather than merely warning that independence is required.",
+      "risks": [
+        "The result should not be presented as a defect of the published HulC algorithm itself."
+      ],
+      "sources": [
+        "primary HulC independence requirement",
+        "assigned exact dependent-Gaussian calculation"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Gaussian location model with equal fixed folds.",
+    "Specific leave-one-fold-out reuse rule only.",
+    "Classical orthant theory covers a core probability calculation; originality is in the reuse geometry and resulting exact/asymptotic confidence law."
+  ],
+  "schema_version": 1
+}
