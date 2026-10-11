@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Gaussian covariance calculation gives independent \(U\) and \(V\), and standardization yields the exact product formula for joint selection and rejection. Reparameterizing by \(\theta=\arctan\tau\) makes the Fisher-information fractions \(\cos^2\theta\) and \(\sin^2\theta\). The proof reconstructs the first and second derivatives of the log objective and uses the strict decrease of \(h(x)=\phi(x)/\Phi(x)\) to establish a unique interior optimum. The \(\tau_*>1\) conclusion follows from the derivative at \(\pi/4\), and the weak-signal limit follows directly from the root equation. The bundled verifier reproduces all reported numerical values.
+## correctness
 
-## Originality
-PASS with residual literature risk. Targeted literature-database searches for Gaussian data fission, one-sided screening/confirmation, inverse-Mills optimality, and Cox-style split allocation found no equivalent SCOPE finding. The full text of García Rasines and Young was inspected: it gives the Gaussian \(U,V\) decomposition, the information split, and says the representation offers a possible way to select randomization variance, but it does not state this scalar product objective or its optimizer. Leiner et al. supply the broader fission framework rather than this tuning law. Tian and Taylor analyze randomized selective inference rather than independent confirmation. Cox (1975) is the main unresolved older risk: its abstract promises recommendations for split proportions in a many-normal-means problem, but accessible material did not expose the article's formulas and the full text could not be inspected.
+PASS
 
-## Value
-PASS. Choosing the fission noise level is a central design decision because it transfers Fisher information between selection and confirmation. The theorem gives a complete answer for a canonical scalar benchmark and exposes a non-obvious asymmetry: conventional significance thresholds make equal information splitting strictly suboptimal for every positive signal. The local \(13.0\%/87.0\%\) information split at \(\alpha=0.05\) is a natural, signal-free benchmark, while exact null-boundary invariance shows the improvement is not bought by increasing the boundary-null joint rejection probability.
+The split has covariance zero and is jointly Gaussian, hence its selection and inference components are independent with the displayed variances. With \(\tau=\tan\theta\), the log discovery probability is \(g(\mu\cos\theta)+g(\mu\sin\theta-z)\), where \(g=\log\Phi\) has strictly negative second derivative because the inverse Mills ratio is strictly decreasing. Both inner sine/cosine terms have negative second derivative, so the objective is strictly concave. Endpoint derivative signs give one critical point; evaluating at \(\theta=\pi/4\) places it strictly to the inference-heavy side. The first-order equation gives the weak-signal limit uniformly. Independent numerical replay reproduced \(\tau_*(1,0.05)=2.322477560969451\) and the weak-signal limit \(2.585227122870808\), while the analytic proof supplies the quantifiers.
 
-## Closest literature and limitations
-The closest inspected source is García Rasines and Young (arXiv:2102.02159 / *Biometrika* 2023), especially their Gaussian decomposition and information-averaging section. Leiner et al. (arXiv:2112.11079) provide the data-fission formulation. Tian and Taylor (arXiv:1507.06739) are a broader randomized-response predecessor. Cox (1975) is a plausible older allocation predecessor but was available only at abstract level in this review. The theorem is limited to a scalar known-variance Gaussian model and the specified screen/confirm objective.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The modern primary paper gives exactly the independent Gaussian \((U,V)\) decomposition, explains that the randomization variance allocates information between selection and inference, and explicitly says its information-averaging representation offers a possible way of selecting that variance. The inspected full text does not state the audited scalar sign-screen/independent-confirmation objective, its unique inverse-Mills optimizer, the strict \(\tau_*>1\) theorem, or the weak-signal closed form. Cox’s 1975 abstract is materially close because it studies split proportions in a normal-means significance problem, but the full article was not lawfully available in this run; under the owner rule that inaccessible plausible literature alone does not fail originality, it is retained as a specific residual risk rather than treated as proof of coverage.
+
+## value
+
+PASS
+
+Information allocation is an explicit open design issue in the modern fission source. The audited theorem supplies a unique exact optimizer, proves a qualitative inference-heavy direction for every positive signal and conventional one-sided level, and yields a closed weak-signal benchmark while preserving the boundary-null probability. That is a motivated quantitative design law rather than an arbitrary numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

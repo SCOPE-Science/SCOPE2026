@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:02:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen package RESULT.md and verify.py, blob 14085e99638e0cf12250279a31441621903c394a.",
+        "Garcia Rasines and Young, Splitting strategies for post-selection inference, arXiv:2102.02159v2; Biometrika 110(3), 597--614 (2023).",
+        "Cox, A note on data-splitting for the evaluation of significance levels, Biometrika 62(2), 441--444 (1975), DOI:10.1093/biomet/62.2.441.",
+        "Published SCOPE semantic query: Gaussian fission screening confirmation optimal information allocation inverse Mills."
+      ],
+      "rationale": "The split has covariance zero and is jointly Gaussian, hence its selection and inference components are independent with the displayed variances. With \\(\\tau=\\tan\\theta\\), the log discovery probability is \\(g(\\mu\\cos\\theta)+g(\\mu\\sin\\theta-z)\\), where \\(g=\\log\\Phi\\) has strictly negative second derivative because the inverse Mills ratio is strictly decreasing. Both inner sine/cosine terms have negative second derivative, so the objective is strictly concave. Endpoint derivative signs give one critical point; evaluating at \\(\\theta=\\pi/4\\) places it strictly to the inference-heavy side. The first-order equation gives the weak-signal limit uniformly. Independent numerical replay reproduced \\(\\tau_*(1,0.05)=2.322477560969451\\) and the weak-signal limit \\(2.585227122870808\\), while the analytic proof supplies the quantifiers.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garcia Rasines--Young compare information splitting and inferential power in general regression settings.",
+          "Cox 1975 addresses ordinary data splitting in a many-normal-means significance problem according to the accessible abstract."
+        ],
+        "reasoning": "The modern framework is broader in model scope but does not solve this objective; the older paper is plausibly related but its accessible statement does not establish implication of the audited scalar fission theorem.",
+        "searches": [
+          "Resultary: Gaussian fission screening confirmation optimal information allocation inverse Mills",
+          "arXiv:2102.02159v2 Sections 3 and 4.1",
+          "DOI:10.1093/biomet/62.2.441 data splitting normal means proportions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package RESULT.md and verify.py, blob 14085e99638e0cf12250279a31441621903c394a.",
+        "Garcia Rasines and Young, Splitting strategies for post-selection inference, arXiv:2102.02159v2; Biometrika 110(3), 597--614 (2023).",
+        "Cox, A note on data-splitting for the evaluation of significance levels, Biometrika 62(2), 441--444 (1975), DOI:10.1093/biomet/62.2.441.",
+        "Published SCOPE semantic query: Gaussian fission screening confirmation optimal information allocation inverse Mills."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The modern source stops at the decomposition/information-averaging framework and notes variance selection as a design question.",
+          "The Cox abstract describes a different many-normal-means ordinary-split setup and does not expose the theorem or formula."
+        ],
+        "reasoning": "No accessible prior statement was found from which the exact scalar optimizer and all-signal inequality \\(\\tau_*>1\\) follow mechanically.",
+        "searches": [
+          "arXiv:2102.02159v2 Sections 3--4.1",
+          "DOI:10.1093/biomet/62.2.441 publisher abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2102.02159v2 defines \\(U=Y+W\\), \\(V=Y-\\gamma^{-1}W\\) and the continuous Gaussian information split.",
+          "No matching inverse-Mills scalar optimizer was returned by published SCOPE search."
+        ],
+        "reasoning": "The decomposition is prior; the objective-specific optimization theorem is not an equivalent restatement of the split construction.",
+        "searches": [
+          "Resultary: Gaussian fission screening confirmation optimal information allocation inverse Mills",
+          "arXiv:2102.02159v2 Sections 3 and 4.1",
+          "DOI:10.1093/biomet/62.2.441 data splitting normal means proportions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or formula for \\(\\tau_*\\) or the weak-signal information fraction was located.",
+          "The Cox abstract reports recommendations for split proportions but exposes no formula sufficient to compare implications."
+        ],
+        "reasoning": "The numerical constants in the package are evaluations of the proved equation, not recomputation of a known table on the available evidence.",
+        "searches": [
+          "Resultary semantic corpus: Gaussian fission screening confirmation optimal information allocation inverse Mills",
+          "Cox 1975 publisher abstract"
+        ]
+      },
+      "rationale": "The modern primary paper gives exactly the independent Gaussian \\((U,V)\\) decomposition, explains that the randomization variance allocates information between selection and inference, and explicitly says its information-averaging representation offers a possible way of selecting that variance. The inspected full text does not state the audited scalar sign-screen/independent-confirmation objective, its unique inverse-Mills optimizer, the strict \\(\\tau_*>1\\) theorem, or the weak-signal closed form. Cox’s 1975 abstract is materially close because it studies split proportions in a normal-means significance problem, but the full article was not lawfully available in this run; under the owner rule that inaccessible plausible literature alone does not fail originality, it is retained as a specific residual risk rather than treated as proof of coverage.",
+      "residual_risks": [
+        "Cox (1975) could contain a mathematically equivalent allocation calculation under its many-normal-means ordinary-splitting formulation; only its abstract was materially available in this run.",
+        "Older normal-theory screening/confirmation literature may use different terminology for the same scalar optimization; targeted searches did not locate it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_PRIOR_OPTIMIZER_NOT_COVERED",
+          "evidence": "The source supplies the tunable split but not the audited joint-discovery maximizer or weak-signal inverse-Mills law.",
+          "identifier_or_url": "arXiv:2102.02159v2",
+          "material_read": "full lawful PDF in Sections 3 and 4.1, including the \\((U,V)\\) construction, information fractions, and the statement that information averaging offers a possible way to select randomization variance",
+          "method": "full-text PDF inspection with page-image inspection",
+          "title": "Splitting strategies for post-selection inference",
+          "trigger": "primary source for the same independent Gaussian randomization split and variance-allocation question"
+        },
+        {
+          "assessment": "PLAUSIBLE_PREDECESSOR_ACCESS_LIMITED",
+          "evidence": "The abstract establishes a related allocation problem but not enough detail to prove equivalence or implication.",
+          "identifier_or_url": "DOI:10.1093/biomet/62.2.441",
+          "material_read": "publisher abstract and bibliographic record; full article text was not materially available after open-access attempts and authorized institutional retrieval was unavailable",
+          "method": "bounded primary abstract inspection; no bypass or inference from inaccessible text",
+          "title": "A note on data-splitting for the evaluation of significance levels",
+          "trigger": "older paper explicitly making recommendations about data-split proportions in a normal-means testing problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen package RESULT.md and verify.py, blob 14085e99638e0cf12250279a31441621903c394a.",
+        "Garcia Rasines and Young, Splitting strategies for post-selection inference, arXiv:2102.02159v2; Biometrika 110(3), 597--614 (2023).",
+        "Cox, A note on data-splitting for the evaluation of significance levels, Biometrika 62(2), 441--444 (1975), DOI:10.1093/biomet/62.2.441.",
+        "Published SCOPE semantic query: Gaussian fission screening confirmation optimal information allocation inverse Mills."
+      ],
+      "rationale": "Information allocation is an explicit open design issue in the modern fission source. The audited theorem supplies a unique exact optimizer, proves a qualitative inference-heavy direction for every positive signal and conventional one-sided level, and yields a closed weak-signal benchmark while preserving the boundary-null probability. That is a motivated quantitative design law rather than an arbitrary numerical optimization.",
+      "residual_risks": [
+        "The model is scalar, known-variance, one-sided, and optimizes joint screening-and-rejection probability rather than conditional selective power."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the independent Gaussian fission split \\(U=X+\\tau Z\\), \\(V=X-Z/\\tau\\) with one-sided sign screening and independent level-\\(\\alpha\\) confirmation, the joint discovery probability has a unique maximizer \\(\\tau_*(\\mu,\\alpha)>1\\), characterized by the displayed inverse-Mills equation; as \\(\\mu\\downarrow0\\), \\(\\tau_*\\to e^{-z_{1-\\alpha}^2/2}/(2\\alpha)\\), while at \\(\\mu=0\\) the joint probability is exactly \\(\\alpha/2\\) for every allocation.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Known-variance scalar Gaussian model with one-sided sign screening and independent confirmation only.",
+    "Cox (1975) remains a specifically identified access-limited originality risk."
+  ]
+}
