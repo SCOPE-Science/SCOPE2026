@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:53:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The symbolic proof checks out. For composite \\(n\\) with least prime divisor \\(p\\), \\(\\Delta=R+T\\) where the alternating tail \\(R\\ge1\\) and \\(T=n(1-1/p)-\\varphi(n)\\ge0\\). For prime powers, direct summation gives \\(\\Delta(p^a)=(p^{a-1}+(-1)^a)/(p+1)\\), isolating all gap-one and gap-two cases. With at least two distinct prime factors and second-smallest prime \\(q\\), \\(T\\ge n(p-1)/(pq)\\ge p-1\\), hence \\(\\Delta\\ge p\\); gap two forces \\(p=2\\), \\(R=T=1\\), and then \\(n=2q\\). Fresh independent computation through 20,000 exactly matched all three fibers and served only as regression evidence.",
+      "risks": [
+        "Only the fibers 0, 1 and 2 are classified; no pattern for higher fixed gaps is claimed."
+      ],
+      "sources": [
+        "RESULT.md blob b356e01e1f742ad2e727cc76226912db34055725",
+        "Assigned tree 60c88dc2b8430fb67b82a07120ac42c33f4d557d",
+        "Fresh symbolic reconstruction and independent finite regression through 20,000"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jaiswal proves only the global inequality; his least-prime decomposition makes strictness for composites a short consequence but does not solve the positive fibers.",
+          "Caragiu--Swieringa solve the inequality only on their super-increasing class."
+        ],
+        "reasoning": "The broader inequality results do not determine when the two independent slack terms sum to one or two.",
+        "searches": [
+          "Jaiswal, On two Conjectures by Atanassov on the Alternating sum-of-divisors function, full 2-page PDF",
+          "Caragiu--Swieringa, On the Alternating Sum-of-Divisors",
+          "OEIS A382545"
+        ]
+      },
+      "checked_sources": [
+        "Shreyansh Jaiswal, “On two Conjectures by Atanassov on the Alternating sum-of-divisors function,” 2025, OEIS-hosted PDF.",
+        "OEIS A382545 and A071324.",
+        "Mihai Caragiu and Kaleb Swieringa, DOI 10.17654/0972555524006.",
+        "Resultary exact-gap semantic search (2026-10-05 UTC)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior inequality plus positive tail covers nonnegativity and effectively the composite strictness layer.",
+          "The new second-prime slack estimate and exact prime-power analysis are what force the full \\(\\Delta=1\\) and \\(\\Delta=2\\) families."
+        ],
+        "reasoning": "The conjunction in the final claim is not implied by prior work because its two positive fibers require equality analysis absent from the cited sources.",
+        "searches": [
+          "Statement comparison with Jaiswal Theorem 1",
+          "A382545 formula/comments",
+          "Caragiu--Swieringa special-class theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary’s exact same-title hit is the assigned finding itself; other arithmetic hits are different invariants.",
+          "OEIS A382545 states the defining difference, nonnegativity, initial values and prime zero identity, not the full fibers 1 and 2."
+        ],
+        "reasoning": "The zero/equality case, unit gap, gap two, prime-power and semiprime formulations were separately compared.",
+        "searches": [
+          "Resultary: alternating divisor totient gap fibers zero one two prime squares 8 27 2q",
+          "Web: A382545 gap one gap two prime squares semiprimes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A382545 is exactly \\(\\Delta(n)=A071324(n)-A000010(n)\\), with computed terms and comments \\(a(n)\\ge0\\), \\(a(p)=0\\).",
+          "Neither inspected entry states the all-integer unit or gap-two fiber classification."
+        ],
+        "reasoning": "The exact database was checked directly; a list of initial values is not an infinite proof or classification.",
+        "searches": [
+          "OEIS A382545 current entry",
+          "OEIS A071324 current entry"
+        ]
+      },
+      "rationale": "Jaiswal’s 2025 proof of \\(\\chi(n)\\ge\\varphi(n)\\) already contains enough positivity to imply the strict composite/zero-fiber statement, so that component is not treated as new. The final theorem nevertheless adds the complete gap-one and gap-two fibers. The exact gap database OEIS A382545 lists values, nonnegativity and \\(a(p)=0\\), but does not state those infinite classifications. Caragiu--Swieringa cover only a special super-increasing class. No implication-equivalent classification of gaps one and two was located.",
+      "residual_risks": [
+        "An unindexed OEIS comment or short note may have observed the same first positive fibers.",
+        "The zero-fiber/strict-composite component is already implicit in Jaiswal’s proof; originality rests on the exact positive fibers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GLOBAL_INEQUALITY_NOT_POSITIVE_FIBERS",
+          "evidence": [
+            "Theorem 1 proves \\(\\chi(n)\\ge\\varphi(n)\\) using the least-prime decomposition but gives no \\(\\Delta=1,2\\) classification."
+          ],
+          "identifier_or_url": "OEIS:A071324:a071324.pdf",
+          "material_read": "Entire two-page PDF, including Theorem 1 and proof.",
+          "method": "Full lawful PDF text and rendered-page inspection.",
+          "title": "On two Conjectures by Atanassov on the Alternating sum-of-divisors function",
+          "trigger": "Most relevant later source resolving the global inequality."
+        },
+        {
+          "assessment": "EXACT_SEQUENCE_NOT_CLASSIFICATION",
+          "evidence": [
+            "The entry records nonnegativity and \\(a(p)=0\\), not the unit and gap-two fibers."
+          ],
+          "identifier_or_url": "OEIS:A382545",
+          "material_read": "Current name, comments, formula, example and listed terms.",
+          "method": "Database-page inspection.",
+          "title": "A382545",
+          "trigger": "Exact database object for the submitted gap."
+        },
+        {
+          "assessment": "SPECIAL_CLASS_NOT_COVERING",
+          "evidence": [
+            "The paper resolves \\(\\chi\\ge\\varphi\\) only for a super-increasing factorization class."
+          ],
+          "identifier_or_url": "DOI:10.17654/0972555524006",
+          "material_read": "Open-access article metadata/abstract and relevant theorem context for the super-increasing class.",
+          "method": "Lawful open-access article inspection.",
+          "title": "On the Alternating Sum-of-Divisors",
+          "trigger": "Primary same-function paper preceding the global proof."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unit and gap-two fibers are the first near-equality layers of the exact invariant created by a recently resolved inequality and maintained in OEIS. Their complete classification separates prime powers from the infinite \\(2q\\) family and gives a sharp structural refinement rather than a mere table lookup.",
+      "risks": [],
+      "sources": [
+        "OEIS A382545",
+        "Jaiswal 2025 inequality proof",
+        "RESULT.md blob b356e01e1f742ad2e727cc76226912db34055725"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The strict-composite/zero-fiber statement is not relied on as the original component; the original contribution is the complete positive fibers one and two."
+  ],
+  "schema_version": 1
+}
