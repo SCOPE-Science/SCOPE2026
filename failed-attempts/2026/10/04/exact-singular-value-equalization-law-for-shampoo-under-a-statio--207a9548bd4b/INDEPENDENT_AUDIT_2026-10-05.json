@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:24:46.217045Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 06b82a895dc18c8a6b9db977884fe6785e95a15b",
+        "Gupta--Koren--Singer arXiv:1802.09568v2, matrix Algorithm 1",
+        "Bernstein--Newhouse arXiv:2409.20325, spectral-descent/Shampoo discussion"
+      ],
+      "rationale": "The stationary-gradient calculation is correct. The defining matrix Shampoo recurrence gives \\(L_t=\\varepsilon I+tGG^\\top\\), \\(R_t=\\varepsilon I+tG^\\top G\\). A reduced SVD of \\(G\\) diagonalizes both accumulators and yields \\(s_i(P_t)=(t+\\varepsilon/\\sigma_i^2)^{-1/2}\\). The submitted condition-number identity, target threshold, normalized polar limit and exact spectral-norm error follow from these scalars. The cumulative linear-loss statement follows from the standard asymptotic \\(\\sum_{t=1}^T(t+\\tau)^{-1/2}=2\\sqrt T+O(1)\\). An independent symbolic check also reproduced the condition-number identity.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source algorithm covers arbitrary gradient sequences, including the constant sequence as a special case.",
+          "The later polar interpretation covers the limiting geometry invoked by the submitted interpretation."
+        ],
+        "reasoning": "The prior framework is broader; the submitted theorem is a direct special trajectory of that framework.",
+        "searches": [
+          "Gupta--Koren--Singer 2018 full primary PDF",
+          "Bernstein--Newhouse 2024 full primary PDF"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1802.09568",
+        "https://arxiv.org/abs/2409.20325",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Constant summation gives the two Gram matrices exactly; their common singular bases give the scalar law without a new nonstandard lemma.",
+          "All further formulas are one-variable consequences of that scalar law."
+        ],
+        "reasoning": "Every substantive part of the final claim follows by routine specialization of the defining algorithm; the unprinted closed form does not create an independent theorem.",
+        "searches": [
+          "statement-level implication from Shampoo Algorithm 1 under \\(G_t=G\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No independent Resultary finding with the same title-level statement was located.",
+          "The defining paper explicitly gives \\(L_t=L_{t-1}+G_tG_t^\\top\\), \\(R_t=R_{t-1}+G_t^\\top G_t\\), and update \\(L_t^{-1/4}G_tR_t^{-1/4}\\).",
+          "The later norm interpretation identifies the SVD polar factor \\(UV^\\top\\) as Shampoo's spectral-descent direction in the no-averaging idealization."
+        ],
+        "reasoning": "The stationary-gradient formulation is algebraically equivalent to substituting a constant sequence into the defining recurrence and applying SVD functional calculus.",
+        "searches": [
+          "Resultary: Shampoo stationary constant gradient singular values polar equalization exact accumulated preconditioner",
+          "arXiv:1802.09568 matrix Algorithm 1",
+          "arXiv:2409.20325 Shampoo spectral descent polar factor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry was located."
+        ],
+        "reasoning": "Database noncoverage is irrelevant because direct implication from the published recurrence is decisive.",
+        "searches": [
+          "Resultary semantic search for the exact stationary formula"
+        ]
+      },
+      "rationale": "The final claim is mechanically implied by the published Shampoo recurrence plus ordinary SVD functional calculus. Algorithm 1 already fixes the two additive Gram accumulators and the left/right inverse fourth-root update. Under the submitted assumption \\(G_t=G\\), summation and diagonalization immediately give every displayed finite-time singular value; the remaining equalization, threshold and polar-limit formulas are scalar algebra. Bernstein--Newhouse independently identify the semi-orthogonal polar direction as the spectral-norm steepest-descent direction associated with Shampoo when averaging is removed. The submitted stationary calculation is therefore a useful worked specialization, but under implication-based originality it is covered without needing the exact formulas to have been printed previously.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_DEFINITIONAL_COVERAGE",
+          "evidence": "Algorithm 1 contains exactly the recurrence from which the submitted stationary SVD law follows mechanically.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.09568",
+          "material_read": "Full primary PDF around the matrix algorithm, especially initialization, additive left/right Gram updates, inverse fourth-root parameter update, and the discussion of \\(t^{-1/2}\\) decay.",
+          "method": "Lawful arXiv full-PDF text plus rendered-page inspection.",
+          "title": "Shampoo: Preconditioned Stochastic Tensor Optimization",
+          "trigger": "Exact defining source for the recurrence being specialized."
+        },
+        {
+          "assessment": "CONTEXTUAL_POLAR_COVERAGE",
+          "evidence": "It identifies \\(UV^\\top\\) as the spectral-descent direction related to Shampoo, reinforcing that the submitted asymptotic geometry is established context.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.20325",
+          "material_read": "Primary abstract and the Shampoo/spectral-descent table and surrounding discussion on the semi-orthogonal polar factor.",
+          "method": "Lawful arXiv PDF text plus rendered-page inspection.",
+          "title": "Old Optimizer, New Norm: An Anthology",
+          "trigger": "Closest prior polar/spectral interpretation of Shampoo."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Gupta--Koren--Singer matrix algorithm",
+        "Bernstein--Newhouse polar interpretation"
+      ],
+      "rationale": "The stationary-gradient regime is a reasonable diagnostic, but the result is obtained by a textbook substitution into the defining recurrence followed by simultaneous SVD diagonalization. The threshold, delay and polar-error expressions do not require a new structural lemma, boundary phenomenon or classification beyond that scalarization. Under the common value bar, this is an informative worked calculation rather than a separately valuable mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1802.09568",
+    "https://arxiv.org/abs/2409.20325",
+    "Resultary semantic search"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The rejection is for prior implication and independent value, not mathematical correctness.",
+    "Only the original additive Shampoo recurrence with a constant gradient is treated."
+  ],
+  "residual_risks": [],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE_DEFINITIONAL_COVERAGE",
+      "evidence": "Algorithm 1 contains exactly the recurrence from which the submitted stationary SVD law follows mechanically.",
+      "identifier_or_url": "https://arxiv.org/abs/1802.09568",
+      "material_read": "Full primary PDF around the matrix algorithm, especially initialization, additive left/right Gram updates, inverse fourth-root parameter update, and the discussion of \\(t^{-1/2}\\) decay.",
+      "method": "Lawful arXiv full-PDF text plus rendered-page inspection.",
+      "title": "Shampoo: Preconditioned Stochastic Tensor Optimization",
+      "trigger": "Exact defining source for the recurrence being specialized."
+    },
+    {
+      "assessment": "CONTEXTUAL_POLAR_COVERAGE",
+      "evidence": "It identifies \\(UV^\\top\\) as the spectral-descent direction related to Shampoo, reinforcing that the submitted asymptotic geometry is established context.",
+      "identifier_or_url": "https://arxiv.org/abs/2409.20325",
+      "material_read": "Primary abstract and the Shampoo/spectral-descent table and surrounding discussion on the semi-orthogonal polar factor.",
+      "method": "Lawful arXiv PDF text plus rendered-page inspection.",
+      "title": "Old Optimizer, New Norm: An Anthology",
+      "trigger": "Closest prior polar/spectral interpretation of Shampoo."
+    }
+  ]
+}
