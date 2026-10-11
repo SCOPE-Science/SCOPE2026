@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Generic central cube sections have a bijection between section vertices and interior-intersected cube edges. Conditional on the normal coordinate Z_i, each of the \\(2^{n-1}\\) crossing indicators is a symmetric Gaussian-window indicator. Orthogonal even-Hermite expansion bounds pair covariance by squared Gaussian correlation times its mean. The exact average of these squared correlations is \\(1/(n-1)\\); conditional variance is therefore \\(\\le p/(n-1)\\). Direct Gaussian integration gives a bias \\(\\le\\sqrt{2/\\pi}|Z_i|^3/[6(n-1)]\\), and \\(\\mathbb E|Z_i|^6=15\\). Cauchy angular probability gives \\(\\mathbb E p=(2/\\pi)\\arctan(1/\\sqrt{n-1})\\), yielding the stated mean-square error bound for every \\(n\\ge2\\) and thus the fixed-r joint \\(L^2\\) limit. Moment convergence gives positive limiting variance and vanishing cross-covariance. The attached verifier replayed successfully on actual file bytes; it checks finite special cases only, not the infinite theorem. Risks: inaccurate classification of non-generic sections is excluded as measure zero; the Hermite identity includes \\(\\rho=\\pm1\\) by \\(L^2\\) continuity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Calkin–James–Light–Myers–Riedl–Thomas (2008), Cuts of the Hypercube, Section 3.2: probabilities for specified one-edge and two-edge cutting events, same Gaussian model.",
+        "Lonke (1998/2000), Eq. (6): expected total number of section vertices in codimension one.",
+        "published-finding corpus 2026/10/4/SCOPE-finite-moments-of-the-vertex-defect-for-bombieri-gaussian-homoge--1599fb132bb7 concerns a Gaussian polynomial maximum, different geometrical random variable."
+      ],
+      "reasoning": "A complete family of pair-cut probabilities can yield the unconditional second moment of each directionwise count after summation, but second moments alone do not entail convergence to a particular random variable on the Gaussian coupling, nor the joint half-normal law. Older expected-count formulas cover one marginal moment only. No broader inspected statement implies this conditional \\(L^2\\) approximation.",
+      "searches": [
+        "Yossi Lonke random sections of cube fluctuations variance number of vertices distribution directional",
+        "pairwise edge intersection probabilities same-direction edges of cube cross random central hyperplane covariance exact formula",
+        "Lonke cube random hyperplane f0 expected vertices, second moments variance asymptotic directional edge counts, Hermite Fourier-Walsh small ball"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.09265v1; 2025-10-10; complete arXiv HTML text; original geometry and finite type counts",
+      "arXiv:math/9812123v1; 1998-12-21; author-uploaded original paper text; exact expectation baseline",
+      "Calkin et al., Cuts of the Hypercube (2008); author-uploaded original paper text; one/two-edge probabilities",
+      "published-finding corpus 2026/10/4/SCOPE-exact-busemann-petty-section-width-profile-of-three-dimensional--d822061e585b; 3D parallelotope section-width, not random high-dimensional combinatorial counting",
+      "published-finding corpus 2026/10/4/SCOPE-positive-square-points-of-ell-infty-n-are-exactly-cube-face-cent--21b262733e81; cube face centres, not random sections",
+      "published-finding corpus 2026/10/4/SCOPE-finite-moments-of-the-vertex-defect-for-bombieri-gaussian-homoge--1599fb132bb7; Gaussian polynomial maximum, not section vertices"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brandenburg–Meroni 2025 Section 2.1 theorem: equal crossed edges determine equivalent generic sections, without assigning Haar probabilities to aggregate directional counts.",
+        "Lonke 1998 Eq. (6): \\(\\mathbb E f_0=(2^n n/\\pi)\\arctan(1/\\sqrt{n-1})\\), implied by and consistent with the new theorem’s exact mean.",
+        "Calkin et al. 2008 Section 3.2 and 4: some fixed-event edge crossings and covering-time asymptotics; no asserted joint directional limit."
+      ],
+      "reasoning": "The new theorem agrees with the already known first moment and does not claim it as new. The pair-count and finite-combinatorial statements concern weaker projections of information. Proving \\(L^2\\) convergence on a shared Gaussian space requires controlling the variance conditional on a particular normal coordinate, not supplied by those published conclusions. This is a genuine statement-level and implication-level distinction, subject to unindexed source risk.",
+      "searches": [
+        "Random central hyperplane sections of n-dimensional cube directional vertex counts number of edges cut parallel to a fixed coordinate half-normal limit distribution",
+        "pairwise edge intersection probabilities same-direction edges of cube cross random central hyperplane covariance exact formula",
+        "Lonke cube random hyperplane f0 expected vertices, second moments variance asymptotic directional edge counts, Hermite Fourier-Walsh small ball"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brandenburg–Meroni 2025 arXiv:2510.09265v1 Theorems 1.1–1.2 and 2.2: finite combinatorial types and intercepted-edge characterization.",
+        "Lonke arXiv:math/9812123v1 Proposition 2.2 and Eq. (6): exact expected total vertices, not direction-resolved fluctuation law.",
+        "published-finding corpus closest 2026/10/4/SCOPE-exact-busemann-petty-section-width-profile-of-three-dimensional--d822061e585b: exact 3D parallelotope section/width functional, not Haar random edge crossing counts."
+      ],
+      "reasoning": "Aliases considered include Haar-uniform/Gaussian normals, random central sections, cube-edge crossings, direction-resolved vertex profile, half-normal absolute Gaussian limit, and the dual fixed-coordinate ray. Inspected statements do not give the quantitative \\(L^2\\) law or the joint fixed-direction limit.",
+      "searches": [
+        "Random central hyperplane sections of n-dimensional cube directional vertex counts number of edges cut parallel to a fixed coordinate half-normal limit distribution",
+        "Haar random hyperplane cube sections asymptotic normalized counts parallel edges independent half-normal Gaussian limit",
+        "Haar-random central hyperplane slice of high-dimensional cube: normalized number of intersected edges of any fixed coordinate direction converges to an absolute standard Gaussian half-normal variable with L2 bound, not concentrating; joint coordinate limits"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Brandenburg–Meroni 2025 Table 1 and Appendix A: combinatorial-type counts and type-frequency plots up to dimension seven.",
+        "Calkin et al. 2008 Theorems 4–12: probabilities for edge-pair patterns, not aggregate directional distribution tables.",
+        "published-finding corpus 2026/10/4/SCOPE-positive-square-points-of-ell-infty-n-are-exactly-cube-face-cent--21b262733e81 concerns a locus in a fixed cube rather than random sections."
+      ],
+      "reasoning": "Finite type enumerations cannot tabulate an all-dimensional asymptotic distribution. Pair-edge tables can encode finite second moments but not all higher moments or the conditional coupling.",
+      "searches": [
+        "Brandenburg Meroni 2025 combinatorics of slices of cubes Haar direction number crossed coordinate-parallel edges asymptotic",
+        "Direction-resolved vertex count random hyperplane section Q_n, conditional count given one Gaussian normal coordinate, asymptotically half normal and independent in fixed directions"
+      ]
+    },
+    "rationale": "The 2025 primary full text counts finite combinatorial types and cites a prior expected-vertex formula. Lonke (1998/2000) gives expected face counts, including the known codimension-one total mean. Calkin et al. (2008) use the identical spherical-normal model and compute probabilities for one and two specified edges, but their inspected Sections 3.2–4 concern fixed-edge events and multi-hyperplane covering, not the directionwise joint half-normal distribution. Pair probabilities may determine unconditional second moments, so the isolated variance corollary is not treated as a separate originality claim. The genuinely additional content is convergence in \\(L^2\\) to the individual absolute normal coordinates, including joint asymptotic independence. Actual published-finding corpus semantic searches gave only other geometric/cube invariants, not the same claim, while unpublished or unindexed coverage remains a genuine uncertainty.",
+    "residual_risks": [
+      "Equivalently formulated or unindexed older directional-count fluctuation results may exist; semantic search cannot establish universal novelty.",
+      "Previously known pair-edge probability formulas may also imply the variance corollary by summation; the originality claim rests on the joint \\(L^2\\) half-normal limit, not on the older expectation or a separate isolated variance formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover: finite-dimensional type classification and edge-set equivalence, no Haar directional limit",
+        "evidence": "Theorems 1.1 and 1.2 list types for dimensions 3–7; Theorem 2.2 characterizes equivalent generic central sections by intersected cube edges; related-work paragraph cites Lonke only for expected vertex counts.",
+        "identifier_or_url": "https://arxiv.org/html/2510.09265v1",
+        "material_read": "Full open-access HTML source, especially introduction, Theorems 1.1–1.2 and 2.2, Section 2.1 edge partitions, Sections 3–4 methods/graph classification, and references",
+        "method": "Primary full-text inspection of arXiv HTML rendering; matched object, parameters and theorems",
+        "title": "Combinatorics of slices of cubes",
+        "trigger": "Recent foundational source for generic central cube section combinatorics and its literature bibliography"
+      },
+      {
+        "assessment": "Partially covering: exact total expectation; no statement of directionwise conditional or joint half-normal law",
+        "evidence": "Eq. (6) states expected number of vertices for (n−1)-dimensional Haar-random central sections, matching the sum of n known directional expected counts.",
+        "identifier_or_url": "https://arxiv.org/abs/math/9812123",
+        "material_read": "Author-uploaded full text as web-readable HTML/PDF transcription, abstract, Section 1 including Eq. (6), Section 2 including Proposition 2.2",
+        "method": "Primary original paper text inspected in its author-uploaded rendering and compared random object and exact codimension",
+        "title": "On random sections of the cube",
+        "trigger": "Closest established random Haar-section face-count formula, cited by recent primary source"
+      },
+      {
+        "assessment": "Closest partial coverage: exact fixed-edge intersection probabilities; no conditional \\(L^2\\) or joint direction-resolved half-normal theorem",
+        "evidence": "Section 2 explicitly takes independent N(0,1) coordinates; Section 3.2 Theorem 4 and other edge-pair probability statements; Section 4 Theorems 13–14 concern multiple hyperplanes needed to cut edges.",
+        "identifier_or_url": "https://www.researchgate.net/publication/254361748_Cuts_of_the_Hypercube",
+        "material_read": "Full author-uploaded text in ResearchGate HTML conversion: introduction, Gaussian normal model in Section 2, Section 3.2 one/two-edge probabilities, Section 3.3, Section 4 covering theorems, and references",
+        "method": "Inspected original theorem and proof text, rather than an abstract-only novelty inference",
+        "title": "Cuts of the Hypercube",
+        "trigger": "Most plausible earlier work on the same Gaussian hyperplane and crossed-edge probability model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5ebe8c4a-dfad-48fd-8827-cfbf081d1d33",
+  "value": {
+    "rationale": "Cube hyperplane slices are canonical objects of convex and discrete geometry; direction-resolved section-vertex counts are intrinsic under labelled cube axes. This theorem determines a nondegenerate exact limit law for each direction and the full joint law for finitely many directions, beyond the classical expected total vertex count. It resolves a natural question about whether exponentially many dependent cube-edge crossing events self-average: instead each direction retains the absolute value of one Gaussian normal coordinate. The explicit all-n \\(L^2\\) bound and independence of the limiting fixed-coordinate vector are structural and reusable. Limitations: it does not answer growing-r behavior or the full total vertex-count distribution; no unrestricted face-vector theorem or paper-scale contribution is asserted.",
+    "status": "PASS"
+  }
+}
