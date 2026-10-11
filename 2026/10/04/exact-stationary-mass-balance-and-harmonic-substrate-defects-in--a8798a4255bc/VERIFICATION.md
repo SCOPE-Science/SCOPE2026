@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact sparse-polynomial arithmetic.
 
-For
-\[
-\dot x=-x+ay+x^2y,\qquad
-\dot y=b-ay-x^2y,
-\]
-it verifies
-\[
-\dot x+\dot y=b-x.
-\]
+# Independent mathematical audit
 
-It also verifies the cleared-denominator residual identity
-\[
-y\left(
-x^2-\left(\frac by-a\right)
-\right)
-=
--\dot y.
-\]
+## correctness
 
-After clearing the positive denominator \(a+b^2\), it verifies that
-\[
-\left(
-b,\frac{b}{a+b^2}
-\right)
-\]
-annihilates both vector-field components.
+PASS
 
-Finally, with formal moment placeholders, it verifies the algebraic reduction
-\[
-\mathbb E[x^2]-b^2
-=
-b\left(
-\mathbb E[1/y]-\frac{a+b^2}{b}
-\right)
-\]
-whenever
-\[
-\mathbb E[x^2]=b\,\mathbb E[1/y]-a.
-\]
+Generator tests in \(s=x+y\) and \(y\) give the two conditional laws. The second law excludes \(y\le0\) and \(y>b/a\) on compact invariant support. Since \(\dot s=b-x\), the variance of \(x\) is exactly the mean-square mass-balance speed and equals the harmonic reciprocal-height defect. Total conditional variance applied to \(x^2\) gives the logarithmic-speed identity. Zero defects force the unique equilibrium by support invariance. The actual frozen checker was read and its algebraic certificates were independently inspected.
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+## originality
 
-The conditional expectations, support exclusion, and equality-rigidity arguments are analytic consequences of invariance and are not inferred from the checker alone.
+PASS
+
+Best-of-knowledge comparison found Selkov literature on self-oscillation, phase portraits, limit cycles and global bounded/unbounded solution structure, but no implication-level pair of conditional regressions or equality-rigid harmonic/logarithmic speed defects. Resultary returned analogous stationary laws for other oscillators, not the Selkov system.
+
+## value
+
+PASS
+
+Mass balance and substrate nullclines are canonical biochemical quantities in the Selkov oscillator. The theorem turns them into exact stationary diagnostics, crossing necessities and a decomposition of substrate fluctuation into conditional variability plus logarithmic speed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

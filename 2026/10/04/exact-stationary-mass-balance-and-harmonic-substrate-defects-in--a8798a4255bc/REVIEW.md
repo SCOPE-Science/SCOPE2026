@@ -1,36 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Stationarity against arbitrary antiderivatives of \(x+y\) and \(y\) gives
-\[
-\mathbb E[x\mid x+y]=b,
-\qquad
-\mathbb E[x^2\mid y]=\frac by-a.
-\]
-These imply the support restriction \(0<y\le b/a\), the exact harmonic defect
-\[
-\operatorname{Var}(x)
-=
-\mathbb E[(\dot x+\dot y)^2]
-=
-b\left(\mathbb E[1/y]-1/y_*\right),
-\]
-and the conditional-variance defect
-\[
-\operatorname{Var}(x^2)-\operatorname{Var}(b/y-a)
-=
-\mathbb E[(\dot y/y)^2].
-\]
-In either zero-defect case, invariance of the support forces the unique equilibrium.
+## correctness
 
-Risk: compact support is used to justify the test functions and to keep \(1/y\) bounded after the support exclusion.
+PASS
 
-## Originality
-PASS. The complete foundational source and complete open 2021 mathematical study were compared at implication level. The exact-normalization 2022 phase-portrait article supplies the equations, nullclines, classification, and limit-cycle context, but its complete text was inaccessible and is retained as a residual risk. Direct semantic searches for conditional-moment, harmonic-mean, logarithmic-speed, and crossing formulations found no same-object implication.
+Generator tests in \(s=x+y\) and \(y\) give the two conditional laws. The second law excludes \(y\le0\) and \(y>b/a\) on compact invariant support. Since \(\dot s=b-x\), the variance of \(x\) is exactly the mean-square mass-balance speed and equals the harmonic reciprocal-height defect. Total conditional variance applied to \(x^2\) gives the logarithmic-speed identity. Zero defects force the unique equilibrium by support invariance. The actual frozen checker was read and its algebraic certificates were independently inspected.
 
-Risk: the generator calculations are short enough that an equivalent observation could occur incidentally in unindexed literature.
+## originality
 
-## Value
-PASS. The result turns the Selkov mass-balance and substrate nullcline into two equality-rigid stationary diagnostics valid for every compact recurrent statistical state. In a model with nontrivial limit-cycle regimes, it forces every non-equilibrium stationary state across \(x=b\) and below the equilibrium substrate level while quantifying both mass-balance speed and logarithmic substrate speed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge comparison found Selkov literature on self-oscillation, phase portraits, limit cycles and global bounded/unbounded solution structure, but no implication-level pair of conditional regressions or equality-rigid harmonic/logarithmic speed defects. Resultary returned analogous stationary laws for other oscillators, not the Selkov system.
+
+## value
+
+PASS
+
+Mass balance and substrate nullclines are canonical biochemical quantities in the Selkov oscillator. The theorem turns them into exact stationary diagnostics, crossing necessities and a decomposition of substrate fluctuation into conditional variability plus logarithmic speed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
