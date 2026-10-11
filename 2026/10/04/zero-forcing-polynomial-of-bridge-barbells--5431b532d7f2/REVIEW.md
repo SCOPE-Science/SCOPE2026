@@ -1,12 +1,21 @@
-# Review of Zero forcing polynomial of bridge barbells
+# Independent mathematical audit
 
-## Correctness
-PASS. Two initially white ordinary vertices in either clique form an unenterable pair, proving the local lower thresholds. At both thresholds with both bridge endpoints white, each clique has two white vertices and no force exists, giving the unique excluded configuration. Every other threshold-admissible configuration has an explicit forcing sequence: clear a clique, cross the bridge if needed, then clear the second clique. The generating-function subtraction then yields the displayed cubic factor. Exhaustive direct color-change checks for \(3\le a,b\le7\) agree with the structural criterion and every coefficient.
+## correctness
 
-## Originality
-PASS. The foundational zero forcing polynomial paper explicitly asks for further exact family characterizations and splitting formulas at separating structure, but does not treat barbells. Later graph-operation work proves coefficientwise comparison results for trees, outerplanar graphs, and related constructions, rather than an exact barbell coefficient vector. The recent distance-hereditary result also supplies coefficientwise extremality rather than this formula. Targeted semantic and exact-phrase searches for barbell graphs, two cliques joined by a bridge, and the displayed coefficient structure returned no equivalent exact enumeration.
+PASS
 
-## Value
-PASS. The single-bridge barbell is a standard connected graph assembled from two dense blocks along the simplest possible separator. The result gives a complete structural classification of all zero forcing sets, every coefficient of the polynomial, the minimum-set count, and the total number of forcing sets. It also supplies a concrete exact separator example directly aligned with the foundational paper’s stated interest in splitting behavior.
+If two ordinary vertices in either clique are white, neither can be first forced, giving the two threshold necessities. At both thresholds with both bridge endpoints white there is no initial force. In every other threshold-satisfying case one clique can be completed, then the bridge endpoint forces across and the other clique completes. Independent inclusion-exclusion gives the displayed four coefficients. The inspected verifier exhaustively checks all \(3\le a,b\le7\), and an independent brute-force reconstruction matched the formula at \((3,3),(3,4),(4,5)\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The foundational zero-forcing-polynomial paper develops family formulas and explicitly leaves splitting formulas across cut vertices or separating sets as an open direction. Menon--Singh give coefficientwise inequalities under graph operations, and later path-extremal work gives bounds, not this bridge-barbell all-set classification. Targeted Resultary and exact searches did not locate an equivalent barbell formula. The assigned threshold characterization is not supplied by the generic top-coefficient theorem and determines coefficients far below \(N-2\).
+
+## value
+
+PASS
+
+Bridge barbells are a basic cut-edge composition of two dense blocks, precisely the kind of separating-set setting highlighted by the foundational polynomial paper. The exact all-set threshold rule and closed polynomial provide a natural test case for future splitting formulas, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

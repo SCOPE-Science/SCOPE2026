@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T08:41:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md fb6e15129e5531ccf52a28c00a08a420f78a2e6d",
+        "verify.py f9187af7c6c0d3bba514e47f5877a3f768ee6f47",
+        "Boyer et al. arXiv:1801.08910",
+        "Menon--Singh DOI:10.1016/j.disc.2025.114516"
+      ],
+      "rationale": "If two ordinary vertices in either clique are white, neither can be first forced, giving the two threshold necessities. At both thresholds with both bridge endpoints white there is no initial force. In every other threshold-satisfying case one clique can be completed, then the bridge endpoint forces across and the other clique completes. Independent inclusion-exclusion gives the displayed four coefficients. The inspected verifier exhaustively checks all \\(3\\le a,b\\le7\\), and an independent brute-force reconstruction matched the formula at \\((3,3),(3,4),(4,5)\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer et al. ask for splitting formulas and do not state a bridge-barbell theorem.",
+          "Menon--Singh prove inequalities/extremal comparisons under operations, not exact coefficients."
+        ],
+        "reasoning": "No checked broader theorem mechanically yields the exact four-term polynomial.",
+        "searches": [
+          "Boyer et al. full PDF",
+          "Menon--Singh full open article"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1801.08910",
+        "DOI:10.1016/j.disc.2025.114516",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The assigned polynomial includes the minimum degree \\(a+b-3\\), which is not fixed by Boyer Theorem 1.",
+          "Coefficient inequalities do not determine equality or the single forbidden threshold configuration."
+        ],
+        "reasoning": "The prior results do not imply the structural criterion or exact polynomial.",
+        "searches": [
+          "Boyer top-coefficient theorem",
+          "Menon--Singh operation inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No exact barbell zero-forcing polynomial appeared in the searched published-result corpus.",
+          "The source formula concerns the single-bridge barbell, not the standard path-linked barbell variants used under the same name."
+        ],
+        "reasoning": "Equivalent formulations using two cliques joined by one bridge were included in the search.",
+        "searches": [
+          "Resultary: zero forcing polynomial barbell graph two cliques bridge exact coefficients",
+          "web exact search: zero forcing polynomial barbell graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact coefficient table or same-family formula was returned."
+        ],
+        "reasoning": "There is no known database table covering all \\((a,b)\\) in the checked sources.",
+        "searches": [
+          "Resultary exact barbell query"
+        ]
+      },
+      "rationale": "The foundational zero-forcing-polynomial paper develops family formulas and explicitly leaves splitting formulas across cut vertices or separating sets as an open direction. Menon--Singh give coefficientwise inequalities under graph operations, and later path-extremal work gives bounds, not this bridge-barbell all-set classification. Targeted Resultary and exact searches did not locate an equivalent barbell formula. The assigned threshold characterization is not supplied by the generic top-coefficient theorem and determines coefficients far below \\(N-2\\).",
+      "residual_risks": [
+        "A differently named block-graph enumeration could contain the same formula; none was located in the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_BARRELL_FORMULA_AND_SPLITTING_LEFT_OPEN",
+          "evidence": "The paper supplies generic tools but no exact bridge-barbell enumeration.",
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "Complete primary PDF, including family formulas, multiplicativity, top coefficients, and the concluding splitting/cut-set questions.",
+          "method": "Open primary full-PDF inspection.",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Foundational exact-invariant source and strongest risk of a splitting formula."
+        },
+        {
+          "assessment": "BOUNDS_NOT_EXACT_BARRELL_ENUMERATION",
+          "evidence": "Its results compare coefficient counts and prove path-extremal inequalities rather than the assigned equality formula.",
+          "identifier_or_url": "DOI:10.1016/j.disc.2025.114516",
+          "material_read": "Open primary full article, including the aims, outerplanar results, cone and operation lemmas.",
+          "method": "Open primary full-text inspection.",
+          "title": "Exploring the influence of graph operations on zero forcing sets",
+          "trigger": "Later broad operation/counting paper."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Boyer et al. 2019",
+        "Menon--Singh 2025"
+      ],
+      "rationale": "Bridge barbells are a basic cut-edge composition of two dense blocks, precisely the kind of separating-set setting highlighted by the foundational polynomial paper. The exact all-set threshold rule and closed polynomial provide a natural test case for future splitting formulas, not an arbitrary finite slice.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the bridge barbell \\(B_{a,b}\\), \\(a,b\\ge3\\), a set is zero forcing exactly under the two clique-threshold conditions with the single excluded double-threshold endpoint-free configuration; consequently \\(\\mathcal Z(B_{a,b};x)=x^{a+b-3}(x^3+(a+b)x^2+(ab+a+b-2)x+(2ab-a-b))\\).",
+  "limitations": [
+    "Single bridge joining two cliques of orders at least three.",
+    "No general bridge-splitting theorem for arbitrary graphs is claimed."
+  ],
+  "schema_version": 1
+}
