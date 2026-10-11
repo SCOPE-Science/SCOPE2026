@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Every \\(1<p<\\infty\\) finite-dimensional convex nearest point is uniquely defined. In two dimensions, restricting to the closer signed ray and solving the strictly convex scalar minimization yields a continuous four-piece linear projection; the rank-one operator norm gives the stated global constant, with a matching open region and a sharp Hölder equality test. In dimensions at least three, the supporting normal \\(f=(-1,\\kappa c,\\kappa s)\\) and duality vector \\(v=J_q(f)\\) force \\(P(y+\\delta v)=y\\). A boundary tangent \\(h=(\\kappa c,1,0)\\) has \\(\\langle J_p(h),v\rangle=(\\kappa c)^{q-1}-(\\kappa c)^{p-1}\ne0\\); choosing the sign of a nearby boundary displacement then produces strict input-distance shortening under a small positive normal displacement. Hilbert and one-dimensional cases are standard. The numerical program passes 3,750 planar pair comparisons and 12 three-dimensional witnesses, used only as supporting regression checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Encyclopedia of Mathematics, Metric projection, establishes that metric projection onto every closed convex set in a Hilbert space is one-Lipschitz.",
+        "arXiv:1405.7835, introductory formula (4) quotes this ambient Euclidean nonexpansivity as a standard fact."
+      ],
+      "reasoning": "The general Hilbert theorem covers only the forward \\(p=2\\) branch. Even a characterization requiring nonexpansivity of all convex projections would not show that this one fixed circular-cone family forces \\(p=2\\), and it cannot imply the \\(\\kappa=1\\) non-Hilbert planar exception or its sharp constant.",
+      "searches": [
+        "nonexpansive metric projection characterize Hilbert space specific convex cone strictly convex",
+        "Metric projection - Encyclopedia of Mathematics, Hilbert nonexpansivity",
+        "arXiv:1405.7835, Euclidean projection and isotonicity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1405.7835 full scientific HTML (first public 2014-05-30)",
+      "arXiv:1503.06119 / Springer open article full scientific HTML (first public 2015-03-20)",
+      "Encyclopedia of Mathematics: Metric projection, entire entry",
+      "Search phrases concerning \\(\\ell_p\\) nearest Lorentz-cone projections, ice-cream cone nonexpansivity and planar wedge Lipschitz constants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1405.7835, Theorem 2(i) projects onto \\(\\mathbb R^p\times C\\) and proves order monotonicity relative to an extended Lorentz cone; it does not project onto that Lorentz cone.",
+        "arXiv:1503.06119, Theorem 3.1 and Sections 5–7 use those Euclidean projection properties for variational inequalities and box-constrained cylinders.",
+        "The present two-dimensional optimal constant exceeds one unless \\(p=2\\) or \\(\\kappa=1\\), and in dimension three the duality-map normal produces explicit expanding inputs for every \\(p\ne2\\)."
+      ],
+      "reasoning": "The prior assumptions (Euclidean metric, projection target cylinder, order comparison) are not equivalent to the current assumptions (ambient \\(\\ell_p\\), projection target circular cone, distance comparison). An arbitrary positive linear cone map or order-isotone projector need not be a Lipschitz contraction. The newer cone theorem is consequently not a stronger theorem covering the present exact formula or its higher-dimensional converse.",
+      "searches": [
+        "arXiv:1405.7835, Theorem 2; projection of cylinders and isotonicity",
+        "arXiv:1503.06119, Theorem 3.1; variational inequalities on cylinders",
+        "metric projections onto second order cones in lp norm nonexpansive Banach"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Németh and Zhang (arXiv:1405.7835), Sections 2–3: the norm underlying its metric projection is Euclidean, and Theorem 2 concerns order-isotone projections onto other sets such as cylinders.",
+        "Németh and Zhang (arXiv:1503.06119), Theorem 3.1: determines cone-order isotonicity for projections onto cylinders under an ambient Euclidean inner-product norm."
+      ],
+      "reasoning": "Cone-order isotonicity and ambient-norm nonexpansivity are mathematically different predicates. Neither inspected paper gives the rank-one planar \\(\\ell_p\\) norm or the curved-face duality-map obstruction, nor can those statements be deduced from the cited Euclidean order theorems by replacing the norm.",
+      "searches": [
+        "metric projection Lipschitz constant second-order cone non Hilbertian norm",
+        "Lipschitz constant norm projection onto circular cone p norm",
+        "arXiv:1405.7835, Theorem 2 and Section 2",
+        "arXiv:1503.06119, Theorem 3.1 and Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numerical Lipschitz formula for an ambient \\(\\ell_p\\) projection onto a scaled Lorentz wedge appears in the inspected 2014 and 2015 full-text sources.",
+        "The precise norm is obtained by evaluating the specific rank-one multiplier \\(L_\\pm\\) on the two ray-selection cells, not by looking up an existing table."
+      ],
+      "reasoning": "The searched material includes no relevant exact parameter table. This negative search is only supporting evidence; originality is justified by full-text statement comparison and the separately reconstructed piecewise-linear computation.",
+      "searches": [
+        "scaled second order cone metric projection lp norm nonsmooth nonexpansive",
+        "nonexpansive projection onto ice cream cone ell p norm",
+        "sharp Lipschitz bound for nearest point projection onto planar double ray cone in ell_p metric"
+      ]
+    },
+    "rationale": "The inspected closest primary cone-projection papers prove Euclidean cone-order isotonicity of projections onto cylinders and related sets, not ambient \\(\\ell_p\\) projection onto a scaled circular cone. General Hilbert nonexpansivity proves only the \\(p=2\\) direction. Statement/implication comparison therefore leaves both the exact planar aperture-dependent amplification and the universal higher-dimensional converse uncovered in the inspected texts, subject to the explicit residual bibliography risk.",
+    "residual_risks": [
+      "A historical Banach-space best-approximation result using a different formulation of a Lorentz-cone projector could imply the same rigidity without matching the searched terms.",
+      "Unindexed older planar cone approximation formulas could coincide with the rank-one Lipschitz expression; literature search is not proof of absolute priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the present ambient non-Euclidean nearest-cone problem.",
+        "evidence": "Section 2 defines the scalar product norm from the Euclidean inner product; Theorem 2(i) concerns projections onto products \\(\\mathbb R^p\times C\\) that are isotone with respect to a second-order-cone order. No Lipschitz constant parameterized by an ambient \\(\\ell_p\\) exponent is asserted.",
+        "identifier_or_url": "arXiv:1405.7835; https://arxiv.org/html/1405.7835v2",
+        "material_read": "Open-access HTML Sections 1–3, the stated Theorem 2 and its conditions, the paper outline of complementarity sections, and contextual references.",
+        "method": "Read the open arXiv HTML definitions and Theorem 2, checked the Euclidean norm used throughout and compared the theorem to each current claim.",
+        "title": "Extended Lorentz cones and mixed complementarity problems",
+        "trigger": "Same Lorentz/second-order cone geometry and a theorem involving projection maps."
+      },
+      {
+        "assessment": "Not covering the current exact planar or dimension-rigidity statements.",
+        "evidence": "Preliminaries use the Euclidean norm from an inner product; Theorem 3.1 classifies isotone projection sets and Section 5 concerns projections onto cylinders, not ambient-\\(\\ell_p\\) nearest-point projection onto the scaled Lorentz cone.",
+        "identifier_or_url": "arXiv:1503.06119; https://link.springer.com/article/10.1007/s10957-015-0833-6",
+        "material_read": "Open-access article Sections 1–3, the Euclidean norm definition, Theorem 3.1, Sections 5–7, and conclusions and contextual references.",
+        "method": "Inspected the publicly readable primary HTML mathematical definitions and theorems, comparing projection target sets, metric, and inequalities.",
+        "title": "Extended Lorentz cones and variational inequalities on cylinders",
+        "trigger": "Closely related cone-order and metric-projection results from the same authors."
+      },
+      {
+        "assessment": "Background only; establishes the Hilbert direction.",
+        "evidence": "The entry states one-Lipschitz metric projection onto convex sets in a Hilbert space, but no claim about this one non-Hilbert circular cone or sharp planar aperture dependence.",
+        "identifier_or_url": "https://encyclopediaofmath.org/wiki/Metric_projection",
+        "material_read": "Full encyclopedia entry, properties and references.",
+        "method": "Read the overview and compared its Hilbert nonexpansivity statement with the converse and exact formula here.",
+        "title": "Metric projection",
+        "trigger": "Potential universal result subsuming the nonexpansivity classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fbfc4087-2e9c-41b6-9615-672c1cb3f8c0",
+  "value": {
+    "rationale": "Second-order cones are canonical constraint sets. The theorem identifies precisely when a naturally defined nearest-point map can be used without expanding perturbations in the ambient non-Hilbert geometry, for every real exponent, slope and finite dimension. The exact, sharp planar stability invariant has a structurally exceptional aperture \\(\\kappa=1\\) that disappears upon adding a second transverse coordinate. The dimension transition and global parameter classification answer an intrinsic robustness question rather than tabulating arbitrary numerical cases.",
+    "status": "PASS"
+  }
+}
