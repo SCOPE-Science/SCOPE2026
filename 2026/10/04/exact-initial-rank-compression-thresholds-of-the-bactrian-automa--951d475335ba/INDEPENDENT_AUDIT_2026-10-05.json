@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:16:48.684642Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 358190228c9c145e39bbea6e2ca224b9c3dc82b4",
+        "assigned verify.py blob 02b03f30a6b3f0b4ad3cd4818ec160225a0a08ff",
+        "Ananichev--Volkov--Zaks DOI 10.1007/11779148_39"
+      ],
+      "rationale": "The half-range compression law follows from a genuine infinite argument, not the finite verifier. After the first effective \\(a\\), the image lies in \\(R=\\{1,\\ldots,n-2\\}\\). Direct action analysis shows that every word of length at most three is injective on \\(R\\), while among length-four words only \\(b^3a\\) creates a collision and it creates exactly one. Hence a further one-state loss costs at least four letters and a two-state loss at least five. Combining these local costs gives the lower bounds \\(5k\\) and \\(5k+1\\), while the two displayed periodic words have the claimed disjoint hole sets throughout deficiency \\(\\le(n+1)/2\\). A fresh independent power-set BFS for \\(n=5,7,9\\) reproduced the initial profiles \\((1,1,5)\\), \\((1,1,5,6)\\), and \\((1,1,5,6,10)\\).",
+      "residual_risks": [
+        "No formula is established beyond deficiency \\((n+1)/2\\)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2006/2007 primary paper proves \\(B_n\\) has reset threshold \\((n-1)(n-2)\\).",
+          "The later paper treats slowly synchronizing automata/digraphs and restates the family context."
+        ],
+        "reasoning": "A reset endpoint does not determine when earlier ranks first become reachable.",
+        "searches": [
+          "Ananichev--Volkov--Zaks, DOI 10.1007/11779148_39",
+          "Ananichev--Gusev--Volkov, DOI 10.1007/978-3-642-15155-2_7"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/11779148_39",
+        "DOI:10.1007/978-3-642-15155-2_7",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem supplies only the minimum length to reach rank one.",
+          "The audited lower bound needs a separate post-collapse injectivity/spacing lemma and the upper bound needs explicit hole propagation."
+        ],
+        "reasoning": "Neither ingredient is implied by knowing only the final reset length.",
+        "searches": [
+          "statement-level comparison with Theorem 1.1 of DOI 10.1007/11779148_39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent published SCOPE/Resultary result was returned.",
+          "The primary B_n article states the shortest reset-word length, not the intermediate-rank thresholds."
+        ],
+        "reasoning": "Rank, deficiency, image-size and k-compression aliases were checked without locating the piecewise \\(5k\\)/\\(5k+1\\) law.",
+        "searches": [
+          "Resultary: bactrian automata exact intermediate rank compression threshold deficiency profile",
+          "literature search: rank of a word / compressing word / image size / deficiency for B_n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external table of \\(\\lambda_n(s)\\) for this family was located."
+        ],
+        "reasoning": "The theorem is an all-odd-\\(n\\) symbolic half-range formula rather than a finite table recomputation.",
+        "searches": [
+          "Resultary semantic search; targeted exact-sequence search for 1,1,5,6,10,11 in Bactrian compression"
+        ]
+      },
+      "rationale": "The defining Bactrian paper proves the endpoint reset threshold \\((n-1)(n-2)\\) and develops the full-reset coin argument, but does not state shortest words for each intermediate rank. The later slowly-synchronizing paper again treats endpoint synchronization. Resultary searches under rank, image size, deficiency, compressing word and subset compression returned no implication-equivalent half-range profile. The local spacing lemma plus explicit periodic hole propagation are additional structure not forced by the endpoint reset theorem.",
+      "residual_risks": [
+        "An older automata-compression note may encode the same intermediate profile under uncommon rank terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ENDPOINT_NOT_PROFILE",
+          "evidence": "It proves the reset threshold \\((n-1)(n-2)\\) for odd \\(n>3\\) but does not state the intermediate rank-compression thresholds.",
+          "identifier_or_url": "DOI:10.1007/11779148_39",
+          "material_read": "Full accessible article text, including Theorem 1.1, the explicit \\(B_n\\) transition rules and the coin-weight reset proof.",
+          "method": "Lawful full-text inspection via an accessible author/public copy.",
+          "title": "Synchronizing Automata with a Letter of Deficiency 2",
+          "trigger": "Exact primary source introducing \\(B_n\\)."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "It concerns slowly synchronizing endpoint behavior, not the half-range rank profile.",
+          "identifier_or_url": "DOI:10.1007/978-3-642-15155-2_7",
+          "material_read": "Abstract and accessible family-level statements.",
+          "method": "Bibliographic/statement-level comparison.",
+          "title": "Slowly Synchronizing Automata and Digraphs",
+          "trigger": "Later source on the same family and synchronization extremality."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ananichev--Volkov--Zaks primary paper"
+      ],
+      "rationale": "Intermediate rank is a natural invariant of a classical slowly synchronizing extremal family. The theorem resolves an entire growing half-range, exhibits alternating one-state/two-state compression costs, and gives sharp words rather than an arbitrary finite sample.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1007/11779148_39",
+    "DOI:10.1007/978-3-642-15155-2_7",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Odd \\(n>3\\) only.",
+    "Only deficiency through \\((n+1)/2\\) is classified; later ranks are not claimed."
+  ],
+  "residual_risks": [
+    "An older automata-compression note may encode the same intermediate profile under uncommon rank terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "ENDPOINT_NOT_PROFILE",
+      "evidence": "It proves the reset threshold \\((n-1)(n-2)\\) for odd \\(n>3\\) but does not state the intermediate rank-compression thresholds.",
+      "identifier_or_url": "DOI:10.1007/11779148_39",
+      "material_read": "Full accessible article text, including Theorem 1.1, the explicit \\(B_n\\) transition rules and the coin-weight reset proof.",
+      "method": "Lawful full-text inspection via an accessible author/public copy.",
+      "title": "Synchronizing Automata with a Letter of Deficiency 2",
+      "trigger": "Exact primary source introducing \\(B_n\\)."
+    },
+    {
+      "assessment": "RELATED_NOT_COVERING",
+      "evidence": "It concerns slowly synchronizing endpoint behavior, not the half-range rank profile.",
+      "identifier_or_url": "DOI:10.1007/978-3-642-15155-2_7",
+      "material_read": "Abstract and accessible family-level statements.",
+      "method": "Bibliographic/statement-level comparison.",
+      "title": "Slowly Synchronizing Automata and Digraphs",
+      "trigger": "Later source on the same family and synchronization extremality."
+    }
+  ]
+}

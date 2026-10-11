@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the two kernel pairs of \(a\), proves by an exhaustive four-letter symbolic case split on \(R=\{1,\ldots,n-2\}\) that no post-\(a\) compression occurs in at most three letters and that four letters can lose at most one state, optimizes the resulting 1/2-state loss costs, and gives explicit hole-set inductions attaining both parity bounds. Exact BFS through odd \(n=17\) and witness replay through odd \(n=101\) agree with the formulas; those computations are checks, not the infinite proof.
+## correctness
 
-## Originality
-PASS. Targeted repository and literature searches under rank, image-size, deficiency, k-compressible, compressing-word, and subset-compression terminology found the \(B_n\) reset endpoint and general compression literature but not this exact half-range profile. The endpoint theorem does not imply the intermediate thresholds; the local spacing lemma plus periodic hole witnesses supply a distinct statement. Residual bibliographic risk is recorded.
+PASS
 
-Closest literature: the original Ananichev–Volkov–Zaks paper proves the complete reset threshold of \(B_n\), while the later Ananichev–Gusev–Volkov paper restates the same family and endpoint in the labeling used here. General collapsing/compressing-word literature asks universal or complexity questions. None of the inspected statements covers the exact early threshold profile proved here.
+The half-range compression law follows from a genuine infinite argument, not the finite verifier. After the first effective \(a\), the image lies in \(R=\{1,\ldots,n-2\}\). Direct action analysis shows that every word of length at most three is injective on \(R\), while among length-four words only \(b^3a\) creates a collision and it creates exactly one. Hence a further one-state loss costs at least four letters and a two-state loss at least five. Combining these local costs gives the lower bounds \(5k\) and \(5k+1\), while the two displayed periodic words have the claimed disjoint hole sets throughout deficiency \(\le(n+1)/2\). A fresh independent power-set BFS for \(n=5,7,9\) reproduced the initial profiles \((1,1,5)\), \((1,1,5,6)\), and \((1,1,5,6,10)\).
 
-Residual risk: literature search cannot exclude an older equivalent formulation under different terminology, and two broader compression sources were available only at abstract/metadata level.
+## originality
 
-## Value
-PASS. \(B_n\) is a classical slowly synchronizing extremal family built around a deficiency-two letter. Determining how quickly it can reach intermediate ranks is a natural refinement of its reset threshold, and the alternating exact marginal costs expose structure invisible in the endpoint value. The result is a parameter-uniform theorem rather than an isolated finite census.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The defining Bactrian paper proves the endpoint reset threshold \((n-1)(n-2)\) and develops the full-reset coin argument, but does not state shortest words for each intermediate rank. The later slowly-synchronizing paper again treats endpoint synchronization. Resultary searches under rank, image size, deficiency, compressing word and subset compression returned no implication-equivalent half-range profile. The local spacing lemma plus explicit periodic hole propagation are additional structure not forced by the endpoint reset theorem.
+
+## value
+
+PASS
+
+Intermediate rank is a natural invariant of a classical slowly synchronizing extremal family. The theorem resolves an entire growing half-range, exhibits alternating one-state/two-state compression costs, and gives sharp words rather than an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

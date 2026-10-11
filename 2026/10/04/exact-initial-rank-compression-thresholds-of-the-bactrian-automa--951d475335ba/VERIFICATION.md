@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is symbolic and does not depend on finite enumeration. The included `verify.py` provides two independent stress tests of the stated formulas: exact power-automaton breadth-first search for every odd \(n\) from \(5\) through \(17\), and direct replay of the explicit witnesses for every odd \(n\) from \(5\) through \(101\) whenever the target lies in the proved half-range.
+## correctness
 
-The BFS computes shortest distances from the full state set to every reachable subset and then minimizes over all subsets of size at most the target rank. It checks every claimed \(\lambda_n(s)\) in the theorem's domain. The witness replay checks exact achieved deficiency and word length. Successful execution prints `VERIFY_OK`.
+PASS
 
-Limit: finite verification cannot establish the infinite theorem and is not used as a substitute for the proof in `RESULT.md`.
+The half-range compression law follows from a genuine infinite argument, not the finite verifier. After the first effective \(a\), the image lies in \(R=\{1,\ldots,n-2\}\). Direct action analysis shows that every word of length at most three is injective on \(R\), while among length-four words only \(b^3a\) creates a collision and it creates exactly one. Hence a further one-state loss costs at least four letters and a two-state loss at least five. Combining these local costs gives the lower bounds \(5k\) and \(5k+1\), while the two displayed periodic words have the claimed disjoint hole sets throughout deficiency \(\le(n+1)/2\). A fresh independent power-set BFS for \(n=5,7,9\) reproduced the initial profiles \((1,1,5)\), \((1,1,5,6)\), and \((1,1,5,6,10)\).
+
+## originality
+
+PASS
+
+The defining Bactrian paper proves the endpoint reset threshold \((n-1)(n-2)\) and develops the full-reset coin argument, but does not state shortest words for each intermediate rank. The later slowly-synchronizing paper again treats endpoint synchronization. Resultary searches under rank, image size, deficiency, compressing word and subset compression returned no implication-equivalent half-range profile. The local spacing lemma plus explicit periodic hole propagation are additional structure not forced by the endpoint reset theorem.
+
+## value
+
+PASS
+
+Intermediate rank is a natural invariant of a classical slowly synchronizing extremal family. The theorem resolves an entire growing half-range, exhibits alternating one-state/two-state compression costs, and gives sharp words rather than an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
