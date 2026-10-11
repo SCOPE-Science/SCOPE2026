@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Multilinearity reduces identity testing to the four matrix units in each variable, so the degree-eight codimension is exactly the rank of a finite evaluation map. The path encoding enumerates every nonzero matrix-unit product and no others. Two exhaustive Gaussian eliminations over \(\mathbb F_2\), using opposite pivot conventions and different column partitions, both give rank \(4487\). Scalar extension preserves the rank of this prime-field matrix, so the result holds over every infinite characteristic-two field.
+## correctness
 
-## Originality
-PASS with stated residual risk. The 21 September 2026 primary source publicly states a generation theorem only through degree \(7\) and leaves the full associative finite-basis problem open. published-finding corpus searches for the exact degree-eight codimension, \(4487\), ordinary multilinear identities of \(M_2\) in characteristic \(2\), and generator coverage beyond degree \(7\) found no equivalent or stronger record. Nearby published-finding corpus entries concern matrix power sums or graded/*-identity codimensions and do not imply this ordinary codimension. The source full text was inaccessible in the inspected channel, so an unadvertised table or observation there remains a material residual risk.
+PASS
 
-## Value
-PASS. Degree \(8\) is the first multilinear layer immediately beyond the recent theorem controlling all identities through degree \(7\). Its exact codimension is a standard PI invariant and supplies a natural finite cutoff against which any proposed continuation of the low-degree generating picture can be tested. The result is an exhaustive invariant of the complete degree-eight multilinear component, not an arbitrary parameter slice.
+For a multilinear noncommutative polynomial, evaluation on arbitrary matrices is determined by evaluation on the four matrix units. The evaluation map on the \(8!\) words therefore has a binary matrix with \(4^8\cdot4=262144\) scalar rows and 40320 columns. The package constructs every column by the unique matrix-unit path rule and performs exact bit Gaussian elimination. I inspected both independent C++ eliminators, which use opposite pivot orders, and the low-degree Python cross-check. A fresh compilation/run of the forward rank-eight program in this audit produced cumulative ranks 1246, 2492, 3456, 4029, 4313, 4432, 4474, 4487 and final rank 4487. Since the matrix entries lie in \(\mathbf F_2\), scalar extension to any characteristic-two field preserves rank.
 
-## Closest literature and limitations
-Closest is Iritan Ferreira dos Santos, arXiv:2609.25362v1, whose public abstract gives the degree-four/degree-five generators and generation through degree \(7\). The present result does not identify the degree-eight generators and does not settle finite basability. Full-text inaccessibility and possible older terminology are retained as originality risks.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The current primary source proves that the standard degree-four identity and two degree-five identities generate all multilinear identities only through degree seven. The audited value is the first immediately subsequent ordinary multilinear codimension and is not stated in that accessible primary abstract. Older characteristic-two generic-matrix work located in the searches establishes new degree-five identities and positive-characteristic reduction phenomena, not the degree-eight codimension 4487. No implication-level source found supplies the rank-eight value.
+
+## value
+
+PASS
+
+The eighth codimension is the natural first unknown degree immediately beyond a newly completed through-degree-seven description for a central open finite-basis problem in modular PI theory. It measures exactly how many new independent multilinear classes survive and gives a reproducible benchmark for any proposed degree-eight generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

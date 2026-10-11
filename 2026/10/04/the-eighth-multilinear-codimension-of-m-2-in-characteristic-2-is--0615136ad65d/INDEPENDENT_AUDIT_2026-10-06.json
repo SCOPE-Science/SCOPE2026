@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:57:07Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob f3d2ae0971010342b356bad13041706b8b138ca3",
+        "VERIFICATION.md blob d47e3042cab8dfbc8e895805f02418bfd447fb4b",
+        "artifacts/verify_rank8_forward.cpp blob fe2d4ab3346c1b8fb68f165591541cf8cbdde065",
+        "artifacts/verify_rank8_reverse.cpp blob b3ff3da3e17faca4b3582859486e779cf9973cbc",
+        "Fresh exact forward elimination in this audit: final rank 4487, nullity 35833."
+      ],
+      "rationale": "For a multilinear noncommutative polynomial, evaluation on arbitrary matrices is determined by evaluation on the four matrix units. The evaluation map on the \\(8!\\) words therefore has a binary matrix with \\(4^8\\cdot4=262144\\) scalar rows and 40320 columns. The package constructs every column by the unique matrix-unit path rule and performs exact bit Gaussian elimination. I inspected both independent C++ eliminators, which use opposite pivot orders, and the low-degree Python cross-check. A fresh compilation/run of the forward rank-eight program in this audit produced cumulative ranks 1246, 2492, 3456, 4029, 4313, 4432, 4474, 4487 and final rank 4487. Since the matrix entries lie in \\(\\mathbf F_2\\), scalar extension to any characteristic-two field preserves rank.",
+      "risks": [
+        "The reverse-pivot implementation was inspected but not separately rerun during this audit; the forward exact replay and independent algorithmic structure provide the numerical certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 source's advertised complete generation stops at degree 7.",
+          "The older positive-characteristic papers expose characteristic-two degree-5 exceptions.",
+          "The classical Poincare-series paper is not a characteristic-two codimension formula covering the audited rank."
+        ],
+        "reasoning": "No inspected broader theorem determines the degree-eight characteristic-two ordinary multilinear quotient.",
+        "searches": [
+          "arXiv:2609.25362",
+          "Drensky–Tzigantchev 1998/2000 characteristic-two generic-matrix papers",
+          "Formanek–Halpin–Li 1981 Poincare-series paper"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search above",
+        "arXiv:2609.25362",
+        "Drensky–Tzigantchev 1998/2000",
+        "Formanek–Halpin–Li 1981"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generation through degree seven does not determine new degree-eight consequences and identities without computing the degree-eight multilinear span/evaluation rank.",
+          "The package's exact rank calculation supplies precisely that next-degree information."
+        ],
+        "reasoning": "The claim is not a corollary obtained by substituting a parameter into a published all-degree formula found in the searches.",
+        "searches": [
+          "arXiv:2609.25362 generation-through-degree-seven theorem",
+          "older characteristic-two identity papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record as the direct match.",
+          "Ferreira dos Santos, arXiv:2609.25362, states generation through degree 7, not a degree-8 codimension.",
+          "Drensky–Tzigantchev characteristic-two work located in current searches concerns exceptional degree-5 identities."
+        ],
+        "reasoning": "Equivalent formulations in terms of quotient dimension, identity-space nullity, generic-matrix multilinear component and codimension sequence were searched.",
+        "searches": [
+          "Resultary: ordinary multilinear codimension M2 characteristic 2 degree 8 polynomial identities c8 4487",
+          "Web: M2 characteristic 2 codimension sequence multilinear identities",
+          "Web: 2x2 generic matrices characteristic 2 Hilbert/Poincare series multilinear"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent published table or database entry with c8=4487 was located."
+        ],
+        "reasoning": "This check is central because the claim is an exact finite invariant; the accessible prior tables/results stop earlier or concern different characteristics/invariants.",
+        "searches": [
+          "Resultary exact 4487 query",
+          "Web exact 4487 + M2 characteristic 2 query"
+        ]
+      },
+      "rationale": "The current primary source proves that the standard degree-four identity and two degree-five identities generate all multilinear identities only through degree seven. The audited value is the first immediately subsequent ordinary multilinear codimension and is not stated in that accessible primary abstract. Older characteristic-two generic-matrix work located in the searches establishes new degree-five identities and positive-characteristic reduction phenomena, not the degree-eight codimension 4487. No implication-level source found supplies the rank-eight value.",
+      "residual_risks": [
+        "The complete body of arXiv:2609.25362 was not retrievable through the public route during this run; a degree-eight side computation mentioned only in the body cannot be excluded from the abstract alone.",
+        "Older modular PI literature is broad and may contain an unindexed equivalent codimension computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STOPS_AT_DEGREE_SEVEN_IN_ACCESSIBLE_PRIMARY_STATEMENT",
+          "evidence": [
+            "The abstract explicitly says all multilinear identities of degree up to 7 are generated by the three listed identities."
+          ],
+          "identifier_or_url": "arXiv:2609.25362",
+          "material_read": "Primary abstract stating two degree-five identities and generation with the standard degree-four identity through degree seven. Direct public arXiv body access was attempted and unavailable in this run.",
+          "method": "Public arXiv/indexed-primary abstract inspection; direct body request attempted once.",
+          "title": "On multilinear polynomial identities for 2x2 matrices in characteristic 2",
+          "trigger": "Exact current source and strongest coverage candidate."
+        },
+        {
+          "assessment": "DEGREE_FIVE_PRIOR_NOT_COVERING_C8",
+          "evidence": [
+            "The accessible statement concerns existence of a new degree-five multilinear identity."
+          ],
+          "identifier_or_url": "Journal of Pure and Applied Algebra 133 (1998), 83-91",
+          "material_read": "Current indexed abstract/metadata describing the exceptional multilinear degree-five identity.",
+          "method": "Targeted literature search and statement comparison.",
+          "title": "New polynomial identities for 2x2 generic matrices in characteristic 2",
+          "trigger": "Older exact same-algebra characteristic-two identity literature."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "First degree beyond the source's generated-through-degree-seven theorem.",
+        "Exact quotient dimension and identity-space dimension for a canonical matrix algebra."
+      ],
+      "rationale": "The eighth codimension is the natural first unknown degree immediately beyond a newly completed through-degree-seven description for a central open finite-basis problem in modular PI theory. It measures exactly how many new independent multilinear classes survive and gives a reproducible benchmark for any proposed degree-eight generators.",
+      "risks": [
+        "One exact codimension does not settle the all-degree finite-basis problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every infinite field \\(K\\) of characteristic \\(2\\), the eighth ordinary multilinear codimension of \\(M_2(K)\\) is \\(c_8=4487\\), so the degree-eight multilinear identity space has dimension \\(40320-4487=35833\\).",
+  "limitations": [
+    "Ordinary multilinear identities only.",
+    "Characteristic two and the stated infinite-field scope only.",
+    "No claim that the degree-eight identities generate later degrees."
+  ],
+  "schema_version": 1
+}
