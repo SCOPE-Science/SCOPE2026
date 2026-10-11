@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:57:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Draisma–Horobeţ–Ottaviani–Sturmfels–Thomas, arXiv:1309.0049, Corollary 2.10, inspected in the primary PDF on page 8.",
+        "RESULT.md blob 8e6565fef43e6ee471c9d8f51e793c7e90ca58ab.",
+        "Independent exact-integer enumeration replayed during this audit."
+      ],
+      "rationale": "Draisma et al. Corollary 2.10 gives equality for a general complete intersection and, in projective dimension two, specializes to product(d_i) times 1+T+(T^2+Q)/2. For a balancing move x<y-1 with delta=y-x-1, the pair product rises from B to B+delta while the symmetric factor falls from A to A-delta, so the change has sign delta(A-B-delta). Since B+delta=(x+2)y and A-(x+2)y is at least 1+x^2+x+y^2-y>0, every genuine balancing move strictly increases ED degree. Iteration yields the unique balanced maximum; reversing moves yields the unique one-heavy minimum. An independently written exhaustive replay over 425 multidegrees for 2<=c<=6 and 2c<=S<=4c reproduced both extrema and the examples.",
+      "risks": [
+        "The claim is only for generic projective ED degree of smooth complex surfaces; special coordinates may lower ED degree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary PDF gives the complete-intersection formula and equality case, but no optimization over degree vectors.",
+          "The 2024 paper's accessible abstract concerns mixed-volume formulas for sparse complete intersections, not the fixed-sum extremal law."
+        ],
+        "reasoning": "General ED-degree formulas provide the input invariant, not a stronger extremal theorem covering the submitted statement.",
+        "searches": [
+          "arXiv:1309.0049 Corollary 2.10",
+          "arXiv:2404.17237 Euclidean distance degree of complete intersections via Newton polytopes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query above",
+        "arXiv:1309.0049",
+        "arXiv:2404.17237"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 2.10 determines the value for each multidegree but does not state monotonicity under balancing.",
+          "The strict balancing inequality requires comparing the product gain against the quadratic-factor loss."
+        ],
+        "reasoning": "The final classification is not already present as a stated corollary or stronger extremal result in the inspected literature.",
+        "searches": [
+          "Draisma et al. Corollary 2.10 plus searches for Schur/majorization formulations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The highest-similarity published-finding hit was this record; nearby complete-intersection records concern dual degree, Euler characteristic, signatures, and other invariants.",
+          "No searched source stated the balanced maximum and one-heavy minimum for ED degree."
+        ],
+        "reasoning": "Searches covered EDdegree/ED degree, fixed total degree, fixed canonical-polarization exponent, balancing, majorization and extremal multidegrees.",
+        "searches": [
+          "Resultary: Euclidean distance degree complete intersection surfaces fixed sum degrees extremal balanced multidegree maximum minimum",
+          "Web: ED degree complete intersection surface fixed total defining degree balanced multidegree extremal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external table/database row with these extrema was located; the finite checker generates its own census from the formula."
+        ],
+        "reasoning": "The theorem is symbolic for all admissible c,S rather than a recomputation of a published finite table.",
+        "searches": [
+          "Resultary exact fixed-sum ED-degree query"
+        ]
+      },
+      "rationale": "The foundational theorem supplies the closed ED-degree formula but not the fixed-sum extremal classification. The balancing step is not a mere parameter substitution: two factors move in opposite directions and the strict inequality above is the substantive comparison. Claim-specific Resultary and web searches found no prior theorem with the same fixed-adjunction maximum/minimum statement.",
+      "residual_risks": [
+        "An older optimization note under Schur-convexity or majorization terminology could contain the same balancing observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREMISE_FORMULA_NOT_COVERING_EXTREMAL_CLASSIFICATION",
+          "evidence": [
+            "Corollary 2.10 gives the complete-intersection ED-degree sum through the projective dimension and equality for a general complete intersection."
+          ],
+          "identifier_or_url": "arXiv:1309.0049",
+          "material_read": "Primary PDF, especially page 8 containing Corollary 2.10 and its equality statement for general complete intersections.",
+          "method": "Public arXiv PDF text plus rendered-page inspection.",
+          "title": "The Euclidean Distance Degree of an Algebraic Variety",
+          "trigger": "Exact primary formula for general complete intersections."
+        },
+        {
+          "assessment": "RELATED_FORMULA_LITERATURE; NO_FIXED_SUM_EXTREMAL_STATEMENT_IN_ACCESSIBLE_MATERIAL",
+          "evidence": [
+            "The abstract develops mixed-volume ED-degree formulas for sparse affine complete intersections."
+          ],
+          "identifier_or_url": "arXiv:2404.17237",
+          "material_read": "Current abstract and bibliographic scope.",
+          "method": "Public web/arXiv metadata inspection.",
+          "title": "Euclidean distance degree of complete intersections via Newton polytopes",
+          "trigger": "Recent paper specifically on ED degrees of complete intersections."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact extremizers for every c>=2 and S>=2c.",
+        "The pair-balancing lemma supplies a reusable structural comparison."
+      ],
+      "rationale": "ED degree is the algebraic complexity of generic nearest-point optimization. Fixing c and S fixes the canonical polarization exponent for these surfaces, so the comparison is geometrically natural. The theorem gives both sharp extrema and a strict balancing mechanism over an infinite family, not an arbitrary numerical slice.",
+      "risks": [
+        "The balancing direction is dimension-specific and is not asserted in higher projective dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For general smooth complete-intersection surfaces of fixed codimension c and fixed total defining degree S, generic Euclidean distance degree is uniquely maximized, up to permutation, by the balanced multidegree and uniquely minimized by (2,...,2,S-2c+2).",
+  "limitations": [
+    "General smooth complex complete-intersection surfaces only.",
+    "Generic/transverse projective ED degree only.",
+    "Fixed codimension and fixed sum of defining degrees.",
+    "No higher-dimensional monotonicity claim."
+  ],
+  "schema_version": 1
+}
