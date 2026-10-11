@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical claim was replayed symbolically from the defining maximum norm.
+# Independent mathematical audit
 
-1. Each of the three defining branches is bounded above by the Euclidean norm, so \(N\le E\).
-2. After reducing to \(a\ge b\ge0\) and \(t=b/a\), the ratio \(N/E\) is decreasing until \(t=\sqrt2-1\) and increasing afterwards. Hence its exact minimum is \(\cos(\pi/8)\).
-3. Euclidean Ptolemy and the two-sided norm comparison imply \(C_{\mathrm{Pt}}\le\sec^2(\pi/8)=4-2\sqrt2\).
-4. For \(s=\sqrt2-1\), the triple \(x=(-1,s)\), \(y=(s,-1)\), \(z=(-2,-2)\) satisfies
-\[
-N(x)=N(y)=1,\quad N(x-y)=2,\quad N(z)=2\sqrt2,\quad N(x-z)=N(z-y)=1+\sqrt2.
-\]
-Its ratio is exactly \(4-2\sqrt2\).
-5. The symbolic identities \((1+(\sqrt2-1)^2)^{-1}=(2+\sqrt2)/4\) and \(((2+\sqrt2)/4)^{-1}=4-2\sqrt2\) were independently recomputed.
+## correctness
 
-No numerical optimization, finite enumeration, or inaccessible lemma is used in the proof. The only unresolved item concerns literature coverage, not correctness.
+PASS
+
+Euclidean E dominates N. By symmetry, on a>=b>=0 with t=b/a the ratio N/E has one decreasing branch and one increasing branch, so its global minimum occurs at t=sqrt(2)-1 and equals c=cos(pi/8). Hence cE<=N<=E. Hilbert Ptolemy then gives C_Pt<=c^{-2}=4-2sqrt(2). With s=sqrt(2)-1, x=(-1,s), y=(s,-1), z=(-2,-2) have N(x)=N(y)=1, N(x-y)=2, N(z)=2sqrt(2), and N(x-z)=N(z-y)=1+sqrt(2), yielding ratio exactly 4-2sqrt(2). The upper and lower bounds therefore match globally.
+
+## originality
+
+PASS
+
+Zuo's 2012 exact criteria do not cover this branch-transition extremum, and Zuo's 2018 Example 1 explicitly leaves the endpoint lambda=1/sqrt(2) unresolved for the max{ell_infty,lambda ell_1} family. Komuro--Saito--Tanaka use exactly the regular-octagonal norm for a James-constant problem, not Ptolemy. Resultary found the audited theorem as the exact direct match. A published SCOPE Euclidean-distortion formula for the containing Lorentz-predual family gives the same squared comparison factor at the octagon, but it supplies only the upper-bound ingredient and does not imply the sharp Ptolemy lower witness.
+
+## value
+
+PASS
+
+The regular octagonal plane is a classical highly symmetric Banach plane, and the inspected closest family theorem explicitly leaves this exact endpoint unresolved. Closing that endpoint with a sharp comparison and explicit extremizer is a natural exact-invariant result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

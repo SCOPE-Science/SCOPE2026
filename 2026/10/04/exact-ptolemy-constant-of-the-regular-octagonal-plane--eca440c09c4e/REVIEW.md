@@ -1,28 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Claim
-For the real regular octagonal plane \(X=(\mathbb R^2,N)\), where \(N(x,y)=\max\{|x|,|y|,(|x|+|y|)/\sqrt2\}\), the Ptolemy constant is exactly \(C_{\mathrm{Pt}}(X)=4-2\sqrt2\).
+## correctness
 
-## Correctness
-**PASS.** The proof first establishes the globally sharp comparison
-\[
-\cos\!\left(\frac\pi8\right)\|v\|_2\le N(v)\le\|v\|_2
-\]
-by reducing, through all sign and coordinate symmetries, to a one-variable minimization whose unique transition is \(t=\sqrt2-1\). Euclidean Ptolemy then gives \(C_{\mathrm{Pt}}\le\sec^2(\pi/8)=4-2\sqrt2\). The explicit triple \((-1,\sqrt2-1),(\sqrt2-1,-1),(-2,-2)\) is admissible and has exact ratio \(4-2\sqrt2\). No finite experiment substitutes for the infinite upper bound.
+PASS
 
-## Originality
-**PASS, with an access residual.** Targeted semantic searches found no claim-level match for the regular octagonal Ptolemy constant. Zuo (2012) was inspected in full: its concrete examples do not contain an octagonal instance, and its relevant Euclidean midpoint-comparison hypothesis fails because \(\psi_2/\psi\) is maximized at the octagon's branch transition rather than at one half. Komuro--Saito--Tanaka (first published in 2015) was inspected in full and explicitly defines this regular-octagonal norm, but studies James constant \(\sqrt2\) and contains no Ptolemy result.
+Euclidean E dominates N. By symmetry, on a>=b>=0 with t=b/a the ratio N/E has one decreasing branch and one increasing branch, so its global minimum occurs at t=sqrt(2)-1 and equals c=cos(pi/8). Hence cE<=N<=E. Hilbert Ptolemy then gives C_Pt<=c^{-2}=4-2sqrt(2). With s=sqrt(2)-1, x=(-1,s), y=(s,-1), z=(-2,-2) have N(x)=N(y)=1, N(x-y)=2, N(z)=2sqrt(2), and N(x-z)=N(z-y)=1+sqrt(2), yielding ratio exactly 4-2sqrt(2). The upper and lower bounds therefore match globally.
 
-Zuo (2018) was inspected at theorem and example level. Its Example 1 treats \(\max\{\|\cdot\|_p,\lambda\|\cdot\|_q\}\); the regular octagon is the endpoint \((p,q,\lambda)=(\infty,1,1/\sqrt2)\), while the displayed mixed-regime exact formula is stated only above that endpoint. Its general symmetric theorem also does not imply the value under Euclidean comparison because the theorem's range condition requires a value larger than the regular octagon's James-function maximum.
+## originality
 
-The remaining risk is Zuo (2015), whose abstract announces additional sufficient conditions. Its readable full text could not be obtained through bounded lawful access routes, so it is recorded as an unresolved source rather than counted as noncoverage.
+PASS
 
-The current prior ledger contains a Banach--Mazur formula for an octagonal family whose regular member is this norm. That result determines the same Euclidean distortion factor and hence is related to the upper bound, but it neither states a Ptolemy constant nor provides the lower-bound configuration. The final equality is therefore not a duplicate or a formal corollary of the stored claim.
+Zuo's 2012 exact criteria do not cover this branch-transition extremum, and Zuo's 2018 Example 1 explicitly leaves the endpoint lambda=1/sqrt(2) unresolved for the max{ell_infty,lambda ell_1} family. Komuro--Saito--Tanaka use exactly the regular-octagonal norm for a James-constant problem, not Ptolemy. Resultary found the audited theorem as the exact direct match. A published SCOPE Euclidean-distortion formula for the containing Lorentz-predual family gives the same squared comparison factor at the octagon, but it supplies only the upper-bound ingredient and does not imply the sharp Ptolemy lower witness.
 
-## Value
-**PASS.** The regular octagonal plane is a standard benchmark in two-dimensional Banach-space geometry, explicitly used in the James-constant literature. The Ptolemy constant is a standard metric-geometric invariant. The exact value identifies when the sharp Euclidean comparison bound is attained and supplies an explicit extremal configuration. It also settles the natural endpoint omitted from the displayed mixed-regime max-norm formula in the inspected 2018 examples, rather than selecting an arbitrary parameter slice.
+## value
 
-## Closest literature and limitations
-The closest inspected sources are Zuo (2012), Komuro--Saito--Tanaka (2015/2016), and Zuo (2018). Zuo (2015) remains an access-limited comparison. The statement is deliberately restricted to the single regular-octagonal norm.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The regular octagonal plane is a classical highly symmetric Banach plane, and the inspected closest family theorem explicitly leaves this exact endpoint unresolved. Closing that endpoint with a sharp comparison and explicit extremizer is a natural exact-invariant result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
