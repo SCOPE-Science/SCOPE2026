@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The scaled order-polytope facets are explicit. Minimal and maximal boundary normals have norm one; a cover normal is \\(s_j e_i-s_i e_j\\), so its normalized Euclidean slack yields exactly the edge weight \\(\\sqrt{s_i^{-2}+s_j^{-2}}\\). Summing the radius constraints along any augmented Hasse path telescopes to \\(1\\ge rL\\), giving the upper bound. Longest-prefix and longest-suffix dynamic programs construct feasible centers at \\(r=1/L\\), proving sharpness. The same path sums sandwich every optimal-center coordinate and give the stated iff uniqueness criterion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Olsen's survey defines the exact family, explains the chain and ordinary-order specializations, and surveys known polyhedral results, but the inspected text has no occurrence of inradius, radius, Chebyshev center, or largest inscribed ball.",
+        "Brändén--Solus prove integer decomposition and triangulation-related results for the same family; their inspected full text has no inradius, radius, or Chebyshev occurrence.",
+        "The ordinary order-polytope metric theorem covers only equal scale parameters and therefore does not normalize the unequal cover-facet normals appearing here."
+      ],
+      "reasoning": "The exact-object literature supplies the canonical family and algebraic/lattice geometry but not its Euclidean Chebyshev geometry. The prior unweighted metric theorem is not broader coverage because Euclidean radius is not preserved by the nonorthogonal diagonal map from the weighted family to the ordinary order polytope.",
+      "searches": [
+        "Full text inspection: McCabe Olsen, Polyhedral Geometry for Lecture Hall Partitions, definition and results sections for lecture hall order polytopes",
+        "Full text inspection: Petter Brändén and Liam Solus, Some Algebraic Properties of Lecture Hall Polytopes, Section 2.2",
+        "Full-text term checks in both sources: inradius, radius, Chebyshev, largest inscribed",
+        "Literature search: order polytope Euclidean inradius weighted diagonal scaling"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1808.06131v1",
+      "doi:10.1142/9789811200489_0021",
+      "arXiv:1911.12459v1",
+      "Stanley, Discrete & Computational Geometry 1 (1986), 9--23",
+      "Published-result searches for lecture-hall order-polytope inradius, Chebyshev centers, largest inscribed balls, lecture-hall-simplex radii, and weighted-Hasse longest-path formulations",
+      "Own current and prior geometry records searched for lecture hall, order polytope, weighted critical path, and related center formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior ordinary-order result gives \\(1/(2+(h-1)\\sqrt2)\\) and unweighted depth formulas, exactly recovered when every \\(s_i=1\\).",
+        "For unequal \\(s_i\\), a cover facet has Euclidean normal length \\(\\sqrt{s_i^2+s_j^2}\\), producing the edge weight \\(\\sqrt{s_i^{-2}+s_j^{-2}}\\); this information is absent from the unweighted theorem.",
+        "The lecture-hall sources establish the natural importance of the weighted family but do not state the metric optimization."
+      ],
+      "reasoning": "The final claim is a genuine weighted extension rather than a corollary under Euclidean isometry: diagonal scaling changes each facet distance nonuniformly. It replaces height by a parameter-dependent maximum-weight path, gives two explicit weighted extremal centers, and changes the uniqueness condition from longest-cardinality-chain coverage to weighted-critical-chain coverage.",
+      "searches": [
+        "Own current record: item 3b4d0614-da81-46c8-bff5-7680f752ec0e, ordinary order-polytope inradius and centers",
+        "Own prior geometry record searched for lecture hall, order polytope, weighted critical path, Chebyshev center, and longest path",
+        "Olsen arXiv:1808.06131, lecture hall order-polytope definition and survey of known results",
+        "Brändén--Solus arXiv:1911.12459, Section 2.2 and main theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searches covered the direct object name, its chain specialization, Chebyshev-center language, largest-inscribed-ball language, and the weighted critical-path formulation.",
+        "No returned statement gave the reciprocal weighted-path formula, the complete center inequalities, or the uniqueness criterion."
+      ],
+      "reasoning": "An equivalent theorem could naturally be stated as an inradius formula, a Chebyshev-center problem for normalized order inequalities, a lecture-hall-simplex formula, or a weighted difference-constraints theorem. The searches explicitly covered those formulations without locating a statement that implies the final claim.",
+      "searches": [
+        "Published-result database query: s lecture hall order polytope inradius Chebyshev center weighted longest chain",
+        "Published-result database query: lecture hall order polytope largest inscribed Euclidean ball",
+        "Published-result database query: lecture hall simplex inradius exact formula",
+        "Published-result database query: weighted order polytope inradius Hasse longest path",
+        "Literature search: \"s-lecture hall order polytope\" inradius Chebyshev center",
+        "Literature search: \"lecture hall order polytope\" \"largest inscribed ball\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned entries concerned unrelated simplex inradii, weighted-projective simplices, and other Euclidean polytope invariants.",
+        "No exact database item supplied a lecture-hall order-polytope radius formula or a table from which the all-poset weighted formula follows."
+      ],
+      "reasoning": "The claim is an all-dimensional symbolic theorem rather than a finite tabulation. Database checks nevertheless searched the exact object and the characteristic weighted-path formulation to exclude an existing formula or known table.",
+      "searches": [
+        "Published-result database query: s lecture hall order polytope inradius Chebyshev center weighted longest chain",
+        "Published-result database query: lecture hall simplex inradius exact formula",
+        "Published-result database query: lecture hall order polytope largest inscribed Euclidean ball",
+        "Published-result database query: weighted order polytope inradius Hasse longest path"
+      ]
+    },
+    "rationale": "The exact-object lecture-hall sources were inspected at the definition and main-result level and contain no inradius, radius, or Chebyshev-center theorem. Published-result searches under direct object names, the lecture-hall-simplex specialization, largest-inscribed-ball language, and weighted-longest-chain language found no covering result. The closest prior own statement is the ordinary order-polytope case \\(s=(1,\\ldots,1)\\); it is strictly specialized and does not imply the unequal-scale Euclidean metric formula because the diagonal lecture-hall map is nonorthogonal.",
+    "residual_risks": [
+      "A very general Chebyshev-center theorem for weighted difference-constraint polytopes may subsume the dynamic-programming proof under terminology not exposed by the searches.",
+      "Because the ordinary order-polytope case was previously known in the comparison record, the novelty is specifically the canonical unequal lecture-hall scaling, weighted critical-path invariant, and weighted center/uniqueness classification.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines the weighted normalized-order polytope and records its ordinary-order and chain specializations, but does not state an Euclidean inradius, Chebyshev-center, or largest-inscribed-ball theorem.",
+        "evidence": "The source lists 52B20 first among its classifications and identifies lecture hall order polytopes as a highlighted family; full-text searches returned no occurrence of inradius, Chebyshev, largest inscribed, or radius.",
+        "identifier_or_url": "arXiv:1808.06131v1; DOI 10.1142/9789811200489_0021",
+        "material_read": "Abstract and classification metadata; background definition of lecture hall order polytopes; the lecture-hall-order-polytope results section; open-problem context; targeted full-text searches for metric-radius terminology.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Polyhedral Geometry for Lecture Hall Partitions",
+        "trigger": "Middle-period geometry source with primary MSC 52B20 that surveys the exact polytope family."
+      },
+      {
+        "assessment": "The paper proves algebraic and lattice properties of the same family and explicitly notes the ordinary-order and lecture-hall-simplex specializations. It does not state the Euclidean radius or center theorem.",
+        "evidence": "Full-text searches returned no occurrence of inradius, radius, or Chebyshev.",
+        "identifier_or_url": "arXiv:1911.12459v1",
+        "material_read": "Introduction; Section 2.2 definition and integer-decomposition theorem for all s-lecture hall order polytopes; targeted full-text searches for metric-radius terminology.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Some Algebraic Properties of Lecture Hall Polytopes",
+        "trigger": "Substantial same-object full text that could plausibly contain a stronger structural theorem."
+      },
+      {
+        "assessment": "The classical facet structure supplies the minimal, maximal, and cover halfspaces. It does not contain the weighted Euclidean metric theorem for lecture-hall scaling.",
+        "evidence": "The new proof independently recomputes every scaled normal length before the radius optimization.",
+        "identifier_or_url": "Discrete & Computational Geometry 1 (1986), 9--23",
+        "material_read": "Standard order-polytope definition and facet structure as used in the literature comparison.",
+        "method": "Theorem-level comparison through the lecture-hall sources' cited ordinary-order specialization.",
+        "title": "Two Poset Polytopes",
+        "trigger": "Classical source for the ordinary order-polytope facet structure used after diagonal scaling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0be6f970-c0cc-4948-bd15-b21d74eca6cc",
+  "value": {
+    "rationale": "Lecture-hall order polytopes are a natural lattice-polytope family that simultaneously generalizes order polytopes and lecture-hall simplices. Unequal lecture-hall scaling changes Euclidean geometry nonuniformly, so the ordinary height formula does not transfer by affine invariance. The theorem replaces height by a canonical weighted critical-path invariant, provides the complete optimal-center polytope, gives an exact uniqueness criterion, and yields a closed formula for every lecture-hall simplex. The radius and extremal centers are computable in linear DAG time once the Hasse diagram is known. This is a motivated family-wide weighted extension, not an arbitrary parameter slice or finite recomputation.",
+    "status": "PASS"
+  }
+}
