@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:55:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "DOI:10.3934/math.2023741 full primary PDF, especially Eq. (3.1), Table 2 and the threshold discussion",
+        "assigned RESULT.md and verify.py at tree 22223ee35bb4b79a65ec9c793642cde03c8620a3"
+      ],
+      "rationale": "Factoring the printed Eq. (3.1) gives the weighted-endpoint identity exactly and differentiation gives the monotonicity law. Full primary-source inspection confirms Eq. (3.1), Table 2 \\(\\beta_2=4.9\\times10^{-7}\\), and the printed \\(v\\approx0.023\\) threshold claim. Direct high-precision substitution gives \\(R_S\\approx44272.53\\) and \\(R_V\\approx2.66178>1\\); therefore every convex combination is supercritical. The Figure 1 parameter statement gives \\(R_0\\approx3.66948\\); the infected \\((E,A)\\) Jacobian block has negative determinant and therefore one positive eigenvalue.",
+      "residual_risks": [
+        "The audit concerns the published equations and printed decimal parameters, not undocumented simulation inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General imperfect-vaccine literature recognizes that breakthrough infection can obstruct eradication, but uses different models/parameters and does not imply the exact endpoint values or inconsistency of this paper's threshold."
+        ],
+        "reasoning": "General vaccination-threshold theory does not cover the source-specific numerical contradiction.",
+        "searches": [
+          "DOI:10.3934/math.2023741",
+          "Diagne et al. 2021 imperfect-vaccine model cited by the source"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2023741",
+        "Resultary same-defect semantic search",
+        "Diagne et al., Comput. Math. Methods Med. 2021, 1250129"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equation algebraically permits the correction, while the source expressly asserts a contrary threshold and disease-control conclusion."
+        ],
+        "reasoning": "A published erroneous conclusion is not scientific coverage of its later explicit correction; the audited result identifies and proves the contradiction.",
+        "searches": [
+          "primary Eq. (3.1) and threshold prose",
+          "web:turn440985view0-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper prints Eq. (3.1), Table 2, and a threshold near \\(0.023\\); no correction stating the weighted-endpoint obstruction was found."
+        ],
+        "reasoning": "The claim is a correction of a published conclusion, not a restatement of the article's own asserted result.",
+        "searches": [
+          "web:turn171661view0 and turn440985view0-2",
+          "Resultary query: vaccination model breakthrough infection irreducible R0 floor weighted-average endpoints invalid threshold Ihsanjaya Susyanto",
+          "web search: article title erratum correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact parameter table is prior, but no checked table or correction reports \\(R_V\\approx2.661784\\), the corrected boundary, or the positive Figure 1 eigenvalue."
+        ],
+        "reasoning": "Recomputing a known table would not be original; here the contribution is the contradiction and exact threshold structure extracted from it.",
+        "searches": [
+          "primary Table 2 in DOI:10.3934/math.2023741",
+          "Resultary semantic corpus"
+        ]
+      },
+      "rationale": "The primary article explicitly reports the opposite qualitative threshold conclusion. The weighted-endpoint reformulation, irreducible breakthrough floor, corrected \\((v,\\beta_1)\\) boundary, and Figure 1 instability were not stated in the inspected article, and targeted correction/erratum and published-result searches found no source giving this source-specific diagnosis.",
+      "residual_risks": [
+        "An unindexed author correction could exist, but none was found.",
+        "Unreported simulation scaling could explain figures, but would be a different specification from the published equations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_CONTRADICTED",
+          "evidence": "Eq. (3.1) and Table 2 imply a supercritical vaccination floor while the paper states a critical vaccination rate near 0.023 and that larger vaccination suppresses the outbreak.",
+          "identifier_or_url": "DOI:10.3934/math.2023741",
+          "material_read": "Full open primary PDF around the model, Eq. (3.1), Table 2, sensitivity section, threshold statement, and conclusion; relevant pages were also visually inspected.",
+          "method": "Open-access full-text statement/equation comparison with independent substitution.",
+          "title": "A mathematical model for policy of vaccinating recovered people in controlling the spread of COVID-19 outbreak",
+          "trigger": "Primary source whose reproduction number and numerical threshold are audited."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.3934/math.2023741"
+      ],
+      "rationale": "The correction invalidates a concrete policy threshold and a disease-free stability claim in a published epidemiological model. The endpoint decomposition also supplies the exact condition under which vaccination alone can ever cross threshold, so the result is substantively motivated despite elementary algebra.",
+      "residual_risks": [
+        "No claim is made about global endemic dynamics for \\(R_0>1\\)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3934/math.2023741",
+    "Resultary same-defect semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the printed Ihsanjaya--Susyanto model, \\(R_0(v)=(\\mu R_S+vR_V)/(\\mu+v)\\); hence vaccination can cross below one from \\(R_S>1\\) only if \\(R_V<1\\). The paper's Table 2 has \\(R_V>1\\), so no vaccination rate is subcritical, its reported \\(v\\approx0.023\\) threshold is incompatible with Eq. (3.1), and its stated Figure 1 disease-free parameter set is linearly unstable.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only the printed mathematical specification is audited; undocumented simulation inputs are unknown."
+  ]
+}
