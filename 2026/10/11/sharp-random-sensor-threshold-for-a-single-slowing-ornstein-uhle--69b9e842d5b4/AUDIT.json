@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Stationary OU covariance is exact by Itô isometry; Haar Gaussian normalization yields independent Beta(1/2,(n-1)/2) squared projections. For m=floor(n^kappa), joint chi-square concentration and Gaussian maxima show n Wmax differs from max iid normal squares by o_P(1). Mills-ratio constant gives b_m=2 log m-log log m-log pi; binomial rare-event convergence yields Poisson(exp(-x)) variance-dominating sensors. Fixed-lag ACF regimes follow by substitution into exact expressions. The standalone 208 finite checks corroborate algebra but are not used as proof. Domain, strict threshold, and zero/infinite boundary regimes were independently recomputed. No hidden normalizations or unproved lemmas are required beyond standard Gaussian tail and concentration inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2506.11735v2 §§I-IV: Fokker–Planck-based designed observables, not independent Haar sensors",
+        "arXiv:2311.18597v1 §§2-4: general noise-coupling mechanisms, fixed observable covariance, no random extrema",
+        "arXiv:2609.01164v1 §2: single prescribed observation direction and generic orthogonal stationary modes"
+      ],
+      "reasoning": "The source models of more general deterministic bifurcation and noise geometry do not include a quantified independent random choice of polynomially many scalar observations. They provide conceptual background but not a theorem that implies the specified asymptotic max-projection law. The most relevant potential broader theorem would be one about random maxima of spherical projections; standard Gaussian extrema give a method, but not the dynamical claim verbatim.",
+      "searches": [
+        "critical slowing down early warning signals random sensors stochastic OU Gumbel logarithmic threshold covariance Beta projection",
+        "random sensor variance maximum dynamical saddle-node critical direction Gaussian sphere chi-square Poisson crossover",
+        "Poisson law for the count of independent uniform spherical observation directions whose squared projection onto one critical eigenvector exceeds epsilon/(1+epsilon), with m=n^kappa and epsilon=(2logm-loglogm-logpi+2x)/n",
+        "joint dimension sensor budget phase transition near tipping point stationary Ornstein Uhlenbeck variance max independent Haar directions log m over n",
+        "high dimensional critical slowing down multiple sensors random projection 1/n Gumbel threshold",
+        "sharp signal detection budget m=n^k high dimension random linear projections one critical eigenmode stationary autocorrelation",
+        "arXiv:2506.11735v2 §§I-IV",
+        "arXiv:2311.18597v1 §§1-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.01164v1",
+      "arXiv:2506.11735v2",
+      "arXiv:2311.18597v1",
+      "arXiv:1308.5541 abstract",
+      "Published mathematical record: Sharp sign-sensitive Gaussianization thresholds for equal-spectrum second-chaos maxima",
+      "Published mathematical record: Poisson and Gumbel laws for one-flip instability in Gaussian binary MIMO"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.01164v1 Eqs. (3)-(4) entail fixed-direction variance and ACF, but do not specify a distribution of directions or extreme over m sensors",
+        "arXiv:1308.5541 entails normal-max limit in a different setting; the reduction from random-sphere normalization and OU dominance needs additional estimates",
+        "arXiv:2506.11735v2 develops selection of observable by a spectral algorithm; different from random selection and population max variance"
+      ],
+      "reasoning": "Neither angle formula alone nor normal maxima alone implies the stated model-specific Poisson detection count without setting the random sensor law, obtaining uniform denominator concentration, solving the component-variance dominance inequality, and tracking the second-order n/m/epsilon regime. Conversely, exact finite beta CDFs follow readily from known geometry and are acknowledged as prior-derived ingredients. Closest published record about OU lag reversal is about lag derivatives for fixed nuisance spectra, not random sensor maximum events.",
+      "searches": [
+        "Early Warning Signals Can Vanish or Amplify Dimensionality Complex Systems Ditlevsen random alignment",
+        "high dimensional Ornstein Uhlenbeck one slow mode independent stable modes random unit direction observed stationary variance autocorrelation chi square critical window epsilon n",
+        "random multivariate observations near saddle node finite sensors Gumbel law maximal variance critical mode",
+        "critical slowing down early warning signals random sensors stochastic OU Gumbel logarithmic threshold covariance Beta projection",
+        "random sensor variance maximum dynamical saddle-node critical direction Gaussian sphere chi-square Poisson crossover",
+        "Poisson law for the count of independent uniform spherical observation directions whose squared projection onto one critical eigenvector exceeds epsilon/(1+epsilon), with m=n^kappa and epsilon=(2logm-loglogm-logpi+2x)/n",
+        "joint dimension sensor budget phase transition near tipping point stationary Ornstein Uhlenbeck variance max independent Haar directions log m over n",
+        "high dimensional critical slowing down multiple sensors random projection 1/n Gumbel threshold",
+        "sharp signal detection budget m=n^k high dimension random linear projections one critical eigenmode stationary autocorrelation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.01164v1 §2 Eq. (3)-(4): deterministic projection-angle decomposition; no random sensor ensemble",
+        "arXiv:1308.5541: classical extreme-value norming constants for normal maxima",
+        "arXiv:2311.18597v1 §§2-3: fixed observables, covariance/interference, not an ensemble maximum"
+      ],
+      "reasoning": "The proposed Poisson exceedance law is equivalent to the Gumbel event of the largest squared projection crossing an epsilon-dependent threshold. Existing fixed-angle OU analysis supplies the variance identity, and classical spherical-Gaussian geometry supplies the upper tails, but the full dimension/measurement-budget statement and sharp constant/logarithmic correction are not explicitly present in inspected primary text. The component facts are credited.",
+      "searches": [
+        "critical slowing down early warning signals random sensors stochastic OU Gumbel logarithmic threshold covariance Beta projection",
+        "random sensor variance maximum dynamical saddle-node critical direction Gaussian sphere chi-square Poisson crossover",
+        "Poisson law for the count of independent uniform spherical observation directions whose squared projection onto one critical eigenvector exceeds epsilon/(1+epsilon), with m=n^kappa and epsilon=(2logm-loglogm-logpi+2x)/n",
+        "joint dimension sensor budget phase transition near tipping point stationary Ornstein Uhlenbeck variance max independent Haar directions log m over n",
+        "high dimensional critical slowing down multiple sensors random projection 1/n Gumbel threshold",
+        "sharp signal detection budget m=n^k high dimension random linear projections one critical eigenmode stationary autocorrelation",
+        "maximal coordinate projection of Haar random unit vectors Gumbel extreme value n W 2 log m log log m",
+        "maximum beta half random spherical projection Gumbel polynomially many directions",
+        "maximum independent standard normal squared 2 log m log log m log pi Gumbel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Target is a family of asymptotic population laws indexed by dimension and sensor count, not a tabulated finite invariant",
+        "Published mathematical-record nearest hits concerning signed Gaussian chaos maxima and Gaussian MIMO one-flip extremes have distinct random variables and implications"
+      ],
+      "reasoning": "No matching exact-database entry or published record for the sensor-dominance distribution was identified in actual searches. The normal extreme-value centering itself is known and is not claimed as a new table or discovery.",
+      "searches": [
+        "critical slowing down early warning signals random sensors stochastic OU Gumbel logarithmic threshold covariance Beta projection",
+        "random sensor variance maximum dynamical saddle-node critical direction Gaussian sphere chi-square Poisson crossover",
+        "Poisson law for the count of independent uniform spherical observation directions whose squared projection onto one critical eigenvector exceeds epsilon/(1+epsilon), with m=n^kappa and epsilon=(2logm-loglogm-logpi+2x)/n",
+        "joint dimension sensor budget phase transition near tipping point stationary Ornstein Uhlenbeck variance max independent Haar directions log m over n",
+        "high dimensional critical slowing down multiple sensors random projection 1/n Gumbel threshold",
+        "sharp signal detection budget m=n^k high dimension random linear projections one critical eigenmode stationary autocorrelation",
+        "maximal coordinate projection of Haar random unit vectors Gumbel extreme value n W 2 log m log log m",
+        "maximum beta half random spherical projection Gumbel polynomially many directions",
+        "maximum independent standard normal squared 2 log m log log m log pi Gumbel"
+      ]
+    },
+    "rationale": "Exact fixed-direction OU variance and autocorrelation are in Ditlevsen (2026), and the normal-square extreme-value law is classical. The proposed distinctive statement is their sharp joint n-versus-number-of-independent-random-directions law, specifically the Poisson number of variance-dominating sensors at the second-order centered window and the accompanying population-ACF phase diagram. Full primary text of the most relevant three dynamical papers was compared. None states random multi-sensor extremes or the Poisson dominance window. This is a qualified originality assessment, not proof that every equivalent older application is absent.",
+    "residual_risks": [
+      "A prior extreme-value study of random spherical sensors could imply the same phase threshold by direct transformation and not appear in keyword/semantic search.",
+      "Normal maxima and spherical beta laws are standard; the claimed value is dynamical sensor-budget interpretation and exact sharp joint window, not those ingredients.",
+      "The stochastic dynamical model is a linearized equal-noise surrogate; real nonlinear tipping systems may exhibit qualitatively different observation behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers fixed-direction variance and ACF; does not establish independent random-sensor budget or Gumbel count law",
+        "evidence": [
+          "arXiv:2609.01164v1 §2 Eqs. (3)-(4)",
+          "Section 5 discussion of masking by stable modes"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.01164v1",
+        "material_read": "HTML full text, introduction, Section 2 Eqs. (1)-(4), Sections 3–5 and conclusions",
+        "method": "Read public arXiv HTML and compared variance/ACF equations and quantifiers",
+        "title": "Early Warning Signals Can Vanish or Amplify: Dimensionality in Complex Systems",
+        "trigger": "Exact motivating recent source: high-dimensional angle-dependent critical slowing and variance"
+      },
+      {
+        "assessment": "Selects special nonlinear observables by spectral construction; different sampling law; no claimed theorem that entails random Haar variance-dominance window",
+        "evidence": [
+          "arXiv:2506.11735v2 abstract, introduction and diffusion-map method",
+          "Discussion and worked model sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.11735v2",
+        "material_read": "HTML introduction, theoretical operator selection, worked examples, discussion, appendices and reference context",
+        "method": "Read public arXiv HTML with full-text navigation and explicit search for random sensor coverage",
+        "title": "Choosing observables that capture critical slowing down before tipping points: A Fokker-Planck operator approach",
+        "trigger": "Plausible stronger observer-selection literature"
+      },
+      {
+        "assessment": "General correlated forcing and misleading warning signs, fixed two-dimensional observables; no random sensor ensemble or Gumbel extreme law",
+        "evidence": [
+          "arXiv:2311.18597v1 Sections 2–3, Eq. (3), covariance and autocorrelation formulas"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2311.18597",
+        "material_read": "HTML full text; abstract, Sections 1–4, observable covariance formulas and conclusions",
+        "method": "Read lawful accessible ar5iv rendered full-text source and compared model/noise and claim scope",
+        "title": "Internal noise interference in anticipation of tipping points of generic multi-dimensional dynamical systems",
+        "trigger": "Earlier dynamical analysis of mixed slow and stable observations"
+      },
+      {
+        "assessment": "Classical normal-maximum Gumbel centering; relevant ingredient only, not claimed novel, whole-document exclusion not asserted",
+        "evidence": [
+          "arXiv:1308.5541 abstract: norming constants for normal maxima"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1308.5541",
+        "material_read": "Bibliographic abstract and accessible summary, not full paper",
+        "method": "Checked abstract metadata and its scope, cited general Gaussian maxima as prior",
+        "title": "On the norming constants for normal maxima",
+        "trigger": "Known classical Gaussian extreme-value centering"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "69b9e842-d5b4-47c7-b357-34edca5bad91",
+  "value": {
+    "rationale": "The quantitative problem of how many unaligned, untrained observations can reveal a unique critical eigenmode under high-dimensional nuisance noise is motivated by the 2026 fixed-angle masking results and the 2025 observables-selection research. The Poisson/Gumbel critical window answers a natural sensor-budget question with exact leading 2 log m/n, -log log m, -log pi and nontrivial probability, and distinguishes the population autocorrelation phases. These explicit boundary probabilities are not merely fixed-n angle identities, while standard spherical probability facts are not represented as discoveries. The model/scope limitations and finite-sample caveat are explicit.",
+    "status": "PASS"
+  }
+}
