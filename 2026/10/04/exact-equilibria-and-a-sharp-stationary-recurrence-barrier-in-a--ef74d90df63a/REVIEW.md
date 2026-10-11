@@ -1,14 +1,21 @@
-# Same-model review
-## Correctness
-PASS. The final claim was reconstructed directly from the published vector field. Exact elimination gives the complete equilibrium set for both \(d=0\) and \(d\ne0\). The state reflection was checked componentwise. The invariant-measure identities follow from two explicit Lie derivatives, and the equality case was closed by an invariant-support argument reducing the trajectory to a finite root set of a nonzero quartic. The bundled symbolic replay returns `VERIFY_OK`.
+# Independent mathematical audit
 
-## Originality
-PASS. The introducing article's Eq. (4) does not give the corrected fourth coordinate, and it does not analyze the \(d=0\) equilibrium line or the stationary second-moment law. Searches by exact equations, formula aliases, DOI plus correction/erratum terms, parameter-sign conjugacy, invariant-measure language, and a semantic index of published findings found no implication-equivalent result. Generic offset-boosting literature was inspected and is not claimed as new.
+## correctness
 
-## Value
-PASS. The equilibrium correction affects the geometric object at which the source performs local analysis, while the \(d=0\) case exposes a genuine change from two isolated equilibria to a line. The stationary identity supplies a sharp, all-invariant-measures recurrence barrier with an exact equality classification, providing a rigorous constraint on every compact periodic, chaotic, or hyperchaotic regime of the model.
+PASS
 
-## Closest literature and limitations
-The primary source is Benkouider et al., *Scientific Reports* 14, 12993 (2024), DOI 10.1038/s41598-024-63779-1. Li and Sprott, *Optik* 127 (2016), DOI 10.1016/j.ijleo.2016.08.046, provides broader background on offset boosting but not the present claim. Closest semantic-index matches prove stationary balances for different dynamical systems and do not imply this result. Search coverage cannot rule out inaccessible or unindexed prior observations. The invariant-measure theorem is stated only for compact support and does not prove existence of the numerically reported attractors.
+Solving the stationary equations directly gives the full line \((\xi,0,0,-a\xi)\) at \(d=0\) and exactly the two displayed points when \(d\ne0\). Independent substitution verified all four components and reproduced the source-coordinate residual about 0.1796292478 at \((a,b,c,d)=(8,40,15,-0.1)\). The state reflection \((-x,-y,z,-w)\) exactly conjugates \(d\) and \(-d\). For invariant compactly supported measures, the Lie derivatives of \(w\) and \(y^2-z^2\) give \(E[y]=d\) and \(cE[z^2]=bE[y^2]\); equality in the variance bound forces support on \(y=d\), and invariance plus the finite-root quartic argument forces every support trajectory to be an equilibrium.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete open-access source was read at the exact vector field and equilibrium formulas. It prints a fourth equilibrium coordinate that fails direct substitution except at a special parameter value, asserts positive parameters while using negative \(d\), and does not contain the \(d=0\) equilibrium line, the \(d\leftrightarrow-d\) conjugacy, or the stationary second-moment identity. Fresh Resultary and exact-title/equation searches found no distinct same-system theorem implying the audited package.
+
+## value
+
+PASS
+
+Correcting a published equilibrium of the exact flow is directly useful, and the sharp stationary second-moment barrier constrains every compact recurrent statistical state, not just a sampled trajectory. Its equality characterization distinguishes equilibrium mixtures from all non-equilibrium recurrent dynamics, giving structural information that the source's numerical hyperchaos analysis does not provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

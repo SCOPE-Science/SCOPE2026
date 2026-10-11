@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:50:44.541246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 916f798408b74e859c8318225383d14f33ed6001",
+        "verify.py blob 0044e1a43826834277b9041018beeab1c98e8d4f",
+        "independent exact equilibrium and baseline-residual reconstruction"
+      ],
+      "rationale": "Solving the stationary equations directly gives the full line \\((\\xi,0,0,-a\\xi)\\) at \\(d=0\\) and exactly the two displayed points when \\(d\\ne0\\). Independent substitution verified all four components and reproduced the source-coordinate residual about 0.1796292478 at \\((a,b,c,d)=(8,40,15,-0.1)\\). The state reflection \\((-x,-y,z,-w)\\) exactly conjugates \\(d\\) and \\(-d\\). For invariant compactly supported measures, the Lie derivatives of \\(w\\) and \\(y^2-z^2\\) give \\(E[y]=d\\) and \\(cE[z^2]=bE[y^2]\\); equality in the variance bound forces support on \\(y=d\\), and invariance plus the finite-root quartic argument forces every support trajectory to be an equilibrium.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Offset-boosting literature provides generic geometric context but does not imply the exact equilibrium correction or invariant-measure law.",
+          "The source studies numerical dynamics and equilibrium eigenvalues but does not use invariant-measure generator identities."
+        ],
+        "reasoning": "Generic offset-boosting and hyperchaos theory do not dominate a model-specific polynomial stationary identity with a sharp equality classification.",
+        "searches": [
+          "Li--Sprott 2016 variable-boostable-flow background",
+          "Scientific Reports source sections on equilibria, multistability, and offset boosting",
+          "web search for stationary balance/invariant-measure identities in this exact flow"
+        ]
+      },
+      "checked_sources": [
+        "Benkouider et al., Scientific Reports 14, 12993 (2024), DOI:10.1038/s41598-024-63779-1",
+        "Li and Sprott, Variable-boostable chaotic flows, DOI:10.1016/j.ijleo.2016.08.046",
+        "Resultary query: four dimensional hyperchaotic flow ax-yz+w xz-by xy-cz -y+d equilibrium correction invariant measure stationary moment",
+        "web searches using the exact source title, equilibrium formula, DOI plus correction/erratum, and stationary second-moment identity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source fourth coordinate leaves first-component residual \\((1-d)s\\), so its printed equilibrium is genuinely wrong outside \\(d=1\\).",
+          "The two Lie-derivative identities determine the claimed second moments but the equality case additionally requires proving that support with constant \\(y\\) consists only of equilibria.",
+          "No checked prior theorem specializes automatically to the exact equality classification."
+        ],
+        "reasoning": "The correction and recurrence law are consequences of the printed ODE, but they are not already stated or implication-covered by the inspected source's numerical equilibrium analysis.",
+        "searches": [
+          "direct substitution of source Eq. (4) into source Eq. (1)",
+          "derive stationary generator identities from \\(w\\) and \\(y^2-z^2\\)",
+          "compare with generic variable-boosting conjugacies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source prints exactly the audited vector field and two nonzero equilibria for its baseline, but its fourth coordinate is different from the stationary solution of the first equation.",
+          "The focused Resultary query's same-object exact hit was the present finding; nearby results concern different four-dimensional flows."
+        ],
+        "reasoning": "The exact vector-field representation and its sign-reflected form were both checked; no prior equivalent statement of the line-to-pair equilibrium transition or moment law was found.",
+        "searches": [
+          "DOI:10.1038/s41598-024-63779-1 full text, Eq. (1) and Eq. (4)",
+          "Resultary query: four dimensional hyperchaotic flow ax-yz+w xz-by xy-cz -y+d equilibrium correction invariant measure stationary moment",
+          "web exact-equation searches for ax-yz+w, xz-by, xy-cz, -y+d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or source section contains \\(\\int z^2\\,d\\mu=(b/c)(d^2+\\operatorname{Var}_\\mu y)\\).",
+          "No indexed same-system correction with the audited equilibrium coordinate was retrieved."
+        ],
+        "reasoning": "The claim is analytic rather than tabular; exact searches were used to exclude a previously published correction or balance formula.",
+        "searches": [
+          "source full-text search for variance, invariant measure, stationary measure, and d=0 equilibrium",
+          "Resultary semantic search with the exact stationary identity"
+        ]
+      },
+      "rationale": "The complete open-access source was read at the exact vector field and equilibrium formulas. It prints a fourth equilibrium coordinate that fails direct substitution except at a special parameter value, asserts positive parameters while using negative \\(d\\), and does not contain the \\(d=0\\) equilibrium line, the \\(d\\leftrightarrow-d\\) conjugacy, or the stationary second-moment identity. Fresh Resultary and exact-title/equation searches found no distinct same-system theorem implying the audited package.",
+      "residual_risks": [
+        "The sign-reflection conjugacy is elementary once the vector field is written down; the stronger value lies in the exact correction and sharp stationary-measure identity/equality case.",
+        "No indexed erratum or later same-system analysis was found, but an unindexed correction note could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_HAS_INCORRECT_EQUILIBRIUM_AND_NO_STATIONARY_LAW",
+          "evidence": "The paper's Eq. (4) gives the discrepant fourth coordinate and does not discuss the singular d=0 equilibrium line or invariant probability measures.",
+          "identifier_or_url": "DOI:10.1038/s41598-024-63779-1",
+          "material_read": "Open-access Scientific Reports full text around Eq. (1), baseline parameters, Eq. (4) equilibria, stability discussion, offset boosting, and conclusion.",
+          "method": "lawful open-access publisher HTML",
+          "title": "A comprehensive study of the novel 4D hyperchaotic system with self-exited multistability and application in the voice encryption",
+          "trigger": "Primary same-system source and decisive coverage/correction check."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Scientific Reports source full text",
+        "assigned analytic proof",
+        "independent reconstruction"
+      ],
+      "rationale": "Correcting a published equilibrium of the exact flow is directly useful, and the sharp stationary second-moment barrier constrains every compact recurrent statistical state, not just a sampled trajectory. Its equality characterization distinguishes equilibrium mixtures from all non-equilibrium recurrent dynamics, giving structural information that the source's numerical hyperchaos analysis does not provide.",
+      "residual_risks": [
+        "The result does not establish existence of the reported chaotic or hyperchaotic invariant measures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The sign-reflection conjugacy is elementary once the vector field is written down; the stronger value lies in the exact correction and sharp stationary-measure identity/equality case.",
+    "No indexed erratum or later same-system analysis was found, but an unindexed correction note could exist."
+  ],
+  "schema_version": 1
+}
