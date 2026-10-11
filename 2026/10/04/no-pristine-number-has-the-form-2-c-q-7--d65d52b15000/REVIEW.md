@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source formula reduces the problem to \(q^7=F_7(c)\). The polynomial factorization is exact, the gcd bound follows from \(G(c)\equiv G(-8)\pmod{c+8}\), and the size inequality \(c<4q\) is valid because \(4^7>5040\). For \(q\ge11\), coprimality forces \(q^7\mid G(c)\), yielding \(c\le5032\); the smaller odd primes already satisfy \(c<28\). The exact verifier checks every remaining \(c\).
+## correctness
 
-## Originality
-PASS. The primary source excludes only \(d=3\) and \(d=5\), proves at most \(d-1\) solutions for general odd \(d\), and explicitly asks whether all such solutions are absent. Targeted searches for the exponent-\(7\) case, its two-prime form, and the equivalent binomial equation did not locate a covering theorem. Residual risk remains for unindexed observations.
+PASS
 
-## Value
-PASS. This is the first untreated odd exponent in a stated open question and strengthens the source's \(d=7\) consequence from “at most six” to “none.” The factorization supplies a mathematically motivated finite cutoff rather than an arbitrary computational range.
+Fink's formula reduces pristineness exactly to \(F_7(c)=q^7\). Exact expansion gives \(5040F_7(c)=(c+8)G(c)\) with \(G(-8)=-2^{14}3^2\), hence \(\gcd(c+8,G(c))\mid2^{14}3^2\). For \(q\ge11\), \(q\) divides only one factor; the elementary lower bound \(F_7(c)>c^7/5040\) gives \(c<4q\), excluding \(q^7\mid c+8\) and forcing \(c+8\le5040\). For \(q=3,5,7\), the same growth bound gives the smaller \(c<28\). Fresh exact arithmetic checked the polynomial identity and every \(1\le c\le5032\); no value is a seventh power. The finite scan is therefore exhaustive only after the proved cutoff.
 
-## Closest literature and limitations
-The closest prior source is Thomas Fink, “Recursively abundant and recursively perfect numbers,” arXiv:2008.10398v1. The result does not address odd exponents \(d\ge9\), and literature non-detection cannot exclude an unindexed prior observation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fink proves nonexistence only for odd exponents three and five, proves merely an at-most-\(d-1\) result for general odd \(d\), and explicitly asks whether all odd exponents have no solutions. The audited result settles the first untreated exponent \(d=7\) by a new factorization/coprimality cutoff and exact finite exhaustion. Resultary returned the assigned theorem as the exact hit and no stronger predecessor.
+
+## value
+
+PASS
+
+This settles the first untreated exponent in an explicit published open family. The combination of a structural cutoff and a small exact certificate is a meaningful finite resolution of a natural Diophantine subproblem rather than an arbitrary search range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
