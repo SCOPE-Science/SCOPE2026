@@ -1,0 +1,15 @@
+# Review of universal radial coverage by concentric regular-polygon unions
+
+## Correctness
+PASS. The normal-line description of one regular polygon gives its exact radial function. Its union with other centered rotated copies is controlled by angular distance to their nearest combined vertex; covering any concentric circle is a union of equal arcs. Counting the occupied angular lengths in the cyclic gaps gives the coverage formula for every positive radius. The truncated-gap bound, with its strict inequality for nonuniform gaps at the mean threshold, proves simultaneous optimality and rigidity. Polar integration proves the exact area formula; the center-inradius and disk-deficit statements follow by direct algebra and Taylor expansion. Coordinate-built polygon unions matched the formulas to geometric floating precision over 240 deterministic arrangements, including repeated phases. Numerical checks do not replace the proof.
+
+## Originality
+PASS with residual historical uncertainty. Kiss and Vidnyánszky, *Unions of regular polygons with large perimeter-to-area ratio* (arXiv:1402.5452v1, 2014), define centered equally spaced configurations and prove the perimeter/area ratio for them in Lemma 2.5. This is credited and not claimed new. Their full text does not assert pointwise optimal coverage of all concentric circles, a sharp maximum area across arbitrary phase sets, universal radial-weight dominance, or uniqueness. Gyenes (2011) proves related perimeter/area bounds (including centered squares); only bibliographic and abstract material was accessible, so potential overlap is a residual risk rather than a categorical claim of noncoverage. O'Rourke's 2015 MathOverflow question and its answer characterize the number of sides of *intersections* of regular polygons under rotation, not radial coverage of *unions*. Targeted mathematical-record searches found no statement implying this continuum-of-radii theorem; lack of a hit is not a novelty proof.
+
+## Value
+PASS. Maximizing the fraction of concentric circles covered by finitely many centered regular polygons is a natural geometric-coverage problem. The theorem gives one universally optimal orientation design simultaneously for all radii and all positive radial densities, determines its full equality class, supplies exact finite-resource maximum area and centered inradius, and measures the disk-approximation cost sharply as the number of orientations grows. This goes beyond the known perimeter/area ratio and an isolated numerical computation. There is no claim of a general translated-polygon or higher-dimensional result.
+
+## Risks and closest literature
+The closest full primary text is Kiss–Vidnyánszky's 2014 paper; Gyenes's broader 2011 union paper is not fully accessible here. Earlier unindexed geometric-coverage work could contain an equivalent extremal statement. Same-model review does not constitute independent mathematical verification.
+
+Same-model review: passed. Independent audit: not yet performed.

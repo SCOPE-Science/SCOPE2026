@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The regular polygon is the intersection of halfplanes tangent at radius r; along any ray the radial boundary equals r/cos(alpha-delta) where delta is distance to the nearest vertex. The union inherits the nearest-vertex formula. The angles covered at radius t are equal-radius neighborhoods of repeated vertex phases, with total measure n sum_j min(g_j,2eta(t)). Sum of truncations is bounded by min(sum_j g_j,m c), and a nonuniform gap vector has a strict deficit at c=average, hence on an open set of levels. Polar integration gives the exact area, and the largest gap gives the centered inradius. Taylor's theorem gives disk-deficit coefficient pi^2 R^2 tan(pi/n)/n. 240 coordinate-built polygon unions had maximum area error 1.78e-15 and perimeter error 7.11e-15; 15 sampled circle-cover checks differed by at most 0.00139 radians, and four asymptotic tests passed. The proof is analytic; finite experiments cannot establish the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gyenes 2011, DOI 10.1007/s00454-010-9321-9, abstract: general bounds on perimeter-to-area of unions of fixed convex sets; cited centered-square case concerns ratio.",
+        "Kiss and Vidnyánszky 2014, full text §§1–4: shifted arrangements and counterexamples to conjectured perimeter-area ratios."
+      ],
+      "reasoning": "The stronger established results optimize or bound a different quotient over unions, often with translations. The tested statement optimizes circle-by-circle coverage at fixed center and rotation-only constraint. An inaccessible broader source could still matter; no contradiction or decisive implication has been identified.",
+      "searches": [
+        "web search: Gyenes 2011 common center squares union perimeter area theorem",
+        "web search: 'area of union' 'regular polygons' 'rotate' center",
+        "mathematical-record search: maximum area union of m equally sized concentric regular polygons with rotations; equally spaced angles unique optimal distribution"
+      ]
+    },
+    "checked_sources": [
+      "Kiss–Vidnyánszky 2014, arXiv:1402.5452v2, full text",
+      "Gyenes 2011, DOI 10.1007/s00454-010-9321-9, abstract-level only",
+      "O'Rourke–Zaimi 2015, MathOverflow question 221120, full text",
+      "AMS MSC2020, 52A40: extremum problems involving convexity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 paper's Lemma 2.5 establishes the fixed ratio 2/r for the basic centered setup, whose truth is compatible with an arbitrary spectrum of union areas.",
+        "The 2015 MathOverflow question/answer gives two possible side counts for intersection of two regular polygons, a different operation and invariant.",
+        "The new proof establishes the missing truncated-gap formula C_U(t)=n sum_j min(g_j,2eta(t)) and proves strict all-level optimizer rigidity."
+      ],
+      "reasoning": "Known constant area/perimeter ratio is not sufficient to order either area or radial coverage. Facet counts for intersections do not imply level-set measures for unions. The new implication is from geometric nearest-vertex distance through all radial thresholds to every positive radial-weight integral; previously checked texts do not state that implication.",
+      "searches": [
+        "full primary text: https://arxiv.org/html/1402.5452v2, Definition 2.1, Lemma 2.5, Sections 3-4",
+        "full MathOverflow text: https://mathoverflow.net/questions/221120/intersection-of-rotating-regular-polygons",
+        "mathematical-record search: unions of concentric regular n-gons rotations fixed center maximize coverage circle area perimeter rigidity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kiss and Vidnyánszky 2014, Lemma 2.5: area/perimeter ratio of a basic concentric setup, not a sharp angular coverage law.",
+        "The primary result compares the union at each circle radius and imposes strict rigidity on arbitrary rotations, statements not equivalent to a constant perimeter/area ratio."
+      ],
+      "reasoning": "The boundary ratio is invariant over all centered phase arrangements, while their covered angular fractions generally differ at most radii. Therefore the known ratio does not imply the proposed radial majorization, maximizing arrangement, or uniqueness.",
+      "searches": [
+        "web search: 'union' 'concentric' 'regular polygons' maximum area",
+        "web search: 'maximizing' 'union' 'rotated' 'regular polygons' area",
+        "mathematical-record search: universal radial coverage dominance optimal evenly spaced rotations union congruent regular n-gons all radius thresholds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched mathematical-record hit provides a table or an all-order formula for the maximal area or full radial angular-coverage profile of centered polygon unions.",
+        "The source's 'basic' configuration is an equal-rotation construction, not an extremal area or weighted radial coverage table."
+      ],
+      "reasoning": "The exact maximal area, its equality class and the continuum of radial levels are the quantities compared. Matching input polygon orders in an unrelated polygon invariant is not evidence of coverage; the absence of a searched table is not proof that none exists.",
+      "searches": [
+        "mathematical-record search: area spectrum multi-polygon concentric rotational union covering disk sharp optimal equally spaced",
+        "mathematical-record search: rotations regular n-gons maximizes area union perimeter center equidistributed angular gaps",
+        "web search: maximum area union of m rotated regular polygons common center"
+      ]
+    },
+    "rationale": "The 2014 primary full text fixes and studies equal-spaced common-center constructions and proves only a perimeter/area ratio for them; the all-radius angular-coverage majorization and its rigidity are mathematically stronger in a different direction and are not derived by that statement. Broader union papers concern perimeter/area ratios or translated pieces, with no verified implication covering every radius. The 2015 rotation-intersection question concerns facet counts of intersections, not unions. Public mathematical-record searches found no implication-equivalent theorem. Remaining risks from unindexed sources and partially accessible earlier literature are recorded rather than treated as proof of uniqueness.",
+    "residual_risks": [
+      "2011 Gyenes full text was not accessible; an unexpected all-radius centered-union theorem therein cannot be excluded by its abstract.",
+      "An unindexed or differently termed rearrangement inequality for equal-radius vertex neighborhoods could subsume the coverage statement.",
+      "The result uses an elementary truncation inequality after a geometry-specific reduction; value comes from exact all-radius and all-weight extremality, not method complexity.",
+      "Independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongest direct prior: construction and perimeter/area identity already known; no exact all-radius coverage maximization or complete area-optimizer rigidity in materially read result.",
+        "evidence": [
+          "Definition 2.1 defines a basic equal-spacing setup; Lemma 2.5 proves perimeter-to-area ratio equality; Theorems 2.4 and 2.8 and Conjectures 4.1–4.2 concern deviations under translation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.5452v2",
+        "material_read": "Entire available HTML body, introduction, Definition 2.1, full Lemma 2.5 and proof, counterexamples, Sections 3 and 4 and references.",
+        "method": "Direct lawful open-access full-text inspection",
+        "title": "Unions of regular polygons with large perimeter-to-area ratio",
+        "trigger": "Directly studies finite unions of concentric rotated regular n-gons and includes basic equal-spaced arrangements."
+      },
+      {
+        "assessment": "Unresolved access risk; cannot infer whole-document noncoverage from the inspected portions.",
+        "evidence": [
+          "Accessible abstract describes bounds on perimeter-to-area ratios; 2014 introduction credits Gyenes for the common-center square ratio bound, not for sharp circle-by-circle coverage."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00454-010-9321-9",
+        "material_read": "Bibliographic abstract and the description of centered-square results in the full 2014 paper, not the complete 2011 article.",
+        "method": "Publisher/bibliographic abstracts and citation comparisons; full primary text not accessible in this inspection.",
+        "title": "The Ratio of the Perimeter and the Area of Unions of Copies of a Fixed Set",
+        "trigger": "Potentially stronger theorem about unions of centered squares and congruent bodies."
+      },
+      {
+        "assessment": "Not covering: concerns side counts of polygon intersections, not radial level measures of their unions.",
+        "evidence": [
+          "2015-10-17 answer reports the cyclic side-count pattern (2k,2k-gcd(n,k)) for two intersected regular polygons."
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/221120/intersection-of-rotating-regular-polygons",
+        "material_read": "Question, complete answer, and comments, including the side-count classification.",
+        "method": "Direct full webpage inspection",
+        "title": "Intersection of rotating regular polygons",
+        "trigger": "Geometrically closest directly dated question about rotating common-center regular polygons."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4705952c-9b28-492d-bd4f-dc5758df5a4e",
+  "value": {
+    "rationale": "Sharp coverage at each concentric radius is a natural exact geometry invariant relevant to finite rotational coverage of a disk. The same equally spaced configuration stochastically dominates every other orientation's radial reach and is uniquely optimal for every strictly positive radial mass, area and maximal centered contained disk. The result provides exact complete extremal classifications for all n,m and the sharp 1/m circumdisk coverage deficit, going materially beyond known fixed perimeter-area quotient calculations. No arbitrary numerical slice is singled out and no downstream theorem is required to motivate the all-parameter optimization.",
+    "status": "PASS"
+  }
+}
