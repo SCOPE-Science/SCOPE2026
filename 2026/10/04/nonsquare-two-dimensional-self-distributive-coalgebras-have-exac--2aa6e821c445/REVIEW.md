@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Over the quadratic splitting field the coalgebra has two group-like generators. Comultiplication compatibility reduces the four basis products to three choices each; exhaustive reconstruction gives the known 21 split tables. Descent is equivalent to invariance under the nontrivial Galois involution, which swaps the two group-like generators. Exactly five tables are fixed. The basis conversion produces the four displayed nonzero products plus zero. A direct exhaustive check over \(\mathbb F_3\) with nonsquare parameter \(2\) independently returns five maps. The finite check is not used as a proof for arbitrary fields.
+## correctness
 
-## Originality
-PASS. The closest 2025 paper gives a full complex classification but calls its displayed type-3 formulas a partial list and does not state a nonsquare-ground-field descent count. The 2008 paper gives 21 split tables and a complex trigonometric table, but not the exact Galois-fixed classification over a nonsquare quadratic form. Search comparisons included the aliases “trigonometric coalgebra,” “quadratic extension,” “nonsquare,” “finite field,” and “self-distributive bialgebra.” The main residual risk is an older real-form or coalgebra-classification source using different terminology.
+PASS
 
-## Value
-PASS. The result resolves a natural field-of-definition gap left visible by the recent type-3 family: formulas involving \(\sqrt a\) behave differently when \(a\) is nonsquare. The exact \(21\)-to-\(5\) square-class jump is structural rather than a parameter substitution, and the five explicit ground-field products make the nonsplit case directly usable over finite and ordered fields.
+Because a is nonsquare and char(k) is not two, K=k(s), s^2=a, is a separable quadratic extension. The vectors g_+=x+sy and g_-=x-sy become group-like. For a two-point group-like coalgebra, compatibility forces each basis product to be 0,g_+, or g_-, and generalized self-distributivity becomes the finite table identity (uv)w=(uw)(vw). Exact enumeration gives 21 split tables. The nontrivial Galois automorphism swaps g_+ and g_-; faithful scalar descent says a product is defined over k exactly when its table is fixed by this simultaneous swap. Exactly five of the 21 are fixed, and changing basis gives precisely the displayed five products. Counit multiplicativity requires all four group-like table entries to have counit one rather than zero, leaving three. If a is square the group-like basis already lies over k, so all 21 occur. The frozen verifier independently enumerates the 81 raw tables, confirms 21/5/3, symbolically changes basis, and brute-forces the F3 nonsquare case.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bardakov--Kozlovskaya--Talalaev give a full two-dimensional counital classification over C and, for the type-3 coalgebra, their full primary PDF explicitly labels the displayed multiplication list as partial and uses square-root(a) formulas. Over C every nonzero a is square, so that classification does not address descent over a ground field where a is nonsquare. Carter--Crans--Elhamdadi--Saito supply the split two-group-like table classification. The audited quadratic-Galois fixed-table argument exactly resolves the missing nonsquare form and yields the 21-to-5 square-class jump.
+
+## value
+
+PASS
+
+The exact square-class jump resolves a genuine field-of-definition gap left by a complex two-dimensional classification. It identifies the complete nonsplit product set and its counital subfamily uniformly over every characteristic-not-two field, a natural structural classification rather than a single finite-field census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

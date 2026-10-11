@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:49:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 8f51cc73bc60dd2a28f3192ca6c876e4e6861f26",
+        "verify.py blob 5652bebb337d224fb32f1ceb34dfe7d1ec74a2f2",
+        "arXiv:2501.19152v2 Section 4.4",
+        "fresh quadratic-descent reconstruction"
+      ],
+      "rationale": "Because a is nonsquare and char(k) is not two, K=k(s), s^2=a, is a separable quadratic extension. The vectors g_+=x+sy and g_-=x-sy become group-like. For a two-point group-like coalgebra, compatibility forces each basis product to be 0,g_+, or g_-, and generalized self-distributivity becomes the finite table identity (uv)w=(uw)(vw). Exact enumeration gives 21 split tables. The nontrivial Galois automorphism swaps g_+ and g_-; faithful scalar descent says a product is defined over k exactly when its table is fixed by this simultaneous swap. Exactly five of the 21 are fixed, and changing basis gives precisely the displayed five products. Counit multiplicativity requires all four group-like table entries to have counit one rather than zero, leaving three. If a is square the group-like basis already lies over k, so all 21 occur. The frozen verifier independently enumerates the 81 raw tables, confirms 21/5/3, symbolically changes basis, and brute-forces the F3 nonsquare case.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 source states that its full counital classification is over C; Section 4.4 writes the type-3 coalgebra and then says the formulas form a partial list.",
+          "The later non-counital paper advertises extension to the non-counital case, not arbitrary-field descent of this counital form."
+        ],
+        "reasoning": "No inspected broader classification covers nonsquare a over an arbitrary characteristic-not-two field.",
+        "searches": [
+          "arXiv:2501.19152v2 full primary PDF",
+          "arXiv:math/0607417",
+          "arXiv:2502.16875"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.19152v2",
+        "DOI:10.1134/S0040577925070013",
+        "arXiv:math/0607417",
+        "arXiv:2502.16875",
+        "Resultary nonsquare-coalgebra search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The split list alone gives 21 products after adjoining sqrt(a), but products over k are precisely the fixed points of simultaneous input/output swap.",
+          "Exact enumeration of the 21 split tables gives five fixed tables, and substitution x=(g_++g_-)/2, y=(g_+-g_-)/(2s) yields the five ground-field formulas; three have no zero table entries and hence preserve the counit multiplicatively."
+        ],
+        "reasoning": "The field-of-definition/Galois-fixed classification is not stated by the checked complex classification and is not a mere change of notation.",
+        "searches": [
+          "Bardakov--Kozlovskaya--Talalaev Section 4.4",
+          "Carter et al. split group-like list",
+          "assigned Galois descent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After scalar extension k(s) with s^2=a, g_+=x+sy and g_-=x-sy are group-like, reducing the problem to the known two-point split coalgebra.",
+          "Descent to k is exactly invariance under the nontrivial Galois involution swapping g_+ and g_-."
+        ],
+        "reasoning": "The nonsquare classification is the Galois-fixed subproblem of the split 21-table classification.",
+        "searches": [
+          "Bardakov--Kozlovskaya--Talalaev, arXiv:2501.19152v2, Section 4.4",
+          "Carter--Crans--Elhamdadi--Saito, arXiv:math/0607417, Lemma 3.8",
+          "Resultary query: nonsquare two-dimensional self-distributive coalgebra five products quadratic extension Galois fixed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact Resultary hit is the audited record; nearby algebra findings concern different classification gaps."
+        ],
+        "reasoning": "The finite counts five and twenty-one come from exact descent/classification rather than database lookup.",
+        "searches": [
+          "Resultary semantic search for nonsquare/quadratic-extension self-distributive coalgebras"
+        ]
+      },
+      "rationale": "Bardakov--Kozlovskaya--Talalaev give a full two-dimensional counital classification over C and, for the type-3 coalgebra, their full primary PDF explicitly labels the displayed multiplication list as partial and uses square-root(a) formulas. Over C every nonzero a is square, so that classification does not address descent over a ground field where a is nonsquare. Carter--Crans--Elhamdadi--Saito supply the split two-group-like table classification. The audited quadratic-Galois fixed-table argument exactly resolves the missing nonsquare form and yields the 21-to-5 square-class jump.",
+      "residual_risks": [
+        "Older coalgebra-form classification literature under quadratic-form terminology could contain an equivalent descent observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COMPLEX_CLASSIFICATION_AND_PARTIAL_TYPE3_LIST_DO_NOT_COVER_NONSQUARE_GROUND_FIELD_DESCENT",
+          "evidence": "The source states a full classification over C; Section 4.4 explicitly calls its displayed type-3 formulas a partial list and uses sqrt(a).",
+          "identifier_or_url": "arXiv:2501.19152v2; DOI:10.1134/S0040577925070013",
+          "material_read": "Full primary PDF around Section 4.4 was text-read and the page containing the type-3 partial multiplication list was visually inspected.",
+          "method": "Field-of-definition and completeness comparison.",
+          "title": "Self-distributive algebras and bialgebras",
+          "trigger": "Closest full primary classification of the same two-dimensional coalgebra type."
+        },
+        {
+          "assessment": "SUPPLIES_SPLIT_TABLES_NOT_GALOIS_DESCENT",
+          "evidence": "The split classification is the 21-table input; it does not state which tables descend over a nonsquare quadratic form.",
+          "identifier_or_url": "arXiv:math/0607417",
+          "material_read": "Lemma-level classification scope as cited and cross-identified by the 2025 primary source.",
+          "method": "Split-versus-nonsplit implication comparison.",
+          "title": "Cohomology of Categorical Self-Distributivity",
+          "trigger": "Primary source for the underlying split two-group-like table classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2501.19152v2",
+        "DOI:10.1134/S0040577925070013",
+        "arXiv:math/0607417",
+        "arXiv:2502.16875",
+        "Resultary nonsquare-coalgebra search"
+      ],
+      "rationale": "The exact square-class jump resolves a genuine field-of-definition gap left by a complex two-dimensional classification. It identifies the complete nonsplit product set and its counital subfamily uniformly over every characteristic-not-two field, a natural structural classification rather than a single finite-field census.",
+      "residual_risks": [
+        "Older coalgebra-form classification literature under quadratic-form terminology could contain an equivalent descent observation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2501.19152v2",
+    "DOI:10.1134/S0040577925070013",
+    "arXiv:math/0607417",
+    "arXiv:2502.16875",
+    "Resultary nonsquare-coalgebra search"
+  ],
+  "disposition": "passed",
+  "final_claim": "Over any field of characteristic not two and for nonsquare a, the two-dimensional counital coalgebra Delta x=x tensor x+a y tensor y, Delta y=x tensor y+y tensor x admits exactly five comultiplication-compatible generalized self-distributive bilinear products; exactly three also preserve the counit multiplicatively, while the split square case has twenty-one products.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older coalgebra-form classification literature under quadratic-form terminology could contain an equivalent descent observation.",
+    "Characteristic two, a=0 and dimensions above two are outside the theorem."
+  ]
+}
