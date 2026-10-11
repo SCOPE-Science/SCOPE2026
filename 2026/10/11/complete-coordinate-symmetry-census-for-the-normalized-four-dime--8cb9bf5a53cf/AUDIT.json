@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For each subgroup Gamma<=S4, equivariance reduces every Gamma-orbit of outer blocks to one representative. Consistency is exactly centralization of the representative's stabilizer, with the source's homochiral parity condition. This gives a finite product formula for Fix(Gamma). The three-cycle obstruction follows because a three-cycle fixes a weight-one block but its S4 centralizer is C3, containing no odd permutation. The complete 30-subgroup calculation, Burnside average, and subgroup-lattice Möbius subtraction are exact finite group arguments. The bundled verifier regenerates S4 and its subgroup lattice rather than trusting a stored table, and reproduces every stated count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burnside's lemma and subgroup Möbius inversion are general tools, but no broader source supplies the source-specific centralizer-parity factors.",
+        "The closest indexed Chair44 symmetry result concerns Euclidean symmetries of completed three-dimensional tilings via a 2-adic phase, not symmetries of four-dimensional candidate frame assignments.",
+        "The primary source's open problem concerns coarsening closure of candidate markings, while the present result concerns the exact finite symmetry quotient before that expensive test."
+      ],
+      "reasoning": "General group-action theory does not by itself determine these counts; the nontrivial input is the concrete U4 action, parity rule, normalization, and stabilizer centralizers. The three-dimensional tiling-symmetry theorem has different objects and no implication for this candidate-space census.",
+      "searches": [
+        "C4 chair homochiral frame assignments coordinate permutation symmetry Burnside",
+        "self-similar marking C4 symmetry-based enumeration larger subgroups S4",
+        "chair44 2-adic symmetry phase coordinate permutation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00916v1",
+      "dimkadimon/Monotile-RN:symsearch4.py",
+      "Published-finding search result: 2026/9/18/SCOPE-chair44-2-adic-symmetry-phase-dichotomy--dc2fbe046963",
+      "Targeted web searches for 2610.00916, homochiral frame assignments, S4 conjugation, Burnside counts, and four-dimensional chair symmetry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The paper states that larger-subgroup symmetry enumeration remains worth completing.",
+        "The public symmetry-search code supplies the local orbit/stabilizer construction for a chosen subgroup, but does not execute or prove the complete subgroup classification.",
+        "The source's negative coarsening-closure results for selected families do not imply how many other symmetric candidates exist or which stabilizers are impossible."
+      ],
+      "reasoning": "The prior work provides the definitions and an algorithmic primitive. The new claim requires enumerating the full subgroup lattice, deriving the three-cycle obstruction, applying Burnside's lemma, and performing subgroup-lattice subtraction; these conclusions are not corollaries stated or numerically supplied by the source.",
+      "searches": [
+        "Towards Strongly Aperiodic Monotiles in Higher Dimensions symmetry frame assignments",
+        "2610.00916 symsearch4 frame assignment S4 conjugation orbit count",
+        "self-similar marking C4 symmetry-based enumeration larger subgroups S4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper states that the four-dimensional search is finite and reports only canonical, dihedral, split-Klein, cyclic-order-four, and lifted structured families.",
+        "The accompanying symmetry program implements subgroup-orbit construction for supplied generators but contains no all-subgroup Burnside or exact-stabilizer census.",
+        "Targeted web and published-finding searches returned the primary source and unrelated symmetry results, not an equivalent census."
+      ],
+      "reasoning": "An equivalent result would need either the complete S4 quotient or an exact classification of stabilizer types and counts. The inspected literature gives neither.",
+      "searches": [
+        "2610.00916 symsearch4 frame assignment S4 conjugation orbit count",
+        "C4 chair homochiral frame assignments coordinate permutation symmetry Burnside",
+        "\"homochiral frame assignment\" tesseract chair conjugation",
+        "\"C4 chair\" \"frame assignment\" S4 symmetry"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source gives the structured family sizes 32, 768, and 6912 but no complete subgroup table.",
+        "The new product formula reproduces those three entries and adds every other S4 subgroup type, the Burnside quotient, and exact stabilizer counts.",
+        "No searched published table contained the total 53,496,608,995,008 or the nontrivial-symmetry orbit total 12,608,256."
+      ],
+      "reasoning": "The source table is strictly partial rather than covering: its reported values are consistency checks contained inside the larger classification.",
+      "searches": [
+        "tesseract chair 12^15 frame assignments symmetry invariant C4 D4 Z4",
+        "2610.00916 symsearch4 frame assignment S4 conjugation orbit count",
+        "D4 conjugation invariant 32 768 6912 frame assignments"
+      ]
+    },
+    "rationale": "The primary source reports only selected structured symmetry families and supplies a program that can enumerate a family after a subgroup is chosen. It explicitly presents broader subgroup-based symmetry enumeration as unfinished search reduction. No inspected source gives the complete fixed-subgroup table, the total S4 orbit count, the exact stabilizer strata, or the no-three-cycle theorem.",
+    "residual_risks": [
+      "The complete numerical census may be independently derivable from the public code and could appear in unindexed notes not found by the targeted searches.",
+      "The normalization fixes one outer frame and is intentionally narrower than the full unnormalized 12^15 open problem; no equivalence between those two search spaces is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: it supplies the exact objects and selected family sizes but no complete S4 candidate-space orbit/stabilizer census.",
+        "evidence": "The paper reports several structured four-dimensional families, says none passes coarsening closure, leaves the full finite problem open, and identifies symmetry-based enumeration over subgroups as a search reduction.",
+        "identifier_or_url": "arXiv:2610.00916v1",
+        "material_read": "Abstract and contribution summary; chair and homochirality definitions; frame-assignment formalism; finite certificate; four-dimensional structured-search discussion and open problem; future-work symmetry reduction.",
+        "method": "Full-text arXiv HTML inspection of version 1.",
+        "title": "Towards Strongly Aperiodic Monotiles in Higher Dimensions",
+        "trigger": "Primary recent source defining the four-dimensional chair frame-assignment search and explicitly leaving the four-dimensional marking problem open."
+      },
+      {
+        "assessment": "ALGORITHMIC_PRECURSOR_NOT_COVERING: it computes one subgroup family from supplied generators but contains no complete subgroup classification, Burnside quotient, or exact stabilizer census.",
+        "evidence": "For each orbit representative the code restricts permutations to the required parity and to the centralizer of the point stabilizer, with the outer zero block fixed to identity; this is exactly the product formula proved in the result.",
+        "identifier_or_url": "dimkadimon/Monotile-RN:symsearch4.py",
+        "material_read": "The coordinate action, permutation conjugation, subgroup generation, orbit/stabilizer loop, homochiral parity restriction, outer-zero-frame identity normalization, and total-family product.",
+        "method": "Read-only inspection of the public repository file.",
+        "title": "symsearch4.py",
+        "trigger": "Accompanying primary code fixes the normalization and implements the subgroup-conjugation candidate construction used in the paper's symmetry search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8cb9bf5a-53cf-4d65-b8c7-4a5c1cb6fda0",
+  "value": {
+    "rationale": "The source explicitly identifies symmetry-based reduction as a practical route into an otherwise enormous four-dimensional finite search. The result completely classifies that normalized coordinate-symmetry layer: it rules out every three-cycle-containing stabilizer without any coarsening computation, reproduces all tested structured-family sizes, and quantifies exactly how many inequivalent symmetric candidates remain. This is a natural finite classification tied directly to the source's open search strategy rather than an arbitrary census.",
+    "status": "PASS"
+  }
+}
