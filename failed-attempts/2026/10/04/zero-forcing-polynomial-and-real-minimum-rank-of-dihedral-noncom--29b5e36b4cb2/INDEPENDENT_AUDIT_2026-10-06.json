@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T08:41:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md b1ca43750d38b9412805026f1dd49c5b6bf108c2",
+        "verify.py a491ed2e15f7cb2716e9ebaa0275a3a18375030c",
+        "Talebi, International Journal of Algebra 2 (2008)",
+        "Boyer et al. arXiv:1801.08910"
+      ],
+      "rationale": "The group law gives \\(\\overline K_{n-1}\\\\veeee K_n\\) for odd \\(n\\) and \\(\\overline K_{n-2}\\\\veeee(K_n-\\\\fracrac n2K_2)\\) for even \\(n\\). The package constructs explicit rank-two symmetric Gram witnesses and classifies every two-white configuration; direct brute-force reconstruction independently reproduced the claimed polynomials for \\(3\\le n\\le7\\). The inspected verifier performs the same group-law construction, exact rank check, and exhaustive subset checks through the stated small range.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The minimum-rank paper characterizes \\(\\operatorname{mr}_{\\mathbb R}(G)\\le2\\) by complements that are unions of at most two cliques and complete bipartite pieces.",
+          "The zero-forcing paper fixes the top three coefficients once \\(Z=N-2\\)."
+        ],
+        "reasoning": "These are broader generic theorems and directly dominate the assigned specialization.",
+        "searches": [
+          "Barrett--van der Holst--Loewy full primary PDF",
+          "Boyer et al. full primary PDF"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.13001/1081-3810.1137",
+        "arXiv:1801.08910",
+        "Talebi 2008",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Odd complement is a clique plus an independent set, and even complement is a clique plus a matching, both covered by the rank-two characterization.",
+          "Since the graph is not complete, the rank is exactly two; hence \\(M=N-2\\le Z\\), while the universal two-white pair criterion supplies matching forcing sets and their count."
+        ],
+        "reasoning": "No nonstandard new theorem is needed to obtain any part of the final claim.",
+        "searches": [
+          "Barrett minimum-rank-two characterization + Boyer Theorem 1 + dihedral graph structure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dihedral graph has an independent rotation part joined to the reflection graph, with the even reflection graph a cocktail-party graph.",
+          "Boyer Theorem 1 already characterizes all size-\\(N-2\\) zero-forcing sets via deleted neighborhoods."
+        ],
+        "reasoning": "The assigned minimum-set classification is exactly the universal size-\\(N-2\\) criterion specialized to this known graph structure.",
+        "searches": [
+          "Resultary: zero forcing polynomial dihedral noncommuting graph minimum rank real symmetric",
+          "Talebi dihedral noncommuting graph",
+          "Boyer et al. arXiv:1801.08910",
+          "Barrett--van der Holst--Loewy DOI:10.13001/1081-3810.1137"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older record prints the exact parity coefficients verbatim."
+        ],
+        "reasoning": "Exact wording is unnecessary because the coefficients are the direct universal pair count on the known graph.",
+        "searches": [
+          "Resultary exact dihedral/noncommuting/zero-forcing query"
+        ]
+      },
+      "rationale": "The rank-two and polynomial conclusions are routine consequences of older general theorems once the standard dihedral noncommuting-graph structure is written down. Barrett--van der Holst--Loewy characterize all real graphs of minimum rank at most two by the form of the complement; both parity cases fit that characterization immediately. Boyer et al. Theorem 1 gives the \\(N-2\\) coefficient as the number of vertex pairs with distinct deleted neighborhoods, while the universal top coefficients are already fixed. Counting those pairs in the standard dihedral join/cocktail-party description gives exactly the assigned parity formulas and minimum-set types.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MINIMUM_RANK_THEOREM_COVERS",
+          "evidence": "The complement forms arising from both dihedral parity cases lie in the published rank-two class.",
+          "identifier_or_url": "DOI:10.13001/1081-3810.1137",
+          "material_read": "Complete primary PDF, including the abstract, definitions, Observations 1--4 and the rank-at-most-two complement characterization.",
+          "method": "Open primary full-PDF text and page-image inspection.",
+          "title": "Graphs whose minimal rank is two",
+          "trigger": "Broad real-symmetric theorem covering the claimed minimum rank."
+        },
+        {
+          "assessment": "UNIVERSAL_N_MINUS_2_COEFFICIENT_THEOREM_COVERS",
+          "evidence": "The minimum-set types are exactly the pairs counted by the published deleted-neighborhood criterion.",
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "Complete primary PDF, including Theorem 1 characterizing \\(z(G;N-2)\\).",
+          "method": "Open primary full-PDF text and page inspection.",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Universal top-coefficient theorem for the exact invariant."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Barrett--van der Holst--Loewy 2004",
+        "Boyer et al. 2019",
+        "Talebi 2008"
+      ],
+      "rationale": "The dihedral graph is natural, but after the standard group-derived graph structure is known the asserted minimum rank and the complete three-term zero-forcing polynomial are direct applications of two generic published theorems plus elementary pair counting. That is a routine specialization rather than a motivated new structural result.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the noncommuting graph of \\(D_{2n}\\), \\(n\\ge3\\), real symmetric minimum rank is two and \\(Z=M=N-2\\); the zero-forcing polynomial has only degrees \\(N-2,N-1,N\\), with leading coefficient \\(n(n-1)\\) for odd \\(n\\) and \\(3n(n-2)/2\\) for even \\(n\\), and the minimum sets are exactly the complements of the stated two-vertex types.",
+  "limitations": [
+    "Standard noncommuting graph on noncentral elements of \\(D_{2n}\\), with \\(D_{2n}\\) of order \\(2n\\).",
+    "Rejected for implication-level coverage and routine specialization, not correctness."
+  ],
+  "schema_version": 1
+}
