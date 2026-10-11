@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite object is reconstructed from the defining graph and cut-complex definition. The bundled verifier checks the complete face set, all Hasse covers, an acyclic discrete-Morse matching, exact rational boundary ranks, cube vertex connectivity, and shellings of all proper induced-subgraph cut complexes. The homotopy step uses the resulting critical-cell dimensions and the degree classification of maps \(S^3\to S^3\). The proof establishes exactly the stated \(Q_3\) claim and no infinite-family extrapolation.
+## correctness
 
-## Originality
-PASS relative to the checked literature. The closest primary source, Bayer et al., introduces the object and minimal-forbidden problem and gives a criterion that converts cube nonshellability into minimality, but it does not state the cube homotopy calculation. Its treated prism family is \(K_n\mathbin{\square}K_2\), not \(C_4\mathbin{\square}K_2\cong Q_3\). The later grid paper treats rectangular \(2\times n\) and \(3\times n\) graphs and does not cover the three-dimensional \(2\times2\times2\) product. Exact object/alias/implication searches found no matching indexed result. Residual risk is an unindexed computation under alternate terminology.
+PASS
 
-## Value
-PASS. Minimal forbidden subgraphs are an explicit structural target in the defining paper, and the cube is a canonical \(3\)-connected graph and the smallest Cartesian product with three path factors. The mixed-dimensional wedge \(S^3\vee\bigvee^{4}S^4\) supplies a topological obstruction to shellability and a reusable exact benchmark for future cut-complex classifications.
+The package reconstructs the ordinary 3-cut complex of \(Q_3\) exactly: 32 facets, 188 nonempty faces and f-vector \((8,28,56,64,32)\). The complete Hasse-diagram element matching has 91 pairs, is acyclic, and leaves one critical 0-cell, one critical 3-cell and four critical 4-cells. Exact rational chain ranks \((7,21,35,28)\) give Betti vector \((1,0,0,1,4)\). In the resulting Morse CW complex, the cellular boundary from the four 4-cells to the lone 3-cell has rational rank zero, hence is the zero integral homomorphism; each attaching map \(S^3\to S^3\) therefore has degree zero and is null-homotopic. This proves \(S^3\vee\bigvee^4 S^4\). Nonzero third homology rules out shellability of the pure 4-complex. The verifier additionally exhausts all 255 proper vertex subsets and finds and rechecks a shelling for every induced subgraph, while the source's structural criterion independently applies because the cube is 3-connected and 3-regular.
 
-## Closest literature and limitations
-The defining paper gives the shellability conventions, the pure-shellable wedge theorem, the minimal-forbidden framework, Corollary 5.5, and a face-lattice theorem whose complete-skeleton hypothesis fails for this cube complex. The later rectangular-grid paper does not extend to three-dimensional cubes. The result does not classify other cubic graphs or higher hypercubes, and no independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining cut-complex paper was materially inspected in full PDF, including a rendered theorem page. Its Corollary 5.5 states the structural minimal-forbidden criterion used here, but full-text searches found no cube, \(Q_3\), or hypercube case and no mixed wedge \(S^3\vee4S^4\). A later grid-graph paper treats planar rectangular \(2\times n\) and \(3\times n\) grids rather than the three-dimensional cube product. Resultary search returned the assigned cube result as the direct exact hit and no earlier equivalent theorem. Thus the structural criterion is prior, while the non-shellability, exact homotopy type, and verification that the cube meets the criterion are new best-of-knowledge content.
+
+## value
+
+PASS
+
+The cube is a canonical smallest 3-regular, 3-connected graph to test the defining paper's minimal-forbidden mechanism. The exact mixed-dimensional homotopy type and exhaustive induced-subgraph shellability certificate give a natural finite obstruction useful to the requested classification program, rather than an arbitrary graph census entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:17:56.234263Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a08eee6f1026f603684a70cce7d8027c5313d474",
+        "assigned verify_cube_cut.py blob cdfb4ae4d4005911d2b07650deb81abf7f8bdb30",
+        "Bayer et al., arXiv:2304.13675 / DOI:10.1137/23M1569034"
+      ],
+      "rationale": "The package reconstructs the ordinary 3-cut complex of \\(Q_3\\) exactly: 32 facets, 188 nonempty faces and f-vector \\((8,28,56,64,32)\\). The complete Hasse-diagram element matching has 91 pairs, is acyclic, and leaves one critical 0-cell, one critical 3-cell and four critical 4-cells. Exact rational chain ranks \\((7,21,35,28)\\) give Betti vector \\((1,0,0,1,4)\\). In the resulting Morse CW complex, the cellular boundary from the four 4-cells to the lone 3-cell has rational rank zero, hence is the zero integral homomorphism; each attaching map \\(S^3\\to S^3\\) therefore has degree zero and is null-homotopic. This proves \\(S^3\\vee\\bigvee^4 S^4\\). Nonzero third homology rules out shellability of the pure 4-complex. The verifier additionally exhausts all 255 proper vertex subsets and finds and rechecks a shelling for every induced subgraph, while the source's structural criterion independently applies because the cube is 3-connected and 3-regular.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining source gives a general criterion: a 3-connected graph with each vertex adjacent to a degree-3 vertex is minimal forbidden if its 3-cut complex is nonshellable.",
+          "The grid paper studies planar rectangular grids and does not include \\(P_2\\square P_2\\square P_2\\)."
+        ],
+        "reasoning": "The criterion reduces minimality to proving cube nonshellability but does not itself establish the cube's homotopy type or nonshellability.",
+        "searches": [
+          "Bayer et al. DOI:10.1137/23M1569034 Corollary 5.5",
+          "Chandrakar--Hazra--Rout--Singh arXiv:2408.07646 / DOI:10.1137/24M1687716"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675",
+        "DOI:10.1137/23M1569034",
+        "arXiv:2408.07646",
+        "DOI:10.1137/24M1687716",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 5.5 is conditional on nonshellability and therefore does not imply the cube result without an independent proof.",
+          "The general face-lattice results do not force the audited Betti vector or mixed-dimensional homotopy type."
+        ],
+        "reasoning": "The discrete-Morse and homology computation is the missing nonstandard step that activates the prior structural criterion.",
+        "searches": [
+          "Direct comparison with Bayer et al. Corollary 5.5 and face-lattice results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining paper contains no located cube instance or the displayed mixed-dimensional wedge.",
+          "The exact Resultary hit is the audited record itself; nearby records concern total cut complexes or different graphs."
+        ],
+        "reasoning": "Ordinary 3-cut-complex shellability, cube/hypercube naming and minimal-forbidden formulations were all compared.",
+        "searches": [
+          "Resultary query: cube Q3 3-cut complex shellability minimal forbidden graph homotopy wedge S3 four S4",
+          "arXiv:2304.13675 full-text searches for cube, Q3, hypercube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate prior exact table or published finding with f-vector, Betti data, or the wedge type was located."
+        ],
+        "reasoning": "The exhaustive finite computation supplies a natural exact invariant of a canonical graph rather than recomputing a known database entry.",
+        "searches": [
+          "Resultary semantic search for Q3 cut-complex homotopy and shellability"
+        ]
+      },
+      "rationale": "The defining cut-complex paper was materially inspected in full PDF, including a rendered theorem page. Its Corollary 5.5 states the structural minimal-forbidden criterion used here, but full-text searches found no cube, \\(Q_3\\), or hypercube case and no mixed wedge \\(S^3\\vee4S^4\\). A later grid-graph paper treats planar rectangular \\(2\\times n\\) and \\(3\\times n\\) grids rather than the three-dimensional cube product. Resultary search returned the assigned cube result as the direct exact hit and no earlier equivalent theorem. Thus the structural criterion is prior, while the non-shellability, exact homotopy type, and verification that the cube meets the criterion are new best-of-knowledge content.",
+      "residual_risks": [
+        "An unindexed finite cube computation could exist under different cut-complex terminology; none was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CRITERION_NOT_CUBE_COMPUTATION",
+          "evidence": "The source gives the conditional minimality criterion but no located cube case or \\(S^3\\vee\\bigvee^4S^4\\) homotopy statement.",
+          "identifier_or_url": "arXiv:2304.13675; DOI:10.1137/23M1569034",
+          "material_read": "Complete primary PDF material around shellability and Corollary 5.5; full-text searches for cube/Q3/hypercube; the relevant theorem page was visually inspected.",
+          "method": "Lawful open primary PDF inspection with screenshot verification.",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Defining paper for k-cut complexes and the minimal-forbidden criterion."
+        },
+        {
+          "assessment": "PLANAR_RECTANGULAR_GRIDS_NOT_THREE_DIMENSIONAL_CUBE",
+          "evidence": "The treated graph families do not include the three-factor cube.",
+          "identifier_or_url": "arXiv:2408.07646; DOI:10.1137/24M1687716",
+          "material_read": "Primary abstract/theorem-scope material describing rectangular \\(2\\times n\\) and \\(3\\times n\\) grids.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Topology of total cut and cut complexes of grid graphs",
+          "trigger": "Closest later family paper suggested by product/grid terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bayer et al. defining cut-complex paper",
+        "grid-graph follow-up"
+      ],
+      "rationale": "The cube is a canonical smallest 3-regular, 3-connected graph to test the defining paper's minimal-forbidden mechanism. The exact mixed-dimensional homotopy type and exhaustive induced-subgraph shellability certificate give a natural finite obstruction useful to the requested classification program, rather than an arbitrary graph census entry.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2304.13675",
+    "DOI:10.1137/23M1569034",
+    "arXiv:2408.07646",
+    "DOI:10.1137/24M1687716",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the ordinary 3-cut complex of \\(Q_3\\) is classified.",
+    "No general formula for higher hypercubes or total cut complexes is claimed.",
+    "No integral cup-product or simple-homotopy classification is supplied."
+  ],
+  "residual_risks": [
+    "An unindexed finite cube computation could exist under different cut-complex terminology; none was located."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_CRITERION_NOT_CUBE_COMPUTATION",
+      "evidence": "The source gives the conditional minimality criterion but no located cube case or \\(S^3\\vee\\bigvee^4S^4\\) homotopy statement.",
+      "identifier_or_url": "arXiv:2304.13675; DOI:10.1137/23M1569034",
+      "material_read": "Complete primary PDF material around shellability and Corollary 5.5; full-text searches for cube/Q3/hypercube; the relevant theorem page was visually inspected.",
+      "method": "Lawful open primary PDF inspection with screenshot verification.",
+      "title": "Topology of Cut Complexes of Graphs",
+      "trigger": "Defining paper for k-cut complexes and the minimal-forbidden criterion."
+    },
+    {
+      "assessment": "PLANAR_RECTANGULAR_GRIDS_NOT_THREE_DIMENSIONAL_CUBE",
+      "evidence": "The treated graph families do not include the three-factor cube.",
+      "identifier_or_url": "arXiv:2408.07646; DOI:10.1137/24M1687716",
+      "material_read": "Primary abstract/theorem-scope material describing rectangular \\(2\\times n\\) and \\(3\\times n\\) grids.",
+      "method": "Lawful open primary-source inspection.",
+      "title": "Topology of total cut and cut complexes of grid graphs",
+      "trigger": "Closest later family paper suggested by product/grid terminology."
+    }
+  ]
+}
