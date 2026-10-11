@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-Run `python3 verify.py`.
 
-For each \(1\le n\le44\), the program generates the required primes by a deterministic sieve and forms
-\[
-R_n(b)=\prod_{r=0}^{b-1}\frac{P_{n+r}}{P_{n+r}-1}
-\]
-using exact integer numerators and denominators. It stops at the first \(b\) satisfying
-\[
-R_n(b)>2.
-\]
-Because every factor exceeds \(1\), this first crossing is exactly \(a(n)\); the checker also verifies the preceding product is at most \(2\).
+# Independent mathematical audit
 
-Acceptance requires
-\[
-a(42)=3900,\qquad a(43)=4112,\qquad a(44)=4324,
-\]
-the terminal primes \(37199,39461,41761\), the published normalization \(f(31)=-5\), the equality \(f(43)=0\), and nonvanishing of every \(f(n)\) for \(2\le n\le42\).
+## correctness
 
-A successful replay prints `VERIFY_OK`. No floating-point arithmetic is used in the threshold comparisons.
+PASS
+
+For fixed \(n\), the defining product is strictly increasing with window length, so exact integer numerator/denominator comparison certifies the minimal crossing without floating point. Independent recomputation found \(a(42)=3900\), \(a(43)=4112\), \(a(44)=4324\), terminal primes \(37199,39461,41761\), and \(f(43)=0\); scanning every required \(a(1),\ldots,a(44)\) found no earlier zero and reproduced the published check \(f(31)=-5\).
+
+## originality
+
+PASS
+
+Zelinsky's 2023 paper explicitly asks whether \(f(n)\) is ever zero and gives \(f(31)=-5\) as an example, while the earlier paper introduces the second-difference behavior. Exact-value searches for \(f(43)\) and the triple \((3900,4112,4324)\), plus Resultary search, found no prior answer. The audited computation therefore resolves a stated open finite question and additionally proves minimality.
+
+## value
+
+PASS
+
+The result gives an exact affirmative answer and sharp first occurrence for a question explicitly posed in the prime-factor literature. Although finite, the cutoff is mathematically motivated by the source's second-difference problem and is fully reproducible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

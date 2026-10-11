@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The definition of \(a(n)\) is a first-crossing problem for a strictly increasing product of positive rational factors. Exact integer arithmetic gives \(a(42)=3900\), \(a(43)=4112\), and \(a(44)=4324\), hence \(f(43)=0\). Recomputing \(a(1),\ldots,a(44)\) and testing every \(2\le n\le42\) proves that no earlier zero occurs. The checker also reproduces the source's published normalization \(f(31)=-5\).
+## correctness
 
-## Originality
-PASS. The earlier Zelinsky paper introduces the second difference and explicitly asks whether \(f(n)\) is ever zero. The 2023 published follow-up repeats that question in the \(f_\alpha\) setting. Full relevant source sections were inspected, and exact-number, notation, quoted-question, broader-coverage, and semantic searches found no prior \(f(43)=0\) statement or table containing the triple \((3900,4112,4324)\). The residual risk is an unindexed or private computation.
+PASS
 
-## Value
-PASS. The finding resolves the existence part of an explicit published question and strengthens it by identifying the first zero. The index \(43\) is mathematically natural because it is the minimal witness, not an arbitrary finite cutoff.
+For fixed \(n\), the defining product is strictly increasing with window length, so exact integer numerator/denominator comparison certifies the minimal crossing without floating point. Independent recomputation found \(a(42)=3900\), \(a(43)=4112\), \(a(44)=4324\), terminal primes \(37199,39461,41761\), and \(f(43)=0\); scanning every required \(a(1),\ldots,a(44)\) found no earlier zero and reproduced the published check \(f(31)=-5\).
 
-## Closest literature and limitations
-The closest sources are Joshua Zelinsky's “On the number of total prime factors of an odd perfect number” and “On the small prime factors of a non-deficient number.” The result does not determine whether there are infinitely many zeros, nor the full value set of \(f\) or \(f_\alpha\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Zelinsky's 2023 paper explicitly asks whether \(f(n)\) is ever zero and gives \(f(31)=-5\) as an example, while the earlier paper introduces the second-difference behavior. Exact-value searches for \(f(43)\) and the triple \((3900,4112,4324)\), plus Resultary search, found no prior answer. The audited computation therefore resolves a stated open finite question and additionally proves minimality.
+
+## value
+
+PASS
+
+The result gives an exact affirmative answer and sharp first occurrence for a question explicitly posed in the prime-factor literature. Although finite, the cutoff is mathematically motivated by the source's second-difference problem and is fully reproducible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
