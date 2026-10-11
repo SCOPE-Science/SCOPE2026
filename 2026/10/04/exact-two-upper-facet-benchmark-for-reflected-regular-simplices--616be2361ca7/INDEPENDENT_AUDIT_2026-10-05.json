@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:57:45.230942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob cb315535534be9dacfda2b1a50d8b7745497f467",
+        "verify.py blob 36c98f1e7605daf4076beab810891acb062ab59c",
+        "Horváth 2019 exact prism/visibility premises",
+        "independent matrix-eigenvalue reconstruction"
+      ],
+      "rationale": "Starting from Horváth's exact two-facet prism expression and visibility interval, convexity in the second coordinate reduces the maximum to the two endpoints. The upper endpoint is at most \\(1-1/n^2\\). The lower endpoint becomes the Rayleigh quotient of the displayed \\(2\\times2\\) symmetric matrix, whose largest eigenvalue is exactly the stated radical after direct characteristic-polynomial calculation. The positive eigenvector satisfies the strict second-facet visibility inequality, and the explicit normal construction makes all other facets non-upper, so the relaxation is realizable. Independent eigenvalue calculations for \\(3\\le n<30\\) reproduce the closed expression, while the bundled checker verifies the same geometry through \\(n=400\\). The finite checks corroborate rather than replace the analytic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 paper proves global optimality of the height-orthogonal support through dimension four and solves dimension five, explicitly correcting the earlier all-dimensional claim.",
+          "The separate six-simplex result is stronger at \\(n=6\\) globally but supplies only a single-dimensional overlap."
+        ],
+        "reasoning": "No inspected broader source dominates the all-\\(n\\) two-upper-facet formula.",
+        "searches": [
+          "arXiv:1811.12399 global results",
+          "Resultary six-simplex exact maximum record",
+          "arXiv:1303.3454 earlier claim"
+        ]
+      },
+      "checked_sources": [
+        "Horváth, An extremal problem of regular simplices -- the higher dimensional case, arXiv:1811.12399; Journal of Geometry 110 (2019), article 17",
+        "Horváth, On an extremal problem connected with simplices, arXiv:1303.3454; Beiträge Algebra Geom. 55 (2014)",
+        "Resultary semantic query: regular simplex reflection supporting hyperplane exactly two upper facets all dimensions Horvath five dimensional",
+        "Resultary record: Exact reflection maximum for the regular six-simplex, 2026/10/04"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published premises reduce the problem to a constrained quadratic but do not state the general-dimensional maximization.",
+          "The new step proves that the positive top eigenvector lies in the genuine exactly-two-upper-facet chamber, excluding the possibility that the relaxed Rayleigh maximum is geometrically spurious."
+        ],
+        "reasoning": "The final formula is not a mere substitution into a published all-dimensional closed solution.",
+        "searches": [
+          "Horváth 2019 prism formula and facet inequalities",
+          "independent eigenvalue/feasibility reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horváth's source derives the same type of lower-endpoint quadratic for \\(n=5\\) and obtains \\(5+\\sqrt{77/3}\\).",
+          "The audited matrix formula generalizes that exact calculation to arbitrary dimension and includes an all-\\(n\\) feasibility proof."
+        ],
+        "reasoning": "The five-dimensional computation is a covered specialization, while the claimed theorem is the all-dimensional chamber optimization.",
+        "searches": [
+          "arXiv:1811.12399 full primary text, general upper-facet setup and five-dimensional two-facet calculation",
+          "Resultary query listed in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier external table or indexed theorem was found that states the formula for every \\(n\\ge3\\)."
+        ],
+        "reasoning": "The theorem is analytic rather than tabular; exact-value searches are supporting evidence.",
+        "searches": [
+          "Resultary semantic query listed in checked_sources",
+          "targeted searches for the closed radical and two-upper-facet Rayleigh matrix"
+        ]
+      },
+      "rationale": "Originality passes for the all-dimensional two-upper-facet chamber optimum. Horváth's primary paper supplies the prism formula and visibility constraints and explicitly optimizes the two-upper-facet case in dimension five while leaving the higher-dimensional global problem open. The audited result exposes the dimension-\\(n\\) Rayleigh-quotient matrix, proves feasibility of its maximizing eigenvector for every \\(n\\ge3\\), and obtains the closed all-dimensional benchmark. A related SCOPE six-simplex result covers only one specialization, not the theorem's full parameter range.",
+      "residual_risks": [
+        "An unindexed follow-up to Horváth's 2019 problem could contain the same all-dimensional two-facet chamber calculation under different coordinates.",
+        "A same-day later/adjacent SCOPE result gives the global six-simplex optimum and can subsume the \\(n=6\\) specialization, but it does not cover the all-dimensional two-upper-facet theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIVE_DIMENSIONAL_SPECIALIZATION_AND_PREMISES_NOT_ALL_DIMENSIONS",
+          "evidence": "The paper solves the global five-dimensional case and contains the \\(n=5\\) quadratic that the audited result generalizes, but does not state the all-dimensional two-facet formula.",
+          "identifier_or_url": "arXiv:1811.12399; DOI:10.1007/s00022-019-0472-4",
+          "material_read": "Primary full-text material covering the general upper-facet reduction and the detailed \\(n=5\\), two-upper-facet optimization, together with the paper's statement that higher-dimensional behavior differs from the old claim.",
+          "method": "lawful open-access primary text",
+          "title": "An extremal problem of regular simplices -- the higher dimensional case",
+          "trigger": "Direct primary source for the reflected-simplex volume formula and strongest same-object coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Horváth, An extremal problem of regular simplices -- the higher dimensional case, arXiv:1811.12399; Journal of Geometry 110 (2019), article 17",
+        "Horváth, On an extremal problem connected with simplices, arXiv:1303.3454; Beiträge Algebra Geom. 55 (2014)",
+        "Resultary semantic query: regular simplex reflection supporting hyperplane exactly two upper facets all dimensions Horvath five dimensional",
+        "Resultary record: Exact reflection maximum for the regular six-simplex, 2026/10/04"
+      ],
+      "rationale": "The chamber is singled out by the primary source's facet decomposition and contains the published five-dimensional global optimizer. Its exact all-dimensional optimum gives a concrete lower benchmark for the still harder global problem, shows the first dimension where this chamber beats the old \\(2n\\) configuration, and gives a clean asymptotic ratio. This is a motivated structural subproblem, not an arbitrary restriction.",
+      "residual_risks": [
+        "For \\(n\\ge6\\) the result does not claim global optimality across chambers with three or more upper facets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed follow-up to Horváth's 2019 problem could contain the same all-dimensional two-facet chamber calculation under different coordinates.",
+    "A same-day later/adjacent SCOPE result gives the global six-simplex optimum and can subsume the \\(n=6\\) specialization, but it does not cover the all-dimensional two-upper-facet theorem.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
