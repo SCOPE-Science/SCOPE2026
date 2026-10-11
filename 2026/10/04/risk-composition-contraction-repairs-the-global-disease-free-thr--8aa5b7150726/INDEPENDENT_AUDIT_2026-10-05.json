@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:09:46.326778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob b26d250ac076010692665492c62349608ae9dac8",
+        "assigned verify.py blob 7937fa819aa95f00ad74070561d9f09f9ea9681f",
+        "Pan--Tang, A new model for COVID-19 in the post-pandemic era, DOI:10.3934/math.20241032",
+        "Ibrahim et al., DOI:10.3390/vaccines11010003",
+        "Katriel, DOI:10.1007/s00285-011-0460-2"
+      ],
+      "rationale": "Direct substitution of the source parameter set confirms that the printed global comparison can reverse sign at an admissible simplex state even though the source R0 is below one. For q=S/rho-L/(1-rho), subtracting the two susceptible equations gives the exact scalar identity q' = -(mu+beta H)q -(alpha-beta)H S/rho, so the positive part contracts at least as e^{-mu t}. The exact decomposition alpha S+beta L = a0(S+L)+(alpha-beta)rho(1-rho)q then bounds the time-dependent effective susceptibility by a0 plus an exponentially decaying excess. When R0<1, after finite time the infected two-by-two Metzler block is entrywise dominated by a fixed Hurwitz Metzler matrix, which yields exponential decay of E and I; scalar variation of constants then gives R to zero and S,L to their disease-free shares. The disease-free Jacobian is locally stable at the same threshold, so global attraction plus local stability gives global asymptotic stability. A fresh independent symbolic reconstruction verified the q equation and the susceptibility decomposition; the exact package checker separately verifies those identities, the infected-block determinant, and the numerical sign-reversal counterexample.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader heterogeneous-susceptibility models establish their own threshold/stability results under different equations.",
+          "They do not supply the exact Pan--Tang susceptible-composition contraction used here."
+        ],
+        "reasoning": "The general epidemic literature motivates the mechanism but does not dominate the source-specific repair.",
+        "searches": [
+          "Ibrahim et al. DOI:10.3390/vaccines11010003",
+          "Katriel DOI:10.1007/s00285-011-0460-2",
+          "Pan--Tang DOI:10.3934/math.20241032"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.20241032",
+        "DOI:10.3390/vaccines11010003",
+        "DOI:10.1007/s00285-011-0460-2",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published proof asserts a false pointwise matrix inequality and therefore does not imply the corrected global theorem by its stated argument.",
+          "The new q contraction creates the eventual uniform bound needed for a valid cooperative comparison at exactly the same R0 threshold."
+        ],
+        "reasoning": "The final theorem requires a new global mechanism; it is not a direct corollary of the flawed source proof.",
+        "searches": [
+          "direct comparison with Pan--Tang Theorem 1 and equations in its global proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source theorem has the same target threshold but its displayed global comparison is invalid on the full invariant simplex.",
+          "No inspected source states q=S/rho-L/(1-rho) or the exponential contraction of its positive part."
+        ],
+        "reasoning": "Risk-composition, weighted-susceptibility, and global-threshold formulations were compared; the repair is not a renaming of a source variable.",
+        "searches": [
+          "Resultary: two susceptibility SLEIRS Pan Tang risk composition contraction disease free threshold correction alpha S beta L",
+          "web/source-title searches for Pan--Tang erratum, correction, weighted-susceptibility composition",
+          "DOI:10.3934/math.20241032 full primary PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact correction or same identity was returned among the relevant findings."
+        ],
+        "reasoning": "This is a theorem/proof repair, so a numeric table is inapplicable beyond checking the source's parameter counterexample.",
+        "searches": [
+          "Resultary semantic search for the exact Pan--Tang correction and composition identity"
+        ]
+      },
+      "rationale": "The complete Pan--Tang primary PDF was inspected through the normalized model, R0 calculation, Theorem 1 and its global-stability proof. The source explicitly uses the invalid pointwise replacement of alpha S+beta L by the disease-free weighted value. No correction or erratum giving the submitted composition variable was found in targeted searches. Related heterogeneous-susceptibility epidemic models use different flows or Lyapunov structures and do not imply this exact contraction identity. The submitted result therefore supplies a source-specific repair that preserves the published threshold rather than merely pointing out an error.",
+      "residual_risks": [
+        "A very recent unindexed erratum to Pan--Tang could overlap, although targeted correction/erratum searches found none."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_PROOF_GAP_CONFIRMED",
+          "evidence": "The source replaces the time-dependent alpha S+beta L by alpha rho+beta(1-rho) pointwise, which fails at the explicit admissible state checked in the audit.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20241032",
+          "material_read": "Complete open primary PDF through the normalized model, invariant simplex, R0, Theorem 1, Jacobian, and the global proof's pointwise infected-block comparison; the relevant proof page was visually inspected.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "A new model for COVID-19 in the post-pandemic era",
+          "trigger": "Exact source whose global disease-free theorem and proof are repaired."
+        },
+        {
+          "assessment": "RELATED_MODEL_NOT_REPAIR",
+          "evidence": "Its recruitment/intervention structure is different and it does not contain the Pan--Tang q identity.",
+          "identifier_or_url": "https://doi.org/10.3390/vaccines11010003",
+          "material_read": "Open primary model formulation and global-stability context.",
+          "method": "Lawful open primary-text inspection.",
+          "title": "COVID-19 Model with High- and Low-Risk Susceptible Population Incorporating the Effect of Vaccines",
+          "trigger": "Closest inspected model with explicit high/low-risk susceptible classes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pan--Tang complete primary paper",
+        "heterogeneous-susceptibility comparisons"
+      ],
+      "rationale": "The result repairs a published global threshold theorem whose printed comparison fails even for the paper's own subcritical parameter set. The contraction identity explains why the original threshold nevertheless remains correct and isolates a reusable risk-composition mechanism rather than merely producing a counterexample to one line of proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3934/math.20241032",
+    "DOI:10.3390/vaccines11010003",
+    "DOI:10.1007/s00285-011-0460-2",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strict subcritical case R0<1 only.",
+    "Uses the source ordering alpha>beta and positive demographic turnover.",
+    "Does not address the critical threshold, endemic equilibrium, or empirical forecasting claims."
+  ],
+  "residual_risks": [
+    "A very recent unindexed erratum to Pan--Tang could overlap, although targeted correction/erratum searches found none."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SOURCE_PROOF_GAP_CONFIRMED",
+      "evidence": "The source replaces the time-dependent alpha S+beta L by alpha rho+beta(1-rho) pointwise, which fails at the explicit admissible state checked in the audit.",
+      "identifier_or_url": "https://doi.org/10.3934/math.20241032",
+      "material_read": "Complete open primary PDF through the normalized model, invariant simplex, R0, Theorem 1, Jacobian, and the global proof's pointwise infected-block comparison; the relevant proof page was visually inspected.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "A new model for COVID-19 in the post-pandemic era",
+      "trigger": "Exact source whose global disease-free theorem and proof are repaired."
+    },
+    {
+      "assessment": "RELATED_MODEL_NOT_REPAIR",
+      "evidence": "Its recruitment/intervention structure is different and it does not contain the Pan--Tang q identity.",
+      "identifier_or_url": "https://doi.org/10.3390/vaccines11010003",
+      "material_read": "Open primary model formulation and global-stability context.",
+      "method": "Lawful open primary-text inspection.",
+      "title": "COVID-19 Model with High- and Low-Risk Susceptible Population Incorporating the Effect of Vaccines",
+      "trigger": "Closest inspected model with explicit high/low-risk susceptible classes."
+    }
+  ]
+}
