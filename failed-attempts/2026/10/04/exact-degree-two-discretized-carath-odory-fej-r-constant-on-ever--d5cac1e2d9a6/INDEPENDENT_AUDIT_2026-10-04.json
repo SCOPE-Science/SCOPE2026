@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:07:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob d60a1955e9669cecf5ebf3205b3e9b09de780926",
+        "assigned artifacts/verify.py blob 88c0ecf5fcd4af9ea496b0ca0ebce81009197c8b",
+        "Kolountzakis-Revesz arXiv:math/0302193 full primary PDF"
+      ],
+      "rationale": "Writing \\(x=\\cos(2\\pi r/N)\\) turns the sampled polynomial into \\(1+ax+b(2x^2-1)\\). The two adjacent cosine samples straddling \\(-1/\\sqrt2\\) have opposite signs for \\(2x^2-1\\). A positive linear combination of their feasibility inequalities cancels \\(b\\) and gives \\(a\\le-2(u+v)/(1+2uv)\\); choosing \\(b=(1+2uv)^{-1}\\) factors the candidate as \\(2(x-u)(x-v)/(1+2uv)\\), which is nonnegative on the sample grid because no sample lies between adjacent \\(u,v\\). The \\(8\\mid N\\) contact and the \\(\\sqrt2\\) limit follow exactly. Fresh direct feasibility checks on representative moduli \\(5,6,7,8,9,16,31\\) reproduced the formula. The universal claim rests on the analytic adjacent-sample argument, not the finite verifier.",
+      "residual_risks": [
+        "No correctness defect is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published all-moduli record covers \\(m\\ge2\\), including all \\(N\\ge5\\), and supplies more structure than the assigned constant-only claim.",
+          "Resultary also returns a special \\(q=8n+1\\) degree-two record, which is narrower than either all-grid theorem."
+        ],
+        "reasoning": "The all-moduli extremals theorem is decisive stronger coverage.",
+        "searches": [
+          "published all-moduli extremals record eab032f7bf08",
+          "Resultary: degree two discrete Fejer extremal unique coefficient every modulus"
+        ]
+      },
+      "checked_sources": [
+        "published Resultary all-moduli extremals record",
+        "arXiv:math/0302193",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting \\(m=N\\ge5\\) in the stronger theorem gives the assigned closed formula, the \\(\\sqrt2\\) resonance criterion and the strict off-resonance gain."
+        ],
+        "reasoning": "Every novelty-bearing conclusion of the assigned claim is a direct specialization of the current stronger published statement.",
+        "searches": [
+          "all-moduli \\(D_m\\) theorem versus assigned \\(M_N^{(2)}\\) theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kolountzakis-Revesz define \\(M_m(H)\\) by constant term one, first cosine coefficient maximization and nonnegativity only on the m-grid.",
+          "The stronger current record uses exactly \\(1+\\lambda\\cos(2\\pi r/m)+c\\cos(4\\pi r/m)\\) and gives the identical adjacent-cosine formula."
+        ],
+        "reasoning": "The assigned \\(M_N^{(2)}\\) is the same \\(H={2}\\) discrete Fejér/Carathéodory–Fejér problem, not a different normalization.",
+        "searches": [
+          "Resultary: discretized Caratheodory Fejer degree two cyclic grid exact constant H={2}",
+          "Kolountzakis-Revesz arXiv:math/0302193 Problems 3-4",
+          "published Resultary record SCOPE-exact-degree-two-discretized-carath-odory-fej-r-extremals-on-eve--eab032f7bf08"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current corpus returns both the assigned constant record and the stronger all-moduli extremals record as the two top same-object hits."
+        ],
+        "reasoning": "Positive same-object coverage, rather than search absence, decides originality.",
+        "searches": [
+          "Resultary current corpus search for the exact degree-two cyclic-grid constant"
+        ]
+      },
+      "rationale": "A current published finding, 'Exact degree-two discretized Carathéodory–Fejér extremals on every cyclic grid', states the same optimization for every modulus, gives exactly the same closed value for all nonaliased orders, and additionally gives the extremizer, factorization and aliased cases. It therefore strictly contains the assigned \\(N\\ge5\\) constant theorem. The foundational primary paper confirms that this is exactly the discretized Carathéodory–Fejér quantity \\(M_m(H)\\), so the comparison is between identical object/normalization rather than merely similar titles.",
+      "residual_risks": [
+        "No access limitation affects the decisive same-object coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_STRONGER_COVERAGE",
+          "evidence": "It gives the identical value for every m>=4 plus extremizers and the m=2,3 alias cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-degree-two-discretized-carath-odory-fej-r-extremals-on-eve--eab032f7bf08",
+          "material_read": "complete published RESULT.md",
+          "method": "published-record full-text inspection",
+          "title": "Exact degree-two discretized Carathéodory–Fejér extremals on every cyclic grid",
+          "trigger": "same object with apparently broader all-moduli coverage"
+        },
+        {
+          "assessment": "OBJECT_IDENTIFICATION",
+          "evidence": "Problems 3-4 define exactly the continuous and discretized first-cosine-coefficient extremal quantities used here.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0302193",
+          "material_read": "primary PDF through the definitions of Phi_m(H), Problem 4 and the discrete-versus-continuous comparison",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "On pointwise estimates of positive definite functions with given support",
+          "trigger": "foundational definition of the discretized Carathéodory–Fejér problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "published all-moduli extremals record",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The exact all-grid constant is a natural invariant, but it is already fully subsumed by the current stronger all-moduli extremal theorem. As an independent record it is therefore redundant rather than a separate mathematical gap.",
+      "residual_risks": [
+        "The constant-only statement remains a concise corollary for reference."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No correctness defect is asserted.",
+    "No access limitation affects the decisive same-object coverage.",
+    "The constant-only statement remains a concise corollary for reference."
+  ]
+}
