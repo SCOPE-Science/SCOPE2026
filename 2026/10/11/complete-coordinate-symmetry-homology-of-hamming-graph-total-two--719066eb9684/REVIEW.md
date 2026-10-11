@@ -1,0 +1,12 @@
+# Same-model scientific review
+
+## Correctness — PASS
+The claimed rational module follows from a fully specified equivariant short exact sequence of simplicial chains for the cover of the Hamming-graph clique complex by coordinate-line simplices. In positive degrees the direct-sum chains coincide with the clique-complex chains; their degree-zero kernel produces the vertex-line incidence cycle space. Splitting every vertex permutation module into constant and augmentation parts gives coefficient equations that leave exactly the higher-order subsets \(S\), with multiplicity \(|S|-1\). The equivariant Alexander duality orientation twist is explicitly the sign of the full vertex permutation. The resulting character can independently be deduced from the incidence exact sequence. Exact finite mod-two homology and signed Lefschetz computations agree, including all \(140\) elements of four small full symmetry groups. The executable artifact is included; finite tests are supporting evidence, not the infinite proof.
+
+## Originality — PASS, with residual risk
+Carnero Bravo's arXiv:2602.21427v2, Theorem 41, determines the same complexes' nonequivariant wedge ranks but does not identify the homology representation. Bayer et al.'s arXiv:2209.13503v2, Theorem 4.8, treats the smaller prism case nonequivariantly; arXiv:2512.04486v1 concerns Cartesian path/cycle products and their homotopy types. An independent clique-complex calculation derives the first Betti number but does not contain representation constituents or signed action. Targeted mathematical literature searches, published-result searches, and earlier recorded claims produced no result implying the full module or its trace formula. Search coverage cannot rule out equivalent results in unindexed or differently phrased sources.
+
+## Value — PASS
+The starting 2026 classification supplies sphere counts across all Cartesian products of complete graphs, but counts forget the coordinate and alphabet symmetry. Here the complete rational character and all constituents of the independent alphabet-permutation group are determined uniformly: no singleton-coordinate constituents occur, while higher-coordinate interactions appear with controlled nontrivial multiplicities and explicit equal-axis permutation actions. This is a natural infinite-family representation invariant, not an arbitrary finite slice or recomputation of the known Betti number. It does not imply an integral-module or equivariant homotopy classification.
+
+Same-model review: passed. Independent audit: not yet performed.
