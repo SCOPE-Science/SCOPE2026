@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs each fan graph explicitly, enumerates every vertex subset, and tests the dissociation condition directly from induced degrees. The direct test does not use the binary-word characterization.
+# Independent mathematical audit
 
-It then compares the complete coefficient vector with the tribonacci recurrence, checks the block-count formula coefficient by coefficient, and checks the dissociation number and the maximum-set multiplicity formulas.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-fan_graphs_checked = 16
-vertex_subsets_checked = 524280
-dissociation_sets_checked = 78816
-path_sizes n = 2..17
-all direct degree tests matched the cone/path structural split
-all fan polynomial coefficients matched the tribonacci recurrence
-all path coefficients matched the closed block-count formula
-all dissociation numbers and maximum-set counts matched
-```
+A center-free dissociation set of the fan \(K_1\vee P_n\) is exactly a binary path incidence word with no occurrence of 111, while a center-containing set may use at most one path vertex. The suffix decomposition 0, 01, 011 gives the three-term weighted recurrence. Decomposing a size-k path set into b blocks of lengths one or two gives the stated binomial coefficient formula. The maximum number of ones in a 111-free word is \(\lceil2n/3\rceil\), and substitution in the block formula yields the three residue-class counts of maximum sets. The inspected exhaustive checker independently verifies all coefficients and extremal counts for path sizes 2 through 17.
 
-The exhaustive computation is finite corroboration only. The formulas for every \(n\ge4\) follow from the proof.
+## originality
+
+PASS
+
+The primary dissociation-polynomial paper studies cubic-graph extremal counting; complete full-text searches found no fan graph or path treatment. Current published-finding searches for fans, cones over paths, and the weighted no-111 recurrence returned no equivalent formula. The binary-word coefficient formula is standard combinatorics once the reduction is made, but no inspected prior source states the complete fan polynomial or its extremal coefficients.
+
+## value
+
+PASS
+
+Fans are a canonical graph family, and the result supplies the whole dissociation polynomial rather than only a maximum. The closed all-coefficient formula and exact residue-class multiplicities of maximum sets make the result a useful enumerative reference; the binary-word reduction gives a transparent reusable mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
