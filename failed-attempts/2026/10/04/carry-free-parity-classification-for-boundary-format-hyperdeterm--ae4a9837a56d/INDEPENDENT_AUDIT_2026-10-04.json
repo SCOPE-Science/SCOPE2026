@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:50:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at tree db7cd2caa551fa2edf3185e5edce61f94a39b527",
+        "Dionisi–Ottaviani, arXiv:math/0104281",
+        "On the powers of the descent set statistic, Theorem 2.9 (multinomial Kummer)"
+      ],
+      "rationale": "Using the classical boundary-format degree \\(D=(N+1)!/(k_1!\\cdots k_r!)=(N+1)\\binom{N}{k_1,\\ldots,k_r}\\), Legendre’s digit-sum formula gives the displayed valuation exactly. The multinomial Kummer theorem identifies the second term with the number of base-\\(p\\) carries. For \\(p=2\\), carry-free addition is equivalent to pairwise-disjoint binary supports, and positivity of all summands makes unordered decompositions bijective with set partitions of the \\(s_2(N)\\) one-bits, giving \\(S(s_2(N),r)\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior inputs apply to every boundary format and every multinomial coefficient, respectively."
+        ],
+        "reasoning": "Their combination dominates the claimed all-prime valuation/carry criterion.",
+        "searches": [
+          "Dionisi–Ottaviani full text around Theorem 3.1",
+          "Advances in Applied Mathematics 2018, Theorem 2.9 Kummer"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0104281",
+        "DOI:10.1016/j.aam.2017.10.003",
+        "GKZ Chapter 14 boundary-format background",
+        "Resultary semantic search for boundary-format parity/carry classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution gives \\(\\nu_p(D)=\\nu_p(N+1)+(\\sum s_p(k_j)-s_p(N))/(p-1)\\); setting p=2 makes “no carries” exactly disjoint one-bit supports."
+        ],
+        "reasoning": "The remaining Stirling enumeration is the textbook bijection between partitions of the one-bit support and positive unordered carry-free summands.",
+        "searches": [
+          "arXiv:math/0104281 plus multinomial Kummer Theorem 2.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The boundary degree is a factorial quotient; the multinomial Kummer theorem gives exactly the digit-sum/carry valuation used in the audited theorem."
+        ],
+        "reasoning": "Rewriting the degree as \\((N+1)\\) times a multinomial coefficient yields the audited prime-wise formula verbatim.",
+        "searches": [
+          "Dionisi–Ottaviani arXiv:math/0104281 boundary-format degree",
+          "Search: multinomial Kummer theorem number of carries p-adic valuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table was needed because the general formulas already determine every claimed entry."
+        ],
+        "reasoning": "A missing table cannot create novelty when the values follow immediately from covering theorems.",
+        "searches": [
+          "Search: boundary format hyperdeterminant odd degree parity",
+          "Search: Stirling number odd hyperdeterminant formats"
+        ]
+      },
+      "rationale": "The audited arithmetic statement is mechanically implied by two prior standard inputs: the published boundary-format factorial degree formula and the multinomial Kummer theorem. The parity criterion is their \\(p=2\\) specialization, and the Stirling count is the immediate set-partition count of disjoint binary supports. Under the required implication standard, absence of the combined wording does not make this original.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_INPUT",
+          "evidence": "The source gives the exact factorial degree used as the starting point.",
+          "identifier_or_url": "arXiv:math/0104281",
+          "material_read": "Accessible full-text excerpt through Section 3, including the boundary-format setup and the factorial degree dimension appearing in Theorem 3.1.",
+          "method": "Formula comparison.",
+          "title": "The Binet-Cauchy Theorem for the Hyperdeterminant of Boundary Format Multidimensional Matrices",
+          "trigger": "Primary same-object source for the boundary-format degree."
+        },
+        {
+          "assessment": "COVERING_INPUT",
+          "evidence": "Theorem 2.9 states that the p-adic valuation of a multinomial coefficient is the number of base-p carries; the digit-sum expression is given immediately before it.",
+          "identifier_or_url": "DOI:10.1016/j.aam.2017.10.003",
+          "material_read": "Web full-text excerpt around Definition 2.8, Theorem 2.9, and Corollary 2.10.",
+          "method": "Exact theorem comparison.",
+          "title": "On the powers of the descent set statistic",
+          "trigger": "Published source stating the multinomial extension of Kummer’s theorem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:math/0104281",
+        "DOI:10.1016/j.aam.2017.10.003"
+      ],
+      "rationale": "Once the classical degree formula and multinomial Kummer theorem are placed side by side, the valuation and carry-free statements are direct substitution, and the parity count is the standard Stirling count of set partitions of binary one-bit positions. This is an elegant observation but not a sufficiently non-routine mathematical gap under the stated value bar.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0104281",
+    "DOI:10.1016/j.aam.2017.10.003",
+    "GKZ Chapter 14 boundary-format background",
+    "Resultary semantic search for boundary-format parity/carry classification"
+  ],
+  "disposition": "failed",
+  "final_claim": "For boundary-format degree \\(D=(N+1)!/(k_1!\\cdots k_r!)\\), the exact p-adic valuation is \\(\\nu_p(N+1)+(\\sum_j s_p(k_j)-s_p(N))/(p-1)\\); in particular D is odd exactly for even N and pairwise-disjoint binary supports, and the unordered r-factor odd formats are counted by \\(S(s_2(N),r)\\).",
+  "schema_version": 1,
+  "scientific_limitations": []
+}
