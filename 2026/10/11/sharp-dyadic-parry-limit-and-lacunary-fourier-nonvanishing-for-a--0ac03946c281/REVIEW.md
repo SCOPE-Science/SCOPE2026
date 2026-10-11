@@ -1,0 +1,9 @@
+# Same-model scientific review
+
+**Correctness — PASS.** The two-map invariance gives an exact second-order recurrence for all dyadic torus pushforwards, not a heuristic limit. Its roots \(1\) and \(-q\) yield the explicit stationary component. The two affine branch supports are disjoint, giving *equality* rather than an inequality for the total-variation distance. The infinite Fourier assertion follows from two strictly certified base sine moments and a convex recurrence for every higher dyadic power. The provided interval program controls the truncation rigorously. The maximal-entropy identification is checked directly against the Perron transition matrix.
+
+**Originality — PASS with explicit uncertainty.** The motivating 2026 paper establishes the Fourier functional equation and general nondecay, neither claimed as new here. A previously published certified interval \([-1000,1000]\) proves nonvanishing at only finitely many powers, unlike the infinite inequality. Brémont's 2021 Theorems 2.5–2.7 prove weak limiting laws rather than this exact total-variation formula. The classical golden-mean Parry construction is acknowledged as background. The motivating paper's full text was unavailable, and could contain an unrecognized equivalent dyadic argument; this is a material residual risk, not evidence of novelty by absence.
+
+**Value — PASS.** The motivating open Fourier-zero problem makes the rigorous *infinite* dyadic nonvanishing subset meaningful. The exact strong-metric convergence law simultaneously identifies the natural stationary maximal-entropy distribution and the optimum decay rate; it is a structural invariant of the particular measure, not an arbitrary finite parameter slice. The result does not decide all real zeros or spectrality.
+
+Same-model review: passed. Independent audit: not yet performed.
