@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof uses only exact identities:
+# Independent mathematical audit
 
-- \(\sigma(2m)=3\sigma(m)\) for odd \(m\);
-- \(\sigma(m)\) is odd exactly when \(m\) is a square;
-- if \(m\) is odd and an even divisor \(d\mid2m\), then \(v_2(d)=1\);
-- multiplicativity of \(\sigma\);
-- for odd \(p\) and odd \(a\),
-\[
-v_2(\sigma(p^a))=v_2(p+1)+v_2(a+1)-1.
-\]
+## correctness
 
-The included `artifacts/verify.py` performs an independent exact-integer scan through \(2{,}000{,}000\). It computes divisor sums by a sieve, recognizes near-perfect integers from the definition, factors only the odd parts of target-residue candidates, and checks every conclusion of the theorem. The expected terminal line is:
+PASS
 
-`VERIFY_OK bound=2000000 nearperfect=50 target=3 target_values=18,234,650`
+From \(3\sigma(m)=4m+d\), parity gives odd \(d\) exactly when odd \(m\) is a square. Otherwise \(d\mid2m\) gives \(v_2(d)=1\), hence \(v_2(\sigma(m))=1\). Multiplicativity leaves exactly one odd prime exponent, and the exact lifting formula \(v_2(\sigma(p^a))=v_2(p+1)+v_2(a+1)-1\) forces \(p\equiv a\equiv1\pmod4\). The actual finite verifier was inspected but is only corroborative.
 
-This finite replay is a consistency test only. It does not establish the infinite theorem and no unproved computational exhaustion is used in the proof.
+## originality
+
+PASS
+
+The foundational and two-prime classification papers do not state the arbitrary-support valuation-one exponent-parity theorem or the odd-redundant-divisor iff square criterion.
+
+## value
+
+PASS
+
+This gives a reusable structural filter for a natural 2-adic slice at arbitrary odd-prime support and explains the exponent patterns of early examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
