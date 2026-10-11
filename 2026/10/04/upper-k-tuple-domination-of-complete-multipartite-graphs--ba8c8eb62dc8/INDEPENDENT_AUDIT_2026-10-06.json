@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:52:07.292165Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f68f2f9c50cbfd218ff2476c5e949c7e1d37a7a6",
+        "verify.py blob b5852c95de0534938dce6d6e3bd3d3c079959481",
+        "fresh independent brute-force replay through total order eight"
+      ],
+      "rationale": "The proof is correct. For a selected vertex in part i the closed-neighborhood count is total selected minus selected in its part plus one; for an unselected vertex it is total selected minus selected in its part. A largest part together with any k minus one outside vertices is feasible throughout the full range and every deletion has an explicit tight witness. Conversely, deletion minimality gives a tight closed-neighborhood witness. If that witness is selected, its part must be fully selected and yields size at most L+k-1; if it is unselected, its selected part count is at most L-1 and gives the same bound. Fresh independent exhaustive replay over all unordered multipartite profiles through total order eight and every feasible k agreed with the formula. The finite replay is corroborative only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang et al. give a superclass bound only for regular graphs and characterize equality inside that regular setting.",
+          "Arbitrary complete multipartite graphs are generally nonregular, and the inspected full paper does not state an exact multipartite evaluation."
+        ],
+        "reasoning": "The broader graph-theoretic result supplies a minimality witness lemma but not the class-specific equality formula.",
+        "searches": [
+          "Chang--Dorbec--Kim--Raspaud--Wang--Zhao, Upper k-tuple domination in graphs, DOI:10.46298/dmtcs.593",
+          "Henning--Kazemi, k-tuple total domination in graphs, DOI:10.1016/j.dam.2010.01.009",
+          "Resultary query: upper k-tuple domination complete multipartite graphs maximum minimal closed neighborhood formula"
+        ]
+      },
+      "checked_sources": [
+        "Chang--Dorbec--Kim--Raspaud--Wang--Zhao, Upper k-tuple domination in graphs, DOI:10.46298/dmtcs.593",
+        "Henning--Kazemi, k-tuple total domination in graphs, DOI:10.1016/j.dam.2010.01.009",
+        "Resultary query: upper k-tuple domination complete multipartite graphs maximum minimal closed neighborhood formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chang's Lemma 1 says every selected vertex of a minimal set has a closed neighbor dominated exactly k times.",
+          "The new class-specific count converts one such tight witness into the universal size upper bound L+k-1 and supplies a matching construction for every feasible k.",
+          "The k=1 specialization is classical and is not the novelty-bearing part."
+        ],
+        "reasoning": "The final all-k multipartite theorem requires a new structural specialization beyond the prior general lemma.",
+        "searches": [
+          "Chang--Dorbec--Kim--Raspaud--Wang--Zhao, Upper k-tuple domination in graphs, DOI:10.46298/dmtcs.593",
+          "Henning--Kazemi, k-tuple total domination in graphs, DOI:10.1016/j.dam.2010.01.009",
+          "fresh complete-multipartite proof reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited parameter is the maximum cardinality of an inclusion-minimal closed-neighborhood k-tuple dominating set.",
+          "Henning--Kazemi use open neighborhoods and minimize cardinality, so their complete-multipartite formulas are not equivalent."
+        ],
+        "reasoning": "Closed versus open neighborhoods and upper-minimal versus minimum optimization were separated explicitly.",
+        "searches": [
+          "Chang--Dorbec--Kim--Raspaud--Wang--Zhao, Upper k-tuple domination in graphs, DOI:10.46298/dmtcs.593",
+          "Henning--Kazemi, k-tuple total domination in graphs, DOI:10.1016/j.dam.2010.01.009",
+          "Resultary query: upper k-tuple domination complete multipartite graphs maximum minimal closed neighborhood formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned complete-multipartite formula as the exact hit and neighboring results for different domination invariants.",
+          "The primary paper's stated exact results are regular-graph bounds rather than a multipartite table."
+        ],
+        "reasoning": "No existing exact database value or table covers the all-profile formula.",
+        "searches": [
+          "Resultary query: upper k-tuple domination complete multipartite graphs maximum minimal closed neighborhood formula",
+          "complete primary DMTCS PDF search and section inspection"
+        ]
+      },
+      "rationale": "Originality passes. The defining upper-parameter paper was read in its complete open PDF: it proves a sharp bound for regular graphs, a claw-free regular special bound, and complexity results, and its minimality lemma is the general tool reused here. The complete-multipartite paper located in the same area treats the minimum open-neighborhood k-tuple total domination number, not the maximum size of an inclusion-minimal closed-neighborhood set. No Resultary record stronger than the assigned theorem was found.",
+      "residual_risks": [
+        "Older multiple-domination literature under alternate terminology remains a residual bibliographic risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MINIMALITY_TOOL_AND_REGULAR_BOUNDS_NOT_MULTIPARTITE_FORMULA",
+          "evidence": "The paper explicitly scopes its exact bound to regular graphs and separately proves complexity on bipartite/chordal graphs.",
+          "identifier_or_url": "DOI:10.46298/dmtcs.593",
+          "material_read": "Complete open primary PDF, including the definition, Lemma 1 minimality criterion, and the regular-graph Theorem 2; the relevant page was visually inspected.",
+          "method": "Lawful open primary PDF with page-image inspection.",
+          "title": "Upper k-tuple domination in graphs",
+          "trigger": "Defining source for the upper k-tuple parameter and strongest plausible broader theorem."
+        },
+        {
+          "assessment": "DIFFERENT_MINIMUM_OPEN_NEIGHBORHOOD_PARAMETER",
+          "evidence": "It computes minimum k-tuple total domination, not the upper closed-neighborhood parameter.",
+          "identifier_or_url": "DOI:10.1016/j.dam.2010.01.009",
+          "material_read": "Open primary full-text HTML through the definitions and complete-multipartite section, including Theorems 6 and 7.",
+          "method": "Lawful publisher full-text inspection.",
+          "title": "k-tuple total domination in graphs",
+          "trigger": "Closest complete-multipartite paper for the k-tuple terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chang--Dorbec--Kim--Raspaud--Wang--Zhao, Upper k-tuple domination in graphs, DOI:10.46298/dmtcs.593",
+        "Henning--Kazemi, k-tuple total domination in graphs, DOI:10.1016/j.dam.2010.01.009",
+        "Resultary query: upper k-tuple domination complete multipartite graphs maximum minimal closed neighborhood formula"
+      ],
+      "rationale": "Upper k-tuple domination is an established fault-tolerant domination invariant with hard computation even on broad restricted classes. Complete multipartite graphs are a canonical structured family, and the theorem gives the exact value over the entire feasible k range together with a uniform extremal construction. This is a natural infinite-class benchmark rather than an arbitrary finite slice.",
+      "residual_risks": [
+        "The theorem does not classify every maximum minimal set."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older multiple-domination literature under alternate terminology remains a residual bibliographic risk.",
+    "Publication is withheld because each frozen package contains operational audit and workflow state in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md files. The complete 36-file recursive inventory was obtained. RESULT.md, SLOGAN.txt, verification output, and verifier sources were separately checked and contained none of the platform or workflow disclosures tested in this run. Exact guarded sanitizing replacement bytes were not prepared."
+  ],
+  "schema_version": 1
+}
