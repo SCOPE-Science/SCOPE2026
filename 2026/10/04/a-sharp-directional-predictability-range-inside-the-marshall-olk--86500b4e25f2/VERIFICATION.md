@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. The accompanying checker uses exact rational arithmetic.
+# Independent mathematical audit
 
-For rational Marshall–Olkin parameters it verifies the published Kendall, Spearman, and directional Chatterjee formulas and checks the identity
-\[
-\rho_S=\frac{3\tau}{2+\tau}.
-\]
+## correctness
 
-For rational \(t\in(0,1)\), it samples rational values of \(\alpha\) in the exact fixed-tau interval, reconstructs
-\[
-\beta=\frac{t\alpha}{\alpha(1+t)-t},
-\]
-and verifies the sharp lower bound and strict upper bound for \(\xi_{Y\mid X}\) by exact cross multiplication.
+PASS
 
-The checker separately verifies the unique optimizer
-\[
-\alpha_*=\frac{4t}{t+3},
-\qquad
-\beta_*=\frac{4t}{1+3t},
-\]
-the factorized forward-minus-reverse Chatterjee identity, the tail-dependence interval, and reconstruction of the unordered parameter pair from \((t,\lambda_U)\).
+The prior formulas give \(\tau=\alpha\beta/(\alpha+\beta-\alpha\beta)\), \(\rho=3\alpha\beta/(2\alpha+2\beta-\alpha\beta)\), and \(\xi_{Y\mid X}=2\alpha^2\beta/(3\alpha+\beta-2\alpha\beta)\). Solving the fixed-\(t\) relation yields \(\beta=t\alpha/(\alpha(1+t)-t)\) on the admissible interval. Substitution gives \(\Xi_t(\alpha)=2t\alpha^2/(\alpha(t+3)-2t)\) with derivative \(2t\alpha(\alpha(t+3)-4t)/(\alpha(t+3)-2t)^2\), so the unique minimum and endpoint supremum are exactly the stated values. Fresh symbolic factorization also reproduced the sign rule for \(\xi_{Y\mid X}-\xi_{X\mid Y}\). Direct substitution makes \(\rho=3t/(2+t)\); the standard Marshall--Olkin upper-tail formula \(\lambda_U=\min(\alpha,\beta)\) yields the stated range and inversion for the unordered pair.
 
-The computation does not establish originality and does not replace the derivative proof.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK formula_checks=20000 fiber_checks=47840 optimizer_checks=80 direction_checks=40000 tail_checks=15880`.
+Best-of-knowledge originality passes for the fixed-Kendall-fiber classification. The 2014 primary paper supplies the Marshall--Olkin Kendall and Spearman formulas; the 2024 primary paper supplies the directional Chatterjee formula and tail-dependence information. Neither inspected source states the sharp Chatterjee range at fixed Kendall tau, its unique minimizer, asymmetry sign law as a fiber classification, or the two-summary identifiability result. Resultary search found no covering prior statement.
+
+## value
+
+PASS
+
+Kendall tau, Chatterjee xi, Spearman rho, and upper-tail dependence are standard but inequivalent dependence summaries. Determining the exact directional-predictability range and identifiability geometry on a fixed-Kendall fiber gives a natural complete classification showing both quadratic-to-linear weak-dependence separation and directional information invisible to symmetric concordance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

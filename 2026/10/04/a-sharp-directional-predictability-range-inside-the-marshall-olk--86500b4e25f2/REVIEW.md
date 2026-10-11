@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source formulas for Kendall's tau, Spearman's rho, upper-tail dependence, and directional Chatterjee correlation were independently checked in the cited full texts. Solving the Kendall equation gives an exact one-parameter fiber. Substitution reduces Chatterjee's coefficient to a rational function whose derivative has one interior zero, proving the unique minimum and sharp right-boundary supremum. The transposed-direction difference factors with sign exactly equal to the sign of \(\alpha-\beta\). The tail-identification formula follows by solving the same fixed-tau equation.
+PASS
 
-The embedded verifier uses exact rational arithmetic and replays all algebraic identities and inequalities over large rational test families.
+The prior formulas give \(\tau=\alpha\beta/(\alpha+\beta-\alpha\beta)\), \(\rho=3\alpha\beta/(2\alpha+2\beta-\alpha\beta)\), and \(\xi_{Y\mid X}=2\alpha^2\beta/(3\alpha+\beta-2\alpha\beta)\). Solving the fixed-\(t\) relation yields \(\beta=t\alpha/(\alpha(1+t)-t)\) on the admissible interval. Substitution gives \(\Xi_t(\alpha)=2t\alpha^2/(\alpha(t+3)-2t)\) with derivative \(2t\alpha(\alpha(t+3)-4t)/(\alpha(t+3)-2t)^2\), so the unique minimum and endpoint supremum are exactly the stated values. Fresh symbolic factorization also reproduced the sign rule for \(\xi_{Y\mid X}-\xi_{X\mid Y}\). Direct substitution makes \(\rho=3t/(2+t)\); the standard Marshall--Olkin upper-tail formula \(\lambda_U=\min(\alpha,\beta)\) yields the stated range and inversion for the unordered pair.
 
-## Originality
+## originality
 
-PASS, with a residual specialized-calibration risk. The complete 2014 Dobrowolski–Kumar article was inspected through its Marshall–Olkin definition, dependence-measure section, and tail-dependence theorem. It contains the Kendall, Spearman, and tail formulas but predates Chatterjee's coefficient.
+PASS
 
-The full 2024 Ansari–Rockel HTML was inspected through the Marshall–Olkin Appendix calculation. It supplies the directional Chatterjee formula but does not state the fixed-Kendall sharp interval, the unique minimizer, the weak-dependence order separation, or the orientation identity.
+Best-of-knowledge originality passes for the fixed-Kendall-fiber classification. The 2014 primary paper supplies the Marshall--Olkin Kendall and Spearman formulas; the 2024 primary paper supplies the directional Chatterjee formula and tail-dependence information. Neither inspected source states the sharp Chatterjee range at fixed Kendall tau, its unique minimizer, asymmetry sign law as a fiber classification, or the two-summary identifiability result. Resultary search found no covering prior statement.
 
-The public preprint and abstract of the later global \(\xi\)-versus-Spearman exact-region theorem were checked as a possible stronger result. That theorem optimizes over all bivariate copulas rather than resolving the conditional fiber inside the Marshall–Olkin parameter family.
+## value
 
-Targeted semantic and web searches for Marshall–Olkin fixed-Kendall fibers, Chatterjee extrema, asymmetry recovery, and exact parameter identification did not locate an equivalent statement.
+PASS
 
-## Value
+Kendall tau, Chatterjee xi, Spearman rho, and upper-tail dependence are standard but inequivalent dependence summaries. Determining the exact directional-predictability range and identifiability geometry on a fixed-Kendall fiber gives a natural complete classification showing both quadratic-to-linear weak-dependence separation and directional information invisible to symmetric concordance.
 
-PASS. The result exposes a concrete identifiability failure and its remedy in a classical asymmetric shock copula. Two standard concordance summaries are exactly redundant on each Kendall fiber, while a directional predictive-dependence measure can still vary from quadratic to linear order in weak dependence. The theorem gives sharp calibration limits and shows precisely how directional Chatterjee coefficients recover an asymmetry that Kendall and Spearman erase.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK formula_checks=20000 fiber_checks=47840 optimizer_checks=80 direction_checks=40000 tail_checks=15880`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

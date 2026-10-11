@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:46:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Dobrowolski--Kumar, Some properties of the Marshall--Olkin and generalized Cuadras--Augé families of copulas, AJMAA 11 (2014); primary PDF Sections 2--3 inspected, including exact Kendall and Spearman formulas.",
+        "Ansari--Rockel, Dependence properties of bivariate copula families, Dependence Modeling 12 (2024), DOI 10.1515/demo-2024-0002; open full publisher text inspected, including Table 5 and Appendix A.5.2 deriving the Marshall--Olkin Chatterjee formula.",
+        "Resultary semantic search for fixed-Kendall-tau Marshall--Olkin Chatterjee ranges, directional asymmetry, and tail-identifiability; no prior covering result was returned.",
+        "Fresh exact reconstruction in this audit; saved verification logs were not treated as proof by themselves. Substitution of the fixed-\\(\\tau\\) fiber was symbolically differentiated and the directional-difference factorization independently reproduced."
+      ],
+      "rationale": "The prior formulas give \\(\\tau=\\alpha\\beta/(\\alpha+\\beta-\\alpha\\beta)\\), \\(\\rho=3\\alpha\\beta/(2\\alpha+2\\beta-\\alpha\\beta)\\), and \\(\\xi_{Y\\mid X}=2\\alpha^2\\beta/(3\\alpha+\\beta-2\\alpha\\beta)\\). Solving the fixed-\\(t\\) relation yields \\(\\beta=t\\alpha/(\\alpha(1+t)-t)\\) on the admissible interval. Substitution gives \\(\\Xi_t(\\alpha)=2t\\alpha^2/(\\alpha(t+3)-2t)\\) with derivative \\(2t\\alpha(\\alpha(t+3)-4t)/(\\alpha(t+3)-2t)^2\\), so the unique minimum and endpoint supremum are exactly the stated values. Fresh symbolic factorization also reproduced the sign rule for \\(\\xi_{Y\\mid X}-\\xi_{X\\mid Y}\\). Direct substitution makes \\(\\rho=3t/(2+t)\\); the standard Marshall--Olkin upper-tail formula \\(\\lambda_U=\\min(\\alpha,\\beta)\\) yields the stated range and inversion for the unordered pair.",
+      "residual_risks": [
+        "The range is internal to the Marshall--Olkin family and should not be read as an extremal theorem over all copulas with fixed Kendall tau."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older source gives tau and rho; the newer source derives xi and lists lambda_U=min(alpha,beta).",
+          "No inspected broader theorem performs the fixed-tau optimization or identifies the parameter pair from (tau,lambda_U)."
+        ],
+        "reasoning": "Having closed forms for separate measures does not itself state the geometry of their common level sets.",
+        "searches": [
+          "Dobrowolski--Kumar 2014 dependence-measure formulas",
+          "Ansari--Rockel 2024 full publisher text and Appendix A.5.2"
+        ]
+      },
+      "checked_sources": [
+        "Dobrowolski--Kumar, Some properties of the Marshall--Olkin and generalized Cuadras--Augé families of copulas, AJMAA 11 (2014); primary PDF Sections 2--3 inspected, including exact Kendall and Spearman formulas.",
+        "Ansari--Rockel, Dependence properties of bivariate copula families, Dependence Modeling 12 (2024), DOI 10.1515/demo-2024-0002; open full publisher text inspected, including Table 5 and Appendix A.5.2 deriving the Marshall--Olkin Chatterjee formula.",
+        "Resultary semantic search for fixed-Kendall-tau Marshall--Olkin Chatterjee ranges, directional asymmetry, and tail-identifiability; no prior covering result was returned.",
+        "Fresh exact reconstruction in this audit; saved verification logs were not treated as proof by themselves. Substitution of the fixed-\\(\\tau\\) fiber was symbolically differentiated and the directional-difference factorization independently reproduced."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution shows rho collapses to 3t/(2+t), while xi remains directional and nonconstant.",
+          "The unique minimizer and endpoint supremum require a constrained rational derivative calculation not stated in the sources."
+        ],
+        "reasoning": "The final claim is a natural but nontrivial synthesis of prior formulas; no prior implication located already packages the sharp range and identifiability conclusions.",
+        "searches": [
+          "Primary formulas for tau, rho, xi, and lambda_U",
+          "Searches for Marshall--Olkin parameter identification from dependence summaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No earlier semantic hit with the fixed-tau range was returned.",
+          "The source articles give component formulas rather than the constrained optimization result."
+        ],
+        "reasoning": "Equivalent coverage would have to optimize directional predictability over the one-dimensional Kendall fiber or give an implication that yields the same interval and minimizer.",
+        "searches": [
+          "Resultary: Marshall Olkin Chatterjee xi fixed Kendall tau sharp range directional asymmetry",
+          "Web: exact endpoint expressions 16 t^2/(t+3)^2 and 2t/(3-t) Marshall-Olkin"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tables list family properties and tail coefficients, not the fixed-tau xi interval."
+        ],
+        "reasoning": "The accepted result is a continuous exact fiber classification, not recomputation of a tabulated number.",
+        "searches": [
+          "Ansari--Rockel Tables 4--5 and Appendix A.5.2",
+          "Resultary exact fixed-tau search"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes for the fixed-Kendall-fiber classification. The 2014 primary paper supplies the Marshall--Olkin Kendall and Spearman formulas; the 2024 primary paper supplies the directional Chatterjee formula and tail-dependence information. Neither inspected source states the sharp Chatterjee range at fixed Kendall tau, its unique minimizer, asymmetry sign law as a fiber classification, or the two-summary identifiability result. Resultary search found no covering prior statement.",
+      "residual_risks": [
+        "Because the optimization from the published closed forms is elementary once posed, a later note or application may have stated the same fiber range under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES TAU/RHO INPUTS, NOT FIXED-FIBER CLASSIFICATION",
+          "evidence": "Theorems 3.1--3.2 give tau=alpha beta/(alpha+beta-alpha beta) and rho=3 alpha beta/(2 alpha+2 beta-alpha beta).",
+          "identifier_or_url": "https://ajmaa.org/searchroot/files/pdf/v11n1/v11i1p2.pdf",
+          "material_read": "Primary 13-page PDF Sections 2--3, including Theorems 3.1--3.2 and surrounding dependence discussion",
+          "method": "Open-access primary PDF text inspection",
+          "title": "Some properties of the Marshall--Olkin and generalized Cuadras--Augé families of copulas",
+          "trigger": "Primary source for the same two-parameter copula and Kendall/Spearman formulas"
+        },
+        {
+          "assessment": "SUPPLIES XI/TAIL INPUTS, NOT FIXED-TAU RANGE",
+          "evidence": "Appendix A.5.2 derives xi=2 alpha_1^2 alpha_2/(3 alpha_1+alpha_2-2 alpha_1 alpha_2); Table 5 gives upper-tail dependence min(alpha_1,alpha_2).",
+          "identifier_or_url": "https://doi.org/10.1515/demo-2024-0002",
+          "material_read": "Open publisher full text including family tables, conclusion, tail-dependence appendix, and Appendix A.5.2 derivation of Marshall--Olkin xi",
+          "method": "Open-access publisher full-text inspection",
+          "title": "Dependence properties of bivariate copula families",
+          "trigger": "Primary source deriving Chatterjee xi for Marshall--Olkin copulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dobrowolski--Kumar, Some properties of the Marshall--Olkin and generalized Cuadras--Augé families of copulas, AJMAA 11 (2014); primary PDF Sections 2--3 inspected, including exact Kendall and Spearman formulas.",
+        "Ansari--Rockel, Dependence properties of bivariate copula families, Dependence Modeling 12 (2024), DOI 10.1515/demo-2024-0002; open full publisher text inspected, including Table 5 and Appendix A.5.2 deriving the Marshall--Olkin Chatterjee formula.",
+        "Resultary semantic search for fixed-Kendall-tau Marshall--Olkin Chatterjee ranges, directional asymmetry, and tail-identifiability; no prior covering result was returned.",
+        "Fresh exact reconstruction in this audit; saved verification logs were not treated as proof by themselves. Substitution of the fixed-\\(\\tau\\) fiber was symbolically differentiated and the directional-difference factorization independently reproduced."
+      ],
+      "rationale": "Kendall tau, Chatterjee xi, Spearman rho, and upper-tail dependence are standard but inequivalent dependence summaries. Determining the exact directional-predictability range and identifiability geometry on a fixed-Kendall fiber gives a natural complete classification showing both quadratic-to-linear weak-dependence separation and directional information invisible to symmetric concordance.",
+      "residual_risks": [
+        "The classification is family-specific."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Within the two-parameter Marshall--Olkin copula family, fixing Kendall's \\(\\tau=t\\in(0,1)\\) gives the sharp directional Chatterjee range \\([16t^2/(t+3)^2,\\ 2t/(3-t))\\); the minimum is uniquely attained at \\((\\alpha,\\beta)=(4t/(t+3),4t/(1+3t))\\), Spearman's \\(\\rho\\) is constant on the fixed-\\(t\\) fiber, the sign of directional asymmetry is the sign of \\(\\alpha-\\beta\\), and \\((t,\\lambda_U)\\) identifies the unordered parameter pair.",
+  "limitations": [
+    "The range is internal to the Marshall--Olkin family and should not be read as an extremal theorem over all copulas with fixed Kendall tau.",
+    "Because the optimization from the published closed forms is elementary once posed, a later note or application may have stated the same fiber range under different terminology.",
+    "The classification is family-specific."
+  ],
+  "schema_version": 1
+}
