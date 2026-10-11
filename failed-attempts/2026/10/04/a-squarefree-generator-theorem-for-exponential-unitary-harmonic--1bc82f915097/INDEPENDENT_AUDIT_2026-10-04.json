@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:53:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=p^a m with m squarefree and coprime to p, every exponential-unitary divisor is m p^d with d unitary in a. Thus the harmonic mean equals p^a m t_a/E_a(p). Because the d=a term is 1 and every other term is divisible by p, E_a(p) is coprime to p. Cancelling gcd(E_a,t_a) reduces integrality exactly to M_a(p) dividing m; squarefreeness of m then gives the displayed generator condition. Standard squarefree counting coprime to the fixed modulus pM gives the stated constant and O(sqrt X) error. Independent spot calculations reproduce E_2(2)=3, E_4(2)=9, E_4(3)=28 and E_6(2)=57.",
+      "risks": [
+        "The count is fixed-(a,p); no uniformity is proved."
+      ],
+      "sources": [
+        "Frozen source tree cf0a0086a1de7e334f40f0fb2d5e69303982cbe8",
+        "OEIS A349025/A349026 definitions",
+        "Independent symbolic reconstruction in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A349025/A349026 cover membership for arbitrary integers, not merely the p^a times squarefree stratum.",
+          "Tóth–Minculete establish the underlying exponential-unitary divisor system."
+        ],
+        "reasoning": "The older exact database criterion has strictly broader object coverage and dominates the fixed-stratum membership theorem.",
+        "searches": [
+          "OEIS A349025/A349026",
+          "Tóth–Minculete arXiv:0910.2798"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A349025 and revision history",
+        "OEIS A349026",
+        "arXiv:0910.2798",
+        "Fresh Resultary query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For squarefree m, every exponent-1 local A349025 factor is 1; A278908 contributes one divisor for each exponent 1 and t_a for exponent a.",
+          "Thus the prior criterion becomes E_a(p)|p^a m t_a, and E_a(p) congruent 1 mod p removes p."
+        ],
+        "reasoning": "The submitted generator theorem is the immediate fixed-stratum specialization. The density follows from counting squarefree s coprime to the fixed modulus, a standard theorem rather than a new classification input.",
+        "searches": [
+          "A349025 multiplicative formula and iff criterion",
+          "A349026 definition and cross-reference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A349025 states the exact multiplicative local denominator and the global iff harmonic criterion.",
+          "The revision history shows the iff criterion was added on 6 Nov 2021, years before the submitted record."
+        ],
+        "reasoning": "Specializing that global criterion to one nonsquarefree exponent gives the submitted divisibility test without any new nonstandard lemma.",
+        "searches": [
+          "OEIS A349025 current page and revision history",
+          "OEIS A349026",
+          "Resultary query: exponential unitary harmonic number p^a m squarefree cofactor A349025 A349026 generator density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A349025 line 30 states: k is exponential-unitary harmonic iff a(k) divides k*A278908(k).",
+          "Revision #4 shows this criterion already present on 6 Nov 2021."
+        ],
+        "reasoning": "This is exactly the required database comparison and is decisive coverage, not merely a list of matching examples.",
+        "searches": [
+          "OEIS A349025",
+          "OEIS A349026",
+          "A349025 revision history"
+        ]
+      },
+      "rationale": "A decisive prior exact database criterion has existed since 6 November 2021. OEIS A349025 is multiplicative with local factor a(p^e)=sum_{d||e}p^{e-d}, and its revision history records the statement that k is exponential-unitary harmonic iff A349025(k) divides k*A278908(k). For k=p^a m with squarefree m, A349025(m)=1 and A278908(k)=t_a, so this prior global iff specializes immediately to E_a(p)|p^a m t_a and, since E_a(p) is coprime to p, to the submitted M_a(p)|m condition. The squarefree-generator reformulation and fixed-modulus density then use only elementary cancellation and the standard squarefree counting theorem. Under the required implication standard, the central classification and asymptotic are therefore covered as a routine corollary of an older global exact criterion.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_IMPLICATION_COVERAGE",
+          "evidence": [
+            "The multiplicative local formula and global iff divisibility criterion were present in the 6 Nov 2021 revision history."
+          ],
+          "identifier_or_url": "https://oeis.org/A349025",
+          "material_read": "Current entry, formula, comments and full revision history.",
+          "method": "Direct database and revision-history inspection.",
+          "title": "OEIS A349025",
+          "trigger": "Exact denominator function and database membership criterion cited by the submission."
+        },
+        {
+          "assessment": "BROADER_GLOBAL_CLASSIFICATION_REFERENCE",
+          "evidence": [
+            "It repeats the equivalence with A349025(k)|k*A278908(k) for the full sequence."
+          ],
+          "identifier_or_url": "https://oeis.org/A349026",
+          "material_read": "Definition, comments, examples, links and equivalence statement.",
+          "method": "Direct database inspection.",
+          "title": "OEIS A349026",
+          "trigger": "Exact target sequence of exponential-unitary harmonic numbers."
+        },
+        {
+          "assessment": "BACKGROUND_NOT_NEEDED_FOR_DECISIVE_COVERAGE",
+          "evidence": [
+            "Defines the divisor system; the decisive prior membership criterion is the later OEIS record."
+          ],
+          "identifier_or_url": "arXiv:0910.2798",
+          "material_read": "Abstract/definitions and scope of introduced exponential-unitary arithmetic functions.",
+          "method": "Primary preprint inspection.",
+          "title": "Exponential unitary divisors",
+          "trigger": "Foundational primary literature for the divisor system."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Once the pre-existing all-integer iff criterion is specialized, the generator condition is elementary gcd cancellation and the density is the standard squarefree-coprime count. The slice is natural, but the submitted work does not clear the value bar as an independent mathematical gap because its main classification is a routine corollary of a known global exact database formula.",
+      "risks": [
+        "The calculation remains correct and useful as exposition, but correctness/reproducibility do not establish independent value."
+      ],
+      "sources": [
+        "OEIS A349025 global criterion",
+        "Standard squarefree counting theorem"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is due to prior implication coverage and routine-corollary value, not correctness.",
+    "Fixed-(a,p) asymptotic only."
+  ],
+  "schema_version": 1
+}
