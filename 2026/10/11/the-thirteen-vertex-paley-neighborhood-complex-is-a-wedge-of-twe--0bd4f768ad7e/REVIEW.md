@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The graph is specified over the thirteen-element field with the exact six-element quadratic-residue connection set. All possible faces are determined by thirteen open neighborhoods, so 598 is an exhaustive count. A deterministic toggle matching pairs 572 distinct faces and leaves one vertex and 25 two-faces. The full reversed Hasse graph has 2067 directed incidences and an explicit successful topological sort over every face, ruling out a closed gradient path. Discrete Morse theory gives one zero-cell and 25 two-cells, hence an integral wedge of two-spheres. A separately written enumerator verifies the same face counts and field boundary ranks. The chromatic corollary has an explicit five-coloring and a direct independence-number argument.
+
+## Originality — PASS
+The inspected primary full texts of Matsushita (arXiv:1210.2803), Shukla (arXiv:1802.04526), and Matoušek–Ziegler (arXiv:math/0208072) establish definitions, graph-family classifications at other degrees, and general topological coloring methods. None classifies the exact open-neighborhood homotopy type of the thirteen-vertex six-regular Paley graph. Search comparisons included its 6-regular circulant representation, its strongly regular parameters, open/closed neighborhood distinctions, and possible broader classifications. The closest indexed small-graph exact neighborhood result concerns a different graph, so its sphere count does not imply this one. Search nonretrieval is not a proof of publication priority; unindexed equivalent results remain a residual risk.
+
+## Value — PASS
+The 13-vertex Paley graph is a canonical self-complementary conference graph and locally a six-cycle; its neighbor complex is a natural topological graph invariant. The exact integral homotopy type is substantially stronger than its face-vector and field homology computations. Moreover the example exhibits a strict discrepancy between a connectivity-only topological coloring bound and its chromatic number. This information is not a substitution in a known formula for four-regular circulants; the source graph has degree six. The claim is restricted to one naturally distinguished graph and does not posit a general Paley-family theorem.
+
+## Sources, closest coverage and limitations
+Matsushita's full-text Theorem 1.1 determines fundamental groups of neighborhood complexes through combinatorial graph groups, not the second homotopy/homology type here. Shukla's full-text Theorems 2.1–2.6 cover maximum degree three and four-regular circulant graphs; their domain excludes Paley(13). Matoušek–Ziegler's full-text Sections 1 and 5 compare topological coloring bounds but give no such exact computation. No inspected, indexed source identified an exact result subsuming this statement. A related small-graph neighborhood-complex result concerns a different graph, and distinct Paley orders cannot be substituted without additional theorems. Residual risk: unindexed or inaccessible equivalent work; further Paley orders and equivariant refinements are not treated.
+
+Same-model review: passed. Independent audit: not yet performed.
