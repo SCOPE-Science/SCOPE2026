@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:57:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the first Brillouin zone set \\(t_j=(\\ell p_j)^2\\in[0,\\pi^2]\\). For \\(g(t)=\\cos\\sqrt t\\), \\(g''(t)=(\\sin r-r\\cos r)/(4r^3)>0\\) for \\(0<r<\\pi\\), with positive endpoint limit, so \\(g\\) is strictly convex. Jensen therefore gives the average cosine at least the cosine of the root-mean-square angle; monotonicity of cosine on \\([0,\\pi]\\) yields \\(E_\\ell(p)\\le|p|_2^2\\), with equality exactly when all \\(p_j^2\\) coincide. Matching the cosine Taylor series gives the correction \\(-\\nu\\ell^2\\operatorname{Var}(p_j^2)/12\\). The finite checker is only corroborative and is not used as proof of the global statement.",
+      "risks": [
+        "The theorem is only for the free equilateral standard-Kirchhoff principal band; higher bands, potentials, magnetic phases, and unequal lengths are excluded."
+      ],
+      "sources": [
+        "Actual RESULT.md blob 8233e5f02875255ccf92297eb24f4f80482eed99",
+        "Actual VERIFICATION.md blob afb127ce52a0e7cc00f4a97c9189a9cbb8701c5c",
+        "Holden--Vasil exact square-lattice dispersion relation"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holden--Vasil Eq. (33) gives the two-dimensional exact relation and Eq. (34) only the lowest-order continuum approximation.",
+          "Exner--Nakamura--Tadano prove continuum convergence rather than a global principal-band inequality.",
+          "The thesis states the general-dimensional free dispersion relation and small-wave-number limit but not the Jensen underdispersion theorem."
+        ],
+        "reasoning": "Known exact formulas are inputs, not stronger statements covering the inequality/equality classification.",
+        "searches": [
+          "Holden--Vasil arXiv:2301.07086 full text",
+          "Exner--Nakamura--Tadano arXiv:2202.06586 / Letters in Mathematical Physics 112 (2022)",
+          "Tristan Lawrie 2026 thesis on quantum-graph metamaterial design"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search r5a",
+        "Holden--Vasil full text",
+        "Exner--Nakamura--Tadano primary/full-text excerpts",
+        "2026 Nottingham quantum-graph thesis excerpt",
+        "Exact web searches for underdispersion/body-diagonal/variance formulations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact relation does not itself state a one-sided comparison. The submitted proof adds strict convexity of \\(g(t)=\\cos\\sqrt t\\) on \\([0,\\pi^2]\\), obtaining both the global sign and exact equality locus; Taylor matching then identifies the anisotropic variance coefficient."
+        ],
+        "reasoning": "This is a new structural consequence of a known formula, not a parameter specialization or a previously stated stronger theorem.",
+        "searches": [
+          "Comparison of Holden--Vasil Eq. (33), general-dimensional dispersion formula, and submitted Jensen theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary record matched the underdispersion/equality-locus theorem.",
+          "A 2026 quantum-graph thesis states the same general \\(D\\)-dimensional free dispersion relation and only the usual long-wavelength free-space approximation."
+        ],
+        "reasoning": "Dispersion, numerical-dispersion, anisotropy, and body-diagonal formulations were compared.",
+        "searches": [
+          "Resultary: quantum graph square lattice dispersion Jensen underdispersion body diagonal anisotropy",
+          "Web: cos(k ell) average cos(k_j ell) underdispersion body diagonal",
+          "Web: metric graph dispersion Jensen cosine square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry for \\(E_\\ell(p)\\le |p|^2\\) with equality iff all \\(|p_j|\\) agree, or for the \\(\\operatorname{Var}(p_j^2)\\) coefficient, was located."
+        ],
+        "reasoning": "The negative database search is only corroborative; the originality conclusion rests on statement-level comparison with full/primary sources.",
+        "searches": [
+          "Resultary query r5a",
+          "Exact web searches for body-diagonal equality and variance correction"
+        ]
+      },
+      "rationale": "The exact cubic/square-lattice Bloch relation is known, but the inspected sources use it for continuum-limit asymptotics and do not state the global one-sided comparison, the complete equality locus, or the variance-form leading defect. The submitted theorem adds the convexity observation for \\(t\\mapsto\\cos\\sqrt t\\), which turns the known dispersion formula into a global structural statement across the entire first Brillouin zone rather than merely a small-mesh expansion.",
+      "residual_risks": [
+        "An equivalent observation may exist under numerical-dispersion terminology outside the indexed sources; targeted searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_DISPERSION_FORMULA; NOT_COVERING_GLOBAL_INEQUALITY",
+          "evidence": [
+            "Eq. (33) gives \\(\\cos(k\\ell)=\\tfrac12(\\cos(k_x\\ell)+\\cos(k_y\\ell))\\).",
+            "The paper records only \\(2k^2=k_x^2+k_y^2+O(\\ell^2)\\) at lowest order."
+          ],
+          "identifier_or_url": "arXiv:2301.07086v1",
+          "material_read": "Full-text material around Section 5.1.1, equations (31)--(35), including Eq. (33) and the lowest-order continuum approximation Eq. (34).",
+          "method": "Primary full-text formula/claim comparison.",
+          "title": "A continuum limit for the Laplace operator on metric graphs",
+          "trigger": "Primary source containing the exact square-lattice dispersion relation."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "The result establishes norm-resolvent/spectral convergence, not the submitted pointwise principal-band inequality or equality locus."
+          ],
+          "identifier_or_url": "arXiv:2202.06586v1; Letters in Mathematical Physics 112 (2022), 83",
+          "material_read": "Open full-text/primary excerpts including the continuum-limit operator estimates.",
+          "method": "Primary scope comparison.",
+          "title": "Continuum limit of the lattice quantum graph Hamiltonian",
+          "trigger": "Primary continuum-limit setting cited by the submitted result."
+        },
+        {
+          "assessment": "FORMULA_KNOWN; SUBMITTED_GLOBAL_CONSEQUENCE_NOT_STATED",
+          "evidence": [
+            "The thesis states \\(\\cos(k\\ell)=D^{-1}\\sum_j\\cos(\\kappa_j\\ell)\\) and the small-edge free-space limit, but not a Jensen underdispersion theorem."
+          ],
+          "identifier_or_url": "University of Nottingham PhD thesis, 2026",
+          "material_read": "Search-extracted thesis section giving equations (58)--(60), including the general \\(D\\)-dimensional relation.",
+          "method": "Full-text search excerpt comparison.",
+          "title": "A Quantum Graph Approach to Metamaterial Design",
+          "trigger": "Exact general-dimensional free dispersion formula under numerical-dispersion terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A global sign, exact equality rays, and an explicit anisotropic leading defect give a useful structural description of numerical dispersion well beyond the usual continuum-limit statement. The body-diagonal equality is an exact all-mesh phenomenon, not a tiny numerical gain or arbitrary slice.",
+      "risks": [
+        "The proof is elementary once the exact dispersion relation is known, so the contribution is a compact structural lemma rather than a broad quantum-graph theorem."
+      ],
+      "sources": [
+        "Known exact dispersion relation",
+        "Strict-convexity/Jensen classification",
+        "Variance-form asymptotic correction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statement is made for higher bands, flat bands, potentials, magnetic phases, or unequal edges."
+  ],
+  "schema_version": 1
+}

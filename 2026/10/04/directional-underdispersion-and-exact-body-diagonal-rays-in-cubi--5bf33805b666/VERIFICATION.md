@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof uses the exact principal-band relation
-\[
-\cos(k\ell)=\frac1\nu\sum_{j=1}^\nu\cos(\ell p_j)
-\]
-and the strict convexity of \(t\mapsto\cos\sqrt t\) on \([0,\pi^2]\). The sign and equality statement are therefore analytic over the complete first Brillouin zone, including boundary points by continuity.
+## correctness
 
-The standalone checker independently evaluates the exact arccos formula in several dimensions and verifies three consequences numerically: sampled energies do not exceed \(\lvert p\rvert_2^2\), signed body-diagonal points agree with continuum dispersion to floating-point tolerance, and the normalized small-\(\ell\) error approaches \(-\nu\operatorname{Var}(p_j^2)/12\). These computations are consistency checks only and are not used to infer an infinite-domain theorem.
+PASS
 
-Unproved limits: no higher-band statement, no result for Dirichlet flat bands, no perturbative potential or magnetic extension, and no assertion that the literature search is exhaustive beyond the inspected and indexed sources.
+On the first Brillouin zone set \(t_j=(\ell p_j)^2\in[0,\pi^2]\). For \(g(t)=\cos\sqrt t\), \(g''(t)=(\sin r-r\cos r)/(4r^3)>0\) for \(0<r<\pi\), with positive endpoint limit, so \(g\) is strictly convex. Jensen therefore gives the average cosine at least the cosine of the root-mean-square angle; monotonicity of cosine on \([0,\pi]\) yields \(E_\ell(p)\le|p|_2^2\), with equality exactly when all \(p_j^2\) coincide. Matching the cosine Taylor series gives the correction \(-\nu\ell^2\operatorname{Var}(p_j^2)/12\). The finite checker is only corroborative and is not used as proof of the global statement.
+
+## originality
+
+PASS
+
+The exact cubic/square-lattice Bloch relation is known, but the inspected sources use it for continuum-limit asymptotics and do not state the global one-sided comparison, the complete equality locus, or the variance-form leading defect. The submitted theorem adds the convexity observation for \(t\mapsto\cos\sqrt t\), which turns the known dispersion formula into a global structural statement across the entire first Brillouin zone rather than merely a small-mesh expansion.
+
+## value
+
+PASS
+
+A global sign, exact equality rays, and an explicit anisotropic leading defect give a useful structural description of numerical dispersion well beyond the usual continuum-limit statement. The body-diagonal equality is an exact all-mesh phenomenon, not a tiny numerical gain or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

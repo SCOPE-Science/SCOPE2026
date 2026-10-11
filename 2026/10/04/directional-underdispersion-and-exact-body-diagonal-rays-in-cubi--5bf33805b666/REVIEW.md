@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact principal-band Bloch equation reduces the claim to strict convexity of \(g(t)=\cos\sqrt t\) on \([0,\pi^2]\). Its second derivative is nonnegative with strict positivity away from the endpoint structure needed for Jensen, because \(\sin r-r\cos r\) increases from zero on \((0,\pi)\). Jensen then gives the global inequality and its exact equality set. A direct Taylor match yields the variance coefficient. The argument handles Brillouin-zone boundaries by continuity.
+## correctness
 
-## Originality
-PASS. The primary continuum-limit paper proves operator convergence but does not state the Bloch-dispersion ordering. The closest exact-dispersion source writes the square-lattice relation and gives only an \(O(\ell^2)\) continuum approximation. The discrete square-lattice continuum-limit paper treats a different finite-difference operator. Searches for body-diagonal exactness, directional underdispersion, Jensen/convexity formulations, and variance corrections found no inspected source implying the combined theorem. Residual risk is an unindexed equivalent observation in numerical-dispersion or metamaterial terminology.
+PASS
 
-## Value
-PASS. The result upgrades qualitative continuum convergence to a finite-mesh structural law: it identifies the sign of the dispersion error globally, gives the exact directions where the error vanishes at every mesh size, and isolates a universal anisotropy invariant controlling the leading error. These facts are directly relevant when comparing directional propagation or discretization error on cubic metric graphs and are not an arbitrary parameter slice.
+On the first Brillouin zone set \(t_j=(\ell p_j)^2\in[0,\pi^2]\). For \(g(t)=\cos\sqrt t\), \(g''(t)=(\sin r-r\cos r)/(4r^3)>0\) for \(0<r<\pi\), with positive endpoint limit, so \(g\) is strictly convex. Jensen therefore gives the average cosine at least the cosine of the root-mean-square angle; monotonicity of cosine on \([0,\pi]\) yields \(E_\ell(p)\le|p|_2^2\), with equality exactly when all \(p_j^2\) coincide. Matching the cosine Taylor series gives the correction \(-\nu\ell^2\operatorname{Var}(p_j^2)/12\). The finite checker is only corroborative and is not used as proof of the global statement.
 
-## Closest literature and limitations
-Exner--Nakamura--Tadano establish the continuum-limit framework; Holden--Vasil provide the exact square-lattice dispersion relation and its leading continuum approximation; Nakamura--Tadano treat the separate discrete-lattice model. The new statement is restricted to the principal branch of the free equilateral standard-Kirchhoff cubic graph.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact cubic/square-lattice Bloch relation is known, but the inspected sources use it for continuum-limit asymptotics and do not state the global one-sided comparison, the complete equality locus, or the variance-form leading defect. The submitted theorem adds the convexity observation for \(t\mapsto\cos\sqrt t\), which turns the known dispersion formula into a global structural statement across the entire first Brillouin zone rather than merely a small-mesh expansion.
+
+## value
+
+PASS
+
+A global sign, exact equality rays, and an explicit anisotropic leading defect give a useful structural description of numerical dispersion well beyond the usual continuum-limit statement. The body-diagonal equality is an exact all-mesh phenomenon, not a tiny numerical gain or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
