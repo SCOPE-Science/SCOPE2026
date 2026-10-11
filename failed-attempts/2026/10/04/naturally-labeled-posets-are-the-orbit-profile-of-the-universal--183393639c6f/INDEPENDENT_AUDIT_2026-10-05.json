@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:00:23.247943Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 8225bee52594939210345be982721cddd192ee67",
+        "artifacts/verify.py blob 354b75f6e512d2a4a0904274650e02cf72eb88a8",
+        "OEIS A006455",
+        "independent small-arity enumeration"
+      ],
+      "rationale": "The formulas are correct. Ultrahomogeneity gives one injective tuple orbit for each labeled finite ordered-poset structure. There are n! choices for the distinguished linear order, and after relabeling increasingly there are exactly s_n naturally labeled partial orders, so a_n=n!s_n. Counting instead by the underlying labeled poset gives the total number of linear extensions. For tuples with repetitions, an equality partition with k blocks together with an injective k-tuple orbit gives the Stirling transform. The Kleitman--Rothschild asymptotic follows because the total linear-extension count lies between the labeled-poset count and n! times that count. Independent small-arity enumeration reproduced A006455 through six points and the first orbit-profile values.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general homogeneous-structure principle says tuple orbits are determined by finite induced isomorphism type.",
+          "A prior Resultary record already applies the same principle to random-poset reduct groups, reinforcing that this is the standard orbit-profile mechanism rather than a new one."
+        ],
+        "reasoning": "The general framework dominates the model-theoretic step; the remaining factor n! is elementary counting.",
+        "searches": [
+          "Kwiatkowska--Malicki, Ordered structures and large conjugacy classes, arXiv:1903.00936; DOI:10.1016/j.jalgebra.2020.03.021",
+          "standard oligomorphic-profile correspondence",
+          "Resultary finding: Exact ordered-tuple orbit profiles of the five random-poset reduct groups, 2026/09/30"
+        ]
+      },
+      "checked_sources": [
+        "Kwiatkowska--Malicki, Ordered structures and large conjugacy classes, arXiv:1903.00936; DOI:10.1016/j.jalgebra.2020.03.021",
+        "OEIS A006455, naturally labeled posets",
+        "Brightwell--Promel--Steger, The average number of linear extensions of a partial order, JCTA 73 (1996), 193--206",
+        "Resultary query: universal ordered poset orbit profile naturally labeled posets linear extensions oligomorphic profile",
+        "Resultary finding: Exact ordered-tuple orbit profiles of the five random-poset reduct groups, 2026/09/30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ultrahomogeneity converts injective tuple orbit equality to equality of induced ordered-poset structure.",
+          "Choosing the tuple's induced linear order and then a partial order contained in it gives n! times A006455 immediately."
+        ],
+        "reasoning": "The final claim is mechanically implied by the defining Fraisse age together with the classical enumeration; different model-theoretic wording does not create originality.",
+        "searches": [
+          "Kwiatkowska--Malicki, Ordered structures and large conjugacy classes, arXiv:1903.00936; DOI:10.1016/j.jalgebra.2020.03.021",
+          "OEIS A006455, naturally labeled posets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source defines the universal ordered poset as the Fraisse limit of all finite ordered posets.",
+          "A006455 already counts partial orders contained in a fixed natural linear order.",
+          "The tuple-orbit interpretation of a homogeneous structure is the direct extension property defining its automorphism orbits."
+        ],
+        "reasoning": "The claimed orbit count is just a relabeling/double count of the age of the Fraisse limit, not a distinct theorem about its dynamics.",
+        "searches": [
+          "Kwiatkowska--Malicki, Ordered structures and large conjugacy classes, arXiv:1903.00936; DOI:10.1016/j.jalgebra.2020.03.021",
+          "OEIS A006455, naturally labeled posets",
+          "Resultary finding: Exact ordered-tuple orbit profiles of the five random-poset reduct groups, 2026/09/30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A006455 records the exact naturally labeled-poset sequence used in the formula.",
+          "The same record notes that n! times A006455 divided by the labeled-poset count is the average number of linear extensions, equivalent to the total-linear-extension identity."
+        ],
+        "reasoning": "The principal combinatorial numbers and their linear-extension double count are already tabulated/classical.",
+        "searches": [
+          "OEIS A006455, naturally labeled posets",
+          "Brightwell--Promel--Steger, The average number of linear extensions of a partial order, JCTA 73 (1996), 193--206"
+        ]
+      },
+      "rationale": "Originality fails because the main profile formula is a routine consequence of the defining Fraisse-homogeneity property and a classical enumeration. For an ultrahomogeneous relational structure, injective tuple orbits are exactly the isomorphism types of the induced labeled finite structures. Here those structures are finite posets together with a distinguished linear extension. Choosing the linear order gives n! choices and the compatible partial order is counted by the classical sequence A006455. The equivalent sum of linear-extension counts is already the standard double-counting interpretation recorded with that sequence. The repeated-coordinate formula is then the ordinary Stirling transform by equality patterns.",
+      "residual_risks": [
+        "An explicit sentence equating this exact automorphism-group orbit profile with A006455 was not located, but the implication is direct enough that missing wording does not preserve originality under the audit standard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_THE_AGE_FROM_WHICH_THE_ORBIT_COUNT_FOLLOWS",
+          "evidence": "The age is exactly the class counted by the elementary n! times naturally-labeled-poset double count.",
+          "identifier_or_url": "arXiv:1903.00936; DOI:10.1016/j.jalgebra.2020.03.021",
+          "material_read": "Primary full-text material defining the universal ordered poset as the Fraisse limit of finite posets equipped with an extending linear order; targeted searches for profile, naturally labeled, and linear extension.",
+          "method": "lawful open primary full-text inspection",
+          "title": "Ordered structures and large conjugacy classes",
+          "trigger": "Defining primary source for the universal ordered poset."
+        },
+        {
+          "assessment": "EXACT_DATABASE_COVERAGE_OF_THE_COMBINATORIAL_FACTOR",
+          "evidence": "The sequence and its average-linear-extension identity are classical; only the routine Fraisse-orbit relabeling is added.",
+          "identifier_or_url": "OEIS:A006455",
+          "material_read": "Current sequence entry, definition as partial orders contained in the usual linear order, initial values, and linear-extension comment.",
+          "method": "public mathematical database",
+          "title": "OEIS A006455",
+          "trigger": "Exact combinatorial sequence appearing in the profile formula."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Kwiatkowska--Malicki, Ordered structures and large conjugacy classes, arXiv:1903.00936; DOI:10.1016/j.jalgebra.2020.03.021",
+        "OEIS A006455, naturally labeled posets",
+        "Brightwell--Promel--Steger, The average number of linear extensions of a partial order, JCTA 73 (1996), 193--206",
+        "Resultary query: universal ordered poset orbit profile naturally labeled posets linear extensions oligomorphic profile",
+        "Resultary finding: Exact ordered-tuple orbit profiles of the five random-poset reduct groups, 2026/09/30"
+      ],
+      "rationale": "The identification is tidy, but it is a direct application of the defining orbit-age correspondence for an ultrahomogeneous structure to a classical counting sequence. The repeated-coordinate transform and asymptotic are routine consequences. Under the required value standard this is an elegant reformulation, not a sufficiently distinct mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
