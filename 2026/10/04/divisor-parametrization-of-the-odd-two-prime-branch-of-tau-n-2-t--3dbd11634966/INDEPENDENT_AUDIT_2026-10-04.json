@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:54:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at the frozen source tree",
+        "DOI:10.7546/nntdm.2023.29.2.284-309",
+        "independent exact solution enumeration"
+      ],
+      "rationale": "The primary theorem supplies the necessary branch shape and equation. Rearrangement gives the exact product identity \\((b+2)(3t-2-a)=3(2t-1)\\), so setting \\(d=b+2\\) yields the displayed divisor parametrization. Conversely every nontrivial divisor gives nonnegative integer exponents, and after imposing \\(a,b\\ge2\\) exactly the divisors \\(1\\) and \\(3\\) are excluded; for \\(d>3\\) and \\(t\\ge2\\), the lower bound on \\(a\\) is automatic. Direct computation of \\(\\varphi(3^aP_t^b)=4\\cdot3^{a+t-1}P_t^{b-1}\\) makes \\(\\tau(\\varphi(n))=3(a+t)b\\), while \\(\\tau(n^2)=(2a+1)(2b+1)\\), so the exponent equation is also sufficient. An independent brute-force check through \\(t=20\\) matched every divisor solution; it corroborates rather than replaces the algebraic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary theorem supplies only a one-way structural reduction.",
+          "OEIS supplies admissible prime exponents but not exponent-pair solutions of the tau/totient equation."
+        ],
+        "reasoning": "Neither source gives the divisor-indexed exponent pairs or their exact count.",
+        "searches": [
+          "Z. Amroune, D. Bellaouar, A. Boudaoud, Notes on Number Theory and Discrete Mathematics 29 (2023), 284--309, DOI:10.7546/nntdm.2023.29.2.284-309",
+          "OEIS A003306 for exponents with \\(2\\cdot3^t+1\\) prime"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.7546/nntdm.2023.29.2.284-309",
+        "OEIS A003306",
+        "Resultary odd-two-prime tau/totient query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives necessity but explicitly leaves the Diophantine system unresolved.",
+          "The factorization gives every divisor solution and direct totient arithmetic proves the converse."
+        ],
+        "reasoning": "The audited theorem closes the exact gap the primary source leaves open rather than specializing a completed prior classification.",
+        "searches": [
+          "Amroune--Bellaouar--Boudaoud Theorem 2.5 and conclusion",
+          "audited factorization \\((b+2)(3t-2-a)=3(2t-1)\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.5 states the necessary two-prime shape and exponent equation.",
+          "The source conclusion identifies solution of this Diophantine system as a remaining problem."
+        ],
+        "reasoning": "The source equation and the audited divisor factorization are equivalent after rearranging to \\((b+2)(3t-2-a)=3(2t-1)\\); the source does not perform this classification.",
+        "searches": [
+          "Amroune--Bellaouar--Boudaoud, A class of solutions of the equation d(n^2)=d(phi(n)), Theorem 2.5",
+          "Resultary query: odd two-prime tau(n^2)=tau(phi(n)) 3^a (2*3^t+1)^b divisor parametrization exponent equation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct Resultary hit is the audited parametrization; no separate database/table with the exponent-pair census was located."
+        ],
+        "reasoning": "Prime-exponent lookup does not determine the \\((a,b)\\) solutions.",
+        "searches": [
+          "Resultary published-finding corpus for the exact two-prime branch",
+          "OEIS A003306"
+        ]
+      },
+      "rationale": "The 2023 primary paper proves only the necessary reduction to \\(3^a(2\\cdot3^t+1)^b\\) with the exponent equation \\(ab+2a+2b+1=3bt\\), and its conclusion explicitly lists solving the resulting Diophantine system as further work. The audited factorization solves that open subproblem completely and then verifies the converse to obtain an iff branch classification. Resultary found the audited record as the direct exact match and no earlier parametrization.",
+      "residual_risks": [
+        "Because the exponent equation is elementary after rearrangement, an equivalent divisor parametrization may exist in an unindexed note or exercise."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NECESSARY_REDUCTION_ONLY_OPEN_DIOPHANTINE_SYSTEM",
+          "evidence": "Theorem 2.5 gives \\(q_1=3\\), \\(q_2=2\\cdot3^t+1\\) prime and \\(ab+2a+2b+1=3bt\\); the conclusion asks for solving this system.",
+          "identifier_or_url": "DOI:10.7546/nntdm.2023.29.2.284-309",
+          "material_read": "Full primary PDF including Theorem 2.5 and the conclusion that singles out the exponent system for further study.",
+          "method": "Primary full-text theorem/implication comparison.",
+          "title": "A class of solutions of the equation d(n^2)=d(phi(n))",
+          "trigger": "Primary same-equation source cited by the package and containing the branch reduction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.7546/nntdm.2023.29.2.284-309",
+        "OEIS A003306"
+      ],
+      "rationale": "The primary source explicitly leaves this Diophantine system to be solved. The exact divisor parametrization upgrades its necessary reduction to a complete iff classification of a natural arithmetic branch and gives an exact count for every admissible prime exponent; this is a motivated closure of a stated gap.",
+      "residual_risks": [
+        "Because the exponent equation is elementary after rearrangement, an equivalent divisor parametrization may exist in an unindexed note or exercise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.7546/nntdm.2023.29.2.284-309",
+    "OEIS A003306",
+    "Resultary odd-two-prime tau/totient query"
+  ],
+  "disposition": "passed",
+  "final_claim": "In the odd two-prime branch \\(n=q_1^a q_2^b\\) with \\(a,b\\ge2\\), \\(\\tau(n^2)=\\tau(\\varphi(n))\\) holds exactly for \\(q_1=3\\), \\(q_2=2\\cdot3^t+1\\) prime, and divisors \\(d>3\\) of \\(3(2t-1)\\) with \\(b=d-2\\) and \\(a=3t-2-3(2t-1)/d\\); hence each admissible \\(t\\) contributes exactly \\(\\tau(3(2t-1))-2\\) solutions.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Because the exponent equation is elementary after rearrangement, an equivalent divisor parametrization may exist in an unindexed note or exercise."
+  ]
+}
