@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The exact 2x2 Schur complement q_p(r) has logarithmic derivative (2-p)(r^p-1)/[(1+r^p)(1+(p-1)r^p)], yielding the sharp minimum at r=1 for 1<p<2. Global squared-defect convexity follows by matched C1 boundary derivatives; squared convexity plus 2-homogeneity implies a norm. Absolute-norm monotonicity lifts sufficiency to arbitrary Banach Y, while restriction to a unit vector in Y proves necessity. Explicit endpoint failures and the p=2 identity cover every remaining case; a finite stdlib stress checker supplements, not substitutes for, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ricard–Xu global Lp curvature inequality has coefficient p-1, whereas the scalar-coordinate sharp coefficient equals (p-1)2^(2/p)/p > p-1 for 1<p<2."
+      ],
+      "reasoning": "The global lower curvature bound is weaker than the coordinate-specific threshold and does not imply it. The 2024 dilation criterion also gives no quantitative coefficient without a new calculation.",
+      "searches": [
+        "Isometric dilation of rank-one coordinate projection on an ℓ_p direct sum of arbitrary Banach spaces phase transition p=2 and exact λ threshold",
+        "Optimal modulus of strong convexity of square of ℓ_p norm in a fixed coordinate direction and max subtraction coefficient",
+        "arXiv:1405.0431 Theorems 1 and 2, section 2"
+      ]
+    },
+    "checked_sources": [
+      "Jana–Pal–Roy arXiv:2407.15112 (2024 first release, 2025 revision)",
+      "Ricard–Xu arXiv:1405.0431 (2014 first release, 2016 revision)",
+      "Search comparison: published rank-one-shear and scalar-axis Δ/Daugavet findings have different invariants and do not imply the defect threshold."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 7.13 is necessary and sufficient for any strict contraction but leaves testing the defect function open in explicit families.",
+        "Ricard–Xu controls the global p-1 curvature, and its sharpness does not force the larger coordinate-specific admissibility coefficient."
+      ],
+      "reasoning": "Neither theorem implies λ²≤2^(2/p)(p-1)/p iff defect is a norm; after applying the former, the two-coordinate Hessian optimization is genuinely required.",
+      "searches": [
+        "Isometric dilation of rank-one coordinate projection on an ℓ_p direct sum of arbitrary Banach spaces phase transition p=2 and exact λ threshold",
+        "arXiv:2407.15112 Definition 1.2, Theorem 7.13, Example 7.20",
+        "arXiv:1405.0431 Theorems 1-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jana–Pal–Roy gives the iff norm/dilation property in Definition 1.2 and Theorem 7.13; Example 7.20 treats other strict contractions, without the coordinate threshold."
+      ],
+      "reasoning": "The proof here computes the precise admissible λ for Tλ(a,y)=(λa,0), which is not the same statement as an abstract criterion requiring one to prove that the defect is a norm.",
+      "searches": [
+        "Sharp if and only if condition for Banach space defect norm of a scalar-coordinate strict contraction on F ⊕_p Y: A(x)=(||x||²-λ² |scalar coordinate|²)^(1/2) is a norm iff λ² ≤ 2^(2/p)(p-1)/p for 1<p<2",
+        "Coordinate rank-one contractions on ℓ_p^2 defect norm squared convexity threshold; Jana Pal Roy 2024 dilation theorem",
+        "arXiv:2407.15112 Theorem 7.13 and Example 7.20"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantic results concerned distinct scalar-axis Daugavet/Delta constants, rank-one shear and power norm profiles; no indexed table of scalar-coordinate defect norm thresholds was returned."
+      ],
+      "reasoning": "The result is a continuous exact threshold for arbitrary Banach Y, not a previously tabulated finite-dimension or discrete-parameter case. Search absence is not a general originality proof.",
+      "searches": [
+        "Sharp if and only if condition for Banach space defect norm of a scalar-coordinate strict contraction on F ⊕_p Y: A(x)=(||x||²-λ² |scalar coordinate|²)^(1/2) is a norm iff λ² ≤ 2^(2/p)(p-1)/p for 1<p<2",
+        "Coordinate rank-one contractions on ℓ_p^2 defect norm squared convexity threshold; Jana Pal Roy 2024 dilation theorem",
+        "Optimal modulus of strong convexity of square of ℓ_p norm in a fixed coordinate direction and max subtraction coefficient"
+      ]
+    },
+    "rationale": "Full-text comparison shows that arXiv:2407.15112 provides the norm/dilation criterion and p-dependent counterexamples, not the exact scalar-coordinate threshold, while arXiv:1405.0431 provides the global p-1 convexity constant but not the strictly larger coordinate-specific threshold 2^(2/p)(p-1)/p. Targeted semantic and public literature searches found no equivalent conclusion; an unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An equivalent scalar-defect convexity threshold could exist under a different name in less indexed Banach renorming or interpolation literature.",
+      "The dilation corollary uses only the precise Definition 1.2 in the cited paper and should not be extrapolated to alternate notions of Banach dilation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General iff defect-norm/dilation criterion and non-dilatable examples; not an exact rank-one scalar-coordinate threshold for every ℓp sum.",
+        "evidence": [
+          "Theorem 7.13: A_T norm iff dilatable for strict T.",
+          "Example 7.20: distinct non-dilatable contractions on Lp with selected parameter intervals, not Tλ(a,y)=(λa,0)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.15112v2",
+        "material_read": "Abstract, Section 1 Definition 1.2, Theorem 1.4, Section 7 Theorem 7.13 and its proof, Theorem 7.16, Examples 7.18 and 7.20 including their explicit contractions and inequalities.",
+        "method": "Read arXiv lawful open full-text HTML and compared operators, coefficients, quantifiers and proof mechanisms.",
+        "title": "A dilation theoretic approach to Banach spaces",
+        "trigger": "Exact defect-function operator and isometric-dilation notion"
+      },
+      {
+        "assessment": "Establishes best universal curvature constant p-1; does not determine scalar-coordinate subtraction threshold, which is strictly larger for 1<p<2.",
+        "evidence": [
+          "Theorem 2: ||x+y||_p²+||x-y||_p²≥2||x||_p²+2(p-1)||y||_p² for 1<p≤2.",
+          "Theorem 1: conditional expectation inequality with p-1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1405.0431v4",
+        "material_read": "Full-text abstract and introduction, Theorems 1 and 2, formulas (1)-(3), and proof through the main curvature Lemma 5 and initial Lemma 6.",
+        "method": "Read arXiv lawful open full-text HTML and compared the exact constants, operators and quantifiers.",
+        "title": "A noncommutative martingale convexity inequality",
+        "trigger": "Plausible broader sharp 2-uniform-convexity inequality on Lp spaces"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "95939122-362e-417e-bb7f-6dcc65dba905",
+  "value": {
+    "rationale": "A complete iff classification across all p∈[1,∞] and all nonzero real or complex Banach summands, with an exact nontrivial sharp coefficient c_p and an abrupt phase distinction at p=2. It identifies the admissible isometric-dilation regime for a natural rank-one family not directly resolved by the motivating qualitative theorem; p-1 curvature bounds do not give its optimal threshold.",
+    "status": "PASS"
+  }
+}
