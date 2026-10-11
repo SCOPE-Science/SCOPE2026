@@ -1,29 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On each sampled scalar quadratic, the Polyak ratio is exactly \(1/(2ca_i)\), so the bounded SPS update is the affine contraction
-\[
-x^+=(1-r_i)x+r_i b_i,
-\qquad
-r_i=\min\{1/(2c),a_i\gamma_b\}.
-\]
-For \(c\ge1/2\), every map is nonexpansive and the finite family is uniformly contractive because every \(r_i>0\). The invariant mean and variance follow from the exact affine fixed-point equations. The all-capped, mixed, and all-uncapped regimes are direct substitutions, and the two-component phase boundaries match continuously.
+PASS
 
-Risk: the multidimensional case does not reduce to scalar clipped curvature weights unless additional commutativity structure is imposed.
+For each scalar quadratic, the Polyak ratio is exactly \(1/(2ca_i)\), so the capped update is \(x^+=(1-r_i)x+r_ib_i\) with \(r_i=\min\{q,a_i\gamma_b\}\) and \(0<r_i\le1\). Synchronous coupling is uniformly contractive, giving a unique stationary law. Its first- and centered second-moment fixed-point equations give the displayed mean and variance exactly. Factoring \(\gamma_b\) from \(r_i\) yields the clipped-curvature surrogate and all phase boundaries. Independent simulation of a mixed-cap example matched the exact stationary moments, and the piecewise formulas were checked algebraically.
 
-## Originality
+## originality
 
-PASS. The original SPS paper defines the cap and proves convergence to a neighborhood but does not identify its exact target on heterogeneous quadratics. Later SPS-dynamics work already establishes curvature cancellation and convergence toward the unweighted average of component minimizers in a loose-cap, decreasing-step quadratic regime; that fact is explicitly treated as prior coverage here. Crucially, its counterexample assumes the cap is large enough to be inactive. The inspected literature does not state the fixed-cap stationary target
-\[
-m=\frac{\sum_i\min(q,a_i\gamma_b)b_i}{\sum_i\min(q,a_i\gamma_b)}
-\]
-or the corresponding stationary variance and cap thresholds.
+PASS
 
-Residual risk: an equivalent affine-iteration calculation may appear in stochastic-approximation literature without SPS terminology.
+The defining SPS work gives the capped rule and neighborhood bounds, while Orvieto--Lacoste-Julien--Loizou explicitly derive curvature cancellation only after assuming the cap is large enough to be inactive. No checked source gives the fixed-cap clipped-curvature target, exact invariant variance, or phase thresholds. Those finite-cap statements remain a distinct method-specific classification.
 
-## Value
+## value
 
-PASS. The cap is a defining parameter of \(\mathrm{SPS}_{\max}\) and is described in the literature as both a safeguard and a quantity that needs tuning outside interpolation. The result gives that tuning parameter a precise structural meaning: it clips component curvature in the long-run target. This separates a bias mechanism from ordinary sampling variance and shows exactly when the cap preserves the intended objective, when it solves a clipped surrogate, and when it loses curvature information completely.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The cap is a practically meaningful algorithmic parameter, and outside interpolation it changes the stationary target rather than merely limiting step magnitude. The exact clipped-curvature target, bias-variance decomposition, and phase thresholds give a motivated diagnostic benchmark for SPSmax and are more than a routine restatement of its known loose-cap failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

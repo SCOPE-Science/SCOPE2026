@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:57:03.443795Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 126da8de4c5beee7471541a9a80cd3398326d766",
+        "verify.py blob a0b200a95645c13a9fa208ccf2b0b1d46a6057e8",
+        "independent moment derivation and simulation"
+      ],
+      "rationale": "For each scalar quadratic, the Polyak ratio is exactly \\(1/(2ca_i)\\), so the capped update is \\(x^+=(1-r_i)x+r_ib_i\\) with \\(r_i=\\min\\{q,a_i\\gamma_b\\}\\) and \\(0<r_i\\le1\\). Synchronous coupling is uniformly contractive, giving a unique stationary law. Its first- and centered second-moment fixed-point equations give the displayed mean and variance exactly. Factoring \\(\\gamma_b\\) from \\(r_i\\) yields the clipped-curvature surrogate and all phase boundaries. Independent simulation of a mixed-cap example matched the exact stationary moments, and the piecewise formulas were checked algebraically.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational theorem gives convergence to a neighborhood but not an invariant distribution.",
+          "The dynamics paper identifies bias and arithmetic-center behavior in the loose-cap regime.",
+          "The slack paper motivates cap tuning but does not derive its exact quadratic bias map."
+        ],
+        "reasoning": "These broader theories motivate the phenomenon but do not imply the complete fixed-cap stationary formulas.",
+        "searches": [
+          "Loizou et al. SPS/SPSmax convergence theory",
+          "Orvieto et al. non-interpolation dynamics",
+          "Gower et al. slack/variational SPS analysis"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2002.10542v1",
+        "arXiv:2205.04583",
+        "arXiv:2202.12328",
+        "Resultary semantic query: capped stochastic Polyak stepsize scalar quadratics stationary mean variance curvature clipping phase diagram"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When the cap is inactive, the audited formula reduces to the already-known arithmetic-center bias, so that endpoint is prior-covered.",
+          "For a finite active cap, the weights become \\(\\min\\{a_i,q/\\gamma_b\\}\\), which is not determined by the prior inactive-cap calculation.",
+          "The exact stationary variance requires a second-moment fixed-point equation not supplied by the prior neighborhood bound."
+        ],
+        "reasoning": "The final claim is the complete fixed-cap phase diagram, not a repackaging of the known loose-cap bias.",
+        "searches": [
+          "Compared the audited formulas with the explicit Orvieto two-quadratic counterexample",
+          "checked the SPSmax cap parameter in the defining source and the slack paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar quadratic update is equivalently a finite random affine system.",
+          "The published SPS dynamics paper's displayed counterexample assumes \\(\\gamma_b\\) is large enough, so its update is curvature-independent rather than partially clipped."
+        ],
+        "reasoning": "Equivalent random-affine and SPS terminology were searched; prior work covers the inactive-cap endpoint, not the full fixed-cap interpolation.",
+        "searches": [
+          "arXiv:2002.10542v1 SPSmax definition",
+          "arXiv:2205.04583 scalar quadratic bias analysis",
+          "arXiv:2202.12328 SPSmax variational formulation",
+          "web and Resultary searches for fixed-cap stationary law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact table or published SCOPE result was retrieved.",
+          "The closest optimization records concern other Polyak-step frontiers."
+        ],
+        "reasoning": "A fixed-cap phase table with the same weights would directly cover the claim; none was located.",
+        "searches": [
+          "Resultary semantic query for capped SPS scalar quadratic stationary phase diagram",
+          "web searches for stationary mean variance and clipped curvature weights"
+        ]
+      },
+      "rationale": "The defining SPS work gives the capped rule and neighborhood bounds, while Orvieto--Lacoste-Julien--Loizou explicitly derive curvature cancellation only after assuming the cap is large enough to be inactive. No checked source gives the fixed-cap clipped-curvature target, exact invariant variance, or phase thresholds. Those finite-cap statements remain a distinct method-specific classification.",
+      "residual_risks": [
+        "Equivalent invariant-law calculations could exist in iterated-random-function or stochastic-approximation literature without SPS terminology.",
+        "The loose-cap curvature-blind target is prior-covered and is not treated as the novelty-bearing part."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_RULE_NOT_STATIONARY_PHASE",
+          "evidence": "The source explains the cap as a convergence-control parameter but does not state the invariant target or covariance for heterogeneous scalar quadratics.",
+          "identifier_or_url": "arXiv:2002.10542v1",
+          "material_read": "Open primary material containing the SPS ratio, cap \\(\\gamma_b\\), and strongly-convex neighborhood guarantees.",
+          "method": "lawful open full-text inspection",
+          "title": "Stochastic Polyak Step-size for SGD: An Adaptive Learning Rate for Fast Convergence",
+          "trigger": "Defining source for SPS and SPSmax."
+        },
+        {
+          "assessment": "COVERS_LOOSE_CAP_ENDPOINT_ONLY",
+          "evidence": "It proves curvature cancellation and the arithmetic-center target in the inactive-cap regime, not the mixed finite-cap phase or invariant variance.",
+          "identifier_or_url": "arXiv:2205.04583; NeurIPS 2022",
+          "material_read": "Primary abstract and full conference PDF excerpt of the two-quadratic counterexample, including the explicit assumption that \\(\\gamma_b\\) is large enough for the cap to be inactive.",
+          "method": "lawful open conference full text",
+          "title": "Dynamics of SGD with Stochastic Polyak Stepsizes: Truly Adaptive Variants and Convergence to Exact Solution",
+          "trigger": "Strongest same-object prior analysis of the scalar quadratic bias."
+        },
+        {
+          "assessment": "MOTIVATES_TUNING_NOT_EXACT_CLIPPED_TARGET",
+          "evidence": "No exact clipped-curvature stationary law appears in the inspected material.",
+          "identifier_or_url": "arXiv:2202.12328",
+          "material_read": "Primary abstract and open-access material on the SPS family and slack-based replacements.",
+          "method": "lawful open-access inspection",
+          "title": "Cutting Some Slack for SGD with Adaptive Polyak Stepsizes",
+          "trigger": "Direct SPS follow-up focused on outside-interpolation stability and cap tuning."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SPS defining paper",
+        "SPS dynamics paper",
+        "independent random-affine analysis"
+      ],
+      "rationale": "The cap is a practically meaningful algorithmic parameter, and outside interpolation it changes the stationary target rather than merely limiting step magnitude. The exact clipped-curvature target, bias-variance decomposition, and phase thresholds give a motivated diagnostic benchmark for SPSmax and are more than a routine restatement of its known loose-cap failure.",
+      "residual_risks": [
+        "The clean clipping law is one-dimensional and need not extend to noncommuting multidimensional Hessians."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent invariant-law calculations could exist in iterated-random-function or stochastic-approximation literature without SPS terminology.",
+    "The loose-cap curvature-blind target is prior-covered and is not treated as the novelty-bearing part."
+  ],
+  "schema_version": 1
+}
