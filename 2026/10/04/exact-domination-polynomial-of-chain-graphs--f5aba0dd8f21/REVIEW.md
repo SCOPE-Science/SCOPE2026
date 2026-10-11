@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a two-sided set, the least selected \(B\)-class and greatest selected \(A\)-class force the outer twin classes, and those forced inclusions prohibit a gap larger than one between the boundary indices. The converse domination argument is direct. Adjacent boundaries give exactly the canonical cut sets, while overlapping boundaries give disjoint products of forced, nonempty, arbitrary, and absent choices. Exhaustive replay agrees with every coefficient on \(540\) canonical instances through order \(11\).
+## correctness
 
-## Originality
-PASS. The closest foundational source supplies general domination-polynomial recurrences but no inspected chain/Ferrers specialization. The closest same-class polynomial paper concerns independent domination, which counts only maximal independent sets and therefore does not determine the ordinary domination polynomial. The complete-bipartite case is explicitly treated as an already covered specialization. Searches under chain, Ferrers, difference, nested bipartite, and \(2K_2\)-free bipartite terminology did not locate an equivalent all-class formula; historical indexing remains a stated residual risk.
+PASS
 
-## Value
-PASS. The claim gives all coefficients of the ordinary domination polynomial for arbitrary connected chain graphs directly from their twin-class sizes. It also yields an exact total count and the domination number. This is a natural full-family enumerator for a classical graph class and a classical invariant, rather than a narrow recomputation of a small instance.
+The proof is exhaustive and boundary-safe. Any dominating set meeting both bipartition sides has a unique largest selected \(A\)-class index \(i\) and smallest selected \(B\)-class index \(j\). Domination forces all \(A_t\) with \(t<j\) and all \(B_t\) with \(t>i\), and feasibility is exactly \(j\le i+1\). The case \(j=i+1\) gives the unique cut set \(A_1\cup\cdots\cup A_i\cup B_{i+1}\cup\cdots\cup B_p\); the case \(j\le i\) gives nonempty choices in \(A_i,B_j\), arbitrary choices in intervening classes, and the displayed monomial shift. One-sided dominating sets are precisely the two endpoint cuts. The resulting cases are disjoint and exhaustive. Independently, 77 canonical instances with \(p\le3\) and all class sizes in \(\{1,2\}\) were brute-force enumerated over every vertex subset and matched the closed polynomial exactly.
 
-## Closest literature and limitations
-Kotek et al. provide the standard invariant and broad recurrence/splitting machinery. Rather, Wang, and Belardo treat independent domination polynomials on chain graphs, a neighboring but strictly different invariant. The proof is unrestricted, while the brute-force checker is finite through order \(11\). Older literature may use alternative names for chain graphs, so bibliographic noncoverage is not asserted absolutely.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+General domination-polynomial papers provide recurrence and splitting machinery, while the recent chain-graph paper found in search concerns the independent domination polynomial. Neither supplies or implies the audited ordinary all-twin-class formula. Resultary searches over published SCOPE findings returned this record and several other domination variants on chain graphs, but no earlier ordinary-domination formula with equivalent boundary-pair content.
+
+## value
+
+PASS
+
+Ordinary domination is a standard graph invariant and chain graphs are a canonical hereditary bipartite class. The result completely enumerates all dominating sets for arbitrary twin-class multiplicities, not merely the minimum size, and yields the total count and domination number as immediate consequences. The extremal-class decomposition is a reusable structural description rather than an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

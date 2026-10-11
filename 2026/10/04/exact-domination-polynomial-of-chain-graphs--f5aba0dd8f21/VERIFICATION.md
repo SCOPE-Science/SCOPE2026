@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof classifies every dominating set of a connected chain graph by its boundary indices. The finite checker is auxiliary regression evidence, not an exhaustive proof of the infinite family.
+# Independent mathematical audit
 
-`verify.py` constructs canonical chain graphs from twin-class sizes and compares the displayed formula with direct subset enumeration for every instance satisfying \(1\le p\le4\), \(\alpha_i,\beta_i\in\{1,2,3\}\), and total order at most \(11\). It additionally verifies the closed formula for \(D(G;1)\) and explicit \(K_2\) and star boundaries.
+## correctness
 
-Expected successful output:
+PASS
 
-`VERIFY_OK graph_types=540 subset_checks=687124 coefficient_checks=5836 max_order=11`
+The proof is exhaustive and boundary-safe. Any dominating set meeting both bipartition sides has a unique largest selected \(A\)-class index \(i\) and smallest selected \(B\)-class index \(j\). Domination forces all \(A_t\) with \(t<j\) and all \(B_t\) with \(t>i\), and feasibility is exactly \(j\le i+1\). The case \(j=i+1\) gives the unique cut set \(A_1\cup\cdots\cup A_i\cup B_{i+1}\cup\cdots\cup B_p\); the case \(j\le i\) gives nonempty choices in \(A_i,B_j\), arbitrary choices in intervening classes, and the displayed monomial shift. One-sided dominating sets are precisely the two endpoint cuts. The resulting cases are disjoint and exhaustive. Independently, 77 canonical instances with \(p\le3\) and all class sizes in \(\{1,2\}\) were brute-force enumerated over every vertex subset and matched the closed polynomial exactly.
 
-Limits: no finite replay establishes the unrestricted theorem by itself; orders above \(11\) are covered by the proof, not by enumeration. The checker uses ordinary domination, where a selected vertex need not have a selected neighbor.
+## originality
+
+PASS
+
+General domination-polynomial papers provide recurrence and splitting machinery, while the recent chain-graph paper found in search concerns the independent domination polynomial. Neither supplies or implies the audited ordinary all-twin-class formula. Resultary searches over published SCOPE findings returned this record and several other domination variants on chain graphs, but no earlier ordinary-domination formula with equivalent boundary-pair content.
+
+## value
+
+PASS
+
+Ordinary domination is a standard graph invariant and chain graphs are a canonical hereditary bipartite class. The result completely enumerates all dominating sets for arbitrary twin-class multiplicities, not merely the minimum size, and yields the total count and domination number as immediate consequences. The extremal-class decomposition is a reusable structural description rather than an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

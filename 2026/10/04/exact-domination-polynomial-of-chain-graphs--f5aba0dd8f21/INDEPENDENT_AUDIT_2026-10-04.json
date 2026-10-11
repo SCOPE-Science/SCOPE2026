@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:38:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e9ffe5ad126cfd51ae774b54f35a9bef1b1b34f7",
+        "assigned verify.py blob 6c4e339c8f7345564a90c5d6dcd89675476753f4",
+        "independent brute-force domination-polynomial census on 77 chain-graph instances"
+      ],
+      "rationale": "The proof is exhaustive and boundary-safe. Any dominating set meeting both bipartition sides has a unique largest selected \\(A\\)-class index \\(i\\) and smallest selected \\(B\\)-class index \\(j\\). Domination forces all \\(A_t\\) with \\(t<j\\) and all \\(B_t\\) with \\(t>i\\), and feasibility is exactly \\(j\\le i+1\\). The case \\(j=i+1\\) gives the unique cut set \\(A_1\\cup\\cdots\\cup A_i\\cup B_{i+1}\\cup\\cdots\\cup B_p\\); the case \\(j\\le i\\) gives nonempty choices in \\(A_i,B_j\\), arbitrary choices in intervening classes, and the displayed monomial shift. One-sided dominating sets are precisely the two endpoint cuts. The resulting cases are disjoint and exhaustive. Independently, 77 canonical instances with \\(p\\le3\\) and all class sizes in \\(\\{1,2\\}\\) were brute-force enumerated over every vertex subset and matched the closed polynomial exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Kotek et al. paper gives graph-generic recurrences and splitting-set formulas, not a chain-graph closed form.",
+          "The published SCOPE hits concern total/connected-total and restrained domination, with extra constraints not convertible into the ordinary polynomial."
+        ],
+        "reasoning": "No broader checked theorem specializes mechanically to the displayed ordinary polynomial without performing essentially the audited boundary classification.",
+        "searches": [
+          "arXiv:1206.5926 full text",
+          "Resultary IDs: 2026/10/4/SCOPE-total-and-connected-total-domination-polynomials-of-chain-graphs--fe5d354bccbd; 2026/10/4/SCOPE-all-restrained-dominating-sets-and-the-restrained-domination-pol--d34c9f557613"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1206.5926",
+        "DOI:10.1007/s10801-026-01514-x",
+        "Resultary published SCOPE search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General recurrence identities do not determine a new closed form without a class-specific classification of dominating sets.",
+          "Independent domination does not imply ordinary domination because adjacent selected vertices contribute to the latter."
+        ],
+        "reasoning": "The audited boundary-pair classification is additional structural content rather than a parameter substitution or renaming of the checked prior results.",
+        "searches": [
+          "arXiv:1206.5926 full primary text",
+          "DOI:10.1007/s10801-026-01514-x abstract and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kotek et al. define the ordinary domination polynomial and prove general recurrence/splitting identities for arbitrary graphs.",
+          "Rather et al. explicitly study the independent domination polynomial of binary-sequence graphs including chain graphs, which is a different generating function."
+        ],
+        "reasoning": "Equivalent formulations as a Ferrers/chain-graph dominating-set enumerator, a twin-class dynamic formula, or a boundary-index sum were checked. The independent-domination result is not equivalent because it excludes adjacent selected vertices, whereas the audited polynomial counts every dominating set.",
+        "searches": [
+          "Resultary query: ordinary domination polynomial connected chain graphs Ferrers graphs canonical twin classes formula",
+          "arXiv:1206.5926",
+          "DOI:10.1007/s10801-026-01514-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table or database entry for the ordinary domination polynomial of general canonical chain graphs was located.",
+          "The only exact chain-graph polynomial hit in the literature search was for independent domination."
+        ],
+        "reasoning": "An exact database/table would have to encode all canonical twin-class sizes and ordinary dominating-set cardinalities; none was found.",
+        "searches": [
+          "Resultary query above",
+          "web searches: domination polynomial chain graphs; domination polynomial Ferrers graph chain graph"
+        ]
+      },
+      "rationale": "General domination-polynomial papers provide recurrence and splitting machinery, while the recent chain-graph paper found in search concerns the independent domination polynomial. Neither supplies or implies the audited ordinary all-twin-class formula. Resultary searches over published SCOPE findings returned this record and several other domination variants on chain graphs, but no earlier ordinary-domination formula with equivalent boundary-pair content.",
+      "residual_risks": [
+        "A non-indexed older graph-polynomial note could conceivably contain an equivalent chain-graph specialization, though targeted exact searches found none."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_THE_CLASS_FORMULA",
+          "evidence": "The paper supplies generic reduction machinery but no chain/Ferrers twin-class closed form.",
+          "identifier_or_url": "arXiv:1206.5926",
+          "material_read": "Full arXiv HTML, including definitions, arbitrary-graph recurrence theorems, special-case recurrences, and splitting-formula scope.",
+          "method": "Open-access full-text inspection and full-text search for the chain-graph class.",
+          "title": "Recurrence relations and splitting formulas for the domination polynomial",
+          "trigger": "Foundational ordinary-domination-polynomial source and plausible broader coverage."
+        },
+        {
+          "assessment": "INAPPLICABLE_DIFFERENT_INVARIANT",
+          "evidence": "The paper concerns independent dominating sets; no implication from that constrained polynomial to the ordinary domination polynomial was identified.",
+          "identifier_or_url": "DOI:10.1007/s10801-026-01514-x",
+          "material_read": "Primary/metadata abstract and stated theorem scope.",
+          "method": "Published-record inspection.",
+          "title": "Independent domination polynomials of binary sequence graphs",
+          "trigger": "Recent paper whose keywords explicitly include chain graph and domination polynomial."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kotek et al. arXiv:1206.5926",
+        "recent chain-graph independent-domination literature"
+      ],
+      "rationale": "Ordinary domination is a standard graph invariant and chain graphs are a canonical hereditary bipartite class. The result completely enumerates all dominating sets for arbitrary twin-class multiplicities, not merely the minimum size, and yields the total count and domination number as immediate consequences. The extremal-class decomposition is a reusable structural description rather than an arbitrary finite computation.",
+      "residual_risks": [
+        "The formula is class-specific and does not address algorithmic complexity beyond this graph family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every connected finite chain graph with canonical nonempty twin classes \\(A_1,\\ldots,A_p\\) and \\(B_1,\\ldots,B_p\\), where \\(N(a)=B_1\\cup\\cdots\\cup B_i\\) for \\(a\\in A_i\\), the ordinary domination polynomial is exactly the boundary-pair formula in RESULT.md: the \\(p+1\\) cut sets plus, for each \\(1\\le j\\le i\\le p\\), all sets with extremal selected classes \\(A_i\\) and \\(B_j\\), forced outside classes, and arbitrary intervening classes. The stated specialization at \\(x=1\\) counts all dominating sets, and \\(\\gamma(G)=1\\) exactly when one side has size one, otherwise \\(\\gamma(G)=2\\).",
+  "limitations": [
+    "Connected chain graphs with nonempty canonical twin classes only; disconnected chain graphs are not separately classified.",
+    "The claim is the ordinary domination polynomial, not independent, total, paired, restrained, Roman, or other domination variants."
+  ],
+  "schema_version": 1
+}
