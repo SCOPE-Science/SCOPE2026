@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:54:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ec3551470fd2ac4c18c6e4038d8a74c043ee46b7",
+        "verify.py blob 8161f1657bec1beab6ebbebbaf323a43f78fe018",
+        "Tao arXiv:math/0308286",
+        "fresh reconstruction of both affine cases"
+      ],
+      "rationale": "Translation reduces to a support containing zero and the transform factors through the restriction to H=<S-S>, so every local Fourier value repeats on a coset of H^perp. In affine dimension one, Tao's prime-cyclic theorem gives at most two zeros for the three-term local transform, and the submitted coefficient triples realize exactly 0, 1 and 2 zeros. In affine dimension two, a zero forces the p-th root zeta^x to lie on a nondegenerate real line intersecting the unit circle in at most two points, and each x determines y uniquely; the three explicit coefficient triples again realize 0, 1 and 2 zeros. Multiplication by |H^perp| gives the stated sizes. The inspected exact-cyclotomic verifier checks representative primes and witnesses but is only corroborative; the proof supplies the universal quantifiers.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biró--Lev prove stronger geometry-sensitive uncertainty inequalities in finite planes but do not enumerate the exact local zero counts 0,1,2 on every three-point support.",
+          "The cyclic Resultary theorem covers one-dimensional local groups, and the Z_4^d theorem has a different exponent and support geometry."
+        ],
+        "reasoning": "No inspected broader theorem simultaneously covers the noncollinear F_p^2 local transform and the exact all-d lift by H^perp.",
+        "searches": [
+          "Biró--Lev, arXiv:1808.07424",
+          "Bonami--Ghobber, arXiv:1003.5060",
+          "Resultary records on cyclic three-point uncertainty and Z_4^d three-sparse spectra"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0308286",
+        "arXiv:1003.5060",
+        "arXiv:1808.07424",
+        "Resultary exact three-sparse Fourier query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tao mechanically implies at most two local zeros only in the collinear reduction.",
+          "The noncollinear unit-circle argument and the explicit 0/1/2 witnesses are additional; multiplying local counts by |H^perp| then yields the exact all-dimensional spectrum."
+        ],
+        "reasoning": "The final theorem is not a corollary of the inspected prior implications: the prior minimum/equality theory leaves the nonminimal support sizes and every-fixed-support realizability undetermined.",
+        "searches": [
+          "Tao prime uncertainty theorem",
+          "Bonami--Ghobber Z_p^2 equality cases",
+          "Biró--Lev finite-plane inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tao proves that a (k+1)-term polynomial on p-th roots has at most k zeros, exactly supplying the collinear <=2 lemma.",
+          "Bonami--Ghobber study minimum Fourier-support/equality cases in Z_p^2 rather than all attainable support sizes on each fixed three-point support."
+        ],
+        "reasoning": "The local collinear statement can be phrased as a three-term prime-cyclic polynomial zero problem, while the plane case is a two-character cancellation problem; these formulations recover the proof tools but not the complete two-affine-type spectrum from prior work.",
+        "searches": [
+          "Tao, arXiv:math/0308286",
+          "Bonami--Ghobber, arXiv:1003.5060",
+          "Resultary query: three sparse Fourier support elementary Abelian odd prime exact spectrum support size three"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact published-finding entries describe cyclic groups or different ambient exponents; no same five-value spectrum table for F_p^d with p odd was located.",
+          "Bonami--Ghobber's minimum-support results recover the collinear minimum but not the complete spectrum."
+        ],
+        "reasoning": "The claimed five-value global spectrum is not a known table entry found in the checked sources; failed search is retained only as supporting evidence, not as proof of novelty.",
+        "searches": [
+          "Resultary semantic search for exact three-sparse Fourier spectra",
+          "Bonami--Ghobber equality-case tables/results"
+        ]
+      },
+      "rationale": "Tao's prime-cyclic uncertainty theorem gives only the sharp zero-count ceiling in the collinear local problem, while Bonami--Ghobber classify minimum/equality cases and Biró--Lev give structure-sensitive finite-plane uncertainty bounds. None of the inspected primary sources gives the complete fixed-support zero-count spectrum for both affine dimensions one and two, every-support realizability, and the all-dimensional coset lift. Resultary returned the audited theorem as the direct exact match; nearby published SCOPE results concern cyclic groups, Z_4^d, or characteristic two and do not dominate the odd-prime noncollinear case.",
+      "residual_risks": [
+        "An older finite-plane/coding-theoretic source could contain an equivalent exact three-point spectrum under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES_COLLINEAR_UPPER_BOUND_ONLY",
+          "evidence": "With three nonzero coefficients on Z_p, the theorem gives at most two Fourier zeros.",
+          "identifier_or_url": "arXiv:math/0308286",
+          "material_read": "Primary arXiv theorem/abstract statement giving |supp f|+|supp fhat|>=p+1 and the consequence that k+1 monomials have at most k zeros.",
+          "method": "Direct lemma applicability check.",
+          "title": "An uncertainty principle for cyclic groups of prime order",
+          "trigger": "Critical nonstandard lemma used for the collinear zero-count ceiling."
+        },
+        {
+          "assessment": "MINIMUM_EQUALITY_CASES_NOT_COMPLETE_FIXED_SUPPORT_SPECTRUM",
+          "evidence": "The source characterizes functions attaining minimal Fourier support for specified time support sizes; it does not state all three attainable zero counts for every collinear and noncollinear three-point support.",
+          "identifier_or_url": "arXiv:1003.5060",
+          "material_read": "Accessible primary full-text material around the Z_p^2 equality/minimality results and stated scope.",
+          "method": "Statement and implication comparison.",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Primary same-group literature on exact support-size-three uncertainty."
+        },
+        {
+          "assessment": "STRUCTURAL_BOUNDS_NOT_COMPLETE_EXACT_SPECTRUM",
+          "evidence": "The inspected theorems constrain support geometry but do not enumerate the exact local Fourier zero counts for every three-point support.",
+          "identifier_or_url": "arXiv:1808.07424",
+          "material_read": "Accessible primary full text around the main structure-sensitive uncertainty inequalities and small-support consequences.",
+          "method": "Broader-theorem implication comparison.",
+          "title": "Uncertainty in finite planes",
+          "trigger": "Primary stronger-looking finite-plane uncertainty source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:math/0308286",
+        "arXiv:1003.5060",
+        "arXiv:1808.07424",
+        "Resultary exact three-sparse Fourier query"
+      ],
+      "rationale": "Exact Fourier-support spectra refine a standard uncertainty invariant. The theorem gives a complete natural three-sparse classification, distinguishes the two affine geometries, and supplies every-support realizability rather than only a minimum. This is a reusable structural fact, not a finite table recomputation.",
+      "residual_risks": [
+        "An older finite-plane/coding-theoretic source could contain an equivalent exact three-point spectrum under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0308286",
+    "arXiv:1003.5060",
+    "arXiv:1808.07424",
+    "Resultary exact three-sparse Fourier query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every odd prime p and d>=2, a function on F_p^d with exactly three nonzero coefficients has a Fourier-support size determined by the affine dimension of its support and a local zero count j in {0,1,2}: (p-j)p^{d-1} in affine dimension one and (p^2-j)p^{d-2} in affine dimension two; every j occurs on every fixed support, so the global spectrum is exactly the five stated values.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An older finite-plane/coding-theoretic source could contain an equivalent exact three-point spectrum under different terminology.",
+    "The theorem is specific to exactly three nonzero coefficients, odd prime exponent, and d>=2."
+  ]
+}
