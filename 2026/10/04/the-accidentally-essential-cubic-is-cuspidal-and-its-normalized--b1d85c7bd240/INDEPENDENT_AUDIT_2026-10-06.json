@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:54:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e57b177775cddb3ccdc1cdc70f06c728f027356a",
+        "verify_accidentally_essential.py blob ea0e003d1ba838a4de79fec0146f72a68c26459e",
+        "fresh SymPy reconstruction of determinant/normalization/kernel"
+      ],
+      "rationale": "Fresh symbolic reconstruction verified the determinant, the singular-locus reduction Fx0=−(x1+6x2)^2 and Fx1|_{x1=−6x2}=−125x2^2, the cubic normalization parametrization, the kernel identity, and the conic equation. The frozen verifier additionally checks the local A2 coordinate identity, Cayley quadrics, Jacobian determinant −20 at the unique support point, adjugate rank-one factorization, conic smoothness and cusp image. These algebraic identities establish the stated local and global claims in characteristic zero.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source develops general determinantal/theta-characteristic geometry but does not compute these explicit invariants in the example.",
+          "General kernel-sheaf theory for singular determinantal hypersurfaces does not supply the specific normalization or Cayley scheme."
+        ],
+        "reasoning": "No inspected broader theorem specializes mechanically to all displayed conclusions.",
+        "searches": [
+          "arXiv:2109.08740 full primary PDF",
+          "Kerner–Vinnikov arXiv:0906.3012"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.08740",
+        "arXiv:0906.3012",
+        "Resultary exact-example search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source premises do not determine the analytic singularity type or reduced scheme structure without further calculation.",
+          "The adjugate factorization after the explicit normalization is new example-specific algebra."
+        ],
+        "reasoning": "The combined global/local classification requires nontrivial calculations beyond the checked prior statements.",
+        "searches": [
+          "arXiv:2109.08740 example after Theorem 4.0.4",
+          "arXiv:0906.3012 general framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted theorem is equivalently an explicit global classification of the symmetroid curve together with the extension of its kernel line bundle map across the essential cusp.",
+          "The source’s incidence statement A(p,q,·)=0 is only a pointwise condition and does not imply the normalized conic map."
+        ],
+        "reasoning": "The cusp/normalization/kernel-conic formulation is strictly finer than the source’s accidental-essentiality example.",
+        "searches": [
+          "Kulkarni–Vemulapalli arXiv:2109.08740 exact matrix/example",
+          "Resultary query: accidentally essential cubic Kulkarni Vemulapalli A2 cusp normalization kernel conic reduced Cayley"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the direct exact hit; no separate published table of the singularity type, Cayley scheme and normalized kernel image was found."
+        ],
+        "reasoning": "The result is symbolic algebraic geometry, not a database/table computation.",
+        "searches": [
+          "Resultary exact-example query"
+        ]
+      },
+      "rationale": "Kulkarni–Vemulapalli’s full primary PDF was materially inspected at the exact “accidentally essential” matrix example. The source states that the displayed point is essential, the Cayley point satisfies the incidence condition, and the surrounding framework treats kernel/Gauss maps away from essential singularities; it does not identify this cubic as a unique A2 cusp, prove the Cayley scheme reduced, or normalize the kernel map to a conic. Resultary returned the assigned record as the exact hit and no covering theorem.",
+      "residual_risks": [
+        "An equivalent explicit computation could appear in unindexed notes on the same example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_STATES_ESSENTIAL_INCIDENCE_NOT_CUSP_NORMALIZATION_CONIC",
+          "evidence": "The source records p essential, q on the Cayley variety and A(p,q,·)=0, but not the audited A2, reduced-scheme or normalized-kernel conclusions.",
+          "identifier_or_url": "arXiv:2109.08740",
+          "material_read": "Full primary PDF at the exact example following Theorem 4.0.4 and surrounding kernel/Cayley discussion; the page with the matrix and essential/Cayley statements was visually inspected.",
+          "method": "Exact-example statement and implication comparison.",
+          "title": "On intersections of symmetric determinantal varieties and theta characteristics of canonical curves",
+          "trigger": "Primary source containing the exact matrix called accidentally essential."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2109.08740",
+        "arXiv:0906.3012",
+        "Resultary exact-example search"
+      ],
+      "rationale": "The source singles out this tensor because essentiality and Cayley incidence collide. Resolving the singularity, scheme structure and the formerly undefined kernel map gives a coherent geometric explanation of that exceptional example, rather than an arbitrary invariant computation.",
+      "residual_risks": [
+        "An equivalent explicit computation could appear in unindexed notes on the same example."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2109.08740",
+    "arXiv:0906.3012",
+    "Resultary exact-example search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For Kulkarni–Vemulapalli’s explicit accidentally essential symmetric determinantal cubic in characteristic zero, the curve is irreducible rational with a unique A2 cusp at [1:0:0], the Cayley scheme is the reduced point [1:0:0], and after normalization the kernel map extends to an isomorphism from P1 onto the smooth conic Y0Y2=2(Y1+Y2)^2, sending the cusp preimage to that point.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent explicit computation could appear in unindexed notes on the same example.",
+    "The result is specific to this explicit tensor over characteristic zero."
+  ]
+}

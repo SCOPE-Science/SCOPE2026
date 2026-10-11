@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The determinant, projective singular locus, cusp normal form, normalization, Cayley scheme, adjugate factorization and conic equation were reconstructed from the displayed tensor and replayed exactly. The proof uses no finite experiment as an infinite argument. The characteristic-zero scope is explicit.
+PASS
 
-## Originality
+Fresh symbolic reconstruction verified the determinant, the singular-locus reduction Fx0=−(x1+6x2)^2 and Fx1|_{x1=−6x2}=−125x2^2, the cubic normalization parametrization, the kernel identity, and the conic equation. The frozen verifier additionally checks the local A2 coordinate identity, Cayley quadrics, Jacobian determinant −20 at the unique support point, adjugate rank-one factorization, conic smoothness and cusp image. These algebraic identities establish the stated local and global claims in characteristic zero.
 
-PASS. The defining source was inspected at the exact example and in the surrounding kernel-map discussion. It states the essential/Cayley-incidence overlap but not the singularity type, reduced Cayley scheme, normalization, or extended kernel conic. Kerner--Vinnikov supplies broader kernel-sheaf theory but does not cover this explicit computation. published-finding corpus and targeted literature searches over aliases and exact coefficients found no implication-equivalent statement. Residual risk remains that an older symmetroid classification contains the same example after a projective change of coordinates.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves the geometry of a deliberately exceptional boundary example in the source: the undefined kernel map becomes a regular conic parametrization after normalization, and its limiting value is exactly the unique Cayley point. This links the source's overlapping closed conditions to a concrete birational picture.
+Kulkarni–Vemulapalli’s full primary PDF was materially inspected at the exact “accidentally essential” matrix example. The source states that the displayed point is essential, the Cayley point satisfies the incidence condition, and the surrounding framework treats kernel/Gauss maps away from essential singularities; it does not identify this cubic as a unique A2 cusp, prove the Cayley scheme reduced, or normalize the kernel map to a conic. Resultary returned the assigned record as the exact hit and no covering theorem.
 
-## Closest literature and limitations
+## value
 
-Kulkarni--Vemulapalli (arXiv:2109.08740v1) is the closest source because it introduces the exact tensor and the phrase “accidentally essential.” Kerner--Vinnikov (arXiv:0906.3012) gives general singular determinantal/kernel-sheaf theory. The result is specific to this tensor in characteristic zero and does not claim a family classification or positive-characteristic analogue.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The source singles out this tensor because essentiality and Cayley incidence collide. Resolving the singularity, scheme structure and the formerly undefined kernel map gives a coherent geometric explanation of that exceptional example, rather than an arbitrary invariant computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
