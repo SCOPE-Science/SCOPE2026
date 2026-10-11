@@ -1,15 +1,21 @@
-# Review of The regular pentagon uniquely maximizes total \(2\)-volume for five-vector Parseval frames in \(\mathbb R^2\)
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Parseval condition is exactly orthonormality of the two synthesis rows. Pairwise determinant signs linearize the total \(2\)-volume into \(u^{\mathsf T}Sv\), and the orthonormal-pair maximum for fixed skew \(S\) is exactly its top singular value. The characteristic-polynomial reduction uses the identity \(\sigma_1^2+\sigma_2^2=10\) and the sum of squared principal Pfaffians. The switching-normalized enumeration is exhaustive over all \(2^6\) cases and yields only \(C=5\) and \(C=21\). The equality classification is supported by an exact single-orbit computation for every maximizing sign matrix and by the strict top spectral gap. The regular pentagon attains the resulting bound analytically.
+## correctness
 
-## Originality
-**PASS with residual literature risk.** The motivating paper formulates the same total-volume optimization and explicitly asks for explicit non-equiangular small-parameter optimizers. Its inspected full text does not give the \(N=2\), \(M=5\), \(k=2\) solution. Searches covered the frame formulation, regular-pentagon formulation, Plücker-coordinate \(\ell^1\) formulation, and skew-sign-matrix spectral formulation. No covering implication was found. The main remaining risk is an unindexed equivalent theorem in exterior algebra, Grassmannian norm optimization, or tournament spectral theory.
+PASS
 
-## Value
-**PASS.** This is a complete exact solution of a natural small non-equiangular instance singled out by the source's open-problem program. It gives the optimum, a closed-form extremizer, and uniqueness up to the natural symmetries. The equality classification also answers structural questions in this case: the optimizer is equal norm and full spark despite not being equiangular.
+Writing the two synthesis rows as an orthonormal pair \(u,v\) converts the sum of absolute Pluecker coordinates into \(\max_S u^{\mathsf T}Sv\) over skew sign matrices. For fixed \(S\), the orthonormal-pair maximum is its top singular value because \(Sv/\sigma_1\) is orthogonal to \(v\). For order five, the nonzero singular squares sum to 10 and their product is the sum of squared principal Pfaffians. A fresh exhaustive replay over all 1024 sign patterns gives exactly 384 cases with \(C=5\) and 640 with \(C=21\); the former yield top singular square \(5+2\sqrt5\). The package's exact signed-permutation orbit census plus the strict top spectral gap gives equality rigidity. The regular-pentagon frame attains the bound analytically.
 
-## Closest literature and limitations
-The closest source is Cahill--Casazza, *Optimal Parseval frames: Total coherence and total volume* (arXiv:1910.01733). It proves optimality of equiangular Parseval frames when available and asks for explicit solutions when they are not. The present result is limited to real dimension two with five frame vectors and total \(2\)-volume; no all-parameter extension is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Cahill and Casazza prove that equiangular Parseval frames maximize total volume when they exist, explicitly note that they need not exist, and end with extensive optimization questions. A real five-vector equiangular tight frame in dimension two does not exist, so that theorem does not solve this case. Searches under Parseval-frame, Pluecker \(\ell^1\), Grassmannian and skew-sign spectral formulations found no prior exact value plus equality classification.
+
+## value
+
+PASS
+
+This solves a natural first small non-equiangular instance of a published Parseval-frame optimization problem, with both a sharp value and full equality classification. The optimizer's regular-pentagon geometry also identifies concrete structure beyond the finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
