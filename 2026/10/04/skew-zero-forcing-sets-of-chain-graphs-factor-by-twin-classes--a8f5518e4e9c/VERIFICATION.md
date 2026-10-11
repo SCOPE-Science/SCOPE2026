@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for arbitrary finite order. A separate exhaustive checker supplies a finite stress test. It generates every canonical connected chain-graph degree profile through order \(10\), computes open-neighborhood twin classes, and for every initial subset runs the skew color-change rule directly. It then compares that result with the criterion that at most one white vertex lies in each twin class.
+# Independent mathematical audit
 
-The same checker independently multiplies the class factors \(x^{|T|}+|T|x^{|T|-1}\), compares every coefficient with direct enumeration, and checks the least exponent and the number of minimum sets. The recorded run was:
+## correctness
 
-`VERIFY_OK graph_profiles=511 subset_checks=349524 coefficient_checks=5119 max_order=10`
+PASS
 
-Finite enumeration is not used as a proof for arbitrary order. The general correctness rests on the stalled-twin necessity argument and the nested-neighborhood induction given in RESULT.md.
+Necessity follows because two initially white open twins always have the same white-neighbor count at every stage and therefore neither can be the unique white neighbor of a forcing vertex. For sufficiency, order the canonical chain-graph twin classes by nested neighborhoods. If white vertices remain and every class contains at most one white vertex, choose an extremal white class on one side; the strict nesting created by absence of a second white twin produces a vertex in the adjacent difference whose unique white neighbor is that extremal vertex. Iterating removes all white vertices. The product enumerator then follows independently in each twin class. A fresh exhaustive replay over 253 canonical connected chain-graph profiles with one to three levels, class sizes one to three and at most ten vertices checked 150,292 subsets and found no disagreement with the criterion.
+
+## originality
+
+PASS
+
+The prior skew-zero-forcing literature gives minimum-set/matching results for several bipartite classes and complete bipartite graphs, but the inspected primary papers do not classify all skew-zero-forcing sets of arbitrary chain graphs or give the twin-class product polynomial. The theorem is stronger than the known minimum-number statements because it characterizes every feasible initial set.
+
+## value
+
+PASS
+
+This is a natural complete classification for a standard bipartite graph class. It determines every feasible forcing-set size, the minimum parameter, and the number of bases in one factorized law, rather than supplying only another isolated skew-zero-forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

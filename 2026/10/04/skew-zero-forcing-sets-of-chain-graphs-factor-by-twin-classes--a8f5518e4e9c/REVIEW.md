@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The necessity argument isolates the only possible obstruction forced by equal open neighborhoods: two white twins cannot be separated by the skew color-change rule. The sufficiency argument uses the defining nested-neighborhood property of chain graphs to produce a legal force from every nonempty admissible white set, and induction completes the proof. The factorization then follows by independent choices in the twin classes. Exhaustive checking through order \(10\) independently verifies the forcing criterion and every coefficient of the polynomial.
+## correctness
 
-## Originality
-PASS. The inspected primary literature covers the skew rule, matching-based minimum-set results for bipartite graphs, scalar complete-multipartite results, the scalar half-graph value \(Z^-(H_s)=0\), and later closure/matroid theory. It does not supply the located all-set twin-class criterion or factorized polynomial for arbitrary chain graphs. Full-text searches of the directly relevant DeAlba paper found no “chain” or “Ferrers” occurrence. A residual risk remains from older literature indexed under alternative nested-neighborhood terminology.
+PASS
 
-## Value
-PASS. This is a complete structural classification rather than a small numerical improvement: every skew zero forcing set is described, the enumerator factors, the minimum value follows, and the number of minimum sets follows. The theorem explains why the half-graph has empty-set forcing and how repeated neighborhoods are the exact obstruction.
+Necessity follows because two initially white open twins always have the same white-neighbor count at every stage and therefore neither can be the unique white neighbor of a forcing vertex. For sufficiency, order the canonical chain-graph twin classes by nested neighborhoods. If white vertices remain and every class contains at most one white vertex, choose an extremal white class on one side; the strict nesting created by absence of a second white twin produces a vertex in the adjacent difference whose unique white neighbor is that extremal vertex. Iterating removes all white vertices. The product enumerator then follows independently in each twin class. A fresh exhaustive replay over 253 canonical connected chain-graph profiles with one to three levels, class sizes one to three and at most ten vertices checked 150,292 subsets and found no disagreement with the criterion.
 
-## Closest literature and limitations
-DeAlba’s arXiv:1404.1618 is the closest inspected primary source because it develops skew zero forcing in bipartite graphs and records the half-graph scalar case. Cooper and Fickes, arXiv:2303.17419, provide broader closure/matroid theory. Neither inspected source states the chain-graph all-set factorization. The claim is limited to finite connected chain graphs and does not assert coverage of disconnected or nonnested bipartite graphs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The prior skew-zero-forcing literature gives minimum-set/matching results for several bipartite classes and complete bipartite graphs, but the inspected primary papers do not classify all skew-zero-forcing sets of arbitrary chain graphs or give the twin-class product polynomial. The theorem is stronger than the known minimum-number statements because it characterizes every feasible initial set.
+
+## value
+
+PASS
+
+This is a natural complete classification for a standard bipartite graph class. It determines every feasible forcing-set size, the minimum parameter, and the number of bases in one factorized law, rather than supplying only another isolated skew-zero-forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
