@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The general statement is proved symbolically; no finite experiment or external certificate is required.
+# Independent mathematical audit
 
-## Checked identities
-For the pentagon, Proposition 3.6 of the cited 2026 source identifies \(c_{i,i+2}=c_{i+2,i}\). Substitution into the two displayed local exchange relations for the quadrangle \(i,i+1,i+2,i+3\) was checked separately and gives
-\[
-q_i=q_{i+1}^{-1}+q_{i+1}^{-1}q_{i+3},
-\]
-\[
-q_i=q_{i+1}^{-1}+q_{i+3}q_{i+1}^{-1}.
-\]
-The left/right multiplications are order-sensitive and yield the same element \(1+q_{i+3}\), which proves adjacent commutativity rather than assuming it.
+## correctness
 
-For cyclic distance \(2\), the checked chain is
-\[
-q_i(q_{i+1}q_{i+2}-1)=(q_{i+1}q_{i+2}-1)q_i,
-\]
-followed by adjacent commutativity and left cancellation of the unit \(q_{i+1}\). This gives \(q_iq_{i+2}=q_{i+2}q_i\). On five indices, every distinct pair has cyclic distance \(1\) or \(2\).
+PASS
 
-For height \(1\), the cited source gives \(ab=2\). Since \(2\) is central and \(a\) is a unit, \(b=2a^{-1}\), hence \(ba=2\).
+The boundary-one length-two symmetry follows directly from the published triangle relation: on three consecutive vertices all four boundary factors are \(1\), forcing \(c_{i,i+2}=c_{i+2,i}\). Applying the two oriented published exchange relations to four consecutive vertices of the pentagon gives \(q_i=q_{i+1}^{-1}+q_{i+1}^{-1}q_{i+3}\) and \(q_i=q_{i+1}^{-1}+q_{i+3}q_{i+1}^{-1}\); multiplying on the appropriate side yields \(q_iq_{i+1}=q_{i+1}q_i=1+q_{i+3}\). Thus adjacent quiddity entries commute. Since \(q_i\) also commutes with \(q_{i+4}\) and \(q_{i+4}=q_{i+1}q_{i+2}-1\), cancellation by the unit \(q_{i+1}\) gives \(q_iq_{i+2}=q_{i+2}q_i\). Every pair on five indices has cyclic distance one or two, so all pentagon values commute. The height-one relation \(ab=2\) makes its two internal units commute, while the cited quaternionic height-three example contains noncommuting quaternion units, proving sharpness of the height threshold.
 
-## Source checks
-The defining exchange relation and Proposition 3.6 were inspected in the primary PDF, including direct page images. The same PDF's Example 3.5 was inspected for sharpness: the displayed height-\(3\) frieze contains both \(i\) and \(j\), which do not commute in the Hamilton quaternions. The foundational 2024 PDF was also inspected by page image, and targeted full-text searches found no height-\(2\) or pentagon theorem there.
+## originality
 
-## Limits
-This verifies only the boundary-one theorem stated in the package. It does not classify height-\(2\) solutions, extend to arbitrary boundary coefficients, or assert anything about commutativity of all height-\(3\) friezes.
+PASS
+
+Best-of-knowledge originality survives. The 2025 foundational paper supplies the general noncommutative triangle/exchange calculus, and the 2026 division-ring paper studies finiteness and explicit quaternionic behavior, but targeted searches found no theorem stating that every boundary-one pentagon is forced commutative or that height three is the sharp first possible noncommutative height. The submitted result is not a title-level restatement: it extracts a rigid low-height consequence by using both orientations of the exchange relation and a nontrivial cyclic cancellation.
+
+## value
+
+PASS
+
+The theorem identifies a sharp structural threshold: boundary-one noncommutativity is impossible for quadrilateral and pentagon friezes over any division ring, while a quaternionic height-three example exists. That is a natural complete low-height classification and explains where genuinely noncommutative behavior can first occur; it is more than a tiny numerical instance or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

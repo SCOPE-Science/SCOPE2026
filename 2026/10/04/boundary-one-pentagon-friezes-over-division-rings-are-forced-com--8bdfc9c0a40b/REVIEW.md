@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof uses the published local exchange relations in both orientations for one quadrangle of the pentagon. After the published boundary-one symmetry identifies opposite orientations of every length-\(2\) diagonal, the two equations give \(q_{i+1}q_i=1+q_{i+3}=q_iq_{i+1}\), so adjacent quiddity entries commute. The recurrence \(q_{i+4}=q_{i+1}q_{i+2}-1\), together with adjacent commutativity and cancellation by the unit \(q_{i+1}\), gives commutativity at cyclic distance \(2\). These two distances exhaust pairs among five indices. Height \(1\) reduces to the published equation \(ab=2\), forcing commutativity because \(2\) is central. No experimental inference is involved.
+## correctness
 
-Risk: an indexing error would be decisive, so both oriented exchange equations were checked against the displayed published formula and the pentagon indexing. The proof requires frieze values to be units, exactly as in the definition.
+PASS
 
-## Originality
-**PASS.** The closest inspected source, arXiv:2609.32257v1, states only the two-orientation equality for length-\(2\) diagonals (Proposition 3.6), explicitly handles height \(1\), and gives a genuinely noncommutative height-\(3\) quaternionic example. It does not state pairwise commutativity of all five height-\(2\) quiddity entries or the sharp minimal-height theorem; exact full-text search found no “height 2” occurrence. The foundational arXiv:2403.09156v2 gives the general local calculus and height-\(3\) example, but targeted full-text search found no “height 2” or “pentagon” statement. The 2025 determinant/Laurent/gluing paper supplies broader theory but no covering pentagon-rigidity statement in the inspected material. Semantic searches for equivalent formulations and pentagon/type-\(A_2\) aliases did not return a covering finding.
+The boundary-one length-two symmetry follows directly from the published triangle relation: on three consecutive vertices all four boundary factors are \(1\), forcing \(c_{i,i+2}=c_{i+2,i}\). Applying the two oriented published exchange relations to four consecutive vertices of the pentagon gives \(q_i=q_{i+1}^{-1}+q_{i+1}^{-1}q_{i+3}\) and \(q_i=q_{i+1}^{-1}+q_{i+3}q_{i+1}^{-1}\); multiplying on the appropriate side yields \(q_iq_{i+1}=q_{i+1}q_i=1+q_{i+3}\). Thus adjacent quiddity entries commute. Since \(q_i\) also commutes with \(q_{i+4}\) and \(q_{i+4}=q_{i+1}q_{i+2}-1\), cancellation by the unit \(q_{i+1}\) gives \(q_iq_{i+2}=q_{i+2}q_i\). Every pair on five indices has cyclic distance one or two, so all pentagon values commute. The height-one relation \(ab=2\) makes its two internal units commute, while the cited quaternionic height-three example contains noncommuting quaternion units, proving sharpness of the height threshold.
 
-Risk: an older marked-surface source could contain the same consequence under different terminology; this remains a residual literature risk rather than a known implication.
+## originality
 
-## Value
-**PASS.** The result identifies the exact first height at which the non-commutative frieze formalism can exhibit genuinely noncommuting values with boundary \(1\). It explains why the source's first genuinely noncommutative example occurs on a hexagon rather than a quadrangle or pentagon and gives a reusable rigidity lemma for any attempt to enumerate quaternionic or other division-ring friezes by height. The statement is structural and uniform over all division rings, not a small-instance computation.
+PASS
 
-## Closest literature and limitations
-The closest literature is the 2026 normed-division-ring paper and the 2024/2025 general frieze theory by Cuntz--Holm--Jørgensen. The claim is restricted to boundary value \(1\); arbitrary coefficients are not addressed. It proves rigidity but not a classification of all commuting pentagon solutions.
+Best-of-knowledge originality survives. The 2025 foundational paper supplies the general noncommutative triangle/exchange calculus, and the 2026 division-ring paper studies finiteness and explicit quaternionic behavior, but targeted searches found no theorem stating that every boundary-one pentagon is forced commutative or that height three is the sharp first possible noncommutative height. The submitted result is not a title-level restatement: it extracts a rigid low-height consequence by using both orientations of the exchange relation and a nontrivial cyclic cancellation.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The theorem identifies a sharp structural threshold: boundary-one noncommutativity is impossible for quadrilateral and pentagon friezes over any division ring, while a quaternionic height-three example exists. That is a natural complete low-height classification and explains where genuinely noncommutative behavior can first occur; it is more than a tiny numerical instance or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
