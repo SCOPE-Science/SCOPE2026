@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The original system differentiates exactly to \\(\\ddot v+\\beta\\dot v=\\alpha v^p\\), and the monotone phase parameter obeys \\(\\frac{d}{dv}Y^2=2\\alpha v^p-2\\beta Y\\). Positive solutions eventually have increasing memory coordinates and reach infinite amplitude in finite time. Iterating the integrated energy equation produces \\(Y=cv^q+dv+ev^{2-q}+R\\), with a provably integrable remainder \\(R\\) for all \\(q>2\\). The counterterm-renormalized energy has exactly the derivative \\(\\mathcal K_q'= -2\\beta R\\) and hence converges, with the claimed three error exponents. At \\(q=3\\), exact algebra yields the logarithmic energy coefficient \\(-3\\beta^3/(16c)\\) and phase-velocity coefficient \\(-9\\beta^3/(32\\alpha)\\). The packaged symbolic checker confirms only these coefficient identities; analytic inequalities establish the infinite limit. The estimates concern each fixed positive orbit, not a uniform-in-initial-data bound. Comparing two positive phase velocities at one fixed memory coordinate gives an exact linear equation for their positive squared difference and its strictly positive limit, proving the finite part is strictly ordered by initial phase velocity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asai et al. develop algorithms for multi-order asymptotic expansions, but their examples are a distinct collection of systems.",
+        "Hoang Theorem 7.5 gives coarse rates and unspecified positive error exponents rather than an exact phase-space finite part."
+      ],
+      "reasoning": "The broad algorithms may be applicable to the field, but no checked general theorem includes the exact finite-part limit as an immediate specialization with the coefficient and convergence remainder; the present proof independently establishes convergence using an integrable defect.",
+      "searches": [
+        "nonlinear second order ODE blow-up asymptotic p=5 singularity damped positive oscillator universal logarithmic correction",
+        "arxiv:2211.06865v2 Sections 3.3–3.5; Section 4 examples",
+        "arxiv:2303.10153v2 Section 7, Theorem 7.5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.15470v1 Section 3 F1 and Theorem 1",
+      "arxiv:2211.06865v2 Sections 3–4 and example inventory",
+      "arxiv:2303.10153v2 Section 7 Theorem 7.5",
+      "Related indexed public record: Exact first integral reveals a two-sided blow-up dichotomy for exponential memory (reciprocal-memory F2, distinct nonlinearity)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Leading behavior \\(v(t)\\sim C(T-t)^{-2/(p-1)}\\) alone does not determine the exact signed logarithm or finite-part limit.",
+        "The general resonance method does not display the specific exponential-memory correction coefficients.",
+        "The indexed exact integral concerns reciprocal-memory F2 and does not imply formulas for polynomial F1.",
+        "The finite-part comparison law distinguishes any two strictly ordered initial phase velocities with the same memory value; the cited prior asymptotic theorems do not state such a phase-space order invariant."
+      ],
+      "reasoning": "The theorem identifies a new exact asymptotic observable K, a nonzero universal logarithm when p=5, and the boundary p>5 for convergence without that counterterm. Neither general leading-order estimates nor results for a distinct rational memory nonlinearity entail these assertions. Applicability of a general expansion algorithm does not establish that the specific conclusions were previously published.",
+      "searches": [
+        "arxiv 2609.15470 F1 power nonlinearity u dot v^p v dot alpha u minus beta v subleading asymptotic phase plane",
+        "v second derivative beta v first derivative equals alpha v to power p phase plane renormalized energy p five logarithmic divergence",
+        "arxiv:2609.15470v1 Theorem 1, Section 3.6",
+        "arxiv:2211.06865v2 Sections 3–4",
+        "arxiv:2303.10153v2 Theorem 7.5",
+        "memory blow-up damped Emden Fowler v second derivative beta v first derivative equals alpha v quintic renormalized energy comparison strictly monotone initial speed",
+        "finite part energy monotone initial condition scalar damped nonlinear second order ODE blow up log resonance p 5",
+        "memory-induced blowup invariant phase velocity order parameter K exponential comparison ODE"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The F1 reduction is \\(\\ddot v+\\beta\\dot v=\\alpha v^p\\), with phase coordinate \\(Y(v)=\\dot v(t(v))\\).",
+        "Ichida Theorem 1 identifies leading blow-up exponents only.",
+        "Asai et al. present resonance-based multiscale calculations but no instance with this model and finite-part invariant."
+      ],
+      "reasoning": "The claim is invariant under reduction from the exponential-kernel memory equation to the second-order damped Emden–Fowler equation; searches of both aliases were checked. Neither inspected source supplies the finite-part limit or exact quintic logarithmic coefficient. General resonance terminology is not a statement of the concrete coefficient.",
+      "searches": [
+        "arxiv 2609.15470 F1 power nonlinearity u dot v^p v dot alpha u minus beta v subleading asymptotic phase plane",
+        "v second derivative beta v first derivative equals alpha v to power p phase plane renormalized energy p five logarithmic divergence",
+        "arxiv:2609.15470v1 Sections 2–4",
+        "arxiv:2211.06865v2 Sections 3–4",
+        "memory blow-up damped Emden Fowler v second derivative beta v first derivative equals alpha v quintic renormalized energy comparison strictly monotone initial speed",
+        "finite part energy monotone initial condition scalar damped nonlinear second order ODE blow up log resonance p 5",
+        "memory-induced blowup invariant phase velocity order parameter K exponential comparison ODE"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact F1 p=5 correction coefficient or renormalized-energy value is tabulated in the inspected sources.",
+        "The claim is a continuum dynamical statement, not a finite enumerative table."
+      ],
+      "reasoning": "Searches focused on exact parameter and coefficient aliases. No known numerical table gives an applicable stronger theorem or an identical coefficient; this negative search is not taken as a proof of uniqueness.",
+      "searches": [
+        "critical quintic memory delayed blowup renormalized mechanical energy log v beta cube",
+        "F1 memory induced blow up exponential kernel u'=v^p, v'=alpha u-beta v exact second order asymptotic beta/(p+3)",
+        "arxiv:2609.15470v1 theorem/proof and arxiv:2211.06865v2 example search"
+      ]
+    },
+    "rationale": "For the same power-memory vector field, Ichida (arXiv:2609.15470v1, Theorem 1 and Section 3.6) proves finite-time blow-up and leading temporal exponents only. Asai et al. (arXiv:2211.06865v2) develop general resonance and multiscale methods that could be specialized here, but do not state the exact energy finite-part limit, its universal critical logarithm, or the model-specific coefficient. Hoang (arXiv:2303.10153v2) supplies general leading profiles and error estimates. A publicly indexed reciprocal-memory result concerns a different F2 nonlinearity and does not imply F1. Aliases and parameter-reduction searches found no explicit implication-equivalent result. Residual risk: an older model-specific computation, or an unindexed application of general asymptotic machinery, may reproduce the same formulas. None of the inspected literature states the exact strict-comparison formula for this finite-part energy.",
+    "residual_risks": [
+      "Multi-order asymptotic methods may permit the same specific coefficients after a lengthy specialization even though the evaluated primary work does not state them.",
+      "Unindexed, older, or differently titled damped Emden–Fowler/finite-time singularity literature may give an implication-equivalent phase-energy expansion.",
+      "Index searches are not a mathematical proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "F1 leading-time-rate result; no finite-part energy or p=5 log displayed.",
+        "evidence": [
+          "Ichida equation (3.3) is \\(\\dot u=v^p\\), \\(\\dot v=\\alpha u-\\beta v\\).",
+          "Theorem 1 and Section 3.6 give only leading temporal asymptotic powers with unspecified positive constants."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.15470v1",
+        "material_read": "Abstract, Section 1 equations (1.1)–(1.5), Section 2 Theorem 1, Section 3 full F1 reduction, dynamics-at-infinity and Section 3.6 temporal leading asymptotics; inspected F2 setup in Section 4.",
+        "method": "Primary lawful arXiv HTML full-text reading and in-document comparison of equations.",
+        "title": "Memory-induced blow-up solutions and their dynamical transitions in distributed delay differential equations",
+        "trigger": "Same distributed-memory F1 object and classification."
+      },
+      {
+        "assessment": "A substantial general multiscale methodology, but the inspected results do not give the particular F1 energy or coefficient.",
+        "evidence": [
+          "Sections 3.3–3.5 present a resonance/eigenvalue-based asymptotic scheme.",
+          "Section 4 studies systems other than exponential-memory power F1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.06865v2",
+        "material_read": "Introduction, Sections 3.3 and 3.5 methodological statements, Section 4 enumerated examples and selected examples including the two-phase system; keyword searches for memory, damping and logarithmic terms.",
+        "method": "Primary lawful arXiv HTML full-text inspection and specific model/equivalence search.",
+        "title": "Multi-order asymptotic expansion of blow-up solutions for autonomous ODEs. I — Method and Justification",
+        "trigger": "Plausibly stronger general asymptotic-expansion theory and resonances."
+      },
+      {
+        "assessment": "General leading profiles and error estimates, no explicit energy finite-part limit or logarithmic resonance for this model.",
+        "evidence": [
+          "Section 7 Theorem 7.5 states qualitative power/log error estimates for its general framework, not the polynomial-memory F1 energy."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.10153v2",
+        "material_read": "Introduction, Section 7 and Theorem 7.5 with the explicit powers/error-rate result.",
+        "method": "Primary lawful arXiv HTML full text and theorem-level implication comparison.",
+        "title": "On the finite time blow-ups for solutions of nonlinear differential equations",
+        "trigger": "Generality of finite-time blow-up asymptotic theorems might dominate the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e6e45148-2264-4bd1-a503-cdfd260ac4f9",
+  "value": {
+    "rationale": "When damping vanishes the second-order phase equation has conserved mechanical energy. Under positive damping the same quantity diverges. The finding identifies the universal polynomial terms and the last necessary counterterm that extract a finite energy-like orbit invariant for all powers \\(p>3\\). Its sharp exponent threshold \\(p=5\\) separates a divergent fractional-power drift, a nonzero logarithmic drift, and uncorrected convergence. This is a structural singularity classification with a controlled integrable remainder, rather than a renaming or merely a leading blow-up-rate estimate. The finite part distinguishes trajectories and supports asymptotic matching; no claims are made about arbitrary delay kernels. The finite-part constant is not merely existential: a positive integral formula proves strict ordering of all trajectories sharing a fixed starting memory coordinate and increasing phase velocity, giving it concrete discriminative significance.",
+    "status": "PASS"
+  }
+}
