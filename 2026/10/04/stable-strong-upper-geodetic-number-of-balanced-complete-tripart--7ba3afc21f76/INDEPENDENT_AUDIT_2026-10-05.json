@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:07:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For selected counts \\(s_i\\), omitted demands \\(t_i=n-s_i\\), and same-part pair capacities \\(p_i=\\binom{s_i}{2}\\), shortest-path coverage is exactly a three-class bipartite allocation problem. Hall reduces to \\(T\\le P\\) and \\(t_i\\le P-p_i\\) for all three classes, because any demand subset meeting two partite classes sees all three pair-slot classes. The displayed inequalities then prove that \\((2,2,n-2)\\) is minimal strong geodetic and that every larger strong set admits a one-vertex deletion; the equality argument leaves only \\((2,2,n-2)\\). I independently reimplemented the Hall criterion and one-vertex minimality test, recovering the stated value and exactly three maximum patterns at every tested stable-range value, including \\(n=12,13,14,15,20,30,40\\). The packaged max-flow verifier was read and exhaustively checks all part-count triples for \\(12\\le n\\le30\\); finite checks are corroborative only.",
+      "risk": "The theorem is a stable-range result and does not classify \\(n<12\\) or unbalanced tripartite graphs.",
+      "sources": [
+        "DOI:10.26713/cma.v12i3.1597",
+        "arXiv:1806.00302",
+        "Resultary record 2026/9/30/SCOPE-strong-upper-geodetic-number-of-complete-bipartite-graphs--19a81b4f67a5",
+        "RESULT.md",
+        "verify.py",
+        "fresh independent Hall replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ordinary complete-multipartite theorem minimizes strong geodetic sets, so it does not determine the upper parameter.",
+          "The bipartite upper theorem has only two partite demand classes and does not supply the third-class Hall constraints used here."
+        ],
+        "reasoning": "No inspected broader theorem dominates the balanced tripartite upper-parameter classification.",
+        "searches": [
+          "DOI:10.26713/cma.v12i3.1597",
+          "arXiv:1806.00302 / DOI:10.26493/1855-3974.1725.2e5",
+          "Resultary complete-bipartite strong-upper record 19a81b4f67a5"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.26713/cma.v12i3.1597",
+        "arXiv:1806.00302",
+        "DOI:10.26493/1855-3974.1725.2e5",
+        "Resultary record 19a81b4f67a5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "None supplies a theorem for three partite classes under the upper/minimal-set objective.",
+          "The audited proof requires a new three-class capacity system, stable deletion inequalities, and equality analysis."
+        ],
+        "reasoning": "The final statement is not a substitution into the bipartite result and is not implied by the ordinary minimum parameter.",
+        "searches": [
+          "Defining 2021 strong-upper source",
+          "2019 ordinary strong-geodetic complete-multipartite source",
+          "published complete-bipartite strong-upper theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest Resultary hit is the complete-bipartite theorem.",
+          "The 2021 source abstract defines the upper parameter but does not state a tripartite formula.",
+          "The 2019 complete-multipartite paper concerns the minimum strong geodetic number."
+        ],
+        "reasoning": "Strong-upper number, maximum size of a minimal strong geodetic set, balanced tripartite and capacitated-Hall formulations were compared.",
+        "searches": [
+          "Resultary: strong upper geodetic balanced complete tripartite K_{n,n,n} n+2 minimal sets (2,2,n-2)",
+          "Web: Strong Upper Geodetic Number of Graphs Infanta Xavier 2021 complete tripartite",
+          "Searches for strong upper geodetic complete multipartite and \\(\\operatorname{sg}^+\\) aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or stronger all-tripartite result was returned."
+        ],
+        "reasoning": "The n=12..30 verifier is scientific corroboration, not database novelty evidence.",
+        "searches": [
+          "Resultary exact query for \\(n+2\\), \\((2,2,n-2)\\), and balanced complete tripartite strong upper geodetic number"
+        ]
+      },
+      "rationale": "The defining 2021 paper introduces the strong upper geodetic number but no complete-tripartite exact formula was located. The ordinary strong-geodetic literature on complete multipartite graphs optimizes a different minimum parameter. The closest published SCOPE result solves only complete bipartite graphs; moving to three parts creates a genuinely different three-demand/three-slot Hall system. Resultary exact searches found no theorem implying the stable value, equality classification, or count.",
+      "residual_risks": [
+        "The defining 2021 paper's full PDF was inaccessible in this execution, so exact whole-document noncoverage is not asserted.",
+        "A differently phrased later complete-tripartite result may be poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_PARAMETER_FULL_TEXT_ACCESS_LIMITED",
+          "evidence": "The abstract defines minimal strong geodetic sets and \\(\\operatorname{sg}^+\\), and advertises general results without an indexed complete-tripartite formula.",
+          "identifier_or_url": "DOI:10.26713/cma.v12i3.1597",
+          "material_read": "Publisher abstract and indexed source material. Direct PDF access failed and the authorized fallback found no verified PDF in this execution.",
+          "method": "Publisher/open-web inspection followed by authorized retrieval attempt; no bypass or fresh retry after no-PDF.",
+          "title": "Strong Upper Geodetic Number of Graphs",
+          "trigger": "Defining primary source for the upper parameter."
+        },
+        {
+          "assessment": "DIFFERENT_OPTIMIZATION_PARAMETER",
+          "evidence": "It treats the minimum cardinality of a strong geodetic set, not the maximum cardinality of a minimal one.",
+          "identifier_or_url": "arXiv:1806.00302; DOI:10.26493/1855-3974.1725.2e5",
+          "material_read": "Accessible abstract and statement-level material identifying the minimum strong geodetic objective.",
+          "method": "Open primary-source inspection and statement comparison.",
+          "title": "Strong geodetic problem on complete multipartite graphs",
+          "trigger": "Same graph class under a potentially stronger geodetic theorem."
+        },
+        {
+          "assessment": "CLOSEST_SAME_PARAMETER_RESULT_NOT_TRIPARTITE",
+          "evidence": "The statement covers \\(K_{a,b}\\) only.",
+          "identifier_or_url": "Resultary:2026/9/30/SCOPE-strong-upper-geodetic-number-of-complete-bipartite-graphs--19a81b4f67a5",
+          "material_read": "Resultary statement and summary identifying the exact complete-bipartite value and maximum-set classifications.",
+          "method": "Direct semantic-result inspection and implication comparison.",
+          "title": "Strong upper geodetic number of complete bipartite graphs",
+          "trigger": "Closest published same-parameter family theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Passing from two to three partite classes changes the covering problem into a genuine three-class allocation system. The theorem gives an infinite stable exact value, a full structural classification of extremal minimal sets, and an exact count, which is a natural benchmark for the upper geodetic parameter.",
+      "risk": "The stable threshold is not claimed optimal for every possible structural property below \\(n=12\\).",
+      "sources": [
+        "DOI:10.26713/cma.v12i3.1597",
+        "Resultary complete-bipartite benchmark"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer \\(n\\ge12\\), the strong upper geodetic number of \\(K_{n,n,n}\\) is \\(n+2\\); maximum minimal strong geodetic sets have exactly the three part-count patterns obtained by permuting \\((2,2,n-2)\\), giving \\(3\\binom n2^3\\) such sets.",
+  "limitations": [
+    "Balanced \\(K_{n,n,n}\\) only.",
+    "Stable range \\(n\\ge12\\).",
+    "Finite max-flow computations are corroborative, not the infinite proof."
+  ],
+  "schema_version": 1
+}
