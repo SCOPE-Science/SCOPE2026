@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:06:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 0a0e05f0c62efe3c46c23b01f33a49694e58057f",
+        "Bauschke-Tung arXiv:2605.25491v2 relevant full-text construction"
+      ],
+      "rationale": "The source Gram identity gives \\(\\|y_n\\|^2=n^{-2}\\sum_{i,j}\\rho_i\\rho_j e^{-\\delta^2(H_{i-1}-H_{j-1})^2}\\). Since \\(\\rho_n\\to e^{-\\delta^2\\pi^2/6}\\), Cesàro convergence removes the radial factors at vanishing averaged error. Away from the first \\(\\varepsilon n\\) indices, the harmonic-number expansion is uniform and turns the remaining bounded kernel into a Riemann sum for the double integral over \\([0,1]^2\\); the discarded strips have normalized mass at most \\(2\\varepsilon\\). Symmetry and the substitution \\(s=rt\\) reduce the double integral to \\(\\int_0^1e^{-\\delta^2(\\log r)^2}dr\\), and \\(u=-\\log r\\) gives the stated erfc form. This proves the exact positive norm limit without asserting vector norm convergence.",
+      "residual_risks": [
+        "The limit is tied to the harmonic mesh and Gaussian-kernel orbit; other source constructions are not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader counterexample results establish failure of strong Cesàro convergence but do not encode the Gaussian harmonic-mesh Gram asymptotic."
+        ],
+        "reasoning": "No broader inspected theorem mechanically gives the exact limit.",
+        "searches": [
+          "Bauschke-Tung 2026 full harmonic example",
+          "Krengel-Lin 1987 nonlinear mean-ergodic counterexamples"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.25491v2",
+        "Krengel-Lin, Israel J. Math. 58 (1987)",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source identities determine every finite norm but do not by themselves state the two-index asymptotic.",
+          "A uniform-away-from-zero harmonic expansion and control of the boundary strips are needed to justify the limiting double integral."
+        ],
+        "reasoning": "The limit is a concise but genuine asymptotic calculation beyond the published lower-bound argument.",
+        "searches": [
+          "source positive lower bound versus full Gram-average limit",
+          "source harmonic-number/Gaussian formulas plus standard Riemann-sum asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source and record concern the same orbit and the same Cesàro means.",
+          "The source establishes only a uniform positive lower envelope for the norms in the harmonic example; the record establishes convergence and evaluates the limit exactly."
+        ],
+        "reasoning": "The exact-limit formulation is a strict strengthening of the source lower bound, not a rename of weak nonconvergence.",
+        "searches": [
+          "Resultary query: Cesaro means firmly nonexpansive harmonic Gaussian orbit exact norm limit Bauschke Tung",
+          "Bauschke-Tung arXiv:2605.25491v2 harmonic-mesh example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-result published finding was retrieved."
+        ],
+        "reasoning": "This is an asymptotic invariant rather than a finite table; the exact search targeted the orbit and formula.",
+        "searches": [
+          "Resultary current search for the exact harmonic Cesàro norm limit and erfc formula"
+        ]
+      },
+      "rationale": "Bauschke and Tung construct exactly this firmly nonexpansive harmonic orbit and prove weak convergence of its Cesàro means together with a positive lower norm bound, but the inspected harmonic-example section does not evaluate the double Gram average or state a norm limit. The audited result adds the asymptotic Riemann-sum evaluation and closed Gaussian integral. Resultary searches for the harmonic firmly nonexpansive Cesàro example and an exact norm limit returned no prior matching finding.",
+      "residual_risks": [
+        "An equivalent kernel-average asymptotic may exist outside the firmly-nonexpansive literature under a different ergodic formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LOWER_BOUND_NOT_EXACT_LIMIT",
+          "evidence": "The source provides the Gram kernel and a positive lower bound but not the evaluated norm limit.",
+          "identifier_or_url": "arXiv:2605.25491v2",
+          "material_read": "primary full-text material for the harmonic-mesh example, including the definitions of the mesh, Gaussian curve and radial factors and the proof that the Cesàro means are weakly null but bounded away from zero in norm",
+          "method": "primary full-text inspection of the relevant construction",
+          "title": "Cesàro means of firmly nonexpansive iterates need not converge strongly",
+          "trigger": "exact source of the harmonic orbit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bauschke-Tung 2026",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The source is a sharp current counterexample, and identifying its unique positive Cesàro norm limit materially refines the qualitative failure of strong convergence. The closed form exposes the exact asymptotic size of the obstruction rather than merely another lower estimate. That is a natural invariant of the canonical construction and a reusable benchmark for nonlinear mean-ergodic behavior.",
+      "residual_risks": [
+        "The proof is specialized to one designed orbit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The limit is tied to the harmonic mesh and Gaussian-kernel orbit; other source constructions are not classified.",
+    "An equivalent kernel-average asymptotic may exist outside the firmly-nonexpansive literature under a different ergodic formulation.",
+    "The proof is specialized to one designed orbit."
+  ]
+}
