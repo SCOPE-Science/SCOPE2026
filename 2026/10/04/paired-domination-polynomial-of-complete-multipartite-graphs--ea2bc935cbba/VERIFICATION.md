@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic. The packaged `verify.py` is an independent finite regression check. It enumerates every sorted positive part-size tuple of total order at most 9 with at least two parts, constructs the corresponding complete multipartite graph, and tests every vertex subset. For each subset it checks domination directly and perfect matching by recursive exact search, then compares the outcome with the theorem's balance criterion. It also compares brute-force coefficient counts with the closed coefficient formula, checks the exact support endpoint, and verifies that the quadratic coefficient equals the number of edges.
+# Independent mathematical audit
 
-Finite enumeration does not establish the infinite theorem; it checks boundary cases and is intended to catch parity, support, matching, and overload-counting errors.
+## correctness
+
+PASS
+
+A perfect matching forces each selected part size to be at most half the total. Conversely, for 2q selected vertices with every part size at most q, ordering by part and pairing positions h and h+q gives a perfect matching; the condition also guarantees that at least two parts are represented, hence domination. Overload events for different parts are disjoint because two parts cannot each contribute q+1 vertices to a 2q-set, giving the coefficient formula. The support bound follows from the capacity sum. Independent brute-force checks on four small multipartite profiles matched the characterization.
+
+## originality
+
+PASS
+
+The early paired-domination-polynomial publication does not identify its standard graph families, so a complete-bipartite overlap remains plausible and is explicitly not claimed as the originality-bearing part. Targeted Resultary and web searches found no arbitrary complete-multipartite characterization or coefficient formula. The theorem's all-r balance criterion and disjoint-overload count are not implied by general paired-domination extremal results. Best-of-knowledge originality therefore passes with the unresolved bibliographic special-case risk stated.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical family, and the theorem determines every coefficient and feasible degree of a recently introduced domination polynomial for arbitrary part sizes. The result is a natural reusable exact classification rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

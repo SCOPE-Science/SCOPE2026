@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces paired domination on a selected set to a perfect matching in an induced complete multipartite graph. Necessity follows because every selected vertex in one part must be matched outside that part. Sufficiency is constructive: after placing part-blocks consecutively, pairing positions separated by half the selected-set size cannot pair within one block when every block has size at most half. The same balance condition forces at least two selected parts and hence domination. The coefficient formula then subtracts pairwise-disjoint overload events. Exact finite enumeration checks all complete multipartite part-size types through order nine.
+## correctness
 
-## Originality
-PASS with stated access risk. The 1998 foundational paper introduces paired domination but predates the polynomial. The 2016 proceedings record introduces the paired-domination polynomial and says that some standard graph families are computed, but the accessible one-page record does not name them. Searches for arbitrary complete-multipartite paired-domination polynomials, coefficient formulas, and equivalent half-balance formulations did not locate the present theorem. Because the inaccessible 2016 material could include complete bipartite graphs, the two-part formula is treated only as a corollary. The arbitrary-part characterization and coefficient formula were not found in the inspected literature or database results.
+PASS
 
-## Value
-PASS. This is a natural complete classification for a standard graph family and a natural graph polynomial. It converts the conjunction of domination and a perfect-matching constraint into one transparent balance inequality, then gives every coefficient, the exact support, the minimum paired-domination number, and the number of minimum sets. The result applies uniformly to all positive part-size vectors rather than to a narrow numerical slice.
+A perfect matching forces each selected part size to be at most half the total. Conversely, for 2q selected vertices with every part size at most q, ordering by part and pairing positions h and h+q gives a perfect matching; the condition also guarantees that at least two parts are represented, hence domination. Overload events for different parts are disjoint because two parts cannot each contribute q+1 vertices to a 2q-set, giving the coefficient formula. The support bound follows from the capacity sum. Independent brute-force checks on four small multipartite profiles matched the characterization.
 
-## Closest literature and limitations
-The closest sources are Haynes--Slater (1998) for the invariant and Puttaswamy--Alwardi--Nayaka (2016) for the polynomial. The accessible 2016 record is only one page and leaves its standard-family examples unnamed. A separately indexed copy could not be inspected. Poorly indexed or inaccessible literature could therefore contain a special case, but no inspected source states the arbitrary complete-multipartite theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The early paired-domination-polynomial publication does not identify its standard graph families, so a complete-bipartite overlap remains plausible and is explicitly not claimed as the originality-bearing part. Targeted Resultary and web searches found no arbitrary complete-multipartite characterization or coefficient formula. The theorem's all-r balance criterion and disjoint-overload count are not implied by general paired-domination extremal results. Best-of-knowledge originality therefore passes with the unresolved bibliographic special-case risk stated.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical family, and the theorem determines every coefficient and feasible degree of a recently introduced domination polynomial for arbitrary part sizes. The result is a natural reusable exact classification rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
