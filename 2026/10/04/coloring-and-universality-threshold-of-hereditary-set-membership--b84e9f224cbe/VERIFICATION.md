@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite-cardinal proof is symbolic and rests on four checks.
+# Independent mathematical audit
 
-1. **Closure.** For regular \(\kappa\), fewer than \(\kappa\) many hereditary-\(<\kappa\) sets have a union of hereditary size below \(\kappa\), so \(B\) and \(A\cup\{B\}\) lie in \(H(\kappa)\).
-2. **Exact extension witness.** For \(z=A\cup\{B\}\), every \(a\in A\) is adjacent to \(z\). If \(b\in B\), then \(b\in z\) would force \(b=B\) and hence \(B\in B\), while \(z\in b\) would create the membership cycle \(b\in B\in z\in b\). Foundation excludes both.
-3. **Coloring-number order.** In an increasing-rank well-order, the earlier neighbors of \(x\) are exactly the elements of \(x\), hence fewer than \(\kappa\).
-4. **Sharp lower bound.** The ordinals below \(\kappa\) form a \(K_\kappa\), so the chain \(\omega\le\chi\le\chi_\ell\le\operatorname{Col}\) collapses to equality at \(\kappa\).
+## correctness
 
-Run `python3 artifacts/check_finite_membership.py`. It constructs \(V_4\), verifies the finite rank-order identity, checks the four-vertex ordinal clique, and exhaustively checks the finite extension witness for all disjoint \(A,B\subseteq V_2\). It prints `VERIFY_OK`.
+PASS
 
-The finite script is a bookkeeping replay only. It does not certify regular-cardinal closure or transfinite recursion; those are established in `RESULT.md`.
+For regular kappa, the transitive closures of B and A union {B} are unions of fewer than kappa sets each of hereditary size below kappa, so the witness z=A union {B} lies in H(kappa). Foundation excludes b in z and z in b for b in B, and also makes z fresh. Transfinite recursion of length at most kappa gives induced embeddings because every stage has fewer than kappa predecessors. In a rank-compatible well-order the earlier neighbors of x are exactly the members of x, so Col is at most kappa; the von Neumann ordinals below kappa form a clique of size kappa. The standard inequalities force clique, ordinary chromatic, list chromatic and coloring number all to equal kappa. K_{kappa^+} therefore cannot embed, giving the claimed sharp full-universality cutoff.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives only for the combined all-regular-kappa theorem: prior sources cover the object, the finite/omega_1 extension argument, and a conditional higher-cardinal universal construction, but no inspected source states the unconditional <kappa extension property together with omega=chi=chi_l=Col=kappa and the sharp kappa/kappa^+ universality cutoff.
+
+## value
+
+PASS
+
+The theorem gives a natural complete invariant package for a canonical membership graph at every regular cardinal and separates host size from the exact full induced-universality threshold. The result is structurally motivated by generalized random/saturated graphs rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

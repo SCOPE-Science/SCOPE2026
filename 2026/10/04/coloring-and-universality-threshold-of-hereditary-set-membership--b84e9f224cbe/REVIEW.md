@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For regular \(\kappa\), the set \(z=A\cup\{B\}\) belongs to \(H(\kappa)\). Foundation excludes both \(b\in z\) and \(z\in b\) for \(b\in B\), while every \(a\in A\) is a member of \(z\); this proves the full \(<\kappa\)-extension property. A standard transfinite recursion therefore gives induced universality through \(\kappa\). Ordering vertices by rank makes the earlier neighbors of \(x\) exactly its members, so the coloring number is at most \(\kappa\); the ordinal clique of size \(\kappa\) gives the matching lower bound and forces equality for clique, ordinary chromatic, list-chromatic, and coloring numbers.
+## correctness
 
-## Originality
-**PASS, with residual folklore risk.** Kostana proves the \(\kappa=\omega_1\) membership representation and the coloring-number statement for the canonical prime saturated graph. Adam-Day and Cameron note, under CH, universality of the hereditarily countable membership graph at cardinality \(\aleph_1\). The inspected sources and semantic searches did not state the uniform regular-\(\kappa\) extension property together with exact list coloring and the sharp universality threshold \(\kappa\). Because the derivation is short from natural ingredients, an unindexed folklore antecedent remains plausible.
+PASS
 
-## Value
-**PASS.** The result gives a clean cardinal invariant package for a canonical set-theoretic graph family: the hereditary cutoff \(\kappa\) is simultaneously its exact clique/chromatic/list-chromatic/coloring scale and the exact boundary of full induced universality. In the canonical \(H(\omega_1)\) model this cleanly separates host size \(\mathfrak c\) from the universality threshold when CH fails.
+For regular kappa, the transitive closures of B and A union {B} are unions of fewer than kappa sets each of hereditary size below kappa, so the witness z=A union {B} lies in H(kappa). Foundation excludes b in z and z in b for b in B, and also makes z fresh. Transfinite recursion of length at most kappa gives induced embeddings because every stage has fewer than kappa predecessors. In a rank-compatible well-order the earlier neighbors of x are exactly the members of x, so Col is at most kappa; the von Neumann ordinals below kappa form a clique of size kappa. The standard inequalities force clique, ordinary chromatic, list chromatic and coloring number all to equal kappa. K_{kappa^+} therefore cannot embed, giving the claimed sharp full-universality cutoff.
 
-## Closest literature and limitations
-The closest structural source is Kostana's theorem identifying the prime \((\omega_1,\mathfrak c)\)-saturated graph with the membership graph on \(H(\omega_1)\), together with his coloring-number characterization. The closest universality observation is Adam-Day and Cameron's CH remark for hereditarily countable sets. The present result does not claim a new theory of generalized random graphs and does not address singular \(\kappa\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives only for the combined all-regular-kappa theorem: prior sources cover the object, the finite/omega_1 extension argument, and a conditional higher-cardinal universal construction, but no inspected source states the unconditional <kappa extension property together with omega=chi=chi_l=Col=kappa and the sharp kappa/kappa^+ universality cutoff.
+
+## value
+
+PASS
+
+The theorem gives a natural complete invariant package for a canonical membership graph at every regular cardinal and separates host size from the exact full induced-universality threshold. The result is structurally motivated by generalized random/saturated graphs rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
