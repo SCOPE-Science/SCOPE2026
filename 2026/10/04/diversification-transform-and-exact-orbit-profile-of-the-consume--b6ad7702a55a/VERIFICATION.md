@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The bundled `verify.py` uses only the Python standard library.
+## correctness
 
-For each \(n\leq6\), it explicitly constructs every labeled consumer-product structure: it chooses the product subset, lists every permutation of that subset as a possible consumer preference order, and enumerates every independent tuple of such preference orders for the consumers. The number of distinct encodings is compared with
-\[
-\sum_{p=0}^n {n\choose p}(p!)^{n-p}.
-\]
-The resulting injective counts are
-\[
-1,2,4,11,54,567,13928
-\]
-for \(n=0,\ldots,6\), and the formula is separately evaluated through \(n=8\), giving \(837321\) and \(134985098\) at the next two arities.
+PASS
 
-The script also checks the general transform on the empty-signature base class, where \(f_p=1\) and the diversification is just a two-sorted set, so the expected injective profile is \(2^n\). Finally it computes Stirling numbers recursively and verifies the repeated-coordinate profile through arity seven.
+Ultrahomogeneity makes injective ordered-tuple orbits identical to labeled induced finite structures. Choosing which p labels are products gives C(n,p), and each of the n-p consumers independently chooses one of f_p base structures on those same labeled products, proving the transform. Equality patterns give the Stirling transform. For consumer-product, f_p=p!. The upper bound p(n-p)<=n^2/4 and the p=floor(n/2) Stirling lower bound give the 1/4 logarithmic constant. Fresh integer arithmetic reproduces a_1 through a_8 as 2,4,11,54,567,13928,837321,134985098 and the stated full-tuple profile through arity seven.
 
-The program ends with `VERIFY_OK`. The finite replay checks the combinatorial encoding and the displayed values; the all-arity theorem is supplied by the symbolic proof in `RESULT.md`. No independent audit has been performed.
+## originality
+
+PASS
+
+The primary diversification paper defines the two sorts and consumer-product class and proves its Fraisse property, but does not state a tuple-orbit profile transform. Full-text inspection of the diversification and consumer-product sections, plus exact/source-terminology searches, found no formula equivalent to the assigned binomial transform. Related Resultary orbit-profile findings concern different homogeneous structures.
+
+## value
+
+PASS
+
+The result converts a qualitative Fraisse construction into a reusable exact oligomorphic-profile transform for every finite-profile base class. Its consumer-product specialization supplies explicit quantitative invariants and asymptotics for the source's principal example, a natural comparison tool for homogeneous automorphism groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In a Fraïssé limit, injective ordered-tuple orbits are exactly labeled induced finite structures. In a diversification with \(p\) product coordinates and \(n-p\) consumer coordinates, the sort assignment contributes \({{n\choose p}}\), and each consumer independently chooses one of the \(f_p\) labeled base structures. This gives \(a_n=\sum_p{{n\choose p}}f_p^{{n-p}}\). For finite linear orders, \(f_p=p!\). Equality patterns then give the Stirling transform for tuples with repetitions. The logarithmic exponent follows from the elementary upper bound \(a_n\leq2^n n^{{n^2/4}}\) and the \(p=\lfloor n/2\rfloor\) Stirling lower bound. The bundled finite replay returns `VERIFY_OK`.
+PASS
 
-## Originality
+Ultrahomogeneity makes injective ordered-tuple orbits identical to labeled induced finite structures. Choosing which p labels are products gives C(n,p), and each of the n-p consumers independently chooses one of f_p base structures on those same labeled products, proving the transform. Equality patterns give the Stirling transform. For consumer-product, f_p=p!. The upper bound p(n-p)<=n^2/4 and the p=floor(n/2) Stirling lower bound give the 1/4 logarithmic constant. Fresh integer arithmetic reproduces a_1 through a_8 as 2,4,11,54,567,13928,837321,134985098 and the stated full-tuple profile through arity seven.
 
-PASS, with folklore risk. The primary paper was inspected at the diversification definition, the strong-amalgamation Fraïssé theorem, and the consumer-product subsection. It does not state the exact tuple-orbit transform or the consumer-product sequence in the inspected text. Exact-formula, initial-sequence, and source-terminology web searches found no covering statement. Semantic searches in the existing finding index likewise returned no matching result. Baudisch's generic variation was checked as the closest named predecessor; Kubiś and Shelah explicitly distinguish it from diversification by the absence of the two sort predicates.
+## originality
 
-## Value
+PASS
 
-PASS. The result turns a qualitative Fraïssé construction into a reusable exact profile transform for every finite-profile base class. The consumer-product model then acquires a closed orbit formula, an explicit initial profile, a full-tuple Stirling transform, and a sharp leading logarithmic growth constant. This is directly useful for quantitative comparison of oligomorphic automorphism groups arising from parametrized Fraïssé constructions.
+The primary diversification paper defines the two sorts and consumer-product class and proves its Fraisse property, but does not state a tuple-orbit profile transform. Full-text inspection of the diversification and consumer-product sections, plus exact/source-terminology searches, found no formula equivalent to the assigned binomial transform. Related Resultary orbit-profile findings concern different homogeneous structures.
 
-## Limitations
+## value
 
-The counting argument is short once the construction is recognized, so unindexed folklore remains possible. The finite executable is corroborative rather than a proof for all arities. No independent audit has been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The result converts a qualitative Fraisse construction into a reusable exact oligomorphic-profile transform for every finite-profile base class. Its consumer-product specialization supplies explicit quantitative invariants and asymptotics for the source's principal example, a natural comparison tool for homogeneous automorphism groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
