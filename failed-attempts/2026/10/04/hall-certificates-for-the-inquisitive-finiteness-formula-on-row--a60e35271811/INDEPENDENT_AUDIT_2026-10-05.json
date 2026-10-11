@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:05:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 7b7a7a42ad65e51c4587f90d3ce927f592881ac3",
+        "assigned verify_hall_certificates.py blob 9c05747316399425b80f853236dfffd34a8e677b",
+        "Kontinen--Ciardelli arXiv:2603.08646, finiteness formula semantics",
+        "Cameron, Hall's marriage theorem, DOI 10.1112/jlms.70378, infinite Hall theorem for finite sets"
+      ],
+      "rationale": "The semantics-to-matching translation and the row-finite Hall criterion are correct. Kontinen and Ciardelli's semantics for the displayed formula say exactly that a failing subteam is the graph of an injective total map \\(f:D\\to D\\) with non-surjective range. Choosing an omitted right value \\(b\\) turns this into a system of distinct representatives for the family \\(R(a)\\setminus\\{b\\}\\). When every row is finite, the infinite Hall theorem for families of finite sets is equivalent to the Hall inequality on every finite left subfamily; negating it gives the stated finite certificate. The boundary example is also correct: all positive left vertices force their own images, leaving no injective image for zero, while every finite left set still satisfies Hall after deleting right value zero. The actual package checker exhaustively compares SDR existence with finite Hall inequalities on all small finite set-families and checks the escaping-witness truncations.",
+      "residual_risks": [
+        "The finite-certificate equivalence is restricted to row-finite teams; the first matching equivalence is unrestricted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The theorem applies to an arbitrary index set and arbitrary finite allowed sets, strictly broader than rows of a team relation.",
+          "The standard boundary construction has forced singleton rows plus one infinite row, matching the audited mechanism."
+        ],
+        "reasoning": "The broader matching theory already contains both the positive row-finite statement and the failure mode.",
+        "searches": [
+          "Cameron 2026 infinite Hall theorem for families of finite sets",
+          "standard counterexample to the finite-subfamily condition when an allowed set is infinite"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.08646",
+        "DOI 10.1112/jlms.70378",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Replace each allowed row by \\(R(a)\\setminus\\{b\\}\\) and apply Hall; this is exactly the audited iff.",
+          "The boundary example is the standard escaping-Hall-witness construction with notation adapted to the team relation."
+        ],
+        "reasoning": "There is no additional nonstandard lemma between the prior statements and the final claim.",
+        "searches": [
+          "Kontinen--Ciardelli failure characterization plus Hall theorem",
+          "Cameron's infinite-set boundary example versus the audited row-infinite example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source semantics identify failure with an injective total relation having non-surjective range.",
+          "A matching saturating the left side while omitting b is exactly the same object as such a function."
+        ],
+        "reasoning": "The matching reformulation adds no new mathematical condition.",
+        "searches": [
+          "Resultary query: inquisitive team logic finiteness formula Hall matching row finite finite obstruction",
+          "Kontinen--Ciardelli arXiv:2603.08646, displayed finiteness formula",
+          "Cameron DOI 10.1112/jlms.70378, Theorem 8.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate indexed team-logic Hall formulation was retrieved."
+        ],
+        "reasoning": "A separate title is unnecessary because the exact semantic source plus Hall's theorem implies it directly.",
+        "searches": [
+          "Resultary exact-title query: Hall certificates for the inquisitive finiteness formula on row-finite teams",
+          "Resultary semantic Hall/team-logic query"
+        ]
+      },
+      "rationale": "The audited theorem is a direct composition of two published statements. Kontinen and Ciardelli already unpack the exact formula into functional, injective, total-domain, non-surjective-range conditions, so the first matching statement is only a change of vocabulary. Cameron's current Hall survey states the infinite Hall theorem in precisely the needed form for a family of finite sets: an SDR exists iff every finite subfamily satisfies Hall. Applying it to \\(A_a=R(a)\\setminus\\{b\\}\\) gives the row-finite certificate in one step. The same survey also recalls the canonical failure when one allowed set is infinite and the remaining sets are forced singletons, which is the same mechanism as the audited boundary example. Accordingly, the final claim is mechanically covered by the exact source semantics plus a standard theorem and its standard boundary example.",
+      "residual_risks": [
+        "No access limitation affects the decisive implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_FORMULA_SEMANTICS_PRIOR",
+          "evidence": "The source already says the antecedent/consequent conditions yield an injective total function with non-surjective range.",
+          "identifier_or_url": "arXiv:2603.08646",
+          "material_read": "primary full text at the formula and the four semantic facts used in its finiteness argument; the relevant page was visually inspected",
+          "method": "primary PDF full-text targeted inspection with page verification",
+          "title": "On the expressive power of inquisitive team logic and inquisitive first-order logic",
+          "trigger": "exact source of the displayed formula"
+        },
+        {
+          "assessment": "DECISIVE_GENERAL_HALL_COVERAGE",
+          "evidence": "The theorem converts the row-finite SDR question to finite Hall inequalities exactly as in the audited proof.",
+          "identifier_or_url": "DOI 10.1112/jlms.70378",
+          "material_read": "open primary survey text at the infinite Hall theorem for finite member sets and its discussion of failure for infinite member sets",
+          "method": "primary full-text web inspection",
+          "title": "Hall's marriage theorem",
+          "trigger": "exact matching theorem needed for row-finite teams"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Kontinen--Ciardelli 2026",
+        "Cameron 2026",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The matching vocabulary is explanatory, but the row-finite theorem is a one-line application of the standard infinite Hall theorem after the source has already identified the function-theoretic witness. The non-row-finite counterexample is the standard reason the finite-subfamily Hall criterion fails for infinite allowed sets. Thus the record does not add a substantive structural lemma or new boundary beyond established matching theory.",
+      "residual_risks": [
+        "The reformulation can still be useful pedagogically for team-semantics readers."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The finite-certificate equivalence is restricted to row-finite teams; the first matching equivalence is unrestricted.",
+    "No access limitation affects the decisive implication.",
+    "The reformulation can still be useful pedagogically for team-semantics readers."
+  ]
+}
