@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact sparse-polynomial arithmetic over rational coefficients.
 
-For
-\[
-\dot x=a(y-x),\qquad
-\dot y=(c-a)x-xz+cy,\qquad
-\dot z=xy-bz,
-\]
-it verifies
-\[
-Lx=a(y-x),
-\qquad
-Lz=xy-bz,
-\]
-and, with
-\[
-d=y-x,\qquad
-\rho=2c-a,
-\]
-it verifies
-\[
-Ld=(\rho-z)x+(c-a)d.
-\]
+# Independent mathematical audit
 
-For
-\[
-F
-=
-xd-\frac{c-a}{2a}x^2,
-\]
-the checker verifies the exact certificate
-\[
-LF=a d^2+(\rho-z)x^2.
-\]
+## correctness
 
-It also verifies the classical reductions
-\[
-(a,b,c)=(35,3,28),
-\qquad
-\rho=21,
-\qquad
-b\rho=63.
-\]
+PASS
 
-The stored checker output in `verification_output.txt` is `VERIFY_OK`.
+The two conditional laws follow from generator identities for arbitrary antiderivatives of \(x\) and \(z\). Independently, setting \(d=y-x\) and \(F=xd-(c-a)x^2/(2a)\), direct symbolic differentiation gives \(LF=a d^2+(\rho-z)x^2\). Integrating under an invariant measure yields the exact defect identity. Equality forces \(d=0\) and \((\rho-z)x^2=0\) in the support; invariance leaves precisely \((0,0,0)\) and \((\pm\sqrt{b\rho},\pm\sqrt{b\rho},\rho)\). Strict excursion and sign-change conclusions then follow from positivity and zero mean of \(d\).
 
-The checker validates the polynomial algebra and canonical arithmetic. The conditional laws additionally use arbitrary test functions through antiderivatives on compact coordinate ranges; the equality classification uses invariance of the compact support.
+## originality
+
+PASS
+
+The Chen literature inspected at full-text level treats symmetry, dissipativity, equilibrium bifurcations and trajectory geometry. The 2003 trajectory paper proves alternating crossings of two specific Poincare projections, which is related to but does not state the invariant-measure identity, exact defect, or equality characterization. Targeted searches found no same-model stationary-moment theorem.
+
+## value
+
+PASS
+
+The exact defect converts the natural nonzero-equilibrium height \(\rho=2c-a\) into a universal stationary excursion law and identifies every zero-defect invariant measure. This is a substantive structural statement about a canonical chaotic flow, not merely a numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
