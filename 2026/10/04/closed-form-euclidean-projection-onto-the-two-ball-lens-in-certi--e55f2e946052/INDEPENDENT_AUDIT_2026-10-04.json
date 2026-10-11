@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:21:04.492813Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at source tree e19bff2a329728ef7aea5eada20ca1daf5c97fbc",
+        "R. Caseiro, M. A. Facas Vicente, J. Vitória, Projection of a point onto the intersection of spheres in linear varieties, DMUC Preprint 20-26 / Linear Algebra Appl. 2021"
+      ],
+      "rationale": "For the nondegenerate lens \\(C=B(a,r)\\cap B(b,R)\\), convexity gives a unique Euclidean projector. If \\(z\\in C\\), the projector is \\(z\\). If the one-ball projector onto either ball is feasible for the other ball, it is also the projector onto the intersection by the variational characterization. If neither one-ball projector is feasible, the minimizer must have both ball constraints active: otherwise the normal cone would coincide with that of a single active ball, contradicting failure of the corresponding one-ball projection. Subtracting the two sphere equations gives the radical hyperplane \\(\\langle x-c,e\\rangle=0\\), where \\(e=(b-a)/D\\), \\(s=(r^2-R^2+D^2)/(2D)\\), \\(c=a+se\\), and the common seam has radius \\(\\rho=\\sqrt{r^2-s^2}>0\\). Minimizing distance to this seam is equivalent to maximizing \\(\\langle x-c,w\\rangle\\), with \\(w=(I-ee^\\top)(z-c)\\); Cauchy-Schwarz gives \\(c+\\rho w/\\|w\\|\\). In the both-active branch \\(w\\neq0\\), since \\(w=0\\) would make all seam points equally nearest and violate uniqueness of projection onto the convex lens. The one-dimensional case has no genuine seam sphere and is exhausted by the interior and one-ball branches.",
+      "residual_risks": [
+        "The package's finite numerical checks are corroborative only; the proof is the convex normal-cone/radical-hyperplane argument above."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The optimization paper uses certified Euclidean balls and an exact projection oracle but does not announce a closed-form two-ball lens projector in the accessible primary material.",
+          "The Caseiro paper develops a broader linear-variety sphere-intersection projection formula, but for sphere boundaries."
+        ],
+        "reasoning": "Neither broader source implies the complete convex-lens projector without the audited normal-cone case analysis.",
+        "searches": [
+          "Dvinskikh–Gasnikov–Lobanov–Latypov, arXiv:2609.06555",
+          "Caseiro–Vicente–Vitória, DMUC Preprint 20-26"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mat.uc.pt/preprints/ps/p2026.pdf",
+        "https://arxiv.org/abs/2609.06555",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Caseiro supplies the nearest point on the seam once both sphere equalities are imposed.",
+          "The audited theorem proves exactly when the seam is the active face and when one ball or the interior determines the projection."
+        ],
+        "reasoning": "The final branchwise projector is not a corollary of a sphere-boundary projection formula unless the missing active-set theorem is separately proved.",
+        "searches": [
+          "Statement comparison with Caseiro Proposition 3.3 and the certified-ball optimization setup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned no earlier equivalent lens-projector theorem.",
+          "Caseiro et al. project onto \\(S_1\\cap S_2\\), the intersection of sphere boundaries, not onto \\(B_1\\cap B_2\\)."
+        ],
+        "reasoning": "The seam formula is a covering ingredient for the both-active branch, but the convex-ball active-set decision and one-active branches are additional and are not equivalent to projection onto the seam alone.",
+        "searches": [
+          "Resultary query: Euclidean projection intersection of two balls lens closed form active set sphere intersection",
+          "Web search: projection onto intersection two balls closed form",
+          "Caseiro–Vicente–Vitória DMUC Preprint 20-26, Propositions 3.3–3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited statement is dimension-independent and analytic."
+        ],
+        "reasoning": "Database/table coverage is inapplicable.",
+        "searches": [
+          "No finite database/table; exact formula searches in Resultary and primary literature"
+        ]
+      },
+      "rationale": "The closest primary geometric source gives explicit projection onto the intersection of two sphere boundaries, including the same radical-hyperplane seam geometry, but it does not solve projection onto the convex intersection of two closed balls with its interior/one-active/both-active branch structure. The motivating stochastic-optimization preprint assumes Euclidean projection onto intersections of certified balls as an oracle; the accessible primary material does not provide the audited active-set formula. Targeted web and Resultary searches for a closed-form projector onto an intersection of two Euclidean balls did not locate a prior implication-equivalent formula.",
+      "residual_risks": [
+        "A targeted later-page retrieval for arXiv:2609.06555 was safety-blocked and not retried; an uninspected passage could discuss projection implementation in more detail.",
+        "An older optimization/QCQP source might contain the same elementary active-set formula under trust-region terminology without being indexed as a projection theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_INGREDIENT_NOT_FINAL",
+          "evidence": "The paper projects onto the intersection of sphere boundaries; it does not give the convex two-ball lens active-set projector.",
+          "identifier_or_url": "https://www.mat.uc.pt/preprints/ps/p2026.pdf",
+          "material_read": "Complete 11-page primary PDF; in particular Propositions 2.5, 3.3, and 3.4 and the conclusion.",
+          "method": "Lawful public full-PDF inspection with page-image verification.",
+          "title": "Projection of a point onto the intersection of spheres in linear varieties",
+          "trigger": "Closest geometric formula: same two-sphere radical hyperplane and nearest-point problem."
+        },
+        {
+          "assessment": "MOTIVATING_SOURCE_PARTIAL_ACCESS",
+          "evidence": "Accessible primary pages establish the certified-ball optimization context and Euclidean-projection notation. No covering closed-form lens formula was located; a later targeted page read was safety-blocked and remains an explicit access risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.06555",
+          "material_read": "Primary text pages 1–4 and 9–12 obtained through authorized access, plus public abstract/metadata. A later targeted page retrieval was safety-blocked and was not retried.",
+          "method": "Open/abstract route first, then authorized institutional retrieval; safety block on the later targeted read was respected.",
+          "title": "Localize, Restart, Accelerate: Stochastic Optimization under Generalized Smoothness",
+          "trigger": "Motivating algorithm uses certified ball-constrained proximal steps and projection."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.06555",
+        "Caseiro–Vicente–Vitória primary PDF"
+      ],
+      "rationale": "The theorem closes a concrete oracle-level gap in a current certified-ball optimization construction and gives a complete dimension-independent formula, including degeneracy boundaries, rather than a numerical approximation. The result is a motivated structural projection lemma; the seam formula alone is known, but the complete convex active-set law is the useful missing object.",
+      "residual_risks": [
+        "Its value is specific to exact Euclidean projection onto two balls; it does not analyze approximate-projection error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.mat.uc.pt/preprints/ps/p2026.pdf",
+    "https://arxiv.org/abs/2609.06555",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The stated closed form is for two Euclidean balls with nonempty interior.",
+    "It does not address approximate projectors or intersections of three or more balls."
+  ],
+  "residual_risks": [
+    "A targeted later-page retrieval for arXiv:2609.06555 was safety-blocked and not retried; an uninspected passage could discuss projection implementation in more detail.",
+    "An older optimization/QCQP source might contain the same elementary active-set formula under trust-region terminology without being indexed as a projection theorem."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING_INGREDIENT_NOT_FINAL",
+      "evidence": "The paper projects onto the intersection of sphere boundaries; it does not give the convex two-ball lens active-set projector.",
+      "identifier_or_url": "https://www.mat.uc.pt/preprints/ps/p2026.pdf",
+      "material_read": "Complete 11-page primary PDF; in particular Propositions 2.5, 3.3, and 3.4 and the conclusion.",
+      "method": "Lawful public full-PDF inspection with page-image verification.",
+      "title": "Projection of a point onto the intersection of spheres in linear varieties",
+      "trigger": "Closest geometric formula: same two-sphere radical hyperplane and nearest-point problem."
+    },
+    {
+      "assessment": "MOTIVATING_SOURCE_PARTIAL_ACCESS",
+      "evidence": "Accessible primary pages establish the certified-ball optimization context and Euclidean-projection notation. No covering closed-form lens formula was located; a later targeted page read was safety-blocked and remains an explicit access risk.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.06555",
+      "material_read": "Primary text pages 1–4 and 9–12 obtained through authorized access, plus public abstract/metadata. A later targeted page retrieval was safety-blocked and was not retried.",
+      "method": "Open/abstract route first, then authorized institutional retrieval; safety block on the later targeted read was respected.",
+      "title": "Localize, Restart, Accelerate: Stochastic Optimization under Generalized Smoothness",
+      "trigger": "Motivating algorithm uses certified ball-constrained proximal steps and projection."
+    }
+  ]
+}
