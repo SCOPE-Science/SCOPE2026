@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The script reconstructs the 20-vertex, 30-edge cubic graph \(G(10,2)\), exhaustively enumerates every matching, constructs the augmented simplicial boundary maps over \(\mathbb F_2\), and performs exact bitset Gaussian elimination. It checks the complete matching-count vector, all ten boundary ranks, the reduced Betti vector, and the reduced Euler characteristic.
+# Independent mathematical audit
 
-The verified terminal marker is `DODECAHEDRAL_MATCHING_F2_VERIFY_OK`.
+## correctness
 
-The calculation is finite and exhaustive. It does not verify integral homology, torsion, cup products, or homotopy type, and none of those are part of the claim.
+PASS
+
+Fresh exact reconstruction reproduced matching counts \((1,30,375,2540,10155,24474,34805,27300,10260,1400,36)\), boundary ranks \((1,29,346,2194,7961,16513,18287,8896,1364,36)\), and Betti ranks \(5,117\). The reduced Euler characteristic \(112\) agrees independently.
+
+## originality
+
+PASS
+
+The exact-family matching-complex literature and broad manifold classification inspected do not give the dodecahedral graph. Searches under the named graph, generalized Petersen G(10,2), and the line-graph independence-complex formulation found no prior exact Betti vector.
+
+## value
+
+PASS
+
+The dodecahedral graph is a canonical cubic symmetric planar graph, and its exact mixed-degree matching-complex homology is a natural benchmark outside the few families covered by general theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
