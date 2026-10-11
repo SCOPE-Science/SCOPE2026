@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:36:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 02f5c7f515050837556efbb35e3634ba67bfcc04",
+        "assigned artifacts/verify_partition_quotient.py blob 952a54e1cb3f89644ea019c97307314d24bdb341",
+        "Kolpakov--Rivin, Discriminant Varieties for Stick Knots and Links, author manuscript / arXiv:2608.01277"
+      ],
+      "rationale": "After edge subdivision every link type with at most \\(N\\) sticks can be represented with exactly \\(N\\) vertices. A labeled cyclic component decomposition is encoded by a permutation with cycle lengths at least three. Relabeling coordinate slots by \\(\\tau\\) conjugates the permutation by \\(\\tau\\sigma\\tau^{-1}\\) and induces an isomorphism of the corresponding wall arrangement, so one representative per conjugacy class suffices for ordinary unlabeled links. Conjugacy classes of permutations are exactly cycle types, hence restricted integer partitions of \\(N\\). The source's fixed-decomposition chamber estimate is uniform and equals \\((AN)^{3N}\\), so summing over \\(p_{\\ge3}(N)\\) models proves the finite bound; Hardy--Ramanujan gives the subexponential partition factor. The verifier exhaustively confirms the cycle-type/restricted-partition quotient through \\(N=9\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source gives both the per-model chamber bound and the exact labeled permutation model; only the elementary quotient count is changed."
+        ],
+        "reasoning": "All nonroutine semialgebraic input is already contained in the source theorem.",
+        "searches": [
+          "Kolpakov--Rivin full author manuscript"
+        ]
+      },
+      "checked_sources": [
+        "Kolpakov--Rivin author manuscript / arXiv:2608.01277",
+        "Hardy--Ramanujan partition asymptotic",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source already says the cyclic decomposition is a permutation and that ordinary unordered links forget the labels.",
+          "Conjugacy classes of permutations are exactly integer partitions, with parts below three excluded by nondegenerate polygonal components."
+        ],
+        "reasoning": "The claimed improvement follows by replacing a crude count with the standard orbit count on the same source-defined objects.",
+        "searches": [
+          "source link remark with the \\(N!\\) summation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source explicitly encodes labeled component decompositions by permutations.",
+          "Ordinary link types are invariant under coordinate-slot relabeling, so conjugate permutations define equivalent counting models."
+        ],
+        "reasoning": "Cycle types, restricted integer partitions, and relabeling-orbits of cyclic component decompositions are equivalent descriptions.",
+        "searches": [
+          "Resultary: polygonal links chamber bound partition quotient cycle type sticks",
+          "Kolpakov--Rivin manuscript link-upper-bound remark",
+          "searches for the \\(N^{3N+o(N)}\\) ordinary-link bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finding was the direct exact hit; no earlier published formula was located."
+        ],
+        "reasoning": "Database absence does not overcome direct implication from the source's model plus standard permutation conjugacy.",
+        "searches": [
+          "Resultary exact link chamber/partition query"
+        ]
+      },
+      "rationale": "The source manuscript already states that fixed labeled link combinatorics is a cyclic decomposition, equivalently a permutation of the labeled vertices, gives the uniform \\((AN)^{3N}\\) chamber bound for every such decomposition, and observes that passing to ordinary unordered links only identifies types. Replacing the source's crude count of at most \\(N!\\) permutations by the elementary conjugacy-class count is therefore a direct symmetry quotient of the exact combinatorial model already printed. Under the required implication-level standard, the improved exponent is an unprinted but mechanically implied corollary rather than an independent result.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "The source already exposes the permutation symmetry whose standard conjugacy quotient produces the assigned bound.",
+          "identifier_or_url": "Kolpakov--Rivin author manuscript accompanying arXiv:2608.01277",
+          "material_read": "Full relevant TeX manuscript passage in the 'Upper bounds for links' remark: cyclic decompositions as permutations, the uniform \\((AN)^{3N}\\) bound, subdivision/generic perturbation, and the final \\(N!\\) multiplication.",
+          "method": "Read-only primary author-repository source inspection.",
+          "title": "Discriminant Varieties for Stick Knots and Links",
+          "trigger": "Exact source of the fixed-decomposition chamber bound and the \\(N!\\) link summation."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Kolpakov--Rivin link-counting manuscript"
+      ],
+      "rationale": "Removing a factorial-scale overcount improves the leading upper exponent for ordinary links from four to three and is therefore quantitatively meaningful. The record fails because the quotient is too directly implied by the source's own labeled permutation model, not because the sharper bound is insignificant.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For ordinary unoriented unordered polygonal links with at most \\(N\\) total sticks, quotienting labeled cyclic component decompositions by relabeling gives \\(|\\mathcal L_N|\\le p_{\\ge3}(N)(AN)^{3N}=N^{3N+o(N)}\\).",
+  "limitations": [
+    "Upper bound only; no matching link lower exponent is claimed.",
+    "Ordinary unoriented unordered links only.",
+    "The chamber bound for each fixed combinatorial model is inherited unchanged from the source manuscript."
+  ],
+  "schema_version": 1
+}
