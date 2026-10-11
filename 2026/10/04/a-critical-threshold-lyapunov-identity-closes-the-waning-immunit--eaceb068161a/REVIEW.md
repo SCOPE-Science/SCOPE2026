@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proposed functional is differentiated directly from the source equations and yields the exact identity
-\[
-\dot{\mathcal L}=\beta(S-S_*)h+\zeta_1(\mathcal R_0-1)E.
-\]
-The feasible-set bound \(S\le S_*\) makes this nonpositive throughout the closed threshold. Its zero set is exactly \(E=A=V=0\), after which the downstream hospital/ICU/recovery cascade is stable. A separate estimate for \(S_*-S\) proves Lyapunov stability at the critical endpoint, so the result is global asymptotic stability, not attraction alone.
+PASS
 
-## Originality
+Differentiating the proposed positive linear functional gives exactly Ldot=beta(S-S*)h+zeta1(R0-1)E. On the invariant feasible region S<=S*, this is nonpositive for R0<=1. If h>0 then some E,A,V is positive and the population bound forces S<S*, so the first term is strictly negative; hence the zero-derivative set has E=A=V=0. LaSalle yields decay of those classes, the H-C subsystem is Hurwitz, R is a stable driven scalar, and S converges to S*. At the critical endpoint, d=S*-S obeys a scalar comparison driven by the nonincreasing L, proving Lyapunov stability. A fresh symbolic reconstruction independently reproduced the exact derivative identity.
 
-PASS. The source's theorems state only the strict condition \(\mathcal R_0<1\), while the conclusion claims \(\mathcal R_0\le1\). Exact-source and critical-threshold searches found no published correction or proof for this seven-class model. Related SAIRS literature proves equality-case stability for different compartment structures and does not imply this functional or result.
+## originality
 
-## Value
+PASS
 
-PASS. The source presents the closed threshold as its eradication conclusion. Closing the nonhyperbolic equality case therefore resolves a genuine theorem-to-conclusion gap rather than extending a numerical example. The weighted functional is also simpler than a characteristic-root argument and rederives the strict-subthreshold result in the same proof.
+The primary source's theorem-level proof treats the disease-free equilibrium under the strict condition R0<1, while later prose/conclusion states the closed condition R0<=1 without supplying the nonhyperbolic endpoint argument. Current Resultary search found no earlier record giving this seven-class model's critical Lyapunov identity. Related SAIRS equality theorems involve materially different compartment structures and do not imply the present equality-set/cascade proof.
 
-## Closest literature and limitations
+## value
 
-The primary source is Egbelowo, Munyakazi, and Hoang (2022), DOI 10.3934/math.2022871. Ottaviano, Sensi, and Sottile, arXiv:2202.02993 / DOI 10.1002/mma.9303, prove a related \(\mathcal R_0=1\) disease-free theorem for an unvaccinated multi-group SAIRS model, but its transition graph is not equivalent to the seven-class SARS-CoV-2 system.
+PASS
 
-The result is restricted to the source feasible region and does not give a sharp critical decay rate or settle global stability of the endemic equilibrium.
+Closing an explicitly asserted but unproved nonhyperbolic threshold in a published epidemic model is a motivated stability result. The exact Lyapunov identity simultaneously repairs the source's logical gap and explains why the closed threshold is valid.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

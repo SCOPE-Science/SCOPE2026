@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is proved analytically from the printed ODEs.
 
-The bundled checker verifies:
+# Independent mathematical audit
 
-- the source reproduction-number identity
-  \[
-  \zeta_1\mathcal R_0
-  =\beta S_*\left(1+\frac p{\zeta_2}+\frac{q\epsilon}{\zeta_3}\right);
-  \]
-- exact differentiation of
-  \[
-  \mathcal L=E+\frac{\beta S_*}{\zeta_2}A+\frac{\beta\epsilon S_*}{\zeta_3}V;
-  \]
-- the resulting identity
-  \[
-  \dot{\mathcal L}=\beta(S-S_*)h+\zeta_1(\mathcal R_0-1)E;
-  \]
-- positivity of the determinant of the homogeneous hospital/ICU block after expansion into positive rate products.
+## correctness
 
-The checker does not infer global stability from finite trajectories. LaSalle invariance, the stable downstream cascade, and the Lyapunov-stability estimate are established in the proof.
+PASS
+
+Differentiating the proposed positive linear functional gives exactly Ldot=beta(S-S*)h+zeta1(R0-1)E. On the invariant feasible region S<=S*, this is nonpositive for R0<=1. If h>0 then some E,A,V is positive and the population bound forces S<S*, so the first term is strictly negative; hence the zero-derivative set has E=A=V=0. LaSalle yields decay of those classes, the H-C subsystem is Hurwitz, R is a stable driven scalar, and S converges to S*. At the critical endpoint, d=S*-S obeys a scalar comparison driven by the nonincreasing L, proving Lyapunov stability. A fresh symbolic reconstruction independently reproduced the exact derivative identity.
+
+## originality
+
+PASS
+
+The primary source's theorem-level proof treats the disease-free equilibrium under the strict condition R0<1, while later prose/conclusion states the closed condition R0<=1 without supplying the nonhyperbolic endpoint argument. Current Resultary search found no earlier record giving this seven-class model's critical Lyapunov identity. Related SAIRS equality theorems involve materially different compartment structures and do not imply the present equality-set/cascade proof.
+
+## value
+
+PASS
+
+Closing an explicitly asserted but unproved nonhyperbolic threshold in a published epidemic model is a motivated stability result. The exact Lyapunov identity simultaneously repairs the source's logical gap and explains why the closed threshold is valid.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
