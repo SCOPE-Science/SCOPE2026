@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the finite-group Fourier condition exactly. Averaging on balanced or near-balanced character slices gives the upper bound, and explicit radial kernels attain it. Equality is then solved rather than inferred from numerics: swap differences force complete rigidity in odd dimension and additive edge weights in even dimension; the remaining positivity condition becomes the stated subset inequalities. Exact finite checks through dimension ten corroborate the algebra.
+## correctness
 
-## Originality — PASS
-The closest foundational source is Kolountzakis–Révész, arXiv:math/0312218, which defines this Turán problem on finite abelian groups and gives general packing/spectral upper bounds. The inspected full text does not state the Boolean weight-two equality theorem. The distance-two cube itself is classical; Krotov, arXiv:0803.0068, studies perfect colorings on the halved 24-cube, a different invariant. The sharp numerical value is plausibly obtainable by standard association-scheme or Lovász-theta spectral methods, so originality is assigned to the full equality classification: odd-dimensional uniqueness versus the explicit even-dimensional optimizer polytope. No covering implication was found in the checked formulations.
+PASS
 
-## Value — PASS
-The weight-two shell is a canonical Hamming association-scheme class, and equality structure for sharp positive-definite bounds is a natural problem. The parity dichotomy is structural: odd dimensions force coordinate symmetry, while even dimensions permit a continuum of nonradial optimizers governed by subset inequalities. This is stronger than a one-number spectral calculation and provides a reusable equality mechanism.
+Walsh nonnegativity is \(Q(s)=1+\sum_{i<j}a_{ij}s_is_j\ge0\). Averaging over balanced signs for even \(d\), or the sign-sum-one slice for odd \(d\), gives the sharp objective bounds, and the radial choices attain them. Equality forces \(Q\) to vanish on the relevant slice. In odd dimension, sign swaps plus spanning of the slice force all edge coefficients equal. In even dimension, balanced-slice row differences force the additive form \(a_{ij}=u_i+u_j\); then \(Q(s)=(\sum s_i)(\sum u_is_i)\), and positivity is exactly the stated subset family. A fresh exact replay verified the radial inequalities and odd equality-slice full rank through dimension eight; the frozen verifier extends exact checks through dimension ten and gives explicit nonradial even examples.
 
-## Closest literature and limitations
-The theorem is limited to support on Hamming weights zero and two and to translation-invariant positive-definite kernels. It does not classify all graph-SDP optimal matrices. Older association-scheme or coding-theory literature under different terminology remains the principal originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kolountzakis–Révész formulate Turán's positive-definite extremal problem on arbitrary locally compact abelian groups and emphasize finite groups, with general packing and spectral-set upper bounds. The inspected full primary paper does not state the Boolean weight-two shell problem or its equality cases. Nearby halved-cube literature studies equitable colorings rather than this translation-invariant positive-definite optimization. Resultary returned the audited record itself as the exact hit and no earlier covering finding.
+
+## value
+
+PASS
+
+The weight-two shell is a canonical Boolean Hamming/halved-cube set. Determining not only the optimal Turán constant but every equality case reveals a sharp parity transition from odd-dimensional rigidity to an explicit continuum of even-dimensional nonradial extremizers, a natural structural result within finite harmonic analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

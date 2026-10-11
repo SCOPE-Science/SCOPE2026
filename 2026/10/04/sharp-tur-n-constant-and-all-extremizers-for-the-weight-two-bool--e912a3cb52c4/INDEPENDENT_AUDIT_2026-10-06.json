@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:51:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 71ae00177cad1ed0717a48e5cfb4aa7f673cc32b",
+        "artifacts/verify.py blob 88f1f323ebe57d9fec3c915d33fbdb61a870477f",
+        "fresh Fourier-slice reconstruction"
+      ],
+      "rationale": "Walsh nonnegativity is \\(Q(s)=1+\\sum_{i<j}a_{ij}s_is_j\\ge0\\). Averaging over balanced signs for even \\(d\\), or the sign-sum-one slice for odd \\(d\\), gives the sharp objective bounds, and the radial choices attain them. Equality forces \\(Q\\) to vanish on the relevant slice. In odd dimension, sign swaps plus spanning of the slice force all edge coefficients equal. In even dimension, balanced-slice row differences force the additive form \\(a_{ij}=u_i+u_j\\); then \\(Q(s)=(\\sum s_i)(\\sum u_is_i)\\), and positivity is exactly the stated subset family. A fresh exact replay verified the radial inequalities and odd equality-slice full rank through dimension eight; the frozen verifier extends exact checks through dimension ten and gives explicit nonradial even examples.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Turán paper gives bounds based on packing and spectral properties for finite groups among other settings.",
+          "No inspected theorem there specializes to the exact even/odd values plus all extremizers for this dispersed Hamming shell."
+        ],
+        "reasoning": "General finite-group machinery may recover bounds, but it does not mechanically imply the audited equality classification.",
+        "searches": [
+          "Kolountzakis–Révész full arXiv paper",
+          "Krotov halved-cube paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0312218",
+        "DOI:10.1112/S0024610706023234",
+        "arXiv:0803.0068",
+        "Resultary Boolean-shell Turán search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp constants follow from averaging the nonnegative Walsh polynomial on the minimal-sign-sum slice.",
+          "The equality case needs all slice constraints simultaneously: odd dimensions force constant edge weights, while even dimensions force an additive edge potential and a full family of subset inequalities."
+        ],
+        "reasoning": "The parity-dependent rigidity/nonrigidity and complete equality set require additional structure beyond the general prior bounds.",
+        "searches": [
+          "Kolountzakis–Révész general finite-group bounds",
+          "audited balanced-slice Fourier argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On \\(\\mathbb F_2^d\\), positive definiteness is exactly nonnegative Walsh transform, so the support-\\(\\{0,2\\}\\) Turán problem is a finite linear inequality system on edge weights \\(a_{ij}\\).",
+          "The weight-two Cayley graph is the halved-cube geometry, but graph-coloring results do not classify positive-definite equality cases."
+        ],
+        "reasoning": "The claim is a concrete finite-group Turán problem inside the general framework, with an equality polytope not supplied by the framework itself.",
+        "searches": [
+          "Kolountzakis–Révész, arXiv:math/0312218 / DOI:10.1112/S0024610706023234",
+          "Krotov, arXiv:0803.0068",
+          "Resultary query: Turan positive definite weight two Boolean Hamming shell F2^d extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the audited finding itself; other Boolean finite-group records concern weak tilings, Shapiro constants or Fourier-support questions."
+        ],
+        "reasoning": "No external table of the claimed constants or equality cases was located.",
+        "searches": [
+          "Resultary Boolean-shell Turán search",
+          "targeted Hamming-shell/halved-cube positive-definite searches"
+        ]
+      },
+      "rationale": "Kolountzakis–Révész formulate Turán's positive-definite extremal problem on arbitrary locally compact abelian groups and emphasize finite groups, with general packing and spectral-set upper bounds. The inspected full primary paper does not state the Boolean weight-two shell problem or its equality cases. Nearby halved-cube literature studies equitable colorings rather than this translation-invariant positive-definite optimization. Resultary returned the audited record itself as the exact hit and no earlier covering finding.",
+      "residual_risks": [
+        "Association-scheme or coding-theory literature may contain an equivalent semidefinite/eigenvalue calculation under different terminology, especially for the sharp numerical constants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FINITE_GROUP_TURAN_THEORY_PRIOR_WEIGHT_TWO_SHELL_EQUALITY_CLASSIFICATION_NOT_STATED",
+          "evidence": "The source emphasizes finite groups and general geometric upper bounds, but does not state the Boolean weight-two shell constants or extremizer polytope.",
+          "identifier_or_url": "arXiv:math/0312218; DOI:10.1112/S0024610706023234",
+          "material_read": "Full primary paper was materially inspected, including its finite-group formulation and general packing/spectral upper-bound theorems; a relevant PDF page was visually inspected.",
+          "method": "Same-problem framework versus shell-specific value/equality comparison.",
+          "title": "Turán's Extremal Problem for Positive Definite Functions on Groups",
+          "trigger": "Foundational primary source for the exact extremal framework on finite groups."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:math/0312218",
+        "DOI:10.1112/S0024610706023234",
+        "arXiv:0803.0068",
+        "Resultary Boolean-shell Turán search"
+      ],
+      "rationale": "The weight-two shell is a canonical Boolean Hamming/halved-cube set. Determining not only the optimal Turán constant but every equality case reveals a sharp parity transition from odd-dimensional rigidity to an explicit continuum of even-dimensional nonradial extremizers, a natural structural result within finite harmonic analysis.",
+      "residual_risks": [
+        "Association-scheme or coding-theory literature may contain an equivalent semidefinite/eigenvalue calculation under different terminology, especially for the sharp numerical constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0312218",
+    "DOI:10.1112/S0024610706023234",
+    "arXiv:0803.0068",
+    "Resultary Boolean-shell Turán search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For positive-definite functions on \\(\\mathbb F_2^d\\) supported at Hamming weights zero and two and normalized by \\(f(0)=1\\), the Turán constant is \\(d\\) for even \\(d\\) and \\(d+1\\) for odd \\(d\\). Odd \\(d\\) has the unique radial extremizer \\(a_{ij}=2/(d-1)\\); for even \\(d\\), all extremizers are exactly \\(a_{ij}=u_i+u_j\\) with \\(\\sum_i u_i=1\\) and \\(\\sum_{i\\in B}u_i\\le1/2\\) for every \\(|B|<d/2\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Association-scheme or coding-theory literature may contain an equivalent semidefinite/eigenvalue calculation under different terminology, especially for the sharp numerical constants.",
+    "The theorem is translation-invariant/positive-definite and specific to the weight-two shell; other shells and non-translation-invariant SDP formulations are outside scope."
+  ]
+}
