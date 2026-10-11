@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Duplicator proof keeps an explicit per-cell capacity invariant with threshold \(2^{q-j}\); all split cases preserve it, and the terminal empty/nonempty Venn pattern determines every Boolean-term equality. The separating formulas use disjoint balanced pieces and satisfy the exact recurrence \(\operatorname{qr}(A_k)=\lceil\log_2 k\rceil\). The finite direct-game replay agrees with the theorem in all tested cases.
+## correctness
 
-## Originality — PASS
-The closest fully inspected source is Kuncak--Rinard 2004. It proves quantifier elimination for finite-set Boolean algebras and contains a power-of-two truncation lemma for Venn-cell cardinalities, but the inspected text does not state the exact rank-\(q\) iff criterion or the least distinguishing rank. Targeted searches did not locate that statement. Residual risk remains because Kozen 1980 could not be inspected in full and the result may be folklore.
+PASS
 
-## Value — PASS
-The theorem is a complete, parameter-free classification for a canonical finite-model family. It identifies a sharp “one quantifier doubles visible atom capacity” law and converts it into an exact minimal distinguishing rank, providing a compact benchmark for quantifier-rank arguments.
+After j selected elements, their membership signatures partition the atoms into at most 2^j cells. Maintaining each corresponding cell either equal in size or both at least 2^{q-j} is preserved under one split by matching a small side exactly or choosing two threshold-large sides. At j=q this preserves exactly which Venn cells are empty, hence every atomic Boolean-term equality. Conversely the balanced recursive formula A_k splits x into two disjoint pieces each containing the required number of atoms and has quantifier rank ceil(log2 k), giving the sharp separator. The frozen exhaustive EF verifier agrees for n,m<=4 and q<=3.
 
-## Limitations
-No priority claim is made. The language is the standard Boolean-algebra language and the structures are finite and nontrivial. The finite replay is only corroborative.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kuncak–Rinard's full primary text contains a closely related quantifier-elimination truncation lemma: during elimination, cell cardinalities may be truncated at powers of two. That theorem is indexed by the number/stage of set variables in a prenex elimination procedure, not by first-order quantifier rank, and it does not state the exact pairwise equivalence B_n≡_q B_m or the matching least distinguishing rank. The submitted Ehrenfeucht–Fraïssé theorem therefore survives, but with an explicit folklore/implicit-corollary risk because the power-of-two mechanism is clearly prior.
+
+## value
+
+PASS
+
+The theorem gives the exact logical resolution at which atom cardinality becomes visible, including a matching lower and upper bound for every finite Boolean algebra. This is a natural model-theoretic invariant and a clean sharp refinement of the prior power-of-two quantifier-elimination mechanism, not merely a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

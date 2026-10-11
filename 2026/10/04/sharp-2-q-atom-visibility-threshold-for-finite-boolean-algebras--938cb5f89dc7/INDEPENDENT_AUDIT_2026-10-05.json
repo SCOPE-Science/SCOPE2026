@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:53:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0b69dcd3ba2080481ccb7f82c51be03254c02e88",
+        "verify.py blob 9744f2a4bbb15cdad4a0465715786ee8b055c83b",
+        "fresh EF-invariant and recursive-rank reconstruction"
+      ],
+      "rationale": "After j selected elements, their membership signatures partition the atoms into at most 2^j cells. Maintaining each corresponding cell either equal in size or both at least 2^{q-j} is preserved under one split by matching a small side exactly or choosing two threshold-large sides. At j=q this preserves exactly which Venn cells are empty, hence every atomic Boolean-term equality. Conversely the balanced recursive formula A_k splits x into two disjoint pieces each containing the required number of atoms and has quantifier rank ceil(log2 k), giving the sharp separator. The frozen exhaustive EF verifier agrees for n,m<=4 and q<=3.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuncak–Rinard prove quantifier elimination and complexity for Boolean algebras and BAPA, a broader logical setting, but do not phrase an exact q-round EF threshold.",
+          "Kozen is a highly relevant older complexity source; only abstract/bibliographic scope was accessible in this run."
+        ],
+        "reasoning": "The broader decision procedures do not, in the inspected material, state the sharp minimum rank separating two finite Boolean algebras.",
+        "searches": [
+          "Kuncak–Rinard full author-uploaded primary text",
+          "Kozen, DOI:10.1016/0304-3975(80)90048-1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cs/0407045",
+        "DOI:10.1016/0304-3975(80)90048-1",
+        "Resultary Boolean-algebra quantifier-rank search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior truncation lemma gives strong evidence for the cutoff mechanism, but its parameter is the stage among S set variables after prenex processing; arbitrary formulas of quantifier rank q can contain more than q quantified occurrences in parallel, so the exact rank-q theorem is not the printed consequence.",
+          "The EF strategy proves the lower indistinguishability bound directly at quantifier rank, while balanced recursive splitting supplies a matching separator of rank ceil(log2 k)."
+        ],
+        "reasoning": "The final iff and minimal-rank statement requires a quantifier-rank-sensitive argument not found in the inspected source.",
+        "searches": [
+          "Kuncak–Rinard Lemma 6",
+          "audited EF game and recursive A_k formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 6 states that the elimination-stage arithmetic depends on cell counts only after truncation at 2^{r-1}.",
+          "The audited EF invariant says after j of q rounds corresponding Venn cells are either equal or both at least 2^{q-j}."
+        ],
+        "reasoning": "Both use the same binary-splitting geometry, but the prior statement is a variable-count/elimination bound rather than an exact quantifier-rank equivalence classification.",
+        "searches": [
+          "Kuncak–Rinard, arXiv:cs/0407045, Lemma 6 and Section 6.2",
+          "Resultary query: finite Boolean algebra quantifier rank threshold atoms Ehrenfeucht Fraisse 2^q"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct published finding with min(n,2^q)=min(m,2^q) was returned."
+        ],
+        "reasoning": "This is a model-theoretic equivalence theorem rather than a database/table lookup.",
+        "searches": [
+          "Resultary semantic search above"
+        ]
+      },
+      "rationale": "Kuncak–Rinard's full primary text contains a closely related quantifier-elimination truncation lemma: during elimination, cell cardinalities may be truncated at powers of two. That theorem is indexed by the number/stage of set variables in a prenex elimination procedure, not by first-order quantifier rank, and it does not state the exact pairwise equivalence B_n≡_q B_m or the matching least distinguishing rank. The submitted Ehrenfeucht–Fraïssé theorem therefore survives, but with an explicit folklore/implicit-corollary risk because the power-of-two mechanism is clearly prior.",
+      "residual_risks": [
+        "The exact EF threshold is elementary enough to be folklore or an exercise in older model-theory treatments.",
+        "Kozen's inaccessible full text or another older source may contain an equivalent finite-algebra rank bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE_TRUNCATION_MECHANISM_PRIOR_EXACT_QUANTIFIER_RANK_THEOREM_NOT_STATED",
+          "evidence": "Lemma 6 truncates cardinality values at 2^{r-1} during a variable-elimination recurrence; the source does not state an Ehrenfeucht–Fraïssé q-round equivalence or the least distinguishing quantifier rank.",
+          "identifier_or_url": "arXiv:cs/0407045; MIT CSAIL TR-958",
+          "material_read": "Full author-uploaded primary text around Boolean-algebra quantifier elimination and Section 6.2 Lemma 6.",
+          "method": "Parameter and implication comparison.",
+          "title": "The First-Order Theory of Sets with Cardinality Constraints is Decidable",
+          "trigger": "Closest full primary source with explicit power-of-two truncation in Boolean algebras."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_FOLKLORE_RISK",
+          "evidence": "The accessible material does not expose the submitted exact pairwise quantifier-rank threshold.",
+          "identifier_or_url": "DOI:10.1016/0304-3975(80)90048-1",
+          "material_read": "Accessible abstract/bibliographic scope only; complete primary text was not materially available in this run.",
+          "method": "Access-limited prior-art risk check.",
+          "title": "Complexity of Boolean algebras",
+          "trigger": "Older highly relevant finite/atomic Boolean-algebra complexity source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:cs/0407045",
+        "DOI:10.1016/0304-3975(80)90048-1",
+        "Resultary Boolean-algebra quantifier-rank search"
+      ],
+      "rationale": "The theorem gives the exact logical resolution at which atom cardinality becomes visible, including a matching lower and upper bound for every finite Boolean algebra. This is a natural model-theoretic invariant and a clean sharp refinement of the prior power-of-two quantifier-elimination mechanism, not merely a finite census.",
+      "residual_risks": [
+        "The exact EF threshold is elementary enough to be folklore or an exercise in older model-theory treatments.",
+        "Kozen's inaccessible full text or another older source may contain an equivalent finite-algebra rank bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:cs/0407045",
+    "DOI:10.1016/0304-3975(80)90048-1",
+    "Resultary Boolean-algebra quantifier-rank search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For finite Boolean algebras B_n and B_m in the ordinary Boolean-algebra language, agreement on all sentences of quantifier rank at most q is equivalent to min(n,2^q)=min(m,2^q); hence for 1<=n<m the least distinguishing rank is ceil(log2(n+1)).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The exact EF threshold is elementary enough to be folklore or an exercise in older model-theory treatments.",
+    "Kozen's inaccessible full text or another older source may contain an equivalent finite-algebra rank bound.",
+    "Adding cardinality predicates, named atoms or extra relations changes the threshold."
+  ]
+}

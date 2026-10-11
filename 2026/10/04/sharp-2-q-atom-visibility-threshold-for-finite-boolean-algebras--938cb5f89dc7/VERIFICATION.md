@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked in two independent forms.
+# Independent mathematical audit
 
-1. **Game invariant.** After \(j\) moves, every corresponding Venn cell has equal atom count or both counts at least \(2^{q-j}\). A Spoiler split of a large cell is answered by matching any subthreshold piece exactly and keeping the other piece above the next threshold, or by splitting both resulting pieces above that threshold. At the final round, matching cell emptiness makes all Boolean-term equalities agree.
-2. **Separating formulas.** The recursive formula \(A_k(x)\) splits \(x\) into disjoint parts supporting \(\lfloor k/2\rfloor\) and \(\lceil k/2\rceil\) atoms. Induction gives the intended semantics and quantifier rank \(\lceil\log_2 k\rceil\).
+## correctness
 
-The standalone `verify.py` directly solves the full Ehrenfeucht--Fraisse game on the powerset representations of \(B_n\). Running it gives:
+PASS
 
-`VERIFY_OK cases=64 states=186264`
+After j selected elements, their membership signatures partition the atoms into at most 2^j cells. Maintaining each corresponding cell either equal in size or both at least 2^{q-j} is preserved under one split by matching a small side exactly or choosing two threshold-large sides. At j=q this preserves exactly which Venn cells are empty, hence every atomic Boolean-term equality. Conversely the balanced recursive formula A_k splits x into two disjoint pieces each containing the required number of atoms and has quantifier rank ceil(log2 k), giving the sharp separator. The frozen exhaustive EF verifier agrees for n,m<=4 and q<=3.
 
-The tested range is \(1\le n,m\le4\) and \(0\le q\le3\). This finite enumeration is not used as proof of the general theorem.
+## originality
 
-Literature limits: the closest fully inspected source is arXiv:cs/0407045. An older paper, DOI 10.1016/0304-3975(80)90048-1, was available only through metadata and abstract in the checked sources, so exact full-text overlap remains unresolved.
+PASS
+
+Kuncak–Rinard's full primary text contains a closely related quantifier-elimination truncation lemma: during elimination, cell cardinalities may be truncated at powers of two. That theorem is indexed by the number/stage of set variables in a prenex elimination procedure, not by first-order quantifier rank, and it does not state the exact pairwise equivalence B_n≡_q B_m or the matching least distinguishing rank. The submitted Ehrenfeucht–Fraïssé theorem therefore survives, but with an explicit folklore/implicit-corollary risk because the power-of-two mechanism is clearly prior.
+
+## value
+
+PASS
+
+The theorem gives the exact logical resolution at which atom cardinality becomes visible, including a matching lower and upper bound for every finite Boolean algebra. This is a natural model-theoretic invariant and a clean sharp refinement of the prior power-of-two quantifier-elimination mechanism, not merely a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
