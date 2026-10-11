@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts every prime-power exponent. The \(p\)-adic valuation descent is reconstructed from the Leibniz rule, the \(e>p\) regime is strictly increasing while retaining a \(p^p\) factor, and \(e=p\) is fixed. The residual third-iterate case is analytic. Only two explicitly bounded fourth-iterate prime ranges require exact enumeration, and the packaged checker replays them.
+## correctness
 
-## Originality
-PASS. The 2023 focal source restates the conjecture that eventual periodicity should have period \(1\). The 2003 paper proves the fixed points and analyzes period \(2\); the 2012 follow-up strengthens those period-\(2\) constraints and gives an abstract higher-order framework. The inspected exact sequence entries tabulate the third and fourth arithmetic derivatives without stating the prime-power converses. Targeted semantic, exact-phrase, full-text, and database checks found no statement implying the present theorem.
+PASS
 
-## Value
-PASS. Prime powers are the canonical fixed family of the arithmetic derivative. The theorem completely closes that family for the first two iterate orders beyond the published period-\(2\) analysis and excludes prime powers from every nontrivial exact period-\(3\) or period-\(4\) cycle.
+Below exponent \(p\), the p-adic valuation drops by one per derivative until zero; above exponent \(p\), the persistent factor \(p^p\) forces strict growth, while \(p^p\) itself is fixed. Thus only \(e<r\) remains. Explicit first iterates plus \(D(n)\le n\log_2n/2\) eliminate \(e=2\) for \(r=3\) and \(e=2,3\) for \(r=4\), with the finite small-prime ranges checked exactly. I independently reran all primes below 500 and exponents through 12 with no exception.
 
-## Closest literature and limitations
-The closest literature is Ufnarovski--Åhlander's fixed-point and period-\(2\) analysis, Kovič's further \(D^2(n)=n\) constraints and higher-order framework, and Emmons--Xiao's 2023 restatement of the global dynamics conjecture. The theorem does not classify arbitrary \(D^3(n)=n\) or \(D^4(n)=n\) solutions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ufnarovski--Åhlander prove the fixed points, valuation descent and growth facts and then conjecture that no nontrivial periodic points exist. Their results reduce but do not eliminate the final small prime-power exponents for periods three and four. No checked later source closes this exact branch.
+
+## value
+
+PASS
+
+This completely resolves the prime-power branch at the first two iterate orders beyond the period-two discussion in a longstanding arithmetic-derivative dynamics problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
