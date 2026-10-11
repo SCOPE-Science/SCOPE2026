@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,44 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For fixed \(\kappa<1\), define
-\[
-g(s)=e^{-\ell D_\kappa(s)}.
-\]
-The exact finite reciprocal magnitude is
-\[
-Q_{n,\kappa}=\frac1n\sum_{j=0}^{n-1}g(j/n),
-\]
-and the continuum reciprocal magnitude is
-\[
-Q_\kappa=\int_0^1g(s)\,ds.
-\]
-Because \(g(0)=g(1)\), the finite average is exactly the composite trapezoidal rule.
+## correctness
 
-The endpoint expansion
-\[
-D_\kappa(s)=s+\frac{\pi^2(\kappa-1)}6s^3+O(s^5)
-\]
-implies
-\[
-g'(1)-g'(0)=2\ell
-\]
-and
-\[
-g'''(1)-g'''(0)=2\ell\bigl(\ell^2+\pi^2(\kappa-1)\bigr).
-\]
-Substitution into Euler–Maclaurin gives the two displayed coefficients. The smoothness of \(D_\kappa\) for fixed \(\kappa<1\) justifies the \(O_{\ell,\kappa}(n^{-6})\) remainder after truncation.
+PASS
 
-At \(\kappa=1\),
-\[
-D_1(s)=\min\{s,1-s\},
-\]
-so the midpoint is not smooth. Splitting the equal-spacing row by parity gives finite geometric series and hence the exact formulas involving \(\coth\) and \(\operatorname{csch}\). Their Taylor series produce the even and odd coefficients.
+The source reduces the finite homogeneous magnitude to a trapezoidal average of \(g=e^{-\ell D_\kappa}\). I independently reconstructed \(D_\kappa(s)=s+\pi^2(\kappa-1)s^3/6+O(s^5)\), hence the needed endpoint first/third derivative jumps; Euler-Maclaurin gives exactly the stated coefficients. At kappa=1 the distance is min(s,1-s), and direct geometric sums give the claimed parity formulas.
 
-The embedded `verify.py` was replayed from its packaged path. It uses only the Python standard library and checks direct finite sums against the smooth expansion, the Euclidean chord specialization, the intrinsic exact formulas, and the parity-dependent leading terms. It returned:
+## originality
 
-`VERIFY_OK round-circle magnitude sampling law`
+PASS
 
-The replay is a finite consistency check and does not replace the analytic proof.
+Leinster-Willerton's full paper defines the same round metrics and equally spaced approximations, and proves the limiting magnitude, but it does not compute the fixed-circumference n-asymptotic sampling coefficients or the intrinsic even/odd finite formulas.
+
+## value
+
+PASS
+
+Equal-spacing is the foundational approximation used to define/calculate circle magnitude. The curvature-independent leading bias and the singular parity transition at the intrinsic endpoint are motivated structural features of that approximation, not an arbitrary coefficient exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

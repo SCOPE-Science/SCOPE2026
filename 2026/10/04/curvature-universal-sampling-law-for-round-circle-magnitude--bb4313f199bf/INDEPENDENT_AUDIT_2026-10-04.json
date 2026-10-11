@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:07:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source reduces the finite homogeneous magnitude to a trapezoidal average of \\(g=e^{-\\ell D_\\kappa}\\). I independently reconstructed \\(D_\\kappa(s)=s+\\pi^2(\\kappa-1)s^3/6+O(s^5)\\), hence the needed endpoint first/third derivative jumps; Euler-Maclaurin gives exactly the stated coefficients. At kappa=1 the distance is min(s,1-s), and direct geometric sums give the claimed parity formulas.",
+      "risk": "The smooth expansion is not uniform as kappa approaches 1, where the midpoint loses smoothness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source treats all round curvatures at the continuum limit; later work studies other circle-magnitude structure. Neither states the finite-n bias law."
+        ],
+        "reasoning": "Generic Euler-Maclaurin is analytically broader but does not identify this metric family's curvature cancellation or intrinsic cusp transition.",
+        "searches": [
+          "arXiv:0908.1582 Theorems 15-16",
+          "arXiv:2408.06091 circular magnitude literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0908.1582v2",
+        "arXiv:2408.06091",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source provides the distance profile and Riemann-sum representation but stops before the high-order n-discretization expansion."
+        ],
+        "reasoning": "Explicit endpoint third derivatives yield the universal first bias and curvature-onset order; the intrinsic case needs separate cusp/geometric-sum analysis.",
+        "searches": [
+          "arXiv:0908.1582 Sections 4.1 and 4.3",
+          "Euler-Maclaurin summation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives convergence and the continuum integral, not the n^-2/n^-4 coefficient law."
+        ],
+        "reasoning": "The audited statement is a sample-count convergence theorem, not the source's large-circumference asymptotic.",
+        "searches": [
+          "Resultary round-circle magnitude sampling search",
+          "arXiv:0908.1582 Sections 4.1-4.3",
+          "web equal-spacing circle magnitude convergence rate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite-n coefficient table across curvature was found."
+        ],
+        "reasoning": "The result is derived from the exact homogeneous sum, not a table fit.",
+        "searches": [
+          "Resultary magnitude corpus",
+          "Leinster-Willerton finite-circle formulas"
+        ]
+      },
+      "rationale": "Leinster-Willerton's full paper defines the same round metrics and equally spaced approximations, and proves the limiting magnitude, but it does not compute the fixed-circumference n-asymptotic sampling coefficients or the intrinsic even/odd finite formulas.",
+      "residual_risks": [
+        "A numerical-analysis application of Euler-Maclaurin to this exact magnitude sum may exist under different terminology; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING",
+          "evidence": "Gives D_kappa, equal-sample convergence and limiting magnitude, but not the fixed-l n-expansion.",
+          "identifier_or_url": "arXiv:0908.1582v2",
+          "material_read": "Full Sections 4.1-4.3, including Theorems 15-16.",
+          "method": "lawful arXiv full text",
+          "title": "On the asymptotic magnitude of subsets of Euclidean space",
+          "trigger": "Primary source for the round-circle family and equal samples."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Accessible statements concern other circular-magnitude questions, not this sampling law.",
+          "identifier_or_url": "arXiv:2408.06091",
+          "material_read": "Primary abstract/public statements.",
+          "method": "lawful public source",
+          "title": "Magnitude and spread of metric spaces",
+          "trigger": "Recent circle-magnitude literature."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal-spacing is the foundational approximation used to define/calculate circle magnitude. The curvature-independent leading bias and the singular parity transition at the intrinsic endpoint are motivated structural features of that approximation, not an arbitrary coefficient exercise.",
+      "risk": "For smooth kappa the proof is an Euler-Maclaurin calculation, so the contribution is a focused sampling law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For equally spaced n-point samples of the round circle with circumference \\(\\ell\\) and fixed \\(\\kappa<1\\), reciprocal magnitude satisfies \\(Q_n=Q+\\ell/(6n^2)+\\ell(\\pi^2(1-\\kappa)-\\ell^2)/(360n^4)+O(n^{-6})\\); curvature first enters at order n^-4. At \\(\\kappa=1\\), exact even/odd formulas show a parity split already in the leading correction.",
+  "limitations": [
+    "Fixed circumference and fixed kappa<1 for the smooth expansion; kappa=1 is separate.",
+    "No optimality claim among nonuniform samples."
+  ],
+  "schema_version": 1
+}
