@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Normalized Bergman monomial moments give exactly \\(2/[n(n+1)]\\) and an absolutely convergent pair-energy reduction. Direct differentiation of the explicit logarithmic pair potential produces a strictly positive Poisson-kernel integral, avoiding illegitimate twice-differentiation of the raw Fourier series. Fourier orthogonality on N roots of unity yields a positive integral for every Hessian eigenvalue, and digamma differences supply the exact closed form. Convexity of \\(t^s+t^{N-s}\\) fixes the extreme modes. Taylor expansion gives the sharp local Rayleigh constant and a first Fourier mode saturates it. Digamma expansion and an explicitly dominated boundary-layer integral give the two asymptotic claims. The standard-library checker matches the direct/integral eigenvalues and actual second differences in several N; finite tests are not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bezrukov (arXiv:2609.03134v1) proves a broader global extremal principle for radial weighted functionals, not an exact local Hessian spectral law.",
+        "Abakumov–Borichev–Fedorovskiy (arXiv:2009.01898v1) prove global uniqueness for weights including the critical case; their Lemma 12 supplies positivity of the angular pair curvature."
+      ],
+      "reasoning": "A global minimum or positivity of the Hessian has no logical implication fixing all the eigenvalues or the sharp coefficient of the quadratic deficit. Universal optimality under more weights also does not specify the local spectrum in this normalization.",
+      "searches": [
+        "Weighted Bergman norm reciprocal sum of boundary poles Chui conjecture quantitative stability Hessian second variation regular polygon alpha one",
+        "\"Chui\" \"quantitative stability\" \"Bergman\" circle",
+        "arXiv:2609.03134v1",
+        "arXiv:2009.01898v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.21121v1 (primary motivating source, initial posting 2026-09-17)",
+      "arXiv:2009.01898v1 (2020 original weighted Hilbert theorem)",
+      "arXiv:2609.03134v1 (2026 generalized global theorem)",
+      "MSC2020 code 30H20: Bergman spaces and Fock spaces"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 paper, Lemma 12, explicitly computes positivity of the pair second derivative, but not its discrete Fourier transform or its extremizing mode for each number of poles.",
+        "The 2026 Corbett paper, Section 2.3, forms an angle Hessian and proves it positive, without giving its eigenvalues or the limit of its nonzero spectral condition number.",
+        "The 2026 Bezrukov paper compares global integrals and does not derive infinitesimal spectral variation."
+      ],
+      "reasoning": "The new statement implies positivity of the restricted Hessian and hence a sharp local quadratic lower bound. Conversely, published global minimization and curvature positivity do not imply the explicit digamma values or their extrema; these require a new Poisson-root-of-unity summation followed by a spectral analysis. The distinction holds despite shared objects and parameters.",
+      "searches": [
+        "arXiv:2009.01898v1",
+        "arXiv:2609.21121v1",
+        "arXiv:2609.03134v1",
+        "Weighted Bergman Chui conjecture regular N polygon energy Hessian eigenvalues Fourier spectral gap digamma logarithmic alpha=1 quadratic stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Corbett (arXiv:2609.21121v1), Section 2.3 proves the Hessian is positive definite, but the searched full text has no eigenvalue or digamma spectral formula.",
+        "The exact eigenvalues here depend on cyclic Fourier residues of the Poisson kernel; they are not recovered from a mere positive-definiteness assertion."
+      ],
+      "reasoning": "No equivalent Fourier, digamma, Poisson-residue or sharp quadratic-stability statement was found in the directly relevant full text or the targeted title/claim searches. A differently normalized curvature matrix would be equivalent only after confirming its full eigenvalues and normalization; no such matching formula was identified.",
+      "searches": [
+        "Weighted Bergman Chui conjecture regular N polygon energy Hessian eigenvalues Fourier spectral gap digamma logarithmic alpha=1 quadratic stability",
+        "Chui simplest fractions Bergman alpha=1 weighted analytic norm N equispaced poles exact Hessian Fourier eigenvalues digamma psi first Fourier mode sharp local quadratic stability condition number tends two",
+        "\"Chui\" \"Hessian\" \"eigenvalues\" equispaced Bergman",
+        "arXiv:2609.21121v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary articles provide no numerical table or explicit indexed formula listing the all-N modal eigenvalues or the sharp local condition number.",
+        "Targeted indexed mathematical-record results concerned other Bergman inequalities, general polygon Hessians or unrelated Fourier spectra."
+      ],
+      "reasoning": "No exact eigenvalue database, Fourier-mode table, or published all-integer record covered the claimed formula in the inspected material. A failed index query alone is not proof of novelty, so the substantive comparison rests also on the primary manuscripts.",
+      "searches": [
+        "Sharp eigenvalues Hessian potential equally spaced points unit circle pairwise logarithmic weighted Bergman kernel regular polygon",
+        "Chui simplest fractions Bergman alpha=1 weighted analytic norm N equispaced poles exact Hessian Fourier eigenvalues digamma psi first Fourier mode sharp local quadratic stability condition number tends two",
+        "\"Abakumov\" \"Borichev\" \"Hessian\" spectrum"
+      ]
+    },
+    "rationale": "The primary full texts establish global minimization and strict curvature, not the explicit all-mode Hessian spectrum, least/greatest Fourier modes, sharp local Rayleigh constant, or condition-number asymptotic. Queries against indexed mathematical claims and web literature identified no equivalent or dominating statement. This does not prove absolute novelty against unindexed work.",
+    "residual_risks": [
+      "The exact modal spectrum may have appeared in unindexed theses, older electrostatic stability analyses, or work not surfaced by the searches.",
+      "A formula for a different weight or a differently normalized energy could imply this claim after an undocumented specialization; inspected known statements do not establish such an implication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: qualitative Hessian positivity and global minimization, no exact modal spectrum, sharp local coefficient or spectral asymptotics.",
+        "evidence": "Section 2.3 displays the pair-curvature Laplacian and proves positive definiteness using a diagonal plus positive semidefinite decomposition. Section 3 uses Cohn–Kumar to prove global minimization.",
+        "identifier_or_url": "https://arxiv.org/html/2609.21121v1",
+        "material_read": "Abstract and Introduction, weight definition and interaction Section 1.1, angle Hessian matrix and its positivity proof in Section 2.3, universal-optimality statement and proof in Section 3, reference list.",
+        "method": "Accessible complete arXiv HTML with internal section navigation; inspected displayed formulae and searched for eigenvalue and digamma.",
+        "title": "Two new proofs of Chui's Conjecture in Weighted Bergman Spaces",
+        "trigger": "Recent primary manuscript treating exactly the weighted Hilbert Bergman Chui functional and its Hessian."
+      },
+      {
+        "assessment": "NOT_COVERING: explicitly derives the second-derivative kernel but does not perform discrete Fourier diagonalization or identify the sharp spectral gap.",
+        "evidence": "Lemma 12 gives the pairwise series with coefficients \\(1/[k(k+1)]\\) and a positive cosine-series formula for its curvature. Theorem 1 gives global equispaced minimization.",
+        "identifier_or_url": "https://arxiv.org/html/2009.01898v1",
+        "material_read": "Introduction, main Theorem 1 and asymptotic Theorem 3, Section 3 Lemma 12 and the regular-polygon convexity argument, proof organization.",
+        "method": "Accessible arXiv HTML primary text; checked curvature formula and searched for Hessian eigenvalues and digamma.",
+        "title": "Chui's conjecture in Bergman spaces",
+        "trigger": "Original primary global minimization theorem and curvature lemma for precisely the critical weight."
+      },
+      {
+        "assessment": "NOT_COVERING: strengthens global norm minimization but supplies no exact second variation of the critical weighted Hilbert functional.",
+        "evidence": "Theorems 1 and 2 concern convex radial integral inequalities and optimizers, whereas the new formula specifies every second-variation eigenvalue at a fixed regular polygon.",
+        "identifier_or_url": "https://arxiv.org/html/2609.03134v1",
+        "material_read": "Theorem 1, proof overview, circular minimization Theorem 2 and its proof, and final proof of Theorem 1 in Section 4.",
+        "method": "Accessible arXiv HTML primary full text; compared the extremal statement, variables and proof with the local Hessian claim.",
+        "title": "Proof of the generalized Chui conjecture",
+        "trigger": "Recent potentially stronger global Chui theorem, hence a necessary dominating-coverage comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9aca32c3-cb4f-4ef8-9b0f-7d7d88a9ec3c",
+  "value": {
+    "rationale": "The canonical equispaced minimizer of the Hilbert Bergman Chui problem is a natural object whose quantitative stability is not determined by qualitative uniqueness. The exact full Fourier spectrum reveals the weakest perturbation, the optimal quadratic deficit coefficient, and an asymptotic nonrotational condition number exactly two. These are motivated structural invariants for perturbation estimates rather than an arbitrary numerical slice; the all-N formula and dimension limit are reusable in stability analyses.",
+    "status": "PASS"
+  }
+}
