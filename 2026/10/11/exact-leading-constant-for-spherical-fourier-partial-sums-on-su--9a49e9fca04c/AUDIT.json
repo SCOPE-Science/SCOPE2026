@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Normalized Weyl integration converts the exact Peter--Weyl kernel into a one-dimensional absolute integral. The displayed finite trigonometric identity is algebraically exact. Its remainder has absolute integral \\(O(\\log M)\\), while the leading weighted \\(|\\cos|\\) term equals \\(4/\\pi+O(M^{-1})\\) by its absolutely convergent Fourier series. Therefore the endpoint norm is \\(\\frac{8}{\\pi^2}M+O(\\log M)\\). Finite checker output is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giulini--Travaglini 1986, DOI 10.1016/0022-1236(86)90059-5, proves two-sided \\(R^{(n-1)/2}\\) growth for spherical Dirichlet kernels on compact semisimple Lie groups.",
+        "Its full text states that the rank-one \\(SU(2)\\) case follows from earlier matching-power bounds; it does not provide the normalized constant used here."
+      ],
+      "reasoning": "The broader compact-Lie-group theorem covers the order of growth but not the exact leading coefficient. Therefore it does not imply the accepted quantitative limit.",
+      "searches": [
+        "semantic database query: SU(2) low pass Peter-Weyl projection Lebesgue constant spherical partial sums exact asymptotic 8 pi squared",
+        "semantic database query: SU2 spherical Dirichlet kernel L1 norm limit normalized by cutoff",
+        "semantic database query: compact Lie group spherical partial sums Lebesgue constants exact leading constant SU(2)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4153/CMB-1997-036-1",
+      "doi:10.1016/0022-1236(86)90059-5",
+      "doi:10.1007/BF01295142",
+      "B. Dreseler, J. Funct. Anal. 68 (1986), 374-387 (bibliographic-level comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hare's paper gives the decomposition and Littlewood--Paley estimates, not endpoint Lebesgue constants for consecutive cumulative blocks.",
+        "Giulini--Travaglini gives only two-sided order constants for the relevant spherical Dirichlet kernels.",
+        "An exact norm formula for one irreducible block does not determine the norm of the cumulative sum because the convolution kernels change sign and cancel."
+      ],
+      "reasoning": "Neither the decomposition theorem, the order bounds, nor the single-block norm logically entails the exact cumulative coefficient. The new proof directly controls the cumulative kernel.",
+      "searches": [
+        "semantic database query: single Peter-Weyl block SU(2) endpoint norm cumulative low-pass projection",
+        "direct comparison with DOI 10.4153/CMB-1997-036-1 and DOI 10.1016/0022-1236(86)90059-5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hare 1997, DOI 10.4153/CMB-1997-036-1, defines the \\(SU(2)\\) spaces \\(H_k\\) and block sums in the same Peter--Weyl decomposition.",
+        "No checked database record stated the normalized endpoint limit \\(8/\\pi^2\\) for the cumulative blocks."
+      ],
+      "reasoning": "Aliases through Peter--Weyl blocks, spherical Dirichlet kernels, cumulative spectral projections, and Lebesgue constants were compared at the statement level. A single-block formula and finite-cyclic Dirichlet results do not imply an absolute-value norm for the cumulative \\(SU(2)\\) kernel.",
+      "searches": [
+        "semantic database query: SU(2) Dirichlet kernel exact L1 norm Lebesgue constant cumulative Peter-Weyl",
+        "semantic database query: SU2 spectral projection first L irreducibles endpoint norm exact",
+        "semantic database query: Peter-Weyl Dirichlet kernel SU(2) Lebesgue constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concerned unrelated Euclidean endpoint kernels, spherical-harmonic \\(L^4\\) problems, and finite-cyclic Fourier projections; none contained the \\(SU(2)\\) cumulative-partial-sum formula.",
+        "Formula-fingerprint and alias searches were supplemented by direct full-text comparison with the closest same-object literature."
+      ],
+      "reasoning": "No checked table or indexed record supplied the coefficient or a stronger formula from which it follows. A failed search is not used alone as proof of novelty; it supports the direct source comparisons.",
+      "searches": [
+        "semantic database fingerprint query: SU(2) 8/pi^2 Lebesgue constant Fourier partial sums",
+        "semantic database fingerprint query: SU(2) Dirichlet kernel exact leading constant"
+      ]
+    },
+    "rationale": "The accepted claim refines the classical \\(SU(2)\\) spherical-partial-sum order estimate to an exact normalized leading constant. The closest inspected sources cover the decomposition or only two-sided growth, and literature/database alias searches do not yield a statement implying the coefficient. One plausible inaccessible Bochner--Riesz source is retained as a residual risk.",
+    "residual_risks": [
+      "The full Dreseler 1986 Bochner--Riesz article was not available for direct statement-level inspection; an equivalent unsmoothed \\(SU(2)\\) coefficient hidden there or in older rank-one literature cannot be excluded.",
+      "Equivalent formulas may use a different spectral parameter normalization; the claim is therefore stated for the explicit highest-weight cutoff \\(S_L\\)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same Peter--Weyl grading and studies Littlewood--Paley block sums, but does not state the accepted endpoint asymptotic.",
+        "evidence": "The paper states Primary MSC 42B25 and, in its \\(SU(2)\\) example, \\(H_k\\) consists of matrix coefficients of the degree-\\(k+1\\) irreducible representation.",
+        "identifier_or_url": "doi:10.4153/CMB-1997-036-1",
+        "material_read": "Full article PDF; introduction and \\(SU(2)\\) example inspected, including the definition of \\(H_k\\) and block sums.",
+        "method": "Full article PDF with page-level inspection.",
+        "title": "A General Approach to Littlewood-Paley Theorems for Orthogonal Families",
+        "trigger": "Primary source for the \\(SU(2)\\) orthogonal decomposition and block sums."
+      },
+      {
+        "assessment": "Proves sharp two-sided growth order and discusses \\(SU(2)\\) as rank one, but does not state the normalized limit or coefficient \\(8/\\pi^2\\).",
+        "evidence": "Theorem 1 gives two-sided \\(R^{(n-1)/2}\\) growth; the rank-one discussion says the conclusion follows from prior matching-power bounds.",
+        "identifier_or_url": "doi:10.1016/0022-1236(86)90059-5",
+        "material_read": "All 11 pages of the full article.",
+        "method": "Full-text article inspection.",
+        "title": "Sharp Estimates for Lebesgue Constants on Compact Lie Groups",
+        "trigger": "Closest same-object literature on compact-group spherical Dirichlet Lebesgue constants."
+      },
+      {
+        "assessment": "Provides qualitative unboundedness criteria for compact-group partial sums, not the exact \\(SU(2)\\) leading constant.",
+        "evidence": "The abstract describes a general condition guaranteeing unbounded Lebesgue constants and applications to compact connected semisimple Lie groups.",
+        "identifier_or_url": "doi:10.1007/BF01295142",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Open bibliographic and abstract sources.",
+        "title": "Unbounded Lebesgue Constants on Compact Groups",
+        "trigger": "Earlier compact-group Lebesgue-constant literature."
+      },
+      {
+        "assessment": "Potentially relevant but not shown by accessible evidence to contain the unsmoothed \\(SU(2)\\) \\(L^1\\) coefficient; retained as residual risk.",
+        "evidence": "Later literature cites it specifically for Bochner--Riesz kernel asymptotics, distinct from the Giulini--Travaglini Lebesgue-constant theorem.",
+        "identifier_or_url": "B. Dreseler, J. Funct. Anal. 68 (1986), 374-387",
+        "material_read": "Bibliographic citations and surrounding later-literature descriptions only; complete article text was not available.",
+        "method": "Open bibliographic search; complete article text was unavailable.",
+        "title": "On the Asymptotic of the Bochner--Riesz Kernel on Compact Lie Groups",
+        "trigger": "Title suggests a potentially close asymptotic kernel result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9a49e9fc-a04c-4806-954f-ffce71fe8a01",
+  "value": {
+    "rationale": "The canonical cumulative highest-weight projection is a fundamental nonabelian Fourier truncation. An exact leading endpoint amplification constant materially sharpens the previously checked order-only Lebesgue-constant estimate, and it is not a routine consequence of a single-block norm because cumulative kernel cancellation is essential.",
+    "status": "PASS"
+  }
+}
