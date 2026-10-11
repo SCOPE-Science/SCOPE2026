@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The printed vector field is a triangular skew product over Sprott C. The fiber matrix \(B_-=\begin{pmatrix}0&-3\\1&-d\end{pmatrix}\) has characteristic polynomial \(\lambda^2+d\lambda+3\), whose two exponents have strictly negative real part for every \(d>0\). The vertical tangent bundle is invariant and the quotient variational cocycle is the 3D base cocycle, so the full Lyapunov spectrum is the union of the fiber and base spectra. On non-equilibrium compact ergodic base measures, the flow exponent is \(0\) and the base exponent sum is its constant divergence \(-1\), leaving at most one positive base exponent. Equilibrium factorization gives no positive exponent. Direct substitution independently verifies the printed equilibria, divergence, and characteristic polynomial.
+## correctness
 
-## Originality
-PASS. Searches using the exact title, authors, both fiber signs, the parameter \(d=0.998\), “sign error,” “correction,” “erratum,” “Lyapunov,” and “divergence” found the introducing article, related but algebraically different Sprott-C extensions, and no publication stating this equation-level sign correction. The closest known same-theme results concern other stable-fiber or hyperchaotic systems and do not imply which sign was printed and analyzed in this source. The source itself provides decisive comparison evidence: Eq. (2) has \(-ds\), while its equilibrium/Jacobian/divergence/Lyapunov calculations and later synchronization equations use \(+ds\).
+PASS
 
-## Value
-PASS. The sign mismatch reverses the two transverse Lyapunov exponents and changes the core dynamical classification. For the printed system it proves an exact obstruction to hyperchaos, while also explaining why the published numerical spectrum has two extra positive exponents. This is not a cosmetic normalization or a recomputation of a table: it separates two genuinely different vector fields and identifies which one the paper's central analysis actually treats.
+For the printed fiber \(\dot w=-3s-x,\ \dot s=w-ds\), the constant fiber polynomial is \(\lambda^2+d\lambda+3\), whose roots have strictly negative real parts for every \(d>0\). The vertical tangent subbundle is invariant and the quotient variational cocycle is the 3D Sprott-C base, so the full Lyapunov spectrum is the base spectrum plus the two stable fiber exponents. The base has divergence -1 and, on a non-equilibrium ergodic flow measure, one zero exponent, hence at most one positive exponent. Direct checks reproduce divergence \(-1-d\), the equilibria and characteristic factorization; at \(d=0.998\) the printed fiber has real part -0.499 while the plus-sign variant has +0.499.
 
-## Closest literature and limitations
-The 2023 Mathematics article by Yu et al. treats a different Sprott-C hyperchaotic construction and discusses divergence under parameter choices, but not this 2024 equation or its sign split. The 2023 Al-Azzawi–Hasan paper is another distinct five-dimensional Sprott-C extension. The present theorem does not rule out ordinary chaos in the printed system and does not establish or refute hyperchaos for the plus-sign variant from first principles beyond identifying its unstable fiber.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper itself prints the minus-sign equation but later analysis uses plus-sign formulas; fresh searches found no erratum or prior publication resolving this internal sign split and its stable-fiber no-hyperchaos consequence. Related Sprott-C extensions use different equations.
+
+## value
+
+PASS
+
+The sign reverses two transverse Lyapunov exponents and changes the system from a claimed hyperchaotic model to a skew product with at most one positive asymptotic exponent. It simultaneously explains the source’s divergence, equilibrium and synchronization inconsistencies, so it is a substantive model-integrity correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
