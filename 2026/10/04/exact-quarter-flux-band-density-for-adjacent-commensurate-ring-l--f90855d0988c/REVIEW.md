@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the published high-energy band criterion at \(A=1/4\) and \(\ell_2/\ell_3=m/(m+1)\) to the periodic sign condition \(-\cos((2m+1)x)\sin(mx)\sin((m+1)x)\ge0\). The sign-change sets are explicit and interlacing, so the mismatch measure is a finite sum of exact rational jump displacements. Evaluating the two parity cases yields \(P_m=3/4-[4(2m+1)s_m]^{-1}\). The limiting-density passage is justified away from the finite zero set of the leading periodic factor, where the published asymptotic remainder is uniformly negligible. Exact-rational replay independently verifies the formula for \(1\le m\le200\).
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2201.01502v1, derives the same model and high-energy criterion but states that rational commensurate probabilities are obtained numerically rather than in closed form; it gives exact formulas only for the incommensurate case and the exactly symmetric chain. Targeted searches under magnetic-ring-chain, commensurate-band-density, adjacent-rational-ratio, and equivalent trigonometric sign-measure formulations found no covering result. The generic Band--Berkolaiko universality theorem assumes generic edge lengths and therefore does not imply this rational commensurate formula.
+PASS
 
-## Value
-PASS. The formula closes a natural one-parameter commensurate family in the source’s central spectral-density observable and exposes a sharp arithmetic discontinuity: while \(\ell_2/\ell_3=m/(m+1)\to1\), the densities tend to \(3/4\), whereas the exactly symmetric ratio has density \(1/2\) at quarter flux. The exact correction \(1/[4(2m+1)s_m]\sim1/(8m^2)\) quantifies how the rational family approaches the incommensurate value.
+Substituting quarter flux and the commensurate lengths into the source high-energy criterion reduces the periodic indicator to the sign of \(-\cos((2m+1)x)\sin(mx)\sin((m+1)x)\). On half a period, the zero sets interlace; pairing the alternating jumps with cosine half-grid jumps gives a mismatch length equal to the two explicit absolute-value sums. Evaluating those sums separately for even and odd m yields the stated formula. Away from fixed neighborhoods of the finitely many period zeros, the source's relative \(O(k^{-2})\) correction is uniformly negligible; shrinking the neighborhoods proves equality of asymptotic densities. The source symmetric formula gives 1/2 at quarter flux. A fresh independent exact-rational interval calculation matched the closed form for every \(1\le m\le50\).
 
-## Closest literature and limitations
-The primary magnetic-ring-chain paper is foundational but does not state the adjacent-ratio formula. The earlier non-magnetic ring-chain paper studies a different nonuniform limit, and the Band--Berkolaiko theorem covers generic, not rationally commensurate, edge lengths. No formula is claimed for arbitrary coprime rational ratios, for \(A\ne1/4\), or for finite-energy convergence rates.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Baradaran--Exner--Lipovský derive the high-energy sign criterion and explicitly state that for commensurate rational arc ratios they were unable to give the probability in closed form, using numerical root counting instead. They separately derive the incommensurate quarter-flux density 3/4 and the symmetric density 1/2. The audited all-m adjacent-rational formula therefore fills a stated commensurate gap and its discontinuity conclusion is not implied by the generic universality theorem.
+
+## value
+
+PASS
+
+The source explicitly identifies commensurate ratios as the nonuniversal unresolved regime. This theorem gives an infinite exact rational family, a sharp \(m^{-2}\) defect, and a discontinuity at the symmetric geometry despite converging lengths, which is a motivated structural phenomenon rather than an isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
