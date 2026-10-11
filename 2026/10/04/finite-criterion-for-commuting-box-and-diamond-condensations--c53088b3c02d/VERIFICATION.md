@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reduces the interaction to relation composition:
-\[
-\beta(\delta(R))
-=
-R\circ\leq^{-1}\circ\leq,
-\qquad
-\delta(\beta(R))
-=
-R\circ\leq\circ\leq^{-1}.
-\]
+# Independent mathematical audit
 
-The two middle relations mean “has a common lower bound” and “has a common upper bound.” If they coincide, their common relation is proved directly to be transitive and hence an equivalence relation; its classes are exactly comparability components. Finiteness then upgrades pairwise common upper and lower bounds to a greatest and least element in every component.
+## correctness
 
-The bundled `verify.py` exhaustively enumerates every labelled poset on at most four points and checks this criterion. For every labelled poset on at most three points it also enumerates every binary relation and checks universal commutation directly.
+PASS
 
-It verifies that, in the commuting cases, the common result is the component saturation \(R\circ E\), is fixed by both operators, and preserves both p-conditions whenever the input relation has both.
+The two composites are right composition by the common-lower and common-upper kernels, so universal commutation is exactly equality of those kernels. If equal, their common relation is transitive by a direct two-stage common-bound argument and hence is comparability-component equivalence. Finiteness upgrades pairwise common bounds to component endpoints; the converse is immediate. Component saturation is fixed by both closures and is least by propagation along comparability zigzags. Direct composition preserves both p-conditions. Fresh exhaustive replay verified the order criterion on all labelled posets through four points.
 
-The script prints `VERIFY_OK`.
+## originality
 
-## Limits
+PASS
 
-The checker is corroborative. The arbitrary finite theorem follows from the relation-algebra proof. No full-bimodal truth-preservation theorem is claimed.
+The relation-algebra theorem and finite-poset characterization were independently reconstructed, and the bundled finite criterion was replayed. No equivalent theorem was found in Resultary or web searches. The exact initiating paper remains the strongest plausible coverage source, but its complete body was unavailable; best-of-knowledge originality therefore carries an explicit same-paper access risk.
+
+## value
+
+PASS
+
+The theorem gives an exact compatibility criterion and canonical joint normal form for two source-motivated modal normalizations. The endpoint characterization turns the obstruction into a transparent finite-order invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
