@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:55:54.232465Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b4af6cb90019fc812733997f7992a3577a714bb2",
+        "artifacts/verify.py blob 5ec2d6abc379f74c9f6af8650b57726bb79ecf89",
+        "Kleiman dual-degree formula",
+        "fresh exact symmetric-function checks"
+      ],
+      "rationale": "The arithmetic is correct. The classical dual-degree formula is \\(D h_n(d_1-1,\\ldots,d_c-1)\\). If exactly \\(e>0\\) defining degrees are even, reduction modulo two leaves the coefficient of \\((1-t)^{-e}\\), namely \\(\\binom{n+e-1}{n}\\), whose oddness is exactly the no-carry condition \\(n\\mathbin{\\&}(e-1)=0\\). If all defining degrees are odd, each shifted degree contributes a factor two and the same argument after extracting \\(2^n\\) uses the number of degrees congruent to three modulo four. The advertised mod-four boundary follows. Fresh exact checks reproduced the package examples \\(306\\) and \\(108\\); the finite verifier is corroborative only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kleiman's formula is strictly stronger numerically: it determines the entire integer dual degree for every multidegree.",
+          "Lucas/Kummer supplies the complete parity classification of the binomial coefficient arising after reduction."
+        ],
+        "reasoning": "Combining the two established statements leaves no nonstandard mathematical lemma needed for the final valuation criterion.",
+        "searches": [
+          "Steven L. Kleiman, The Enumerative Theory of Singularities, DOI:10.1007/978-94-010-1289-8_10",
+          "full MathNet 1980 version of Kleiman's enumerative-theory survey",
+          "Zhao, Degeneration of Dual Varieties, exact quotation of Kleiman's complete-intersection Segre formula",
+          "Lucas/Kummer binomial parity criterion",
+          "Resultary query: dual degree smooth complete intersection 2-adic valuation parity complete homogeneous symmetric polynomial"
+        ]
+      },
+      "checked_sources": [
+        "Steven L. Kleiman, The Enumerative Theory of Singularities, DOI:10.1007/978-94-010-1289-8_10",
+        "full MathNet 1980 version of Kleiman's enumerative-theory survey",
+        "Zhao, Degeneration of Dual Varieties, exact quotation of Kleiman's complete-intersection Segre formula",
+        "Lucas/Kummer binomial parity criterion",
+        "Resultary query: dual degree smooth complete intersection 2-adic valuation parity complete homogeneous symmetric polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For at least one even defining degree, modulo two the complete-homogeneous generating function becomes \\((1-t)^{-e}\\).",
+          "For all odd defining degrees, factoring \\(2^n\\) leaves the same calculation with the count of degrees congruent to three modulo four."
+        ],
+        "reasoning": "These are routine reductions of the published formula followed by a standard binomial-parity theorem.",
+        "searches": [
+          "Steven L. Kleiman, The Enumerative Theory of Singularities, DOI:10.1007/978-94-010-1289-8_10",
+          "full MathNet 1980 version of Kleiman's enumerative-theory survey",
+          "Zhao, Degeneration of Dual Varieties, exact quotation of Kleiman's complete-intersection Segre formula",
+          "Lucas/Kummer binomial parity criterion",
+          "Resultary query: dual degree smooth complete intersection 2-adic valuation parity complete homogeneous symmetric polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-homogeneous formula is exactly the generating-function form used in the package.",
+          "The bitwise condition \\(n\\mathbin{\\&}(e-1)=0\\) is the standard Lucas/Kummer parity condition for \\(\\binom{n+e-1}{n}\\)."
+        ],
+        "reasoning": "The audited arithmetic formulation is the first parity layer of the already-known exact degree formula.",
+        "searches": [
+          "Steven L. Kleiman, The Enumerative Theory of Singularities, DOI:10.1007/978-94-010-1289-8_10",
+          "full MathNet 1980 version of Kleiman's enumerative-theory survey",
+          "Zhao, Degeneration of Dual Varieties, exact quotation of Kleiman's complete-intersection Segre formula",
+          "Lucas/Kummer binomial parity criterion",
+          "Resultary query: dual degree smooth complete intersection 2-adic valuation parity complete homogeneous symmetric polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found related dyadic complete-intersection discriminant results but no verbatim all-multidegree statement.",
+          "Exact wording is immaterial because the stronger formula already determines the invariant."
+        ],
+        "reasoning": "Database nonmatch cannot override direct implication coverage.",
+        "searches": [
+          "Steven L. Kleiman, The Enumerative Theory of Singularities, DOI:10.1007/978-94-010-1289-8_10",
+          "full MathNet 1980 version of Kleiman's enumerative-theory survey",
+          "Zhao, Degeneration of Dual Varieties, exact quotation of Kleiman's complete-intersection Segre formula",
+          "Lucas/Kummer binomial parity criterion",
+          "Resultary query: dual degree smooth complete intersection 2-adic valuation parity complete homogeneous symmetric polynomial"
+        ]
+      },
+      "rationale": "Originality fails under the required implication standard. Kleiman's published conormal/Segre theorem already gives the exact dual degree of every smooth nonlinear complete intersection as the defining-degree product times the complete homogeneous symmetric polynomial in the shifted degrees. Reducing that known exact formula modulo two and applying the standard Lucas/Kummer no-carry criterion mechanically yields the stated first 2-adic layer, including the all-odd case after extracting the common factor of two from every shifted degree. The mod-four corollary is then an immediate specialization. The statement is a neat arithmetic repackaging, but the full final claim is logically covered by a published exact formula plus a classical textbook parity theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_STRONGER_EXACT_FORMULA",
+          "evidence": "The prior formula determines \\(\\deg(X^\\vee)\\) exactly from the shifted defining degrees.",
+          "identifier_or_url": "DOI:10.1007/978-94-010-1289-8_10; MathNet rm3880",
+          "material_read": "The lawful full MathNet PDF was opened and the duality chapter location was inspected; the complete-intersection Segre formula was independently cross-checked against a modern mathematical note quoting Kleiman's page 362 formula exactly.",
+          "method": "Lawful full-text primary source plus a direct formula cross-check in later mathematical literature.",
+          "title": "The Enumerative Theory of Singularities",
+          "trigger": "Primary archival source for the projective-dual Segre-class formula."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Steven L. Kleiman, The Enumerative Theory of Singularities, DOI:10.1007/978-94-010-1289-8_10",
+        "full MathNet 1980 version of Kleiman's enumerative-theory survey",
+        "Zhao, Degeneration of Dual Varieties, exact quotation of Kleiman's complete-intersection Segre formula",
+        "Lucas/Kummer binomial parity criterion",
+        "Resultary query: dual degree smooth complete intersection 2-adic valuation parity complete homogeneous symmetric polynomial"
+      ],
+      "rationale": "The dyadic boundary is a natural way to summarize the classical degree formula, but its proof is only a routine modulo-two reduction followed by Lucas/Kummer parity. Under the required value standard, this is a textbook-level arithmetic corollary of an already exact invariant formula rather than a distinct structural gap that needs the precise new fact.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication is withheld because all five frozen packages contain operational workflow state in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md. The complete 34-file recursive inventory was read and semantically inspected; RESULT.md, SLOGAN.txt, and verifier sources were clear of the checked platform/workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}
