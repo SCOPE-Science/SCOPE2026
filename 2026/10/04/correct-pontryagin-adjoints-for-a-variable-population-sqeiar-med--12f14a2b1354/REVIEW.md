@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The six-state Hamiltonian was reconstructed from the source's controlled system. Because the source defines \(N=S+Q+E+I+A+R\), the incidence derivative has a common logarithmic term \(C=U/N^2-1/N\) in every state direction. The resulting six costates were independently checked against centered finite differences of the Hamiltonian. The two simplest discrepancies—missing \(DFC\) in \(\dot\lambda_6\) and the wrong quarantine adjoint in \(\dot\lambda_1\)—also follow by one-line differentiation.
+PASS
 
-## Originality
+Independent differentiation of \(\log F=\logeta+\log S+\log V-\log N-U/N\) reproduces exactly the six incidence derivatives stated in the claim. In particular \(F_R=FC\) is generically nonzero, so the printed \(\dot\lambda_6=\mu\lambda_6\) is not the Hamiltonian gradient. Separately, the Hamiltonian quarantine flows \(-u_3S\) and \(+u_3S\) force \((\lambda_1-\lambda_2)u_3\). The primary full text confirms both incompatible printed terms.
 
-PASS. Searches by exact title, DOI, adjoint-equation language, standard-incidence denominator, and related media-control models found the primary article and later distinct models but no erratum or equivalent correction. The claim is restricted to the printed 2021 SQEIAR system and does not assert a new general Pontryagin principle.
+## originality
 
-## Value
+PASS
 
-PASS. The backward costate system determines the source's optimal controls. A wrong state gradient therefore changes the necessary optimality system and the reproducibility status of the reported control profiles. Correcting it is a substantive mathematical prerequisite to any renewed numerical optimization.
+The primary paper explicitly defines \(N\) as the sum of six state variables and prints a controlled incidence depending on \(N\), but its Eq. (6.2) omits the resulting common state-derivative terms and uses the wrong quarantine costate in the susceptible adjoint. No indexed erratum or later source with these six corrected adjoints was found. The 2024 SEIAQR paper is a different model.
 
-## Closest literature and limitations
+## value
 
-The primary source is Shi, Gao, Zhou, and Li (2021), DOI 10.3934/math.2021712. A later related title is Qiu and Hou (2024), DOI 10.1016/j.jmaa.2024.128192, but it concerns a different SEIAQR model. The present result does not recompute the full control experiment and cannot determine whether unpublished implementation code happened to use corrected formulas.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+These are not cosmetic terms: the corrected backward system determines all three optimal controls. A state-dependent denominator affects every costate through incidence, and the susceptible quarantine term uses the wrong adjoint in print. This directly affects reproducibility and interpretation of the paper’s optimal-control results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

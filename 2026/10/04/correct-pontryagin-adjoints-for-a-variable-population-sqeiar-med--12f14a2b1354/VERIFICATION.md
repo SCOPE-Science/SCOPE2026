@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled verifier reconstructs the Hamiltonian for the six-state controlled model at a strictly positive interior test point.
 
-Checks performed:
-- Centered finite differences of all six state coordinates agree with the analytic Hamiltonian gradients underlying the corrected costates.
-- Centered finite differences of all three controls agree with the stated stationarity derivatives.
-- The recovered-state derivative contains the common incidence term induced by the state dependence of \(N\).
-- With transmission suppressed, the susceptible quarantine derivative depends on the quarantined adjoint coordinate, isolating the printed coupling error independently of the incidence calculation.
+# Independent mathematical audit
 
-The verification is local algebraic replay of the necessary conditions, not a full optimal-control trajectory recomputation. No independent audit has been performed.
+## correctness
+
+PASS
+
+Independent differentiation of \(\log F=\logeta+\log S+\log V-\log N-U/N\) reproduces exactly the six incidence derivatives stated in the claim. In particular \(F_R=FC\) is generically nonzero, so the printed \(\dot\lambda_6=\mu\lambda_6\) is not the Hamiltonian gradient. Separately, the Hamiltonian quarantine flows \(-u_3S\) and \(+u_3S\) force \((\lambda_1-\lambda_2)u_3\). The primary full text confirms both incompatible printed terms.
+
+## originality
+
+PASS
+
+The primary paper explicitly defines \(N\) as the sum of six state variables and prints a controlled incidence depending on \(N\), but its Eq. (6.2) omits the resulting common state-derivative terms and uses the wrong quarantine costate in the susceptible adjoint. No indexed erratum or later source with these six corrected adjoints was found. The 2024 SEIAQR paper is a different model.
+
+## value
+
+PASS
+
+These are not cosmetic terms: the corrected backward system determines all three optimal controls. A state-dependent denominator affects every costate through incidence, and the susceptible quarantine term uses the wrong adjoint in print. This directly affects reproducibility and interpretation of the paper’s optimal-control results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

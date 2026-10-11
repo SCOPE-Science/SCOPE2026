@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:52.368773Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob c07dfe1e8abc220022a298c0ad31ec68ed780336",
+        "verify.py blob 73ed6b29410ac0da195c908944ad80e6c845f584",
+        "DOI:10.3934/math.2021712 full text",
+        "independent incidence-derivative and quarantine-term derivation"
+      ],
+      "rationale": "Independent differentiation of \\(\\log F=\\log\beta+\\log S+\\log V-\\log N-U/N\\) reproduces exactly the six incidence derivatives stated in the claim. In particular \\(F_R=FC\\) is generically nonzero, so the printed \\(\\dot\\lambda_6=\\mu\\lambda_6\\) is not the Hamiltonian gradient. Separately, the Hamiltonian quarantine flows \\(-u_3S\\) and \\(+u_3S\\) force \\((\\lambda_1-\\lambda_2)u_3\\). The primary full text confirms both incompatible printed terms.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later Qiu--Hou paper is a distinct SEIAQR media-coverage model.",
+          "Broader optimal-control literature does not determine the exact Hamiltonian gradients of this printed SQEIAR system without the same state equations."
+        ],
+        "reasoning": "General Pontryagin theory is background but does not subsume the source-specific derivative correction.",
+        "searches": [
+          "Primary full HTML for the 2021 model",
+          "DOI:10.1016/j.jmaa.2024.128192 model comparison"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2021712 (Shi--Gao--Zhou--Li, complete open HTML)",
+        "DOI:10.1016/j.jmaa.2024.128192 (Qiu--Hou, related different model)",
+        "Resultary semantic search: SQEIAR media coverage optimal control Pontryagin adjoint variable total population denominator corrected costates Shi Gao Zhou Li",
+        "Exact-title/DOI searches for erratum or adjoint correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent logarithmic differentiation gives the six incidence multipliers \\(1/S+C,C,C,1/V-u_1/N+C,\theta/V-u_2/N+C,C\\).",
+          "The quarantine derivative forces \\((\\lambda_1-\\lambda_2)u_3\\), and the recovered coordinate forces the missing \\(DFC\\) contribution."
+        ],
+        "reasoning": "The prior paper supplies the ingredients but states incompatible adjoints; the final claim is therefore a correction, not a routine restatement of a correct prior theorem.",
+        "searches": [
+          "Differentiate the printed incidence with \\(N\\) as the sum of all state coordinates",
+          "Check the quarantine Hamiltonian contribution \\(-\\lambda_1u_3S+\\lambda_2u_3S\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary HTML prints Eq. (6.2), including \\(\\dot\\lambda_6=\\mu\\lambda_6\\) and a \\((\\lambda_1-\\lambda_3)u_3\\) susceptible term.",
+          "The same source defines \\(N=S+Q+E+I+A+R\\), so those expressions are incompatible with direct Hamiltonian differentiation."
+        ],
+        "reasoning": "The correction is tied to the exact six-state incidence and flow structure; no equivalent published replacement adjoint system was located.",
+        "searches": [
+          "Exact title/DOI with “adjoint”, “erratum”, and “correction”",
+          "Resultary semantic query in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact correction record or replacement Eq. (6.2) was retrieved."
+        ],
+        "reasoning": "The decisive comparison is against the printed model and Hamiltonian, not a numerical table; no prior correction database entry was found.",
+        "searches": [
+          "Resultary semantic query in checked_sources",
+          "Exact DOI/title correction searches"
+        ]
+      },
+      "rationale": "The primary paper explicitly defines \\(N\\) as the sum of six state variables and prints a controlled incidence depending on \\(N\\), but its Eq. (6.2) omits the resulting common state-derivative terms and uses the wrong quarantine costate in the susceptible adjoint. No indexed erratum or later source with these six corrected adjoints was found. The 2024 SEIAQR paper is a different model.",
+      "residual_risks": [
+        "An unindexed author note or private code could contain corrected adjoints.",
+        "The published implementation is unavailable, so the audit cannot infer which equations were actually integrated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_ADJOINT_INCOMPATIBLE_WITH_VARIABLE_POPULATION_HAMILTONIAN",
+          "evidence": "The source states variable \\(N\\), yet omits its derivative contributions from several costates; it also couples the susceptible quarantine term to \\(\\lambda_3\\) instead of \\(\\lambda_2\\).",
+          "identifier_or_url": "DOI:10.3934/math.2021712",
+          "material_read": "Complete open HTML at the population definition, controlled system (6.1), Theorem 6.2, Eq. (6.2), and stationarity equations.",
+          "method": "lawful open-access full-text inspection plus independent Hamiltonian differentiation",
+          "title": "Analysis of an SQEIAR epidemic model with media coverage and asymptomatic infection",
+          "trigger": "Exact source defining both the controlled system and disputed adjoint equations."
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "It is a distinct SEIAQR formulation and does not supply a correction to the 2021 SQEIAR adjoints.",
+          "identifier_or_url": "DOI:10.1016/j.jmaa.2024.128192",
+          "material_read": "Primary bibliographic record and indexed model description.",
+          "method": "lawful bibliographic/abstract comparison",
+          "title": "Dynamics and optimal control of an SEIAQR epidemic model with media coverage",
+          "trigger": "Closest later title-level media-control model."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Shi--Gao--Zhou--Li 2021",
+        "independent Hamiltonian differentiation"
+      ],
+      "rationale": "These are not cosmetic terms: the corrected backward system determines all three optimal controls. A state-dependent denominator affects every costate through incidence, and the susceptible quarantine term uses the wrong adjoint in print. This directly affects reproducibility and interpretation of the paper’s optimal-control results.",
+      "residual_risks": [
+        "The audit does not establish which equations, if any, were used in the authors’ unpublished numerical implementation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed author note or private code could contain corrected adjoints.",
+    "The published implementation is unavailable, so the audit cannot infer which equations were actually integrated."
+  ],
+  "schema_version": 1
+}
