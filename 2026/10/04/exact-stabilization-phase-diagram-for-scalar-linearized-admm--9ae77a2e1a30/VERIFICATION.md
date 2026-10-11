@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is algebraic. The key checks are:
+# Independent mathematical audit
 
-1. Specializing the cited L-ADMM update gives the displayed scalar formulas, and the exact \(w\)-optimality relation implies \(y_{k+1}=mw_{k+1}\) after every completed update.
-2. Substitution of \(y=mw\) yields the stated \(2\times2\) recurrence matrix.
-3. Its characteristic trace and determinant are
-\[
-T=\frac{hr+2h+r^2-r-1}{(h+r)(r+1)},\qquad
-D=\frac{h-1}{(h+r)(r+1)}.
-\]
-4. The discriminant numerator has quadratic-in-\(h\) discriminant \(-32r^2(r-1)(r+1)\), producing the two repeated-root boundaries only when \(0<r<1\).
-5. With \(c=(r+1)/(3r+1)\), the identity
-\[
-p(c)=-\frac{2r^2(r-1)}{(r+1)(3r+1)^2}
-\]
-controls the derivative sign of the real roots and proves the three parameter regimes.
-6. At \(r=1\), the eigenvalues factor exactly as \(1/2\) and \((h-1)/(h+1)\), giving the full optimal plateau \([1/3,3]\).
+## correctness
 
-`verify.py` uses only the Python standard library. It checks the recurrence identities in exact rational arithmetic at several rational parameter points, checks the balanced factorization, evaluates every closed-form branch, and performs deterministic grid/perturbation regression tests. These finite tests are supplementary; the global minimization is established by the analytic sign argument in `RESULT.md`.
+PASS
 
-Run:
+Specializing the cited L-ADMM update gives the frozen scalar recurrence, and the exact w-optimality relation forces \(y_{k+1}=mw_{k+1}\) after one update. The resulting 2-by-2 matrix has the stated trace and determinant. The discriminant and root-derivative sign calculation correctly yields critical damping for \(r<1\), the full \(r=1\) plateau, trace-zero balancing for \(1<r<\phi\), and the \(h=0\) boundary for \(r\ge\phi\). An independent dense numerical minimization over representative values on both sides of every transition reproduced the closed-form minimizers.
 
-`python3 verify.py`
+## originality
 
-Expected output:
+PASS
 
-`VERIFY_OK`
+The primary Ouyang et al. full text was inspected at the L-ADMM definition and its discussion of tuning the stabilization parameter; it does not state this scalar penalty/stabilization phase diagram. Ghadimi et al. optimize ordinary/relaxed ADMM parameters on quadratics, a different recurrence without the L-ADMM stabilization degree of freedom. A fresh Resultary query returned related spectral-tuning results for other algorithms but no covering L-ADMM theorem.
+
+## value
+
+PASS
+
+The symmetric scalar quadratic is the natural single-mode test for separating penalty and linearization stabilization. The exact optimum has three distinct mechanisms plus a nontrivial golden-ratio boundary and an entire balanced-penalty plateau, showing exactly when the general majorization choice is conservative. These are useful sharp modal benchmarks rather than a routine restatement of convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
