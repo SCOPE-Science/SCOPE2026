@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:43:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 28879bf590c4cc5c69f02357d8db41db8c7caf4d",
+        "He--Sedgwick--Spreer, A Practical Algorithm for Knot Factorisation, arXiv:2504.03942v1",
+        "He--Sedgwick--Spreer, SoCG 2025, DOI:10.4230/LIPIcs.SoCG.2025.55"
+      ],
+      "rationale": "He--Sedgwick--Spreer state that every nontrivial decomposition crush increases the number of ideal edges by exactly two, so after \\(m-1\\) such crushes the exact total is \\(L+2(m-1)\\), hence excess over one edge per prime component is \\(L+m-2\\). Their Lemma 25 construction applies to any nontrivial prime output whose ideal loop has length greater than one. Since the prime outputs are disconnected components, performing one such crush in one component leaves the others available, giving exactly the asserted count of at least \\(r\\) further crushes. The \\(H\\)-bound is the correct pigeonhole inequality. Independent symbolic bookkeeping reproduced all identities and the stated \\(L=1\\), \\(d_i\\le2\\) specialization.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both versions contain the same source mechanisms underlying the proposed bound; the long version explicitly discusses the excess-edge limitation of Proposition 26."
+        ],
+        "reasoning": "No separate stronger theorem is required: the exact claim follows by applying the source lemma componentwise.",
+        "searches": [
+          "full arXiv paper and published SoCG version"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2504.03942v1",
+        "DOI:10.4230/LIPIcs.SoCG.2025.55",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After splitting, distinct prime components are independent triangulated components.",
+          "Applying Lemma 25 once in each component with loop length greater than one gives the claimed \\(r\\) extra strict tetrahedron reductions directly."
+        ],
+        "reasoning": "The only additional \\(H\\) statement is the elementary fact that \\(r\\) positive integers bounded by \\(H\\) and summing to \\(L+m-2\\) require at least the ceiling quotient.",
+        "searches": [
+          "He--Sedgwick--Spreer Proposition 26 proof and Lemma 25 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source states the exact plus-two edge change for every decomposition crush.",
+          "It states that an overlength prime loop admits an additional prime-preserving crush and explicitly discusses more controlled repeated crushing as the route to stronger bounds."
+        ],
+        "reasoning": "Counting overlength prime components and counting independently executable source Lemma 25 crushes are the same refinement in this disconnected-output setting.",
+        "searches": [
+          "Resultary query: edge-ideal knot crushing excess dispersion overlength prime components Proposition 26",
+          "arXiv:2504.03942v1 Lemma 25 and Proposition 26",
+          "DOI:10.4230/LIPIcs.SoCG.2025.55"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate earlier table was found, but the source's symbolic lemmas already imply the result."
+        ],
+        "reasoning": "Database absence is immaterial because implication-level source coverage is decisive.",
+        "searches": [
+          "Resultary exact edge-ideal dispersion query"
+        ]
+      },
+      "rationale": "The source proof of Proposition 26 already contains both mechanisms verbatim: each of the \\(m-1\\) decomposition crushes adds two ideal edges, and any overlength prime output admits the Lemma 25 prime-preserving crush. It even frames a stronger bound in terms of continuing to crush excess ideal edges more controllably. Counting one independently available Lemma 25 crush in every disconnected overlength output is a direct iteration of those stated source lemmas, and \\(r\\ge\\lceil(L+m-2)/H\\rceil\\) is elementary pigeonhole bookkeeping. Thus the refinement is implication-level covered by the source proof even though it is not written with the variable \\(r\\).",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "The source proves every ingredient of the componentwise refinement; the audited inequality is their direct independent iteration plus pigeonhole counting.",
+          "identifier_or_url": "arXiv:2504.03942v1; DOI:10.4230/LIPIcs.SoCG.2025.55",
+          "material_read": "Full relevant primary sections around Lemma 25 and Proposition 26, including the exact ideal-edge bookkeeping and the authors' paragraph proposing more controlled removal of excess ideal edges.",
+          "method": "Open-access full-text/PDF inspection.",
+          "title": "A Practical Algorithm for Knot Factorisation",
+          "trigger": "Exact source of edge-ideal triangulations, Lemma 25, Proposition 26, and the controlled-crushing discussion."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "He--Sedgwick--Spreer 2025"
+      ],
+      "rationale": "A stronger knot-complexity bound is well motivated, but this record does not establish uniform dispersion or a new crushing mechanism. Its extra term merely counts how many already-separated outputs meet the hypothesis of the source's existing prime-preserving crush, and the \\(H\\) estimate is elementary. Without a new bound on \\(r\\) or \\(H\\), it does not resolve the source's controlled-crushing or tightness question.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "After a pure \\(m-1\\)-step nontrivial connected-sum crushing chain from an edge-ideal loop of length \\(L\\), the final prime-loop excess is \\(L+m-2\\); if \\(r\\) prime outputs have loop length greater than one, then one more prime-preserving crush is available in each such component, giving \\(|\\mathcal T|\\ge(m-1)+r+\\sum_i\\widetilde c(S^3\\setminus K_i)\\), with the stated pigeonhole refinement through \\(H=\\max_i(d_i-1)\\).",
+  "limitations": [
+    "Conditional on a chosen pure decomposition chain ending at the prime factors.",
+    "The dispersion parameters \\(r\\) and \\(H\\) are not knot invariants and no uniform control for complexity minimizers is proved."
+  ],
+  "schema_version": 1
+}
