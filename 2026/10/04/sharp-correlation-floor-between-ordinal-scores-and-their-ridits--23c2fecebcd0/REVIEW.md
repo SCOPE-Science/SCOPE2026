@@ -1,40 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The ridit variance is exactly
-\[
-\frac{1-\sum_i p_i^3}{12}.
-\]
-Every increasing score decomposes into a positive linear combination of centered cumulative-cut indicators. For the cut after category \(j\), the exact covariance with the ridit score is
-\[
-\frac{P_j(1-P_j)}2,
-\]
-so its correlation is the stated cut constant.
+PASS
 
-The lower bound follows by applying the minimum ray correlation before the triangle inequality. Strictly positive score gaps make the triangle inequality strict when there are at least three categories. A one-dominant-gap sequence proves sharpness. Cauchy--Schwarz gives the upper endpoint, with equality exactly for positive affine ridit scoring. Connectedness gives every intermediate value.
+Ridit scores are the midpoints of the probability cells, so E[Q]=1/2 and the law-of-total-variance calculation gives Var(Q)=(1-sum p_i^3)/12. For each cut j, the centered upper-block indicator H_j has variance P_j(1-P_j) and covariance with Q equal to P_j(1-P_j)/2. Every centered strictly increasing score decomposes as sum d_j H_j with all adjacent gaps d_j>0. Taking the minimum cut correlation, linearity of covariance and the L2 triangle inequality give the stated lower bound; for m>=3 the triangle inequality is strict because distinct cut indicators are not positive scalar multiples. A single dominant gap approaches any minimizing cut, proving sharpness; Cauchy--Schwarz gives the upper endpoint and positive-affine ridit scoring is its equality case; connectedness of the strict-score cone gives the full attainable interval. An independent exact-rational replay on random profiles confirmed the lower inequality and the equal-mass specialization; the package verifier performs a substantially larger exact-rational stress test.
 
-## Originality
+## originality
 
-PASS, with a residual older isotonic/scoring-literature risk. Chen and Wang's complete open article was inspected through its scoring-system section, uniform-latent ridit corollary, examples, conclusion, and appendix. It defines the same ridit scores and discusses sensitivity of correlation analyses to score choice, but does not give a universal profile-dependent correlation floor.
+PASS
 
-Graubard--Korn and the Kimeldorf--Sampson--Whitaker line address consequences of score choice for ordinal tests. Their optimized objects depend on a two-sample or contingency-table testing problem rather than the intrinsic Pearson angle between one arbitrary increasing coding and its probability-determined ridit coding.
+Chen--Wang's complete open article defines ridit scores as the probability-cell midpoints, develops alternative ordinal scoring systems, and demonstrates that score choice changes correlation-based conclusions; it does not state a profile-dependent sharp correlation floor relative to ridits. Kimeldorf--Sampson--Whitaker study minimum and maximum monotone scores for a two-sample ordinal testing problem, a different observed-data objective. Open descriptions were compared and an authorized full-text request found no verified PDF, so that same-topic source remains an explicit residual risk rather than being treated as covered. Targeted Resultary search did not locate the displayed lower constant or complete attainable interval. The accepted originality is the intrinsic fixed-marginal cone geometry of score-vs-ridit Pearson correlation, not the general fact that ordinal-score choice matters.
 
-The closest prior fixed-profile Gini result gives only the upper, ridit-affine equality direction through a dispersion inequality. It does not imply the lower endpoint, lower extremizers, or complete attainable interval.
+## value
 
-Targeted semantic database and web searches for ridit correlation floors, arbitrary monotone scores, midrank-score robustness, and fixed category probabilities did not locate the displayed constant.
+PASS
 
-## Value
+Ridits are a standard probability-determined coding of ordered categories, while arbitrary increasing numerical codings are ubiquitous. The theorem gives the exact worst possible linear alignment for a fixed probability profile, identifies the limiting two-level extremizers, characterizes the unique upper equality case, and determines the whole attainable interval. This is a natural robustness invariant of ordinal scoring rather than an arbitrary score example.
 
-PASS. Assigning numerical values to ordinal categories is a basic modeling choice, and the literature explicitly warns that conclusions can depend on that choice. The result gives a complete robustness envelope for one canonical probability-based scoring system: it quantifies exactly how weak linear agreement with ridits can become while the ordering is preserved, and identifies both the worst collapse pattern and the unique perfect-alignment scoring.
-
-For equally frequent categories the floor simplifies to
-\[
-\sqrt{\frac3{m+1}},
-\]
-which gives an immediate category-count benchmark without numerical optimization.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK variance_checks=44000 cut_checks=175354 lower_checks=40827 upper_equality_checks=22000 boundary_checks=18827 equal_mass_checks=98`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

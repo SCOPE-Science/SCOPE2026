@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:13:42.721869Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 8e8fab6bc51c6a081ca91b4583b039445227e48e",
+        "assigned verify_ridit_correlation_floor.py blob c6b47051cef9d08c95e7373de0c28864fa11183e",
+        "Chen--Wang, DOI:10.1155/2014/304213",
+        "Kimeldorf--Sampson--Whitaker, DOI:10.1080/01621459.1992.10475198"
+      ],
+      "rationale": "Ridit scores are the midpoints of the probability cells, so E[Q]=1/2 and the law-of-total-variance calculation gives Var(Q)=(1-sum p_i^3)/12. For each cut j, the centered upper-block indicator H_j has variance P_j(1-P_j) and covariance with Q equal to P_j(1-P_j)/2. Every centered strictly increasing score decomposes as sum d_j H_j with all adjacent gaps d_j>0. Taking the minimum cut correlation, linearity of covariance and the L2 triangle inequality give the stated lower bound; for m>=3 the triangle inequality is strict because distinct cut indicators are not positive scalar multiples. A single dominant gap approaches any minimizing cut, proving sharpness; Cauchy--Schwarz gives the upper endpoint and positive-affine ridit scoring is its equality case; connectedness of the strict-score cone gives the full attainable interval. An independent exact-rational replay on random profiles confirmed the lower inequality and the equal-mass specialization; the package verifier performs a substantially larger exact-rational stress test.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader score-assignment literature studies interpretation, latent scoring, or test power.",
+          "No inspected accessible statement dominates the exact fixed-probability correlation interval."
+        ],
+        "reasoning": "Broader ordinal-scoring theory motivates the question but does not supply the same distribution-specific extremal Pearson geometry.",
+        "searches": [
+          "Chen--Wang DOI:10.1155/2014/304213",
+          "Graubard--Korn, Biometrics 43 (1987)",
+          "Kimeldorf--Sampson--Whitaker DOI:10.1080/01621459.1992.10475198",
+          "Brockett DOI:10.1080/0022250X.1981.9989917"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1155/2014/304213",
+        "DOI:10.1080/01621459.1992.10475198",
+        "Graubard--Korn 1987",
+        "DOI:10.1080/0022250X.1981.9989917",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the ridit formula and examples of alternative scores does not imply the minimum Pearson angle over the entire monotone-score cone.",
+          "Optimizing a data-dependent two-sample trend statistic is a different objective and does not directly yield the fixed-marginal score-vs-ridit correlation floor."
+        ],
+        "reasoning": "The cut-indicator extreme-ray decomposition and exact ridit covariance supply the nontrivial missing extremal argument.",
+        "searches": [
+          "comparison with Chen--Wang's ridit-as-uniform-conditional-mean result",
+          "comparison with published descriptions of the 1992 two-sample min/max scoring problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen--Wang gives the same ridit formula and compares alternative score systems but no universal floor over all increasing score vectors.",
+          "The 1992 min/max-scoring work optimizes a two-sample testing statistic, not the intrinsic correlation of one scoring with its ridits."
+        ],
+        "reasoning": "The score-cone angular formulation, ridit/midrank terminology, and min-max ordinal-score terminology were all compared.",
+        "searches": [
+          "Resultary query: sharp Pearson correlation floor arbitrary increasing ordinal scores ridits fixed probabilities attainable interval",
+          "Chen--Wang DOI:10.1155/2014/304213 full article",
+          "searches for minimum/maximum ordinal scores, ridits, midranks, monotone score correlation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct prior exact finding or table with the same lower endpoint was located."
+        ],
+        "reasoning": "The claim is an analytic extremal theorem rather than a finite table; the database check was used to detect an exact prior formula.",
+        "searches": [
+          "Resultary semantic search for the exact floor sqrt(3 min P_j(1-P_j)/(1-sum p_i^3)) and equal-mass sqrt(3/(m+1))"
+        ]
+      },
+      "rationale": "Chen--Wang's complete open article defines ridit scores as the probability-cell midpoints, develops alternative ordinal scoring systems, and demonstrates that score choice changes correlation-based conclusions; it does not state a profile-dependent sharp correlation floor relative to ridits. Kimeldorf--Sampson--Whitaker study minimum and maximum monotone scores for a two-sample ordinal testing problem, a different observed-data objective. Open descriptions were compared and an authorized full-text request found no verified PDF, so that same-topic source remains an explicit residual risk rather than being treated as covered. Targeted Resultary search did not locate the displayed lower constant or complete attainable interval. The accepted originality is the intrinsic fixed-marginal cone geometry of score-vs-ridit Pearson correlation, not the general fact that ordinal-score choice matters.",
+      "residual_risks": [
+        "The full 1992 Kimeldorf--Sampson--Whitaker article was not obtained after open and authorized access attempts.",
+        "Older isotonic-cone or order-restricted inference literature may contain an equivalent angular extremal statement under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RIDIT_DEFINITION_AND_SCORE_SENSITIVITY_NOT_SHARP_CORRELATION_INTERVAL",
+          "evidence": "The article supplies the exact ridit convention but no all-increasing-score correlation floor.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/304213",
+          "material_read": "Complete open web article sections on ridit definitions, latent conditional-mean scoring, and examples showing sensitivity of correlation-based analyses to assigned scores.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "The Assignment of Scores Procedure for Ordinal Categorical Data",
+          "trigger": "Primary open source defining ridits in the same probability-midpoint form and comparing alternative scores."
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE_WITH_ACCESS_RISK",
+          "evidence": "Available material concerns min/max scoring of a two-sample ordinal test statistic rather than the fixed-marginal Pearson correlation to ridits; unread full text remains a residual risk.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1992.10475198",
+          "material_read": "Accessible abstract/bibliographic descriptions of the two-sample min/max scoring objective were inspected; a verified full article PDF was not obtained.",
+          "method": "Open routes were checked first; an authorized institutional retrieval then returned no verified PDF.",
+          "title": "Min and Max Scorings for Two-Sample Ordinal Data",
+          "trigger": "Strong plausible priority source for extremizing monotone ordinal scores."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chen--Wang 2014",
+        "Kimeldorf--Sampson--Whitaker 1992 comparison"
+      ],
+      "rationale": "Ridits are a standard probability-determined coding of ordered categories, while arbitrary increasing numerical codings are ubiquitous. The theorem gives the exact worst possible linear alignment for a fixed probability profile, identifies the limiting two-level extremizers, characterizes the unique upper equality case, and determines the whole attainable interval. This is a natural robustness invariant of ordinal scoring rather than an arbitrary score example.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1155/2014/304213",
+    "DOI:10.1080/01621459.1992.10475198",
+    "Graubard--Korn 1987",
+    "DOI:10.1080/0022250X.1981.9989917",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The category probability profile is fixed and strictly positive.",
+    "Only strictly increasing codings and Pearson correlation are considered.",
+    "The most plausible older min/max scoring source was not available as verified full text in this run."
+  ],
+  "residual_risks": [
+    "The full 1992 Kimeldorf--Sampson--Whitaker article was not obtained after open and authorized access attempts.",
+    "Older isotonic-cone or order-restricted inference literature may contain an equivalent angular extremal statement under different terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "RIDIT_DEFINITION_AND_SCORE_SENSITIVITY_NOT_SHARP_CORRELATION_INTERVAL",
+      "evidence": "The article supplies the exact ridit convention but no all-increasing-score correlation floor.",
+      "identifier_or_url": "https://doi.org/10.1155/2014/304213",
+      "material_read": "Complete open web article sections on ridit definitions, latent conditional-mean scoring, and examples showing sensitivity of correlation-based analyses to assigned scores.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "The Assignment of Scores Procedure for Ordinal Categorical Data",
+      "trigger": "Primary open source defining ridits in the same probability-midpoint form and comparing alternative scores."
+    },
+    {
+      "assessment": "DIFFERENT_OBJECTIVE_WITH_ACCESS_RISK",
+      "evidence": "Available material concerns min/max scoring of a two-sample ordinal test statistic rather than the fixed-marginal Pearson correlation to ridits; unread full text remains a residual risk.",
+      "identifier_or_url": "https://doi.org/10.1080/01621459.1992.10475198",
+      "material_read": "Accessible abstract/bibliographic descriptions of the two-sample min/max scoring objective were inspected; a verified full article PDF was not obtained.",
+      "method": "Open routes were checked first; an authorized institutional retrieval then returned no verified PDF.",
+      "title": "Min and Max Scorings for Two-Sample Ordinal Data",
+      "trigger": "Strong plausible priority source for extremizing monotone ordinal scores."
+    }
+  ]
+}
