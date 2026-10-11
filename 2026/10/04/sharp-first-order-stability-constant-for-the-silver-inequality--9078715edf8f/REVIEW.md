@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The quotient \(Q_p\) has a continuous endpoint extension, Lemma B.8 gives nonnegativity and the unique interior zero at the critical exponent, and monotonicity in the exponent localizes every minimizing sequence at \(1/2\). Evaluating and differentiating the balanced split gives the upper bound, while the mean-value expansion and nonnegative critical quotient give the matching lower bound. The argument controls quantifiers and does not rely on finite sampling.
+## correctness
 
-## Originality
-PASS. The primary paper states the critical silver inequality and the uniform slack estimate with unit coefficient, but not the sharp first-order normalized constant or minimizer localization. Searches for the exact quotient, quantitative silver slack, balanced-split stability, and the source identifier returned no statement implying this limit. The earlier checkpoint lower-bound paper uses a different exponent, and the later recursive-composition paper proves balanced splitting for a different Bellman kernel. The latter full arXiv text was not retrievable in the available source path, so this is retained as a residual comparison risk rather than treated as evidence of absence.
+PASS
 
-## Value
-PASS. The source's scalar slack estimate is load-bearing in the perturbative step that approaches the silver exponent. Identifying the exact first-order normalized stability constant measures the true local margin of that inequality and shows which split controls it. This is a natural structural refinement of a central inequality rather than an arbitrary parameter slice; it can inform sharper perturbative bookkeeping even though it does not alone improve the published global rate.
+The normalized quotient extends continuously to the endpoints. At the critical exponent the published inequality is nonnegative and has the unique interior zero at 1/2; monotonicity in the exponent therefore forces any minimizing sequence toward 1/2 once the balanced-split upper bound tends to zero. Differentiating the balanced quotient gives the displayed coefficient, while a mean-value expansion in the exponent and nonnegativity of the critical quotient give the matching lower bound. Fresh recomputation gives the critical exponent 1.271553303163612, verifies \(2/\rho+1/\rho^2=1\), and gives the constant 3.248289741210747. Finite numerical minimization is only corroborative.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Ye and Liu prove the critical silver inequality, equality only at 0, 1/2 and 1, and a uniform normalized slack coefficient one in the ideal perturbative estimate. They do not optimize that coefficient or prove localization of minimizers. The audited variational argument turns the isolated equality point into the exact first-order coefficient about 3.24829. The later recursive-composition paper is plausibly related but concerns a different Bellman kernel in the accessible statement; its unavailable full body remains an explicit residual risk rather than a failure shortcut.
+
+## value
+
+PASS
+
+The silver inequality is a load-bearing perturbative ingredient in the source. Its exact first-order stability margin and asymptotic extremizer quantify how much stronger the local inequality is than the published unit-coefficient estimate, a natural sharp refinement even though it does not by itself improve the global convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
