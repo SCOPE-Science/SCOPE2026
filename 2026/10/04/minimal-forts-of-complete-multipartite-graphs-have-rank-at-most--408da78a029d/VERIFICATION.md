@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytical proof is the primary verification. The standalone `verify.py` reconstructs complete multipartite graphs from their part sizes, tests the fort definition directly from neighborhoods, extracts inclusion-minimal forts without using the theorem, and compares those sets against the proposed classification and counting formula for every integer-partition graph type of orders \(2\) through \(9\) having at least two parts.
+# Independent mathematical audit
 
-The finite replay is a stress test only; it does not establish the universal quantifiers. The proof’s critical identity is \( |N(v)\cap F|=|F|-|F\cap V_i| \) for \(v\in V_i\setminus F\). No external solver, randomized search, timeout inference, or unverified certificate is used.
+## correctness
+
+PASS
+
+For \(G=K_{n_1,\ldots,n_r}\), a vertex outside \(F\) in part \(V_i\) sees exactly \(|F|-|F\cap V_i|\) members of \(F\), so the fort condition is equivalent to excluding the value one for every non-full selected part. This immediately yields the two minimal two-vertex types and the three-part transversals with at most one singleton selected part. Any larger fort either contains a same-part pair, a pair from two singleton parts, or a three-part transversal of the third type, so no larger fort is minimal. The closed count follows by summing these disjoint types. The inspected verifier independently enumerates every complete multipartite graph type through order nine and checks the literal neighborhood definition against the theorem.
+
+## originality
+
+PASS
+
+The foundational fort-hypergraph literature covers complete bipartite graphs and several other graph families, while current minimal-fort work treats paths, cycles, spiders, hypercubes, and related product constructions. The current Resultary search did not return a complete-multipartite minimal-fort classification. The audited three-vertex transversal type appears only once three or more parts are allowed and is not implied by the complete-bipartite case.
+
+## value
+
+PASS
+
+Minimal forts are the hyperedges underlying a standard zero-forcing duality, and complete multipartite graphs are a canonical family. The theorem gives a complete structural classification, a rank-three bound, and an exact count, extending a known bipartite special case. This is a natural exact family result rather than an arbitrary small-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
