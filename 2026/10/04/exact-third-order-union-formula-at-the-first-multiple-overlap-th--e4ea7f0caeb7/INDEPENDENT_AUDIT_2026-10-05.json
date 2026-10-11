@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:15:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 635e9467ca4f534aee43b6ed61b1748e26711593",
+        "assigned verify.py blob 79978c2c0c019d1a2603c54702e5696b48050b1d",
+        "Arman--Kaire--Prymak arXiv:2510.25968 full primary text",
+        "Ben-David--Eiron--Simon COLT 2000 threshold geometry background"
+      ],
+      "rationale": "For any \\(k\\) simplex vertices, the sum vector has squared norm \\(k(n-k+1)/n\\) and inner product \\((n-k+1)/n\\) with each selected vertex. Cauchy--Schwarz therefore gives the exact onset \\(\\cos\\theta\\le\\sqrt{(n-k+1)/(kn)}\\), with equality at the normalized sum. Thus triple overlaps begin at \\(\\theta_{3,n}\\) and positive-measure quadruple overlaps do not begin until \\(\\theta_{4,n}\\), so inclusion--exclusion terminates exactly after the triple term on the claimed interval. Projecting uniform spherical measure to the three-vertex span gives the stated density; inversion of the regular-simplex Gram matrix gives the quadratic form and Jacobian. Scaling about the triple-contact point reduces the onset integral to a three-simplex beta integral and gives power \\((n+1)/2\\) with the displayed gamma coefficient. The assigned verifier checks the Gram inverse, determinants and beta identity exactly; a separate numerical integral near onset was consistent with the coefficient.",
+      "residual_risks": [
+        "The onset asymptotic is intentionally restricted to dimensions at least five.",
+        "The audited package's prior-work prose understates a discrepancy: the inspected source's Lemma 2 uses \\(\\arccos(1/3)\\) as its pairwise-exactness threshold, whereas the audited Gram calculation gives an earlier dimension-dependent triple-overlap threshold for dimensions at least four."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cap-body paper supplies one- and two-cap integrals but no triple-overlap integral or third-order exact regime.",
+          "The simplex-distance result gives contact radii but not the spherical measure of the overlap or its onset coefficient."
+        ],
+        "reasoning": "No inspected broader theorem mechanically provides the triple mass.",
+        "searches": [
+          "Arman--Kaire--Prymak full cap-body paper",
+          "regular-simplex subsimplex-distance literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.25968",
+        "Ben-David--Eiron--Simon COLT 2000",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Second-order inclusion--exclusion becomes inexact as soon as triple intersections have positive measure, so it cannot imply the audited next-regime equality.",
+          "Knowing the contact threshold does not determine the projected-density integral or the beta-function onset coefficient."
+        ],
+        "reasoning": "The triple projection calculation and local scaling are additional nontrivial mathematics.",
+        "searches": [
+          "source second-order Bonferroni formula versus true triple-overlap regime",
+          "known simplex contact radius versus overlap measure/asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses the identical normalized spherical measure, equal cap radius, and regular-simplex cap centres.",
+          "Its pairwise formula is the first two terms of the audited inclusion--exclusion formula."
+        ],
+        "reasoning": "The same geometric union probability is being extended, not a different cap convention.",
+        "searches": [
+          "Resultary query: regular simplex spherical caps triple intersection union inclusion exclusion first triple overlap threshold",
+          "Arman--Kaire--Prymak arXiv:2510.25968 Sections 2.3--2.4",
+          "Ben-David--Eiron--Simon COLT 2000 simplex subsimplex-distance lemma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the exact same-object hit; no independent third-order table/formula was returned."
+        ],
+        "reasoning": "Search absence is supporting evidence only.",
+        "searches": [
+          "Resultary current exact query for the third-order union formula and \\((n+1)/2\\) onset exponent"
+        ]
+      },
+      "rationale": "Arman, Kaire and Prymak give exact one-cap and two-cap formulas and then use second-order Bonferroni for simplex-centred caps. Full inspection shows their Lemma 2 states pairwise exactness up to the dimension-independent angle \\(\\arccos(1/3)\\); for dimensions at least four the regular-simplex Gram calculation yields a smaller true triple-overlap onset. The audited theorem therefore not only supplies the missing three-cap integral and onset asymptotic but also corrects the first-overlap regime before extending the exact union formula to the quadruple threshold. Resultary search returned the assigned record as the exact same-object hit and no stronger prior third-order formula.",
+      "residual_risks": [
+        "The public RESULT relationship-to-prior-work paragraph describes the source as exact through \\(\\theta_{3,n}\\), whereas the inspected source actually states the dimension-independent \\(\\arccos(1/3)\\) threshold; this prose discrepancy does not change the theorem or proof but should be corrected in a future editorial revision.",
+        "A convex-geometric source could contain an equivalent triple-projection integral under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PAIRWISE_FORMULA_WITH_THRESHOLD_DISCREPANCY_NO_TRIPLE_TERM",
+          "evidence": "The source has no audited three-cap integral/onset asymptotic and states a pairwise-exactness threshold that the regular-simplex Gram calculation shows is too large in dimensions at least four.",
+          "identifier_or_url": "arXiv:2510.25968",
+          "material_read": "complete accessible primary text with Sections 2.3--2.4, the two-cap integral, Bonferroni step and Lemma 2 inspected",
+          "method": "primary full-text inspection",
+          "title": "Hadwiger's conjecture for cap bodies",
+          "trigger": "exact motivating source for the simplex-centred spherical-cap union"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Arman--Kaire--Prymak 2025/2026",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The theorem repairs the first multiple-overlap geometry in the motivating spherical-cap argument and supplies the exact next inclusion--exclusion term through the quadruple threshold, together with the sharp birth rate of the missing mass. This is a natural structural correction and extension of a published cap-union calculation, with direct relevance to the source's probabilistic illumination estimates.",
+      "residual_risks": [
+        "Higher-overlap regimes still require further intersection terms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The onset asymptotic is intentionally restricted to dimensions at least five.",
+    "The audited package's prior-work prose understates a discrepancy: the inspected source's Lemma 2 uses \\(\\arccos(1/3)\\) as its pairwise-exactness threshold, whereas the audited Gram calculation gives an earlier dimension-dependent triple-overlap threshold for dimensions at least four.",
+    "The public RESULT relationship-to-prior-work paragraph describes the source as exact through \\(\\theta_{3,n}\\), whereas the inspected source actually states the dimension-independent \\(\\arccos(1/3)\\) threshold; this prose discrepancy does not change the theorem or proof but should be corrected in a future editorial revision.",
+    "A convex-geometric source could contain an equivalent triple-projection integral under different notation.",
+    "Higher-overlap regimes still require further intersection terms."
+  ]
+}

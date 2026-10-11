@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact union identity follows from a sharp \(k\)-fold overlap threshold and inclusion--exclusion. The three-cap term is obtained by projecting normalized spherical measure onto the span of three simplex vertices, transforming by their Gram matrix, and integrating the resulting beta density. For \(n\ge5\), an explicit rescaling to a fixed three-simplex gives the onset asymptotic by dominated convergence. No finite experiment is used to infer an infinite statement.
+## correctness
 
-## Originality
-PASS. Arman--Kaire--Prymak supply the equal two-cap integral and pairwise Bonferroni expression, explicitly observing exactness only up to the first triple-overlap threshold. They do not supply the three-cap integral, the exact third-order union identity up to quadruple onset, or the sharp triple-mass onset coefficient. Ben-David--Eiron--Simon give the classical regular-simplex subsimplex-centre radius, which explains the threshold values but does not cover the measure statement. Targeted statement-level searches found no covering statement. A residual risk remains that an unindexed general spherical-polytope formula has been specialized elsewhere to the same three-cap asymptotic.
+PASS
 
-## Value
-PASS. The source's low-dimensional illumination argument uses simplex-cap union measure as a numerical input and becomes only a lower bound once triple overlaps begin. This result makes that input exact over the entire next overlap interval and quantifies precisely how the pairwise approximation first loses mass. It is a motivated structural refinement of the source's geometric bottleneck, not an arbitrary slice. No claim is made that a published integer illumination bound already improves.
+For any \(k\) simplex vertices, the sum vector has squared norm \(k(n-k+1)/n\) and inner product \((n-k+1)/n\) with each selected vertex. Cauchy--Schwarz therefore gives the exact onset \(\cos\theta\le\sqrt{(n-k+1)/(kn)}\), with equality at the normalized sum. Thus triple overlaps begin at \(\theta_{3,n}\) and positive-measure quadruple overlaps do not begin until \(\theta_{4,n}\), so inclusion--exclusion terminates exactly after the triple term on the claimed interval. Projecting uniform spherical measure to the three-vertex span gives the stated density; inversion of the regular-simplex Gram matrix gives the quadratic form and Jacobian. Scaling about the triple-contact point reduces the onset integral to a three-simplex beta integral and gives power \((n+1)/2\) with the displayed gamma coefficient. The assigned verifier checks the Gram inverse, determinants and beta identity exactly; a separate numerical integral near onset was consistent with the coefficient.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Arman, Kaire and Prymak give exact one-cap and two-cap formulas and then use second-order Bonferroni for simplex-centred caps. Full inspection shows their Lemma 2 states pairwise exactness up to the dimension-independent angle \(\arccos(1/3)\); for dimensions at least four the regular-simplex Gram calculation yields a smaller true triple-overlap onset. The audited theorem therefore not only supplies the missing three-cap integral and onset asymptotic but also corrects the first-overlap regime before extending the exact union formula to the quadruple threshold. Resultary search returned the assigned record as the exact same-object hit and no stronger prior third-order formula.
+
+## value
+
+PASS
+
+The theorem repairs the first multiple-overlap geometry in the motivating spherical-cap argument and supplies the exact next inclusion--exclusion term through the quadruple threshold, together with the sharp birth rate of the missing mass. This is a natural structural correction and extension of a published cap-union calculation, with direct relevance to the source's probabilistic illumination estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
