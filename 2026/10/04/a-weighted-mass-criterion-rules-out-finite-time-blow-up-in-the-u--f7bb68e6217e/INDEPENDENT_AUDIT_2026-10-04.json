@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:14:48.857461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the source's logistic maturation weights, \\(Y_A\\le y_1/2+y_2\\) and \\(Y_J\\ge y_1/2\\). Integrating the age equation with the renewal boundary condition and differentiating \\(V=x+cy\\) gives the exact upper bound with cross coefficients \\(s+c(k-g)/2\\) and \\(-b+ck\\). A positive constant \\(c\\) makes both nonpositive exactly when \\(c(g-k)\\ge2s\\) and \\(ck\\le b\\), equivalently \\(g>k\\) and \\(2sk\\le b(g-k)\\) under the source's positive-parameter regime (with no upper bound when \\(k=0\\)). Then \\(V'\\le\\max\\{r,\\|\\widetilde B\\|_\\infty\\}V\\), so Gronwall bounds \\(x+\\|u\\|_1\\) on each finite horizon. The source's local Lipschitz construction on bounded balls and finite-horizon compact age support then give continuation. Concentrating age mass near the juvenile cutoff or far in the adult tail verifies sharpness only within the constant-weight \\(x+c\\int u\\) family.",
+      "risks": [
+        "The estimate proves finite-time continuation, not uniform-in-time boundedness.",
+        "Failure of the constant-weight condition outside the region is not evidence of blow-up."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "Suarez--Cameron--Fagan--Levy 2026 open-access full article",
+        "assigned exact coefficient checker"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest Resultary age-structured hit is a different Gurtin--MacCamy threshold model.",
+          "The stage ODE's conditions do not control the logistic age-leakage terms in this renewal PDE."
+        ],
+        "reasoning": "No inspected broader theorem specializes to the exact displayed parameter balance in the unsaturated role-reversal model.",
+        "searches": [
+          "general age-structured Resultary search",
+          "Li--Liu--Wei stage model",
+          "source saturated-modification discussion"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s00285-026-02402-5",
+        "DOI 10.1016/j.apm.2021.11.029",
+        "fresh Resultary semantic search",
+        "assigned coefficient proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local existence alone does not imply global finite-time continuation without an a priori norm bound.",
+          "The audited weighted combination supplies that missing bound for a nontrivial exact parameter region."
+        ],
+        "reasoning": "The final continuation theorem requires a new cancellation choice \\(c\\) and is not mechanically contained in the source's local theorem or its modified saturated model.",
+        "searches": [
+          "source Theorem 1 + bounded-ball local regularity + exact mass balance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source equations and maturation functions are exactly those used in the proof.",
+          "The source's Theorem 1 is local; its boundedness discussion is for a saturated replacement, not the original equations."
+        ],
+        "reasoning": "The claim was compared as a weighted Lyapunov/continuation criterion and under the source's blow-up terminology.",
+        "searches": [
+          "DOI 10.1007/s00285-026-02402-5 full text",
+          "Resultary: age structured role reversal weighted mass finite-time blow-up 2sk b(g-k)",
+          "Li--Liu--Wei DOI 10.1016/j.apm.2021.11.029"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database records the analytic region \\(g>k,\\ 2sk\\le b(g-k)\\).",
+          "The paper's numerical 'blow-up' label means crossing 1000 before a fixed simulation horizon, not mathematical finite-time norm divergence."
+        ],
+        "reasoning": "The final theorem is analytic and cannot be covered by the source's numerical threshold table.",
+        "searches": [
+          "fresh exact parameter-balance searches",
+          "source numerical experiments"
+        ]
+      },
+      "rationale": "The motivating paper was freshly inspected in full open-access text at the exact model equations, Theorem 1 local existence, its numerical blow-up convention, and its later saturated modification. It proves only local existence for the original unsaturated system and discusses boundedness after changing the birth term; it does not state the audited source-specific weighted-mass criterion. The finite-dimensional Li--Liu--Wei predecessor has different stage equations and does not imply the smooth age-renewal estimate. Fresh Resultary search found only other age-structured models, not an implication-equivalent criterion.",
+      "residual_risks": [
+        "Abstract semigroup literature may contain general continuation principles, but no inspected source supplies or dominates this exact source-specific parameter condition.",
+        "The predecessor's publisher full text was not independently re-read; comparison used its bibliographic scope and equations reproduced in the open motivating paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING THE UNSATURATED WEIGHTED-MASS CONTINUATION THEOREM.",
+          "evidence": "Theorem 1 is local for the original model; later boundedness is outlined after saturating the prey-dependent birth term.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02402-5",
+          "material_read": "Open-access full text including the model/birth/death functions, Theorem 1 local existence, local-Lipschitz/finite-support discussion, numerical threshold convention, and saturated-model boundedness discussion.",
+          "method": "Primary full-text equation and implication comparison.",
+          "title": "A predator-prey model with age-structured role reversal",
+          "trigger": "Primary source for the exact unsaturated renewal model and its blow-up discussion."
+        },
+        {
+          "assessment": "NOT_COVERING THE AGE-RENEWAL CRITERION.",
+          "evidence": "It is a finite-dimensional stage ODE and does not include the smooth maturation leakage controlled by the audited half-weight estimates.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apm.2021.11.029",
+          "material_read": "Bibliographic/abstract information and the predecessor equations/conditions as reproduced in the open primary source.",
+          "method": "Equation-level model comparison.",
+          "title": "The impact of role reversal on the dynamics of predator-prey model with stage structure",
+          "trigger": "Closest mechanistic predecessor cited by the source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source itself treats apparent blow-up as a modeling concern and introduces saturation to tame it. The audited theorem identifies a nontrivial exact region where the original unsaturated equations already cannot undergo mathematical finite-time norm blow-up, and it separates that statement from the paper's operational simulation threshold. The exact feasibility boundary for constant weighted mass is a useful structural criterion, not merely a routine estimate.",
+      "risks": [
+        "The bound is exponential and does not establish long-time uniform boundedness or exclude very large finite amplitudes."
+      ],
+      "sources": [
+        "primary paper's blow-up/saturation discussion",
+        "exact weighted-mass cancellation criterion"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original unsaturated continuous model and source local-regularity assumptions only.",
+    "Sharpness is only within \\(V=x+c\\int u\\).",
+    "No conclusion outside the displayed parameter region."
+  ],
+  "schema_version": 1
+}
