@@ -1,14 +1,21 @@
-# Review
-## Correctness
-**PASS.** In a complete multipartite graph, the complement of a closed neighborhood of a vertex in part \(V_i\) is exactly \(V_i\setminus\{v\}\). Pairwise avoidance intersections are therefore supported only inside one part for \(k\ge1\), which makes the maximum-spanning-tree value explicit. Non-dominating \(k\)-sets are exactly proper \(k\)-subsets of one part. Substitution and a binomial identity give the stated residual. A direct-definition exhaustive verifier through order \(11\) agrees in all \(1656\) parameter cases.
+# Independent mathematical audit
 
-## Originality
-**PASS.** The 2026 source introduces \(\sigma_k\), \(\tau_k\), and the spanning-tree lower bound, and explicitly identifies higher-order corrections as a direction for further work, but it does not evaluate these quantities on complete multipartite graphs. The earlier Beaton--Brown paper proves complete-multipartite unimodality but predates \(\tau_k\). Targeted semantic and web searches under the invariant, complete-multipartite, complete-bipartite, spanning-tree-overlap, and normalized-coefficient formulations found no statement that implies the exact residual or its sharpness criterion.
+## correctness
 
-## Value
-**PASS.** The result directly calibrates a newly introduced method on a canonical dense family with highly overlapping closed neighborhoods, precisely the regime motivating the method. It does more than recover a known domination polynomial: it determines the optimization parameter \(\tau_k\), identifies when the pairwise correction is already exact, and gives the full higher-order deficit when it is not. This supplies a concrete boundary case for the source paper's stated program of developing higher-order overlap corrections.
+PASS
 
-## Closest literature and limitations
-The closest sources are arXiv:2601.14494v1, which introduces the overlap framework, and arXiv:2012.11813v1, which proves complete-multipartite domination-polynomial unimodality. The theorem is limited to finite complete multipartite graphs and \(k\ge1\); it does not by itself extend the method to arbitrary graph classes. An equivalent result under unindexed terminology remains a residual literature risk.
+The frozen proof correctly identifies closed-neighborhood complements inside each part, so same-part pair weights are binomial coefficients on \(n_i-2\) vertices while cross-part weights vanish for \(k\ge1\). A maximum-weight spanning tree can simultaneously use \(n_i-1\) positive-weight edges inside every non-singleton part and connect the resulting components with zero-weight cross-part edges. Non-dominating \(k\)-sets are exactly proper \(k\)-subsets contained in one part, and the per-part binomial simplification gives the stated nonnegative residual and the sharp equality criterion. An independent bounded replay checked the residual identity for every multipartite integer partition through order 12; the package verifier independently enumerates domination sets and maximum spanning trees through order 11.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Omar introduces \(\tau_k\) and its spanning-tree lower bound in 2026, while Beaton--Brown predates that parameter and proves complete-multipartite unimodality. The inspected Omar full text treats a different twin-clique family and explicitly lists higher-order/best family corrections as a further direction; it does not evaluate \(\tau_k\), its exact residual, or the iff sharpness criterion on arbitrary complete multipartite graphs. Fresh Resultary search found no published record implying these formulas.
+
+## value
+
+PASS
+
+This is a natural exact sharpness analysis of a newly introduced correction on a canonical dense graph family. It identifies exactly when the pairwise correction is already complete and quantifies the entire remaining higher-order deficit when it is not, directly addressing the source paper's family-specific correction question rather than merely recomputing a known domination count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

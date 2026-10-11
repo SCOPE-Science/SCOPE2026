@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:55:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof correctly identifies closed-neighborhood complements inside each part, so same-part pair weights are binomial coefficients on \\(n_i-2\\) vertices while cross-part weights vanish for \\(k\\ge1\\). A maximum-weight spanning tree can simultaneously use \\(n_i-1\\) positive-weight edges inside every non-singleton part and connect the resulting components with zero-weight cross-part edges. Non-dominating \\(k\\)-sets are exactly proper \\(k\\)-subsets contained in one part, and the per-part binomial simplification gives the stated nonnegative residual and the sharp equality criterion. An independent bounded replay checked the residual identity for every multipartite integer partition through order 12; the package verifier independently enumerates domination sets and maximum spanning trees through order 11.",
+      "risks": [
+        "The theorem excludes \\(k=0\\), where cross-part avoidance intersections no longer have zero weight; no claim is made there."
+      ],
+      "sources": [
+        "RESULT.md blob 285ad431336a72e00224baa4717b3b60814a2f79",
+        "verify.py blob 12bb7c796df062df32c6f5f8aa95c10093dd8d72",
+        "arXiv:2601.14494v1 Proposition 14"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general spanning-tree inequality is weaker than the submitted exact family computation.",
+          "The closest Resultary complete-multipartite records concern other domination invariants."
+        ],
+        "reasoning": "No broader inspected theorem determines the submitted residual from part sizes or its exact zero set.",
+        "searches": [
+          "arXiv:2601.14494v1 Proposition 14 and Section 6",
+          "Resultary semantic search over published SCOPE results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.14494v1",
+        "arXiv:2012.11813",
+        "Resultary published-record search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general inequality leaves both optimization of \\(\\tau_k\\) and the higher-overlap deficit open.",
+          "Knowing the complete-multipartite domination polynomial determines \\(r_k\\) but does not imply a parameter introduced six years later or the exact residual without the new neighborhood-overlap calculation."
+        ],
+        "reasoning": "The final claim strictly refines the 2026 lower bound on this natural family rather than restating a prior consequence.",
+        "searches": [
+          "Statement comparison: arXiv:2601.14494 Proposition 14 versus submitted theorem",
+          "Statement comparison: arXiv:2012.11813 complete-multipartite unimodality versus submitted theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Omar Proposition 14 defines the same \\(\\tau_k\\) and proves only the general lower bound.",
+          "Omar Section 6 asks for higher-order and best corrections for graph families; complete multipartite graphs appear only as previously known unimodality cases.",
+          "Beaton--Brown covers unimodality/explicit domination structure, not the later \\(\\tau_k\\) statistic."
+        ],
+        "reasoning": "Natural aliases through union-bound overlap, maximum-spanning-tree correction, and normalized domination coefficients were compared; no equivalent exact residual theorem was found.",
+        "searches": [
+          "Resultary query: spanning tree overlap domination complete multipartite exact residual tau sigma sharpness",
+          "arXiv:2601.14494v1 full-text search for Proposition 14, complete multipartite, higher-order overlap",
+          "arXiv:2012.11813 statement search for complete multipartite domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database of \\(\\tau_k\\) or the residual on arbitrary part-size vectors was located."
+        ],
+        "reasoning": "The result is not a recomputation of a known table; it is a symbolic all-parameter formula.",
+        "searches": [
+          "Resultary exact-claim query",
+          "arXiv:2012.11813 complete multipartite domination polynomial"
+        ]
+      },
+      "rationale": "Omar introduces \\(\\tau_k\\) and its spanning-tree lower bound in 2026, while Beaton--Brown predates that parameter and proves complete-multipartite unimodality. The inspected Omar full text treats a different twin-clique family and explicitly lists higher-order/best family corrections as a further direction; it does not evaluate \\(\\tau_k\\), its exact residual, or the iff sharpness criterion on arbitrary complete multipartite graphs. Fresh Resultary search found no published record implying these formulas.",
+      "residual_risks": [
+        "An unindexed later note could conceivably specialize Omar's new parameter to this family; no such statement appeared in the inspected primary or semantic searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Defines \\(\\tau_k\\) and proves \\(r_k\\ge1-\\sigma_k+\\tau_k\\), but does not give the complete-multipartite formulas or residual; Section 6 asks for best corrections by graph family."
+          ],
+          "identifier_or_url": "arXiv:2601.14494v1",
+          "material_read": "Full PDF around Proposition 14, its weighted-complete-graph interpretation, the worked family following Theorem 15, and Section 6 further directions; the relevant rendered page was visually inspected.",
+          "method": "Public arXiv full-text plus page-image inspection.",
+          "title": "New Perspectives On The Unimodality Of Domination Polynomials",
+          "trigger": "Primary source introducing the exact overlap parameter used by the claim."
+        },
+        {
+          "assessment": "STRICTLY_WEAKER_DIFFERENT_INVARIANT",
+          "evidence": [
+            "Predates \\(\\tau_k\\) and does not state the submitted spanning-tree-overlap residual."
+          ],
+          "identifier_or_url": "arXiv:2012.11813",
+          "material_read": "Abstract/statement-level coverage of complete multipartite unimodality and its role cited by Omar.",
+          "method": "Primary arXiv record and implication comparison.",
+          "title": "On the Unimodality of Domination Polynomials",
+          "trigger": "Prior result specifically covering complete multipartite domination polynomials."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural exact sharpness analysis of a newly introduced correction on a canonical dense graph family. It identifies exactly when the pairwise correction is already complete and quantifies the entire remaining higher-order deficit when it is not, directly addressing the source paper's family-specific correction question rather than merely recomputing a known domination count.",
+      "risks": [
+        "Its scope is one graph family and one overlap correction; it does not provide a universal higher-order scheme."
+      ],
+      "sources": [
+        "RESULT.md blob 285ad431336a72e00224baa4717b3b60814a2f79",
+        "arXiv:2601.14494v1 Section 6"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite simple complete multipartite graphs only, with at least two nonempty parts and \\(1\\le k\\le N\\); the residual is a total deficit, not a canonical decomposition into all higher-order intersections."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is the primary evidence. It derives the closed-neighborhood avoidance sets part by part, proves the exact maximum-spanning-tree value, counts non-dominating sets directly, and reduces the gap to a binomial identity.
+# Independent mathematical audit
 
-The included `verify.py` independently reconstructs every complete multipartite graph through order \(11\). For each \(1\le k\le N\), it evaluates \(\sigma_k\) from closed neighborhoods, computes \(\tau_k\) by Kruskal's maximum-spanning-tree algorithm on the complete weighted vertex graph, enumerates all \(k\)-subsets to test domination from adjacency, and checks the three formulas, the exact residual, and the sharpness criterion.
+## correctness
 
-Expected output:
+PASS
 
-`ALL CHECKS PASSED; multipartite_types=183; parameter_cases=1656; subsets=177373; max_order=11`
+The frozen proof correctly identifies closed-neighborhood complements inside each part, so same-part pair weights are binomial coefficients on \(n_i-2\) vertices while cross-part weights vanish for \(k\ge1\). A maximum-weight spanning tree can simultaneously use \(n_i-1\) positive-weight edges inside every non-singleton part and connect the resulting components with zero-weight cross-part edges. Non-dominating \(k\)-sets are exactly proper \(k\)-subsets contained in one part, and the per-part binomial simplification gives the stated nonnegative residual and the sharp equality criterion. An independent bounded replay checked the residual identity for every multipartite integer partition through order 12; the package verifier independently enumerates domination sets and maximum spanning trees through order 11.
 
-The exhaustive test is finite and does not constitute a proof for unbounded order. No independent audit has been performed.
+## originality
+
+PASS
+
+Omar introduces \(\tau_k\) and its spanning-tree lower bound in 2026, while Beaton--Brown predates that parameter and proves complete-multipartite unimodality. The inspected Omar full text treats a different twin-clique family and explicitly lists higher-order/best family corrections as a further direction; it does not evaluate \(\tau_k\), its exact residual, or the iff sharpness criterion on arbitrary complete multipartite graphs. Fresh Resultary search found no published record implying these formulas.
+
+## value
+
+PASS
+
+This is a natural exact sharpness analysis of a newly introduced correction on a canonical dense graph family. It identifies exactly when the pairwise correction is already complete and quantifies the entire remaining higher-order deficit when it is not, directly addressing the source paper's family-specific correction question rather than merely recomputing a known domination count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
