@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "PASS. The graph and cut-complex definitions are explicit. Exhaustive enumeration finds exactly \\(32\\) disconnected four-sets and \\(8\\) disconnected five-sets, with face vectors \\((8,28,56,32)\\) and \\((8,12,8)\\). The complete two-skeleton makes \\(\\Delta_4(Q_3)\\) simply connected. Exact boundary ranks are \\((7,21,32)\\); a maximal \\(\\partial_3\\) minor has determinant \\(-1\\), so the middle homology is integrally \\(\\mathbb Z^3\\) with no hidden torsion. Hurewicz plus homological Whitehead gives \\(\\bigvee^3S^2\\). At level five the facets are exactly the two parity tetrahedral boundaries, and both filling tetrahedra are actual level-four simplices, yielding a genuine null-homotopy of the inclusion. The included verifier replays every finite claim.",
+    "risks": [
+      "The finite computations are exact for this eight-vertex graph only; the final homotopy equivalence uses standard general topology rather than an explicit collapse."
+    ],
+    "sources": [
+      "verify.py",
+      "verification_output.txt",
+      "arXiv:2407.08158v1, Proposition 2.12 for the complete-two-skeleton simple-connectivity criterion",
+      "Standard Hurewicz and homological Whitehead theorems"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2407.08158 studies disjoint unions, squared paths and rectangular grid graphs and records general structural tools, but no theorem located there specializes to the asserted cube homotopy types and inclusion map.",
+        "arXiv:2408.07646 explicitly focuses on rectangular 2-by-n and 3-by-n grid graphs; the three-cube is the three-dimensional product P2 by P2 by P2, outside that stated family."
+      ],
+      "reasoning": "General structural theorems can help verify properties such as simple connectivity, but the searched broader families do not dominate the exact three-cube k=4/5 statement or its map-level conclusion.",
+      "searches": [
+        "complete cut-complex filtration cube graph Q3 Delta_k all k",
+        "cube graph cut complexes all k homotopy types",
+        "hypercube cut complex shellability k cut",
+        "Topology of Cut Complexes II grid graph full text",
+        "Topology of total cut and cut complexes of grid graphs full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.13675v1",
+      "arXiv:2407.08158v1",
+      "arXiv:2408.07646v1",
+      "2026/10/4/SCOPE-the-cube-is-a-minimal-forbidden-graph-for-3-cut-complex-shellabi--4ccdf01d9eec"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known cube result concerns \\(\\Delta_3(Q_3)\\simeq S^3\\vee\\bigvee^4S^4\\); filtration alone does not determine the homotopy type of the subcomplex at the next level.",
+        "Proposition 2.12 of arXiv:2407.08158 supplies a simple-connectivity criterion, not the cube boundary ranks or map null-homotopy."
+      ],
+      "reasoning": "Neither the same-graph level-3 result nor the general simple-connectivity tool implies the stated level-4/5 homotopy types or the null-homotopy of the inclusion. The new proof independently computes the needed finite data.",
+      "searches": [
+        "same-graph k=3 result compared with k=4 and k=5 claim",
+        "arXiv:2407.08158 Theorem 2.16 and Proposition 2.12 inspected"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.13675 defines the same ordinary cut complex and lists studied families without the cube in its abstract; full accessible text returned no match for “cube”.",
+        "arXiv:2407.08158 states the same filtration inclusion and full accessible text returned no match for “cube”.",
+        "Focused published-record searches returned the level-3 cube result but no level-4, level-5, parity-boundary, or inclusion-nullity statement."
+      ],
+      "reasoning": "The same object was searched under cube, three-cube, Q3, hypercube, parity-class and filtration-map formulations. The closest exact-object result is at k=3, so it is not an equivalent formulation of the present k=4/5 transition.",
+      "searches": [
+        "cube Q3 ordinary 4-cut complex three 2-spheres",
+        "cube Q3 ordinary 5-cut complex parity tetrahedral boundaries",
+        "Delta_5(Q3) inclusion Delta_4(Q3) null homotopic",
+        "hypercube Q3 cut complex parity filtration",
+        "arXiv:2304.13675 full text searched for cube/hypercube",
+        "arXiv:2407.08158 full text searched for cube/hypercube"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published record: 2026/10/4/SCOPE-the-cube-is-a-minimal-forbidden-graph-for-3-cut-complex-shellabi--4ccdf01d9eec, which reports \\(\\Delta_3(Q_3)\\) rather than \\(\\Delta_4(Q_3)\\) or \\(\\Delta_5(Q_3)\\).",
+        "No returned published record in the focused searches stated the exact face vectors \\((8,28,56,32)\\) and \\((8,12,8)\\), the two parity tetrahedral boundaries, or nullity of the inclusion."
+      ],
+      "reasoning": "The database was queried directly by object, parameters, homotopy types, parity description and filtration map. The nearest hit is scientifically adjacent but not covering.",
+      "searches": [
+        "3-cut complex cube graph Q3 hypercube homotopy",
+        "4-cut complex cube graph",
+        "complete cut-complex filtration cube graph Q3 Delta_k all k",
+        "cube graph cut complexes all k homotopy types",
+        "Delta_4(Q_3) cut complex cube wedge three 2-spheres",
+        "4-cut complex of the cube graph wedge S2 three",
+        "Delta_5(Q_3) cut complex two 2-spheres disconnected",
+        "5-cut complex of cube graph two tetrahedral spheres",
+        "cube Q3 ordinary 4-cut complex three 2-spheres",
+        "cube Q3 ordinary 5-cut complex parity tetrahedral boundaries",
+        "Delta_5(Q3) inclusion Delta_4(Q3) null homotopic",
+        "hypercube Q3 cut complex parity filtration"
+      ]
+    },
+    "rationale": "PASS. Searches compared the exact statement and aliases against published records and the primary cut-complex literature. The closest same-object record computes \\(\\Delta_3(Q_3)\\), not levels four or five. The foundational and follow-up papers define the same construction and provide general tools but the inspected full texts contain no cube-specific result. Rectangular-grid work does not subsume the three-dimensional cube. No searched source implies the two claimed homotopy types together with nullity of the filtration inclusion.",
+    "residual_risks": [
+      "An unindexed or poorly indexed small-graph computation could contain the same finite cube values.",
+      "No independent audit has yet checked the package."
+    ],
+    "risks": [
+      "An unindexed or poorly indexed small-graph computation could contain the same finite cube values.",
+      "No independent audit has yet checked the package."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same object and has primary MSC 57M15; first public 2023-04-26. The inspected material does not state the three-cube k=4/5 result.",
+        "evidence": [
+          "arXiv v1 timestamp: 2023-04-26 16:43:39 UTC.",
+          "MSC list begins with 57M15.",
+          "Abstract names trees, cycles, complete multipartite graphs and prisms as studied families.",
+          "Full accessible text search produced no match for “cube”."
+        ],
+        "identifier_or_url": "arXiv:2304.13675",
+        "material_read": "Submission metadata, MSC, abstract, definitions and accessible full-text family coverage; full text searched for cube/hypercube terminology.",
+        "method": "Lawful open arXiv HTML full text.",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "Owning source for the ordinary cut-complex object and topology program."
+      },
+      {
+        "assessment": "Provides useful general tools, including the complete-two-skeleton simple-connectivity criterion, but no cube-specific statement was located.",
+        "evidence": [
+          "Submitted 2024-07-11.",
+          "Definition section explicitly records the filtration inclusion.",
+          "Proposition 2.12: a simplicial complex with complete two-skeleton is simply connected.",
+          "Full accessible text search produced no match for “cube”."
+        ],
+        "identifier_or_url": "arXiv:2407.08158",
+        "material_read": "Definitions including \\(\\Delta_{k+1}(G)\\subseteq\\Delta_k(G)\\), Proposition 2.12, Theorem 2.16, abstract/family scope, and full-text searches for cube/hypercube.",
+        "method": "Lawful open arXiv HTML full text.",
+        "title": "Topology of Cut Complexes II",
+        "trigger": "Closest follow-up on cut-complex filtrations, homology and grid graphs."
+      },
+      {
+        "assessment": "The paper focuses on rectangular 2-by-n and 3-by-n grids, not the three-dimensional cube product; no cube-specific result was located.",
+        "evidence": [
+          "Submitted 2024-08-14.",
+          "Introduction explicitly focuses on 2-by-n and 3-by-n grid cases.",
+          "Full accessible text has no cube-specific theorem surfaced by search."
+        ],
+        "identifier_or_url": "arXiv:2408.07646",
+        "material_read": "Abstract, introduction, stated grid families and theorem scope; full text searched for cube/hypercube.",
+        "method": "Lawful open arXiv HTML full text.",
+        "title": "Topology of total cut and cut complexes of grid graphs",
+        "trigger": "Plausible broader grid-family coverage that could subsume a cube calculation."
+      }
+    ],
+    "sources": [
+      "arXiv:2304.13675v1",
+      "arXiv:2407.08158v1",
+      "arXiv:2408.07646v1",
+      "Focused published-record searches listed in the four originality checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e19e23ee-7a6b-4daa-a5a4-3fe0db243cc0",
+  "value": {
+    "rationale": "PASS. The three-cube is a canonical graph and the cut complexes form a natural nested filtration introduced for topological study. The result determines two adjacent upper levels completely and, beyond Betti numbers, determines the actual inclusion up to null-homotopy: the two \\(S^2\\) components at level five die when passing to level four even though level four has three new \\(H_2\\) generators. This gives a compact exact benchmark for future hypercube and grid cut-complex investigations rather than an arbitrary parameter slice.",
+    "risks": [
+      "The value is as a canonical exact benchmark and map-level example; no general hypercube family theorem or downstream application is claimed."
+    ],
+    "sources": [
+      "arXiv:2304.13675v1 for the cut-complex topology program",
+      "arXiv:2407.08158v1 for the nested filtration viewpoint",
+      "verify.py and verification_output.txt for the exact adjacent-level calculation"
+    ],
+    "status": "PASS"
+  }
+}
