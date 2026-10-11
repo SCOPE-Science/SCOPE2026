@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:17:18.241594Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd abelian A, every element at in the nontrivial coset is an involution, so its cyclic subgroup is a distinct order-two leaf adjacent only to the trivial subgroup; every other cyclic subgroup lies in A. Hence the cyclic-subgroup Hasse graph is exactly C(A)^* with |A| leaves attached and ε(Dih(A))=ε(A)+|A|. Tărnăuceanu's nilpotent theorem gives ε(A)≥ε(C_m), equality only for cyclic A. For odd m, the coprime product formula gives ε(C_{2m})=2ε(C_m)+τ(m). Writing f(m)=τ(m)+ε(C_m), one has f(p^a)=2a+1≤p^a for odd prime powers, equality only at 3, and for coprime u,v>1, f(uv)=f(u)f(v)-ε(C_u)ε(C_v)<f(u)f(v). Thus f(m)≤m with equality exactly m=3, proving the comparison and equality case. I also independently checked f(m)≤m through odd m<1000, with equality only at 3; this finite check is corroborative, not the universal proof.",
+      "risks": [
+        "Oddness of A is essential to make every outside element an involution and every added subgroup a leaf.",
+        "The result proves the even-order conjecture only for the generalized-dihedral family."
+      ],
+      "sources": [
+        "assigned RESULT.md and artifacts/verify.py at audited commit",
+        "Tărnăuceanu, arXiv:2302.05784 / Archiv der Mathematik 120 (2023)",
+        "Cameron–Reddy–Sharma, arXiv:2409.13796 current revision"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "No inspected general theorem for even nonnilpotent groups implies the edge lower bound here.",
+          "The ordinary-dihedral formula is only the cyclic-kernel subfamily."
+        ],
+        "reasoning": "The prior broader conjecture is not a theorem in this regime, and the known explicit family formula does not dominate noncyclic A.",
+        "searches": [
+          "Tărnăuceanu 2023",
+          "Cameron–Reddy–Sharma arXiv:2409.13796",
+          "Resultary related generalized-dicyclic and generalized-dihedral findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.05784",
+        "arXiv:2409.13796",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nilpotent theorem applies to A itself and is used as an input; it does not apply to Dih(A).",
+          "The ordinary-dihedral formula recovers only A cyclic and does not imply the noncyclic-kernel theorem or its equality classification."
+        ],
+        "reasoning": "The final claim requires the generalized-dihedral subgroup decomposition plus a new even-order comparison.",
+        "searches": [
+          "statement-level comparison with Tărnăuceanu Theorem 1.1 and the current cyclic-subgroup-graph dihedral table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tărnăuceanu Theorem 1.1 applies to nilpotent or odd-order groups, while Dih(A) here is even and generally nonnilpotent.",
+          "Cameron–Reddy–Sharma Table 1 gives the ordinary dihedral formula, not the noncyclic-kernel generalized-dihedral case."
+        ],
+        "reasoning": "Equivalent formulations as a leaf-attachment decomposition, an exact edge formula, and a family verification of the even-order cyclic-minimality conjecture were compared.",
+        "searches": [
+          "Resultary: generalized dihedral cyclic subgroup graph number of edges edge minimality cyclic group odd abelian kernel",
+          "arXiv:2302.05784 full-text theorem/conjecture",
+          "arXiv:2409.13796 full-text family/table search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table of generalized-dihedral edge counts for arbitrary odd abelian kernels was located."
+        ],
+        "reasoning": "This is a symbolic family theorem rather than a recomputation of a finite table.",
+        "searches": [
+          "Cameron–Reddy–Sharma family table",
+          "Resultary exact-title/edge-formula query"
+        ]
+      },
+      "rationale": "The primary 2023 theorem covers nilpotent groups and all odd-order groups and explicitly leaves arbitrary even order as a conjecture. The current cyclic-subgroup-graph paper gives the ordinary dihedral formula ε(D_{2m})=ε(C_m)+m, but its inspected family list and table do not cover generalized dihedral groups with noncyclic odd abelian kernel. Resultary searches found the audited theorem, a later generalized-dicyclic companion, and unrelated generalized-dihedral graph invariants, but no earlier statement implying the generalized-dihedral edge formula plus sharp cyclic comparison. The theorem is therefore original to the best of the inspected evidence.",
+      "residual_risks": [
+        "The leaf decomposition is short enough that an unindexed group-graph note could contain the same generalized-dihedral extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: supplies the nilpotent input and conjecture, not the audited even generalized-dihedral family.",
+          "evidence": "Theorem 1.1 is restricted to nilpotent groups or groups of odd order; the paper explicitly conjectures the inequality for arbitrary even order.",
+          "identifier_or_url": "arXiv:2302.05784; DOI 10.1007/s00013-023-01846-1",
+          "material_read": "Full arXiv HTML, including Theorem 1.1, the even-order conjecture, Lemma 2.1 and the proof section.",
+          "method": "Primary full-text statement/implication comparison.",
+          "title": "On the number of edges of cyclic subgroup graphs of finite groups",
+          "trigger": "Primary edge-minimality theorem and conjecture."
+        },
+        {
+          "assessment": "PARTIAL COVERAGE only.",
+          "evidence": "Table 1 gives ε(D_{2n})=ε(C_n)+n, but the paper's inspected family scope does not give arbitrary generalized-dihedral noncyclic kernels.",
+          "identifier_or_url": "arXiv:2409.13796",
+          "material_read": "Current full arXiv HTML introduction, family scope, and Table 1 with cyclic/dihedral/dicyclic/generalized-quaternion formulas.",
+          "method": "Primary full-text family/formula comparison.",
+          "title": "Cyclic Subgroup Graph of a Group",
+          "trigger": "Closest later structural treatment and ordinary-dihedral edge formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This proves a published even-order extremal conjecture on a natural infinite nonnilpotent family and identifies the exact equality case. The structural leaf decomposition is reusable and includes all odd abelian kernels, not an arbitrary finite slice.",
+      "risks": [
+        "It does not address even kernels or all even-order finite groups."
+      ],
+      "sources": [
+        "Tărnăuceanu's explicit even-order conjecture",
+        "exact generalized-dihedral decomposition"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite nontrivial abelian odd-order kernel only.",
+    "No claim for generalized dihedral groups with even kernel.",
+    "Best-of-knowledge originality."
+  ],
+  "schema_version": 1
+}

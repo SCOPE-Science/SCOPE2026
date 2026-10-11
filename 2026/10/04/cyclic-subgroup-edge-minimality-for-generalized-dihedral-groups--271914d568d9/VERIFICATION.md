@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem was reconstructed from the definition of the cyclic subgroup graph, the semidirect-product law of a generalized dihedral group, and the exact comparison/product statements in the cited 2023 source.
 
-Critical checks:
-- for odd \(|A|=m\), every element of the coset \(At\) is an involution;
-- the \(m\) involutions in \(At\) generate \(m\) distinct maximal cyclic subgroups of order \(2\);
-- no new cyclic subgroup lies between two cyclic subgroups already contained in \(A\), so \(C(A)^*\) is preserved as the old part of the Hasse graph;
-- therefore \(\varepsilon(\operatorname{Dih}(A))=\varepsilon(A)+m\);
-- the cited theorem gives \(\varepsilon(A)\ge\varepsilon(C_m)\), with equality exactly for cyclic \(A\);
-- the coprime product formula gives \(\varepsilon(C_{2m})=2\varepsilon(C_m)+\tau(m)\);
-- for every odd prime power \(p^a\), \(\tau(p^a)+\varepsilon(C_{p^a})=2a+1\le p^a\), with equality only at \(p^a=3\);
-- for coprime \(u,v>1\), the quantity \(f(r)=\tau(r)+\varepsilon(C_r)\) satisfies
-  \[
-  f(uv)=f(u)f(v)-\varepsilon(C_u)\varepsilon(C_v)<f(u)f(v),
-  \]
-  which yields \(f(m)\le m\), with equality only at \(m=3\).
+# Independent mathematical audit
 
-`artifacts/verify.py` independently enumerates cyclic subgroups and Hasse edges for several cyclic and noncyclic odd abelian kernels, constructs the corresponding generalized dihedral groups, and checks the exact edge formula and comparison. It also checks the auxiliary cyclic inequality through a bounded odd range. The replay returns `VERIFY_OK`.
+## correctness
 
-Finite computation is not used to establish the universal result.
+PASS
+
+For odd abelian A, every element at in the nontrivial coset is an involution, so its cyclic subgroup is a distinct order-two leaf adjacent only to the trivial subgroup; every other cyclic subgroup lies in A. Hence the cyclic-subgroup Hasse graph is exactly C(A)^* with |A| leaves attached and ε(Dih(A))=ε(A)+|A|. Tărnăuceanu's nilpotent theorem gives ε(A)≥ε(C_m), equality only for cyclic A. For odd m, the coprime product formula gives ε(C_{2m})=2ε(C_m)+τ(m). Writing f(m)=τ(m)+ε(C_m), one has f(p^a)=2a+1≤p^a for odd prime powers, equality only at 3, and for coprime u,v>1, f(uv)=f(u)f(v)-ε(C_u)ε(C_v)<f(u)f(v). Thus f(m)≤m with equality exactly m=3, proving the comparison and equality case. I also independently checked f(m)≤m through odd m<1000, with equality only at 3; this finite check is corroborative, not the universal proof.
+
+## originality
+
+PASS
+
+The primary 2023 theorem covers nilpotent groups and all odd-order groups and explicitly leaves arbitrary even order as a conjecture. The current cyclic-subgroup-graph paper gives the ordinary dihedral formula ε(D_{2m})=ε(C_m)+m, but its inspected family list and table do not cover generalized dihedral groups with noncyclic odd abelian kernel. Resultary searches found the audited theorem, a later generalized-dicyclic companion, and unrelated generalized-dihedral graph invariants, but no earlier statement implying the generalized-dihedral edge formula plus sharp cyclic comparison. The theorem is therefore original to the best of the inspected evidence.
+
+## value
+
+PASS
+
+This proves a published even-order extremal conjecture on a natural infinite nonnilpotent family and identifies the exact equality case. The structural leaf decomposition is reusable and includes all odd abelian kernels, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
