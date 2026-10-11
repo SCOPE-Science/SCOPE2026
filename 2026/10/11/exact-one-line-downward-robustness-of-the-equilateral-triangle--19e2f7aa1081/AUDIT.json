@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Every proper line cut is exhausted by the two retained pieces after symmetry. Exact centroid-projection formulas show that the quadrilateral loses a stable equilibrium only through the two original slanted sides and that the new cut side is then stable. The two failure inequalities force \\(tu\\ge(3-\\sqrt5)/2\\); the triangular retained piece costs more than \\(3/4\\). The equality cut is correctly treated as degenerate, so the nondegenerate threshold is an infimum. `verify.py` replays all algebra exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper proves maximal external and internal robustness for regular polygons but distinguishes those decoupled notions from full robustness.",
+        "Its reduced straight-line model is presented as a proposed direction for numerical study, not as a solved theorem."
+      ],
+      "reasoning": "The known decoupled robustness theorems keep either the center or boundary fixed and therefore do not imply the coupled centroid motion under the cut. The present threshold addresses exactly that missing coupled calculation for the one-line model.",
+      "searches": [
+        "published-finding corpus: Domokos Langi reduced robustness straight lines triangle equilibria",
+        "published-finding corpus: regular triangle truncation centroid stable equilibria line cut",
+        "web: \"line truncation\" \"stable equilibria\" convex polygon centroid",
+        "web: \"equilateral triangle\" \"stable equilibria\" centroid truncation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1301.4031v1",
+      "DOI:10.1112/S0025579313000181",
+      "published-finding corpus semantic searches listed in the originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines full robustness and explicitly says a reduced version may be defined by allowing only straight lines in two dimensions.",
+        "Targeted semantic searches returned no published finding implying the exact triangle threshold."
+      ],
+      "reasoning": "The source theorem and retrieved published comparisons do not imply the exact line-cut threshold. The new statement follows the moving centroid after truncation and optimizes across both half-plane pieces.",
+      "searches": [
+        "Primary full text: arXiv:1301.4031v1 equilibrium definitions, Definition 1, and reduced-model discussion",
+        "published-finding corpus: straight line truncation robustness equilateral triangle golden ratio equilibrium centroid",
+        "published-finding corpus: Domokos Langi reduced robustness straight lines triangle equilibria"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Domokos--Lángi, arXiv:1301.4031v1, page 18 discussion proposes straight-line truncations but states no exact triangle threshold.",
+        "Exact-constant and equivalent-phrase searches returned no mathematical source with the claimed value."
+      ],
+      "reasoning": "The claim is equivalent to a complete classification of which one-line cuts reduce the number of stable equilibria of an equilateral triangle and the minimum associated area loss. No retrieved source states that classification or constant.",
+      "searches": [
+        "published-finding corpus: straight line truncation robustness equilateral triangle golden ratio equilibrium centroid",
+        "published-finding corpus: downward robustness regular triangle one line truncation stable equilibria",
+        "web: \"reduced\" robustness \"straight lines\" equilateral triangle equilibrium",
+        "web: \"3-sqrt(5)\" equilibrium triangle robustness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved published-finding corpus record, bibliographic page, or public search result tabulates the one-line robustness of a triangle."
+      ],
+      "reasoning": "This invariant is not a standard tabulated triangle quantity; no database/table coverage was found, and the primary source itself only proposes the reduced model.",
+      "searches": [
+        "published-finding corpus: equilibrium robustness equilateral triangle (3-sqrt5)/2",
+        "web: exact constant and source-title searches for the reduced robustness model"
+      ]
+    },
+    "rationale": "The 2013 primary source explicitly proposes straight-line-only reduced robustness but gives no equilateral-triangle value. Targeted published-finding corpus searches, exact-constant and alias web searches, and owned-ledger searches found no statement implying the golden-ratio threshold or the complete one-cut classification.",
+    "residual_risks": [
+      "An unindexed computational note may have evaluated the same reduced triangle threshold without using the phrase one-line robustness.",
+      "The public searches were broad and alias-aware but cannot prove absence from all unpublished or poorly indexed literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING: it motivates exactly the restricted problem but does not compute the equilateral threshold.",
+        "evidence": "The paper defines stable/nondegenerate equilibria and full downward robustness, then states that a reduced version can admit only straight-line truncations in two dimensions.",
+        "identifier_or_url": "arXiv:1301.4031v1",
+        "material_read": "Full-text sections containing the polygonal equilibrium definition, Definition 1, planar robustness results, conjectures, and the page 18 reduced-model discussion; page images for the definition and discussion were inspected.",
+        "method": "Lawful arXiv/repository full-text and PDF page-image inspection.",
+        "title": "The robustness of equilibria on convex solids",
+        "trigger": "Foundational source defining robustness and proposing the straight-line-only reduced model."
+      },
+      {
+        "assessment": "SUPPORTING: confirms the article and its differential-geometry classification; does not add a triangle solution.",
+        "evidence": "Cambridge lists the article under 53A05 and 53Z05 and gives the DOI.",
+        "identifier_or_url": "DOI:10.1112/S0025579313000181",
+        "material_read": "Publisher abstract and metadata, including DOI, publication information, and listed MSC classes.",
+        "method": "Publisher metadata inspection.",
+        "title": "The robustness of equilibria on convex solids",
+        "trigger": "Publisher record used to cross-check bibliographic identity and subject classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "19e2f7aa-1081-48cf-b9e7-7a8884c35a87",
+  "value": {
+    "rationale": "The source explicitly identifies straight-line-only robustness as a potentially important, numerically tractable reduced model. The equilateral triangle is the smallest regular polygon in the source program, so an exact complete threshold is a natural benchmark. The golden-ratio phase transition classifies all one-cut mechanisms and is not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
