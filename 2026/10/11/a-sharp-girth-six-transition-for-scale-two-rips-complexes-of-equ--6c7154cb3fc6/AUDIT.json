@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The graph has m ell edges and m(ell-1)+2 vertices, so beta_1=m-1. For ell=2 the graph has diameter 2; for ell=3 exact distance relations identify the entire Rips complex with the simplicial suspension of two cliques joined by m matching edges, collapsing their clique interiors to give a two-vertex m-edge graph. The explicit oriented cycle differences generate the augmentation lattice, and path reversal negates K cycles but interchanges suspension vertices, giving a second negation. For ell>=4, girth 2 ell>=8 permits explicit face pairings, as independently covered by Adamaszek Proposition 2.2. In ell=3, diameter 3 makes Rips at scale 3 a simplex and determines the barcode. Standalone finite verification checks cases m=3..6 and ell=2..5, 32 total scale/parameter cases, including exact face identities and mod-2 ranks; the theorem is proved symbolically for all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamaszek arXiv:1104.0433, Proposition 2.2 proves the girth>=7 collapse, and explicitly states girth bound is sharp by a C6 example.",
+        "Parks and Marchette, DOI 10.1098/rsos.160228, Section 5, proves general persistence bounds in a higher-girth range.",
+        "Adamaszek et al., arXiv:1712.06224, Sections 3–5, examines certain metric gluing operations."
+      ],
+      "reasoning": "A general girth-stability theorem implies precisely the length>=4 branch and is acknowledged as prior; it cannot imply the exceptional girth-six multi-arm branch because its hypothesis fails there. The inspected gluing conditions do not give the two-endpoint multi-arm Rips face set or representation.",
+      "searches": [
+        "Clique complexes vs graph powers theta graph girth 6 8 homotopy rips",
+        "Graph power clique complexes of theta graphs theta_{m,3}, theta_{m,4}, sharp girth 6 vs 8 shift S1 to S2"
+      ]
+    },
+    "checked_sources": [
+      "Adamaszek, Clique complexes and graph powers, arXiv:1104.0433; Prop. 2.2, Sec. 3, cycle-power computations",
+      "Adamaszek–Adams, The Vietoris–Rips complexes of a circle, arXiv:1503.03669; Def. 2.2 and main circle theorem",
+      "Parks–Marchette, Persistent homology in graph power filtrations, DOI 10.1098/rsos.160228; Secs. 4–6",
+      "Adamaszek et al., On homotopy types of Vietoris–Rips complexes of metric gluings, arXiv:1712.06224; gluing theorems",
+      "Published theta configuration-space homology comparison (opaque ID 7d068c6381b8; distinct functor)",
+      "Published projective-plane incidence VR comparison (opaque ID c3740b96b3c3; distinct graph)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published C6 calculation determines only a single 2-sphere for m=2; the new m>=3 statement has m-1 independent 2-spheres and a specified S_m x C2 lattice.",
+        "A publicly indexed theta-configuration calculation (opaque ID 7d068c6381b8) computes a different invariant with exterior-cube augmentation; no implication to vertex-metric Rips homology.",
+        "Closest publicly indexed truncated-polyhedral-graph Rips calculations (opaque IDs 51e8cc219376, 4fae71a21a80) are graph-specific and not a general theorem for theta networks."
+      ],
+      "reasoning": "None of the actual antecedent statements has a hypothesis covering the theta m>=3 girth-six case with this target functor and symmetry action. The known high-girth result covers the longer branch and the known C6 example covers m=2; neither subsumes their multi-arm extension.",
+      "searches": [
+        "Equivariant integral homology of clique complex square theta multigraph subdivisions, hyperoctahedral path reversal",
+        "Vietoris Rips graph metric three-edge theta graphs m parallel paths suspension wedge m minus one S2",
+        "Rips persistence multitheta graph diameter 3 subdivided K_{2,m} suspended graph homology"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adamaszek, arXiv:1104.0433, introductory C6 example, Proposition 2.2, Theorem 3.1 and Sections 6–7: covers the two-arm cycle and the high-girth regime but not the multi-arm exceptional case.",
+        "Closest analogous publicly indexed configuration-space record (opaque ID 7d068c6381b8) concerns unordered three-point configuration spaces, not vertex-metric Rips complexes."
+      ],
+      "reasoning": "The published C6 statement is the m=2 boundary, while m>=3 has two large interior cliques glued by m matching edges; a cycle calculation does not determine the new rank m-1 nor the natural integral symmetry action. Configuration-space topology is a different functor and its homology is not identified with the Rips complex.",
+      "searches": [
+        "Equal-arm theta graphs m paths of length 3 between two endpoints: graph-metric Vietoris Rips complex at distance 2 wedge of m−1 2-spheres, path-permutation augmentation representation, endpoint reversal acts +1",
+        "Theta graph subdivision shortest path Vietoris Rips two-clique matching suspension at scale two girth six, versus girth eight first homology persistence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Adamaszek, arXiv:1104.0433, cycle-power table includes the C6 value S^2 but indexes cycles, not theta networks.",
+        "Closest publicly indexed scale-two incidence-graph result (opaque ID c3740b96b3c3) calculates projective-plane incidence graphs, not theta graphs."
+      ],
+      "reasoning": "The cycle table does not contain the parameter m>=3 or the augmentational reversal action; incidence-graph calculations involve a distinct graph and cannot imply this exact face complex. No inspected table or exact-object result covers m>=3.",
+      "searches": [
+        "Vietoris Rips complexes of bipartite theta graphs suspension two cliques matching edges",
+        "Vietoris Rips scale two graphs consisting of m internally disjoint paths of length 3 theta complexes"
+      ]
+    },
+    "rationale": "Source-level implication comparisons distinguish the known two-arm C6 sphere, the known girth>=7 collapse, general circle/metric-gluing statements, and exact graph-specific persistence computations from the new m>=3 exceptional suspension and its integral S_m x C2 representation. Full primary relevant papers and scientific database aliases were checked. No covering implication was identified; unpublished or unindexed folklore may still coincide, so originality is a supported but not absolute judgement.",
+    "residual_risks": [
+      "An unindexed or folkloric graph-square computation may be equivalent; non-detection cannot prove absolute novelty.",
+      "The m=2 exception and all ell>=4 conclusions are covered by older results; novelty is specifically the m>=3 exceptional suspension plus the uniform symmetry-action calculation.",
+      "Not all potentially relevant older two-terminal network theses were accessible or exhaustively inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The special C6 two-arm result and high-girth collapse are prior and acknowledged; the m>=3 scale-two suspension/augmentation-action statement was not found",
+        "evidence": [
+          "arXiv:1104.0433, pp. 1–5 and 10–15, especially Proposition 2.2 and cycle table"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1104.0433",
+        "material_read": "Introduction; Proposition 2.2 and proof; Theorems 3.1–3.2; remaining sections on subdivisions, line/total graphs and cycle powers; final cycle table and references",
+        "method": "Read lawful full arXiv PDF text and relevant page images; inspected the C6 example and the general girth theorem",
+        "title": "Clique complexes and graph powers",
+        "trigger": "Exact graph-square setting; potentially dominating girth and cycle results"
+      },
+      {
+        "assessment": "Supports inclusive vertex-metric Rips conventions but classifies circle samples, not branching theta graphs",
+        "evidence": [
+          "arXiv:1503.03669v1, first posted 2015-03-12; journal MSC primary 55U10 and 05E45"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.03669",
+        "material_read": "Introduction, Definition 2.2, main results and circle-specific arguments",
+        "method": "Read arXiv full-text introduction/main theorem and journal MSC metadata",
+        "title": "The Vietoris–Rips complexes of a circle",
+        "trigger": "Topology-primary archive anchor and possible covering Rips circle result"
+      },
+      {
+        "assessment": "General large-girth persistence results do not state the exact theta exception, and quote Adamaszek high-girth results; no equivariant homology claim",
+        "evidence": [
+          "Parks–Marchette (2016), Sections 2, 4, 5, 6 and References [16]"
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rsos.160228",
+        "material_read": "Full openly accessible 10-page paper; especially Definitions, Lemma 4.1, Theorem 5.3, examples, citations",
+        "method": "Read publicly accessible full-text PDF and figures/sections concerning graph powers",
+        "title": "Persistent homology in graph power filtrations",
+        "trigger": "Direct graph-power persistence and possible girth-dominating results"
+      },
+      {
+        "assessment": "No statement covering the full multi-arm theta vertex-metric face complex or natural homology action was located",
+        "evidence": [
+          "arXiv:1712.06224, controlled gluing hypotheses and examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1712.06224",
+        "material_read": "Open preprint sections introducing metric gluing, controlled gluing cases and limitations, Sections 3–6",
+        "method": "Read lawful open-access arXiv full text and searched for theta/parallel-branch formulations",
+        "title": "On homotopy types of Vietoris–Rips complexes of metric gluings",
+        "trigger": "Potential general theorem for unions of branches sharing endpoints"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c7154cb-3fc6-4103-ac40-e9efdc993ddf",
+  "value": {
+    "rationale": "Theta graphs are the canonical connected two-terminal multi-cycle networks. This theorem identifies the exact sharp transition from contraction at length 2 through new two-dimensional topology at girth 6 to retained one-dimensional topology from girth 8 onward, with exact integral path-permutation and endpoint-reversal actions. The suspension mechanism and sign cancellation provide reusable information beyond homology ranks or isolated finite cases.",
+    "status": "PASS"
+  }
+}
