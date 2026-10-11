@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The domain is finite and fully exhausted. Random priority is computed from all \(24\) priority orders; probabilistic serial is computed with exact rational exhaustion events; stochastic dominance is checked at every upper-contour cutoff. Ordinal efficiency of random priority is tested by the published Bogomolnaia-Moulin acyclicity criterion. The packaged verifier replayed successfully from its actual file path and reproduced the full four-class histogram.
+## correctness
 
-Risk: correctness relies on the cited acyclicity theorem for ordinal efficiency and on the finite implementation. Exact arithmetic, exhaustive coverage, and direct matrix/dominance checks eliminate sampling and floating-point risk.
+PASS
 
-## Originality
-**PASS.** Bogomolnaia and Moulin already establish the mechanism definitions, probabilistic serial's ordinal efficiency, complete two- and three-agent comparisons, and one four-agent dominance example. That source therefore covers existence and the lower-size boundary, but not the full four-agent profile census. Che and Kojima establish large-market asymptotic equivalence, not exact small-market frequencies. Searches by mechanism aliases, exact profile count, exact class counts, and exact fractions did not locate the \(72288/190512/57312/11664\) table or the \(81/479\) decomposition.
+A fresh exact-rational exhaustive reconstruction over all \(24^4=331{,}776\) labeled strict profiles independently recomputed random priority from all 24 serial-dictatorship orders, probabilistic serial by exact eating-time arithmetic, ordinal efficiency using the Bogomolnaia-Moulin acyclicity criterion, and stochastic dominance by every rank cutoff. The resulting four-way counter was exactly \((72{,}288,190{,}512,57{,}312,11{,}664)\), which sums to the full profile space; the two ordinally-inefficient subclasses sum to 68,976 and \(11{,}664/68{,}976=81/479\). The primary Bogomolnaia-Moulin text was read at Lemma 3 and at its four-agent RP/PS example, confirming the criterion and the first nontrivial setting used by the census.
 
-Risk: failed search is not proof of novelty. An unindexed thesis, teaching computation, or supplementary file may contain the same four-agent enumeration.
+## originality
 
-## Value
-**PASS.** The four-agent market is the first size where probabilistic serial can directly stochastically dominate random priority, so a complete census there is a natural boundary statistic rather than an arbitrary finite slice. The finding separates two notions often conflated in examples: random priority being ordinally inefficient and probabilistic serial itself providing the dominating assignment. The exact ratio \(81/479\) shows that the canonical probabilistic-serial repair captures only a minority of random-priority inefficiency at this first nontrivial size.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The primary literature establishes that random priority can be ordinally inefficient, gives explicit four-agent examples, and proves general dominance/contract and asymptotic prevalence results. It does not give the complete \(24^4\) four-agent partition, the exact 11,664 direct-PS-dominance count, or the \(81/479\) share. A same-round companion census determines the total RSD-inefficient count and symmetry refinements but does not contain the RP-versus-PS four-way partition; therefore it does not imply the final claim.
+
+## value
+
+PASS
+
+Four agents are the first nontrivial size for the direct PS-over-RP phenomenon identified by the foundational paper. The exact decomposition separates mere ordinal inefficiency from inefficiency witnessed by the canonical PS mechanism and quantifies the gap sharply, making this a natural finite boundary classification rather than an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
