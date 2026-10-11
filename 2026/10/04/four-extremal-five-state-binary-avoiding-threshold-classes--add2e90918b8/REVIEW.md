@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and exhaustively checkable. The census covers every ordered pair of five-state binary transition maps, a domain of \((5^5)^2=9,765,625\) automata. Power-set BFS on all \(32\) state subsets computes exact shortest avoidance distances, not heuristic bounds. The census finds exactly \(960\) threshold-eight extremals. Independent replay reconstructs all four symmetry orbits, verifies that each has size \(240\), checks disjointness and total size \(960\), and validates the listed shortest witness words and distance vectors. The packaged verifier recompiles the census and requires exact output reproduction.
+## correctness
 
-## Originality
-PASS, with a residual access risk. Ferens–Szykuła–Vorel explicitly state that their five-state exceptional example \(\mathcal A_5\) has threshold \(8\), so neither that value nor that example is claimed as new. Their inspected paper describes isolated \(2n-2\) examples and reports small-state experiments, but it does not state an exact count of five-state binary extremals or a symmetry-complete classification. Targeted published-finding corpus searches for exact five-state avoiding-threshold counts and classes returned no statement equivalent to the \(960\)-element/four-orbit claim. The residual risk is that an unindexed or unpublished experimental dataset contains the same classification.
+PASS
 
-## Value
-PASS. The finite layer is mathematically motivated by the published conjecture that \(2n-2\) occurs only in finitely many exceptional cases. The five-state case is a natural exceptional layer because the published \(\mathcal A_5\) already attains \(2n-2=8\). Showing that all extremals comprise four distinct symmetry types, rather than a single known example, resolves the exact structure of this smallest named five-state exceptional layer.
+The inspected C census enumerates all 3125^2=9,765,625 ordered transition pairs, performs exact BFS in the 32-subset power automaton, records the first reachable subset omitting each state, and tests singleton reachability for synchronization. Its deterministic output gives 8,063,385 synchronizing pairs and histogram ending in exactly 960 threshold-eight pairs. Canonicalization enumerates all 5! state permutations and optional letter swap. The Python verifier recompiles/reruns the census, checks byte-for-byte output, verifies the four representatives, their exact avoidance vectors, four disjoint 240-element symmetry orbits, and A_5 membership. An independent replay of the four representatives/orbits reproduced the avoidance vectors and orbit sizes. The finite claim is exhaustive, not extrapolated.
 
-## Closest literature and limitations
-The closest sources are Szykuła's avoiding-word upper-bound paper and Ferens–Szykuła–Vorel's lower-bound/exception paper. The present result is intentionally narrower than their general questions: it is an exact finite classification for five-state binary automata. It does not imply that \(2n-2\) is a universal bound, nor does it classify larger exceptional sizes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ferens--Szykuła--Vorel already give the exceptional five-state automaton A_5 with 1-avoiding threshold 8 and report small-state experimentation, so the numerical maximum 8 and one extremal orbit are prior. The inspected primary paper does not state the complete labeled census 960 or the four symmetry classes. A fresh Resultary search for the exact five-state classification returned no covering published theorem.
+
+## value
+
+PASS
+
+This is the complete extremal classification at the first published exceptional five-state threshold, not merely a verification of A_5. The exact multiplicity and three additional symmetry classes are natural finite extremal data for the avoiding-threshold problem and provide reusable test cases for general conjectures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
