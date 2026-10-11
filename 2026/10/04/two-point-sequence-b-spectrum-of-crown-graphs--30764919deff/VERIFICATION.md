@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and applies to every integer \(n\ge3\). It uses only the adjacency rule of the crown graph and the definition of a color-dominating vertex.
+# Independent mathematical audit
 
-A finite stress test is supplied in `verify.py`. It reconstructs \(\operatorname{Cr}_n\) independently, enumerates every set partition of the vertex set for \(n=3,4,5\), retains exactly the proper colorings, computes every CDV from closed neighborhoods, and tests whether each class contains at least two CDVs. It also classifies each realizing color class as \(A\)-pure, \(B\)-pure, or a deleted-matching pair.
+## correctness
 
-Expected replay output:
+PASS
 
-`ALL CHECKS PASSED; n_range=3..5; set_partitions=120318; proper_partitions=4520; realizing_partitions=6; details=[(3, [2, 3], {2: 1, 3: 1}), (4, [2, 4], {2: 1, 4: 1}), (5, [2, 5], {2: 1, 5: 1})]`
+Every independent set in the crown graph is either contained in one bipartition class or is a single deleted-matching pair \(\{a_i,b_i\}\). In a proper coloring satisfying the requirement of at least two color-dominating vertices in every color class, a pure class and a paired class cannot coexist: one endpoint of the paired class sees no vertex of the pure class, leaving at most one color-dominating vertex in that pair. If there are no paired classes, there can be at most one pure class on each side, forcing the two-color bipartition coloring. If any paired class occurs, all classes are paired, so covering all vertices forces the \(n\) deleted-matching pairs. Both constructions meet the two-color-dominating-vertex condition, so the spectrum is exactly \(\{2,n\}\), with the two realizing partitions unique up to color-name permutation. The package's exhaustive set-partition check for \(3\le n\le5\) corroborates the structural proof but is not used to infer the universal theorem.
 
-The enumeration is exhaustive only for the displayed finite range and is not used as a proof for arbitrary \(n\). The universal conclusion rests on the case split in `RESULT.md`.
+## originality
+
+PASS
+
+Jakovac and Lang introduce sequence \(b\)-colorings, define the \(S\)-spectrum, and explicitly ask which sets can occur as spectra. The complete current paper contains no crown or complete-multipartite treatment. The classical \(b\)-spectrum literature uses only one color-dominating vertex per color class and therefore does not imply the two-vertex condition here. Resultary searches found the assigned theorem as the exact sequence-\(b\) crown result and unrelated crown-coloring invariants, but no prior spectrum \(\{2,n\}\) theorem.
+
+## value
+
+PASS
+
+The source explicitly asks about possible spectrum shapes. The crown family supplies an infinite, connected, regular bipartite example whose spectrum consists only of its minimum and maximum color counts, so the internal gap grows arbitrarily large. This is a natural structural answer to the new spectrum question rather than a small isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

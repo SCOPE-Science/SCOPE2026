@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the exact independent-set structure of the crown graph. A mixed independent color class must be one deleted-matching pair. If a pure-side color class coexists with a paired class, one endpoint of the paired class misses that pure color, leaving the paired class with at most one color-dominating vertex. If only pure classes occur, at most one color can occur on each side, forcing the bipartition coloring. If paired classes occur, no pure classes occur, forcing the matched-pair coloring. Both constructions directly satisfy the two-CDV condition. Exhaustive replay for \(3\le n\le5\) checks the original closed-neighborhood definition over every set partition.
+## correctness
 
-## Originality
-PASS. The initiating paper defines sequence \(b\)-colorings and \(S\)-spectra and explicitly asks which sets can occur as spectra, but its inspected full text contains no crown-graph or multipartite treatment. Scientific-index searches for sequence \(b\)-coloring, crown graph, two CDVs, \(S\)-spectrum, and classical \(b\)-spectrum formulations found no result implying \(\{2,n\}\). The closest crown-graph record located concerns proper conflict-free coloring, a different invariant; the closest general \(b\)-coloring records use only one color-dominating vertex per color class. A prior complete-multipartite sequence-coloring result does not cover crown graphs, which are obtained from \(K_{n,n}\) by deleting a perfect matching.
+PASS
 
-## Value
-PASS. The source paper explicitly leaves the shape of \(S\)-spectra largely unexplored. The family \(\operatorname{Cr}_n\) gives a transparent exact spectrum with an unbounded internal gap: only the minimum count \(2\) and the maximum count \(n\) survive. This demonstrates strong non-interval behavior on a familiar connected regular bipartite family and supplies a concrete answer pattern for the source paper's spectrum question.
+Every independent set in the crown graph is either contained in one bipartition class or is a single deleted-matching pair \(\{a_i,b_i\}\). In a proper coloring satisfying the requirement of at least two color-dominating vertices in every color class, a pure class and a paired class cannot coexist: one endpoint of the paired class sees no vertex of the pure class, leaving at most one color-dominating vertex in that pair. If there are no paired classes, there can be at most one pure class on each side, forcing the two-color bipartition coloring. If any paired class occurs, all classes are paired, so covering all vertices forces the \(n\) deleted-matching pairs. Both constructions meet the two-color-dominating-vertex condition, so the spectrum is exactly \(\{2,n\}\), with the two realizing partitions unique up to color-name permutation. The package's exhaustive set-partition check for \(3\le n\le5\) corroborates the structural proof but is not used to infer the universal theorem.
 
-## Closest literature and limitations
-The primary comparison is Jakovac--Lang, arXiv:2609.08484v1. Classical \(b\)-spectrum literature, including arXiv:1908.00674, studies the one-CDV condition and therefore does not imply the present two-CDV spectrum. Searches also located crown-graph papers involving other coloring invariants or graph operations, not this statement. The main residual risk is an unindexed crown-specific paper that happens to record multiple CDV counts despite predating the sequence terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Jakovac and Lang introduce sequence \(b\)-colorings, define the \(S\)-spectrum, and explicitly ask which sets can occur as spectra. The complete current paper contains no crown or complete-multipartite treatment. The classical \(b\)-spectrum literature uses only one color-dominating vertex per color class and therefore does not imply the two-vertex condition here. Resultary searches found the assigned theorem as the exact sequence-\(b\) crown result and unrelated crown-coloring invariants, but no prior spectrum \(\{2,n\}\) theorem.
+
+## value
+
+PASS
+
+The source explicitly asks about possible spectrum shapes. The crown family supplies an infinite, connected, regular bipartite example whose spectrum consists only of its minimum and maximum color counts, so the internal gap grows arbitrarily large. This is a natural structural answer to the new spectrum question rather than a small isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
