@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` reconstructs the nine-vertex complex from the two published facet seeds and the three generators of \(H_{54}\). It checks the group size, all \(36\) facets, the face vector \( (9,36,84,90,36)\), and complementarity for every nontrivial vertex bipartition.
+# Independent mathematical audit
 
-It then visits every nonempty proper vertex set. For each face set, it verifies that the induced complex is the complete simplex. For each nonface, it loads the corresponding row of `collapse_cert.json` and replays every listed pair \( (\tau,\sigma)\). Before deleting a pair it verifies that \(\sigma\) is maximal, \(\tau\) is a codimension-one face of \(\sigma\), and \(\tau\) belongs to no other maximal simplex. The final complex must have exactly the four triangular facets of \(\partial\Delta^3\).
+## correctness
 
-The certificate has exactly \(255\) entries, matching every proper nonface and no face. The checker also verifies the nonface counts by cardinality and the displayed collapse-length distribution. Because each elementary collapse is validated on the evolving complex, the proof does not rely on homology as a surrogate for simple-homotopy equivalence.
+PASS
 
-Run:
+The finite theorem was independently replayed from the actual package certificate rather than trusted from a saved log. Using the published permutation generators and two facet seeds, the audit reconstructed a group of order 54, exactly 36 facets, and face vector \((9,36,84,90,36)\). It then enumerated all 510 nonempty proper vertex sets. There are exactly 255 faces and 255 nonfaces, with nonface counts \(36,90,84,36,9\) in sizes 4 through 8. For every one of the 255 certificate rows, each listed pair was checked on the evolving induced complex: the upper simplex was maximal, the lower simplex was codimension one and belonged to no other maximal simplex, and after every deletion the residue was exactly the four-triangle boundary of a tetrahedron. The independently replayed collapse-length distribution is exactly the one stated in the claim.
 
-`python verify.py`
+## originality
 
-Expected final line:
+PASS
 
-`VERIFY_OK facets=36 face_vector=9,36,84,90,36 proper_faces=255 proper_nonfaces=255 nonfaces=4:36,5:90,6:84,7:36,8:9 collapse_lengths=4:0x36;5:7x90;6:18x9,19x27,20x27,21x21;7:40x36;8:72x9`
+The closest exact-object literature gives complementarity, uniqueness, face/incidence structure, and the fact that the complement of a facet induces a four-vertex two-sphere. The complete 2001 article text available through a public transcription was inspected: it develops amicable partitions and uses a different vertex-collapse operation on auxiliary spheres, but contains no occurrence of an induced-subcomplex collapse theorem and no all-proper-subset simple-homotopy dichotomy. Resultary's only exact semantic hit for the all-nonface collapse statement was the assigned finding. The larger 5--8-vertex nonface reductions therefore remain a genuine additional finite classification rather than an implication of homology injectivity or complementarity alone.
 
-Limits: the verification is specific to the published nine-vertex combinatorial model. It certifies existence of the included collapse sequences, not uniqueness of collapse order or any statement for other triangulations.
+## value
+
+PASS
+
+Induced subcomplexes are intrinsic to tight triangulations, and the nine-vertex \(\mathbb{CP}^2\) is a canonical minimal object. A complete face-versus-sphere simple-homotopy classification of every proper induced subcomplex, with replayable elementary-collapse witnesses, is a natural structural finite theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

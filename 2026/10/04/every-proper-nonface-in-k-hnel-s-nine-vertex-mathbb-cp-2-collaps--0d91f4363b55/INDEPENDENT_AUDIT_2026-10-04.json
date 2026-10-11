@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:14:42.284913Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e295449d3465720a1e0124cd3332347f50c563d7",
+        "assigned collapse_cert.json blob 9df3a495b75124ad1c750588aeed384a80de420f",
+        "assigned verify.py blob 7df83f97864929ae2b7d9e019a7a2c2da50cc813",
+        "independent certificate replay against all 255 proper nonfaces"
+      ],
+      "rationale": "The finite theorem was independently replayed from the actual package certificate rather than trusted from a saved log. Using the published permutation generators and two facet seeds, the audit reconstructed a group of order 54, exactly 36 facets, and face vector \\((9,36,84,90,36)\\). It then enumerated all 510 nonempty proper vertex sets. There are exactly 255 faces and 255 nonfaces, with nonface counts \\(36,90,84,36,9\\) in sizes 4 through 8. For every one of the 255 certificate rows, each listed pair was checked on the evolving induced complex: the upper simplex was maximal, the lower simplex was codimension one and belonged to no other maximal simplex, and after every deletion the residue was exactly the four-triangle boundary of a tetrahedron. The independently replayed collapse-length distribution is exactly the one stated in the claim.",
+      "residual_risks": [
+        "The result is a finite theorem about the standard published nine-vertex combinatorial model; no claim transfers to other triangulations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact-object papers establish uniqueness, complementarity, and detailed combinatorial structure.",
+          "Tightness theory constrains homology maps of induced subcomplexes but does not provide free-face sequences or simple-homotopy equivalence."
+        ],
+        "reasoning": "These broader theorems do not dominate an explicit elementary-collapse classification.",
+        "searches": [
+          "Bagchi--Datta 2001, DOI 10.1515/advg.2001.011",
+          "Bagchi--Datta 1994, DOI 10.1007/BF01263646",
+          "Bagchi 2015, arXiv:1406.4299"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1515/advg.2001.011",
+        "DOI:10.1007/BF01263646",
+        "https://arxiv.org/abs/1406.4299",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complementarity decides face versus complementary nonface but does not specify elementary collapse sequences.",
+          "Homology injectivity cannot imply simple-homotopy type or collapsibility."
+        ],
+        "reasoning": "The 219 larger nonfaces require additional explicit reductions; they are not formal corollaries of the inspected prior statements.",
+        "searches": [
+          "statement comparison with Bagchi--Datta 2001 complementarity theorem",
+          "statement comparison with tightness criterion arXiv:1406.4299"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact hit is the assigned finding; nearest hits concern unrelated finite-complex homotopy computations.",
+          "The 2001 full article transcription contains no match for 'induced' and no simplicial-collapse classification of all proper vertex subsets.",
+          "The article does state that the complement of a facet induces the standard four-vertex two-sphere, covering the 36 smallest nonfaces only."
+        ],
+        "reasoning": "Simple-homotopy, induced-subcomplex, complementarity, and sphere-reduction aliases were checked; no equivalent all-proper-subset theorem was located.",
+        "searches": [
+          "Resultary query: Kuhnel nine vertex complex projective plane every proper induced nonface collapses tetrahedral sphere simple homotopy",
+          "full-text search in Bagchi--Datta 2001 for collapse, induced, standard sphere",
+          "web query: Kuhnel 9-vertex CP2 induced subcomplex collapses tetrahedral sphere"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published table or database containing all 255 nonface collapse targets/lengths was found."
+        ],
+        "reasoning": "The package's 255-row certificate is the proof object under audit, not a recomputation of a pre-existing published table.",
+        "searches": [
+          "Resultary exact-object search",
+          "exact-object literature search for induced-subcomplex census"
+        ]
+      },
+      "rationale": "The closest exact-object literature gives complementarity, uniqueness, face/incidence structure, and the fact that the complement of a facet induces a four-vertex two-sphere. The complete 2001 article text available through a public transcription was inspected: it develops amicable partitions and uses a different vertex-collapse operation on auxiliary spheres, but contains no occurrence of an induced-subcomplex collapse theorem and no all-proper-subset simple-homotopy dichotomy. Resultary's only exact semantic hit for the all-nonface collapse statement was the assigned finding. The larger 5--8-vertex nonface reductions therefore remain a genuine additional finite classification rather than an implication of homology injectivity or complementarity alone.",
+      "residual_risks": [
+        "The long Arnoux--Marin crystallographic treatment remains a plausible older priority source not fully inspected in this run.",
+        "Poorly indexed computational notes could contain the same finite collapse census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_ONLY",
+          "evidence": "It covers complementarity and the 36 facet-complement spheres but not all proper induced subcomplexes or their elementary collapse sequences.",
+          "identifier_or_url": "DOI:10.1515/advg.2001.011",
+          "material_read": "Public full article transcription, including the complete introduction, amicable-partition machinery, uniqueness proof passages, and the explicit statement that the complement of a facet induces \\(S^2_4\\).",
+          "method": "Full-text public transcription plus EUDML bibliographic/PDF availability check.",
+          "title": "A short proof of the uniqueness of Kühnel's 9-vertex complex projective plane",
+          "trigger": "Closest exact-object paper centered on complementarity."
+        },
+        {
+          "assessment": "BROADER_BUT_WEAKER_INVARIANT",
+          "evidence": "Homological tightness does not determine simple-homotopy or elementary collapsibility.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.4299",
+          "material_read": "Definitions and theorem-level statements on tightness and inclusion-induced homology maps.",
+          "method": "ArXiv theorem-level inspection.",
+          "title": "A tightness criterion for homology manifolds with or without boundary",
+          "trigger": "Broader theorem quantifying over induced subcomplexes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bagchi--Datta 2001",
+        "Bagchi 2015 tightness criterion"
+      ],
+      "rationale": "Induced subcomplexes are intrinsic to tight triangulations, and the nine-vertex \\(\\mathbb{CP}^2\\) is a canonical minimal object. A complete face-versus-sphere simple-homotopy classification of every proper induced subcomplex, with replayable elementary-collapse witnesses, is a natural structural finite theorem.",
+      "residual_risks": [
+        "The result is object-specific and does not assert a general CP2 triangulation theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1515/advg.2001.011",
+    "DOI:10.1007/BF01263646",
+    "https://arxiv.org/abs/1406.4299",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Specific to Kühnel's standard nine-vertex triangulation.",
+    "Collapse existence is proved; uniqueness of collapse order and shellability are not claimed."
+  ],
+  "residual_risks": [
+    "The long Arnoux--Marin crystallographic treatment remains a plausible older priority source not fully inspected in this run.",
+    "Poorly indexed computational notes could contain the same finite collapse census."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_COVERAGE_ONLY",
+      "evidence": "It covers complementarity and the 36 facet-complement spheres but not all proper induced subcomplexes or their elementary collapse sequences.",
+      "identifier_or_url": "DOI:10.1515/advg.2001.011",
+      "material_read": "Public full article transcription, including the complete introduction, amicable-partition machinery, uniqueness proof passages, and the explicit statement that the complement of a facet induces \\(S^2_4\\).",
+      "method": "Full-text public transcription plus EUDML bibliographic/PDF availability check.",
+      "title": "A short proof of the uniqueness of Kühnel's 9-vertex complex projective plane",
+      "trigger": "Closest exact-object paper centered on complementarity."
+    },
+    {
+      "assessment": "BROADER_BUT_WEAKER_INVARIANT",
+      "evidence": "Homological tightness does not determine simple-homotopy or elementary collapsibility.",
+      "identifier_or_url": "https://arxiv.org/abs/1406.4299",
+      "material_read": "Definitions and theorem-level statements on tightness and inclusion-induced homology maps.",
+      "method": "ArXiv theorem-level inspection.",
+      "title": "A tightness criterion for homology manifolds with or without boundary",
+      "trigger": "Broader theorem quantifying over induced subcomplexes."
+    }
+  ]
+}
