@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The target source was checked in its primary arXiv PDF at Theorem 13. The theorem first states the three-parameter permutation fact and then says that the conclusion holds for general pretzel links.
+# Independent mathematical audit
 
-The supporting full text was checked where it describes parameter reorderings. It states that nonunitary parameters can be cyclically permuted and reversed without changing knot type, while further permutations may produce nonisotopic knots. It gives the explicit four-strand pair \(P(3,5,7,2)\) and \(P(3,7,5,2)\) as nonisotopic.
+## correctness
 
-A second supporting check uses fiberedness. The same source identifies \(P(3,-7,5,-5,8)\) as fibered and the reordered mutant \(P(3,5,-7,-5,8)\) as nonfibered. Because fiberedness is an ambient-isotopy invariant, this independently certifies failure of arbitrary parameter-permutation isotopy.
+PASS
 
-The bundled program `artifacts/verify_parameter_symmetry.py` checks the finite group-theoretic bookkeeping and prints:
+Lecuona--Wand's open primary text explicitly records the four-parameter nonisotopy witness and the fibered/nonfibered reordered pair, so either example alone contradicts a universal arbitrary-permutation isotopy claim. Cyclic shifts and reversal are standard universal pretzel symmetries for nonunitary parameters; their dihedral action equals \(S_3\) for three entries but has order \(2m<m!\) for \(m\ge4\). The argument correctly avoids claiming that every non-dihedral permutation changes isotopy type.
 
-`VERIFY_OK D3=S3; D4=8<24; D5=10<120; both published reordered witnesses lie outside their dihedral orbits`
+## originality
 
-The finite program does not prove nonisotopy. Its role is only to verify that the valid cyclic/reversal symmetries exhaust all parameter permutations at three strands but not at four or more strands, and that the cited reordered examples lie outside those universal dihedral orbits.
+PASS
 
-No conclusion is drawn here about the correctness of every downstream quandle-coloring formula.
+Lecuona--Wand already publish the decisive mathematical counterexamples: they explicitly state that nonunitary parameters may be cyclically permuted or reversed, that further permutations can yield nonisotopic pretzel knots, and specifically that \(P(3,5,7,2)\not\cong P(3,7,5,2)\). Thus those counterexamples are prior art. The surviving original content is the correction of the later September 2026 Theorem 13: identifying that its blanket general-pretzel permutation extension directly contradicts this earlier primary literature, and delimiting why the three-parameter statement survives. No checked correction of that specific new theorem was found.
+
+## value
+
+PASS
+
+A precise correction to a current theorem is scientifically useful even when the counterexample predates the erroneous theorem: it prevents a false isotopy symmetry from being propagated into the general pretzel-link discussion and identifies the exact reason the three-parameter case behaves differently.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

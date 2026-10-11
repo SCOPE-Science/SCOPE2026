@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The target PDF explicitly says in Theorem 13 that arbitrary parameter interchange for three-pretzel knots extends to general pretzel links. Published pretzel-knot literature gives a direct four-strand contradiction: \(P(3,5,7,2)\) is not isotopic to \(P(3,7,5,2)\). It also gives an independent five-strand witness in which \(P(3,-7,5,-5,8)\) is fibered but the reordered mutant \(P(3,5,-7,-5,8)\) is not; fiberedness is an ambient-isotopy invariant. The repaired boundary is exact at the group level: cyclic shifts and reversal give all of \(S_3\) for three parameters but form only a proper dihedral subgroup for \(m\ge4\).
+## correctness
 
-## Originality
-PASS. The counterexamples themselves are prior literature and are explicitly credited as such. The accepted contribution is the pinpoint correction of the September 2026 Theorem 13 and the explanation of why its three-strand argument cannot be extended to arbitrary parameter permutations. Searches of published-finding corpus and the public web using the theorem, mutation/reordering language, and both explicit witness pairs did not locate an existing correction of the recent source. The main residual risk is a later revision or an unindexed correction notice.
+PASS
 
-## Value
-PASS. The finding separates ambient isotopy from mutation in a place where the recent source states them as equivalent. It supplies two concrete witnesses and a clean repaired symmetry statement, so later uses of parameter ordering can be audited without discarding coloring formulas that may independently be mutation-insensitive. This is a mathematically consequential boundary correction rather than a notational or stylistic issue.
+Lecuona--Wand's open primary text explicitly records the four-parameter nonisotopy witness and the fibered/nonfibered reordered pair, so either example alone contradicts a universal arbitrary-permutation isotopy claim. Cyclic shifts and reversal are standard universal pretzel symmetries for nonunitary parameters; their dihedral action equals \(S_3\) for three entries but has order \(2m<m!\) for \(m\ge4\). The argument correctly avoids claiming that every non-dihedral permutation changes isotopy type.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Lecuona--Wand already publish the decisive mathematical counterexamples: they explicitly state that nonunitary parameters may be cyclically permuted or reversed, that further permutations can yield nonisotopic pretzel knots, and specifically that \(P(3,5,7,2)\not\cong P(3,7,5,2)\). Thus those counterexamples are prior art. The surviving original content is the correction of the later September 2026 Theorem 13: identifying that its blanket general-pretzel permutation extension directly contradicts this earlier primary literature, and delimiting why the three-parameter statement survives. No checked correction of that specific new theorem was found.
+
+## value
+
+PASS
+
+A precise correction to a current theorem is scientifically useful even when the counterexample predates the erroneous theorem: it prevents a false isotopy symmetry from being propagated into the general pretzel-link discussion and identifies the exact reason the three-parameter case behaves differently.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
