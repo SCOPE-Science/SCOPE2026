@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:35:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 0afdaa21466d95f7e599c16fdbd166f37c5e122f",
+        "Ramezani arXiv:2308.02147",
+        "Fu--Zhang--Tian 2024",
+        "Firouzi Parizi--Alijani--Dehghan 2022 and 2025 correction"
+      ],
+      "rationale": "For the unilateral shift S with Gamma_j=I, Lambda_1=I+S and Lambda_j=S^j-S^{j-1}, the finite mixed sums telescope exactly to I+S^N. The scalar quadratic sums tend to ||f||^2 because <S^Nf,f> tends to zero by an l2 tail estimate, satisfying the printed Parseval condition. The vector sums f+S^Nf cannot converge in norm for nonzero f because S is an isometry and S^Nf converges weakly to zero. Under two g-Bessel assumptions, bounded analysis/synthesis operators give unconditional convergence and the quadratic lower bound makes the resulting bounded self-adjoint operator positive and invertible.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 paper emphasizes constituent g-Bessel/g-frame hypotheses in several characterizations.",
+          "The 2022 biframe article uses an analogous scalar definition and operator construction."
+        ],
+        "reasoning": "These broader/analogous frameworks do not state the same bi-g counterexample or prove it automatically.",
+        "searches": [
+          "Fu--Zhang--Tian DOI 10.1007/s11868-024-00597-z",
+          "Biframes and some of their properties DOI 10.1186/s13660-022-02844-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.02147",
+        "doi:10.1007/s11868-024-00597-z",
+        "doi:10.1186/s13660-022-02844-7",
+        "doi:10.1186/s13660-025-03258-x",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proof moves from a scalar inequality to vector-series well-definedness without Bessel control.",
+          "The constructed partial sums I+S^N separate diagonal scalar convergence from strong operator convergence."
+        ],
+        "reasoning": "The prior theorem is contradicted rather than implying the final claim.",
+        "searches": [
+          "Ramezani Definition 2.1 and Theorem 2.3 versus unilateral-shift construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source definition is scalar and Theorem 2.3 asserts the mixed vector operator is automatically well defined.",
+          "No prior indexed counterexample to that theorem was located."
+        ],
+        "reasoning": "The audited result is a direct counterexample to the printed theorem, not a reformulation of an existing correction.",
+        "searches": [
+          "Resultary: bi-g-frame nonconvergent mixed operator series unilateral shift Parseval",
+          "Ramezani arXiv:2308.02147 Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2025 correction addresses other examples/propositions and does not mention the convergence obstruction."
+        ],
+        "reasoning": "No exact correction table/database entry covers the audited theorem.",
+        "searches": [
+          "Resultary semantic query above",
+          "2025 biframe correction DOI 10.1186/s13660-025-03258-x"
+        ]
+      },
+      "rationale": "The target source asserts the opposite general conclusion. The later bi-g-frame paper studies Bessel-controlled subclasses but does not state this counterexample or correction, while the earlier biframe analogue contains a similar scalar/operator gap but does not mechanically supply the operator-valued bi-g construction.",
+      "residual_risks": [
+        "An unindexed note or informal erratum may have noticed the weak-versus-strong convergence gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_CONFLICT.",
+          "evidence": "The theorem asserts automatic well-definedness from the scalar condition; the shift example satisfies that condition while its vector partial sums fail to converge.",
+          "identifier_or_url": "arXiv:2308.02147",
+          "material_read": "Primary text at the definition, mixed operator, Theorem 2.3, and its convergence proof step.",
+          "method": "Primary full-text inspection.",
+          "title": "Bi g-frame and characterizations of bi g-frame and Riesz basis",
+          "trigger": "Exact theorem being tested."
+        },
+        {
+          "assessment": "NOT_COVERING.",
+          "evidence": "It studies Bessel-controlled subclasses but does not state the shift counterexample or an erratum to the general theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/s11868-024-00597-z",
+          "material_read": "Primary abstract and theorem-level public material on g-Bessel/g-frame constituent characterizations.",
+          "method": "Primary-source comparison.",
+          "title": "On characterization and construction of bi-g-frames",
+          "trigger": "Closest later paper on the same object."
+        },
+        {
+          "assessment": "NOT_COVERING.",
+          "evidence": "The correction changes Example 6.6 and Proposition 6.8, not mixed-series convergence.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-025-03258-x",
+          "material_read": "Complete open-access correction text.",
+          "method": "Primary full-text inspection.",
+          "title": "Correction to: Biframes and some of their properties",
+          "trigger": "Potential correction in the closest scalar-valued analogue."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ramezani 2023",
+        "Fu--Zhang--Tian 2024",
+        "biframe literature"
+      ],
+      "rationale": "The invalid step is foundational: it is what turns the scalar definition into the reconstruction operator. The counterexample already occurs in the Parseval case using bounded operators, and the g-Bessel repair identifies a standard safe regime. This is a substantive domain-of-validity correction.",
+      "residual_risks": [
+        "The weakest sufficient convergence assumptions are not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Under the literal scalar definition of a bi-g-frame, a Parseval pair can have a mixed series \\(\\sum_j\\Gamma_j^*\\Lambda_jf\\) that fails to converge in norm for every nonzero \\(f\\); simultaneous g-Bessel hypotheses restore unconditional convergence and the standard positive-invertible mixed operator.",
+  "limitations": [
+    "The simultaneous g-Bessel condition is sufficient, not claimed necessary.",
+    "Only the general well-definedness assertion at the printed level of generality is refuted."
+  ],
+  "schema_version": 1
+}
