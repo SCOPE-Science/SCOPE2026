@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_kemeny_slater_five_voters.py` is an exact finite replay using only the Python standard library.
 
-For each odd electorate size \(1,3,5\), it enumerates every labeled profile of strict rankings over three candidates.
+# Independent mathematical audit
 
-Kemeny rankings are computed independently in two ways:
-1. maximizing total pairwise support consistent with a ranking;
-2. minimizing the total majority-margin weight of reversed majority edges.
+## correctness
 
-Slater rankings are computed independently in two ways:
-1. minimizing the number of reversed majority-tournament edges;
-2. using a separate three-candidate implementation that distinguishes transitive tournaments from three-cycles.
+PASS
 
-The verifier confirms:
-- \(6\) of \(6\) one-voter profiles have equal winner sets;
-- all \(216\) three-voter profiles have equal winner sets;
-- among \(7776\) five-voter profiles, exactly \(180\) diverge;
-- the exact five-voter divergence probability is \(5/216\);
-- every divergent profile has cyclic margin multiset \((1,1,3)\);
-- an independent enumeration of all \(252\) anonymous five-voter profiles finds exactly six divergent labeled-candidate anonymous profiles;
-- those six form one orbit under candidate relabeling;
-- each has labeled-voter multiplicity \(30\), giving \(6\cdot30=180\);
-- the canonical \(2(A\succ B\succ C),2(B\succ C\succ A),1(C\succ A\succ B)\) witness has two Kemeny rankings and three Slater rankings exactly as stated.
+For a transitive three-candidate majority tournament both objectives choose the topological order. For a directed 3-cycle, Slater's three optimal orders each reverse one majority edge, whereas Kemeny minimizes the reversed majority-margin weight, so its top set is obtained from the weakest cycle edge or tied weakest edges. Every three-voter majority cycle has margins \((1,1,1)\), while the five-voter witness \(2ABC,2BCA,1CAB\) has margins \((1,3,1)\). A fresh independent exact replay of all labeled profiles for electorate sizes \(1,3,5\) reproduced the histograms \(6\); \(204+12\); and \(7236+360+180\), and an independent anonymous replay found exactly six divergent profiles with multinomial weight \(180\). The frozen verifier source was also read; its finite exhaustions corroborate the structural proof.
 
-Run:
+## originality
 
-`python3 verify_kemeny_slater_five_voters.py`
+PASS
 
-The first output line must be:
+Lamboray's primary thesis explicitly gives the three-alternative structural comparison: in a majority cycle the Slater orders reverse one edge and the Kemeny orders reverse a smallest-margin edge. Klamler gives broader qualitative antagonistic examples. Neither inspected source states the smallest odd electorate realizing unequal cycle margins, the exact \(180\)-profile census, or its single relabeling orbit. Resultary searches for the exact boundary and constants returned no matching prior record.
 
-`VERIFY_OK`
+## value
 
-The finite replay establishes the sharp first odd-electorate boundary and the complete five-voter census only.
+PASS
+
+This is a natural first-divergence boundary between two classical aggregation rules, not an arbitrary parameter slice. It gives the complete smallest odd-electorate classification, prevalence, margin geometry and symmetry orbit after the local three-candidate rule behavior is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

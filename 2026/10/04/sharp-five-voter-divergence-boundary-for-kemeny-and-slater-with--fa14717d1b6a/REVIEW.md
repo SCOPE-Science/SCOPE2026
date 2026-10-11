@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof separates the already-known three-candidate structural lemma from the new finite boundary. In a majority cycle, Slater reverses any single majority edge, whereas Kemeny reverses only minimum-margin edges; this is independently replayed from pairwise support. Exhaustive labeled enumeration proves equality for all one- and three-voter profiles and finds exactly \(180\) divergent five-voter profiles. An independent anonymous enumeration reproduces the count from six candidate-labeled anonymous profiles of multiplicity \(30\) each.
+## correctness
 
-Risk: the exact count is a finite theorem at the first divergent electorate size and does not imply any larger-electorate formula.
+PASS
 
-## Originality
-**PASS.** Lamboray's full thesis already covers the three-candidate structural relation, and Klamler's paper already establishes that Kemeny and Slater can differ strongly in larger-alternative elections. Those statements are treated as prior and are not claimed as new. The inspected literature and targeted searches did not state the sharp odd-electorate threshold of five voters, the exact \(180/7776=5/216\) census, or the single anonymous candidate-relabeling class.
+For a transitive three-candidate majority tournament both objectives choose the topological order. For a directed 3-cycle, Slater's three optimal orders each reverse one majority edge, whereas Kemeny minimizes the reversed majority-margin weight, so its top set is obtained from the weakest cycle edge or tied weakest edges. Every three-voter majority cycle has margins \((1,1,1)\), while the five-voter witness \(2ABC,2BCA,1CAB\) has margins \((1,3,1)\). A fresh independent exact replay of all labeled profiles for electorate sizes \(1,3,5\) reproduced the histograms \(6\); \(204+12\); and \(7236+360+180\), and an independent anonymous replay found exactly six divergent profiles with multinomial weight \(180\). The frozen verifier source was also read; its finite exhaustions corroborate the structural proof.
 
-Risk: failed search is not proof of novelty. An unindexed exercise, software table, or supplementary computation may contain the same small-electorate census.
+## originality
 
-## Value
-**PASS.** Kemeny is sensitive to majority-margin magnitude while Slater retains only majority-edge direction. The smallest electorate at which that informational difference can change the winner set is therefore a natural structural boundary. The exact five-voter incidence and unique anonymous profile shape explain precisely how the first divergence appears, rather than supplying an arbitrary isolated example.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Lamboray's primary thesis explicitly gives the three-alternative structural comparison: in a majority cycle the Slater orders reverse one edge and the Kemeny orders reverse a smallest-margin edge. Klamler gives broader qualitative antagonistic examples. Neither inspected source states the smallest odd electorate realizing unequal cycle margins, the exact \(180\)-profile census, or its single relabeling orbit. Resultary searches for the exact boundary and constants returned no matching prior record.
+
+## value
+
+PASS
+
+This is a natural first-divergence boundary between two classical aggregation rules, not an arbitrary parameter slice. It gives the complete smallest odd-electorate classification, prevalence, margin geometry and symmetry orbit after the local three-candidate rule behavior is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
