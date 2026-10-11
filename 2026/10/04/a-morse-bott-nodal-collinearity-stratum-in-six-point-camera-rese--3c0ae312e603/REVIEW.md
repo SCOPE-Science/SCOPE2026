@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The six-point source theorem reduces the resectioning variety to one square six-focal determinant. The relation-space argument proves \\(C\\subset\\operatorname{{Sing}}(X)\\) without numerical approximation. The bundled exact verifier then checks the explicit no-four-coplanar configuration, focal-matrix rank \\(16\\), Hessian rank \\(4\\), tangent-space dimension \\(8\\), equality of the tangent space with the Hessian kernel, and the nonzero normal Hessian determinant \\(484\\).
+## correctness
 
-## Originality
-PASS. The closest source is Connelly--Duff--Loucks-Tavitas, arXiv:2309.04028v1, which provides the focal determinant and universal Gröbner basis but does not state the collinearity singular stratum or its local analytic type. Targeted semantic and exact searches for six-point resectioning singularities, six-focal singular loci, collinear image degeneracies, and ordinary double points did not locate an equivalent statement. Classical resectioning-degeneracy literature remains a residual terminology risk.
+PASS
 
-## Value
-PASS. The finding gives a natural geometric singularity classification for the minimal projective resectioning hypersurface, not an arbitrary parameter slice. The collinearity locus is intrinsic and large, and the transverse node identifies the first local model one should expect in resolution, numerical conditioning, and distance-critical analyses.
+The relation space of the six world points has dimension two. For any collinear image sextuple, two independent relation vectors give two independent left-kernel vectors of the focal matrix, hence matrix rank at most \(16\); the determinant and all first derivatives therefore vanish. Fresh exact symbolic reconstruction at \(p_i=[1:i:0]\) reproduced focal-matrix rank \(16\), zero gradient, Hessian rank \(4\), an \(8\)-dimensional collinearity tangent space contained in the Hessian kernel, and normal minor determinant \(484\). Equality of tangent space and Hessian kernel plus the implicit-function/Morse-Bott argument gives the stated local node and generic-open persistence.
 
-## Closest literature and limitations
-The primary paper is arXiv:2309.04028v1. Hartley--Zisserman Chapter 22 is broader classical background on resectioning degeneracies. The complete global singular locus is not computed, and older equivalent terminology may exist outside the indexed sources searched.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes. The primary resectioning paper supplies the focal generators and universal Gröbner-basis theorem under the no-four-coplanar hypothesis, but its full-text statement/proof inspected here contains no collinearity singular-stratum or Hessian/Morse-Bott local-type theorem. The Resultary search returned the assigned finding as the only exact match; nearby camera-singularity findings concern different varieties.
+
+## value
+
+PASS
+
+The collinearity locus is an intrinsic, high-dimensional degeneracy in the minimal six-point resectioning hypersurface. Identifying its generic transverse node gives natural local geometry relevant to singularity analysis and conditioning, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
