@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof classifies every general position set of size at least three by unique paths in a spider and derives the coefficient formula directly.
+# Independent mathematical audit
 
-The included `verify.py` has a definition-level branch that builds each tested spider as a graph, computes all-pairs distances, enumerates every vertex subset, and rejects a subset whenever one selected vertex lies on the geodesic between two other selected vertices. This direct branch checks all 103 spider isomorphism types of orders four through eleven and 112080 vertex subsets.
+## correctness
 
-The cutoff branch independently enumerates every integer partition of order minus one into at least three positive arm lengths through order twenty-two. The resulting 3374 spider isomorphism types are tested for coefficient unimodality using the proved formula. `cutoff_certificate.json` records the per-order totals and shows zero nonunimodal types through order twenty-one and exactly one at order twenty-two.
+PASS
 
-Recorded verifier output:
+The structural proof reconstructs directly: any general-position set of size at least three excludes the center and uses at most one vertex from each arm, and every such choice is valid. Thus the coefficient in degree \(j\ge3\) is exactly the elementary symmetric polynomial \(e_j(\ell_1,\ldots,\ell_k)\), while degrees zero through two count all subsets. For \(S(1,1,1,1,2,m)\), direct expansion gives the seven displayed coefficients and the two relevant inequalities place the unique nonunimodality threshold at \(m=15\). A fresh independent enumeration of every integer partition defining a spider through order 22 counted exactly 3374 types, with no nonunimodal type through order 21 and the sole order-22 failure \(S(1,1,1,1,2,15)\) with coefficients \((1,22,231,226,249,137,30)\). The finite enumeration is exhaustive for the stated cutoff and the all-spider formula is analytic.
 
-```text
-VERIFY_OK
-direct_spider_types_checked = 103
-direct_vertex_subsets_checked = 112080
-formula_cutoff_spider_types_checked = 3374
-orders_direct = 4..11
-orders_cutoff = 4..22
-unique_nonunimodal_spider_through_order_22 = S(1,1,1,1,2,15)
-unique_order_22_coefficients = 1,22,231,226,249,137,30
-family_S(1,1,1,1,2,m)_nonunimodal_iff_m_ge_15_checked_for_m_1..100
-```
+## originality
 
-The finite cutoff proves minimality only within spiders. It does not assert that order twenty-two is the minimum among all trees.
+PASS
+
+Originality passes. The 2024 defining paper gives the broom formula and identifies the smallest nonunimodal broom as order 24. The complete 2026 follow-up was inspected and studies complete multipartite graphs, brooms, coronas and related examples; full-text searches found no spider, starlike, or subdivided-star treatment. Fresh Resultary search likewise did not surface the all-spider elementary-symmetric formula or the order-22 cutoff.
+
+## value
+
+PASS
+
+Unimodality is an explicit structural question for the newly introduced general-position polynomial, and spiders are a canonical tree class strictly extending brooms. The result gives both a closed polynomial for every spider and the exact first failure within the class, improving the previously displayed broom counterexample from order 24 to a unique order-22 spider. The finite cutoff is therefore mathematically motivated and tied to an infinite family threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

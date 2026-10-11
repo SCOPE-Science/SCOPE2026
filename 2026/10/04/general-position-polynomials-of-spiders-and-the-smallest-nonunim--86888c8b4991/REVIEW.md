@@ -1,12 +1,21 @@
-# Review of General position polynomials of spiders and the smallest nonunimodal spider
+# Independent mathematical audit
 
-## Correctness
-PASS. For sets of size at least three, unique paths in a spider force exclusion of the center and at most one selected vertex per arm; the converse is immediate because a geodesic between two selected vertices uses only their two arms. This yields the exact elementary-symmetric coefficient formula. The one-parameter nonunimodality threshold follows from two explicit coefficient differences. The smallest-spider statement is an exhaustive exact enumeration of all arm-length multisets through order twenty-two, corroborated independently by direct graph-level testing of every subset through order eleven.
+## correctness
 
-## Originality
-PASS. The 2024 source introduces the polynomial, gives special three-arm examples, and treats brooms, a proper subfamily of spiders; its smallest nonunimodal broom has order twenty-four. The inspected 2026 follow-up continues the broom analysis but contains no general spider or subdivided-star theorem. Searches under spider, starlike-tree, and subdivided-star terminology found no all-spider polynomial formula or unique order-twenty-two counterexample. The claim therefore goes beyond the prior broom coverage rather than merely renaming it.
+PASS
 
-## Value
-PASS. The source literature explicitly studies which natural graph families have unimodal general position polynomials. Spiders are the basic one-branch-vertex trees. The result both solves their complete counting problem and sharpens the tree-side nonunimodality picture by finding a unique spider counterexample two vertices smaller than the source paper's smallest broom counterexample, together with an infinite exact counterfamily.
+The structural proof reconstructs directly: any general-position set of size at least three excludes the center and uses at most one vertex from each arm, and every such choice is valid. Thus the coefficient in degree \(j\ge3\) is exactly the elementary symmetric polynomial \(e_j(\ell_1,\ldots,\ell_k)\), while degrees zero through two count all subsets. For \(S(1,1,1,1,2,m)\), direct expansion gives the seven displayed coefficients and the two relevant inequalities place the unique nonunimodality threshold at \(m=15\). A fresh independent enumeration of every integer partition defining a spider through order 22 counted exactly 3374 types, with no nonunimodal type through order 21 and the sole order-22 failure \(S(1,1,1,1,2,15)\) with coefficients \((1,22,231,226,249,137,30)\). The finite enumeration is exhaustive for the stated cutoff and the all-spider formula is analytic.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Originality passes. The 2024 defining paper gives the broom formula and identifies the smallest nonunimodal broom as order 24. The complete 2026 follow-up was inspected and studies complete multipartite graphs, brooms, coronas and related examples; full-text searches found no spider, starlike, or subdivided-star treatment. Fresh Resultary search likewise did not surface the all-spider elementary-symmetric formula or the order-22 cutoff.
+
+## value
+
+PASS
+
+Unimodality is an explicit structural question for the newly introduced general-position polynomial, and spiders are a canonical tree class strictly extending brooms. The result gives both a closed polynomial for every spider and the exact first failure within the class, improving the previously displayed broom counterexample from order 24 to a unique order-22 spider. The finite cutoff is therefore mathematically motivated and tied to an infinite family threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
