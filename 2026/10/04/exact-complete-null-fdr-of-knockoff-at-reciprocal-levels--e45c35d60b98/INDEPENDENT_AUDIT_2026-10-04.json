@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:01:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published Knockoff+ threshold becomes \\(P_k-rN_k\\ge r\\) at \\(q=1/r\\). Under the exact conditional sign-flip property this is a skip-free random walk with increments \\(+1\\) and \\(-r\\), each with probability one half, and selection is exactly first hitting level \\(r\\). The one-level defective generating function satisfies \\(F(z)=z(1+F(z)^{r+1})/2\\); strong Markov factorization gives \\(F(z)^r\\), and Lagrange inversion yields the submitted coefficients. A fresh exact-rational replay independently matched the closed sum to dynamic programming for multiple \\(r\\) and horizons and reproduced the displayed \\(r=2\\) and \\(r=10\\) limits.",
+      "risk": "The exact formula requires reciprocal integer levels, tie-free nonzero magnitudes and the exact fair-sign property, exactly as stated.",
+      "sources": [
+        "arXiv:1610.02351v4, Lemma 3.3 / Theorem 3.4 and Knockoff+ threshold",
+        "arXiv:2204.13248v2",
+        "independent exact-rational first-passage replay performed in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 proves FDR control at level \\(q\\), not the attained complete-null FDR.",
+          "Rajchert-Keich analyze the necessity of the correction in broader configurations rather than the exact fair-sign all-null distribution."
+        ],
+        "reasoning": "Generic validity and correction-necessity results do not determine the exact finite-horizon crossing probability.",
+        "searches": [
+          "arXiv:1610.02351v4 model-X Knockoff+ FDR control",
+          "arXiv:2204.13248v2 competition-based FDR and +1 correction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1610.02351v4",
+        "arXiv:2204.13248v2",
+        "Resultary semantic corpus",
+        "targeted web searches over all-null/random-walk/Fuss-Catalan aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work supplies the sign law and selection inequality.",
+          "Deriving the submitted formula still requires identifying the skip-free hitting problem, factorizing first-passage times, and evaluating the coefficients and limiting root."
+        ],
+        "reasoning": "The exact law is not a stated special case of a stronger prior statistical theorem, even though the underlying ballot coefficients are classical.",
+        "searches": [
+          "arXiv:1610.02351v4 Theorem 3.4",
+          "arXiv:2204.13248v2 Sections on SSS+ and competition thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The foundational threshold is equivalent to the submitted \\(+1/-r\\) walk after sorting by decreasing magnitude.",
+          "The '+1 needed?' paper presents the same competition framework and rational threshold mechanism but does not give the submitted all-null first-passage law in the inspected material."
+        ],
+        "reasoning": "Random-walk and SeqStep+ aliases were checked directly; no source located the exact reciprocal-level law.",
+        "searches": [
+          "Resultary: Knockoff+ complete null exact FDR reciprocal level random walk Fuss Catalan",
+          "web: knockoff+ global null exact FDR reciprocal level first passage golden ratio",
+          "arXiv:2204.13248v2 Selective Sequential Step+ / competition formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct Resultary table or prior record with the submitted coefficients or limiting constants was located in the leading results."
+        ],
+        "reasoning": "This exact finite law is not a recomputation of a published table; the relevant prior literature reports guarantees rather than these attained values.",
+        "searches": [
+          "Resultary semantic query for reciprocal Knockoff+ complete-null FDR"
+        ]
+      },
+      "rationale": "The foundational knockoff paper gives iid fair null signs and the generic finite-sample FDR guarantee, while later work on whether the '+1' correction is needed studies validity under broader competition configurations. Neither inspected primary source states the complete-null reciprocal-level hitting distribution, its Fuss-Catalan finite formula, or the limiting algebraic root. Targeted Resultary and web searches did not locate an equivalent procedure-specific law. The classical ballot/Lagrange machinery itself is not claimed as new.",
+      "residual_risks": [
+        "An equivalent all-null formula may have appeared in older target-decoy or ballot-theorem literature under notation not recovered by the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_INPUT_NOT_EXACT_LAW",
+          "evidence": "The source explicitly says the proof needs iid coin-flip null signs and displays the Knockoff+ +1 threshold, but states only FDR control.",
+          "identifier_or_url": "arXiv:1610.02351v4",
+          "material_read": "Full open PDF around the null sign-flip discussion and Theorem 3.4, including the +1 threshold and finite-sample FDR guarantee.",
+          "method": "Lawful arXiv full-text inspection with page-level visual check.",
+          "title": "Panning for Gold: Model-X Knockoffs for High-dimensional Controlled Variable Selection",
+          "trigger": "Foundational source for the conditional fair-sign law and Knockoff+ threshold."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "The inspected statements study when the correction is necessary for control, not the exact complete-null Fuss-Catalan crossing probability of the original rule.",
+          "identifier_or_url": "arXiv:2204.13248v2",
+          "material_read": "Open PDF introduction and SSS+ formulation, including the role of the +1 term and target-decoy/knockoff correspondence.",
+          "method": "Lawful arXiv full-text inspection with page-level visual check.",
+          "title": "Controlling the False Discovery Rate via Competition: is the +1 needed?",
+          "trigger": "Closest paper centered on the same +1 correction and competition/SeqStep+ threshold."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives an exact finite-sample and asymptotic calibration baseline for a widely used FDR procedure and quantifies how far the attained global-null error can sit below the nominal guarantee. The reciprocal-level staircase and explicit \\(q=0.1\\) limit are natural diagnostic quantities for theory and implementation.",
+      "risk": "Value is in procedure-specific calibration, not in the classical first-passage enumeration by itself.",
+      "sources": [
+        "arXiv:1610.02351v4",
+        "arXiv:2204.13248v2"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Under the complete null with distinct nonzero knockoff magnitudes and iid fair conditional signs, Knockoff+ at reciprocal level \\(q=1/r\\) has the stated finite Fuss-Catalan first-passage FDR formula and limiting value \\(f_r^r\\), where \\(f_r\\) is the smaller solution of \\(2f=1+f^{r+1}\\).",
+  "limitations": [
+    "No statement is made for ties, approximate knockoffs, mixed null/non-null configurations, or non-reciprocal nominal levels.",
+    "Older target-decoy literature remains the main originality residual risk."
+  ],
+  "schema_version": 1
+}
