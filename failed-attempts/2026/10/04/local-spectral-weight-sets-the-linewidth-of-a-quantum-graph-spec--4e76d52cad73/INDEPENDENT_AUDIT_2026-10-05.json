@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T13:44:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Green's identity for the boundary-normalized solution gives \\(\\Lambda'(E_0)=1/(c|\\psi_0(v_0)|^2)\\), consistent with the standard Weyl-function derivative identity. Substituting this nonzero slope into Turek-Cheon's exact \\(P_\\alpha(E)=[1+\\alpha^4F(E)^2]^{-1}\\), with \\(F=\\Lambda/(2k)\\), yields the local Lorentzian under the \\(\\alpha^{-2}\\) scaling. The inverse-function expansion gives the two half-height roots; subtracting the two inverse-series branches cancels even powers and gives the \\(O(\\alpha^{-6})\\) FWHM remainder. A change of variables gives the peak-area limit. The frozen interval verifier was read and its exact formula \\(4ck_0L^{-1}\\arctan(2/\\alpha^2)\\) has exactly the predicted expansion.",
+      "risk": "The theorem is local to a simple visible nonthreshold resonance and excludes magnetic/multiple-resonance cases.",
+      "sources": [
+        "arXiv:1206.1931",
+        "DOI:10.1063/1.4795404",
+        "Behrndt-Malamud-Neidhardt, DOI:10.1112/plms/pdn016 / public boundary-triplet preprint identity",
+        "frozen verify_filter_linewidth.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source formula is exact for all regular energies and couplings, hence strictly stronger data than its local Taylor expansion.",
+          "The Weyl identity is operator-valued and therefore broader than the scalar attachment normalization."
+        ],
+        "reasoning": "Together these broader results imply the final local theorem with routine calculus; no genuinely new spectral mechanism is required.",
+        "searches": [
+          "arXiv:1206.1931 full source",
+          "DOI:10.1112/plms/pdn016 / public preprint formula (2.9)",
+          "general quantum-graph Dirichlet-to-Neumann literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1206.1931",
+        "DOI:10.1063/1.4795404",
+        "DOI:10.1112/plms/pdn016",
+        "arXiv:1712.08223",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior formula: \\(P_\\alpha=[1+\\alpha^4F^2]^{-1}\\).",
+          "Prior identity: the derivative of the scalar Weyl/DtN function at a regular real point is the squared norm of the normalized gamma-field solution."
+        ],
+        "reasoning": "Substitute the derivative, set \\(E-E_0=O(\\alpha^{-2})\\), and expand. The final FWHM, area and ratio are direct consequences, so the claim is covered as a corollary.",
+        "searches": [
+          "Turek-Cheon exact transmission amplitude",
+          "standard Weyl/boundary-triplet difference identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Turek-Cheon publish the exact scattering/transmission function.",
+          "General boundary-triplet literature publishes the Weyl-function difference identity that yields the norming-constant derivative by taking a real limit."
+        ],
+        "reasoning": "The local spectral-weight derivative is the scalar Weyl norming identity, and the remaining statements are ordinary asymptotics of the published transmission formula.",
+        "searches": [
+          "Resultary: quantum graph spectral filter linewidth local spectral weight eigenfunction attachment FWHM Turek Cheon",
+          "web search: quantum graph Weyl function derivative eigenfunction norming constant",
+          "public boundary-triplet identity \\(M(\\lambda)-M(\\mu)^*=(\\lambda-\\bar\\mu)\\gamma(\\mu)^*\\gamma(\\lambda)\\)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct source was found printing the exact same coefficient, but exact-wording absence is not decisive because the claim follows directly from stronger prior identities."
+        ],
+        "reasoning": "This check does not rescue originality from implication-based coverage.",
+        "searches": [
+          "Resultary and web searches for the explicit FWHM coefficient and local spectral weight"
+        ]
+      },
+      "rationale": "The scientific conclusion is a direct local corollary of two established prior ingredients: Turek-Cheon publish the exact transmission probability in terms of the Dirichlet-to-Neumann function, while standard boundary-triplet/Weyl theory gives \\(M(\\lambda)-M(\\mu)^*=(\\lambda-\\bar\\mu)\\gamma(\\mu)^*\\gamma(\\lambda)\\), whose real derivative is the squared norm of the boundary-normalized solution. In this scalar graph normalization that is exactly the reciprocal local spectral weight. Taylor expansion, inverse-function expansion and one Lorentzian integral then mechanically produce the linewidth and area formulas. Under the audit rule that direct corollaries are covered even without matching wording, the absence of a printed FWHM formula in the source does not establish originality.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_EXACT_SCATTERING_FORMULA_PRIOR",
+          "evidence": "The published transmission is already an exact function of the scalar Dirichlet-to-Neumann map, so local line shape follows once its first derivative is known.",
+          "identifier_or_url": "arXiv:1206.1931; DOI:10.1063/1.4795404",
+          "material_read": "Open full-text source material containing the scattering amplitude, strong-coupling indicator limit and narrow-passband construction.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Quantum graph as a quantum spectral filter",
+          "trigger": "Direct source of the exact attached-graph transmission formula."
+        },
+        {
+          "assessment": "BROADER_STANDARD_IDENTITY_IMPLYING_DTN_SLOPE",
+          "evidence": "Taking the real diagonal limit gives the Weyl derivative as a gamma-field norm square; the audited scalar slope is precisely this identity in the attachment normalization.",
+          "identifier_or_url": "DOI:10.1112/plms/pdn016",
+          "material_read": "Public preprint/searchable text around the standard identities for the gamma-field and Weyl function, including \\(M(\\lambda)-M(\\mu)^*=(\\lambda-\\bar\\mu)\\gamma(\\mu)^*\\gamma(\\lambda)\\).",
+          "method": "Lawful public full-text/excerpt inspection.",
+          "title": "Scattering matrices and Weyl functions",
+          "trigger": "General prior Weyl-function calculus supplying the norming-constant derivative identity."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The local spectral-weight interpretation is useful exposition for the filter, but once the exact source scattering law and standard Weyl derivative identity are in hand, the Lorentzian profile, FWHM coefficient, area and \\(\\pi/2\\) ratio are routine Taylor/inverse-function/integration consequences. The precise fact is therefore mechanically implied by established formulas rather than an independently substantive structural result under the common value bar.",
+      "risk": "The formulas may still be useful as an engineering calibration, but that utility does not overcome direct implication and routine derivation.",
+      "sources": [
+        "arXiv:1206.1931",
+        "DOI:10.1112/plms/pdn016"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a positive simple visible eigenvalue of the Turek-Cheon attached-graph filter, the boundary-normalized Dirichlet-to-Neumann slope is the reciprocal local spectral weight, and the published transmission formula therefore has the stated Lorentzian strong-coupling scaling, \\(\\alpha^{-2}\\) FWHM/area laws, \\(O(\\alpha^{-6})\\) width correction, and area-to-FWHM ratio \\(\\pi/2\\).",
+  "limitations": [
+    "Correct local asymptotics, but rejected as a direct corollary of prior exact scattering and Weyl-function identities.",
+    "Simple visible positive eigenvalues only."
+  ],
+  "schema_version": 1
+}
