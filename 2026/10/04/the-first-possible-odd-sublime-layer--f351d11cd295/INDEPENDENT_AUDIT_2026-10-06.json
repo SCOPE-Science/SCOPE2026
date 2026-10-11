@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:07:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inequality \\(\\tau(n)\\le2^{\\Omega(n)}\\) restricts \\(\\tau(n)\\) below \\(256\\) to the perfect values \\(6\\) or \\(28\\). Fresh partition enumeration confirms that \\(\\tau=6\\) gives exponent patterns \\((5)\\) or \\((2,1)\\), while the only \\(\\Omega=8\\) pattern with perfect divisor count is \\((6,1,1)\\) and \\(\\tau=28\\). The \\(p^5\\) shape is impossible because \\(\\sigma(p^5)\\) has at least two distinct odd prime factors. The \\(p^2q\\) shape forces \\(p^2+p+1=2^s-1\\) and \\(q=2^{s-1}-1\\); simultaneous primality gives \\(s=3\\), then only \\(p=2\\), contradicting oddness. For \\((6,1,1)\\), Euclid--Euler forces the exact Mersenne/cyclotomic equations, and the modulo-eight calculation forces \\(p\\equiv1\\pmod8\\). The converse is immediate by multiplying divisor-sum factors.",
+      "risk": "The theorem does not prove that the equality-layer Diophantine system has a solution.",
+      "sources": [
+        "Kevin Brown, MathPages 'Sublime Numbers'",
+        "OEIS A081357",
+        "MathWorld 'Sublime Number'",
+        "frozen RESULT.md and verify.py",
+        "fresh exponent-partition reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brown gives a broader conditional structural template \\(q^{2^j-2}\\prod p_i\\), which at the next conditional layer has exponent pattern \\((6,1,1)\\).",
+          "No inspected unconditional source proves the submitted low-layer lower bound or equality classification."
+        ],
+        "reasoning": "The audited result is not stronger than Brown's conditional template in form, but it removes the unresolved global hypothesis on this entire low-multiplicity range.",
+        "searches": [
+          "Brown MathPages lines on odd sublime numbers",
+          "OEIS A081357 references",
+          "MathWorld current entry"
+        ]
+      },
+      "checked_sources": [
+        "Kevin Brown MathPages",
+        "OEIS A081357",
+        "MathWorld Sublime Number",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brown's result assumes no odd perfect numbers; that hypothesis is not known and therefore cannot logically imply the unconditional final claim.",
+          "The audited low-\\(\\Omega\\) bound proves locally that the only possible perfect divisor counts are even, which is exactly what permits the global assumption to be removed."
+        ],
+        "reasoning": "The final theorem is an unconditional localized strengthening, not a formal corollary under current knowledge.",
+        "searches": [
+          "Brown's conditional odd-sublime derivation",
+          "Current MathWorld statement that odd sublime existence is unknown"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No stronger Resultary theorem was located.",
+          "Brown's odd-sublime form is explicitly conditional on nonexistence of odd perfect numbers.",
+          "OEIS's broad 2025 comment is unsupported by a derivation, while MathWorld retains the odd-existence question as open."
+        ],
+        "reasoning": "Multiplicity-layer, Mersenne-factor, and divisor-count formulations were compared.",
+        "searches": [
+          "Resultary: odd sublime number \\(\\Omega=8\\) \\(\\Phi_7\\) Mersenne",
+          "Kevin Brown MathPages full exposition",
+          "OEIS A081357",
+          "MathWorld Sublime Number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists only the two known even sublime numbers and a recent unsupported structural comment; it does not list or prove the odd \\(\\Omega=8\\) theorem.",
+          "No exact database record with the submitted layer theorem was found."
+        ],
+        "reasoning": "An unsupported database comment is retained as originality risk rather than treated as scientific proof.",
+        "searches": [
+          "OEIS A081357 full current entry",
+          "Resultary exact semantic searches for \\(\\Omega=8\\) and \\(\\Phi_7\\)"
+        ]
+      },
+      "rationale": "Brown derives a general Mersenne-based form for odd sublime numbers only under the explicit assumption that no odd perfect numbers exist. At low multiplicity the audited argument removes that global assumption because \\(\\tau(n)<256\\) forces the relevant perfect divisor counts to be the even perfect numbers \\(6\\) and \\(28\\), and it then completely excludes the \\(\\Omega<8\\) shapes. Brown's conditional template anticipates the equality-layer architecture, so the originality is the unconditional low-layer closure rather than discovery of the Mersenne mechanism itself. OEIS contains a 2025 comment claiming all sublime numbers have a Mersenne form but supplies no proof or covering reference; MathWorld still states that existence of odd sublime numbers is unknown.",
+      "residual_risks": [
+        "OEIS contains a broad 2025 Mersenne-form assertion without attached proof; if a rigorous source for that comment exists, it could reduce originality.",
+        "Older recreational-number-theory literature may contain the same low-layer argument without modern indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONDITIONAL_TEMPLATE_NOT_UNCONDITIONAL_LAYER_THEOREM",
+          "evidence": "The odd-sublime analysis is expressly made 'assuming no odd perfect numbers'.",
+          "identifier_or_url": "https://www.mathpages.com/home/kmath202/kmath202.htm",
+          "material_read": "Complete page, especially the explicit assumption preceding the odd-sublime derivation, the general Mersenne form, the \\(375\\) near miss, and the concluding open question.",
+          "method": "Lawful public full-text inspection.",
+          "title": "Sublime Numbers",
+          "trigger": "Original detailed public exposition by Kevin Brown, including odd sublime structure."
+        },
+        {
+          "assessment": "UNSUPPORTED_BROAD_COMMENT_RESIDUAL_RISK",
+          "evidence": "The comment asserts a broad Mersenne form but gives no proof or source establishing it; the entry still lists only two known sublime numbers.",
+          "identifier_or_url": "A081357",
+          "material_read": "Full current OEIS entry and internal text, including the March 2025 Mersenne-form comment and references.",
+          "method": "Lawful public database inspection.",
+          "title": "OEIS A081357",
+          "trigger": "Exact database check for sublime numbers and structural comments."
+        },
+        {
+          "assessment": "OPEN_EXISTENCE_STATUS",
+          "evidence": "MathWorld states that it is not known whether any odd sublime number exists.",
+          "identifier_or_url": "MathWorld SublimeNumber",
+          "material_read": "Complete current entry.",
+          "method": "Lawful public reference inspection.",
+          "title": "Sublime Number",
+          "trigger": "Current reference status of the odd-sublime existence problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The existence of odd sublime numbers is an explicit longstanding open problem. Proving the first unconditional prime-multiplicity barrier and reducing the first possible layer to a precise cyclotomic--Mersenne system is a mathematically motivated structural sieve, even though it does not settle existence.",
+      "risk": "The equality layer may be empty, so the result is a necessary-and-sufficient reduction rather than an existence theorem.",
+      "sources": [
+        "Kevin Brown MathPages",
+        "MathWorld"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every odd sublime number satisfies \\(\\Omega(n)\\ge8\\); at \\(\\Omega(n)=8\\), the odd sublime numbers are exactly the integers \\(p^6(2^a-1)(2^b-1)\\) satisfying the stated distinct-prime, Mersenne-prime, cyclotomic equation \\(\\Phi_7(p)=2^{a+b+1}-1\\), with \\(a,b\\) distinct odd primes and \\(p\\equiv1\\pmod8\\).",
+  "limitations": [
+    "No odd sublime number is constructed.",
+    "No claim is made for \\(\\Omega(n)>8\\).",
+    "The equality-layer Diophantine system is left unresolved."
+  ],
+  "schema_version": 1
+}
