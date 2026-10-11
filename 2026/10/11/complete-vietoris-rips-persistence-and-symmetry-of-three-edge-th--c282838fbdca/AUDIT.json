@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Exact shortest-path distance matrix proves \\(K_2=S^0*L_m\\) where L_m is two disjoint simplices joined by m isolated bridges. Contracting the two simplex subspaces gives an \\(m\\)-edge banana graph, proving the integral wedge homotopy type after suspension. The connected triangle-free scale-one graph has cycle rank \\(m-1\\); diameter three makes all later stages simplices. Explicit orientation identifies both integral homology modules with the augmentation lattice, with pole flip acting -1 at scale one and (-1)(-1)=+1 at scale two. Finite BFS, complete simplex enumeration and mod-two boundary ranks for \\(2\\le m\\le8\\), and 608 complete Lefschetz group-element traces for \\(2\\le m\\le5\\), corroborate but do not replace the uniform proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamaszek, arXiv:1104.0433, Proposition 2.2: stability of the square clique complex for graphs of girth at least seven; our graphs have girth six.",
+        "Adamaszek et al., DOI:10.4230/LIPIcs.SoCG.2018.3, Theorem 10 requires overlap path length at most one third of containing loops; here overlap length three in a six-cycle (more than two).",
+        "Saleh–Titz Mite–Witzel, arXiv:2302.14388, main theorem addresses five Platonic solids, not parallel paths."
+      ],
+      "reasoning": "The most plausible broader theorems were checked by hypothesis: the large-girth bound and the short-gluing bound both fail, and the specialized Platonic-solid calculation does not include this family. This removes direct implication from the inspected published coverage, not every conceivable unpublished consequence.",
+      "searches": [
+        "Vietoris Rips complexes finite graphs homotopy type graph powers discrete Morse",
+        "Vietoris Rips complexes graph with multiple common endpoint length 3 paths homotopy scale two",
+        "site:arxiv.org Vietoris Rips generalized theta graph length three paths wedge spheres",
+        "published-finding corpus query graph with m internally disjoint length three paths Rips persistent homology H1 H2 rank m minus one"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.14388, arXiv v1 2023-02-28",
+      "arXiv:1104.0433, Proposition 2.2 and Theorem 5.1",
+      "DOI:10.4230/LIPIcs.SoCG.2018.3, Theorem 10 and Section 4.2",
+      "arXiv:2302.14664, symmetric-difference-metric families",
+      "published-finding corpus semantic searches for generalized theta Rips, graph powers, suspensions, parallel length-three paths and augmentation representations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adamaszek, arXiv:1104.0433, Theorem 5.1: squares of *once subdivided graphs*, unlike this three-edge-arm graph.",
+        "Adamaszek et al., DOI:10.4230/LIPIcs.SoCG.2018.3, §4.2 describes failure of their gluing method for overlapping long portions.",
+        "The prior edge-disjoint-six-cycle classification assumes distinct six-cycles have no common edges, whereas \\(\\Theta_m^{(3)}\\) has \\(\\binom{m}{2}\\) pairwise overlapping six-cycles with each common arm of length three.",
+        "Saleh–Titz Mite–Witzel, arXiv:2302.14388, Remark 4.5 describes a kernel-lattice action for the dodecahedron at a different Rips scale and graph; the present theta-family representations are neither instances nor corollaries of that result."
+      ],
+      "reasoning": "The target determines both complete persistent homotopy types and integral modules for the full symmetry group. Neither prior stabilization nor gluing is applicable by its hypotheses, and a different construction with superficial wedge-sphere agreement cannot imply the family or the character. The earlier edge-disjoint theorem is logically inapplicable. No stronger implication was located in the inspected sources. An analogous augmentation kernel in a different symmetric example is a conceptual precedent, not coverage of the current full-family filtration and pole-sign switch.",
+      "searches": [
+        "generalized theta graph with m length 3 paths common endpoints Vietoris Rips complex at scale two suspension of m parallel bridges H2 m-1",
+        "clique complex of the total graph T(G) is homotopy equivalent to clique complex of G with a two-sphere for each triangle",
+        "DOI:10.4230/LIPIcs.SoCG.2018.3, Theorem 10 and §4.2 (full primary text inspected)",
+        "published-finding corpus query graph with m internally disjoint length three paths Rips persistent homology H1 H2 rank m minus one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem in RESULT.md gives the exact flag-join identity, allowing comparison under the aliases graph-power clique complex, join suspension, and two-layer matched cliques.",
+        "published-finding corpus closest: 2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8; it computes a configuration-space representation, not a Rips filtration.",
+        "Adamaszek, arXiv:1104.0433, §5, Theorem 5.1 is the superficially similar known suspension-sphere formula but for one-edge subdivisions."
+      ],
+      "reasoning": "The exact join structure might be implicit in other graph-power results, but the closest retrieved configuration-space theorem uses a different functor, and the subdivision theorem uses a different graph operation. No equivalent statement or theorem with the necessary hypotheses was located; this is a residual risk rather than a proof by failed search.",
+      "searches": [
+        "generalized theta graph with m length 3 paths common endpoints Vietoris Rips complex at scale two suspension of m parallel bridges H2 m-1",
+        "two-layer matched cliques complex suspension and augmentation representation Rips graph theta",
+        "graph powers theta graph clique complex suspension matching m paths",
+        "published-finding corpus query generalized theta graph with m length 3 paths common endpoints Vietoris Rips complex at scale two suspension of m parallel bridges H2 m-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published published-finding corpus graph-metric entry 2026/10/4/SCOPE-scale-two-vietoris-rips-complexes-of-finite-projective-plane-inc--c3740b96b3c3 treats incidence graphs of projective planes.",
+        "published-finding corpus entry 2026/10/4/SCOPE-the-graph-metric-rips-filtration-of-the-truncated-tetrahedron--51e8cc219376 concerns a twelve-vertex Archimedean graph.",
+        "Feng–Nukala, arXiv:2302.14664, §§1,4–6 treat subset families under symmetric-difference distance."
+      ],
+      "reasoning": "No retrieved exact table or database record gives the unbounded equal-three-path family, its persistent intervals, or the integral symmetry action. Identical sphere multiplicities in isolated entries would not by themselves imply the all-parameter claim. Incompleteness of database indexing remains possible.",
+      "searches": [
+        "generalized theta graph with m length 3 paths common endpoints Vietoris Rips complex at scale two suspension of m parallel bridges H2 m-1",
+        "graph with m internally disjoint length three paths Rips persistent homology H1 H2 rank m minus one",
+        "scale two Rips of theta graphs K_2_m triple length paths wedge of m minus one 2-spheres",
+        "published-finding corpus query generalized theta graph with m length 3 paths common endpoints Vietoris Rips complex at scale two suspension of m parallel bridges H2 m-1"
+      ]
+    },
+    "rationale": "Compared exact homotopy, persistence, and integral automorphism representations against the Platonic-solid source arXiv:2302.14388, broad graph-power results arXiv:1104.0433, metric-gluing Theorem 10 DOI:10.4230/LIPIcs.SoCG.2018.3 and finite scale-two subset-metric calculations arXiv:2302.14664. The graph has girth six, not the girth-seven stabilization hypothesis; its three-edge shared arms exceed the permitted gluing bound of two; and it is not an edge-disjoint-six-cycle case or the once-subdivided graph theorem. published-finding corpus and literature alias searches found no covering statement, though unindexed equivalence remains a residual risk. The Platonic-solids article also has an equivariant remark for a dodecahedral filtration; its different graph and symmetry action do not imply this statement.",
+    "residual_risks": [
+      "An equivalent theorem under a different graph-power or metric-thickening vocabulary could be unindexed or implicit in literature not located.",
+      "The database is a partial publication index and cannot establish priority or rule out unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the theorem lists exactly five Platonic-solid vertex sets, and Remark 4.5 gives an equivariant kernel lattice for the dodecahedral case, not a theta/parallel-arm classification. Earliest public arXiv version 2023-02-28 (paper dateline later).",
+        "evidence": [
+          "arXiv:2302.14388 first-page primary 55N31; theorem finite Platonic-solid lists; Section 2 proof and Section 4 dodecahedron."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.14388",
+        "material_read": "Abstract and full stated theorem; Introduction and section roadmap; relevant §1 definitions, §2 lemmas, §3 cube example, §4 dodecahedron proof and equivariant Remark 4.5; appendices checked for relevance (none).",
+        "method": "Read and searched the publicly accessible arXiv PDF text, including original result statements, and examined its first-page image.",
+        "title": "Vietoris–Rips complexes of Platonic solids",
+        "trigger": "Owning middle-cohort source with primary MSC 55N31; finite graph-metric Rips family"
+      },
+      {
+        "assessment": "NOT_COVERING: Proposition 2.2 needs girth at least seven for scale two; Theorem 5.1 concerns once-subdivided simple graphs, not length-three arms.",
+        "evidence": [
+          "arXiv:1104.0433 Proposition 2.2; Theorem 5.1; Lemma 5.3; Section 6."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1104.0433",
+        "material_read": "Proposition 2.2 and its hypotheses, complete Section 5 statements/proofs of Theorems 5.1 and 5.2, and the scope and key formulas of Section 6 on cycles.",
+        "method": "Read the relevant open arXiv PDF sections and inspected the page image containing Theorem 5.1.",
+        "title": "Clique complexes and graph powers",
+        "trigger": "Plausible general graph-power theorem, including girth stabilization and subdivided graphs"
+      },
+      {
+        "assessment": "NOT_COVERING: bound for gluing path length <= cycle girth divided by three fails (three exceeds two); cited §4.2 exhibits this sort of obstruction.",
+        "evidence": [
+          "DOI:10.4230/LIPIcs.SoCG.2018.3, Theorem 10, pp. 3:10–3:11, Section 4.2."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol099-socg2018/LIPIcs.SoCG.2018.3/LIPIcs.SoCG.2018.3.pdf",
+        "material_read": "Theorem 10 and proof, relevant parts of Sections 3.3, 4.1 and 4.2 on the boundaries of metric gluing and examples.",
+        "method": "Read the publicly available SoCG full-paper PDF in text and inspected the source-page image for Section 4.",
+        "title": "Vietoris–Rips and Čech complexes of metric gluings",
+        "trigger": "Plausible strong gluing theorem for overlapping cycle subgraphs"
+      },
+      {
+        "assessment": "NOT_COVERING: structures are selected families of subsets with symmetric-difference metric; no graph theta structure nor graph-pole group action.",
+        "evidence": [
+          "arXiv:2302.14664 Abstract, Introduction, Sections 4–6 descriptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.14664",
+        "material_read": "Abstract, §1 complete statement of studied metric families and roadmap, and result descriptions for §§4–6.",
+        "method": "Read and searched the publicly available arXiv PDF text and viewed its first-page image.",
+        "title": "On Vietoris–Rips complexes of finite metric spaces with scale 2",
+        "trigger": "Very plausible general title at exactly the same scale"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c282838f-bdca-4fae-8c08-f11f8473515f",
+  "value": {
+    "rationale": "This is a motivated unbounded family at the first boundary where general high-girth stability fails, with many non-edge-disjoint hexagonal cycles. It gives a complete integral persistence classification, an exact join identity and a full automorphism representation showing an involution reverses first-degree classes yet fixes second-degree classes. Those facts cannot be inferred from the published single-\\(6\\)-cycle or disjoint-\\(6\\)-cycle cases and have a natural structural use as a test family for overlapping-cycle Rips topology.",
+    "status": "PASS"
+  }
+}
