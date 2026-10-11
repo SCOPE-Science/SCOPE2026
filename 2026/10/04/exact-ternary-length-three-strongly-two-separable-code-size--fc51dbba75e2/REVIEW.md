@@ -1,15 +1,21 @@
-# Review: Exact ternary length-three strongly two-separable code size
+# Independent mathematical audit
 
-## Correctness
-PASS. The direct definition reduces any failure to at most five words. Complete enumeration shows the minimal obstructions are exactly \(891\) four-word sets; a ten-word witness avoids them. Symmetry normalization followed by exhaustive branch-and-bound rules out eleven words. The packaged verifier recomputes these facts from scratch.
+## correctness
 
-## Originality
-PASS. The primary same-object source constructs nine ternary words but does not determine the optimum. Searches under SSC, strongly separable, descendant, exact parameter and neighboring fingerprinting-code formulations found no implication-equivalent exact value. The closest later strongly separable paper treats the \(\overline{3}\) condition rather than this \(\overline{2}\) instance. Residual risk remains for unindexed finite computations.
+PASS
 
-## Value
-PASS. This settles the natural smallest nonbinary length-three instance left sharper than the foundational construction, improving its ternary lower bound from nine to the exact value ten.
+The ten-word witness passes the definition directly. A fresh complete enumeration found no bad 2- or 3-subsets, exactly 891 minimal bad 4-subsets, and verified that every bad 5-subset contains a bad 4-subset. Independent coordinatewise symbol permutations normalize any hypothetical 11-word code to contain 000; exact branch-and-bound avoiding the 891 obstructions found no such code. Thus the maximum is 10. The only source-file defects are two literal C0/control escape corruptions in RESULT.md: a tab before 'imes' where '\\times' is intended and a form-feed before 'rac' where '\\frac' is intended; they do not alter the mathematical argument when repaired.
 
-## Closest literature and limitations
-Jiang–Cheng–Miao, arXiv:1412.6128, is the closest source. The result is finite and parameter-specific; it does not classify all optimal codes or extend the exact formula to larger alphabets.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. The foundational strongly-separable-code paper studies exactly q-ary strongly overline-2 separable codes of length three and supplies a construction, but its accessible text does not state the ternary optimum 10. The later length-three strongly-separable paper is for overline-3 rather than overline-2. Fresh Resultary search returned no exact ternary SSC theorem; the nearest exact length-three hit is 2-traceability, a different property.
+
+## value
+
+PASS
+
+This is the smallest nonbinary length-three case in the foundational strongly-overline-2-separable construction program. Determining its exact maximum and proving a strict upper bound beyond the known construction is a natural sharp finite invariant with direct relevance to the code-family hierarchy, not a cosmetic normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -10,7 +10,7 @@ An explicit optimal code is
 ## Assumptions and scope
 Let \(Q=\{0,1,2\}\). For \(X\subseteq Q^3\), define
 \[
-\operatorname{desc}(X)=X(1)	imes X(2)	imes X(3),
+\operatorname{desc}(X)=X(1)\times X(2)\times X(3),
 \]
 where \(X(i)\) is the set of symbols occurring in coordinate \(i\). A code \(C\subseteq Q^3\) is strongly \(\overline{2}\)-separable when, for every nonempty \(C_0\subseteq C\) with \(|C_0|\le2\), the intersection of all subsets \(C'\subseteq C\) satisfying \(\operatorname{desc}(C')=\operatorname{desc}(C_0)\) is exactly \(C_0\).
 
@@ -31,7 +31,7 @@ Run `python3 verify.py`. The verifier derives the forbidden family directly from
 ## Relationship to prior work
 Jiang, Cheng and Miao introduced strongly separable codes and studied \(q\)-ary strongly \(\overline{2}\)-separable codes of length three. Their construction gives size
 \[
-rac{9q^2-w^2}8,
+\frac{9q^2-w^2}8,
 \]
 with the residue-dependent parameter \(w\); at \(q=3\) this yields nine codewords. Their presentation explicitly leaves the largest possible size as a general problem and notes that larger length-three codes may exist. The present result determines the exact ternary value and improves the construction value from nine to ten.
 
