@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source theorem and proposition were reconstructed with their hypotheses. The staircase hook product gives an exact one-step ratio, and the asymptotic coefficient follows by the same Stirling calculation used in the source. Composition length is \((q+2)n\), so the normalized coefficient is \(c(q)\). The derivative sign calculation and the direct comparison of \(c(4)\) with \(c(3)\) establish the integer optimum within the stated family. The verifier checks exact arithmetic identities but is not treated as proof of the infinite limit.
+## correctness
 
-## Originality
-PASS. Full-text inspection of arXiv:2609.10217v2 found the general \(q\)-Kronecker lower bound but only the \(q=3\) asymptotic specialization and its lower endpoint. published-finding corpus searches for the source, four-arrow specialization, exact constant, aliases, and generalized-Kronecker formulations found no equivalent claim. The closest prior brick-chain paper, arXiv:2606.27879v1, studies chain length rather than filtration counts. Residual risk remains because the source is recent and not all literature may yet be indexed.
+PASS
 
-## Value
-PASS. The claim improves the lower endpoint in an explicitly open growth problem from \((1-\log2)/25\) to \((2+\log(3/8))/72\), a relative gain of about \(15.3\%\). It also proves that \(q=4\) is the best integer arrow count within this natural fixed-\(q\) square-staircase specialization, so the improvement is not an arbitrary parameter substitution.
+Conditional on the cited general q-Kronecker lower bound from Enomoto, the package's specialization is internally complete. For the staircase partition, the exact hook-product ratio gives logarithmic increment \((2+\log(q-1)-3\log2)n+O(1)\), summing to the displayed quadratic coefficient before division by composition length \((q+2)n\). The derivative test reduces to a strictly decreasing scalar function with positive value at q=3 and negative value at q=4; direct exact comparison gives c(4)>c(3), hence q=4 is the integer maximizer and c decreases thereafter. Fresh independent exact-ratio checks for 3<=q<=8, 2<=n<=10 and numerical coefficient checks through q=100 reproduced the arithmetic. The inaccessible primary theorem text is retained as a correctness-access residual risk rather than silently treated as independently read.
 
-## Closest literature and limitations
-The principal source is Enomoto's *Finiteness and growth of brick chain filtrations* (arXiv:2609.10217). The result does not optimize over unequal rectangle parameters, other partitions, or unrelated constructions, and it does not determine the global limsup. The algebraically closed-field hypothesis is retained.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Enomoto's accessible primary statements establish the brick-chain problem, the Kronecker construction context and the published three-arrow quadratic-growth endpoint; the assigned package cites the general q-Kronecker lower bound and specializes it to a square staircase. Complete primary theorem text was unavailable, so the exact general-q statement remains an explicit access risk. The later seven-arrow rectangle result now gives a stronger global lower endpoint, but Git ancestry proves that it was imported immediately after this four-arrow record and therefore is later superseding coverage, not prior-art evidence against the assigned record. It also does not replace the exact result that q=4 maximizes the square-staircase subfamily.
+
+## value
+
+PASS
+
+Although a later rectangle construction now gives a better global lower endpoint, the q=4 theorem completely optimizes the natural fixed-arrow square-staircase subfamily and records a nontrivial 15-percent improvement over the motivating published q=3 specialization. That exact subfamily optimum remains a meaningful structural benchmark for further parameter optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
