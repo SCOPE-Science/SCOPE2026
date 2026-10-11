@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a squarefree integer supported on primes \(2\pmod3\), each prime divisor \(p\) is excluded from every factor \(q^2+q+1\) in \(\sigma(m^2)\): otherwise a distinct \(q\) would yield a nontrivial cube root of unity modulo \(p\), impossible because \(3\nmid p-1\); \(p=2\) is immediate. Thus the relevant GCDs are both one. The counting Dirichlet series has an exact factorization into \(\zeta(s)^{1/2}\) times a function analytic and nonzero at \(1\), so classical Selberg--Delange gives the stated \(x/\sqrt{\log x}\) asymptotic and constant. The package independently checks the arithmetic family through \(10^5\) and counting data through \(10^6\).
+## correctness
 
-## Originality
-PASS. Dris's 2022 paper gives primes and prime powers as elementary solutions, finite counts, an upper-density result, and a density-zero conjecture. The exact 2020 public question asks about support sizes two and three but has only bounded computations. Searches of the defining equality, squarefree and \(2\pmod3\) aliases, the cube-root obstruction, and the asymptotic scale found no prior statement of this family or its count. The remaining risk is unindexed or unpublished work.
+PASS
 
-## Value
-PASS. The finding supplies solutions with every prescribed finite number of distinct prime factors and improves the explicit lower-scale information from prime-sized families to a natural multiplicative subfamily of order \(x/\sqrt{\log x}\). This is directly relevant to the conjectured density of the source set, while not overstating the result as a resolution of that conjecture.
+For squarefree m supported on primes q congruent to 2 mod 3, sigma(m^2)=product_{q|m}(q^2+q+1). If a support prime p divides q^2+q+1 with p not equal q, then q has order 3 modulo p; this is impossible for odd p congruent to 2 mod 3 because 3 does not divide p-1, while p=2 cannot divide the odd factor. The diagonal factor q^2+q+1 is 1 modulo q. Hence gcd(m,sigma(m^2))=1, so both GCDs in Dris’s defining equality equal 1. The Dirichlet series F(s)=product_{p congruent 2 mod 3}(1+p^{-s}) satisfies F(s)^2=(zeta(s)/L(s,chi_3))(1-3^{-s}) product_{p congruent 2 mod3}(1-p^{-2s}); Selberg–Delange therefore gives B(x)~C x/sqrt(log x), and using L(1,chi_3)=pi/(3 sqrt3) yields C=(1/pi)sqrt(2 sqrt3 product_{p congruent2 mod3}(1-p^{-2}))=0.498208218... . Fixed-omega subfamilies follow from choosing exactly r such primes.
 
-## Closest literature and limitations
-The closest source is Jose Arnaldo Bebita Dris, “A new approach to odd perfect numbers via GCDs,” arXiv:2202.08116. The Selberg--Delange theorem is used only for the standard analytic counting step. The theorem does not determine the density of the full GCD set and its sufficient congruence condition is not necessary.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Dris’s full Section 5 was inspected. It observes that primes and prime powers are solutions, proves only that the full set has density below one, and conjectures density zero; it also quotes a different obstruction driven by primes p congruent to 1 mod 6. It does not identify the squarefree support on primes 2 mod 3, prove gcd=1 there, or count that family. Fresh Resultary searches found nearby sigma/divisor-sum records but none implying this support theorem or its x/sqrt(log x) asymptotic.
+
+## value
+
+PASS
+
+The family is structurally motivated by the cyclotomic factor q^2+q+1 in the very GCD problem Dris studies. It yields an explicit infinite subfamily of all support sizes and a sharp first-order count of order x/sqrt(log x), giving quantitative lower structure inside a set conjectured to have density zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

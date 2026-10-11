@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:53:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For squarefree m supported on primes q congruent to 2 mod 3, sigma(m^2)=product_{q|m}(q^2+q+1). If a support prime p divides q^2+q+1 with p not equal q, then q has order 3 modulo p; this is impossible for odd p congruent to 2 mod 3 because 3 does not divide p-1, while p=2 cannot divide the odd factor. The diagonal factor q^2+q+1 is 1 modulo q. Hence gcd(m,sigma(m^2))=1, so both GCDs in Dris’s defining equality equal 1. The Dirichlet series F(s)=product_{p congruent 2 mod 3}(1+p^{-s}) satisfies F(s)^2=(zeta(s)/L(s,chi_3))(1-3^{-s}) product_{p congruent 2 mod3}(1-p^{-2s}); Selberg–Delange therefore gives B(x)~C x/sqrt(log x), and using L(1,chi_3)=pi/(3 sqrt3) yields C=(1/pi)sqrt(2 sqrt3 product_{p congruent2 mod3}(1-p^{-2}))=0.498208218... . Fixed-omega subfamilies follow from choosing exactly r such primes.",
+      "risks": [
+        "The asymptotic uses the standard Selberg–Delange theorem for a prime set of Dirichlet density 1/2; it says nothing about the full density of Dris’s set."
+      ],
+      "sources": [
+        "Frozen source tree 8090150520c5bbda6bb6c86b8f25d279177dd9b0",
+        "Dris, arXiv:2202.08116 / Octogon Mathematical Magazine 30(2) (2022), Section 5",
+        "Independent local-order and Euler-product calculation in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quoted Meyerowitz mechanism uses p congruent 1 mod 6 to create failures; it is complementary to the submitted 2 mod 3 sufficient family.",
+          "Nearby Resultary records concern sigma_{2,2}, iterated sigma, or different GCD maps."
+        ],
+        "reasoning": "No broader inspected theorem forces every squarefree number supported on primes 2 mod 3 into Dris’s set or supplies its asymptotic.",
+        "searches": [
+          "Dris Section 5 and Meyerowitz remark quoted there",
+          "Resultary nearby sigma/divisor-sum results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.08116",
+        "Dris Section 5 full text",
+        "Fresh Resultary GCD query",
+        "OEIS A232354 contextual comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5.1 only proves the full density is <1; the conjecture predicts 0.",
+          "Neither statement implies a positive x/sqrt(log x) lower-bound subfamily with all support primes 2 mod 3."
+        ],
+        "reasoning": "The submitted result provides a compatible thin subfamily inside a conjecturally density-zero set and is not entailed by the prior upper-density argument.",
+        "searches": [
+          "Dris Theorem 5.1 and Conjecture 5.1",
+          "Full-text discussion surrounding the quoted Meyerowitz heuristic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source lists small counterexamples, notes primes/prime powers, proves density <1 and states density-zero Conjecture 5.1.",
+          "The Resultary query returned no implication-equivalent squarefree 2 mod 3 family."
+        ],
+        "reasoning": "The submitted family is not a renaming of the source examples: it has arbitrarily many prime factors and an exact multiplicative counting law.",
+        "searches": [
+          "Dris arXiv:2202.08116, Section 5 full text",
+          "Resultary query: Dris gcd(m,sigma(m^2)) squarefree primes 2 mod 3 x/sqrt(log x)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dris’s table records aggregate counts, not the submitted subfamily; A232354 concerns w dividing sigma(w^2), a different condition."
+        ],
+        "reasoning": "Existing tables do not encode the support criterion or constant.",
+        "searches": [
+          "Dris’s explicit tables through 10^6",
+          "OEIS A232354 context referenced by Dris",
+          "Fresh Resultary query above"
+        ]
+      },
+      "rationale": "Dris’s full Section 5 was inspected. It observes that primes and prime powers are solutions, proves only that the full set has density below one, and conjectures density zero; it also quotes a different obstruction driven by primes p congruent to 1 mod 6. It does not identify the squarefree support on primes 2 mod 3, prove gcd=1 there, or count that family. Fresh Resultary searches found nearby sigma/divisor-sum records but none implying this support theorem or its x/sqrt(log x) asymptotic.",
+      "residual_risks": [
+        "A classical multiplicative-number-theory note could contain the same prime-support observation without using Dris’s set notation; targeted searches did not surface one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "The source notes primes/prime powers and density evidence, but no squarefree all-2-mod-3 support theorem or asymptotic appears."
+          ],
+          "identifier_or_url": "arXiv:2202.08116; Octogon Mathematical Magazine 30(2) (2022)",
+          "material_read": "Full public preprint text, especially Section 5 with computations, Theorem 5.1, Conjecture 5.1 and Remark 5.1.",
+          "method": "Full-text public preprint inspection.",
+          "title": "A new approach to odd perfect numbers via GCDs",
+          "trigger": "Primary source defining the exact GCD set and posing its density problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is structurally motivated by the cyclotomic factor q^2+q+1 in the very GCD problem Dris studies. It yields an explicit infinite subfamily of all support sizes and a sharp first-order count of order x/sqrt(log x), giving quantitative lower structure inside a set conjectured to have density zero.",
+      "risks": [
+        "It is a lower-bound family, not an asymptotic for the full GCD set."
+      ],
+      "sources": [
+        "Dris density-zero problem",
+        "Independent Selberg–Delange reconstruction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the squarefree subfamily supported on primes congruent to 2 modulo 3 is classified.",
+    "No conclusion on the full asymptotic density of Dris’s set."
+  ],
+  "schema_version": 1
+}
