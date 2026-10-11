@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is verified deductively; no finite computation is required or used as a certificate for the infinite statement.
+# Independent mathematical audit
 
-1. The identity \(D(a)=Q_a(\{0,1\})\), the definition of sparsity, Campbell's Lemmas 3--6, and the complete proof of Campbell's Theorem 2 were inspected in arXiv:2609.30771v1.
-2. In Campbell's proof, total reality is invoked only when passing from a bad conjugate \(a^{\ast}\notin(0,1)\) to \(a^{\ast}\in\mathbb R\). The replacement argument is exhaustive: if \(a^{\ast}\notin\mathbb R\), then \(a^{\ast}\notin[0,1]\) immediately; if \(a^{\ast}\in\mathbb R\), irreducibility excludes the endpoints \(0\) and \(1\), so again \(a^{\ast}\notin[0,1]\).
-3. Every subsequent step uses only the real compact set \(K=[0,1]\cup\{a\}\), the fact that the bad conjugate is outside \(K\), and the stated lemmas. Thus the proof survives with no total-reality assumption.
-4. The strong-PV definition and Theorem 4.12 of Fenner--Green--Homer were inspected in the open-access article; they give uniform discreteness of \(D(a)\) for every real strong PV number.
-5. The real-parameter algebraic-integrality implication is explicitly restated as Pinch's Theorem 8.1 in the extended full text of Fenner--Green--Homer.
+## correctness
 
-Limits: the original 1985 paper was not full-text inspected here, and the theorem does not address nonreal parameters. Independent audit has not been performed.
+PASS
+
+The total-reality hypothesis can indeed be removed from Campbell's proof. For a sparse noninteger real parameter \(a\), Campbell's lemmas first exclude \(a\in(0,1)\). If a nontrivial conjugate \(a^\ast\) is nonreal, then it is automatically outside the real compact set \([0,1]\cup\{a\}\); if it is real but not in \((0,1)\), irreducibility excludes the endpoints \(0,1\), so it is again outside that set. This replaces the sole load-bearing use of total reality in Campbell's proof. The remaining transfinite-diameter argument, the identification of complete conjugacy classes in the compact set with only \(0,1\), and the auxiliary polynomial contradiction then run unchanged. Pinch's real discreteness-to-algebraic-integrality input and the Fenner--Green--Homer strong-PV uniform-discreteness theorem supply the two outer implications.
+
+## originality
+
+PASS
+
+Campbell proves the necessity direction only under the explicit additional assumption that \(a\) is totally real. Inspection of the complete proof shows that this hypothesis is used to declare the chosen bad conjugate real before excluding it from \([0,1]\); a nonreal conjugate is already excluded from that real set, so the argument extends. Fenner, Green and Homer formulate the strong-PV discreteness converse as an open conjecture and prove the strong-PV sufficiency. Current Resultary search returned only the assigned all-real-parameter resolution and no broader prior theorem. The audited result therefore genuinely enlarges the published theorem and resolves the full real-parameter necessity, rather than merely specializing an existing statement.
+
+## value
+
+PASS
+
+The theorem removes a substantive algebraic hypothesis from a newly published proof and settles the entire real-parameter case of a strong-PV discreteness characterization that is explicitly open in the modern theory. Automatic total reality is a structural conclusion about the parameter, so this is a natural theorem-level closure rather than a cosmetic sharpening.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

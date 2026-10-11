@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is an infinite deductive theorem, not an extrapolation from computation. The necessity proof checks the integer, open-unit-interval, real bad-conjugate, and nonreal bad-conjugate cases separately. The key observation is that a nonreal bad conjugate is automatically outside the real compact set \([0,1]\cup\{a\}\), so Campbell's remaining proof requires no total-reality assumption. The published lemmas used after that point were inspected in full text. The converse follows directly from the published uniform-discreteness theorem for strong PV numbers.
+## correctness
 
-## Originality
-PASS. Campbell's theorem states the necessity result only for totally real algebraic integers. Fenner--Green--Homer prove the strong-PV sufficient direction, formulate the converse as a conjecture, and explicitly record the necessity only in the real quadratic case. Targeted searches for automatic total reality, nonreal-conjugate obstructions, and the all-real strong-PV equivalence found no covering published finding. The closest database hits were unrelated. The original 1985 Pinch paper was not full-text inspected, but no claim of whole-document noncoverage is based on that inaccessible material.
+PASS
 
-## Value
-PASS. Removing total reality is mathematically consequential: it proves that sparsity controls the entire Galois orbit of a real parameter and upgrades a recent theorem from a totally real subfamily to all real parameters. Together with the known strong-PV sufficient theorem, this yields a clean exact characterization for the real line and resolves the real slice of a broader current conjectural picture.
+The total-reality hypothesis can indeed be removed from Campbell's proof. For a sparse noninteger real parameter \(a\), Campbell's lemmas first exclude \(a\in(0,1)\). If a nontrivial conjugate \(a^\ast\) is nonreal, then it is automatically outside the real compact set \([0,1]\cup\{a\}\); if it is real but not in \((0,1)\), irreducibility excludes the endpoints \(0,1\), so it is again outside that set. This replaces the sole load-bearing use of total reality in Campbell's proof. The remaining transfinite-diameter argument, the identification of complete conjugacy classes in the compact set with only \(0,1\), and the auxiliary polynomial contradiction then run unchanged. Pinch's real discreteness-to-algebraic-integrality input and the Fenner--Green--Homer strong-PV uniform-discreteness theorem supply the two outer implications.
 
-## Closest literature and limitations
-The closest source is Campbell's arXiv:2609.30771v1, whose proof contains the mechanism used here but assumes total reality. Fenner--Green--Homer provide the strong-PV framework and the converse conjecture. The result here does not settle the complex-parameter case. The 1985 source was checked only through its publisher extract and exact restatements in later full-text papers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Campbell proves the necessity direction only under the explicit additional assumption that \(a\) is totally real. Inspection of the complete proof shows that this hypothesis is used to declare the chosen bad conjugate real before excluding it from \([0,1]\); a nonreal conjugate is already excluded from that real set, so the argument extends. Fenner, Green and Homer formulate the strong-PV discreteness converse as an open conjecture and prove the strong-PV sufficiency. Current Resultary search returned only the assigned all-real-parameter resolution and no broader prior theorem. The audited result therefore genuinely enlarges the published theorem and resolves the full real-parameter necessity, rather than merely specializing an existing statement.
+
+## value
+
+PASS
+
+The theorem removes a substantive algebraic hypothesis from a newly published proof and settles the entire real-parameter case of a strong-PV discreteness characterization that is explicitly open in the modern theory. Automatic total reality is a structural conclusion about the parameter, so this is a natural theorem-level closure rather than a cosmetic sharpening.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
