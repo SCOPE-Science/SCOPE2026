@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:40:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 8af29f1436dfd101b92667156cbad8962402b9a6",
+        "verify.py blob cd50567e9d897589e15d4364842b14d7574c8df3",
+        "Hu--Song--Tan, arXiv:2401.09998v1, full primary text",
+        "Sun--Hu--Sun, arXiv:2304.11459v2"
+      ],
+      "rationale": "The exact recurrence from Hu--Song--Tan reduces same-parity ordering to an integral inequality. Its integrand decreases with \\(s=y^2\\), so the endpoint \\(s=3\\) suffices; convexity plus Jensen reduces the proof to the explicit positive factor \\(B_n\\), whose polynomial sign argument is valid for all \\(n\\ge4\\), with \\(n=3\\) checked separately. Closed forms for \\(J_3,J_4\\) and the one-turn derivative argument prove the cross-parity ordering. The displayed Stirling expansion was independently spot-checked against the exact density through order \\(n^{-2}\\); differencing its first correction gives the sign change exactly at \\(y=\\sqrt3\\). The package verifier also checks thousands of finite degrees but is not used for the infinite claim.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited 2024 paper compares a fixed one-standard-deviation probability with the normal law.",
+          "It does not imply an all-degree parity chain or its sharp phase boundary."
+        ],
+        "reasoning": "No broader checked comparison theorem dominates the final claim.",
+        "searches": [
+          "Sun--Hu--Sun arXiv:2304.11459v2",
+          "Student stochastic/variation comparison literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.09998v1",
+        "arXiv:2304.11459v2",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence is prior, but the published argument only derives the \\(y\\le1\\) regime.",
+          "The endpoint proof through \\(\\sqrt3\\), the cross-parity comparison, and the asymptotic reversal require additional inequalities and expansion."
+        ],
+        "reasoning": "The final theorem is not mechanically implied by the source's printed smaller-range result.",
+        "searches": [
+          "Hu--Song--Tan recurrence versus endpoint extension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source stops its explicit parity monotonicity theorem at \\(y\\le1\\).",
+          "Resultary did not return any prior exact \\(\\sqrt3\\) threshold among the closest hits."
+        ],
+        "reasoning": "Equivalent formulations via central mass, two-sided tails, and fixed-variance Student crossings were checked.",
+        "searches": [
+          "arXiv:2401.09998v1 Student section and Remark 2.5",
+          "Resultary: variance-one Student same-parity sqrt3 threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database or theorem entry with this threshold was located."
+        ],
+        "reasoning": "The result is analytic rather than a tabulated constant.",
+        "searches": [
+          "Resultary corpus",
+          "targeted searches for standardized Student \\(\\sqrt3\\) crossing"
+        ]
+      },
+      "rationale": "The closest paper studies exactly the same variance-normalized Student anti-concentration functional. Its Theorem 2.4 gives a smaller-range finite maximization and Remark 2.5 proves same-parity monotonicity only for \\(0<y\\le1\\); it does not state the \\(\\sqrt3\\) endpoint, eventual reversal, or the degree-three envelope on the larger interval.",
+      "residual_risks": [
+        "An equivalent crossing theorem may exist in older distribution-order literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING.",
+          "evidence": "It supplies the recurrence and proves monotonicity only through \\(y=1\\), not the sharp \\(\\sqrt3\\) extension or reversal.",
+          "identifier_or_url": "arXiv:2401.09998v1",
+          "material_read": "Full primary text around the Student theorem, proof, comparison recurrence, Remark 2.5, and references.",
+          "method": "Primary full-text inspection.",
+          "title": "On the anti-concentration functions of some familiar families of distributions",
+          "trigger": "Exact normalized Student functional and recurrence."
+        },
+        {
+          "assessment": "NOT_COVERING.",
+          "evidence": "It treats a fixed one-standard-deviation comparison, not the parity-monotonicity phase theorem.",
+          "identifier_or_url": "arXiv:2304.11459v2",
+          "material_read": "Primary abstract and Student-law theorem scope.",
+          "method": "Primary-source comparison.",
+          "title": "Variation comparison between infinitely divisible distributions and the normal distribution",
+          "trigger": "Nearby Student probability comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hu--Song--Tan 2024",
+        "Sun--Hu--Sun 2024"
+      ],
+      "rationale": "The theorem identifies the exact maximal interval on which fixed-variance Student central mass is monotone along both parity chains, proves the endpoint is intrinsic through the first asymptotic correction, and yields a closed unique extremizer. This is a natural sharp phase result in an active anti-concentration problem.",
+      "residual_risks": [
+        "The optimizer structure above the phase boundary is not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For variance-one Student laws \\(Z_n=\\sqrt{(n-2)/n}\\,T_n\\), \\(J_{n+2}(y)<J_n(y)\\) for all integers \\(n\\ge3\\) and \\(0<y\\le\\sqrt3\\); \\(\\sqrt3\\) is the sharp uniform endpoint because every fixed \\(y>\\sqrt3\\) eventually reverses the inequality. Moreover \\(J_3(y)>J_4(y)\\) on this interval, so degree three uniquely maximizes central mass there.",
+  "limitations": [
+    "Integer degrees \\(n\\ge3\\) only.",
+    "For \\(y>\\sqrt3\\), only eventual same-parity reversal is proved, not the full finite-degree optimizer map."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact comparison recurrence is used with the source normalization. Monotonicity in \(y^2\), endpoint convexity and an explicit polynomial sign prove the same-parity inequality. Closed forms for \(J_3\) and \(J_4\) settle the parity-chain comparison. The large-degree Hermite correction yields the sign coefficient \(y(y^2-3)\phi(y)\), establishing sharpness.
+## correctness
 
-## Originality
-PASS. Hu--Song--Tan treats the identical variance-normalized Student family but proves same-parity monotonicity only for \(0<y\le1\), while its nearby theorem leaves a finite maximization on \(0<y<\sqrt6/2\). The inspected material does not state the \(\sqrt3\) endpoint, eventual reversal beyond it, or the degree-three envelope through that endpoint. Sun--Hu--Sun is restricted to one standard deviation.
+PASS
 
-## Value
-PASS. The contribution identifies an exact natural phase boundary forced by the first large-degree correction and converts an implicit finite search into a closed anti-concentration formula on the maximal uniform same-parity regime.
+The exact recurrence from Hu--Song--Tan reduces same-parity ordering to an integral inequality. Its integrand decreases with \(s=y^2\), so the endpoint \(s=3\) suffices; convexity plus Jensen reduces the proof to the explicit positive factor \(B_n\), whose polynomial sign argument is valid for all \(n\ge4\), with \(n=3\) checked separately. Closed forms for \(J_3,J_4\) and the one-turn derivative argument prove the cross-parity ordering. The displayed Stirling expansion was independently spot-checked against the exact density through order \(n^{-2}\); differencing its first correction gives the sign change exactly at \(y=\sqrt3\). The package verifier also checks thousands of finite degrees but is not used for the infinite claim.
 
-## Closest literature and limitations
-The closest sources are arXiv:2401.09998v1 and arXiv:2304.11459v2. The theorem is limited to integer degrees \(n\ge3\); above \(\sqrt3\), only eventual parity-chain reversal is proved. An unindexed equivalent result remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest paper studies exactly the same variance-normalized Student anti-concentration functional. Its Theorem 2.4 gives a smaller-range finite maximization and Remark 2.5 proves same-parity monotonicity only for \(0<y\le1\); it does not state the \(\sqrt3\) endpoint, eventual reversal, or the degree-three envelope on the larger interval.
+
+## value
+
+PASS
+
+The theorem identifies the exact maximal interval on which fixed-variance Student central mass is monotone along both parity chains, proves the endpoint is intrinsic through the first asymptotic correction, and yields a closed unique extremizer. This is a natural sharp phase result in an active anti-concentration problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
