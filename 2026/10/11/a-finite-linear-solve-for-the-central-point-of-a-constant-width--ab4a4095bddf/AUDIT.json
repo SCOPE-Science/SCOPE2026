@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The two involute steps are linear and translation-equivariant by the published formulas. Every vector in the closed double-polygon edge space is realized as the central equidistant of a convex constant-width polygon after adding a sufficiently large multiple of U, so the published convergence theorem applies to every vector in that space. Hence the induced shape map A has A^k x -> 0 for all x, which implies spectral radius below 1 and makes I-A invertible. Iterating the affine decomposition then yields the claimed finite translation-cocycle sum. Exact rational replay in verify.py confirms the nontrivial indexing and sign conventions; no finite experiment is used for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Craizer--Teixeira--Balestro, arXiv:1702.00522, states that curvature-radius vectors represent the polygon only up to translation and develops double evolutes/pseudo-inverses in that quotient.",
+        "Arnold et al., arXiv:1510.07742, Sections 1 and 3--6, explicitly study different perpendicular-bisector and angular-bisector evolutes."
+      ],
+      "reasoning": "The later linear operator literature has broader shape dynamics but loses the translation coordinate needed for this central point; the other major involute theory uses different discrete constructions. Neither dominates the claim.",
+      "searches": [
+        "central equidistant double involute contraction translation center",
+        "discrete cycloids curvature radius translation central point",
+        "\"Craizer\" \"central point\" linear algebra involute polygon",
+        "arXiv:1702.00522 full-text inspection",
+        "arXiv:1510.07742 full-text HTML inspection"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.3205",
+      "DOI:10.26493/1855-3974.887.AE1",
+      "arXiv:1702.00522",
+      "arXiv:1510.07742",
+      "MaRDI Q2835395",
+      "2026/9/21/SCOPE-sharp-angular-support-stability-constant-width--11cc15235c14",
+      "2026/10/4/SCOPE-closed-form-uniqueness-for-the-minimal-antipodal-l-p-minkowski-p--a0cbd4a2c41b",
+      "2026/10/4/SCOPE-a-trapezoid-disproves-parameter-independent-p-critical-points--1fb9263e32a2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 paper proves convergence but leaves direct extraction as an explicit question.",
+        "The 2017 curvature-radius formalism works up to translation, so even its pseudo-inverse does not output the absolute central point.",
+        "The 2015 polygonal evolute paper studies different perpendicular- and angular-bisector constructions."
+      ],
+      "reasoning": "Convergence alone does not state the finite resolvent formula, and the later quotient-space operator does not recover translation. No inspected primary or secondary source implies the translation-aware finite solve.",
+      "searches": [
+        "arXiv:1406.3205 Sections 2--5",
+        "arXiv:1702.00522 Sections 3--4 and pseudo-inverse discussion",
+        "arXiv:1510.07742 introduction and polygonal sections",
+        "\"direct method\" \"central point\" polygon involute Minkowski",
+        "\"central point\" \"double involute\" polygon Minkowski"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Craizer--Martini, arXiv:1406.3205, Theorem 5.1 and the Question immediately following it.",
+        "Exact and phrase searches returned the 2014 source itself but no source stating a finite solve for O(P)."
+      ],
+      "reasoning": "The claimed theorem is equivalent to replacing the convergent affine iteration by the resolvent of its shape operator together with its translation cocycle. No retrieved source stated this equivalent formulation.",
+      "searches": [
+        "finite linear solve central point involutes constant width polygons Minkowski",
+        "Craizer Martini central point direct method polygon linear operator inverse",
+        "\"direct method\" \"central point\" polygon involute Minkowski",
+        "\"central point\" \"double involute\" polygon Minkowski"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No semantic-index hit or inspected bibliographic record supplied a table, formula, or database entry for the map from a polygon to its central point beyond the iterative definition.",
+        "MaRDI and arXiv metadata reproduce the convergence result and subject classification but no direct formula."
+      ],
+      "reasoning": "There is no exact-value database relevant to this operator-valued center; database and bibliographic searches expose only the source theorem and citations.",
+      "searches": [
+        "arXiv 1406.3205 direct method central point",
+        "Involutes of Polygons of Constant Width in Minkowski Planes central point O(P)",
+        "\"central point\" \"Involutes of polygons of constant width\" Craizer Martini"
+      ]
+    },
+    "rationale": "The 2014 primary source proves convergence and explicitly asks for a direct method to obtain the central point; it does not give the finite solve. The 2017 discrete-cycloid paper linearizes shape/radius data only up to translation, so it does not determine this absolute center. The 2015/2017 Arnold et al. work uses different perpendicular- and angular-bisector discretizations. Targeted published-finding corpus and primary-literature searches found no statement implying the translation-cocycle formula.",
+    "residual_risks": [
+      "A later unindexed note could have combined the 2014 convergence theorem with a translation-aware operator formulation without using the same terminology.",
+      "The 2017 paper supplies strong linear-algebraic machinery for shape data; although its inspected formulation is explicitly modulo translation, a non-prominent remark elsewhere could conceivably encode an equivalent center extraction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING: supplies the formulas and convergence theorem but leaves direct recovery of O(P) open.",
+        "evidence": "Equations (2.1), (3.1), (3.5), (3.14), (4.1), Theorem 5.1, and the Question immediately after Theorem 5.1.",
+        "identifier_or_url": "arXiv:1406.3205",
+        "material_read": "Full arXiv paper sections 2.1--2.2, 3.1, 3.4, 4.1, 5, including the page containing Theorem 5.1 and the open question.",
+        "method": "Material full-text and page-image inspection.",
+        "title": "Involutes of Polygons of Constant Width in Minkowski Planes",
+        "trigger": "Primary source defining the central point and explicitly asking for a direct method."
+      },
+      {
+        "assessment": "NOT_COVERING: the radius representation is explicitly only up to translation, and no central-point formula is stated.",
+        "evidence": "Section 3 says radii determine P-polygons up to translation; Section 4 linearizes double evolutes; the final pseudo-inverse discussion remains in radius coordinates.",
+        "identifier_or_url": "arXiv:1702.00522",
+        "material_read": "Full arXiv paper introduction, curvature-radius space, double polygons, evolutes/double evolutes, and concluding pseudo-inverse passage; page image of the curvature-radius definition also inspected.",
+        "method": "Material full-text and page-image inspection.",
+        "title": "Discrete Cycloids from Convex Symmetric Polygons",
+        "trigger": "Later paper by overlapping authors develops a linear double-evolute operator and pseudo-inverse."
+      },
+      {
+        "assessment": "NOT_COVERING: studies circumcenter/perpendicular-bisector and incenter/angular-bisector discretizations rather than the Craizer--Martini Minkowski constant-width involute.",
+        "evidence": "The paper explicitly distinguishes its two polygonal evolute constructions in Sections 1.2--1.3.",
+        "identifier_or_url": "arXiv:1510.07742",
+        "material_read": "ArXiv full-text HTML introduction and survey of results, including the definitions of the two polygonal evolutes and the Steiner/pseudo-Steiner discussion.",
+        "method": "Material full-text HTML inspection after direct PDF fetch was unavailable.",
+        "title": "Iterating evolutes and involutes",
+        "trigger": "Potentially dominating polygonal involute/Steiner-point literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab4a4095-bddf-4fb5-83bb-14717eb7cba7",
+  "value": {
+    "rationale": "The foundational paper poses direct recovery of the central point as an explicit open question. The result gives a complete finite procedure for every convex polygon: one constructs a single double-involute operator on an (n-2)-dimensional space and solves one linear system. It also identifies why later curvature-radius operator methods alone do not answer the question: they quotient out the translation that the new cocycle B recovers. This is a natural structural closure of a named gap, not a routine parameter increment or arbitrary special case.",
+    "status": "PASS"
+  }
+}
