@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Complete analytic proof via center reduction, separately convex perimeter, rigorous equality arguments, and angular geometry. Original centers eliminated by circumscribed-disk parallelogram identity. Linear scan checked by sorting and monotone pointer. Finite diagnostics 9862 do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The convex-polygon algorithm of Cabello et al. reports cubic running time for maximum-perimeter inscribed rectangles.",
+        "Choi et al. give general polygonal maximum rectangle algorithms, not a classification of maximizers for cyclic symmetric polygons."
+      ],
+      "reasoning": "Algorithmic computability in a larger class neither implies the stated closed formula or vertex equality rigidity nor supplies linear complexity for cyclic centrally symmetric polygons. General algorithms can evaluate instances but do not dominate the theorem as a mathematical statement.",
+      "searches": [
+        "Cabello et al. Finding Largest Rectangles in Convex Polygons arXiv 1405.1223 sections 3 and 4",
+        "Choi Lee Ahn Maximum-area and maximum-perimeter rectangles in polygons convex case",
+        "published-finding corpus: Parallelogram perimeter extremum for centrally symmetric cyclic point configurations, pairs of vertices, optimal inscribed rectangle"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1405.1223 full HTML",
+      "DOI:10.1016/j.comgeo.2020.101710 accessible text",
+      "published published-finding corpus maximum-area-rectangles 2026 full RESULT.md",
+      "Knauer et al. 2012 journal abstract (area approximation, not claimed fully inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published area theorem determines area maxima for regular even polygons only and explicitly omits perimeter.",
+        "Cabello et al. maximum-perimeter algorithm covers general convex polygons but does not assert all maximizing parallelograms are centered vertex rectangles."
+      ],
+      "reasoning": "An area-optimal rectangle need not be perimeter-optimal on arbitrary sets. A general finite algorithm is not logically the vertex-rigidity identity or linear-time direct optimization. None of the inspected statements implies the all-equality conclusion without the new circle/equality argument.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427/RESULT.md full text",
+        "arXiv:1405.1223 full-text theorem for maximum-perimeter rectangles",
+        "DOI:10.1016/j.comgeo.2020.101710 full-text convex case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cabello et al. arXiv:1405.1223 give an algorithm for maximum-perimeter rectangles, with a different general optimization approach.",
+        "Full published special-case RESULT.md explicitly excludes maximum-perimeter rectangles from its claim."
+      ],
+      "reasoning": "The exact statement includes the entire centrally symmetric cyclic family, equality among all parallelograms, and a vertex-pair angular optimizer. The inspected general algorithm and special area theorem do not establish those claims; searches under the rectangle/parallelogram and cyclic/diametral aliases found no equivalent in the inspected evidence.",
+      "searches": [
+        "published-finding corpus: Maximum perimeter inscribed rectangles in centrally symmetric cyclic polygons, four vertices on circumcircle, rotating calipers linear time; exact regular 2m-gon formula 4 sqrt(2) R cos(pi/(2n))",
+        "Web: maximum perimeter inscribed parallelogram cyclic polygon rectangle vertices",
+        "Web: maximum perimeter rectangle inscribed centrally symmetric cyclic polygon vertices",
+        "2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published regular-polygon table is a maximum-area value, not a perimeter value.",
+        "No exact perimeter table or matching angular law appeared in the inspected searches."
+      ],
+      "reasoning": "The theorem is a uniform structural classification, not a fixed numerical datum. In any case, failure to locate an older table is not proof of priority; this is retained as risk.",
+      "searches": [
+        "Web: maximum perimeter rectangle inscribed regular n-gon formula",
+        "Web: maximum perimeter inscribed rectangle in central symmetric cyclic polygon linear time",
+        "published-finding corpus: regular hexagon inscribed largest rectangle perimeter optimized over orientations"
+      ]
+    },
+    "rationale": "Direct original mathematical comparisons of full 2014 and 2021 general rectangle algorithm texts and the nearest published maximum-area-only regular-polygon theorem show no equivalent or dominating vertex-rigidity/perimeter statement in the inspected sources; older poorly indexed geometry is a priority risk.",
+    "residual_risks": [
+      "Older elementary/rotating-calipers literature might contain an equivalent center-and-vertex reduction for cyclic symmetric polygons.",
+      "Search does not prove global novelty or independence of unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general cubic-time computation, not an explicit vertex-perimeter rigidity theorem for centrally symmetric cyclic polygons.",
+        "evidence": [
+          "General convex polygon maximum-perimeter algorithm O(n^3); initial preprint dated 2014-05-06."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.1223",
+        "material_read": "Full HTML version, including perimeter-rectangle construction and computational complexity sections.",
+        "method": "Read the main mathematical statements and maximum-perimeter optimization argument; compared optimizer characterization and algorithmic bounds.",
+        "title": "Finding Largest Rectangles in Convex Polygons",
+        "trigger": "Direct general maximum-perimeter rectangle algorithm in convex polygons."
+      },
+      {
+        "assessment": "Solves general algorithmic problem but does not provide the stated exact cyclic centrally symmetric optimizer and all parallelogram equality classification.",
+        "evidence": [
+          "Reports cubic-time convex-polygon treatment of maximum-perimeter rectangles."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.comgeo.2020.101710",
+        "material_read": "Accessible article text, with convex-polygon algorithm section and stated results.",
+        "method": "Inspected claims for perimeter rectangles and convex-polygon complexity, contrasted geometric equality cases.",
+        "title": "Maximum-area and maximum-perimeter rectangles in polygons",
+        "trigger": "General problem and possible dominating algorithmic treatment."
+      },
+      {
+        "assessment": "Determines maximum area for regular even polygons; expressly excludes maximum perimeter, and does not imply the present full-class rigidity.",
+        "evidence": [
+          "The limitations say no maximum-perimeter rectangle formula is claimed; the area proof uses radial length constraints, not the present separate-convexity argument."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427",
+        "material_read": "Entire published RESULT.md, including finding, proof, relationship to prior literature, and limitations.",
+        "method": "Read the entire source result and compared area versus perimeter, regular versus irregular cyclic polygons, and equality for parallelograms.",
+        "title": "Exact maximum-area rectangles in every regular even polygon",
+        "trigger": "Closest mathematically adjacent published regular-polygon result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3f3a6541-7564-4bdc-adbe-c91564b41823",
+  "value": {
+    "rationale": "Exact sharp extremal and all-equality classification for the natural nonregular centrally symmetric cyclic class; stronger-than-rectangular parallelogram rigidity, exact angular invariant and linear algorithm instead of cubic general algorithms. Not an isolated trivial instance or previously tabulated area invariant.",
+    "status": "PASS"
+  }
+}
