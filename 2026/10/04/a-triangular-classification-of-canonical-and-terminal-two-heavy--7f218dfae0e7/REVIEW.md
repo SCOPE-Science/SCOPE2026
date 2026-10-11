@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the only two potentially singular affine charts to cyclic quotients and applies the Reid--Tai age criterion. Both necessity and sufficiency are handled, including \(d=0\), and the exact pair counts follow by finite summation. An independent checker agrees with both the local age test and Kasprzyk's global fractional-part criterion over a broad finite range.
+## correctness
 
-## Originality
-PASS. Kasprzyk (arXiv:1304.3029) supplies general terminal/canonical fractional-part tests and a dimension-four classification, not the all-dimensional two-heavy formula. Kasprzyk (arXiv:0805.1008) supplies bounds rather than this exact classification. Ghirlanda (arXiv:2603.21198) supplies an all-dimensional algorithm/local age framework but no closed form for \(\mathbb P(1^r,a,b)\) was found in the inspected text. Targeted semantic and exact-phrase searches returned no equivalent theorem. Residual risk remains that an equivalent specialization is recorded elsewhere under different notation.
+PASS
 
-## Value
-PASS. The family \(\mathbb P(1^r,a,b)\) is the first natural family beyond a single exceptional weight. The result turns an age test over many group elements into two linear inequalities in every dimension, gives exact counts, and isolates the complete canonical/non-terminal boundary. This is a reusable benchmark and a structural special case of the higher-dimensional classification problem, rather than an isolated numerical example.
+The unit-weight charts are smooth and the two heavy charts are cyclic quotients \(1/a(1^r,b)\) and \(1/b(1^r,a)\). For the \(b\)-chart, the age numerator \(rk+[-kd]_b\) is controlled exactly by \(d\le r\) (strictly \(d<r\)); for the \(a\)-chart, \(rk+[kd]_a\) is controlled exactly by \(a\le r+d\) (strictly \(a<r+d\)), with the equal-heavy case handled separately. These arguments cover every nontrivial group element. Summing the resulting triangular parameter region gives the stated exact counts. Independent direct age checks over a broad finite box agreed with the symbolic classification but are not used for the infinite proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest inspected prior source gives general fractional-part criteria and finite-dimensional classifications. It does not state the all-dimensional two-heavy triangular region or the exact count formulas. The audited proof materially specializes and collapses the full Reid–Tai family of inequalities rather than merely renaming a known classification.
+
+## value
+
+PASS
+
+The two-heavy family is a natural infinite slice of weighted projective spaces. Replacing many Reid–Tai/fractional-part checks by two sharp inequalities gives a complete all-dimensional classification, exact enumeration, and the full canonical/non-terminal boundary; this is a useful structural benchmark for broader algorithms and downstream invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

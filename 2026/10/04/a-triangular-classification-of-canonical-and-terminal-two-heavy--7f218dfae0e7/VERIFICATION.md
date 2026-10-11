@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite statement is verified by the symbolic proof in `RESULT.md`. The accompanying `verify_two_heavy_wps.py` is an independent finite regression check, not a substitute for that proof.
+# Independent mathematical audit
 
-It implements both local cyclic-quotient Reid--Tai ages and the global fractional-part criterion of Kasprzyk, then compares each with the closed-form inequalities over a parameter box extending beyond the predicted feasible region. The executed output was:
+## correctness
 
-`VERIFY_OK cases=18612 r=2..12; pair-count formulas checked through r=30`
+PASS
 
-Limits: the script checks finitely many parameters only. The universal quantifiers and exact counting formulas rest on the residue proof, not on extrapolation from the computation.
+The unit-weight charts are smooth and the two heavy charts are cyclic quotients \(1/a(1^r,b)\) and \(1/b(1^r,a)\). For the \(b\)-chart, the age numerator \(rk+[-kd]_b\) is controlled exactly by \(d\le r\) (strictly \(d<r\)); for the \(a\)-chart, \(rk+[kd]_a\) is controlled exactly by \(a\le r+d\) (strictly \(a<r+d\)), with the equal-heavy case handled separately. These arguments cover every nontrivial group element. Summing the resulting triangular parameter region gives the stated exact counts. Independent direct age checks over a broad finite box agreed with the symbolic classification but are not used for the infinite proof.
+
+## originality
+
+PASS
+
+The strongest inspected prior source gives general fractional-part criteria and finite-dimensional classifications. It does not state the all-dimensional two-heavy triangular region or the exact count formulas. The audited proof materially specializes and collapses the full Reid–Tai family of inequalities rather than merely renaming a known classification.
+
+## value
+
+PASS
+
+The two-heavy family is a natural infinite slice of weighted projective spaces. Replacing many Reid–Tai/fractional-part checks by two sharp inequalities gives a complete all-dimensional classification, exact enumeration, and the full canonical/non-terminal boundary; this is a useful structural benchmark for broader algorithms and downstream invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
