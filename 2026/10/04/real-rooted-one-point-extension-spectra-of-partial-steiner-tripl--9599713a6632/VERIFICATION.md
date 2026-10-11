@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-The proof is deductive; the checker supplies finite independent sanity checks.
+# Independent mathematical audit
 
-`verify.py` enumerates every labelled partial Steiner triple system on \(n\le7\) old points by backtracking subject to pair-disjointness of blocks. The census is
-\[
-1,1,2,5,26,271,5596
-\]
-for \(n=1,\dots,7\), totaling \(5902\) systems.
+## correctness
 
-For every such system it forms the leave and computes
-\[
-\sum_k m_k(L)z^k
-\]
-by an exact vertex-deletion dynamic program. It checks the normalized Newton inequalities coefficientwise and verifies
-\[
-E_A(1)\le I_n
-\]
-with a unique maximizer, the empty partial triple system. The maximum totals through seven points are
-\[
-1,2,4,10,26,76,232.
-\]
+PASS
 
-As an independent check of the central bijection, for every labelled partial Steiner triple system on at most five old points (\(35\) systems total), the script directly enumerates every subset of candidate new blocks \(\{x,u,v\}\), tests pair uniqueness, and compares the resulting rank counts with the matching-DP coefficients. All agree.
+Every legal new block contains the distinguished new point and an uncovered old pair. Two such blocks may not share an old vertex, because the pair formed by that old vertex and the new point would then occur twice. Thus k new blocks are in bijection with k-edge matchings of the leave, in both directions. The standard matching-polynomial substitution transfers Heilmann–Lieb real-rootedness to negative real zeros of the extension polynomial; Newton inequalities give the normalized ultra-log-concavity. The leave is a spanning subgraph of the complete graph, so edge addition only increases each matching count, and any old block removes leave edges already at degree one, proving the unique empty-system maximizer. An independent reconstruction reproduced the complete-graph coefficient rows through order seven exactly; the frozen verifier additionally exhausts all 5902 labelled PSTS through order seven and directly enumerates extensions through order five.
 
-It separately checks the Fano Steiner triple system, whose leave is empty and whose polynomial is \(1\), and checks the complete-graph matching coefficient rows for empty systems through seven points. Running the script prints `VERIFY_OK`.
+## originality
 
-The finite checks do not prove real-rootedness for arbitrary size. That step in `RESULT.md` invokes the Heilmann-Lieb theorem for graph matching polynomials and the exact change of variables \(\mu_G(t)=t^nE_A(-t^{-2})\).
+PASS
+
+Classical partial-Steiner embedding work already uses the leave graph, and the 1997 primary paper studies large matchings in leaves. Those sources establish the underlying graph object and the relevance of matchings, but the inspected statements do not give the complete labelled one-new-point extension polynomial, its identification with the full matching generating polynomial, or the resulting real-rooted and ultra-log-concave extension strata. Resultary searches likewise returned no covering theorem. The claim is therefore retained as a best-of-knowledge structural synthesis, with an explicit folklore risk because the basic bijection is short.
+
+## value
+
+PASS
+
+The object is a natural rank-refined local extension invariant for partial Steiner systems, and the theorem resolves it for every base system by a standard graph polynomial. The resulting real-rootedness and ultra-log-concavity impose nontrivial universal shape constraints on all extension strata. Although the proof is short, this is a reusable exact structural identification rather than an arbitrary small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. In an induced one-point extension, every new block has the form \(\{x,u,v\}\). The old pair \(uv\) must lie in the leave, and two such pairs cannot share a vertex because that would repeat a pair \(\{x,u\}\). Conversely any matching in the leave gives a legal extension. This is an exact size-preserving bijection. The transformation \(\mu_G(t)=t^nE_A(-t^{-2})\), together with Heilmann-Lieb real-rootedness of the matching polynomial, forces every zero of \(E_A\) to be negative real. Newton's inequalities then give the stated ultra-log-concavity. The extremal bound follows from monotonicity of matching counts under edge addition and is strict for any nonempty block set.
+## correctness
 
-The verifier exhaustively checks all \(5902\) labelled partial Steiner triple systems through seven points using matching recurrence, and independently directly enumerates candidate one-point blocks for all \(35\) systems through five points. It returns `VERIFY_OK`.
+PASS
 
-## Originality
-PASS with material folklore risk. Matchings in leaves of partial Steiner triple systems are classical and are explicitly excluded from the novelty claim. Andersen-Hilton-Mendelsohn use the missing-edge graph in embedding theory, and a 1997 paper is specifically titled *Matchings in the Leave of Equitable Partial Steiner Triple Systems*. The web and published-finding corpus searches did not locate the rank-refined extension generating polynomial \(E_A(z)\), its identification as the entire matching generating polynomial, or the resulting negative-real-root and ultra-log-concavity statement for one-point extension strata. The exact claim therefore appears new as a polynomial-level synthesis, but because the bijection is short, undocumented folklore remains a realistic risk.
+Every legal new block contains the distinguished new point and an uncovered old pair. Two such blocks may not share an old vertex, because the pair formed by that old vertex and the new point would then occur twice. Thus k new blocks are in bijection with k-edge matchings of the leave, in both directions. The standard matching-polynomial substitution transfers Heilmann–Lieb real-rootedness to negative real zeros of the extension polynomial; Newton inequalities give the normalized ultra-log-concavity. The leave is a spanning subgraph of the complete graph, so edge addition only increases each matching count, and any old block removes leave edges already at degree one, proving the unique empty-system maximizer. An independent reconstruction reproduced the complete-graph coefficient rows through order seven exactly; the frozen verifier additionally exhausts all 5902 labelled PSTS through order seven and directly enumerates extensions through order five.
 
-## Value
-PASS. The result turns the one-new-point finite-diagram problem for relational partial Steiner systems into a standard graph polynomial. That imports the full matching-polynomial toolkit immediately: real-root geometry, Newton inequalities, unimodality, recurrences, and efficient graph algorithms. It also gives the sharp global extension maximum \(I_n\) with a unique maximizer. Barbina-Casanovas use partial Steiner systems explicitly in the model-completion construction, so the polynomial gives a compact quantitative invariant for exactly the finite diagrams underlying that framework.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Classical partial-Steiner embedding work already uses the leave graph, and the 1997 primary paper studies large matchings in leaves. Those sources establish the underlying graph object and the relevance of matchings, but the inspected statements do not give the complete labelled one-new-point extension polynomial, its identification with the full matching generating polynomial, or the resulting real-rooted and ultra-log-concave extension strata. Resultary searches likewise returned no covering theorem. The claim is therefore retained as a best-of-knowledge structural synthesis, with an explicit folklore risk because the basic bijection is short.
+
+## value
+
+PASS
+
+The object is a natural rank-refined local extension invariant for partial Steiner systems, and the theorem resolves it for every base system by a standard graph polynomial. The resulting real-rootedness and ultra-log-concavity impose nontrivial universal shape constraints on all extension strata. Although the proof is short, this is a reusable exact structural identification rather than an arbitrary small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
