@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A complete monotone-function recursion exhausts every simple game through five labeled players, exact `Fraction` arithmetic computes all three indices, and pairwise sign checks include both strict comparisons and ties. The independent isomorphism pass canonically relabels minimal-winning-coalition antichains under all player permutations. The replay reproduces the simple-game counts \(1,4,18,166,7579\), the \(208\) five-player isomorphism classes, the \(34\) divergent classes, the \(1870\) divergent labeled games, and the single sparsest divergent orbit.
+PASS
 
-## Originality
+An independent uniqueness-preserving recursion generated every monotone Boolean function through five variables; imposing \(v(\varnothing)=0\) and \(v(N)=1\) reproduced exactly 1, 4, 18, 166 and 7579 labeled simple games. Exact rational Banzhaf, Shapley--Shubik and Johnston computations show no Johnston weak-order divergence from either comparator for any game through four players and exactly 1870 divergent labeled games at five. Independent canonicalization of minimal-winning-coalition antichains under all 120 player permutations gives 208 five-player classes and 34 divergent classes. The minimum number of minimal winning coalitions among divergent games is three; all 30 such labeled games form one orbit. For the stated representative, the independently reconstructed normalized vectors are \((3,5,5,5,5)/23\), \((2/15,13/60,13/60,13/60,13/60)\), and \((1/8,11/48,11/48,5/24,5/24)\). Because the theorem is explicitly finite through five players, exhaustive enumeration is a complete proof rather than evidence for an infinite extrapolation.
 
-PASS relative to the checked material. The closest paper studies ordinal equivalence of exactly Johnston, Banzhaf and Shapley–Shubik and proves agreement on semicomplete games. The inspected sources did not state the unrestricted five-player cutoff, the \(34\)-class first-order census, or the unique sparsest witness class. An independent antichain-class table confirms the total \(208\) simple-game classes at five players after excluding the two constant monotone functions.
+## originality
 
-Residual risk: the full text of the 2012 ordinal-equivalence article could not be inspected because institutional retrieval stopped at interactive human verification. Its abstract and bibliographic/author material were inspected, but a duplicate finite example or census inside the inaccessible body cannot be ruled out.
+PASS
 
-## Value
+Best-of-knowledge originality passes with the direct-access risk stated explicitly. The 2012 primary abstract characterizes a broad semicomplete class on which Johnston, Shapley--Shubik and Penrose--Banzhaf--Coleman are ordinally equivalent; it does not expose the unrestricted first-player-number cutoff or a five-player census. Broader sources compare these indices or prove structured-class agreement. Fresh exact searches found no indexed source giving 208 total five-player classes together with 34 Johnston-divergent classes, 1870 labeled games, or the unique three-minimal-winning-coalition orbit. Because the most relevant full text remained human-verification gated, whole-document noncoverage is not asserted.
 
-PASS. The literature treats ordinal equivalence of these three indices as a structural question in voting-power theory. The first unrestricted failure size and the complete isomorphism census at that first size give a compact boundary map: agreement is universal through four players, while five players admit exactly \(34\) divergent structural types, with one unique sparsest type.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest checked sources are Freixas–Marciniak–Pons on three-index ordinal equivalence in semicomplete games, Diffo Lambo–Moulen on Banzhaf/Shapley–Shubik ordinal equivalence in swap-robust games, and Freixas–Marciniak on comparative properties and formulas for these indices. The result is finite and exact only at the first separation order; it does not classify larger games or measure the magnitude of numerical index disagreement.
+Ordinal equivalence of these three classical power indices is an established research question, so the first unrestricted player number at which they can rank players differently is a natural finite boundary. The complete 34-of-208 orbit census quantifies how exceptional separation is at the threshold, and the unique sparsest three-minimal-winning-coalition orbit gives a canonical witness rather than an arbitrary example. This is a meaningful complete classification at the first transition size.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

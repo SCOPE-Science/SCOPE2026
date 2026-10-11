@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-The embedded verifier was replayed from its packaged path. It returned `VERIFY_OK`.
+# Independent mathematical audit
 
-Checked exact outputs:
+## correctness
 
-- labeled simple-game counts for \(n=1,2,3,4,5\): \(1,4,18,166,7579\);
-- five-player isomorphism classes: \(208\);
-- five-player Johnston-divergent labeled games: \(1870\);
-- five-player Johnston-divergent isomorphism classes: \(34\);
-- minimum number of minimal winning coalitions among divergent games: \(3\);
-- labeled sparsest divergent games: \(30\), all in one isomorphism class;
-- representative normalized Banzhaf–Coleman vector: \(\left(3/23,5/23,5/23,5/23,5/23\right)\);
-- representative Shapley–Shubik vector: \(\left(2/15,13/60,13/60,13/60,13/60\right)\);
-- representative normalized Johnston vector: \(\left(1/8,11/48,11/48,5/24,5/24\right)\).
+PASS
 
-The finite proof relies on exhaustive enumeration through five players; no claim is made about larger-player classification. The closest 2012 full text remained unavailable without interactive human verification, which is an originality-access limitation rather than a correctness limitation.
+An independent uniqueness-preserving recursion generated every monotone Boolean function through five variables; imposing \(v(\varnothing)=0\) and \(v(N)=1\) reproduced exactly 1, 4, 18, 166 and 7579 labeled simple games. Exact rational Banzhaf, Shapley--Shubik and Johnston computations show no Johnston weak-order divergence from either comparator for any game through four players and exactly 1870 divergent labeled games at five. Independent canonicalization of minimal-winning-coalition antichains under all 120 player permutations gives 208 five-player classes and 34 divergent classes. The minimum number of minimal winning coalitions among divergent games is three; all 30 such labeled games form one orbit. For the stated representative, the independently reconstructed normalized vectors are \((3,5,5,5,5)/23\), \((2/15,13/60,13/60,13/60,13/60)\), and \((1/8,11/48,11/48,5/24,5/24)\). Because the theorem is explicitly finite through five players, exhaustive enumeration is a complete proof rather than evidence for an infinite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with the direct-access risk stated explicitly. The 2012 primary abstract characterizes a broad semicomplete class on which Johnston, Shapley--Shubik and Penrose--Banzhaf--Coleman are ordinally equivalent; it does not expose the unrestricted first-player-number cutoff or a five-player census. Broader sources compare these indices or prove structured-class agreement. Fresh exact searches found no indexed source giving 208 total five-player classes together with 34 Johnston-divergent classes, 1870 labeled games, or the unique three-minimal-winning-coalition orbit. Because the most relevant full text remained human-verification gated, whole-document noncoverage is not asserted.
+
+## value
+
+PASS
+
+Ordinal equivalence of these three classical power indices is an established research question, so the first unrestricted player number at which they can rank players differently is a natural finite boundary. The complete 34-of-208 orbit census quantifies how exceptional separation is at the threshold, and the unique sparsest three-minimal-winning-coalition orbit gives a canonical witness rather than an arbitrary example. This is a meaningful complete classification at the first transition size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
