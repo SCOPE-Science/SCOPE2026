@@ -1,12 +1,21 @@
-# Review of All strong edge geodetic sets of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof has two independent structural steps. First, the maximum number of pairwise edge-disjoint edge covers of \(K_s\) is shown to be \(s-1\) for even \(s\) and \(s-2\) for odd \(s\), with matching constructions. Second, a strong edge geodetic set in a complete multipartite graph can omit vertices from at most one part, and each omitted vertex requires one disjoint edge cover in every full part. Necessity and sufficiency therefore match exactly. The direct verifier reconstructs allowed shortest paths and confirms the characterization on all admissible multipartite types through order ten.
+## correctness
 
-## Originality
-PASS. The closest primary source, Klavžar--Zmazek, determines only the minimum strong edge geodetic cardinality for complete multipartite graphs and constructs witnesses. Its Section 2 does not state an all-set characterization, a set-size enumerator, or a count of minimum sets. Targeted searches for these formulations and for the edge-cover packing reduction found no equivalent published statement. The closest database result concerns the different strong upper geodetic parameter. Residual risk remains for differently phrased or non-indexed work.
+PASS
 
-## Value
-PASS. The result upgrades an exact minimum-value theorem to the complete feasible-set structure for a natural graph family. It simultaneously yields the full size distribution, every minimum set, and the exact number of bases, while explaining the parity cases in the published formula by a single edge-cover packing invariant. This is structural information useful for enumeration and for studying strong edge geodetic variants.
+The proof reduces the problem to the exact packing number of pairwise edge-disjoint edge covers of \(K_s\). The counting upper bound gives at most \(s-1\) covers for even \(s\) and \(s-2\) for odd \(s\); one-factorization attains the even bound, while the explicit near-perfect-matching construction plus distinct Hamilton-path edges attains the odd bound. If two multipartite parts both omit vertices, their cross-edge cannot lie on any selected-endpoint geodesic; hence there is one incomplete part. For each omitted vertex and each full part, its incident edges require one edge cover of that full part, and endpoint-pair uniqueness makes these covers pairwise disjoint. This gives exactly \(r\le R_i\); the converse construction assigns the packed edge covers and covers all remaining cross-edges directly. The enumerator and minimum formulas then follow by counting omissions.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Klavžar–Zmazek determine the scalar strong edge geodetic number for complete multipartite graphs and prove related necessity/constructions, but their inspected article does not classify every feasible vertex set or give the all-set polynomial/minimum-set count. The audited theorem supplies an iff membership rule using the exact edge-cover packing number, so it is not implied by the published scalar value theorem.
+
+## value
+
+PASS
+
+A complete membership theorem and cardinality enumerator for a natural NP-style geodetic covering invariant materially strengthen a published scalar extremal result. The exact edge-cover packing mechanism also explains the parity split in the known value formula and yields all minimum-set counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

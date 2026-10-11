@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reduces feasibility to an exact packing problem for edge covers of complete graphs. The packing number is proved to be \(s-1\) for even \(s\) and \(s-2\) for odd \(s\), with explicit constructions.
+# Independent mathematical audit
 
-The accompanying `verify.py` does not use that criterion to decide feasibility. For each candidate subset it lists every allowed shortest path between selected endpoint pairs and performs an exact backtracking search for a one-path-per-pair assignment covering every graph edge.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-direct isomorphism types: 32
-direct vertex subsets: 17008
-published-value comparisons: 5574
-```
+The proof reduces the problem to the exact packing number of pairwise edge-disjoint edge covers of \(K_s\). The counting upper bound gives at most \(s-1\) covers for even \(s\) and \(s-2\) for odd \(s\); one-factorization attains the even bound, while the explicit near-perfect-matching construction plus distinct Hamilton-path edges attains the odd bound. If two multipartite parts both omit vertices, their cross-edge cannot lie on any selected-endpoint geodesic; hence there is one incomplete part. For each omitted vertex and each full part, its incident edges require one edge cover of that full part, and endpoint-pair uniqueness makes these covers pairwise disjoint. This gives exactly \(r\le R_i\); the converse construction assigns the packed edge covers and covers all remaining cross-edges directly. The enumerator and minimum formulas then follow by counting omissions.
 
-Thus every one of the \(17008\) candidate subsets in the \(32\) admissible complete multipartite isomorphism types through order \(10\) agrees with the theorem. The same script checks the minimum-value corollary against the published 2024 formula on \(5574\) multipartite types through order \(30\).
+## originality
 
-The finite checks corroborate the proof but do not replace the all-orders edge-cover construction.
+PASS
+
+Klavžar–Zmazek determine the scalar strong edge geodetic number for complete multipartite graphs and prove related necessity/constructions, but their inspected article does not classify every feasible vertex set or give the all-set polynomial/minimum-set count. The audited theorem supplies an iff membership rule using the exact edge-cover packing number, so it is not implied by the published scalar value theorem.
+
+## value
+
+PASS
+
+A complete membership theorem and cardinality enumerator for a natural NP-style geodetic covering invariant materially strengthen a published scalar extremal result. The exact edge-cover packing mechanism also explains the parity split in the known value formula and yields all minimum-set counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
