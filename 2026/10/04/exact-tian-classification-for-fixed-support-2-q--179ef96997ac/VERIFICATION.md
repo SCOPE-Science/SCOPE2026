@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved symbolically in `RESULT.md`; the finite program is a regression and boundary check, not an infinite certificate.
+# Independent mathematical audit
 
-Running `python3 verify.py` performs two exact-integer checks. First, for every odd prime \(q<5000\), every \(2\le A<25\), and every \(1\le\beta<9\), it compares the truth of \(q^\beta=2^A\pm1\) with the theorem's classified branches. Second, it scans all \(2\le n\le200000\), identifies triangular numbers whose exact prime support is \(\{2,q\}\), and checks every resulting tuple against the classification.
+## correctness
 
-Expected output:
+PASS
 
-`VERIFY_OK structural=245824 direct=11 q3=2`
+Multiplying by two gives \(n(n+1)=2^Aq^\beta\). Coprimality of consecutive factors forces the unordered pair to be \({2^A,q^\beta}\), so \(q^\beta=2^A\pm1\). The plus/minus factorizations exclude every higher exponent except the even plus-branch case \(q=3,\beta=2,A=3\); exponent one gives exactly the Fermat/Mersenne branches. The frozen verifier was read and correctly checks the reduced equations and a bounded triangular scan; the global proof is the factorization argument.
 
-The verifier uses only exact integer arithmetic. Its bounded search cannot establish the universal theorem and is not presented as doing so. The critical infinite steps are the coprime-factor allocation, the two factorization arguments for odd \(\beta>1\), the neighboring-powers-of-two argument for even \(\beta\) in the plus branch, and the modulo-\(8\) obstruction for even \(\beta\) in the minus branch.
+## originality
+
+PASS
+
+The 2026 primary article was read in full open text. It states Tian's two-prime conjecture, proves only a sharp absolute upper bound of four for arbitrary two-prime supports, and says the conjectured general bound remains beyond its results. It does not state this all-odd-prime fixed-support \({2,q}\) classification. Resultary returned no distinct exact same-subfamily theorem.
+
+## value
+
+PASS
+
+This is a natural complete subfamily of a current explicit conjecture: it reaches the conjectured two-solution bound for every support containing the unique even prime and identifies the sole equality support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

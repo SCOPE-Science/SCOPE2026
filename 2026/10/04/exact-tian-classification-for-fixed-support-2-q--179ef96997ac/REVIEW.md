@@ -1,15 +1,21 @@
-# Review: Exact Tian classification for fixed support \(\{2,q\}\)
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The reduction from \(\binom{n+1}{2}=2^{\alpha}q^{\beta}\) to \(\{n,n+1\}=\{2^A,q^\beta\}\) is exact because consecutive integers are coprime and both prime exponents are positive. Each remaining branch is exhausted: odd exponents greater than one leave a nontrivial odd factor, even exponents in the plus branch force the unique neighboring powers of two \(2\) and \(4\), and even exponents in the minus branch fail modulo \(8\). The endpoint counts and the \(q=3\) exception are then direct. The standalone exact-integer verifier agrees throughout its bounded test domain.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** The closest current source, DOI 10.3390/math14010127, formulates the fixed-prime conjecture and gives a four-solution absolute bound for two primes, but does not state or imply the exact support \(\{2,q\}\) classification. Searches for the exact equation, Mersenne/Fermat reformulations, and the \(q=3\) equality case did not identify a stronger covering result. published-finding corpus's closest semantic returns concern other two-prime-support problems and do not imply this triangular-number theorem. Because the proof is elementary, an unindexed or differently phrased prior observation remains possible.
+PASS
 
-## Value
-**PASS.** This is a natural, non-arbitrary slice of an explicitly current open conjecture: fixing the unique even prime changes the structure enough to make the sharp conjectured bound provable and yields a complete solution classification. It improves the cited general two-prime bound from four to two in this entire support family, identifies the unique equality support, and exposes the precise Mersenne/Fermat mechanisms.
+Multiplying by two gives \(n(n+1)=2^Aq^\beta\). Coprimality of consecutive factors forces the unordered pair to be \({2^A,q^\beta}\), so \(q^\beta=2^A\pm1\). The plus/minus factorizations exclude every higher exponent except the even plus-branch case \(q=3,\beta=2,A=3\); exponent one gives exactly the Fermat/Mersenne branches. The frozen verifier was read and correctly checks the reduced equations and a bounded triangular scan; the global proof is the factorization argument.
 
-## Closest literature and limitations
-The primary comparison is Zeng–Pintér–Fu–Tian (DOI 10.3390/math14010127), especially the abstract, Section 3.2 Theorem 4, and the conclusion. The theorem here does not settle arbitrary odd-prime pairs and does not turn bounded computation into an infinite argument. Bibliographic searches cannot exclude unpublished, unindexed, or differently named elementary observations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 primary article was read in full open text. It states Tian's two-prime conjecture, proves only a sharp absolute upper bound of four for arbitrary two-prime supports, and says the conjectured general bound remains beyond its results. It does not state this all-odd-prime fixed-support \({2,q}\) classification. Resultary returned no distinct exact same-subfamily theorem.
+
+## value
+
+PASS
+
+This is a natural complete subfamily of a current explicit conjecture: it reaches the conjectured two-solution bound for every support containing the unique even prime and identifies the sole equality support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
