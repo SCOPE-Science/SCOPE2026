@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The source's exact center locus is checked against its full Section 4 planar reduction. The reversible planar reduction, Fourier-mode polar expansion, recursive radial integrals and strict sum-of-squares inequality establish the no-isochrony theorem for all real parameters. `check_periods.py` reconstructs every algebraic identity from exact rational Fourier coefficients. The argument distinguishes a local center from an isochronous center and retains physical time.
+
+**Originality — PASS.** The motivating primary paper (2023, Theorem 5 and Sections 4–6) establishes the center conditions and limit-cycle bifurcation but does not determine the period constants or exclude isochrony; its conclusion identifies the isochronous-center question for further study. Gu–Zegeling–Huang (2023, Section 5, full preprint) classifies isochrony in a different multiplicative Kolmogorov vector field, not this threefold-symmetric cubic system. Classical reversible-cubic families with two invariant straight lines and the 2024 classification of *global* isochronous centers lack an implication covering every local center in this parameter locus. Relevant published-result and exact-equation searches did not reveal a prior covering statement; that negative search is not by itself proof of novelty. A later comprehensive equivalence could still emerge.
+
+**Value — PASS.** This is a complete local isochrony decision for a natural and published **entire** center locus, not an arbitrary parameter slice. The strict fourth-order defect on the real curve where the second-order defect cancels gives an explicit local period obstruction in exactly the delicate parameter regime. It resolves the motivating paper's remaining period question for this concrete family and creates a starting point for critical-period analysis without claiming a count of critical periods.
+
+**Scope and residual risk.** No assertion is made about global period monotonicity, the full period annulus, other three-dimensional polynomial families, or noncenter parameters. General reversible-cubic classification results could subsume isolated special cases; no identified theorem subsumes the full two-parameter exclusion. Independent audit and external validation have not been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
