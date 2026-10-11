@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier reconstructs the explicit sextic
-\[
-F_0=\prod_{i=0}^{5}(x_0-i x_1)+x_2^2\bigl(x_0^4+x_1^4+x_2^4+x_0x_1x_2(x_0+x_1+x_2)\bigr)
-\]
-and the \(7\times6\) coefficient matrix obtained from the six binary sextics
-\[
-x\,\partial_iF_0|_{\ell_{u,v}},
-\qquad
-y\,\partial_iF_0|_{\ell_{u,v}},
-\]
-for \(i=0,1,2\) and
-\[
-\ell_{u,v}=\{x_2-u x_0-v x_1=0\}.
-\]
+# Independent mathematical audit
 
-At \((u,v)=(0,0)\) it checks exact rank \(4\) and the invertible \(4\times4\) minor
-\[
--23520.
-\]
-It then computes exact bases for the two-dimensional kernel and three-dimensional cokernel and forms the induced first-order normal map.
+## correctness
 
-The three \(2\times2\) minors of that \(3\times2\) linear map are quadratic forms in \(u,v\). Their coefficient matrix in the basis
-\[
-u^2,\ uv,\ v^2
-\]
-has determinant
-\[
-\frac{2655279064360000}{2401}\neq0.
-\]
-Therefore the quadratic initial minors span \(\mathfrak m^2/\mathfrak m^3\). The local block-reduction and Nakayama argument in `RESULT.md` then proves that the full local jumping ideal is exactly \(\mathfrak m^2\), so the local length is \(3\).
+PASS
 
-The replay output ends in `VERIFY_OK`.
+The local algebra calculation is correct. At the named line the reconstructed 7-by-6 restriction matrix has rank four and an invertible 4-by-4 minor, so local row/column operations reduce the maximal-minor ideal to the 2-by-2 minors of a 3-by-2 matrix B vanishing at the origin. The induced first-order normal map has three quadratic minors; a fresh exact recomputation from the displayed Au and Av matrices gives coefficient determinant 2655279064360000/2401, so their initial forms span m^2/m^3. Since the full minors lie in m^2, m^2=J+m^3, and Nakayama applied to m^2/J gives J=m^2. Hence the local algebra has basis 1,u,v and length three.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with an explicit same-paper access risk. The accessible Faro--Gounelas abstract identifies the 171-point jumping-line scheme, while Resultary found no prior record other than the assigned local-length theorem. The older Dimca--Sticlaru paper supplies general jumping-line background and necessarily predates this explicit 2026 sextic. No checked source states the local algebra (u,v)^2 or length three. Because the most relevant full manuscript was inaccessible, the conclusion is intentionally best-of-knowledge rather than a whole-document noncoverage claim.
+
+## value
+
+PASS
+
+The motivating paper's jumping scheme has finite global length 171 and the package isolates a named deeper point. Its exact local Artin algebra measures the severity of that nonreduced collision and distinguishes the first infinitesimal neighbourhood from higher multiplicity behavior. This is a natural scheme-theoretic invariant of a source example, not an arbitrary coordinate statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
