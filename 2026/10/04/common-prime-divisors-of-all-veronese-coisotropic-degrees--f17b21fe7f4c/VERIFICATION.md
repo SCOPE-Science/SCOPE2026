@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-The symbolic input is the Veronese polar vector
-\[
-\delta_i
-=
-\binom{n+1}{i+1}e^i(e-1)^{n-i}.
-\]
 
-For
-\[
-N=n+1,
-\qquad
-a_k=\delta_{k-1},
-\]
-the exact gcd proof is prime-wise. A prime not dividing \(e\) is excluded by
-\[
-a_N=e^{N-1}.
-\]
-For a prime dividing \(e\),
-\[
-\nu_p(a_k)
-=
-\nu_p\binom Nk+(k-1)\nu_p(e)
-\]
-and
-\[
-\nu_p\binom Nk\ge\nu_p(N)-\nu_p(k),
-\]
-so all terms have valuation at least \(\nu_p(N)\), with equality at \(k=1\).
+# Independent mathematical audit
 
-The bundled checker independently compares the closed polar vector with the Chern-class summation, verifies the gcd theorem over a broad finite parameter grid, and checks the generic Euclidean-distance-degree sum. These finite checks are regression evidence only.
+## correctness
 
-Limits: complex Veronese varieties, the complete polar vector, and the standard projective polar-degree convention.
+PASS
+
+The submitted gcd theorem survives, but the original RESULT reversed the standard Kohn polar indexing while calling it standard: Kohn has delta_0=deg X=e^n. The repaired RESULT uses delta_i=binom(n+1,i)e^(n-i)(e-1)^i, reverses only the ordering of the same vector, and reindexes the valuation proof by a_k=delta_{n+1-k}. For p not dividing e, the endpoint a_N has valuation zero. For p dividing e, nu_p(binomial(N,k)) is at least nu_p(N)-nu_p(k), and nu_p(k)<=k-1<=(k-1)nu_p(e), so every term has valuation at least nu_p(N), attained at k=1. The corrected Chern-sum indexing was independently regression-checked by the supplied repaired verifier.
+
+## originality
+
+PASS
+
+After correcting the polar-index normalization, best-of-knowledge originality of the gcd theorem remains: inspected sources provide the coisotropic/polar identification and explicit entries, but not the exact common-prime/exponent classification.
+
+## value
+
+PASS
+
+The gcd of the complete polar/coisotropic degree vector is a natural whole-system arithmetic invariant. The theorem exactly detects when the vector is primitive and which primes divide every generic tangency degree, with exact exponents; this is motivated beyond a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,34 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The polar vector is independently derivable from the standard smooth polar-class formula. Reindexing it as
-\[
-a_k=\binom Nk e^{k-1}(e-1)^{N-k},
-\qquad
-N=n+1,
-\]
-reduces the gcd theorem to a prime-wise minimum valuation. If \(p\nmid e\), the endpoint \(a_N=e^{N-1}\) excludes \(p\). If \(p\mid e\), then
-\[
-\nu_p(a_k)=\nu_p\binom Nk+(k-1)\nu_p(e),
-\]
-and
-\[
-\nu_p\binom Nk\ge\nu_p(N)-\nu_p(k).
-\]
-Because
-\[
-\nu_p(k)\le k-1\le(k-1)\nu_p(e),
-\]
-every term has valuation at least \(\nu_p(N)\), while \(k=1\) attains equality. This proves the claimed gcd exactly.
+## correctness
 
-The bundled checker independently recomputes the polar vector from the Chern-class sum and verifies the gcd and ED-degree identities in finite ranges; those computations are regression evidence only.
+PASS
 
-## Originality
-PASS. The inspected archival source identifies coisotropic degrees with polar degrees, and later sources provide explicit Segre--Veronese and quadratic-Veronese polar formulas. None of the inspected material states the gcd of the full Veronese polar vector, the common-prime iff criterion, or the exact shared \(p\)-adic exponent. Targeted semantic searches using gcd, common-divisor, common-prime, coisotropic, and polar-degree formulations found no covering statement.
+The submitted gcd theorem survives, but the original RESULT reversed the standard Kohn polar indexing while calling it standard: Kohn has delta_0=deg X=e^n. The repaired RESULT uses delta_i=binom(n+1,i)e^(n-i)(e-1)^i, reverses only the ordering of the same vector, and reindexes the valuation proof by a_k=delta_{n+1-k}. For p not dividing e, the endpoint a_N has valuation zero. For p dividing e, nu_p(binomial(N,k)) is at least nu_p(N)-nu_p(k), and nu_p(k)<=k-1<=(k-1)nu_p(e), so every term has valuation at least nu_p(N), attained at k=1. The corrected Chern-sum indexing was independently regression-checked by the supplied repaired verifier.
 
-Residual risk: the consequence is short once the explicit polar formula is known, so an unindexed historical source may contain it.
+## originality
 
-## Value
-PASS. The result gives a natural arithmetic invariant of the complete system of generic tangency degrees attached to a Veronese variety. It determines exactly when the polar vector is primitive and exactly which primes divide every coisotropic degree, uniformly in dimension and embedding degree.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+After correcting the polar-index normalization, best-of-knowledge originality of the gcd theorem remains: inspected sources provide the coisotropic/polar identification and explicit entries, but not the exact common-prime/exponent classification.
+
+## value
+
+PASS
+
+The gcd of the complete polar/coisotropic degree vector is a natural whole-system arithmetic invariant. The theorem exactly detects when the vector is primitive and which primes divide every generic tangency degree, with exact exponents; this is motivated beyond a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:57:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The submitted gcd theorem survives, but the original RESULT reversed the standard Kohn polar indexing while calling it standard: Kohn has delta_0=deg X=e^n. The repaired RESULT uses delta_i=binom(n+1,i)e^(n-i)(e-1)^i, reverses only the ordering of the same vector, and reindexes the valuation proof by a_k=delta_{n+1-k}. For p not dividing e, the endpoint a_N has valuation zero. For p dividing e, nu_p(binomial(N,k)) is at least nu_p(N)-nu_p(k), and nu_p(k)<=k-1<=(k-1)nu_p(e), so every term has valuation at least nu_p(N), attained at k=1. The corrected Chern-sum indexing was independently regression-checked by the supplied repaired verifier.",
+      "risks": [
+        "The finite checker is corroboration only; the uniform gcd statement rests on the valuation proof."
+      ],
+      "sources": [
+        "Frozen source tree 94e89147718cba8e425a38ec7f398f83f82015bf",
+        "Kohn Section 4: delta_0(X)=deg X and Theorem 9",
+        "Repaired RESULT.md and repaired exact checker; checker output VERIFY_OK 2291 126 882"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kohn proves coisotropic-hypersurface degrees equal polar degrees and explicitly uses delta_0=deg X.",
+          "Broader Segre--Veronese formulas supply the numerical vector but do not state its gcd."
+        ],
+        "reasoning": "Broader polar formulas contain the input data but not a theorem classifying the common divisor across all entries.",
+        "searches": [
+          "Kohn, DOI:10.1016/j.jsc.2019.12.002, full text Section 4/Theorem 9",
+          "Çelik et al., DOI:10.1016/j.jsc.2020.10.005 / Segre--Veronese polar formulas"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.jsc.2019.12.002",
+        "DOI:10.1016/j.jsc.2020.10.005",
+        "Resultary semantic search",
+        "Targeted gcd/common-prime web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit vector does not itself state the minimum p-adic valuation across all indices.",
+          "The repaired proof adds a global valuation inequality and attains the bound at one endpoint."
+        ],
+        "reasoning": "The gcd theorem is a short but nontrivial arithmetic consequence of prior explicit polar formulas; the original submitted indexing was reversed relative to Kohn and has been corrected without changing the gcd claim.",
+        "searches": [
+          "Statement comparison with Kohn Theorem 9 and Section 4",
+          "Statement comparison with Segre--Veronese explicit polar formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned finding itself; neighboring coisotropic records concern different varieties.",
+          "Targeted public searches returned explicit polar-degree sources but no prior gcd/common-prime theorem."
+        ],
+        "reasoning": "The arithmetic invariant was searched both as a gcd and prime-wise common-divisibility statement; no external equivalent theorem was located.",
+        "searches": [
+          "Resultary: Veronese polar degrees gcd common prime divisors coisotropic degrees",
+          "Web: \"gcd\" \"polar degrees\" Veronese coisotropic",
+          "Web: Veronese polar degree binomial e^i (e-1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent table/database entry for the gcd as a function of n and e was found."
+        ],
+        "reasoning": "The claim is a uniform valuation theorem, not a finite-table recomputation.",
+        "searches": [
+          "Resultary exact query",
+          "Searches for quadratic Veronese polar tables and coisotropic degree tables"
+        ]
+      },
+      "rationale": "After correcting the polar-index normalization, best-of-knowledge originality of the gcd theorem remains: inspected sources provide the coisotropic/polar identification and explicit entries, but not the exact common-prime/exponent classification.",
+      "residual_risks": [
+        "Because the gcd extraction is short once the polar vector is known, an older unindexed arithmetic observation remains plausible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INPUT_SOURCE_AND_NORMALIZATION_CORRECTION",
+          "evidence": [
+            "Section 4 states delta_0(X)=deg X; Theorem 9 identifies coisotropic degrees with polar degrees. This exposed the submitted reversed indexing."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.jsc.2019.12.002",
+          "material_read": "Accessible full text abstract, Section 4 polar-degree definitions/properties, and Theorem 9.",
+          "method": "Primary full-text definition and theorem comparison.",
+          "title": "Coisotropic hypersurfaces in Grassmannians",
+          "trigger": "Primary source for the polar/coisotropic identification and normalization."
+        },
+        {
+          "assessment": "BROADER_NUMERICAL_INPUT_NOT_GCD",
+          "evidence": [
+            "The broader polar formula supplies entries but no common-divisor classification was located."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.jsc.2020.10.005",
+          "material_read": "Relevant theorem/formula material on Segre--Veronese polar degrees as cited and surfaced in the literature search.",
+          "method": "Formula and implication comparison.",
+          "title": "Wasserstein distance to independence models",
+          "trigger": "Broader explicit Segre--Veronese polar-degree formulas."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gcd of the complete polar/coisotropic degree vector is a natural whole-system arithmetic invariant. The theorem exactly detects when the vector is primitive and which primes divide every generic tangency degree, with exact exponents; this is motivated beyond a single numerical example.",
+      "risks": [
+        "The consequence is elementary once the explicit polar vector is known."
+      ],
+      "sources": [
+        "Complete polar vector",
+        "Coisotropic-hypersurface interpretation",
+        "Uniform p-adic proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Original RESULT used the reverse polar-vector indexing while labeling it the standard Kohn convention; the repaired final files correct this normalization.",
+    "The gcd theorem itself is unchanged by reversing the vector."
+  ],
+  "schema_version": 1
+}
