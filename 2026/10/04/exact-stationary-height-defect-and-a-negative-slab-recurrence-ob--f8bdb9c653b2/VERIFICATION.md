@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact sparse-polynomial arithmetic over rational coefficients.
 
-It verifies, for
-\[
-\dot x=y-ax+byz,\qquad
-\dot y=cy-xz+z,\qquad
-\dot z=dxy-mz,
-\]
-the identities
-\[
-Lz=dxy-mz,
-\]
-\[
-L(z^2)=2dxyz-2mz^2,
-\]
-\[
-L(x^2)=2xy-2ax^2+2bxyz,
-\]
-and the combined certificate
-\[
-\frac d2L(x^2)-Lz-\frac b2L(z^2)
-=
-mz+bmz^2-adx^2.
-\]
+# Independent mathematical audit
 
-The stored checker output in `verification_output.txt` is `VERIFY_OK`.
+## correctness
 
-The checker certifies the algebraic steps. The conditional-expectation conclusion follows from the invariant-measure identity for arbitrary test functions of \(z\), while equality rigidity and the slab consequence are proved analytically in `RESULT.md`.
+PASS
+
+Testing the generator against arbitrary antiderivatives of functions of \(z\) gives the conditional product law. Exact identities for \(L(z^2)\) and \(L(x^2)\) yield the completed-square defect. If equality holds then \(x=0\) on invariant support; compact complete trajectories then force \(z=0\) from \(\dot z=-mz\), followed by \(y=0\). The slab obstruction is the pointwise bound on the completed square inside \([-1/b,0]\). The actual frozen checker was read and its sparse-polynomial certificate was independently inspected.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison found same-object work on multi-scroll dynamics, control, synchronization and numerical diagnostics but no implication-level stationary conditional law or completed-square recurrence obstruction. Resultary returned analogous invariant-measure laws for other vector fields, not a theorem reducible to this system.
+
+## value
+
+PASS
+
+The theorem gives an exact attractor-independent height constraint and a sharp recurrence-slab obstruction for a canonical multi-scroll chaotic flow. It converts the defining nonlinear couplings into a structural boundary on every compact recurrent statistical state, not merely a numerical diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

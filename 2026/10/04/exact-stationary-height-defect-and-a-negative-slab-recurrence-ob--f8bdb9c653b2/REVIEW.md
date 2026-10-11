@@ -1,34 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The generator tested against arbitrary functions of \(z\) gives
-\[
-\mathbb E[dxy-mz\mid z]=0.
-\]
-The exact polynomial identities
-\[
-L(z^2)=2dxyz-2mz^2
-\]
-and
-\[
-L(x^2)=2xy-2ax^2+2bxyz
-\]
-then give
-\[
-\mathbb E\!\left[\left(z+\frac1{2b}\right)^2\right]
-=
-\frac1{4b^2}+\frac{ad}{bm}\mathbb E[x^2].
-\]
-The equality case is rigid: a complete compact trajectory with \(x\equiv0\) has \(\dot z=-mz\), hence \(z\equiv0\), and then \(y\equiv0\). Strictness immediately excludes confinement to \(-1/b\le z\le0\). The packaged exact checker reproduces the combined polynomial certificate.
+## correctness
 
-Risk: the equality proof uses the standard invariance of the support of an invariant probability measure for a continuous flow.
+PASS
 
-## Originality
-PASS. The original inspected abstract emphasizes multi-scroll generation, phase portraits, Poincaré maps, bifurcation diagrams, and Lyapunov exponents. The later same-object analytical abstract concerns control, synchronization, and hyperchaotification. Targeted searches under Dadras and Dadras–Momeni aliases found no same-object invariant-measure, conditional-moment, completed-square, or slab-obstruction theorem. Closest semantic records concern different polynomial vector fields and do not imply this statement.
+Testing the generator against arbitrary antiderivatives of functions of \(z\) gives the conditional product law. Exact identities for \(L(z^2)\) and \(L(x^2)\) yield the completed-square defect. If equality holds then \(x=0\) on invariant support; compact complete trajectories then force \(z=0\) from \(\dot z=-mz\), followed by \(y=0\). The slab obstruction is the pointwise bound on the completed square inside \([-1/b,0]\). The actual frozen checker was read and its sparse-polynomial certificate was independently inspected.
 
-Risk: the complete 2009 and 2015 articles were not accessible in this inspection, so they remain explicit residual bibliographic risks. Search also cannot exclude differently phrased or unindexed earlier results.
+## originality
 
-## Value
-PASS. The result gives a universal recurrence constraint for every compact invariant statistical state of a published multi-scroll flow, rather than a property of one numerically sampled attractor. The slab is mathematically intrinsic because its endpoints are the roots of the quadratic height term in the exact balance, and equality is completely classified. The conclusion is therefore a structural global obstruction rather than a routine numerical or normalization check.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge comparison found same-object work on multi-scroll dynamics, control, synchronization and numerical diagnostics but no implication-level stationary conditional law or completed-square recurrence obstruction. Resultary returned analogous invariant-measure laws for other vector fields, not a theorem reducible to this system.
+
+## value
+
+PASS
+
+The theorem gives an exact attractor-independent height constraint and a sharp recurrence-slab obstruction for a canonical multi-scroll chaotic flow. It converts the defining nonlinear couplings into a structural boundary on every compact recurrent statistical state, not merely a numerical diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
