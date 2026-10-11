@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:57:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b0d4ef63577fd7acd79863551288230fc17ffd60",
+        "verify.py blob edbb572a829853b65043196b9feb24606892cffa",
+        "Abdulla--Badawi Theorems 2.1--2.2",
+        "fresh independent component-polynomial calculation"
+      ],
+      "rationale": "Writing a unit vector uniquely as u(1,a), adjacency between slope classes is exactly b=-a^{-1}. The fixed slopes are the solutions of a^2=-1, giving one in characteristic two, two when q is odd and congruent to one modulo four, and none when q is congruent to three modulo four. Hence the graph is precisely the published clique/biclique disjoint union. On K_m, paired-dominating sets are exactly positive even subsets; on K_{m,m}, they are exactly equal positive selections from the two sides. Multiplication over components gives the formula. Fresh independent coefficient calculations reproduced the minimum degrees and leading-degree reconstruction across q=3,4,5,7,8,9,11. The analytic component argument proves all prime powers.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source covers the entire graph family and all three residue cases before any paired-domination postprocessing.",
+          "For K_m a paired dominating set is exactly a positive even subset; for K_{m,m} it is exactly an equal positive selection from both sides. These are direct definitions rather than a new structural lemma."
+        ],
+        "reasoning": "The audited polynomial, gamma value, minimum coefficient and recovery rule are all downstream algebra of a known complete component decomposition.",
+        "searches": [
+          "Abdulla--Badawi 2020 full primary PDF",
+          "generic paired-domination polynomial literature for complete and complete-bipartite components",
+          "Resultary record 2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.24330/ieja.768135",
+        "DOI:10.1186/s42787-020-00092-6",
+        "Resultary exact unit-dot-product paired-domination search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the definition to each published K_m or K_{m,m} component gives E_m and B_m immediately.",
+          "Products over the published disjoint components give the full polynomial; lowest degree, leading degree/coefficient and the minimum coefficient are direct algebraic consequences."
+        ],
+        "reasoning": "Every substantive assertion in the final claim follows mechanically from the published decomposition plus routine componentwise paired-domination calculations.",
+        "searches": [
+          "Abdulla--Badawi Theorems 2.1--2.2",
+          "definition of paired domination",
+          "multiplicativity over disjoint graph components"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary full text gives exactly the disjoint union one K_m plus (m-1)/2 K_{m,m} in characteristic two, m/2 K_{m,m} when 4 does not divide m, and two K_m plus (m-2)/2 K_{m,m} when 4 divides m.",
+          "The audited slope involution is the same decomposition proof written in slope coordinates."
+        ],
+        "reasoning": "The graph-theoretic input of the final theorem is not merely analogous to prior work; it is exactly the published decomposition for every finite field parameter.",
+        "searches": [
+          "Abdulla--Badawi, DOI:10.24330/ieja.768135, Theorems 2.1--2.2",
+          "Resultary query: paired domination polynomial finite field unit dot product graph paired dominating sets slope components"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary contains the audited record as the direct exact hit, but exact title absence elsewhere is not novelty evidence.",
+          "The prior component theorem is sufficient to compute every coefficient without any additional scientific classification."
+        ],
+        "reasoning": "Coverage is established by implication, not by a pre-existing coefficient table.",
+        "searches": [
+          "Resultary semantic search for the exact finite-field unit dot-product paired-domination polynomial",
+          "Abdulla--Badawi component formulas"
+        ]
+      },
+      "rationale": "The complete graph decomposition needed for the theorem is already Theorems 2.1--2.2 of Abdulla--Badawi (2020): in characteristic two the unit dot-product graph is one K_m plus the stated K_{m,m} components, and in odd characteristic it is exactly the stated all-biclique or two-clique-plus-biclique decomposition. Once this published decomposition is known, the claimed paired-domination polynomial is the componentwise product of the elementary paired-domination polynomials of K_m and K_{m,m}; the minimum coefficient and polynomial reconstruction are immediate coefficient/degree read-offs. The exact wording is new, but the final claim is mechanically covered by stronger prior graph structure plus routine paired-domination facts.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_STRONGER_COMPONENT_DECOMPOSITION",
+          "evidence": "The published decomposition is exactly the clique/biclique decomposition used in the submitted proof for every finite-field case.",
+          "identifier_or_url": "DOI:10.24330/ieja.768135",
+          "material_read": "Full primary PDF around Theorems 2.1--2.2 was read; the theorem pages giving the characteristic-two and odd-characteristic decompositions were visually inspected.",
+          "method": "Direct theorem implication comparison.",
+          "title": "On the Dot Product Graph of a Commutative Ring II",
+          "trigger": "Primary same-family structure theorem cited by the package."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.24330/ieja.768135",
+        "DOI:10.1186/s42787-020-00092-6",
+        "Resultary exact unit-dot-product paired-domination search"
+      ],
+      "rationale": "The polynomial is a clean derived invariant, but after the exact component decomposition is already published, its derivation is a routine multiplication of elementary clique/biclique paired-domination enumerators. The minimum value, minimum coefficient, and recovery of q are simple read-offs. Under the required bar excluding textbook deductions and known-structure recomputation, this does not carry independent mathematical value.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.24330/ieja.768135",
+    "DOI:10.1186/s42787-020-00092-6",
+    "Resultary exact unit-dot-product paired-domination search"
+  ],
+  "disposition": "failed",
+  "final_claim": "For q>2, the paired-domination polynomial of the unit dot-product graph on (F_q^*)^2 is E_{q-1}(x)^{f(q)} B_{q-1}(x)^{(q-1-f(q))/2}, with the stated three-case paired-domination number, exact minimum-set count, and recovery of q from the polynomial; q=2 has no paired dominating set.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for decisive prior implication and routine-value status, not for correctness."
+  ]
+}
