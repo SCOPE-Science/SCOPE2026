@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:06:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The boundary criterion is correct. If positive labels occur in both \\(A_p\\) and \\(B_1\\), every positive \\(A\\)-vertex sees the positive \\(B_1\\) vertex and every positive \\(B\\)-vertex sees the positive \\(A_p\\) vertex. Conversely, if \\(B_1\\) is all zero, Roman domination forces every \\(A_1\\) vertex positive, but those vertices then have only zero neighbors; the argument is symmetric for \\(A_p\\). Conditioning the already-correct Roman classwise enumeration on those two positivity requirements yields the displayed factors. A fresh independent five-vertex chain-graph enumeration in this audit checked the criterion for every \\(3^5\\) labeling and obtained minimum weight four; the frozen verifier checks all canonical profiles through order nine.",
+      "risk": "No correctness issue was found; rejection is solely for prior implication and value.",
+      "sources": [
+        "Published Resultary/SCOPE record e846e0fa619b",
+        "Published Resultary/SCOPE record fe5d354bccbd",
+        "Ahangar--Henning--Samodivkin--Yero, DOI:10.2298/AADM160802017A",
+        "RESULT.md",
+        "verify.py",
+        "fresh definition-level enumeration"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Roman result already supplies the same four-case label-2 decomposition and product factors.",
+          "The total-domination result already supplies the exact extreme-class support test.",
+          "Ahangar et al. confirm the general definition and relation to total domination."
+        ],
+        "reasoning": "Together the two chain-graph results are stronger input data than the submitted filtered enumerator.",
+        "searches": [
+          "Full published RESULT for Roman domination polynomial of chain graphs, e846e0fa619b",
+          "Full published RESULT for total and connected total domination polynomials of chain graphs, fe5d354bccbd",
+          "DOI:10.2298/AADM160802017A full author-upload text"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE e846e0fa619b",
+        "Resultary/SCOPE fe5d354bccbd",
+        "DOI:10.2298/AADM160802017A",
+        "DOI:10.1007/s10878-012-9482-y",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a Roman function \\(f\\), every zero vertex already has a positive neighbor, so its positive support is a dominating set.",
+          "The additional total-Roman condition is exactly that positive vertices also have positive neighbors, i.e. that the positive support is total dominating.",
+          "The prior total-domination theorem reduces that to meeting \\(A_p\\) and \\(B_1\\), and the prior Roman polynomial already organizes all assignments by the same extremal 2-classes."
+        ],
+        "reasoning": "Only routine filtering and multiplication of already-published factors remains.",
+        "searches": [
+          "e846e0fa619b all Roman functions theorem",
+          "fe5d354bccbd all total dominating sets theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record e846e0fa619b gives the complete all-weight Roman polynomial on the same canonical chain decomposition.",
+          "Record fe5d354bccbd gives the exact total-dominating support criterion \\(S\\cap A_p\\ne\\varnothing\\) and \\(S\\cap B_1\\ne\\varnothing\\).",
+          "The primary total-Roman definition says precisely that a Roman function's positive support has no isolated vertex."
+        ],
+        "reasoning": "Total Roman domination is exactly Roman domination plus totality of the positive support in this setting, so the submitted structural criterion is the conjunction of two prior same-object theorems.",
+        "searches": [
+          "Resultary query: total Roman domination polynomial chain graphs Ferrers graphs twin classes",
+          "Published SCOPE/Resultary record e846e0fa619b",
+          "Published SCOPE/Resultary record fe5d354bccbd",
+          "Ahangar et al. total Roman primary paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact total-Roman polynomial was not separately indexed, but exact wording is unnecessary because the two prior theorems mechanically determine it."
+        ],
+        "reasoning": "Implication coverage is decisive despite the absence of an identical table.",
+        "searches": [
+          "Resultary exact searches for Roman polynomial and total domination polynomial on chain graphs"
+        ]
+      },
+      "rationale": "Two already-published chain-graph results jointly imply the submitted theorem. The published Roman-domination-polynomial record classifies every Roman dominating function using exactly the same extremal indices and local factors. The published total-and-connected-total-domination record proves that a vertex subset of a connected chain graph is total dominating exactly when it meets \\(A_p\\) and \\(B_1\\). For any Roman dominating function, its positive support already dominates every zero vertex via a label-2 neighbor; therefore the function is total Roman exactly when that positive support is a total dominating set. Combining the two prior theorems gives the submitted boundary criterion immediately, and the new polynomial is the prior Roman polynomial with the two extreme-class positivity filters inserted.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PRIOR_ALL_ROMAN_ENUMERATION",
+          "evidence": "The prior result already gives \\(R_G(x)=x^N+\\sum U_s+\\sum V_r+\\sum W_{r,s}\\) on the same canonical twin classes.",
+          "identifier_or_url": "Resultary/SCOPE record e846e0fa619b",
+          "material_read": "Complete published RESULT.md, including the four-case factorization and proof by extremal label-2 classes.",
+          "method": "Read-only public repository inspection.",
+          "title": "Roman domination polynomial of chain graphs",
+          "trigger": "Exact same graph class, function labels, and all-weight enumeration."
+        },
+        {
+          "assessment": "DIRECT_PRIOR_EXTREME_CLASS_SUPPORT_CRITERION",
+          "evidence": "It proves a subset is total dominating iff it meets the two universal extreme twin classes.",
+          "identifier_or_url": "Resultary/SCOPE record fe5d354bccbd",
+          "material_read": "Complete published RESULT.md, including the iff criterion and factorized polynomial.",
+          "method": "Read-only public repository inspection.",
+          "title": "Total and connected total domination polynomials of chain graphs",
+          "trigger": "Exact support condition needed to turn Roman domination into total Roman domination."
+        },
+        {
+          "assessment": "GENERAL_PARAMETER_SOURCE_NO_CHAIN_FORMULA",
+          "evidence": "It defines total Roman domination as Roman domination plus isolate-free positive support and develops general bounds.",
+          "identifier_or_url": "DOI:10.2298/AADM160802017A",
+          "material_read": "Author-upload full primary text; searches and surrounding theorem text were inspected.",
+          "method": "Lawful public full-text inspection.",
+          "title": "Total Roman domination in graphs",
+          "trigger": "Primary definition and general theory of the exact parameter."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The total-Roman variant is natural, but on this graph class the new structural criterion is an immediate conjunction of two already-published exact classifications, and the polynomial is obtained by routine endpoint filtering of an already-published Roman factorization. Under the common value bar, this is a useful corollary rather than a new structural or enumerative contribution.",
+      "risk": "The formula remains useful for reference, but convenience of a combined corollary does not establish independent scientific value.",
+      "sources": [
+        "Resultary/SCOPE e846e0fa619b",
+        "Resultary/SCOPE fe5d354bccbd"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a connected chain graph, a Roman dominating function is total Roman exactly when its positive support meets both extreme twin classes \\(A_p\\) and \\(B_1\\); filtering by this condition gives the stated complete weight polynomial and \\(\\gamma_{tR}(G)=\\min\\{N,|A|+2,|B|+2,4\\}\\).",
+  "limitations": [
+    "This rejection is for implication-based originality and value, not correctness.",
+    "Connected chain graphs only."
+  ],
+  "schema_version": 1
+}
