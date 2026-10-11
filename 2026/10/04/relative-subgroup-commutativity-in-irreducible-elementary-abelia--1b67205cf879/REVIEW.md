@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. A subgroup outside the elementary abelian kernel projects onto the prime complement. Its intersection with the kernel is invariant under the full complement and hence, by irreducibility, is either zero or the whole kernel; this gives the complete subgroup classification. Fixed-point-freeness yields exactly \(p^r\) complements. A nonzero proper subspace permutes with all kernel subspaces and with \(G\), but with no complement; a complement permutes only with \(1\), \(V\), itself, and \(G\). These exhaustive partner counts give every displayed relative degree. The included replay independently enumerates the listed subgroup lattice and tests \(HK=KH\) directly for three examples.
+## correctness
 
-## Originality
-PASS. The closest primary source defines \(sd(H,G)\) and treats cyclic-kernel semidirect products, while related ZM literature also assumes cyclic Sylow subgroups. Neither covers the rank-at-least-two elementary abelian kernel or the dimension-stratified relative function. Searches across standard notation, Frobenius/affine terminology, and subgroup-permutability language found no equivalent all-rank formula. The known \(A_4\) value is used only as a consistency check.
+PASS
 
-## Value
-PASS. This is a complete exact solution for a natural infinite family in a published relative-commutativity program. It describes every subgroup type, every relative degree, and the global degree in one theorem, with projective subspace counts controlling the probabilities. The result is structural and extends beyond cyclic-kernel examples.
+The subgroup classification is complete: any subgroup projecting nontrivially to the prime-order complement has kernel intersection invariant under the irreducible action, hence intersection \(0\) or all of \(V\). Fixed-point freeness gives exactly \(p^r\) complements. Partner counts are then exact: every nonzero proper kernel subspace permutes with all kernel subspaces and \(G\) but no complement; each complement has exactly the four partners \(1,V,C,G\). Summing these counts gives every displayed relative degree and the global degree. The actual frozen verifier was read; it constructs three irreducible actions and directly checks all subgroup products. The proof, not the finite replay, establishes the universal result.
 
-The principal residual risk is bibliographic: the same calculation could exist under affine-group or subgroup-permutability terminology not located by the searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh comparison with the full 2018 relative-degree paper shows its explicit semidirect-product formulas use cyclic normal kernels, notably \(C_p\rtimes C_{q^n}\), and its noncyclic example \(A_4\) is treated only as a small exceptional group. The ZM-group work likewise requires cyclic Sylow structure. Fresh Resultary searches returned this record as the only exact elementary-abelian irreducible-Frobenius formula among the leading hits; the closest distinct SCOPE result treats cyclic \(C_{p^a}\rtimes C_q\).
+
+## value
+
+PASS
+
+This gives a complete relative-probability profile for a canonical noncyclic Frobenius family, rather than one scalar subgroup-commutativity degree. The dimension monotonicity links the probabilistic invariant directly to projective subspace geometry and supplies a natural rank-at-least-two counterpart to cyclic-kernel calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
