@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof starts from the literal super-domination witness condition. For a selected vertex in part \(V_i\), its omitted neighbors are exactly \(C\setminus V_i\), so witnessing \(u\) is equivalent to \(C\setminus V_i=\{u\}\). This gives all boundary cases without a hidden graph-theoretic lemma. The contradiction for \(|C|\ge3\) uses two omitted vertices forced into one part and a third omitted vertex in another part. The exact counting formula follows by complement choice. `verify.py` exhaustively agrees with the literal definition for every complete-multipartite profile through order \(10\).
+## correctness
 
-## Originality
-**PASS.** The founding work covers the invariant and scalar clique, star, and complete-bipartite values. Klein, Rodríguez-Velázquez, and Yi explicitly cover the scalar arbitrary complete-multipartite value; this is excluded from novelty. Ghanbari, Jäger, and Lehtilä enumerate minimum sets for cliques, stars, and complete bipartite graphs; their biclique count is also excluded from novelty. Their inspected full text contains no arbitrary complete-multipartite result. Focused semantic and exact-phrase searches found no all-set classification or full enumerator for arbitrary part sizes. Residual risk remains from poorly indexed equivalent terminology.
+PASS
 
-## Value
-**PASS.** The result closes a natural family-level question: it identifies every super dominating set of every connected complete multipartite graph, not merely the minimum size. The three-level enumerator and arbitrary-part minimum-set count unify and extend previously separate scalar and special-case enumeration results. The statement is exact, structural, and reusable without dependence on a finite table.
+For a selected vertex \(v\in V_i\), its neighbors outside \(D\) are exactly \(C\setminus V_i\). Thus an omitted vertex \(u\) is privately witnessed by \(v\) iff \(C\setminus V_i=\{u\}\). This makes complements of size zero and one feasible; a two-vertex complement is feasible exactly when its vertices lie in distinct non-singleton parts, so each part still supplies the other vertex's witness. If \(|C|\ge3\), a witness for one omitted vertex forces all the other omitted vertices into one part, which makes a second omitted vertex unwitnessable. The three-term enumerator, domination number, and minimum-set count follow immediately. The literal-definition verifier independently checks all multipartite profiles through order ten.
 
-## Closest literature and limitations
-The closest direct overlap is the complete-multipartite scalar formula in *On the super domination number of graphs*. The closest enumeration overlap is *Super Domination: Graph Classes, Products and Enumeration*, which counts minimum sets for complete graphs, stars, and complete bipartite graphs but has no multipartite occurrence in the inspected full text. The theorem here is restricted to connected complete multipartite graphs, and the finite verifier stops at order \(10\); the infinite claim rests on the symbolic proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work gives scalar super-domination values for complete multipartite graphs and enumerates minimum sets for complete graphs, stars, and complete bipartite graphs. The inspected 2022/2024 enumeration paper explicitly treats those special classes and contains no complete-multipartite all-set theorem. The audited complement classification yields the arbitrary-part minimum-set count and the full cardinality polynomial, neither implied by the scalar value alone.
+
+## value
+
+PASS
+
+The theorem gives a natural complete classification and exact polynomial for an established domination variant, while subsuming several separately known boundary classes. Its short proof reflects the strong symmetry of complete multipartite graphs rather than an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

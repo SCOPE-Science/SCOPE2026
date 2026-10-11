@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:13:23.881864Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a selected vertex \\(v\\in V_i\\), its neighbors outside \\(D\\) are exactly \\(C\\setminus V_i\\). Thus an omitted vertex \\(u\\) is privately witnessed by \\(v\\) iff \\(C\\setminus V_i=\\{u\\}\\). This makes complements of size zero and one feasible; a two-vertex complement is feasible exactly when its vertices lie in distinct non-singleton parts, so each part still supplies the other vertex's witness. If \\(|C|\\ge3\\), a witness for one omitted vertex forces all the other omitted vertices into one part, which makes a second omitted vertex unwitnessable. The three-term enumerator, domination number, and minimum-set count follow immediately. The literal-definition verifier independently checks all multipartite profiles through order ten.",
+      "risks": [
+        "Connected complete multipartite graphs only."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "assigned verify.py",
+        "Ghanbari–Jäger–Lehtilä arXiv:2209.01795"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-bipartite count \\(mn\\) is only the two-part special case of the audited \\(E_2\\).",
+          "No general result found dominates arbitrary numbers of parts."
+        ],
+        "reasoning": "Special cases and scalar values do not imply the full arbitrary-part polynomial.",
+        "searches": [
+          "Ghanbari–Jäger–Lehtilä Section 6",
+          "complete-multipartite scalar super-domination literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.01795",
+        "Klein–Rodríguez-Velázquez–Yi scalar result",
+        "current Resultary search",
+        "assigned RESULT.md/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing \\(\\gamma_{sp}=N-2\\) or \\(N-1\\) does not characterize all nonminimum super dominating sets.",
+          "The prior biclique count agrees with one special coefficient but does not imply sums over all pairs of non-singleton parts."
+        ],
+        "reasoning": "The audited classification provides strictly additional information.",
+        "searches": [
+          "comparison with known \\(\\gamma_{sp}\\) formula and Theorem 6.1 of arXiv:2209.01795"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Ghanbari–Jäger–Lehtilä full text lists complete graph, star, and complete bipartite minimum-set counts; no 'complete multipartite' occurrence was found.",
+          "Prior complete-multipartite work supplies a scalar \\(\\gamma_{sp}\\) formula."
+        ],
+        "reasoning": "All-set structure, minimum-set enumeration, and scalar minimum value were compared as distinct claims.",
+        "searches": [
+          "Resultary semantic search for complete-multipartite super domination polynomials/all sets",
+          "arXiv:2209.01795",
+          "Klein–Rodríguez-Velázquez–Yi complete-multipartite scalar result"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact arbitrary-part table/polynomial was located."
+        ],
+        "reasoning": "The theorem classifies every set and is not a table recomputation.",
+        "searches": [
+          "Resultary search for super-domination polynomial complete multipartite",
+          "published enumeration paper"
+        ]
+      },
+      "rationale": "Prior work gives scalar super-domination values for complete multipartite graphs and enumerates minimum sets for complete graphs, stars, and complete bipartite graphs. The inspected 2022/2024 enumeration paper explicitly treats those special classes and contains no complete-multipartite all-set theorem. The audited complement classification yields the arbitrary-part minimum-set count and the full cardinality polynomial, neither implied by the scalar value alone.",
+      "residual_risks": [
+        "A later paper on super-domination polynomials could contain an equivalent complete-multipartite formula under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE only.",
+          "evidence": "It enumerates minimum sets for complete graphs, complete bipartite graphs and stars, but has no complete-multipartite theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.01795",
+          "material_read": "Full arXiv HTML, including prior-work section and Section 6 on minimum-set enumeration.",
+          "method": "Primary full-text class-by-class comparison.",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "Closest primary enumeration source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives a natural complete classification and exact polynomial for an established domination variant, while subsuming several separately known boundary classes. Its short proof reflects the strong symmetry of complete multipartite graphs rather than an arbitrary tiny instance.",
+      "risks": [
+        "The graph family is highly symmetric, so the theorem does not imply formulas for general graphs."
+      ],
+      "sources": [
+        "founding/special-class super-domination literature",
+        "assigned classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Connected complete multipartite graphs only.",
+    "Finite verifier is corroborative.",
+    "Originality is best-of-knowledge."
+  ],
+  "schema_version": 1
+}

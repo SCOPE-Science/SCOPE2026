@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for arbitrary finite order. The standalone checker `verify.py` is an independent finite stress test of the literal definition against the claimed structural criterion.
+# Independent mathematical audit
 
-It enumerates every nondecreasing complete-multipartite part profile of total order from \(2\) through \(10\), every vertex subset for each profile, and checks:
+## correctness
 
-- literal super domination versus the complement classification;
-- every coefficient of \(\mathcal S_G(x)\);
-- the minimum-size formula;
-- the number of minimum super dominating sets;
-- complete-graph, star, and nontrivial complete-bipartite boundary cases.
+PASS
 
-Exact replay output:
+For a selected vertex \(v\in V_i\), its neighbors outside \(D\) are exactly \(C\setminus V_i\). Thus an omitted vertex \(u\) is privately witnessed by \(v\) iff \(C\setminus V_i=\{u\}\). This makes complements of size zero and one feasible; a two-vertex complement is feasible exactly when its vertices lie in distinct non-singleton parts, so each part still supplies the other vertex's witness. If \(|C|\ge3\), a witness for one omitted vertex forces all the other omitted vertices into one part, which makes a second omitted vertex unwitnessable. The three-term enumerator, domination number, and minimum-set count follow immediately. The literal-definition verifier independently checks all multipartite profiles through order ten.
 
-`VERIFY_OK profiles=128 subset_checks=64916 criterion_checks=64916 valid_sets=2505 coefficient_checks=339 gamma_checks=128 special_checks=34 max_order=10`
+## originality
 
-The exhaustive computation is finite evidence only. The arbitrary-order result is established by the proof in `RESULT.md`.
+PASS
+
+Prior work gives scalar super-domination values for complete multipartite graphs and enumerates minimum sets for complete graphs, stars, and complete bipartite graphs. The inspected 2022/2024 enumeration paper explicitly treats those special classes and contains no complete-multipartite all-set theorem. The audited complement classification yields the arbitrary-part minimum-set count and the full cardinality polynomial, neither implied by the scalar value alone.
+
+## value
+
+PASS
+
+The theorem gives a natural complete classification and exact polynomial for an established domination variant, while subsuming several separately known boundary classes. Its short proof reflects the strong symmetry of complete multipartite graphs rather than an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
