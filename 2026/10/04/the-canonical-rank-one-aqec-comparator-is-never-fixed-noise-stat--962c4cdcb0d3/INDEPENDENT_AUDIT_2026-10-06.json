@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:37:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob de0e688d75493119974239bc5a65930c6af90652",
+        "assigned artifacts/verify.py blob 88c44ca971ba3a2e6bbee4e3201e3d4245b77ba2",
+        "Li--Jiang, arXiv:2609.00778"
+      ],
+      "rationale": "The inspected package derives an exact one-parameter fidelity formula from the source Kraus family. At the canonical angle, the trace factor has zero first derivative, so only the second source term contributes. Its derivative reduces to a positive prefactor times \\((1-g)^2-(d-1)^2a^2g\\). Independent symbolic reconstruction in this audit simplifies that expression exactly to \\(p(d^2-1+p)/(d(d+1)^2)>0\\). The package verifier also constructs the full Kraus operators and decoder and numerically checks the scalar formula against direct entanglement-fidelity evaluation for several dimensions and noise strengths. Hence the positive directional derivative is a genuine feasible improvement, sufficient to rule out stationarity and exact pair optimality.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader AQEC theorems bound the rank-one penalty and unrestricted optimum but do not evaluate the derivative of the source's canonical fixed-noise rank-one comparator."
+        ],
+        "reasoning": "No broader theorem checked implies the sign of the derivative at this source-specific canonical angle.",
+        "searches": [
+          "Li--Jiang primary paper arXiv:2609.00778",
+          "Barnum--Knill--Nielsen exact/near-perfect partial-isometry benchmark",
+          "probabilistic-QEC higher-rank precedent"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.00778",
+        "Barnum--Knill--Nielsen 2000",
+        "probabilistic quantum error-correction literature",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asymptotic optimality through quadratic order as \\(p\\to0\\) does not imply stationarity at any fixed \\(p>0\\).",
+          "The strict derivative is additional exact finite-parameter information."
+        ],
+        "reasoning": "The final claim resolves a source-specific open comparator question without overclaiming the global rank-one optimum.",
+        "searches": [
+          "Li--Jiang main construction and finite-noise open question"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper defines the same explicit noise family and proves the unrestricted optimum requires high rank for every \\(p>0\\).",
+          "Its rank-one analysis is asymptotic; the exact finite-noise rank-one optimum is not supplied.",
+          "The explicitly documented source open problem asks about exact fixed-\\(p\\) optimality of this canonical rank-one pair."
+        ],
+        "reasoning": "Fixed-p stationarity of the canonical isometry is a necessary condition for exact optimality of that same pair, so a strictly improving feasible isometric direction decisively answers the comparator question.",
+        "searches": [
+          "Resultary: approximate quantum error correction rank-one canonical comparator polar normalized fixed noise stationary Li Jiang",
+          "arXiv:2609.00778",
+          "searches for exact fixed-p optimality of the constructed rank-one encoder and partial-trace decoder"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior published-result record with the same strict derivative identity was returned."
+        ],
+        "reasoning": "The decisive comparison is with the source's unresolved finite-noise comparator, not a numerical table.",
+        "searches": [
+          "Resultary exact canonical-rank-one AQEC comparator query"
+        ]
+      },
+      "rationale": "Li--Jiang's primary paper proves that unrestricted high-rank encoding is strictly better and develops a canonical feasible rank-one construction that attains the correct quadratic asymptotic coefficient, but it does not give a closed-form fixed-noise rank-one optimum. The source's stated open direction asks whether the constructed rank-one encoder with the partial-trace decoder is exactly optimal for fixed positive \\(p\\). The audited positive derivative answers that comparator question negatively while correctly leaving the global rank-one optimum open. No checked Resultary or web source supplied this fixed-p nonstationarity calculation.",
+      "residual_risks": [
+        "A follow-up source posted after the v1 paper could independently contain the same directional derivative; none was found in the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_LEAVES_FIXED_NOISE_CANONICAL_RANK_ONE_OPTIMALITY_OPEN",
+          "evidence": "The source proves high-rank necessity and a quadratic asymptotic rank-one gap but does not provide a closed-form finite-\\(p\\) rank-one optimum; exact optimality of the constructed comparator is posed separately.",
+          "identifier_or_url": "arXiv:2609.00778",
+          "material_read": "Primary paper pages covering the AQEC optimization framework, the explicit noise family, its exact unrestricted optimum and the rank-one-gap setup; source material documenting the finite-noise comparator question was also compared.",
+          "method": "Primary-paper and source-open-problem inspection.",
+          "title": "High-Rank Encoding Can Improve Approximate Quantum Error Correction",
+          "trigger": "Exact source of the noise family, canonical high-rank construction and rank-one asymptotic comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li--Jiang 2026",
+        "rank-one AQEC optimization background"
+      ],
+      "rationale": "The result sharpens the interpretation of a current AQEC construction: the natural comparator used to obtain the correct asymptotic rank-one gap is not even locally optimal at any positive noise strength. This materially changes how the finite-noise rank-one benchmark should be optimized while preserving the paper's global high-rank conclusion.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Li--Jiang's explicit AQEC noise family, the canonical polar-normalized rank-one encoder paired with the partial-trace decoder is not stationary at any fixed \\(d\\ge2\\) and \\(0<p<1\\): along the explicit feasible isometric path in RESULT.md, the entanglement fidelity has strictly positive derivative at the canonical angle, so an arbitrarily small positive displacement strictly improves that fixed encoder--decoder pair.",
+  "limitations": [
+    "The theorem disproves exact fixed-\\(p\\) optimality of the particular canonical rank-one comparator pair; it does not give the globally optimal rank-one encoder or close the finite-\\(p\\) rank-one optimization problem.",
+    "The conclusion is for the explicit Li--Jiang noise family and maximally mixed logical input used in their construction."
+  ],
+  "schema_version": 1
+}

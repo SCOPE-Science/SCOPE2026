@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The encoder path is exactly isometric, its canonical angle is obtained from the polar decomposition of the source matrix, and the Kraus-trace evaluation reduces the entanglement fidelity to a closed one-variable expression. At the canonical point \(T'(\theta_p)=0\), while the remaining derivative factor has sign determined by the exact positive identity
-\[
-(1-g)^2-(d-1)^2a^2g=\frac{p(d^2-1+p)}{d(d+1)^2}>0.
-\]
-The argument covers every integer \(d\ge2\) and every \(0<p<1\), with the excluded endpoint and unproved global optimum stated explicitly.
+## correctness
 
-## Originality
-PASS. The closest primary source constructs this comparator and explicitly leaves its fixed-positive-noise exact optimality open. Targeted searches over the source title, canonical polar encoder, fixed-noise rank-one optimality, stationarity, and equivalent AQEC terminology found no statement implying the all-parameter derivative obstruction. Broader iterative AQEC optimization does not imply this source-specific identity.
+PASS
 
-## Value
-PASS. The finding resolves a concrete open finite-noise question about the comparator underlying a recent high-rank AQEC separation. It replaces a numerical/perturbative uncertainty with an explicit analytic improving direction valid uniformly in dimension and noise strength.
+The inspected package derives an exact one-parameter fidelity formula from the source Kraus family. At the canonical angle, the trace factor has zero first derivative, so only the second source term contributes. Its derivative reduces to a positive prefactor times \((1-g)^2-(d-1)^2a^2g\). Independent symbolic reconstruction in this audit simplifies that expression exactly to \(p(d^2-1+p)/(d(d+1)^2)>0\). The package verifier also constructs the full Kraus operators and decoder and numerically checks the scalar formula against direct entanglement-fidelity evaluation for several dimensions and noise strengths. Hence the positive directional derivative is a genuine feasible improvement, sufficient to rule out stationarity and exact pair optimality.
 
-## Closest literature and limitations
-The closest work is arXiv:2609.00778v1 itself: it proves the leading quadratic high-rank advantage but states that higher-order rank-one corrections and fixed-\(p\) exact optimality of the displayed pair are unresolved. The present theorem does not solve global rank-one optimization or produce \(F_1^{\mathrm{opt}}\); it only proves the displayed pair is not stationary for any \(0<p<1\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Li--Jiang's primary paper proves that unrestricted high-rank encoding is strictly better and develops a canonical feasible rank-one construction that attains the correct quadratic asymptotic coefficient, but it does not give a closed-form fixed-noise rank-one optimum. The source's stated open direction asks whether the constructed rank-one encoder with the partial-trace decoder is exactly optimal for fixed positive \(p\). The audited positive derivative answers that comparator question negatively while correctly leaving the global rank-one optimum open. No checked Resultary or web source supplied this fixed-p nonstationarity calculation.
+
+## value
+
+PASS
+
+The result sharpens the interpretation of a current AQEC construction: the natural comparator used to obtain the correct asymptotic rank-one gap is not even locally optimal at any positive noise strength. This materially changes how the finite-noise rank-one benchmark should be optimized while preserving the paper's global high-rank conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
