@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The graph is defined unambiguously by seven nonzero binary points and seven dual covectors with zero pairing. Exhaustive enumeration produces exactly 458 faces including the empty face, and six exact boundary ranks yield reduced mod-two homology only in dimension three, of rank six. Rank comparison and Euler characteristic establish the corresponding rational homology. For each of all 168 incidence-preserving matrices, a separately justified simplicial Hopf trace formula reduces the rational character to an independent-set cycle polynomial evaluated at minus one; the exhaustive results agree across independent row/column implementations and GF2/GF3 signed boundary calculations. The irreducible-degrees list, inner products and Galois argument establish the stated rational irreducible module. The conclusion is neither an integral lattice assertion nor an equivariant homotopy classification.
+
+## Originality — PASS, with residual risk
+The closest publicly accessible Heawood theorem establishes only the nonequivariant wedge-of-six-three-spheres homotopy type. This does not determine the symmetry action: the reduced point permutation representation has the same dimension yet gives involution trace +2, versus −2 here. Barmak's general star-cluster theorem and Tsukuda's Alexander-duality/incidence framework do not compute this equivariant character. Exact and alias searches including PSL(2,7), GL(3,2), Fano, and Heawood automorphism characters, plus comparison against recoverable prior research claims, identified no explicit or implying covering claim. The standard finite-group character table classifies irreducibles abstractly, but is not a computation of the topological representation. Possible equivalently formulated unindexed literature is a genuine residual risk, not refuted by unsuccessful searches.
+
+## Value — PASS
+The Fano plane is a canonical symmetric finite geometry and the Heawood graph its natural incidence graph. Its independence complex already has an interesting six-dimensional homology space whose symmetry type is not determined by its homotopy type. Determining the complete group character and identifying the exceptional rational irreducible—rather than the equally dimensional reduced seven-point permutation module—resolves a precise, naturally motivated equivariant invariant. The result is narrower than an infinite-family classification, which is explicitly not claimed.
+
+Same-model review: passed. Independent audit: not yet performed.
