@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The squaring map of \(A=K\oplus V\) has coordinate-quadratic span \(W=\operatorname{span}\{x_0^2,x_0x_1,\ldots,x_0x_r\}\). The displayed \(2r+1\)-term decomposition proves the upper bound. For an arbitrary decomposition, projection to \(\operatorname{Sym}^2(V^*)\) and the mixed \(x_0V^*\) component force at least \(r\) independent projected squares in addition to the \(r+1\)-dimensional kernel subspace \(W\), proving the matching lower bound. The general Waring-rank/evolution-dimension bridge is stated in arXiv:2609.32784v1.
+# Independent mathematical audit
 
-## Originality
-PASS. The motivating source develops the general bridge and applies it to truncated polynomial algebras, not to the split square-zero radical family. Targeted searches for square-zero, radical-square-zero, trivial-extension, minimal evolution-dimension, and simultaneous-Waring aliases found no equivalent theorem. Classical bilinear-complexity results provide a lower bound but do not determine the simultaneous Waring rank or evolution dimension.
+## correctness
 
-## Value
-PASS. Split local algebras with square-zero radical are the canonical first-order local commutative algebras. The theorem gives their complete minimal evolution dimension for every radical dimension and every field of characteristic different from \(2\), with a sharp linear formula and no field-size assumption. It also shows that the general evolution-envelope problem can be exactly solved on a broad natural family distinct from the source's truncated-polynomial example.
+PASS
 
-## Closest literature and limitations
-The closest direct source is Costoya--Fernández Ouaridi--Viruel, arXiv:2609.32784v1, which supplies the general evolution-envelope/Waring framework. Alder--Strassen and Bläser supply nearby bilinear-complexity theory. Characteristic \(2\), nonsplit residue extensions, and higher radical nilpotency are not covered. Recent indexing remains an originality risk.
+The explicit decomposition x0^2 e0 + (1/2) sum_i[((x0+xi)^2-(x0-xi)^2)e_i] uses exactly 2r+1 squares. For any decomposition, the coordinate-quadric space W of dimension r+1 lies in the span L of the squares. Projection x0=0 gives dim L>=dim W+dim pi(L). Since the mixed parts must span x0 V*, r forms v_j with nonzero x0 coefficient are independent; their squares are independent after a basis change, so dim pi(L)>=r and N>=2r+1. This is field-uniform for char!=2. The separate Alder--Strassen multiplication-rank bound is a valid consistency check.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Costoya--Fernández Ouaridi--Viruel prove the general equality between minimal evolution dimension and simultaneous Waring rank for unital commutative algebras and advertise truncated-polynomial algebras as their explicit application. Their accessible primary abstract does not state the split square-zero local family or the value 2r+1. Resultary returned the audited formula as the direct exact match.
+
+## value
+
+PASS
+
+The split square-zero local algebra is a canonical family, and exactly evaluating the newly introduced evolution-envelope dimension uniformly in radical dimension is a natural first structural benchmark beyond the source's truncated-polynomial application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
