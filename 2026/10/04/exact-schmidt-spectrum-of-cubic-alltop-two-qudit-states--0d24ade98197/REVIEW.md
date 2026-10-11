@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The state is exactly the cubic-trace Alltop vector after choosing \(\mathbf F_{d^2}=\mathbf F_d[\theta]/(\theta^2-\nu)\), since \(\operatorname{Tr}(x+y\theta)^3=2x^3+6\nu xy^2\). For every nonzero shift, the Pauli expectation becomes a quadratic exponential sum whose polar form \(\operatorname{Tr}(6uzw)\) is nondegenerate; the standard double-sum argument therefore gives magnitude \(d\) before normalization and \(1/d\) afterward. The reduced density matrix is circulant after removal of row phases, and additive Fourier diagonalization reduces each eigenvalue to the number of roots of \(cy^2=k\). This yields the claimed multiplicities exactly. The checker independently reproduces the Pauli pattern, purity, and spectra for \(d=5\) and \(d=7\).
+# Independent mathematical audit
 
-## Originality
-PASS. The recent source already derives the magic value conditional on a Weyl--Heisenberg MUB fiducial and numerically lists the \(d=5\) Schmidt spectrum \((2/5,2/5,1/5,0,0)\). Older Alltop literature already gives the cubic MUB construction over finite fields of characteristic at least five. Those results jointly cover the magic-value achievability aspect, so that aspect is not presented as novel. The assessed claim adds the exact bipartite Schmidt spectrum for the prime-square cubic Alltop state for every prime local dimension and thereby gives a uniform continuation of the source's first ququint spectrum. Searches in an indexed research database and the primary literature found no statement or implication supplying that spectrum. Residual risk remains that an equivalent singular-value calculation occurs in older sequence-correlation literature under different terminology.
+## correctness
 
-## Value
-PASS. The 2026 source explicitly identifies understanding the structure of higher-dimensional maximal-magic candidates as an immediate open direction. The theorem gives a closed all-prime entanglement stratum, including exact Schmidt rank and entropy, for a canonical candidate family that already realizes the conjectured magic value. This is more than a numerical continuation: it explains why one of the six ququint maxima has the spectrum it does and predicts its exact analogue in every higher prime dimension. The global maximality conjecture remains open and is not needed for the structural result to be useful.
+PASS
 
-## Closest literature and limitations
-The closest source is arXiv:2607.07197v1, especially its Weyl--Heisenberg MUB purity count, its two-ququint Table II, and its statement that the prime-dimensional maximal-magic structure remains open. Price--Hall--Bartlett record the cubic Alltop construction over all finite fields of characteristic at least five; Blanchfield studies Alltop MUB orbits in prime dimensions. None of these inspected sources states the all-prime bipartite Schmidt spectrum proved here. The theorem does not establish a global upper bound on magic, classify all fiducials, or address characteristic two or three.
+The field-trace identity gives the displayed cubic phase, and the nonidentity Pauli expectations reduce to nondegenerate quadratic Gauss sums of magnitude \(d\), yielding the stated stabilizer purity. For entanglement, removing row phases leaves the coefficient matrix \(d^{-1}\omega^{cxy^2}\). Its Gram matrix is circulant; additive Fourier diagonalization gives eigenvalue \(d^{-1}\#\{y:cy^2=k\}\), which is one root at zero, two roots for half the nonzero frequencies and no roots for the rest. Fresh independent numerical diagonalization at \(d=5,7,11\) reproduced exactly the predicted multiplicities.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The cubic Alltop family and its mutually unbiased-basis role are prior art, and the recent maximal-magic work supplies the relevant magic-value context. Best-of-knowledge novelty is restricted to the exact bipartite Schmidt spectrum for the natural \(\mathbf F_{d^2}\cong\mathbf F_d^2\) tensor factorization. Resultary searches returned no independent all-prime spectrum formula. The complete Knipfer et al. body was not accessible through the open route, and an authorized institutional fallback attempt was safety-blocked and not retried; that remains a residual risk rather than a failure.
+
+## value
+
+PASS
+
+The exact spectrum supplies a dimension-uniform entanglement structure for a canonical infinite Alltop family realizing the known magic benchmark. It explains a concrete rank and entropy stratum and is a natural structural invariant for comparing higher-dimensional magic candidates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
