@@ -1,0 +1,11 @@
+# Same-model review
+
+**Correctness — PASS.** Ramos's exact cell model deletes precisely the diagonal product squares and its theorem identifies the model homotopy type with the sink configuration space. The relative cellular pair supplies a fully integral exact sequence, and the edge-disjoint cycle basis has a primitive diagonal image, proving torsion-freeness and both Betti formulas. Factor exchange supplies the rational eigenspaces. The standalone checker reconstructs cellular matrices on seven cactus examples, over four primes; integral generality comes from the unimodular-support proof, not finite experiments.
+
+**Originality — PASS with residual literature risk.** Material from the full papers of Chettih–Lütgehetmann (arXiv:1612.08290) and Ramos (arXiv:1703.05535) was inspected at their exact model, small-graph and homology results. Ramos computes trees and large-particle representation stability, not the fixed-two-particle cactus result; the earlier source establishes sinks and basic building blocks. Searches for cactus graph sink configurations, equivalently two-particle vertex-collision graph spaces, the tensor edge-diagonal map and particle-swap characters did not locate a dominating published theorem. No novelty claim follows merely from missing a search hit; independently published equivalent treatments may exist.
+
+**Value — PASS.** Cactus graphs form a natural non-tree class where cycles may attach at cut vertices or across bridges while never sharing edges. The result gives complete integral homology and a particle-swap character depending only on the two elementary graph invariants \(E,b\), furnishing a sharp extension of tree-only invariance and a transparent explanation from primitive edgewise intersections. Multi-cycle examples exhibit nonzero second homology, absent in the tree and one-cycle cases.
+
+**Limitations.** The theorem covers all-vertex sinks and two ordered particles, not ordinary collision-free configurations or multi-particle cases. It does not assert an integral representation splitting or a homotopy type. Other publications and alternate presentations remain a residual literature risk; independent review has not occurred.
+
+Same-model review: passed. Independent audit: not yet performed.
