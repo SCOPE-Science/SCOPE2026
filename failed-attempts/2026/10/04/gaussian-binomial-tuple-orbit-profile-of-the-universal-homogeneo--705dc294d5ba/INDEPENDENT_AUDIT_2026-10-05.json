@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:08:01.907124Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 14d0ff68d4dc6d0fbf10a206af8cc3a6731c2a6a",
+        "assigned artifacts/verify.py blob 27719f3097c5ffea1c02cef2f6e198de648f20f2",
+        "Harman--Snowden, arXiv:2207.09626v2, Proposition 5.10",
+        "Neretin, arXiv:2308.13247 / Moscow Math. J. 25 (2025)"
+      ],
+      "rationale": "For an ordered tuple \\(v\\), its linear-relation kernel \\(K_v\\subseteq\\mathbb F_q^n\\) and pulled-back symmetric trilinear form on \\(\\mathbb F_q^n/K_v\\) determine the induced finite cubic space on the tuple span. Ultrahomogeneity extends an isomorphism of these spans to a global automorphism, and universality realizes every such finite quotient form. Counting codimension-\\(r\\) kernels by \\({n\\brack r}_q\\) and symmetric trilinear forms by \\(q^{\\binom{r+2}{3}}\\) yields the formula. A fresh independent computation reproduced the submitted \\(q=5\\) values \\(1,6,656,9785156,95368955582656,2910383120155532786132656\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harman--Snowden treat general tensor signatures, not just cubic spaces.",
+          "Neretin treats the exact finite-field universal cubic space and its automorphism group."
+        ],
+        "reasoning": "These prior theorems are structurally broader and already determine tuple orbits once the span/relations are recorded.",
+        "searches": [
+          "Harman--Snowden, Ultrahomogeneous tensor spaces",
+          "Neretin, Oligomorphic groups, categories of partial bijections, and ultrahomogeneous cubic spaces over finite fields"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2207.09626",
+        "https://arxiv.org/pdf/2308.13247",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For independent tuples, the prior proposition gives exactly one orbit for each symmetric trilinear form on \\(\\mathbb F_q^n\\).",
+          "For a dependent tuple, quotienting \\(\\mathbb F_q^n\\) by its relation kernel reduces immediately to the independent case.",
+          "There are \\({n\\brack r}_q\\) possible kernels of codimension \\(r\\) and \\(q^{\\binom{r+2}{3}}\\) symmetric trilinear forms on the quotient."
+        ],
+        "reasoning": "The submitted orbit formula is a routine summation of the published complete orbit invariant over possible kernels.",
+        "searches": [
+          "direct comparison with Harman--Snowden Proposition 5.10",
+          "direct comparison with Neretin Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 5.10 states that the pulled-back tensor on a linearly independent tuple is a surjective complete orbit invariant.",
+          "Neretin states universality and that the embedding Stiefel variety of each finite cubic space is homogeneous under the automorphism group."
+        ],
+        "reasoning": "The submitted 'kernel plus quotient tensor' invariant is precisely the dependent-tuple extension of the published independent-tuple classifying map.",
+        "searches": [
+          "Resultary query: universal ultrahomogeneous cubic space finite field tuple orbit kernel pullback symmetric trilinear form",
+          "Harman--Snowden arXiv:2207.09626v2, Section 5.3 and Proposition 5.10",
+          "Neretin arXiv:2308.13247, Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate table with the submitted numeric sequence was located."
+        ],
+        "reasoning": "Absence of the numeric table does not establish originality because the general published classifying-map theorem directly implies the formula after standard Gaussian-binomial counting.",
+        "searches": [
+          "Resultary semantic search for the tuple-orbit profile and \\(q=5\\) initial values"
+        ]
+      },
+      "rationale": "Harman--Snowden Proposition 5.10 is decisive prior coverage for the substantive orbit classification: for linearly independent \\(n\\)-tuples, their classifying map is exactly the pulled-back tensor structure, is surjective by universality, and its fibers are exactly automorphism orbits by homogeneity. Their positive-characteristic remark states that the same theorem holds when the characteristic exceeds the tensor degree, which covers the submitted \\(p>3\\) regime. Neretin independently states the finite-field universal cubic space and transitivity on embeddings of each finite cubic space. Passing from an arbitrary tuple to its quotient by the kernel of coordinate relations and then summing the number of kernels is a routine linear-algebra extension of the published classifying-map theorem. Under the audit's implication rule, the final orbit-profile formula is therefore covered.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_ORBIT_CLASSIFICATION",
+          "evidence": "Proposition 5.10 states surjectivity and injectivity modulo the automorphism group of the pulled-back tensor classifying map.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.09626",
+          "material_read": "Primary PDF Theorem A/positive-characteristic remark and Section 5.3; Proposition 5.10 was read and visually inspected on the rendered page.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "Ultrahomogeneous tensor spaces",
+          "trigger": "Strongest general source for tuple orbit classification."
+        },
+        {
+          "assessment": "FINITE_FIELD_ULTRAHOMOGENEITY_COVERAGE",
+          "evidence": "It independently supplies the same finite-subspace orbit mechanism in the submitted setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.13247",
+          "material_read": "Primary PDF Section 3, including Theorem 3.1 defining the universal finite-field cubic space and homogeneity of its embedding Stiefel varieties.",
+          "method": "Lawful open primary full-text inspection, including rendered page.",
+          "title": "Oligomorphic groups, categories of partial bijections, and ultrahomogeneous cubic spaces over finite fields",
+          "trigger": "Exact finite-field cubic-space comparison."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Harman--Snowden Proposition 5.10",
+        "Neretin Theorem 3.1"
+      ],
+      "rationale": "Exact orbit profiles of oligomorphic groups are intrinsically natural, but here the classification and the count are a routine specialization of a published complete classifying map: quotient by the linear-relation kernel, count subspaces, and count tensor coefficients. Under the common value bar this is not a remaining structural gap or a nontrivial new classification.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2207.09626",
+    "https://arxiv.org/pdf/2308.13247",
+    "Resultary semantic search"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The rejection is for direct prior implication and routine value, not correctness.",
+    "The formula is restricted to the universal homogeneous symmetric trilinear space in characteristic greater than three."
+  ],
+  "residual_risks": [],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE_ORBIT_CLASSIFICATION",
+      "evidence": "Proposition 5.10 states surjectivity and injectivity modulo the automorphism group of the pulled-back tensor classifying map.",
+      "identifier_or_url": "https://arxiv.org/pdf/2207.09626",
+      "material_read": "Primary PDF Theorem A/positive-characteristic remark and Section 5.3; Proposition 5.10 was read and visually inspected on the rendered page.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "Ultrahomogeneous tensor spaces",
+      "trigger": "Strongest general source for tuple orbit classification."
+    },
+    {
+      "assessment": "FINITE_FIELD_ULTRAHOMOGENEITY_COVERAGE",
+      "evidence": "It independently supplies the same finite-subspace orbit mechanism in the submitted setting.",
+      "identifier_or_url": "https://arxiv.org/pdf/2308.13247",
+      "material_read": "Primary PDF Section 3, including Theorem 3.1 defining the universal finite-field cubic space and homogeneity of its embedding Stiefel varieties.",
+      "method": "Lawful open primary full-text inspection, including rendered page.",
+      "title": "Oligomorphic groups, categories of partial bijections, and ultrahomogeneous cubic spaces over finite fields",
+      "trigger": "Exact finite-field cubic-space comparison."
+    }
+  ]
+}
