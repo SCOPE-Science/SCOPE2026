@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:04:21.654390Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a5c9cc0a97ed65d83847897934f811f51211247e",
+        "assigned verify.py blob 38de60b0a1d1ea075c68712a3db156eae9312870",
+        "Alanazi, DOI:10.3934/math.2024945",
+        "Li--Zou, DOI:10.1007/s11538-009-9457-z"
+      ],
+      "rationale": "The printed Section 4.2 choices combine a continuous latent-stage hazard with a boundary transfer. For the displayed transport equation with latent hazard one on ages below rho, characteristics multiply the boundary incidence by exp(-rho). Linearization therefore gives the scalar delay equation with reproduction ratio S0 eta (1-gamma) exp(-rho)/q. At the printed parameters S0=10, eta=0.59, rho=3 and q=100/161, an independent exact-rational replay gives the no-quarantine ratio 0.47292736242633965, so the printed simulation is already subcritical. A deterministic fixed latent residence instead has no pre-boundary progression loss and gives base ratio 9.499, threshold gamma=0.8947257606063796, and ratio 2.37475 at gamma=0.75. The delay characteristic-root argument in RESULT.md correctly proves these are exact linear thresholds rather than finite-time simulation observations.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li--Zou derive a genuine fixed-latent-period spatial model with boundary transfer.",
+          "That general construction does not evaluate or correct Alanazi's hybrid numerical specialization."
+        ],
+        "reasoning": "The earlier fixed-delay framework supplies the comparison model but does not dominate the source-specific inconsistency claim.",
+        "searches": [
+          "Li--Zou DOI:10.1007/s11538-009-9457-z",
+          "Alanazi DOI:10.3934/math.2024945"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2024945",
+        "DOI:10.1007/s11538-009-9457-z",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed residence time transfers survivors at the age boundary without the unit continuous-hazard attenuation used in the printed hybrid.",
+          "The exact numerical contradiction requires applying characteristics to the printed Section 4.2 equations and substituting the article's parameters."
+        ],
+        "reasoning": "The claim is not a routine corollary of the fixed-latency literature because it diagnoses a specific published hybrid and computes its different threshold.",
+        "searches": [
+          "Statement comparison between Alanazi's fixed-latency interpretation and Li--Zou's fixed-residence derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source states the 75 percent containment conclusion and identifies delay/quarantine as the mechanism under numerical validation.",
+          "No correction or equivalent source-specific exp(-rho) threshold diagnosis was located."
+        ],
+        "reasoning": "The searches covered hazard-survival attenuation, deterministic fixed residence, boundary transfer, and quarantine-threshold formulations.",
+        "searches": [
+          "Resultary: Alanazi 2024 fixed latency COVID delay quarantine exp(-rho) Section 4.2 latent rate boundary",
+          "DOI:10.3934/math.2024945 correction erratum fixed latency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published Resultary finding with the same source-specific threshold correction was returned."
+        ],
+        "reasoning": "The result is analytic rather than a database lookup; the exact search tests whether the correction was already published.",
+        "searches": [
+          "Resultary semantic search for the exact Alanazi Section 4.2 threshold and exp(-rho) attenuation"
+        ]
+      },
+      "rationale": "The motivating article publicly states that its delay/quarantine simulations validate the model and that containment occurs at 75 percent quarantine, while the submitted calculation shows that the equations as printed contain an extra survival attenuation that makes even zero quarantine subcritical. The fixed-latency literature supplies the correct boundary-transfer construction but not this source-specific diagnosis or corrected 89.47 percent threshold. Targeted Resultary and web correction searches returned no prior correction of the Alanazi equations.",
+      "residual_risks": [
+        "Unpublished implementation code may have solved a different corrected model.",
+        "A non-indexed author correction could exist outside the searched sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_HYBRID_NOT_CORRECTED",
+          "evidence": "The public source states model validation and 75 percent containment; no correction of the hybrid fixed-latency specialization was located.",
+          "identifier_or_url": "DOI:10.3934/math.2024945",
+          "material_read": "Primary open article metadata/HTML, abstract, numerical-validation framing, 75 percent containment conclusion, figures/parameter discussion where exposed; exact Section 4.2 equations were independently checked against the assigned source-specific RESULT.md quotation at the frozen package.",
+          "method": "Lawful open primary-source inspection plus exact package/source-equation cross-check.",
+          "title": "The asymptotic spreading speeds of COVID-19 with the effect of delay and quarantine",
+          "trigger": "Exact motivating model and numerical containment claim."
+        },
+        {
+          "assessment": "CORRECT_FIXED_LATENCY_FRAMEWORK",
+          "evidence": "It supports the distinction between deterministic age-boundary transfer and continuous pre-boundary loss, but does not contain the Alanazi correction.",
+          "identifier_or_url": "DOI:10.1007/s11538-009-9457-z",
+          "material_read": "Published model description and fixed-latent-period boundary-transfer construction.",
+          "method": "Primary literature comparison.",
+          "title": "Modeling spatial spread of infectious diseases with a fixed latent period in a spatially continuous domain",
+          "trigger": "Primary comparator for genuine deterministic fixed latency."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Alanazi 2024",
+        "Li--Zou 2009"
+      ],
+      "rationale": "The discrepancy reverses the qualitative disease-control regime at the published parameter set: the printed numerical equations are subcritical before quarantine, whereas a genuine fixed-delay model still requires nearly 89.5 percent quarantine. That directly affects interpretation of the paper's validation figures and containment claim, so it is a substantive model-consistency result rather than a cosmetic notation check.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3934/math.2024945",
+    "DOI:10.1007/s11538-009-9457-z",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The result audits the printed equations, not unavailable simulation code.",
+    "It is a local disease-free threshold comparison and does not refit epidemiological data."
+  ],
+  "residual_risks": [
+    "Unpublished implementation code may have solved a different corrected model.",
+    "A non-indexed author correction could exist outside the searched sources."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SOURCE_HYBRID_NOT_CORRECTED",
+      "evidence": "The public source states model validation and 75 percent containment; no correction of the hybrid fixed-latency specialization was located.",
+      "identifier_or_url": "DOI:10.3934/math.2024945",
+      "material_read": "Primary open article metadata/HTML, abstract, numerical-validation framing, 75 percent containment conclusion, figures/parameter discussion where exposed; exact Section 4.2 equations were independently checked against the assigned source-specific RESULT.md quotation at the frozen package.",
+      "method": "Lawful open primary-source inspection plus exact package/source-equation cross-check.",
+      "title": "The asymptotic spreading speeds of COVID-19 with the effect of delay and quarantine",
+      "trigger": "Exact motivating model and numerical containment claim."
+    },
+    {
+      "assessment": "CORRECT_FIXED_LATENCY_FRAMEWORK",
+      "evidence": "It supports the distinction between deterministic age-boundary transfer and continuous pre-boundary loss, but does not contain the Alanazi correction.",
+      "identifier_or_url": "DOI:10.1007/s11538-009-9457-z",
+      "material_read": "Published model description and fixed-latent-period boundary-transfer construction.",
+      "method": "Primary literature comparison.",
+      "title": "Modeling spatial spread of infectious diseases with a fixed latent period in a spatially continuous domain",
+      "trigger": "Primary comparator for genuine deterministic fixed latency."
+    }
+  ]
+}

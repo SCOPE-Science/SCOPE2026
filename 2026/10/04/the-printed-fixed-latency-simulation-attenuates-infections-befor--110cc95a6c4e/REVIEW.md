@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Solving the printed Section 4.2 transport equation along characteristics gives the exact factor \(e^{-\rho}\) in the boundary value \(I(\rho)\). The resulting disease-free linearization is a scalar delay equation with characteristic equation
-\[
-z+q=Ae^{-z\rho}.
-\]
-For \(A<q\), no characteristic root can have nonnegative real part; for \(A>q\), there is a unique positive real root. The threshold therefore follows exactly. The fixed-delay comparison removes the pre-boundary progression loss and yields the source's intended reproduction factor without \(e^{-\rho}\).
+PASS
 
-## Originality
+The printed Section 4.2 choices combine a continuous latent-stage hazard with a boundary transfer. For the displayed transport equation with latent hazard one on ages below rho, characteristics multiply the boundary incidence by exp(-rho). Linearization therefore gives the scalar delay equation with reproduction ratio S0 eta (1-gamma) exp(-rho)/q. At the printed parameters S0=10, eta=0.59, rho=3 and q=100/161, an independent exact-rational replay gives the no-quarantine ratio 0.47292736242633965, so the printed simulation is already subcritical. A deterministic fixed latent residence instead has no pre-boundary progression loss and gives base ratio 9.499, threshold gamma=0.8947257606063796, and ratio 2.37475 at gamma=0.75. The delay characteristic-root argument in RESULT.md correctly proves these are exact linear thresholds rather than finite-time simulation observations.
 
-PASS. The 2024 source prints the incompatible ingredients but does not derive the resulting threshold or note that its Section 4.2 model is subcritical even at zero quarantine for the published parameters. Source-specific literature searches found no correction. A fully inspected 2009 fixed-latency primary source provides the standard age-boundary and discrete-delay construction but does not contain this source-specific result.
+## originality
 
-## Value
+PASS
 
-PASS. The discrepancy is regime-changing rather than cosmetic. The printed simulation equations suppress transmission by \(e^{-3}\), making the no-quarantine case subcritical, while a genuine fixed-delay model has
-\[
-\mathcal R=9.499(1-\gamma)
-\]
-and remains supercritical at \(\gamma=0.75\). This determines whether the numerical figures can support the paper's containment claim.
+The motivating article publicly states that its delay/quarantine simulations validate the model and that containment occurs at 75 percent quarantine, while the submitted calculation shows that the equations as printed contain an extra survival attenuation that makes even zero quarantine subcritical. The fixed-latency literature supplies the correct boundary-transfer construction but not this source-specific diagnosis or corrected 89.47 percent threshold. Targeted Resultary and web correction searches returned no prior correction of the Alanazi equations.
 
-## Closest literature and limitations
+## value
 
-The primary source is Alanazi (2024), DOI 10.3934/math.2024945. The closest modeling precedent inspected in full is Li and Zou (2009), DOI 10.1007/s11538-009-9457-z, which derives a fixed latent period through a discrete-delay age-boundary transfer. Guo, Wang, and Zou (2012), DOI 10.1007/s00285-011-0500-y, is additional fixed-latency threshold literature.
+PASS
 
-The conclusion concerns the published equations. Unpublished implementation code could have used a different model.
+The discrepancy reverses the qualitative disease-control regime at the published parameter set: the printed numerical equations are subcritical before quarantine, whereas a genuine fixed-delay model still requires nearly 89.5 percent quarantine. That directly affects interpretation of the paper's validation figures and containment claim, so it is a substantive model-consistency result rather than a cosmetic notation check.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
