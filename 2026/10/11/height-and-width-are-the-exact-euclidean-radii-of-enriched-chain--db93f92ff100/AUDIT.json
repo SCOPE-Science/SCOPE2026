@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every facet normal is a sign vector supported on a maximal chain, so its norm is the square root of that chain's cardinality. For an arbitrary ball center, maximizing the signed facet functional gives the sum of absolute center coordinates along the chain, yielding the exact feasibility condition and complete incenter set. A longest chain gives the universal upper bound and the origin attains it. The uniqueness criterion is proved in both directions. For the outer radius, every generator is a signed antichain vector of norm at most the square root of the width; a maximum antichain gives an antipodal pair attaining that bound. Equality in the Euclidean triangle inequality gives the complete outer contact set. No finite computation is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Okada--Tsuchiya defines the enriched chain polytope as the convex hull of signed antichain vectors and contains no occurrence of 'inradius', 'circumradius', or 'radius'.",
+        "Ohsugi--Tsuchiya Proposition 6.1 gives every signed maximal-chain inequality and states that each is facet-defining.",
+        "Kohl--Olsen--Sanyal identifies the same objects as unconditional chain polytopes and describes their vertices via inclusion-maximal antichains; its full text has no radius occurrence."
+      ],
+      "reasoning": "These sources collectively contain enough structural data to derive the theorem, but none states the Euclidean optimization, the complete incenter locus, the centered contact-facet count, or the exact outer contact set. The new claim is therefore not merely a quoted special case of an inspected stronger theorem.",
+      "searches": [
+        "Full-text inspection: Okada--Tsuchiya, Two Enriched Poset Polytopes, definition, inequality, vertex, and triangulation sections",
+        "Full-text inspection: Ohsugi--Tsuchiya, Enriched Order Polytopes and Enriched Hibi Rings, Proposition 6.1",
+        "Full-text inspection: Kohl--Olsen--Sanyal, Unconditional Reflexive Polytopes, Sections 3 and 7",
+        "Full-text searches for inradius, circumradius, and radius in the exact-object sources"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.12271v1/v2",
+      "doi:10.1007/s00026-023-00679-7",
+      "arXiv:1903.00909v3",
+      "doi:10.1007/s40879-020-00403-2",
+      "doi:10.1007/s00454-020-00199-8",
+      "Published-result searches under enriched/unconditional chain polytope and height/width radius aliases",
+      "Literature searches under inradius, circumradius, longest-chain, maximum-antichain, and characteristic square-root formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The facet theorem implies the distances \\(1/\\sqrt{|C|}\\) from the origin to individual facets but does not optimize arbitrary ball centers or classify all optimal centers.",
+        "The signed-antichain generator description bounds all vertex/generator norms by \\(\\sqrt{w(P)}\\), but the global enclosing-ball and equality classification require the antipodal and strict-convexity arguments in the new proof.",
+        "No inspected source combines the two sides into the height/width recovery identities."
+      ],
+      "reasoning": "The final theorem is a short but nontrivial metric synthesis of two distinct structural descriptions. Its complete incenter formula and uniqueness criterion are not consequences of merely reading off the centered facet distances.",
+      "searches": [
+        "Okada--Tsuchiya arXiv:2003.12271, lines defining \\(\\mathcal C^{(e)}(P)\\) and its signed-antichain generators",
+        "Ohsugi--Tsuchiya arXiv:1903.00909, Proposition 6.1 signed maximal-chain facets",
+        "Kohl--Olsen--Sanyal DOI 10.1007/s00454-020-00199-8, unconditional chain polytope vertex characterization",
+        "Literature search: \"chain polytope\" inradius poset",
+        "Literature search: \"chain polytope\" circumradius poset"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located published-result record or literature result states the pair \\(r=1/\\sqrt{h}\\), \\(R=\\sqrt{w}\\).",
+        "Searches explicitly included the alternative name unconditional chain polytope and the equivalent longest-chain/maximum-antichain language."
+      ],
+      "reasoning": "The theorem can be phrased either in enriched-poset language or unconditional anti-blocking language, and either by height/width or by longest chains/maximum antichains. Those formulations were searched separately; no covering statement was located.",
+      "searches": [
+        "Published-result database: enriched chain polytope inradius circumradius height width poset antichain chain Euclidean",
+        "Published-result database: unconditional chain polytope Euclidean radius height width maximum antichain longest chain",
+        "Published-result database: enriched chain polytope radius reciprocal square root height circumradius square root width complete incenter longest maximal chains maximum antichains",
+        "Literature search: \"enriched chain polytope\" inradius circumradius",
+        "Literature search: \"unconditional chain polytope\" inradius circumradius",
+        "Literature search: \"enriched chain polytope\" height width Euclidean"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records concerned unrelated Euclidean invariants or separate antichain census problems.",
+        "A returned antichain-census item computes widths of two specific posets but contains no enriched-chain-polytope radius theorem."
+      ],
+      "reasoning": "No indexed table or exact result supplies these radii for the poset-polytope family. Specific width computations do not imply the all-poset metric statement.",
+      "searches": [
+        "Published-result database: enriched chain polytope inradius circumradius height width poset antichain chain Euclidean",
+        "Published-result database: unconditional chain polytope Euclidean radius height width maximum antichain longest chain",
+        "Published-result database: enriched chain polytope radius reciprocal square root height circumradius square root width"
+      ]
+    },
+    "rationale": "The selected exact-object source and the two strongest structural sources were inspected. They provide the enriched chain polytope definition, signed-antichain structure, complete signed maximal-chain facets, and unconditional-polytope framework, but no Euclidean inradius/circumradius theorem was found. Published-result and literature searches under both object names and height/width aliases found no statement implying the complete metric classification.",
+    "residual_risks": [
+      "An equivalent observation may be buried in older poset-polytope or anti-blocking literature under a different metric terminology.",
+      "The radius values become short once the complete facet and generator descriptions are juxtaposed, so unnoticed folklore is a realistic residual risk.",
+      "Search nonappearance is not treated as a formal novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper defines \\(\\mathcal C^{(e)}(P)\\) as the convex hull of signed antichain vectors and develops its combinatorial geometry. It contains no occurrence of inradius, circumradius, or radius and does not state the height/width metric formulas.",
+        "evidence": "The article states primary MSC 52B12 and gives \\(\\mathcal C^{(e)}(P)=\\operatorname{conv}\\mathcal A^{(e)}(P)\\); full-text searches found no inradius, circumradius, or radius occurrence.",
+        "identifier_or_url": "arXiv:2003.12271 / DOI 10.1007/s00026-023-00679-7",
+        "material_read": "Abstract and MSC metadata; introduction; definition of enriched order and chain polytopes; enriched transfer map; sections on defining inequalities, vertices, and triangulations; targeted full-text searches for metric-radius terminology.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Two Enriched Poset Polytopes",
+        "trigger": "Selected middle-period source with primary MSC 52B12 and the exact object in the claim."
+      },
+      {
+        "assessment": "Proposition 6.1 gives all facets as signed sums over maximal chains with right-hand side \\(1\\), and declares every such inequality facet-defining. It does not state the Euclidean inradius or optimize translated ball centers.",
+        "evidence": "The facet normal corresponding to a maximal chain \\(C\\) has exactly \\(|C|\\) nonzero entries, each equal to \\(\\pm1\\).",
+        "identifier_or_url": "arXiv:1903.00909 / DOI 10.1007/s40879-020-00403-2",
+        "material_read": "Section 6, especially Proposition 6.1, together with surrounding definitions.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Enriched Order Polytopes and Enriched Hibi Rings",
+        "trigger": "This source contains the decisive complete facet representation for enriched chain polytopes."
+      },
+      {
+        "assessment": "The paper confirms the unconditional formulation and that vertices correspond to signed inclusion-maximal antichains. It studies reflexivity, triangulations, and related convex-geometric structure; no radius theorem was located.",
+        "evidence": "The full text explicitly identifies unconditional chain polytopes with enriched chain polytopes and has no match for 'radius'.",
+        "identifier_or_url": "DOI 10.1007/s00454-020-00199-8",
+        "material_read": "Sections 3 and 7, including the unconditional chain polytope definition and vertex characterization; targeted radius search.",
+        "method": "Open-access publisher full-text inspection.",
+        "title": "Unconditional Reflexive Polytopes",
+        "trigger": "The same objects are studied there under the alternative name unconditional chain polytopes, creating a plausible equivalent-formulation coverage risk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db93f92f-f100-4702-bb54-ddbf9fa396da",
+  "value": {
+    "rationale": "Height and width are the two basic extremal order parameters of a finite poset. The theorem recovers them exactly as the reciprocal squared inradius and squared circumradius of a canonical poset polytope, and further identifies all optimal centers and both inner and outer contact structures. This is a family-wide structural metric interpretation, not a finite table or arbitrary parameter slice. The nonpure case produces a substantive uniqueness phenomenon: the incenter is unique exactly when longest chains cover the ground set.",
+    "status": "PASS"
+  }
+}
