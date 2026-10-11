@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The covariance variational lemma proves global Löwner optimality without symmetry assumptions on competing ellipsoids. After permutation symmetrization, covariance eigenvalues are Var(J)/n and (n E[J]-E[J²])/[n(n-1)]. The sole interior stationary moment equals the cube moment; otherwise the moment polygon maximum is on a consecutive-rank lower edge or extreme-rank upper edge. Every one-dimensional optimum solves an explicit quadratic; exact leverage polynomial forces only the selected two contact ranks unless the cube moment is feasible. Representative calculations were replayed from the packaged stdlib verifier, not used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manecke–Sanyal–So arXiv:1812.07491v1, sections 1–5: combinatorial and fiber-polytope results, no ellipsoid.",
+        "The consecutive-rank case uses a full interval [a,b]; the present S may have gaps. For n=8 and S={0,1,5}, it is not equivalent to the completion [0,5], which has a different optimal ellipsoid.",
+        "Euclidean balls and inradii do not determine optimal volume ellipsoids."
+      ],
+      "reasoning": "The existing consecutive-layer statement is a proper subfamily and cannot imply the gapped-contact classification; the explicit countercomparison proves the difference. General D-optimal design theory supplies computational criteria, not the explicit all-S closed form.",
+      "searches": [
+        "minimum volume enclosing ellipsoid of uniform matroid polytope all subsets cardinality at most k, spectral radial and standard projections",
+        "Nonconsecutive Boolean rank layers S hypersimplex ellipsoid active nonextreme ranks 0 1 5, 8 dimensions",
+        "S-hypersimplices polytopes 2020 2021 2022 first arxiv",
+        "consecutive-layer S-hypersimplex exact Löwner ellipsoid; uniform-matroid independence polytope Euclidean radii; general S-hypersimplex minimum sphere"
+      ]
+    },
+    "checked_sources": [
+      "https://ar5iv.labs.arxiv.org/html/1812.07491",
+      "https://arxiv.org/abs/1812.07491",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v27i3p16",
+      "https://www.mdpi.com/2227-7390/11/9/2075",
+      "https://doi.org/10.1137/1.9781611974386",
+      "https://doi.org/10.1137/080717973"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full rank interval [0,5] in n=8 has a cube-ball Löwner ellipsoid, while allowed ranks {0,1,5} have center (1+4p)1/8, p=(25+sqrt(1129))/72, and contact ranks 1 and 5 only.",
+        "Manecke–Sanyal–So characterize the rank-selected vertex family but have no corresponding enclosing ellipsoid theorem."
+      ],
+      "reasoning": "A statement for a strictly larger polytope with the same extreme ranks does not determine the smaller polytope’s minimum-volume ellipsoid. The example exhibits different shapes and contacts, so the new gapped-family formula is not covered by the closest interval or Euclidean-ball results.",
+      "searches": [
+        "consecutive-layer S-hypersimplices; S-hypersimplex Euclidean minimum enclosing sphere",
+        "S-hypersimplices pulling triangulations monotone paths arxiv:1812.07491",
+        "D-Optimal Designs for Binary and Weighted Linear Regression Models One Design Variable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Todd 2016 DOI 10.1137/1.9781611974386 and Gürtuna 2010 DOI 10.1137/080717973 describe general ellipsoid/design duality, not this rank-shell evaluation.",
+        "Gündüz–Torsney 2023 DOI 10.3390/math11092075 studies binary/weighted one-variable regression design, with a different design locus and hypothesis set."
+      ],
+      "reasoning": "The generic duality can prove optimality once a design is supplied, but does not itself give the exact moment-polygon edge list, root, moment-membership threshold, or nonextremal rank contacts. No equivalent object-level theorem was identified in the actual queries.",
+      "searches": [
+        "Exact Löwner ellipsoid of arbitrary nonconsecutive S-hypersimplices, via convex hull of rank first/second moments and adjacent-rank D-optimal designs",
+        "maximum determinant covariance design finite collection of Hamming weight shells, moment polygon edge optimization",
+        "D optimal design on hypercube Hamming weight restricted layers minimum enclosing ellipsoid",
+        "D optimal design binary vectors cardinality constraints three level support Hamming shells"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected general S-hypersimplex article includes vertex counts and face, monotone path and extension complexity questions, not a table of optimal enclosing ellipsoids.",
+        "No matching exact ellipsoid database/table was retrieved in the actual searches."
+      ],
+      "reasoning": "Absence of a retrieved table is only limited search evidence, not a mathematical uniqueness guarantee; the exact formula is proved independently.",
+      "searches": [
+        "John Löwner ellipsoid of cardinality constrained hypercube, cube sphere persists for k>=ceil((n+1)/2)",
+        "Nonconsecutive Boolean rank layers S hypersimplex ellipsoid active nonextreme ranks 0 1 5, 8 dimensions",
+        "minimum volume ellipsoid S-hypersimplex or cardinality homogeneous ellipsoids",
+        "Löwner ellipsoid hypercube Hamming layers"
+      ]
+    },
+    "rationale": "The inspected S-hypersimplex primary paper classifies faces, monotone paths, triangulations, and related questions, not Löwner ellipsoids. Generic D-optimal design is a method rather than an implication yielding the rank moment polygon and exact layer contacts. A previously derived consecutive-layer specialization does not cover arbitrary omitted ranks: n=8, S={0,1,5} has supporting ranks {1,5}, with the origin strictly inside, whereas completing to all ranks 0..5 gives the cube ball. Unindexed equivalent D-optimal designs remain a residual priority risk.",
+    "residual_risks": [
+      "Semantic literature retrieval cannot establish global novelty or expose all unpublished work.",
+      "A previous equivalent optimal-design derivation for cardinality-homogeneous Boolean designs could exist under alternate vocabulary.",
+      "The directly fetched publisher page for one methodological analogue rate-limited; accessible excerpt material shows a different single-variable regression setting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not contain a volume-minimizing enclosing ellipsoid or the moment-polygon result",
+        "evidence": "Definition and proper-dimension criterion in section 1; section 5 questions emphasize volume, Gröbner bases, extension complexity.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1812.07491",
+        "material_read": "Full HTML sections 1–5 including definition, vertices, face descriptions, triangulations, monotone paths, and further questions",
+        "method": "Read full HTML with text passages and searches for ellipsoid, sphere, Löwner",
+        "title": "S-hypersimplices, pulling triangulations, and monotone paths",
+        "trigger": "Names the exact rank-selected Boolean polytope family and possible covering primary literature"
+      },
+      {
+        "assessment": "Methodological analogy; its binary response model with one design variable is not the n-dimensional rank-selected Boolean polytope",
+        "evidence": "Paper explicitly treats single explanatory variable, link functions and weight functions for regression; no S-hypersimplex object was observed.",
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/11/9/2075",
+        "material_read": "Search-retrieved HTML excerpts of abstract, introduction, models, main results, and conclusions; full-page direct fetch returned rate limit",
+        "method": "Search text and publication repository abstract; no claim of complete direct-publisher inspection",
+        "title": "D-Optimal Designs for Binary and Weighted Linear Regression Models: One Design Variable",
+        "trigger": "Possible optimal-design formulation with two support points"
+      },
+      {
+        "assessment": "General duality/algorithms, not the particular moment polygon calculation; independent proof of used variational lemma supplied",
+        "evidence": "Book describes point-set minimum-volume ellipsoids and statistical optimal design.",
+        "identifier_or_url": "https://doi.org/10.1137/1.9781611974386",
+        "material_read": "Public SIAM book listing and chapter introductory excerpts, not full monograph",
+        "method": "Inspected book overview and chapter descriptions",
+        "title": "Minimum-Volume Ellipsoids: Theory and Algorithms",
+        "trigger": "General ellipsoid/design duality may dominate or subsume claimed derivation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c04f47d-c8c3-46e2-8303-98d1773b3b77",
+  "value": {
+    "rationale": "The complete class of full-dimensional S-hypersimplices includes exponentially many nonconsecutive rank subsets. At most |S| quadratic root evaluations yield exact center, volume, full semiaxis spectrum, and all contacting vertex ranks. The n=8 S={0,1,5} example establishes that deleted intermediate ranks can shift contacts to a nonextremal pair and change an enclosing sphere into an anisotropic Löwner ellipsoid; this is not deducible from extremes-only circumball formulas.",
+    "status": "PASS"
+  }
+}
