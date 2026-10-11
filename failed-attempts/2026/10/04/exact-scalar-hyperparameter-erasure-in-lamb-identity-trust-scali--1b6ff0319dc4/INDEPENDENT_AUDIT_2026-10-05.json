@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:09:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 18eeb51166410a0335cb401065fd297c9fa0fb47",
+        "assigned verify.py blob fe236066bae8763d32a64657335540a3454625d5",
+        "You et al. arXiv:1904.00962",
+        "Fong--Chen--Chen arXiv:2011.13584"
+      ],
+      "rationale": "As long as \\(x_t\\) keeps its initial sign, the hypothesis \\(x f'(x)>0\\) makes every gradient and hence every exponentially averaged first moment have that sign. Bias correction and the positive second-moment denominator preserve it. In one scalar layer with zero weight decay and identity layer scaling, the LAMB trust-ratio update is therefore \\(x_{t+1}=x_t-\\eta_t|x_t|\\operatorname{sgn}(x_t)=(1-\\eta_t)x_t\\). Since \\(0<\\eta_t<1\\), sign preservation closes the induction. The product law and quadratic objective ratio follow immediately. Independent replay of the complete moment recurrences agrees for widely varying moment parameters, epsilon and gradient magnitudes.",
+      "residual_risks": [
+        "The identity excludes active clipping, weight decay, multidimensional layers and sign reversals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper gives the general vector update from which the scalar identity follows directly.",
+          "The clipping paper treats a modification that can break the cancellation but does not restore originality to the unclipped specialization."
+        ],
+        "reasoning": "The general defining formula is decisive stronger coverage of the claimed one-dimensional behavior.",
+        "searches": [
+          "You et al., Large Batch Optimization for Deep Learning: Training BERT in 76 minutes, arXiv:1904.00962",
+          "Fong et al., Improving Layer-wise Adaptive Rate Methods using Trust Ratio Clipping, arXiv:2011.13584"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.00962",
+        "arXiv:2011.13584",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first item reduces every nonzero scalar adaptive update to its sign; the second fixes that sign to the parameter sign while \\(0<\\eta_t<1\\).",
+          "Combining them yields \\(x_{t+1}=(1-\\eta_t)x_t\\) without any additional nonstandard lemma."
+        ],
+        "reasoning": "Every novelty-bearing dynamical statement follows immediately from the defining update and the imposed sign condition.",
+        "searches": [
+          "published LAMB layerwise normalization with \\(\\lambda=0,\\phi(z)=z\\)",
+          "sign-coherent scalar objective"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining update normalizes the adaptive vector to its direction and rescales it by the parameter norm under identity scaling.",
+          "In one dimension normalization discards every magnitude and leaves only a sign."
+        ],
+        "reasoning": "The audited recurrence is exactly the scalar form of the published trust-normalization equation.",
+        "searches": [
+          "You et al. arXiv:1904.00962, LAMB layerwise adaptation rule and Algorithm 2",
+          "Resultary: exact scalar hyperparameter erasure LAMB identity trust scaling scalar layer",
+          "Fong--Chen--Chen arXiv:2011.13584 trust-ratio clipping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independently indexed exact scalar recurrence was retrieved."
+        ],
+        "reasoning": "Exact-string absence is irrelevant because the recurrence is a mechanical specialization of the published algorithm.",
+        "searches": [
+          "Resultary current query for scalar LAMB identity trust scaling and hyperparameter cancellation"
+        ]
+      },
+      "rationale": "The defining LAMB paper already states the layerwise update as the base adaptive direction multiplied by \\(\\phi(\\|x\\|)/\\|r+\\lambda x\\|\\). Setting one scalar layer, \\(\\lambda=0\\), and \\(\\phi(z)=z\\) turns that published formula immediately into \\(x-\\eta |x|\\operatorname{sgn}(r)\\). Under the sign-coherence hypothesis, identifying \\(\\operatorname{sgn}(r)=\\operatorname{sgn}(x)\\) is a one-line induction. Thus the claimed erasure of gradient magnitude, beta parameters and epsilon is a direct scalar specialization of the defining normalization, not an independent scientific mechanism. Trust-ratio clipping literature further confirms that clipping is exactly a change to this normalization rather than a missing prior theorem.",
+      "residual_risks": [
+        "No access limitation affects the decisive implication from the defining LAMB update."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_GENERAL_UPDATE_COVERAGE",
+          "evidence": "The published vector update specializes directly to the audited scalar cancellation.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.00962",
+          "material_read": "primary paper material containing the layerwise adaptation rule and LAMB algorithm was read, including the displayed trust-ratio update",
+          "method": "primary full-text/PDF equation inspection",
+          "title": "Large Batch Optimization for Deep Learning: Training BERT in 76 minutes",
+          "trigger": "defining primary source for LAMB and identity layer scaling"
+        },
+        {
+          "assessment": "MODIFICATION_CONTEXT",
+          "evidence": "It confirms that clipping changes the trust-ratio magnitude, which is outside the audited unclipped assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.13584",
+          "material_read": "primary abstract and method scope concerning clipping of LAMB trust ratios",
+          "method": "primary-source scope inspection",
+          "title": "Improving Layer-wise Adaptive Rate Methods using Trust Ratio Clipping",
+          "trigger": "closest modification of the same trust ratio"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "You et al. 2019",
+        "Fong--Chen--Chen 2020",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The scalar identity is a useful sanity check illustrating trust-ratio normalization, but after imposing one dimension, zero decay, identity scaling and sign preservation it is a routine cancellation built into the algorithm definition. It does not add a nontrivial stability boundary, counterexample, or structural lemma, so correctness and pedagogical clarity are insufficient for independent scientific value.",
+      "residual_risks": [
+        "The benchmark may still be useful for implementation testing."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The identity excludes active clipping, weight decay, multidimensional layers and sign reversals.",
+    "No access limitation affects the decisive implication from the defining LAMB update.",
+    "The benchmark may still be useful for implementation testing."
+  ]
+}
