@@ -1,15 +1,21 @@
-# Review of Exact shortest-reset letter marginals for the six-state five-letter slow automaton
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is a finite statement about a six-state DFA. The defining transition table was checked directly. Exhaustive breadth-first search of all \(63\) nonempty power-automaton subsets gives first singleton distance \(20\), and exact shortest-path polynomial propagation yields all five marginals. A separately represented set-layer calculation agrees coefficient-for-coefficient and on the unique target state \(3\). Exact convolution reproduces every displayed factorization.
+## correctness
 
-## Originality
-PASS. The defining source proves the threshold \(n^2-3n+2\) and a replacement argument showing existence of an optimal \(c,d\)-word, but does not state the total number of optimal words, universal avoidance of \(b\), the unique target for all optimal words, or the five letter-count marginals. The broader shortest-reset-word algorithm paper finds optimal words but does not imply an all-optimal-word enumerator. Targeted published-finding corpus and public-literature searches for the exact total, source identifier, aliases, and factor forms found no covering statement. Prior local records include a different seven-state restricted-alphabet multiplicity calculation, not this six-state full five-letter optimal language.
+PASS
 
-## Value
-PASS. The defining source itself treats multiplicity of shortest synchronizing words as a structural feature for small automata and makes six states the endpoint of its exhaustive all-alphabet census. This exact result refines a threshold-only theorem at that natural boundary into complete marginal composition laws, revealing both universal redundancy of one available control letter and a highly nontrivial factorization of hundreds of millions of optimal words.
+I independently reconstructed all five transitions and the complete 63-state nonempty power automaton. The singleton distance is 20 with unique target 3. Re-running weighted shortest-path dynamic programs separately for each letter reproduces the claimed total and all marginal coefficient arrays; the \(b\)-histogram is concentrated at degree zero. Thus the statements are exhaustive consequences of the finite shortest-path DAG.
 
-## Closest literature and limitations
-The result is finite for \(A_6\); no general-\(n\) factorization is claimed. The closest primary source covers the same transition family and threshold, while the closest broader algorithmic source covers shortest-word computation but not this enumerator. A non-indexed ancillary or unpublished computation remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining paper proves the general reset threshold and shows existence of a shortest word using a restricted alphabet, but it does not characterize every shortest word or give these marginals. The general shortest-reset algorithm literature likewise does not state the six-state all-shortest census. Resultary search found no exact match.
+
+## value
+
+PASS
+
+The six-state case is the endpoint of the defining fixed-alphabet small-state investigation, and the result upgrades a reset threshold to the full one-letter composition statistics of all optimal controls. The universal absence of \(b\) from every shortest word is a structural statement not supplied by the existence proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

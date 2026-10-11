@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` is a standalone standard-library verifier for the finite six-state claim. It rebuilds the published five transition maps and performs two exact calculations.
+# Independent mathematical audit
 
-The first uses bit-mask subsets. Breadth-first search reaches all \(63\) nonempty subsets and proves that the first singleton distance is \(20\). For each letter \(x\), exact polynomial dynamic programming on the distance-tight shortest-path DAG computes \(P_x(z)\), the number of shortest words at every \(x\)-count.
+## correctness
 
-The second uses `frozenset` subsets and separate first-arrival layers, without the bit-mask distance table. It independently propagates integer histograms until the first singleton layer. It reproduces every coefficient and confirms that all shortest mass ends at state \(3\).
+PASS
 
-Finally, the verifier expands the four displayed factor forms by its own integer polynomial multiplication and compares those coefficients exactly with both computations. It checks the total \(452{,}984{,}832\) for every marginal and checks that the \(b\)-marginal is constant, which is equivalent to universal absence of \(b\) from shortest reset words.
+I independently reconstructed all five transitions and the complete 63-state nonempty power automaton. The singleton distance is 20 with unique target 3. Re-running weighted shortest-path dynamic programs separately for each letter reproduces the claimed total and all marginal coefficient arrays; the \(b\)-histogram is concentrated at degree zero. Thus the statements are exhaustive consequences of the finite shortest-path DAG.
 
-The proof is exhaustive for this finite power automaton. It does not infer an infinite-family formula. A successful run prints `VERIFY_OK length=20 total=452984832 target=3 reachable_subsets=63`.
+## originality
+
+PASS
+
+The defining paper proves the general reset threshold and shows existence of a shortest word using a restricted alphabet, but it does not characterize every shortest word or give these marginals. The general shortest-reset algorithm literature likewise does not state the six-state all-shortest census. Resultary search found no exact match.
+
+## value
+
+PASS
+
+The six-state case is the endpoint of the defining fixed-alphabet small-state investigation, and the result upgrades a reset threshold to the full one-letter composition statistics of all optimal controls. The universal absence of \(b\) from every shortest word is a structural statement not supplied by the existence proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

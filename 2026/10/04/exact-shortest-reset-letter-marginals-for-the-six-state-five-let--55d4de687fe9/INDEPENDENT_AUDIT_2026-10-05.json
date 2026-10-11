@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:45:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 59d6c4643531f631844fc17fad75b06b2b0d2816",
+        "assigned verify.py blob dd7e1cedba3179741d3b16c403c3d67cced068ea",
+        "independent five-letter power-automaton replay"
+      ],
+      "rationale": "I independently reconstructed all five transitions and the complete 63-state nonempty power automaton. The singleton distance is 20 with unique target 3. Re-running weighted shortest-path dynamic programs separately for each letter reproduces the claimed total and all marginal coefficient arrays; the \\(b\\)-histogram is concentrated at degree zero. Thus the statements are exhaustive consequences of the finite shortest-path DAG.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source construction controls one shortest representative, whereas the audited result classifies the aggregate of all shortest words."
+        ],
+        "reasoning": "No inspected broader theorem determines the five marginals.",
+        "searches": [
+          "arXiv:1609.06853 full primary text",
+          "shortest-reset algorithm literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1609.06853",
+        "DOI:10.1007/s10878-013-9682-0",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An existence transformation to a shortest \\(c,d\\)-word does not imply that every shortest word avoids \\(b\\), nor does it count words using the other letters."
+        ],
+        "reasoning": "The all-path marginal laws require the new exhaustive weighted shortest-path analysis.",
+        "searches": [
+          "arXiv:1609.06853 Theorem 3 and proof",
+          "Kisielewicz--Kowalski--Szykuła"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining source gives threshold \\(n^2-3n+2\\) and an existence-preserving reduction, not a universal statement that every shortest word avoids \\(b\\).",
+          "The audited marginals count all optimal paths by each letter."
+        ],
+        "reasoning": "Aliases via all-shortest reset controls, marginal Parikh enumerators, and weighted power-automaton paths were compared.",
+        "searches": [
+          "Resultary query: six state five letter slowly synchronizing automaton shortest reset word marginals count letter use",
+          "de Bondt--Don--Zantema arXiv:1609.06853",
+          "Kisielewicz--Kowalski--Szykuła DOI:10.1007/s10878-013-9682-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published table or database entry with these quantities was found."
+        ],
+        "reasoning": "The source itself reports multiplicities for some other small automata, so table-level coverage was specifically checked.",
+        "searches": [
+          "Resultary exact six-state marginal search",
+          "searches for total 452984832 and marginal factorizations"
+        ]
+      },
+      "rationale": "The defining paper proves the general reset threshold and shows existence of a shortest word using a restricted alphabet, but it does not characterize every shortest word or give these marginals. The general shortest-reset algorithm literature likewise does not state the six-state all-shortest census. Resultary search found no exact match.",
+      "residual_risks": [
+        "A non-indexed supplementary computation could duplicate the finite census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_THRESHOLD_AND_EXISTENCE_ONLY",
+          "evidence": "It proves threshold 20 at n=6 and existence of restricted-letter shortest words, not the all-shortest marginal census.",
+          "identifier_or_url": "arXiv:1609.06853",
+          "material_read": "Full primary text around Theorem 3, the transition table, reset-threshold proof, and the transformations producing a shortest word over a smaller alphabet.",
+          "method": "Open-access full-text inspection.",
+          "title": "Slowly synchronizing automata with fixed alphabet size",
+          "trigger": "Exact source of the five-letter automaton."
+        },
+        {
+          "assessment": "NOT_COVERING_THE_MARGINAL_CENSUS",
+          "evidence": "The paper finds shortest words but does not state these finite all-shortest marginals.",
+          "identifier_or_url": "DOI:10.1007/s10878-013-9682-0",
+          "material_read": "Relevant full-text algorithm/family sections.",
+          "method": "Full-text inspection.",
+          "title": "Computing the shortest reset words of synchronizing automata",
+          "trigger": "General exact shortest-reset algorithm."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "de Bondt--Don--Zantema",
+        "shortest-reset algorithm literature"
+      ],
+      "rationale": "The six-state case is the endpoint of the defining fixed-alphabet small-state investigation, and the result upgrades a reset threshold to the full one-letter composition statistics of all optimal controls. The universal absence of \\(b\\) from every shortest word is a structural statement not supplied by the existence proof.",
+      "residual_risks": [
+        "The fact remains a single finite automaton rather than a family theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the six-state five-letter de Bondt--Don--Zantema automaton, every shortest reset word has length 20 and resets to state 3, there are exactly \\(452984832=2^{24}3^3\\) such words, none uses letter \\(b\\), and the five one-letter marginal generating functions are exactly those displayed in RESULT.md.",
+  "limitations": [
+    "Finite exact result for the six-state specialization only; no arbitrary-n marginal factorization is claimed."
+  ],
+  "schema_version": 1
+}
