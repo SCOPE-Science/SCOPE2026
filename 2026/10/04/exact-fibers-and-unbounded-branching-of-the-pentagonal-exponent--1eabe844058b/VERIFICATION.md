@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is algebraic and covers every positive integer target. The standalone script `verify_fibers.py` is a corroborating exact replay.
+## correctness
 
-It performs an exhaustive comparison for every \(1\le n\le400000\). Direct source enumeration only needs \(1\le m\le200000\), because \(e(m)\ge2m\), so this is exhaustive rather than a truncated source search for those targets. For each target, the direct preimage list is compared to the list produced by the theorem's valuation-and-divisibility formula.
+PASS
 
-The script also constructs the first three levels of the unbounded-branching family. For \(R=1,2,3\), it verifies each prescribed valuation identity, forms the least common multiple of the required odd factors, constructs every claimed preimage, and directly checks \(e(m_t)=n\).
+Writing \(m=2^ku\) with odd \(u\) and \(t=\nu_2(k+2)\) gives \(e(m)=2^{k+t}u((k+2)/2^t)\). Equality with \(2^\ell w\) forces \(k=\ell-t\), \(\nu_2(\ell+2-t)=t\), and the unique odd solution \(u=w/b_t\) exactly when \(b_t=(\ell+2-t)/2^t\mid w\). For unboundedness, telescoping \(a_{R+1}-a_j=2^{a_j}+2^{a_{j+1}}+\cdots\) makes the first term have uniquely minimal 2-adic valuation \(a_j\), so the constructed LCM target realizes every selected \(t\). A fresh exhaustive replay matched direct fibers for every target through 40000 and checked the first three branching constructions; the arbitrary-\(R\) proof is algebraic.
 
-Observed output:
+## originality
 
-`VERIFY_OK exhaustive_targets=400000 source_m=200000 constructions=[(1, 1, [0, 1], [3, 1], 2, 3), (2, 9, [0, 1, 3], [11, 5, 1], 3, 15), (3, 2057, [0, 1, 3, 11], [2059, 1029, 257, 1], 4, 2087)]`
+PASS
 
-The computation does not prove unboundedness; that conclusion uses the arbitrary-\(R\) recurrence argument in `RESULT.md`. The replay uses only exact integer arithmetic and the packaged script has no external dependencies.
+The focal preprint abstract introduces exactly the map as a forward-orbit telescoping dynamical system and states pairwise disjointness of the three seeds \(1,4,5\), but no inverse-fiber classification or unbounded indegree. Fresh Resultary and public exact-map searches found only the submitted record for that inverse problem. The current full-text routes were unavailable, and one authorized institutional retrieval attempt returned an operational error; this is retained as a literature-access residual risk rather than treated as negative evidence.
+
+## value
+
+PASS
+
+The map is the arithmetic dynamical mechanism of a current pentagonal-series proof, and the source explicitly foregrounds its orbit structure. Classifying every one-step fiber and proving unbounded merger multiplicity is a natural structural completion that rules out any uniform bounded-indegree simplification in broader orbit regroupings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
