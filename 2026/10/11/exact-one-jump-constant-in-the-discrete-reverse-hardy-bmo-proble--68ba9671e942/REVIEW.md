@@ -1,0 +1,9 @@
+# Same-model mathematical review
+
+**Correctness — PASS.** The definitions match the discrete BMO mean-deviation seminorm over every finite consecutive block. All one-jump indicators have seminorm \(1/2\); the two-point jump has exact Cesàro–BMO seminorm \(3371/13440\). Blocks starting from index four have oscillation at most \(1/4\); blocks starting at the first three indices but ending at or beyond 128 satisfy a strict analytic tail bound. The remaining finitely many blocks are exhaustively evaluated by rational arithmetic. For jump lengths three through 199 the harmonic lower witness is checked exhaustively, and an independent analytic harmonic/logarithm bound handles all longer jump lengths. Thus no finite sampling is extrapolated to an infinite domain.
+
+**Originality — PASS, subject to residual source risk.** Caldera's 2026 primary full text (§5.1, equations (74)–(75)) names \(\alpha_d\) as an infimum without evaluating it; the general inequality is explicitly conjectured, not established. The precise fraction \(3371/6720\) and the unique optimal jump length two are not in those statements. Published-result and literature searches for the parameter, numeric aliases and possible broader coverage found no implication of the new result. Related work on \(C-I\) in \(\ell^p\) has a different norm and objective. Unindexed equivalent results cannot be ruled out, and two related full papers were not recovered.
+
+**Value — PASS.** The paper's own open discrete problem singles out this exact one-jump benchmark. Evaluating it rigorously over *all* jump lengths gives the numerical ceiling for the conjectured sharp inequality and reveals a genuinely discrete optimizer not predicted by the scale-invariant continuous case. No universal reverse inequality for arbitrary decreasing sequences is claimed.
+
+Same-model review: passed. Independent audit: not yet performed.
