@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:23:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2e167d6439a8cc8de5e2709d4f990506c9d8d6e4",
+        "assigned verify_pribavkina_profile.py blob c08d181f6b41a23374b580df20d4cd026934608e",
+        "Pribavkina full primary text",
+        "fresh independent exact BFS through binary \\(k=5\\)"
+      ],
+      "rationale": "The nonzero states split into \\(k\\) phase classes, and every transition that avoids the sink advances phase by one. Thus a word of rank at most \\(k-r\\) must kill at least \\(r+1\\) phases. For a killed phase representative, entering the sink forces a full occurrence of \\(u\\); distinct killed phases force distinct starting residues modulo \\(k\\). Since \\(u\\) is unbordered, selected occurrences cannot overlap, and distinct residues exclude a start gap exactly divisible by \\(k\\), so consecutive starts are at least \\(k+1\\) apart. This gives the lower bound \\(k+r(k+1)\\). The first copy of \\(u\\) merges each surviving two-state phase to at most one image, while the \\(r+1\\) displayed copies in \\(u(au)^r\\) start in distinct residue classes and kill that many phases, giving the matching rank. A fresh independent power-automaton replay for all binary unbordered words through \\(k=5\\) reproduced the threshold sequence, and the frozen verifier extends exact BFS checks to binary \\(k\\le7\\) and ternary \\(k\\le5\\); these finite checks are corroborative only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source gives the endpoint rank-one result and the forbidden-position residue mechanism.",
+          "General synchronization surveys do not determine this family's rank \\(k,k-1,\\ldots,1\\) profile."
+        ],
+        "reasoning": "Endpoint reset theory does not mechanically imply the exact minimum length at every higher target rank.",
+        "searches": [
+          "Pribavkina 2009/2011 primary construction",
+          "Volkov survey on synchronization and transformation rank"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0907.4576",
+        "DOI:10.1134/S0001434611090094",
+        "Volkov, Synchronization of finite automata, Russian Math. Surveys 77 (2022)",
+        "Resultary Pribavkina rank-profile query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves only the \\(r=k-1\\) reset endpoint.",
+          "The audited proof shows that rank at most \\(k-r\\) forces \\(r+1\\) killed phase classes and hence \\(r+1\\) nonoverlapping copies of \\(u\\) in distinct start residues."
+        ],
+        "reasoning": "The endpoint theorem does not imply the complete intermediate profile without the new phase-counting argument.",
+        "searches": [
+          "Pribavkina Proposition 4 versus the audited phase-killing lower bound and \\(u(au)^r\\) witnesses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper proves that the shortest incompletable word for \\(A^k\\setminus\\{u\\}\\) has length \\(k^2+k-1\\), identifies incompletable words with reset words, and states the same reset threshold for \\(\\widehat{\\mathcal F}(k,u)\\).",
+          "No leading Resultary hit states the intermediate thresholds \\(k+r(k+1)\\)."
+        ],
+        "reasoning": "The rank threshold is equivalently the shortest word that kills enough nonzero phase classes of the completed semi-flower automaton.",
+        "searches": [
+          "E. V. Pribavkina, arXiv:0907.4576, Sections 2--4 and Propositions 2--4",
+          "Resultary query: Pribavkina incomplete sets automata intermediate rank profile semi-flower transformation rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or theorem matching the full high-deficiency profile was located."
+        ],
+        "reasoning": "The relevant exact comparison is theorem-level rather than a finite database lookup.",
+        "searches": [
+          "Resultary published-finding corpus for Pribavkina/incomplete-set automata",
+          "targeted searches under rank compression, transformation rank, semi-flower automata, and incompletable words"
+        ]
+      },
+      "rationale": "Pribavkina's full primary paper constructs the exact completed semi-flower automaton, proves the incompletable-word/reset-word equivalence, and proves only the rank-one endpoint threshold \\(k^2+k-1\\). The fresh Resultary search did not locate an intermediate-rank profile for this family. The audited phase argument therefore supplies a genuine all-intermediate-ranks refinement of the source endpoint.",
+      "residual_risks": [
+        "An older incomplete-set or transformation-rank paper may contain the same intermediate profile under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RANK_ONE_ENDPOINT_COVERED_INTERMEDIATE_RANK_PROFILE_NOT_STATED",
+          "evidence": "Proposition 2 proves the shortest incompletable length \\(k^2+k-1\\); Propositions 3--4 transfer it to the reset threshold of \\(\\widehat{\\mathcal F}(k,u)\\).",
+          "identifier_or_url": "arXiv:0907.4576; DOI:10.1134/S0001434611090094",
+          "material_read": "Full accessible arXiv HTML through the incomplete-set lemmas, shortest-incompletable-word proposition, completed semi-flower construction, and reset-threshold proposition.",
+          "method": "Primary full-text statement and implication comparison.",
+          "title": "Slowly synchronizing automata with zero and incomplete sets",
+          "trigger": "Primary source for the exact automaton and shortest reset word."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pribavkina primary paper",
+        "Volkov survey",
+        "Resultary search"
+      ],
+      "rationale": "Transformation-rank profiles are a natural refinement of reset thresholds. This theorem determines the entire high-deficiency profile of a canonical slowly synchronizing family and explains the endpoint threshold through a uniform phase/nonoverlap mechanism rather than adding an arbitrary finite statistic.",
+      "residual_risks": [
+        "An older incomplete-set or transformation-rank paper may contain the same intermediate profile under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0907.4576",
+    "DOI:10.1134/S0001434611090094",
+    "Volkov, Synchronization of finite automata, Russian Math. Surveys 77 (2022)",
+    "Resultary Pribavkina rank-profile query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every unbordered word \\(u\\) of length \\(k\\ge2\\), the completed semi-flower automaton \\(\\widehat{\\mathcal F}(k,u)\\) first reaches rank at most \\(k-r\\) at length \\(k+r(k+1)\\) for every \\(0\\le r\\le k-1\\), and \\(u(au)^r\\) attains that rank for every letter \\(a\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An older incomplete-set or transformation-rank paper may contain the same intermediate profile under different terminology."
+  ]
+}

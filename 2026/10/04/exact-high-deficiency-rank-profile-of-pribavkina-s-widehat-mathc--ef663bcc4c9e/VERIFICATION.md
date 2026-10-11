@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite proof has four critical checks. First, the phase map on nonzero states advances by one modulo \(k\) under every nonzero transition. Second, every killed canonical phase representative must traverse the unique chain labeled by a full copy of \(u\) before entering the sink. Third, distinct killed phases force distinct occurrence-start residues modulo \(k\), and unborderedness then separates selected occurrences by at least \(k+1\). Fourth, the first displayed copy of \(u\) merges the two states in every nonzero phase, so later deterministic actions cannot recreate multiplicity within a phase.
+# Independent mathematical audit
 
-`artifacts/verify_pribavkina_profile.py` reconstructs the automaton from the transition definition and independently computes exact subset-image distances. The recorded run checks every binary unbordered word for \(2\le k\le7\) and every ternary unbordered word for \(2\le k\le5\), including every witness \(u(au)^r\). The output reports \(84\) binary words and \(216\) ternary words and ends with `VERIFY_OK`.
+## correctness
 
-These finite computations are stress tests only. They do not certify unenumerated alphabets or lengths; those are covered by the symbolic proof.
+PASS
+
+The nonzero states split into \(k\) phase classes, and every transition that avoids the sink advances phase by one. Thus a word of rank at most \(k-r\) must kill at least \(r+1\) phases. For a killed phase representative, entering the sink forces a full occurrence of \(u\); distinct killed phases force distinct starting residues modulo \(k\). Since \(u\) is unbordered, selected occurrences cannot overlap, and distinct residues exclude a start gap exactly divisible by \(k\), so consecutive starts are at least \(k+1\) apart. This gives the lower bound \(k+r(k+1)\). The first copy of \(u\) merges each surviving two-state phase to at most one image, while the \(r+1\) displayed copies in \(u(au)^r\) start in distinct residue classes and kill that many phases, giving the matching rank. A fresh independent power-automaton replay for all binary unbordered words through \(k=5\) reproduced the threshold sequence, and the frozen verifier extends exact BFS checks to binary \(k\le7\) and ternary \(k\le5\); these finite checks are corroborative only.
+
+## originality
+
+PASS
+
+Pribavkina's full primary paper constructs the exact completed semi-flower automaton, proves the incompletable-word/reset-word equivalence, and proves only the rank-one endpoint threshold \(k^2+k-1\). The fresh Resultary search did not locate an intermediate-rank profile for this family. The audited phase argument therefore supplies a genuine all-intermediate-ranks refinement of the source endpoint.
+
+## value
+
+PASS
+
+Transformation-rank profiles are a natural refinement of reset thresholds. This theorem determines the entire high-deficiency profile of a canonical slowly synchronizing family and explains the endpoint threshold through a uniform phase/nonoverlap mechanism rather than adding an arbitrary finite statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
