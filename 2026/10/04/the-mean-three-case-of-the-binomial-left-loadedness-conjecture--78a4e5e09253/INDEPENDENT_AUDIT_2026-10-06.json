@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:07:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e93e19d4c3e05ac198ad93a36ebc17c6cca13468",
+        "assigned verifier blob b9df8e128c6d57d8a5af9c03b1cc8a78c7886dc6",
+        "Fokkink--Papavassiliou--Pelekis 2022 complete primary paper",
+        "Simmons inequality as restated in the inspected modern sources",
+        "fresh symbolic factorization replay"
+      ],
+      "rationale": "At \\(n=6\\), the law \\(\\operatorname{Bin}(6,1/2)\\) is symmetric about three, so all three left-loadedness coefficients vanish. For \\(n>6\\), Simmons' binomial inequality gives \\(\\alpha_1>0\\). Putting \\(x=n-3\\ge4\\), fresh algebra confirms \\(\\Pr(X=6)/\\Pr(X=0)-1=(x-3)Q(x)/(80x^5)\\) with \\(Q(x)=x^4+246x^3+333x^2-216x-324\\), and \\(Q(x)=x^4+246x^3+333(x-4)^2+2448(x-4)+4140>0\\). Hence \\(\\Pr(X=6)>\\Pr(X=0)\\), so \\(\\alpha_3<0\\). With only \\(\\alpha_2\\) between these endpoint coefficients, either sign of \\(\\alpha_2\\) produces exactly the \\(L_1\\) single-sign-change condition. This proves every integer \\(n\\ge6\\), not merely a finite test range.",
+      "residual_risks": [
+        "The proof is special to mean three because only one coefficient lies between the two forced endpoint signs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 article explicitly lists proved binomial ranges \\(m\\in\\{1,2\\}\\) and \\(4\\le m\\le n/3\\), omitting \\(m=3\\).",
+          "Simmons controls only the first coefficient \\( lpha_1\\)."
+        ],
+        "reasoning": "Neither prior result implies the required far-end sign or the complete mean-three left-loadedness statement.",
+        "searches": [
+          "Fokkink--Papavassiliou--Pelekis 2022 full primary article",
+          "Simmons 1894 inequality through modern restatements"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.37190/0208-4147.00050",
+        "Perrin--Redside 2007",
+        "Simmons 1894",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Simmons yields \\( lpha_1>0\\) only.",
+          "The new point-mass comparison forces \\( lpha_3<0\\), and the three-coefficient structure then closes \\(L_1\\)."
+        ],
+        "reasoning": "The far-tail sign is the missing premise and is not supplied by the prior theorem.",
+        "searches": [
+          "Simmons near-mean inequality plus source conjecture versus \\(m=3\\) proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's Definition 1.2 is exactly the \\(L_1/L_2\\) notion used by the assigned theorem.",
+          "No later same-family mean-three result was retrieved."
+        ],
+        "reasoning": "The assigned claim settles the exact missing slice of the source conjecture.",
+        "searches": [
+          "Resultary query: Bin(n,3/n) left-loaded mean three Fokkink Papavassiliou Pelekis Conjecture 4.1",
+          "web query: \"left-loaded\" binomial mean 3",
+          "web query: \"Bin(n,3/n)\" left-loaded"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent infinite-family table or proof of the mean-three slice was retrieved."
+        ],
+        "reasoning": "The proof is uniform in \\(n\\) and is not a finite-table recomputation.",
+        "searches": [
+          "current searches for the exact family \\(\\operatorname{Bin}(n,3/n)\\) and point-mass comparison"
+        ]
+      },
+      "rationale": "The complete 2022 primary paper explicitly proves binomial left-loadedness for means one and two and for \\(4\\le m\\le n/3\\), then states Conjecture 4.1 for all \\(n\\ge2m\\); the displayed page therefore leaves \\(m=3\\) as the isolated first missing integer-mean slice. Simmons' theorem supplies only the near-mean sign \\(\\alpha_1>0\\), not the far-tail sign needed for \\(L_1\\). Current Resultary and exact web searches for left-loadedness, \\(\\operatorname{Bin}(n,3/n)\\), and Conjecture 4.1 found no later theorem covering this slice.",
+      "residual_risks": [
+        "A later unindexed proof under different tail-comparison terminology could overlap the mean-three slice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_MEAN_THREE_GAP",
+          "evidence": "The paper states \\(L_2\\) for means one and two, \\(L_1\\) for \\(4\\le m\\le n/3\\), and conjectures all \\(n\\ge2m\\), leaving mean three outside the proved ranges.",
+          "identifier_or_url": "DOI 10.37190/0208-4147.00050",
+          "material_read": "complete final published PDF, including Definition 1.2 and the concluding page stating the proved binomial ranges and Conjecture 4.1; the concluding page was visually inspected",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "On the monotonicity of tail probabilities",
+          "trigger": "defining source of left-loadedness and the binomial conjecture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fokkink--Papavassiliou--Pelekis 2022",
+        "Simmons inequality",
+        "assigned proof"
+      ],
+      "rationale": "Mean three is not an arbitrary small parameter: the motivating paper proves means one and two, then a separate range beginning at four, making three the isolated first missing integer-mean case. The argument closes that natural gap for every \\(n\\ge6\\) with a uniform endpoint mechanism and makes the source's tail-comparison theorem available for this whole slice.",
+      "residual_risks": [
+        "The endpoint-sign argument does not mechanically extend to higher means with several intermediate coefficients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The proof is special to mean three because only one coefficient lies between the two forced endpoint signs.",
+    "A later unindexed proof under different tail-comparison terminology could overlap the mean-three slice.",
+    "The endpoint-sign argument does not mechanically extend to higher means with several intermediate coefficients."
+  ]
+}
