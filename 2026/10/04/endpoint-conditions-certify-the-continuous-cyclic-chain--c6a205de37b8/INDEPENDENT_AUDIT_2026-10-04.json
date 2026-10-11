@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:56:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final theorem is correct, but the frozen proof had a circular denominator step: it used terminal positivity of B to claim positivity throughout before excluding a possible pole of E. The repair first proves global regularity from the monotone ratio R over Y and the exact terminal branch, which makes the denominator Q strictly increasing yet still negative at the endpoint. With E then globally positive, the displayed differential identities rigorously imply positivity and monotonicity of A, B, x, and y. Independent symbolic reconstruction verified every differential identity used by the repaired argument.",
+      "risks": [
+        "The result is conditional on exact endpoint matching; it does not certify the rounded numerical candidate or finite-chain convergence."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 2add003d0881bdcc5eec730ec3c1d0052abe65db",
+        "Lian--Xue--Yuan, arXiv:2609.06558v1, Sections 5 and 7",
+        "Independent symbolic reconstruction of the source formulas"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite theorem is an induction over positive discrete steps.",
+          "Section 7 explicitly leaves finite-to-continuous approximation open."
+        ],
+        "reasoning": "No inspected theorem dominates the continuous conditional statement.",
+        "searches": [
+          "arXiv:2609.06558v1, Lemma 5.2 and Theorem 5.3",
+          "arXiv:2609.06558v1, Section 7"
+        ]
+      },
+      "checked_sources": [
+        "Complete arXiv:2609.06558v1 primary text",
+        "Fresh Resultary search",
+        "Fresh exact-title web search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper treats pathwise feasibility as an additional condition and does not prove it from the endpoint equations."
+        ],
+        "reasoning": "The repaired theorem closes exactly this conditional gap while leaving optimality and attainability open.",
+        "searches": [
+          "Full-text statement comparison with arXiv:2609.06558v1 Sections 5 and 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source Section 7 lists the full path inequalities as constraints and says the numerical checks do not establish them.",
+          "The current record was the only close Resultary match."
+        ],
+        "reasoning": "The final claim is a new implication from exact endpoint equations to all intervening feasibility inequalities, not a renaming of the endpoint conditions.",
+        "searches": [
+          "Resultary query: continuous cyclic chain homothetic triangles endpoint pathwise feasibility",
+          "Web exact-title search for the Lian--Xue--Yuan paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent database or table entry encoded the endpoint-to-path sign implication."
+        ],
+        "reasoning": "The claim is an analytic structural implication rather than a table lookup.",
+        "searches": [
+          "Resultary query: continuous cyclic chain homothetic triangles endpoint pathwise feasibility"
+        ]
+      },
+      "rationale": "The complete primary paper explicitly says its endpoint and quadrature-node checks do not establish pathwise feasibility for the continuous candidate. Its finite sign-control theorem concerns positive discrete steps and does not imply the continuous endpoint-to-path theorem. Fresh semantic searches found no broader theorem giving this implication.",
+      "residual_risks": [
+        "The source is very recent, so contemporaneous unindexed work could exist.",
+        "Search non-detection is not treated as proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_CONTINUOUS_ENDPOINT_CERTIFICATE",
+          "evidence": [
+            "Section 7 requires the denominator and all sign inequalities along the path.",
+            "It states that the reported numerical checks do not establish pathwise feasibility or optimality."
+          ],
+          "identifier_or_url": "arXiv:2609.06558v1",
+          "material_read": "Complete 22-page text, with focused reading of Lemma 5.2, Theorem 5.3, equations (5.18)--(5.20), and all of Section 7.",
+          "method": "Equation-level and implication-level comparison.",
+          "title": "Non-Separable Homothetic Triangles, Part I: Constructions and Lower Bounds",
+          "trigger": "Primary source defining the recurrence, endpoint equations, and continuous feasibility problem."
+        },
+        {
+          "assessment": "NO_BROADER_MATCH_FOUND",
+          "evidence": [
+            "No separate result implied the endpoint-to-path theorem."
+          ],
+          "identifier_or_url": "Resultary query: continuous cyclic chain homothetic triangles endpoint pathwise feasibility",
+          "material_read": "Highest-scoring fresh titles and summaries.",
+          "method": "Object and implication comparison.",
+          "title": "Published SCOPE/Resultary corpus",
+          "trigger": "Required published-SCOPE comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem replaces infinitely many trajectory feasibility checks by two exact endpoint equations in a newly introduced continuous geometric model. That is a motivated structural reduction, not a sampled computation or arbitrary slice.",
+      "risks": [
+        "It does not prove that finite non-separable families attain the continuous candidate."
+      ],
+      "sources": [
+        "Lian--Xue--Yuan Section 7 continuous optimization problem",
+        "Repaired global sign argument"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Conditional on the source static inequalities, terminal branch, and exact endpoint equations.",
+    "No finite-chain convergence, attainability, or optimality claim."
+  ],
+  "schema_version": 1
+}

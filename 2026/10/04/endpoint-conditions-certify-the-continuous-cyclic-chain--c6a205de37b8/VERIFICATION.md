@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic verification uses the definitions in the continuous model and differentiates them directly. The included `verify.py` checks symbolically that
-\[
-E'=-LE,\quad r'=rB,\quad y'=-yA,
-\]
-\[
-A'=rB+yA,\quad B'=-(rB+yA),\quad A+B=\kappa+D.
-\]
-It also verifies the initial identities
-\[
-E(0)=d(\kappa+D)-\kappa c,
-\]
-\[
-A(0)=1-u-c-d,\qquad B(0)=c.
-\]
+# Independent mathematical audit
 
-The global step is not delegated to computation. It uses the sign of the derivative at a hypothetical zero and the constant sum \(A+B=\kappa+D>0\). Exact endpoint matching is essential because it supplies \(B(s)=u+v-d>0\) and \(x(s)=u>0\).
+## correctness
 
-Limits: no numerical endpoint solve is certified; no optimality statement is checked; no finite-chain convergence theorem is assumed or proved.
+PASS
+
+The final theorem is correct, but the frozen proof had a circular denominator step: it used terminal positivity of B to claim positivity throughout before excluding a possible pole of E. The repair first proves global regularity from the monotone ratio R over Y and the exact terminal branch, which makes the denominator Q strictly increasing yet still negative at the endpoint. With E then globally positive, the displayed differential identities rigorously imply positivity and monotonicity of A, B, x, and y. Independent symbolic reconstruction verified every differential identity used by the repaired argument.
+
+## originality
+
+PASS
+
+The complete primary paper explicitly says its endpoint and quadrature-node checks do not establish pathwise feasibility for the continuous candidate. Its finite sign-control theorem concerns positive discrete steps and does not imply the continuous endpoint-to-path theorem. Fresh semantic searches found no broader theorem giving this implication.
+
+## value
+
+PASS
+
+The theorem replaces infinitely many trajectory feasibility checks by two exact endpoint equations in a newly introduced continuous geometric model. That is a motivated structural reduction, not a sampled computation or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

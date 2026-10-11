@@ -1,24 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct differentiation closes the continuous system:
-\[
-E'=-LE,\qquad r'=rB,\qquad y'=-yA,
-\]
-\[
-A'=rB+yA,\qquad B'=-(rB+yA),\qquad A+B=\kappa+D>0.
-\]
-The source assumptions give strictly positive initial \(r,y,E,A,B\). The constant positive sum prevents \(A\) and \(B\) from failing together; exact terminal matching gives \(B(s)=u+v-d>0\), which excludes any zero of \(B\). The resulting monotonicities force the remaining path inequalities. The denominator cannot vanish because bounded \(L\) keeps the positive solution of \(E'=-LE\) finite and \(\kappa R+DY-1=D\kappa/E<0\).
+## correctness
 
-## Originality
-PASS. Full-text comparison with arXiv:2609.06558v1 shows that Section 5 proves a finite-step control lemma, while Section 7 introduces the continuous model and explicitly notes that the displayed node checks do not establish pathwise feasibility. Targeted semantic searches for endpoint certification, continuous-chain monotonicity, aliases, and stronger coverage found no statement implying this theorem. The closest retrieved results concern unrelated geometric or dynamical systems.
+PASS
 
-Residual risk: the primary source is recent, so contemporaneous unindexed work may exist.
+The final theorem is correct, but the frozen proof had a circular denominator step: it used terminal positivity of B to claim positivity throughout before excluding a possible pole of E. The repair first proves global regularity from the monotone ratio R over Y and the exact terminal branch, which makes the denominator Q strictly increasing yet still negative at the endpoint. With E then globally positive, the displayed differential identities rigorously imply positivity and monotonicity of A, B, x, and y. Independent symbolic reconstruction verified every differential identity used by the repaired argument.
 
-## Value
-PASS. The result removes the infinitely many pathwise inequalities from the exact continuous feasibility problem. A rigorous treatment may certify only the two endpoint equations and then invoke the monotonicity theorem. This directly addresses a verification gap identified by the source while preserving the important limitations: the rounded numerical candidate is not certified here, and neither optimality nor finite-chain convergence is proved.
+## originality
 
-## Closest literature and limitations
-The closest source is Lian--Xue--Yuan, arXiv:2609.06558v1. Its finite-step sign lemma is analogous but does not imply the continuous theorem without a limiting argument. The present proof instead works directly from the continuous equations. No claim is made beyond exact endpoint solutions of that model.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The complete primary paper explicitly says its endpoint and quadrature-node checks do not establish pathwise feasibility for the continuous candidate. Its finite sign-control theorem concerns positive discrete steps and does not imply the continuous endpoint-to-path theorem. Fresh semantic searches found no broader theorem giving this implication.
+
+## value
+
+PASS
+
+The theorem replaces infinitely many trajectory feasibility checks by two exact endpoint equations in a newly introduced continuous geometric model. That is a motivated structural reduction, not a sampled computation or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
