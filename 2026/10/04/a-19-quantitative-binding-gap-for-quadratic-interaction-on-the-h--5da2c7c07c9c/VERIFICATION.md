@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,31 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The critical analytic steps were checked directly.
+## correctness
 
-The source normalization with \(v(r)=\omega^2r^2\) gives the physical interaction \(\omega^2(x_1-x_2)^2/2\). In the symmetric rotated wedge the form is
-\[
-q_+[u]=\int\left(|u_r|^2+|u_s|^2+\omega^2r^2|u|^2\right).
-\]
-The transverse factorization gives the exact one-dimensional threshold \(\omega\), with ground state proportional to \(e^{-\omega r^2/2}\).
+PASS
 
-For
-\[
-u_b(r,s)=e^{-\omega r^2/2-b\sqrt\omega s},
-\]
-direct integration gives
-\[
-\frac{q_+[u_b]}{\|u_b\|^2}=\omega\left(1+3b^2-2b\frac{e^{-b^2}}{\sqrt\pi\operatorname{erfc}(b)}\right).
-\]
-At \(b=1/3\), the proof does not rely on floating-point evaluation. It uses the strict bounds \(e^{-1/9}>8/9\), \(e^{-t^2}>1-t^2\) for \(0<t\le1/3\), the classical \(\pi<22/7\), and exact rational comparisons to obtain
-\[
-\frac{e^{-1/9}}{\sqrt\pi\operatorname{erfc}(1/3)}
->\frac{72000}{91613}>\frac{157}{200}.
-\]
-This yields the strict Rayleigh bound \(81\omega/100\) for every \(\omega>0\).
+The primary model and wedge reduction were reconstructed. The transverse Neumann oscillator has ground energy \(\omega\). The record's explicit trial state has Rayleigh factor \(F(b)=1+3b^2-2bM(b)\); at \(b=1/3\), independent evaluation gives \(F\approx0.8052534967\), and the stated elementary inequalities rigorously certify \(F<0.81\). The min--max conclusion below the essential threshold follows.
 
-The accompanying standard-library script checks the exact integer cross-multiplications and numerically corroborates the closed-form quotient and its scale invariance. It does not certify the infinite statement; that follows from the analytic inequalities above.
+## originality
 
-The verification does not establish optimality of the constant, the exact ground energy, or uniqueness of the quadratic-model discrete eigenvalue.
+PASS
+
+The exact same primary Hamiltonian includes quadratic potentials but proves only qualitative binding below the one-dimensional threshold. No quantitative harmonic ratio implying the audited bound was found.
+
+## value
+
+PASS
+
+For the canonical quadratic member of a qualitative theorem, a rigorous order-one scale-free binding gap is a useful benchmark for sharper variational and numerical work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
