@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact verifier reconstructs the full \(64\)-vertex compatibility graph from deletion descendants, enumerates every maximal clique, and obtains \(62,707\) maximal cliques with exactly nine maxima of size \(10\). It directly verifies the common core, descendant coverage histogram, unique perfect maximum, and all four reversal/complement actions. A separate NetworkX enumeration matched the same complete maximum set.
+## correctness
 
-## Originality
-PASS. The known optimum \(A(6,1)=10\) is not claimed as new. Sloane's full text gives that optimum and one explicit nonperfect alternative to \(\mathrm{VT}_0(6)\), while No's later full text summarizes VT optimality through length ten and the maximum-independent-set formulation. Neither inspected source gives the nine-code census, universal core, unique-perfect classification, exact coverage histogram, or six natural symmetry orbits. Targeted published-finding corpus and web searches found no implication-equivalent census. Residual risk: an obscure unindexed finite enumeration could contain the same data.
+PASS
 
-## Value
-PASS. The finding completes a specific structural phenomenon highlighted in the foundational survey rather than selecting an arbitrary small parameter. The exact extremizer landscape separates perfect from nonperfect optima and gives reusable benchmark data for deletion-code structure and exact-search methods.
+Fresh exhaustive construction of the 64-word deletion-compatibility graph and exact maximal-clique enumeration found 62,707 maximal cliques, maximum size ten, and exactly nine maxima. Their intersection is precisely the four displayed words; direct deletion-ball unions give coverage histogram 26x1, 28x3, 30x4, 32x1. The unique coverage-32 code satisfies the VT0 checksum. Applying reversal/complement to all nine gives three size-two and three singleton orbits. The enumeration is complete and exact.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sloane gives the known optimum sequence and exhibits a nonperfect size-ten length-six code obtained by replacing two words of \(\mathrm{VT}_0(6)\); No gives later optimization/bound machinery. Those results establish the optimum and nonuniqueness, but not a complete census. No inspected source or Resultary entry supplies exactly nine labeled maxima, their common four-word core, the coverage histogram, unique perfect maximum, or the six symmetry orbits.
+
+## value
+
+PASS
+
+Length six is a classical small deletion-code benchmark where prior work explicitly showed the optimum is nonunique but stopped at examples. Completing the optimizer census, isolating the universal core and unique perfect code, and describing the symmetry/coverage strata is a natural finite classification rather than a recomputation of \(A(6,1)\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

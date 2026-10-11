@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `maxima.json`. The verifier uses only the Python standard library. It reconstructs every binary word of length six, every one-deletion descendant set, the complete compatibility graph, and all maximal cliques. It then checks the exact stored maximum-code list, the universal core, the descendant coverage histogram, the unique perfect maximum, and all reversal/complement orbits.
+# Independent mathematical audit
 
-Expected terminal line:
+## correctness
 
-`VERIFY_OK vertices=64 maximal_cliques=62707 maximum=10 labeled_maxima=9 core=4 perfect=1 coverage=26x1,28x3,30x4,32x1 orbits=1x3,2x3 group_size=4`
+PASS
 
-The computation is finite and exhaustive. No timeout, random sampling, probabilistic certificate, or external solver is used. The classification is limited to binary length six and one deletion; the symmetry check is limited to the declared four-element group.
+Fresh exhaustive construction of the 64-word deletion-compatibility graph and exact maximal-clique enumeration found 62,707 maximal cliques, maximum size ten, and exactly nine maxima. Their intersection is precisely the four displayed words; direct deletion-ball unions give coverage histogram 26x1, 28x3, 30x4, 32x1. The unique coverage-32 code satisfies the VT0 checksum. Applying reversal/complement to all nine gives three size-two and three singleton orbits. The enumeration is complete and exact.
+
+## originality
+
+PASS
+
+Sloane gives the known optimum sequence and exhibits a nonperfect size-ten length-six code obtained by replacing two words of \(\mathrm{VT}_0(6)\); No gives later optimization/bound machinery. Those results establish the optimum and nonuniqueness, but not a complete census. No inspected source or Resultary entry supplies exactly nine labeled maxima, their common four-word core, the coverage histogram, unique perfect maximum, or the six symmetry orbits.
+
+## value
+
+PASS
+
+Length six is a classical small deletion-code benchmark where prior work explicitly showed the optimum is nonunique but stopped at examples. Completing the optimizer census, isolating the universal core and unique perfect code, and describing the symmetry/coverage strata is a natural finite classification rather than a recomputation of \(A(6,1)\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
