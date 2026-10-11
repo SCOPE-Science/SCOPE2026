@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:53:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 3a375f3aca07119dc2301e73d7cb0dabd9d159af",
+        "verify.py blob 871e08d68a8c58150ac8139b74aec8eb43bff69c",
+        "fresh independent exact replay of the 420 shape classes",
+        "Raviv--Schwartz--Yaakobi feasibility framework"
+      ],
+      "rationale": "Flow conservation makes the three off-diagonal high-minus-low differences equal to a common nonzero integer t. After orientation and ordering the low entries, the six off-diagonal positions have only five possible low/high interleavings; inserting the three loops gives exactly 420 length-relevant shape classes, with 72 labeled rankings per shape. For fixed t, adjacent strict inequalities are lower-bound difference constraints in six base variables; longest-path closure gives the componentwise least nonnegative feasible solution and hence the minimum positive linear length objective. An independent exact-integer replay over all 420 shapes and t=1,...,28 reproduced maximum 86 and a unique worst shape. Since total length is at least 3t, t>=29 cannot improve a <=86 witness. For the unique worst shape, three distinct loops between b+t and c+t force c-b>=4 and c<b+t forces t>=5, giving the sharp minimum values 0,5,6,10,11,12,13,14,15 with sum 86. The displayed balanced matrix attains them and its strongly connected balanced directed support has an Euler circuit, producing a circular realizing string of length 86.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier sources give feasibility, code constructions and coarse length control.",
+          "The two 2026 sources are indexed around enumeration, structure and distance properties; complete full text was not materially retrievable in this run, so they remain explicit residual risks rather than evidence of noncoverage."
+        ],
+        "reasoning": "No inspected broader theorem implies the exact minimax realizing length or the number of maximizers.",
+        "searches": [
+          "Raviv--Schwartz--Yaakobi 2019",
+          "Beeri--Schwartz 2022",
+          "Sobhani et al., IEEE TIT 72(8) (2026), DOI:10.1109/TIT.2026.3698044",
+          "Abdollahi et al., Discrete Mathematics 349(11) (2026), DOI:10.1016/j.disc.2026.115253"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1708.02146",
+        "arXiv:2101.06033",
+        "DOI:10.1109/TIT.2026.3698044",
+        "DOI:10.1016/j.disc.2026.115253",
+        "Resultary DNA realization-length searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior balance implies the common off-diagonal gap and therefore the five low/high interleavings.",
+          "The remaining loop insertion, fixed-gap longest-path optimization, t>=29 cutoff, unique worst-shape identification and direct 86 lower bound are additional mathematics."
+        ],
+        "reasoning": "The exact minimax statement is not mechanically implied by the feasibility criterion or the prior coarse representative bounds.",
+        "searches": [
+          "Raviv--Schwartz--Yaakobi balance/feasibility lemma",
+          "assigned 420-shape difference-constraint proof and exact verifier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original profile-ranking model equates realizability with balanced directed profile counts and treats shortest realizing strings as a practical parameter.",
+          "The later construction paper concerns improved code families and realizing lengths, not the exact maximum of the minimum realizing length over all 30240 strict ternary window-two rankings."
+        ],
+        "reasoning": "After balance reduction, shortest realization is equivalent to a positive integer difference-constraint optimization over the profile entries. This is a reformulation of the source invariant, not a prior solution of the 420 shape classes.",
+        "searches": [
+          "Raviv--Schwartz--Yaakobi, arXiv:1708.02146 / DOI:10.1109/TIT.2018.2829876",
+          "Beeri--Schwartz, arXiv:2101.06033 / DOI:10.1109/TIT.2022.3152392",
+          "Resultary query: ternary DNA profile shortest realization feasible permutation length"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching published finding appeared among the leading results.",
+          "The known 30240 count is a feasibility census, not a table of shortest realizing lengths for all rankings."
+        ],
+        "reasoning": "The exact value is supported by exhaustive optimization of the complete quotient shape set, not inferred from absence in a database.",
+        "searches": [
+          "Resultary semantic search for ternary window-two DNA shortest realizing length",
+          "targeted Resultary search using 30240 feasible rankings and length 86"
+        ]
+      },
+      "rationale": "The founding ternary window-two DNA-profile work defines the shortest-realizing-length problem and gives the 30240 feasible-ranking base repository plus coarse representative-size bounds; later work improves constructions and studies enumeration/structure. None of the inspected material supplies the exact worst shortest length 86, the unique length-relevant extremal shape, or the exact 72-ranking multiplicity. The submitted result adds a finite but exhaustive 420-shape optimization with an independent analytic lower proof for the unique extremal shape.",
+      "residual_risks": [
+        "The two highly relevant 2026 papers were not fully inspectable; an unobserved exact shortest-realization result in them remains possible.",
+        "An unindexed coding-theory computation may contain the same 86 value without using the same quotient-shape proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FEASIBILITY_AND_COARSE_LENGTH_CONTROL_NOT_EXACT_MINIMAX",
+          "evidence": "The source supplies the balance reduction used as an ingredient but not the exact worst shortest realizing length.",
+          "identifier_or_url": "arXiv:1708.02146; DOI:10.1109/TIT.2018.2829876",
+          "material_read": "Accessible primary arXiv/source material around the q=3, l=2 feasibility setting, the 30240-ranking base repository and representative-length discussion.",
+          "method": "Same-object statement and implication comparison.",
+          "title": "Rank-Modulation Codes for DNA Storage With Shotgun Sequencing",
+          "trigger": "Defining source for feasible profile rankings and shortest realizing length."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_SOURCE",
+          "evidence": "Available material centers on enumeration via hyperplane arrangements; exact shortest-realization coverage could not be ruled out from full text and is retained as residual risk.",
+          "identifier_or_url": "DOI:10.1109/TIT.2026.3698044",
+          "material_read": "Bibliographic metadata and accessible description only; full primary text was not materially available in this run.",
+          "method": "Scope/risk check.",
+          "title": "On Enumerating Feasible Permutations for Rank Modulation Codes in DNA Storage via Hyperplane Arrangements",
+          "trigger": "Recent highly relevant same-model enumeration paper."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_SOURCE",
+          "evidence": "Available material emphasizes structure and permutation distance rather than shortest realization, but inaccessible full text remains a risk.",
+          "identifier_or_url": "DOI:10.1016/j.disc.2026.115253",
+          "material_read": "Bibliographic metadata and accessible description only; full primary text was not materially available in this run.",
+          "method": "Scope/risk check.",
+          "title": "Rank-modulation codes for DNA storage in shotgun sequencing: Structure and distance properties",
+          "trigger": "Recent same-model structure paper."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1708.02146",
+        "arXiv:2101.06033",
+        "DOI:10.1109/TIT.2026.3698044",
+        "DOI:10.1016/j.disc.2026.115253",
+        "Resultary DNA realization-length searches"
+      ],
+      "rationale": "Shortest realization is an explicitly motivated storage-cost invariant in the base ternary window-two rank-modulation model. The exact worst case and maximizer multiplicity close the complete finite base instance and provide a reusable quotient-shape method rather than an arbitrary census.",
+      "residual_risks": [
+        "The two highly relevant 2026 papers were not fully inspectable; an unobserved exact shortest-realization result in them remains possible.",
+        "An unindexed coding-theory computation may contain the same 86 value without using the same quotient-shape proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1708.02146",
+    "arXiv:2101.06033",
+    "DOI:10.1109/TIT.2026.3698044",
+    "DOI:10.1016/j.disc.2026.115253",
+    "Resultary DNA realization-length searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "Among all feasible strict circular ternary window-two profile rankings, the maximum of the shortest realizing-string length is exactly 86; exactly 72 of the 30240 feasible labeled rankings attain it, represented by one unique length-relevant shape class.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The two highly relevant 2026 papers were not fully inspectable; an unobserved exact shortest-realization result in them remains possible.",
+    "An unindexed coding-theory computation may contain the same 86 value without using the same quotient-shape proof.",
+    "The theorem is specific to strict circular q=3, window length two profiles and does not extend the value 86 to larger parameters."
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the same directory.
+# Independent mathematical audit
 
-The verifier uses only exact integer arithmetic and the Python standard library. It reduces feasible strict ternary length-two rankings to \(420\) length-relevant shape classes. For each shape and each integer gap \(1\le t\le28\), it substitutes \(H_i=L_i+t\) and solves the induced lower-bound difference constraints by exact longest-path closure. If no positive cycle exists, the closure is the componentwise least nonnegative solution and therefore minimizes the total profile sum for that fixed \(t\).
+## correctness
 
-The script verifies that every one of the \(420\) shapes has a realization of length at most \(86\). Since any \(t\ge29\) contributes at least \(3t\ge87\) to the profile sum, no omitted gap can improve an optimum. The unique worst shape has minimum \(86\), corresponding to exactly \(72\) labeled rankings after restoring the two orientations, the six edge-pair orders, and the six loop-label orders.
+PASS
 
-For the canonical extremizer the script checks the exact profile matrix \(\begin{pmatrix}12&5&6\\0&13&15\\11&10&14\end{pmatrix}\), verifies its row sums equal its column sums, constructs an Eulerian circuit, and confirms a circular realization of length \(86\). It also checks the direct lower-bound anchors for that ranking. Expected terminal lines include `MAX_MIN_LENGTH 86`, `EXTREMAL_RANKINGS 72`, `EULER_LENGTH 86`, and `VERIFY_OK`.
+Flow conservation makes the three off-diagonal high-minus-low differences equal to a common nonzero integer t. After orientation and ordering the low entries, the six off-diagonal positions have only five possible low/high interleavings; inserting the three loops gives exactly 420 length-relevant shape classes, with 72 labeled rankings per shape. For fixed t, adjacent strict inequalities are lower-bound difference constraints in six base variables; longest-path closure gives the componentwise least nonnegative feasible solution and hence the minimum positive linear length objective. An independent exact-integer replay over all 420 shapes and t=1,...,28 reproduced maximum 86 and a unique worst shape. Since total length is at least 3t, t>=29 cannot improve a <=86 witness. For the unique worst shape, three distinct loops between b+t and c+t force c-b>=4 and c<b+t forces t>=5, giving the sharp minimum values 0,5,6,10,11,12,13,14,15 with sum 86. The displayed balanced matrix attains them and its strongly connected balanced directed support has an Euler circuit, producing a circular realizing string of length 86.
+
+## originality
+
+PASS
+
+The founding ternary window-two DNA-profile work defines the shortest-realizing-length problem and gives the 30240 feasible-ranking base repository plus coarse representative-size bounds; later work improves constructions and studies enumeration/structure. None of the inspected material supplies the exact worst shortest length 86, the unique length-relevant extremal shape, or the exact 72-ranking multiplicity. The submitted result adds a finite but exhaustive 420-shape optimization with an independent analytic lower proof for the unique extremal shape.
+
+## value
+
+PASS
+
+Shortest realization is an explicitly motivated storage-cost invariant in the base ternary window-two rank-modulation model. The exact worst case and maximizer multiplicity close the complete finite base instance and provide a reusable quotient-shape method rather than an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
