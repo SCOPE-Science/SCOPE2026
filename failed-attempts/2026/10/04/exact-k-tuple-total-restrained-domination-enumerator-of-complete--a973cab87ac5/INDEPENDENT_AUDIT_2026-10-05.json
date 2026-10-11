@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:52:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a complete multipartite graph, every vertex of part \\(V_i\\) has exactly \\(s-s_i\\) neighbors in \\(S\\), so total \\(k\\)-tuple domination is equivalent to \\(s-s_i\\ge k\\). If the part is not full, an omitted vertex has exactly \\(N-s-n_i+s_i\\) neighbors in the complement, giving the second condition. For fixed \\(s\\), the allowed non-full values are precisely the stated interval \\([L_i(s),U_i(s)]\\), while the full value \\(n_i\\) is allowed exactly when it satisfies total domination. Independent binomial choices by part and coefficient extraction at total degree \\(s\\) therefore give the enumerator exactly.",
+      "risks": [
+        "The finite verifier through order 9 supports but does not replace the symbolic all-order argument."
+      ],
+      "sources": [
+        "RESULT.md blob 1458279c22d079ab2ebc78a5f9deab2d6576af06",
+        "verify.py blob d9efc45036b33a57d137e6ab0fccd46b9b39ce8c",
+        "A. P. Kazemi, arXiv:1106.5591; Bulletin of the Iranian Mathematical Society 40(3) (2014), 751--763"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source treats arbitrary complete \\(p\\)-partite graphs and derives its bounds from the same selected- and omitted-neighbor counts."
+        ],
+        "reasoning": "Although the source retains only scalar bounds, its proof already supplies the stronger local feasibility constraints from which the submitted all-set characterization follows immediately.",
+        "searches": [
+          "arXiv:1106.5591 / 2014 Bulletin full complete-multipartite section",
+          "Web: k-tuple total restrained domination complete multipartite Proposition 9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1106.5591",
+        "Bulletin of the Iranian Mathematical Society 40(3) (2014), 751--763",
+        "DOI:10.1007/s10587-005-0012-2",
+        "Resultary exact-enumerator search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed \\(s\\), the prior inequalities give exactly the lower and upper interval for every non-full \\(s_i\\).",
+          "Choosing \\(j\\) vertices from a part contributes \\(\\binom{n_i}{j}\\), and multiplying part polynomials then taking \\([y^s]\\) is the standard product rule."
+        ],
+        "reasoning": "No new nonstandard lemma is needed between the prior proof and the final enumerator; the claim is mechanically implied.",
+        "searches": [
+          "Statement comparison with Kazemi Proposition 9 proof",
+          "Coefficient extraction from the prior partwise inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kazemi Proposition 9 uses \\(\\sum_j s_j-s_i\\ge k\\) for every part of an arbitrary feasible set.",
+          "The same proof writes the complement-neighbor count for an omitted vertex as the sum of omitted vertices in the other incomplete parts."
+        ],
+        "reasoning": "The submitted iff criterion is a direct rewriting of the inequalities already used for arbitrary feasible sets in the prior complete-multipartite proof.",
+        "searches": [
+          "Primary full text: arXiv:1106.5591 complete multipartite section, Proposition 9 and Proposition 10",
+          "Resultary: k-tuple total restrained domination complete multipartite graph exact all subsets enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No pre-existing identical polynomial table was located."
+        ],
+        "reasoning": "That negative database check does not restore originality because theorem-level prior reasoning already implies the polynomial by direct binomial counting.",
+        "searches": [
+          "Resultary exact all-set/enumerator query",
+          "Web exact generating-polynomial query"
+        ]
+      },
+      "rationale": "Kazemi's complete-multipartite proof already writes the two decisive arbitrary-set inequalities in substance: for an arbitrary k-tuple total restrained dominating set \\(S\\), every part satisfies \\(\\sum_j s_j-s_i\\ge k\\), and every omitted vertex in an incomplete part is required to have at least \\(k\\) neighbors among the omitted vertices in the other incomplete parts. These are exactly the submitted profile conditions after notation is expanded. The displayed generating function is then a routine coefficient-packaging of those already established independent partwise bounds with binomial multiplicities. Under implication-level originality, the absence of an explicit published polynomial does not make this a new mathematical claim.",
+      "residual_risks": [
+        "No risk can overturn the decisive implication from the same-object complete-multipartite proof already inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_DIRECT_IMPLICATION",
+          "evidence": [
+            "The proof explicitly derives the same two partwise inequalities for arbitrary feasible sets; the submitted polynomial is the standard enumeration of their solutions."
+          ],
+          "identifier_or_url": "arXiv:1106.5591 / Bulletin of the Iranian Mathematical Society 40(3) (2014)",
+          "material_read": "The definition, complete bipartite result, complete multipartite Proposition 9 and Proposition 10, including the proof lines for selected-neighbor and omitted-neighbor counts. A rendered page containing the complete-multipartite proposition was inspected.",
+          "method": "Direct public full-text inspection and targeted text search.",
+          "title": "k-Tuple Total Restrained Domination/Domatic in Graphs",
+          "trigger": "Same invariant on the same complete-multipartite graph family."
+        },
+        {
+          "assessment": "CONTEXT_ONLY",
+          "evidence": [
+            "It is not needed for the decisive coverage because Kazemi already covers arbitrary \\(k\\) on complete multipartite graphs."
+          ],
+          "identifier_or_url": "DOI:10.1007/s10587-005-0012-2",
+          "material_read": "Bibliographic/statement-level comparison sufficient for the specialization check.",
+          "method": "Literature comparison.",
+          "title": "On total restrained domination in graphs",
+          "trigger": "The \\(k=1\\) predecessor of the same restrained-total concept."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Counting all feasible sets is a natural refinement, but here the structural characterization is already present in the prior proof and the enumerator is the routine product of binomial part choices subject to those intervals. The final contribution is therefore a convenient repackaging rather than a motivated new mathematical gap under the stated value bar.",
+      "risks": [
+        "This value judgment does not dispute correctness or usefulness as a computational summary."
+      ],
+      "sources": [
+        "Kazemi arXiv:1106.5591, Proposition 9 proof",
+        "RESULT.md blob 1458279c22d079ab2ebc78a5f9deab2d6576af06"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The result is scientifically rejected for prior implication and routine value, not for correctness."
+  ],
+  "schema_version": 1
+}
