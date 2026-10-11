@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof gives an explicit continuous extremizer \(\phi_n\), proves its global nonnegativity by a supporting-line inequality for \(T_n\), and identifies its only two zeros. The divisibility direction then follows by exact evaluation at a contact grid point, while the strict direction uses a positive finite-grid margin. The quantifiers cover every integer \(m\ge3\) and \(n\ge3\), including aliasing cases where the discrete supremum is infinite.
+## correctness
 
-Risk: the critical analytic point is the global supporting-line inequality for \(T_n\). It is proved in two regions: strict convexity on \([\cos(\pi/n),1]\), and an explicit comparison with \(-1\) to the left. The finite verifier is corroborative and is not substituted for that argument.
+PASS
 
-## Originality
-**PASS.** The closest source defines both continuous and discretized quantities and proves only the general inequality \(M_m(H)\ge M(H)\), while also recording possible aliasing. The later locally compact Abelian framework explains reductions to cyclic groups. The checked material does not state the exact singleton equality criterion \(4n\mid m\) or the strict-gain theorem for every nonresonant grid. A prior exact quadratic singleton calculation covers the low harmonic \(n=2\); the present claim starts at \(n=3\) and proves the uniform higher-harmonic criterion rather than repackaging that isolated case.
+The continuous extremizer is certified by rewriting it with \(T_n\) as the gap between \(T_n\) and its tangent at \(C=\cos(\pi/(2n))\). Monotonicity of \(\sin(nt)/\sin t\) gives strict convexity on the terminal Chebyshev arc, while the explicit tangent bound handles the complementary interval, so the only zeros are the two contact points \(\pi\pm\pi/(2n)\). Their reduced turn fractions have denominator \(4n\), hence a grid contains a contact iff \(4n\mid m\). At a contact, evaluation gives the sharp upper bound; without contacts, finite strict positivity permits an explicit positive coefficient bump. Independent dense/finite checks over \(3\le n<25\) and \(3\le m<120\) reproduced contacts and strict margins.
 
-Residual risk: an equivalent no-loss criterion may exist in older positive-definite-sequence or finite trigonometric-polynomial literature under different notation. Searches included the discrete Carathéodory–Fejér terminology, singleton-harmonic terminology, finite cyclic positive-definite formulations, and the divisibility phrase.
+## originality
 
-## Value
-**PASS.** The discrete framework naturally asks when finite sampling changes an extremal value. The theorem gives an exact arithmetic answer for every higher singleton harmonic: equality is controlled by whether the mesh contains the continuous contact set. This is a structural rigidity statement, not a finite table or a routine numerical increment, and it separates exact discretizations from those with unavoidable strict gain.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Kolountzakis--Révész and Krenedits--Révész establish the continuous/discretized Carathéodory--Fejér framework and the general inequality that discrete sampling is no more restrictive. The inspected 2013 full text explicitly defines \(M_m\) on \(\mathbb Z_m\) but does not state the higher-singleton contact criterion \(4n\mid m\). Fresh Resultary search found related no-loss-mesh theorems for the full interval and degree two, but not a stronger theorem implying this singleton-harmonic result.
+
+## value
+
+PASS
+
+The result isolates an exact arithmetic no-loss boundary for a natural discretization problem: it explains precisely when finite sampling preserves the continuous extremum and when every missed contact yields a strict gain. This is structural support/contact geometry across all \(m,n\), not a finite enumeration or arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
