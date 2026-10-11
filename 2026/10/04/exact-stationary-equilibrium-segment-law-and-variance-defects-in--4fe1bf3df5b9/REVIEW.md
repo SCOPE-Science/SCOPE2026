@@ -1,20 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two conditional laws follow from arbitrary antiderivative tests in \(y\) and \(z\). Coordinate and quadratic stationarity give the equilibrium-segment mean formula and the exact \(y\)-variance parabola. Two variance defects are literal expectations of squares and their zero sets reduce, by invariant-support tangency, to the two equilibria. Stationarity of \(yz\) gives the exact
-\[
-\frac7{13}
-\]
-RMS-gap coefficient, with equality only at the origin.
+## correctness
 
-Risk: the equality arguments use standard invariance of compact support and bounded completeness.
+PASS
 
-## Originality
-PASS. The original full article and the closest full statistical Sprott-flow article were inspected. The statistical article studies only B and N. Exact-object semantic searches found no K result stating the conditional laws, equilibrium-segment law, parabola, or variance defects.
+Antiderivative tests in y and z give the two conditional laws. Their first moments imply E[x]=E[y]=-(3/10)E[z] and E[xy]=E[y^2]=E[z], producing q=(9/100)E[y^2], the exact mean segment and variance parabola. Stationarity of y^2/2 and z^2/2 expands to the two nonnegative squared-speed variance defects; zero of either speed on invariant support propagates to x=y and z=x^2, or to x=-(3/10)z with the unique bounded complete y solution y=x, hence only the two equilibria. Stationarity of yz gives E[yz]=(10E[y^2]-3E[z^2])/7, which rearranges exactly to the 7/13 gap. Equality forces y=z, then tangency gives y=z=0 and x=0. The exact verifier checks the equilibria and all algebraic coefficients.
 
-Risk: the complete 2004 all-systems analytical article was not securely available, so possible differently phrased overlap there remains explicit.
+## originality
 
-## Value
-PASS. The result shows that arbitrary compact stationary K dynamics is moment-indistinguishable from an equilibrium mixture at the level of the first two \(y\)-moments, while exact square defects recover a rigorous signature of nonequilibrium recurrence. This is a natural structural diagnostic tied to the canonical equilibrium geometry.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Sprott's full foundational article lists the exact Case K equations, equilibria, Lyapunov data and attractor geometry. A full 2001 statistical study of Sprott flows explicitly analyzes generalized B and N, not K. Resultary searches found analogous moment laws for other systems but no exact K equilibrium-segment/variance-defect theorem. Panchev's 2004 all-Sprott analytical paper remains a named access risk, not negative evidence.
+
+## value
+
+PASS
+
+For a canonical member of Sprott's catalogue, the theorem gives a complete low-order stationary geometry: exact barycenter segment, Bernoulli-type variance parabola, two rigid speed defects and a sharp RMS ordering. The package is a natural recurrent-statistics classification, not a one-off simulation or table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
