@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:09:46.326787Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 6518bdaadef6929fa52a277b8b69ef4746daca4a",
+        "assigned verify_roman_chain.py blob 3ea1bf00de1d6ed9a53fd19034851e744c223496",
+        "Gangabylaiah et al., On the Roman Domination Polynomial of Graphs, DOI:10.7251/BIMVI2102355G",
+        "Padamutham--Palagiri, Algorithmic aspects of Roman domination in graphs, DOI:10.1007/s12190-020-01345-4",
+        "Abu-Khzam--Fernau--Mann, Roman Census, DOI:10.4230/LIPIcs.MFCS.2023.6"
+      ],
+      "rationale": "The four-way partition by locations of label 2 is exhaustive and disjoint. With no label 2, every vertex must be 1. With label 2 only on A, the latest A class containing a 2 determines exactly which A classes may contain 2 and which B classes are defended and may contain 0; the B-only case is symmetric. When both sides contain a 2, the earliest B class r and latest A class s determine independently, class by class, whether labels 0 and 2 are permitted, while subtracting the no-2 boundary-class factor forces A_s and B_r to contain a 2. These permissions are exactly the stated F_n^{z,t} factors, so the product formula counts each Roman dominating function once. The minimum formula follows by comparing the no-2, one-side-2 and both-sides-2 regimes. A fresh independent brute-force replay on four nontrivial canonical twin profiles matched the closed polynomial coefficientwise; the package verifier exhaustively checks all 255 positive twin-class profiles through total order 9, over 3,023,307 labelings.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The polynomial source treats several graph families and operations but only complete bipartite graphs within this nested-neighborhood setting.",
+          "The algorithmic sources optimize the minimum weight on broader graph classes.",
+          "Roman Census studies minimal functions, not all feasible functions."
+        ],
+        "reasoning": "Broader optimization or minimal-function algorithms do not determine the complete all-weight distribution.",
+        "searches": [
+          "Gangabylaiah et al. DOI:10.7251/BIMVI2102355G",
+          "Padamutham--Palagiri DOI:10.1007/s12190-020-01345-4",
+          "Rout--Das arXiv:2111.09040",
+          "Abu-Khzam--Fernau--Mann DOI:10.4230/LIPIcs.MFCS.2023.6"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.7251/BIMVI2102355G",
+        "DOI:10.1007/s12190-020-01345-4",
+        "DOI:10.4230/LIPIcs.MFCS.2023.6",
+        "arXiv:2111.09040",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-bipartite formula covers only p=1 and does not determine how multiple nested twin classes interact.",
+          "An algorithm for the minimum Roman domination number does not imply counts of all feasible labelings at every weight."
+        ],
+        "reasoning": "The submitted extremal-index partition supplies new information beyond the known boundary case and optimization results.",
+        "searches": [
+          "comparison with Theorem 3.4 of the 2021 Roman-domination-polynomial paper",
+          "comparison with minimum-weight chain/convex-bipartite algorithms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 paper's complete-bipartite formula is the one-twin-pair specialization.",
+          "No inspected source gives the earliest-B/latest-A two-boundary factorization for arbitrary chain graphs."
+        ],
+        "reasoning": "Chain graphs, nested-neighborhood bipartite graphs, Roman domination polynomial, and all-function weight enumerator formulations were compared.",
+        "searches": [
+          "Resultary: Roman domination polynomial chain graphs all functions weight enumerator",
+          "DOI:10.7251/BIMVI2102355G complete primary PDF",
+          "DOI:10.1007/s12190-020-01345-4 chain-graph Roman optimization search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited record was the direct chain-polynomial hit; no earlier exact table or formula for arbitrary canonical twin-class sizes was returned."
+        ],
+        "reasoning": "The theorem is an all-profile symbolic formula, not a known finite table recomputation.",
+        "searches": [
+          "Resultary semantic search for the exact chain-graph Roman polynomial factorization"
+        ]
+      },
+      "rationale": "The complete 2021 Roman-domination-polynomial paper was inspected at the definition and its specific-family section; Theorem 3.4 gives the complete-bipartite polynomial, exactly the p=1 boundary case, but it does not give the arbitrary chain-graph twin-class factorization. The 2020 chain-graph paper is framed as minimum-weight Roman domination optimization, and accessible material does not state an all-weight enumerator; its full text was not available through the inspected route, so incidental overlap remains a residual risk rather than a failure. The Roman Census work enumerates pointwise-minimal functions, a different object from all feasible functions by weight. Targeted Resultary search found the audited chain polynomial and nearby different domination polynomials, but no earlier equivalent full Roman weight enumerator for chain graphs.",
+      "residual_risks": [
+        "The complete 2020 chain-graph optimization paper was not obtained from the inspected route; an incidental all-function formula in unread text cannot be excluded.",
+        "A poorly indexed graph-polynomial source may use nested-neighborhood or Ferrers-graph terminology instead of chain graph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BOUNDARY_CASE_ONLY",
+          "evidence": "The complete-bipartite theorem is exactly the one-pair chain case and does not state the arbitrary chain-graph factorization.",
+          "identifier_or_url": "https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf",
+          "material_read": "Complete 11-page primary PDF; the definition and specific-family section were inspected, including Theorem 3.4 and its proof for complete bipartite graphs. The relevant PDF page was visually rendered.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "On the Roman Domination Polynomial of Graphs",
+          "trigger": "Defining source for the exact polynomial invariant and strongest family-formula predecessor."
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE_OPTIMIZATION_SOURCE",
+          "evidence": "The accessible scope is minimum-weight optimization, not all-weight enumeration; unread full text leaves a bounded incidental-overlap risk.",
+          "identifier_or_url": "https://doi.org/10.1007/s12190-020-01345-4",
+          "material_read": "Accessible title/abstract material describing the minimum-weight Roman domination problem and algorithmic scope; complete full text was not available from the inspected route.",
+          "method": "Public bibliographic/abstract inspection.",
+          "title": "Algorithmic aspects of Roman domination in graphs",
+          "trigger": "Closest source explicitly reported to treat chain-graph optimization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gangabylaiah et al.",
+        "Padamutham--Palagiri",
+        "Roman Census"
+      ],
+      "rationale": "Chain graphs are a canonical nested-neighborhood bipartite class, and the full Roman domination polynomial is the natural all-weight refinement of the already studied minimum problem. The formula gives every coefficient from the canonical twin-class sizes in O(p^2) product terms and strictly extends the published complete-bipartite boundary case, making it a motivated complete classification rather than an arbitrary enumeration.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.7251/BIMVI2102355G",
+    "DOI:10.1007/s12190-020-01345-4",
+    "DOI:10.4230/LIPIcs.MFCS.2023.6",
+    "arXiv:2111.09040",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Connected chain graphs only.",
+    "Complete-bipartite p=1 case is prior coverage and not part of the originality claim.",
+    "The exhaustive package verification is finite through total order 9; arbitrary order is justified by the structural proof."
+  ],
+  "residual_risks": [
+    "The complete 2020 chain-graph optimization paper was not obtained from the inspected route; an incidental all-function formula in unread text cannot be excluded.",
+    "A poorly indexed graph-polynomial source may use nested-neighborhood or Ferrers-graph terminology instead of chain graph."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BOUNDARY_CASE_ONLY",
+      "evidence": "The complete-bipartite theorem is exactly the one-pair chain case and does not state the arbitrary chain-graph factorization.",
+      "identifier_or_url": "https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf",
+      "material_read": "Complete 11-page primary PDF; the definition and specific-family section were inspected, including Theorem 3.4 and its proof for complete bipartite graphs. The relevant PDF page was visually rendered.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "On the Roman Domination Polynomial of Graphs",
+      "trigger": "Defining source for the exact polynomial invariant and strongest family-formula predecessor."
+    },
+    {
+      "assessment": "PLAUSIBLE_INACCESSIBLE_OPTIMIZATION_SOURCE",
+      "evidence": "The accessible scope is minimum-weight optimization, not all-weight enumeration; unread full text leaves a bounded incidental-overlap risk.",
+      "identifier_or_url": "https://doi.org/10.1007/s12190-020-01345-4",
+      "material_read": "Accessible title/abstract material describing the minimum-weight Roman domination problem and algorithmic scope; complete full text was not available from the inspected route.",
+      "method": "Public bibliographic/abstract inspection.",
+      "title": "Algorithmic aspects of Roman domination in graphs",
+      "trigger": "Closest source explicitly reported to treat chain-graph optimization."
+    }
+  ]
+}
