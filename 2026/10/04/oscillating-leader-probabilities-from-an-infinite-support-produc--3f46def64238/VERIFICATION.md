@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and has no external computational dependency.
+# Independent mathematical audit
 
-For the peak subsequence, write \(q=T_{k-1}\), so \(T_k=q^4\), \(p_k=q-q^4\), and \(N_k=q^{-4}\). Then
-\[
-(1-T_k)^{N_k}=(1-1/N_k)^{N_k}\to e^{-1}.
-\]
-Conditional on no value above \(k\), the level-\(k\) multiplicity has mean asymptotic to \(q^{-3}=N_k^{3/4}\), while the proof only asks for \(N_k^{2/3}\) ties. Two maximizing sets that large have conditional disjointness probability at most \(e^{-N_k^{1/3}}\).
+## correctness
 
-For the trough subsequence \(M_k=q^{-3/2}\), the probability of any observation above \(k\) is at most \(q^{5/2}\), the no-level-\(k\) probability is at most \(e^{-M_kp_k}\) with \(M_kp_k\sim q^{-1/2}\), and the probability of any index simultaneously equal to \(k\) in both coordinates is at most \(M_kp_k^2\sim q^{1/2}\). Every error term therefore vanishes in the asserted direction.
+PASS
 
-Finite numerical values quoted in RESULT.md are consistency checks only. They are not certificates for the infinite statement and are not used in the proof.
+With \(q=T_{k-1}\), the construction has the exact recursion \(T_k=q^4\) and atom \(p_k=q-q^4\). At \(N_k=q^{-4}\), one coordinate has no value above level \(k\) with probability tending to \(e^{-1}\), and conditional on that event its level-\(k\) multiplicity has mean asymptotic to \(q^{-3}=N_k^{3/4}\), so it exceeds \(N_k^{2/3}\) with probability tending to one. Independent coordinate maximizing-index sets of those sizes intersect with probability tending to one, giving the \(e^{-2}\) lower bound. At \(M_k=q^{-3/2}\), each coordinate maximum equals \(k\) with probability tending to one, while the probability of any index satisfying \(X_i=Y_i=k\) is at most \(M_kp_k^2\sim q^{1/2}\to0\). These analytic bounds prove the two subsequences.
+
+## originality
+
+PASS
+
+The motivating 2022 primary paper poses the infinite-support independent-coordinate problem and proves \(a_n\to0\) only under a bounded adjacent-atom-ratio hypothesis. The submitted lacunary law deliberately violates that hypothesis and proves a phenomenon not present there: nonconvergence with order-one peaks and zero troughs. The same-author follow-up studies quasi-unidimensional dependent vectors \(f(X)\), not independent product laws. Fresh Resultary searches using leader, common-maximizer, maximum-tie and lacunary-tail terminology did not locate a covering result.
+
+## value
+
+PASS
+
+The construction identifies a sharp qualitative obstruction to extending a published regularity theorem: even with independent infinite-support coordinates the leader probability need not approach zero. This is a motivated boundary counterexample with explicit asymptotic scales, not a finite curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
