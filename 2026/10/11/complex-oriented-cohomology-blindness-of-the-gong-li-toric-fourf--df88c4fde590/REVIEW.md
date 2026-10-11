@@ -1,0 +1,15 @@
+# Review: complex-oriented cohomology blindness of the Gong–Li toric fourfolds
+
+## Correctness — PASS
+The exact integral divisor-product identity was checked after eliminating the three fan linear relations. The thirteen resulting terms are all Stanley–Reisner zero monomials, and the standalone integer-polynomial checker confirms the identity. Since the base has free even integral cohomology, the \(MU\) Atiyah–Hirzebruch spectral sequence degenerates and gives torsion-free groups; rational Chern–Dold then lifts vanishing of the ordinary product to vanishing of the product of universal first Chern classes. The formal-group-law relation is divisible by the product of the two inputs because it vanishes on both coordinate axes. The projective-bundle theorem transfers this relation to identical ring presentations in every complex-oriented theory. The relative tangent determinant calculation preserves all generalized Chern classes. The complex \(K^0\) projective relations coincide and the canonical map respects line elements, hence all special \(\lambda\)-operations. Nonhomotopy is separately supported by the primary source's Theorem 4.1.
+
+## Originality — PASS
+Gong–Li prove equality of ordinary cohomology rings and ordinary characteristic classes, with homotopy inequivalence; their full text does not compare arbitrary oriented theories or complex \(K^0\) \(\lambda\)-rings. Krishna–Uma provide general oriented toric cobordism presentations rather than this explicit invariant collision. Actual published-record and topic searches using toric rigidity, complex cobordism, formal-group-law projectivizations, and lambda-ring aliases returned no corresponding universal comparison. The result is not claimed to be independent of the general projective-bundle machinery: it applies that machinery to a new non-homotopy-equivalent pair and proves that the entire nonequivariant complex-oriented family of invariants fails simultaneously.
+
+## Value — PASS
+The motivating cohomological-rigidity counterexample leaves open whether stronger cohomological invariants such as universal complex cobordism or the \(K\)-theory \(\lambda\)-structure might recover the lost distinction. The present theorem proves a structurally uniform negative answer and isolates the vanishing-product formal-group-law mechanism. This gives a meaningful boundary for proposed cohomological refinements of toric homotopy rigidity rather than a single additional low-level invariant calculation.
+
+## Closest sources and limitations
+Gong–Li arXiv:2609.39707v1 §2–4 is the closest work; Krishna–Uma arXiv:1011.0573v1 gives general toric oriented cobordism formulas. Chen–Guan–Lü arXiv:2609.27412v1 concerns equivariant bordism rigidity, distinct from the nonequivariant claim; only its abstract was available for comparison. There remains a limited risk of an unindexed or inaccessible prior treatment of the same oriented-theory comparison. The theorem does not assert a map-induced isomorphism or any real/equivariant cohomological equivalence.
+
+Same-model review: passed. Independent audit: not yet performed.
