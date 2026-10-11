@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and quantified over all finite source posets with no three-point chain and all ordinal sums of at least three nonempty antichains. Its critical checks are:
+# Independent mathematical audit
 
-1. The source decomposes as a lower side and an upper side because a point with both a strict predecessor and strict successor would create a three-point chain.
-2. Lowering lower-side images from the top two target levels to level \(h-2\) preserves monotonicity and yields \(f_1\le f\).
-3. After that operation, lowering top-level upper-side images to level \(h-1\) preserves monotonicity and yields \(f_2\le f_1\).
-4. The image of \(f_2\) avoids the top target level, so \(f_2\) is pointwise below a top-level constant.
-5. Pointwise comparable maps between finite Alexandroff spaces are homotopic.
-6. Two target levels are insufficient: the identity of the four-point crown acts nontrivially on first homology, unlike a constant map.
+## correctness
 
-The standalone verifier exhaustively checks the explicit construction on all bipartite source relation patterns with each side of size at most two and on four target weak-order profiles with three or four levels. It checks every monotone map in those cases. Expected output:
+PASS
 
-`VERIFY_OK source_cases=104 maps=18598 sharp_height2=checked`
+The height-two source splits into minimal-side points L and the remaining maximal-side points U, so every strict relation is L-to-U. Lowering top-two-level images on L to level h-2 preserves every relation; then lowering top-level images on U to level h-1 also preserves every relation because all their strict lower neighbors now lie below level h-1. The resulting map avoids the top level and is pointwise below a top-level constant. The standard finite-Alexandroff fact that pointwise-comparable maps are homotopic gives the displayed comparison fence. The four-point two-level crown has order complex S1, so its identity cannot be null-homotopic.
 
-The finite exhaustive check is a stress test only; it does not replace the general proof. Independent audit has not been performed.
+## originality
+
+PASS
+
+The closest published SCOPE findings cover weak-order sources or complete height-two sources. They do not imply the theorem for an arbitrary height-two incidence pattern, because adding all missing lower-to-upper comparabilities changes which maps are order-preserving. The older fence/crown literature is enumerative. No primary or Resultary source inspected states the arbitrary-height-two to three-level weak-order nullity theorem.
+
+## value
+
+PASS
+
+The result gives a uniform structural homotopy collapse for every finite bipartite-poset incidence pattern and identifies the sharp target-level threshold. This is a natural finite-space mapping theorem rather than a small computational instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
