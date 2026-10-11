@@ -1,0 +1,128 @@
+{
+  "claim": "For every real \\(\\lambda\\ge\\sqrt2\\), let \\(R_\\lambda^2=(\\mathbb R^2,N_\\lambda)\\) with\n\\[\nN_\\lambda(u,v)=\\max\\left\\{\\lambda|u|,\\sqrt{u^2+v^2}\\right\\}.\n\\]\nFor every \\(p\\in[2,\\infty]\\), the generalized Baronti constant satisfies\n\\[\nA_{2,p}(R_\\lambda^2)=1+\\sqrt{1-\\lambda^{-2}}.\n\\]\nMore precisely, if\n\\[\nG_\\lambda(\\tau)=\n\\sup_{N_\\lambda(x)=N_\\lambda(y)=1}\n\\frac{N_\\lambda(x+\\tau y)+N_\\lambda(x-\\tau y)}2,\n\\qquad 0\\le\\tau\\le1,\n\\]\nthen\n\\[\nG_\\lambda(\\tau)=\n\\frac{1+\\tau+\\sqrt{1+2(1-2\\lambda^{-2})\\tau+\\tau^2}}2.\n\\]\nFor every finite \\(p\\ge2\\), the normalized Baronti profile\n\\[\n\\frac{2^{1/p}G_\\lambda(\\tau)}{(1+\\tau^p)^{1/p}}\n\\]\nis nondecreasing on \\([0,1]\\), so the maximum occurs at \\(\\tau=1\\); for \\(p=\\infty\\) the same conclusion follows directly from the displayed formula.",
+  "correctness": {
+    "rationale": "The unit ball is exactly the intersection of the Euclidean disk and a vertical strip. All four combinations of active numerator branches are treated. The mixed case is optimized exactly by support functions; the identity certifying strip-active support directions is nonnegative precisely in the claimed regime. A concrete unit pair attains the mixed bound. The finite-p normalized profile is then proved nondecreasing by an exact logarithmic derivative inequality.",
+    "risks": [
+      "The proof is regime-specific; below lambda=sqrt(2) the support-function branch geometry changes and the displayed formula is not asserted."
+    ],
+    "sources": [
+      "DML-CZ 118554, Example 4.1, independently fixes the norm and parameter range.",
+      "DOI 10.7153/mia-19-15, Proposition 2.5, independently fixes the generalized Baronti unit-sphere reduction."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baronti--Papini Proposition 4.2 requires a Day modulus linear in the scale parameter.",
+        "For the present space the exact excess G_lambda(tau)-1 has derivative 1-lambda^{-2} at zero but value sqrt(1-lambda^{-2}) at one, so it is not linear for any finite lambda>1.",
+        "Yang--Yang 2016 treats the same generalized max-norm family but computes James-type and von Neumann--Jordan constants."
+      ],
+      "reasoning": "The strongest directly relevant general closed-form theorem in the defining Baronti paper has a hypothesis that is independently shown to fail. Same-family later work concerns different invariants.",
+      "searches": [
+        "generalized Baronti constant Banas Fraczek plane",
+        "modulus of smoothness Banaś Frączek plane exact",
+        "Banaś-Frączek Baronti Papini"
+      ]
+    },
+    "checked_sources": [
+      "hdl:10338.dmlcz/118554",
+      "doi:10.7153/mia-19-15",
+      "doi:10.7153/jmi-10-43",
+      "record:4fc49bdb2424",
+      "record:e3691bc86dc7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior Ptolemy result concerns a four-point metric invariant and a different lambda regime; it does not control the generalized Baronti normalization.",
+        "The Euclidean Banach--Mazur formula is an affine-distance invariant and does not determine the two-scale chord supremum defining A_{2,p}.",
+        "Yang--Yang's James-type and von Neumann--Jordan formulas are different suprema.",
+        "Baronti--Papini's concrete examples and linear-modulus theorem do not cover the nonlinear profile proved here."
+      ],
+      "reasoning": "None of the closest statements specializes to or logically dominates the new theorem. The new content is the exact all-scale chord profile and the consequent equality of every generalized Baronti constant from p=2 onward.",
+      "searches": [
+        "record:4fc49bdb2424 Banaś Frączek Ptolemy",
+        "record:e3691bc86dc7 Banaś Frączek Euclidean Banach Mazur",
+        "doi:10.7153/jmi-10-43",
+        "doi:10.7153/mia-19-15"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining max norm, the notation R_lambda^2, the generalized family max{lambda|x_1|,||x||_r}, and generalized Baronti notation were all checked.",
+        "No checked semantic record states the p>=2 plateau or the exact chord profile.",
+        "The Baronti--Papini source contains no occurrence of Banaś or Frączek and its concrete planar examples are different spaces."
+      ],
+      "reasoning": "The main alias risks are the R_lambda^2 notation, the generalized max-norm family, and reformulation through the Day modulus. All were searched or inspected directly.",
+      "searches": [
+        "Banaś Frączek A2,p 1+sqrt(1-lambda^-2) generalized Baronti p>=2",
+        "Banas Fraczek Baronti plateau A2,2 A2,infinity",
+        "max lambda x1 Euclidean generalized Baronti constant A2,p"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest same-object indexed records returned the first Banaś--Frączek Ptolemy regime and the exact Euclidean Banach--Mazur distance.",
+        "No checked exact-value record returned 1+sqrt(1-lambda^{-2}) as A_{2,p} for p>=2."
+      ],
+      "reasoning": "Object name, invariant notation, parameter range, and exact formula were searched directly. Negative search evidence is supporting evidence only, not a uniqueness proof.",
+      "searches": [
+        "Banaś Frączek A2,p 1+sqrt(1-lambda^-2) generalized Baronti p>=2",
+        "Banas Fraczek Baronti plateau A2,2 A2,infinity",
+        "Baronti A2,p Banaś Frączek exact"
+      ]
+    },
+    "rationale": "Searches for the object name, defining max norm, generalized Baronti notation, the exact value, and plateau language did not locate this result. The defining Baronti--Papini paper was inspected in full around the reduction theorem and concrete examples: it computes several other planar spaces but not Banaś--Frączek planes. Its principal closed-form example theorem assumes a linear Day modulus, a hypothesis that the present finite-lambda profile fails. The closest same-object records compute Ptolemy, Euclidean Banach--Mazur, James-type, or von Neumann--Jordan constants, none of which implies this \\(A_{2,p}\\) plateau.",
+    "residual_risks": [
+      "An older or later equivalent A_{2,p} computation may exist under triangle-perimeter or Day-modulus terminology not captured by the checked searches.",
+      "The lower-lambda regime is not classified here and may have a different phase structure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_PREDATES_BARONTI_CONSTANT",
+        "evidence": "Example 4.1 defines the plane with norm max{lambda|x_1|,sqrt(x_1^2+x_2^2)} for lambda>1. The article studies deformation, convexity, and smoothness rather than A_{2,p}. The digital repository's date index places this public record at 2009-01-08.",
+        "identifier_or_url": "hdl:10338.dmlcz/118554",
+        "material_read": "Full PDF around Example 4.1, including the displayed max norm and the associated geometric moduli.",
+        "method": "Public full-text PDF plus rendered-page inspection.",
+        "title": "Deformation of Banach spaces",
+        "trigger": "Original source for the Banaś--Frączek plane and its exact norm."
+      },
+      {
+        "assessment": "DEFINING_INVARIANT_NO_BANAS_FRACZEK_FORMULA",
+        "evidence": "The paper defines A_{2,p} and computes hexagonal, octagonal, Day--James, and L_s examples. Its Proposition 4.2 assumes a linear Day modulus, while the present exact profile is nonlinear.",
+        "identifier_or_url": "doi:10.7153/mia-19-15",
+        "material_read": "Full PDF: definition of A_{2,p}; Proposition 2.4 monotonicity; Proposition 2.5 unit-sphere reduction; Proposition 4.2; and Examples 4.3--4.6.",
+        "method": "Open full-text PDF and rendered-page inspection.",
+        "title": "Triangles, parameters, modulus of smoothness in normed spaces",
+        "trigger": "Defining source for the generalized Baronti constants and the closest general reduction theorem."
+      },
+      {
+        "assessment": "SAME_FAMILY_DIFFERENT_INVARIANTS",
+        "evidence": "The paper defines max{lambda|x_1|,||x||_r}; its r=2 member is the present plane. The stated results compute James-type and von Neumann--Jordan constants, not A_{2,p}.",
+        "identifier_or_url": "doi:10.7153/jmi-10-43",
+        "material_read": "Full PDF introduction, generalized max-norm definition, and principal theorem statements.",
+        "method": "Open full-text PDF plus rendered-page inspection.",
+        "title": "On the James type constant and von Neumann-Jordan constant for a class of Banaś-Frączek type spaces",
+        "trigger": "Highly relevant same-family source after the generalized Baronti constant was introduced."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dc001e53-01c1-4f7c-9b0e-b8ef234eb009",
+  "value": {
+    "rationale": "The Banaś--Frączek plane is a named archival deformation repeatedly used for exact Banach-space constants, while the generalized Baronti family was introduced specifically to compare triangle and smoothness geometry across p. The theorem identifies an unexpected complete plateau for every p from the Hilbert exponent onward, not just a single parameter value, and explains it through an exact all-scale mixed-branch profile. The threshold lambda=sqrt(2) is intrinsic to the support geometry.",
+    "risks": [
+      "The result is a two-dimensional family theorem and does not by itself classify generalized Banaś--Frączek spaces with a non-Euclidean second branch."
+    ],
+    "sources": [
+      "DML-CZ 118554 supplies the classical deformation family.",
+      "DOI 10.7153/mia-19-15 motivates the full A_{2,p} parameter family and gives comparison examples."
+    ],
+    "status": "PASS"
+  }
+}
