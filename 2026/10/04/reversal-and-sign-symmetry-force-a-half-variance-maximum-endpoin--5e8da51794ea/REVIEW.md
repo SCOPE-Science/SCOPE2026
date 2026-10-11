@@ -1,38 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Reversal sends the maximum to \(S-m\) without changing the terminal value. Global sign change sends the maximum to \(-m\) and the terminal value to \(-S\). For odd \(g\), these two distributional identities imply
-\[
-\mathbb E[M g(S)]
-=
-\mathbb E[(S-m)g(S)]
-\]
-and
-\[
-\mathbb E[M g(S)]
-=
-\mathbb E[m g(S)].
-\]
-Eliminating the minimum gives the factor \(1/2\) exactly. No independence or exchangeability enters this argument.
+PASS
 
-The iid variance specialization is immediate. The correlation limit uses only the standard functional central limit theorem, the Brownian maximum law, and moment uniform integrability under the stated \(2+\delta\) assumption.
+Reversal sends the path maximum to \(S-m\) while preserving \(S\), so reversal invariance gives \(\mathbb E[Mg(S)]=\mathbb E[(S-m)g(S)]\). Global sign change sends \((M,S)\) to \((-m,-S)\), and oddness of \(g\) gives \(\mathbb E[Mg(S)]=\mathbb E[mg(S)]\). Combining yields the exact half identity. The covariance, drawdown and range formulas follow algebraically. For iid symmetric increments, \(\operatorname{Var}(S)=n\sigma^2\); Donsker plus maximal-moment uniform integrability gives \(\operatorname{Var}(M)/(n\sigma^2)\to1-2/\pi\), hence the displayed correlation. The inspected checker verifies the exact identities on deliberately nonexchangeable reversal/sign-orbit mixtures and on iid finite walks, while the proof itself is the two-symmetry argument.
 
-## Originality
+## originality
 
-PASS, with a deliberately narrow novelty claim. Classical Spitzer theory already determines the iid joint maximum/endpoint law, so the iid covariance formula is treated as prior-covered context rather than as the originality claim.
+PASS
 
-Heinrich's full public text was inspected because it explicitly targets a weaker dependence setting. Its posted correction says that the proposed cyclic-exchangeability proof actually requires independence. The present proof works for a different and strictly weaker symmetry specification: only reversal invariance plus global sign symmetry are used, and the checker supplies examples that are not exchangeable.
+Classical Spitzer theory covers the iid specialization through a much stronger joint-transform identity, but not the weak dependence class. Heinrich's author-uploaded full paper initially claims an extension to cyclic exchangeability, and the posted correction explicitly says that proof only works for iid variables because independence is required. Anis--Gharib concern marginal maximum moments under exchangeability, not this maximum--endpoint mixed moment. Resultary searches under covariance, reversal, sign symmetry and odd transforms found no prior statement matching the two-symmetry identity.
 
-Anis--Gharib concerns marginal moments of maxima under exchangeability. Blanchet--Glynn concerns maximum and ladder-height asymptotics for iid random walks. Neither inspected statement gives the odd-transform identity under the two-involution hypothesis.
+## value
 
-## Value
+PASS
 
-PASS. Maximum and endpoint are the two most basic finite-horizon summaries of a random walk path, and their joint law is central in fluctuation theory, barrier problems, and lookback-type functionals.
+The result isolates an exact component of classical maximum theory that survives under very weak dependence: only reversal and global sign symmetry are needed, not independence or exchangeability. The odd-transform family, drawdown/range companions, and explicit nonexchangeable examples make the identity a reusable structural symmetry principle rather than a single iid covariance calculation.
 
-The result identifies a surprisingly rigid mixed moment that survives far outside the iid setting. The odd-transform family and the exact zero covariance of range with every odd endpoint transform show that the phenomenon is a path-symmetry law, not an accident of Gaussian or simple-walk calculations.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK orbit_identity_checks=36 nonexchangeable_checks=3 iid_cov_checks=38 asymptotic_checks=12`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

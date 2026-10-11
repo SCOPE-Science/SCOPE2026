@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:32:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 9e2c642a60bed036f5cda08917ae79ef781fde51",
+        "assigned verify_reversal_sign_max_endpoint.py blob 7e6aed1bed5669d42fb5756e15b09935171fba3c",
+        "Heinrich, DOI:10.1080/02331888508801852 full author-uploaded article with correction",
+        "Anis--Gharib, DOI:10.2307/3213032",
+        "Blanchet--Glynn, arXiv:math/0607121"
+      ],
+      "rationale": "Reversal sends the path maximum to \\(S-m\\) while preserving \\(S\\), so reversal invariance gives \\(\\mathbb E[Mg(S)]=\\mathbb E[(S-m)g(S)]\\). Global sign change sends \\((M,S)\\) to \\((-m,-S)\\), and oddness of \\(g\\) gives \\(\\mathbb E[Mg(S)]=\\mathbb E[mg(S)]\\). Combining yields the exact half identity. The covariance, drawdown and range formulas follow algebraically. For iid symmetric increments, \\(\\operatorname{Var}(S)=n\\sigma^2\\); Donsker plus maximal-moment uniform integrability gives \\(\\operatorname{Var}(M)/(n\\sigma^2)\\to1-2/\\pi\\), hence the displayed correlation. The inspected checker verifies the exact identities on deliberately nonexchangeable reversal/sign-orbit mixtures and on iid finite walks, while the proof itself is the two-symmetry argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spitzer's iid joint theory is stronger in conclusion but stronger in hypotheses.",
+          "Heinrich's attempted cyclic-exchangeable weakening carries an explicit correction restricting the proof back to iid variables.",
+          "Anis--Gharib treat variance of the maximum, not mixed maximum--terminal moments."
+        ],
+        "reasoning": "No checked theorem has both hypotheses weak enough to cover the audited dependent class and a conclusion implying the half identity.",
+        "searches": [
+          "Spitzer identity literature",
+          "Heinrich 1985",
+          "Anis--Gharib 1980",
+          "Blanchet--Glynn 2006"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1080/02331888508801852",
+        "DOI:10.2307/3213032",
+        "arXiv:math/0607121",
+        "classical Spitzer identity literature",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The corrected Heinrich argument cannot be invoked for the nonexchangeable orbit-mixture examples satisfying only reversal and sign symmetry.",
+          "Independence-based transform identities do not imply statements for arbitrary dependent laws sharing these two involutions."
+        ],
+        "reasoning": "The audited proof exploits exactly two symmetries that survive far outside the classical hypothesis class.",
+        "searches": [
+          "Heinrich full text and posted correction",
+          "classical Spitzer identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact identity can be phrased as a maximum--minimum involution under reversal and sign change.",
+          "No checked source states it for merely reversal-invariant and globally sign-symmetric dependent increments."
+        ],
+        "reasoning": "Maximum--endpoint covariance, the odd-transform mixed-moment identity, and the pair of path involutions were compared.",
+        "searches": [
+          "Resultary query: maximum endpoint covariance half variance reversal sign symmetry random vector odd function",
+          "Heinrich DOI:10.1080/02331888508801852 full author-uploaded text",
+          "searches for Cov(maximum, endpoint)=half variance and odd-transform identities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact record with the constant one half under reversal/sign symmetry was returned."
+        ],
+        "reasoning": "This is a universal identity rather than a finite numerical table.",
+        "searches": [
+          "Resultary exact half-variance maximum-endpoint search"
+        ]
+      },
+      "rationale": "Classical Spitzer theory covers the iid specialization through a much stronger joint-transform identity, but not the weak dependence class. Heinrich's author-uploaded full paper initially claims an extension to cyclic exchangeability, and the posted correction explicitly says that proof only works for iid variables because independence is required. Anis--Gharib concern marginal maximum moments under exchangeability, not this maximum--endpoint mixed moment. Resultary searches under covariance, reversal, sign symmetry and odd transforms found no prior statement matching the two-symmetry identity.",
+      "residual_risks": [
+        "A path-involution or fluctuation-theory note may contain the same mixed-moment identity under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IID_PREDECESSOR_WITH_RETRACTED_WEAK_DEPENDENCE_EXTENSION",
+          "evidence": "The correction explicitly removes the claimed proof for cyclically exchangeable variables, leaving the audited weaker two-symmetry class uncovered.",
+          "identifier_or_url": "DOI:10.1080/02331888508801852",
+          "material_read": "Full author-uploaded article text, including the definition and proposed cyclic-exchangeable theorem; the posted correction was read and states that the proof works only for iid variables because independence is needed.",
+          "method": "Public author-uploaded full-text inspection.",
+          "title": "An elementary proof of Spitzer's identity",
+          "trigger": "Most plausible classical extension from iid to weaker exchangeability."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Spitzer/Heinrich fluctuation theory",
+        "exchangeable-maximum literature",
+        "random-walk maximum asymptotics"
+      ],
+      "rationale": "The result isolates an exact component of classical maximum theory that survives under very weak dependence: only reversal and global sign symmetry are needed, not independence or exchangeability. The odd-transform family, drawdown/range companions, and explicit nonexchangeable examples make the identity a reusable structural symmetry principle rather than a single iid covariance calculation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "If a square-integrable finite increment vector is invariant under reversal and global sign change, then for every integrable odd transform \\(g\\), \\(\\mathbb E[M g(S)]=\\tfrac12\\mathbb E[Sg(S)]\\); consequently \\(\\operatorname{Cov}(M,S)=\\tfrac12\\operatorname{Var}(S)\\), the drawdown and range identities in RESULT.md hold, and under iid symmetric increments with a \\(2+\\delta\\) moment the maximum-endpoint correlation converges to \\(1/(2\\sqrt{1-2/\\pi})\\).",
+  "limitations": [
+    "The exact finite-horizon identities require both reversal invariance and global sign symmetry.",
+    "The asymptotic correlation additionally assumes iid symmetric increments and a \\(2+\\delta\\) moment.",
+    "The iid half-variance specialization lies inside classical random-walk maximum theory; originality is the weaker symmetry class and odd-transform identity."
+  ],
+  "schema_version": 1
+}
