@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact residual-parametrization follows from polynomial divisibility by the two coordinate factors; coefficient row/column constraints are equivalent to unit-flow conservation. Lower bound uses Cauchy--Schwarz on 2L axis coefficients and minimizes one complex quadratic. Upper bound constructs every coefficient by consecutive blocks of width floor sqrt L, checks i+j<=L, exact row/column sums and energy 2/M+K/M^2. Squared tensor projection gives the rectangular comparison. The inequalities imply n E_n->2 and an O(n^-3/2) difference. Code independently checks the Gram matrix, graph and polynomial quotient with exact Fractions for n=0,...,7; these tests do not replace the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bénéteau et al. (2015), Example 3, pp. 51--52 explicitly treats the identical polynomial (1-z1)(1-z2) but only cyclicity and nonoptimal constructed approximant rates.",
+        "Sargent--Sola, arXiv:2002.08790, handles 1-z1z2 and several-variable optimal approximants but not the total-degree normal-crossing constant.",
+        "Beslikas--Torkinejad Ziarati, arXiv:2609.09952, Theorem 1.1 classifies critical cyclicity of other boundary-zero sets, not exact rates."
+      ],
+      "reasoning": "The strongest same-object source states only eventual approximation and weaker inequalities, not the infimum with sharp coefficient 2. The diagonally coupled factor 1-z1z2 reduces to one variable and is not interchangeable with the product of two coordinate linear factors. One-variable theory recovers the rectangular comparator but cannot enforce total-degree coupling.",
+      "searches": [
+        "Dirichlet-type bidisc optimal approximants product 1-z 1-w rate cyclicity norm",
+        "two-variable optimal polynomial approximants bidisk total degree for polynomial (1-z)(1-w) product",
+        "Sargent Sola optimal approximants orthogonal polynomials in several variables 1-z1z2 cyclicity bidisc"
+      ]
+    },
+    "checked_sources": [
+      "Beslikas--Torkinejad Ziarati, arXiv:2609.09952v2, Theorem 1.1 and preliminaries.",
+      "Bénéteau--Condori--Liaw--Seco--Sola, Pacific J. Math. 276 (2015) 35--58, Example 3 pp.51--52.",
+      "Sargent--Sola, arXiv:2002.08790, multivariable optimal approximant reductions.",
+      "Bénéteau--Manolaki--Seco, arXiv:1901.00694, one-variable multiplier rates (context; no coupled two-variable result).",
+      "Targeted public mathematical-record searches on the source, aliases, triangular total degree, effective resistance, and stronger general results."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bénéteau--Condori--Liaw--Seco--Sola (2015), Example 3 pp. 51--52, asserts that their Riesz-polynomial rates are not optimal, while also proving cyclicity of the same product for a range of Dirichlet weights.",
+        "At weight alpha=0, an upper bound for a particular family only gives E_n bounded above at some order and cyclicity E_n->0; neither implies lim n E_n=2 or the exact resistance formula.",
+        "Beslikas--Torkinejad Ziarati (2026) Theorem 1.1 concerns critical indices of constructed functions; no lower and matching upper constants for f are present."
+      ],
+      "reasoning": "Prior cyclicity implies only E_n->0. A previous constructed-family upper bound alone cannot establish a matching uniform lower bound for the best approximation or a sharp asymptotic constant. The new lower bound and coupled block-transport upper construction supply exactly these missing implications.",
+      "searches": [
+        "Beslikas Ziarati 2609.09952 (1-z)(1-w) Hardy bidisk squared best polynomial approximation degree n sharp rate 2/n",
+        "Bénéteau Condori Liaw Seco Sola 2015 Example 3 separable product zeros cyclic optimal polynomial total degree squared error 2/n",
+        "Dirichlet-type bidisc optimal approximants product 1-z 1-w rate cyclicity norm",
+        "two-variable optimal polynomial approximants bidisk total degree for polynomial (1-z)(1-w) product"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact graph equivalence proven in the supplied proof by coefficient-divergence constraints on edges i+j<=n+2.",
+        "Independent Gram-matrix and graph-Laplacian minima coincide as exact rationals for n=0,...,7.",
+        "No result with this combined normal-crossing coefficient-flow identity and sharp asymptotic appeared in the queried mathematical-record results."
+      ],
+      "reasoning": "Reformulating residual coefficients as unit flows is genuinely equivalent to the entire optimal approximation problem, not just a matching graph title. Ferrers-graph electrical theory might independently imply the sharp constant; that possibility is a residual risk and was specifically searched.",
+      "searches": [
+        "hardy H2 bidisc (1-z_1)(1-z_2) triangular-degree optimal polynomial approximation Ferrers graph effective resistance",
+        "Optimal polynomial approximation H2 bidisk (1-z)(1-w), total-degree truncation, effective resistance chain Ferrers graph, sharp asymptotic constant",
+        "staircase bipartite graph effective resistance between two universal vertices, normalized convergence",
+        "(1-z)(1-w) Hardy polydisk best total degree approximation equivalent electrical resistance Ferrers graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record search did not yield an exact table or identity for the bidisk total-degree optimum.",
+        "Finite exact values E_0=3/4, E_1=7/12, E_2=17/36 are independently reproduced from the input Gram matrix and electrical network, but this numerical table is not itself the original claim."
+      ],
+      "reasoning": "The accepted statement is an all-degree asymptotic and exact model equivalence, not a rediscovery of any searched list of small-degree data. Exact finite computation is supporting evidence only; prior unindexed finite tables remain possible.",
+      "searches": [
+        "Beslikas Ziarati 2609.09952 (1-z)(1-w) Hardy bidisk squared best polynomial approximation degree n sharp rate 2/n",
+        "Bénéteau Condori Liaw Seco Sola 2015 Example 3 separable product zeros cyclic optimal polynomial total degree squared error 2/n",
+        "hardy H2 bidisc (1-z_1)(1-z_2) triangular-degree optimal polynomial approximation Ferrers graph effective resistance",
+        "Ferrers graph threshold staircase effective resistance universal vertices asymptotic conductance"
+      ]
+    },
+    "rationale": "The sharp total-degree best squared approximation asymptotic and staircase-network identification are not implied by the identified primary same-object cyclicity/explicit Riesz-polynomial estimates, which the source describes as nonoptimal. The recent 2026 paper proves critical cyclicity without this quantitative finite-degree result. Sargent--Sola handles a different diagonal factor. Targeted semantic mathematical-record searches did not identify an equivalent theorem; this does not exclude unindexed work.",
+    "residual_risks": [
+      "A graph-theory formula for effective resistance in the same staircase Ferrers graph could predate this observation but was not identified in searches.",
+      "Unindexed papers, inaccessible unpublished work, or differently worded approximation formulas could imply the claimed constant.",
+      "The asserted originality is comparative only, not a proof of absence of equivalent results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the sharp best total-degree product-polynomial approximation claim; cyclicity classification concerns other functions and does not give E_n.",
+        "evidence": [
+          "Abstract and Theorem 1.1 state critical cyclicity and Hausdorff-dimension relation, not a best-approximation rate.",
+          "Theorem and preliminaries explicitly distinguish product and total-degree weighted bidisk norm families; at exponent zero both specialize to Hardy coefficient norm."
+        ],
+        "identifier_or_url": "arXiv:2609.09952v2 / https://arxiv.org/pdf/2609.09952",
+        "material_read": "Full 20-page text, including definitions of the two bidisk Dirichlet norms and Theorem 1.1; references reviewed for approximation work",
+        "method": "Lawful arXiv open-access PDF text and relevant page-image inspection",
+        "title": "Critical cyclicity in Dirichlet-type spaces on the bidisk",
+        "trigger": "Recent primary-MSC 32F45 paper, first public on 2026-09-09; potential stronger theorem on the same spaces"
+      },
+      {
+        "assessment": "NOT_COVERING the sharp best-error asymptotic; SAME_OBJECT established and separated from the nonoptimal Riesz-polynomial calculations.",
+        "evidence": [
+          "Example 3 writes f=(1-z1)(1-z2) and states its cyclicity.",
+          "Page 52 displays the constructed approximation upper estimate and says explicitly the rate is not optimal.",
+          "Neither the exact optimal total-degree infimum nor the matching lower constant 2 nor the staircase-network flow is stated."
+        ],
+        "identifier_or_url": "Pacific J. Math. 276 (2015), 35--58 / https://msp.org/pjm/2015/276-1/pjm-v276-n1-s.pdf",
+        "material_read": "Original article, especially Examples 1--4 and full Example 3 on pp. 51--52 plus conclusions",
+        "method": "Open-access publisher volume PDF, page-image and full page text",
+        "title": "Cyclicity in Dirichlet-type spaces and extremal polynomials II: functions on the bidisk",
+        "trigger": "Exact same polynomial f=(1-z1)(1-z2), strongest plausible prior overlap"
+      },
+      {
+        "assessment": "NOT_COVERING this two-component normal-crossing f; it treats a diagonal multiplier with one-variable reduction.",
+        "evidence": [
+          "The main explicitly solvable example uses f=1-z1z2 rather than f=(1-z1)(1-z2).",
+          "The one-variable reduction does not impose the two-axis marginal constraints of the current problem."
+        ],
+        "identifier_or_url": "arXiv:2002.08790 / https://arxiv.org/abs/2002.08790",
+        "material_read": "Open manuscript, focusing on examples, definitions and results for f=1-z1z2 and degree truncations",
+        "method": "Lawful open-access PDF, relevant text and page inspection",
+        "title": "Optimal approximants and orthogonal polynomials in several variables",
+        "trigger": "Broader multivariate optimal approximation framework may subsume a specialized rate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4dcc3456-02d4-4ed7-83a5-32b5022277c4",
+  "value": {
+    "rationale": "The product (1-z)(1-w) is a natural crossing of two boundary zero divisors, explicitly investigated for cyclicity and nonoptimal approximants in the 2015 primary literature. The new quantity is the best error under the geometrically natural total-degree cutoff, not an arbitrary numerical slice. Its previously undetermined leading constant 2 is matched by rigorous universal lower and constructive upper bounds. The result quantifies the approximation complexity at this crossing, relates a two-variable analytic extremal problem to electrical network geometry, and proves that the coupled total-degree cutoff loses only O(n^-3/2) squared error relative to the much larger rectangular-degree cutoff.",
+    "status": "PASS"
+  }
+}
