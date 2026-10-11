@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:05:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstruction from the primary SWATS equations gives the displayed first and second Adam-phase steps exactly. Substituting the proposed \\(x_0\\) and \\(\\varepsilon\\) yields \\(p_1=-qx_0\\), \\(p_2=-qx_1\\), hence \\(\\gamma_1=\\gamma_2=q\\) and \\(\\lambda_2/(1-b^2)=q\\). The source criterion is checked for \\(k>1\\), so it fires at step 2. With \\(\\beta_1=0\\), the switched phase is ordinary scalar gradient descent with multiplier \\(1-q\\), whose modulus exceeds one. A fresh independent numerical replay over multiple interior \\(b\\) values reproduced the exact identities to floating-point tolerance; the infinite family is established algebraically, not by the replay.",
+      "risk": "The theorem is deliberately restricted to the no-first-moment mode; it does not claim the default \\(\\beta_1=0.9\\) has the same construction.",
+      "sources": [
+        "Keskar--Socher, arXiv:1712.07628v1, Sections 2.1--2.2 and Algorithm 1",
+        "Fresh algebraic/numerical replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper is primarily algorithmic/empirical and provides no theorem that every accepted rate is dynamically safe.",
+          "Higher-ranked Resultary hits concern OSGM, AdOGD, Polyak, BB, and other update rules rather than SWATS."
+        ],
+        "reasoning": "General quadratic step-size stability facts identify why \\(q>2\\) is unstable, but they do not imply that SWATS can be forced to trigger at that rate; the two-step construction is the missing source-specific mechanism.",
+        "searches": [
+          "arXiv:1712.07628v1 full text",
+          "Resultary optimizer-stability search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1712.07628v1",
+        "Resultary semantic corpus",
+        "Targeted public searches for SWATS stability/counterexamples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work gives the update and switch formulas and the no-momentum Rayleigh interpretation.",
+          "Those formulas do not themselves assert the existence of stationary estimates at arbitrary unstable values; the submitted parameter solution establishes that implication."
+        ],
+        "reasoning": "The claim is not a corollary of a stronger located SWATS theorem; it contradicts a possible safety interpretation of the monitor rather than a published stability guarantee.",
+        "searches": [
+          "Keskar--Socher arXiv:1712.07628v1 Sections 2.1--2.2",
+          "Searches for SWATS convergence/stability theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary full text defines \\(\\gamma_k=p_k^Tp_k/(-p_k^Tg_k)\\), the exponentially averaged \\(\\lambda_k\\), and switching on bias-corrected agreement.",
+          "No located source states that this temporal-stationarity test can hold exactly at every prescribed unstable \\(q>2\\)."
+        ],
+        "reasoning": "The natural equivalent statement is that the learned scalar rate lies outside the gradient-descent stability interval while the source monitor is exactly stationary; no inspected source states that result.",
+        "searches": [
+          "Resultary query: SWATS scalar quadratic Adam to SGD false switch unstable learning rate stationary projection estimate beta1 zero",
+          "Public searches: SWATS instability scalar quadratic counterexample; SWATS convergence counterexample; SWATS beta1=0 quadratic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct published SCOPE result or exact table for the SWATS projection-trigger fiber was returned."
+        ],
+        "reasoning": "This is an infinite analytic counterexample family, not a finite table; database absence is supporting evidence only.",
+        "searches": [
+          "Resultary exact semantic search for SWATS scalar false switch",
+          "Public exact-title/algorithm searches"
+        ]
+      },
+      "rationale": "The defining paper supplies the projection estimator and stationarity trigger but not a post-switch stability theorem or a scalar family accepting arbitrarily unstable rates. Fresh Resultary and public searches using SWATS, scalar quadratic, false switch, instability, convergence, and \\(\\beta_1=0\\) aliases returned the defining paper and unrelated optimizer-stability work, not an implication-equivalent SWATS counterexample.",
+      "residual_risks": [
+        "An equivalent observation could exist in unindexed implementation discussions or optimizer notes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_COUNTEREXAMPLE",
+          "evidence": "The paper defines the exact mechanism used by the proof and reports empirical behavior but does not give the submitted scalar instability family or a curvature safety theorem.",
+          "identifier_or_url": "arXiv:1712.07628v1",
+          "material_read": "Full primary PDF around Sections 2.1--2.2 and Algorithm 1, including the projection formula, no-momentum interpretation, exponential monitor, switch criterion, chosen SGD rate, and defaults.",
+          "method": "Lawful arXiv full-text PDF inspection with page-level visual inspection.",
+          "title": "Improving Generalization Performance by Switching from Adam to SGD",
+          "trigger": "Defining SWATS source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "SWATS is designed to learn both when to switch and what SGD rate to use. Showing that perfect stationarity can certify an arbitrarily unstable scalar rate isolates a structural mismatch between temporal agreement and dynamical safety and directly motivates a curvature- or magnitude-sensitive safeguard.",
+      "risk": "The result is a sharp diagnostic counterexample, not a prevalence claim for neural-network training.",
+      "sources": [
+        "arXiv:1712.07628v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For source SWATS on the deterministic scalar quadratic \\(f(x)=x^2/2\\) in the source-supported \\(\\beta_1=0\\) mode, every prescribed \\(q>2\\) admits positive \\(\\varepsilon\\), interior \\(\\beta_2\\), and an initialization for which the first two projection estimates equal \\(q\\) exactly, the bias-corrected monitor triggers at its first eligible step, and the selected SGD rate \\(q\\) is unstable, so the switched iterates diverge geometrically.",
+  "limitations": [
+    "No claim for default \\(\\beta_1=0.9\\), stochastic gradients, or typical training trajectories.",
+    "The parameter-dependent initialization is used as an exact adversarial construction."
+  ],
+  "schema_version": 1
+}
