@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution at \\(m=aq\\) gives the exact derivative \\(\\dot U=x_2^2(q-a-x_2)/(x_2+a)\\). Because \\(U\\) is positive on the nonnegative quadrant and \\(\\dot U>0\\) for \\(0<x_2<q-a\\), no nonzero nonnegative trajectory can converge to the origin. The Jacobian has a simple zero eigenvalue with positive right eigenvector and one strictly negative eigenvalue; left-right projection gives \\(\\kappa=A^2(q-a)/(a(A^2+D_1D_2))>0\\). These are exact algebraic identities, not numerical extrapolations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Related additive-Allee literature includes single-species and discrete two-patch bifurcation analyses, but the retrieved works concern different state equations or discrete-time fold/flip bifurcations.",
+        "The 2024 discrete two-patch model cites the continuous Chen-Liu-Chen model as background but studies a different discrete-time system with nonlinear dispersal."
+      ],
+      "reasoning": "A broader saddle-node or Allee-effect theorem does not determine the forward-time orientation of this model\\'s zero eigenvector or yield the exact weighted drift. The nearest broader works therefore do not dominate the claim.",
+      "searches": [
+        "additive Allee effect two patch dispersal saddle-node origin center manifold",
+        "two-patch model with additive Allee effect m = a D2 D1 saddle-node",
+        "Dynamical analysis discrete two-patch model Allee effect nonlinear dispersal 2024"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2022034",
+      "doi:10.3934/mbe.2024242",
+      "Exact-title/DOI and model-equation searches for saddle-node, time reversal, weighted coordinates, and center-manifold aliases",
+      "Available indexed research records for the same source and implication-equivalent formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source explicitly uses a negative time rescaling before writing the canonical zero-eigenvalue normal form and then calls \\(E_0\\) attracting.",
+        "Its Figure 1(b) vector field arrows on the positive center branch point away from \\(E_0\\), and Corollary 2.1 states \\(E_0\\) is unstable in the first quadrant at the threshold."
+      ],
+      "reasoning": "The source proves saddle-node degeneracy and gives a global persistence conclusion, but neither entails the exact weighted drift. The new statement pinpoints the forward-time sign lost under time reversal and explains why the positive-quadrant behavior agrees with the later corollary rather than with the attraction label.",
+      "searches": [
+        "10.3934/math.2022034 Figure 1 attracting saddle-node E0 Corollary 2.1 unstable first quadrant",
+        "Stability and bifurcation in a two-patch model with additive Allee effect time variable tau negative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article states the model and critical condition and labels \\(E_0\\) an attracting saddle-node, but its derivation changes to a negative multiple of physical time before assigning that label (DOI 10.3934/math.2022034, equations (2.6)-(2.9) and Theorem 2.3(ii)).",
+        "The same article\\'s Corollary 2.1 instead treats \\(E_0\\) as unstable in the first quadrant at the equality case and concludes attraction of the positive equilibrium, without the weighted drift identity or a forward-time center coefficient."
+      ],
+      "reasoning": "The searched formulations covered the same source, saddle-node terminology, center-manifold language, and forward/backward time orientation. No retrieved record stated the exact \\(U\\)-identity or the positive center coefficient. The source\\'s statements do not imply the new identity and contain the opposite forward-time label.",
+      "searches": [
+        "Chen Liu Chen two-patch additive Allee 2021 saddle-node time reversal attracting origin threshold",
+        "Stability bifurcation two-patch additive Allee effect 10.3934/math.2022034 correction saddle-node",
+        "two patch additive Allee m=a(1-D2/(1+D1)) center manifold repelling origin"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI/title searches returned the original article and mirrors, with no erratum or correction containing the identity.",
+        "Searches of the available research-record index returned no record for this source/claim combination; closest records concerned unrelated saddle-node or time-orientation corrections in different systems."
+      ],
+      "reasoning": "No exact database or table entry located the displayed \\(U\\)-identity, its sign partition at \\(x_2=q-a\\), or the resulting positive-quadrant non-attraction statement.",
+      "searches": [
+        "10.3934/math.2022034 saddle-node correction",
+        "weighted coordinate D1/(1+D1) x1 plus x2 derivative additive Allee patch",
+        "exact threshold drift additive Allee two-patch"
+      ]
+    },
+    "rationale": "The primary source labels the threshold origin attracting only after reversing time, while its own positive-quadrant corollary uses the opposite orientation. Searches by DOI, title, model, threshold, aliases, center-manifold formulation, weighted coordinates, and time reversal found no prior exact \\(U\\)-identity or forward-time positive-branch correction.",
+    "residual_risks": [
+      "The phrase “attracting saddle-node” is not completely standardized across texts; the claim therefore avoids relying on terminology and states the invariant forward-time positive-branch orientation explicitly.",
+      "A correction not indexed by the searched sources could exist; no such correction was found in the publisher page, exact DOI searches, or the available research index."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves the zero eigenvalue and saddle-node structure but multiplies time by a negative constant before assigning attraction. Its Figure 1(b) and Corollary 2.1 are consistent with positive-quadrant repulsion, not with a forward-time attracting label.",
+        "evidence": "DOI 10.3934/math.2022034; published 14 October 2021; model (1.5); negative time change immediately before (2.9); Theorem 2.3(ii); Corollary 2.1; Figure 1(b).",
+        "identifier_or_url": "doi:10.3934/math.2022034",
+        "material_read": "Publisher article metadata; PDF pages containing model (1.5), equations (2.6)-(2.9), Theorem 2.3, Corollary 2.1, and Figure 1.",
+        "method": "Read full relevant PDF sections and inspected the phase-portrait page; reconstructed the physical-time vector field algebraically.",
+        "title": "Stability and bifurcation in a two-patch model with additive Allee effect",
+        "trigger": "Primary source defining the exact two-patch model and the disputed critical classification."
+      },
+      {
+        "assessment": "Not covering: it studies a discrete-time model with nonlinear dispersal and fold/flip dynamics, not the continuous critical origin or the weighted physical-time drift.",
+        "evidence": "DOI 10.3934/mbe.2024242, published 19 March 2024.",
+        "identifier_or_url": "doi:10.3934/mbe.2024242",
+        "material_read": "Publisher abstract and model-background snippet.",
+        "method": "Compared model class and stated bifurcation scope.",
+        "title": "Dynamical analysis of a discrete two-patch model with the Allee effect and nonlinear dispersal",
+        "trigger": "Later two-patch Allee-effect literature that cites the continuous model and might have subsumed the threshold geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e6d087a6-a512-4bcd-8b05-0e3cd061d2b0",
+  "value": {
+    "rationale": "The equality \\(m=aq\\) is the ecological persistence/extinction boundary. Determining whether positive populations can approach extinction there is mathematically and biologically substantive. The exact weighted drift both excludes threshold extinction for every nonzero nonnegative orbit and identifies the forward-time saddle-node orientation, resolving an internal tension between the source\\'s attraction label and its global persistence corollary. This is a structural boundary fact rather than a parameter-only recomputation.",
+    "status": "PASS"
+  }
+}
