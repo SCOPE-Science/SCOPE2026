@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The distance-
-\(4\) condition makes every two-coordinate projection injective. A hypothetical size-
-\(16\) code would therefore realize all \(16\) ordered pairs in every projection and hence contribute \(40\) equal-coordinate incidences. Symbol weight at most \(2\) permits at most two such incidences per word, giving at most \(32\), a contradiction. The displayed size-
-\(15\) witness is checked directly. For size \(15\), each projection contains at least three diagonal pairs, so at least \(30\) incidences occur; the per-word upper bound gives at most \(30\), forcing the stated equality structure.
+## correctness
 
-## Originality
-PASS with residual search risk. The primary source arXiv:1110.0911 defines these symbol-weight codes, emphasizes finite optimal-size questions, and gives general bounds and larger examples, but no \((q,n,d,r)=(4,5,4,2)\) value was found in the inspected full text. The 2013 GBTD paper treats exact symbol-weight-code questions at different parameters. Targeted searches for the notation, expanded terminology, exact parameters, and the projection formulation returned no implication-equivalent result. The main residual risk is an unindexed small-parameter table or computation.
+PASS
 
-## Value
-PASS. This is the smallest natural quaternary “one beyond the alphabet” optimal-symbol-weight setting \(n=q+1=5\) at Singleton distance \(d=n-1=4\). The result identifies an exact one-word deficit from the unrestricted Singleton ceiling and explains the obstruction by a structural incidence count. The forced equality pattern adds reusable information beyond a bare numerical search result.
+Distance four makes every two-coordinate projection injective, so a hypothetical size-16 code would project bijectively onto all 16 ordered symbol pairs for each of ten coordinate pairs. That forces 40 equal-coordinate incidences. But a length-five word of symbol weight at most two has composition \((2,2,1,0)\) or \((2,1,1,1)\), contributing at most two equal-coordinate pairs, so 16 words contribute at most 32, contradiction. The displayed 15-word witness was independently checked for symbol weight and all pairwise distances. At size 15 each projection misses one pair and therefore contains at least three diagonals, yielding at least 30 equal-coordinate incidences; the per-word upper bound is also 30, forcing every word to type \((2,2,1,0)\) and each missing pair to be diagonal. A fresh independent witness/projection replay confirmed all ten projections.
 
-## Closest literature and limitations
-Chee–Kiah–Purkayastha supply the definitions, general bounds, and motivation for finite optimal symbol-weight codes. Chee–Kiah–Wang demonstrate that exact finite symbol-weight-code questions encode nontrivial design existence problems, but their exact computation is for a different ternary parameter set. No all-maxima classification is claimed here, and unindexed prior finite computations remain the main residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Chee--Kiah--Purkayastha introduce the exact symbol-weight-code invariant and give general bounds and examples, but inspection found no quaternary \((5,4,2)\) value. The later generalized balanced tournament work uses exact finite symbol-weight code questions at different parameters. Resultary search found no exact value 15 or equivalent two-coordinate incidence theorem. The upper bound here is not a lookup from a general bound: it exploits the special equality geometry at length five.
+
+## value
+
+PASS
+
+This is a natural smallest boundary where the unrestricted Singleton size 16 is ruled out specifically by the symbol-multiplicity constraint, and the exact one-word deficit comes with a complete forced local projection structure for every optimum. That makes the finite result a useful benchmark for symbol-weight packing/design theory rather than a bare brute-force datum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

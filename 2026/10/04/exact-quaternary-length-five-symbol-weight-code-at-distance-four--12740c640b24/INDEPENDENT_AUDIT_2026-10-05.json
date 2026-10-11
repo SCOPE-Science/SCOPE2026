@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:33:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 35a64c7bb379eb7926f44736d2fc241471f11f5c",
+        "assigned verify.py blob 643ee4b77503f973ecc1f9ce69f257a8d860d616",
+        "Chee--Kiah--Purkayastha, Estimates on the Size of Symbol Weight Codes, arXiv:1110.0911",
+        "independent witness and projection replay"
+      ],
+      "rationale": "Distance four makes every two-coordinate projection injective, so a hypothetical size-16 code would project bijectively onto all 16 ordered symbol pairs for each of ten coordinate pairs. That forces 40 equal-coordinate incidences. But a length-five word of symbol weight at most two has composition \\((2,2,1,0)\\) or \\((2,1,1,1)\\), contributing at most two equal-coordinate pairs, so 16 words contribute at most 32, contradiction. The displayed 15-word witness was independently checked for symbol weight and all pairwise distances. At size 15 each projection misses one pair and therefore contains at least three diagonals, yielding at least 30 equal-coordinate incidences; the per-word upper bound is also 30, forcing every word to type \\((2,2,1,0)\\) and each missing pair to be diagonal. A fresh independent witness/projection replay confirmed all ten projections.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General symbol-weight bounds do not force the exact deficit-one value at this small parameter.",
+          "The later design equivalence/computation concerns different parameter sets."
+        ],
+        "reasoning": "No checked broader theorem specializes mechanically to 15 together with the forced projection structure.",
+        "searches": [
+          "Chee--Kiah--Purkayastha 2011/2013",
+          "Chee--Kiah--Wang 2013 generalized balanced tournament designs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.0911",
+        "Chee--Kiah--Wang 2013",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted Singleton bound only gives 16.",
+          "The audited incidence count is what excludes 16 and its equality case supplies the structural theorem."
+        ],
+        "reasoning": "The exact optimum and its forced structure require additional class-specific reasoning and are not implied by the checked prior bounds.",
+        "searches": [
+          "arXiv:1110.0911 general upper/lower bounds",
+          "2013 generalized balanced tournament design paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper defines \\(A_q^{SW}(n,d,r)\\) and treats general estimates but not this exact parameter.",
+          "The audited size-16 obstruction is equivalently a two-coordinate orthogonal-array incidence contradiction."
+        ],
+        "reasoning": "Exact symbol-weight code size, a constant-composition packing at this boundary, and injective two-coordinate projections were compared as equivalent formulations.",
+        "searches": [
+          "Resultary query: quaternary symbol weight code length 5 distance 4 weight 2 exact size 15",
+          "arXiv:1110.0911 full primary paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table with value 15 was located.",
+          "The primary paper's worked finite examples occur at other, larger parameter choices."
+        ],
+        "reasoning": "Exact small-parameter table coverage was explicitly checked because it is the main novelty risk for this finite result.",
+        "searches": [
+          "Resultary exact quaternary (5,4,2) search",
+          "primary paper numerical-example search"
+        ]
+      },
+      "rationale": "Chee--Kiah--Purkayastha introduce the exact symbol-weight-code invariant and give general bounds and examples, but inspection found no quaternary \\((5,4,2)\\) value. The later generalized balanced tournament work uses exact finite symbol-weight code questions at different parameters. Resultary search found no exact value 15 or equivalent two-coordinate incidence theorem. The upper bound here is not a lookup from a general bound: it exploits the special equality geometry at length five.",
+      "residual_risks": [
+        "An obscure or unindexed small-code table could contain the same value; no such table was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_THE_EXACT_PARAMETER",
+          "evidence": "No quaternary length-five distance-four symbol-weight-two optimum is stated.",
+          "identifier_or_url": "arXiv:1110.0911",
+          "material_read": "Full accessible primary HTML/PDF sections defining constant/bounded symbol-weight codes, general bounds, and finite examples; targeted search for the audited parameter.",
+          "method": "Open-access full-text inspection.",
+          "title": "Estimates on the Size of Symbol Weight Codes",
+          "trigger": "Defining primary source and most plausible exact-table coverage."
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETERS_NOT_COVERING",
+          "evidence": "Its exact computations do not include the audited quaternary length-five instance.",
+          "identifier_or_url": "Electronic Journal of Combinatorics 20(2) (2013), P51",
+          "material_read": "Result-level primary material describing the symbol-weight-code equivalence and finite clique computation at different parameters.",
+          "method": "Primary-source comparison.",
+          "title": "Generalized Balanced Tournament Designs with Block Size Four",
+          "trigger": "Later exact finite symbol-weight-code/design work by the same authors."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chee--Kiah--Purkayastha symbol-weight-code framework",
+        "Chee--Kiah--Wang design connection"
+      ],
+      "rationale": "This is a natural smallest boundary where the unrestricted Singleton size 16 is ruled out specifically by the symbol-multiplicity constraint, and the exact one-word deficit comes with a complete forced local projection structure for every optimum. That makes the finite result a useful benchmark for symbol-weight packing/design theory rather than a bare brute-force datum.",
+      "residual_risks": [
+        "The theorem does not reveal a general family beyond this boundary case."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The largest quaternary length-five code of symbol weight two and Hamming distance at least four has size \\(15\\); moreover every maximum code consists entirely of composition type \\((2,2,1,0)\\), and every two-coordinate projection contains 15 distinct ordered pairs and omits exactly one diagonal pair.",
+  "limitations": [
+    "Only \\(q=4,n=5,d=4\\), symbol weight two.",
+    "No equivalence classification or enumeration of all maximum codes."
+  ],
+  "schema_version": 1
+}

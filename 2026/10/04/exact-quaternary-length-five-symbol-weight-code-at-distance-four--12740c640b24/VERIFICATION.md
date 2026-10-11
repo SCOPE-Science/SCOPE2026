@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` using the files in this package. The script checks the explicit \(15\)-word code, all pairwise Hamming distances, all ten two-coordinate projections, the symbol-weight condition, and the equality-incidence counts used in the proof. It also verifies that the displayed witness omits \((1,1)\) from every two-coordinate projection.
+# Independent mathematical audit
 
-The analytic upper bound is not inferred from exhaustive search. Its only finite arithmetic inputs are \(\binom{5}{2}=10\), four diagonal pairs per full quaternary two-coordinate projection, and the fact that symbol weight at most \(2\) permits at most two equal-coordinate pairs in a length-five word.
+## correctness
 
-The verifier does not enumerate or classify all maximum codes. The originality assessment depends on the cited literature inspections and targeted searches, not on the verifier.
+PASS
+
+Distance four makes every two-coordinate projection injective, so a hypothetical size-16 code would project bijectively onto all 16 ordered symbol pairs for each of ten coordinate pairs. That forces 40 equal-coordinate incidences. But a length-five word of symbol weight at most two has composition \((2,2,1,0)\) or \((2,1,1,1)\), contributing at most two equal-coordinate pairs, so 16 words contribute at most 32, contradiction. The displayed 15-word witness was independently checked for symbol weight and all pairwise distances. At size 15 each projection misses one pair and therefore contains at least three diagonals, yielding at least 30 equal-coordinate incidences; the per-word upper bound is also 30, forcing every word to type \((2,2,1,0)\) and each missing pair to be diagonal. A fresh independent witness/projection replay confirmed all ten projections.
+
+## originality
+
+PASS
+
+Chee--Kiah--Purkayastha introduce the exact symbol-weight-code invariant and give general bounds and examples, but inspection found no quaternary \((5,4,2)\) value. The later generalized balanced tournament work uses exact finite symbol-weight code questions at different parameters. Resultary search found no exact value 15 or equivalent two-coordinate incidence theorem. The upper bound here is not a lookup from a general bound: it exploits the special equality geometry at length five.
+
+## value
+
+PASS
+
+This is a natural smallest boundary where the unrestricted Singleton size 16 is ruled out specifically by the symbol-multiplicity constraint, and the exact one-word deficit comes with a complete forced local projection structure for every optimum. That makes the finite result a useful benchmark for symbol-weight packing/design theory rather than a bare brute-force datum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
