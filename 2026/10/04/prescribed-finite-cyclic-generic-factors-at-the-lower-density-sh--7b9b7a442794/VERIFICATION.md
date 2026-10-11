@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The construction was checked directly for every integer \(m\ge2\). The equivalence relation has one finite collapsed class and singleton classes elsewhere, hence is closed; the quotient is compact metrizable. The formula for \(f_m\) is compatible with the collapsed fixed point.
+# Independent mathematical audit
 
-For endpoint shadowing, every orbit has a subsequence approaching \(p_*\) because the base is proximal to \(p\) and only finitely many sheet residues occur. This matches the hypotheses of Lemma 4.3 in arXiv:2609.31724v1.
+## correctness
 
-For power transitivity, the forward iterate \((f_m^r)^n\) moves a sheet by \(rn\pmod m\). Mixing of the base supplies arbitrarily large hitting times in any required congruence class exactly when \(r\) is invertible modulo \(m\); if \(\gcd(r,m)>1\), residue modulo that gcd is an invariant obstruction on sheet-open sets.
+PASS
 
-For the maximal generic factor, the transitive points in each sheet are exactly the transitive points of the return map \(f_m^m\) on that sheet. This return system is conjugate to \((Y,g^m)\), is mixing, and has a full-support invariant measure. The Huang--Ye criterion recalled in the direct source therefore excludes a nontrivial equicontinuous generic factor on any one sheet. Equivariance leaves only the cyclic sheet orbit, so every equicontinuous generic factor is a quotient of the \(m\)-cycle.
+The quotient relation is closed and the sheet shift is well defined. Proximality to the collapsed fixed point gives M0-shadowing by the source lemma, while the averaged base measure has full support. Mixing supplies hits in every sufficiently large admissible congruence class, giving the exact gcd power law. On each sheet the m-step return is conjugate to a mixing E-system, so any equicontinuous generic factor is constant on that sheet; equivariance therefore makes every such factor a quotient of the m-cycle. The fixed point forbids an ordinary factor onto a fixed-point-free cycle, and the source positive-alpha theorem rules out M_alpha for alpha>0.
 
-No numerical experiment, enumeration, or machine-generated certificate is required. The unproved limit is bibliographic rather than mathematical: an equivalent elementary arbitrary-cycle observation could exist in unindexed literature. The theorem does not classify noncyclic finite generic factors or all systems with \(\mathscr M_0\)-shadowing.
+## originality
+
+PASS
+
+Wu–Wei–Zhang's complete paper constructs exactly the two-sheet endpoint example and proves the fixed-point proximal lemma, but it does not state the arbitrary m-sheet family, classify all transitive powers, or identify the maximal equicontinuous generic factor. The audited return-map argument adds those structures for every finite cycle. Resultary returned no broader predecessor. This is a genuine structural extension of the sharp endpoint example rather than a numerical or wording refinement.
+
+## value
+
+PASS
+
+The theorem turns a single two-sheet sharpness example into a complete family realizing every finite cyclic generic obstruction and simultaneously determines all transitive powers. That gives concrete structure at the exact lower-density endpoint and separates generic from ordinary equicontinuous factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
