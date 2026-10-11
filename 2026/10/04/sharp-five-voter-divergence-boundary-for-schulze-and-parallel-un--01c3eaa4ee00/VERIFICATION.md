@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,52 +18,25 @@
   "schema_version": 1
 }
 ---
-The package contains two independent exact verifiers.
 
-`verify_schulze_rankedpairs_full.c` exhausts all labeled four-candidate profiles for one, three, and five voters.
+# Independent mathematical audit
 
-For Schulze it computes strongest paths by Floyd–Warshall on the majority-margin graph.
+## correctness
 
-For set-valued Ranked Pairs it groups victories by equal strength, enumerates every order inside tied strength groups, locks a victory exactly when it creates no directed cycle, and unions the source candidates over all tie orders.
+PASS
 
-It confirms:
-- zero divergence for one voter;
-- zero divergence for three voters;
-- \(7962624\) five-voter profiles;
-- exactly \(51840\) divergences;
-- probability \(5/768\);
-- equality-count histogram \(6858144,275760,591120,185760\);
-- \(51840\) strict \(3\)-versus-\(2\) winner-set containments;
-- exactly two canonical weighted-majority margin types, with labeled counts \(11520\) and \(40320\).
+For three candidates, both rules expose exactly the alternatives obtained by omitting a weakest edge of a majority 3-cycle, with all tied weakest edges retained. For four candidates the frozen C verifier exhausts all labeled one-, three- and five-voter profiles; the independently coded frozen Python verifier exhausts all \(98280\) anonymous five-voter profiles using simple-path Schulze scores and Tideman-style ranking elimination for Ranked Pairs. A fresh independent anonymous replay in this audit reproduced the weighted histogram \(6858144,275760,591120,185760,51840\), strict containment on every divergence, and canonical margin types \((-3,-3,1,-1,-1,-1)\) with weight \(11520\) and \((-3,-1,1,1,-1,-1)\) with weight \(40320\).
 
-Compile and run:
+## originality
 
-`cc -O3 -std=c11 verify_schulze_rankedpairs_full.c -o verify_schulze_rankedpairs_full`
+PASS
 
-`./verify_schulze_rankedpairs_full`
+Parkes and Xia directly define and compare Schulze and Ranked Pairs, exhibit different winners under the standard weighted-majority formalism, and discuss parallel-universe tie-breaking as a known Ranked-Pairs variant. Their paper is about strategic-complexity results and does not state a four-candidate minimal electorate, exact disagreement frequency, universal first-layer containment direction or the two-margin-type classification. Exact Resultary searches for \(51840\) and \(5/768\) returned no matching record.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-`verify_schulze_rankedpairs_anonymous.py` independently enumerates all \(98280\) anonymous five-voter profiles and weights them by multinomial multiplicity.
+The first disagreement layer between two major Condorcet methods is a natural structural boundary. The result does more than count examples: it gives exact prevalence, the one-sided winner-set relation and a complete two-type weighted-majority geometry.
 
-Its Schulze computation enumerates simple directed paths directly rather than using Floyd–Warshall. Its Ranked Pairs computation uses Tideman's ranking-elimination formulation rather than graph locking.
-
-It confirms:
-- \(576\) anonymous divergent profiles;
-- multinomially weighted total \(51840\);
-- the same full labeled histogram;
-- the same two margin types;
-- anonymous type counts \(168\) and \(408\);
-- \(48\) exact labeled margin matrices, \(24\) for each candidate-relabeling type.
-
-Run:
-
-`python3 verify_schulze_rankedpairs_anonymous.py`
-
-The first output line must be:
-
-`VERIFY_OK`
-
-The computation proves the stated first odd-electorate layer only.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

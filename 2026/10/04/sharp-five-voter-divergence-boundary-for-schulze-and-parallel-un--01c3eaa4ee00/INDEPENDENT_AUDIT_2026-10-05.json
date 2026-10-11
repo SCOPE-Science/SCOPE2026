@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:04:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three candidates, both rules expose exactly the alternatives obtained by omitting a weakest edge of a majority 3-cycle, with all tied weakest edges retained. For four candidates the frozen C verifier exhausts all labeled one-, three- and five-voter profiles; the independently coded frozen Python verifier exhausts all \\(98280\\) anonymous five-voter profiles using simple-path Schulze scores and Tideman-style ranking elimination for Ranked Pairs. A fresh independent anonymous replay in this audit reproduced the weighted histogram \\(6858144,275760,591120,185760,51840\\), strict containment on every divergence, and canonical margin types \\((-3,-3,1,-1,-1,-1)\\) with weight \\(11520\\) and \\((-3,-1,1,1,-1,-1)\\) with weight \\(40320\\).",
+      "risk": "The statement depends on the set-valued parallel-universe convention; a fixed external tie-break is a different rule.",
+      "sources": [
+        "Parkes-Xia, AAAI 2012",
+        "frozen RESULT.md",
+        "verify_schulze_rankedpairs_full.c",
+        "verify_schulze_rankedpairs_anonymous.py",
+        "fresh independent anonymous replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parkes-Xia contains a four-candidate example with different winners and notes the parallel-universe variant.",
+          "Qualitative non-equivalence does not identify the first electorate or enumerate its geometry."
+        ],
+        "reasoning": "The broad comparison establishes that disagreement is possible, not the claimed sharp first-layer theorem.",
+        "searches": [
+          "Parkes-Xia AAAI 2012 full text",
+          "Schulze/Ranked-Pairs foundational definitions as cited by the package"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1609/aaai.v26i1.8258",
+        "Resultary scientific-record corpus",
+        "frozen cited foundational references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An existing disagreement example proves only non-equivalence.",
+          "It does not imply no divergence for one or three voters, the universal containment orientation at five voters, or that exactly two margin geometries exhaust the layer."
+        ],
+        "reasoning": "The sharp threshold and classification require a separate complete finite analysis.",
+        "searches": [
+          "Parkes-Xia weighted-majority definitions and Example 1",
+          "parallel-universe tie-breaking discussion in Parkes-Xia footnotes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No exact Resultary match was returned.",
+          "Parkes-Xia defines the same WMG strengths and the two methods, but studies strategic behavior rather than a finite divergence census."
+        ],
+        "reasoning": "Winner-set divergence, parallel-universe ties, smallest odd electorate and weighted-majority graph classification were compared.",
+        "searches": [
+          "Resultary: Schulze Ranked Pairs five voters four candidates exact 5/768 51840",
+          "Resultary: Schulze Ranked Pairs minimal electorate divergence",
+          "Web: four candidates five voters Schulze parallel-universe Ranked Pairs divergence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected source supplied the five-row labeled histogram, the \\(576\\) anonymous divergent profiles, or the \\(11520+40320\\) margin-type split."
+        ],
+        "reasoning": "The two complete implementations generate the table directly.",
+        "searches": [
+          "Resultary exact search for 51840 and 5/768 with Schulze and Ranked Pairs",
+          "Web exact-number searches for the same constants"
+        ]
+      },
+      "rationale": "Parkes and Xia directly define and compare Schulze and Ranked Pairs, exhibit different winners under the standard weighted-majority formalism, and discuss parallel-universe tie-breaking as a known Ranked-Pairs variant. Their paper is about strategic-complexity results and does not state a four-candidate minimal electorate, exact disagreement frequency, universal first-layer containment direction or the two-margin-type classification. Exact Resultary searches for \\(51840\\) and \\(5/768\\) returned no matching record.",
+      "residual_risks": [
+        "An unindexed election-software test suite or finite social-choice census may contain the same first-layer numbers.",
+        "The exact result is convention-specific to majority-margin strength and parallel-universe tie handling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_COMPARISON_NOT_SHARP_SMALL_ELECTORATE_CENSUS",
+          "evidence": "The paper gives definitions, qualitative divergence and strategic-complexity theorems, not the five-voter four-candidate census.",
+          "identifier_or_url": "DOI:10.1609/aaai.v26i1.8258",
+          "material_read": "Full public PDF portions defining the weighted majority graph, Ranked Pairs and Schulze; Example 1 with different winners; parallel-universe tie-breaking footnotes; and the paper's complexity-results scope.",
+          "method": "Lawful full-PDF text and rendered-page inspection.",
+          "title": "A Complexity-of-Strategic-Behavior Comparison between Schulze's Rule and Ranked Pairs",
+          "trigger": "Direct primary comparison of the exact two voting rules."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first disagreement layer between two major Condorcet methods is a natural structural boundary. The result does more than count examples: it gives exact prevalence, the one-sided winner-set relation and a complete two-type weighted-majority geometry.",
+      "risk": "No formula is claimed for larger electorates or five-plus candidates.",
+      "sources": [
+        "Parkes-Xia AAAI 2012"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "With majority-margin strength and parallel-universe tie-breaking for Ranked Pairs, Schulze and Ranked Pairs have identical winner sets for every three-candidate profile and for all four-candidate one- and three-voter profiles. Five voters are the first odd four-candidate electorate with divergence: exactly \\(51840\\) of \\(24^5\\) labeled profiles diverge, always with a two-candidate Ranked-Pairs set strictly contained in a three-candidate Schulze set, and exactly two candidate-relabeling majority-margin types occur.",
+  "limitations": [
+    "Complete strict ballots and majority-margin strength.",
+    "Parallel-universe set-valued Ranked Pairs.",
+    "Exact four-candidate census only through the first divergent odd electorate."
+  ],
+  "schema_version": 1
+}
