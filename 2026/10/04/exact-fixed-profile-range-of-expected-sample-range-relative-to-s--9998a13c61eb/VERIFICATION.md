@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic for all algebraic identities and squared inequalities.
+# Independent mathematical audit
 
-For random rational probability vectors, sample sizes, and strict rational support vectors, it verifies:
+## correctness
 
-- the exact gap-spanning formula for \(\mathbb ER_N\);
-- the extreme-order probability formula and the equivalent range-score covariance identity;
-- the lower squared inequality from the minimum cumulative-cut constant;
-- the upper squared inequality from the range-score variance;
-- strict increase of the range-score values;
-- exact upper equality when the parent support is affine to the range score;
-- strictness of the lower bound for at least three support atoms;
-- convergence of one-dominant-gap families to the lower endpoint.
+PASS
 
-For small dimensions it directly enumerates all iid sample tuples and confirms the expected sample range.
+The expected range is exactly \(\sum_j[1-P_j^N-(1-P_j)^N]d_j\). The centered parent is \(\sum_jd_jH_j\), so the \(L^2\) triangle inequality gives the lower constant; with at least two positive gaps the nested centered indicators are not positive scalar multiples, making the lower inequality strict, and one dominant gap gives sharpness. The extreme-order mass identities give the exact covariance with the cellwise secant slopes of \(u^N+(1-u)^N\); strict convexity makes those slopes strictly increasing, so Cauchy--Schwarz has an admissible unique affine equality support. Connectedness gives the full interval. Fresh exact-rational replay checked 2500 independent profiles/supports and all displayed inequalities and score ordering.
 
-Finite replay is supplementary. The universal result is the analytic argument in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK gap_checks=18000 extreme_checks=18000 covariance_checks=18000 lower_checks=18000 upper_checks=18000 score_order_checks=18000 upper_equality_checks=18000 lower_strict_checks=15048 boundary_checks=15048 direct_enum_checks=600 binary_checks=2952`.
+A prior SCOPE record already gives the exact profile-specific upper constant and the same unique secant-score maximizer. The audited record is therefore not original on its upper half. It adds the sharp lower cumulative-cut constant, proves strict nonattainment for at least three atoms, and combines both sides into the complete attainable interval. That lower extremal problem is not stated or implied by the prior upper theorem or by the inspected classical mean-variance range literature.
+
+## value
+
+PASS
+
+Expected range in standard-deviation units is a classical scale-efficiency statistic. Once category probabilities are fixed, the newly supplied lower floor identifies the worst possible support geometry and completes the previously one-sided profile theorem into an exact interval. That is a natural structural refinement with direct use as a calibration envelope for finite or rounded data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
