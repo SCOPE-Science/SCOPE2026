@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim compares two explicit vaccination-only ODEs from the same study. Solving each equation is elementary and exact. The released implementation was inspected and uses the multiplicative term from the main article. Recalculation shows that the supplement's two rates solve the affine target-relaxation law, whereas the multiplicative law requires the single rate \(\log 2/(150\cdot0.93)\) to halve either susceptible fraction. The claim is restricted to calibration consistency and does not infer errors in fitted or simulated trajectories beyond that statement.
+## correctness
 
-## Originality
-PASS. Source-title, printed-rate, target-susceptibility, equation-alias, correction, and erratum searches were compared with the existing finding ledger and published records. No checked record states this exact mismatch between the supplementary calibration ODE and the main/released counterfactual ODE. The closest Texas-measles modeling literature addresses outbreak growth, spatial spread, or other vaccination scenarios and does not imply this source-specific equation comparison.
+PASS
 
-## Value
-PASS. Vaccination-rate calibration is a mathematically substantive bridge between an intervention parameter and the claimed susceptible reduction. Here the bridge changes the ODE, its asymptote, and the role of vaccine efficacy. The resulting rates differ by roughly one third to two thirds from the rate that actually halves susceptibility under the simulated law, so the correction is material for interpreting or reusing the study's campaign-intensity calculation rather than a typographical normalization issue.
+The primary article's counterfactual susceptible equation contains the term \(-\nu_a\mathrm{VE}_aS_a\), while the supplementary calibration uses \(-\nu_a(S_a-S_{\infty,a})\). Solving the two scalar ODEs gives different maps from rate to endpoint. A fresh high-precision replay gives supplement rates 0.006581243690... and 0.008461585371..., but the multiplicative half-rate is 0.004968796993.... Inserting the supplement rates into the multiplicative law gives endpoints 0.1317635673... and 0.0675748848..., not 0.165 and 0.11.
 
-## Closest literature and limitations
-The main article, its supplement, and the public implementation were inspected together because the mismatch exists only at their interface. A related Texas measles spatial-spread preprint does not contain the same calibration argument. The present result does not assess whether the reported intervention trajectories are epidemiologically accurate; it establishes only that the supplement's half-reduction calculation is not a calibration of the equation used for those trajectories.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution is a source-specific reconciliation check across the article, supplement and released implementation. Targeted Resultary and web searches found no published erratum or prior statement of this exact calibration mismatch. General vaccination ODEs do not imply that this study used two incompatible calibration laws.
+
+## value
+
+PASS
+
+The disputed calibration is used to interpret reactive-vaccination intensities in a current outbreak model. Distinguishing a positive-asymptote relaxation law from the actually simulated multiplicative vaccine-removal law changes the claimed mapping between daily rate and susceptible reduction, so the correction has substantive modelling value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

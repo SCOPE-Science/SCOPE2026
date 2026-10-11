@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone checker `verify.py` reconstructs the vaccination-only calibration in both equations using high-precision decimal arithmetic.
+# Independent mathematical audit
 
-It verifies that the supplement's affine target-relaxation law maps \(0.33\) to \(0.165\) and \(0.22\) to \(0.11\) over 150 days at rates \(0.006581243690\ldots\) and \(0.008461585371\ldots\), respectively. It separately verifies that the counterfactual equation printed in the main article and implemented in the public notebook requires
-\[
-\nu_{1/2}=\frac{\log 2}{150\cdot0.93}=0.004968796993\ldots
-\]
-per day to halve either susceptible fraction.
+## correctness
 
-Finally, it inserts the supplement's two rates into the multiplicative counterfactual law and checks the resulting endpoints \(0.1317635673\ldots\) and \(0.0675748848\ldots\), which are distinct from the stated half-targets.
+PASS
 
-The checker addresses only the isolated vaccination calibration. It does not simulate epidemic transmission, reproduce posterior inference, or assess total intervention effectiveness in the full model.
+The primary article's counterfactual susceptible equation contains the term \(-\nu_a\mathrm{VE}_aS_a\), while the supplementary calibration uses \(-\nu_a(S_a-S_{\infty,a})\). Solving the two scalar ODEs gives different maps from rate to endpoint. A fresh high-precision replay gives supplement rates 0.006581243690... and 0.008461585371..., but the multiplicative half-rate is 0.004968796993.... Inserting the supplement rates into the multiplicative law gives endpoints 0.1317635673... and 0.0675748848..., not 0.165 and 0.11.
+
+## originality
+
+PASS
+
+The contribution is a source-specific reconciliation check across the article, supplement and released implementation. Targeted Resultary and web searches found no published erratum or prior statement of this exact calibration mismatch. General vaccination ODEs do not imply that this study used two incompatible calibration laws.
+
+## value
+
+PASS
+
+The disputed calibration is used to interpret reactive-vaccination intensities in a current outbreak model. Distinguishing a positive-asymptote relaxation law from the actually simulated multiplicative vaccine-removal law changes the claimed mapping between daily rate and susceptible reduction, so the correction has substantive modelling value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

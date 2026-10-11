@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:58:43Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 53925460e74c3a4a677b58ce2e58acad26381fa6",
+        "verify.py blob ab2b3b9363e64240a507a2ddc5837e480b8deb1f",
+        "Oraby--Ndeffo-Mbah, BMC Infectious Diseases 26 (2026) 1430, DOI:10.1186/s12879-026-13663-2, main model and Supplementary Material 1."
+      ],
+      "rationale": "The primary article's counterfactual susceptible equation contains the term \\(-\\nu_a\\mathrm{VE}_aS_a\\), while the supplementary calibration uses \\(-\\nu_a(S_a-S_{\\infty,a})\\). Solving the two scalar ODEs gives different maps from rate to endpoint. A fresh high-precision replay gives supplement rates 0.006581243690... and 0.008461585371..., but the multiplicative half-rate is 0.004968796993.... Inserting the supplement rates into the multiplicative law gives endpoints 0.1317635673... and 0.0675748848..., not 0.165 and 0.11.",
+      "risks": [
+        "This is an equation-consistency result; it does not rerun the Bayesian fit or show that every reported intervention trajectory is numerically wrong."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact source contains the two equations but does not reconcile them.",
+          "The separate Texas spatial-spread preprint studies a different modelling question."
+        ],
+        "reasoning": "No broader source found already states the source-specific inconsistency.",
+        "searches": [
+          "DOI:10.1186/s12879-026-13663-2",
+          "medRxiv 2025.09.01.25334576"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "DOI:10.1186/s12879-026-13663-2",
+        "Supplementary Material 1",
+        "medRxiv 2025.09.01.25334576"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The article's main equation implies one half-rate and the supplement's affine equation implies two different rates.",
+          "No source statement draws the incompatibility conclusion."
+        ],
+        "reasoning": "The final claim is the explicit cross-document incompatibility and its exact recalibration, not a generic ODE identity.",
+        "searches": [
+          "Primary article main equations; Supplementary Material 1 calibration section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No high-similarity Resultary finding stated the mismatch.",
+          "The primary article and supplement expose the two distinct rate laws."
+        ],
+        "reasoning": "Equivalent formulations through vaccination-only endpoint calibration, exponential susceptible removal and target-relaxation calibration were compared.",
+        "searches": [
+          "Resultary: reactive vaccination calibration measles susceptible affine relaxation multiplicative vaccine efficacy Texas outbreak correction",
+          "Web: \"The 2025 measles outbreak in Texas\" 0.00658 0.00846 vaccination calibration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No erratum, correction table or independent recalibration with these exact values was located."
+        ],
+        "reasoning": "The exact numeric check matters because the finding turns on which printed rate map the reported values solve.",
+        "searches": [
+          "Exact searches for 0.006581243690, 0.008461585371 and the article title"
+        ]
+      },
+      "rationale": "The contribution is a source-specific reconciliation check across the article, supplement and released implementation. Targeted Resultary and web searches found no published erratum or prior statement of this exact calibration mismatch. General vaccination ODEs do not imply that this study used two incompatible calibration laws.",
+      "residual_risks": [
+        "A non-indexed author communication or later correction could reconcile the intended interpretation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MAIN_MODEL_USES_MULTIPLICATIVE_VACCINATION_TERM",
+          "evidence": [
+            "The susceptible equation subtracts \\(\\nu_a\\mathrm{VE}_aS_a\\)."
+          ],
+          "identifier_or_url": "DOI:10.1186/s12879-026-13663-2",
+          "material_read": "Primary full article passages defining the reactive-vaccination susceptible equation and vaccine efficacy.",
+          "method": "Publisher full-text inspection.",
+          "title": "The 2025 measles outbreak in Texas",
+          "trigger": "Exact source model."
+        },
+        {
+          "assessment": "SUPPLEMENT_CALIBRATES_A_DIFFERENT_AFFINE_ODE",
+          "evidence": [
+            "The supplement uses \\(S_{\\infty}=0.067\\), half-targets 0.165 and 0.11, and age-specific rates about 0.00658 and 0.00846."
+          ],
+          "identifier_or_url": "Supplement to DOI:10.1186/s12879-026-13663-2",
+          "material_read": "Rendered supplement page containing the isolated affine susceptible ODE, positive asymptote, target formula and the two campaign rates.",
+          "method": "Primary PDF text plus rendered-page inspection.",
+          "title": "Supplementary Material 1 for The 2025 measles outbreak in Texas",
+          "trigger": "Exact calibration source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "The two printed rates overshoot the stated isolated half-target under the simulated law.",
+        "The correct multiplicative half-rate is age-independent under the source's common efficacy and common target ratio."
+      ],
+      "rationale": "The disputed calibration is used to interpret reactive-vaccination intensities in a current outbreak model. Distinguishing a positive-asymptote relaxation law from the actually simulated multiplicative vaccine-removal law changes the claimed mapping between daily rate and susceptible reduction, so the correction has substantive modelling value.",
+      "risks": [
+        "The source's separately explored policy-rate scenarios remain mathematically admissible; this audit does not evaluate their epidemiological effectiveness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the Oraby--Ndeffo-Mbah Texas measles study, the supplementary reactive-vaccination rate calibration is derived from an affine relaxation law with positive asymptote, whereas the main counterfactual model and released implementation use multiplicative susceptible removal by vaccine efficacy. Therefore the supplement's age-specific half-susceptibility rates do not calibrate the simulated vaccination equation; at 150 days and efficacy 0.93 the multiplicative half-reduction rate is 0.004968796993... per day for both age groups.",
+  "limitations": [
+    "No Bayesian refit or full epidemic resimulation.",
+    "Infection is switched off only to compare the source's own isolated calibration laws."
+  ],
+  "schema_version": 1
+}
