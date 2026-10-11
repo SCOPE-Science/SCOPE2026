@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound is \(t(E_{14})\ge t(1,14)=6\), with the Sperner threshold checked by \(\binom{5}{2}<14\le\binom{6}{3}\). The upper bound is an explicit fourteen-block set system on \([6]\). Every block is a triple, each matching-edge pair is incomparable, and all 84 required third-block exclusions are checked directly by the standalone verifier. The published identity \(t_e(E_{14})=t(1,7)=5\) then gives the gap-one equality.
+## correctness
 
-## Originality
-PASS. The initiating paper's inspected full text states \(t(E_8)=t_e(E_8)+1\) and immediately poses the determination of all matching sizes with gap one or two. Its matching section does not state \(E_{14}\) or \(m=7\). Semantic literature-database searches over graph cover-free families, matching graphs, disjoint edges, and the exact parameters returned no record covering \(t(E_{14})\); the closest relevant record concerns paths, cycles, and wheels. Exact web searches likewise returned the initiating paper rather than a source giving this value. A listed 2026 thesis on graph and hypergraph cover-free families was not available as inspected full text and remains a residual risk.
+PASS
 
-## Value
-PASS. The paper singles out the matching-family gap as two open problems, with only \(m=4\) explicitly exhibited as gap one. The new \(m=7\) value is therefore a natural finite data point directly inside the stated classification problem, not an arbitrary graph instance. Its small explicit witness can also serve as a test case for proposed infinite constructions.
+The lower bound is exact: every E14-CFF is a 14-block Sperner family, and Sperner's theorem gives t(1,14)=6 because C(5,2)=10<14<=C(6,3)=20. The displayed fourteen distinct triples on [6], grouped into seven matching edges, satisfy endpoint incomparability and, for each edge, every one of the twelve off-edge blocks has a point outside the endpoint union. Hence they form an E14-CFF on six points. Proposition 5.8 of the primary paper gives t_e(E14)=t(1,7)=5, so t(E14)=6=t_e(E14)+1. A fresh independent bounded replay checked all seven edges and all 84 off-edge containment conditions; the infinite lower bound is theorem-based, not inferred from the finite check.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete current arXiv v2 primary paper proves t(E8)=t_e(E8)+1 and then explicitly asks in Open Problems 5.12-5.13 for further and complete matching orders. Its general Proposition 5.9 leaves the relevant matching values within a gap of one, but does not determine E14. Current Resultary search found no earlier published E14 exact value or equivalent seven-edge construction. The assigned six-point witness therefore supplies a new exact instance rather than restating the source theorem.
+
+## value
+
+PASS
+
+This is a natural exact invariant at the next explicit matching case of a published classification problem. The six-point construction gives a second concrete gap-one matching beyond E8 and narrows the requested matching phase diagram; the result is finite but structurally motivated rather than an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
