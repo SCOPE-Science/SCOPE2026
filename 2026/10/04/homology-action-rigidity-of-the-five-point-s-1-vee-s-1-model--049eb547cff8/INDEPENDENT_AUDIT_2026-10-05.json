@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:57:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob a02dd84ec91d435e2ce886dd53eb3004b9dab7d2",
+        "verify.py blob 599c9cc98d06844436af4bb7a3b3911db76dc5a5",
+        "fresh independent exhaustive replay"
+      ],
+      "rationale": "The poset is K_{2,3}, so H_1 is the rank-two cycle lattice. The source gives a direct 197-map count by the images of the two minima. The committed verifier enumerates all 5^5 set maps, retains exactly 197 isotone maps, computes the integral chain images of an explicit cycle basis, and identifies exactly 31 matrices. A fresh independent exhaustive replay reproduced 197 maps, 31 matrices, and the rank distribution 149 zero, 36 rank one, 12 rank two. The 18 rank-one matrices are the two signs of nine distinct outer products; the six primitive q-minimal vectors generate exactly 12 integral q-isometries. Independently, Aut(P)=S_2 x S_3 has 12 elements, matching exactly the determinant plus-or-minus-one maps.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The p,q>=3 theorem gives homology ranks for complete bipartite finite models but excludes p=2 and does not classify individual matrices.",
+          "The P_q theorem covers q=3 homotopy components and the zero/nonzero H_1 dichotomy but explicitly notes that prior direct H_1 censuses provide finer matrix data."
+        ],
+        "reasoning": "Neither theorem implies the 18 specific rank-one matrices or the 12 integral isometries of the hexagonal form.",
+        "searches": [
+          "Resultary/2026 903a0da3472e full RESULT blob 754f3b35059386d5ab3ff2e64e58af78887b1f35",
+          "Resultary/2026 6eb4a5c941d8 full RESULT blob cc6bcb618257ac5f4e493f149e2d7b651c6a2355"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0611156",
+        "Resultary/2026 6eb4a5c941d8",
+        "Resultary/2026 903a0da3472e",
+        "assigned verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work fixes the object and, in newer SCOPE results, the isolation of homologically nontrivial maps.",
+          "The assigned result computes every integral action and identifies the full image as zero, 18 outer products and O(q;Z)."
+        ],
+        "reasoning": "The exact realized endomorphism semigroup is finer than rank or homotopy-component information and is not mechanically implied by the inspected results.",
+        "searches": [
+          "Barmak--Minian minimal graph model classification",
+          "published P_q homotopy theorem",
+          "assigned explicit cycle-basis matrix enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The order complex is K_{2,3}, hence a bouquet of two circles.",
+          "The exact matrix image can be viewed as the direct-map realization semigroup inside End(Z^2)."
+        ],
+        "reasoning": "The related all-q homotopy theorem labels nonzero H_1 maps as isolated but does not identify which matrices occur.",
+        "searches": [
+          "Barmak--Minian arXiv:math/0611156",
+          "Resultary/2026 record 6eb4a5c941d8",
+          "Resultary/2026 record 903a0da3472e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact hit is the audited finding; related records concern homotopy-class counts or higher-rank bouquets, not this matrix set."
+        ],
+        "reasoning": "The 31-element image is established by complete enumeration and structural identification, not by database noncoverage.",
+        "searches": [
+          "Resultary query for five-point K2,3 model, 197 maps, 31 matrices"
+        ]
+      },
+      "rationale": "Barmak--Minian identify the five-point K_{2,3} space as a minimal model of a two-circle bouquet. Published SCOPE results for the complete height-two family classify self-homotopy components and homology ranks, but the broad p,q theorem explicitly assumes p,q>=3 and the all-q P_q theorem does not determine the exact integral H_1 matrices. The assigned 31-matrix semigroup, its rank-one outer-product description and hexagonal q-isometry group therefore remain a distinct exact invariant not covered by those results.",
+      "residual_risks": [
+        "An older graph-endomorphism computation could encode the same K_{2,3} cycle-space matrix image under graph-theoretic terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_CONTEXT_NOT_EXACT_SELF_MAP_MATRIX_IMAGE",
+          "evidence": "The source establishes minimal finite graph models, not the 197-map/31-matrix realization semigroup.",
+          "identifier_or_url": "arXiv:math/0611156",
+          "material_read": "Primary arXiv abstract and model-scope material stating the characterization of minimal finite models of finite graphs.",
+          "method": "Same-object context comparison.",
+          "title": "Minimal Finite Models",
+          "trigger": "Primary source for minimal finite graph models including the five-point bouquet model."
+        },
+        {
+          "assessment": "HOMOTOPY_CLASSIFICATION_NOT_MATRIX_CLASSIFICATION",
+          "evidence": "It proves the zero-H_1 component and isolated nonzero maps, but does not list the realized integral H_1 endomorphisms.",
+          "identifier_or_url": "Resultary/2026 record 6eb4a5c941d8",
+          "material_read": "Complete public RESULT.md, blob cc6bcb618257ac5f4e493f149e2d7b651c6a2355.",
+          "method": "Same-object invariant comparison.",
+          "title": "Exact self-homotopy classes of complete height-two finite bouquet models",
+          "trigger": "Closest all-q result on the exact same P_q family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:math/0611156",
+        "Resultary/2026 6eb4a5c941d8",
+        "Resultary/2026 903a0da3472e",
+        "assigned verify.py"
+      ],
+      "rationale": "The exact direct-map image on H_1 quantifies how a canonical cardinality-minimal finite bouquet model realizes only a tiny structured subset of the arbitrary integral matrices available classically. The hexagonal-form isometry structure and explicit rank-one repertoire are natural model invariants, not merely a self-map count.",
+      "residual_risks": [
+        "An older graph-endomorphism computation could encode the same K_{2,3} cycle-space matrix image under graph-theoretic terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0611156",
+    "Resultary/2026 6eb4a5c941d8",
+    "Resultary/2026 903a0da3472e",
+    "assigned verify.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "The five-point minimal finite model of S^1 vee S^1 has exactly 197 continuous self-maps and exactly 31 induced integral H_1 endomorphisms: zero, 18 rank-one signed outer products from the stated three-by-three vector sets, and the 12 integral isometries of q(s,t)=s^2+st+t^2; exactly the 12 homeomorphisms induce H_1 isomorphisms.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An older graph-endomorphism computation could encode the same K_{2,3} cycle-space matrix image under graph-theoretic terminology.",
+    "The result concerns this direct five-point model only; larger finite models or subdivisions can realize additional classical maps."
+  ]
+}

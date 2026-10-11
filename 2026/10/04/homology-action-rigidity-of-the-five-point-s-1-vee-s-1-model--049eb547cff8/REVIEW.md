@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The five-point poset, its \(K_{2,3}\) order complex, the two explicit cycle generators, and the induced chain maps were reconstructed directly. The complete finite search ranges over all \(5^5=3125\) set maps, filters exactly \(197\) order-preserving maps, obtains exactly \(31\) homology matrices, verifies the stated \(1+18+12\) structural partition, and independently checks that the \(12\) homology-isomorphism maps are exactly the \(12\) homeomorphisms. Replay returns `VERIFY_OK`.
+## correctness
 
-## Originality
-**PASS.** Barmak--Minian provide the minimal finite model of the two-circle bouquet but not this self-map census or homology-action image. A recent full-text wedge-model paper also discusses minimal models and homology, but targeted term searches found no self-map or endomorphism classification. Published-findings and web searches using model aliases, exact counts, and equivalent matrix language found no covering statement. An obscure or unindexed prior computation remains a residual risk.
+PASS
 
-## Value
-**PASS.** The claim gives a complete, natural realization invariant for the smallest finite model of a basic rank-two graph. It exhibits a sharp distinction between weak homotopy type and direct finite-space maps: the ordinary bouquet realizes arbitrary integral \(H_1\)-endomorphisms, whereas this minimal model realizes only \(31\), with invertible action rigidly equivalent to homeomorphism.
+The poset is K_{2,3}, so H_1 is the rank-two cycle lattice. The source gives a direct 197-map count by the images of the two minima. The committed verifier enumerates all 5^5 set maps, retains exactly 197 isotone maps, computes the integral chain images of an explicit cycle basis, and identifies exactly 31 matrices. A fresh independent exhaustive replay reproduced 197 maps, 31 matrices, and the rank distribution 149 zero, 36 rank one, 12 rank two. The 18 rank-one matrices are the two signs of nine distinct outer products; the six primitive q-minimal vectors generate exactly 12 integral q-isometries. Independently, Aut(P)=S_2 x S_3 has 12 elements, matching exactly the determinant plus-or-minus-one maps.
 
-## Closest literature and limitations
-The result is restricted to direct self-maps of the specified five-point model. It does not classify maps on refinements or all finite representatives of the same weak homotopy type. The exhaustive component is finite, exact, and replayable.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Barmak--Minian identify the five-point K_{2,3} space as a minimal model of a two-circle bouquet. Published SCOPE results for the complete height-two family classify self-homotopy components and homology ranks, but the broad p,q theorem explicitly assumes p,q>=3 and the all-q P_q theorem does not determine the exact integral H_1 matrices. The assigned 31-matrix semigroup, its rank-one outer-product description and hexagonal q-isometry group therefore remain a distinct exact invariant not covered by those results.
+
+## value
+
+PASS
+
+The exact direct-map image on H_1 quantifies how a canonical cardinality-minimal finite bouquet model realizes only a tiny structured subset of the arbitrary integral matrices available classically. The hexagonal-form isometry structure and explicit rank-one repertoire are natural model invariants, not merely a self-map count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The embedded `verify.py` reconstructs the five-point poset with two minima and three maxima and uses the oriented edges
-\[
-[a,x],[a,y],[a,z],[b,x],[b,y],[b,z].
-\]
-It checks the cycle basis
-\[
-c_1=[a,x]-[b,x]+[b,y]-[a,y],
-\qquad
-c_2=[a,x]-[b,x]+[b,z]-[a,z].
-\]
+# Independent mathematical audit
 
-The program then enumerates all \(5^5=3125\) set maps, filters order-preserving maps exactly, computes the induced simplicial chain maps and integral \(H_1\)-matrices, and verifies equality with the explicit union of one zero matrix, \(18\) rank-one outer products, and the \(12\) integral isometries of
-\[
-q(s,t)=s^2+st+t^2.
-\]
-It also independently detects order-isomorphisms and compares them with the maps whose homology matrices have determinant \(\pm1\).
+## correctness
 
-Run `python3 verify.py`. The expected output is:
+PASS
 
-`VERIFY_OK`
-`continuous_self_maps=197`
-`distinct_H1_matrices=31`
-`matrix_types=1_zero+18_rank_one+12_q_isometries`
-`map_rank_distribution=149_zero_action+36_rank_one_action+12_isomorphism_action`
-`homeomorphisms=12`
-`H1_isomorphism_iff_homeomorphism=yes`
-`q=x^2+x*y+y^2`
+The poset is K_{2,3}, so H_1 is the rank-two cycle lattice. The source gives a direct 197-map count by the images of the two minima. The committed verifier enumerates all 5^5 set maps, retains exactly 197 isotone maps, computes the integral chain images of an explicit cycle basis, and identifies exactly 31 matrices. A fresh independent exhaustive replay reproduced 197 maps, 31 matrices, and the rank distribution 149 zero, 36 rank one, 12 rank two. The 18 rank-one matrices are the two signs of nine distinct outer products; the six primitive q-minimal vectors generate exactly 12 integral q-isometries. Independently, Aut(P)=S_2 x S_3 has 12 elements, matching exactly the determinant plus-or-minus-one maps.
 
-The finite computation is exhaustive for the stated five-point object. Literature comparison and novelty assessment are not machine-certified.
+## originality
+
+PASS
+
+Barmak--Minian identify the five-point K_{2,3} space as a minimal model of a two-circle bouquet. Published SCOPE results for the complete height-two family classify self-homotopy components and homology ranks, but the broad p,q theorem explicitly assumes p,q>=3 and the all-q P_q theorem does not determine the exact integral H_1 matrices. The assigned 31-matrix semigroup, its rank-one outer-product description and hexagonal q-isometry group therefore remain a distinct exact invariant not covered by those results.
+
+## value
+
+PASS
+
+The exact direct-map image on H_1 quantifies how a canonical cardinality-minimal finite bouquet model realizes only a tiny structured subset of the arbitrary integral matrices available classically. The hexagonal-form isometry structure and explicit rank-one repertoire are natural model invariants, not merely a self-map count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
