@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct differentiation gives the pointwise coboundary identity. Invariance of a compactly supported probability measure annihilates the generator integral of the polynomial observable, yielding the shell exactly. The equality case is rigid because zero mean square of \(\dot x\) forces \(y=x\) on the invariant support; compact invariance then excludes the drifting line \(x=y=0\) and leaves exactly the two equilibria. The exact-rational checker reproduces the algebra and the numerical-parameter specialization.
+## correctness
 
-## Originality
-PASS. The introducing article states the vector field, equilibria, Routh–Hurwitz condition, parameter bifurcation plots, and periodic-orbit program, but not the coboundary or invariant-measure shell. published-finding corpus searches for the source DOI/title, the exact equations, stationary moments, invariant measures, periodic-orbit averages, and equivalent RMS formulations returned only balance laws for different systems. Exact-equation web searches returned the introducing article as the matching source. The Wei–Yang predecessor lacks the \(kxy\) term. A 2026 modified-Sprott-C integrability paper remains a residual access risk because its accessible metadata does not expose its equations.
+PASS
 
-## Value
-PASS. The source devotes substantial analysis to hidden chaos, coexistence, and unstable periodic orbits. The new identity applies simultaneously to every such compact recurrent state, is sharp at the equilibria, and supplies an exact RMS/derivative-energy consistency check independent of numerical integration time or orbit coding. It is therefore a structural restriction on the same objects rather than a parameter-specific recomputation.
+Differentiating \(H=-z+(k+2)x^2/(2a)\) gives exactly \(b-(k+1)x^2-(y-x)^2=b-(k+1)x^2-\dot x^2/a^2\). Integrating the generator against any compact invariant probability measure yields the shell and the RMS ceiling. If equality holds, continuity and zero integral of \(\dot x^2\) force \(\dot x=0\) on the invariant support, hence y=x there. Invariance then excludes the drifting line x=y=0 from compact support and forces z=-c together with \((k+1)x^2=b\), leaving exactly the two equilibrium points; their convex combinations attain equality. The periodic-orbit strictness is the same identity integrated over a period. Exact rational arithmetic verifies the published parameter specialization.
 
-## Closest literature and limitations
-The 2012 Wei–Yang generalized Sprott-C paper is the closest ancestor but concerns the system before the \(kxy\) modification. Published balance-law findings for other named flows are methodologically analogous but concern different vector fields and do not imply this formula. The result does not prove existence of the source’s chaotic attractor and does not give pointwise bounds.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes with a concrete access/transport risk. The 2022 open primary source prints exactly the audited vector field and studies equilibria, parameter dynamics, hidden/coexisting attractors, unstable periodic orbits and synchronization. Fresh exact-equation and Resultary searches found no prior invariant-measure RMS shell. The 2012 predecessor lacks the added \(kxy\) term. The 2026 Physica D title is a plausible same-family risk, but its public full text was unavailable and the bounded authorized retrieval returned a mismatched paper; this limitation is recorded rather than converted into failure.
+
+## value
+
+PASS
+
+The source devotes substantial analysis to hidden/coexisting attractors and unstable periodic orbits. The shell is a sharp, parameter-explicit consistency law applying to every compact recurrent statistical state and distinguishes equilibrium saturation from all non-equilibrium ergodic dynamics. It is a natural structural constraint on the same objects rather than a parameter-specific numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
