@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:47:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b49ed62c8b3083141cd0919439aa1665a9538e2c",
+        "artifacts/verify.py blob c54eed229aa5338441145a7e6f45c4880337d10d",
+        "Werner 2022 full primary text",
+        "fresh formula recomputation"
+      ],
+      "rationale": "Right evaluation at D=diag(a_1,...,a_n) gives f(D)_{ij}=p_{ij}(a_j), so finite-field scalar factorization yields the exact column-divisibility null ideal. Equal projection polynomials make it a full matrix ideal. Conversely, right multiplication by a matrix unit moves a generator h_j from column j into column k, forcing h_k|h_j; symmetry and monicity force equality for all j,k. Inclusion-exclusion over omitted coordinate-symbol pairs gives the count, and a union bound gives the asymptotic estimate. I independently recomputed the formula values 10, 196, 63778, 290 and 42610 for the five verifier parameter pairs, agreeing with the frozen verifier; those finite checks are corroborative only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Werner explicitly says the broad question is too general and gives a full finite-set algorithm only for 2x2 matrices.",
+          "Swartz--Werner study one irreducible similarity class in M_3(F).",
+          "Rissner--Werner count core subsets in the full M_2(F_q), organized by similarity classes."
+        ],
+        "reasoning": "None of these inspected regimes mechanically yields the all-dimensional diagonal criterion, the inclusion-exclusion count, or the fixed-n q-to-infinity proportion.",
+        "searches": [
+          "Werner 2022 full primary text",
+          "Swartz--Werner arXiv:2212.14460",
+          "Rissner--Werner arXiv:2405.04106"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.laa.2022.02.007",
+        "arXiv:2212.14460",
+        "arXiv:2405.04106",
+        "Resultary diagonal-core query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior criterion constrains low-degree null polynomials but does not state that diagonal core-ness is exactly equality of all coordinate value sets.",
+          "The assigned proof derives N(S) column-by-column and proves both directions with right multiplication by matrix units; the count and asymptotic bound are further independent consequences."
+        ],
+        "reasoning": "The final theorem is a genuine specialization-and-classification result, not a direct corollary whose conclusion follows without new structural work.",
+        "searches": [
+          "Werner Corollary 4.6/general finite-set criterion",
+          "assigned column-divisibility proof and matrix-unit obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a diagonal matrix, right evaluation makes every entry in column j depend only on the j-th diagonal coordinate; hence the null ideal is equivalently a columnwise scalar vanishing ideal.",
+          "Werner supplies the ambient null-ideal/core-set definitions and general ideal criterion, not the equality-of-projections characterization."
+        ],
+        "reasoning": "The projection-balanced formulation is the exact diagonal specialization of the null-ideal problem, but deriving it still requires the column-divisibility computation and right-ideal matrix-unit obstruction.",
+        "searches": [
+          "Werner, DOI:10.1016/j.laa.2022.02.007, Sections 1, 3--4",
+          "Resultary query: finite diagonal core sets projection-balanced null ideals matrix rings fields diagonal subsets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct Resultary hit was the audited finding itself; no older exact diagonal table was returned.",
+          "Full-ring M_2 counts do not provide the stated all-n diagonal-subalgebra formula."
+        ],
+        "reasoning": "The finite-field formula is derived structurally by inclusion-exclusion rather than inferred from a table.",
+        "searches": [
+          "Resultary semantic search for diagonal/projection-balanced core sets",
+          "Rissner--Werner finite-field core-set count context"
+        ]
+      },
+      "rationale": "Werner's 2022 primary paper poses the general core-set problem, gives general finite-matrix criteria, and completely treats finite subsets only in M_2(F). The inspected full text does not state the all-n diagonal projection criterion or its finite-field count. The later M_3 irreducible-class and M_2 finite-field counting papers address different similarity-class regimes. The fresh Resultary search returned this record as the direct exact match and no stronger prior result.",
+      "residual_risks": [
+        "An equivalent diagonal-set result may occur in integer-valued-polynomial literature without the term 'core set'."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_AND_M2_CLASSIFICATION_PRIOR_ALL_N_DIAGONAL_CLASSIFICATION_NOT_STATED",
+          "evidence": "The paper explicitly frames Question 1.4 for M_n(D), says the broad problem is too large, and provides a full finite-set answer only for M_2(F), with general-n structural conditions.",
+          "identifier_or_url": "DOI:10.1016/j.laa.2022.02.007",
+          "material_read": "Full accessible ScienceDirect HTML covering the introduction, general-ring null-ideal properties, matrix-ring specialization, and the stated scope of the M_2(F) classification.",
+          "method": "Primary full-text theorem-scope and implication comparison.",
+          "title": "Null ideals of subsets of matrix rings over fields",
+          "trigger": "Foundational primary paper for the exact core-set question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1016/j.laa.2022.02.007",
+        "arXiv:2212.14460",
+        "arXiv:2405.04106",
+        "Resultary diagonal-core query"
+      ],
+      "rationale": "This completely solves a natural all-dimensional subfamily of an explicitly broad core-set classification problem and adds exact finite-field enumeration and asymptotics. The projection criterion is reusable structural mathematics rather than a small example or table lookup.",
+      "residual_risks": [
+        "An equivalent diagonal-set result may occur in integer-valued-polynomial literature without the term 'core set'."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1016/j.laa.2022.02.007",
+    "arXiv:2212.14460",
+    "arXiv:2405.04106",
+    "Resultary diagonal-core query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every finite diagonal subset S of M_n(F), its null ideal is exactly the set of polynomial matrices whose j-th column is divisible by the vanishing polynomial of the j-th coordinate projection; hence S is core iff all coordinate projections coincide. Over F_q this gives the stated exact inclusion-exclusion count and core proportion at least 1-nq*2^{-q^(n-1)}.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent diagonal-set result may occur in integer-valued-polynomial literature without the term 'core set'.",
+    "The structural criterion assumes simultaneous diagonal form over the ground field; it does not classify nondiagonalizable commuting sets or arbitrary matrix subsets."
+  ]
+}

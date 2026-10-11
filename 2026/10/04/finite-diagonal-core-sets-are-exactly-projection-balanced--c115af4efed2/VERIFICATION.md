@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic and does not depend on finite enumeration.
 
-For a diagonal matrix
-\[
-D=\operatorname{diag}(a_1,\ldots,a_n)
-\]
-and
-\[
-f(x)=\sum_kA_kx^k,
-\]
-the \((i,j)\)-entry of \(f(D)\) is
-\[
-\sum_k(A_k)_{ij}a_j^k.
-\]
-Thus each column of the null ideal is controlled by one scalar vanishing polynomial
-\[
-h_j(x)=\prod_{a\in X_j}(x-a).
-\]
+# Independent mathematical audit
 
-The packaged checker `artifacts/verify.py` exhaustively enumerates all subsets of the diagonal algebra for
-\[
-(q,n)=(2,2),(2,3),(2,4),(3,2),(4,2).
-\]
-It independently evaluates the coordinate-projection criterion and the inclusion-exclusion count. The exact total numbers of core subsets are
-\[
-10,\quad196,\quad63778,\quad290,\quad42610.
-\]
-It also constructs explicit column-transfer obstructions for sample noncore sets.
+## correctness
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite computation is not used to prove the theorem.
+Right evaluation at D=diag(a_1,...,a_n) gives f(D)_{ij}=p_{ij}(a_j), so finite-field scalar factorization yields the exact column-divisibility null ideal. Equal projection polynomials make it a full matrix ideal. Conversely, right multiplication by a matrix unit moves a generator h_j from column j into column k, forcing h_k|h_j; symmetry and monicity force equality for all j,k. Inclusion-exclusion over omitted coordinate-symbol pairs gives the count, and a union bound gives the asymptotic estimate. I independently recomputed the formula values 10, 196, 63778, 290 and 42610 for the five verifier parameter pairs, agreeing with the frozen verifier; those finite checks are corroborative only.
+
+## originality
+
+PASS
+
+Werner's 2022 primary paper poses the general core-set problem, gives general finite-matrix criteria, and completely treats finite subsets only in M_2(F). The inspected full text does not state the all-n diagonal projection criterion or its finite-field count. The later M_3 irreducible-class and M_2 finite-field counting papers address different similarity-class regimes. The fresh Resultary search returned this record as the direct exact match and no stronger prior result.
+
+## value
+
+PASS
+
+This completely solves a natural all-dimensional subfamily of an explicitly broad core-set classification problem and adds exact finite-field enumeration and asymptotics. The projection criterion is reusable structural mathematics rather than a small example or table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

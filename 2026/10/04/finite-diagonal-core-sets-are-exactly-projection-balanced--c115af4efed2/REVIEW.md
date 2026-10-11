@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Right evaluation at a diagonal matrix makes each entry polynomial depend only on the corresponding column coordinate, so the null ideal is exactly the module of polynomial matrices whose \(j\)-th column is divisible by \(h_j\). If the divisors are equal, this is the two-sided matrix ideal \(M_n(hF[x])\). If two divisors differ, right multiplication by a matrix unit transfers a generator from one column to another and violates the required divisibility; hence two-sidedness forces all divisors, and therefore all coordinate projection sets, to agree. Inclusion-exclusion gives the exact finite-field count, and a union bound proves the asymptotic estimate. The packaged checker exhaustively verifies five complete finite diagonal algebras.
+PASS
 
-## Originality
+Right evaluation at D=diag(a_1,...,a_n) gives f(D)_{ij}=p_{ij}(a_j), so finite-field scalar factorization yields the exact column-divisibility null ideal. Equal projection polynomials make it a full matrix ideal. Conversely, right multiplication by a matrix unit moves a generator h_j from column j into column k, forcing h_k|h_j; symmetry and monicity force equality for all j,k. Inclusion-exclusion over omitted coordinate-symbol pairs gives the count, and a union bound gives the asymptotic estimate. I independently recomputed the formula values 10, 196, 63778, 290 and 42610 for the five verifier parameter pairs, agreeing with the frozen verifier; those finite checks are corroborative only.
 
-PASS. The 2022 primary paper poses the general core-set problem and completely handles only finite subsets of \(M_2(F)\). The higher-dimensional sequel treats one irreducible \(3\times3\) similarity class, while the recent counting paper treats the full \(2\times2\) matrix ring by similarity classes. None of the inspected sources states the arbitrary-dimensional diagonal criterion, the exact column-divisor null ideal, or the diagonal finite-field count. Targeted searches under the natural equivalent formulations found no covering theorem. The main residual risk is an equivalent statement phrased purely in module or column-ideal language.
+## originality
 
-## Value
+PASS
 
-PASS. The result completely resolves a natural all-dimensional semisimple family inside a difficult general problem. It supplies the null ideal itself, a one-line structural criterion, an exact enumeration over finite fields, and an asymptotic probability bound. These are reusable statements rather than isolated computations.
+Werner's 2022 primary paper poses the general core-set problem, gives general finite-matrix criteria, and completely treats finite subsets only in M_2(F). The inspected full text does not state the all-n diagonal projection criterion or its finite-field count. The later M_3 irreducible-class and M_2 finite-field counting papers address different similarity-class regimes. The fresh Resultary search returned this record as the direct exact match and no stronger prior result.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This completely solves a natural all-dimensional subfamily of an explicitly broad core-set classification problem and adds exact finite-field enumeration and asymptotics. The projection criterion is reusable structural mathematics rather than a small example or table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
