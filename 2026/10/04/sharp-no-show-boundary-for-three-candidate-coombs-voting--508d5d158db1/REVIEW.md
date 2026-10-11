@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is finite and exhaustive. Every anonymous three-candidate profile through \(10\) voters and every homogeneous abstention group are tested under two independently coded Coombs implementations. A second, event-first traversal reconstructs exactly the same standard no-show event set. The \(12\) minimal profiles reduce to two candidate-relabeling classes whose winner changes can be checked by hand. The exactly-two-identical-abstainer variant is separately exhausted through \(13\) voters and reduces to three verified classes.
+## correctness
 
-Risk: the minimality proof is computational rather than a symbolic case theorem. Dual traversal directions, independent rule implementations, exact event-set equality, and direct verification of every normalized class materially reduce ordinary implementation risk.
+PASS
 
-## Originality
-**PASS.** Felsenthal gives a \(15\)-voter Coombs no-show example with two abstainers. Felsenthal and Tideman use the standard single-voter participation concept. Brandt--Matthäus--Saile later state, under their tie-independent Coombs treatment, that no-show can occur only if at least two voters abstain. The two \(10\)-voter normalized profiles directly contradict that assertion without any tie. The inspected literature does not state the exact \(12\)-profile/\(2\)-class boundary, nor the exactly-two-abstainer \(13\)-voter \(18\)-profile/\(3\)-class boundary.
+The inspected verifier exhausts every weak composition into the six rankings, uses two independent Coombs implementations, tests every present type and every positive homogeneous abstention size, and independently reconstructs events from post-abstention profiles. It yields zero standard events through nine voters, twelve at ten, 2412 unique-outcome ten-voter profiles out of 3003 total, exactly one profitable event per bad profile, and two six-element orbits. Its separate exactly-two search gives zero through twelve and eighteen at thirteen in three six-element orbits. A fresh independent reimplementation reproduced the same boundary counts. Direct checking of both normalized ten-voter representatives confirms the winner change.
 
-Risk: an unindexed correction, thesis, note, or software table may contain an equivalent finite census.
+## originality
 
-## Value
-**PASS.** Participation is a standard social-choice axiom, and Coombs is a canonical elimination rule. The finding corrects a concrete published restriction in the minimal-paradox literature and completely classifies the first tie-independent standard no-show boundary. The separate two-abstainer result also sharpens the earlier concrete example under the stronger restriction, so the contribution is a natural structural boundary rather than an arbitrary enumeration.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Brandt–Matthäus–Saile (2022) explicitly say in the Coombs subsection that their tie-independent convention makes no-show possible only with at least two abstainers. The audited ten-voter examples are tie-independent and use one abstainer, so they directly refute that restriction. Felsenthal's earlier witness uses fifteen voters and two like-minded abstainers. Fresh Resultary and exact-profile searches found no complete ten-voter/twelve-profile or thirteen-voter/eighteen-profile census.
+
+## value
+
+PASS
+
+Participation is a standard social-choice axiom and Coombs is a canonical elimination rule. Correcting an explicit published restriction and completely classifying the first tie-independent standard no-show boundary is a motivated sharp finite result; the exactly-two variant also sharpens the historical witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

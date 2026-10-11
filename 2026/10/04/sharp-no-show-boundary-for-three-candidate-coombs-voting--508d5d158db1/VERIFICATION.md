@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_coombs10_noshow.py` provides an exact finite replay.
 
-Every anonymous three-candidate profile through \(10\) voters is generated as a weak composition into the six strict ranking types. Every positive homogeneous abstention group present in each profile is tested.
+# Independent mathematical audit
 
-Two independently coded Coombs implementations must agree for every participating and post-abstention profile:
-1. a closed three-candidate implementation using first-place majority, unique last-place elimination, and the final pairwise contest;
-2. a literal iterative elimination implementation.
+## correctness
 
-A second traversal starts with each possible post-abstention profile and adds homogeneous voter groups. It is required to recover exactly the same standard no-show event set as the profile-first traversal.
+PASS
 
-The replay verifies:
-- no standard no-show event through \(9\) voters;
-- exactly \(12\) bad profiles at \(10\);
-- one profitable event per bad profile, always one abstainer;
-- \(3003\) total anonymous ten-voter profiles and \(2412\) unique-outcome profiles;
-- incidence \(4/1001\) among all profiles and \(1/201\) among unique-outcome profiles;
-- exactly \(2\) candidate-relabeling classes of size \(6\);
-- normalized classes \((1,0,2,3,4,0)\) and \((1,1,2,3,3,0)\).
+The inspected verifier exhausts every weak composition into the six rankings, uses two independent Coombs implementations, tests every present type and every positive homogeneous abstention size, and independently reconstructs events from post-abstention profiles. It yields zero standard events through nine voters, twelve at ten, 2412 unique-outcome ten-voter profiles out of 3003 total, exactly one profitable event per bad profile, and two six-element orbits. Its separate exactly-two search gives zero through twelve and eighteen at thirteen in three six-element orbits. A fresh independent reimplementation reproduced the same boundary counts. Direct checking of both normalized ten-voter representatives confirms the winner change.
 
-The script separately imposes exactly two identical abstainers and verifies no event below \(13\) voters, followed by exactly \(18\) bad profiles at \(13\), in \(3\) candidate-relabeling classes represented by \((2,0,2,4,5,0)\), \((2,1,2,4,4,0)\), and \((2,2,2,4,3,0)\).
+## originality
 
-Run:
+PASS
 
-`python3 verify_coombs10_noshow.py`
+Brandt–Matthäus–Saile (2022) explicitly say in the Coombs subsection that their tie-independent convention makes no-show possible only with at least two abstainers. The audited ten-voter examples are tie-independent and use one abstainer, so they directly refute that restriction. Felsenthal's earlier witness uses fifteen voters and two like-minded abstainers. Fresh Resultary and exact-profile searches found no complete ten-voter/twelve-profile or thirteen-voter/eighteen-profile census.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-All claims are finite three-candidate statements; the verifier makes no inference about larger candidate sets.
+Participation is a standard social-choice axiom and Coombs is a canonical elimination rule. Correcting an explicit published restriction and completely classifying the first tie-independent standard no-show boundary is a motivated sharp finite result; the exactly-two variant also sharpens the historical witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
