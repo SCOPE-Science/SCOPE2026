@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Direct polynomial reduction gives a positive angular-speed function and a linear, strictly contracting equation for squared radius. The original-time period follows from a closed logarithmic-radius balance and exact trigonometric integration. For the singular four-gate law, comparison of the linear radial equation shows convergence to the local equilibrated radial value on every rescaled compact window; a quadratic lower bound on angular drift yields Cauchy-tail tightness. The independent standard-library numerical checker agrees with the exact period and trends toward the predicted four masses and central Cauchy fraction; those finite computations are not relied upon to prove the limit.
+
+**Originality — PASS, subject to priority risk.** The closest published primary work classifies invariant circles and policycles for contracting homogeneous star-node systems; it does not state this parameter-resolved four-gate occupation law. Earlier Darboux-integrability theory and general periodic-orbit quadratures overlap the existence and exact-period method and are fully credited. General saddle-node slowdown can imply a local Lorentzian shape, but does not supply the specified four weights in the original-time invariant distribution of this nonlinear periodic orbit or the independence of exact total period from anisotropy. The 2013 star-node paper's full preprint was blocked by access controls, so an undiscovered equivalent result cannot be ruled out.
+
+**Value — PASS.** The result gives a natural, complete quantitative boundary description of an attracting cycle approaching a four-equilibrium policycle. It separates the time required for a full revolution from the fraction of that time spent near different slow rays, and proves a parameter-sensitive four-state limiting invariant measure and its microscopic Cauchy profiles. The four masses can be unequal although the exact total period is unchanged, a structural phenomenon not visible from qualitative phase portraits.
+
+**Limits.** Only the stated cubic contracting family, fixed coefficients, and the positive-drift limit are covered. No universal theorem for all cubic star nodes, independent validation, or publication-priority guarantee is claimed.
+
+Same-model review: passed. Independent audit: not yet performed.
