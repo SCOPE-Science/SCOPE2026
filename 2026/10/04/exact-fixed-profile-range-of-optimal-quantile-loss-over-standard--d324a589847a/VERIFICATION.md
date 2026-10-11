@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic whenever a comparison can be squared without changing sign.
+# Independent mathematical audit
 
-For generated rational mass profiles, rational quantile levels, and strictly increasing rational supports it verifies:
+## correctness
 
-- direct minimization of the pinball loss over all atom locations;
-- the adjacent-gap coefficient formula;
-- the exact covariance representation with the cell-averaged quantile score;
-- the lower bound and strictness for three or more atoms;
-- the upper Cauchy--Schwarz bound;
-- the conditional-variance formula for the upper constant;
-- exact two-point equality;
-- the three-point central-cell upper equality construction;
-- convergence toward both nonattained endpoints.
+PASS
 
-The computations are finite stress tests. They do not establish the universal theorem or exhaust all probability profiles.
+Direct minimization expresses the loss as \(\sum_ja_jd_j\) with \(a_j=\min\{(1-\tau)P_j,\tau(1-P_j)\}\). The same gaps expand the centered support in cut indicators, yielding the strict lower bound. The cell average of the mean-zero quantile score has covariance \(a_j\) with each cut indicator, hence the whole loss equals \(\operatorname{Cov}(X,S)\); Cauchy--Schwarz gives the upper edge. Conditional variance gives the displayed closed form for \(C_\tau^2\), and the projected score has at most three levels, producing exactly the stated attainment cases. Fresh exact-rational replay verified 2500 independent profiles/levels, including the covariance identity and both bounds.
 
-Independent audit has not been performed.
+## originality
 
-Exact-rational replay result: `VERIFY_OK direct_checks=2500 covariance_checks=2500 lower_checks=2167 upper_checks=2500 formula_checks=2500 two_point_checks=333 three_attain_checks=1000 boundary_checks=4667`.
+PASS
+
+The closest primary papers define the same quantile-locating asymmetric absolute functional and develop p-quantile absolute-deviation representations, but do not optimize its minimized value relative to standard deviation with a prescribed atom-probability partition. No Resultary or repository theorem was found that states the cumulative-cut lower constant, the cell-projection upper constant and exact attainment classification.
+
+## value
+
+PASS
+
+Minimum pinball/check loss is the canonical unconditional quantile scale, and standard deviation is the canonical quadratic scale. The theorem completely quantifies their interaction for categorical or empirical distributions with fixed frequencies, including a transparent information-loss term when the target quantile cuts through a probability cell. This is a motivated exact profile rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
