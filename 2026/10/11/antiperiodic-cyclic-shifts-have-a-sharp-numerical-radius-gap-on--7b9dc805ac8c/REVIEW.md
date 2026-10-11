@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The theorem concerns spatial numerical radius of a specifically normalized real signed cyclic isometry. An alternating vector supplies the odd-dimensional negative eigenvalue. In even dimensions diagonal sign conjugation exchanges the numerical-radius branches, and the exact cyclic Young-deficit identity gives a nonnegative variational quotient. The homogeneous power-transform quotient has local coefficient \(2(p-1)/p^2\); compactness supplies global coercivity. Anti-periodic Sobolev interpolation and Poincaré–Wirtinger give the sharp liminf, while an explicit sine-profile family gives the limsup. The argument localizes away from zero to avoid using a false global quadratic Taylor approximation. Finite checks corroborate selected identities, not the limit itself.
+
+**Originality — PASS with bibliographic qualification.** Chang–Wang, Chien–Sheu, and Chica–Merí address adjacent Hilbert weighted-shift numerical radii or planar numerical indices, rather than the real \(\ell_p\) numerical-radius asymptotic of this signed cyclic shift. Direct numerical-radius and antiperiodic alias searches found no implication-level coverage in the consulted mathematical index; such searches cannot exclude unknown equivalent earlier formulations. Related operator-norm asymptotics for \(I+U_n\) do not imply this distinct spatial numerical-radius asymptotic without further analysis.
+
+**Value — PASS.** A naturally occurring norm-one signed cyclic permutation has a parity-dependent numerical-radius stability gap across the complete range of reflexive real \(\ell_p\) spaces. The result identifies the exact universal scaling order and sharp exponent-dependent constant for the signed periodic obstruction, not an arbitrary finite parameter slice. It relates nonlinear Banach-space duality pairing to an anti-periodic Poincaré eigenvalue.
+
+**Limitations and residual risks.** No exact finite-even-dimensional formula is given (except at exponent two). No endpoint or complex-scalar claim is made. Bibliographic equivalence with historical real-Banach numerical-radius results remains possible. Independent mathematical confirmation remains to be performed.
+
+Same-model review: passed. Independent audit: not yet performed.
