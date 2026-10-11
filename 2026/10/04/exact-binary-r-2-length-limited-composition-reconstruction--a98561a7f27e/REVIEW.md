@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the complete observation with symbol counts plus the three length-two composition multiplicities, converts these exactly to zero- and one-run counts, proves every feasible run profile realizable, and counts all profiles. Positive-composition counts give every ambiguity-class size and the singleton classification. The bundled verifier independently compares literal substring-composition multisets with the run model for all binary words through length \(16\) and checks the closed formulas through length \(500\).
+## correctness
 
-## Originality
-PASS. The closest primary paper introduces the same \(r\)-length limited model and explicitly asks about constant \(r\), but gives no optimal fixed-length formula or ambiguity classification at \(r=2\). The full substring-composition literature retains all lengths and therefore does not imply the quotient after lengths above two are discarded. Exact-formula and alias searches found no matching published statement. Residual risk remains because this base case is elementary enough to have appeared in unindexed material.
+PASS
 
-## Value
-PASS. This is the complete base case of the published constant-\(r\) reconstruction direction: it gives the optimal code size for every word length and every ambiguity-class multiplicity, not a routine single-parameter increment or an isolated census. The run classification also exposes exactly where information is lost when mixed adjacent compositions forget orientation.
+For a word with z zeros, o ones, and zero/one run counts r0,r1, the length-two composition counts are a=z-r0, b=o-r1, and mixed count t=r0+r1-1 for nonconstant words, so the observation is equivalent to (z,r0,r1). Feasible pairs satisfy |r0-r1|<=1; counting symbol totals over balanced and one-heavy run-count pairs yields the two closed forms. Positive compositions of z and o into run lengths give the stated class sizes and singleton criterion. An independent brute-force reconstruction for every binary word through n=12 reproduced the observation partition, closed forms, class sizes, and singleton sets exactly; the package verifier extends corroborative brute force to n=16 and arithmetic checks to n=500.
 
-## Closest literature and limitations
-Ye--Elishco (arXiv:2208.14963) is the direct model source; Acharya et al. (arXiv:1403.2439) is the foundational full-composition source. The theorem is limited to binary \(r=2\) observations and does not solve larger fixed \(r\), larger alphabets, or noisy composition readout.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ye--Elishco introduce the r-length-limited composition-multiset model and explicitly leave constant r and its capacity behavior as a further question. Their construction treats a regime where r scales with n and does not give the exact r=2 quotient, class-size formulas, or singleton classification. The older full-composition problem observes all substring lengths and therefore does not imply the much coarser r=2 ambiguity classes. Targeted Resultary searches found no covering exact formula.
+
+## value
+
+PASS
+
+This resolves the first nontrivial constant-r case explicitly singled out by the defining paper as an open direction, and it does so completely: not only the asymptotic capacity but the exact all-n number of observations, every ambiguity-class size, and all individually reconstructible words. That is a natural structural base case likely to be useful in any study of fixed r.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

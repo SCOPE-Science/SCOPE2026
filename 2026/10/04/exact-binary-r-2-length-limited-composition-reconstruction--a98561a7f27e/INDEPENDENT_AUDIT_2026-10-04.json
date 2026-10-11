@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:41:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 536b75ee1499870d77111c98960323b0a28d0ac9",
+        "assigned verify.py blob b05c0acfab5f5e0dfc54d31c602eeb49420723e6",
+        "independent all-word reconstruction through n=12"
+      ],
+      "rationale": "For a word with z zeros, o ones, and zero/one run counts r0,r1, the length-two composition counts are a=z-r0, b=o-r1, and mixed count t=r0+r1-1 for nonconstant words, so the observation is equivalent to (z,r0,r1). Feasible pairs satisfy |r0-r1|<=1; counting symbol totals over balanced and one-heavy run-count pairs yields the two closed forms. Positive compositions of z and o into run lengths give the stated class sizes and singleton criterion. An independent brute-force reconstruction for every binary word through n=12 reproduced the observation partition, closed forms, class sizes, and singleton sets exactly; the package verifier extends corroborative brute force to n=16 and arithmetic checks to n=500.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye--Elishco's broader model framework does not solve constant r=2.",
+          "Acharya et al. use the full substring-composition multiset, a strictly richer observation than lengths at most two."
+        ],
+        "reasoning": "Neither broader framework implies the exact coarse-observation class sizes.",
+        "searches": [
+          "Ye--Elishco arXiv:2208.14963",
+          "Acharya--Das--Milenkovic--Orlitsky--Pan, String Reconstruction from Substring Compositions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.14963",
+        "DOI:10.1137/140962486",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper discusses r-length limited composition reconstruction and explicitly lists constant r as an open direction."
+        ],
+        "reasoning": "The r=2 formulas answer the first nontrivial constant-r case rather than following from the published scaling-r construction.",
+        "searches": [
+          "arXiv:2208.14963 Section VIII and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source defines C_{<=r}(x) and explicitly asks about constant r.",
+          "The audited r=2 observation collapses to run counts and yields an all-n exact quotient not stated there."
+        ],
+        "reasoning": "Equivalent formulations as numbers of C_{<=2} equivalence classes, run-count signatures, or maximum one-representative-per-observation codes were compared.",
+        "searches": [
+          "Resultary: r=2 length limited composition multiset exact reconstruction binary run counts",
+          "Ye--Elishco arXiv:2208.14963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-n table/formula for the binary C_{<=2} quotient was returned."
+        ],
+        "reasoning": "A database table would have to match the same length-limited multiset model; none was found.",
+        "searches": [
+          "Resultary exact r=2 composition reconstruction search"
+        ]
+      },
+      "rationale": "Ye--Elishco introduce the r-length-limited composition-multiset model and explicitly leave constant r and its capacity behavior as a further question. Their construction treats a regime where r scales with n and does not give the exact r=2 quotient, class-size formulas, or singleton classification. The older full-composition problem observes all substring lengths and therefore does not imply the much coarser r=2 ambiguity classes. Targeted Resultary searches found no covering exact formula.",
+      "residual_risks": [
+        "Because the r=2 reduction is elementary once run counts are noticed, an unindexed note or exercise remains a residual originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING; it leaves constant r open.",
+          "evidence": "The source asks what happens for constant r and gives no exact binary r=2 class-count or ambiguity-size formula.",
+          "identifier_or_url": "arXiv:2208.14963",
+          "material_read": "Full primary PDF with focused reading of the r-length-limited section and conclusion; the pages defining C_{<=r}, the scaling-r construction, and the constant-r open question were visually inspected.",
+          "method": "Open-access full-text inspection.",
+          "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+          "trigger": "Defining primary source for the r-length-limited composition model and closest possible broader result."
+        },
+        {
+          "assessment": "NOT_COVERING because the observation is strictly richer.",
+          "evidence": "Full-spectrum reconstruction does not identify equivalence classes after discarding every substring length above two.",
+          "identifier_or_url": "DOI:10.1137/140962486",
+          "material_read": "Primary abstract/result-level material describing reconstruction from compositions of all substrings.",
+          "method": "Primary-source comparison.",
+          "title": "String Reconstruction from Substring Compositions",
+          "trigger": "Earlier primary work on the richer full substring-composition multiset."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ye--Elishco arXiv:2208.14963",
+        "assigned symbolic proof and independent finite checks"
+      ],
+      "rationale": "This resolves the first nontrivial constant-r case explicitly singled out by the defining paper as an open direction, and it does so completely: not only the asymptotic capacity but the exact all-n number of observations, every ambiguity-class size, and all individually reconstructible words. That is a natural structural base case likely to be useful in any study of fixed r.",
+      "residual_risks": [
+        "The methods are special to r=2 and may not extend cleanly to r>=3."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary reconstruction from the multiset of compositions of all contiguous substrings of lengths one and two, the number of distinct observations is \\(R_2(2m)=3m^2-2m+2\\) and \\(R_2(2m+1)=3m^2+m+2\\), with the stated exact ambiguity-class size formulas and complete singleton-class classification.",
+  "limitations": [
+    "The alphabet is binary and the observation length cutoff is exactly \\(r=2\\).",
+    "No exact formula for \\(r\\ge3\\), nonbinary alphabets, or noisy composition multisets is claimed."
+  ],
+  "schema_version": 1
+}
