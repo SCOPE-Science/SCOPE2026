@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim splits into an infinite range and a finite bridge. The cited source proves the unique-largest-index statement for every even \(N\ge26\); its proof was reconstructed through the limiting-weight comparison, strict gap, total-variation transfer, and the explicit bound at \(N=26\). For \(N\in\{14,16,18,20,22,24\}\), the term magnitudes reduce by \(\zeta(1-m)=-B_m/m\) to exact rational numbers, and every admissible index is exhaustively compared. The same exact calculation gives the sharpness witness at \(N=12\). No floating-point comparison is used in the certificate.
+## correctness
 
-## Originality
-PASS. The directly relevant paper states a sufficient threshold \(N=26\), explicitly says that no minimal-threshold assertion is made, and records only the obstruction at \(N=12\). The earlier identity paper supplies the finite sums but not their term-maximizer threshold. Targeted published-result searches for the exact threshold, equivalent largest-term formulations, and the underlying Bernoulli–zeta recurrence identities returned no covering statement; the closest Fibonacci results concern distinct reciprocal-tail quantities.
+PASS
 
-## Value
-PASS. This is the sharp cutoff for a theorem whose source explicitly leaves its sufficient threshold nonoptimal. It replaces the range \(N\ge26\) by the best possible range \(N\ge14\) and proves optimality with the source's natural preceding failure at \(N=12\). The fact is a complete, motivated finite cutoff for the exact invariant studied in the source, rather than an arbitrary parameter slice.
+For even \(N\) and even \(j\), the term magnitude reduces exactly to a rational Bernoulli expression. The cited primary theorem proves that \(j=8\) is the unique largest term for both Fibonacci and Lucas weights for every even \(N\ge26\). Exact exhaustive comparison over all admissible even indices for \(N=14,16,18,20,22,24\) gives \(j=8\) uniquely in every case, while \(N=12\) has unique winner \(j=10\) for both sequences. A fresh independent exact-rational replay reproduced every winner, runner-up and positive gap printed in the package. Thus the finite certificate bridges the published infinite range without being used as an infinite proof, and \(N_0=14\) is the sharp smallest even threshold.
 
-## Closest literature and limitations
-The closest source is Payam Danesh, arXiv:2609.33564v1, Proposition 7 and Section 4.2. The result relies on that source's proved infinite-range theorem after independently checking its critical inequalities and supplies an exact finite bridge. Residual novelty risk remains for unpublished or poorly indexed material. The statement is not generalized beyond the two Fibonacci–Lucas weight sequences and normalization used in the source.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The current Danesh paper proves the unique largest finite-sum index \(j=8\) for every even degree at least \(26\), and its abstract still states that sufficient threshold. The inspected proof explicitly does not claim minimality, while the paper separately notes that \(N=12\) has largest index \(j=10\). The audit closes exactly the six intervening even degrees and thereby determines the minimal cutoff. Current Resultary search returned the assigned \(N_0=14\) result as the exact hit and no independent prior minimal-threshold statement.
+
+## value
+
+PASS
+
+The exact location of the largest term is a central cancellation-profile invariant in the source paper. Determining the smallest degree from which the modal index is permanently stable is a natural sharp finite boundary, and the owner standard expressly allows such meaningful finite cutoffs when they close an otherwise proved infinite tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

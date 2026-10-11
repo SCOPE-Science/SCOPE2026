@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The finite part is checked by `verify.py` with exact rational arithmetic. For even \(N\) and even \(j\), it evaluates
-\[
-N\binom{N-1}{j}a_j^X2^{N-j-1}\frac{\lvert B_{N-j}\rvert}{N-j},
-\]
-which equals the source term magnitude by the exact special-value identity \(\zeta(1-m)=-B_m/m\). It enumerates every admissible even index at \(N=12,14,16,18,20,22,24\), checks uniqueness of the largest value, and records the runner-up and exact gap.
+## correctness
 
-The replay also checks the source weights in equation (46) and the exact rational inequality used in equation (50). The source proof of Proposition 7 was read through its derivation of the limiting weight gap, the total-variation transfer, and the uniform \(N\ge26\) bound. The finite replay is not used to infer an infinite pattern.
+PASS
 
-Limits: the verification establishes only the stated Fibonacci and Lucas weight sequences and source normalization. It does not test or claim an analogous threshold for the broader recurrence family.
+For even \(N\) and even \(j\), the term magnitude reduces exactly to a rational Bernoulli expression. The cited primary theorem proves that \(j=8\) is the unique largest term for both Fibonacci and Lucas weights for every even \(N\ge26\). Exact exhaustive comparison over all admissible even indices for \(N=14,16,18,20,22,24\) gives \(j=8\) uniquely in every case, while \(N=12\) has unique winner \(j=10\) for both sequences. A fresh independent exact-rational replay reproduced every winner, runner-up and positive gap printed in the package. Thus the finite certificate bridges the published infinite range without being used as an infinite proof, and \(N_0=14\) is the sharp smallest even threshold.
+
+## originality
+
+PASS
+
+The current Danesh paper proves the unique largest finite-sum index \(j=8\) for every even degree at least \(26\), and its abstract still states that sufficient threshold. The inspected proof explicitly does not claim minimality, while the paper separately notes that \(N=12\) has largest index \(j=10\). The audit closes exactly the six intervening even degrees and thereby determines the minimal cutoff. Current Resultary search returned the assigned \(N_0=14\) result as the exact hit and no independent prior minimal-threshold statement.
+
+## value
+
+PASS
+
+The exact location of the largest term is a central cancellation-profile invariant in the source paper. Determining the smallest degree from which the modal index is permanently stable is a natural sharp finite boundary, and the owner standard expressly allows such meaningful finite cutoffs when they close an otherwise proved infinite tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
