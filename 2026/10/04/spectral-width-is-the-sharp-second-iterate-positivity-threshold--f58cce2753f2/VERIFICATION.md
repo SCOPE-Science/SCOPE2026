@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-The checker uses exact rational arithmetic and the Python standard library.
 
-It forms the direct-Jacobian good Broyden update
-\[
-B_1=B_0+\frac{(y_0-B_0s_0)s_0^{\mathsf T}}{s_0^{\mathsf T}s_0}
-\]
-and solves the second step by exact Gaussian elimination. It verifies agreement with
-\[
-x^{(2)}=\frac{[(\rho+\gamma)I-A]b}{\gamma\rho}
-\]
-on several rational symmetric positive definite Stieltjes systems.
+# Independent mathematical audit
 
-For diagonal two-dimensional systems it checks the exact sign boundary
-\[
-\varepsilon^2=\frac{L-\mu-\gamma}{\gamma}
-\]
-when \(0<\gamma<L-\mu\), as well as the explicit witness with \((\mu,L,\gamma,\varepsilon)=(1,4,2,1/2)\).
+## correctness
 
-The universal all-dimension implication is analytic and is not inferred from finite tests.
+PASS
+
+Direct substitution into the first rank-one update gives x2=[((rho+gamma)I-A)b]/(gamma rho), with rho the Rayleigh quotient of b. If gamma is at least L-mu then rho+gamma is at least L, so the shifted Stieltjes matrix is entrywise nonnegative. Conversely for A=diag(mu,L), b=(1,epsilon), the high-curvature coordinate is negative exactly when epsilon squared is below (L-mu-gamma)/gamma. Fresh arithmetic reproduces the package witness rho=8/5 and x2=(13/16,-1/16).
+
+## originality
+
+PASS
+
+Classical Broyden theory covers the rank-one update, residual projection structure and finite termination on linear systems. The fresh Resultary query and the inspected O'Leary full text do not give an entrywise second-iterate positivity theorem for Stieltjes matrices, the universal spectral-width threshold, or the two-dimensional sharpness family.
+
+## value
+
+PASS
+
+Scalar Jacobian initialization is a natural low-information quasi-Newton choice, while Stieltjes systems encode a meaningful positivity order. The exact robust threshold and minimal obstruction provide a concrete safety rule and a sharp boundary not supplied by ordinary convergence theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

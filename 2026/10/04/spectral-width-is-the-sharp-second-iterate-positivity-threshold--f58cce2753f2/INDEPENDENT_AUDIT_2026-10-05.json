@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:45:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "O'Leary, Why Broyden's Nonsymmetric Method Terminates on Linear Equations, SIAM Journal on Optimization 5 (1995), DOI:10.1137/0805012; complete author-hosted primary PDF text inspected for good-Broyden linear iteration, projection structure and finite termination.",
+        "Broyden, A Class of Methods for Solving Nonlinear Simultaneous Equations, Mathematics of Computation 19 (1965); foundational update treated as prior.",
+        "Resultary semantic search: good Broyden second iterate positivity Stieltjes matrix spectral width scalar initial Jacobian.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree 21cf8454e8f936bf91c19dd451ba004c5bda6858.",
+        "Fresh direct arithmetic replay of the explicit witness gives rho=8/5 and second iterate (13/16,-1/16)."
+      ],
+      "rationale": "Direct substitution into the first rank-one update gives x2=[((rho+gamma)I-A)b]/(gamma rho), with rho the Rayleigh quotient of b. If gamma is at least L-mu then rho+gamma is at least L, so the shifted Stieltjes matrix is entrywise nonnegative. Conversely for A=diag(mu,L), b=(1,epsilon), the high-curvature coordinate is negative exactly when epsilon squared is below (L-mu-gamma)/gamma. Fresh arithmetic reproduces the package witness rho=8/5 and x2=(13/16,-1/16).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Projection and termination results are broader algorithmically but do not control coordinatewise positivity in the original basis."
+        ],
+        "reasoning": "The audited sign theorem uses Stieltjes structure absent from the broader projection theory.",
+        "searches": [
+          "O'Leary linear Broyden projection theory",
+          "Classical Broyden convergence and secant theory"
+        ]
+      },
+      "checked_sources": [
+        "O'Leary, Why Broyden's Nonsymmetric Method Terminates on Linear Equations, SIAM Journal on Optimization 5 (1995), DOI:10.1137/0805012; complete author-hosted primary PDF text inspected for good-Broyden linear iteration, projection structure and finite termination.",
+        "Broyden, A Class of Methods for Solving Nonlinear Simultaneous Equations, Mathematics of Computation 19 (1965); foundational update treated as prior.",
+        "Resultary semantic search: good Broyden second iterate positivity Stieltjes matrix spectral width scalar initial Jacobian.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree 21cf8454e8f936bf91c19dd451ba004c5bda6858.",
+        "Fresh direct arithmetic replay of the explicit witness gives rho=8/5 and second iterate (13/16,-1/16)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical update implies the algebraic second-iterate identity after elimination, but prior inspected results do not state the Stieltjes spectral-width sign consequence or its necessity.",
+          "The two-dimensional diagonal obstruction establishes sharpness over the entire spectral class."
+        ],
+        "reasoning": "The result is a new structural corollary requiring both exact elimination and inverse-positive/Stieltjes sign analysis, not merely the secant condition.",
+        "searches": [
+          "Good-Broyden first rank-one update formula",
+          "O'Leary intermediate-iterate framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O'Leary analyzes intermediate residual subspaces and termination rather than coordinate signs.",
+          "The Resultary search returned nearby iterative-method stability results but no Broyden/Stieltjes positivity theorem."
+        ],
+        "reasoning": "The claim is equivalently entrywise nonnegativity of the shifted Stieltjes matrix ((rho+gamma)I-A) for every nonnegative b; no inspected source states that formulation.",
+        "searches": [
+          "Resultary query: good Broyden second iterate positivity Stieltjes matrix spectral width scalar initial Jacobian",
+          "O'Leary DOI:10.1137/0805012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact threshold or table was located."
+        ],
+        "reasoning": "The threshold is an all-dimensional symbolic statement, not a finite table extraction.",
+        "searches": [
+          "Resultary exact spectral-width/Broyden query",
+          "Searches for Broyden condition-number-two positivity threshold"
+        ]
+      },
+      "rationale": "Classical Broyden theory covers the rank-one update, residual projection structure and finite termination on linear systems. The fresh Resultary query and the inspected O'Leary full text do not give an entrywise second-iterate positivity theorem for Stieltjes matrices, the universal spectral-width threshold, or the two-dimensional sharpness family.",
+      "residual_risks": [
+        "Older monotone-equation or inverse-positive quasi-Newton literature may encode the same early-iterate sign criterion under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER LINEAR-ITERATION STRUCTURE; NO STIELTJES POSITIVITY THRESHOLD",
+          "evidence": "The paper develops projection/termination behavior of intermediate iterates and does not state coordinatewise positivity or gamma=L-mu.",
+          "identifier_or_url": "DOI:10.1137/0805012",
+          "material_read": "Complete author-hosted five-page PDF text, including the inverse/secant framework, good-Broyden specialization, residual projections and termination theorem.",
+          "method": "Primary full-text inspection.",
+          "title": "Why Broyden's Nonsymmetric Method Terminates on Linear Equations",
+          "trigger": "Closest primary full-text treatment of intermediate good-Broyden iterates on linear systems."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "O'Leary, Why Broyden's Nonsymmetric Method Terminates on Linear Equations, SIAM Journal on Optimization 5 (1995), DOI:10.1137/0805012; complete author-hosted primary PDF text inspected for good-Broyden linear iteration, projection structure and finite termination.",
+        "Broyden, A Class of Methods for Solving Nonlinear Simultaneous Equations, Mathematics of Computation 19 (1965); foundational update treated as prior.",
+        "Resultary semantic search: good Broyden second iterate positivity Stieltjes matrix spectral width scalar initial Jacobian.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree 21cf8454e8f936bf91c19dd451ba004c5bda6858.",
+        "Fresh direct arithmetic replay of the explicit witness gives rho=8/5 and second iterate (13/16,-1/16)."
+      ],
+      "rationale": "Scalar Jacobian initialization is a natural low-information quasi-Newton choice, while Stieltjes systems encode a meaningful positivity order. The exact robust threshold and minimal obstruction provide a concrete safety rule and a sharp boundary not supplied by ordinary convergence theory.",
+      "residual_risks": [
+        "Older monotone-equation or inverse-positive quasi-Newton literature may encode the same early-iterate sign criterion under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For good Broyden applied to an SPD Stieltjes linear system with spectrum in [mu,L], nonnegative right-hand side, zero initial point and scalar Jacobian B0=gamma I, the second iterate is nonnegative for every such problem exactly when gamma is at least L-mu; every smaller gamma fails already on a two-dimensional diagonal system.",
+  "limitations": [
+    "Only the second iterate is classified.",
+    "The result uses symmetry and the Stieltjes sign pattern; nonsymmetric M-matrices are not covered.",
+    "Older monotone-equation or inverse-positive quasi-Newton literature may encode the same early-iterate sign criterion under different terminology."
+  ],
+  "schema_version": 1
+}

@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The good Broyden update is reconstructed from the secant formula. For the linear system and scalar initialization, an exact rank-one eigenvector calculation gives
-\[
-x^{(2)}=\frac{[(\rho+\gamma)I-A]b}{\gamma\rho}.
-\]
-The Rayleigh bound \(\rho\ge\mu\), the diagonal bound \(a_{ii}\le L\), and the Stieltjes off-diagonal signs prove sufficiency of \(\gamma\ge L-\mu\). A diagonal \(2\times2\) family proves necessity for every smaller \(\gamma\). The packaged exact-rational checker replays the update and the sharp witnesses from the actual artifact.
+## correctness
 
-## Originality
-PASS with residual terminology risk. The checked Broyden literature covers the secant update, projection structure, convergence, and finite termination on linear equations. Focused searches under Stieltjes, \(M\)-matrix, positive-orthant, nonnegative-iterate, scalar-initialization, spectral-width, and second-iterate formulations did not locate an implication-equivalent theorem. The full O'Leary paper is particularly relevant because it studies intermediate linear iterates, but its statements concern residual subspaces and termination rather than coordinatewise signs. Older monotone-equation or positivity-preserving quasi-Newton literature remains a plausible residual risk.
+PASS
 
-## Value
-PASS. Scalar Jacobian initialization is a standard low-information choice in quasi-Newton root finding, while Stieltjes systems model inverse-positive discretizations for which negative iterates can violate a meaningful sign constraint. The result gives an exact design rule \(\gamma\ge L-\mu\), a minimal-dimensional sharp obstruction, and the memorable condition-number-two specialization \(\gamma=\mu\). These are structural safety facts, not restatements of convergence or finite termination.
+Direct substitution into the first rank-one update gives x2=[((rho+gamma)I-A)b]/(gamma rho), with rho the Rayleigh quotient of b. If gamma is at least L-mu then rho+gamma is at least L, so the shifted Stieltjes matrix is entrywise nonnegative. Conversely for A=diag(mu,L), b=(1,epsilon), the high-curvature coordinate is negative exactly when epsilon squared is below (L-mu-gamma)/gamma. Fresh arithmetic reproduces the package witness rho=8/5 and x2=(13/16,-1/16).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical Broyden theory covers the rank-one update, residual projection structure and finite termination on linear systems. The fresh Resultary query and the inspected O'Leary full text do not give an entrywise second-iterate positivity theorem for Stieltjes matrices, the universal spectral-width threshold, or the two-dimensional sharpness family.
+
+## value
+
+PASS
+
+Scalar Jacobian initialization is a natural low-information quasi-Newton choice, while Stieltjes systems encode a meaningful positivity order. The exact robust threshold and minimal obstruction provide a concrete safety rule and a sharp boundary not supplied by ordinary convergence theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
