@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Illumination is converted exactly into strict containment of the unit disk in a lattice triangle. The lower bound combines strict side distances, triangle isoperimetry, half-integral lattice area, the maximal-area bound in a fixed circumdisk, and a complete Heron enumeration over all possible squared lattice side lengths. The explicit family proves sharpness. The finite checker is replayable and is not used as a substitute for an infinite argument.
+## correctness
 
-## Originality
-PASS. The closest primary source, Fukshansky's arXiv:2501.10570, defines the lattice illumination distance and proves general bounds but does not determine this exact three-point square-lattice value. Searches by equivalent circumscribed-triangle language, the exact constant, and the surviving squared-side fingerprints did not locate a covering statement. The main residual risk is an older equivalent theorem under substantially different lattice-triangle terminology.
+PASS
 
-## Value
-PASS. The result resolves a natural exact invariant in the first planar lattice model and minimal cardinality, with a strict lower bound, nonattainment, and an explicit sharp family. The half-integral-area/Heron reduction explains the arithmetic obstruction rather than merely reporting a computation.
+For a unit disk, illumination is exactly strict containment in the lattice triangle and the distance is one plus the largest center-to-vertex radius. Assuming radius at most \(\sqrt5\), strict side distances give area greater than half the perimeter; triangle isoperimetry and lattice half-integrality force area \(11/2\) or \(6\), while the circumdisk bound excludes larger half-integral values. Squared lattice side lengths are sums of two squares at most 20. Fresh exact Heron enumeration gives only (8,20,20), (9,17,20), (10,13,17), (10,16,18) and (13,13,16), every one containing a side of length at least four. Its strict side-line distance then forces an endpoint beyond radius \(\sqrt5\), contradiction. The explicit family has all three side distances greater than one and converges to the bound.
 
-## Closest literature and limitations
-The lead comparison is arXiv:2501.10570. The result is restricted to exactly three points of \(\mathbb Z^2\) illuminating a translated Euclidean unit disk and does not classify unrestricted-cardinality illumination or all near-extremizers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fukshansky introduces the lattice illumination distance and proves general existence bounds for smooth convex bodies, including the translated-copy convention, but does not determine the exact three-point square-lattice value for the planar unit disk. Resultary returned the assigned theorem itself as the direct exact hit and no earlier equivalent circumscribed-lattice-triangle theorem.
+
+## value
+
+PASS
+
+This resolves a natural exact invariant in the first planar lattice and the minimal smooth-body illumination cardinality, with a strict lower bound, nonattainment and a structural arithmetic obstruction rather than only a computational witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
