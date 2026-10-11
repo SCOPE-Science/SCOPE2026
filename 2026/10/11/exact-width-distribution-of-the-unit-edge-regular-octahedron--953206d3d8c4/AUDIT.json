@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The octahedral support function is exactly the maximum absolute coordinate divided by sqrt(2), so width is sqrt(2) times the maximum absolute coordinate of a uniform sphere point. Above the overlap threshold 1/sqrt(2), six equal coordinate caps are disjoint. Between 1/sqrt(3) and 1/sqrt(2), triple intersections have zero area and inclusion-exclusion has exactly twelve congruent pair lenses. The lens area is obtained by a spherical cosine-rule computation followed by sector-minus-triangle area. Endpoints and branch matching are exact. A packaged checker independently verifies normalization, direct spherical-area quadrature, and the lens integral.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kabluchko--Litvak--Zaporozhets, Example 3.4, represents every integer moment of the regular crosspolytope width using max |eta_i|, but does not evaluate the finite n=3 CDF.",
+        "Abas proves a density formula for every three-dimensional polytope and explicitly evaluates the regular tetrahedron and regular truncated octahedron; full-text search returns no occurrence of \"crosspolytope\"."
+      ],
+      "reasoning": "The moment theorem characterizes the compactly supported law implicitly, and the co-area theorem supplies a general evaluation framework, but neither inspected source states the elementary two-branch octahedral CDF. Obtaining the closed form requires the explicit cap-overlap and spherical-lens computation.",
+      "searches": [
+        "arXiv:1511.08479 regular crosspolytope higher moments random projection length",
+        "arXiv:2609.26202 random width polytope octahedron crosspolytope",
+        "general polytope width density spherical co-area exact law"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1511.08479v1",
+      "arXiv:1110.0671v1",
+      "arXiv:2609.26202v1",
+      "arXiv:1401.7950v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finch's full text treats the regular tetrahedron and cube and has no \"octahedron\" occurrence.",
+        "The higher-moment crosspolytope theorem determines moments but prints no finite-dimensional distribution formula.",
+        "The 2026 general width-density paper has no \"crosspolytope\" occurrence and its octahedral exact model is explicitly the truncated octahedron.",
+        "Ciccariello's 2014 result concerns random chord length rather than random orthogonal projection length."
+      ],
+      "reasoning": "None of the inspected statements gives the accepted CDF as a specialization with only parameter substitution. The strongest prior results either characterize the law indirectly through all moments, provide a general geometric algorithm, or treat a different octahedral random variable.",
+      "searches": [
+        "Width Distributions for Convex Regular Polyhedra octahedron",
+        "Mean width regular polytopes higher moments crosspolytope n=3",
+        "Random Width and Brightness crosspolytope",
+        "regular octahedron chord-length probability density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For the unit-edge octahedron, width is exactly sqrt(2) times the maximum absolute coordinate of a uniform point on S^2.",
+        "Targeted web and mathematical-index searches under the geometric and maximum-coordinate formulations did not return the displayed finite-dimensional CDF."
+      ],
+      "reasoning": "The main aliases are random width, one-dimensional projection length, caliper/Feret diameter, maximum absolute sphere coordinate, and the maximum of a Dirichlet(1/2,1/2,1/2) vector after squaring. These were searched separately to avoid relying on title matching.",
+      "searches": [
+        "\"regular octahedron\" \"width distribution\"",
+        "\"regular octahedron\" random projection length distribution",
+        "maximum absolute coordinate uniform sphere dimension 3 distribution",
+        "Dirichlet one half maximum exact CDF sphere"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-table or formula search returned the two-branch expression.",
+        "A published exact chord-length density of the regular octahedron was found, but that is a different random geometric invariant."
+      ],
+      "reasoning": "Exact tables could index this law under stereological terminology rather than convex-geometric width. Feret, caliper, projection, and spherical-coordinate aliases were therefore checked; the closest exact octahedral distribution found was chord length, which does not imply width.",
+      "searches": [
+        "\"3.043\" octahedron width distribution",
+        "regular octahedron Feret diameter distribution",
+        "regular octahedron caliper diameter distribution",
+        "spherical cap lens maximum coordinate S2 CDF"
+      ]
+    },
+    "rationale": "The closest older theorem gives all integer moments of regular-crosspolytope projection length through a Gaussian maximum and a high-dimensional limiting law, but does not give a finite n=3 CDF. A recent general three-dimensional polytope-density theorem applies abstractly but its explicitly evaluated models are the tetrahedron, truncated octahedron, and rhombic dodecahedron; its full text contains no crosspolytope occurrence. Finch treats tetrahedron and cube only. Searches under width, projection-length, caliper/Feret, maximum-coordinate, and exact-formula aliases did not locate the displayed octahedral CDF. The residual risk is that an older stereological or probability source records the same spherical maximum-coordinate law under different terminology.",
+    "residual_risks": [
+      "Because the older all-moment theorem determines compactly supported laws uniquely, the accepted result should be understood as a new explicit evaluation rather than the first abstract characterization of the law.",
+      "An unindexed stereological source may use older terms such as caliper diameter or Feret diameter for the same directional-width law.",
+      "A probability source on the maximum of Dirichlet(1/2,1/2,1/2) coordinates could contain an equivalent formula without mentioning octahedra."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_COVERING: gives all integer moments and an asymptotic law, but no closed finite n=3 CDF.",
+        "evidence": "Example 3.4 states the all-k moment identity through max |eta_i|. The subsequent distributional result is asymptotic as dimension tends to infinity.",
+        "identifier_or_url": "arXiv:1511.08479v1",
+        "material_read": "The full public paper around Theorem 3.1, Example 3.4, and the crosspolytope limit theorem; page images were also inspected.",
+        "method": "Public arXiv full-text and rendered-page inspection.",
+        "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+        "trigger": "Closest older theorem on random projection length of the regular crosspolytope."
+      },
+      {
+        "assessment": "MOTIVATING_NOT_COVERING: treats tetrahedron and cube only and explicitly encourages computations for other bodies.",
+        "evidence": "Full-text search finds no occurrence of \"octahedron\". The paper states that the tetrahedron and cube are its three-dimensional cases.",
+        "identifier_or_url": "arXiv:1110.0671v1",
+        "material_read": "The full ten-page public paper, including its abstract, tetrahedral and cubic sections, and full-text object searches; the first page was rendered for inspection.",
+        "method": "Public arXiv full-text and rendered-page inspection.",
+        "title": "Width Distributions for Convex Regular Polyhedra",
+        "trigger": "Earlier primary source devoted to exact random-width computations for regular polyhedra."
+      },
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXPLICITLY_COVERING: proves a density formula for every 3D polytope, but the explicit flagship laws are for the tetrahedron, truncated octahedron, and rhombic dodecahedron; no crosspolytope occurrence is present.",
+        "evidence": "The introduction lists the explicitly evaluated models, and full-text search for \"crosspolytope\" returns no match.",
+        "identifier_or_url": "arXiv:2609.26202v1",
+        "material_read": "The public 92-page full text was searched and the introduction plus exact-model section were inspected in rendered form.",
+        "method": "Public arXiv full-text search and rendered-page inspection.",
+        "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+        "trigger": "Most relevant later general theory of exact width densities for three-dimensional polytopes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "953206d3-d8c4-4036-95f7-cef871db20da",
+  "value": {
+    "rationale": "The regular octahedron is a canonical Platonic solid and the three-dimensional regular crosspolytope. Its complete directional-width distribution is a natural exact invariant in the literature's random-projection program and contains substantially more information than the previously emphasized mean and moments. The single transition at width 1 has a clear geometric meaning: it is exactly where pairwise overlaps among coordinate caps disappear. The resulting closed CDF is a useful benchmark for polyhedral density methods and maximum-coordinate probability calculations.",
+    "status": "PASS"
+  }
+}
