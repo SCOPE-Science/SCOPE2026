@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:01:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob c3193d656f13cc61a919d7aea556c085c65878b7",
+        "assigned verify.py blob fe7dd79132c3f2d17bcf0e32c184aeb3d51a7e9d",
+        "Chee--Vardy--Vu--Yaakobi, Transverse-Read-Codes for Domain Wall Memories, DOI 10.1109/JSAIT.2023.3334303"
+      ],
+      "rationale": "The two endpoint-count state is complete because consecutive length-three windows overlap in exactly one endpoint bit. For read symbols zero through three, the four transitions are respectively \\((p,0)\\), \\((p+q,p)\\), \\((q,p+q)\\), and \\((0,q)\\). With \\(S=p+q\\) and \\(M=\\max(p,q)\\), induction gives \\(S\\le F_{j+3}\\) and \\(M\\le F_{j+2}\\). Equality excludes symbols zero and three; after the first one or two, every later equality step must add the currently larger coordinate, forcing the read vector to remain constantly one or constantly two. Fresh exhaustive reconstruction through \\(m=7\\) reproduced maxima \\(3,5,8,13,21,34,55\\) and exactly those two maximizers. The all-length theorem rests on the induction and equality analysis.",
+      "residual_risks": [
+        "The theorem is specific to the binary \\((3,2)\\) channel and noiseless reads."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected transverse-read work develops capacity and coding applications rather than the maximum preimage size.",
+          "The weighted-read framework notes nonunique sources but focuses on output capacity rather than the audited extremal fiber."
+        ],
+        "reasoning": "No inspected broader result turns the automaton into the sharp all-length maximum-fiber theorem.",
+        "searches": [
+          "Chee--Vardy--Vu--Yaakobi, Transverse-Read-Codes for Domain Wall Memories",
+          "Yerushalmi--Etzion--Yaakobi, The Capacity of the Weighted Read Channel, arXiv:2401.15368"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1109/JSAIT.2023.3334303",
+        "arXiv:2401.15368",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic capacity matrix merges multiplicities and therefore cannot itself recover worst-case source ambiguity.",
+          "The sharp bound and uniqueness require tracking two path counts and optimizing their nonlinear max/sum envelope."
+        ],
+        "reasoning": "The audited theorem is not a routine parameter specialization of the source's capacity formula.",
+        "searches": [
+          "published nondeterministic automaton versus maximum labeled-path multiplicity",
+          "published capacity adjacency matrix versus unique extremal read vectors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's example uses exactly the same overlapping weight-three, shift-two read map.",
+          "Its nondeterministic state machine tracks the same shared endpoint bit, while the deterministic automaton is designed to count valid output labels."
+        ],
+        "reasoning": "Worst-case source multiplicity is the maximum number of labeled paths realizing one output word, not the number of distinct output labels.",
+        "searches": [
+          "Resultary query: binary 3 2 transverse read channel worst case ambiguity Fibonacci fiber size",
+          "Chee--Vardy--Vu--Yaakobi JSAIT 2023 full PDF, nondeterministic and deterministic automata for the \\((3,2)\\) case",
+          "weighted-read capacity literature for source collisions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact same-result record was retrieved."
+        ],
+        "reasoning": "Search absence is combined with direct inspection of the channel's defining automaton paper.",
+        "searches": [
+          "Resultary current query for \\((3,2)\\) maximum fiber and Fibonacci ambiguity"
+        ]
+      },
+      "rationale": "The primary transverse-read paper introduces exactly the \\((3,2)\\) model and explicitly draws the nondeterministic two-state machine underlying the shared endpoint bit. It then determinizes that machine to count distinct valid read vectors and derive capacity. Counting outputs once loses source-path multiplicity, so that capacity result does not determine the largest fiber. The audited label-specific multiplicity recurrence and its sharp Fibonacci optimization therefore answer a different natural invariant of the same channel. Current Resultary searches for maximum fiber, preimage multiplicity, ambiguity, and the exact Fibonacci law returned no covering theorem.",
+      "residual_risks": [
+        "An unpublished automata calculation may have derived the same fiber bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CHANNEL_CAPACITY_NOT_MAXIMUM_FIBER",
+          "evidence": "The source counts distinct valid outputs through determinization; it does not state the audited path-multiplicity maximum or unique extremizers.",
+          "identifier_or_url": "https://doi.org/10.1109/JSAIT.2023.3334303",
+          "material_read": "complete primary PDF relevant model and automaton sections; the page containing the nondeterministic and deterministic \\((3,2)\\) state machines was visually inspected",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Transverse-Read-Codes for Domain Wall Memories",
+          "trigger": "defining source for the same \\((3,2)\\) transverse-read automaton"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chee--Vardy--Vu--Yaakobi",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Worst-case ambiguity is the natural zero-error list-size counterpart of output capacity for a many-to-one read channel. The theorem gives its exact all-blocklength law and unique maximizers in the first nontrivial odd-window model, providing a reusable benchmark for decoding ambiguity rather than a small finite census.",
+      "residual_risks": [
+        "It does not give the full fiber-size distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is specific to the binary \\((3,2)\\) channel and noiseless reads.",
+    "An unpublished automata calculation may have derived the same fiber bound.",
+    "It does not give the full fiber-size distribution."
+  ]
+}

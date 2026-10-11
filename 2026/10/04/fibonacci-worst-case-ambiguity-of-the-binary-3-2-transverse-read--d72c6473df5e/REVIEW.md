@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces every fiber to exact two-state endpoint counts. The four read-symbol transitions are exhaustive, and the induction gives \(S\le F_{m+3}\) for every length-\(m\) output. The equality analysis shows that after the first choice, switching from symbol \(1\) to \(2\) or conversely necessarily adds the smaller endpoint count and loses equality. The bundled verifier reconstructs the channel independently and exhaustively checks every source through \(n=19\).
+## correctness
 
-## Originality
-PASS. The closest primary literature defines the same \((3,2)\) transverse-read channel and its nondeterministic state machine, but uses determinization to count distinct output sequences and derive capacity. The later weighted-read paper explicitly identifies collisions as an issue yet continues to study output count/capacity. Full-text searches of these closest sources found no “Fibonacci,” “preimage,” or “ambiguity” theorem, and targeted public and repository searches found no statement of the maximum fiber formula or unique extremizers. The present claim is a fixed-output path-multiplicity theorem, not the prior distinct-output counting theorem.
+PASS
 
-## Value
-PASS. Maximum fiber size is the worst-case zero-error list size of a deterministic many-to-one channel and directly quantifies the strongest source ambiguity left after observing the complete read vector. The result is an all-blocklength closed form with unique extremal outputs in the canonical \((3,2)\) case highlighted by the transverse-read literature, rather than an isolated small-parameter computation. It complements capacity, which measures the number of different outputs but does not reveal the worst collision multiplicity.
+The two endpoint-count state is complete because consecutive length-three windows overlap in exactly one endpoint bit. For read symbols zero through three, the four transitions are respectively \((p,0)\), \((p+q,p)\), \((q,p+q)\), and \((0,q)\). With \(S=p+q\) and \(M=\max(p,q)\), induction gives \(S\le F_{j+3}\) and \(M\le F_{j+2}\). Equality excludes symbols zero and three; after the first one or two, every later equality step must add the currently larger coordinate, forcing the read vector to remain constantly one or constantly two. Fresh exhaustive reconstruction through \(m=7\) reproduced maxima \(3,5,8,13,21,34,55\) and exactly those two maximizers. The all-length theorem rests on the induction and equality analysis.
 
-The closest literature supplies the channel model and automata. The main limitation is scope: the theorem does not yet extend to other window/shift pairs or noisy reads, and an unindexed independent derivation cannot be ruled out.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary transverse-read paper introduces exactly the \((3,2)\) model and explicitly draws the nondeterministic two-state machine underlying the shared endpoint bit. It then determinizes that machine to count distinct valid read vectors and derive capacity. Counting outputs once loses source-path multiplicity, so that capacity result does not determine the largest fiber. The audited label-specific multiplicity recurrence and its sharp Fibonacci optimization therefore answer a different natural invariant of the same channel. Current Resultary searches for maximum fiber, preimage multiplicity, ambiguity, and the exact Fibonacci law returned no covering theorem.
+
+## value
+
+PASS
+
+Worst-case ambiguity is the natural zero-error list-size counterpart of output capacity for a many-to-one read channel. The theorem gives its exact all-blocklength law and unique maximizers in the first nontrivial odd-window model, providing a reusable benchmark for decoding ambiguity rather than a small finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
