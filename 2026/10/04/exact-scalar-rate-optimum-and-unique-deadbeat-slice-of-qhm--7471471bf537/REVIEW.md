@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The scalar QHM state matrix has trace \(1+\beta-s(1-\nu\beta)\) and determinant \(\beta[1-s(1-\nu)]\). The complete quadratic Jury conditions give the exact stable interval. For \(0<\nu<1\), the discriminant has two explicit roots; the right repeated-root point gives the candidate optimum. A determinant lower bound excludes every smaller step, while a radius-scaled Jury inequality excludes every larger step. The endpoint cases \(\nu=0\) and \(\nu=1\) reduce to explicit plateaus. The unique zero of the interior rate formula is \(\nu=\beta\), and at the corresponding step both trace and determinant vanish, so Cayley-Hamilton gives exact two-step nilpotence.
+PASS
 
-Risk: the result is scalar and spectral; it is not a uniform multimode or transient-norm theorem.
+Scaling the momentum by \(\lambda\) gives the stated two-state matrix with trace \(T=1+\beta-s(1-\nu\beta)\) and determinant \(D=\beta(1-s(1-\nu))\). The second-order Jury conditions reduce exactly to the claimed stability interval. For \(0<\nu<1\), the discriminant has the two positive zeros \((1-\beta)/(1\pm\sqrt{\beta\nu})^2\). Between them the complex-pair modulus \(\sqrt D\) decreases with \(s\), while the scaled disk Jury inequalities exclude any improvement beyond the upper coalescence point. This yields the unique interior optimum and its closed rate. The endpoint cases reduce respectively to eigenvalues \(1-s,\beta\) and constant determinant \(\beta\), giving the two plateaus. The minimum vanishes exactly at \(\nu=\beta\); then trace and determinant both vanish at \(s=1/(1-\beta)\), so Cayley--Hamilton gives \(M^2=0\). Independent numerical/symbolic checks reproduced the optimum and exact nilpotence.
 
-## Originality
+## originality
 
-PASS. The defining QHM paper gives the update, its two-state operator representation, and the identity \(\nu=\beta\) with Nesterov momentum, but does not state the exact scalar learning-rate optimum or deadbeat uniqueness. A 2024 two-step momentum paper is algebraically equivalent at the level of the scalar characteristic polynomial after an explicit parameter change and therefore already covers the stability inequality; that part is treated as prior coverage rather than novelty. Its inspected analysis does not state the fixed-\((\beta,\nu)\) closed-form scalar rate floor or identify the QHM Nesterov slice as the unique nilpotent interpolation.
+PASS
 
-Focused searches over QHM, scalar quadratics, spectral radius, repeated roots, critical damping, and finite-time annihilation found no source implying the complete rate-optimal statement.
+Ma and Yarats define QHM and identify \(\nu=\beta\) with Nesterov momentum, but their inspected paper does not solve the exact scalar quadratic learning-rate spectral-radius minimization. Krivovichev and Sergeeva analyze a two-step method whose characteristic polynomial maps to QHM, derive stability and a general spectral-radius formula, and pose parameter optimization over a spectral interval; their Section 2.3 solves that broader tuning problem numerically for an external second momentum parameter rather than giving the audited fixed-\((\beta,\nu)\) closed-form scalar landscape. Thus the stability clause is covered background, but the unique upper-discriminant optimum, endpoint plateaus and nilpotent slice are not stated or mechanically supplied by the inspected optimization theorem. Current Resultary searches found no equivalent closed QHM formula.
 
-## Value
+## value
 
-PASS. QHM was introduced to decouple historical averaging from immediate-gradient weighting. The exact scalar formula shows that the same immediate-discount parameter also controls deterministic critical damping in a sharply quantifiable way. The unique zero at \(\nu=\beta\) gives a structural explanation for the Nesterov slice inside QHM: on a perfectly known scalar curvature it is the only nondegenerate interpolation capable of deadbeat two-step state annihilation. This is a motivated characterization of QHM's extra degree of freedom, not a routine restatement of its stability range.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+QHM is a standard optimizer family and exact quadratic modes are the canonical tuning benchmark. The theorem gives the complete fixed-\((\beta,\nu)\) rate landscape rather than a single tuned example, including both endpoint plateaus and a unique two-step deadbeat Nesterov slice. That supplies a precise structural interpretation of the immediate-discount parameter and a reusable calibration benchmark, even though it does not solve the multi-curvature minimax problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

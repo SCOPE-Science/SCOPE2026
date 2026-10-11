@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:09:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2069d9dae0ed5398954768d1bc99358dccf3d7be",
+        "assigned verify.py blob fb3e2b96f6c8253597db6d9b827954bde0d1ffac",
+        "Ma--Yarats arXiv:1810.06801",
+        "Krivovichev--Sergeeva DOI 10.3390/a17030126"
+      ],
+      "rationale": "Scaling the momentum by \\(\\lambda\\) gives the stated two-state matrix with trace \\(T=1+\\beta-s(1-\\nu\\beta)\\) and determinant \\(D=\\beta(1-s(1-\\nu))\\). The second-order Jury conditions reduce exactly to the claimed stability interval. For \\(0<\\nu<1\\), the discriminant has the two positive zeros \\((1-\\beta)/(1\\pm\\sqrt{\\beta\\nu})^2\\). Between them the complex-pair modulus \\(\\sqrt D\\) decreases with \\(s\\), while the scaled disk Jury inequalities exclude any improvement beyond the upper coalescence point. This yields the unique interior optimum and its closed rate. The endpoint cases reduce respectively to eigenvalues \\(1-s,\\beta\\) and constant determinant \\(\\beta\\), giving the two plateaus. The minimum vanishes exactly at \\(\\nu=\\beta\\); then trace and determinant both vanish at \\(s=1/(1-\\beta)\\), so Cayley--Hamilton gives \\(M^2=0\\). Independent numerical/symbolic checks reproduced the optimum and exact nilpotence.",
+      "residual_risks": [
+        "The rate is for the full two-state scalar system with one curvature and constant parameters.",
+        "No claim is made about transient norm amplification or a multi-eigenvalue minimax optimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper gives algorithmic identities, including the Nesterov slice.",
+          "The 2024 paper treats a spectral interval and numerically optimizes \\((\\beta_1,h)\\) at fixed \\(\\beta_2\\); it does not state the scalar fixed-QHM exact optimum or finite-step annihilation."
+        ],
+        "reasoning": "No inspected general theorem directly specializes to all branches of the final closed-form QHM rate landscape.",
+        "searches": [
+          "Ma--Yarats full QHM primary paper",
+          "Krivovichev--Sergeeva 2024 full open-access article, Sections 2.1--2.3",
+          "current momentum spectral-radius literature searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.06801",
+        "DOI 10.3390/a17030126",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A piecewise eigenvalue formula still requires locating and proving the global minimizer across real and complex root branches; the audited proof supplies that closed classification including endpoint plateaus.",
+          "Knowing that \\(\\nu=\\beta\\) is Nesterov does not imply that precisely this slice, at a curvature-calibrated step, makes the full state matrix nilpotent of index two."
+        ],
+        "reasoning": "The novelty-bearing rate and deadbeat claims require additional exact optimization beyond the prior statements.",
+        "searches": [
+          "published stability/spectral-radius formula versus fixed-\\((\\beta,\\nu)\\) exact minimization",
+          "published identification \\(\\nu=\\beta\\) as Nesterov versus nilpotence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under \\(h=\\alpha(1-\\beta)\\), \\(\\beta_1=\\beta\\), and \\(\\beta_2=\\beta(1-\\nu)/(1-\\beta)\\), the 2024 two-step characteristic polynomial matches the QHM scalar polynomial.",
+          "The 2024 paper gives the stability region and piecewise spectral-radius expression but not the audited closed fixed-\\((\\beta,\\nu)\\) minimizer."
+        ],
+        "reasoning": "The closest alternative parameterization was explicitly converted rather than dismissed by naming differences.",
+        "searches": [
+          "Resultary: exact scalar rate optimum unique deadbeat slice QHM quasi hyperbolic momentum",
+          "Ma--Yarats arXiv:1810.06801, QHM update and algorithm identities",
+          "Krivovichev--Sergeeva DOI 10.3390/a17030126, quadratic characteristic polynomial and spectral-radius analysis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-result exact table or theorem was retrieved."
+        ],
+        "reasoning": "Search absence is supporting evidence only; the parameter-mapped 2024 primary paper is the substantive comparison.",
+        "searches": [
+          "Resultary current query for QHM scalar spectral-radius optimum, repeated roots and deadbeat behavior",
+          "web searches for QHM critical damping/deadbeat/Nesterov scalar formulas"
+        ]
+      },
+      "rationale": "Ma and Yarats define QHM and identify \\(\\nu=\\beta\\) with Nesterov momentum, but their inspected paper does not solve the exact scalar quadratic learning-rate spectral-radius minimization. Krivovichev and Sergeeva analyze a two-step method whose characteristic polynomial maps to QHM, derive stability and a general spectral-radius formula, and pose parameter optimization over a spectral interval; their Section 2.3 solves that broader tuning problem numerically for an external second momentum parameter rather than giving the audited fixed-\\((\\beta,\\nu)\\) closed-form scalar landscape. Thus the stability clause is covered background, but the unique upper-discriminant optimum, endpoint plateaus and nilpotent slice are not stated or mechanically supplied by the inspected optimization theorem. Current Resultary searches found no equivalent closed QHM formula.",
+      "residual_risks": [
+        "The same critical-damping calculation may appear in older two-step or control literature under another parameterization.",
+        "The closeness of the 2024 characteristic-polynomial analysis makes this a notation-sensitive originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_NESTEROV_IDENTITY_NOT_RATE_OPTIMUM",
+          "evidence": "The source identifies \\(\\nu=\\beta\\) with Nesterov but does not state the audited scalar spectral optimum or two-step nilpotence.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.06801",
+          "material_read": "full primary paper material on the QHM update, immediate-discount parameter and identities with other two-state algorithms",
+          "method": "primary full-text inspection",
+          "title": "Quasi-hyperbolic momentum and Adam for deep learning",
+          "trigger": "defining primary source for QHM and the Nesterov parameter identity"
+        },
+        {
+          "assessment": "STABILITY_AND_GENERAL_SPECTRAL_FORMULA_NOT_FIXED_QHM_CLOSED_OPTIMUM",
+          "evidence": "The paper gives the equivalent characteristic polynomial and optimizes a different spectral-interval parameter problem numerically; the audited fixed-\\((\\beta,\\nu)\\) closed formula and deadbeat slice are not stated.",
+          "identifier_or_url": "https://doi.org/10.3390/a17030126",
+          "material_read": "open full article through the convergence theorem, piecewise spectral-radius analysis and Section 2.3 optimal-parameter problem",
+          "method": "primary full-text web inspection",
+          "title": "Analysis of a Two-Step Gradient Method with Two Momentum Parameters for Strongly Convex Unconstrained Optimization",
+          "trigger": "closest broader quadratic spectral-radius treatment under an equivalent parameterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ma--Yarats 2019",
+        "Krivovichev--Sergeeva 2024",
+        "assigned RESULT.md"
+      ],
+      "rationale": "QHM is a standard optimizer family and exact quadratic modes are the canonical tuning benchmark. The theorem gives the complete fixed-\\((\\beta,\\nu)\\) rate landscape rather than a single tuned example, including both endpoint plateaus and a unique two-step deadbeat Nesterov slice. That supplies a precise structural interpretation of the immediate-discount parameter and a reusable calibration benchmark, even though it does not solve the multi-curvature minimax problem.",
+      "residual_risks": [
+        "Practical multidimensional tuning requires a separate spectral-interval analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The rate is for the full two-state scalar system with one curvature and constant parameters.",
+    "No claim is made about transient norm amplification or a multi-eigenvalue minimax optimum.",
+    "The same critical-damping calculation may appear in older two-step or control literature under another parameterization.",
+    "The closeness of the 2024 characteristic-polynomial analysis makes this a notation-sensitive originality risk.",
+    "Practical multidimensional tuning requires a separate spectral-interval analysis."
+  ]
+}
