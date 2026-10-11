@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The five update increments from equation (3.1) telescope exactly: infection transfers from \(S\) to \(E\), progression transfers from \(E\) to \(I\), and recovery plus disease mortality split the same removal from \(I\) into \(R\) and \(D\). All denominators are positive for the stated domain. The disease-free boundary counterexample is exact by substitution. `verify.py` replays representative cases using exact rational arithmetic.
+## correctness
 
-## Originality
-PASS. The primary source was inspected at the formula level. It explicitly advertises unconditional positivity and prints the strict implication \(U^k\ge0\Rightarrow U^{k+1}>0\), but a search of its text did not locate the exact conservation law. Targeted published-finding corpus and web searches found broader structure-preserving numerical literature and unrelated epidemic results, not this exact scheme-specific correction and invariant. Residual risk remains because literature search cannot establish absolute novelty.
+PASS
 
-## Value
-PASS. The distinction between nonnegative and strictly positive compartment states matters at invariant epidemic boundaries, especially the disease-free state. Exact conservation of \(S+E+I+R+D\) is also a natural, directly useful numerical invariant that can detect implementation errors independently of trajectory fitting quality.
+The forward step was reconstructed algebraically from the frozen formula rather than inferred from the saved checker. Writing \(F=h\beta^kS^{k+1}I^k/N^k\), \(G=h\epsilon^kE^{k+1}\), and \(H=h(\gamma^k+\mu^k)I^{k+1}\), all updated components are nonnegative because their denominators are \(1+hq>0\) with nonnegative numerators. The five increments are \(-F\), \(F-G\), \(G-H\), \(h\gamma^kI^{k+1}\), and \(h\mu^kI^{k+1}\); the last two sum to \(H\), so total \(S+E+I+R+D\) is conserved exactly. At \((S,E,I,R,D)=(N,0,0,0,0)\) every transfer is zero, so the update fixes the state and disproves the printed componentwise strict-positivity implication. The bundled rational checker was inspected only as corroboration, not as proof.
 
-## Closest literature and limitations
-General nonstandard finite-difference epidemic schemes can preserve positivity and qualitative dynamics, but those results do not imply the exact telescoping identity of Liu–Tian equation (3.1). This finding does not challenge the paper's whole control framework; it corrects the stated strictness and records an unstated invariant of the forward step.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives. The source paper motivates equation (3.1) as unconditionally positivity preserving, while the submitted result sharpens that statement at the boundary and adds an exact conserved quantity for this particular semi-implicit step. Targeted Resultary, SCOPE and web searches found general positivity/NSFD epidemic schemes but no statement of this exact Liu--Tian telescoping invariant or its disease-free counterexample. General mass-conserving epidemic discretization theory does not imply the specific identity without checking the actual update.
+
+## value
+
+PASS
+
+The result corrects a mathematically false strict-positivity formulation at a natural invariant boundary and supplies an exact implementation-level conservation law for the same published numerical step. This is a motivated structural correction, not an arbitrary normalization check: it identifies the correct invariant cone boundary behavior and a conservation test that future implementations can use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

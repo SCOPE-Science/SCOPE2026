@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:59:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The forward step was reconstructed algebraically from the frozen formula rather than inferred from the saved checker. Writing \\(F=h\\beta^kS^{k+1}I^k/N^k\\), \\(G=h\\epsilon^kE^{k+1}\\), and \\(H=h(\\gamma^k+\\mu^k)I^{k+1}\\), all updated components are nonnegative because their denominators are \\(1+hq>0\\) with nonnegative numerators. The five increments are \\(-F\\), \\(F-G\\), \\(G-H\\), \\(h\\gamma^kI^{k+1}\\), and \\(h\\mu^kI^{k+1}\\); the last two sum to \\(H\\), so total \\(S+E+I+R+D\\) is conserved exactly. At \\((S,E,I,R,D)=(N,0,0,0,0)\\) every transfer is zero, so the update fixes the state and disproves the printed componentwise strict-positivity implication. The bundled rational checker was inspected only as corroboration, not as proof.",
+      "risks": [
+        "The claim is restricted to the forward update with the demographic terms set to zero and assumes positive living-population denominator \\(N^k\\)."
+      ],
+      "sources": [
+        "Frozen source tree 2ab6516b47948ce9a902693477fc08d412a0003e",
+        "arXiv:2012.00698 / doi:10.3934/cpaa.2021093",
+        "Independent transfer-variable telescoping reconstruction from equation (3.1)",
+        "Frozen verify.py inspected as supplementary exact-rational evidence"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader NSFD literature establishes positivity or stability for other discretizations, not the algebraic conservation identity of Liu--Tian equation (3.1)."
+        ],
+        "reasoning": "Different schemes do not dominate the submitted correction because the exact sequential transfers are method-specific.",
+        "searches": [
+          "Ding--Ma--Ding 2014 unconditional positivity/stability preserving NSFD epidemic scheme",
+          "Web searches for conservative/positive SEIR finite-difference schemes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.00698",
+        "doi:10.3934/cpaa.2021093",
+        "Ding--Ma--Ding 2014",
+        "Resultary query returned no exact hit",
+        "SCOPE repository semantic search returned no exact hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The disease-free boundary state is an explicit counterexample to the source's strict conclusion.",
+          "The conservation law follows by an exact telescoping cancellation not stated in the checked search material."
+        ],
+        "reasoning": "The prior source supplies the numerical scheme but not the corrected boundary theorem plus exact mass identity, and generic schemes do not logically imply it.",
+        "searches": [
+          "Statement-level comparison with Liu--Tian's printed positivity claim",
+          "Statement-level comparison with general positivity-preserving epidemic schemes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The checked source is the exact Liu--Tian model; nearby search results concern different epidemic schemes.",
+          "No equivalent statement of exact conservation of \\(S+E+I+R+D\\) for this update was located."
+        ],
+        "reasoning": "Equivalent language such as invariant-preserving, conservative, or boundary positivity was searched; no same-scheme result was found.",
+        "searches": [
+          "Resultary: Liu Tian SEIR equation 3.1 positivity mass conservation nonnegative numerical scheme",
+          "Web: unconditional positivity-preserving SEIR Liu Tian equation (3.1)",
+          "Web: Data-driven optimal control SEIR equation 3.1 positivity preserving",
+          "SCOPE repository search: Liu Tian SEIR mass conservation positivity equation 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database or table entry reproducing the invariant/counterexample was returned."
+        ],
+        "reasoning": "This is not a known-table computation; the relevant exact object is a published update formula.",
+        "searches": [
+          "Resultary exact-scheme query",
+          "SCOPE repository semantic search",
+          "Web exact-title/equation query"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives. The source paper motivates equation (3.1) as unconditionally positivity preserving, while the submitted result sharpens that statement at the boundary and adds an exact conserved quantity for this particular semi-implicit step. Targeted Resultary, SCOPE and web searches found general positivity/NSFD epidemic schemes but no statement of this exact Liu--Tian telescoping invariant or its disease-free counterexample. General mass-conserving epidemic discretization theory does not imply the specific identity without checking the actual update.",
+      "residual_risks": [
+        "The source paper was not exhaustively re-read line by line in this round; an overlooked conservation remark elsewhere in it remains a small bibliographic risk, but no such statement was found in targeted searches and the final correction itself is independently exact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_FINAL_CORRECTION",
+          "evidence": [
+            "The source presents the scheme as positivity preserving; the audited boundary state contradicts a strict-interior reading, and the exact five-compartment telescoping identity is additional."
+          ],
+          "identifier_or_url": "arXiv:2012.00698; doi:10.3934/cpaa.2021093",
+          "material_read": "Public preprint metadata/available text and the exact equation (3.1) as preserved in the frozen scientific package; the round independently reconstructed the update algebra rather than trusting prior audit prose.",
+          "method": "Primary-source statement comparison plus direct algebra on the frozen formula.",
+          "title": "Data-driven optimal control of a SEIR model for COVID-19",
+          "trigger": "Exact paper containing the audited forward update."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "It concerns a different update and does not imply Liu--Tian's exact transfer cancellation."
+          ],
+          "identifier_or_url": "Ding--Ma--Ding, Int. J. Appl. Math. Comput. Sci. 24 (2014)",
+          "material_read": "Bibliographic/abstract-level material describing unconditional positivity and stability for a different epidemic scheme.",
+          "method": "Method/object comparison.",
+          "title": "An unconditionally positive and global stability preserving NSFD scheme for an epidemic model with vaccination",
+          "trigger": "Closest general structure-preserving epidemic-discretization literature surfaced by search."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result corrects a mathematically false strict-positivity formulation at a natural invariant boundary and supplies an exact implementation-level conservation law for the same published numerical step. This is a motivated structural correction, not an arbitrary normalization check: it identifies the correct invariant cone boundary behavior and a conservation test that future implementations can use.",
+      "risks": [
+        "The correction is local to one forward scheme and does not by itself change the paper's epidemiological conclusions."
+      ],
+      "sources": [
+        "Exact equation (3.1) reconstruction",
+        "Published source's positivity claim",
+        "Structure-preserving epidemic discretization context"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim is made about convergence order, the backward adjoint, the outer optimization, or epidemiological parameter validity."
+  ],
+  "schema_version": 1
+}
