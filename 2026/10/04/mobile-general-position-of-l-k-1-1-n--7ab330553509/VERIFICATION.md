@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is verified analytically; no numerical experiment is required for the infinite claim.
+# Independent mathematical audit
 
-The graph model is checked directly from incidence in \(K_{1,1,n}\): \(x\) is universal, \(A\) and \(B\) are \(n\)-cliques, and the only cross edges are \(a_i b_i\). This is exactly \(K_1\vee(K_n\square K_2)\).
+## correctness
 
-For correctness of the upper bound, the proof derives the diameter-two general-position criterion and then classifies enough induced clique components to show \(\operatorname{gp}=n+1\). Every maximum configuration is frozen. The special case \(n=2\), where maximum cliques include the matched-pair triangles \(\{x,a_i,b_i\}\), is checked separately and is not absorbed into the \(n\ge3\) argument.
+PASS
 
-For correctness of the lower bound, begin at \(S_0=\{x,b_1,\ldots,b_{n-1}\}\). Visiting \(b_n\) uses \(b_1\rightsquigarrow b_n\). Visiting \(a_n\) uses \(x\rightsquigarrow a_n\). Visiting \(a_i\) for \(i<n\) uses
-\[
-b_i\rightsquigarrow b_n,\qquad x\rightsquigarrow a_i,
-\]
-followed by the reverse moves. At every intermediate stage the occupied induced graph is either a clique or a disjoint union of two cliques, hence remains in general position.
+The line-graph identification is exact. In this diameter-two graph, general-position sets are precisely induced disjoint unions of cliques. That gives \(\operatorname{gp}=n+1\), with the \(n=2\) maximum triangles handled separately. Every size-\(n+1\) set is frozen, while the explicit reversible excursions from \(\{x,b_1,\ldots,b_{n-1}\}\) visit every vertex with \(n\) robots. A fresh exhaustive state-space check for \(n=2,3,4,5\) corroborated both values; the all-\(n\) proof is structural.
 
-The proof establishes exactly the stated domain \(n\ge2\). It makes no assertion for \(n=1\) and no assertion for broader complete-multipartite line-graph families.
+## originality
+
+PASS
+
+The founding paper computes \(\operatorname{Mob}_{\mathrm{gp}}(L(K_m))\) and explicitly asks for arbitrary line graphs. The later paper proves \(\operatorname{Mob}_{\mathrm{gp}}(K_n\square K_2)=n\) but gives only general bounds after adjoining a universal vertex, so it does not determine this cone.
+
+## value
+
+PASS
+
+The result addresses an explicit line-graph direction and isolates a natural phenomenon: a universal vertex increases ordinary general position but not mobile general position on this infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
