@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:42:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and root verify.py at the frozen tree",
+        "Shekhar--Kim--Ramdas, JMLR 24(369) (2023), full primary paper",
+        "Kim--Ramdas, Bernoulli 30(1) (2024)",
+        "Nasari, Studentized Processes of U-statistics"
+      ],
+      "rationale": "The published linear-kernel definitions reduce exactly to \\(T_n=\\operatorname{sgn}(f_2)(n-2)C/\\sqrt{n(n-1)Q}\\). Gaussian centering makes the residual directions independent Haar points on the sphere of the sum-zero subspace, so the statistic is a constant times \\(|u\\cdot v|/\\|P(u\\circ v)\\|\\). For \\(n=3\\), the denominator is constant and the numerator is a cosine of a uniform angle difference, giving the arcsine law. For \\(n\\ge4\\), the displayed reciprocal-coordinate zeros have nonzero numerator; the rank-three certificate at \\(n=4\\) and the five-distinct-coordinate quartic argument for \\(n\\ge5\\) make the denominator map a submersion. A tube around its zero manifold therefore has probability of order at least \\(t^{-(n-1)}\\), and the tail integral gives the moment divergence. The actual verifier was inspected and independently confirms the algebraic reduction and rank certificates.",
+      "residual_risks": [
+        "No correctness defect was found."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources develop general asymptotic Gaussian/self-normalized theory."
+        ],
+        "reasoning": "General Studentization results do not supply the record-specific regular-zero manifold or the exact n=3/n>=4 split.",
+        "searches": [
+          "Kim--Ramdas cross U-statistics",
+          "Nasari Studentized U-statistics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2212.09108",
+        "Kim--Ramdas cross-U-statistics",
+        "Nasari 2009",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected source proves convergence after studentization but does not control fixed-n high moments.",
+          "The audited submersion argument uses denominator zeros that are invisible to the asymptotic statement."
+        ],
+        "reasoning": "A Gaussian limit does not imply fixed-sample moment finiteness, so the final claim is not a corollary of the published CLT.",
+        "searches": [
+          "JMLR asymptotic theorem versus finite-sample tail obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source derives the linear statistic and its asymptotic standard-normal null limit.",
+          "No exact finite-sample match was returned by the semantic search."
+        ],
+        "reasoning": "Equivalent formulations through a self-normalized sample covariance ratio, exact Gaussian residual-sphere geometry, and high-moment failure were compared.",
+        "searches": [
+          "Shekhar--Kim--Ramdas JMLR linear cross-HSIC studentization",
+          "Resultary: studentized cross-HSIC Gaussian finite sample arcsine heavy tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact distribution or moment table for the published statistic was located."
+        ],
+        "reasoning": "This is a distributional theorem rather than a known finite table.",
+        "searches": [
+          "published corpus for cross-HSIC finite-sample Gaussian moments"
+        ]
+      },
+      "rationale": "The exact primary cross-HSIC paper was read through its linear-kernel and studentization sections. It proves asymptotic Gaussian null behavior and power guarantees but does not state an exact finite-sample Gaussian law, a denominator-zero geometry, polynomial lower tails, or infinite moments. Searches in cross-U-statistic and Studentized-U-statistic literature did not locate a theorem implying this specific phase transition.",
+      "residual_risks": [
+        "Abstract ratio-distribution results under different notation could imply part of the tail mechanism; no decisive source was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the finite-sample claim.",
+          "evidence": "The paper establishes the limiting Gaussian null law and asymptotic inference; no fixed-n arcsine or heavy-tail theorem appears in the inspected sections.",
+          "identifier_or_url": "arXiv:2212.09108; JMLR 24(369), 2023",
+          "material_read": "Primary full paper around the linear-kernel section, Theorem 4, studentization formula, and appendix reduction.",
+          "method": "Primary full-text inspection.",
+          "title": "A Permutation-Free Kernel Independence Test",
+          "trigger": "Exact statistic and linear-kernel specialization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Shekhar--Kim--Ramdas 2023",
+        "cross-U-statistic literature"
+      ],
+      "rationale": "The theorem exposes a sharp finite-sample pathology of a statistic introduced specifically to enable Gaussian calibration: at the smallest admissible sizes the law changes from bounded arcsine to polynomially heavy with divergent high moments. This is a natural and practically relevant boundary fact, not an arbitrary finite calculation.",
+      "residual_risks": [
+        "The result does not quantify moderate-tail calibration error at larger n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For scalar linear kernels under an independent nondegenerate Gaussian null, the published studentized cross-HSIC statistic has the arcsine law when the half-sample size is \\(n=3\\); for every fixed \\(n\\ge4\\) it has unbounded support with \\(\\Pr(|T_n|>t)\\ge c_n t^{-(n-1)}\\) for all sufficiently large \\(t\\), so \\(\\mathbb E|T_n|^p=\\infty\\) for every \\(p\\ge n-1\\).",
+  "limitations": [
+    "Scalar linear kernels and independent Gaussian coordinates only.",
+    "The tail bound is one-sided; no exact tail constant or matching upper bound is claimed.",
+    "Moment finiteness below order \\(n-1\\) is not determined."
+  ],
+  "schema_version": 1
+}
