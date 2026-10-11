@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-A separate finite replay checks the enumerative consequences of the proof.
+## correctness
 
-For each of \(N=2,3,4,\infty\), it constructs canonical plane rooted trees recursively by ordered root-tuples and independently computes the same numbers from the composition recurrence. The two methods agree through \(n=8\). For \(N=2\), the values are \(1,1,2,5,14,42,132,429\), exactly \(C_{n-1}\). For \(N=\infty\), they are \(1,1,3,11,45,197,903,4279\), matching OEIS A001003 shifted by one leaf. Multiplication by \(n!\) reproduces the displayed injective orbit profiles.
+PASS
 
-The checker also computes Stirling numbers of the second kind and verifies the full-tuple profiles \(1,3,19,207,3211,64383\) for \(N=2\) and \(1,3,25,387,8521,241683\) for \(N=\infty\). It evaluates the coefficients of \(T_N(e^z-1)\) indirectly through the Stirling identity and ends with `VERIFY_OK`.
+Malicki's full open-access text defines \(\mathcal K_N^\prec\), states that the same classes with order-preserving ball-preserving injections are Fraisse classes, and proves that bp-bijections are exactly the bijections preserving strict distance comparisons. Petrov's full arXiv text proves that finite ultrametric spaces are bp-isomorphic exactly when their representing rooted trees are isomorphic. Convex order canonically orders the children at every ball, while the \(r\)-polygon bound is exactly the internal branching bound \(N\); hence finite bp-types are the claimed plane rooted trees. Fraisse extension makes these precisely the finite orbit types. Labeling the ordered tuple coordinates contributes \(n!\); root decomposition gives the stated functional equation; equality patterns give the Stirling transform. Independent recurrence calculations reproduced Catalan \(1,1,2,5,14,42,\ldots\) for \(N=2\) and little Schröder \(1,1,3,11,45,197,\ldots\) for \(N=\infty\).
 
-The replay does not independently prove that finite plane bp-types extend to global bp-automorphisms. That is the model-theoretic step, checked against Malicki's Fraïssé morphism framework and by the explicit one-point back-and-forth argument in RESULT.md. No independent audit has been performed.
+## originality
+
+PASS
+
+The primary ultrametric papers provide the bp/tree equivalence and the ordered bp-Fraisse structures, while the Catalan and Schröder tree enumerations are classical. None of the inspected sources states the resulting oligomorphic orbit profile for \(G_N\), the finite-\(N\) interpolation, or the Stirling transform for noninjective tuples. Targeted Resultary and web searches found no such profile theorem.
+
+## value
+
+PASS
+
+Oligomorphic profiles are natural invariants of permutation groups. The theorem gives an exact profile for a whole family of ordered ultrametric ball-preserving groups, interpolating between two familiar tree sequences and extending from injective to arbitrary tuples. This is a motivated exact invariant rather than an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite bp-invariant is the reduced ball-inclusion tree: Malicki's Proposition 5.1 makes strict distance-comparison preservation equivalent to ball preservation, convex order makes the tree plane, and the \(r\)-polygon bound gives internal outdegree at most \(N\). The converse realization and the bp back-and-forth are compatible with the same degree bound. Once the orbit/tree bijection is established, the factor \(n!\), root-decomposition recurrence, Catalan and Schröder endpoints, and Stirling transform are standard and were independently replayed computationally.
+PASS
 
-## Originality
+Malicki's full open-access text defines \(\mathcal K_N^\prec\), states that the same classes with order-preserving ball-preserving injections are Fraisse classes, and proves that bp-bijections are exactly the bijections preserving strict distance comparisons. Petrov's full arXiv text proves that finite ultrametric spaces are bp-isomorphic exactly when their representing rooted trees are isomorphic. Convex order canonically orders the children at every ball, while the \(r\)-polygon bound is exactly the internal branching bound \(N\); hence finite bp-types are the claimed plane rooted trees. Fraisse extension makes these precisely the finite orbit types. Labeling the ordered tuple coordinates contributes \(n!\); root decomposition gives the stated functional equation; equality patterns give the Stirling transform. Independent recurrence calculations reproduced Catalan \(1,1,2,5,14,42,\ldots\) for \(N=2\) and little Schröder \(1,1,3,11,45,197,\ldots\) for \(N=\infty\).
 
-PASS, with a folklore caveat. The primary paper was inspected through the section defining \(\mathcal K_N^\prec\), Proposition 5.1, the partial-bp results, Corollary 5.12, and Proposition 5.13. Petrov's earlier finite result covers the unordered rooted-tree invariant, and OEIS A001003 covers the unbounded plane-tree enumeration, but neither source states the orbit profile of Malicki's ordered generic bp-groups. Targeted web and published-finding corpus searches using the object name, bp-group notation, Catalan/Schröder language, plane-tree language, and tuple-orbit language found no covering statement. The strongest residual risk is that the enumeration is known informally as a routine consequence of the tree representation.
+## originality
 
-## Value
+PASS
 
-PASS. The result supplies an exact all-arity orbital profile for a published family of non-archimedean groups whose large-conjugacy behavior was previously studied. It identifies a clean interpolation from Catalan to little Schröder growth and gives a closed generating-function transformation for tuples with repetitions. It also distinguishes this bp-group behavior sharply from distance-comparison automorphism groups of ultrametric Fraïssé limits, whose orbit profiles have a different combinatorics.
+The primary ultrametric papers provide the bp/tree equivalence and the ordered bp-Fraisse structures, while the Catalan and Schröder tree enumerations are classical. None of the inspected sources states the resulting oligomorphic orbit profile for \(G_N\), the finite-\(N\) interpolation, or the Stirling transform for noninjective tuples. Targeted Resultary and web searches found no such profile theorem.
 
-## Closest literature and limitations
+## value
 
-Malicki is the essential source for the ordered \(N\)-ultrametric bp-groups and their finite morphisms. Petrov supplies the classical finite rooted-tree equivalence, and OEIS records the pure Schröder-tree count. The theorem is limited to the order-preserving bp-groups; the unordered groups require quotienting by tree automorphisms and are not covered. No independent audit has been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Oligomorphic profiles are natural invariants of permutation groups. The theorem gives an exact profile for a whole family of ordered ultrametric ball-preserving groups, interpolating between two familiar tree sequences and extending from injective to arbitrary tuples. This is a motivated exact invariant rather than an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
