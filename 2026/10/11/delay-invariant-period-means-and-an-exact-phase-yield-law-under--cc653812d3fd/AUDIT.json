@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the printed delayed system and uses only period integration, translation invariance of a periodic average, exact equilibrium identities, and two explicitly checked rational identities. Strictness is justified: zero weighted variance forces u constant; then the predator and prey equations force the whole solution to equal the coexistence equilibrium. The covariance identity follows by subtracting u_* times the log-prey balance from the undivided prey balance. The numerical specialization is exact rational arithmetic. No simulation or local Hopf approximation is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bai–Zheng–Kang (2024), DOI 10.3934/dcdsb.2023161, replaces logistic growth by a Smith growth function; its abstract and model scope therefore do not dominate the exact logistic-delay balance.",
+        "Bai et al. (2025), DOI 10.1137/24M1685997, adds predator intraspecific competition, changing the predator log-balance that fixes the prey mean in the present theorem."
+      ],
+      "reasoning": "Broader related papers were compared by model equations and implication, not title similarity. Their added or changed nonlinearities prevent direct specialization to the exact two-equation delayed logistic system considered here.",
+      "searches": [
+        "\"Global dynamics of a predator-prey model with a Smith growth function and the additive predation in prey\" average periodic orbit integral",
+        "\"Impact of Intraspecific Competition of Predator on Coexistence\" average periodic additive predation",
+        "additive predation predator prey lagged covariance periodic orbit"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math10040655",
+      "openalex:W4220790842",
+      "doi:10.3934/dcdsb.2023161",
+      "doi:10.1137/24M1685997",
+      "published-finding corpus semantic index"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source equation (15) for the nondelayed system implies \\(\\bar u=d/\\beta\\) for nondelayed cycles and \\(\\alpha\\bar v=\\overline{H(u)}\\), but it does not contain a delay-lag covariance term because model (2) has no delay.",
+        "Section 4 of the source analyzes delayed characteristic equations, stability switches and Hopf normal forms; those local spectral results do not imply the exact finite-amplitude covariance law for every positive periodic orbit.",
+        "Own item abc05440-e10c-46ec-99e8-a17e9ed483e9 shares the convex rational-defect mechanism but concerns different equations without delay. Its conclusion cannot produce the new lagged-autocovariance term or the exact covariance/mean-deficit equality for the Bai–Zhang system."
+      ],
+      "reasoning": "The closest within-paper result is explicitly weaker/different: it concerns nondelayed period integrals. The new theorem survives comparison because it covers the delayed model for arbitrary amplitude and relates mean yield loss to lagged phase correlations.",
+      "searches": [
+        "Bai Zhang model equation (15) periodic orbit integral delayed model (3) covariance",
+        "10.3390/math10040655 periodic solution mean delay covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The publisher full text states the delayed model with prey feedback through u(t-tau), and Section 4 analyzes Hopf-generated periodic solutions but does not state their period means or covariance identities.",
+        "For the nondelayed model, source equation (15) records alpha times the period integral of v as the period integral of H(u) and the zero average of beta u-d; the new delayed phase-yield identity additionally requires the shifted-period average, the undivided prey equation, and an exact rational variance defect.",
+        "published-finding corpus closest hits were structurally different results such as 2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7 and 2026/9/17/SCOPE-log-slope-no-pattern-spatial-memory--5ddf2e7adc1e, neither of which specializes to the Bai–Zhang equations."
+      ],
+      "reasoning": "Queries used source authors/model terms plus aliases for period means, variance defects, covariance, lagged autocovariance and density-feedback delay. The source’s nondelayed integral formula was treated as partial prior coverage rather than ignored; the accepted claim is narrowed to the delayed all-amplitude mean and phase-covariance law that is not stated there.",
+      "searches": [
+        "Bai Zhang additive predation periodic orbit mean prey mean predator variance defect delay 2022",
+        "additive predation prey predator exact period average u=d/beta periodic solution",
+        "density dependent feedback delay additive predation periodic mean predator",
+        "\"additive predation\" \"mean\" \"periodic\" predator prey Bai Zhang",
+        "\"density dependent feedback\" \"periodic solution\" predator prey additive predation mean",
+        "Bai Zhang delayed additive predation covariance u(t) u(t-tau) periodic",
+        "phase yield covariance mean predator delay logistic additive predation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit in the returned closest records states the Bai–Zhang model, the exact mean prey identity d/beta together with a strict predator mean deficit, or the lagged-covariance equality.",
+        "Own current-week and prior-week ledgers were checked for the DOI, source title/aliases, additive-predation delay wording, period-mean defect and covariance-law formulations; no recoverable matching source-specific claim was found.",
+        "The closest own-ledger analogue is item abc05440-e10c-46ec-99e8-a17e9ed483e9, which proves a rational mean-defect law for a different nondelayed predator–prey ODE; it has no density-feedback lag and no identity involving \\(\\operatorname{Cov}_T(u,u_\\tau)\\), so it does not imply the accepted phase–yield theorem.",
+        "Final published-finding corpus alias searches for the explicit lagged covariance and phase–yield wording returned unrelated stochastic autocorrelation and spatial-memory covariance results rather than a theorem for the Bai–Zhang delayed predator–prey system."
+      ],
+      "reasoning": "published-finding corpus and own-ledger checks target both exact identifiers and mathematical equivalences. Absence of a hit is not treated as novelty proof; it is combined with full-text statement comparison of the exact source.",
+      "searches": [
+        "Bai Zhang additive predation periodic orbit mean prey mean predator variance defect delay 2022",
+        "additive predation prey predator exact period average u=d/beta periodic solution",
+        "density dependent feedback delay additive predation periodic mean predator",
+        "Bai Zhang delayed additive predation covariance u(t) u(t-tau) periodic",
+        "phase yield covariance mean predator delay logistic additive predation"
+      ]
+    },
+    "rationale": "Statement-level comparison found no equivalent theorem coupling the delay-invariant prey mean, strict predator mean deficit and the exact lagged-covariance phase law for the Bai–Zhang delayed model. The source itself gives a period-integral identity only for its nondelayed planar system and treats the delayed system through spectral/Hopf calculations and simulations. Closest database records concern different oscillators or different predator–prey equations. The most closely related later additive-predation papers change the prey growth law or add predator self-competition, so their balance equations do not imply this identity.",
+    "residual_risks": [
+      "Search is not exhaustive across all predator–prey literature; an equivalent balance law could appear under different terminology.",
+      "The 2024 and 2025 related papers were compared from accessible publisher material rather than every page of their full texts; they use materially different equations, so this is a limited residual originality risk rather than an unresolved decisive comparison.",
+      "An own-ledger theorem already uses a related rational mean-defect mechanism in another predator–prey ODE; the present finding is accepted only because the delay-specific covariance phase law is a distinct source-dependent constraint rather than a restatement of that mean defect."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PRIOR_NOT_COVERING_FINAL_CLAIM",
+        "evidence": "The source states the exact equations and delayed Hopf setting. It records a nondelayed integral relation but does not state the delay-invariant predator mean defect or lagged-covariance phase law.",
+        "identifier_or_url": "doi:10.3390/math10040655",
+        "material_read": "Publisher full-text material covering model (2), delayed model (3), the nondelayed periodic integral relation (15), Section 4 Hopf analysis, and the numerical example with \\(E_{in}=(5,4.598)\\) and critical delays.",
+        "method": "Full-text web inspection and equation-level comparison.",
+        "title": "Dynamics of a Predator–Prey Model with the Additive Predation in Prey",
+        "trigger": "Exact source defining the target nondelayed and delayed models and reporting delay-induced periodic coexistence."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_MODEL",
+        "evidence": "The prey growth law is Smith rather than the delayed logistic law used in the accepted theorem; no implication of the exact target identity was found.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2023161",
+        "material_read": "Publisher metadata, abstract and model-scope description available in the web result.",
+        "method": "Equation/scope comparison from accessible publisher material.",
+        "title": "Global dynamics of a predator-prey model with a Smith growth function and the additive predation in prey",
+        "trigger": "Same additive-predation research line and potentially broader global dynamics."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_MODEL",
+        "evidence": "Predator intraspecific competition changes the predator balance, so its results do not imply the fixed prey mean and covariance law of the present delayed model.",
+        "identifier_or_url": "doi:10.1137/24M1685997",
+        "material_read": "Publisher abstract, bibliographic information, MSC codes and model-extension description.",
+        "method": "Scope and equation-structure comparison from publisher material.",
+        "title": "Impact of Intraspecific Competition of Predator on Coexistence of a Predator-Prey Model with Additive Predation on Prey",
+        "trigger": "Later extension of the same additive-predation model family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cc653812-d3fd-46a2-ab64-d251cbaf4616",
+  "value": {
+    "rationale": "The source’s central delayed phenomenon is repeated stability switching and Hopf-generated oscillatory coexistence. The accepted theorem supplies an all-amplitude constraint that those periodic coexistence states must obey: delay can change phase geometry but not the prey period mean, while predator mean loss is exactly tied to lagged phase covariance. This is more than a renamed Jensen inequality because the second identity connects a biologically interpretable yield deficit to the delay-specific autocovariance term. It is useful for checking numerical cycles and for interpreting how the density-feedback lag redistributes correlation without changing period means. A prior own-ledger mean-defect theorem on a different nondelayed predator–prey system was treated as a serious overlap check; the present result is not accepted for the mean defect alone, but for the exact delayed covariance/mean-loss coupling that has no counterpart in that prior item.",
+    "status": "PASS"
+  }
+}
