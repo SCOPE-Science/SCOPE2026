@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T07:36:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 19409fefee4a80f3f12a2fe37f64e3801b7c3667",
+        "assigned verify_uniform_range_variance.py blob b5178e6a4bd403e6c25d11c7ba2a9250d5ccce72",
+        "Cheng--Hu--Lin, DOI:10.1007/s13171-026-00457-6",
+        "standard conditional law of uniform order statistics and beta range law"
+      ],
+      "rationale": "The order-statistic transformation \\((U_{(1)},\\ldots,U_{(n)})\\mapsto(u,r,z_2,\\ldots,z_{n-1})\\) has Jacobian \\(r^{n-2}\\) and factors the joint density into an endpoint/range term and a normalized-shape term. Hence the normalized interior configuration is independent of the endpoints, and translation/scale invariance makes \\(Q=S^2/R^2\\) a function of shape alone. Conditioning on endpoints reduces the interior points to iid uniform points on \\([0,1]\\), from which the stated mean follows by elementary second moments. Combining independence with the standard beta moments of the uniform range gives the covariance formula. The exact-rational verifier was inspected and an independent symbolic reduction reproduced the closed covariance expression and the \\(q=1\\) simplification.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical conditional distribution determines every measurable normalized-shape statistic, not just variance.",
+          "The beta range moments then determine all polynomial covariance identities used in the record."
+        ],
+        "reasoning": "The broader spacings theorem contains the assigned independence as one special statistic.",
+        "searches": [
+          "standard uniform order-statistic/spacings theory",
+          "Cheng--Hu--Lin 2026 range-moment discussion"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s13171-026-00457-6",
+        "standard uniform order-statistic/spacings theory",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first prior fact implies \\(Q\\perp(X_{(1)},X_{(n)})\\) directly.",
+          "The second gives \\(\\mathbb E R^t=n(n-1)/((n+t-1)(n+t))\\); substituting into \\(\\operatorname{Cov}(R^q,QR^2)\\) yields the displayed rational expression."
+        ],
+        "reasoning": "No additional nonstandard probabilistic lemma is needed.",
+        "searches": [
+          "conditional uniform interior order-statistic law",
+          "beta distribution of the sample range"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical conditional law says the interior observations, after endpoint normalization, are uniform on \\([0,1]\\) independently of the endpoints.",
+          "Sample variance divided by squared range is exactly a location-scale invariant function of that normalized interior shape."
+        ],
+        "reasoning": "The assigned endpoint-independence statement is simply the variance statistic evaluated on the standard ancillary normalized uniform spacings.",
+        "searches": [
+          "Resultary query: uniform sample variance divided by range squared independent endpoints covariance range uniform distribution",
+          "web search: conditional on minimum and maximum uniform order statistics interior sample",
+          "DOI:10.1007/s13171-026-00457-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier Resultary entry prints the same covariance formula verbatim."
+        ],
+        "reasoning": "A new closed simplification is not original when it is elementary algebra from standard independent factors and standard beta moments.",
+        "searches": [
+          "Resultary exact normalized-variance/range query"
+        ]
+      },
+      "rationale": "The central structural step is a standard uniform-order-statistics fact: conditional on the sample minimum and maximum, the remaining observations are distributed as an iid uniform sample on the random interval, equivalently the normalized spacings are independent of location and range. Since sample variance is translation invariant and homogeneous of degree two, independence of \\(S^2/R^2\\) from the endpoints follows immediately. The mean and covariance family then require only elementary moments and the standard beta law for the uniform range, which the recent range literature also records. Under implication-level originality, the full claim is therefore a routine consequence of textbook order-statistic structure rather than a new statistical theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "RANGE_MOMENTS_PLUS_CLASSICAL_ORDER_STATISTICS_MAKE_CLAIM_ROUTINE",
+          "evidence": "The paper records the standard uniform range distribution; combined with the classical endpoint-conditioned uniform interior law, the assigned covariance calculations are elementary.",
+          "identifier_or_url": "DOI:10.1007/s13171-026-00457-6",
+          "material_read": "Open primary article material discussing sample range and sample standard deviation dependence, uniform-sample applications and the beta range law.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "On the Sample Range Inequalities",
+          "trigger": "Closest recent same-statistics paper and source for the standard uniform range moments."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Cheng--Hu--Lin 2026",
+        "classical order-statistics theory"
+      ],
+      "rationale": "The normalized variance decomposition and explicit covariance family are useful, transparent summaries of the dependence between two common statistics. The record is rejected solely because those formulas are routine consequences of classical uniform-sample geometry.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For an iid continuous uniform sample, \\(Q=S^2/R^2\\) is independent of the sample endpoints, \\(\\mathbb EQ=(n+1)(n+2)/(12n(n-1))\\), and the stated exact conditional regression and all-positive-power covariance formula between \\(R^q\\) and \\(S^2\\) follow.",
+  "limitations": [
+    "Continuous nondegenerate uniform parent distributions only.",
+    "The unbiased sample variance convention with divisor \\(n-1\\) is used.",
+    "Rejected for implication-level originality, not correctness."
+  ],
+  "schema_version": 1
+}
