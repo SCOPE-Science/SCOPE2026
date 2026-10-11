@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The argument derives the relevant Gabor fiber matrix from modulation Parseval and polyphase Fourier series, identifies a reflection decomposition with even block \(B(\beta)\), and proves that a zero of its determinant forces rank deficiency. The periodic Cauchy identity supplies a finite closed form. The standalone standard-library verifier rigorously encloses \(D(3/20)\) and \(D(7/20)\) with opposite signs, so the intermediate-value step is justified without extrapolating finite numerical experiments. Critical assumptions are continuity and fourth-order decay of the fixed rational window.
+
+**Originality — PASS, with residual risk.** Ghosh's September 2026 paper works with precisely the same even window and already supplies a symmetry reduction, numerical determinant evidence through index \(200\), and proofs at indices \(1,2,3\). It explicitly leaves the numerical determinant signs as unproved; the present claim concerns the first new rigorously proved index, \(4\), not the reduction or the general conjecture. The August 2026 Ghosh comparison uses a different odd generator. Searches of related published mathematical findings on Gaussian-derivative Gabor frames, prime-field Gabor windows, and rational non-frame criteria showed no implication for the exact even rational window. An equivalent unpublished or poorly indexed treatment remains possible.
+
+**Value — PASS.** The natural finite cutoff \(4\) is the smallest unresolved integer in a precisely stated conjectural family and had numerical evidence but lacked a rigorous certificate. An explicit exact-arithmetic existence proof is a meaningful new step despite not establishing the whole conjecture or uniqueness of the parameter. It also provides a reproducible alternative rank-deficiency fiber for this density.
+
+**Scientific limits.** Existence for density \(4/5\) only; no parameter classification, no general all-index theorem, and no independently conducted scientific audit. Main literature comparison: arXiv:2609.19232v1, Theorem 1.4 and Sections 4–4.1; arXiv:2608.10568v2 for the odd-generator distinction.
+
+Same-model review: passed. Independent audit: not yet performed.
