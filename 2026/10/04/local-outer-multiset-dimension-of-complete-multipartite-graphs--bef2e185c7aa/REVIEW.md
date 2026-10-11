@@ -1,14 +1,21 @@
-# Review
-## Correctness
-**PASS.** The proof reduces every outside representation to its part occupancy, proves the exact distinct-occupancy criterion, and solves the resulting bounded distinct-integer minimization. The feasibility condition \(m_j\ge j\) is both necessary and sufficient, and the dominance of the \(k\) largest parts gives the global optimum. Boundary cases and an exhaustive direct-definition check through order \(11\) agree with the formula.
+# Independent mathematical audit
 
-## Originality
-**PASS.** The primary 2025 paper defines the local outer multiset dimension and leaves diameter-two/join cases broadly open. The 2026 survey gives a complete-multipartite theorem for the different local multiset invariant and local-outer formulas for cycles and wheels, not the arbitrary complete-multipartite local-outer theorem. The closest same-family global outer-multiset result imposes a stronger all-pairs condition and does not imply this formula. Targeted searches under complete-multipartite, local-outer, join, occupancy, and equivalent terminology found no covering statement.
+## correctness
 
-## Value
-**PASS.** Complete multipartite graphs form a standard dense diameter-two family and an iterated-join model directly aligned with the motivating open direction. The theorem gives an all-set structural characterization and an exact sorted-part optimization formula, recovers the known bipartite and complete-graph boundaries, and demonstrates a genuine gap from the global outer invariant.
+PASS
 
-## Closest literature and limitations
-The closest sources are arXiv:2507.15071v1 for the definition and basic local-outer theory, arXiv:2607.10311v1 for the recent survey, and arXiv:1902.03017v1 for the global outer invariant. The theorem is limited to complete multipartite graphs, and an equivalent result under unindexed terminology remains a residual literature risk.
+For an outside vertex in part i, its distance multiset is {|W|-a_i copies of 1, a_i copies of 2}; two outside vertices in distinct parts are adjacent and collide exactly when their active occupancies are equal. Fixing k active parts, k distinct nonnegative occupancies have sum at least 0+...+(k-1), with equality feasible for sorted active sizes m_j exactly when m_j>=j. For fixed k, replacing any active part by a larger one preserves feasibility and weakly decreases |W|, so the optimum uses the k largest parts, giving precisely the set K and displayed minimum. This establishes the universal formula; the verifier exhausts all multipartite isomorphism types through order eleven as a stress test. One nonessential post-proof explanatory sentence in RESULT.md says the r=2 value one comes from 'one active part with occupancy 0'; that wording is imprecise for general K_{a,b}, but the preceding criterion/formula and the conclusion lodim=1 are correct (for K_{1,1}, k=1 gives one; otherwise the feasible k=2 profile 0,1 gives one). It is not used in the proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2025 full primary paper introduces local outer multiset dimension and proves the bipartite value one plus several other small-diameter families; whole-document inspection found no multipartite theorem. The published complete-multipartite Resultary theorem concerns the stronger global outer multiset dimension, where every pair outside W must be distinguished, and therefore does not imply this local-adjacency formula. The 2026 survey abstract advertises outer-multiset diameter-two bounds and other multiset results but not an arbitrary complete-multipartite local-outer formula. No covering exact theorem was found.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a standard dense diameter-two/join family, and the local-outer parameter was introduced specifically to make such multiset identification finite. The theorem gives a complete arbitrary-part-size optimization law and cleanly separates it from the much stronger global outer invariant. This is a natural exact family result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
