@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite domains are completely exhausted. Two independent deferred-acceptance implementations agree profile by profile. Each resulting assignment is checked for stability and student-optimality among all stable assignments, while Pareto inefficiency is checked both by direct comparison with every perfect assignment and by a trading-cycle test. The priority-level acyclicity classification is independently computed from the unit-capacity Ergin cycle condition. The packaged verifier replayed from its actual path and returned `VERIFY_OK`.
+## correctness
 
-Risk: the universal statements stop at the exhausted \(2\times2\) and \(3\times3\) domains. No larger-market extrapolation is made.
+PASS
 
-## Originality
-**PASS.** Ergin's theorem and later open full-text restatements already cover the qualitative equivalence between acyclic priorities and universal efficiency of the fair/deferred-acceptance rule; that structural fact is treated as prior. The new claim is the complete smallest nontrivial census: exact \(1/36\) incidence, the \(0/4/8/12\) priority histogram, the \(648/648\) rank split, and the fact that every inefficient profile has one unique two-student Pareto repair. Searches by exact counts, mechanism names, acyclicity aliases, and small-market descriptions did not locate an equivalent published statement.
+A fresh independent enumeration over all 6^3 student-preference profiles and all 6^3 school-priority profiles reimplemented deferred acceptance and direct Pareto comparison against all six perfect matchings. It reproduced exactly 1296 inefficient profiles; priority histogram {0:42,4:36,8:126,12:12}; rank multiset counts 648 each for (2,2,2) and (2,2,3); and for every inefficient profile exactly one Pareto improvement with exactly two strict beneficiaries. The package verifier additionally cross-checks two DA implementations, stability/student-optimality, a trading-cycle criterion, all 16 strict 2x2 profiles, and the Ergin-cycle classification. The finite claim is therefore exhaustively established rather than inferred from sampling.
 
-Risk: failed search is not proof of novelty. An unindexed note, thesis, classroom enumeration, or software table could contain the same finite census.
+## originality
 
-## Value
-**PASS.** Deferred acceptance is a canonical priority-respecting school-choice mechanism, while Ergin cycles are the canonical obstruction to its universal Pareto efficiency. The three-student market is the smallest size where the obstruction can matter. Quantifying the entire first nontrivial domain and showing that every failure has a unique two-student repair gives a natural calibration of the qualitative theorem, rather than an arbitrary finite slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Ergin's acyclicity theorem and Narita's corrected proof characterize the priority structures for which deferred acceptance is always student-Pareto efficient as preferences vary, but they do not enumerate the three-by-three labeled profile incidence, the 0/4/8/12 priority histogram, or the unique two-student repair structure. A fresh Resultary search for the exact 3x3 counts returned no covering published finding.
+
+## value
+
+PASS
+
+Three by three is the first balanced strict market in which deferred acceptance can be Pareto inefficient, so this is a motivated finite boundary rather than an arbitrary census. The exact incidence, priority-stratum histogram and unique two-student repair structure give a compact benchmark for mechanism-design examples and computational checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

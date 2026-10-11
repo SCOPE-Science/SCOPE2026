@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:54:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 2298f003b2f46195a5d7951ef951907669eb72ba",
+        "verify_da_pareto_boundary.py blob de02aa74e8fb28c2b37f1d61a283a6c6a9abb228",
+        "fresh independent 46656-profile enumeration",
+        "Ergin/Narita acyclicity theorem context"
+      ],
+      "rationale": "A fresh independent enumeration over all 6^3 student-preference profiles and all 6^3 school-priority profiles reimplemented deferred acceptance and direct Pareto comparison against all six perfect matchings. It reproduced exactly 1296 inefficient profiles; priority histogram {0:42,4:36,8:126,12:12}; rank multiset counts 648 each for (2,2,2) and (2,2,3); and for every inefficient profile exactly one Pareto improvement with exactly two strict beneficiaries. The package verifier additionally cross-checks two DA implementations, stability/student-optimality, a trading-cycle criterion, all 16 strict 2x2 profiles, and the Ergin-cycle classification. The finite claim is therefore exhaustively established rather than inferred from sampling.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general structural theory determines when inefficiency can occur, not how often it occurs under all strict labeled preferences and priorities in the smallest balanced market."
+        ],
+        "reasoning": "A structural existence characterization does not imply the exact profile frequency or the four-level histogram without an additional finite enumeration.",
+        "searches": [
+          "Ergin 2002 acyclicity theorem",
+          "Narita 2021 correction",
+          "Kojima--Manea deferred-acceptance characterization literature"
+        ]
+      },
+      "checked_sources": [
+        "Ergin 2002",
+        "Narita 2021",
+        "Resultary 3x3 deferred-acceptance census query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ergin implies that exactly the acyclic priority structures have no inefficient preference profile, consistent with the observed 42 zero-count structures.",
+          "Independent enumeration gives 1296 inefficient labeled profiles, the 0/4/8/12 histogram, unique improvement in every inefficient profile, and the 648/648 rank split."
+        ],
+        "reasoning": "The qualitative acyclicity theorem does not mechanically determine the nonzero counts, unique repair cardinality, or rank multiset distribution.",
+        "searches": [
+          "Ergin acyclicity implication",
+          "fresh complete 3x3 enumeration independent of repository verifier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ergin's theorem identifies acyclicity as the structural condition behind efficiency properties.",
+          "Narita states that Ergin's main theorem remains valid and supplies a corrected proof.",
+          "Neither inspected source states the 1296/46656 census or the rank/repair refinements."
+        ],
+        "reasoning": "The zero-inefficiency priority stratum is an exact finite specialization of Ergin acyclicity; the full labeled profile census and Pareto-repair distribution are finer enumerative invariants.",
+        "searches": [
+          "Ergin, DOI:10.1111/j.1468-0262.2002.00447.x",
+          "Narita, DOI:10.3982/ECTA8740",
+          "Resultary query: three student deferred acceptance Pareto inefficiency 3 by 3 census Ergin acyclicity exact 1/36"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching published table or theorem was located in the Resultary search; returned findings were unrelated small finite censuses.",
+          "The primary Ergin/Narita literature gives structural theorems rather than these numerical counts."
+        ],
+        "reasoning": "This is an exact finite benchmark, but the checked databases did not reveal a pre-existing census; that absence is treated as residual-risk evidence, not proof.",
+        "searches": [
+          "Resultary exact 3x3 deferred-acceptance census search",
+          "targeted searches for 1296, 1/36, and 0/4/8/12 with Ergin/deferred acceptance"
+        ]
+      },
+      "rationale": "Ergin's acyclicity theorem and Narita's corrected proof characterize the priority structures for which deferred acceptance is always student-Pareto efficient as preferences vary, but they do not enumerate the three-by-three labeled profile incidence, the 0/4/8/12 priority histogram, or the unique two-student repair structure. A fresh Resultary search for the exact 3x3 counts returned no covering published finding.",
+      "residual_risks": [
+        "An unindexed teaching note, thesis, or software enumeration could contain the same small-market census.",
+        "The Ergin primary article was not fully text-parsed from the publisher in this run; the theorem scope was checked through its publisher record and Narita's full correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_ACYCLICITY_RESULT_NOT_PROFILE_CENSUS",
+          "evidence": "The source addresses efficiency properties generated by priority acyclicity, not the labeled 3x3 frequency table.",
+          "identifier_or_url": "DOI:10.1111/j.1468-0262.2002.00447.x",
+          "material_read": "Publisher article record and theorem context; the publisher route exposed metadata/PDF entry but not a fully parsed primary text in this run.",
+          "method": "Theorem-scope comparison, cross-checked against the later correction.",
+          "title": "Efficient Resource Allocation on the Basis of Priorities",
+          "trigger": "Foundational primary source for the acyclicity condition used to interpret the zero stratum."
+        },
+        {
+          "assessment": "PRESERVES_ERGIN_THEOREM_WITHOUT_ENUMERATIVE_REFINEMENT",
+          "evidence": "Narita explicitly states that the main theorem remains true and provides an alternative proof; no 3x3 census is given.",
+          "identifier_or_url": "DOI:10.3982/ECTA8740",
+          "material_read": "Publisher full HTML statement and correction discussion.",
+          "method": "Validity and scope check of the structural theorem.",
+          "title": "Comment on 'Efficient Resource Allocation on the Basis of Priorities'",
+          "trigger": "Primary correction to the proof of Ergin's main theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ergin 2002",
+        "Narita 2021",
+        "Resultary 3x3 deferred-acceptance census query"
+      ],
+      "rationale": "Three by three is the first balanced strict market in which deferred acceptance can be Pareto inefficient, so this is a motivated finite boundary rather than an arbitrary census. The exact incidence, priority-stratum histogram and unique two-student repair structure give a compact benchmark for mechanism-design examples and computational checks.",
+      "residual_risks": [
+        "An unindexed teaching note, thesis, or software enumeration could contain the same small-market census.",
+        "The Ergin primary article was not fully text-parsed from the publisher in this run; the theorem scope was checked through its publisher record and Narita's full correction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ergin 2002",
+    "Narita 2021",
+    "Resultary 3x3 deferred-acceptance census query"
+  ],
+  "disposition": "passed",
+  "final_claim": "In balanced complete strict 3x3 school choice with unit capacities, student-proposing deferred acceptance is student-Pareto inefficient on exactly 1296 of 46656 labeled preference-priority profiles (1/36); every inefficient profile has a unique Pareto improvement benefiting exactly two students, the assigned-rank multisets split 648/648 between (2,2,2) and (2,2,3), and across the 216 priority structures the inefficiency counts are 0:42, 4:36, 8:126, 12:12, with the 42 zero cases exactly Ergin-acyclic.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed teaching note, thesis, or software enumeration could contain the same small-market census.",
+    "The Ergin primary article was not fully text-parsed from the publisher in this run; the theorem scope was checked through its publisher record and Narita's full correction.",
+    "No larger-market frequency law, capacities above one, weak preferences, or outside options are covered."
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,44 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_da_pareto_boundary.py` is an exact finite replay using only the Python standard library.
 
-It exhausts all \(16\) complete strict \(2\times2\) profiles and all \(46656\) complete strict \(3\times3\) profiles.
+# Independent mathematical audit
 
-For each profile it independently checks:
-- deferred acceptance by a sequential free-student queue;
-- deferred acceptance by simultaneous proposal rounds;
-- stability of every perfect assignment;
-- student-optimality of the deferred-acceptance assignment among all stable assignments;
-- Pareto improvements by direct comparison with every perfect assignment;
-- equivalence of Pareto inefficiency with a directed trading cycle in the assignment envy graph.
+## correctness
 
-For \(3\times3\), the replay confirms:
-\[
-1296
-\]
-Pareto-inefficient profiles out of \(46656\), exactly one Pareto improvement at each bad profile, exactly two strict beneficiaries, and rank-multiset counts
-\[
-(2,2,2):648,
-\qquad
-(2,2,3):648.
-\]
+PASS
 
-It also independently classifies all \(216\) priority structures with the unit-capacity Ergin cycle condition and confirms
-\[
-0:42,
-\quad4:36,
-\quad8:126,
-\quad12:12
-\]
-for the number of bad preference profiles, with exactly \(42\) acyclic and \(174\) cyclic priority structures.
+A fresh independent enumeration over all 6^3 student-preference profiles and all 6^3 school-priority profiles reimplemented deferred acceptance and direct Pareto comparison against all six perfect matchings. It reproduced exactly 1296 inefficient profiles; priority histogram {0:42,4:36,8:126,12:12}; rank multiset counts 648 each for (2,2,2) and (2,2,3); and for every inefficient profile exactly one Pareto improvement with exactly two strict beneficiaries. The package verifier additionally cross-checks two DA implementations, stability/student-optimality, a trading-cycle criterion, all 16 strict 2x2 profiles, and the Ergin-cycle classification. The finite claim is therefore exhaustively established rather than inferred from sampling.
 
-Run:
+## originality
 
-`python3 verify_da_pareto_boundary.py`
+PASS
 
-The first output line must be:
+Ergin's acyclicity theorem and Narita's corrected proof characterize the priority structures for which deferred acceptance is always student-Pareto efficient as preferences vary, but they do not enumerate the three-by-three labeled profile incidence, the 0/4/8/12 priority histogram, or the unique two-student repair structure. A fresh Resultary search for the exact 3x3 counts returned no covering published finding.
 
-`VERIFY_OK`
+## value
 
-The computation proves only the stated finite classification.
+PASS
+
+Three by three is the first balanced strict market in which deferred acceptance can be Pareto inefficient, so this is a motivated finite boundary rather than an arbitrary census. The exact incidence, priority-stratum histogram and unique two-student repair structure give a compact benchmark for mechanism-design examples and computational checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
