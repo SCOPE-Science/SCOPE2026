@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For all \\(a\\geq0\\), interior node balance enforces equal path sine flows. Saturated flow has zero Hessian; every nonsaturated phase branch with negative path cosines has an explicitly constructed vector giving negative quadratic form, so strict stability requires three equal acute phase gaps. Its Hessian is positive modulo global phase exactly when \\(\\cos t>0\\) and \\(\\cos t+3a\\cos(3t)>0\\). Maximizing the exact cubic \\(F_a(s)=(1+3a)s-4as^3\\) on [-1,1] gives the two threshold regimes. An increasing-branch solution exists strictly above the threshold. Differentiation yields the unique maximum and crossover. The extracted standalone checker passed 526 finite diagnostics, not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arches et al. (2026) obtain a general derivative criterion at zero edge weight and numerically document limitations of extrapolating to finite weights.",
+        "Manik et al. (2016) provide general flow and Laplacian criteria, not an explicit closed-form finite-weight locking threshold for this forcing.",
+        "Ottino-Löffler–Strogatz (2016) give an upper ratio bound rather than a sharp formula for continuously variable closing-edge weight."
+      ],
+      "reasoning": "A first-order derivative does not determine global nonmonotonicity. General existence algorithms and bounds do not imply the stated values without an additional branch-stability exclusion and scalar maximization. No inspected stronger theorem directly covers these constants and phase regimes.",
+      "searches": [
+        "Exact phase-locking onset threshold of four Kuramoto oscillators on path 1-2-3-4 with end-to-end added edge, natural frequencies (-1,0,0,1), Braess paradox and nonmonotone edge-weight response",
+        "Four phase oscillators with frequencies (-1,0,0,+1): exact synchronization onset of three equal path weights and a variable endpoint chord, monotonicity reversal at weight 1/6, closed-form threshold",
+        "\"Comparing the locking threshold for rings and chains of oscillators\" arxiv full text",
+        "arXiv:2608.03594v1, first-order sensitivity theorem and examples",
+        "arXiv:1611.09825v2, Sections II–V"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.03594v1, Arches et al. (2026)",
+      "Phys. Rev. E 94, 062203 and arXiv:1610.00296, Ottino-Löffler and Strogatz (2016)",
+      "arXiv:1611.09825v2, Manik, Timme and Witthaut (2016)",
+      "Published mathematical-record and exact-phrase/parameter searches for phase locking and Braess reversal"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new theorem gives a piecewise analytic \\(K_c(a)\\) for all nonnegative a; the 2026 general sensitivity formula only addresses \\(K_c'(0)\\).",
+        "The 2016 four-node counterexample compares the endpoints for cumulative vector \\((1,-1,-1)\\), not the symmetric \\((-1,-1,-1)\\) data or the continuum of a values.",
+        "The three-increment Hessian test supplies explicit exclusions of all other strict-stability branches in the present model."
+      ],
+      "reasoning": "The exact curve implies a positive local penalty at \\(a=0\\) and an improvement at \\(a=1\\); the converse does not follow from either fact alone. Existing general methods enable but do not state the calculation. New content is the complete finite-weight branch law and unique reversal, not the old phenomenon that rings can be worse than chains. The open-path boundary has a three-dimensional transverse nullspace; the local derivative is established directly and not inferred from generic simple-fold hypotheses.",
+      "searches": [
+        "Exact phase-locking onset threshold of four Kuramoto oscillators on path 1-2-3-4 with end-to-end added edge, natural frequencies (-1,0,0,1), Braess paradox and nonmonotone edge-weight response",
+        "Four phase oscillators with frequencies (-1,0,0,+1): exact synchronization onset of three equal path weights and a variable endpoint chord, monotonicity reversal at weight 1/6, closed-form threshold",
+        "Comparing ring versus chain phase-locking threshold in symmetric endpoint-injected four-node Kuramoto network; three equal phase increments and shortcut nonlinear sin(3t)",
+        "arXiv:2608.03594v1, local edge-sensitivity theorem",
+        "arXiv:1610.00296, Section IV and equations (11)–(16)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ottino-Löffler and Strogatz (2016), equations (14)–(16): four-node counterexample has cumulative path-frequency vector \\((1,-1,-1)\\), whereas the present model has \\((-1,-1,-1)\\).",
+        "Manik–Timme–Witthaut (2016) derive cycle-flow constraints and examine a different alternating-injection four-node ring.",
+        "Searches on equal sine-flows and three-link shortcut reductions found no matching exact all-weight curve."
+      ],
+      "reasoning": "An equal-sine-flow reduction is naturally expressible in cycle-flow variables, but the known explicitly calculated four-node example differs in its path flow values. Neither inspected primary text formulates this one-parameter reversal, its critical weights, or the complete strict-stability threshold. The general methodology is compatible with this derivation without already stating the result.",
+      "searches": [
+        "Exact phase-locking onset threshold of four Kuramoto oscillators on path 1-2-3-4 with end-to-end added edge, natural frequencies (-1,0,0,1), Braess paradox and nonmonotone edge-weight response",
+        "Cycle Kuramoto equilibria stable sign patterns same sine flux, stable shortcut cycle with three equal path flows",
+        "Comparing ring versus chain phase-locking threshold in symmetric endpoint-injected four-node Kuramoto network; three equal phase increments and shortcut nonlinear sin(3t)",
+        "arXiv:1610.00296, equations (11) and (14)–(16)",
+        "arXiv:1611.09825v2, Sections III and IV.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused searches for the weights 1/9 and 1/6, the cubic threshold, and the same four-node forcing did not return an exact table or database entry with the proposed curve.",
+        "The motivating and older inspected papers contain other network examples and general bounds but no matching tabulation."
+      ],
+      "reasoning": "The claim is an exact continuum of threshold values, not a finite lookup or recomputation. Failure to find a table is not a proof of novelty, so the residual priority risk is explicitly retained.",
+      "searches": [
+        "Braess paradox false positive for finite edge strength in four-oscillator cycle, critical coupling rises then falls, explicit 1/9 1/6 transition, sin phi + a sin 3phi",
+        "Continuous weighted-edge Braess paradox can reverse sign: analytic Kuramoto four-cycle Kc(a)=1/(1-a), then Kc(a)=3sqrt(3a)/(1+3a)^(3/2)",
+        "\"Kuramoto\" \"1/6\" \"2/sqrt(3)\" \"Braess\"",
+        "\"Kuramoto\" \"chord\" \"sin 3\" \"Braess paradox\""
+      ]
+    },
+    "rationale": "The 2026 edge-addition sensitivity paper gives the local derivative criterion and numerical cautions, not this exact all-weight threshold. The 2016 ring/chain comparison has a four-vertex counterexample but a different cumulative-frequency vector and proves bounds, while the 2016 cycle-flow survey supplies general methods and a distinct Braess example. Direct statement/alias/parameter searches revealed no covered formula. The exact finite-weight reversal is not an immediate corollary of the published first-order sensitivity result. Residual priority risk remains because general cycle theory may be specialized in earlier uninspected work. The unclosed path is multiply marginal, so no nondegenerate simple-fold sensitivity formula is silently assumed applicable.",
+    "residual_risks": [
+      "A previously published specialization of general cycle-flow methods could reproduce this four-node all-weight curve under alternate forcing or weight normalization.",
+      "The inspected papers and indexed searches cannot establish priority against every older article or unpublished result.",
+      "The new claim concerns strict stable existence and does not address basins, dynamical nonhyperbolicity at \\(K=K_c(a)\\), or other forcing patterns.",
+      "The open-path threshold is multiply marginal, so the cited regular first-order sensitivity theorem may not directly apply to this example; the derivative here is an independent exact calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes local edge sensitivity and finite-edge warnings; does not display the exact symmetric four-node threshold curve",
+        "evidence": "arXiv:2608.03594v1; first submitted 2026-08-04; analysis of six-vertex chain example and local criterion.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.03594",
+        "material_read": "Full-text mathematical statement of the first-order criterion, sections with explicit chain examples, and discussion/conclusion; arXiv first-submission metadata",
+        "method": "Primary preprint full-text reading and comparison with the four-node all-edge-weight statement",
+        "title": "Predicting the occurrence of Braess paradox in the synchronization threshold of coupled oscillator systems",
+        "trigger": "Direct 2026 motivating paper on infinitesimal Braess sensitivity and false extrapolation"
+      },
+      {
+        "assessment": "Four-node counterexample uses a different cumulative frequency vector and only compares endpoint configurations; no exact variable-closing-edge stability curve",
+        "evidence": "2016 paper, page 3 equation (11), page 5 equations (14)–(16); cumulative vector \\((1,-1,-1)\\).",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.94.062203",
+        "material_read": "Full primary PDF: introductory setup, chain/ring relations, bound theorem, Section IV example, and asymptotic comparison",
+        "method": "Primary publisher PDF mathematical text and page-image inspection",
+        "title": "Comparing the locking threshold for rings and chains of oscillators",
+        "trigger": "Closest older explicit four-node ring-versus-chain counterexample"
+      },
+      {
+        "assessment": "Foundational cycle-flow and stability methods are prior; an alternate alternating-injection four-node Braess case is discussed, not this all-weight exact curve",
+        "evidence": "arXiv:1611.09825v2, stability criteria Section II and Braess discussion IV.4.",
+        "identifier_or_url": "https://arxiv.org/abs/1611.09825",
+        "material_read": "Full-text Sections II–V, including Hessian criteria, simple cycles, and Braess example",
+        "method": "Primary arXiv HTML full-text comparison by forcing pattern and computed claims",
+        "title": "Cycle flows and multistabilty in oscillatory networks: an overview",
+        "trigger": "General cycle-flow formalism can potentially dominate a special four-cycle result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fbd39164-c275-4b85-a5b1-613e3060f4e2",
+  "value": {
+    "rationale": "The user-relevant gap is the reliability of local Braess indicators when a link is added at finite weight, raised by the 2026 sensitivity work. This natural four-oscillator path-to-cycle construction yields a complete sharp analytic answer, including the onset of a new limiting phase branch at \\(a=1/9\\), worst penalty at \\(a=1/6\\), and a provable reversal at \\(a\\approx0.408894\\). Those are physically interpretable structural thresholds not furnished by the local derivative or old endpoint inequalities. The result is self-contained, permits exact parameter selection, and remains interesting without a network-wide generalization. Although the open path is multiply marginal, the analytically sharp finite-weight reversal answers the distinct design question beyond first-order local assessment.",
+    "status": "PASS"
+  }
+}
