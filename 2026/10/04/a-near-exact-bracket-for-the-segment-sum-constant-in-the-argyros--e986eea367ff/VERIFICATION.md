@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The exact upper-bound calculation is
-\[
-C_{\rm seg}^2\le 1+\frac19+\frac1{1089}+\frac{4^{-37}}3.
-\]
-It follows from the source estimate \(|\alpha_i^*(x_s)|\le1/s(\beta_i^*)\), together with the forced size data \(s_2\ge3\), \(h_2\ge5\), \(s_3\ge33\), and \(h_3\ge38\). The remaining squared evaluations are bounded by \(\sum_{r=38}^{\infty}4^{-r}=4^{-37}/3\).
 
-For the lower bound, the segment \(\{1,2,4,8,16,32,64\}\) and restricted generators based on \(\{1\}\), \(\{3,4,5\}\), and \(\{64,\ldots,96\}\) give the exact value
-\[
-C_0=\left(1+\frac19+\frac1{1089}\right)^{1/2}.
-\]
-The finite checker at `artifacts/verify_segment_bound.py` confirms the heap-tree incomparability relations, the inequalities \(3>2^1\) and \(33>2^5\), and the decimal evaluations. It does not certify the infinite argument; that argument is the geometric-series proof above.
+# Independent mathematical audit
 
-The proved claim does not assert equality of the two endpoints, and it does not extrapolate from finite computation.
+## correctness
+
+PASS
+
+The primary definitions confirm that incomparable averages may have size one and that a very-fast-growing family satisfies \(s(\beta_{j+1}^*)>2^{h_j}\). Proposition 3.1 gives the needed pointwise bound \(|\alpha_i^*(x_s)|\le1/s(\beta_i^*)\). From a first hit of size at least one, the next size is at least three; the size-three case must be incomparable, and labels \(2,3,4\) cannot support three pairwise incomparable nodes, so its support maximum is at least five. Hence the third size is at least \(33\), its support maximum at least \(38\), and the later squared tail is bounded by \(4^{-37}/3\). The lower witness was independently checked: \(3,4,5\) are pairwise incomparable, \(64,\ldots,96\) are 33 nodes on one level, and the size jumps \(3>2^1\), \(33>2^5\) hold. High-precision recomputation gives width \(8.3670225\ldots\times10^{-24}\).
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. The complete primary Proposition 3.1 proves only \(1\le\|x_s\|_\alpha\le2\), using a coarse tail estimate. The audited bracket needs the first two forced support-size jumps, retention of the evaluation vector in \(\ell_2\), and a separate near-extremal witness. Resultary returned no older same-object bound.
+
+## value
+
+PASS
+
+Uniform segment-sum boundedness is a central design feature of the new tree norm. Pinning its optimal constant to a width below \(8.368\times10^{-24}\) and furnishing a concrete near-extremal segment determines a natural exact-scale invariant rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
