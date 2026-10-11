@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:16:55.576950Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The order-12 classification was independently reconstructed. Exhaustive residue-counting over every divisor gives the displayed uniformly distributed set counts by size and, up to affine equivalence for sizes at most six, exactly the consecutive representatives plus the two exceptional supports \\(B_5=\\{0,1,2,3,5\\}\\) and \\(B_6=\\{0,1,2,3,5,10\\}\\). Consecutive rows are full spark by the Vandermonde argument. Exact arithmetic in \\(\\mathbb Z[z]/(z^4-z^2+1)\\) verifies zero maximal minors for both exceptional representatives, while a primitive 12th-root reduction modulo 1009 certifies every maximal minor of the consecutive representatives is nonzero. Affine invariance and complementary-minor symmetry then give precisely 48 bad size-five supports, 12 bad size-six supports, their 48 size-seven complements, and no others.",
+      "risks": [
+        "The finite verifier is a complete N=12 certificate but does not prove a general composite-order theorem."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "assigned verify_z12_fullspark.py",
+        "independent exact enumeration/cyclotomic reconstruction",
+        "Alexeev–Cahill–Mixon arXiv:1110.3548"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known general results leave composite sufficiency unresolved and hence do not imply which N=12 uniform supports fail.",
+          "Restricted coprime/arithmetic-progression sufficient conditions do not classify all row sets."
+        ],
+        "reasoning": "No broader theorem located dominates the complete N=12 support classification.",
+        "searches": [
+          "Alexeev–Cahill–Mixon composite-order discussion",
+          "Osgood–Siripuram–Wu",
+          "Achanta et al."
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.3548",
+        "arXiv:1204.0992",
+        "DOI 10.1109/SAM.2014.6882460",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At composite N the source expressly shows uniformity need not suffice, so the N=12 bad-orbit determination is not a corollary.",
+          "The N=10 counterexample is a different modulus and does not imply the N=12 orbit structure."
+        ],
+        "reasoning": "The final theorem fills an exact finite composite-order gap left open by the general theorem.",
+        "searches": [
+          "direct comparison with the prime-power iff/general-necessity theorem in arXiv:1110.3548"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general source gives necessity at arbitrary N and iff only at prime-power N.",
+          "No inspected source gives B5/B6 as the complete order-12 obstruction list."
+        ],
+        "reasoning": "Equivalent partial-Fourier, universal-sampling, affine-support, and complement formulations were compared.",
+        "searches": [
+          "Resultary query: order 12 DFT full spark uniformly distributed row subsets affine classification",
+          "arXiv:1110.3548",
+          "arXiv:1204.0992",
+          "DOI 10.1109/SAM.2014.6882460"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact order-12 table matching the audited full/non-full counts was located."
+        ],
+        "reasoning": "The finite classification would be covered by such a table if one were found; search failure alone is not used as novelty proof.",
+        "searches": [
+          "current Resultary order-12 Fourier/full-spark search",
+          "targeted web search for order 12 DFT full spark uniformly distributed row sets"
+        ]
+      },
+      "rationale": "The same primary full-spark literature gives general necessity and prime-power sufficiency, with an N=10 counterexample to composite sufficiency, but no inspected statement classifies N=12. Resultary and targeted web searches for order-12 uniformly distributed full-spark row sets returned neighboring Fourier-uncertainty and full-spark results rather than this exact support classification. The two exceptional affine orbits and complete cardinality table are therefore original to the best of the inspected evidence.",
+      "residual_risks": [
+        "An older unindexed signal-processing computation may contain the N=12 support table under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE only.",
+          "evidence": "It gives general necessity and prime-power sufficiency, not an order-12 classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "Full-text arXiv PDF around the uniform-distribution characterization and composite-order counterexample.",
+          "method": "Primary theorem and implication comparison; relevant PDF pages visually inspected.",
+          "title": "Full Spark Frames",
+          "trigger": "Primary full-spark DFT theorem and closest general prior."
+        },
+        {
+          "assessment": "NOT A COMPLETE N=12 CLASSIFICATION.",
+          "evidence": "Its complete characterization is in the prime-power setting.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.0992",
+          "material_read": "Accessible arXiv metadata/abstract and theorem scope.",
+          "method": "Scope comparison.",
+          "title": "Discrete Sampling and Interpolation: Universal Sampling Sets for Discrete Bandlimited Spaces",
+          "trigger": "Equivalent universal-sampling formulation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Order 12 is a natural small highly composite Fourier order at which the prime-power theory no longer decides full spark. The result gives a complete support classification with two explicit obstruction types and exact symmetry/count data. This is a motivated complete finite classification, not an arbitrary numerical slice.",
+      "risks": [
+        "The result remains order-specific and does not identify a universal composite-order criterion."
+      ],
+      "sources": [
+        "general composite-order gap in full-spark Fourier theory",
+        "exact order-12 classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Order 12 only.",
+    "General uniform-distribution necessity and complementary-minor facts are prior inputs.",
+    "Originality is best-of-knowledge."
+  ],
+  "schema_version": 1
+}

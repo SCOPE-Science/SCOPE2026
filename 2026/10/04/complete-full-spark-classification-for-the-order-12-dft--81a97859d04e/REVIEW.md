@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced to uniformly distributed row sets by the published general necessity theorem. Affine invariance and complementary-minor symmetry are exact linear-algebraic reductions. Exhaustive enumeration leaves only six consecutive representatives and two exceptional representatives up to size \(6\); the consecutive representatives are Vandermonde full spark, while exact cyclotomic arithmetic gives explicit zero maximal minors for both exceptions. The verifier independently reproduces the orbit counts and determinant checks.
+## correctness
 
-## Originality
-PASS on the inspected evidence. The closest primary papers establish the prime-power classification, general necessity, the order-\(10\) counterexample, and restricted coprime or one-missing-row criteria. Targeted statement, alias, affine-equivalence, and exact-row-set searches did not locate a complete order-\(12\) iff classification. Residual risk remains for unindexed or differently phrased literature.
+PASS
 
-## Value
-PASS. Order \(12\) is a small non-prime-power case with a repeated prime factor, outside both the prime-power theorem and the distinct-two-prime specialization. The theorem turns a finite computational question into a sharp structural classification and identifies two qualitatively distinct obstruction orbits, one self-complementary.
+The order-12 classification was independently reconstructed. Exhaustive residue-counting over every divisor gives the displayed uniformly distributed set counts by size and, up to affine equivalence for sizes at most six, exactly the consecutive representatives plus the two exceptional supports \(B_5=\{0,1,2,3,5\}\) and \(B_6=\{0,1,2,3,5,10\}\). Consecutive rows are full spark by the Vandermonde argument. Exact arithmetic in \(\mathbb Z[z]/(z^4-z^2+1)\) verifies zero maximal minors for both exceptional representatives, while a primitive 12th-root reduction modulo 1009 certifies every maximal minor of the consecutive representatives is nonzero. Affine invariance and complementary-minor symmetry then give precisely 48 bad size-five supports, 12 bad size-six supports, their 48 size-seven complements, and no others.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same primary full-spark literature gives general necessity and prime-power sufficiency, with an N=10 counterexample to composite sufficiency, but no inspected statement classifies N=12. Resultary and targeted web searches for order-12 uniformly distributed full-spark row sets returned neighboring Fourier-uncertainty and full-spark results rather than this exact support classification. The two exceptional affine orbits and complete cardinality table are therefore original to the best of the inspected evidence.
+
+## value
+
+PASS
+
+Order 12 is a natural small highly composite Fourier order at which the prime-power theory no longer decides full spark. The result gives a complete support classification with two explicit obstruction types and exact symmetry/count data. This is a motivated complete finite classification, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
