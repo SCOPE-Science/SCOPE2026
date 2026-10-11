@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the weighted fourth-order boundary eigenproblem from T*T, treats the singular endpoint by |J²f(x)|=O(x^(3/2)), proves unique two-dimensional Volterra solutions and entire power series, establishes the boundary determinant if-and-only-if (including converse), and excludes all nonpositive/nonreal zeros using selfadjoint positivity. Exact coefficients and a separate TT* kernel trace calculation verify normalization; numerical discretizations are supporting, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2009 DOI 10.1216/JIE-2009-21-2-281 concerns M_m J and second-order Bessel characteristics; the present problem is M_{1/x}J² with a singular fourth-order ODE.",
+        "arXiv:1811.11642v1 computes unweighted J^n 2n-order BVPs; its n=2 coefficients are constant."
+      ],
+      "reasoning": "General SVD and weighted-integration frameworks do not, on the inspected propositions, imply this specific two-solution entire determinant or eliminate the singular endpoint regularity proof. The method could conceivably be specialized elsewhere; this remains a bibliographic risk.",
+      "searches": [
+        "Web: Hofmann von Wolfersdorf 2009 A new result on singular value asymptotics of integration operators with weights full text",
+        "arXiv:1811.11642v1 Sections 1–3",
+        "Web: Cesaro Volterra singular values hypergeometric characteristic equation 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1216/JIE-2009-21-2-281",
+      "arXiv:1208.5242v1",
+      "arXiv:1811.11642v1",
+      "arXiv:2401.11411v1",
+      "Prior finite-Cesàro singular-spectrum study, identifier 502b7b01-3a69-413f-9c1a-1e1d160f40d6",
+      "Prior weighted Volterra singular-spectrum study, identifier 2b376b3b-891a-4200-9220-9d97f336cac6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2024 result: sigma_n(CJ) is within universal constant multiples of n^-2, without an exact root characterisation.",
+        "2018 J² method: different weight / different ODE; 2012 bound: no operator spectrum.",
+        "Related previously reported claim 502b7b01-3a69-413f-9c1a-1e1d160f40d6 studies finite Cesaro matrix singular values; other previously reported claim 2b376b3b-891a-4200-9220-9d97f336cac6 is rank-one perturbed weighted Volterra, not the present CJ."
+      ],
+      "reasoning": "The claimed consequence (all exact singular values are precisely inverse square roots of positive zeros of explicit entire F, with boundary-matrix nullity) is neither a corollary of asymptotic n^-2 control nor of a constant-coefficient J² determinant, and the source on commutator boundedness does not give eigenvalues. Claims were compared through operator identification and logical implication.",
+      "searches": [
+        "arXiv:2401.11411v1 Theorem 1, Section 3 equation (22), full paper",
+        "arXiv:1811.11642v1 equation (7) for unweighted n-fold integration",
+        "arXiv:1208.5242v1 commutator equation (1.5)",
+        "Prior mathematical claims 502b7b01-3a69-413f-9c1a-1e1d160f40d6 and 2b376b3b-891a-4200-9220-9d97f336cac6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact same CJ appears in arXiv:2401.11411v1 eq (13), whose Section 3 gives a different integro-differential eigenproblem but no characteristic entire determinant.",
+        "The present equality T=MC-CM is a direct substitution of the 2012 generalized Hardy–Cesàro commutator; that source supplies boundedness only."
+      ],
+      "reasoning": "Compared the operators, not their titles: x^{-1}J²=CJ=[M,C]. 2024 is the exact object and acknowledges unavailable analytic eigenvalues; neither its finite-difference determinant (mesh dependent) nor its n^-2 estimate determines the entire zero set of F.",
+      "searches": [
+        "Published research index query: Continuous Hardy Cesàro Volterra composition A=C∘J on real L2(0,1) with kernel (x-t)/x: exact singular spectrum, characteristic Evans determinant for fourth-order weighted equation u''''=lambda u/x²; zeros of generalized hypergeometric 0F3",
+        "Web: Cesaro operator Volterra composition singular values explicit characteristic equation U'''' lambda U/x^2",
+        "Web: Hardy operator commutator Volterra weighted singular values fourth-order boundary problem hypergeometric determinant",
+        "arXiv:2401.11411v1 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed published study on Cesàro Mellin-semigroup defects addresses Cesaro semigroup defects, not the compact CJ kernel.",
+        "arXiv:2401.11411v1 displays numerical finite-difference eigenvalues but no exact table or whole-spectrum characteristic equation."
+      ],
+      "reasoning": "This is an infinite transcendental operator spectrum rather than a finite census. Published numerical eigen approximations cannot cover the exact entire spectral equation and its no-spurious-zeros property; no exact table with dominating implication was identified.",
+      "searches": [
+        "Published research index query: Hardy-Volterra commutator [Cesaro averaging, multiplication by x] on L2(0,1), operator T f(x)=x^-1 integral_0^x(x-t)f(t)dt, singular values determined by fourth-order differential boundary equation and entire 0F3 determinant",
+        "Published research index query: singular value decomposition of product Cesaro Hardy averaging and Volterra integration operator on L2 with weighted fourth-order clamped free beam equation",
+        "Web: Cesaro composition exact singular values 2025 2026"
+      ]
+    },
+    "rationale": "Full material comparison of the exactly coincident CJ source arXiv:2401.11411v1 shows only n^-2 order and a mesh-dependent eigenproblem, with exact analytic eigenvalues stated difficult. Other closely relevant works concern Hardy commutator boundedness, outer-weighted first integration, or unweighted n-fold integration. Published literature and the closest previously stated mathematical results contain no matching exact spectrum; the residual risk of overlooked reformulations and later revisions remains explicitly recorded.",
+    "residual_risks": [
+      "The 2024 paper has subsequent revisions; the specific v1 full text was inspected, later revisions not fully compared.",
+      "General historic weighted fourth-order spectral literature may implicitly contain an equivalent characteristic, despite absence from inspected sources.",
+      "The 2009 full text was inspected in accessible passages rather than wholly line-by-line; its visible scope is outer-weighted first integration.",
+      "No external independent bibliographic or proof validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_DIRECTLY_COVER: outer-weighted first integration M_m J; not the exact composition x^-1 J^2 with a singular fourth-order characteristic determinant. Generic weighted spectral theory remains an equivalence risk.",
+        "evidence": [
+          "DOI 10.1216/JIE-2009-21-2-281; Proposition 2.3 concerns m(t)=t^alpha applied to J, singular order 1/n.",
+          "Theorem 4.1 treats exponential/power envelopes for outer-weighted J and the corresponding second-order Bessel problem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1216/JIE-2009-21-2-281",
+        "material_read": "Abstract; introduction; displayed power-weight Proposition 2.3 and Theorem 4.1 passages visible in lawful author-shared full text; not asserted to be full cover-to-cover inspection",
+        "method": "Publisher metadata and accessible author-shared text via ResearchGate",
+        "title": "A new result on the singular value asymptotics of integration operators with weights",
+        "trigger": "Nearest earlier theory of weighted integration singular spectra and Bessel eigenvalue equations"
+      },
+      {
+        "assessment": "DOES_NOT_COVER the singular-value spectrum; studies boundedness and norms of generalized Hardy–Cesàro operators and commutators. Its definition (1.5) specializes to the considered kernel.",
+        "evidence": [
+          "arXiv:1208.5242v1 page 3, equations (1.3) and (1.5), commutator bU-U(bf).",
+          "Theorems concern weighted Lp and BMO boundedness, not eigenvalue boundary determinants."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1208.5242v1",
+        "material_read": "All source headings indexed; complete introductory operator and commutator definitions; abstract, PDF pages 1 and 3 visually inspected; searched full parsed text for singular-value and spectral analysis",
+        "method": "Open arXiv PDF text extraction, page-image inspection, and exact-term search",
+        "title": "A generalized weighted Hardy-Cesàro operator, and its commutator on weighted Lp and BMO spaces",
+        "trigger": "Pre-2016 direct source defining the Hardy–Cesàro commutator and specializing to C and multiplication by x"
+      },
+      {
+        "assessment": "DOES_NOT_COVER weighted T=x^-1 J^2; its model is unweighted J^n and the n=2 eigen-ODE has constant coefficient rather than x^-2. General spectral method is antecedent, not the claimed explicit entire determinant.",
+        "evidence": [
+          "arXiv:1811.11642v1 Section 3 equation (7): constant-coefficient 2n-order BVP for J^n.",
+          "Its object is J^n, not C J."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1811.11642v1",
+        "material_read": "Abstract, introduction, Section 3 boundary-value formulation and transcendental-equation construction, visually examined PDF pages 1 and 4",
+        "method": "Open arXiv PDF text and page-image inspection",
+        "title": "On the singular value decomposition of n-fold integration operators",
+        "trigger": "Highly relevant precedent for converting J^n singular problems to 2n-order ODE characteristic determinants"
+      },
+      {
+        "assessment": "NOT_COVERING the exact entire-root characterization: the same operator has an integro-differential eigenproblem, but only two-sided n^-2 singular estimates and finite-difference eigenvalues are established; explicit eigenvalue solutions described as difficult. Later revisions are a named risk.",
+        "evidence": [
+          "arXiv:2401.11411v1 Section 3 equations (21)–(22), explicit statement that analytical eigenvalues seem difficult and numerical finite differences used.",
+          "Section 4 Theorem 1 gives sigma_n(CJ) asymp n^-2, not an exact characteristic determinant; Section 4 final proof uses Legendre polynomials."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.11411v1",
+        "material_read": "Full substantive HTML: Sections 1–4, theorem proof, Appendix and reference list, including Section 3 equation (22) and Section 4 Theorem 1",
+        "method": "Open-access arXiv version-specific HTML full-text inspection",
+        "title": "The degree of ill-posedness for some composition governed by the Cesàro operator",
+        "trigger": "Decisive plausible directly equivalent result: exact same C∘J operator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a37cf33-f373-435c-a91a-9d02f1e128d7",
+  "value": {
+    "rationale": "The result supplies an exact, globally valid entire characteristic equation for all singular values of a natural Hardy–Volterra commutator whose spectrum a directly relevant publication previously treated by finite differences and order estimates. Its two analytic fundamental solutions, endpoint proof, eigenspace-nullity formula, and reproducible root mechanism are a substantive operator-theoretic invariant. No elementarily closed numerical spectrum or high-index sharp constant is claimed.",
+    "status": "PASS"
+  }
+}
