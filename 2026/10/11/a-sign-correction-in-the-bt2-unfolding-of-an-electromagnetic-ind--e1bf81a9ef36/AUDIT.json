@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The source gives a negative first coefficient in \\(\\beta_1\\) and multiplies \\(\\beta_1\\) by the strictly positive factor \\(b^4/a^3\\). Decimal replay of the printed constants yields \\(-3.1988944697\\times10^8\\) for that coefficient and reconstructs the source's saddle-node tangent \\(62.4500798035\\). The plus sign in equation (16) therefore cannot follow from the paper's own preceding equations. `verify.py` reproduces these checks. The claim does not extend to unverified center-manifold digits or global dynamics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carrillo--Verduzco--Delgado gives general Takens--Bogdanov theory, not the numerical unfolding for this neuron model.",
+        "Other neuron Bogdanov--Takens papers found in search concern different conductance models and do not determine the sign of this source's coefficient."
+      ],
+      "reasoning": "Broader normal-form theory explains how the coefficients are used but does not subsume a correction to a numerical coefficient calculated for this specific model. No stronger published correction covering the same source-specific equation was located.",
+      "searches": [
+        "Public web search: Bogdanov-Takens neuron electromagnetic induction Wen Liu Lu",
+        "Public semantic-index search: Bogdanov Takens normal form sign error saddle-node tangent electromagnetic neuron",
+        "Source reference check: Carrillo Verduzco Delgado 2010 parameterized Takens-Bogdanov"
+      ]
+    },
+    "checked_sources": [
+      "Wen, Liu and Lu, Electronic Research Archive 29 (2021), DOI 10.3934/era.2021034, full relevant BT2 section.",
+      "Carrillo, Verduzco and Delgado, International Journal of Bifurcation and Chaos 20 (2010), DOI 10.1142/S0218127410026277.",
+      "Publisher metadata and correction/erratum searches for DOI 10.3934/era.2021034.",
+      "Public searches for the distinctive coefficients and the equivalent saddle-node tangent.",
+      "Public semantic-index hits returned by source, claim, alias, parameter, and equivalence searches."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest prior indexed findings address a structural zero mode in a different memristor oscillator and a sign inconsistency in a gyrostat model; neither concerns this source or implies this coefficient correction.",
+        "No available prior finding identified the Wen--Liu--Lu equation-(16) sign discrepancy."
+      ],
+      "reasoning": "A generic fact that sign errors can occur, or a correction in another model, has no implication for this numerical unfolding. The present claim requires the source-specific beta coefficients and positive rescaling.",
+      "searches": [
+        "Available prior-finding search for electromagnetic neuron, Bogdanov-Takens, BT2, sign, and normal form",
+        "Public semantic-index search: Firing patterns bifurcation electromagnetic induction correction Eq 16 BT2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source itself gives the negative first coefficient in the formula for the scaled unfolding parameter immediately before Theorem 5.1.",
+        "The source's saddle-node condition has linear part \\(-\\bar\\lambda_1+62.4500798\\bar\\lambda_2\\), which is equivalent to the corrected sign and incompatible with the printed positive sign."
+      ],
+      "reasoning": "Equivalent formulations were sought as a direct sign correction, a corrected scaled unfolding coefficient, and a reversed/positive saddle-node tangent. None of the checked indexed results states an equivalent source-specific correction.",
+      "searches": [
+        "Public semantic-index search: Wen Liu Lu electromagnetic induction neuron BT2 equation 16 unfolding sign 3.19889447 62.4500798",
+        "Public web search: exact title plus Bogdanov-Takens correction and sign",
+        "Public web search: exact distinctive coefficient 62.4500798 with Bogdanov-Takens"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher record identifies the article, publication date, primary MSC 34C23, and BT2 data in Table 2.",
+        "No correction, erratum, or corrigendum for the equation-(16) sign was found in the checked publisher/web records."
+      ],
+      "reasoning": "The source table confirms the relevant BT2 point and normal-form constants but does not correct equation (16). No exact correction record or database entry located in the checks covers the claim.",
+      "searches": [
+        "Publisher article record and Table 2 for BT2",
+        "Public web search: DOI 10.3934/era.2021034 correction OR erratum OR corrigendum",
+        "Public web search: exact BT2 parameter pair 0.649385813300958 and 0.00912704116143242"
+      ]
+    },
+    "rationale": "Targeted searches of the source title/DOI, distinctive coefficients, correction/erratum terms, equivalent saddle-node tangent, general BT literature, and public indexed findings located no public statement implying this source-specific equation-(16) correction. The source itself contains the ingredients but not the explicit correction; its displayed formulas are internally inconsistent until the sign is repaired.",
+    "residual_risks": [
+      "An unindexed author note, private communication, or later informal correction could already identify the typo.",
+      "The source's intermediate coefficients are printed at finite precision, so the checker cannot certify hidden higher-precision digits; this does not affect the sign conclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the input formulas but NOT the correction as a stated result; equation (16) conflicts with the source's preceding and subsequent formulas.",
+        "evidence": "Published \\(\\beta_1\\) has a negative first coefficient; the scaled \\(\\bar\\beta_1\\) and the later SN/HC formulas retain that negative sign, while equation (16) alone prints it positive.",
+        "identifier_or_url": "doi:10.3934/era.2021034",
+        "material_read": "Full article with close reading of the BT2 derivation, equations (14)-(16), Theorem 5.1, the saddle-node and homoclinic formulas, Table 2, and publisher metadata.",
+        "method": "Direct comparison of the published beta coefficients, positive normalization, theorem normal form, and subsequent curve equations; independent high-precision arithmetic replay of displayed decimals.",
+        "title": "Firing patterns and bifurcation analysis of neurons under electromagnetic induction",
+        "trigger": "Primary source containing BT2, equations (14)-(16), Theorem 5.1, and the reported bifurcation curves."
+      },
+      {
+        "assessment": "NOT_COVERING the source-specific numerical correction; it supplies general theory rather than these coefficients.",
+        "evidence": "The work concerns sufficient conditions and normal-form analysis for parameterized vector fields generally, not the Wen--Liu--Lu neuron coefficients.",
+        "identifier_or_url": "doi:10.1142/S0218127410026277",
+        "material_read": "Bibliographic record, abstract-level description, and the role assigned to it by the source article.",
+        "method": "Implication comparison against the source-specific numerical sign claim.",
+        "title": "Analysis of the Takens-Bogdanov bifurcation on m-parameterized vector fields",
+        "trigger": "Methodological reference cited by the source for the BT calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e1bf81a9-ef36-4e65-9d5e-3079f30ebdd7",
+  "value": {
+    "rationale": "The corrected coefficient belongs to the explicit BT2 normal form used to orient local saddle-node, Hopf, and homoclinic regimes. Literal use of the printed plus sign reverses the saddle-node tangent and contradicts the theorem's own curve formulas. Restoring the negative sign makes the reduced equation reproducible and internally consistent. The claim is deliberately not inflated beyond this central local correction.",
+    "status": "PASS"
+  }
+}
