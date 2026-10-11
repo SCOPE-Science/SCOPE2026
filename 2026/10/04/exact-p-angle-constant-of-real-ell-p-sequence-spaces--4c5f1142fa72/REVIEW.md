@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs the Yang--Li definition, keeps the full quantifiers \(1\le p\le\infty\) and arbitrary index sets with at least two coordinates, and handles the endpoint cases separately. For \(1<p<\infty\), Clarkson reduces the problem to a two-variable power-sum constraint; scaling and the ratio \(t=a/b\) reduce it to \(R_m(t)\). The derivative sign is proved by a convexity inequality on \([0,1]\), not inferred from samples. Explicit two-coordinate vectors attain the bound on both branches. No computation or certificate is needed for the theorem.
+## correctness
 
-Risk: the review does not classify all equality cases, but that is outside the claim and does not affect the supremum value.
+PASS
 
-## Originality
-**PASS.** The closest primary source is Yang--Li, arXiv:2208.11239. It defines \(S_P\), proves the universal \(1/2\) ceiling, and gives canonical \(\ell_p\) test pairs, but the inspected text does not prove the matching all-\(p\) upper bound. Clarkson's classical theorem supplies only the norm inequality; it does not state this later invariant. A related 2022 paper on angle moduli studies different quantities. Semantic searches for the exact formula, duality form, aliases, and stronger coverage produced no covering record.
+For unit vectors let \(a=\|x+y\|_p\), \(b=\|x-y\|_p\). The P-angle objective is \((a^2+b^2-4)/(2ab)\). Clarkson gives \(a^m+b^m\le2^m\) with \(m=p\) for \(p\ge2\) and \(m=p'\) for \(1<p\le2\). At fixed ratio \(t=a/b\), the objective increases with common scale, so the problem reduces to the boundary scalar function \(R_m(t)=[1+t^2-(1+t^m)^{2/m}]/(2t)\). Symmetry reduces to \(t\ge1\), and the derivative sign is equivalent to \((1+v)^\alpha-(1-v)^\alpha\le2^\alpha v\) for \(\alpha=2/m\in(0,1]\); the left side is convex with the same endpoint chord, proving the bound globally. The submitted disjoint-coordinate and Hanner pairs attain the two branches, while the elementary endpoint argument gives 1/2 at p=1 and infinity. All quantifiers and the Hilbert boundary p=2 are consistent.
 
-Residual risk: a poorly indexed independent derivation may exist. That risk is recorded rather than converted into a novelty proof.
+## originality
 
-## Value
-**PASS.** Real \(\ell_p\) spaces are the standard calibration family for geometric constants. Exact evaluation converts previously exhibited witnesses into a complete benchmark, identifies the branch switch at \(p=2\), and makes Hölder-duality symmetry explicit. The result is structurally motivated by the invariant itself rather than by an arbitrary parameter slice.
+PASS
 
-## Closest literature and limitations
-The defining source is Yang--Li (2022), arXiv:2208.11239; the critical analytic input is Clarkson (1936). The theorem is limited to real sequence spaces and does not claim equality-case classification, a general Banach-space formula, or a complex analogue. The literature comparison has the normal residual risk of obscure or inaccessible sources.
+Yang--Li define the same invariant, prove the universal bound \(0\le S_P(X)\le1/2\), and in Example 3.4 choose the same natural \(\ell_p\) witness types. The inspected primary text then describes these as bounds/estimates and does not state a matching all-p upper bound. The audited Clarkson-to-one-variable argument supplies that missing upper bound, giving exactness for every real \(\ell_p(I)\). Resultary's exact search returned the assigned theorem as the exact P-angle hit; nearby \(\ell_p\) constants concern different invariants.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Real \(\ell_p\) spaces are the canonical calibration scale for Banach-space geometric constants. The exact formula closes the gap between the defining paper's natural witnesses and its general ceiling, identifies the Hilbert phase transition at p=2, and exposes Hölder-duality symmetry. This is a natural complete benchmark of the invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

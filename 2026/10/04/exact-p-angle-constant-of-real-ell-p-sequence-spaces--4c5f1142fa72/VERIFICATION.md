@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was replayed from its definitions rather than from numerical logs.
+# Independent mathematical audit
 
-For unit vectors, set \(a=\|x+y\|_p\) and \(b=\|x-y\|_p\). The P-angle expression is exactly \((a^2+b^2-4)/(2ab)\). Clarkson yields the correct power-sum constraint with exponent \(m=p\) for \(p\ge2\) and \(m=p'\) for \(1<p\le2\). At a fixed ratio \(a/b\), the expression is strictly increasing in common scale, so only the boundary \(a^m+b^m=2^m\) matters.
+## correctness
 
-The remaining scalar bound was checked algebraically. With \(\alpha=2/m\), \(u=t^m\), and \(v=(u-1)/(u+1)\), the sign condition for monotonicity becomes
-\[
-(1+v)^\alpha-(1-v)^\alpha\le2^\alpha v.
-\]
-The left side is a convex function of \(v\in[0,1]\) joining \(0\) to \(2^\alpha\), so it lies below that endpoint chord. This proves the global upper bound, not merely a sampled bound.
+PASS
 
-Attainment was checked directly using disjoint coordinate vectors for \(1\le p\le2\), the two-coordinate Hanner pair for \(2\le p<\infty\), and its unscaled endpoint version for \(p=\infty\). The formulas agree at \(p=2\) and give \(1/2\) at \(p=1,\infty\).
+For unit vectors let \(a=\|x+y\|_p\), \(b=\|x-y\|_p\). The P-angle objective is \((a^2+b^2-4)/(2ab)\). Clarkson gives \(a^m+b^m\le2^m\) with \(m=p\) for \(p\ge2\) and \(m=p'\) for \(1<p\le2\). At fixed ratio \(t=a/b\), the objective increases with common scale, so the problem reduces to the boundary scalar function \(R_m(t)=[1+t^2-(1+t^m)^{2/m}]/(2t)\). Symmetry reduces to \(t\ge1\), and the derivative sign is equivalent to \((1+v)^\alpha-(1-v)^\alpha\le2^\alpha v\) for \(\alpha=2/m\in(0,1]\); the left side is convex with the same endpoint chord, proving the bound globally. The submitted disjoint-coordinate and Hanner pairs attain the two branches, while the elementary endpoint argument gives 1/2 at p=1 and infinity. All quantifiers and the Hilbert boundary p=2 are consistent.
 
-No numerical experiment, finite search, external proof assistant, or unpublished certificate is required. The unproved limits are only bibliographic: the search cannot rule out an obscure independent prior derivation, and the theorem does not classify all extremizers.
+## originality
+
+PASS
+
+Yang--Li define the same invariant, prove the universal bound \(0\le S_P(X)\le1/2\), and in Example 3.4 choose the same natural \(\ell_p\) witness types. The inspected primary text then describes these as bounds/estimates and does not state a matching all-p upper bound. The audited Clarkson-to-one-variable argument supplies that missing upper bound, giving exactness for every real \(\ell_p(I)\). Resultary's exact search returned the assigned theorem as the exact P-angle hit; nearby \(\ell_p\) constants concern different invariants.
+
+## value
+
+PASS
+
+Real \(\ell_p\) spaces are the canonical calibration scale for Banach-space geometric constants. The exact formula closes the gap between the defining paper's natural witnesses and its general ceiling, identifies the Hilbert phase transition at p=2, and exposes Hölder-duality symmetry. This is a natural complete benchmark of the invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
