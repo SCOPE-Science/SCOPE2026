@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source theorem gives \(b=d-2c-n\) for permutation actions in characteristic different from \(2\). For the diagonal \(r\)-copy action with \(r\ge2\), \(c=0\). Even \(r\) places the whole image in the alternating group, forcing \(d=0\). Odd \(r\) identifies admissible monomials exactly with pairwise-distinct exponent columns in \(\mathbb N^r\); minimizing total degree is therefore the initial-segment problem for the weight shells of \(\mathbb N^r\). Stars-and-bars and the weighted hockey-stick identity give the claimed closed formula. The sign-threshold argument follows from the increment \(s-r\) when a new weight-\(s\) exponent vector is added. The boundary arithmetic recovers the published \((3,36)\) example exactly.
+## correctness
 
-## Originality
-PASS. The closest primary source proves a general formula in terms of an unevaluated stabilizer-minimum \(d\) and works out only \((r,m)=(3,36)\) for this diagonal family. The inspected predecessor gives the analogous stabilizer criterion for the \(a\)-invariant. Targeted searches for diagonal-copy \(b\)-invariants, sign semi-invariants, and the lattice threshold did not locate the arbitrary-parameter formula or the sharp criterion \(m>\binom{2r+1}{r}\). The residual risk is an equivalent statement under multisymmetric or alternating-polynomial terminology.
+PASS
 
-## Value
-PASS. This is a natural complete classification for the family singled out by the motivating paper: it explains why \(36\) is the first positive three-copy example, provides the exact value for every \((r,m)\), and produces an infinite sharp family whose first positive value is uniformly \(2\). The parity dichotomy also separates all even-copy actions at once.
+The primary Theorem 2.8 gives \(b=d-2c-n\). For r>=2, the diagonal image contains no single transposition, so c=0 and n=rm. If r is even, every column permutation acts with sign \((\operatorname{sgn}\sigma)^r=1\), hence the whole image lies in the alternating group and d=0. If r is odd, the ambient sign equals the column-permutation sign; a monomial stabilizer contains an odd permutation exactly when two exponent columns coincide. Thus d is the minimum sum of L1 weights of m distinct points of \(\mathbb N^r\), attained by taking all points of weight below q and then the required points of weight q. Stars-and-bars gives the claimed d. At \(m_0=\binom{2r+1}{r}\), all points through weight r+1 have been selected and their total weight is r m_0, so b=0; every prior partial selection is negative and the next point has weight r+2, giving increment 2. Fresh independent calculations for r=3,5,7 confirmed boundary b=0, first positive b=2, and preceding b=-1. The r=3,m=36 case reproduces the source's d=110,b=2.
 
-## Closest literature and limitations
-The closest result is Maithani--Singh--Watanabe, arXiv:2609.32003v1, Theorem 2.8 and Example 2.10. Maithani's earlier permutation-invariant paper, arXiv:2511.07718v2, Corollary 4.8, supplies the related \(a\)-invariant stabilizer criterion. The claim does not cover characteristic \(2\), \(r=1\), or finer generators of the anticanonical module.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh full-text inspection of Maithani--Singh--Watanabe confirms the general permutation-action formula \(b=d-2c-n\) and Example 2.10 for exactly three copies of the \(S_{36}\) action, where the authors perform the distinct-triple calculation only at that single parameter. The paper does not state the arbitrary-r,m formula or sharp positivity threshold in the inspected Section 2. Resultary returns the audited family theorem as the direct exact hit and no earlier general multisymmetric formula. The audited result therefore generalizes a motivating isolated example rather than restating a prior theorem.
+
+## value
+
+PASS
+
+The primary paper isolates a positive nonabelian example at r=3,m=36. The audited theorem explains that example as the first positive member of a complete parity-dependent family and gives the exact sign transition for every odd r, while showing even-copy actions behave uniformly negatively. This is a natural structural classification of the motivating example family, not an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
