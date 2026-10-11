@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `verify.py` uses high-precision arithmetic to replay the saved formulas without relying on any external package. It checks:
+# Independent mathematical audit
 
-- the exact radical formula for \(t_*\) satisfies \((3\sqrt3-2)t^2-2t+\sqrt3-2=0\);
-- \(t_*\) lies in \((2-\sqrt3,1)\), and the derivative numerator changes sign across it;
-- \(\lambda_*=L(t_*)\) agrees with the stated decimal;
-- a strictly interior point near the optimized isosceles apex gives negative defect at \(\lambda=0.58<\lambda_*\);
-- a strictly interior point in a slender right triangle gives negative defect at \(\lambda=2.01>2\);
-- the scaled right-triangle boundary defect approaches \((2-\lambda)(1-q)\) numerically.
+## correctness
 
-The computational checks are not an exhaustive search and do not certify validity anywhere inside \([\lambda_*,2]\). The analytic proof in `RESULT.md` supplies the quantifiers for every \(\lambda<\lambda_*\) and every \(\lambda>2\).
+PASS
+
+For the isosceles boundary family with equal sides one and apex angle 2 theta, the limit defect at P->A is affine in lambda. Solving its zero gives the rational half-angle function L(t) with t=tan(theta/2). Direct differentiation yields numerator proportional to (3sqrt(3)-2)t²-2t+(sqrt(3)-2), so there is one relevant interior critical point t*=[1+2sqrt(-3+2sqrt3)]/(3sqrt3-2). The derivative sign makes it the global maximum, and substitution gives lambda*=0.586699153797909426... . Thus every lambda<lambda* has a strict negative boundary limit and by continuity genuine interior counterexamples nearby. For lambda>2, the collapsing right-triangle family has normalized limiting defect (2-lambda)(1-q)<0 for 0<q<1, again producing interior counterexamples. Independent symbolic differentiation and high-precision evaluation reproduced t* and lambda*.
+
+## originality
+
+PASS
+
+Liu's complete 2014 primary paper states the conjectured interval 3/5<=lambda<=2 but does not optimize boundary obstructions outside it. Two later similarly titled parameterized-triangle papers were inspected at their defining propositions: the 2017 paper proves a different squared-distance denominator conjecture with 0<lambda<1, and the 2018 paper proves four conjectures from a different 2014 source. They do not state the first-power Liu Conjecture 1 obstruction. Resultary searches found no prior exact lambda*=0.586699... threshold.
+
+## value
+
+PASS
+
+For a parameter conjecture, the maximal possible universal range is a natural mathematical object. The result does not overclaim sufficiency; it exactly optimizes a canonical isosceles-apex boundary obstruction and proves an independent sharp upper obstruction, narrowing any possible extension of the conjecture to lambda*<=lambda<=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
