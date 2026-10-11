@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T01:46:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "B. Liu, C. Li, Z. Wen, The Minimum Q-Order of BFGS with Exact Line Search Is One, arXiv:2609.00596v1; complete 19-page primary text inspected.",
+        "Q. Jin, R. Jiang, A. Mokhtari, Non-asymptotic global convergence rates of BFGS with exact line search, DOI:10.1007/s10107-025-02256-7; primary full web material inspected.",
+        "J. E. Dennis Jr., J. J. Moré, A characterization of superlinear convergence and its application to quasi-Newton methods, Math. Comp. 28 (1974), 549–560.",
+        "Resultary and web searches for full operator-norm recovery of the BFGS matrices on the Liu–Li–Wen trajectory.",
+        "Fresh 10,000-case numerical replay of the two-dimensional determinant identity."
+      ],
+      "rationale": "The source asymptotics give yₖ−sₖ=o(‖sₖ‖). The active-plane secant relation and exact orthogonality yield the quadratic-form identity that cancels det Cₖ in the BFGS determinant update, so both factors in the resulting determinant formula tend to one. In a basis beginning with the current step, the new secant relation fixes the first column asymptotically and determinant convergence forces the remaining entry to one. The orthogonal block is identically the identity. A fresh 10,000-case numerical replay of the determinant identity had maximum absolute error below 2.5×10⁻¹⁴.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader theorems concern objective rates or directional approximation."
+        ],
+        "reasoning": "Their broader scope does not imply the trajectory-specific full matrix limit.",
+        "searches": [
+          "Jin–Jiang–Mokhtari",
+          "Dennis–Moré"
+        ]
+      },
+      "checked_sources": [
+        "B. Liu, C. Li, Z. Wen, The Minimum Q-Order of BFGS with Exact Line Search Is One, arXiv:2609.00596v1; complete 19-page primary text inspected.",
+        "Q. Jin, R. Jiang, A. Mokhtari, Non-asymptotic global convergence rates of BFGS with exact line search, DOI:10.1007/s10107-025-02256-7; primary full web material inspected.",
+        "J. E. Dennis Jr., J. J. Moré, A characterization of superlinear convergence and its application to quasi-Newton methods, Math. Comp. 28 (1974), 549–560.",
+        "Resultary and web searches for full operator-norm recovery of the BFGS matrices on the Liu–Li–Wen trajectory.",
+        "Fresh 10,000-case numerical replay of the two-dimensional determinant identity."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source implies yₖ−sₖ is small relative to sₖ and gives exact consecutive secant orthogonality.",
+          "In two dimensions these facts cancel the previous determinant in the BFGS update and force det Cₖ→1.",
+          "The next secant column plus determinant convergence forces the whole active block to identity."
+        ],
+        "reasoning": "The two-dimensional determinant cancellation is additional and stronger than a directional Dennis–Moré conclusion.",
+        "searches": [
+          "Liu–Li–Wen Lemma 2.3 and Lemma 3.2",
+          "standard BFGS determinant identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No theorem asserting Bₖ→I appears in the source conclusion.",
+          "Classical superlinear theory does not generally require every matrix direction to converge."
+        ],
+        "reasoning": "Operator-norm recovery, active-block convergence and full approximate-Hessian recovery are equivalent here; the source proves ingredients only.",
+        "searches": [
+          "Resultary BFGS Q-order-one matrix-recovery search",
+          "complete Liu–Li–Wen text",
+          "web full-matrix BFGS searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent record of the exact determinant cancellation or matrix limit was found."
+        ],
+        "reasoning": "This is an asymptotic structural statement, not a table.",
+        "searches": [
+          "Resultary exact-trajectory search"
+        ]
+      },
+      "rationale": "The Liu–Li–Wen source gives the trajectory, two-dimensional block form, secant/orthogonality relations, vanishing perturbations and Q-order-one theorem, but does not state convergence of the BFGS matrices to the exact Hessian. Dennis–Moré theory is directional, and the modern global-rate paper controls rates/potentials rather than this full-matrix limit.",
+      "residual_risks": [
+        "An older two-dimensional exact-line-search theorem under sufficiently rich secant directions could imply the same full matrix limit under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES PREMISES, NOT FULL MATRIX CONVERGENCE",
+          "evidence": "The source conclusion controls Q-order and the true objective Hessian but does not assert Bₖ→I.",
+          "identifier_or_url": "arXiv:2609.00596v1",
+          "material_read": "Complete 19-page primary text including the realization, alternating construction and main theorem.",
+          "method": "Complete primary PDF text inspection.",
+          "title": "The Minimum Q-Order of BFGS with Exact Line Search Is One",
+          "trigger": "Exact source trajectory."
+        },
+        {
+          "assessment": "BROAD RATE THEORY, NOT THIS MATRIX LIMIT",
+          "evidence": "Theorems control objective rates and potential quantities, not operator-norm convergence on the Liu–Li–Wen construction.",
+          "identifier_or_url": "DOI:10.1007/s10107-025-02256-7",
+          "material_read": "Primary full web text around the convergence theorems and matrix-potential discussion.",
+          "method": "Open primary full-text inspection.",
+          "title": "Non-asymptotic global convergence rates of BFGS with exact line search",
+          "trigger": "Closest broad modern exact-line-search BFGS rate analysis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "B. Liu, C. Li, Z. Wen, The Minimum Q-Order of BFGS with Exact Line Search Is One, arXiv:2609.00596v1; complete 19-page primary text inspected.",
+        "Q. Jin, R. Jiang, A. Mokhtari, Non-asymptotic global convergence rates of BFGS with exact line search, DOI:10.1007/s10107-025-02256-7; primary full web material inspected.",
+        "J. E. Dennis Jr., J. J. Moré, A characterization of superlinear convergence and its application to quasi-Newton methods, Math. Comp. 28 (1974), 549–560.",
+        "Resultary and web searches for full operator-norm recovery of the BFGS matrices on the Liu–Li–Wen trajectory.",
+        "Fresh 10,000-case numerical replay of the two-dimensional determinant identity."
+      ],
+      "rationale": "Full matrix recovery rules out a natural explanation of the source's Q-order-one boundary behavior based on failure of the quasi-Newton matrix to converge. This materially sharpens the interpretation of a prominent counterexample and is stronger than directional superlinear theory.",
+      "residual_risks": [
+        "An older two-dimensional exact-line-search theorem under sufficiently rich secant directions could imply the same full matrix limit under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Along the Liu–Li–Wen nonterminating exact-line-search BFGS trajectory of minimum adjacent-iterate Q-order one, the full BFGS Hessian approximations nevertheless converge in operator norm to the exact Hessian, with the stated exact determinant identity on the two-dimensional active block.",
+  "limitations": [
+    "Specific to the source's fixed two-dimensional active-subspace construction.",
+    "No rate of matrix convergence or general BFGS matrix theorem is claimed.",
+    "An older two-dimensional exact-line-search theorem under sufficiently rich secant directions could imply the same full matrix limit under different terminology."
+  ],
+  "schema_version": 1
+}
