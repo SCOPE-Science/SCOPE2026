@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:36:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob bae0d1bddfe6fc4889ed6d105fe98e777d0a3aef",
+        "verify.py blob a29181327bb4274b91c6e091c3a75e14a3812f3e",
+        "Popescu, arXiv:2609.14188",
+        "Caragiu--Vicol--Zaki, DOI:10.1080/00150517.2017.12427757",
+        "OEIS A292772"
+      ],
+      "rationale": "The recurrence can be reconstructed exactly stage by stage because every attainable sum is finite and its least prime factor can be computed deterministically. Independent replay reproduced all published cardinalities through generation 27, verified \\(Q_n=M_n\\) for every \\(1\\le n\\le26\\), and obtained \\(|C_{26}|=105412\\), \\(M_{26}=162143\\), \\(|C_{27}|=170224\\), \\(M_{27}=262331\\), \\(R_{27}=262321\\), \\(Q_{27}=262313\\). The positive maximum witness \\(100188+162143=262331\\) uses two elements of \\(C_{26}\\). Since \\(2M_{26}<2R_{27}\\), a composite sum cannot map to \\(R_{27}\\); exact pair-sum exclusion therefore certifies its absence. The computation is exhaustive integer arithmetic, not sampling.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The asymptotic equality \\(M_n\\sim Q_n\\) does not locate the first finite inequality.",
+          "The original computation records stage cardinalities, not the missing-prime frontier."
+        ],
+        "reasoning": "No checked broader theorem determines this finite onset.",
+        "searches": [
+          "Popescu Theorem 1.1",
+          "Caragiu--Vicol--Zaki 2017"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.14188",
+        "DOI:10.1080/00150517.2017.12427757",
+        "OEIS A292772",
+        "OEIS A117818",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asymptotic equivalence permits finitely many early discrepancies at arbitrary locations.",
+          "Knowing \\(|C_n|\\) alone does not determine which primes are absent."
+        ],
+        "reasoning": "The exact first-gap statement is not implied by the checked prior results.",
+        "searches": [
+          "Popescu arXiv:2609.14188 Theorem 1.1",
+          "published cardinality tables through later generations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Popescu defines \\(M_n\\) as the stage maximum, \\(R_n\\) as the first absent prime and \\(Q_n\\) as its predecessor.",
+          "Full-text searches in the preprint found no occurrence of either exact frontier value or a generation-27 finite theorem."
+        ],
+        "reasoning": "The first prime-prefix gap is exactly the first index with \\(R_n\\le M_n\\), equivalently the first strict separation of the complete prime frontier from the stage maximum.",
+        "searches": [
+          "Resultary: Conway subprime closure first missing prime generation maximum M_n R_n Q_n 262321 262331 Popescu",
+          "Popescu arXiv:2609.14188 full primary PDF",
+          "exact searches for 262321, 262331 and C_27 in the primary preprint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A292772 tabulates \\(|C_n|\\); A117818 tabulates the subprime function itself.",
+          "Neither database entry records \\(R_n,Q_n\\) or the first prime-prefix gap."
+        ],
+        "reasoning": "The relevant exact database comparison therefore does not cover the claim.",
+        "searches": [
+          "OEIS A292772",
+          "OEIS A117818",
+          "Resultary exact-value query"
+        ]
+      },
+      "rationale": "Popescu's full primary preprint defines exactly \\(M_n,R_n,Q_n\\) and proves \\(M_n\\sim Q_n\\sim c\\varphi^n\\), but it does not report the finite values \\(262321\\), \\(262331\\), or a generation-27 first gap. The earlier paper and OEIS record the cardinality sequence rather than the first missing-prime frontier. Exact-value and semantic searches found no prior report of the onset.",
+      "residual_risks": [
+        "An unindexed finite computation may have observed the same gap without highlighting it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ASYMPTOTIC_FRONTIER_THEOREM_NOT_FINITE_FIRST_GAP",
+          "evidence": "The paper proves \\(M_n\\sim Q_n\\sim c\\varphi^n\\) and contains no matching exact generation-27 frontier values.",
+          "identifier_or_url": "arXiv:2609.14188",
+          "material_read": "Full searchable 13-page primary PDF, with focused reading of the introduction, Theorem 1.1 and the proof structure; exact-value searches for 262321, 262331 and C27 were also performed.",
+          "method": "Open-access primary full-PDF inspection.",
+          "title": "Golden-ratio growth of Conway's subprime closure",
+          "trigger": "Closest same-object source; it introduces the exact frontier variables used by the claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Popescu 2026",
+        "Caragiu--Vicol--Zaki 2017"
+      ],
+      "rationale": "The maximum and complete-prime frontier are central quantities in the recent asymptotic theory. Locating their first exact separation is a natural finite boundary that complements the asymptotic theorem and is supported by a complete stage-by-stage certificate.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Conway's subprime closure, every prime up to the stage maximum is present through generation \\(26\\), while generation \\(27\\) is the first failure: \\(|C_{27}|=170224\\), \\(M_{27}=262331\\), the least missing prime is \\(R_{27}=262321\\), and its predecessor is \\(Q_{27}=262313\\).",
+  "limitations": [
+    "This is an exact finite boundary through generation \\(27\\); it gives no frequency law for later prime-prefix gaps.",
+    "The exhaustive computation is tied to the stated Conway subprime recurrence."
+  ],
+  "schema_version": 1
+}

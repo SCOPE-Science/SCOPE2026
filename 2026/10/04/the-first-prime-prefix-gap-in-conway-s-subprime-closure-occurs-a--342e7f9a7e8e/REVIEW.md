@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and exhaustively reconstructed from the defining recurrence. The verifier uses an exact bitset representation of the pairwise sumset and an exact least-prime-factor sieve; induction therefore identifies every reconstructed stage with the mathematical set \(C_n\). The replay checks the published cardinalities through \(n=27\), proves \(Q_n=M_n\) for each \(1\le n\le26\), and obtains \(R_{27}=262321\), \(Q_{27}=262313\), and \(M_{27}=262331\). The positive witness \(100188+162143=262331\) is checked inside \(C_{26}\), while the missing-prime argument reduces exactly to an exhaustive pair-sum exclusion because \(2M_{26}<2R_{27}\). The claim does not extrapolate from finite data.
+## correctness
 
-## Originality
-PASS. The 2017 source publishes \(|C_n|\) through \(n=32\) but not the finite prime-frontier onset. The 2026 source defines \(M_n\), \(R_n\), and \(Q_n\) and proves \(M_n\sim Q_n\sim c\varphi^n\), but that asymptotic statement neither implies nor states the first index with \(Q_n<M_n\). Exact-value searches for \(262321\) and \(262331\), semantic searches for the first missing-prime/maximum separation, published-finding corpus searches using equivalent formulations, and inspection of OEIS A292772/A117818 found no covering statement. The closest semantic-database hits concern unrelated first-failure or prime-prefix problems and do not imply this claim.
+PASS
 
-## Value
-PASS. The statistic is motivated by the notation and proof architecture of the 2026 paper itself: \(Q_n\) and \(M_n\) are introduced separately and then shown asymptotically equal. Determining the first exact stage where they differ is therefore a natural boundary question, not an arbitrary slice. The result shows that the distinction is already genuinely necessary at a modest finite stage and gives the earliest counterexample to the tempting stronger statement that every stage contains all primes up to its maximum.
+The recurrence can be reconstructed exactly stage by stage because every attainable sum is finite and its least prime factor can be computed deterministically. Independent replay reproduced all published cardinalities through generation 27, verified \(Q_n=M_n\) for every \(1\le n\le26\), and obtained \(|C_{26}|=105412\), \(M_{26}=162143\), \(|C_{27}|=170224\), \(M_{27}=262331\), \(R_{27}=262321\), \(Q_{27}=262313\). The positive maximum witness \(100188+162143=262331\) uses two elements of \(C_{26}\). Since \(2M_{26}<2R_{27}\), a composite sum cannot map to \(R_{27}\); exact pair-sum exclusion therefore certifies its absence. The computation is exhaustive integer arithmetic, not sampling.
 
-## Closest literature and limitations
-The closest primary source is Popescu, arXiv:2609.14188v1, which proves asymptotic equality of the two frontiers. Caragiu--Vicol--Zaki (2017) provide the exact cardinality table used as an independent cross-check. OEIS A292772 reproduces the cardinality sequence but not the frontier data. The result is finite through \(n=27\) only; it does not characterize later gaps.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Popescu's full primary preprint defines exactly \(M_n,R_n,Q_n\) and proves \(M_n\sim Q_n\sim c\varphi^n\), but it does not report the finite values \(262321\), \(262331\), or a generation-27 first gap. The earlier paper and OEIS record the cardinality sequence rather than the first missing-prime frontier. Exact-value and semantic searches found no prior report of the onset.
+
+## value
+
+PASS
+
+The maximum and complete-prime frontier are central quantities in the recent asymptotic theory. Locating their first exact separation is a natural finite boundary that complements the asymptotic theorem and is supported by a complete stage-by-stage certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
