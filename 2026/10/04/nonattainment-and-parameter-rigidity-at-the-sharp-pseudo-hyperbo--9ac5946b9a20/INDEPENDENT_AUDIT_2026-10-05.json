@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:49:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 5d3f76286ff2a6631141561b0eddae484aa68f97",
+        "arXiv:2609.33140v1 Lemma 2.3 and Theorem 1.3 proof",
+        "fresh compactness and boundary-limit reconstruction"
+      ],
+      "rationale": "The source bounds every normalized difference by P(a,x) with a>=1 and x=2rho/(1-rho)>0 and proves sup P=C0. On a>1,x>0 it proves no critical point; at a=1 the inward derivative is positive, so no finite-domain point can realize the global supremum. This gives strictness for every distinct pair. For an extremizing sequence, the source's uniform large-a decay and large-x bound keep parameters in bounded ranges. If x failed to tend to zero, compactness would produce a finite maximizer, contradicting strictness. Uniform convergence P(a,x)->B(a)=2a(a-1)e^{1-a} on bounded a-ranges then gives B(a_j)->C0; B has the unique maximizer a0=(3+sqrt(5))/2, hence a_j->a0. The transformations recover rho_j->0 and alpha_j=a_j e^{1-a_j}->a0 e^{1-a0}. No finite numerical experiment is used.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source proves the sharp locally-univalent harmonic Lipschitz constant and constructs a coalescing sharpness family.",
+          "Earlier harmonic Bloch work supplies a nonsharp Lipschitz constant and does not identify the sharp-boundary degeneration."
+        ],
+        "reasoning": "The sharp theorem is broader as an inequality but does not state the universal strictness or arbitrary-extremizing-sequence parameter rigidity.",
+        "searches": [
+          "arXiv:2609.33140v1 full primary PDF",
+          "Huang--Rasila--Zhu, arXiv:2104.05976",
+          "Resultary extremizer/nonattainment search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33140v1",
+        "arXiv:2104.05976",
+        "Resultary Bloch nonattainment/rigidity search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No interior critical point plus positive inward derivative at a=1 rules out attainment of the global supremum at every finite (a,x) with x>0.",
+          "The source's large-a and large-x bounds compactify an extremizing sequence; pointwise strictness forces x_j->0, uniform convergence to B then forces a_j->a0 by uniqueness of the B maximum."
+        ],
+        "reasoning": "These consequences are not printed as a theorem in the source, but they require reading and assembling several distinct parts of the sharpness proof rather than merely renaming the main inequality.",
+        "searches": [
+          "arXiv:2609.33140 Lemma 2.3, including its open-region critical-point proof and boundary analysis",
+          "assigned compactness/strictness argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every normalized two-point ratio in the source is bounded by P(a,x), where x=2rho/(1-rho)>0 and alpha=a exp(1-a).",
+          "The x->0 boundary profile is B(a)=2a(a-1)exp(1-a), with unique maximizer a0=(3+sqrt(5))/2."
+        ],
+        "reasoning": "The submitted result is the nonattainment/compactness formulation of the source's scalar optimization landscape, not a new sharp constant.",
+        "searches": [
+          "Chen--Hamada--Huang--Jin, arXiv:2609.33140v1, Lemma 2.3 and proof of Theorem 1.3",
+          "Resultary query: sharp pseudo-hyperbolic harmonic Bloch constant nonattainment extremizing sequences rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact Resultary hit is the audited finding; no other returned record supplies the same two forced limits."
+        ],
+        "reasoning": "No database/table issue is central; the comparison is between theorem implications.",
+        "searches": [
+          "Resultary semantic search for the C0 nonattainment and extremizing-sequence limit"
+        ]
+      },
+      "rationale": "Chen--Hamada--Huang--Jin prove the sharp constant through the two-parameter majorant P(a,x), including no interior critical point, all boundary estimates, the x-to-zero limiting profile and its unique maximizer. Their primary theorem states sharpness but does not state pointwise nonattainment for every distinct pair or classify arbitrary extremizing sequences. The audited result extracts those two genuine extremal consequences from the complete proof geometry; Resultary searches returned no earlier equivalent rigidity statement.",
+      "residual_risks": [
+        "An equivalent extremizing-sequence observation could exist under extremal-function terminology outside the targeted Bloch literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SHARP_CONSTANT_PRIOR_NONATTAINMENT_AND_ARBITRARY_SEQUENCE_RIGIDITY_NOT_STATED",
+          "evidence": "Lemma 2.3 gives sup P=C0 and proves the detailed boundary facts; Theorem 1.3 uses P<=C0 and then supplies a specific coalescing sharpness family, without a universal extremizing-sequence theorem.",
+          "identifier_or_url": "arXiv:2609.33140v1",
+          "material_read": "Full primary PDF around Lemma 2.3 and the proof of Theorem 1.3 was text-read; the lemma page and sharpness-family page were visually inspected.",
+          "method": "Proof-level implication and extremal-boundary comparison.",
+          "title": "The sharp Lipschitz continuity problem with respect to the pseudo hyperbolic metric",
+          "trigger": "Defining primary source for the exact sharp constant and majorant."
+        },
+        {
+          "assessment": "NONSHARP_BOUND_DOES_NOT_COVER",
+          "evidence": "A nonsharp Lipschitz estimate cannot determine the equality geometry of the later sharp constant.",
+          "identifier_or_url": "arXiv:2104.05976",
+          "material_read": "Primary theorem/abstract scope concerning the preceding nonsharp harmonic Bloch estimate.",
+          "method": "Strength/implication comparison.",
+          "title": "Lipschitz property of harmonic mappings with respect to pseudo-hyperbolic metric",
+          "trigger": "Earlier primary source motivating the sharp problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.33140v1",
+        "arXiv:2104.05976",
+        "Resultary Bloch nonattainment/rigidity search"
+      ],
+      "rationale": "Nonattainment and rigidity of all near-extremizers are natural structural refinements of a newly sharp inequality. They distinguish a genuinely unattained two-point constant from ordinary equality cases and identify the only scalar degeneration mechanism, information useful for any later stability or extremizer analysis.",
+      "residual_risks": [
+        "An equivalent extremizing-sequence observation could exist under extremal-function terminology outside the targeted Bloch literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.33140v1",
+    "arXiv:2104.05976",
+    "Resultary Bloch nonattainment/rigidity search"
+  ],
+  "disposition": "passed",
+  "final_claim": "The sharp pseudo-hyperbolic Bloch constant C0 for nonconstant locally univalent harmonic Bloch mappings is never attained by distinct points; every normalized extremizing sequence has pseudo-hyperbolic separation tending to zero and its larger endpoint Bloch level tending to ((3+sqrt(5))/2) exp(-(1+sqrt(5))/2).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent extremizing-sequence observation could exist under extremal-function terminology outside the targeted Bloch literature.",
+    "The rigidity is only for the scalar proof parameters; it does not prove convergence of the harmonic mappings themselves after normalization."
+  ]
+}
