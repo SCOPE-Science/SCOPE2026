@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:53:12.415767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 3e8de30d1b41c65395afb960d20713e469521983 and verify.py blob f72908213843f0d14728e74a95ed9a7ba6aac146",
+        "Kim--Ramdas, Dimension-agnostic inference using cross U-statistics, arXiv:2011.05068v7 / DOI:10.3150/23-BEJ1613",
+        "Guo--Shah, Rank-transformed subsampling: inference for multiple data splitting and exchangeable p-values, arXiv:2301.02739 / DOI:10.1093/jrsssb/qkae091",
+        "Resultary semantic search for scalar Gaussian two-way cross-fit exact Student calibration and local power dominance"
+      ],
+      "rationale": "For scalars, direct substitution into the published two-way cross-fitted statistic gives \\(\\sqrt{m/(m-1)}\\{\\operatorname{sgn}(t_2)t_1+\\operatorname{sgn}(t_1)t_2\\}\\), hence the signed sum of independent absolute Student variables under the null; sign/magnitude independence gives the exact one-sided cutoff. Under \\(\\mu_m=h/\\sqrt m\\), the two half-sample Student statistics converge to independent \\(N(h,1)\\) variables. The orthogonal transform to \\(U,V\\) yields the exact limiting rejection event and cutoff. The single-crossing comparison of conditional rejection functions was checked algebraically, and the folded-normal likelihood ratio \\(e^{-h^2}\\cosh(\\sqrt2hr)\\) is strictly increasing for every \\(h\\ne0\\), making the integrated power gap strictly positive. Independent numerical quadrature reproduced the stated 5% cutoff and the example powers but is not used for the universal proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo--Shah calibrate broad multiple-split aggregates asymptotically through rank-transformed subsampling and obtain oracle-like power properties for that procedure.",
+          "Their method is not the fixed two-complement cross statistic and does not give its exact Student convolution cutoff or strict Gaussian local-power comparison."
+        ],
+        "reasoning": "The later general aggregation framework addresses a wider operational problem with a different calibration method; it does not dominate the exact theorem about the source's particular two-way scalar statistic.",
+        "searches": [
+          "Guo--Shah arXiv:2301.02739 / DOI:10.1093/jrsssb/qkae091",
+          "Kim--Ramdas DOI:10.3150/23-BEJ1613"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob 3e8de30d1b41c65395afb960d20713e469521983 and verify.py blob f72908213843f0d14728e74a95ed9a7ba6aac146",
+        "Kim--Ramdas, Dimension-agnostic inference using cross U-statistics, arXiv:2011.05068v7 / DOI:10.3150/23-BEJ1613",
+        "Guo--Shah, Rank-transformed subsampling: inference for multiple data splitting and exchangeable p-values, arXiv:2301.02739 / DOI:10.1093/jrsssb/qkae091",
+        "Resultary semantic search for scalar Gaussian two-way cross-fit exact Student calibration and local power dominance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specialization plus standard Student theory yields the finite null law, but the strict local-power dominance still requires a new one-crossing and monotone-likelihood-ratio argument.",
+          "Guo--Shah's oracle-power result applies to their calibrated aggregate and does not identify the audited cross-fit rejection region or compare it pointwise in every nonzero local signal."
+        ],
+        "reasoning": "One component is an elementary specialization, but the final bundled theorem is not fully implied by the prior sources because the exact limiting calibration and strict all-nonzero-signal dominance are not supplied.",
+        "searches": [
+          "Specialize Kim--Ramdas Appendix A formula to one dimension under Gaussian sampling",
+          "Compare with Guo--Shah oracle-power theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source states the two-way statistic and its non-Gaussian asymptotic behavior but not the signed sum-of-absolute-Student finite law.",
+          "No equivalent published SCOPE finding was returned by the targeted semantic search."
+        ],
+        "reasoning": "The exact same statistic and scalar Gaussian model were compared, not merely generic cross-fitting papers.",
+        "searches": [
+          "Kim--Ramdas arXiv:2011.05068v7 Appendix A cross-fitting section",
+          "Resultary query: scalar Gaussian two-way cross-fit exact calibration Student t local power dominance single split"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact cutoff table or distributional identity for this statistic was located.",
+          "The focal source describes the cross-fit limit as nonnormal rather than tabulating this scalar finite-sample law."
+        ],
+        "reasoning": "The claim is distributional rather than a database result, but an exact published calibration table would cover part of it; none was found.",
+        "searches": [
+          "Searches for the exact 5% cutoff 2.7560503086066777 and signed sum of two absolute Student variables",
+          "Resultary semantic search for scalar Gaussian two-way cross-fit calibration"
+        ]
+      },
+      "rationale": "Kim--Ramdas define the exact two-way cross-fitted statistic and prove its fixed-dimensional non-Gaussian limiting behavior; their appendix explicitly describes calibration of multiple splits as difficult and says it is unknown in general whether such tests can be calibrated with provably higher power than a single split. Their scalar Gaussian material supplies the single-split benchmark, not the audited exact finite Student representation or strict dominance theorem for this two-way statistic. Guo--Shah later provide a general rank-transformed subsampling calibration for aggregated randomized tests, but analyze a different procedure and do not imply the exact finite law or the closed all-\\(h\\) dominance result here.",
+      "residual_risks": [
+        "The finite-sample null identity is special to the scalar balanced Gaussian problem and follows from straightforward Studentization algebra once the source statistic is written down; the substantive novelty therefore relies also on the closed limiting calibration and strict all-nonzero-local-signal power comparison.",
+        "Older split-sample testing literature could contain an equivalent scalar symmetrized-Student calculation under different terminology; no such implication was found in the checked searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_STATISTIC_AND_OPEN_CALIBRATION_QUESTION_NOT_FINAL_THEOREM",
+          "evidence": "The paper does not state the finite signed-Student representation, closed scalar limiting cutoff, or strict two-way-versus-single local-power theorem.",
+          "identifier_or_url": "arXiv:2011.05068v7; DOI:10.3150/23-BEJ1613",
+          "material_read": "Primary full HTML around Appendix A's two-way cross-fitting construction, fixed-dimensional limiting statement, discussion that the aggregate is non-Gaussian/calibration is difficult, and the explicit statement that provable higher power for multiple splits is unknown in general; the scalar single-split power benchmark was also compared.",
+          "method": "lawful open-access primary full text",
+          "title": "Dimension-agnostic inference using cross U-statistics",
+          "trigger": "Primary source of the exact two-way cross-fitted statistic and strongest same-object coverage risk."
+        },
+        {
+          "assessment": "BROADER_DIFFERENT_METHOD_NOT_COVERING_EXACT_STATISTIC",
+          "evidence": "The procedure is a data-driven subsampling calibration and does not state the audited exact finite law or the strict scalar two-way cross-fit dominance result.",
+          "identifier_or_url": "arXiv:2301.02739; DOI:10.1093/jrsssb/qkae091",
+          "material_read": "Open publisher full text covering the motivation, nonnormal aggregate calibration problem, rank-transformed subsampling construction, and oracle-like power theory.",
+          "method": "lawful publisher full text",
+          "title": "Rank-transformed subsampling: inference for multiple data splitting and exchangeable p-values",
+          "trigger": "Strong later work on calibrating and improving power of multiple-split aggregates."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 3e8de30d1b41c65395afb960d20713e469521983 and verify.py blob f72908213843f0d14728e74a95ed9a7ba6aac146",
+        "Kim--Ramdas, Dimension-agnostic inference using cross U-statistics, arXiv:2011.05068v7 / DOI:10.3150/23-BEJ1613",
+        "Guo--Shah, Rank-transformed subsampling: inference for multiple data splitting and exchangeable p-values, arXiv:2301.02739 / DOI:10.1093/jrsssb/qkae091",
+        "Resultary semantic search for scalar Gaussian two-way cross-fit exact Student calibration and local power dominance"
+      ],
+      "rationale": "The theorem resolves a concrete calibration and power question for the simplest nontrivial instance of a published cross-fitting construction. Exact finite-sample calibration removes a practical ambiguity in the scalar Gaussian case, and the strict local-power comparison for every nonzero local signal is a structural statement, not merely one numerical example. Its scope is deliberately narrow but mathematically motivated by the source's calibration discussion.",
+      "residual_risks": [
+        "The power result is local-asymptotic and Gaussian and does not extend automatically to higher dimensions, unequal splits, or many-split aggregates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The finite-sample null identity is special to the scalar balanced Gaussian problem and follows from straightforward Studentization algebra once the source statistic is written down; the substantive novelty therefore relies also on the closed limiting calibration and strict all-nonzero-local-signal power comparison.",
+    "Older split-sample testing literature could contain an equivalent scalar symmetrized-Student calculation under different terminology; no such implication was found in the checked searches."
+  ],
+  "schema_version": 1
+}

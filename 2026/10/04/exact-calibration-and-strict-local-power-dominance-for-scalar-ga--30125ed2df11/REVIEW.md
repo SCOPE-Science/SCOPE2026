@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The scalar reduction follows directly from the published two-way statistic after accounting for the source denominator \(m^{-1}\sum (X_i-\bar X)^2\), which produces the factor \(\sqrt{m/(m-1)}\) relative to the usual Student statistic. Gaussian mean/variance independence gives the exact null law. The local-power proof uses joint Student convergence, an orthogonal Gaussian rotation, and a monotone folded-normal likelihood ratio; no finite experiment is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest direct source, Kim and Ramdas (arXiv:2011.05068; DOI 10.3150/23-BEJ1613), defines the two-way cross-fitted statistic and proves a general fixed-dimensional limiting null distribution, but does not give the scalar finite-sample Student law, exact calibration, or strict cross-fit versus single-split local-power theorem. Guo and Shah (arXiv:2301.02739; DOI 10.1093/jrsssb/qkae091) later develop a different rank-transformed multiple-splitting procedure; their Example 2 explicitly treats the simple cross-fit as nonnormal rather than deriving the present law. Targeted semantic and exact-phrase searches found no equivalent claim. Residual risk remains from older literature under different terminology.
+PASS
 
-## Value
-PASS. The source identifies multiple splitting as a route to reduce single-split inefficiency and explicitly highlights the calibration difficulty. In the canonical scalar Gaussian case, the finding gives an exact finite-sample calibration and proves a strict power gain for every nonzero local signal, providing a sharp solvable benchmark for that open methodological issue.
+For scalars, direct substitution into the published two-way cross-fitted statistic gives \(\sqrt{m/(m-1)}\{\operatorname{sgn}(t_2)t_1+\operatorname{sgn}(t_1)t_2\}\), hence the signed sum of independent absolute Student variables under the null; sign/magnitude independence gives the exact one-sided cutoff. Under \(\mu_m=h/\sqrt m\), the two half-sample Student statistics converge to independent \(N(h,1)\) variables. The orthogonal transform to \(U,V\) yields the exact limiting rejection event and cutoff. The single-crossing comparison of conditional rejection functions was checked algebraically, and the folded-normal likelihood ratio \(e^{-h^2}\cosh(\sqrt2hr)\) is strictly increasing for every \(h\ne0\), making the integrated power gap strictly positive. Independent numerical quadrature reproduced the stated 5% cutoff and the example powers but is not used for the universal proof.
 
-## Closest literature and limitations
-The closest literature is the direct cross-U-statistics paper and the later rank-transformed-subsampling paper. The theorem is deliberately narrow: balanced scalar Gaussian two-way cross-fitting, one-sided \(0<\alpha<1/2\), exact null calibration, and local-asymptotic power. It does not imply finite-sample power dominance, arbitrary multi-split validity, or a high-dimensional result.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kim--Ramdas define the exact two-way cross-fitted statistic and prove its fixed-dimensional non-Gaussian limiting behavior; their appendix explicitly describes calibration of multiple splits as difficult and says it is unknown in general whether such tests can be calibrated with provably higher power than a single split. Their scalar Gaussian material supplies the single-split benchmark, not the audited exact finite Student representation or strict dominance theorem for this two-way statistic. Guo--Shah later provide a general rank-transformed subsampling calibration for aggregated randomized tests, but analyze a different procedure and do not imply the exact finite law or the closed all-\(h\) dominance result here.
+
+## value
+
+PASS
+
+The theorem resolves a concrete calibration and power question for the simplest nontrivial instance of a published cross-fitting construction. Exact finite-sample calibration removes a practical ambiguity in the scalar Gaussian case, and the strict local-power comparison for every nonzero local signal is a structural statement, not merely one numerical example. Its scope is deliberately narrow but mathematically motivated by the source's calibration discussion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
