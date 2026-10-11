@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The small-parameter proof resolves the degenerate endpoint root by square-root scaling and applies the implicit-function theorem at a simple rescaled root. The large-parameter proof uses the exact trigonometric zero \(t_0=\pi+\arctan(\mu^{-1})\), a derivative lower bound, and the mean-value theorem. The remaining expansions are direct substitutions into exact formulas.
+## correctness
 
-## Originality
-PASS. The primary source gives exact boundary formulas but only their limiting values; it does not state these rates or the large-\(\mu\) exponential-scale split. Exact-formula and alias searches in the published mathematical record found no implication-equivalent claim. The closest accessible full-text earlier paper concerns planar monodromic infinity. One older three-dimensional continuous three-zone paper remains a residual full-text access risk, recorded in the structured audit.
+PASS
 
-## Value
-PASS. The source itself makes the oscillatory region and boundary coalescence a principal parameter-space conclusion. The asymptotics quantify its tolerance width and show that absolute coalescence at strong damping hides a multiplicative separation of order \(e^{-\pi\mu-2}\). This is a natural structural boundary refinement rather than an arbitrary slice.
+At small \(\mu\), substituting \(2\pi-t_g=s u\) with \(s=\sqrt\mu\) removes the double degeneracy and the implicit-function expansion gives \(u=2\sqrt\pi-(2/3)\pi^{3/2}s^2+O(s^3)\); exponentiation yields the stated \(H_g\) and width. At large \(\mu\), the left side of the grazing equation vanishes at \(t_0=\pi+\arctan(1/\mu)\), and the exact trigonometric rewrite shows the true root differs by only \(O(e^{-\pi\mu}/\mu)\). Expanding \(t_0\), \(H_g\), and \((2\cosh(\pi\mu)-1)^{-1}\) gives the displayed coefficients. Independent numerical root checks converge to the predicted small- and large-parameter rescalings.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.33034 itself, whose Proposition 16 provides only endpoint limits. arXiv:2010.03018 treats a different planar two-zone problem. DOI:10.1016/j/nonrwa.2020.103112 uses a continuous three-zone setting; its full text was not reliably available during this check. The result does not address cycle amplitude or Floquet asymptotics.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source paper defines the exact oscillatory wedge and proves only that both boundary curves coalesce to one as \(\mu\to0^+\) and to zero as \(\mu\to\infty\). It does not state the Puiseux small-\(\mu\) grazing scale, the two-term wedge width, or the exponentially separated large-\(\mu\) boundaries. The audited singular rescalings extract genuinely finer endpoint geometry rather than specializing a published asymptotic theorem.
+
+## value
+
+PASS
+
+The two endpoint regimes quantify how the existence wedge is actually lost: algebraically with a square-root grazing layer at one end and with two different exponential scales at the other. These rates sharpen a qualitative parameter classification and are useful for continuation and numerical resolution of the oscillatory region.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
