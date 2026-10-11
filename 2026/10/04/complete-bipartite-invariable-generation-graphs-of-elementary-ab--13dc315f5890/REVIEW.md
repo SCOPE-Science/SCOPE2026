@@ -1,12 +1,23 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof classifies conjugacy classes directly from the Frobenius action. Kernel classes are free complement orbits, while each nontrivial coset \(Vh^j\) is a single class because \(1-h^j\) is invertible. Mixed adjacency is equivalent to \(\gcd(j,m)=1\) together with the kernel element being a cyclic \(\mathbf F_pC_m\)-module vector. Semisimplicity and commutativity of the cyclic-group algebra make cyclic vectors possible exactly in the multiplicity-free case, where the exact count is \(\prod_i(p^{d_i}-1)\). The packaged checker exhausts all representatives in five examples, including a reducible multiplicity-free case and a repeated-constituent obstruction.
+## correctness
 
-## Originality
-PASS. The 2021 primary paper poses connectivity of \(\Lambda^+(G)\) for finite soluble invariably \(2\)-generated groups but does not give this Frobenius-family graph. The 2015 elementary-abelian lifting criterion is broader at the level of generation existence, yet it does not state the exact conjugacy-class graph, the complete-bipartite structure, or the isolated-class formula. Targeted searches found no equivalent graph theorem. The main residual risk is terminological: an equivalent result could be recorded under affine-primitive or Frobenius-generation language.
+PASS
 
-## Value
-PASS. The result answers a published connectivity question on a natural infinite family and provides the entire graph rather than only connectivity. It includes reducible multiplicity-free kernels and identifies repeated irreducible constituents as the exact obstruction to invariable \(2\)-generation.
+Fixed-point-free action gives \(p
+mid m\), free H-orbits on nonzero kernel vectors, and invertibility of \(1-h^j\) for \(j
+ot\equiv0\), so the cosets \(Vh^j\) are conjugacy classes. Kernel-kernel and complement-complement class pairs cannot invariably generate. A kernel class and \(Vh^j\) are adjacent exactly when \(\gcd(j,m)=1\) and the kernel vector is cyclic as an \(\mathbb F_pH\)-module vector. In a commutative semisimple cyclic group algebra, such a vector exists exactly for multiplicity-free constituents and then has every component nonzero, giving the count and complete bipartite graph. Fresh group-law/conjugacy replay reproduced K1,1, K1,2, K1,6, K12,2 and no edges in the repeated-constituent example.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Garzoni poses connectivity of the nonisolated invariably generating graph for finite soluble invariably 2-generated groups; the assigned family gives an exact complete-bipartite answer. Detomi--Lucchini supply powerful lifting criteria for semidirect products \(V^u\rtimes H\) and explain cyclic-module obstructions, so the existence/multiplicity-free component has substantial prior framework. Their inspected full text does not classify conjugacy classes, graph adjacency, the \(K_{A,\varphi(m)}\) structure, or the isolated-class count for arbitrary reducible multiplicity-free cyclic Frobenius kernels.
+
+## value
+
+PASS
+
+The theorem gives an exact graph-level solution for a broad natural Frobenius family and supplies a positive family answer to a published soluble-connectivity question. The complete-bipartite structure and exact active/isolated class counts are substantially stronger than an existence criterion for invariable generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
