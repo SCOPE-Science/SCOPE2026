@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact subproblem is piecewise linear after scaling by \(a>0\). Its two slopes are \(x-\theta\) and \(x+\theta\), where \(\theta=\lambda/a\), so the complete singleton/set-valued update map follows directly. For \(\eta<2\theta\), a first crossing from the outer region cannot jump across the entire interval \([-\theta,\theta]\); all subsequent admissible choices move into the strict inner region and then reach \(0\) after finitely many fixed-length moves. At \(\eta=2\theta\), the two threshold minimizer intervals contain the opposite threshold point. Above the threshold, every \(c\in(\theta,\eta-\theta)\) alternates uniquely with \(c-\eta<-\theta\).
+PASS
 
-The bundled exact-rational script checks representative trajectories in every regime, including branching at set-valued threshold states. It is supporting evidence only; the proof is the exact slope classification in `RESULT.md`.
+After dividing by \(a>0\), each subproblem minimizes \(xz+\theta|z|\) on \([x-\eta,x+\eta]\), where \(\theta=\lambda/a\). Its two slopes give the complete set-valued update map directly. For \(\eta<2\theta\), every first crossing from an outer region lands inside \((-\theta,\theta]\); all subsequent singleton steps move toward zero, and every threshold choice enters the strict inner region, so finite absorption follows for all selections. At \(\eta=2\theta\), the threshold minimizer intervals contain the opposite threshold points. For \(\eta>2\theta\), any \(c\in(\theta,\eta-	heta)\) maps uniquely to \(c-\eta<-	heta\) and uniquely back to \(c\). The frozen exact-rational script was read and is consistent with each regime but is not used as the quantified proof.
 
-## Originality
+## originality
 
-PASS. The recent primary paper states the same composite trust-region subproblem and proves local existence and uniqueness conditions, but it does not classify constant-radius trajectories. Kovalev's preceding full paper defines the same method and proves a generic best-iterate stationarity bound with a radius-dependent floor; no quadratic-plus-absolute-value phase transition or cycle family appears there.
+PASS
 
-The closest full-objective ball-oracle literature is materially different. The ball-proximal method minimizes the full convex objective in the ball and finitely terminates for every positive constant radius. That theorem does not cover the linearized-ball update here; instead, the contrast identifies the scientific point of the new result.
+Kovalev's primary paper presents trust-region/normalized-gradient methodology and composite convergence bounds, but the inspected full-text theorem gives a best-iterate stationarity guarantee with a radius-dependent residual rather than an exact constant-radius orbit classification. Zhu-Xu-Ji's recent abstract confirms a regularized trust-region framework, but open full-text routes failed in this run; one authorized institutional attempt returned an operational error and was not retried. Resultary searches found no matching quadratic-plus-absolute-value threshold or cycle family. The accessible prior statements therefore do not imply the exact \(2\lambda/a\) selection-robust boundary.
 
-Targeted database searches over the algorithm name, aliases, the scalar composite model, fixed-radius cycling, overshoot, and finite termination returned no equivalent statement. Residual risk remains from older normalized-subgradient literature under different terminology.
+## value
 
-## Value
+PASS
 
-PASS. The model is the standard scalar quadratic plus absolute-value regularizer, and its scale \(\lambda/a\) is intrinsic rather than chosen ad hoc. The exact threshold \(2\lambda/a\) distinguishes three qualitatively different dynamics, including an open tie-free cycling regime. This is useful for interpreting fixed trust radii in the new composite trust-region gradient framework and for understanding exactly how linearization can destroy the arbitrary-radius finite termination enjoyed by the full-objective ball oracle.
+The quadratic-plus-absolute-value model is the canonical scalar sparse composite objective, and \(\lambda/a\) is its intrinsic balance scale. The exact transition between selection-robust finite absorption, tie-driven critical cycling and an open tie-free supercritical cycling band is a motivated algorithmic boundary, not a routine verification or arbitrary slice.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

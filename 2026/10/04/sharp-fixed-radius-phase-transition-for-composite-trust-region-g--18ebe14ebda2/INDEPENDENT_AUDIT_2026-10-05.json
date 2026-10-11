@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:04:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After dividing by \\(a>0\\), each subproblem minimizes \\(xz+\\theta|z|\\) on \\([x-\\eta,x+\\eta]\\), where \\(\\theta=\\lambda/a\\). Its two slopes give the complete set-valued update map directly. For \\(\\eta<2\\theta\\), every first crossing from an outer region lands inside \\((-\\theta,\\theta]\\); all subsequent singleton steps move toward zero, and every threshold choice enters the strict inner region, so finite absorption follows for all selections. At \\(\\eta=2\\theta\\), the threshold minimizer intervals contain the opposite threshold points. For \\(\\eta>2\\theta\\), any \\(c\\in(\\theta,\\eta-\theta)\\) maps uniquely to \\(c-\\eta<-\theta\\) and uniquely back to \\(c\\). The frozen exact-rational script was read and is consistent with each regime but is not used as the quantified proof.",
+      "risk": "The theorem is one-dimensional, exact-subproblem and constant-radius only.",
+      "sources": [
+        "Kovalev arXiv:2503.12645",
+        "Zhu-Xu-Ji arXiv:2609.06064 accessible abstract",
+        "frozen RESULT.md and artifacts/verify_trgm_l1_phase.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovalev supplies generic convergence/stationarity analysis for the broader method, not a complete scalar fixed-radius phase portrait.",
+          "The recent heavy-tail paper develops trust-region regularized algorithms, but accessible material does not state this deterministic scalar threshold."
+        ],
+        "reasoning": "Generic convergence bounds with a nonzero radius term do not imply finite termination or exact cycling boundaries.",
+        "searches": [
+          "Kovalev arXiv:2503.12645 full-text theorem",
+          "Zhu-Xu-Ji arXiv:2609.06064 accessible abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2503.12645",
+        "arXiv:2609.06064",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither inspected statement gives the complete set-valued scalar map.",
+          "The critical selector cycle and supercritical open band of singleton two-cycles require the explicit slope classification."
+        ],
+        "reasoning": "The final phase portrait is not a corollary of the located generic convergence theorems.",
+        "searches": [
+          "Kovalev trust-region-gradient algorithm and Theorem 1",
+          "Zhu-Xu-Ji regularized trust-region framework abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching Resultary record stated the scalar map or threshold.",
+          "Closest returned trust-region records concern smooth Cauchy-point or unrelated stability questions."
+        ],
+        "reasoning": "Trust-region gradient, normalized/composite gradient, linearized-ball, overshoot and two-cycle formulations were compared.",
+        "searches": [
+          "Resultary: composite trust region gradient quadratic l1 fixed radius two cycle threshold 2 lambda/a",
+          "Resultary: trust-region gradient l1 constant radius cycling",
+          "Web: normalized composite gradient quadratic absolute value constant radius two-cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching theorem or benchmark table was located."
+        ],
+        "reasoning": "The result is analytic and all-parameter; no finite database is being recomputed.",
+        "searches": [
+          "Resultary exact semantic search for \\(2\\lambda/a\\), quadratic plus absolute value, fixed radius and two-cycle"
+        ]
+      },
+      "rationale": "Kovalev's primary paper presents trust-region/normalized-gradient methodology and composite convergence bounds, but the inspected full-text theorem gives a best-iterate stationarity guarantee with a radius-dependent residual rather than an exact constant-radius orbit classification. Zhu-Xu-Ji's recent abstract confirms a regularized trust-region framework, but open full-text routes failed in this run; one authorized institutional attempt returned an operational error and was not retried. Resultary searches found no matching quadratic-plus-absolute-value threshold or cycle family. The accessible prior statements therefore do not imply the exact \\(2\\lambda/a\\) selection-robust boundary.",
+      "residual_risks": [
+        "Older normalized-subgradient or fixed-step nonsmooth literature may contain an equivalent scalar cycling threshold under different terminology.",
+        "The recent 2026 full text was inaccessible; that access limitation alone is not treated as failure of originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_AND_CONVERGENCE_NOT_SCALAR_PHASE_PORTRAIT",
+          "evidence": "The inspected theorem controls best-iterate stationarity but does not classify constant-radius scalar trajectories or cycles.",
+          "identifier_or_url": "arXiv:2503.12645",
+          "material_read": "Full public PDF portions containing the trust-region-gradient formulation, algorithm and convergence theorem with radius-dependent stationarity bound.",
+          "method": "Lawful full-PDF text and rendered-page inspection.",
+          "title": "Understanding Gradient Orthogonalization for Deep Learning via Non-Euclidean Trust-Region Optimization",
+          "trigger": "Primary predecessor for the broader trust-region gradient methodology."
+        },
+        {
+          "assessment": "RELATED_FRAMEWORK_ACCESS_LIMITED",
+          "evidence": "Accessible material describes regularized trust-region algorithms but does not state the deterministic one-dimensional threshold.",
+          "identifier_or_url": "arXiv:2609.06064",
+          "material_read": "ArXiv/ArcXiv abstract and public metadata; open full-text routes did not yield readable full text in this run.",
+          "method": "Public abstract inspection; one authorized institutional retrieval attempt then returned an operational error, with no retry or bypass.",
+          "title": "The Role of Gradient Modification in Heavy-Tailed Nonconvex Stochastic Min-Max Optimization",
+          "trigger": "Recent source using regularized trust-region gradient ideas closest to the package framing."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quadratic-plus-absolute-value model is the canonical scalar sparse composite objective, and \\(\\lambda/a\\) is its intrinsic balance scale. The exact transition between selection-robust finite absorption, tie-driven critical cycling and an open tie-free supercritical cycling band is a motivated algorithmic boundary, not a routine verification or arbitrary slice.",
+      "risk": "No claim is made for multidimensional, stochastic, approximate-solve or variable-radius variants.",
+      "sources": [
+        "arXiv:2503.12645",
+        "arXiv:2609.06064"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the scalar composite objective \\(\\phi(x)=\\frac a2x^2+\\lambda|x|\\) under the exact constant-radius linearized trust-region update, the selection-robust global finite-termination region is exactly \\(0<\\eta<2\\lambda/a\\); at equality an admissible threshold two-cycle exists, and every supercritical radius has an open interval of unique exact two-cycles.",
+  "limitations": [
+    "One-dimensional quadratic plus absolute-value objective.",
+    "Exact constant-radius subproblem solves only.",
+    "No multidimensional or stochastic extension is claimed."
+  ],
+  "schema_version": 1
+}
