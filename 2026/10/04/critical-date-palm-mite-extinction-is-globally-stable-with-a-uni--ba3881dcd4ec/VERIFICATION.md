@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-At \(\mathcal R_0=1\), the critical relation is
-\[
-\beta\gamma_E\gamma_L\gamma_N=\alpha_1\alpha_2\alpha_3\mu_A.
-\]
-The proof uses two exact identities. First, the Lyapunov derivative is
-\[
-\dot V=-\frac{\mu_AA(A+N+L)}{K+A+N+L}.
-\]
-Second, with the normalized zero-eigenvector coordinate \(z=p^Tx\),
-\[
-\dot z=-\frac{A(A+N+L)}{H(K+A+N+L)}.
-\]
-Together with the stable spectral complement, the second identity gives the quadratic coefficient
-\[
-\kappa=\frac{C}{KH},
-\]
-and hence \(z(t)\sim 1/(\kappa t)\).
 
-The standalone script `verification/verifier.py` uses exact rational arithmetic. It verifies the threshold relation, the right and left null-vector identities for the critical Jacobian, \(\ell^Tr=\beta H\), the formulas for \(C\), \(\kappa\), and \(Q\), and the witness
-\[
-\alpha_1=\alpha_2=\alpha_3=2,\quad
-\gamma_E=\gamma_L=\gamma_N=\mu_A=1,\quad
-K=10,\quad\beta=8.
-\]
-For this witness it confirms \(r=(4,2,1,1)^T\), \(H=5/2\), \(C=4\), \(\kappa=4/25\), and \(Q=25/4\). The replay command is `python3 verification/verifier.py`; the expected output is `VERIFY_OK`.
+# Independent mathematical audit
 
-The script checks algebraic consistency only. It does not certify the infinite-time theorem by sampling. The proof of global convergence is the Lyapunov-LaSalle argument in `RESULT.md`, and the proof of the sharp rate is the stable-subspace asymptotic argument there. Controlled dynamics, model perturbations, and finite-time eradication are outside the verified claim.
+## correctness
+
+PASS
+
+At threshold the source Lyapunov function has the exact derivative \(-\mu_A A(A+N+L)/(K+A+N+L)\), and the largest invariant subset of its zero set is only the origin, proving global convergence and Lyapunov stability. The Jacobian has a simple zero eigenvalue and a Hurwitz cubic complement. Fresh symbolic multiplication verified the stated positive right and left zero eigenvectors and \(\ell^Tr=\beta H\). With \(z=p^Tx\), the exact identity \(\dot z=-AS/[H(K+S)]\) and positivity give quadratic forcing of the exponentially stable complement, hence \(x=zr+o(z)\). Therefore \(\dot z=-(C/(KH))z^2(1+o(1))\), which yields the claimed \(t^{-1}\) vector.
+
+## originality
+
+PASS
+
+The motivating 2026 article states global extinction only below unity and a forward transcritical bifurcation at equality. It does not state global attraction at equality or the universal all-stage \(t^{-1}\) profile. No Resultary hit dominated the combined theorem.
+
+## value
+
+PASS
+
+The equality case is the mathematically and biologically decisive management threshold. Showing that it still lies on the extinction side globally, while quantifying the loss of exponential decay and the universal stage proportions, materially sharpens the source's strict dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
