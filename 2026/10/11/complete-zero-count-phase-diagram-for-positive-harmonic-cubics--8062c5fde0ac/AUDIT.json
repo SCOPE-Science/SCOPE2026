@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The real-part equation has exactly one real root by strict monotonicity. All other zeros are in a bijection with the distinct eligible real roots of P(x)=8x³−2(2b−a)x+1, each contributing exactly two conjugate zeros. The cubic discriminant is 64[4(2b−a)³−27]. In b>a, the negative root always satisfies x<−sqrt((b−a)/3), while eligibility of the positive roots follows from their relation to the critical point sqrt((2b−a)/12) and the exact sign P(sqrt((b−a)/3))=−sign E. The proof distinguishes all folds and axis collisions and treats multiple roots only once. For (a,b)=(3,5/2), P=(2x−1)(4x²+2x−1) and J=2y²P′(x)≠0 at each nonreal root; the sole real root has positive Jacobian. The actual embedded standard-library verifier was executed and passed exact witness and transition checks plus 20,000 independent finite sampled comparisons; the analytic reduction, not finite computation, proves the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carlson Theorem 1.1/1.2 requires a fixed separation margin and sufficiently large coefficient: its n=3,k=1 3- and 5-zero conclusions leave the near-diagonal and 7-zero region outside their stated scope.",
+        "Brooks and collaborators prove diagonal behavior, and their conclusion singles out a≠b as a natural extension.",
+        "Brilleslyper et al. set the analytic linear coefficient to zero, outside a>0; Alemu–Geleta have different conjugate/exponent/constant structure; Sampson uses a rational family with poles."
+      ],
+      "reasoning": "Although general-degree results sound broader, their explicit quantifiers exclude most of the a,b>0 plane and do not entail sharp D/E/H transition boundaries. The diagonal result is acknowledged as genuinely covered. No inspected stronger covering theorem applies to the unequal-coefficient family.",
+      "searches": [
+        "arXiv:2508.06721 general n,k coefficient-separated zero counts",
+        "arXiv:2506.14966 general m,k diagonal counts",
+        "Brilleslyper et al. 2020 harmonic trinomial Theorem 1.1",
+        "Alemu–Geleta 2022 harmonic quadrinomial Sections 3–4",
+        "arXiv:2508.06724 caustic epicycloid harmonic zeros"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2508.06721v3 (same exact general family, full text)",
+      "arXiv:2506.14966 (diagonal subfamily and generalization remarks, full text)",
+      "DOI:10.1090/bproc/51 (one-parameter harmonic trinomial)",
+      "DOI:10.4314/sinet.v45i1.9 (two-parameter differently structured harmonic quadrinomial)",
+      "arXiv:2508.06724 (epicycloid/rational family)",
+      "published-finding corpus closest record: 2026/10/4/SCOPE-coefficient-robust-maximal-valence-for-logharmonic-polynomials--5e23ad255dce"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carlson proves only separated regions with at most 5 zeros in the n=3,k=1 instance; at a=3,b=2.5 neither large-separated-coefficient hypothesis applies, while the current exact witness has seven simple zeros.",
+        "Brooks proves 7 zeros can occur on the a=b diagonal already: thus mere seven-zero existence is prior, while locating the two-dimensional off-diagonal region and all transitions is new relative to the inspected statement.",
+        "The plane discriminant D=0, axis-collision E=0, and H-sign cases yield exact distinct-root counts even at singular parameter values."
+      ],
+      "reasoning": "The proposed claim logically contains the known diagonal slice, which is subtracted from its originality rationale. None of the primary stated prior implications covers every positive unequal-coefficient pair, exact boundary equality, or the D/E/H classification. A pre-existing larger degree zero upper bound, if any, would not imply equality counts by parameter.",
+      "searches": [
+        "Carlson arXiv:2508.06721v3 Theorem 1.1, Theorem 1.2, Section 4",
+        "Brooks et al arXiv:2506.14966 Theorem 1, Section 2, final discussion",
+        "Brilleslyper et al. DOI:10.1090/bproc/51 Theorem 1.1",
+        "Brooks Jenkins Liechty harmonic quadrinomials z cubed plus a z plus b conjugate z minus one full two coefficient plane exact three five seven zero discriminant bifurcation surfaces"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The first source counts zeros of z^n+a z^k+b conjugate(z)^k−1 but restricts positive coefficients to separated asymptotic regimes.",
+        "The second source explicitly counts the a=b diagonal of the same basic family; its concluding section raises unequal coefficients as an extension."
+      ],
+      "reasoning": "Conjugation symmetry and real-imaginary elimination yield an auxiliary cubic whose discriminant and y²>0 constraints must both be tracked. A theorem for a=b cannot imply the two-dimensional off-diagonal phase table; separated-cone asymptotics cannot imply its interior equality strata. The claimed n=3,k=1, all-positive-parameter classification is therefore not equivalent to the inspected statements.",
+      "searches": [
+        "for f(z)=z^3+a z+b conjugate z -1, a>=b>0, exact 3/5/7 zeros at cubic discriminant threshold 2b-a=3/cuberoot4",
+        "harmonic cubic z^3+a z+b conjugate z -1 seven distinct zeros 2b-a greater discriminant threshold and sense preserving linear part",
+        "arXiv:2508.06721v3 Theorems 1.1–1.3 and conclusion",
+        "arXiv:2506.14966 Theorem 1 and conclusion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic search returns unrelated harmonic/logharmonic or algebraic cubic claims; the closest logharmonic ID is 2026/10/4/SCOPE-coefficient-robust-maximal-valence-for-logharmonic-polynomials--5e23ad255dce.",
+        "The primary Brooks–Jenkins–Liechty diagonal tables do not contain the general D/E/H diagram for a≠b.",
+        "The source comparison included keyword and mathematical-formula searches for cubic harmonic zeros and bifurcation boundaries."
+      ],
+      "reasoning": "No exact published published-finding corpus record or inspected primary table was found for the same entire two-parameter classification. Logharmonic zeros concern different mappings and do not subsume ordinary harmonic zeros; a=b is already prior.",
+      "searches": [
+        "for f(z)=z^3+a z+b conjugate z -1, a>=b>0, exact 3/5/7 zeros at cubic discriminant threshold 2b-a=3/cuberoot4",
+        "harmonic cubic z^3+a z+b conjugate z -1 seven distinct zeros 2b-a greater discriminant threshold and sense preserving linear part",
+        "Japheth Carlson Rouché harmonic zeros n=3 k=1 two positive coefficients 7 zero bifurcation",
+        "Brooks Jenkins Liechty harmonic quadrinomials z cubed plus a z plus b conjugate z minus one full two coefficient plane exact three five seven zero discriminant bifurcation surfaces",
+        "arXiv:2506.14966 Theorem 1 tabulated diagonal ranges"
+      ]
+    },
+    "rationale": "The complete, all-positive-coefficient zero-count diagram including unequal coefficients and equality strata is not implied by the materially inspected nearby results. Carlson arXiv:2508.06721 Theorems 1.1–1.2 certify 3 or 5 zeros only under asymptotic coefficient separation, not a global cubic classification; Brooks et al arXiv:2506.14966 Theorem 1 treats the equal-coefficient diagonal, which is expressly not separately claimed as original, and its conclusion explicitly highlights unequal coefficients as an open direction. Earlier one-parameter trinomial and differently structured quadrinomial theorems do not dominate the present off-diagonal result. Searches remain incomplete for unpublished/unindexed equivalent results.",
+    "residual_risks": [
+      "Published works with different terminology or unavailable equivalent off-diagonal classification may have escaped indexed searches.",
+      "Source inspection and search do not certify uniqueness or exclude unpublished work.",
+      "The equal-coefficient diagonal and existence of seven zeros per se are prior; novelty is only the complete unequal-coefficient diagram and its boundaries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the all-parameter n=3,k=1 positive-coefficient diagram; its separated, large-coefficient cones give only three or five zeros",
+        "evidence": [
+          "Theorem 1.1 gives n+2k under strong co-analytic coefficient dominance; Theorem 1.2 gives n under the opposite dominance, each with coefficient-size thresholds.",
+          "Final discussion asks for more exact parameter-dependent zero counts."
+        ],
+        "identifier_or_url": "arXiv:2508.06721v3",
+        "material_read": "Full available preprint including introduction, Theorems 1.1–1.3, derivations and concluding open problems",
+        "method": "Read freely available arXiv full text and inspected relevant page image; compared parameter hypotheses and implied zero counts",
+        "title": "Counting Zeros of Complex-Valued Harmonic Functions via Rouché’s Theorem",
+        "trigger": "Exact same general harmonic quadrinomial and relevant positive coefficient hypotheses"
+      },
+      {
+        "assessment": "Already covers diagonal 7-zero instances, but explicitly does not classify off-diagonal two-parameter cases",
+        "evidence": [
+          "Theorem 1 is restricted to equal analytic and co-analytic linear coefficients.",
+          "Final paragraphs explicitly describe the unequal coefficient case as an open extension."
+        ],
+        "identifier_or_url": "arXiv:2506.14966",
+        "material_read": "Full freely available preprint, Theorem 1, argument and final discussion on unequal coefficients",
+        "method": "Read source full text and compare exact objects, coefficient restriction a=b and the scope of the theorem",
+        "title": "Using Real-Variable Techniques to Study Zeros of Complex-Valued Harmonic Functions",
+        "trigger": "Similar cubic real-variable elimination, equal-coefficient diagonal with seven zeros"
+      },
+      {
+        "assessment": "Analytic linear coefficient absent, unlike a>0 here",
+        "evidence": [
+          "The displayed family consists of z^n and a single conjugate term with a constant; a=0, outside the claimed strict positive domain."
+        ],
+        "identifier_or_url": "DOI:10.1090/bproc/51",
+        "material_read": "Theorem 1.1 and the defining one-parameter class and zero-count results",
+        "method": "Materially read openly accessible primary mathematical result and compared allowed coefficients",
+        "title": "Zeros of a One-Parameter Family of Harmonic Trinomials",
+        "trigger": "Potential more general zero counts for cubic harmonic polynomials"
+      },
+      {
+        "assessment": "Different quadrinomial geometry and no equivalent complete D/E/H phase diagram",
+        "evidence": [
+          "The analyzed quadrinomial has different exponent and conjugate term arrangement and does not normalize to z³+az+b conjugate z−1 under the cited hypotheses."
+        ],
+        "identifier_or_url": "DOI:10.4314/sinet.v45i1.9",
+        "material_read": "Available full-text article content including defining polynomial and Sections 3–4 results",
+        "method": "Read openly accessible source text and compared term structure, zero-count quantifiers and parameter restrictions",
+        "title": "Zeros of a Two-Parameter Family of Harmonic Quadrinomials",
+        "trigger": "Plausible title asserting two-parameter harmonic quadrinomial coverage"
+      },
+      {
+        "assessment": "A one-parameter rational harmonic map with poles, not the entire planar cubic polynomial family",
+        "evidence": [
+          "Its prescribed caustic hypothesis and pole structure exclude the entire positive harmonic cubic coefficient plane."
+        ],
+        "identifier_or_url": "arXiv:2508.06724",
+        "material_read": "Freely available statement of Theorem 1, setup and description of the mapping family",
+        "method": "Inspected primary text and compared analytic/co-analytic structures",
+        "title": "Zeros of Harmonic Functions whose Caustic is a Non-Singular Image of an Epicycloid",
+        "trigger": "Potential caustic-based general zero classifications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8062c5fd-e0ac-4645-a7b6-d446e8f8dca6",
+  "value": {
+    "rationale": "Carlson studies parameter-dependent zero counts of the exact family in separated asymptotic regimes, and Brooks et al. explicitly discuss extending the diagonal case to unequal coefficients. This proof completely classifies the natural first nontrivial cubic/linear case for every a,b>0, including sharp values at fold and real-axis collision loci; it distinguishes two phase-boundary mechanisms and exhibits an open off-diagonal seven-regular-zero region. This is substantive structural completeness, rather than an arbitrary numerical slice, a known diagonal recomputation, or a routine asymptotic strengthening.",
+    "status": "PASS"
+  }
+}
