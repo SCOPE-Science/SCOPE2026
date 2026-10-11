@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Translating the centers reduces a common output to one coordinate choice \(e_i\in[-k_-,k_+]\cap(d_i+[-k_-,k_+])\). The three possible support-cost types at a nonzero displacement coordinate are exactly \((1,0)\), \((0,1)\), and \((1,1)\), with counts \(\alpha_s\), \(\beta_s\), and \(\gamma_s\). At zero displacement the types are \((0,0)\) once and \((1,1)\) exactly \(K\) times. Product enumeration followed by truncation at support \(t\) is therefore bijective. The direct finite verifier independently agrees with the formula throughout its exhaustive grid and checks the one-coordinate corollary and global maximum.
+## correctness
 
-## Originality
-**PASS.** The closest primary source defines the same pair-intersection quantity, proves its global maximum over all centers, and gives distance-based upper and lower bounds for general pairs. Statement-level inspection did not find an exact arbitrary-displacement product formula. Related limited-magnitude tiling papers concern packing/tiling structure rather than exact pairwise intersections. Targeted published-result searches under intersection, preimage, generating-function, displacement, reconstruction, and limited-magnitude aliases returned no claim implying this formula. A residual risk remains that an unindexed note, thesis, or implicit generating-function reformulation contains the same elementary factorization.
+PASS
 
-## Value
-**PASS.** Pairwise ball intersection is the ambiguity quantity controlling the number of reads needed for reconstruction. Replacing only distance-based bounds by an exact arbitrary-pair law yields a complete instance-level invariant and a direct \(O(nt^2)\) evaluator. The result is all-parameter and structural, not a finite census. Its value is exact ambiguity evaluation rather than a claimed improvement in asymptotic code density.
+For each coordinate difference \(s=d_i\), common output symbols are partitioned exactly by whether they consume support in the first error, the second error, both, or neither. For \(s=0\), the factor is \(1+KXY\); for \(0<|s|\le K\), the one-sided counts are the two endpoint indicators and the remaining overlap count is \(K+1-|s|-\alpha_s-\beta_s\); for \(|s|>K\), no common symbol exists. Multiplication therefore records the two total support costs independently, and truncating to exponents at most \(t\) gives exactly the intersection. Fresh direct enumeration reproduced the formula on 4,454 independent small cases. The support-one formula and global maximum agree with the published theorem.
 
-## Closest literature and limitations
-The 2022 reconstruction paper is the direct comparison: its unit-displacement extremal formula is recovered as a special case, while its general-pair treatment supplies bounds rather than this full signed-displacement enumerator. The tiling literature is adjacent but does not dominate the claim. The main residual originality risk is differently phrased or unindexed prior enumeration.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary source studies the same error balls and proves the exact global maximum over distinct centers, together with upper and lower bounds for arbitrary center pairs at prescribed distance. It does not give the exact intersection cardinality for an arbitrary signed displacement vector. The audited coordinate generating function retains all signed per-coordinate overlap information and specializes to the published global maximum on unit support, so it is additional exact structure rather than a restatement of Theorem 6 or Lemma 14.
+
+## value
+
+PASS
+
+Exact ambiguity between arbitrary received-center pairs is a natural invariant in sequence reconstruction, and the source previously had only an extremal value and bounds. The exact formula simultaneously resolves every center displacement and yields a polynomial-time evaluator, giving reusable information for list reconstruction and finite-parameter code design rather than an isolated number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

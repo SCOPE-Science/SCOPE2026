@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:45:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "H. Wei and M. Schwartz, Sequence Reconstruction for Limited-Magnitude Errors, IEEE Transactions on Information Theory 68 (2022), 4422–4434, DOI 10.1109/TIT.2022.3159736; author-hosted complete primary PDF inspected, especially Theorem 6 and Lemmas 7–14.",
+        "Resultary searches for arbitrary-center limited-magnitude ball intersections, signed displacements, exact generating functions, and the source title.",
+        "Fresh independent direct-set replay over 4,454 center displacements for all \\(n\\le 3\\), all \\(1\\le t\\le n\\), \\(k_+\\in\\{1,2\\}\\), and \\(0\\le k_-\\le k_+\\)."
+      ],
+      "rationale": "For each coordinate difference \\(s=d_i\\), common output symbols are partitioned exactly by whether they consume support in the first error, the second error, both, or neither. For \\(s=0\\), the factor is \\(1+KXY\\); for \\(0<|s|\\le K\\), the one-sided counts are the two endpoint indicators and the remaining overlap count is \\(K+1-|s|-\\alpha_s-\\beta_s\\); for \\(|s|>K\\), no common symbol exists. Multiplication therefore records the two total support costs independently, and truncating to exponents at most \\(t\\) gives exactly the intersection. Fresh direct enumeration reproduced the formula on 4,454 independent small cases. The support-one formula and global maximum agree with the published theorem.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wei–Schwartz cover reconstruction codes, asymmetric parameters, and arbitrary center pairs through bounds and distance classes.",
+          "Their broader coding-theory scope does not dominate an exact per-pair intersection evaluator."
+        ],
+        "reasoning": "The initiating paper is broader algorithmically and asymptotically but weaker on the exact local invariant. Its published maximum is recovered as a corollary of the audited exact formula, not conversely.",
+        "searches": [
+          "Wei–Schwartz complete primary paper, Section III",
+          "Resultary search for reconstruction codes and limited-magnitude error-ball overlap"
+        ]
+      },
+      "checked_sources": [
+        "H. Wei and M. Schwartz, Sequence Reconstruction for Limited-Magnitude Errors, IEEE Transactions on Information Theory 68 (2022), 4422–4434, DOI 10.1109/TIT.2022.3159736; author-hosted complete primary PDF inspected, especially Theorem 6 and Lemmas 7–14.",
+        "Resultary searches for arbitrary-center limited-magnitude ball intersections, signed displacements, exact generating functions, and the source title.",
+        "Fresh independent direct-set replay over 4,454 center displacements for all \\(n\\le 3\\), all \\(1\\le t\\le n\\), \\(k_+\\in\\{1,2\\}\\), and \\(0\\le k_-\\le k_+\\)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 proves \\(N(\\mathbb Z^n;t,k_+,k_-)=K V_{K+1}(n-1,t-1)\\) by an extremal argument.",
+          "Lemma 14 bounds arbitrary pairs but never identifies their exact dependence on every coordinate difference.",
+          "The audited proof classifies one-coordinate common values into exact \\((0,0),(1,0),(0,1),(1,1)\\) support-cost types and multiplies those factors."
+        ],
+        "reasoning": "A maximum-value theorem and coarse pairwise bounds do not mechanically imply the exact signed-displacement polynomial. The coordinate-factorization step is the additional structural lemma.",
+        "searches": [
+          "Wei–Schwartz Theorem 6",
+          "Wei–Schwartz Lemma 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 6 gives only the maximum intersection over all distinct centers.",
+          "Lemma 14 gives two-sided bounds in terms of the code distance and a coarse partition of coordinate types.",
+          "No inspected statement gives the coefficient extraction \\(\\sum_{p,q\\le t}[X^pY^q]\\prod_i F_{d_i}(X,Y)\\) for each actual displacement."
+        ],
+        "reasoning": "The generating-function, dynamic-programming, and exact arbitrary-center formulations are equivalent views of the same new object. The source's extremal and asymptotic statements discard information that the exact displacement profile retains.",
+        "searches": [
+          "Resultary query: Exact arbitrary-center intersections of limited-magnitude error balls",
+          "Resultary query: Sequence Reconstruction for Limited-Magnitude Errors arbitrary center pair intersection signed displacement",
+          "Wei–Schwartz Theorem 6 and Lemmas 7–14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact database or indexed result matching the full displacement-to-intersection map was located.",
+          "The published unit-support maximum is known and is explicitly treated as prior art."
+        ],
+        "reasoning": "The claim is not a table recomputation. Its value is the symbolic all-parameter formula and \\(O(nt^2)\\) evaluator.",
+        "searches": [
+          "Resultary exact-topic semantic searches",
+          "Searches for the unit-support and general signed-displacement formulas"
+        ]
+      },
+      "rationale": "The primary source studies the same error balls and proves the exact global maximum over distinct centers, together with upper and lower bounds for arbitrary center pairs at prescribed distance. It does not give the exact intersection cardinality for an arbitrary signed displacement vector. The audited coordinate generating function retains all signed per-coordinate overlap information and specializes to the published global maximum on unit support, so it is additional exact structure rather than a restatement of Theorem 6 or Lemma 14.",
+      "residual_risks": [
+        "The coordinate product factorization is elementary once the exact local overlap types are written down, so an unindexed coding-theory note could contain the same formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GLOBAL MAXIMUM AND BOUNDS, NOT THE EXACT ARBITRARY-DISPLACEMENT PROFILE",
+          "evidence": "Theorem 6 gives the known unit-support maximum; Lemma 14 gives only two-sided estimates for arbitrary pairs at a fixed distance.",
+          "identifier_or_url": "arXiv:2108.09662; DOI:10.1109/TIT.2022.3159736",
+          "material_read": "Complete author-hosted journal PDF, with focused inspection of Section III, Theorem 6, Definitions 10, Proposition 11, Lemmas 12–14, and the displayed arbitrary-pair counting bounds.",
+          "method": "Open primary PDF text plus rendered-page inspection.",
+          "title": "Sequence Reconstruction for Limited-Magnitude Errors",
+          "trigger": "Exact same limited-magnitude error balls and intersection problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "H. Wei and M. Schwartz, Sequence Reconstruction for Limited-Magnitude Errors, IEEE Transactions on Information Theory 68 (2022), 4422–4434, DOI 10.1109/TIT.2022.3159736; author-hosted complete primary PDF inspected, especially Theorem 6 and Lemmas 7–14.",
+        "Resultary searches for arbitrary-center limited-magnitude ball intersections, signed displacements, exact generating functions, and the source title.",
+        "Fresh independent direct-set replay over 4,454 center displacements for all \\(n\\le 3\\), all \\(1\\le t\\le n\\), \\(k_+\\in\\{1,2\\}\\), and \\(0\\le k_-\\le k_+\\)."
+      ],
+      "rationale": "Exact ambiguity between arbitrary received-center pairs is a natural invariant in sequence reconstruction, and the source previously had only an extremal value and bounds. The exact formula simultaneously resolves every center displacement and yields a polynomial-time evaluator, giving reusable information for list reconstruction and finite-parameter code design rather than an isolated number.",
+      "residual_risks": [
+        "The coordinate product factorization is elementary once the exact local overlap types are written down, so an unindexed coding-theory note could contain the same formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For limited-magnitude error balls with signed coordinate range \\([-k_-,k_+]\\) and Hamming budget \\(t\\), every two-center intersection has the exact bivariate coefficient formula obtained by multiplying the stated local factors \\(F_{d_i}(X,Y)\\); it is computable in \\(O(nt^2)\\), and the support-one specialization recovers the known sharp global maximum.",
+  "limitations": [
+    "The theorem concerns the stated independent-coordinate limited-magnitude/Hamming-support model.",
+    "The fresh finite replay corroborates but does not replace the all-parameter product proof.",
+    "The coordinate product factorization is elementary once the exact local overlap types are written down, so an unindexed coding-theory note could contain the same formula."
+  ],
+  "schema_version": 1
+}
