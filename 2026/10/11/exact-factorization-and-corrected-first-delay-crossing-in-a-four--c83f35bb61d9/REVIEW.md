@@ -1,0 +1,14 @@
+# Same-model review
+
+## Correctness
+PASS. The characteristic matrix printed by Cui et al. has one common diagonal quantity \(z=\lambda+a e^{-\lambda\theta}\), and direct determinant expansion gives \(z^4+3z^2-z+1\). The zero-delay polynomial at \(a=1/4\) has exact positive Hurwitz determinants \(1\), \(45/16\), \(41/64\), and \((241/256)(41/64)\). Eliminating the imaginary part of the quartic reduces the real part of every quartic root to the unique positive root of a strictly increasing cubic in \(x^2\); this makes the four positive imaginary-axis crossing frequencies exhaustive. Their phase equations give a unique earliest delay \(\theta_*=0.876243533775502\ldots\). The derivative formula gives strictly positive crossing speed. The bundled checker reconstructs all critical algebra and numerical values. Risk: the stability-interval conclusion uses the standard spectral-continuity fact for retarded constant-coefficient systems; nonlinear Hopf coefficients are outside the claim.
+
+## Originality
+PASS. The source full text was inspected at its model, characteristic determinant, expanded quasipolynomial, and Example 5.1; it reports \(\phi_0=2.0083\), \(\theta_0\approx0.8\) and does not state the scalar-shift factorization or the corrected threshold. The closest predecessor, Vaishwar and Yadav (2022), was inspected in the linearized-model and equal-delay numerical sections; only its first two self-feedback terms are delayed, so its characteristic matrix is not a common scalar shift and its result does not imply this one. Published published-finding corpus searches using the source DOI/title, the reported pair, common-delay aliases, and the quartic factor returned structurally related but different systems. Exact web searches for the quartic factor and corrected threshold did not locate a competing statement. Risk: negative search results cannot prove uniqueness, and not every later citation was inspected.
+
+## Value
+PASS. The result converts a four-dimensional quasipolynomial into four scalar delay branches, gives the complete imaginary-crossing frequency set, and corrects a published numerical Hopf benchmark used to support the model's stability discussion. The correction is substantive: the reported frequency \(2.0083\) is outside the entire admissible crossing set, while the exact factorization supplies a reusable spectral reduction rather than only a replacement decimal. The source's bracketing simulations remain interpretable because \(0.76<\theta_*<1.1\), so the correction sharpens rather than merely dismisses the numerical experiment.
+
+Closest literature: Cui et al. (2024), DOI 10.3934/math.2024647; Vaishwar and Yadav (2022), DOI 10.1016/j.cjph.2022.02.011. The principal residual risk is an unlocated later paper that independently noticed the same factorization or corrected threshold.
+
+Same-model review: passed. Independent audit: not yet performed.
