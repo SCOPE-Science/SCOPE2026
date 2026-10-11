@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "At infection-positive equilibrium S+sigma C=q is exact; solving stationary R,C gives unique rational formulas, with positive determinant D. Exact conservation reduces equilibrium to H(z)=1-q. H(0)=0 and H(1-q)>1-q, while H_z=1+alpha(k0d0+2k1d0 z+(k1d1-k0d2)z²)/D²>1 because the coefficient admits an explicit positive-term expansion for all positive rates, sigma in [0,1], and independent nonnegative feedback. Thus the endemic root exists uniquely, reconstructs an interior simplex equilibrium, and no other boundary equilibria exist. Quotient derivative factorizations prove epsilon1 strictly raises prevalence, epsilon2 strictly raises it iff sigma<1 and is immaterial at sigma=1. Symbolic identities and 80 exact rational cases replay from verify.py; finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gatti and Como, arXiv:2604.21065, analyze network SIRS with fixed transition rates, not a cross-immune intermediate C and prevalence-dependent two-channel feedback.",
+        "Casagrandi et al., DOI:10.1016/j.mbs.2005.12.029, precedes infection-responsive feedback and is recovered at epsilon1=epsilon2=0."
+      ],
+      "reasoning": "A uniqueness theorem for fixed-rate network SIRS cannot be specialized to the four-state nonlinear SIRCm ODE with two state-dependent transition coefficients. The original SIRC theorem covers a strict zero-feedback slice, and does not dominate the full rectangular feedback result.",
+      "searches": [
+        "arXiv:2604.21065 On the dynamic behavior of the network SIRS epidemic model",
+        "SIRC SIRS endemic equilibrium uniqueness mutation feedback prevalence cross immune model 2026",
+        "published-finding corpus semantic: prevalence-driven SIRC model endemic equilibrium uniqueness positive root all parameters two feedback rates monotone equilibrium infection"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01111v1 (full HTML Sections 2–4 and Appendix 8)",
+      "arXiv:2604.21065 (arXiv PDF equations/results)",
+      "DOI:10.1016/j.mbs.2005.12.029 (bibliography and abstract only)",
+      "published-finding corpus published records 2026/9/14/SCOPE021, 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd and related epidemic-dynamics result summaries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ArXiv existence statement allows multiple equilibria, and its small/large ε unique statements do not exclude multiplicity at intermediate ε.",
+        "Network-SEIR R0 bracketing and growth-weighted chemostat Perron threshold concern non-equivalent populations and equations.",
+        "Here positivity of the scalar derivative applies at all nonnegative independent feedback coefficients and implies exactly one endemic root."
+      ],
+      "reasoning": "The new quantifiers include independent feedback strengths throughout the entire nonnegative quadrant, and sign classification of each partial derivative. These are not corollaries of published existence, limited uniqueness, or separate-model threshold results.",
+      "searches": [
+        "arXiv:2610.01111v1 Theorem 3.1 Proposition 4.2 Remark 4.4 Proposition 4.8",
+        "published-finding corpus semantic: strict parameter monotonicity endemic infection fraction independently increasing ε1 ε2 cross-immunity sigma SIRCm",
+        "published-finding corpus near result 2026/9/14/SCOPE021 coupled-SEIR R0 bracketing",
+        "published-finding corpus near result 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ramírez-Gutiérrez et al., arXiv:2610.01111v1, Proposition 4.2 proves weak-feedback uniqueness, Remark 4.4 diagonal epsilon <= 1 sufficient; Proposition 4.8 treats large feedback.",
+        "The candidate proves for all finite independent epsilon1, epsilon2 >= 0 using exact H_z>1 and partial derivatives of K/D."
+      ],
+      "reasoning": "The natural equivalent is unique positive root of the prevalence equilibrium cubic, including unequal two-channel parameters. The source supplies that algebraic characterization only in the equal-feedback case, without the global H_z positivity factorization. Alternate wordings for the same problem were searched; no equivalent published record was found.",
+      "searches": [
+        "arXiv:2610.01111v1 prevalence-driven SIRCm equilibrium uniqueness, Section 4.1 and Appendix 8",
+        "\"SIRCm\" \"unique\" \"prevalence\" October 2026",
+        "\"SIRCm\" \"endemic\" \"monotonicity\" \"feedback\"",
+        "published-finding corpus semantic: arXiv 2610.01111 SIRCm prevalence-driven immune escape equilibrium 2 feedback parameters uniqueness for all epsilon1 epsilon2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source Remark 4.4 gives a diagonal polynomial and epsilon <= 1 sufficient criterion.",
+        "Source numerical plots show selected parameter values, not a table proving all-pair existence, uniqueness or derivatives."
+      ],
+      "reasoning": "The universal strict positivity decomposition of k1 d1-k0 d2 and two-channel comparative statics are symbolic identities with quantified implications, not extraction from a known finite table or a reprinting of numerical continuation.",
+      "searches": [
+        "arXiv:2610.01111v1 Remark 4.4 equilibrium cubic numerical continuation Figures 10, 11 and Appendix 8",
+        "published-finding corpus semantic: unique endemic equilibrium via scalar monotone rational function G1 G2 prevalence-driven SIRCm 2026",
+        "\"prevalence-driven\" \"immune escape\" \"SIRCm\" \"uniqueness\" two parameters"
+      ]
+    },
+    "rationale": "The source arXiv:2610.01111v1 proves endemic existence at all feedback strengths but restricts unique equilibrium conclusions to weak and strong feedback or a sufficient bound on the diagonal. The full parameter-independent strict scalar monotonicity identity and independent channel derivative factorizations settle that unproved intermediate and off-diagonal case. The original SIRC zero-feedback model and fixed-rate network SIRS theorems do not entail these statements. Residual priority risk remains for unpublished or unlocated implicit equivalents.",
+    "residual_risks": [
+      "The search is not a mathematical proof of novelty; an unstated equivalent argument may exist in earlier SIRC or compartmental-epidemic literature.",
+      "Full historical Casagrandi et al. manuscript was not read; it is limited to the zero-feedback setting by the originating formulation.",
+      "This is not a stability theorem: equilibrium uniqueness coexists logically with potential oscillatory dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source proves all-feedback endemic existence and partial uniqueness; not the all-two-channel uniqueness and parameterwise strict monotonicity theorem.",
+        "evidence": [
+          "arXiv:2610.01111v1, 2026-10-01, model (1) and (3), Proposition 4.2, Remarks 4.3–4.4, Proposition 4.8, Appendix 8"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01111v1",
+        "material_read": "Sections 2–4 and Appendix 8 (equilibrium reduction and stability), abstract, discussion; HTML full text",
+        "method": "Read primary open-access full text, including equations (1)–(3), Remark 4.4 and Appendix 8",
+        "title": "Compartmental epidemiological models with infection-driven immune escape",
+        "trigger": "Identical SIRCm ODE, prevalence-driven feedback, equilibria and source weak/strong uniqueness statements"
+      },
+      {
+        "assessment": "SIRS network theorem covers distinct ODE architecture with fixed transition rates; does not imply two-channel state-dependent SIRCm result.",
+        "evidence": [
+          "Gatti and Como, arXiv:2604.21065, model equations and equilibrium theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.21065",
+        "material_read": "Full-text PDF model definition, introductory theorem statements and conclusion; relevant equations and results",
+        "method": "Read available arXiv full-text PDF, compare dimensionality and transition-rate dependence",
+        "title": "On the dynamic behavior of the network SIRS epidemic model",
+        "trigger": "Possible dominating general SIRS uniqueness and monotonicity theorem"
+      },
+      {
+        "assessment": "Addresses original SIRC without infection-driven feedback. Limited full-text access leaves residual exact-priority risk.",
+        "evidence": [
+          "Casagrandi et al. 2006, Mathematical Biosciences 200:152–169, DOI:10.1016/j.mbs.2005.12.029; arXiv:2610.01111v1 citations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.mbs.2005.12.029",
+        "material_read": "Abstract and bibliographic description; full publisher article not obtained",
+        "method": "Compared bibliographic abstract and the zero-feedback use of this paper in arXiv:2610.01111v1",
+        "title": "The SIRC model and influenza A",
+        "trigger": "Classical SIRC baseline; could contain a related elimination argument"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c54c540b-e342-4cd8-b10d-52fd480b909c",
+  "value": {
+    "rationale": "The source leaves intermediate feedback and off-diagonal two-parameter equilibrium uniqueness without a universal result. Proving an exact all-parameter classification rules out endemic multistability in a naturally motivated prevalence-driven immune-escape model; independent parameterwise monotonicities resolve whether and how each feedback channel increases endemic infection, with a sharp boundary sigma=1. This mathematical sensitivity information is not a trivial normalization, finite table, or minor numeric improvement. It is not claimed to predict clinical outcomes or ensure convergence.",
+    "status": "PASS"
+  }
+}
