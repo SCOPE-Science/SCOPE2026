@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "With inradius 1, the regular N-gon norm satisfies ||z||_N<=||z||_2 and every polygonal unit vector has Euclidean length at most R=sec(pi/N). The Euclidean parallelogram identity therefore gives C'_NJ<=R^2. For N divisible by 4, the adjacent vertices at angles ±pi/N are unit, their sum lies on the horizontal facet-normal ray with norm 2, and their difference lies on the vertical facet-normal ray with norm 2 tan(pi/N). Their quotient is 1+tan^2(pi/N)=sec^2(pi/N), proving equality for every N=4n.",
+    "risks": [
+      "The representative computations are not an infinite proof; the universal statement rests on the symbolic Euclidean comparison and equality construction.",
+      "The equality construction depends essentially on the divisibility condition 4|N."
+    ],
+    "sources": [
+      "doi:10.3390/math10234591 for the modified von Neumann–Jordan definition in the planar absolute-norm setting",
+      "doi:10.1007/s43037-019-00033-1 for the identification of the two-variable modified upper constant with C'_NJ",
+      "RESULT.md",
+      "verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 absolute-normalized-norm paper provides general calculation methods but no regular-polygon family theorem in the inspected full text.",
+        "The 2020 modified n-th paper gives exact Lp/lp results but no regular-polygon family statement in the inspected full text.",
+        "The 2023 extreme-norm paper reports calculations on extreme absolute normalized norms at abstract level; its full PDF was not text-inspected."
+      ],
+      "reasoning": "No inspected broader theorem specializes to every regular 4n-gonal plane. The 2023 extreme-norm paper remains a bounded access risk, but its available abstract does not state a dominating regular-polygon classification.",
+      "searches": [
+        "upper modified von Neumann Jordan regular polygon sec pi N",
+        "modified von Neumann-Jordan regular 4n",
+        "Geometrical constants 2-dimensional spaces extreme norms modified von Neumann-Jordan"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math10234591",
+      "doi:10.1007/s43037-019-00033-1",
+      "hdl:2433/289261",
+      "public record: Exact parameterized von Neumann–Jordan profile of the regular octagonal plane",
+      "public record: Inscribed-quadrilateral collapse in strictly convex normed planes",
+      "current prior ledger through generation g000052"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact octagonal profile fixes N=8 only and cannot imply the formula for arbitrary n.",
+        "The strict-convex planar quadrilateral-collapse theorem concerns J_in and uses C'_NJ as a two-point quantity; regular polygons are non-strictly-convex and the theorem does not compute their C'_NJ values.",
+        "The own prior octagonal quadrilateral finding contains C'_NJ(X_8)=4-2sqrt(2), exactly the N=8 specialization and no broader implication."
+      ],
+      "reasoning": "The new statement is an infinite family whose proof uses a uniform Euclidean circumradius certificate and an adjacent-vertex equality mechanism. Neither the octagon-only result nor the strict-convex J_in reduction supplies this all-n argument.",
+      "searches": [
+        "modified von Neumann Jordan constant regular 4n-gon exact",
+        "exact parameterized von Neumann-Jordan profile regular octagonal plane",
+        "inscribed quadrilateral collapse strictly convex normed planes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ciesielski–Płuciennik explicitly identify the modified upper two-variable constant with C'_NJ.",
+        "The candidate formula was searched both as sec^2(pi/N) and through regular-octagon/dodecagon specializations.",
+        "No located indexed statement gives the all-regular-4n family."
+      ],
+      "reasoning": "The main notational alias is the upper modified second von Neumann–Jordan constant. Searches used both this name and C'_NJ, so a result stated in either standard formulation was compared.",
+      "searches": [
+        "modified von Neumann Jordan constant regular 4n-gon exact",
+        "upper modified von Neumann Jordan regular polygon sec pi N",
+        "C'_NJ regular dodecagon sec squared"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A public indexed regular-octagon parameterized von Neumann–Jordan result was found and treated as covering that special case.",
+        "No indexed exact dodecagon or all-4n modified-constant table/formula was found.",
+        "The current prior ledger contains an exact regular-octagon C'_NJ value but no all-4n family."
+      ],
+      "reasoning": "Exact low-order specializations were checked because an existing table could imply the small cases without containing the family theorem. The only located overlap is the octagonal member, which does not imply the universal n-formula.",
+      "searches": [
+        "C'_NJ regular dodecagon sec squared",
+        "modified von Neumann-Jordan regular octagon",
+        "modified von Neumann-Jordan regular dodecagon"
+      ]
+    },
+    "rationale": "Statement-level searches were made under the exact modified von Neumann–Jordan notation, regular-polygon aliases, the dodecagonal specialization, and the candidate secant-square formula. Full publisher text for the two main defining/background papers was inspected. The closest public indexed regular-polygon result covers the regular octagon only, hence one special case of the family. A 2023 paper on extreme absolute normalized norms is highly relevant; only its abstract and metadata were accessible for inspection, and this is recorded as a residual risk rather than claimed as full-text noncoverage.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "The full text of the 2023 extreme-norm paper could not be text-inspected; it is the main unresolved literature-access risk.",
+      "An equivalent all-regular-polygon formula could exist under a different affine normalization or notation not captured by the checked aliases."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_AND_RELEVANT_NOT_COVERING: it treats C'_NJ/Gao-type calculations in planar absolute norms, but the inspected full text contains no regular-polygon family formula.",
+        "evidence": "Mathematics 10 (2022), 4591; published 4 December 2022; MSC 46B20, 46B25.",
+        "identifier_or_url": "doi:10.3390/math10234591",
+        "material_read": "Full publisher HTML: publication/MSC metadata, introduction and C'_NJ definition, absolute-normalized-norm setup, main calculation framework, conclusions, and targeted searches for regular/octagon terminology.",
+        "method": "Open-access publisher full-text inspection.",
+        "title": "The Gao-Type Constant of Absolute Normalized Norms on R^2",
+        "trigger": "Primary 46B20 source explicitly recalling C'_NJ and giving calculation methods for absolute normalized planar norms."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING: it identifies the two-variable modified constant and computes classical Lp/lp families, but no regular-polygon theorem was located in the inspected text.",
+        "evidence": "Banach J. Math. Anal. 14 (2020), 650–673; published 1 January 2020.",
+        "identifier_or_url": "doi:10.1007/s43037-019-00033-1",
+        "material_read": "Full publisher HTML: modified-constant definitions, Proposition 1, classical-space exact values, conclusion-level statements, publication metadata and MSC list.",
+        "method": "Open-access publisher full-text inspection.",
+        "title": "On some modifications of n-th von Neumann–Jordan constant for Banach spaces",
+        "trigger": "Primary full-text source for modified upper n-th von Neumann–Jordan constants and the n=2 identification with C'_NJ."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_PLAUSIBLE_SOURCE: no available abstract statement covers the regular 4n family, but full-text noncoverage is not claimed.",
+        "evidence": "RIMS Kôkyûroku 2260 (2023), 129–136; keyword/MSC record includes 46B20 and modified von Neumann–Jordan constant.",
+        "identifier_or_url": "hdl:2433/289261",
+        "material_read": "Repository metadata, MSC/keyword record and abstract; the 4.67 MB PDF download was located but not available as inspectable extracted text.",
+        "method": "Repository metadata/abstract inspection; full-text comparison unavailable.",
+        "title": "Geometrical constants of 2-dimensional spaces with extreme norms in AN_2",
+        "trigger": "Highly relevant 2023 paper whose abstract specifically reports modified von Neumann–Jordan calculations for extreme absolute normalized norms."
+      }
+    ],
+    "sources": [
+      "doi:10.3390/math10234591",
+      "doi:10.1007/s43037-019-00033-1",
+      "hdl:2433/289261"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bff49469-f937-48de-8e66-1071dcdedd95",
+  "value": {
+    "rationale": "The modified von Neumann–Jordan constant is a standard quantitative measure of non-Hilbertian geometry and uniform non-squareness. The result gives one closed formula for the entire canonical fourfold regular-polygon approximation to the Euclidean disk, not another isolated polygon computation. It also identifies the exact geometric mechanism for equality—adjacent vertices symmetric around one facet normal with their difference on the perpendicular facet normal—and yields a sharp quadratic convergence rate to the Hilbert value. These features make the formula a reusable benchmark for polyhedral approximation and comparisons among geometric constants.",
+    "risks": [
+      "The theorem leaves the regular polygons with side count congruent to 2 modulo 4 untreated."
+    ],
+    "sources": [
+      "doi:10.3390/math10234591",
+      "doi:10.1007/s43037-019-00033-1",
+      "RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
