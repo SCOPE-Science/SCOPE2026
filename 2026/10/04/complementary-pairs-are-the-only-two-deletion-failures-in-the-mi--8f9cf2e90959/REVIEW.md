@@ -1,13 +1,21 @@
-# Review
-## Correctness
-PASS. The proof reduces the claim to an exact separator lemma for the middle support layer. For every pair of distinct graph vertices, the number of middle-layer landmarks that distinguish them is at least three, except for a complementary pair of middle vertices, whose distinguishing set is exactly the two vertices themselves. The case analysis covers both supports below the middle, both above, one on each side, one exactly in the middle, and both in the middle. The binomial counts have minimum at least \(m\ge3\). The two-deletion statement follows immediately, and exhaustive finite replays at ranks six and eight agree with the symbolic proof.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest primary source proves that every support layer resolves and then proves minimality of a one-deleted layer only when \(k\ne n/2\); its statement explicitly excludes the central layer. The present theorem treats that exact excluded boundary and classifies all two-landmark deletions there. Exact web and semantic-index searches for the complement-pair characterization found no equivalent statement. A later fault-tolerant metric-dimension paper treats products of two fields rather than the even-rank Boolean middle layer.
+## correctness
 
-## Value
-PASS. This is a natural structural boundary lemma for the exceptional Boolean family where metric and upper dimensions differ. It converts the unexplained central-layer exclusion in the published minimality argument into a sharp robustness statement: the canonical middle resolver is two-deletion robust except for one geometrically forced failure type, complementary pairs. The result is self-contained and can be used as a precise starting point for higher-deletion and fault-tolerance questions.
+PASS
 
-Residual risk is bibliographic: an equivalent robustness lemma could appear under different resolving-set terminology in literature not surfaced by the searches.
+The distance formula is correct with disjointness taking precedence over the union-full case. The proof's size cases give at least three distinguishers except for complementary middle vertices, where exactly the two vertices distinguish one another. The mixed-size binomial lower bounds meet the claimed thresholds for all \(m\ge3\). Fresh exhaustive replay at n=6 and n=8 found exactly 10 and 35 bad deletion pairs respectively, all complementary, and exactly the same numbers of vertex pairs with two distinguishers. The finite replay corroborates the all-m counting proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact central-layer two-deletion classification fills a boundary that Redmond--Szabo explicitly exclude from their minimality argument. Their Proposition 3.1 treats \(W_k\setminus\{w\}\) when \(k\ne n/2\), and the proof's complement argument breaks at the middle layer precisely because complements remain in that layer. No inspected fault-tolerant zero-divisor result supplies the complementary-pair iff classification.
+
+## value
+
+PASS
+
+The result exactly resolves the structurally exceptional middle layer omitted by the known noncentral minimality theorem. Classifying every two-deletion failure is a natural robustness refinement of resolving sets and identifies the precise boundary obstruction, not an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
