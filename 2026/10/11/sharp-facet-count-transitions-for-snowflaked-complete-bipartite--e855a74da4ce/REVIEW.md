@@ -1,0 +1,15 @@
+# Same-model scientific review
+
+## Correctness — PASS
+The finding counts vertices of the real dual Lipschitz unit ball and transfers the count to facets by finite-dimensional polarity. The tight-edge connectedness equivalence is proved in both directions, with normalization at the base point and a finite positive slack argument. In the strict middle regime, the two one-part-saturated families are exhaustive and disjoint, and the remaining case has no tight within-part edges, forcing constant potentials on each side by parity of saturated cross paths. The endpoint changes are separately reconstructed, including \(t=1\), where all distances equal one, and \(t=2\), where every same-part edge is a two-step equality. The exact rational intersection checker agrees on all six finite instances, but is not used to prove arbitrary cardinalities. No nonstandard theorem is assumed beyond elementary finite-dimensional polarity and the proved tight-edge criterion.
+
+## Originality — PASS, with residual risk
+The motivating 2023 source of Cobollo–Guirao–Montesinos (arXiv:2304.13183v1), treats three-point numerical indices, not this family or invariant. Gordon–Petrov gives general face graph machinery and generic metric enumeration, but the present homogeneous two-level metrics have nongeneric four-cycles. Higashitani–Jochemko–Michałek fully covers the symmetric edge-polytope endpoint \(t=2\); the claimed new part, \(1<t<2\), includes extra within-class molecules absent at that endpoint. Alexander–Fradelizi–García-Lirola–Zvavitch provides structural results and no stated formula for the interior family. Four targeted published-record searches and full relevant source sections produced no equivalent interior enumeration. An equivalent unindexed combinatorial derivation is possible and is not ruled out merely by search failure.
+
+## Mathematical value — PASS
+A fundamental invariant—the number of facets of a natural finite-dimensional Lipschitz-free unit ball—is determined completely for every size of both bipartition classes and the entire snowflake parameter. The abrupt increase from the equilateral endpoint and sharp drop at the graph-metric endpoint reflect genuine changes in extremal Lipschitz potentials and transport molecules, not a renaming or routine bound. The result makes a full combinatorial phase diagram explicit, with an exact constructive classification, rather than giving only small examples or preexisting endpoint counts.
+
+## Closest literature and limits
+Gordon–Petrov's connected tight-face graphs are acknowledged as established machinery; Higashitani–Jochemko–Michałek's complete bipartite endpoint is explicitly credited. Results about numerical indices, graph height-function counts and octahedrality concern distinct invariants and do not imply the claimed interior face count. The result is for real finite metrics and facet counts, not complete face lattices, infinite graphs, or complex scalars. No independent audit has been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
