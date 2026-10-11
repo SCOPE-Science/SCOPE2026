@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:53:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 58e2535e703407ddcc3fa3bce7475dbf7413f6c7",
+        "verify.py blob fb374d8a8e04f96c2e6d16bc427be50b3923071c",
+        "fresh support-set proof reconstruction"
+      ],
+      "rationale": "Ideals correspond bijectively to nonempty proper supports and adjacency is nonempty support intersection. A two-vertex total dominating set must be adjacent and must cover every coordinate, because an uncovered singleton-support ideal would meet neither selected ideal. Conversely an intersecting pair whose union is all coordinates dominates every nonempty support and its two selected vertices dominate each other. Such a two-set is automatically paired. Counting ordered pairs amounts to surjections of the r coordinates onto the three nonempty classes A\\B, B\\A and A intersect B, giving 3^r-3*2^r+3, then dividing by the fixed-point-free swap. The r=2 graph is two isolated vertices. The frozen verifier exhausts r<=7 and agrees with this all-r proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The principal-ideal-ring theorem covers arbitrary products of finite chain rings and gives all minimum total/paired pairs plus a closed multiplicity formula.",
+          "Products of fields are a strict subclass obtained by taking every chain length equal to one."
+        ],
+        "reasoning": "The published principal-ideal-ring classification strictly dominates the assigned product-of-fields theorem.",
+        "searches": [
+          "Resultary/2026 record a7f8c7ca2fea, complete public RESULT.md inspected",
+          "Resultary query: total paired domination ideal intersection graph product of fields minimum sets count"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026 record a7f8c7ca2fea",
+        "DOI:10.1155/2014/952371",
+        "Resultary product-of-fields query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At ell_i=1, L=1, B=2^r and P=3^r, so the count becomes (3^r-3*2^r+3)/2.",
+          "The stronger theorem's exceptional 'product of exactly two fields' case is exactly r=2 here, and its two-vertex active-support classification is identical for r>=3."
+        ],
+        "reasoning": "Every substantive assertion in the final claim follows by direct specialization of the broader published theorem.",
+        "searches": [
+          "published finite-PIR theorem formula P-(2^r+1)L-2B+4 over two",
+          "specialization ell_i=1 for every i"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a product of fields, ideals are exactly 0/1 support vectors, which is the ell_i=1 case of the chain-ring exponent-vector model.",
+          "The stronger theorem's active-support criterion becomes A intersect B nonempty and A union B=[r], exactly the assigned criterion."
+        ],
+        "reasoning": "The two formulations coincide under the substitution ell_1=...=ell_r=1.",
+        "searches": [
+          "Resultary published record: Minimum total and paired domination in ideal-intersection graphs of finite principal ideal rings, record a7f8c7ca2fea",
+          "Abu Osba--Al-Addasi--Abughneim, DOI:10.1155/2014/952371"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned both the assigned record and the broader finite-principal-ideal-ring record among the leading exact matches."
+        ],
+        "reasoning": "This is decisive theorem coverage rather than a coincidence of numerical tables.",
+        "searches": [
+          "Resultary exact product-of-fields total/paired domination query"
+        ]
+      },
+      "rationale": "A published SCOPE theorem on finite commutative principal ideal rings strictly contains this result. Setting every local nilpotency length ell_i=1 in that theorem makes the ring a product of fields, gives the identical existence boundary, pair criterion, gamma_t=gamma_pr=2 for r>=3, and specializes its count to (3^r-3*2^r+3)/2. Thus the entire final claim is a direct parameter specialization of prior published coverage.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_STRONGER_COVERAGE",
+          "evidence": "Substituting ell_i=1 in every local factor reproduces the assigned theorem and its exact count.",
+          "identifier_or_url": "Resultary/2026 record a7f8c7ca2fea",
+          "material_read": "Complete public RESULT.md was read, including statement, support proof, existence boundary and counting formula.",
+          "method": "Exact parameter specialization and implication comparison.",
+          "title": "Minimum total and paired domination in ideal-intersection graphs of finite principal ideal rings",
+          "trigger": "Highly relevant published SCOPE theorem returned by the required originality search."
+        },
+        {
+          "assessment": "ORDINARY_DOMINATION_ONLY",
+          "evidence": "The 2014 paper treats ordinary domination, not the strengthened total/paired minimum-set classification; the decisive coverage comes from the later published finite-PIR theorem.",
+          "identifier_or_url": "DOI:10.1155/2014/952371",
+          "material_read": "Open full publisher text through the ring decomposition and domination-number section was inspected.",
+          "method": "Historical invariant-scope comparison.",
+          "title": "Some Properties of the Intersection Graph for Finite Commutative Principal Ideal Rings",
+          "trigger": "Primary same-graph source for ordinary domination and product-of-fields structure."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary/2026 record a7f8c7ca2fea",
+        "DOI:10.1155/2014/952371",
+        "Resultary product-of-fields query"
+      ],
+      "rationale": "The result is a strict ell_i=1 specialization of the already published finite-principal-ideal-ring theorem, with no independent remainder: its existence boundary, both domination numbers, all minimum pairs and the exact count are all inherited. Under the required bar, a clean special-case restatement does not constitute independent value.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Resultary/2026 record a7f8c7ca2fea",
+    "DOI:10.1155/2014/952371",
+    "Resultary product-of-fields query"
+  ],
+  "disposition": "failed",
+  "final_claim": "For a product of r fields, the ideal-intersection graph has no total or paired dominating set at r=2; for r>=3 both minimum parameters equal two, the minimum sets are exactly intersecting proper support pairs covering all coordinates, and their number is (3^r-3*2^r+3)/2.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for decisive stronger published coverage, not for correctness."
+  ]
+}
