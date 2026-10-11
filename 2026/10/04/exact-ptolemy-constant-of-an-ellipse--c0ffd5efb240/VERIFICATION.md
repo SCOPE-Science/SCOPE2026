@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The analytic proof is the verification basis. The side-direction derivative is
-\[
-f(m)=\frac{ab}{a^2\sin^2m+b^2\cos^2m},
-\]
-and each opposite-angle sum integrates \(f\) over total parameter length \(\pi\). The length-\(\pi\) threshold set where \(\sin^2m\ge\cos^2m\) minimizes the integral and gives \(4\arctan(b/a)\). Combining this with the published angular Ptolemy inequality yields the global bound, and the axis endpoints attain it.
+# Independent mathematical audit
 
-The bundled `verify.py` was designed to check the exact endpoint identities and to stress-test random ordered quadruples at several aspect ratios. Such tests are finite and are not evidence for the universal quantifier; they only guard against algebraic or normalization mistakes in the written formulas.
+## correctness
 
-Unproved limits: no uniqueness classification of maximizing quadruples is asserted, and no extension beyond planar Euclidean ellipses is claimed.
+PASS
+
+For r(t)=(a cos t,b sin t), the direction of a chord side is governed by psi'(m)=ab/(a^2 sin^2 m+b^2 cos^2 m). Each opposite interior-angle sum is the integral of this positive pi-periodic function over a measurable subset of a 2pi period having total length pi. The threshold set where sin^2 m>=cos^2 m is exactly a length-pi set on which the derivative is minimal, so the rearrangement comparison gives the sharp lower bound 4 arctan(b/a). Applying the published convex-quadrilateral angular Ptolemy inequality to the smaller opposite-angle sum then yields p<=(a^2+b^2)/(2ab). The four axis endpoints attain equality directly. The bundled random stress test is diagnostic only; the global proof is the exact turning-integral argument.
+
+## originality
+
+PASS
+
+Harmaala--Klén prove the relevant angular Ptolemy comparison but give only lower and upper bounds for ellipses. Finch studies exactly the same ellipse optimization, reports the axis-endpoint formula from symbolic/numerical evidence, and explicitly leaves rigorous global verification open. The audited turning-angle rearrangement supplies that missing global proof. Resultary found no earlier covering exact theorem.
+
+## value
+
+PASS
+
+This closes a specifically documented rigorous gap for a natural classical planar curve: the exact formula and extremizer were known as a lower bound and numerical/symbolic conjecture, and the audited theorem supplies the missing global proof. That is a motivated exact geometric result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
