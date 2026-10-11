@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:51:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6ab468611aa5a902a5eaa998bb537297231b8649",
+        "artifacts/verify.py blob 8f27960970337c0152195229238a57806de67f32",
+        "fresh pinching/triangle reconstruction and random-matrix replay"
+      ],
+      "rationale": "Pinching into accepted/rejected blocks cannot increase trace distance. Each block contributes at least half the acceptance-probability gap by its trace, while for \\(p\\ge q\\) the accepted block also satisfies \\(\\delta_P\\ge pc-|p-q|/2\\) by the triangle inequality. Adding the rejected-block contribution yields exactly \\(\\max\\{|p-q|,pc\\}\\); swapping states handles \\(q\\ge p\\). The three-outcome diagonal family has conditional distance \\(c_*=\\min(1,\\tau/p)\\) and input distance \\(\\max(p-q,pc_*)\\le\\tau\\), proving sharpness. A fresh independent random-matrix check verified the inequality on 100 noncommuting instances. The relationship paragraph in RESULT.md contains one pre-existing unmatched LaTeX brace in its display of the weaker source bound; the theorem and proof are unaffected.",
+      "residual_risks": [
+        "One non-substantive malformed brace appears only in a prior-work formula in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gavorová develops distances for postselected computations and conversion lemmas between normalized and ordinary map distances.",
+          "Shi–Waks define operation-level error metrics for non-trace-preserving maps.",
+          "The recent MERA paper's accessible abstract explicitly says normalized postselection can amplify perturbations inversely with prefix acceptance, but does not expose the exact unequal-acceptance envelope in the available material."
+        ],
+        "reasoning": "These broader frameworks motivate the phenomenon but no inspected accessible statement implies the exact denominator \\(\\max\\{p,q\\}\\) with matching witnesses.",
+        "searches": [
+          "arXiv:2011.08487",
+          "arXiv:2110.02290",
+          "arXiv:2609.33567 primary abstract and accessible metadata"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33567",
+        "arXiv:2011.08487",
+        "arXiv:2110.02290",
+        "Resultary postselection search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inverse-acceptance scaling alone does not fix the optimal denominator or unequal-acceptance dependence.",
+          "The pinching/block argument combines two half acceptance-gap trace contributions with a triangle inequality to remove the extra gap term, and the diagonal witness attains the resulting envelope for every feasible budget."
+        ],
+        "reasoning": "The exact sharp state-pair constant is additional to the accessible prior statements, subject to the full-text access risk.",
+        "searches": [
+          "accessible arXiv:2609.33567 abstract",
+          "Gavorová and Shi–Waks map-level results",
+          "audited pinching proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a common projector, the accepted unnormalized blocks have masses \\(p,q\\), and the claim is an exact conditioning Lipschitz constant resolved by the larger mass.",
+          "The commuting sharpness family shows that the quantum optimum already occurs in a classical three-outcome diagonal model."
+        ],
+        "reasoning": "This is equivalently the sharp total-variation amplification law for a common conditioning event when both event probabilities are fixed, lifted to projective quantum postselection.",
+        "searches": [
+          "Makwana–Patel–Joshi–Mulherkar, arXiv:2609.33567",
+          "Gavorová, arXiv:2011.08487",
+          "Shi–Waks, arXiv:2110.02290",
+          "Resultary query: trace distance amplification projective postselection unequal acceptance probability sharp tau max p q"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published Resultary finding or classical probability formula with the same acceptance-resolved sharp envelope was located."
+        ],
+        "reasoning": "No exact table applies; the comparison tested for an existing theorem under both quantum and classical-conditioning terminology.",
+        "searches": [
+          "Resultary postselection trace-distance search",
+          "targeted searches for classical conditioning total variation with fixed event probabilities"
+        ]
+      },
+      "rationale": "The defining recent MERA-certification paper advertises inverse-acceptance amplification under normalized postselection and, according to the frozen source comparison, gives a weaker acceptance-resolved bound with an additional half acceptance-gap term. Its full text could not be materially obtained through open routes in this run, and the authorized institutional retrieval attempt returned an unavailable/invalid-worker error, so exact theorem-level overlap remains a specific residual risk. Gavorová and Shi–Waks study broader postselected/non-trace-preserving map metrics, but the inspected statements are operation-level or constant-factor bounds rather than this state-pair exact envelope. Resultary search found no covering theorem.",
+      "residual_risks": [
+        "The complete Makwana et al. preprint was not materially accessible in this run; an unadvertised exact refinement in that paper would be decisive if present.",
+        "An elementary classical conditional-total-variation lemma with the same optimum may exist under terminology not captured by the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_SAME_SETUP_FULL_TEXT_INACCESSIBLE_BEST_OF_KNOWLEDGE_PASS",
+          "evidence": "The accessible abstract states inverse-acceptance amplification but does not expose an exact unequal-acceptance optimal envelope. The frozen package identifies a weaker theorem with an additional acceptance-gap term; that exact source comparison could not be independently reread in full.",
+          "identifier_or_url": "arXiv:2609.33567",
+          "material_read": "Primary arXiv abstract and accessible metadata were read. Direct open full-text retrieval was unavailable; after open routes failed, one authorized institutional retrieval attempt returned an unavailable/invalid-worker error and was not retried.",
+          "method": "Access-limited same-setup comparison.",
+          "title": "Terminal-Register Certification for Finite-Measurement Learning of Multiscale Quantum States",
+          "trigger": "Most directly relevant recent source cited as containing a weaker projector-postselection inequality."
+        },
+        {
+          "assessment": "BROADER_MAP_FRAMEWORK_NOT_EXACT_PROJECTOR_ENVELOPE",
+          "evidence": "The source concerns postselected computations and map-level conversion bounds rather than the exact fixed-\\(p,q\\) common-projector state-pair optimization.",
+          "identifier_or_url": "arXiv:2011.08487",
+          "material_read": "Primary theorem/abstract scope on postselected map distances and conversion bounds was inspected.",
+          "method": "State-pair sharp-bound versus map-metric comparison.",
+          "title": "Notes on distinguishability of postselected computations",
+          "trigger": "Primary general framework for distinguishability under postselection."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.33567",
+        "arXiv:2011.08487",
+        "arXiv:2110.02290",
+        "Resultary postselection search"
+      ],
+      "rationale": "Postselection is intrinsically nonlinear after renormalization, and exact perturbation amplification is directly relevant to finite-measurement certification. The theorem gives the optimal acceptance-resolved one-step constant for arbitrary unequal success probabilities, with sharp witnesses, improving the accessible prior inverse-acceptance picture rather than merely demonstrating instability.",
+      "residual_risks": [
+        "The complete Makwana et al. preprint was not materially accessible in this run; an unadvertised exact refinement in that paper would be decisive if present.",
+        "An elementary classical conditional-total-variation lemma with the same optimum may exist under terminology not captured by the searches."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.33567",
+    "arXiv:2011.08487",
+    "arXiv:2110.02290",
+    "Resultary postselection search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two finite-dimensional states subjected to a common orthogonal-projector postselection with acceptance probabilities \\(p,q>0\\), if the input trace distance is \\(\\varepsilon\\) and the conditional trace distance is \\(c\\), then \\(\\varepsilon\\ge\\max\\{|p-q|,\\max(p,q)c\\}\\). Hence an input budget \\(\\tau\\) gives the sharp envelope \\(c\\le\\min\\{1,\\tau/\\max(p,q)\\}\\), attained for every feasible \\(p,q,\\tau\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete Makwana et al. preprint was not materially accessible in this run; an unadvertised exact refinement in that paper would be decisive if present.",
+    "An elementary classical conditional-total-variation lemma with the same optimum may exist under terminology not captured by the searches.",
+    "The result is for a common orthogonal projector in one step, not arbitrary trace-nonincreasing channels or multistage postselection."
+  ]
+}
