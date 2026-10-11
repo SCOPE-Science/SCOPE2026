@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the hyperboloid model, a supporting hyperplane with unit spacelike normal \(n\) is encoded by the nonnegative vertex pairings \(s_i=\langle v_i,n\rangle\), with at least one zero. For every point of the hyperbolic simplex, normalization of a positive combination of the vertices can only decrease the corresponding pairing relative to the maximum vertex pairing, because \(\cosh\ell>1\). Thus the support width is exactly \(\operatorname{arsinh}(\max_i s_i)\).
+PASS
 
-The regular-simplex Gram matrix and its inverse give the exact unit-normal constraint. After normalization by the largest pairing, minimizing the width becomes maximizing a quadratic functional on coordinate faces of the unit cube. Its face Hessian is positive definite, forcing every maximizer to be a zero-one vertex. The remaining one-variable discrete objective has a unique maximum at \(k=\lceil d/2\rceil\). This proves the formula and, by tracing equality, the complete minimizer classification.
+The hyperboloid proof reconstructs the support optimization without using a finite experiment as an infinite proof. For a support normal \(n\), the vertex pairings \(s_i=\langle v_i,n\rangle\) are nonnegative and the maximum hyperbolic distance is attained at a vertex because projective barycentric normalization only increases the Lorentz denominator. Inverting the regular-simplex Gram matrix gives the exact normalization \(1=(q-1)^{-1}(\sum s_i^2-\frac{q}{dq+1}(\sum s_i)^2)\). After dividing by \(M=\max s_i\), minimizing width is equivalent to maximizing a strictly convex quadratic on a union of cube faces. Hence a maximizer is a zero-one pattern. With exactly \(k\) ones the objective is \(F_k=k((d-k)q+1)/(dq+1)\), and the consecutive difference has the stated sign, uniquely maximizing at \(k=\lceil d/2\rceil\). This proves both the closed thickness formula and the complete minimizer classification. The package verifier independently checks the Gram inverse, the difference identity and the tetrahedral specialization.
 
-The symbolic checker independently verifies the Gram inverse, the objective and difference identities, the face Hessian eigenvalue, and the three-dimensional reduction to Lassak's edge-supported expression.
+## originality
 
-## Originality
+PASS
 
-PASS with residual risk stated below. Lassak's full open-access preprint was inspected at the definition of width and thickness, the regular-simplex facet-width discussion, and the tetrahedral edge-support example. It computes a particular edge-supported width in dimension three and proves it is below the facet width, but it does not optimize over all supporting hyperplanes, identify the thickness, classify the minimizing supports, or give the all-dimensional formula.
+Lassak's primary paper defines this width and thickness, computes a facet-supported width for regular hyperbolic simplices, and in dimension three constructs a narrower edge-supported support to show regular tetrahedra are not reduced. The inspected source does not optimize over all supports in arbitrary dimension and does not classify every minimizing face. Current Resultary search returned the assigned all-dimensional theorem as the exact same-object hit, with no stronger published regular-simplex thickness theorem. The audited result therefore supplies the missing global optimization rather than merely renaming Lassak's tetrahedral example.
 
-The earlier Dekster papers use a different notion called equidistant thickness and provide estimates for simplices with edge lengths in a range. Later hyperbolic isominwidth work uses Lassak width for volume problems but does not determine the regular-simplex thickness. Targeted exact-form and alias searches found no covering statement.
+## value
 
-## Value
+PASS
 
-PASS. Thickness is the central minimum-width invariant in the motivating paper, and the regular simplex is the canonical symmetric test body. The result converts an exhibited three-dimensional witness into an exact global optimum, classifies every minimizer, and reveals a parity-dependent support-face dimension in all dimensions. This also supplies a direct all-dimensional explanation for the nonreducedness mechanism suggested by the motivating source.
+The result closes an explicit geometric optimization left open by the defining source and upgrades a tetrahedral example to an exact all-dimensional formula with a full equality classification. Thickness is the central invariant in Lassak's reduced-body theory, so determining the minimizing support dimension and its multiplicity is a natural structural result rather than an arbitrary special-case computation.
 
-Closest-literature limitations: several inequivalent hyperbolic width notions coexist, so only statements using Lassak's support-hyperplane width are implication-relevant. The short Gram-matrix argument could have appeared under different terminology, which remains the principal residual originality risk.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

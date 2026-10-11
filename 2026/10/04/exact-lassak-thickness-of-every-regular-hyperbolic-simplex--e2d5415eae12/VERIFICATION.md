@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,63 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For vertices \(v_0,\ldots,v_d\) of a regular hyperbolic simplex with \(q=\cosh\ell\), the Lorentz Gram matrix is
-\[
-G=(q-1)I-qJ.
-\]
-Direct multiplication gives
-\[
-G^{-1}
-=
-\frac1{q-1}I
--
-\frac q{(q-1)(dq+1)}J.
-\]
+## correctness
 
-If \(s_i=\langle v_i,n\rangle\) are the nonnegative pairings with a unit spacelike normal of a supporting hyperplane and \(M=\max_i s_i\), then
-\[
-1=s^TG^{-1}s.
-\]
-After writing \(t_i=s_i/M\), this becomes
-\[
-M^2
-=
-\frac{q-1}{\sum_i t_i^2-\frac q{dq+1}(\sum_i t_i)^2}.
-\]
-At least one \(t_i\) is zero.
+PASS
 
-On each coordinate face the denominator has Hessian
-\[
-2(I-cJ),
-\qquad
-c=\frac q{dq+1},
-\]
-whose exceptional eigenvalue is
-\[
-2(1-dc)=\frac2{dq+1}>0.
-\]
-Hence the denominator is strictly convex there, so a maximum has a zero-one pattern. With \(k\) ones its value is
-\[
-F_k=\frac{k((d-k)q+1)}{dq+1},
-\]
-and
-\[
-F_{k+1}-F_k
-=
-\frac{(d-2k-1)q+1}{dq+1}.
-\]
-For \(q>1\), this changes sign exactly around
-\[
-k=\left\lceil\frac d2\right\rceil,
-\]
-proving the unique cardinality of the minimizing support pattern.
+The hyperboloid proof reconstructs the support optimization without using a finite experiment as an infinite proof. For a support normal \(n\), the vertex pairings \(s_i=\langle v_i,n\rangle\) are nonnegative and the maximum hyperbolic distance is attained at a vertex because projective barycentric normalization only increases the Lorentz denominator. Inverting the regular-simplex Gram matrix gives the exact normalization \(1=(q-1)^{-1}(\sum s_i^2-\frac{q}{dq+1}(\sum s_i)^2)\). After dividing by \(M=\max s_i\), minimizing width is equivalent to maximizing a strictly convex quadratic on a union of cube faces. Hence a maximizer is a zero-one pattern. With exactly \(k\) ones the objective is \(F_k=k((d-k)q+1)/(dq+1)\), and the consecutive difference has the stated sign, uniquely maximizing at \(k=\lceil d/2\rceil\). This proves both the closed thickness formula and the complete minimizer classification. The package verifier independently checks the Gram inverse, the difference identity and the tetrahedral specialization.
 
-The embedded `verify.py` symbolically replays these identities, checks the exact discrete maximizer for several rational values of \(q>1\) and dimensions through \(12\), and verifies the algebraic equivalence of the \(d=3\) specialization with Lassak's edge-supported tetrahedral expression after \(\ell=2x\).
+## originality
 
-The replay output is:
+PASS
 
-`VERIFY_OK regular hyperbolic simplex Lassak thickness`
+Lassak's primary paper defines this width and thickness, computes a facet-supported width for regular hyperbolic simplices, and in dimension three constructs a narrower edge-supported support to show regular tetrahedra are not reduced. The inspected source does not optimize over all supports in arbitrary dimension and does not classify every minimizing face. Current Resultary search returned the assigned all-dimensional theorem as the exact same-object hit, with no stronger published regular-simplex thickness theorem. The audited result therefore supplies the missing global optimization rather than merely renaming Lassak's tetrahedral example.
 
-The finite range in the checker is not used as an all-dimensional proof; it only guards the symbolic reductions and special-case algebra. The proof in `RESULT.md` supplies the quantifiers and sign argument for every \(d\ge2\) and every \(\ell>0\).
+## value
+
+PASS
+
+The result closes an explicit geometric optimization left open by the defining source and upgrades a tetrahedral example to an exact all-dimensional formula with a full equality classification. Thickness is the central invariant in Lassak's reduced-body theory, so determining the minimizing support dimension and its multiplicity is a natural structural result rather than an arbitrary special-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

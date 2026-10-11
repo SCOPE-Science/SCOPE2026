@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:11:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 92004b4780f7a013131ee707b2386b577f695b2d",
+        "assigned verify.py blob cfa51125eba785f202cc8e5eaee4af77c56805fa",
+        "Marek Lassak, arXiv:2306.04412 / DOI 10.1007/s00025-023-02102-2"
+      ],
+      "rationale": "The hyperboloid proof reconstructs the support optimization without using a finite experiment as an infinite proof. For a support normal \\(n\\), the vertex pairings \\(s_i=\\langle v_i,n\\rangle\\) are nonnegative and the maximum hyperbolic distance is attained at a vertex because projective barycentric normalization only increases the Lorentz denominator. Inverting the regular-simplex Gram matrix gives the exact normalization \\(1=(q-1)^{-1}(\\sum s_i^2-\\frac{q}{dq+1}(\\sum s_i)^2)\\). After dividing by \\(M=\\max s_i\\), minimizing width is equivalent to maximizing a strictly convex quadratic on a union of cube faces. Hence a maximizer is a zero-one pattern. With exactly \\(k\\) ones the objective is \\(F_k=k((d-k)q+1)/(dq+1)\\), and the consecutive difference has the stated sign, uniquely maximizing at \\(k=\\lceil d/2\\rceil\\). This proves both the closed thickness formula and the complete minimizer classification. The package verifier independently checks the Gram inverse, the difference identity and the tetrahedral specialization.",
+      "residual_risks": [
+        "The theorem is specific to regular compact simplices and Lassak's support-hyperplane width.",
+        "The package replay samples dimensions only as a consistency check; correctness of all dimensions rests on the symbolic convexity and sign argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining source proves general properties of Lassak width and a regular-tetrahedron nonreducedness example.",
+          "No inspected broader theorem provides the parity-dependent minimizing face dimension or the all-dimensional formula."
+        ],
+        "reasoning": "General width theory does not mechanically determine the optimizer for the regular simplex.",
+        "searches": [
+          "Lassak, Width of convex bodies in hyperbolic space, arXiv:2306.04412",
+          "Resultary current searches for regular hyperbolic simplex thickness and hyperbolic width"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.04412",
+        "DOI 10.1007/s00025-023-02102-2",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A facet width is only an upper candidate for thickness and does not identify a minimum.",
+          "One edge-supported tetrahedral construction does not imply the unique cardinality \\(k=\\lceil d/2\\rceil\\) in every dimension."
+        ],
+        "reasoning": "The quadratic Gram-matrix optimization is additional mathematics not supplied by the prior statements.",
+        "searches": [
+          "facet-supported regular-simplex formula versus global support optimization",
+          "tetrahedral edge example versus arbitrary dimension minimizer classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses the same support-hyperplane width and defines thickness as its minimum.",
+          "Its tetrahedral edge support is one feasible support, not an all-support minimization theorem."
+        ],
+        "reasoning": "The comparison is on the identical width notion; alternative equidistant-width notions were excluded as scientifically different.",
+        "searches": [
+          "Resultary query: regular hyperbolic simplex Lassak width thickness supporting face minimizer exact formula",
+          "Lassak arXiv:2306.04412, regular-simplex facet width and regular-tetrahedron edge-support discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the exact same-object hit; no independent table or formula with the same all-dimensional result was returned."
+        ],
+        "reasoning": "The database search supports the primary-source comparison but is not treated as novelty proof by itself.",
+        "searches": [
+          "Resultary current published-finding search for exact Lassak thickness of regular hyperbolic simplices"
+        ]
+      },
+      "rationale": "Lassak's primary paper defines this width and thickness, computes a facet-supported width for regular hyperbolic simplices, and in dimension three constructs a narrower edge-supported support to show regular tetrahedra are not reduced. The inspected source does not optimize over all supports in arbitrary dimension and does not classify every minimizing face. Current Resultary search returned the assigned all-dimensional theorem as the exact same-object hit, with no stronger published regular-simplex thickness theorem. The audited result therefore supplies the missing global optimization rather than merely renaming Lassak's tetrahedral example.",
+      "residual_risks": [
+        "A poorly indexed hyperbolic convexity source could contain the same regular-simplex optimization under different width terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FACET_FORMULA_AND_TETRAHEDRAL_EXAMPLE_NOT_GLOBAL_OPTIMIZATION",
+          "evidence": "The source defines the same thickness, gives regular-simplex facet width, and constructs a narrower tetrahedral edge support, but does not state the audited all-dimensional minimum or minimizer classification.",
+          "identifier_or_url": "arXiv:2306.04412",
+          "material_read": "primary PDF searched throughout for the regular simplex/tetrahedron discussion; the facet-width statement and the page containing the edge-supported tetrahedron construction and nonreducedness remark were read and visually inspected",
+          "method": "primary full-text targeted inspection with PDF page verification",
+          "title": "Width of convex bodies in hyperbolic space",
+          "trigger": "defining primary source and exact regular-tetrahedron comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lassak 2023/2024",
+        "assigned RESULT.md and verifier"
+      ],
+      "rationale": "The result closes an explicit geometric optimization left open by the defining source and upgrades a tetrahedral example to an exact all-dimensional formula with a full equality classification. Thickness is the central invariant in Lassak's reduced-body theory, so determining the minimizing support dimension and its multiplicity is a natural structural result rather than an arbitrary special-case computation.",
+      "residual_risks": [
+        "The theorem does not address nonregular or ideal simplices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is specific to regular compact simplices and Lassak's support-hyperplane width.",
+    "The package replay samples dimensions only as a consistency check; correctness of all dimensions rests on the symbolic convexity and sign argument.",
+    "A poorly indexed hyperbolic convexity source could contain the same regular-simplex optimization under different width terminology.",
+    "The theorem does not address nonregular or ideal simplices."
+  ]
+}
