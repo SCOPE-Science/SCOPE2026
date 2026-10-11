@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:43:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at blob fb188a643d57e3b5f101aab119cc194c13033dfd",
+        "assigned verify.py at blob 82709e3238dee92a22dacf109b0390810a77fe85",
+        "Jahanshahi et al. source vector field",
+        "independent symbolic Lie-derivative reconstruction"
+      ],
+      "rationale": "Direct differentiation of \\(\\Phi\\) along the printed vector field cancels \\(-aw\\) with \\(a\\dot z\\), the \\(exy\\) term with the derivative of \\(-(e/2)x^2\\), and \\(fxz\\) with the matching component of \\(-f\\,d(xy)/dt\\), leaving exactly \\(bx^2-(c+f)y^2+g\\). A bounded forward state makes \\(\\Phi(T)-\\Phi(0)\\) uniformly bounded, so division by \\(T\\) gives the time-average law. Invariance of a compactly supported probability measure gives the stationary law by integrating the time-integrated identity. The sign cases follow immediately, and the source decimal parameters reduce exactly to coefficients \\(35/99\\) and \\(115/198\\). The inspected symbolic verifier independently checks the polynomial identity and rational specialization.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper supplies the vector field and parameter regime but not the displayed balance.",
+          "Analogous identities on different flows cannot imply this system-specific polynomial cancellation."
+        ],
+        "reasoning": "No broader same-vector-field theorem was found that dominates the exact identity.",
+        "searches": [
+          "Jahanshahi et al. same-system dynamics",
+          "Ren et al. different no-equilibrium hyperjerk",
+          "related exact stationary-balance findings on other flows"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/e21020156",
+        "DOI:10.1515/zna-2017-0409",
+        "Resultary Jahanshahi invariant-measure/coboundary query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct differentiation cancels the damping, mixed, and acceleration terms, leaving only the two quadratic activities and forcing.",
+          "The resulting no-bounded-orbit and stationary lower-bound statements require this cancellation and are not implied by Lyapunov-exponent or bifurcation plots."
+        ],
+        "reasoning": "The claim is a new exact structural consequence of the printed ODE, not a restatement of its numerical dynamics.",
+        "searches": [
+          "published vector field versus audited polynomial \\(\\Phi\\) and Lie derivative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source describes bifurcations, entropy, hidden attractors, and control for the same vector field.",
+          "Resultary's highest same-system hit is the audited coboundary result; nearby findings concern different four-dimensional flows."
+        ],
+        "reasoning": "The trajectory time-average law and invariant-measure law are the integrated and stationary formulations of the same polynomial coboundary.",
+        "searches": [
+          "Jahanshahi et al., Entropy 21 (2019) 156, DOI:10.3390/e21020156",
+          "Ren et al., DOI:10.1515/zna-2017-0409",
+          "Resultary query: Jahanshahi non equilibrium fourth order chaotic flow invariant measure coboundary time average mean square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact direct database hit is the audited finding; no earlier external same-system balance-law entry was located."
+        ],
+        "reasoning": "This is not a numerical invariant that could be read from the paper's chaotic parameter tables.",
+        "searches": [
+          "Resultary same-system invariant-measure query",
+          "targeted searches under time average, mean square, balance law, and coboundary"
+        ]
+      },
+      "rationale": "The Jahanshahi et al. source studies the same printed four-dimensional non-equilibrium flow through equilibria, bifurcations, entropy, hidden attractors, and control. Semantic search found the audited coboundary theorem as the direct same-system result and only analogous moment identities for other vector fields. No inspected primary or published result states this exact forcing-activity coboundary or its invariant-measure consequences.",
+      "residual_risks": [
+        "The primary article was not fully line-by-line inspected in this run, leaving a small risk of an unindexed integral identity.",
+        "An equivalent balance could appear in control literature under energy or average-power terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_VECTOR_FIELD_AND_NUMERICAL_DYNAMICS_NOT_EXACT_COBBOUNDARY_LAW",
+          "evidence": "The inspected source material describes dynamical and control analyses rather than an invariant-measure mean-square balance.",
+          "identifier_or_url": "DOI:10.3390/e21020156",
+          "material_read": "Accessible primary abstract/source page describing equilibrium, bifurcation, entropy, hidden-attractor, and control analysis; the complete article was not reread line by line in this run.",
+          "method": "Same-system theorem-scope comparison plus independent Lie-derivative reconstruction.",
+          "title": "Entropy Analysis and Neural Network-Based Adaptive Control of a Non-Equilibrium Four-Dimensional Chaotic System with Hidden Attractors",
+          "trigger": "Primary source for the exact vector field and chaotic parameter set."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jahanshahi et al.",
+        "Ren et al.",
+        "Resultary search"
+      ],
+      "rationale": "The identity converts a numerically studied chaotic model into a rigorous long-time activity law and gives a parameter region where bounded dynamics are impossible. Exact stationary constraints of this form are useful for validating simulations and separating global recurrence facts from local bifurcation or Lyapunov diagnostics.",
+      "residual_risks": [
+        "The primary article was not fully line-by-line inspected in this run, leaving a small risk of an unindexed integral identity.",
+        "An equivalent balance could appear in control literature under energy or average-power terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3390/e21020156",
+    "DOI:10.1515/zna-2017-0409",
+    "Resultary Jahanshahi invariant-measure/coboundary query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the Jahanshahi non-equilibrium fourth-order flow, the polynomial \\(\\Phi=w+az-(e/2)x^2-fxy\\) satisfies the exact coboundary \\(\\dot\\Phi=bx^2-(c+f)y^2+g\\); hence bounded trajectories and compact invariant measures obey the corresponding mean-square balance, yielding the stated no-bounded-trajectory sign region and the exact source-parameter lower bound on mean-square activity.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The primary article was not fully line-by-line inspected in this run, leaving a small risk of an unindexed integral identity.",
+    "An equivalent balance could appear in control literature under energy or average-power terminology."
+  ]
+}
