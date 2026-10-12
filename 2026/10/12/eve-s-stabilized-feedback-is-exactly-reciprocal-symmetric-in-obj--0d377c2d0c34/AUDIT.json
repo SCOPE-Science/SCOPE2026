@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "Substituting the positive gap ratio \\(q_t=\\Delta_t/\\Delta_{t-1}\\) into the defining Eve coefficient gives \\(|q_t-1|/\\min\\{q_t,1\\}=\\max\\{q_t,q_t^{-1}\\}-1\\) by a complete two-case split. For constant \\(q\\), clipping produces a constant input to a scalar EMA, whose closed form and limit are exact. The clipping phase boundaries follow by solving two elementary reciprocal inequalities. The embedded verifier replays all identities independently.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper's discussion focuses on the intended roles of variation and suboptimality and on empirical comparisons.",
+        "Later searchable descriptions reproduce Eve's objective-feedback mechanism but did not provide a theorem subsuming the reciprocal symmetry or clipping phase boundaries.",
+        "The closest published-record findings concern different optimization methods and different state variables."
+      ],
+      "reasoning": "General adaptive-learning-rate descriptions do not imply the exact reciprocal symmetry unless the stabilized denominator is algebraically reduced in gap-ratio coordinates.",
+      "searches": [
+        "Eve optimizer global learning rate objective feedback analysis reciprocal loss ratio",
+        "Eve optimizer relative loss feedback limitations",
+        "Eve optimizer geometric objective decrease"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1611.01505v1",
+      "arXiv:1611.01505v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source says high consecutive objective variation should reduce the learning rate and high suboptimality should increase it.",
+        "The stabilized source rule replaces the current objective in the numerator by min{f_t,f_{t-1}}, then clips and smooths the resulting coefficient.",
+        "The source states the learning-rate range but not which multiplicative objective-gap ratios hit each clipping branch."
+      ],
+      "reasoning": "The final claim requires changing variables from absolute objective values to consecutive positive gap ratios and solving the clipping inequalities. The qualitative source discussion does not imply the reciprocal symmetry or monotone improving-trace rate law without that derivation.",
+      "searches": [
+        "arXiv:1611.01505v3 Eve proposed method Equation 5 6 7",
+        "arXiv:1611.01505v3 Figure 1 default c beta3",
+        "Eve optimizer tenfold loss change reciprocal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the stabilized ratio using the absolute consecutive loss difference divided by the smaller objective gap.",
+        "The source gives clipping to [1/c,c], smoothing by beta3, and alpha_t=alpha_1/tilde_d_t.",
+        "No located published statement rewrites the feedback as max(q,q^{-1})-1 or identifies reciprocal improvement/worsening symmetry."
+      ],
+      "reasoning": "Equivalent statements would identify Eve's stabilized feedback as a function only of multiplicative gap-change magnitude, or would state that q and 1/q induce the same global-rate schedule. No such statement was located.",
+      "searches": [
+        "Eve optimizer objective feedback geometric loss ratio reciprocal symmetry global learning rate",
+        "Eve optimizer loss ratio exact clipping thresholds c reciprocal increase decrease",
+        "Eve global learning rate coefficient d_t min loss ratio closed form",
+        "arXiv:1611.01505v3 Equation 8 Eve d_t clip beta3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-record result analyzes OSGM feedback targets rather than Eve and uses a different feedback recurrence.",
+        "Other close records concern Polyak objective monotonicity, Nesterov objective spikes, and spectral persistence; none use Eve's min-gap feedback formula.",
+        "No returned published record named Eve in an implication-equivalent theorem or stated the q-to-1/q invariance."
+      ],
+      "reasoning": "The closest database results study objective or feedback behavior under different update maps. Their statements do not imply Eve's exact coefficient or clipping thresholds.",
+      "searches": [
+        "Eve optimizer objective feedback geometric loss ratio reciprocal symmetry global learning rate",
+        "Eve optimizer loss ratio exact clipping thresholds c reciprocal increase decrease",
+        "Eve optimizer constant relative objective decrease learning rate feedback",
+        "Eve global learning rate coefficient d_t min loss ratio closed form"
+      ]
+    },
+    "rationale": "The defining Eve paper gives the stabilized objective-feedback equations and qualitative variation/suboptimality motivation but does not state the reciprocal gap-ratio symmetry or the exact geometric-trace phase diagram. Focused published-record searches found no implication-equivalent Eve result.",
+    "residual_risks": [
+      "An equivalent algebraic observation may exist in unindexed implementation notes or informal discussions.",
+      "Later sources sometimes use the name Eve for unrelated optimizers, which complicates broad text search.",
+      "The result isolates the global feedback channel rather than the coupled Adam parameter dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FORMULA_NOT_COVERING_RECIPROCAL_GAP_RATIO_SYMMETRY_OR_GEOMETRIC_TRACE_PHASE_DIAGRAM.",
+        "evidence": "The paper defines d_t from consecutive objective values, clips it to [1/c,c], smooths it by beta3, initializes tilde_d_1=1, and uses alpha_1/tilde_d_t. The inspected method section does not state the q-to-1/q invariance or exact clipping thresholds in gap-ratio coordinates.",
+        "identifier_or_url": "arXiv:1611.01505v3",
+        "material_read": "Open full paper text, with detailed inspection of Section 3.2, Figure 1, Equation 8, Section 3.3, and the introduction discussing global learning-rate adaptation.",
+        "method": "Open-access PDF text inspection and page-image inspection of the method and algorithm pages.",
+        "title": "Eve: A Gradient Based Optimization Method with Locally and Globally Adaptive Learning Rates",
+        "trigger": "Defining source for Eve's objective-feedback coefficient, stabilization, clipping, smoothing, defaults, and stated motivation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d377c2d-0c34-4662-8668-a1b337de1721",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Eve's distinctive contribution is its objective-driven global learning-rate adaptation. The exact reciprocal symmetry shows that the stabilized channel discards the sign of multiplicative progress: reciprocal improvement and worsening receive identical feedback. The geometric-trace phase diagram translates Eve's clipping hyperparameter into sharp, interpretable objective-gap thresholds and shows that faster monotone improvement systematically receives no larger asymptotic global rate. This is a natural structural diagnostic of the defining mechanism, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
