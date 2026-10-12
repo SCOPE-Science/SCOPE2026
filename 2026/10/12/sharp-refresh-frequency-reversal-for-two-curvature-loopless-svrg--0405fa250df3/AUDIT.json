@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The pre-step-refreshed state matrices yield the exact positive moment map \\(\\mathcal T(C)=\\mathbb E[BCB^\\top]\\). For \\(d=p+(1-p)h\\), \\(y=p(1-h)/d\\), and \\(P=\\bigl(\\begin{smallmatrix}1&y\\\\y&1\\end{smallmatrix}\\bigr)\\), direct independent averaging gives \\(\\mathcal T^2(P)=P-(hQ/d)K\\), with \\(K=E+\\mathcal T(E)\\succ0\\) and \\(E=\\operatorname{diag}(1,0)\\). On \\(0<h<2\\), these strict positive-cone inequalities prove geometric contraction or expansion according to the sign of \\(Q\\), which has one positive root in \\((0,2)\\). From common nonzero initialization the covariance becomes positive definite by the third step. At \\(h=2\\) the same expansion identity applies; \\(P\\) is semidefinite only at \\(p=1\\), but the positive-cone comparison still proves growth. For \\(h>2\\), the mean explodes. Implicit differentiation of \\(\\partial_pQ=(h-1)(h-2)\\) proves the exact monotonicity switch at \\(v^2=1/2\\). The enclosed standalone checker passed 1,710 exact rational cases plus the witness; finite computations do not replace the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qian–Qu–Richtárik, arxiv:1906.01481, Algorithm 1 and Theorem 3.1: arbitrary sampling and expected-smoothness upper bound, not necessity of the scalar second-moment threshold.",
+        "Sebbouh et al., arxiv:1908.02725, Section 5: decreasing-step loopless method, whose dynamic differs from constant-step L-SVRG."
+      ],
+      "reasoning": "General convergence theorems for arbitrary minibatch sampling cover smaller conservative step regimes and need not imply sharp necessity, p monotonicity, or a common-step stable/unstable pair. The decreasing-step algorithm is distinct. No inspected stronger theorem subsumes all three features.",
+      "searches": [
+        "two-component loopless stochastic variance reduced gradient quadratic",
+        "SVRG snapshot probability nonmonotone mean square stability versus refresh curvature heterogeneity",
+        "scalar two curvature finite sum loopless SVRG sharp stepsize frontier",
+        "arxiv:1906.01481 arbitrary sampling",
+        "arxiv:1908.02725 Section 5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1901.08689v1 and v2 Sections 3 and relevant theorems",
+      "arxiv:1906.01481v1 Algorithm 1 and Theorem 3.1",
+      "arxiv:1908.02725v2 Section 5",
+      "Previously established exact \\(p=1/2\\) scalar two-client Loopless SVRG theorem (comparison only)",
+      "Published mathematical findings returned by actual indexed semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kovalev–Horváth–Richtárik, arxiv:1901.08689, Section 3: pre-step snapshot reset and a sufficient small-step convergence guarantee; no displayed exact scalar critical root or its p-derivative.",
+        "Qian–Qu–Richtárik, arxiv:1906.01481, Algorithm 1 and Theorem 3.1: arbitrary sampling and expected-smoothness upper bound, not necessity of the scalar second-moment threshold.",
+        "Sebbouh et al., arxiv:1908.02725, Section 5: decreasing-step loopless method, whose dynamic differs from constant-step L-SVRG.",
+        "Earlier two-component scalar \\(p=1/2\\) mean-square boundary is treated as already known and not novel; it contains only one fixed value of p and does not imply a strict sign change with p."
+      ],
+      "reasoning": "The known fixed \\(p=1/2\\) root formula is subsumed and excluded. Its single value of the critical step cannot determine refresh monotonicity. Neither the identity \\(\\partial_p Q=(h-1)(h-2)\\), the threshold \\(v^2=1/2\\), nor the rational contrast between \\(p=1/4\\) and \\(p=1\\) follows from the special case or source sufficient-rate statements.",
+      "searches": [
+        "arxiv:1901.08689 Section 3",
+        "arxiv:1906.01481 Algorithm 1 and Theorem 3.1",
+        "arxiv:1908.02725 Section 5",
+        "SVRG snapshot probability nonmonotone mean square stability versus refresh curvature heterogeneity",
+        "Sharp mean-square stability frontier for two-client Loopless SVRG (fixed p=1/2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kovalev–Horváth–Richtárik, arxiv:1901.08689, Section 3: pre-step snapshot reset and a sufficient small-step convergence guarantee; no displayed exact scalar critical root or its p-derivative.",
+        "Qian–Qu–Richtárik, arxiv:1906.01481, Algorithm 1 and Theorem 3.1: arbitrary sampling and expected-smoothness upper bound, not necessity of the scalar second-moment threshold.",
+        "Earlier two-component scalar \\(p=1/2\\) mean-square boundary is treated as already known and not novel; it contains only one fixed value of p and does not imply a strict sign change with p."
+      ],
+      "reasoning": "The equivalent covariance spectral-radius-one characterization is established by the new exact positive-definite comparison. The earlier fixed \\(p=1/2\\) frontier is a covered special case but does not determine the dependence across \\(p\\) or the threshold \\(v^2=1/2\\). The defining papers have upper-bound sufficiency, not this exact equivalence.",
+      "searches": [
+        "Loopless SVRG",
+        "SVRG exact mean-square stability refresh coin",
+        "loopless stochastic variance reduced gradient L-SVRG two component quadratic exact mean square stability refresh probability step size spectral radius",
+        "\"loopless SVRG\" \"stability\" \"quadratic\" refresh probability exact",
+        "arxiv:1901.08689 §3",
+        "arxiv:1906.01481 Theorem 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed semantic research searches returned neighboring topics in stochastic optimization, not an indexed exact loopless-SVRG all-p phase diagram; source arxiv:1901.08689 supplies the established algorithm."
+      ],
+      "reasoning": "No inspected numerical-stability table or mathematical database entry contains the general formula and inversion. Absence from search is supporting search evidence only and does not establish uniqueness or priority.",
+      "searches": [
+        "Loopless SVRG",
+        "loopless stochastic variance reduced gradient L-SVRG two component quadratic exact mean square stability refresh probability step size spectral radius",
+        "scalar two curvature finite sum loopless SVRG sharp stepsize frontier",
+        "loopless SVRG delayed snapshot lag refresh variance spectral radius",
+        "Loopless SVRG",
+        "SVRG exact mean-square stability refresh coin"
+      ]
+    },
+    "rationale": "The novel statement is the all-probability sharp condition \\(Q(h,p,v)>0\\) and the strict contrast-dependent sign reversal of its refresh-probability derivative. The \\(p=1/2\\) scalar frontier is an acknowledged covered case, whereas the source sufficient-step bounds and decreasing-step variants do not imply the necessary-and-sufficient constant-step all-probability criterion. Originality is supported by inspected primary algorithm/theorem sections and indexed scientific comparisons, subject to residual unindexed literature.",
+    "residual_risks": [
+      "The finite literature and semantic indexing checks cannot rule out an unindexed equivalent fixed-step all-refresh-probability derivation.",
+      "A more general uninspected analysis of Markov jump linear systems could imply the same scalar phase reversal by specialization; no decisive covering statement was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_OBJECT_NOT_COVERING_NEW_CLAIM",
+        "evidence": "Kovalev–Horváth–Richtárik, arxiv:1901.08689, Section 3: pre-step snapshot reset and a sufficient small-step convergence guarantee; no displayed exact scalar critical root or its p-derivative.",
+        "identifier_or_url": "https://arxiv.org/html/1901.08689v2",
+        "material_read": "Section 3 algorithm, main sufficient-convergence statements, relevant hypotheses and refresh timing; checked theorem versus scalar-mean-square necessity.",
+        "method": "Lawful arXiv HTML full-text section reading and cross-check of original arXiv v1 timestamp.",
+        "title": "Don’t Jump Through Hoops and Remove Those Loops: SVRG and Katyusha are Better Without the Outer Loop",
+        "trigger": "Defines the exact reference-refresh and stochastic gradient update studied here."
+      },
+      {
+        "assessment": "BROADER_SETTING_BUT_NO_EXACT_ALL_P_FRONTIER",
+        "evidence": "Qian–Qu–Richtárik, arxiv:1906.01481, Algorithm 1 and Theorem 3.1: arbitrary sampling and expected-smoothness upper bound, not necessity of the scalar second-moment threshold.",
+        "identifier_or_url": "https://arxiv.org/html/1906.01481v1",
+        "material_read": "Algorithm 1, expected-smoothness assumptions and Theorem 3.1 convergence bounds; compared statement and implication with exact root.",
+        "method": "Lawful arXiv HTML full-text section and theorem inspection.",
+        "title": "L-SVRG and L-Katyusha with Arbitrary Sampling",
+        "trigger": "General sampling and refresh framework potentially stronger than specialized claim."
+      },
+      {
+        "assessment": "DIFFERENT_ALGORITHM_NOT_IMPLICATIVE",
+        "evidence": "Sebbouh et al., arxiv:1908.02725, Section 5: decreasing-step loopless method, whose dynamic differs from constant-step L-SVRG.",
+        "identifier_or_url": "https://arxiv.org/html/1908.02725v2",
+        "material_read": "Section 5 definitions and changed step-size schedule for loopless method; tested whether same transition is implied.",
+        "method": "Lawful arXiv HTML full-text relevant subsection inspection.",
+        "title": "Towards closing the gap between the theory and practice of SVRG",
+        "trigger": "Analyzes loopless SVRG variants, plausible overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0405fa25-0df3-4dca-86f4-66e74c642d11",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Snapshot-refresh probability is a controllable and computationally meaningful design parameter of loopless SVRG. The exact stable-step frontier has a strict, counterintuitive reversal: at small positive curvature contrast, more frequent refresh can render an otherwise convergent fixed-step algorithm divergent; at large contrast, the direction reverses. The concrete \\(v=1/2\\), \\(h=5/4\\) example gives opposite convergence classifications for two rational refresh probabilities. This does not claim a new \\(p=1/2\\) slice, arbitrary nonquadratic behavior, or practical speedup.",
+    "status": "PASS"
+  }
+}
