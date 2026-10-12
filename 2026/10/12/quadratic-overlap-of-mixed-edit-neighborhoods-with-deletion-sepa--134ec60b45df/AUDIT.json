@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Fully quantified n>=4; explicit four residue constructions; deletion shadows disjoint by mandatory four-position shift and repeated 11 obstruction. The exact 64-state deterministic recognizer has a mathematically justified NFA transition and counts distinct outputs. Matrix orbit has dimension 4096 and finite check of 4099 terms per residue proves equality for all lengths by Cayley–Hamilton plus cubic annihilator. C++ source compiled/executed with 4x4099 successful comparisons; independent direct set enumerator checks all 43942 unordered pairs through n=8 and the family through n=14. Arithmetic is exact with a conservative path-count bound excluding overflow. No unproved global optimality asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sala et al. give a lower bound for the uncoded mixed channel from distance-one centers but not a theorem controlling pairs of deletion-separated centers.",
+        "Cai et al. study union edit channels yielding lengths n+1 or n-1, not the composition yielding length n."
+      ],
+      "reasoning": "The published unrestricted-ball intersection lower bound is not a sharp or constructive bound within the deletion-separated subclass, so it does not imply the explicitly constructed exact overlap.",
+      "searches": [
+        "published-finding corpus: Fixed length binary channels and coding codes with multiple reads, sequence reconstruction, zero-error channel, exact small parameter classification, reconstruction and graph capacity",
+        "published-finding corpus: Exact intersection size floor(n²/4)+4 of two radius-one fixed-length Levenshtein balls centered at binary 0110 versus 1001 with alternating equal flanks; two centers have disjoint one-deletion shadows and full insertion-deletion distance two; mixed deletion and insertion sequence reconstruction lower bound quadratic",
+        "Full text: arXiv:1604.03000 Section V-B",
+        "Full text: arXiv:2001.01376"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1604.03000v1",
+      "arXiv:2001.01376v1",
+      "arXiv:2103.01681v1",
+      "doi:10.1109/ITW48936.2021.9611515",
+      "published-finding corpus: Exact quinary length-four single-deletion code size",
+      "published-finding corpus: Fixed-alphabet q-ary deletion codes attain the 2t-1 coefficient"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1604.03000 Eq. (18) computes a ball around an alternating center and subsequent formulas intersect two alternating balls with distance one, not distance-two centers.",
+        "doi:10.1109/ITW48936.2021.9611515 defines ID(y1,y2,n)=I(y1) intersection D(y2), which is structurally different from two mixed balls."
+      ],
+      "reasoning": "Neither an individual mixed-ball cardinality, a single insertion/deletion ball intersection, nor the distance-one lower bound entails the exact count for a distance-two pair. Targeted comparisons found no stronger theorem dominating it.",
+      "searches": [
+        "Full text: arXiv:1604.03000 Section V-B",
+        "Full text: arXiv:2103.01681",
+        "Full text: doi:10.1109/ITW48936.2021.9611515",
+        "published-finding corpus: Exact intersection size floor(n²/4)+4 of two radius-one fixed-length Levenshtein balls centered at binary 0110 versus 1001 with alternating equal flanks; two centers have disjoint one-deletion shadows and full insertion-deletion distance two; mixed deletion and insertion sequence reconstruction lower bound quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The mixed ball is the radius-one fixed-length Levenshtein ball. This semantic equivalence was compared to Bar-Lev–Etzion–Yaakobi 2021, which gives ball-size rather than intersection results.",
+        "arXiv:1604.03000 Section V-B studies the same mixed operation but its constructed center pair has distance one."
+      ],
+      "reasoning": "Reformulating through common neighbors of distance-two centers does not make the result a consequence of a single-ball size formula; the original alternating-center example has distance one, with overlapping deletion shadows.",
+      "searches": [
+        "published-finding corpus: mixed single deletion single insertion channel exact maximum intersection of length n error balls for two binary codewords at edit distance four",
+        "published-finding corpus: binary Levenshtein radius one neighborhood common-neighbor count sequence reconstruction from two edit operations",
+        "published-finding corpus: Exact intersection size floor(n²/4)+4 of two radius-one fixed-length Levenshtein balls centered at binary 0110 versus 1001 with alternating equal flanks; two centers have disjoint one-deletion shadows and full insertion-deletion distance two; mixed deletion and insertion sequence reconstruction lower bound quadratic",
+        "Full text: arXiv:2103.01681 Section III"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched record or table reported the exact formula for these distance-two mixed-ball centers.",
+        "Closest published-finding corpus records concern deletion code sizes and multi-deletion redundancy, not mixed-ball intersection sizes."
+      ],
+      "reasoning": "No matching table value, formula, or database entry identified. Nonappearance is not a proof of novelty; prior specialized classifications may be unindexed.",
+      "searches": [
+        "published-finding corpus: mixed single deletion single insertion channel exact maximum intersection of length n error balls for two binary codewords at edit distance four",
+        "published-finding corpus: binary Levenshtein radius one neighborhood common-neighbor count sequence reconstruction from two edit operations",
+        "published-finding corpus: Exact intersection size floor(n²/4)+4 of two radius-one fixed-length Levenshtein balls centered at binary 0110 versus 1001 with alternating equal flanks; two centers have disjoint one-deletion shadows and full insertion-deletion distance two; mixed deletion and insertion sequence reconstruction lower bound quadratic",
+        "Published mathematical coding tables and specialized reconstruction search"
+      ]
+    },
+    "rationale": "Full-text implication comparisons distinguish the distance-one uncoded mixed-ball construction of Sala et al. from the deletion-separated distance-two family. Separately examined same-metric individual ball sizes, alternative edit channels, and unlike-ball intersections. Targeted searches including published-finding corpus and published mathematical records found no result implying this exact infinite family. Residual unindexed-specialization risk remains; absence from searches is not a priority certificate.",
+    "residual_risks": [
+      "An obscure earlier computation of pairwise fixed-length Levenshtein radius-one intersections could cover this special family despite no matching search result.",
+      "Search coverage of offline and nonindexed literature is incomplete; independent literature audit has not occurred.",
+      "The relevant 2021 conference PDF was accessed, but only its first-page material and exact problem definition were inspected; a subsidiary result later in the paper could overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for deletion-separated distance-two exact family; closest direct predecessor.",
+        "evidence": "Section V-B defines B_t(X)=I_t(D_t(X)), uses opposite alternating centers with edit distance two (FLL distance one), and obtains an uncoded lower bound.",
+        "identifier_or_url": "https://arxiv.org/html/1604.03000v2",
+        "material_read": "Abstract, definitions, full Section V-B and its theorem, formulas and construction.",
+        "method": "Read openly accessible full HTML, directly compared center distances and expressions.",
+        "title": "Exact Reconstruction from Insertions in Synchronization Codes",
+        "trigger": "Foundational paper explicitly defines the same composed mixed channel."
+      },
+      {
+        "assessment": "NOT_COVERING for intersections of two balls with distance-two centers.",
+        "evidence": "Abstract and Sections V–VI address minimum/maximum/average size of individual radius-one balls and diameter-one anticodes.",
+        "identifier_or_url": "https://arxiv.org/html/2103.01681v2",
+        "material_read": "Abstract, definitions, theorem outline, and radius-one ball size and anticode sections.",
+        "method": "Read accessible full HTML with theorem sections.",
+        "title": "On Levenshtein Balls with Radius One",
+        "trigger": "Equivalent radius-one fixed-length Levenshtein terminology."
+      },
+      {
+        "assessment": "NOT_COVERING for output length n mixed deletion-then-insertion composition.",
+        "evidence": "The single insertion/deletion channel is a union of one insertion or one deletion, giving outputs of lengths n±1.",
+        "identifier_or_url": "https://arxiv.org/html/2001.01376v2",
+        "material_read": "Definitions, related work, channel models and results in full accessible HTML.",
+        "method": "Read full HTML and compared union-versus-composition output domains.",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Similar reconstruction problem and name of single-edit channel."
+      },
+      {
+        "assessment": "Different formally defined object: one insertion-ball/intersect/deletion-ball set; a subsidiary covering statement elsewhere in the full work was not excluded.",
+        "evidence": "Definition of ID(y1,y2,n) as I_{n-|y1|}(y1) intersect D_{|y2|-n}(y2) in Section II.",
+        "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2022/08/130_Insdel_Intersection_ITW21.pdf",
+        "material_read": "First-page abstract, introduction, explicit Section II formal problem definition, and overview of later sections; later-page body not read in full.",
+        "method": "Read and visually inspected the lawful author-hosted PDF first page and its extracted scientific text.",
+        "title": "The Intersection of Insertion and Deletion Balls",
+        "trigger": "Highly relevant title and insertion/deletion intersection terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "134ec60b-45df-4488-95cf-c832a63058bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Solves an exact infinite-family mixed-edit intersection with an explicit quadratic ambiguity obstruction for centers separated enough to correct a deletion. This directly addresses the gap left by the 2016 distance-one construction in an established reconstruction problem. It is not merely a small finite or arbitrary-parameter count. Scope remains a natural two-codeword lower-bound witness, not code capacity or global intersection maximum.",
+    "status": "PASS"
+  }
+}
