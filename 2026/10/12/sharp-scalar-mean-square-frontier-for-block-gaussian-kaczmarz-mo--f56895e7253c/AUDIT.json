@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Full recurrence is derived from independent \\(\\chi_p^2/p\\) sketches; the covariance cone map is primitive for positive momentum and initial covariance sees its strictly dominant Perron root. Exact unit-eigenvalue determinant and local derivative yield a unique sharp stability crossing. The cubic determinant and quadratic-discriminant certificate prove unique joint-parameter minimizer for all integer block widths. Pure rational replay confirms determinant identities and worked moments; finite checks are not used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han–Xie report a sufficient bound and separately accelerated norms of expected iterates; their positive-stepsize ceiling alone is not a momentum-dependent necessary condition.",
+        "Kidambi–Netrapalli–Jain–Kakade lower bound is for a different regression family and is neither the chi-square moment spectrum nor the exact Gaussian batch-width rate.",
+        "Bollapragada–Chen–Ward finite-sum minibatch conditions do not yield a necessary/sufficient scalar Gaussian multiplicative-noise frontier."
+      ],
+      "reasoning": "Explicitly compared the prior theorems as implications. General sufficient mean-square bounds and broad stochastic lower bounds do not determine a sharp if-and-only-if stability threshold, nor optimize the exact Perron root over both parameters for all fixed Gaussian sketch widths. Some other optimizer sources are qualitatively related but not stronger on the same distribution.",
+      "searches": [
+        "mean-square stochastic heavy ball convergence Gaussian batch one-dimensional exact stability optimal no momentum acceleration",
+        "arXiv:2208.05437 Theorem 4.7 and Sec. 5.6",
+        "arXiv:1712.09677 Theorem 1 and Sec. 4.3",
+        "arXiv:1803.05591 Proposition 3",
+        "arXiv:2206.07553 mean-square heavy ball analysis"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.05437 (Han–Xie, 2022; source update and scalar cases)",
+      "arXiv:1712.09677 (Loizou–Richtárik, 2017/2018; projector normalization)",
+      "arXiv:1803.05591 (Kidambi–Netrapalli–Jain–Kakade, 2018; different lower-bound family)",
+      "arXiv:2206.07553 (Bollapragada–Chen–Ward, 2022; finite-sum minibatch)",
+      "published-finding corpus:2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+      "published-finding corpus:2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "published-finding corpus:2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+      "published-finding corpus:2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Han–Xie proves an upper bound \\(\\mathbb E\\|e_k\\|^2\\le q^k(1+\tau)\\|e_0\\|^2\\) under sufficient conditions, not an exact scalar transfer matrix and optimality statement.",
+        "Loizou–Richtárik mean-iterate acceleration and projector-based second-moment upper bounds do not fix the chi-square covariance spectrum.",
+        "The source-defined unnormalized scalar Gaussian Hessian has variance \\(2/p\\), enabling a different exact transfer matrix."
+      ],
+      "reasoning": "A sufficient convergence result does not entail necessity or the sharp global parameter optimum; an L1 (norm-of-mean) acceleration result cannot imply L2 (mean-square) acceleration. Prior zero-momentum scalar variance identities do not settle strictly positive momentum. The new determinant/discriminant proof fills those implication gaps.",
+      "searches": [
+        "arXiv:2208.05437 Section 5.6 equation mBGK and bound q",
+        "arXiv:1712.09677 Sec. 4.1 Theorem 1 and Sec. 4.3",
+        "arXiv:1803.05591 Proposition 3",
+        "\"block Gaussian Kaczmarz\" momentum \"mean square\" \"sharp\" p beta spectral radius chi-square"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Han–Xie mBGK uses the unnormalized block matrix \\(SS^\top/(p\\|A\\|_F^2)\\); scalar reduction is a chi-square-multiplier law.",
+        "Loizou–Richtárik stochastic Hessians in their equivalent sketch-and-project formulations are projectors; their scalar full-rank case has no chi-square multiplier."
+      ],
+      "reasoning": "Tested aliases stochastic heavy-ball, Gaussian-block Kaczmarz, chi-square curvature and projector Kaczmarz by reducing their updates. Projector-normalized scalar sampling is deterministically identity and cannot imply the exact nondegenerate chi-square variance frontier. No examined equivalent update supplied both formulas.",
+      "searches": [
+        "Gaussian sketch heavy-ball multiplicative chi-square noise scalar recurrence mean-square optimal contraction 2/3 no acceleration",
+        "\"block Gaussian Kaczmarz\" momentum \"mean square\" \"sharp\" p beta spectral radius chi-square",
+        "\"Gaussian Kaczmarz\" \"heavy ball\" \"exact\" \"mean square\"",
+        "arXiv:2208.05437 Sections 4.3.2, 5.6",
+        "arXiv:1712.09677 Sections 1.2,4,7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed related scalar stochastic-curvature feedback study concerns OSGM, different updates and stability thresholds.",
+        "Indexed heavy-ball real-root spectral interval barrier treats deterministic modal matrices, not stochastic second moments.",
+        "No matching exact \\(\\chi_p^2/p\\) block-mBGK boundary or \\(2/(p+2)\\) minimax table was located in searches."
+      ],
+      "reasoning": "Checked natural algorithms, sample-width parameterization, stability formulas, covariance transfer eigenvalues and known-tables wording; closest indexed statements have different objects or modes. Absence of a match is weak negative evidence and not a priority certificate.",
+      "searches": [
+        "pseudoinverse-free randomized block Gaussian Kaczmarz heavy ball scalar variance exact stability threshold 2(1-omega squared)/(3+omega)",
+        "stochastic heavy ball scalar Gaussian squared noise optimum beta zero stationary variance rate",
+        "\"Gaussian\" \"momentum\" \"chi-square\" \"stability\" heavy ball",
+        "\"momentum\" \"multiplicative\" \"variance\" \"optimal\" \"one-dimensional\" stochastic gradient",
+        "published-finding corpus:2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "published-finding corpus:2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158"
+      ]
+    },
+    "rationale": "Full original mBGK source, its general framework, relevant general stochastic heavy-ball results, stochastic-momentum lower bounds, and related indexed records have been compared by exact update/quantifiers and theorem implication. They provide sufficient bounds, different projective sampling models or different lower-bound regimes, but no inspected source implies the exact all-width scalar chi-square moment-stability frontier and global no-acceleration optimum; residual unindexed priority risk is explicitly retained.",
+    "residual_risks": [
+      "A specialized exact moment-spectrum analysis of the identical normalized-by-expected-Frobenius (not realization-pseudoinverse) Gaussian recurrence might be unindexed or inaccessible; bibliographic priority is not independently certified.",
+      "The nonacceleration conclusion is not claimed for multidimensional, adaptive, or normalized-projector variants; related stronger general theorems in those domains are not equivalent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact update and independent block law, derives sufficient bounds, but the stated exact scalar mBGK necessity and jointly optimal second-moment rate are not in the examined statements",
+        "evidence": [
+          "Section 5.6 mBGK formula with \\(S\\in\\mathbb R^{m\times p}\\) standard Gaussian",
+          "Theorem 4.7 sufficient q-based second-moment estimate",
+          "Section 4.3.2 concerns scalar sampling matrices, not the exact chi-square-multiplier frontier"
+        ],
+        "identifier_or_url": "arXiv:2208.05437",
+        "material_read": "Complete open preprint, especially Sections 2, 4.1-4.3, 5.6, theorem hypotheses, and relevant appendix arguments",
+        "method": "Direct full-text HTML/PDF mathematical inspection of algorithm, normalization, convergence results and proofs",
+        "title": "On pseudoinverse-free randomized methods for linear systems: Unified framework and acceleration",
+        "trigger": "Exact defining update with identical Gaussian-block law and momentum"
+      },
+      {
+        "assessment": "Its stochastic Hessians are realization-normalized projectors, unlike unnormalized chi-square Hessians; general bounds and expected-iterate acceleration do not imply the stated frontier",
+        "evidence": [
+          "Section 1.2 explicitly states the sample Hessian is a projection",
+          "Theorem 1 bounds mean-square error under sufficient conditions",
+          "Theorem 4 separately proves mean-iterate acceleration"
+        ],
+        "identifier_or_url": "arXiv:1712.09677",
+        "material_read": "Full open 2018 HTML, especially Sections 1.2, 2, 3, 4.1, 4.3, 7 and statements of general theorems",
+        "method": "Direct read with comparison of random-Hessian normalization and theorem implication",
+        "title": "Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods",
+        "trigger": "Most direct general stochastic heavy-ball plus randomized Kaczmarz second-moment and expected-iterate acceleration results"
+      },
+      {
+        "assessment": "Broad stochastic momentum lower-bound phenomenon on a multi-directional distribution, not a precise all-width scalar Gaussian-block stability/rate identity",
+        "evidence": [
+          "Proposition 3 analyzes a two-dimensional axis-mixture regression model",
+          "Its lower bound is not the explicit covariance transfer matrix of scalar mBGK"
+        ],
+        "identifier_or_url": "arXiv:1803.05591",
+        "material_read": "Open full-text PDF introduction, lower-bound construction and Proposition 3, with relevant appendices",
+        "method": "Read original regression distribution and compare the object and lower-bound quantifiers",
+        "title": "On the insufficiency of existing momentum schemes for Stochastic Optimization",
+        "trigger": "Potential stronger non-acceleration theorem under stochastic gradients"
+      },
+      {
+        "assessment": "Does not supply sharp necessary-and-sufficient scalar Gaussian-block stability or no-momentum optimum",
+        "evidence": [
+          "Minibatch heavy-ball finite-sum setting and acceleration results use different sampling design"
+        ],
+        "identifier_or_url": "arXiv:2206.07553",
+        "material_read": "Open full-text PDF opening sections, key hypotheses/results and minibatch-regime discussion",
+        "method": "Compared finite-sum sampling assumption and algorithmic spectral setting with independent chi-square Hessians",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Potential strong coverage of minibatch heavy-ball rate comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f56895e7-253c-4c67-a7c8-6ddb90f7690d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining source emphasizes fast mean iterates but only sufficient mean-square guarantees. The theorem resolves the naturally motivated gap between mean and actual squared solution error, supplies an if-and-only-if algorithm tuning frontier for every Gaussian block width, and a sharp global impossibility of fixed positive-momentum mean-square acceleration in the scalar setting. It identifies a nontrivial mean-stable/MSE-unstable regime, not a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
