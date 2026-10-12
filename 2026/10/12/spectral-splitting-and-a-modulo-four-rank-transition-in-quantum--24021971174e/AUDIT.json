@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "For the full domain n>=3, the corona adjacency eigenvalues split into two disjoint simple fibre branches for each base eigenspace. Exact Schur-square calculation gives the tensor-sector identity R tensor P+ plus S tensor P-. Fourier projectors of C_n give every eigenvalue of both sectors, and zero weights occur at a nontrivial even frequency precisely when 4 divides n. R has rank n for odd n and n/2 for even n; S has ranks n, n/2, n/2-1 in the three cases. Finite rational frequency and independent matrix checks corroborate the unrestricted proof; they are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1103.2578v3, Lemma 6.1, gives the exact Cesàro mixing matrix of the undecorated cycle; its graph is not the sunlet.",
+        "arXiv:1605.05260v1, Proposition 3.2, supplies general eigenprojectors for coronas, but studies state transfer rather than an explicit average-mixing spectrum.",
+        "arXiv:2208.08971v1 develops an exact spectral arithmetic algorithm for average mixing on any integral graph; it does not state this uniform closed rank formula."
+      ],
+      "reasoning": "The combination of published general ingredients motivates and facilitates the present proof. No inspected single-source theorem supplies the specific sunlet spectrum, classification, or the proof that exactly one additional Fourier mode disappears when 4 divides n. The risk that a broader general formula makes it a short corollary is acknowledged, not hidden.",
+      "searches": [
+        "average mixing spectrum pendant corona arbitrary base spectral Schur projector λ²/(λ²+4)",
+        "average mixing rank graph cycles corona roots tree attach leaf parity n divisible by four",
+        "\"sunlet graph\" \"average mixing\" quantum walk",
+        "\"corona\" \"average mixing matrix\" \"quantum\" graph",
+        "\"thorny cycle\" \"average mixing\" rank",
+        "arXiv:1103.2578v3",
+        "arXiv:2208.08971v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.08971v1, original full PDF and MSC/submission record",
+      "arXiv:1605.05260v1, original full PDF, Proposition 3.2",
+      "arXiv:1103.2578v3, original full PDF, Lemma 6.1",
+      "arXiv:1709.03591v1, original full PDF, rank framework",
+      "arXiv:1709.07907v1, original full PDF, tree-rank scope",
+      "published-finding corpus:2026/9/8/SCOPE031",
+      "published-finding corpus:2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Godsil gives the cycle base-sector matrix R but not the leaf-difference sector S.",
+        "Ackelsberg et al. give corona adjacency spectral projectors but no weighted sum of their Schur squares or sunlet rank.",
+        "The proof separately derives S Fourier mode eigenvalues and isolates the uniquely vanishing weight at zero cycle energy when 4 divides the cycle order."
+      ],
+      "reasoning": "The older formulas contain the ingredients and, taken together with the new Schur-square diagonalization, can yield the statement; neither older result alone asserts or directly entails the numerical three-case rank without carrying out this additional calculation. A future independently discovered formula could cover it, so published absence is not asserted as certainty.",
+      "searches": [
+        "arXiv:1103.2578v3 Lemma 6.1",
+        "arXiv:1605.05260v1 Proposition 3.2",
+        "arXiv:1709.03591v1 rank average mixing",
+        "arXiv:2208.08971v1 exact quantum averaging",
+        "sunlet graph pendant on each cycle vertex, quantum average mixing matrix rank n congruent 0 modulo 4",
+        "Frucht Harary corona quantum-walk Cesaro mixing full Fourier spectrum direct sum eigenspaces"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full-text examination of arXiv:1605.05260v1, Proposition 3.2, treats corona spectral projectors and state transfer, not the eigenvalues of the average mixing matrix.",
+        "arXiv:1709.03591v1 interprets average mixing as a diagonal restriction of the commutant projection and explores rank versus automorphisms; it does not identify the sunlet Fourier-sector nullity.",
+        "Actual published-finding corpus searches returned no title or summary stating the sunlet average-mixing rank or the modulo-four split."
+      ],
+      "reasoning": "The candidate is equivalent to a rank theorem for the Gram matrix of diagonal average states or to a kernel theorem for corona spectral Schur squares; these formulations were compared against available descriptions and inspected articles. Neither an exact equivalence nor a stronger stated theorem was identified; a differently phrased version remains possible.",
+      "searches": [
+        "exact rank average mixing adjacency quantum walk cycle corona C_n ∘ K_1 thorny cycles and pendant sunlet graphs modulo four",
+        "quantum walk average mixing matrices sunlet graphs n-sun corona cycles kernel nullity",
+        "\"average mixing matrix\" \"corona\" \"cycle\"",
+        "\"rank\" \"average mixing matrix\" \"corona\" quantum",
+        "\"quantum walk\" \"corona\" \"average mixing\"",
+        "arXiv:1709.03591v1",
+        "arXiv:1605.05260v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved circulant spectral table 2026/9/8/SCOPE031 describes 6-regular 29-vertex circulants and their adjacency/expansion spectra, not corona quantum mixing.",
+        "The cycle graphical-group character enumerator 2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e concerns finite-group character counts, not the average mixing matrix.",
+        "The exact calculations included in verify.py cover selected orders and reproduce the new symbolic formula rather than copying a prior table."
+      ],
+      "reasoning": "The proposition is an all-integer family theorem and exact Fourier eigenvalue formula, not an isolated database value. Neither a sunlet quantum-mixing table nor an implication from a table of cycle spectra was found; database incompleteness remains possible.",
+      "searches": [
+        "exact rank average mixing adjacency quantum walk cycle corona C_n ∘ K_1 thorny cycles and pendant sunlet graphs modulo four",
+        "quantum walk average mixing matrices sunlet graphs n-sun corona cycles kernel nullity",
+        "\"average mixing matrix\" \"corona\" \"cycle\"",
+        "\"rank\" \"average mixing matrix\" \"corona\" quantum",
+        "published-finding corpus:2026/9/8/SCOPE031",
+        "published-finding corpus:2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e"
+      ]
+    },
+    "rationale": "Specific all-order sunlet Fourier-indexed average-mixing spectrum and the mod-four rank transition were compared with published cycle averages, corona projector machinery, exact mixing algorithms, rank formulations, and indexed mathematical records. The inspected relevant primary sources provide constituent ingredients but do not state the conclusion. Distinctness is provisionally supported, subject to the explicitly recorded risk of an implicit derivation or unidentified broader coverage.",
+    "residual_risks": [
+      "The generic corona projector formula combined with Godsil’s cycle mixing formula supplies almost all starting ingredients; another work may already have performed their sunlet-specific Schur-square combination.",
+      "published-finding corpus is not a complete index of all published mathematics; negative semantic matches cannot guarantee novelty.",
+      "Other synonyms for sunlet graphs (thorny cycles, crowned cycles, cycle whiskering) may appear in literature not located by the searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General exact matrix calculation framework; no sunlet/corona classification in inspected material. Verified earliest public arXiv version 2022-08-18 and primary MSC 81P68.",
+        "evidence": [
+          "arXiv:2208.08971v1, submission history and MSC",
+          "PDF pp.3–5 spectral projector sum and algorithm"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.08971",
+        "material_read": "22-page PDF opened; introduction and pp.3–5 covering Theorem 3 and spectral averaging, plus contents/reference sections",
+        "method": "Read open-access original arXiv PDF with in-document searches for mixing and corona, and viewed page imagery",
+        "title": "Irrational quantum walks",
+        "trigger": "Qualifying mathematical-physics source and exact Cesàro averaging machinery"
+      },
+      {
+        "assessment": "Provides corona spectral projectors for state transfer; does not study the average mixing rank of sunlets. Its general projector machinery is a direct antecedent.",
+        "evidence": [
+          "arXiv:1605.05260v1, Proposition 3.2",
+          "Abstract/introduction and thorny-graph section"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1605.05260",
+        "material_read": "27-page PDF opened; abstract/introduction, Proposition 3.2 and its proof on pp.6–7, thorny-graph results in later sections",
+        "method": "Opened original arXiv PDF, inspected page-image of projector formulas, searched its text for average/mixing and reviewed scope",
+        "title": "Quantum State Transfer in Coronas",
+        "trigger": "Exact same Frucht–Harary corona graph operation and spectral projectors"
+      },
+      {
+        "assessment": "Gives the cycle average mixing matrix with rank n for odd n and n/2 for even n, but does not add leaves or determine the second corona sector.",
+        "evidence": [
+          "arXiv:1103.2578v3, Lemma 6.1 and proof",
+          "Fourier projector identities in Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1103.2578",
+        "material_read": "21-page PDF opened; early spectral-average lemma and Section 6, including Lemma 6.1 and its Fourier proof on pp.12–13",
+        "method": "Viewed PDF and page image; read full Section 6 derivation and its assumptions",
+        "title": "Average mixing of continuous quantum walks",
+        "trigger": "Exact average mixing formula for the underlying cycles"
+      },
+      {
+        "assessment": "Structural rank formalism, but no named sunlet result or modulo-four corona law identified in inspected relevant sections.",
+        "evidence": [
+          "arXiv:1709.03591v1, Section 2 and Theorem 3.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1709.03591",
+        "material_read": "14-page PDF opened; introduction, spectral-projector average-mixing formula and commutant/Gram-matrix results on pp.2–6",
+        "method": "Reviewed original PDF statements and projection formulas in text",
+        "title": "A New Perspective on the Average Mixing Matrix",
+        "trigger": "Potential general rank/commutant theorem dominating the new calculation"
+      },
+      {
+        "assessment": "Applies to trees, especially simple-spectrum trees; sunlets contain a cycle and lie outside its objects.",
+        "evidence": [
+          "arXiv:1709.07907v1, introduction and principal rank theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1709.07907",
+        "material_read": "18-page PDF opened; abstract/introduction and key rank statements on pp.1–2; full-text searched for corona and sunlet",
+        "method": "Read original arXiv PDF and examined scope and central rank claims",
+        "title": "Average mixing matrix of trees",
+        "trigger": "Potential family-wide rank coverage for leaf-rich graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24021971-174e-4f5f-a401-118a75ae0725",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sunlet graphs naturally measure the impact of attaching identical local pendant quantum sites to a cycle. An exact spectrum and sharp all-order rank classification distinguish ordinary antipodal rank collapse from a singular zero-energy contribution; the n-1 rank at multiples of four is not an arbitrary parameter slice and identifies a precise physical-mathematical resonance. The formula gives the kernel sectors and supports future analysis of pendant modifications, without assuming a downstream theorem.",
+    "status": "PASS"
+  }
+}
