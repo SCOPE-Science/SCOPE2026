@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact SAGA matrices from the stated pre-update recursion; exact six-dimensional quadratic lifts; two explicit rational positive-definite Lyapunov matrices with strictly positive exact residual principal minors; two initialized squared-position generating functions with positive-at-zero, negative-at-one denominators and nonvanishing numerators on (0,1); nonnegative coefficients force exponential-subsequence growth by Cauchy-Hadamard. The packaged SymPy verifier independently checks exact finite paths and all polynomial identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1708.01383 Theorem 1 restricts to sufficiently small steps (and different table convention).",
+        "arXiv:1901.08669 Theorem 3.3 imposes sufficient small steps on iid sampling and does not compare reshuffling.",
+        "JMLR 22:207 (2021) addresses generalized shuffling-type gradient bounds, not the described pre-update SAGA memory and exact rational witnesses."
+      ],
+      "reasoning": "Convergence for sufficiently small step sizes does not logically imply a global sampling-stability ordering at the two larger specified steps. A generic SGD shuffling rate does not subsume the memory-coupled SAGA counterexamples.",
+      "searches": [
+        "arXiv:1708.01383 theorem 1 and Appendix E small step sufficient convergence",
+        "arXiv:1901.08669 theorem 3.3 arbitrary sampling stepsizes",
+        "A Unified Convergence Analysis for Shuffling-Type Gradient Methods JMLR 2021",
+        "SAGA random reshuffling sampling with replacement rate comparison two components randomized"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1407.0202",
+      "arXiv:1708.01383",
+      "arXiv:1901.08669",
+      "JMLR 22(207), 2021, https://www.jmlr.org/papers/v22/20-1238.html (abstract and overview)",
+      "published-finding corpus 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8 (summary)",
+      "published-finding corpus 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac (summary)",
+      "Owned earlier reshuffling findings ec57811b-8333-466a-a876-b23a8e0be184 and ba10856f-e0ce-43fc-a0a4-953178c6a209 (claim comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original SAGA (2014) defines pre-update memory and safe convergence for a much smaller step.",
+        "Ying et al. (2017) defines random reshuffling but updates selected memory at the post-step iterate and proves small-step convergence.",
+        "Qian et al. (2019) allows iid arbitrary sampling but only gives sufficient upper bounds, not two-way comparisons."
+      ],
+      "reasoning": "The shared base SAGA estimator does not imply the present large-step exact sign classification; the difference in memory timing prevents transferring a result from the 2017 algorithm. None of the inspected source statements imply the two opposed strict classifications by corollary or parameter specialization.",
+      "searches": [
+        "arXiv:1407.0202 Section 2 and convergence theorem",
+        "arXiv:1708.01383 Algorithm (4)-(7), Theorem 1, Appendix E",
+        "arXiv:1901.08669 Algorithm 1, Theorem 3.3",
+        "SAGA two finite-sum scalar strongly convex quadratics both sampling with replacement and random reshuffling: one stable, the other mean-square divergent, and reverse; exact Lyapunov thresholds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1407.0202, Section 2, pre-update table definition; arXiv:1708.01383, Section II, post-update table definition",
+        "arXiv:1901.08669, Algorithm 1, iid sampled Jacobian-table update",
+        "published-finding corpus search closest unrelated hit 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8"
+      ],
+      "reasoning": "For original pre-update SAGA, mean-square stability at every index can be compared with at-epoch stability under iid permuted index pairs via the six-dimensional second-moment lifts. The earlier algorithms and index hits did not derive both opposite stability classifications; the 2017 RR algorithm saves a post-update point and is not statement-equivalent.",
+      "searches": [
+        "SAGA gradient table two-sample quadratic exact mean-square stability threshold optimal importance sampling finite sum",
+        "SAGA random reshuffling versus with replacement stability reversal strongly convex two component scalar quadratic exact rational Lyapunov counterexamples",
+        "SAGA reshuffling iid one sampling stable reshuffling unstable equal curvature, opposite heterogeneous curvature, gradient memory pre-step",
+        "SAGA two finite-sum scalar strongly convex quadratics both sampling with replacement and random reshuffling: one stable, the other mean-square divergent, and reverse; exact Lyapunov thresholds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact rational stepsize strings and stability-language web searches returned no SAGA table or identified polynomial; the high-ranked unrelated results are not coverage.",
+        "The previous two relevant owned reshuffling entries concern plain SGD stationary support and Kaczmarz mean-square error, not SAGA gradient tables."
+      ],
+      "reasoning": "The numerical witnesses are certified from first principles; lack of exact-string hits is not treated as uniqueness proof. No known public table was found that implies both stability reversals.",
+      "searches": [
+        "\"SAGA\" \"23/20\" \"reshuffling\"",
+        "\"SAGA\" \"27/100\" \"reshuffling\"",
+        "SAGA random reshuffling sampling with replacement stability exact two component quadratics"
+      ]
+    },
+    "rationale": "Comparison against original SAGA, the published random-reshuffling SAGA (different post-update table convention), arbitrary-sampling SAGA and related shuffling analyses revealed no exact two-way stability ordering failure for the pre-update algorithm. Current indexed findings and recovered own current/prior claim records were compared. Priority against unindexed literature is not claimed.",
+    "residual_risks": [
+      "Equivalent two-component calculations may be present in unindexed or unpublished literature; indexed-search absence does not imply uniqueness.",
+      "The source-specific SAGA timing convention matters: results for variants storing gradients at the post-update iterate are not automatically comparable.",
+      "The theorem gives strict particular-parameter witnesses and local robustness but does not provide global stability-region boundaries or maximal perturbation radii."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact pre-update SAGA used here; proves conservative stepsize convergence but no epoch reshuffling or two-way stability witnesses",
+        "evidence": "Section 2 algorithm uses stored derivative at pre-update x and updates selected table before new x; no reshuffling formulation in text.",
+        "identifier_or_url": "arXiv:1407.0202; https://arxiv.org/pdf/1407.0202",
+        "material_read": "Original full-text PDF Section 2, defining update and initial table, plus convergence theorem and related-work text",
+        "method": "PDF text and displayed page image, formula-level comparison",
+        "title": "SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives",
+        "trigger": "same algorithm and memory convention"
+      },
+      {
+        "assessment": "Shares reshuffling motivation but its selected gradient memory is evaluated at post-update iterate; small-step convergence theorem neither covers nor contradicts pre-update large-step bidirectional reversal",
+        "evidence": "Equations (4)-(7) set selected saved point to next iterate; Theorem 1 bound and Appendix E use small steps; no two-component exact stability comparison located.",
+        "identifier_or_url": "arXiv:1708.01383; https://arxiv.org/pdf/1708.01383",
+        "material_read": "Full-text PDF Sections I-II and Theorem 1, searched for quadratic/counterexample, relevant Appendix E inequalities and displayed pages",
+        "method": "PDF text inspection, searches within full text and page images of algorithm and appendix",
+        "title": "Variance-Reduced Stochastic Learning under Random Reshuffling",
+        "trigger": "same random-reshuffling setting and plausible dominating convergence theorem"
+      },
+      {
+        "assessment": "Covers iid sampling convergence at sufficient steps; does not compare reshuffled epochs to iid or imply the two large-step exact stability contrasts",
+        "evidence": "Algorithm 1 uses current x before gradient-table update and iid fresh sampled sets; theorem 3.3 gives sufficient stepsize restrictions.",
+        "identifier_or_url": "arXiv:1901.08669; https://proceedings.mlr.press/v97/qian19a/qian19a.pdf",
+        "material_read": "Full-text PDF abstract, introduction, Sections 2-3 and Algorithm 1/Theorem 3.3 plus checks for reshuffling",
+        "method": "PDF text and displayed page image of algorithm and rate statements",
+        "title": "SAGA with Arbitrary Sampling",
+        "trigger": "same pre-update stored-gradient method and iid sampling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ffcd0da8-490f-4da9-9aa5-c19adb8c15d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A bidirectional, parameter-robust counterexample on strongly convex, scalar, two-component problems disproves any blanket stability dominance of random reshuffling over iid sampling (or vice versa) for standard SAGA. Equal components show the phenomenon is not driven by gradient curvature heterogeneity. It is a meaningful algorithmic sampling-design boundary rather than a recomputation of a known table.",
+    "status": "PASS"
+  }
+}
