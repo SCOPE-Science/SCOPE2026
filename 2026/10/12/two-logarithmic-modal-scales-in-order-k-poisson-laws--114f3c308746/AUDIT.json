@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The two mass coefficients at k=15 are independently computed as exact Fractions by `verify.py`, with h(15)<1<h(25). The general large-k proof uses a uniform convolution atom bound, Chebyshev pigeonhole lower atom bound, exact finite polynomial for h_k(k), and a proved termwise Bessel-series comparison. Numerical checks are not promoted to proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Georghiou, Philippou and Saghafi (2013), Theorems 2.1 and 2.2, bound the modal index for arbitrary k and characterize integer intensity for k=2..5; neither gives zero-mode threshold rates.",
+        "Philippou (2014), Propositions 2.1 and 2.2, proves a sufficient zero-mode range lambda<2/[k(k+1)] and treats k=2.",
+        "Mane arXiv:2309.09278, Proposition 4.2 and Conclusion, gives [1/kappa,r_k] for the first-double-mode rate and strict decrease, with no asymptotic equivalent.",
+        "Mane arXiv:2310.00827, Section 5, presents conditional and conjectural lower bounds for a nonzero mode, not a uniform asymptotic for first zero-mode loss."
+      ],
+      "reasoning": "Bounds on the modal location or an O(k^-2) sufficient range do not imply the sharp (log k)/k law. A bound s_k<=r_k and monotonicity of s_k do not imply r_k/s_k diverges or provide second-order r_k asymptotics; no stronger identified theorem subsumes the claim.",
+      "searches": [
+        "\"First double mode of the Poisson distribution of order k\" asymptotic",
+        "\"Poisson distribution of order k\" \"first double mode\" Mane proofs subsequent",
+        "\"On the Modes of the Poisson Distribution of Order k\" Georghiou Philippou Saghafi",
+        "\"A Note on the Modes of the Poisson Distribution of Order k\" Philippou"
+      ]
+    },
+    "checked_sources": [
+      "https://fq.math.ca/Papers1/51-1/GeorghiouPhilippouSaghafi.pdf",
+      "https://fq.math.ca/Papers1/52-3/Philippou12302013.pdf",
+      "https://doi.org/10.3390/e25040699",
+      "https://arxiv.org/pdf/2309.05190",
+      "https://arxiv.org/pdf/2309.09278",
+      "https://arxiv.org/pdf/2310.00827",
+      "https://dlmf.nist.gov/10.40.E1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kwon and Philippou 2023, Sec. 4, explicitly poses whether zero remains a mode up to r_k and asks how rapidly r_k decreases; it does not answer either across growing k.",
+        "Mane arXiv:2309.05190, p. 11, conjectures a power fit s_k proportional to k^(-7/8), explicitly a numerical observation. The theorem s_k~(log k)/k contradicts that as a limiting power law.",
+        "Mane arXiv:2309.09278, Conclusion and Sec. 4.5, establishes known qualitative first-non-k onset but not its growth-order or the asymptotic ratio.",
+        "NIST DLMF §10.40.1 proves the Bessel asymptotic for I_1; it does not connect it to Poisson-order modal thresholds."
+      ],
+      "reasoning": "The proposed result requires a new uniform bound on the largest positive atom and a delicate polynomial-to-Bessel comparison. Even combined with the cited Bessel theorem, the earlier mode-location bounds and finite conjectures do not imply the asymptotic thresholds without these new arguments.",
+      "searches": [
+        "\"Poisson distribution of order k\" \"mode\" \"log(k)\"",
+        "\"First double mode of the Poisson distribution\" \"full-text\"",
+        "\"Poisson distribution of order k\" \"Bessel\" \"mode\" threshold",
+        "\"Poisson distribution of order k\" \"mode\" \"ln(k)\" zero mode"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kwon and Philippou 2023 (DOI 10.3390/e25040699), eqs. (1), (4), Lemma 2 and Sec. 4, identify the same law and the root r_k, but ask whether r_k is the first modal departure.",
+        "Mane 2023 arXiv:2309.09278, Secs. 2 and 4, treats the same first double mode via h_k(n;lambda), proves bounds and monotonicity of its onset, and reports the k=15 example.",
+        "The compound-Poisson sum with uniform jumps is exactly equivalent because equal independent Poisson rates imply N is Poisson(k lambda) and the jump mark is uniform on {1,...,k}."
+      ],
+      "reasoning": "The aliases identify the same object, not distinct inventions. Neither inspected source obtains s_k~(log k)/k, the Bessel second-order law for r_k, or the logarithmically diverging ratio. The order-15 phenomenon and monotonicity of the actual first threshold are explicitly credited to Mane.",
+      "searches": [
+        "\"Poisson distribution of order k\" \"mode\" \"log k\"",
+        "\"stuttering Poisson\" \"mode at zero\"",
+        "Poisson distribution of order k zero mode threshold first double mode s_k asymptotic log k over k Kwon Philippou Mane",
+        "stuttering Poisson mode at zero logarithmic asymptotic intensity compound uniform jumps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kwon and Philippou 2023 Table 2 enumerates modes for k=2,3,4; it is a finite small-order table.",
+        "Mane arXiv:2309.05190, Sec. 4 and Figures 2, 4, supplies numerical data for larger finite orders and explicitly labels the fitted k^(-7/8) behavior as unproved.",
+        "Mane arXiv:2309.09278, Sec. 4.6 and later figures, plots first-double-mode locations through finite k, not a certified all-k analytic rate."
+      ],
+      "reasoning": "Finite numeric lists, histogram plots, or approximate power fits do not entail an infinite-order asymptotic equivalent or the Bessel logarithmic correction. The only finite test in the new result, k=15, is not presented as a new database entry.",
+      "searches": [
+        "\"The Modes of the Poisson Distribution of Order 3 and 4\" tables",
+        "\"Asymptotic results for the Poisson distribution of order k\" \"first double\"",
+        "\"first double mode\" \"ln k\" \"Poisson\" asymptotic",
+        "Poisson order k first double mode r_k Bessel I_1 log squared k cutoff"
+      ]
+    },
+    "rationale": "Inspected relevant original papers by Georghiou–Philippou–Saghafi (2013), Philippou (2014), Kwon–Philippou (2023), and three Mane (2023) preprints, plus Bessel source. Previously established root definition, monotonic first threshold, and the order-15 example are credited. The all-order asymptotic s_k~log(k)/k and second-order r_k expansion do not follow from their published statements; Mane’s numerical power-law fit is specifically not a proof and differs in asymptotic order. Residual risk of a further equivalent work remains; search results alone were not counted as proof of originality.",
+    "residual_risks": [
+      "A separate independent priority assessment is not available; an equivalent treatment under compound-Poisson or stuttering-Poisson terminology beyond the inspected sources could exist.",
+      "The numerical finite-order power-fit discussion is not a theorem in the cited sources; no claim is made to new discovery of its k=15 counterexample or monotonicity of the true zero-mode threshold.",
+      "The exact finite-order threshold and modal index beyond the asymptotic regimes remain unknown from this proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes mode-location bounds and several fixed-order integer-intensity cases, not sharp first zero-mode growth rates.",
+        "evidence": "Theorem 2.1 bounds the modal index by the mean and a k-dependent lower expression; Theorem 2.2 treats k<=5 at integer intensities.",
+        "identifier_or_url": "https://fq.math.ca/Papers1/51-1/GeorghiouPhilippouSaghafi.pdf",
+        "material_read": "Entire five-page PDF, especially Theorems 2.1–2.2, pgf eq. (2.1), recurrence eq. (2.3), and Further Research.",
+        "method": "Read published full text and compared hypotheses and conclusions against both thresholds.",
+        "title": "On the Modes of the Poisson Distribution of Order k",
+        "trigger": "Foundational same-law modal inequalities and probability generating function; potential dominating bound."
+      },
+      {
+        "assessment": "Sufficient lambda<2/[k(k+1)] is asymptotically weaker than the logarithmic order; no contradiction or coverage.",
+        "evidence": "Proposition 2.1 establishes unique zero mode only on a k^-2 sufficient interval; Proposition 2.2 handles k=2.",
+        "identifier_or_url": "https://fq.math.ca/Papers1/52-3/Philippou12302013.pdf",
+        "material_read": "Entire three-page full text: abstract, Propositions 2.1–2.2 and their proofs.",
+        "method": "Read original journal PDF and tested implication of its threshold range.",
+        "title": "A Note on the Modes of the Poisson Distribution of Order k",
+        "trigger": "Explicit sufficient zero-mode intensity for every order and possible stronger threshold."
+      },
+      {
+        "assessment": "Existence/uniqueness of r_k and low-order modes are prior results; neither r_k expansion nor s_k large-k asymptotic is established.",
+        "evidence": "Lemma 2 defines the unique positive r_k; final Section 4 asks about the zero mode up to r_k and the monotonic speed of r_k.",
+        "identifier_or_url": "https://doi.org/10.3390/e25040699",
+        "material_read": "Full nine-page licensed OA PDF, including Lemmas 1–3, mode tables, and §4 explicit research questions.",
+        "method": "Read PDF full text and visually checked concluding questions and threshold definitions.",
+        "title": "The Modes of the Poisson Distribution of Order 3 and 4",
+        "trigger": "Direct parent paper defining the crossover r_k and asking for its decay rate."
+      },
+      {
+        "assessment": "Directly relevant data, but its k^-7/8 asymptotic is called a numerical conjecture and is inconsistent with the proved logarithmic order.",
+        "evidence": "Section 4 states finite k=15 first non-k mode and hypothesizes s_k scaling as k^(-7/8) from k up to 10^4, without proof.",
+        "identifier_or_url": "https://arxiv.org/pdf/2309.05190",
+        "material_read": "Full-text sections on recurrence and modes, especially pp. 4, 10–13, 16 and Figure 4 on p. 22.",
+        "method": "Read arXiv PDF primary text and visually inspected p. 11 discussion of zero-mode threshold.",
+        "title": "Asymptotic results for the Poisson distribution of order k",
+        "trigger": "Direct same-object asymptotics and numerical conjecture for s_k."
+      },
+      {
+        "assessment": "Already proves s_k decreases and reports an order-15 exception; these facts are explicitly prior. It does not establish the analytic asymptotic scale or the r_k Bessel correction.",
+        "evidence": "Proposition 4.2 bounds first double mode parameter by 1/kappa and r_k; Section 4.5 discusses order 15, conclusion proves monotonicity without a rate.",
+        "identifier_or_url": "https://arxiv.org/pdf/2309.09278",
+        "material_read": "Full-text setup pp. 1–5, Section 4 pp. 7–9, Conclusion p. 10, Corrigendum p. 11 and corresponding graphs/tables.",
+        "method": "Read arXiv version 2 PDF including visual checks of Sections 4.5 and 6.",
+        "title": "First double mode of the Poisson distribution of order k",
+        "trigger": "Closest overlapping theorem on first-double-mode onset and order-15 case."
+      },
+      {
+        "assessment": "Addresses local polynomial inequalities and conditional or conjectural modal location bounds, but neither asymptotic threshold.",
+        "evidence": "Section 5 Conjectures 5.1–5.2 and Remark 5.3 explicitly leave minimum nonzero-modal intensity unknown in general.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.00827",
+        "material_read": "Full-text introductory and coefficient inequalities, Section 5 pp. 11–13, and further remarks on modes.",
+        "method": "Read arXiv PDF and visually checked mode-analysis page.",
+        "title": "Analytical proofs for the properties of the probability mass function of the Poisson distribution of order k",
+        "trigger": "Plausible later same-object analytical result with stronger claims."
+      },
+      {
+        "assessment": "Establishes precisely the external asymptotic lemma used in the proof, not the probability theorem.",
+        "evidence": "I_ν(z) ~ e^z/(2πz)^{1/2} for fixed ν as positive z tends to infinity.",
+        "identifier_or_url": "https://dlmf.nist.gov/10.40.E1",
+        "material_read": "Equation 10.40.1 and its fixed-order large-argument assumptions.",
+        "method": "Read authoritative formula with ν=1 and positive real argument.",
+        "title": "NIST DLMF §10.40(i)",
+        "trigger": "Validate critical standard fixed-order Bessel asymptotic constant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "114f3c30-8746-4361-a86a-9efa9d51aec4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves the growing-order first-zero-mode scale and the separate zero-versus-k crossing speed explicitly requested in Kwon and Philippou, explaining an entire eventual qualitative change and discriminating a true asymptotic from an earlier finite-data power fit. A sharp all-order asymptotic pair and their divergent ratio are mathematically motivated and not a mere low-order or routine numerical check.",
+    "status": "PASS"
+  }
+}
