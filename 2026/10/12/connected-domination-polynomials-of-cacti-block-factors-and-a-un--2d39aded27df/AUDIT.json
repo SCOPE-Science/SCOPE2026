@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "The cut-vertex lemma is proved directly by components after vertex deletion. Every noncut cycle vertex has exactly two neighbors in its sole cycle. Two separated omission runs disconnect the selected induced subgraph because the block-cut graph is a tree, and a run of length at least three leaves an undominated free vertex. The converse construction yields connected dominated sets independent across cycle blocks, proving the exact product. For q=2, t<=1; for q=3 in any articulated cycle, t<=2; for q>=4, t<=q. This gives nonnegative quadratic discriminants except for isolated C3. 6,280,063 independently enumerated vertex subsets and 7,105 additional discriminant checks support but do not replace the argument. The n=1,2 cases are separate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mojdeh–Emadi 2018 results concern top two coefficients generally and complete polynomials for paths, cycles, coronas; their formulas do not imply the entire cactus enumerator without a new independent-block lemma.",
+        "Ibrahim–Salih 2020 covers complete/wheel coalescences that can have overlapping cycles and do not subsume every cactus.",
+        "2026 Shao–Zhao abstract describes lexicographic product substitutions and density of roots; its full text was not inspected."
+      ],
+      "reasoning": "The most plausible dominating general result would be a block product for connected-domination generating functions or a root-closure theorem specialized to all cacti. The reviewed general-top-coefficient and constructed-family results are logically insufficient for all coefficients or the root-location exception, although an uninspected general block theorem remains a residual possibility.",
+      "searches": [
+        "\"connected domination polynomial\" \"cut vertices\" cycles",
+        "\"Connected Domination Polynomial of Graphs\" Mojdeh Emadi 2018",
+        "\"connected domination polynomial\" \"real-rooted\" cactus",
+        "connected domination polynomial cycle with pendants branching support vertices"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1515/fascmath-2018-0007",
+      "doi:10.5815/ijmsc.2020.06.01",
+      "doi:10.1088/1742-6596/1850/1/012043",
+      "doi:10.9790/5728-1204031316",
+      "doi:10.1142/S1793557119500360",
+      "arXiv:2609.06569",
+      "Published abstract: Total and connected total domination polynomials of chain graphs (abstract-level comparison only)",
+      "Published abstract: Exact domination polynomial of chain graphs (abstract-level comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 Corollary 3 covers D_c(C_n), a strict specialization, and 2021 Theorem 10 covers friendship graphs (one common articulation).",
+        "2018 cut-vertex coefficient counts constrain degree n−1/n−2 only; formula here gives all degrees and the local discriminant theorem.",
+        "2019 doubly connected version asks for a connected complement, thus counts a subset and generally does not determine the connected polynomial.",
+        "Published records on total/connected-total domination of chain graphs and ordinary domination of chain graphs concern different graph classes or different domination variants."
+      ],
+      "reasoning": "A graph-family specialization implies only that special case, not the unrestricted cactus theorem; a theorem about a different polynomial does not imply this one without a transformation, and none was found. The new precise claim is all connected cacti other than K3 have real nonpositive connected-domination roots, with complete factorization for all cacti. This is not inferred merely from absence of a search hit.",
+      "searches": [
+        "connected domination polynomial unicyclic graph cycles attached trees all real roots except triangle",
+        "connected dominating sets all cut vertices real rooted domination polynomial unicyclic",
+        "\"connected domination polynomial\" \"roots\" \"trees\" cycles",
+        "\"On the Roots of Connected Domination Polynomials\" Shao Zhao 2026 cactus"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mojdeh–Emadi 2018 Observation 1 and Corollary 3 cover cuts and individual cycles but not simultaneous block factors.",
+        "Yoosuf–Kuttipulackal 2021 Theorem 10 covers the exact friendship subfamily; arbitrary cactus has variable cycles/free-vertex adjacency t_C.",
+        "Connected total domination on chain graphs in published-finding corpus has a different invariant and a bipartite nested-neighborhood class."
+      ],
+      "reasoning": "A cut-vertex observation or independent cycle formula does not immediately count all connected dominating sets when numerous cycles and bridges interact; proving a factorization requires the independent omission classification across the block-cut tree. The full unrestricted cactus factorization and unique-triangle root exception were not present in materially inspected sources; the one recent abstract-only source remains a named risk.",
+      "searches": [
+        "\"connected domination polynomial\" \"cactus\" factorization",
+        "\"connected domination polynomial\" \"block\" \"cycle\" factorization",
+        "connected domination polynomial unicyclic graph cycles attached trees all real roots except triangle",
+        "connected dominating sets all cut vertices real rooted domination polynomial unicyclic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mojdeh–Emadi 2018 has explicitly enumerated only paths, cycles, coronas and Petersen-type graphs, not a catalog parametrized by all cactus block-cut trees.",
+        "No matching published finite table or identical result ID was returned by published-finding corpus semantic searches."
+      ],
+      "reasoning": "The result applies to arbitrarily many cycle blocks and arbitrary block-cut topology, so a finite graph table could cover only finitely many cases. No already-published all-cactus coefficient database was located. Negative searches do not prove uniqueness.",
+      "searches": [
+        "\"connected domination polynomial\" \"cactus\" \"roots\"",
+        "\"connected domination polynomial\" \"cactus\" factorization",
+        "combinatorics graph polynomials forest domination packing exact enumeration recurrence"
+      ]
+    },
+    "rationale": "Full primary-text comparison with Mojdeh–Emadi (2018), Ibrahim–Salih (2020), Yoosuf–Kuttipulackal (2021), and Vijayan–Felix Nes Mabel (2016) finds strict path/cycle/corona/friendship/tadpole/specific-gluing special cases, not the arbitrary-cactus factorization or exact triangle root exception; compare cut-vertex top-degree information rather than treating title mismatch as evidence. A 2026 closely related root-density full text remained inaccessible and is explicitly flagged as residual risk.",
+    "residual_risks": [
+      "The full text of Shao–Zhao arXiv:2609.06569 could not be examined; its root-density abstract is not evidence of whole-document noncoverage.",
+      "General connected-domination polynomial block-decomposition identities not retrieved by the bounded searches could subsume the factorization; searches alone do not prove exclusivity.",
+      "Some earlier family-specific formulas have varying conventions or apparent inaccuracies; their details are not used as premises."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong antecedent for cut vertices, exact path/cycle/corona polynomials, but no cactus block product or all-cactus root result",
+        "evidence": [
+          "Observation 1 gives top coefficient n minus number of cuts; Lemma 1 gives the penultimate coefficient; Corollary 3 gives \\(D_c(C_n;x)=x^n+nx^{n-1}+nx^{n-2}\\).",
+          "Theorems 1–3 give corona factorization; Section 3 onward treats Petersen and generalized Petersen graphs."
+        ],
+        "identifier_or_url": "doi:10.1515/fascmath-2018-0007; https://fasciculi-mathematici.put.poznan.pl/artykuly/60/FM60%282018%29-MojdehDA-EmadiAS.pdf",
+        "material_read": "Definitions and full Section 2, Observation 1, Lemma 1, Corollaries 2–3, Theorems 1–4, plus manuscript organization for later Petersen cases",
+        "method": "Public full PDF textual extraction with visual confirmation of page 106",
+        "title": "Connected Domination Polynomial of Graphs",
+        "trigger": "Closest general connected-domination polynomial, cut-vertex coefficients, cycles and coronas"
+      },
+      {
+        "assessment": "Special complete/wheel coalescences do not imply every cactus cycle factor or all-real-root theorem",
+        "evidence": [
+          "Theorems 3.5–3.8 address coalescences of wheels and binomial-type formulas; no arbitrary cactus family theorem is stated.",
+          "Publisher reports publication on 8 December 2020 and DOI."
+        ],
+        "identifier_or_url": "doi:10.5815/ijmsc.2020.06.01; https://www.researchgate.net/publication/347755107_Vertex_Connected_Domination_Polynomial_of_some_Coalescence_of_Complete_and_Wheel_Graphs",
+        "material_read": "Introduction/definitions, vertex-identification and t-tuple coalescence propositions, Theorems 3.5–3.9, article conclusion",
+        "method": "Public author-uploaded full text as HTML extracted from PDF, cross-checked publisher bibliographic information",
+        "title": "Vertex Connected Domination Polynomial of some Coalescence of Complete and Wheel Graphs",
+        "trigger": "Natural middle-period coalescence enumeration source and verified date"
+      },
+      {
+        "assessment": "Theorem 10 exactly covers friendship graph with common hub, special case of new product, but does not supply multi-cycle arbitrary block characterization",
+        "evidence": [
+          "Theorem 10 states polynomial of friendship graph equals D_c(K_{1,2n};x)=x(1+x)^(2n), counting all sets containing the common vertex."
+        ],
+        "identifier_or_url": "doi:10.1088/1742-6596/1850/1/012043; https://www.researchgate.net/publication/353474178_The_connected_domination_polynomial_of_some_graph_constructions",
+        "material_read": "Theorem 9 for coronas and Theorem 10 for friendship graph; definitions and surrounding constructed-family results including wheel",
+        "method": "Public HTML rendering of article text",
+        "title": "The connected domination polynomial of some graph constructions",
+        "trigger": "Friendship graph is a cactus-specialization plausibly covered"
+      },
+      {
+        "assessment": "Contains a tadpole subfamily (single cycle with pendant path) and friendship examples, but no all-cactus block factorization; some formulas appear inconsistent with the standard singleton convention and are not used as premises",
+        "evidence": [
+          "Theorem 3.5 concerns a tadpole; earlier Theorem 3.1 concerns friendship; no stated arbitrary cactus graph theorem."
+        ],
+        "identifier_or_url": "doi:10.9790/5728-1204031316; https://www.researchgate.net/publication/306244017_Connected_Domination_Polynomial_of_Some_Graphs",
+        "material_read": "Introduction/definitions and Theorems 3.1–3.5 in publicly available full-text rendering",
+        "method": "Author-uploaded HTML rendering of manuscript",
+        "title": "Connected Domination Polynomial of Some Graphs",
+        "trigger": "Earlier friendship, tadpole, barbell and constructed families potentially imply a subfamily"
+      },
+      {
+        "assessment": "Adds connectedness of complement, a strictly stronger feasibility requirement; cactus chain calculations would not directly give connected domination polynomial",
+        "evidence": [
+          "Abstract defines doubly connected domination by demanding connected selected induced graph and connected complementary induced graph; mentions cactus chain examples."
+        ],
+        "identifier_or_url": "doi:10.1142/S1793557119500360; https://www.researchgate.net/publication/324416960_On_the_doubly_connected_domination_polynomial_of_a_graph",
+        "material_read": "Abstract, bibliographic and definition metadata; full text not available",
+        "method": "Public journal and bibliographic abstracts",
+        "title": "On the doubly connected domination polynomial of a graph",
+        "trigger": "Cactus chain graph appears in indexed keywords"
+      },
+      {
+        "assessment": "Root-density theorem via lexicographic product plus cycles/joins differs from factorization and cactus-wide real-rootedness; full-text equivalence remains an explicit unresolved risk",
+        "evidence": [
+          "Abstract identifies closure of all connected-domination roots and lexicographic substitution rather than block-factorized cactus statement; no whole-document noncoverage inference is made."
+        ],
+        "identifier_or_url": "arXiv:2609.06569; https://arxiv.org/abs/2609.06569",
+        "material_read": "Abstract, version metadata and visible main theorem synopsis only; full text inaccessible",
+        "method": "Public arXiv abstract and mirrored arXiv++ version summary; OA PDF attempts did not yield material text",
+        "title": "On the Roots of Connected Domination Polynomials",
+        "trigger": "Recent exact same polynomial root subject, plausible source for overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d39aded-27df-42f5-b7fa-e8c44530924a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-cardinality polynomial is obtained for every finite connected cactus, a natural infinite graph class admitting arbitrarily many independently positioned tree and cycle blocks. The result isolates local combinatorial q,t statistics, provides an explicit efficient formula for all coefficients, and establishes a sharp universal real-rootedness exception (triangle) with log-concavity and unimodality consequences. Unlike only the cycle or friendship specialization, arbitrary cactus block composition is a substantive structural extension.",
+    "status": "PASS"
+  }
+}
