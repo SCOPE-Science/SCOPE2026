@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Li's Section 4 was reconstructed at every occurrence of the deficit \\(\\delta\\). With \\(\\eta_0=e^{-3200}/5\\), Lemma 7 gives \\(S+\\delta\\le3073\\eta_0<c_0/2\\). For \\(p\\le p_0\\), \\(\\lfloor N/p\\rfloor-2D\\ge N/p_0-1-2\\eta_0N\\ge N/(2p_0)\\) because \\(e^{-196800}+2/5<1/2\\). In Lemma 10, \\(8\\delta/c_0<1/8\\), so the same success probability and richness conclusion hold. Step 7 retains at least \\((c_0-S-\\delta)N>0\\) smooth candidates. All other inequalities depend only on the unchanged \\(N\\)-threshold and parameters. The standard-library replay checks the scaled margins but is not the proof of the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gessel's September 2026 research note proves only a natural-density bound \\(\\delta\\le7/8\\) and explicitly says the separate finite-set question is not resolved there.",
+        "The source explains that Erdős--Ruzsa--Sárközy and Granville--Soundararajan treat the repetition-allowed condition, which is stronger than distinct-factor admissibility."
+      ],
+      "reasoning": "Neither closest line of prior work gives a finite uniform gap for the same weaker distinct-factor property that dominates \\(e^{-3200}/5\\).",
+      "searches": [
+        "Erdős Problem 786 admissible sets density 7/8 distinct products",
+        "Erdos 786 largest admissible subsets 0.1715",
+        "multiplicatively admissible distinct elements product cardinality set"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.37471v1",
+      "Declan Gessel research note (2026-09-06)",
+      "Erdős Problems #786",
+      "Indexed research-database results returned by the listed semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li's Step 4 requires \\(\\lfloor N/p\\rfloor-2D\\ge N/(2p_0)\\) for \\(p\\le p_0\\); \\(e^{-3200}/5\\) satisfies this at \\(N\\ge e^{200000}\\).",
+        "Li's Lemma 7 and Lemma 10 leave far more slack: at the new constant, \\(S+\\delta<c_0/2\\) and \\(8\\delta/c_0<1/8\\).",
+        "Gessel's theorem assumes one fixed infinite set with a natural density; it does not imply a uniform bound for a different admissible subset of each \\(\\{1,\\ldots,N\\}\\)."
+      ],
+      "reasoning": "The strengthened finite constant follows from a fresh implication check through the source proof. It is not a corollary of the earlier infinite-density result or the repetition-allowed theory.",
+      "searches": [
+        "admissible set distinct products finite interval density deficit Erdős 786",
+        "arXiv:2609.37471 e^-5000 e^-1400 p0 e^3200"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.37471v1, Theorem 2 states \\(\\eta=e^{-5000}\\) for \\(N\\ge e^{200000}\\) and says no attempt is made to optimize \\(\\eta\\).",
+        "Section 4.2 fixes \\(c_0=e^{-1400}\\) and \\(p_0=e^{3200}\\); Sections 4.3--4.9 display the exact deficit-sensitive inequalities used in the new extraction."
+      ],
+      "reasoning": "The new statement has the identical admissibility definition, N-threshold, and proof architecture as the source but a strictly larger explicit eta. It is therefore not equivalent to the published numerical theorem.",
+      "searches": [
+        "admissible sets Erdos Problem 786 explicit eta e^-5000 e^-1400 deficit constant",
+        "Erdos 786 admissible set density explicit constant improve e^-5000",
+        "arXiv:2609.37471v1 Theorem 2 eta e^-5000"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The four semantic searches returned no indexed finding stating an Erdős-786 finite distinct-factor deficit or the constants \\(e^{-5000}\\), \\(e^{-1400}\\), or \\(e^{-3200}/5\\). The nearest distinct-product item concerned a different prime-gap construction and has no implication here.",
+        "Public exact-phrase searches returned Li's source, Gessel's natural-density note, and the Erdős problem page, but no stronger explicit finite constant."
+      ],
+      "reasoning": "The database checks supply negative overlap evidence only; originality rests primarily on the direct full-source comparison and the scope separation from Gessel and repetition-allowed results.",
+      "searches": [
+        "admissible sets Erdos Problem 786 explicit eta e^-5000 e^-1400 deficit constant",
+        "Erdos 786 admissible set density explicit constant improve e^-5000",
+        "distinct product admissible set finite interval deficit e^-1400 1600",
+        "Shisheng Li admissible sets Theorem 2 constants heavy primes smooth numbers"
+      ]
+    },
+    "rationale": "The source states the much smaller explicit finite deficit \\(e^{-5000}\\) and explicitly disclaims optimization. Inspection of the proof shows that \\(e^{-3200}/5\\) satisfies every deficit-dependent inequality. The closest earlier distinct-factor result addresses natural density only, while repetition-allowed results concern a stronger notion. Searches found no checked covering statement of the strengthened constant.",
+    "residual_risks": [
+      "An uncatalogued independent note could have optimized Li's constants after the source appeared.",
+      "The new eta is only a sufficient constant extracted from the unchanged proof and is not claimed optimal.",
+      "The source's Lean formalization uses unspecified constants and does not independently certify the strengthened explicit value."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the stronger explicit constant. The paper states \\(\\eta=e^{-5000}\\) and explicitly says no attempt is made to optimize \\(\\eta\\).",
+        "evidence": "Theorem 2 gives \\(e^{-5000}\\) for \\(N\\ge e^{200000}\\). Section 4.2 fixes \\(c_0=e^{-1400}\\) and \\(p_0=e^{3200}\\); Lemma 7, Step 4, Lemma 10, and Step 7 expose the inequalities rechecked here.",
+        "identifier_or_url": "arXiv:2609.37471v1",
+        "material_read": "Abstract; Introduction and Theorem 2; Sections 2--5, with detailed inspection of Lemmas 7--11 and Steps 4--7; rendered PDF pages 4 and 5 were visually inspected.",
+        "method": "Full-text PDF extraction plus rendered-page inspection and independent reconstruction of every deficit-dependent inequality.",
+        "title": "A negative answer to Erdős Problem #786",
+        "trigger": "Exact motivating theorem and possible same-paper coverage."
+      },
+      {
+        "assessment": "NOT_COVERING the finite constant. It proves natural density at most \\(7/8\\) for a fixed infinite set and explicitly says the finite-set question is not resolved.",
+        "evidence": "The note's Scope paragraph disclaims an upper-natural-density or uniform finite-set conclusion and states that the second Erdős question is not resolved there.",
+        "identifier_or_url": "Declan Gessel research note, 2026-09-06",
+        "material_read": "Abstract, theorem statement, scope discussion, and proof conclusion as publicly available.",
+        "method": "Full public note inspection.",
+        "title": "Erdős 786(i): an elementary density obstruction for distinct-factor product sets",
+        "trigger": "Closest preceding result for the same distinct-factor admissibility notion."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY. The page predates Li's finite solution and does not contain the strengthened constant.",
+        "evidence": "The page distinguishes the distinct-factor version from the repetition-allowed results and records the finite question as open in its last update.",
+        "identifier_or_url": "erdosproblems.com/786",
+        "material_read": "Problem statement, constructions, and discussion of the repetition ambiguity.",
+        "method": "Public problem-page inspection.",
+        "title": "Erdős Problem #786",
+        "trigger": "Problem statement and historical scope check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8ad87a4-a3aa-4059-9619-f412fcb56127",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source has just resolved the finite distinct-factor Erdős problem with an explicit constant and explicitly leaves its optimization open. Raising the certified deficit by \\(e^{1800}/5\\) while preserving \\(N\\ge e^{200000}\\) and all lemmas is quantitatively substantial, and locating \\(p_0=e^{3200}\\) small-prime richness as the actual bottleneck identifies where future optimization must act. The result remains far from the conjectural optimum, which is stated as a limitation rather than inflated significance.",
+    "status": "PASS"
+  }
+}
