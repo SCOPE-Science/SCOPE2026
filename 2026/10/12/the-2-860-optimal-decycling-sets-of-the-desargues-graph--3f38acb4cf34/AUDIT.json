@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "For any deleted set \\(S\\) of size \\(k\\), cubic edge counting gives \\(2k=10+e(S)+c\\) whenever the complement is a forest with \\(c\\) components. Thus no smaller solution exists and six-vertex optima have either \\(e(S)=0,c=2\\) or \\(e(S)=1,c=1\\). Explicit deletion masks 126 and 1244 attain those classes. The complete 38,760-subset incidence enumeration and independent generalized-Petersen union-find algorithm agree on 760 and 2,100 optima. A separate C++ search covers all 60,460 deletion sets of size at most six. All 240 explicit symmetry maps are checked and yield 19 disjoint orbits with total 2,860. The group is proved full using the five four-cliques of the triangular graph on two-subsets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kelly and Liu, arXiv:1603.03855, Theorem 1.4 and Corollary 1.5, give subcubic induced-forest cardinality bounds, but no optimum-set census.",
+        "Ghalavand and Li, arXiv:2501.05145, Theorem 2.1, assume minimum degree at least n/2+1 in a balanced bipartite graph on 2n vertices. For the Desargues graph n=10 and degree=3, the threshold is 6.",
+        "Wei--Li 2013 abstract gives generalized-Petersen minimum decycling cardinality, not an abstract-level count of all minimum subsets.",
+        "Yang--Ren 2019, DOI:10.7151/dmgt.2064, scientific abstract part (b) explicitly gives the general regular-graph identity relating optimum cardinality, induced deleted edges and complement components."
+      ],
+      "reasoning": "Generalized-Petersen cardinality is stronger prior coverage for the scalar minimum than general induced-forest bounds and is explicitly credited. The Yang--Ren general identity subsumes the elementary cubic counting identity used in proof. Neither accessible statement supplies complete enumeration or automorphism orbits; absence of full text for the most directly relevant 2013 and 2015 papers remains a priority risk.",
+      "searches": [
+        "Desargues graph induced forests feedback vertex",
+        "arxiv:1603.03855 Kelly Liu 2016 subcubic induced forest girth five lower bound",
+        "On Maximum Induced Forests of the Balanced Bipartite Graphs arxiv:2501.05145",
+        "Wei Li 2013 decycling number upper-embeddibility generalized Petersen DOI 10.12386/A2013sxxb0022",
+        "Yang Ren New Formulae for the Decycling Number of Graphs 2019 regular graph identity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1603.03855v1; full text arxiv:1603.03855v2",
+      "doi:10.7155/jgaa.00567",
+      "arxiv:2501.05145v2",
+      "https://mathworld.wolfram.com/DesarguesGraph.html",
+      "doi:10.12386/A2013sxxb0022 (official journal abstract only, PDF inaccessible)",
+      "doi:10.1016/j.dam.2014.09.005 (bibliographic title and indexed abstract only, full text inaccessible)",
+      "doi:10.7151/dmgt.2064 (indexed detailed scientific abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kelly and Liu give existence and lower bounds for largest induced-forest sizes; a scalar bound cannot specify the number or group orbits of all optimal deletions.",
+        "Hertz develops computational heuristics and reports different bipartite families, not an exact Desargues classification.",
+        "The present certificate exhausts 38,760 six-vertex subsets and computes all 240-automorphism orbits.",
+        "Wei--Li (2013) covers the scalar six for GP(10,3) via a family decycling-number formula.",
+        "Gao et al (2015) title and abstract directly cover generalized-Petersen decycling numbers, potentially same scalar.",
+        "Yang--Ren (2019) general regular-graph edge/component formula implies the two allowed complement topologies for a sharp six-vertex deletion, but does not imply how many such deletions occur."
+      ],
+      "reasoning": "The 2013 scalar theorem covers k=6, and the 2019 general identity covers necessary e(S)+c=2; neither statement logically fixes which of 38,760 subsets works, the 760/2,100 split, the component-order histogram or the 19 group orbits. Since the full 2013/2015 papers are uninspected, a stronger unpublished-in-abstract theorem/table remains unresolved and disclosed.",
+      "searches": [
+        "Size of the Largest Induced Forest in Subcubic Graphs of Girth at least Four and Five",
+        "Decycling Bipartite Graphs Hertz 2021",
+        "Desargues graph feedback vertex set symmetry classes",
+        "\"Decycling Number and Upper-Embeddibility of Generalized Petersen Graphs\" 2013",
+        "\"The decycling number of generalized Petersen graphs\" 2015",
+        "\"New Formulae for the Decycling Number of Graphs\" Yang Ren 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MathWorld Desargues Graph: identifies the same graph as generalized Petersen GP(10,3) and bipartite Kneser H(5,2).",
+        "The two representations are explicitly proved isomorphic by the vertex-image table in verify.py and both produce exactly 2,860 optimum sets.",
+        "Wei--Li, Acta Math Sin Chinese Series 2013, DOI:10.12386/A2013sxxb0022: journal abstract states generalized Petersen graphs attain the cubic lower-bound decycling number.",
+        "Gao et al, Discrete Applied Mathematics 181 (2015), DOI:10.1016/j.dam.2014.09.005: indexed title and abstract explicitly study the identical generalized-Petersen decycling invariant."
+      ],
+      "reasoning": "The Desargues graph equals GP(10,3) and H(5,2) exactly (verified by explicit adjacency isomorphism). Existing 2013/2015 papers therefore cover its scalar minimum; claim restricted to the exact number and symmetry/topology classification of ALL size-six optima. Their full texts were not read, preventing a conclusive not-covering judgment, so residual risk is material.",
+      "searches": [
+        "Desargues graph decycling feedback vertex",
+        "bipartite Kneser graph H(5,2) decycling induced forest",
+        "generalized Petersen P(10,3) forest polynomial coefficient x^14, minimum feedback vertex sets 2860",
+        "\"Decycling Number and Upper-Embeddibility of Generalized Petersen Graphs\" 2013",
+        "\"The decycling number of generalized Petersen graphs\" Gao Xu Wang Zhu Yang 2015"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The MathWorld Desargues Graph entry tabulates structural and graph-theoretic properties and standard representations, not the coefficient counting maximum induced forests.",
+        "Hertz, DOI:10.7155/jgaa.00567, numerical tables concern star, bubble-sort, Fibonacci-cube, and hypercube families rather than the Desargues graph.",
+        "The 2013 and 2015 primary article abstracts concern numerical decycling minima for generalized Petersen graphs, with no enumeration visible in these extracts; their full texts were unavailable, so uninspected tables cannot be excluded."
+      ],
+      "reasoning": "Published general scalar invariants and databases searched do not exhibit 2,860 or 19 symmetry classes. The identical-object 2013/2015 sources could nonetheless contain a hidden classification, so the negative search is not a conclusive uniqueness certificate.",
+      "searches": [
+        "Desargues graph 2860 induced forest",
+        "Desargues 14-vertex induced trees 2100",
+        "Desargues graph maximum induced forests 2860",
+        "Desargues graph induced forest polynomial",
+        "MathWorld Desargues Graph",
+        "\"Desargues\" \"decycling\" \"2860\"",
+        "\"GP(10,3)\" \"decycling\" \"minimum\" \"number\"",
+        "\"generalized Petersen graphs\" \"minimum decycling sets\" enumeration"
+      ]
+    },
+    "rationale": "Claim assessed: exact 2,860 optimum sets, 760/2,100 structure split, component-size spectrum and 19 automorphism orbits, NOT the scalar value 6. Wei--Li (2013) and Gao--Xu--Wang--Zhu--Yang (2015) studied generalized-Petersen decycling numbers and are credited for the minimum. Yang--Ren (2019) obtained a general regular-graph decycling identity encompassing the present edge-count formula. Accessible full texts of Kelly--Liu (2016), Hertz (2021), Ghalavand--Li (2025) do not present this exact enumeration. Relevant 2013 and 2015 papers were accessible at indexed abstract/metadata level only, with full text not obtained; their possible hidden enumeration remains an explicit material priority risk, and originality is not independently confirmed.",
+    "residual_risks": [
+      "An unpublished or unindexed optimum-set enumeration under a generalized Petersen or bipartite Kneser label may have priority.",
+      "No independent audit of the finite enumeration or the literature search has yet been performed.",
+      "The most directly relevant published 2013 and 2015 generalized-Petersen decycling papers were not available as readable full text in the available source inspection; the originals might include an exact count, table, or classification not visible from title and abstract.",
+      "The accessible bibliography and abstracts cannot substitute for a comparison of the exact statements and appendices in the inaccessible 2013 and 2015 articles; no coverage conclusion is inferred from snippets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the enumeration; cardinality lower bounds overlap only with scalar optimum and must be credited.",
+        "evidence": "Theorem 1.4 bounds induced-forest sizes in subcubic graphs; no named Desargues occurrence in the searchable 27-page document.",
+        "identifier_or_url": "https://arxiv.org/pdf/1603.03855",
+        "material_read": "Abstract; introduction; Theorem 1.4 and Corollary 1.5 on pages 1-4; full-PDF searchable-text search for Desargues.",
+        "method": "Original arXiv full-text PDF, specific theorem pages plus document text search.",
+        "title": "Size of the Largest Induced Forest in Subcubic Graphs of Girth at least Four and Five",
+        "trigger": "Closest pre-archive primary induced-forest theorem on subcubic girth at least five."
+      },
+      {
+        "assessment": "NOT_COVERING this exact optimum enumeration or symmetry quotient.",
+        "evidence": "Section 3 tests four named bipartite families; full-text term searches find neither Desargues nor Petersen.",
+        "identifier_or_url": "https://www.jgaa.info/index.php/jgaa/article/download/paper567/2402/2209",
+        "material_read": "Introduction/algorithm definition, sections of experiment tables (star graphs, bubble-sort graphs, Fibonacci cubes, hypercubes), and full-PDF search for Desargues and Petersen.",
+        "method": "Publisher-hosted full-text 20-page PDF, tables/section inspection and text search.",
+        "title": "Decycling Bipartite Graphs",
+        "trigger": "Most relevant direct bipartite decycling algorithm and possible numerical tables."
+      },
+      {
+        "assessment": "INAPPLICABLE to the Desargues graph under its stated dense minimum-degree hypothesis; no equivalent count.",
+        "evidence": "Theorem 2.1 requires degree at least n/2+1 with two parts of size n; the Desargues case has n=10 and degree 3.",
+        "identifier_or_url": "https://arxiv.org/pdf/2501.05145",
+        "material_read": "Abstract, introduction, theorem statement and proof opening on pages 1-3; full-PDF search for Desargues.",
+        "method": "Original arXiv 12-page full-text PDF inspected at main theorem and search hits.",
+        "title": "On Maximum Induced Forests of the Balanced Bipartite Graphs",
+        "trigger": "Potentially broader structural classification for all balanced bipartite graphs."
+      },
+      {
+        "assessment": "KNOWN_SCALAR_COVERAGE; unresolved risk of a hidden full classification because complete text not inspected.",
+        "evidence": "The official abstract states generalized Petersen graphs attain the indicated cubic decycling-number bound and are upper-embeddable. No multiplicity/orbit result is visible in the abstract.",
+        "identifier_or_url": "https://doi.org/10.12386/A2013sxxb0022",
+        "material_read": "Official journal HTML abstract, bibliographic details, issue date 2013-03-15 and reference list; PDF advertised at 450 KB, but the exposed browser link resolved to the generic PDF icon, not manuscript pages. No full-paper body was read.",
+        "method": "Official journal article page, parallel Chinese issue-page abstract, attempted open of PDF link; no readable article body was obtainable through authorized sources.",
+        "title": "Decycling Number and Upper-Embeddibility of Generalized Petersen Graphs",
+        "trigger": "Identical generalized-Petersen decycling problem, older than the original anchor, priority-critical."
+      },
+      {
+        "assessment": "KNOWN_SCALAR_TOPIC, potentially same minimum, unresolved priority comparison for any exhaustive enumeration hidden in manuscript.",
+        "evidence": "Gao, Xu, Wang, Zhu, Yang, Discrete Applied Mathematics 181 (2015), pp. 297-300. Open ResearchGate entry explicitly states no full text available.",
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.09.005",
+        "material_read": "Indexed bibliographic title, author list and truncated scientific abstract in ResearchGate/dblp; no full-paper text available from those OA searches.",
+        "method": "Title/DOI and lawful open-access/arXiv search, metadata and abstract; full-text retrieval attempts did not yield a readable document.",
+        "title": "The decycling number of generalized Petersen graphs",
+        "trigger": "Exact invariant and full graph family, short 2015 primary article."
+      },
+      {
+        "assessment": "COVERS_EDGE_COUNT_IDENTITY, not the optimum-set multiplicity or orbit data according to the available abstract.",
+        "evidence": "Yang--Ren: for k-regular G the size of any decycling S is (beta(G)+m(S))/(k-1) with m(S)=c+|E(S)|-1.",
+        "identifier_or_url": "https://doi.org/10.7151/dmgt.2064",
+        "material_read": "Accessible indexed abstract giving the exact general regular-graph identity; full text not accessible in current browsing session.",
+        "method": "Scholarly publication metadata and indexed detailed abstract; direct bibliographic page returned 403 when reopened.",
+        "title": "New Formulae for the Decycling Number of Graphs",
+        "trigger": "Strong general theorem subsuming the cubic edge/component identity used in the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f38acb4-cf34-44ed-a47e-31d558ae5ee0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result completely classifies every largest induced forest in the classical distance-transitive cubic graph of girth six, the Desargues graph, a natural extremal setting for cubic induced-forest bounds. The two distinct complement topologies (two trees versus one tree), exact component-order census and 19 symmetry classes are mathematically motivated and not determined by the minimum size. The precise coefficient and orbit representatives make the extremal structure reusable as a benchmark; no general-family contribution is assumed.",
+    "status": "PASS"
+  }
+}
