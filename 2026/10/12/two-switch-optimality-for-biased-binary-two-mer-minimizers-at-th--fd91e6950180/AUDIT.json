@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Stationary leftmost-window minima are nondecreasing; newly selected positions correspond exactly to changed minima between adjacent windows. Hamming-weight counts over every context of length w+2 give exact Bernoulli density polynomials. The full 24-order certificate checks coefficient positivity after u=p/(1−2p) for all 2≤w≤8 and for all but two orders at w=9; the exceptional second is strictly above B. The A−B difference is p²(p−1)H(p), and a two-sign-change Descartes transform plus exact rational sign intervals proves precisely two simple roots. Two independent standard-library implementations executed successfully. There are no unproved extrapolations past the stated w range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zheng dissertation, §2.2.1 (PDF pp. 35–36), computes expected density using uniform random (2w−1)-contexts; it does not derive optimal ranks for nonuniform biased two-mers.",
+        "Marçais–DeBlasio–Kingsford 2018 proves bounds/constructions for minimizers; Shur 2025 provides all-window *uniform* optimal density. Neither claims the exact nonuniform Bernoulli optimal-order intervals."
+      ],
+      "reasoning": "All-w uniform results dominate the special p=1/2 point, but do not dominate the weighted p∈(0,1) claim; the theorem fixes alphabet, k, finite widths and varies the source distribution. Later data-adaptive minimizer methods focus on specific data or load balance, a different objective.",
+      "searches": [
+        "On Minimizers of Minimum Density Arseny Shur all w optimal binary 2-mers arxiv:2506.05277",
+        "Theory and Practice of Low-Density Minimizer Sketches Zheng dissertation 2022",
+        "optimal minimizer order nonuniform Bernoulli weighted density alphabet binary 2-mer"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1401.5383v1",
+      "https://rayan.chikhi.name/pdf/recomb-14.pdf",
+      "doi:10.1093/bioinformatics/bty258",
+      "https://kingsfordlab.cbd.cmu.edu/pdf/2022-news-zhengphd.pdf",
+      "arxiv:2506.05277v1",
+      "doi:10.1089/cmb.2021.0599",
+      "Published-result searches for exact skewed order and phase synonyms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chikhi et al. 2014 establish de Bruijn-graph representation and a frequency-based minimizer partitioning method, not a biased iid density-optimal order theorem.",
+        "Shur 2025 can recover only the p=1/2 instance in this exact Bernoulli family without an additional weighted analysis; it reports all-window uniform minima, not two off-center algebraic switches.",
+        "Zheng 2022 counts uniformly distributed contexts (PDF lines 890–895).",
+        "The new theorem proves a first switch at w=9 and changes of unique optimizer on an open p interval, neither asserted by these prior statements."
+      ],
+      "reasoning": "A prior method to compute expected density for arbitrary order does not by itself constitute a claimed exact optimization across a parameter continuum. Conversely the complete source-bias phase diagram specializes to a previously known uniform point; novelty is solely the weighted inequalities, roots, thresholds, and uniqueness cases.",
+      "searches": [
+        "On the representation of de Bruijn graphs arxiv:1401.5383 2014 frequency minimizers",
+        "Asymptotically optimal minimizers schemes 2018 density",
+        "arxiv:2506.05277v1 uniform expected density",
+        "Frequency-based minimizer ranking Bernoulli source exact first window-size phase transition and double-crossing densities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 Shur paper defines density by expected sampling frequency in a uniformly random infinite binary string and computes optimal orders for (alphabet size 2,k=2) at all widths.",
+        "At p=1/2 the derived optimum is 263/1024 with eight tied orders; this limiting special case is explicitly not new. The nonuniform p-dependent global minimization and roots of H(p) are not stated by the uniform claim."
+      ],
+      "reasoning": "The source-weighted objective is a genuine extension of the uniform order optimization, not a notational change: it produces different unique best rankings for p=1/4, p=3/10, p=2/5, with two exact crossings. A uniform-source theorem fixes p=1/2 and cannot imply the p-dependent phase unless new weighted combinatorial analysis is supplied.",
+      "searches": [
+        "Bernoulli nonuniform biased binary minimizer two-mer k=2 exact optimal order w=9 phase transitions density polynomial",
+        "Frequency-based minimizer ranking Bernoulli source exact first window-size phase transition and double-crossing densities",
+        "minimizer sampling density biased Bernoulli sequence optimal order k=2 minimizers",
+        "arxiv:2506.05277v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-result searches for the exact parameters reveal no Bernoulli binary minimizer phase tables; their actual titles and summaries concern unrelated beta quantization, Bernoulli products, or string counting.",
+        "Shur 2025 supplies exhaustive uniform small-alphabet minimizer densities, but the purported database/table would need all Hamming-weight charge vectors for all strict rankings to solve this weighted case.",
+        "The 2022 data-adaptive paper abstract describes load-bin-flattening on datasets rather than tabulating Bernoulli-expectation minimal rank phases."
+      ],
+      "reasoning": "No inspected exact database or table provides the 24 Bernoulli polynomials and their two-root envelope. Reproducible code is provided; the index/search evidence does not preclude unknown tables, retained as bibliographic risk.",
+      "searches": [
+        "Bernoulli nonuniform biased binary minimizer two-mer k=2 exact optimal order w=9 phase transitions density polynomial",
+        "Binary 2-mer minimizer skewed source window nine best order 01 00 10 11 versus 11 01 00 10",
+        "arxiv:2506.05277v1 optimal k=2 all w table",
+        "Data Set-Adaptive Minimizer Order 2022 Flomin Pellow Shamir"
+      ]
+    },
+    "rationale": "The first bias-dependent global ordering transition at width nine with two algebraic switching thresholds is not implied by the closest inspected results: the 2014 frequency-based scheme is a practical de Bruijn graph partitioning method; 2018 and 2025 exact/minimum density studies use a uniform-string objective; the 2022 dissertation similarly defines uniform expected density. Exact charge coefficients and sign certificates genuinely add a continuous source-bias parameter with new optima. The already-established uniform-source optimum is excluded. Possible unpublished/unindexed enumeration and incomplete adaptive-order paper are recorded risks, not ruled out by keyword searches.",
+    "residual_risks": [
+      "The 2022 adaptive-order paper was accessible only via the abstract, not completely inspected. Its published objective differs, but incidental weighted enumeration cannot be excluded.",
+      "The 2025 all-width minimizer paper covers uniform input. If its supplementary material or an unindexed computation already tabulates the complete bias-dependent two-mer phase, prior overlap is possible.",
+      "Published-result search returns only indexed records; unindexed and unpublished analyses cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The construction and graph-space analysis use minimizer frequency ordering but do not optimize iid Bernoulli selected-start density over four orders.",
+        "evidence": [
+          "https://arxiv.org/abs/1401.5383, first submitted 2014-01-21 UTC",
+          "https://rayan.chikhi.name/pdf/recomb-14.pdf, pp. 12–17: minimizer selection, BCALM and frequency vs lexicographic bins"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.5383",
+        "material_read": "arXiv original metadata/abstract and author-hosted RECOMB 2014 presentation, all pages including 12–17 on minimizer order and partitioning; arXiv HTML text sections when accessible.",
+        "method": "Primary author-authored openly accessible material and original submission history read; mathematical claim and objective compared.",
+        "title": "On the representation of de Bruijn graphs",
+        "trigger": "Original literature establishing frequency-based minimizer ordering and archive source date."
+      },
+      {
+        "assessment": "Provides broad uniform-density theory and constructions, not weighted-source exact finite-width optimal priorities.",
+        "evidence": [
+          "https://academic.oup.com/bioinformatics/article/34/13/i13/5045769, introduction and Section 2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/bioinformatics/bty258",
+        "material_read": "Full open article sections on minimizer definitions and main lower bound/construction results, retrieved through the Oxford/PMC OA pages.",
+        "method": "Read definitions of window and expected density plus construction theorems; distinguish fixed finite two-mer weighted optimization.",
+        "title": "Asymptotically optimal minimizers schemes",
+        "trigger": "Strong asymptotic minima may subsume any ranking result."
+      },
+      {
+        "assessment": "States uniform random-context expectation; does not supply exact source-biased two-mer threshold theorem.",
+        "evidence": [
+          "2022 dissertation p. 35, lines 890–895: density from uniform (2w−1)-mers"
+        ],
+        "identifier_or_url": "https://kingsfordlab.cbd.cmu.edu/pdf/2022-news-zhengphd.pdf",
+        "material_read": "144-page PDF text searched and scientifically relevant §§2.2.1–2.2.2, especially pp. 35–36 and surrounding main theorems.",
+        "method": "Read complete relevant claim statements and uniform charged-context calculation, searched non-uniform and Bernoulli terminology.",
+        "title": "Theory and Practice of Low-Density Minimizer Sketches",
+        "trigger": "Full dissertation could cover exact density tables, changed-window identities, and weighted extensions."
+      },
+      {
+        "assessment": "Its all-w binary k=2 optimum specializes to uniform p=1/2, which is excluded from newness. The exact nonuniform switching does not follow as a stated special case.",
+        "evidence": [
+          "https://arxiv.org/abs/2506.05277, abstract: optimum for binary k=2 and all w under random σ-ary string"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.05277",
+        "material_read": "2025 arXiv abstract and accessible HTML mathematical setup on uniform random infinite strings and all-width small-alphabet numerical results; PDF/HTML later became intermittently unavailable.",
+        "method": "Compare theorem domain, fixed uniform probability model, and quoted all-width k=2 results with p-parameter claim.",
+        "title": "On Minimizers of Minimum Density",
+        "trigger": "Likely dominating all-width smallest-alphabet optimal density theorem."
+      },
+      {
+        "assessment": "Abstract concerns reducing skew in k-mer-bin loads through sampling and iterative ranking adjustments; no exact Bernoulli two-mer density phase is evident, but full text is a residual risk.",
+        "evidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/35527644/ abstract (published 2022)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1089/cmb.2021.0599",
+        "material_read": "Abstract, bibliographic record, method and claimed computational objective; complete full text was not available.",
+        "method": "Compare algorithmic dataset load-balancing objective to Bernoulli selected-start density and record access restriction.",
+        "title": "Data Set-Adaptive Minimizer Order Reduces Memory Usage in k-Mer Counting",
+        "trigger": "Practical data-specific ranking may include source-weighted optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd91e695-0180-48ef-9a02-b25a555351ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves a natural source-adaptive minimizer design invariant for a continuum of Bernoulli parameters, exhibiting a genuinely nonmonotone double switch in global best strict ranking first at the ninth window. A commonly used frequency-prioritization heuristic need not minimize actual sampling density. The exact switching intervals and uniqueness structure supply a motivated small-alphabet benchmark and counterexample; novelty is not based on arbitrary cutoffs or a claimed practical speedup.",
+    "status": "PASS"
+  }
+}
