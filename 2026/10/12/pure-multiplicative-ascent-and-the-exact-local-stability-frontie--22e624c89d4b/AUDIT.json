@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "At \\(\\theta=a\\), the source multiplicative gradient satisfies \\(m(a)=0\\) and \\(m'(a)=ah/c\\). Since \\(\\sigma(0)=1/2\\) and \\(\\operatorname{slog}'(0)=1\\), direct differentiation gives \\(T'(a)=1-\\eta_Ah/2+\\eta_Mah/c\\). The standard one-dimensional fixed-point theorem yields attraction for absolute derivative below one and repulsion above one. For \\(\\eta_A=0\\) and every \\(\\theta>a\\), both \\(m(\\theta)\\) and its signed logarithm are positive, so the trajectory is strictly increasing. A finite limit would have to be a zero of \\(m\\), but the only such points are \\(0\\) and \\(a\\); therefore the trajectory diverges. The exact limit \\(m(\\theta)\\to2\\) yields increment limit \\(\\eta_M\\log3\\) and hence \\(\\theta_k/k\\to\\eta_M\\log3\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 positive-domain work studies multiplicative-calculus gradient descent rather than the HMGD signed-log hybrid map.",
+        "The Numerical Algorithms paper studies multiplicative and Volterra minimization methods with different Newton-type constructions.",
+        "The SIAM interior-gradient work uses line-search-based multiplicative interior directions and does not contain the HMGD fixed-point factor or pure-branch speed."
+      ],
+      "reasoning": "These broader multiplicative optimization frameworks establish context but do not dominate the source-specific stability statement because their iteration maps, normalization, and sign handling differ.",
+      "searches": [
+        "DOI:10.29132/ijpas.1467644 positive-domain multiplicative gradient descent",
+        "DOI:10.1007/s11075-013-9813-9 multiplicative minimization methods",
+        "DOI:10.1137/S0363012994262944 multiplicative interior gradient nonnegative orthant"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3390/math14091572",
+      "DOI:10.29132/ijpas.1467644",
+      "DOI:10.1007/s11075-013-9813-9",
+      "DOI:10.1137/S0363012994262944"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source notes qualitative instability risks for purely multiplicative schemes but does not derive the exact hybrid frontier, positive-minimizer repulsion, or global asymptotic divergence law.",
+        "The three broader multiplicative-optimization sources use different maps and do not imply the signed-log HMGD result."
+      ],
+      "reasoning": "A general warning that multiplicative methods may be unstable does not imply which sign configuration fails, the exact stabilizing inequality, or the asymptotic speed. The final claim supplies all three for the source's actual update.",
+      "searches": [
+        "Primary full text: multiplicative-gradient definition, signed logarithm, core update equation, and pure multiplicative specialization",
+        "DOI:10.29132/ijpas.1467644 positive-domain multiplicative gradient descent",
+        "DOI:10.1007/s11075-013-9813-9 multiplicative minimization methods",
+        "DOI:10.1137/S0363012994262944 multiplicative interior gradient methods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published findings concern generic reflected-gradient, extragradient, heavy-ball, Polyak, and stochastic-gradient stability frontiers rather than the HMGD map.",
+        "Source-specific searches returned the primary article and derivative reposts but no correction, local linearization, or equivalent quadratic counterexample."
+      ],
+      "reasoning": "The comparison covered both source notation and invariant formulations: fixed-point derivative at a positive minimizer, signed-log multiplicative correction, hybrid additive-dominance, and pure multiplicative divergence.",
+      "searches": [
+        "Multiplicative Gradient Decomposition HMGD signed logarithmic local stability pure multiplicative update ascent",
+        "HMGD etaM pure multiplicative update quadratic instability",
+        "multiplicative gradient descent signed log positive parameter local convergence",
+        "math14091572 gradient decomposition Equation 12 special case gradient descent",
+        "exact primary title plus pure multiplicative stability and quadratic instability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed published-result record contains the HMGD source identifier or an equivalent signed-log positive-minimizer frontier.",
+        "The claim is analytic and does not reproduce a known experimental table."
+      ],
+      "reasoning": "The nearest indexed items give unrelated condition-number or spectral stability thresholds and do not imply the HMGD statement.",
+      "searches": [
+        "Multiplicative Gradient Decomposition HMGD signed logarithmic local stability pure multiplicative update ascent",
+        "HMGD etaM pure multiplicative update quadratic instability",
+        "multiplicative gradient descent signed log positive parameter local convergence"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the definitions of the multiplicative gradient, signed logarithm, and core hybrid update, including its pure multiplicative specialization. Source-specific and alias searches found no exact local-stability frontier or pure-branch divergence theorem. The inspected multiplicative-calculus optimization literature uses materially different update maps and does not imply the HMGD signed-log result.",
+    "residual_risks": [
+      "Older multiplicative-calculus literature may contain related scalar sign phenomena under different notation; no HMGD-specific implication was located.",
+      "The primary source's qualitative warning about multiplicative instability partially anticipates the possibility of failure, but not the exact frontier or global divergence law.",
+      "Neutral boundary cases require higher-order analysis and remain outside the accepted claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact scalar positive-minimizer derivative and additive-dominance condition are not stated. The source identifies the pure multiplicative branch but does not show its canonical strongly convex divergence law.",
+        "evidence": "The source defines \\(m_i=\\theta_i L^{-1}\\partial_iL\\), uses the signed logarithm, and adds the multiplicative term with positive sign in the core update.",
+        "identifier_or_url": "DOI:10.3390/math14091572",
+        "material_read": "Full article text covering the multiplicative-gradient definition, additive gradient, signed logarithmic transform, the core update equation, special-case discussion, stability discussion, and bibliography; the rendered page containing the update equation was also inspected.",
+        "method": "Public full-text PDF and publisher HTML inspection.",
+        "title": "Multiplicative Gradient Decomposition: A Hybrid Additive–Multiplicative Optimization Framework",
+        "trigger": "Primary recent source defining HMGD and the pure multiplicative specialization."
+      },
+      {
+        "assessment": "Studies multiplicative-calculus optimization on positive domains but not the HMGD signed-log hybrid map.",
+        "evidence": "The method is formulated through multiplicative calculus rather than the source's additive plus signed-log normalized-gradient update.",
+        "identifier_or_url": "DOI:10.29132/ijpas.1467644",
+        "material_read": "Public abstract and article metadata.",
+        "method": "Public journal HTML inspection.",
+        "title": "Exponential-Quadratic-Logarithmic Composite Function Optimization In Positive Domains: Leveraging Multiplicative Calculus In Gradient Descent Algorithms",
+        "trigger": "Recent positive-domain multiplicative-gradient literature potentially covering the same scalar mechanism."
+      },
+      {
+        "assessment": "Uses multiplicative Newton-type minimization and does not cover the HMGD update or the stated frontier.",
+        "evidence": "No signed-log hybrid update or HMGD normalization appears in the inspected material.",
+        "identifier_or_url": "DOI:10.1007/s11075-013-9813-9",
+        "material_read": "Published abstract and bibliographic description.",
+        "method": "Public publisher metadata and abstract inspection.",
+        "title": "On multiplicative and Volterra minimization methods",
+        "trigger": "Established multiplicative minimization literature that could contain a stronger scalar result."
+      },
+      {
+        "assessment": "Line-search-based interior multiplicative directions do not imply the source-specific fixed-point derivative or divergence law.",
+        "evidence": "The framework enforces interior nonnegativity through a different multiplicative direction and globalization mechanism.",
+        "identifier_or_url": "DOI:10.1137/S0363012994262944",
+        "material_read": "Published abstract and method description.",
+        "method": "Public journal metadata and abstract inspection.",
+        "title": "Multiplicative Interior Gradient Methods for Minimization over the Nonnegative Orthant",
+        "trigger": "Classical multiplicative-gradient optimization on a nonnegative domain."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "22e624c8-9d4b-4254-97b9-768c0acdf970",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "HMGD is presented as a theoretically grounded additive–multiplicative framework, and the source explicitly exposes a pure multiplicative specialization. On the simplest positive strongly convex test family, the signed-log term points in the wrong local direction at a positive minimizer unless additive descent dominates it. The exact inequality \\(\\eta_M<\\eta_Ac/(2a)\\), together with the full two-sided local frontier and pure-branch divergence speed, gives a concrete safety rule for parameter selection and clarifies which part of the hybridization supplies stabilization.",
+    "status": "PASS"
+  }
+}
