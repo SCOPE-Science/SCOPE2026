@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The N=1 and N=2 cases are exact. For N=3 the standard uniform P1 mass and stiffness matrices give an exact rational dimensionless generator, which is diagonalized by the discrete sine basis. Every semigroup entry is then explicit. Only the (1,3) and (3,1) entries can be negative, and their sign reduces to a strictly convex two-exponential function with exactly one positive zero. Exact arithmetic and high-precision replay confirm all matrix identities and bracket the root.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thomée's 2015 full chapter proves that a normal triangulation with nondiagonal mass matrix cannot have a nonnegative standard Galerkin solution matrix for all small times and proves eventual positivity when H^{-1}>0.",
+        "The same chapter defines the positivity threshold and reports numerical thresholds for uniform triangulations of the two-dimensional unit square.",
+        "Jin--Lazarov--Thomée--Zhou extend the same framework to subdiffusion and again state small-time failure for nondiagonal mass and eventual positivity under H^{-1}>0."
+      ],
+      "reasoning": "These general results establish the phenomenon but do not determine the smallest one-dimensional uniform system, and their numerical examples do not analytically reduce the N=3 semigroup to one scalar sign channel.",
+      "searches": [
+        "standard Galerkin finite element heat equation one dimensional uniform mesh positivity threshold three interior nodes",
+        "Thomee Wahlbin positivity finite element heat equation standard Galerkin threshold",
+        "\"positivity threshold\" \"consistent mass\" finite element heat",
+        "\"threshold of positivity\" \"standard Galerkin\" one-dimensional"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/978-3-319-15585-2_2",
+      "arXiv:1510.02825",
+      "DOI:10.1515/cmam-2015-0018",
+      "DOI:10.1090/S0025-5718-07-02021-2",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 chapter writes E(t)=exp(-M^{-1}St), proves small-time failure under a normal-triangulation hypothesis, and proves eventual positivity under inverse positivity; it does not state the N=3 one-dimensional threshold equation in the inspected full text.",
+        "The subdiffusion paper states the same qualitative small-time failure/eventual-positivity structure and presents multidimensional numerical thresholds.",
+        "The 2015 journal article is strongly relevant but only an abstract and searchable excerpt were recoverable in this run, so it remains an access risk rather than being used for a whole-document noncoverage claim."
+      ],
+      "reasoning": "The prior theorems imply that positivity defects and thresholds can occur, but they do not determine the minimal one-dimensional interior-node count or the exact reappearance time. Those require an additional explicit N=1,2,3 spectral calculation.",
+      "searches": [
+        "DOI:10.1007/978-3-319-15585-2_2 positivity threshold standard Galerkin",
+        "arXiv:1510.02825 positivity threshold standard Galerkin",
+        "DOI:10.1515/cmam-2015-0018 positivity finite element heat",
+        "DOI:10.1090/S0025-5718-07-02021-2 maximum principles parabolic finite element"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest indexed finding: 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac, which concerns backward-Euler-filtered Crank-Nicolson on a lattice, not the consistent-mass semidiscrete Galerkin generator.",
+        "No indexed result returned a three-interior-node standard Galerkin heat threshold or the two-exponential root characterization."
+      ],
+      "reasoning": "The accepted claim was searched under positivity threshold, consistent mass, semigroup matrix, one-dimensional uniform mesh, and minimal-node aliases. The closest result changes both the spatial operator and time discretization, so it does not imply the present statement.",
+      "searches": [
+        "exact positivity threshold standard Galerkin heat semigroup uniform one-dimensional finite elements",
+        "consistent mass matrix heat semigroup negative entry three interior nodes",
+        "finite element solution matrix e^{-M^{-1} S t} positivity one-dimensional uniform",
+        "positivity reappears threshold standard Galerkin finite element heat equation small mesh"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2015 chapter's Table 1 contains numerical positivity thresholds for two-dimensional unit-square triangulations at several mesh widths.",
+        "No checked table or indexed result gave the one-dimensional N=1,2,3 classification or the constant 0.212811776921431..."
+      ],
+      "reasoning": "Existing threshold tables are not an implication-equivalent database for the present claim because the geometry, mass/stiffness matrices, and matrix sizes differ. The accepted threshold is derived analytically from the N=3 sine spectrum rather than read from a table.",
+      "searches": [
+        "\"three interior nodes\" finite element heat positivity Galerkin",
+        "\"standard Galerkin\" \"three interior\" heat equation positivity",
+        "\"one-dimensional\" \"standard Galerkin\" positivity heat equation finite element consistent mass"
+      ]
+    },
+    "rationale": "The broad consistent-mass positivity defect and eventual positivity are classical and explicitly treated as prior work. Required semantic-index searches and literature searches did not locate the minimal one-dimensional classification N<=2 versus N=3 or the exact three-node threshold equation. A full primary chapter was inspected through its definitions, small-time theorem, eventual-positivity theorem, and numerical-threshold section; its worked example is two-dimensional and tabulated numerically rather than the present one-dimensional closed form. Residual terminology risk remains.",
+    "residual_risks": [
+      "The 2015 CMAM article could not be inspected end-to-end because its public PDF fetch timed out; only metadata and a searchable excerpt were available.",
+      "An older one-dimensional finite-element or positive-semigroup note may contain the same N=3 calculation without using the phrase positivity threshold.",
+      "No statement is made for N>=4, so the finding should not be read as an all-mesh threshold law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the general qualitative phenomenon and two-dimensional numerical thresholds. Does not state the one-dimensional N<=3 minimal classification or the explicit N=3 scalar threshold equation in the inspected full text.",
+        "evidence": "The chapter defines E(t)=exp(-Ht), H=M^{-1}S; Theorem 1 gives small-time failure for normal triangulations with nondiagonal M; Theorem 3 gives eventual positivity if H^{-1}>0; Section 5 computes unit-square thresholds numerically.",
+        "identifier_or_url": "DOI:10.1007/978-3-319-15585-2_2",
+        "material_read": "Full 13-page chapter, including the matrix formulation, standard Galerkin mass matrix, small-time nonpositivity theorem, eventual-positivity theorem, fully discrete comparisons, and the unit-square numerical threshold example.",
+        "method": "Open full-text PDF text inspection; page-image screenshot requests were also attempted but the host returned gateway errors.",
+        "title": "On Positivity Preservation in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Closest full primary treatment of positivity thresholds for standard Galerkin heat semidiscretizations."
+      },
+      {
+        "assessment": "COVERS nondiagonal-mass small-time failure and eventual positivity under H^{-1}>0, with multidimensional numerical examples. Does not imply the explicit one-dimensional three-node threshold.",
+        "evidence": "The manuscript states the semidiscrete matrix problem P(partial_t)U+HU=0 with H=M^{-1}S, proves small-time failure for nondiagonal M and eventual positivity when H^{-1}>0, and reports numerical positivity thresholds.",
+        "identifier_or_url": "arXiv:1510.02825",
+        "material_read": "Open-access 18-page accepted manuscript text around the introduction, semidiscrete matrix formulation, Theorems 3.1 and 3.2, and numerical-threshold tables.",
+        "method": "Open-access PDF text inspection; screenshot requests were attempted but timed out at the host.",
+        "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+        "trigger": "Exact-day archive anchor and broader primary extension of the heat-equation positivity framework."
+      },
+      {
+        "assessment": "Relevant access risk. No whole-document noncoverage claim is made from the partial material.",
+        "evidence": "The article classifies itself under 65M12 and 65M60 and studies standard Galerkin, lumped-mass, and finite-volume positivity for the heat equation.",
+        "identifier_or_url": "DOI:10.1515/cmam-2015-0018",
+        "material_read": "Abstract, metadata, and a searchable full-text excerpt containing the mass-matrix formulas and start of the semidiscrete positivity section; the full PDF fetch timed out.",
+        "method": "Public metadata plus indexed PDF excerpt.",
+        "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Highly relevant journal article cited by later positivity-preserving parabolic work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fed0fef2-3ca8-47f3-9de0-dec89d44918e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest mesh size at which a standard consistent-mass discretization first violates a PDE maximum-principle property is a natural structural boundary. The exact scale-free reappearance time gives a reproducible benchmark rather than another qualitative counterexample, and the N<=2 proof rules out smaller systems. This can directly test mass-lumping, limiter, and time-integration implementations.",
+    "status": "PASS"
+  }
+}
