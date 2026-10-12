@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Writing \\(R(n)=\\varphi(\\psi(n))/n\\) separates a totient loss factor from the Dedekind support product. For even \\(n\\ne2\\), \\(6\\mid\\psi(n)\\), so the loss factor is at most \\(1/3\\), while five-prime support gives the exact upper bound \\(1152/385<3\\). For odd \\(n\\), \\(2\\mid\\psi(n)\\); if \\(5\\nmid n\\), the support product is at most \\(4608/2431<2\\), and if \\(5\\mid n\\), then \\(6\\mid\\psi(n)\\) and the support product is at most \\(1536/715<3\\). This proves strict inequality outside \\(n=2\\). The sharpness computation for \\(39270\\) is exact. The bundled finite checker independently found no contrary case through 200000.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sándor (2005) supplies sufficient classes, the squarefree-kernel reduction, named counterexamples, and a density-zero theorem, but no uniform theorem for all supports of size at most five.",
+        "Das (2023) proves the inequality on a structured prime family, not on all integers with bounded prime support.",
+        "Guo (2026) states quantitative exceptional-set bounds in the abstract; such density bounds do not imply the exact finite-support exclusion."
+      ],
+      "reasoning": "Known broader asymptotic statements allow exceptional integers and therefore cannot decide whether a fixed support layer is empty. The squarefree reduction is a reduction, not a solution of the remaining infinite five-prime family.",
+      "searches": [
+        "On the composition of some arithmetic functions II phi psi squarefree counterexample",
+        "On Sandor's conjecture Bhabesh Das 2023 phi psi",
+        "On the distribution of phi(psi(n)) psi(psi(n)) 2026"
+      ]
+    },
+    "checked_sources": [
+      "J. Sándor, On the Composition of Some Arithmetic Functions, II, JIPAM 6 (2005), Article 73",
+      "DOI:10.54290/spect/2023.v10.1.0002",
+      "DOI:10.21136/CMJ.2020.0530-18",
+      "OEIS A196200",
+      "OEIS A364932",
+      "arXiv:2608.03749"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.23 gives \\(\\varphi(\\psi(n))/n\\le\\varphi(\\psi(n_0))/n_0\\) for the squarefree kernel \\(n_0\\).",
+        "Remark 3.26 records 39270 and other failures but gives no lower bound \\(\\omega(n)\\ge6\\) for every failure."
+      ],
+      "reasoning": "The reduction can be combined with a new argument, but it does not itself bound the support of a squarefree counterexample. The three exact support-product estimates are the missing implication.",
+      "searches": [
+        "Sándor Theorem 3.23 phi psi squarefree part",
+        "Sándor Remark 3.26 39270",
+        "phi psi five prime support counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sándor (2005), Theorem 3.23 reduces validity to the squarefree part but leaves the squarefree support problem open.",
+        "No indexed semantic result returned a theorem about the minimum value of omega among counterexamples."
+      ],
+      "reasoning": "The final claim is equivalently that the least possible distinct-prime support of a counterexample is six and that \\(n=2\\) is the only equality case below that support threshold. Searches used both the composition notation and the prime-support formulation.",
+      "searches": [
+        "phi(psi(n)) <= n omega(n) <= 5 Dedekind Euler Sándor",
+        "Dedekind psi Euler totient composition five distinct prime factors",
+        "sharp prime-support threshold phi(psi(n)) n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A196200 lists integers with \\(\\varphi(\\psi(n))>n\\), beginning with 39270.",
+        "OEIS A364932 records \\(\\varphi(\\psi(n))\\) and notes that the first excess occurs at 39270."
+      ],
+      "reasoning": "A numerical table supplies examples and finite-order information but does not prove that no arbitrarily large integer with at most five distinct prime divisors can fail.",
+      "searches": [
+        "39270 phi(psi(n)) Sandor",
+        "OEIS A196200 phi Dedekind psi counterexamples",
+        "OEIS A364932 phi psi 39270"
+      ]
+    },
+    "rationale": "The closest primary source, Sándor (2005), proves a squarefree-kernel reduction and explicitly lists \\(39270\\) as a counterexample, but it does not state or imply that every support of size at most five is safe. Das (2023) proves a special sufficient family, while modern distribution work is asymptotic rather than an exact support threshold. Targeted semantic, web, database, and own-ledger searches found no equivalent or stronger five-prime-support theorem.",
+    "residual_risks": [
+      "The recent arXiv:2608.03749 full text was not retrievable in the checked channel; only its abstract and indexed summary were inspected. Its advertised results are distributional, so no direct covering statement was visible.",
+      "Older arithmetic-function literature is broad and some items are imperfectly indexed; an equivalent elementary support observation could exist under different terminology despite the targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest prior work. It proves squarefree reduction and records counterexamples, but not the five-prime-support barrier.",
+        "evidence": "Theorem 3.23 proves the squarefree-kernel inequality; Remark 3.26 explicitly lists 39270; Theorem 3.27 is asymptotic.",
+        "identifier_or_url": "JIPAM 6 (2005), Article 73",
+        "material_read": "Full open PDF, especially introduction, Theorem 3.23, Remark 3.25, Remark 3.26, and Theorem 3.27.",
+        "method": "Lawful open-access PDF.",
+        "title": "On the Composition of Some Arithmetic Functions, II",
+        "trigger": "Same exact composition and source of the counterexample 39270."
+      },
+      {
+        "assessment": "Proves a structured sufficient family and does not give a uniform prime-support threshold.",
+        "evidence": "Theorem 2.1 treats the paper's special prime family; the conclusion asks for other forms of integers satisfying the inequality.",
+        "identifier_or_url": "DOI 10.54290/spect/2023.v10.1.0002",
+        "material_read": "Full four-page PDF, including definitions, Theorem 2.1, conclusion, and references.",
+        "method": "Lawful journal PDF.",
+        "title": "On Sandor’s conjecture",
+        "trigger": "Later paper devoted to the same inequality and a new sufficient class."
+      },
+      {
+        "assessment": "Provides inequalities for \\(\\varphi(n)\\) and \\(\\psi(n)\\) at the same argument, not the composition support threshold.",
+        "evidence": "Published online 2020-01-27; MSC 11A25; the stated inequalities contain no composition \\(\\varphi(\\psi(n))\\).",
+        "identifier_or_url": "DOI 10.21136/CMJ.2020.0530-18",
+        "material_read": "Article metadata, abstract, formulas, equality statement, and bibliographic references from the publisher/DML entry.",
+        "method": "Open publisher and digital-library text.",
+        "title": "Inequalities for the arithmetical functions of Euler and Dedekind",
+        "trigger": "Modern primary-MSC source on the same two classical functions and inequalities."
+      },
+      {
+        "assessment": "Abstract announces quantitative exceptional-set estimates, not an exact support classification; full-text noninspection remains a residual risk.",
+        "evidence": "The abstract describes upper bounds for exceptional sets and density statements.",
+        "identifier_or_url": "arXiv:2608.03749",
+        "material_read": "Abstract and indexed summary; full-text retrieval was unavailable in the checked channel.",
+        "method": "ArXiv-indexed abstract.",
+        "title": "On the distribution of φ(ψ(n)) and ψ(ψ(n))",
+        "trigger": "Recent same-composition paper could contain broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b458044-1456-460d-81dc-ad91e52ae7c3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum support size of a counterexample is a natural structural invariant for a classical failed inequality. Sándor's paper already identifies a six-prime counterexample but leaves open whether smaller support can fail. The theorem closes all infinitely many supports of size at most five at once, proves the bound is sharp, and isolates the unique equality case. This is a structural boundary theorem rather than a finite table extension.",
+    "status": "PASS"
+  }
+}
