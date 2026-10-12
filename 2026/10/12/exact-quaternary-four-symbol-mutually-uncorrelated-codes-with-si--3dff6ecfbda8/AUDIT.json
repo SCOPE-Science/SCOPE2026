@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "Length-one overlap prohibits any intersection between first-letter and last-letter alphabets, so all solutions lie in fourteen finite partition classes. In each, eligible self-border-free words are exactly 15|A||B| vertices. Compatibility edges encode Hamming distance at least 2 plus both overlap directions, making codes exactly graph cliques. Exhaustive Bron--Kerbosch maximal clique enumeration in verify_primary.py proves maximum 9 or 12 by partition, 24 distinct maximizers and two S4 orbits of 12; a second independently implemented color-bounded exact clique counter in verify_secondary.py finds 24 twelve-cliques and no thirteen-cliques in the same exhaustive universe. Both scripts were executed and asserted the outputs. The proof is finite, no asymptotic or external independent certification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn establishes unconstrained size 27 at q=n=4 but does not impose min distance two.",
+        "Levy--Yaakobi establishes <=16, and 2025 article excerpts emphasize bounds for (1,k) overlap-free codes."
+      ],
+      "reasoning": "A stronger theorem that determines the same joint constrained parameter would cover this claim regardless of wording, but the identified general theorems give weaker quantitative bounds, additional/different constraints, or do not assert the equality-case classification. Full 2025 publisher text remains an originality risk.",
+      "searches": [
+        "cross-bifix-free DNA barcodes single substitution detection Hamming distance two four nucleotide words length 4",
+        "simultaneous error detecting and self synchronizing codes bound four letter alphabet 4-mers",
+        "DOI:10.1016/j.disc.2024.114236",
+        "arXiv:1303.1026",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4585656/"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1209.0236",
+      "arXiv:1303.1026",
+      "arXiv:1804.05371",
+      "DOI:10.1007/s10623-023-01344-z",
+      "DOI:10.1016/j.disc.2024.114236",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4585656/",
+      "published-finding corpus:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "published-finding corpus:2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+      "published-finding corpus:2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6.1 specializes to 12<=16, not equality or classification.",
+        "Unconstrained 27 optimality concerns a strict superset of feasible codes and supplies only the trivial <=27 here.",
+        "The verified finite proof supplies a stricter <=12 and two optimizer orbits."
+      ],
+      "reasoning": "The new statement strictly strengthens the known general upper bound for this one parameter and adds the classification of all maximizers. Neither the unconstrained optimality statement nor the general upper bound logically forces it.",
+      "searches": [
+        "quaternary length four cross-bifix-free nonoverlapping Hamming distance two exact maximum 12 labeled optimal 24 two orbits",
+        "A_MU(4,4,2,1) quaternary mutually uncorrelated Hamming distance2",
+        "length four four alphabet jointly nonoverlapping single substitution error detecting code",
+        "arXiv:1804.05371 §6 Theorem 6.1",
+        "arXiv:1303.1026 theorem for n|q",
+        "DOI:10.1007/s10623-023-01344-z"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cross-bifix-free, mutually uncorrelated, non-overlapping, and (2,1)-MU are equivalent for the present specified conditions.",
+        "Levy--Yaakobi Definition 6.1 gives the exact joint parameter, while its Theorem 6.1 only bounds it by 16."
+      ],
+      "reasoning": "The aliases were searched as mathematical predicates. d_m=1 prohibits all equal proper suffix/prefix pairs; d_h=2 imposes inter-codeword distance two. The prior definition does not compute the finite invariant or classify extremizers.",
+      "searches": [
+        "quaternary length four cross-bifix-free nonoverlapping Hamming distance two exact maximum 12 labeled optimal 24 two orbits",
+        "A_MU(4,4,2,1) quaternary mutually uncorrelated Hamming distance2",
+        "four-symbol length-four non-overlapping cross-bifix-free code with minimum Hamming distance 2 maximum 12 exact classification 24",
+        "arXiv:1804.05371 §6 Definition 6.1",
+        "arXiv:1209.0236"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant public finding on length-five unrestricted non-overlapping codes has a different length and lacks Hamming distance two.",
+        "The quinary length-four code concerns deletion correction, not non-overlap and substitution detection.",
+        "The ordinary maximum-code databases tabulate unconstrained overlap-free codes."
+      ],
+      "reasoning": "No inspected table records the exact A_MU(4,4,2,1)=12 or the complete 24 equality cases. Nonmatching parameter tables are not automatically evidence of absence; unindexed code lists remain a documented risk.",
+      "searches": [
+        "quaternary length four cross-bifix-free nonoverlapping Hamming distance two exact maximum 12 labeled optimal 24 two orbits",
+        "length four four alphabet jointly nonoverlapping single substitution error detecting code",
+        "partial word cross-bifix-free code maximal non-overlapping code finite lengths",
+        "published-finding corpus:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "published-finding corpus:2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+        "published-finding corpus:2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac",
+        "DOI:10.1007/s10623-023-01344-z"
+      ]
+    },
+    "rationale": "The old unconstrained q=n=4 optimum 27 (Blackburn) does not imply the joint Hamming/overlap bound. The closest exactly equivalent parameter is A_MU(4,4,2,1) defined by Levy--Yaakobi; their theorem gives only <=16, not the exact value 12 nor the complete set of 24 maximizers and two alphabet-relabeling classes. Chee et al. supply different unconstrained constructions, while newer (1,k) overlap papers give general bounds for other parameter families. Statement-level published-finding corpus and primary literature searches revealed no exact earlier 12/24 theorem. The publisher-fulltext and unindexed-enumeration risks are expressly retained.",
+    "residual_risks": [
+      "The related 2025 article DOI:10.1016/j.disc.2024.114236 was only accessible via abstract and substantial section excerpts, not its full publisher PDF. An unexamined appendix might contain a small-parameter table.",
+      "Unindexed or unpublished computational enumerations could precede this exact finite result; a semantic-index miss cannot prove global novelty.",
+      "Some older overlap/error-resistance theses could not be read in full; no decisive indication of exact coverage was found in accessible bibliographic data."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines cross-bifix-free codes and near-optimal constructions; no Hamming-distance-two exact quaternary length-four joint classification was found in the inspected results.",
+        "evidence": [
+          "arXiv v1 submission at 2012-09-03 03:29:10 UTC",
+          "General construction and asymptotic size theorem target unconstrained overlap avoidance."
+        ],
+        "identifier_or_url": "arXiv:1209.0236; https://arxiv.org/abs/1209.0236",
+        "material_read": "Original source date and full seven-page lawful manuscript, definitions and constructions",
+        "method": "ArXiv source chronology and primary full-text theorem-level comparison",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Original cross-bifix-free definition and earliest public source date"
+      },
+      {
+        "assessment": "Establishes unconstrained length-four quaternary optimum 27 via an I^3 J construction. The code need not have Hamming distance two, and neither 12 nor its equality cases follow from this theorem.",
+        "evidence": [
+          "n=q=4 theorem gives unconstrained maximum 27",
+          "Theorem does not impose distance between distinct codewords."
+        ],
+        "identifier_or_url": "arXiv:1303.1026; https://arxiv.org/abs/1303.1026",
+        "material_read": "Fourteen-page lawful preprint including construction and optimality for n divides q",
+        "method": "Full primary preprint and theorem/parameter substitution",
+        "title": "Non-overlapping codes",
+        "trigger": "Possible exact maximum for the same length and alphabet"
+      },
+      {
+        "assessment": "Its definition of (d_h,d_m)-MU matches the claim with (2,1). Its Theorem 6.1 yields only the bound 16 when q=n=4. The paper concentrates on general bounds, asymptotic constructions and large n; no exact 12 / 24 equality-case result is present in material inspected.",
+        "evidence": [
+          "Definition 6.1 imposes ordinary code Hamming distance d_h and prefix/suffix distance min(i,d_m).",
+          "Theorem 6.1: A_MU(n,q,d_h,d_m) <= M(n,q,min(d_h,2d_m))/floor(n/d_m), hence 64/4=16."
+        ],
+        "identifier_or_url": "arXiv:1804.05371; https://arxiv.org/html/1804.05371v1",
+        "material_read": "Open full HTML, §6 Definition 6.1, Theorem 6.1 and proof, construction and concluding discussion",
+        "method": "Full accessible primary text searched and relevant statement/proof compared",
+        "title": "Mutually Uncorrelated Codes for DNA Storage",
+        "trigger": "The exact named joint invariant and strongest plausible covering bound"
+      },
+      {
+        "assessment": "Enumerates ordinary overlap-free codes without a codeword Hamming-distance-two requirement. The unrestricted maximum and its equality cases do not establish the present constrained maximum or classification.",
+        "evidence": [
+          "Parameters and tables cover non-overlapping property without pairwise Hamming-distance condition."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Open journal HTML: stated goals, theorem statements, enumerations, tables and discussion",
+        "method": "Primary source full accessible article compared by code constraints",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Recent complete enumeration of maximum ordinary non-overlapping codes"
+      },
+      {
+        "assessment": "Available excerpts discuss bounds and constructions for general (1,k)-overlap-free error-correcting codes, not this exact q=n=4 exhaustive classification. Incomplete full text remains a documented risk rather than a definitive not-covering assertion.",
+        "evidence": [
+          "Abstract promises lower and upper bounds for error-correcting (1,k)-overlap-free codes.",
+          "Full text unavailable from attempted public access; no exact 12/24 statement visible in excerpts."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.disc.2024.114236",
+        "material_read": "Publisher-indexed abstract, introduction, section excerpts and bibliographic references; full PDF not accessible",
+        "method": "Public publisher snippet/section-level text and open-access search, no unsupported whole-document exclusion",
+        "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+        "trigger": "2025 paper explicitly mentions error-correcting overlap-free codes"
+      },
+      {
+        "assessment": "Motivates simultaneous mutually uncorrelated and Hamming-separated addresses and gives general bounds, but does not provide the exact four-symbol four-position optimum or all maximizers.",
+        "evidence": [
+          "Discusses mutual uncorrelatedness, Hamming distance and address constraints for larger DNA storage codes."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4585656/",
+        "material_read": "Accessible full article relevant introduction, mutual uncorrelated code definition and constraints",
+        "method": "Public full-article scientific comparison",
+        "title": "A Rewritable, Random-Access DNA-Based Storage System",
+        "trigger": "Direct DNA-address use of overlap and substitution constraints"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3dff6ecf-bda8-4399-9bc1-1831c6684dc7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant naturally combines zero ambiguity at all frame shifts with detection of any one-symbol substitution between address codewords. The exact first square quaternary n=q=4 benchmark closes the general 16-versus-construction gap to 12, and all 24 solutions split into two genuinely distinct symbol-permutation families. Complete equality classification adds structural value beyond simply testing examples; this is not claimed as a general theorem, a biological barcode assay, or single-error correction.",
+    "status": "PASS"
+  }
+}
