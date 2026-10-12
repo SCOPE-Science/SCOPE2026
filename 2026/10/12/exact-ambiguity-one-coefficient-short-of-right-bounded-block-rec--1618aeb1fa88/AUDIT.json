@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The source's run decomposition gives the Pascal moment equations. Removing only the final row leaves an m by (m+1) matrix of rank m. The alternating binomial vector v_j=(-1)^j C(m,j) annihilates every retained row by the standard binomial identity and is primitive because its last coordinate is ±1, so it generates the complete integer kernel. Nonnegativity gives exactly the interval -T_even<=t<=T_odd and hence exactly 1+T_even+T_odd compatible words. A run-vector exhaustive engine and an independent direct-word subsequence-DP engine replay the result on substantial finite ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The later alpha-beta-factorization paper concerns Simon congruence, an equality relation based on which scattered factors occur, rather than the restricted multiplicity vector here.",
+        "Recent full k-deck work studies all fixed-length subsequence multiplicities and affine dimensions, not this varying-length right-bounded-block truncation.",
+        "No inspected broader reconstruction result implies the exact one-dimensional nonnegative fibre."
+      ],
+      "reasoning": "Broader subsequence-reconstruction theories use different observation families. Their general structural results do not identify the specific kernel or exact compatible-word count for the present measurements.",
+      "searches": [
+        "right-bounded-block words reconstruction 2021 2022 2023 2024",
+        "alpha beta factorization binary Simon congruence reconstruction multiplicities",
+        "distinct k-decks affine subspace Lyndon words reconstruction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2001.11218v1 full relevant binary-reconstruction section and conclusion",
+      "DOI:10.1007/978-3-030-48516-0_8 proceedings version",
+      "DOI:10.1142/S0129054121420016 long-version metadata",
+      "arXiv:2306.14192v1 abstract",
+      "targeted semantic-literature searches for right-bounded-block uniqueness, Pascal kernels, truncated coefficient families, and exact collision counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves that uniqueness of a selected coefficient can imply reconstruction from the prefix family and that the terminal coefficient always suffices.",
+        "The source does not derive a necessary-and-sufficient criterion for the full family truncated at m-1 or count all compatible words.",
+        "Its conclusion explicitly motivates better uniqueness characterization for using fewer than the worst-case number of coefficients."
+      ],
+      "reasoning": "A sufficient reconstruction theorem is not an equality classification of the truncated measurement fibre. The new claim supplies the complete fibre, exact multiplicity, and iff uniqueness condition for the immediately preceding layer.",
+      "searches": [
+        "arXiv 2001.11218 Theorem 19 Corollary 20 unique a^j b",
+        "arXiv 2001.11218 not able fully characterise unique values",
+        "Reconstructing Words right-bounded-block fewer worst case coefficients uniqueness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source formulates reconstruction as a Diophantine system in the run exponents and gives the same binomial-coefficient matrix.",
+        "Its full text explicitly says a general uniqueness characterization is unavailable and later asks for better uniqueness criteria.",
+        "No checked result states the alternating-binomial kernel fibre or its exact nonnegative lattice-point count."
+      ],
+      "reasoning": "The searches cover the source terminology, the exact omitted terminal coefficient, the Diophantine formulation, and the equivalent binomial-moment language.",
+      "searches": [
+        "right-bounded-block reconstruction a^{m-1} b unique coefficient binary word",
+        "Reconstructing Words from Right-Bounded-Block Words uniqueness penultimate coefficient",
+        "binary reconstruction scattered factors a^ell b unique Diophantine characterization",
+        "binomial coefficient word reconstruction a^{k-1}b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-formula and characteristic-kernel searches returned the defining source and unrelated binomial identities, but no table or theorem for these collision fibres.",
+        "The defining source gives examples and sufficient uniqueness cases rather than a top-layer fibre census."
+      ],
+      "reasoning": "A published top-layer table, Pascal-nullspace theorem, or exact ambiguity formula would directly cover the result, so those characteristic formulations were searched explicitly.",
+      "searches": [
+        "right-bounded-block binomial inversion alternating binomial coefficients",
+        "one coefficient short word reconstruction Pascal kernel",
+        "alternating binomial vector right-bounded-block words",
+        "exact ambiguity count right-bounded-block reconstruction"
+      ]
+    },
+    "rationale": "The direct source derives the same Pascal equations and proves the m+1-coefficient worst-case reconstruction bound, but explicitly states that it cannot fully characterize uniqueness for arbitrary parameters and asks for better uniqueness criteria to understand when fewer coefficients suffice. No inspected source gives the primitive-kernel fibre formula, exact ambiguity count, or the complete one-coefficient-short uniqueness criterion.",
+    "residual_risks": [
+      "An unindexed note, thesis, or unpublished calculation may contain the same alternating-binomial kernel observation.",
+      "The direct source already displays the Pascal system, so independent derivation of this first truncated layer is plausible.",
+      "The result does not address deeper truncations, where the kernel dimension is larger."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source supplies the Pascal equations and worst-case reconstruction bound but not the one-short primitive-kernel fibre formula or exact ambiguity count.",
+        "identifier_or_url": "arXiv:2001.11218v1 / DOI:10.1007/978-3-030-48516-0_8 / DOI:10.1142/S0129054121420016",
+        "material_read": "Full binary reconstruction section containing the run decomposition, Equation (2), uniqueness definition and examples, the statement that general uniqueness is not fully characterized, the reconstruction theorem and corollary, the worst-case coefficient bound, and the conclusion's future-work paragraph.",
+        "method": "Full-text author-uploaded preprint inspection with statement-level implication comparison.",
+        "title": "Reconstructing Words from Right-Bounded-Block Words",
+        "trigger": "Direct primary source defining the same measurements and reconstruction scheme."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It characterizes Simon congruence classes and universality-factorization structure, not multiplicity reconstruction from the right-bounded-block coefficient family.",
+        "identifier_or_url": "arXiv:2306.14192v1",
+        "material_read": "Abstract and contribution summary.",
+        "method": "Primary arXiv abstract-level implication comparison.",
+        "title": "alpha-beta-Factorization and the Binary Case of Simon's Congruence",
+        "trigger": "Later work by overlapping authors on binary scattered-factor equivalence that could plausibly subsume reconstruction questions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1618aeb1-fa88-4cd7-8965-681f7f26dad7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct source explicitly identifies better uniqueness characterization as the route to understanding when fewer than the worst-case number of right-bounded-block coefficients suffice. The result completely resolves the first layer below that bound, giving both a necessary-and-sufficient uniqueness test and the exact number of compatible words. The primitive Pascal-kernel description is structural and reusable, not a routine finite parameter increment.",
+    "status": "PASS"
+  }
+}
