@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For a binary law relabeled so p<=q, the centered information content is exactly the two-point mean-zero variable taking q log(q/p) with probability p and -p log(q/p) with probability q. Its stop-loss transform is explicit. Comparing it piecewise with the stop-loss transform of Exp(1)-1 reduces the only nontrivial interval to maximizing p(qd-a)e^(1+a). If d>=1 the maximum is p^p q^q<=1; if d<1 it is pd e^(1-pd)<=1, using pd<=p log(1/p)<=1/e. Equal means plus all-threshold stop-loss domination proves convex order. The MGF corollary follows by the convex test exp(tx).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Melbourne--Palafox-Castillo, Theorem 2.9/Lemma 2.10, derive the unit-gamma MGF and tail bounds from canonical-ensemble varentropy control for monotone log-concave discrete laws.",
+        "Their Appendix A states general convex-order criteria for auxiliary nonnegative variables used in a majorization proof, but the inspected text does not compare centered information content with Exp(1)-1.",
+        "Bhatt--Pensia's main results are sub-gamma concentration bounds for centered empirical relative entropy, not a full convex stochastic order."
+      ],
+      "reasoning": "MGF domination for positive t is strictly weaker than convex-order domination and cannot by itself imply every stop-loss inequality. The prior information-concentration theorem therefore covers the displayed MGF corollary but not the final convex-order claim.",
+      "searches": [
+        "A discrete complement of Lyapunov inequality information content convex order",
+        "Optimal concentration information content log-concave convex order",
+        "centered relative entropy subgamma binary convex order"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2109.09028v1",
+      "arXiv:2111.06997v1",
+      "arXiv:2203.00800v1",
+      "MaRDI bibliographic entry for Bhatt--Pensia confirming MSC 62B10",
+      "MaRDI bibliographic entry for Melbourne--Palafox-Castillo confirming MSC 62B10 among classifications",
+      "published-record searches for binary empirical relative entropy, Bernoulli information content, convex order, and shifted-exponential aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agrawal's Conjecture 1.3 asks for a gamma MGF upper bound; its n=1,k=2 instance is a corollary of the convex-order theorem, but that MGF instance is independently prior-covered by Melbourne--Palafox-Castillo.",
+        "Melbourne--Palafox-Castillo's inspected proof yields exponential-moment and tail concentration, not all convex tests of centered information content.",
+        "The closest published Bernoulli, KL, entropy, and stochastic-order statements located in the comparison pass concern different objects or weaker function classes and do not state the shifted-exponential convex order."
+      ],
+      "reasoning": "The accepted claim is deliberately stronger than, and not identified with, the already-covered MGF consequence. No inspected prior statement implies the full stop-loss family; conversely the new convex order immediately implies the known positive-exponential tests.",
+      "searches": [
+        "arXiv:2109.09028 centered relative entropy binary MGF",
+        "arXiv:2111.06997 information content concentration convex order",
+        "arXiv:2203.00800 Conjecture 1.3 gamma MGF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record semantic searches returned Bernoulli tail, Poisson-binomial, Renyi-guesswork, and unrelated convex-order results, but no centered-surprisal versus shifted-exponential ordering.",
+        "Public exact/alias searches returned information-content concentration and varentropy literature but no stop-loss or convex-order theorem for centered Bernoulli surprisal."
+      ],
+      "reasoning": "For equal-mean integrable laws, an equivalent formulation would give all stop-loss inequalities or all convex-test inequalities. The retrieved sources give exponential moments, tails, entropy, or varentropy instead; none states the all-threshold stop-loss comparison.",
+      "searches": [
+        "empirical relative entropy centered gamma conjecture n=1 binary",
+        "Bernoulli information content convex order shifted exponential",
+        "binary surprisal centered exponential Laplace transform domination",
+        "n=1 k=2 Conjecture 1.3 Agrawal relative entropy",
+        "Bernoulli varentropy exponential convex order",
+        "published web: Bernoulli information content convex order",
+        "published web: surprisal convex order exponential",
+        "published web: information content shifted exponential Bernoulli"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact theorem/table entry was found with the two-point centered surprisal atoms, the stop-loss envelope, or the benchmark Exp(1)-1.",
+        "The closest catalogued works concern varentropy and concentration rather than the claimed stochastic order."
+      ],
+      "reasoning": "The finding is an analytic distributional ordering over a continuum of Bernoulli parameters and thresholds, not a finite table. Exact-phrase and concept searches did not identify a database entry that would subsume it.",
+      "searches": [
+        "\"Bernoulli\" \"information content\" \"convex order\"",
+        "\"information content\" \"shifted exponential\" Bernoulli",
+        "\"surprisal\" \"convex order\" exponential"
+      ]
+    },
+    "rationale": "The novelty claim is the full convex-order domination of centered binary information content by Exp(1)-1. The already-known gamma/exponential MGF inequality is explicitly treated as prior coverage. Bhatt--Pensia establish centered relative-entropy concentration; Agrawal states the sharper gamma-MGF conjecture; Melbourne--Palafox-Castillo already prove the unit-gamma MGF information-content bound for monotone log-concave discrete laws, which includes Bernoulli. Full-text inspection of the latter's information-concentration section and convex-order appendix found no centered-information-content convex-order theorem. Targeted published-record and public-literature searches likewise found no equivalent binary shifted-exponential convex-order statement.",
+    "residual_risks": [
+      "An equivalent binary stop-loss or convex-order statement may exist in older stochastic-order or information-theory literature under terminology not retrieved by the bounded searches.",
+      "The MGF inequality is not original here; only the stronger convex-order statement is accepted as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the convex-order claim.",
+        "evidence": "The source proves sub-gamma concentration with alphabet/minimum-mass dependence and uses binary relative entropy as a reduction object; no shifted-exponential convex-order statement is given. Its catalogued primary MSC includes 62B10.",
+        "identifier_or_url": "arXiv:2109.09028v1",
+        "material_read": "Abstract and introduction/results/techniques, including the binary reduction around equations (12)--(13).",
+        "method": "Full-text HTML inspection.",
+        "title": "Sharp Concentration Inequalities for the Centered Relative Entropy",
+        "trigger": "Closest primary statistical literature on centered empirical relative entropy and its binary reduction."
+      },
+      {
+        "assessment": "COVERS the MGF corollary but NOT_COVERING for the full centered-information convex order.",
+        "evidence": "The source obtains the unit-gamma exponential-moment/tail bound from varentropy control. Appendix A discusses convex order for auxiliary nonnegative variables in a majorization argument; it does not state X<=cx Exp(1)-1 for centered Bernoulli information content. Catalogued MSC includes 62B10.",
+        "identifier_or_url": "arXiv:2111.06997v1",
+        "material_read": "Information-content definition, Section 2.4 including Theorem 2.9 and Lemma 2.10, and Appendix A convex-order characterization.",
+        "method": "Full-text HTML inspection.",
+        "title": "A discrete complement of Lyapunov's inequality and its information theoretic consequences",
+        "trigger": "Potentially dominating source because it gives sharp information-content concentration for monotone log-concave discrete laws, a class containing Bernoulli laws."
+      },
+      {
+        "assessment": "NOT_COVERING for convex order; MGF target only.",
+        "evidence": "Conjecture 1.3 is stated as a positive-t centered gamma MGF inequality. The paper explicitly says its main theorem falls short of those constants. It does not formulate all-convex-function domination.",
+        "identifier_or_url": "arXiv:2203.00800v1",
+        "material_read": "PDF introduction through Conjecture 1.3 and Theorem 1.5, plus the binary-reduction discussion.",
+        "method": "Full-text PDF text inspection and page screenshot.",
+        "title": "Finite-sample concentration of the empirical relative entropy around its mean",
+        "trigger": "Direct source stating the gamma-MGF conjecture and proving a weaker universal centered MGF bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3ea9ba8-04b6-4d23-a7ca-df2e4dbea7ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result upgrades a natural sharp benchmark in centered relative-entropy concentration from one family of exponential tests to the complete convex stochastic order in the smallest nontrivial empirical problem. Convex order simultaneously controls every stop-loss functional and every convex loss, so the theorem exposes distributional structure that the known MGF bound does not. The binary one-sample case is a canonical base object in the literature's alphabet-reduction arguments, making the strengthening mathematically motivated rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
