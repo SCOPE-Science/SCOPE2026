@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution into the actual AdaMod bias-corrected source recurrence gives \\(x_1/r=2d-1\\) and the exact two-state sign-alternating map. Its rational derivative bounds prove a uniform \\(24/25\\) contraction on an invariant square for the entire stated interval; this proves infinite-time convergence without relying on a finite iteration trace. The positive-moment continuation uses an explicit four-dimensional signed state, tail fixed point, weighted norm contraction at zero moments, continuous persistence on a compact ball, source finite-entry continuity, and summably decaying bias-correction errors. Standalone exact-rational checks and recurrence replay are provided.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bock–Weiß arXiv:2210.02070v1 studies Adam two-cycles and how its bias-corrected trajectories can approach them, but its state lacks AdaMod's smoothed learning-rate memory and cap.",
+        "AdaBound prescribes time-dependent learning-rate bounds, unlike the evolving AdaMod data-dependent upper cap.",
+        "A direct first-update attenuation bound for AdaMod cannot by itself imply the complete convergence basin."
+      ],
+      "reasoning": "Prior work establishes the general phenomenon that Adam-type optimization can cycle. The accepted contribution is narrower and independent: exact source initialization, active AdaMod rate-memory cap, a uniform open parameter rectangle, a global-in-time contraction estimate and persistence under small positive moment states. Generic Adam two-cycle results do not imply these capped-AdaMod conclusions.",
+      "searches": [
+        "arXiv:2210.02070v1 Non-Convergence and Limit Cycles in the Adam Optimizer",
+        "arXiv:1902.09843v1 AdaBound",
+        "Adam AdaMod scalar quadratic exact period two orbit Adam epsilon momentum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.12249v1",
+      "arXiv:2210.02070v1",
+      "arXiv:1902.09843v1",
+      "DOI:10.1007/s00521-026-12014-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining AdaMod paper supplies the recurrence and documents unexpectedly large learning-rate suppression, not a source-initialized strongly convex 2-cycle theorem.",
+        "Bock–Weiß derives and analyzes 2-cycles in Adam, where there is no extra s_t EMA cap.",
+        "The more recent comparative optimization survey reports empirical late AdaMod deterioration, but its accessible extract does not establish an implication-equivalent theorem.",
+        "Exact first-step descent, while prior/elementary in AdaMod, is deliberately paired here with the proved infinite-horizon orbit to distinguish transient safety from asymptotic optimizer behavior."
+      ],
+      "reasoning": "Neither empirical instability, first-step attenuation nor an Adam limit-cycle theorem entails AdaMod's zero-initialized smoothed-bound orbit and explicit invariant box. The fixed-rate scalar example is directly relevant to the smoothing mechanism; the claimed positive-moment continuation is an extension of the same orbit, not a separate generic result.",
+      "searches": [
+        "arXiv:1910.12249v1 AdaMod Algorithm 2 smoothing upper bound",
+        "arXiv:2210.02070v1 Adam two-cycle convergence bias corrected",
+        "\"AdaMod\" nonconvergence counterexample periodic cycle convergence theorem quadratic",
+        "\"AdaMod\" \"limit cycle\" optimizer",
+        "DOI:10.1007/s00521-026-12014-1 AdaMod observed decrease performance",
+        "AdaMod source initialization nonzero attracting two cycle positive beta1 beta2 0.1 smoothing cap first step objective descent",
+        "AdaMod algorithm 2 scalar strongly convex quadratic invariant contraction cap learning rate accumulation two-cycle",
+        "AdaMod beta3 0.1 alpha h epsilon 4 nonzero oscillation exact alternating rate memory"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining AdaMod paper (arXiv:1910.12249v1, p.3 Algorithm 2) uses the additional state s_t=beta3*s_(t-1)+(1-beta3)*eta_t and the data-dependent min cap.",
+        "The source contains stability motivation and empirical results, but no quantitative source-initialized invariant basin or 2-cycle theorem.",
+        "The present coupled state map has a proven rational invariant square and a nonzero asymptotic orbit despite initial objective descent."
+      ],
+      "reasoning": "An equivalent formulation would need to establish the actual AdaMod smoothed-rate state along the complete zero-start, bias-corrected trajectory, not just a first-step multiplier or a two-cycle of unconstrained Adam. No inspected source supplies that.",
+      "searches": [
+        "AdaMod optimizer nonzero two-cycle quadratic stationary oscillation invariant period-two momentum EMA",
+        "source initialized AdaMod first step descent then nonzero attracting period two quadratic beta3 smoothing alpha epsilon",
+        "arXiv:1910.12249v1 Algorithm 2",
+        "AdaMod source initialization nonzero attracting two cycle positive beta1 beta2 0.1 smoothing cap first step objective descent",
+        "AdaMod algorithm 2 scalar strongly convex quadratic invariant contraction cap learning rate accumulation two-cycle",
+        "AdaMod beta3 0.1 alpha h epsilon 4 nonzero oscillation exact alternating rate memory"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed public claims concern spectral-persistence counterexamples for AdOGD and objective spikes for Nesterov acceleration; neither has AdaMod rate memory.",
+        "Other closely related published results concern Polyak and Barzilai–Borwein objective-monotonicity frontiers; both use different update mechanisms from AdaMod.",
+        "The final targeted public search on AdaMod with beta3=0.1, quadratic curvature, an invariant contraction, and small positive moment decays retrieved no same-method item; this is a bounded index search, not proof of uniqueness."
+      ],
+      "reasoning": "The public index is not exhaustive and cannot prove unique priority. The matched claim parameters and full-map implications were additionally compared against source primary literature and the closest already established first-step results.",
+      "searches": [
+        "AdaMod adaptive learning rate long-term memory exact quadratic stability oscillation",
+        "AdaMod first step warmup tail local stability gradient epsilon beta3",
+        "source initialized AdaMod first step descent then nonzero attracting period two quadratic beta3 smoothing alpha epsilon",
+        "exact contractive invariant basin AdaMod quadratic optimizer EMA cap",
+        "AdaMod source initialization nonzero attracting two cycle positive beta1 beta2 0.1 smoothing cap first step objective descent",
+        "AdaMod algorithm 2 scalar strongly convex quadratic invariant contraction cap learning rate accumulation two-cycle",
+        "AdaMod beta3 0.1 alpha h epsilon 4 nonzero oscillation exact alternating rate memory"
+      ]
+    },
+    "rationale": "The source AdaMod paper introduces the EMA rate cap and empirical stability but not this exact counterexample. Bock–Weiß establishes nonzero Adam 2-cycles, so that generic phenomenon is prior; Adam lacks the additional smoothing memory and active cap here. AdaMod one-step attenuation is also prior and explicitly excluded as a separate novelty claim. The accepted mathematical fact is the full initialized AdaMod orbit, uniform invariant contraction, and small-positive-moment persistence after strict first descent.",
+    "residual_risks": [
+      "The accessible comparative optimization survey reports qualitative AdaMod deterioration, but its full text could not be independently inspected in the available route.",
+      "Some unindexed prior work may analyze the exact AdaMod cap with the same basin.",
+      "The explicit smoothing interval is distant from the common beta3 defaults, and the positive-moment neighborhood size is existential."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_ALGORITHM_BUT_NOT_COVERING_SOURCE_INITIALIZED_TWO_CYCLE",
+        "evidence": "Algorithm 2 sets the current rate \\(s_t=\\beta_3 s_{t-1}+(1-\\beta_3)\\eta_t\\), applies \\(\\min\\{\\eta_t,s_t\\}\\), and initializes \\(m_0=v_0=s_0=0\\); the article supplies no analytic scalar invariant basin.",
+        "identifier_or_url": "arXiv:1910.12249v1; https://arxiv.org/pdf/1910.12249",
+        "material_read": "Full eight-page primary text, including Algorithm 2 on p.3, Methods, smoothing-rate memory derivation, experiments, conclusions.",
+        "method": "Public primary PDF text inspection and direct page-image confirmation of Algorithm 2, including initial s0=0, bias corrections, and min cap.",
+        "title": "An Adaptive and Momental Bound Method for Stochastic Learning",
+        "trigger": "Defining AdaMod recurrence and central parameter claims."
+      },
+      {
+        "assessment": "ADAM_CYCLES_PRIOR_BUT_NO_RATE_MEMORY_MIN_CAP",
+        "evidence": "The authors explicitly analyze Adam 2-cycles and attraction after bias correction. Its state and update do not include AdaMod's independently updated \\(s_t\\) and min{eta_t,\\(s_t\\)}.",
+        "identifier_or_url": "arXiv:2210.02070v1; https://arxiv.org/pdf/2210.02070",
+        "material_read": "Complete primary 12-page PDF, with p.4 description of bias-corrected Adam attraction to a 2-cycle and the governing Adam state equations.",
+        "method": "Public arXiv full-text and page-image inspection, comparing state dimensions and denominator definitions.",
+        "title": "Non-Convergence and Limit Cycles in the Adam Optimizer",
+        "trigger": "Strongest plausible prior result for stationary nonzero cycles of adaptive moments."
+      },
+      {
+        "assessment": "DISTINCT_BOUND_SCHEDULE; LIMITED_INSPECTION",
+        "evidence": "AdaBound applies externally specified dynamic learning-rate limits moving toward SGD, unlike recursively smoothed AdaMod rate bounds.",
+        "identifier_or_url": "arXiv:1902.09843v1; https://arxiv.org/abs/1902.09843",
+        "material_read": "Original public abstract and method-level description of time-varying bounds; not a full proof inspection.",
+        "method": "Public bibliographic/abstract inspection; not used to claim negative whole-document coverage.",
+        "title": "Adaptive Gradient Methods with Dynamic Bound of Learning Rate",
+        "trigger": "Alternative Adam-derived optimizer with purported convergence from bounded steps."
+      },
+      {
+        "assessment": "QUALITATIVE_PERFORMANCE_DETERIORATION_PRIOR; NOT_DECISIVE_EXACT_CYCLE_COMPARISON",
+        "evidence": "The accessible extract describes empirical AdaMod performance decreasing after achieving the best iterate, but no displayed exact invariant square or 2-cycle proof.",
+        "identifier_or_url": "DOI:10.1007/s00521-026-12014-1",
+        "material_read": "Accessible search-index excerpt of its AdaMod comparison only; full text not obtained by the web route.",
+        "method": "Accessible extract inspection, with full-text limitation retained explicitly.",
+        "title": "First-order optimization algorithms: state of the art, classification, and performance: a practitioner's guide",
+        "trigger": "Search result explicitly reports AdaMod performance deterioration from prior best iterate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e600db3c-9d57-40b7-a073-dd5bfc20a883",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "AdaMod was motivated as an adaptive learning-rate safeguard. The exact analysis isolates a failure not visible from the known first-step attenuation: its cap is active at startup and yields strict initial objective decrease, yet the coupled memory dynamics converge to a persistent nonzero error on the simplest strongly convex objective. An open parameter rectangle, uniform explicit geometric certificate, and robustness to positive moment decays show the behavior is structural rather than a one-off algebraic curiosity. This is a motivated limit of rate-smoothing safety, with an exact boundary between transient progress and asymptotic stationarity under its defined assumptions.",
+    "status": "PASS"
+  }
+}
