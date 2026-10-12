@@ -1,0 +1,15 @@
+# Review
+
+## Correctness — PASS
+Every automorphism preserves the characteristic derived ideal, so it has the stated triangular block form; the bracket condition precisely determines its allowed scalar and invertible spectral block maps. For nonidentity scalars, fixed vectors reduce to cycle products in general linear groups. For identity scalars, a translation belongs to the image of the linear difference operator with exactly the cardinality claimed. The finite-subspace Möbius formula for the linear fixed-space polynomial is independently derived, and the resulting sum totals the known automorphism-group order. Direct exact finite-field matrix enumeration successfully checks 24 full profiles across prime and extension fields, including both scalar-stabilizer regimes; one additional larger case is a formula-consistency check. Limitation: the proof assumes a split invertible semisimple defining action; the computations alone are not infinite proofs.
+
+## Originality — PASS, with stated risk
+Burde–Dekimpe's cyclotomic criterion (2026) concerns the existence of fixed-point-free automorphisms in characteristic zero. Avetisyan's Proposition 9 (2016/2023) already supplies a general automorphism normal form; Arumugam–Dietrich–Glasby's Theorem 6.5 (2022/2023) already supplies fixed-point counting for wreath-product actions. Thus neither the triangular normal form nor cycle-product enumeration is independently novel. The full fixed-space dimension census for Lie automorphisms, especially the translation-sensitive identity-scalar stratum and variable multiplicity-decorated finite-field eigenspectra, is not covered as such by the inspected results. Published mathematical-record searches found no equivalent statement. Risk: a composite corollary of broad group-action literature or an unlocated earlier exact census might duplicate the conclusion; absence from search results does not prove priority.
+
+## Value — PASS
+The result supplies an explicit whole-distribution invariant rather than one existence test or a single probability. It works simultaneously for all finite prime-power fields, all nonzero split semisimple spectra, and arbitrary multiplicities, and distinguishes spectra with and without scalar symmetry. The translation correction produces genuinely different fixed-space laws on the full Lie algebra than on its derived ideal, a structural distinction relevant to fixed-point phenomena in finite-dimensional automorphism actions. There is no claim for nonsplit or nonsemisimple actions.
+
+## Literature and limitations
+Closest inspected primary sources: Burde–Dekimpe, arXiv:2604.27916v1; Avetisyan, arXiv:1610.05365, Proposition 9; Arumugam–Dietrich–Glasby, arXiv:2207.01215, Theorem 6.5. Comparable published counts for finite Heisenberg Lie algebras involve different brackets and do not dominate this class. The older general theorems provide important ingredients and create the stated residual originality risk. Proof and tests apply only to split invertible semisimple almost-abelian algebras.
+
+Self-review: passed. Independent audit: not yet performed.
