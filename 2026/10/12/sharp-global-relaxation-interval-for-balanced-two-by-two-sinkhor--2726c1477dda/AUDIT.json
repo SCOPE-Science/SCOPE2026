@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "An exact change to the two scaling log-ratios converts each uniform-marginal half step into affine overrelaxation toward the unique conditional minimizer of a log-cosh profile. For 0<omega<2, the strict decrease of the globally coercive, strictly convex log-sum-exp potential makes every compact-level-set cluster point its unique critical point. The actual coupling (not just projective ratios) converges because its logarithmic common scale satisfies an exact forced affine recurrence with coefficient (1-omega)^2<1. For omega=2 the potential is exactly invariant under both conditional reflections, while omega>2 makes it nondecreasing; nonoptimal initial states cannot converge. A standalone example checker was run after assembly. Finite tests are explicitly not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lehmann et al. Theorem 3 proves global convergence for 0<omega<2/(1+Lambda(K)); the example K=[[100,1],[1,100]] has Lambda=99/101, giving published endpoint 101/100, strictly below the new endpoint 2.",
+        "Thibault et al. Theorem 1 and Proposition 1 support convergence with state-dependent parameter Theta(gamma) enforcing KL descent, not the unsafeguarded fixed omega update for every initialization.",
+        "Peyré arXiv:1502.06216 (2015), introduction and Section 5.1, gives standard entropic diagonal scaling / Bregman framework without a fixed overrelaxation threshold."
+      ],
+      "reasoning": "The broader primary theory is either strictly weaker in the relaxation interval for general kernels or concerns a different adaptive algorithm. Neither dominates the proposed fixed-parameter global 2x2 uniform-marginal statement.",
+      "searches": [
+        "A note on overrelaxation in the Sinkhorn algorithm Theorem 3 Birkhoff contraction ratio",
+        "Overrelaxed Sinkhorn Knopp Algorithm regularized optimal transport adaptive Lyapunov 2017",
+        "Entropic Wasserstein Gradient Flows generic diagonal scaling Section 5.1",
+        "global convergence overrelaxed sinkhorn 2 by 2 symmetric marginals"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1502.06216v1",
+      "arxiv:1502.06216v4",
+      "arxiv:1711.01851v2",
+      "doi:10.3390/a14050143",
+      "arxiv:2012.12562v1",
+      "doi:10.1007/s11590-021-01830-0",
+      "doi:10.1137/060659624"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of Lehmann et al. guarantees local convergence for 0<omega<2 but does not control remote initializations; Theorem 3 supplies an all-start interval ending at 2/(1+Lambda(K))<2 when K has nonzero cross-ratio.",
+        "The 2017 paper explicitly describes naive fixed overrelaxation as sometimes nonconvergent and compensates using a state-dependent relaxation parameter; no implication for the unsafeguarded fixed 2x2 uniform-marginal family is provided.",
+        "The candidate proof uses a strict projective log-cosh potential and a scalar common-mass recursion absent from these more general statements."
+      ],
+      "reasoning": "Local-to-global extrapolation without the special potential is invalid. An adaptive method can converge while constant near-2 overrelaxation fails in other dimensions. The fully balanced two-point cosh reflection gives the missing sharp special-case implication; equal marginals and two points are indispensable to the argument.",
+      "searches": [
+        "Lehmann von Renesse Sambale Uschmajew 2021 Theorem 1 Theorem 3 Sinkhorn overrelaxation",
+        "Thibault Chizat Dossal Papadakis 2017 Section 4 adaptive relaxation KL Lyapunov",
+        "nonlinear SOR Sinkhorn uniform two atom exact global omega less than 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database queries for fixed-parameter two-by-two Sinkhorn/IPFP and log-cosh aliases returned no directly equivalent results; the most similar indexed records concerned diagonal quadratic equilibration and unrelated linear SOR, rather than entropic transport.",
+        "Lehmann et al., DOI 10.1007/s11590-021-01830-0, full article Sections 1–4, Theorem 1: fixed omega in (0,2) is locally convergent; no all-start global conclusion is drawn for that full interval.",
+        "Thibault et al., arXiv:1711.01851v2 full fifteen-page paper, Section 4: fixed omega can fail generally and adaptive descent safeguards are introduced; targeted full-text searches for a 2x2 equal-marginal global theorem did not reveal it."
+      ],
+      "reasoning": "Equivalent formulations include 2x2 IPFP, entropic OT two-point histogram balancing, fixed parameter nonlinear block SOR on projective scaling ratios, or an all-start global theorem for the balanced log-sum-exp potential. Mere local SOR stability or standard omega=1 Sinkhorn convergence does not imply the claimed exact full global interval.",
+      "searches": [
+        "overrelaxed Sinkhorn matrix scaling 2 by 2 uniform marginals global convergence relaxation omega less than two and sharp failure at two",
+        "2x2 Sinkhorn-Knopp successive overrelaxation log ratio hyperbolic cosine all omega between zero and two",
+        "overrelaxed IPFP uniform marginals two-state global coordinate log cosh Lyapunov monotonicity",
+        "overrelaxed Sinkhorn exact global admissible interval omega 2 doubly stochastic scaling positive two by two",
+        "overrelaxed Sinkhorn 2x2 uniform marginals global convergence relaxation omega 2 theorem",
+        "overrelaxed Sinkhorn Knopp global convergence omega between zero and two positive matrix",
+        "Sinkhorn overrelaxation two by two matrix convergence over relaxation cosh potential",
+        "Sinkhorn overrelaxation 2x2 matrices guaranteed 0 omega 2 positive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted numerical-constant and formula searches did not return a 2x2 uniform-marginal fixed-parameter global interval theorem.",
+        "The exact sharp endpoint arises from an all-parameter conditional cosh identity rather than a numerical experiment, lookup table, or special starting point."
+      ],
+      "reasoning": "This is a quantified convergence theorem for every strictly positive 2x2 matrix and every positive initialization, not a finite-parameter table entry.",
+      "searches": [
+        "\"two-by-two\" \"Sinkhorn\" \"overrelaxation\" \"global\"",
+        "\"Sinkhorn\" \"cosh\" \"relaxation\"",
+        "\"overrelaxed Sinkhorn\" \"2x2\" \"uniform\"",
+        "\"Sinkhorn\" \"omega\" \"2\" \"global convergence\""
+      ]
+    },
+    "rationale": "The 2015 archive-era source establishes entropic diagonal scaling, the 2017 overrelaxation paper gives an adaptive global method and local constant-parameter SOR, and the 2020/2021 fixed-parameter paper gives only the Birkhoff-limited sufficient interval 0<omega<2/(1+Lambda(K)) for global convergence. The candidate instead proves the exact all-start unsafeguarded interval (0,2) on the natural balanced 2x2 family, including the excluded omega=2 boundary and convergence of unnormalized transport couplings. Targeted database and published alias searches found no implication-equivalent statement; residual terminology risk remains.",
+    "residual_risks": [
+      "An older nonlinear block-SOR or matrix-balancing treatment might contain the exact uniform 2x2 all-start result under different terminology.",
+      "Existing adaptive Sinkhorn algorithms are valid for broader dimensions; the present result does not claim general superiority or speedup.",
+      "Proof depends on strictly positive kernels and equal two-atom marginals; near-zero kernel entries can make convergence slow."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_IMPLYING: standard entropic transport and diagonal scaling, no overrelaxed 2x2 constant-parameter global convergence theorem located.",
+        "evidence": "The full HTML explicitly lists first MSC 90C25, identifies regularized OT with Sinkhorn/IPFP, and Section 5.1 provides a general Dykstra/diagonal-scaling algorithm; the first v1 public date is 2015-02-22.",
+        "identifier_or_url": "arxiv:1502.06216v1 / https://arxiv.org/html/1502.06216v4",
+        "material_read": "Public abstract and v1 submission record; relevant full HTML text in the introduction, entropic regularization discussion, diagonal-scaling identity, and Section 5.1 generic diagonal scaling, plus original/revised metadata.",
+        "method": "Lawful full-text open arXiv HTML inspection and date-resolved arXiv source record.",
+        "title": "Entropic Wasserstein Gradient Flows",
+        "trigger": "Verified archive-era entropic transport / diagonal scaling source with first-listed MSC 90C25."
+      },
+      {
+        "assessment": "CLOSEST_ALGORITHM_NOT_COVERING: demonstrates adaptive safe relaxation and local behavior but does not state all-start convergence of naive constant omega over (0,2) for uniform 2x2 kernels.",
+        "evidence": "Section 4.1 describes a naive fixed overrelaxation scheme that can fail, §4.2 introduces KL descent, and §4.3 proves convergence for state-dependent Theta(gamma). §4.4 states local convergence for any 0<theta<2.",
+        "identifier_or_url": "arxiv:1711.01851v2 / doi:10.3390/a14050143",
+        "material_read": "Complete public fifteen-page preprint was examined with special attention to §§2–4.4, the original fixed-parameter update, the KL Lyapunov lemma, adaptive convergence theorem, rate proposition, experiments, conclusion, and references. Relevant pages were visually rendered.",
+        "method": "Lawful full arXiv PDF text and page-image inspection; source preprint and published titles compared.",
+        "title": "Overrelaxed Sinkhorn--Knopp Algorithm for Regularized Optimal Transport",
+        "trigger": "Primary original overrelaxed Sinkhorn paper; plausible source containing the exact same algorithm and an unexamined small-dimensional consequence."
+      },
+      {
+        "assessment": "CLOSEST_GLOBAL_BOUND_NOT_COVERING: its global interval is 0<omega<2/(1+Lambda(K)), strictly weaker than the exact 0<omega<2 special-case theorem on every K with Lambda(K)>0.",
+        "evidence": "Theorem 1 states local omega in (0,2); Theorem 3 states global omega <2/(1+Lambda(K)); the printed Birkhoff factor Lambda is (sqrt(eta)-1)/(sqrt(eta)+1).",
+        "identifier_or_url": "arxiv:2012.12562v1 / doi:10.1007/s11590-021-01830-0",
+        "material_read": "Entire openly accessible article inspected around the exact update, Theorem 1 (local omega interval), Theorem 3 and its Hilbert contraction proof (global interval), Birkhoff factor definition, numerical examples, and concluding context.",
+        "method": "Full-text publisher HTML inspection with targeted term and formula searches.",
+        "title": "A note on overrelaxation in the Sinkhorn algorithm",
+        "trigger": "Primary later paper proving global fixed-parameter overrelaxation under a Birkhoff-based bound; possible dominating theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2726c147-7dda-41c3-a1a7-149c836aefdb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniform two-point entropic OT is the smallest nontrivial case of a widely deployed diagonal scaling algorithm, and relaxation close to two is practically natural when unrelaxed scaling is slow. Existing general fixed-parameter global guarantees can shrink nearly to omega=1 for badly coupled kernels, while local theory allows every omega<2. The theorem closes that actual global/local gap exactly for the natural minimal family, proves the sharp boundary, and provides a simple strict Lyapunov mechanism and a dramatic K=[[100,1],[1,100]] example; it is not an arbitrary finite slice or a table lookup.",
+    "status": "PASS"
+  }
+}
