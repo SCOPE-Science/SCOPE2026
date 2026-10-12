@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The absorbing top state forces all n initial offsets 0,...,n−1 to appear among subset sums of the command multiset. A sorted-denomination gap argument bounds contiguous subset-sum coverage by S_k=sum_{j<k}min(m,2^j). Largest-first greedy commands based on increments d_i=min(m,1+previous sum) provably remove every residual offset in [0,S_k], so the upper and lower match for all n>=2,m>=1. Exhaustive BFS across 105 pairs independently confirms small instances; finite tests do not supply the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4.3 assumes a bidirectional connected difference DFA and gives a diameter-dependent upper bound, not an equality; the positive-only class fails that hypothesis.",
+        "General monotone-automaton and universal reset upper bounds alone cannot imply this exact two-parameter formula."
+      ],
+      "reasoning": "Published broader synchronizability theorems do not cover the exact restricted-alphabet optimum. In particular no reverse translation is available, so applying the bidirectional theorem would be invalid.",
+      "searches": [
+        "Bradshaw–Clow–Stacho arXiv:2405.00826v3 PDF Sections 3 and 4 Theorem 4.3",
+        "Web: \"difference automata\" \"all\" \"n-1\" reset"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.00826v1/v3 (primary text)",
+      "Volkov (2022) reset survey portal excerpt",
+      "Dzyga et al. (2017) attainable reset thresholds abstract",
+      "published-finding corpus semantic research records including 2026/9/7/SCOPE007, 2026/9/9/SCOPE010, 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "Local previously recorded claims examined for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.1 uses Sidon sets for unitary DFA embeddings, unrelated to this bounded positive alphabet.",
+        "Theorem 3.7 establishes synchronized existence from reachability for difference automata, not exact minimal length.",
+        "Theorem 4.3 assumes bidirectional connectivity; the present alphabet has no negative commands, and the endpoint is absorbing."
+      ],
+      "reasoning": "The published results do not logically imply the formula from their hypotheses and conclusions. The present result does not claim novelty of the subset-sum complete-sequence lemma; it proves a specific sharp controllability correspondence.",
+      "searches": [
+        "arXiv:2405.00826v3 Proposition 3.1 and Theorems 3.7, 4.1, 4.3",
+        "Volkov, Synchronization of finite automata (2022) survey",
+        "published-finding corpus: complete difference DFA with all pairwise translation vectors states finite subset Euclidean space sharp reset word length ceil(log2 n) to n-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No equivalent exact reset formula returned in those queries; closest results concern other synchronizing automata.",
+        "The proof connects the model to complete bounded coin sequences, a classical ingredient that is acknowledged."
+      ],
+      "reasoning": "Coin-covering and largest-first bounded-denomination formulations are mathematically equivalent to the new reset-length result once one establishes the absorbing-target and subset-sum reduction; no inspected publication stated this equivalence for this automaton.",
+      "searches": [
+        "published-finding corpus: bounded positive translation difference automata interval states 0 to n-1 alphabet step sizes 1 through m exact reset threshold subset sums complete sequences",
+        "published-finding corpus: synchronizing DFAs positive shifts interval monotone reset threshold optimal binary denominations reset word",
+        "Web: \"reset word\" \"subset sums\" \"bounded\" increments automaton"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact parameter table, database, or existing checker for this directed family was identified; the present 105 cases are a consistency check, not a database priority argument."
+      ],
+      "reasoning": "The result is a formula for arbitrary positive integer n,m; no finite database, even if overlapping examples, automatically covers its infinitely quantified assertion.",
+      "searches": [
+        "published-finding corpus: bounded positive translation difference automata interval states 0 to n-1 alphabet step sizes 1 through m exact reset threshold subset sums complete sequences",
+        "published-finding corpus: bounded jump robot synchronization greedy coin systems complete sequence minimal commands 2024",
+        "Web: \"shortest reset\" \"coins\" \"subset sums\" finite automaton"
+      ]
+    },
+    "rationale": "The exact threshold for all n and m in the directed positive-shift interval model is absent from the inspected Bradshaw–Clow–Stacho sections and is not implied by its bidirectional diameter-bound theorem. General attainable-threshold results do not fix the constrained transition family. published-finding corpus semantic comparisons of claim, aliases and parameterization found no covering record; complete priority cannot be guaranteed.",
+    "residual_risks": [
+      "Unindexed publications may independently state this exact family or the equivalent greedy bounded-denomination reset formula.",
+      "The classical complete-sequence lemma is known; priority attaches only to the automaton reset-threshold application and quantified construction.",
+      "The complete Volkov survey and all monographs were not fully inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers geometric difference automata, existence and bidirectional bounds, but no matching exact positive-only bounded-jump threshold.",
+        "evidence": [
+          "Sec. 3, difference DFA definition; Sec. 4, Theorem 4.3 hypothesis of bidirectional connectivity; original preprint submitted 2024-05-01."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.00826",
+        "material_read": "2025 public version, Sections 3 and 4: definition on p. 6; Proposition 3.1 on p. 7; Theorem 3.7 on pp. 10–11; Theorems 4.1 and 4.3 on pp. 12–15.",
+        "method": "Lawful full PDF rendered page and extracted text with sectional inspection.",
+        "title": "A cornering strategy for synchronizing a DFA",
+        "trigger": "Introduces the exact difference-DFA model and is the motivating nearest primary source."
+      },
+      {
+        "assessment": "Background reset-word framework; no identified exact theorem on positive bounded shifts over consecutive integer states.",
+        "evidence": [
+          "Definition 1.1: general reset words; 2022 publication."
+        ],
+        "identifier_or_url": "https://www.mathnet.ru/eng/rm10005",
+        "material_read": "Accessible survey entry and opening synchronizing-DFA definitions; not the entire survey.",
+        "method": "Public mathematical journal portal HTML excerpt and search result.",
+        "title": "Synchronization of finite automata",
+        "trigger": "General reset threshold theory and stronger general coverage."
+      },
+      {
+        "assessment": "Constructs automata attaining many values, but does not constrain transitions to positive bounded shifts or determine this two-parameter exact family.",
+        "evidence": [
+          "Dzyga–Ferens–Gusev–Szykuła 2017 abstract describes attainable reset-threshold intervals."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2017.40",
+        "material_read": "Abstract, bibliographic entry, and listed result; not full proof.",
+        "method": "Open-access Dagstuhl LIPIcs index page.",
+        "title": "Attainable Values of Reset Thresholds",
+        "trigger": "Potential domination by general attainable reset-length constructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b08d038-6f0b-4409-aced-f29a08821649",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact two-parameter reset-time versus maximum-instruction-length tradeoff is a complete natural classification of a directed geometric control model motivated by published difference-DFA research. Optimal command words and sharp linear and logarithmic regimes make it more informative than a routine finite evaluation; the classical coin-covering lemma is an ingredient, not falsely presented as new.",
+    "status": "PASS"
+  }
+}
