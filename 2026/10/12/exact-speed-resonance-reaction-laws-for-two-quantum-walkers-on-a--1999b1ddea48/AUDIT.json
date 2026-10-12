@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The dissipative spectral-projection lemma follows from contractivity and positive loss; the one-body star splitting gives complete eigenvalue sectors. The W tensor W detector Gram has strictly positive eigenvalues (L-1)/L and (L-2)/L for L>=3, and its inverse gives (2L-1)/(L^2(L-1)). At equal hopping all sector collisions are resolved including the zero-energy radial vector; at unequal hopping extra 2:1 collisions are rank-preserving because radial and zero-sum leaf detector images are orthogonal. Independent diagonalization, sitewise projector and lossy evolution checks passed (25 models, 950 basis-site probabilities and 12 survival checks). Assumptions exclude L=2 and zero losses; numerics are corroboration not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Razzoli et al., arXiv:2011.13794v2, Sections 3-4 and Appendix A: general single-particle spectral/Krylov transport subspace; 4.1 covers a single trap on complete bipartite graphs.",
+        "The present calculation evaluates the two-particle tensor-sum Hamiltonian and all coincidence projectors, including the collision of spectral sectors at equal hopping and exact sitewise projections."
+      ],
+      "reasoning": "The general spectral visible-subspace method is known and explicitly credited, but the inspected theorem for one trapped walker does not calculate these two-particle ranks or their speed-dependent collision probabilities. General projector identities are not asserted as new.",
+      "searches": [
+        "Spectral collision subspace of two-particle Hamiltonian a A tensor I plus b I tensor A with diagonal absorber on a star graph",
+        "quantum walk coincidence detection two particles sinks graph absorption spectral projector",
+        "Transport efficiency of continuous-time quantum walks on graphs Razzoli Paris Bordone"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0705.1985 (full HTML)",
+      "arxiv:2011.13794 (full HTML)",
+      "doi:10.1126/sciadv.abb8375 (open access full HTML)",
+      "arxiv:1402.3349 (title/abstract on two interacting particles in one dimension)",
+      "doi:10.1103/PhysRevE.101.012310 (title/abstract only; different single-particle model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2007 meeting paper has a discrete-time line and time-specific meeting observable, not a star with irreversible reaction.",
+        "The 2021 photonic study has star multiparticle unitary dynamics and variable exchange statistics, but not independent positive hopping rates combined with sitewise irreversible loss.",
+        "The 2021 transport paper proves abstract single-particle trapping reductions; its results do not state the numerical two-particle star projector ranks."
+      ],
+      "reasoning": "The proposed formulas are not literal or immediate stated corollaries of the inspected specialized statements; they require resolving tensor spectral degeneracies and a nontrivial Gram inverse for all L. Priority risk from unlocated stronger multiparticle absorptive-walk results remains.",
+      "searches": [
+        "Two walkers on a star graph react whenever they meet; equal hopping versus distinct hopping coefficients yield rate-independent loss thresholds and sitewise collision probabilities 1/2, 1/(L-1), 1, (2L-1)/(L(L-1))",
+        "Spectral collision subspace of two-particle Hamiltonian a A tensor I plus b I tensor A with diagonal absorber on a star graph",
+        "\"different hopping rates\" \"quantum walk\" two particles meeting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Štefaňák et al., arXiv:0705.1985v1, Sections 2-3: time-specific meeting for discrete-time coined walkers on an infinite line.",
+        "Qiang et al., doi:10.1126/sciadv.abb8375, section Harnessing particle properties: unitary two-particle walks on a four-vertex star and statistics; no irreversible all-diagonal loss analysis."
+      ],
+      "reasoning": "The nearest meeting and two-particle-star sources use different dynamics or observable. No formula identical under relabeling, exchange symmetry or replacing collision loss with instantaneous meeting was identified; this is not proof of global novelty.",
+      "searches": [
+        "On a star network K_{1,L}, distinguishable two-particle continuous-time quantum walks with on-site collision sinks: exact dark-space dimensions for equal and unequal hopping rates 3L+1 versus 5L, sitewise asymptotic capture",
+        "Two walkers on a star graph react whenever they meet; equal hopping versus distinct hopping coefficients yield rate-independent loss thresholds and sitewise collision probabilities 1/2, 1/(L-1), 1, (2L-1)/(L(L-1))",
+        "\"star\" \"two walkers\" \"absorption\" quantum",
+        "two particle continuous time quantum walk on star graph meeting problem collision absorption"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted searches surfaced star-graph single-walker transport, coherent multiparticle star experiments and unrelated graph hitting results, but no published tables of infinite-time pair-reaction probabilities for all positive hopping ratios on this star family."
+      ],
+      "reasoning": "No direct table or database match found in the searched public sources. Absence of a search hit does not establish that no such tabulation exists.",
+      "searches": [
+        "On a star network K_{1,L}, distinguishable two-particle continuous-time quantum walks with on-site collision sinks: exact dark-space dimensions for equal and unequal hopping rates 3L+1 versus 5L, sitewise asymptotic capture",
+        "\"star graph\" \"two-particle\" \"coincidence\" \"quantum\" walks",
+        "\"star graph\" \"meeting probability\" quantum walk",
+        "\"star graph\" \"two-particle\" \"loss\" quantum walk"
+      ]
+    },
+    "rationale": "The physically motivated pair-reaction classification appears not to be directly stated or covered by the inspected closest meeting, trap and star multiparticle papers. Exact all-leaf collision loss, unequal-versus-equal independent hopping, singular rank 3L+1 versus 5L, and exact hub/leaf sitewise probabilities are distinct from known single-walker or unitary fixed-time claims. This is a bounded self-review only; prior-art priority remains open.",
+    "residual_risks": [
+      "A broader multiparticle lossy-quantum-walk theorem may imply the star formulas without spelling out the parameter values.",
+      "Search coverage cannot rule out theses, supplemental files or specialized non-Hermitian reaction literature.",
+      "The 2021 photonic paper supplement was not inspected; its visible main text does not analyze irreversible absorption."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different discrete-time coined line dynamics and instantaneous detection, not all-diagonal irreversible star reaction.",
+        "evidence": [
+          "arXiv 0705.1985v1, Sec. 2.1 defines coined walk on infinite line; Eq. 25 instantaneous meeting probability; Section 3 studies asymptotics."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0705.1985v1",
+        "material_read": "Original HTML abstract, introduction, Section 2 distinguishable walkers, Section 3 meeting model/definitions and conclusion scope.",
+        "method": "arXiv full-text HTML inspected; same-object and observable comparison.",
+        "title": "The meeting problem in the quantum random walk",
+        "trigger": "Closest original meeting-probability source; potential same observable under limits."
+      },
+      {
+        "assessment": "Provides general spectral transport method and one-particle single-trap examples, not the two-walker diagonal-sink speed resonance.",
+        "evidence": [
+          "Sec. 4 Eq. 8 one-particle Hamiltonian; Eq. 11 integrated single-vertex efficiency; Sec. 4.1 complete bipartite graph star subclass; Appendix A spectral invariant subspace."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2011.13794v2",
+        "material_read": "Original HTML Sections 1-4 (including 4.1), Appendix A and B.1 definitions and trapping comparisons.",
+        "method": "arXiv full-text HTML inspected against tensor-pair and complete-sink claim.",
+        "title": "Transport efficiency of continuous-time quantum walks on graphs",
+        "trigger": "Spectral projector loss method and explicit star as complete bipartite graph."
+      },
+      {
+        "assessment": "Unitary multiparticle quantum walks, star statistics and quantum search, not persistent lossy same-site reaction or its speed threshold.",
+        "evidence": [
+          "Section Harnessing particle properties around Eq. 5 and Fig. 2: star fermion/boson coherent simulations and finite-time distributions; no absorptive coincidence-reactor model."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7909884/",
+        "material_read": "Original open-access full HTML abstract, introduction, Harnessing particle properties section, equation for two-particle Cartesian product and star example, plus word searches for absorbing/collision.",
+        "method": "PMC full-text HTML inspected; checked time-evolution, collision-loss and fixed-time output definitions.",
+        "title": "Implementing graph-theoretic quantum algorithms on a silicon photonic quantum walk processor",
+        "trigger": "Most closely matching two-particle continuous-time walks on a four-vertex star."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1999b1dd-ea48-4143-a157-d0312eadd3ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Pair collision/reaction on finite star networks is a natural two-excitation transport question. The precise equal-speed resonance causes a nontrivial 2L-1-dimensional change in protected space and a sharp transition from 1/2 to certain eventual reaction for hub-leaf preparations under arbitrarily small speed mismatch. The complete localized reaction law also separates hub/leaf from leaf/leaf geometries, independently of all positive site-dependent loss rates. Unlike a parameter-renaming or single numerical value, this resolves an infinite family with a physically meaningful symmetry-breaking boundary. Limitations include ideal coherent dynamics and no finite-time uniformity.",
+    "status": "PASS"
+  }
+}
