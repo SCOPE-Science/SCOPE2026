@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For each node the neighbor sum is bounded by its degree; if j>Delta its opposing-pair inhibitory contribution strictly determines the sign. The full map is F(A,B)=(-B,-A) without ties and F squared is the identity. All-positive configurations show this exact map fails below degree maximum, and tie randomness shows failure at equality. Fixed-point equation A=-B gives 2^N; every other orbit has two distinct elements. The exact independent product law gives Binomial(N,2r(1-r)) flipping sites, stationary probability [r^2+(1-r)^2]^N and both homogeneous polarized probabilities r^(2N)+(1-r)^(2N). The standalone exact verifier exhausts graph/state pairs only up to N=3; the unrestricted proof is the sign inequality and counting.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles--Olivos 1980 bibliographic abstract provides a broad eventual-period bound, not a published exact microstate-count statement in the inspected material.",
+        "Hughes et al. 2026 Section 4 uses J=-1 and 3-regular random graphs, whereas this theorem requires j>Delta and is graph-independent."
+      ],
+      "reasoning": "The eventual-period general theorem is broader in applicability to symmetric threshold systems but weaker with respect to immediate dynamics and exact orbit structure. No claim that all applications of general methods are novel. Full Goles--Olivos text remained inaccessible, so additional special-case comparisons cannot be excluded.",
+      "searches": [
+        "Synchronous majority automata bipartite graphs 2-cycle and social antagonism exact state count",
+        "synchronous Boolean threshold network symmetric weights period two Goles Olivos 1981 theorem",
+        "\"Periodic behaviour of generalized threshold functions\" Goles Olivos pdf full text"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/e28080857 (full article)",
+      "pmcid:PMC13512852 (full article)",
+      "doi:10.1016/0012-365X(80)90121-1 (accessible abstract, not full text)",
+      "arXiv:2202.01580 (abstract only)",
+      "published mathematical findings index: no same-model covering record found among searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hughes et al., Section 3.4, verifies only the two homogeneous polarized states are absorbing, not that these are all fixed states.",
+        "Goles--Olivos abstract: eventual period 1 or 2 for symmetric threshold maps, without transient-length, sharp coupling or orbit-count formula."
+      ],
+      "reasoning": "Having two absorbing states does not imply these are the only states, and knowing every orbit eventually has period 1 or 2 does not imply the exact time-zero involution F^2=Id or the count 2^N. The new conclusion is strictly more explicit in a narrower coupling region, while not claiming a new universal period bound.",
+      "searches": [
+        "Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics Hughes Kusmartseva J negative exact orbit structure",
+        "antagonistic multiplex majority strong coupling |J|>degree involution full state space fixed points 2^N period 2",
+        "Goles Olivos 1980 periodic behaviour generalized threshold fixed 2 cycles majority rules",
+        "Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics period-two cycles strong J"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hughes et al. 2026, doi:10.3390/e28080857, microscopic Eqs. (2)--(5): negative cross coupling and binary sign rule; Sections 3--4 treat homogeneous absorbing states and metastability rather than one-step involution.",
+        "E. Goles & J. Olivos (1980), doi:10.1016/0012-365X(80)90121-1, accessible abstract: eventual fixed point or two-cycle for symmetric threshold maps."
+      ],
+      "reasoning": "The sign-dominance form, change of coordinates to local frozen/flipping pairs, and involution form were compared. General threshold eventual period-at-most-two does not determine that every state already lies on a 1- or 2-cycle or yield the labeled orbit count.",
+      "searches": [
+        "Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics Hughes Kusmartseva J negative exact orbit structure",
+        "antagonistic multiplex majority strong coupling |J|>degree involution full state space fixed points 2^N period 2",
+        "paired binary spins cross-inhibitory strong coupling all configurations fixed when antiparallel or flip synchronously oscillatory",
+        "antagonistic multiplex period two strong coupling majority sign"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hughes et al. 2026, Sections 2--4, provide model equations, selected absorbing states, numeric outcome frequencies but no enumerated all-microstate orbit-count table.",
+        "Relevant indexed analogues concern a row-regular Ricker system and binary modular Laplacian dynamics, whose update maps differ from this paired-spin rule."
+      ],
+      "reasoning": "The count is for every population size and arbitrary pair of intralayer graphs under a sharp degree condition, not an isolated finite table. No exact equivalent enumeration was located in checked sources; that negative search alone does not certify novelty.",
+      "searches": [
+        "Synchronous two-layer majority-rule spins inhibitory interlayer J stronger than maximum graph degree: dynamics is involution F(A,B)=(-B,-A) and has 2^N fixed points and exponentially many period-two cycles",
+        "Synchronous majority automata bipartite graphs 2-cycle and social antagonism exact state count",
+        "two layer multiplex binary majority anti-ferromagnetic coupling dynamical phase exact number fixed points cycles"
+      ]
+    },
+    "rationale": "The exact microscopic involution when inhibitory strength exceeds maximum intralayer degree, its sharp all-configurations boundary, its full fixed/two-cycle orbit counts and independent-initialization binomial law are not asserted by the inspected motivating paper. The classical Goles--Olivos period-at-most-two theorem is acknowledged and cannot by itself yield an immediate all-state period-two classification or counts. The relevant full text of the motivating 2026 article was inspected; the old general threshold article was available only as a bibliographic abstract, a recorded residual uncertainty.",
+    "residual_risks": [
+      "The accessible abstract, not full article, of Goles--Olivos (1980) was inspected; its detailed statements might contain more specialized cases.",
+      "An unindexed exact enumeration for this strong-coupling paired binary-spin limit could subsume the claim.",
+      "This is a sharply restricted regime; the model baseline J=-1 on 3-regular graphs lies outside it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the rules and empirical metastability context but does not establish the state-uniform involution, orbit census or independent-initialization distribution for |J|>Delta.",
+        "evidence": [
+          "DOI 10.3390/e28080857; Eqs. (2)--(5), Section 3.4 and Section 4.1 explicitly use sign dynamics with stochastic ties and baseline J=-1, k=3."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13512852/",
+        "material_read": "Full publicly available article text, especially model Eqs. (1)--(5), mean-field Section 3, numerical Sections 4--5, discussion and limitations Sections 6--7.",
+        "method": "Read lawful PMC HTML full text and compared the microscopic equations, coupling regime, claims about fixed states and simulated outcomes.",
+        "title": "Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics",
+        "trigger": "The exact motivating local sign-rule model and baseline simulations."
+      },
+      {
+        "assessment": "Abstract proves eventual fixed/period-two bound and is acknowledged. Special exact count conclusions in uninspected full text remain an explicit uncertainty.",
+        "evidence": [
+          "Goles & Olivos, Discrete Mathematics 30 (1980), 187--189; abstract states eventual fixed or period-two dynamics."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Accessible institutional-bibliography abstract and publication metadata; full primary text not obtained.",
+        "method": "Searched arXiv/preprint and lawful open-access locations and read bibliographic abstract; full text remained inaccessible.",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "The general symmetric threshold-map periodicity theorem is the closest stronger-coverage risk."
+      },
+      {
+        "assessment": "Addresses tree-specific synchronous coloring dynamics rather than paired inhibitory multiplex sign dynamics, so no direct exact implication identified.",
+        "evidence": [
+          "arXiv:2202.01580, subject and abstract: fixed points and 2-cycles of dynamic coloring on trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.01580",
+        "material_read": "Bibliographic abstract and model scope, not full text.",
+        "method": "Compared indexed mathematical summary and graph/update assumptions.",
+        "title": "Fixed points and 2-cycles of synchronous dynamic coloring processes on trees",
+        "trigger": "Related exact orbit-count literature for graph-based synchronous binary updates."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39f67e98-d2ad-443e-8e0f-34e3d5febf41",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 opinion-dynamics work interprets antagonism through polarization/metastability and two particular absorbing consensus states. A motivated unresolved boundary is what occurs if one-to-one inhibition becomes stronger than all same-layer social influence. The exact sharp degree barrier reveals a global dynamical regime with exponentially many genuine two-cycles, 2^N distinct frozen microstates, graph-independent orbit structure and a binomial prediction under exactly the published initialization law. For any interior initial bias, almost every large-N state cycles rather than converges. This is a complete natural phase classification, not a routine strengthening of an arbitrary numeric sample; it supplies a mathematically necessary caveat to extrapolating polarized selection across arbitrary inhibitory strengths. No downstream theorem beyond this exact structure is claimed.",
+    "status": "PASS"
+  }
+}
