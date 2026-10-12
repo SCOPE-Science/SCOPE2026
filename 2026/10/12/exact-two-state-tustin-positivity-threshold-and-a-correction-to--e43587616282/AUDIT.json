@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For Hurwitz Metzler \\(A\\), \\(M=I-hA/2\\) is a nonsingular M-matrix, so \\(M^{-1}\\ge0\\) and the Tustin map is \\(2M^{-1}-I\\). This proves the exact all-dimensional resolvent-diagonal criterion. In two states, direct inversion leaves only two quadratic diagonal inequalities whose conjunction is \\(\u0007lpha^2-|a-d|\u0007lpha-\\Delta\\ge0\\), yielding the stated \\(h_\\star\\). The diagonal counterexample exactly satisfies the published determinant condition while violating the true criterion. The packaged exact-rational verifier independently checks the counterexample, a coupled boundary example, and the resolvent identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2010 Padé paper gives the exact two-state matrix formula and a valid conservative sampling bound, but its intervening determinant-only sufficiency sentence is false.",
+        "The 2012 follow-up gives a general sufficient first-order Padé sampling condition based on diagonal magnitudes; it does not state the coupling-sensitive exact two-state threshold in the inspected preprint.",
+        "The 2002 Cayley-transform paper supplies general algebraic identities and positivity-class context but does not state this positive-system sampling interval."
+      ],
+      "reasoning": "General sufficient bounds and general Cayley identities do not imply the exact iff threshold. The correction requires retaining both diagonal inequalities from the explicit two-state matrix.",
+      "searches": [
+        "On the preservation of co-positive Lyapunov functions under Pade discretization for positive systems full text",
+        "Essentially Negative News About Positive Systems Lemma 3 first order Pade positivity",
+        "On the Cayley transform of positivity classes of matrices full text"
+      ]
+    },
+    "checked_sources": [
+      "mural:2195",
+      "doi:10.1016/j.laa.2011.12.021",
+      "Electronic Journal of Linear Algebra 9 (2002), 190-196",
+      "doi:10.1137/11083808X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (20) of the 2010 source displays \\(\beta_1=\u0007lpha^2-(a-d)\u0007lpha-\\Delta\\) and \\(\beta_2=\u0007lpha^2+(a-d)\u0007lpha-\\Delta\\), so exact nonnegativity requires both; the subsequent sentence instead asserts the weaker determinant-only condition.",
+        "The later general sufficient rule remains valid and is recovered as a conservative consequence of the exact criterion.",
+        "The Cayley-transform literature inspected gives the algebraic identity but no threshold implication that subsumes the new two-state statement."
+      ],
+      "reasoning": "The exact criterion is not a corollary of the published determinant condition because that condition is false; nor is it implied by the later conservative bound, which can be arbitrarily smaller than the true admissible interval.",
+      "searches": [
+        "mural:2195 equation 20 beta1 beta2 nonnegative",
+        "doi:10.1016/j.laa.2011.12.021 Lemma 3 Pade sampling condition",
+        "Fallat Tsatsomeros Cayley transform nonnegative matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-database result stated the exact two-state Tustin positivity threshold or the corrected \\(\u0007lpha^2-|a-d|\u0007lpha-\\Delta\\) criterion.",
+        "Searches covered Tustin, Cayley, first-order diagonal Pade, Metzler positivity, resolvent diagonals, and coupling-sensitive sampling bounds.",
+        "The closest retrieved numerical-positivity results concern higher-order Pade Markov maps, filtered Crank--Nicolson heat steps, or unrelated inverse-positive methods."
+      ],
+      "reasoning": "The searched aliases include both control and matrix-analysis terminology. None of the retrieved statements is implication-equivalent to the exact two-state threshold or to the correction of the determinant-only test.",
+      "searches": [
+        "first order diagonal Pade exact positivity threshold 2x2 Metzler Hurwitz Tustin",
+        "Tustin discretization 2x2 positive system exact sampling interval nonnegative",
+        "Cayley transform Metzler nonnegative iff diagonal resolvent one half",
+        "Pade C1 positive systems exact positivity not sufficient condition",
+        "bilinear transform Metzler matrix positivity threshold coupling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database/table entry with the closed form \\(h_\\star\\) was located.",
+        "The result is a symbolic classification and correction, not a recomputation of tabulated values."
+      ],
+      "reasoning": "No exact database or table coverage was found.",
+      "searches": [
+        "\"Tustin\" \"ad-bc\" positivity",
+        "\"alpha^2\" \"ad-bc\" Pade positive systems",
+        "\"Cayley\" Metzler exact sampling time positivity"
+      ]
+    },
+    "rationale": "The 2010 full text contains the exact two-state matrix entries but then replaces the two diagonal inequalities by the insufficient determinant-only condition \\(\\Delta\\le\u0007lpha^2\\). It does not state the corrected iff criterion, the coupling-sensitive threshold, or the unbounded gap from its later conservative bound. The 2012 follow-up gives a correct general sufficient diagonal bound but, in the inspected full text, no exact two-state correction. Targeted semantic-database searches found no implication-equivalent published finding.",
+    "residual_risks": [
+      "Older nonnegative-matrix or Cayley-transform literature may encode the same two-state threshold under a different parametrization not recovered by the searches.",
+      "Because the 2010 source already prints the two diagonal numerators, the algebra needed to correct the local sentence is elementary; originality rests on identifying the false implication, stating the exact iff threshold, and quantifying the unbounded conservatism of the retained safe bound.",
+      "The accessible full text inspected for the 2012 follow-up is a preprint rather than the publisher-formatted journal PDF; a publisher-only wording change remains a limited access risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_WITH_LOCAL_ERROR: the matrix formula is correct, but the sentence claiming \\(\\Delta\\le\u0007lpha^2\\) suffices for nonnegativity omits the linear diagonal term. The later condition \\(\u0007lpha\\ge\\max\\{a,d\\}\\) is valid.",
+        "evidence": "Equation (20) explicitly gives both diagonal numerators; the immediately following text states the weaker determinant condition as sufficient. The exact diagonal example \\(A=\\operatorname{diag}(-10,-1)\\), \\(\u0007lpha=4\\), satisfies that condition and yields a negative Tustin entry.",
+        "identifier_or_url": "mural:2195",
+        "material_read": "Complete eight-page paper, with focused inspection of Theorem 1, the two-state section, equation (20), the beta1/beta2 formulas, the determinant-only sufficiency sentence, and the later diagonal sampling bound; rendered pages containing the formulas were inspected.",
+        "method": "Full-text PDF inspection with rendered-page verification.",
+        "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+        "trigger": "Direct source for first-order diagonal Padé positivity of continuous-time Metzler systems and its two-state formula."
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_THRESHOLD: states a correct general sufficient diagonal bound but does not give the exact two-state coupling-sensitive iff criterion in the inspected text.",
+        "evidence": "Lemma 3 requires the sampling time to be bounded by a minimum over inverse diagonal magnitudes; no exact two-state threshold or correction of the 2010 determinant-only sentence appears in the inspected Padé section.",
+        "identifier_or_url": "doi:10.1016/j.laa.2011.12.021",
+        "material_read": "Full 23-page accessible preprint, including the Padé positivity discussion and Lemma 3 with its general sampling-time condition; the relevant page was rendered and inspected.",
+        "method": "Full-text PDF inspection with rendered-page verification.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Later full treatment by the same authors, potentially containing a correction or stronger result."
+      },
+      {
+        "assessment": "ALGEBRAIC_PRECURSOR_NOT_COVERING: provides general Cayley identities and positivity-class context but not the Tustin sampling threshold for Hurwitz Metzler systems.",
+        "evidence": "Its resolvent identity explains the algebraic form \\(2M^{-1}-I\\), but no two-state control-discretization threshold or determinant-test correction is stated.",
+        "identifier_or_url": "Electronic Journal of Linear Algebra 9 (2002), 190-196",
+        "material_read": "Complete seven-page article, including the basic Cayley/resolvent identities and M-matrix discussion; a rendered page containing the key identity was inspected.",
+        "method": "Full-text PDF inspection.",
+        "title": "On the Cayley transform of positivity classes of matrices",
+        "trigger": "Closest algebraic precursor on Cayley transforms and positivity classes."
+      },
+      {
+        "assessment": "FIELD_CONTEXT_ONLY: establishes primary MSC 93D05 and positive-system/Metzler context; it does not address Padé discretization.",
+        "evidence": "The publisher lists MSC 93D05 first and states that Metzler dynamics preserve the positive orthant.",
+        "identifier_or_url": "doi:10.1137/11083808X",
+        "material_read": "Publisher abstract, bibliographic record, and MSC metadata.",
+        "method": "Publisher metadata and abstract inspection.",
+        "title": "A Maximum Principle for the Stability Analysis of Positive Bilinear Control Systems with Applications to Positive Linear Switched Systems",
+        "trigger": "Primary-MSC field anchor for positive control systems and Metzler dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4358761-6282-4b30-9ef2-685261a1d3e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Tustin discretization is a standard stability-preserving time discretization for continuous-time systems, while entrywise positivity is essential when states represent populations, concentrations, probabilities, or other nonnegative quantities. The finding corrects an explicit published sufficiency statement, supplies the exact safe sampling interval, and shows that interaction can make the conservative diagonal bound arbitrarily pessimistic. The general resolvent-diagonal criterion also isolates exactly where positivity can fail in higher dimension.",
+    "status": "PASS"
+  }
+}
