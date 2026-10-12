@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the finite coding problem to exact set packing over all 24 received permutations. The least-available-output recurrence is exhaustive and nonoverlapping: each packing either omits that output or contains exactly one selected descendant mask covering it. The embedded standard-library verifier reconstructs all objects from definitions, evaluates all 525,881 reachable states, and reproduces maximum 12, 67,163,560 labeled maxima, the complete footprint histogram, 14,024,815 perfect maxima, and the explicit perfect witness. No impossibility conclusion relies on timeout or partial enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 paper supplies general constructions and an asymptotic upper bound.",
+        "The 2020 paper supplies general definitions, asymptotic bounds, and construction theorems for PBUD codes."
+      ],
+      "reasoning": "Those broader results constrain or construct families but do not specialize to a statement that fixes \\(A_{\\mathrm{PBUD}}(6,2)=12\\), and they do not imply the \\(67{,}163{,}560\\)-code census or footprint distribution.",
+      "searches": [
+        "length six permutation code correcting a burst of two unstable deletions maximum",
+        "unstable burst deletion permutation codes small exact parameters n=6 s=2",
+        "Burst-Deletion-Correcting Codes for Permutations and Multipermutations Section VI APBUD(n,s)",
+        "Permutation Codes Correcting a Single Burst Deletion I Unstable Deletions full text"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ISIT.2015.7282754",
+      "doi:10.1109/TIT.2019.2933819",
+      "MSC2020 94B20 classification entry",
+      "published-finding searches for PBUD/UBD exact (6,2) and the numerical census"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 text proves an asymptotic upper bound and interleaving constructions; no finite \\((6,2)\\) optimum or census is stated.",
+        "The 2020 Section VI defines \\(A_{\\mathrm{PBUD}}(n,s)\\) and proves asymptotic upper/construction results; targeted full-text searches found no exact \\((6,2)\\) table."
+      ],
+      "reasoning": "A general asymptotic bound or construction does not determine the finite optimum at \\((6,2)\\), much less count all optimal codebooks. No inspected prior theorem dominates the candidate claim.",
+      "searches": [
+        "doi:10.1109/ISIT.2015.7282754 full text definitions upper bound constructions",
+        "doi:10.1109/TIT.2019.2933819 full text Definition 3 Theorem 7 Theorem 8",
+        "APBUD(6,2) permutation exact 12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2020 full text defines an exactly-s PBUD code by disjoint fixed-s unstable-burst descendant sets, which is the same object used here.",
+        "The 2015 paper defines unstable deletion by deleting positions and re-ranking the remaining values, matching the standardization used in the proof."
+      ],
+      "reasoning": "PBUD, UBD, unstable burst deletion, and permutation-invariant deletion terminology were compared at the statement level. The candidate uses the fixed exactly-two model, not the distinct at-most-two model.",
+      "searches": [
+        "AUBD(6,2) unstable burst deletion permutation code exact maximum",
+        "APBUD(6,2) permutation exact 12",
+        "AUBD(6,2) maximum 12 permutation",
+        "two adjacent unstable deletions S6 exact permutation code",
+        "permutation-invariant burst deletion S6 code maximum",
+        "doi:10.1109/TIT.2019.2933819 Definition 3 and Section VI"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact numerical searches returned no matching record.",
+        "No exact small-parameter table for \\((6,2)\\) was found in the inspected primary texts."
+      ],
+      "reasoning": "The distinctive total and perfect-code counts, together with the exact parameter notation, were searched directly. The closest returned coding records concern different deletion-code domains or unrelated permutation extremal problems.",
+      "searches": [
+        "67163560 permutation burst deletion",
+        "14024815 perfect unstable burst deletion permutation",
+        "AUBD(6,2) unstable burst deletion permutation code exact maximum",
+        "APBUD(6,2) permutation exact 12"
+      ]
+    },
+    "rationale": "The inspected primary literature defines the same fixed unstable-burst object and gives general bounds/constructions, but no inspected statement implies the exact (6,2) optimum or the all-maximizer/footprint/perfect census. Targeted alias, exact-parameter, numerical, and stronger-coverage searches located no implication-equivalent result. The remaining risk is an obscure or unindexed finite computation.",
+    "residual_risks": [
+      "An obscure thesis, unindexed finite table, or unpublished computation could contain an equivalent exact (6,2) census despite the targeted primary-literature and database searches.",
+      "The result does not classify maximum codes up to a full isometry group; it counts labeled codes and footprint sizes only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same error model and general constructions, but no exact \\((6,2)\\) optimum, all-maximizer census, footprint histogram, or perfect-code count.",
+        "evidence": "Definition 1 deletes positions and re-ranks remaining symbols; Definition 2 names unstable-burst codes; Section III gives asymptotic bounds; Section IV gives interleaving constructions.",
+        "identifier_or_url": "doi:10.1109/ISIT.2015.7282754",
+        "material_read": "Complete five-page primary text, including Definitions 1–2, the AUBD notation and upper bound, Theorems 2–3, algorithms, conclusion, and references.",
+        "method": "Full-text inspection after open-access/arXiv retrieval attempts; theorem statements were compared directly with the candidate finite claim.",
+        "title": "Permutation Codes Correcting a Single Burst Deletion I: Unstable Deletions",
+        "trigger": "Archive-era primary source introducing the same unstable burst-deletion model."
+      },
+      {
+        "assessment": "Defines exactly the candidate object and broader general bounds, but does not cover the finite \\((6,2)\\) exact value or census.",
+        "evidence": "Definition 3 gives disjoint fixed-\\(s\\) unstable-burst balls; Section VI defines \\(A_{\\mathrm{PBUD}}(n,s)\\) and develops asymptotic bounds/constructions rather than a small-order table.",
+        "identifier_or_url": "doi:10.1109/TIT.2019.2933819",
+        "material_read": "Open full text around Definition 3 and Section VI, including the definition of exactly-\\(s\\) PBUD versus at-most-\\(s\\) PBUD, \\(A_{\\mathrm{PBUD}}(n,s)\\), Theorem 7 upper bound, and construction results; targeted searches for the exact \\((6,2)\\) parameter, length six, exact tables, and small parameters.",
+        "method": "Full-text inspection and targeted text search of the lawful open-access PDF/HTML representation.",
+        "title": "Burst-Deletion-Correcting Codes for Permutations and Multipermutations",
+        "trigger": "Expanded primary treatment with the strongest directly relevant definitions and general results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc518576-7268-4a95-b6bf-42c23d64f9e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter \\((n,s)=(6,2)\\) is a natural first finite benchmark for the foundational two-way interleaving construction: the 2015 paper’s two-burst theorem takes \\(n=2m\\) with \\(m\\ge3\\), so its first length is \\(6\\). Determining the exact optimum and complete maximizer/footprint census sharpens the smallest instance of that published infinite construction family, and the large perfect-code subpopulation records additional packing structure rather than a routine table recomputation.",
+    "status": "PASS"
+  }
+}
