@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The multiplicity-two domain is exhaustively p^2 or pq. Prime squares are impossible by coprimality. For pq, the identity phi(pq)=(p-1)(p+q+1)-(p-1)(p+2) gives a bidirectional equivalence between s(pq)|phi(pq) and p+q+1|(p-1)(p+2); q>p is exactly the divisor-size condition. The verifier corroborates, but does not establish, the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper gives an asymptotic upper bound and a Dickson-conditional infinite family p=5m+1, q=20m+13.",
+        "The full primary paper organizes its proof by analytic exceptional sets and does not classify all two-prime members.",
+        "The later Iannucci paper studies only sigma(n)=n+phi(n), equivalently the quotient-one subcase."
+      ],
+      "reasoning": "A broader covering theorem would have to classify arbitrary two-prime counterbalanced numbers or imply the divisor parametrization. The inspected global counting theorem and quotient-one equality result do neither.",
+      "searches": [
+        "sum of aliquots divides totient semiprime Banks Luca",
+        "counterbalanced numbers two prime factors theorem",
+        "A055940 prime factors semiprime theorem",
+        "phi(n)/(sigma(n)-n) integer semiprime"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/S0013091505001161",
+      "OEIS:A055940",
+      "JIS:20:17.6.2",
+      "targeted exact-form and semantic literature searches",
+      "published research-result searches for semiprime and divisor-parametrization aliases",
+      "current and prior owned ledgers for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Banks--Luca show that p=5m+1 and q=20m+13 yield counterbalanced pq when both are prime, conditional only for infinitude.",
+        "That family is one specialization of the divisor criterion and does not imply completeness for arbitrary p,q.",
+        "Iannucci proves necessary conditions for the equality sigma(n)=n+phi(n), not for general divisibility with arbitrary quotient."
+      ],
+      "reasoning": "The closest prior semiprime statement is a sufficient family, while the closest later structural result is a strict subcase. Neither direction implies the necessary-and-sufficient all-semiprime parametrization.",
+      "searches": [
+        "Banks Luca p=5m+1 q=20m+13 counterbalanced",
+        "On the Equation sigma(n)=n+phi(n) A055940",
+        "counterbalanced Dickson conjecture semiprime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Banks--Luca define the same composite set B by s(n)|phi(n) and prove a global counting bound.",
+        "OEIS A055940 defines exactly the counterbalanced sequence and gives the example 133=7*19 with quotient 4.",
+        "No located source states the equivalent condition p+q+1|(p-1)(p+2) for all semiprime members."
+      ],
+      "reasoning": "The searches used the source terminology, the database name, the squarefree-semiprime shape, and both algebraically equivalent divisibility forms. They therefore cover the main natural aliases of the final claim.",
+      "searches": [
+        "When the sum of aliquots divides the totient semiprime classification s(n) divides phi(n)",
+        "counterbalanced numbers squarefree semiprime p q exact parametrization",
+        "s(pq) divides phi(pq) p+q+1 divisor (p-1)(q-1)",
+        "p+q+1 (p-1)(q-1) primes counterbalanced"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A055940 is the exact sequence of composite n with phi(n)/(sigma(n)-n) integral.",
+        "The entry lists 133, 403, 583, 713, 817, ... and records the Banks--Luca conditional family.",
+        "The entry contains no formula parametrizing every semiprime member by divisors of (p-1)(p+2)."
+      ],
+      "reasoning": "Database membership confirms the object and sample terms but does not prove the unbounded semiprime classification. The new theorem explains those terms by a necessary-and-sufficient divisor condition.",
+      "searches": [
+        "OEIS A055940",
+        "A055940 semiprime classification",
+        "counterbalanced numbers 133 403 583"
+      ]
+    },
+    "rationale": "The primary paper gives a global counting theorem and one Dickson-conditional semiprime family; the exact database records members; the later equality paper treats only quotient one. No inspected source states or implies the complete divisor parametrization of all multiplicity-two solutions.",
+    "residual_risks": [
+      "An equivalent elementary observation may exist in an unindexed problem column, note, or discussion.",
+      "The theorem does not settle infinitude of semiprime counterbalanced numbers.",
+      "No claim is made about multiplicity three or higher."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PRIMARY_NOT_COVERING. It proves a global counting bound and one semiprime family but no exhaustive multiplicity-two classification.",
+        "evidence": "The paper defines B={n composite:s(n)|phi(n)}, states the global upper bound, and gives p=5m+1, q=20m+13 as a conditional infinite family.",
+        "identifier_or_url": "DOI:10.1017/S0013091505001161",
+        "material_read": "The definition of the counterbalanced set, Theorem 1.1, the Dickson-conditional family on page 564, notation, and the full proof architecture through the final page were inspected in the publisher PDF; rendered pages 563 and 564 were visually checked.",
+        "method": "Direct inspection of the publisher full PDF and rendered page images.",
+        "title": "When the Sum of Aliquots Divides the Totient",
+        "trigger": "Primary source studying the identical divisibility condition."
+      },
+      {
+        "assessment": "DATA_NOT_COVERING. It supplies membership data and the conditional family, not the complete semiprime divisor parametrization.",
+        "evidence": "The entry defines counterbalanced numbers and gives 133=7*19 as an example with quotient 4.",
+        "identifier_or_url": "OEIS:A055940",
+        "material_read": "Definition, initial terms, comments, example, references, and original author/date line.",
+        "method": "Direct inspection of the exact OEIS entry.",
+        "title": "A055940",
+        "trigger": "Exact database sequence for counterbalanced composite integers."
+      },
+      {
+        "assessment": "NARROWER_SUBCASE_NOT_COVERING. It treats s(n)=phi(n), not the general divisibility s(n)|phi(n).",
+        "evidence": "The paper explicitly says it seeks members of A055940 with ratio phi(n)/(sigma(n)-n)=1.",
+        "identifier_or_url": "JIS:20:17.6.2",
+        "material_read": "The introduction connecting the equality to A055940, the quotient-one formulation, and the initial structural theorems were inspected in the full PDF; rendered pages 1 and 2 were visually checked.",
+        "method": "Direct inspection of the open full PDF and rendered page images.",
+        "title": "On the Equation sigma(n)=n+phi(n)",
+        "trigger": "OEIS cross-reference and plausible stronger/equivalent coverage risk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb166007-df9b-468e-9b78-8068205e1eaa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem completely resolves the first nontrivial composite multiplicity layer of a published arithmetic-function divisibility problem. It turns semiprime membership into an exact divisor test for each smaller prime, explains the early database examples, and subsumes the known Dickson-conditional family without relying on bounded enumeration.",
+    "status": "PASS"
+  }
+}
