@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The domain is exactly the 81 ternary four-tuples with unordered distinct-column families. Independent coordinatewise symbol permutations justify normalization at 0000. Exhaustive branch-and-bound rules out normalized size ten and enumerates exactly eight normalized size-nine families. Every enumerated family is directly rechecked against every triple and every coordinate pair. The OA-to-PHF converse follows because two OA columns agree in at most one coordinate, while a nonseparated triple across four coordinates would force one of its three pairs to agree twice. Exhausting all 31,104 natural symmetries produces 72 distinct equality cases and exactly the eight normalized cases; orbit-stabilizer gives 432. The verifier is deterministic and finite; no infinite or untested extrapolation is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Walker and Colbourn (2007), DOI 10.1515/JMC.2007.008, provide general constructions and tables for perfect hash families.",
+        "Their strength-three table contains the exact parameter row with N=4, v=3, k=9."
+      ],
+      "reasoning": "General construction and existence results cover many parameters but do not imply a classification of all equality cases at this parameter. No inspected broader theorem forces every size-nine family to be an OA.",
+      "searches": [
+        "perfect hash family small parameters constructions existence Walker Colbourn",
+        "doi:10.1515/JMC.2007.008",
+        "perfect hash family recursive constructions strength three"
+      ]
+    },
+    "checked_sources": [
+      "hdl:10012/1118",
+      "doi:10.1515/JMC.2007.008",
+      "MSC 94A60 metadata for Walker-Colbourn perfect-hash-family literature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected 2003 thesis supplies one same-parameter MOLS construction.",
+        "The inspected 2007 article supplies the same parameter in a general table and discusses computational construction searches."
+      ],
+      "reasoning": "Neither existence of a MOLS-derived family nor a best-known/exact table entry logically implies that every optimum is design-theoretic, nor the counts 72 and 432. The new exhaustive converse and orbit computation are therefore not corollaries of the inspected statements.",
+      "searches": [
+        "PHF(4;9,3,3) all optimal orthogonal arrays",
+        "perfect hash family equality cases OA(9,4,3,2)",
+        "perfect hash family 72 labeled PHF(4;9,3,3)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim (2003), Handle 10012/1118, gives an explicit PHF(4;9,3,3) from two mutually orthogonal Latin squares of order three.",
+        "The same construction is an OA(9,4,3,2), but the inspected discussion is constructive rather than a converse classification of all equality cases."
+      ],
+      "reasoning": "The standard MOLS/orthogonal-array construction proves OA implies an extremal-size candidate once the size bound is known; it does not by itself imply that every extremal perfect hash family is an OA or that there is only one natural-equivalence class.",
+      "searches": [
+        "\"PHF(4;9,3,3)\" orthogonal array classification",
+        "\"PHF(4; 9, 3, 3)\" MOLS",
+        "hdl:10012/1118"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Walker and Colbourn (2007) list k=9 at N=4, v=3, t=3 in their PHF table.",
+        "The table records the parameter value/construction status, not a labeled census, orbit decomposition, or equality characterization."
+      ],
+      "reasoning": "A table entry of 9 is consistent with and supports the sharp parameter, but it neither counts all realizing arrays nor states the OA converse.",
+      "searches": [
+        "\"PHF(4;9,3,3)\"",
+        "\"PHF(4;10,3,3)\"",
+        "perfect hash family table N=4 v=3 t=3 k=9"
+      ]
+    },
+    "rationale": "The closest same-parameter sources establish or tabulate size-nine constructions, but the inspected material does not state the converse equality classification, the exact count of 72 labeled extremizers, or their single natural-symmetry orbit. Targeted exact-parameter, orthogonal-array, table, and implication searches found no source that entails those claims.",
+    "residual_risks": [
+      "An older dissertation, technical report, or computational table not indexed by the searched services could contain the same equality census.",
+      "The 2003 thesis repository exposes only a year, not a day-level public date; the structured date therefore uses the earliest fully day-resolved inspected same-parameter source without inventing a day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_PARAMETER_CONSTRUCTION_NOT_EQUALITY_CLASSIFICATION",
+        "evidence": "The thesis explicitly constructs a PHF(4;9,3,3) from two MOLS of order three; the inspected material does not state that all size-nine families are OA(9,4,3,2), count 72 labeled cases, or give the natural-group orbit/stabilizer.",
+        "identifier_or_url": "hdl:10012/1118",
+        "material_read": "Repository metadata and the full-text portion containing the PHF(4;9,3,3) example and the MOLS construction discussion.",
+        "method": "Lawful open repository full text.",
+        "title": "Perfect Hash Families: Constructions and Applications",
+        "trigger": "Exact same parameter and the classical MOLS construction."
+      },
+      {
+        "assessment": "EXACT_PARAMETER_TABLE_NOT_EQUALITY_CLASSIFICATION",
+        "evidence": "The table gives k=9 for N=4, v=3 at strength three, but the inspected material does not state the 72-case census, OA converse, or the unique symmetry orbit.",
+        "identifier_or_url": "doi:10.1515/JMC.2007.008",
+        "material_read": "Abstract, the strength-three table, and surrounding description of computational searches and tables.",
+        "method": "Publisher metadata and lawfully accessible full-text copy.",
+        "title": "Perfect Hash Families: Constructions and Existence",
+        "trigger": "General PHF existence tables include the exact N=4, v=3, t=3 parameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31dc6a32-f962-475f-af99-9b60339a5ccc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete equality classification at the smallest ternary four-row strength-three parameter where the classical MOLS construction reaches nine columns. It upgrades a known construction/table entry to a rigid structure theorem at equality: every optimum is an orthogonal array, with a complete labeled census and symmetry type. That rigidity is useful for recognizing canonical extremizers and for constructions that use small perfect hash families as ingredients; it is not merely a renamed known table value.",
+    "status": "PASS"
+  }
+}
