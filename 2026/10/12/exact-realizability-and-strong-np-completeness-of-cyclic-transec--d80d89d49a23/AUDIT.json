@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "For each nonempty cyclic binary row, every missed k-window lies in exactly one maximal zero gap, which contributes max(g-k+1,0) start positions; the exact sum gives the inverse tail counts and integral second differences. Every row with gaps g_1,...,g_r requires sum(g_i+1)<=n because cyclic zero runs need nonzero separators. Conversely any allocation satisfying those inequalities yields an explicit concatenated cyclic word with exactly the target gaps, including all-one empty-bin rows. Equal first differences and R_n=s force the complete target curve. In explicit unary dimensions the binary incidence matrix is a polynomial-size NP certificate; the 3-PARTITION reduction uses n=B,s=m, item sizes a_i and rational curve R_k=m-(1/B)sum(a_i-k)_+, with exact total-bin-capacity saturation, polynomial output on strong NP-hard instances, and 3-item grouping forced by B/4<a_i<B/2. The included finite checker completed direct exact-rational verification of 38,373 binary incidence matrices and representative feasible/infeasible cases, supplementing rather than replacing the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tjørve et al. (2008) Methods explicitly treat modeled wrapped-around spatial cell samples and compare occupancy aggregation to random-placement predictions, but do not specify all-scale cyclic mean inversion or realizability constraints.",
+        "Storch (2016) Figure 1 and its accompanying text discuss sliding-window versus nonoverlap protocols; the geometric survey gives possible qualitative species–area behaviors, not a complete exact-curve characterization.",
+        "Colwell et al. (2004), author-posted full paper pp. 2717–2719, assume quadrat-order exchangeability and a binomial mixture, which discards the cyclic adjacency essential here.",
+        "A published missing-mass covariance finding treats iid successive species discoveries, not fixed contiguous windows in a deterministic spatial incidence matrix."
+      ],
+      "reasoning": "The source models do not dominate this theorem: random-order/independent sampling is not the cyclic-translation statistic, while the spatially explicit sources provide forward models and qualitative shape analyses. A theorem for general two-dimensional sampling would cover the present case only if its hypotheses and conclusion included exact inverse realizability; no such covering result was located in material inspected. This is not a uniqueness proof over all literature.",
+      "searches": [
+        "species-area curve inverse problem reconstruct spatial distribution from species area relationship transect",
+        "spatial species accumulation curve inverse reconstruction of spatial pattern contiguous window",
+        "doi:10.1111/j.1365-2745.2008.01433.x",
+        "doi:10.1111/jvs.12428",
+        "doi:10.1890/03-0557",
+        "doi:10.1587/transfun.2023TAP0015"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.1365-2745.2008.01433.x (publisher full text; wrapped-window forward occupancy model)",
+      "doi:10.1111/jvs.12428 (publisher full text; geometric sampling-design framework)",
+      "doi:10.1890/03-0557 (author-hosted full text; exchangeable incidence sampling)",
+      "doi:10.5539/ijsp.v2n3p50 (abstract, full text not obtained)",
+      "doi:10.2307/3546894 (abstract, full text not obtained)",
+      "doi:10.1137/0204035 (original 1975 complexity paper, metadata and abstract; 3-PARTITION recognized classical premise)",
+      "Garey–Johnson (1979), Computers and Intractability, SP15 (recognized 3-PARTITION theorem)",
+      "doi:10.1587/transfun.2023TAP0015 (open full paper; unique reconstruction of one circular word from full substring frequencies)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classic Garey–Johnson 3-PARTITION result yields hardness of packing known item sizes, but not the derived ecological map from all-scale means to required item sizes. The reduction is explicitly supplied.",
+        "Tjørve et al. already suggest interpreting species–area curve shapes inversely, which motivates rather than proves the exact cyclic realization criterion.",
+        "Leitner–Rosenzweig (1997) abstract focuses on stochastic sampling with lognormal abundance distributions and area-scaling exponents; its full text was not inspected and stronger coverage cannot be definitively excluded.",
+        "A published two-visit N-mixture identification theorem concerns two visits of a closed binomial mixture and does not imply feasibility of cyclic spatial occupancy curves.",
+        "The 2023 Ota–Manada full text assumes all substring frequency observations for one existing string and proves conditions for unique circular reconstruction; no reduction from its single-string uniqueness theorem yields the present multirow feasible-pooled-gap packing criterion."
+      ],
+      "reasoning": "A forward formula for random quadrat accumulation, a statement about shape/aggregation, or the classical NP-completeness of bin packing does not, by itself, imply that prescribed mean curves determine pooled cyclic gap counts and that realizability is equivalent to packing separator-charged runs. The strongest underlying ingredients are acknowledged as preexisting; the stated cross-domain complete characterization and constrained strong hardness are the assessed contribution.",
+      "searches": [
+        "cyclic contiguous transect richness curve exact feasibility gap packing bin packing strong NP-complete ecological species area",
+        "cyclic window species detection mean richness finite sequences realizable concave inversion gap multiplicity",
+        "spatial species-area curve finite cycle sampling blocks reconstruct occupancy gaps from second differences",
+        "\"species area\" \"bin packing\" gap",
+        "doi:10.2307/3546894",
+        "doi:10.5539/ijsp.v2n3p50",
+        "doi:10.1137/0204035"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem is equivalent to inversion of the cyclic all-zero-subwindow count sequence by first and second differences, followed by simultaneous realization of the recovered zero-run lengths in a prescribed number of nonzero cyclic binary rows.",
+        "Makri–Psillakis–Arapis (2013), DOI 10.5539/ijsp.v2n3p50, study distributional counts of overlapping runs in one random linear or circular binary word; available abstract does not address a prescribed multispecies aggregate of zero-run histograms or its allocation obstruction.",
+        "The published dual-Dowker counterexample concerns topological simplicial complexes of an incidence relation, a different and in some ways stronger representation than the one-dimensional spatial translation mean.",
+        "Ota–Manada (2023 advance publication; 2024 final), DOI 10.1587/transfun.2023TAP0015, require frequencies of all substrings of a single circular binary word and reconstruct the word uniquely, a stronger per-row input than the aggregate all-zero-only statistics here."
+      ],
+      "reasoning": "Replacing detected-species means by numbers of wholly unoccupied cyclic windows yields a zero-run transform. Its inversion is elementary but only recovers pooled run counts. Neither single-word run enumeration nor full-relation topological reconstruction implies the ecological criterion that these counts be packable into exactly s species rows, and the full decision problem is strongly NP-complete. No identified exact equivalent statement covers both inversion and cross-species feasibility. The full Ota–Manada paper was checked: it takes a single realized string as input and solves uniqueness under an automaton condition, rather than multirow existence from aggregated monochromatic substring counts.",
+      "searches": [
+        "cyclic binary words sliding window zero-free counts discrete second difference gap length spectrum",
+        "circular binary sequence all zero substring counts recover run lengths from second differences",
+        "cyclic window species detection mean richness finite sequences realizable concave inversion gap multiplicity",
+        "doi:10.5539/ijsp.v2n3p50"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The present theorem applies to arbitrary positive n and s, and its NP-completeness is a reduction, not a table lookup or finite census. The seven finite checker cases are independent corroboration only."
+      ],
+      "reasoning": "No identified species–area, run-spectrum or bin-packing database/table has the exact all-n ecological profile realizability classification. A bin-packing solver can decide the reduced instance, but does not itself imply the gap inversion map or its correctness. The result is not claimed unique in undocumented/unindexed archives.",
+      "searches": [
+        "cyclic contiguous transect richness curve exact feasibility gap packing bin packing strong NP-complete ecological species area",
+        "species area contiguous intervals bin packing 3 partition realizability spatial occupancy",
+        "\"species accumulation\" \"runs of zeros\" \"second differences\""
+      ]
+    },
+    "rationale": "The verified structural theorem is not a mere restatement of the elementary run-count or classical bin-packing facts: it gives a complete if-and-only-if characterization of exactly which all-scale contiguous-window mean ecological richness profiles admit an s-species cyclic incidence realization and proves strong NP-completeness through an explicit, size-preserving gap-spectrum map. Full relevant forward and geometric ecological sources were materially inspected, and published-index, alias, complexity, run-count and curve-realizability searches revealed no stronger covering claim. Closely related circular-run and stochastic-SAR literature is acknowledged as a residual risk, rather than treated as proof of novelty.",
+    "residual_risks": [
+      "The exact gap inversion may have been rediscovered under cyclic substring-count terminology outside the located sources; no exhaustive bibliography exists.",
+      "Full texts of the 1997 Leitner–Rosenzweig article and the 2013 Makri–Psillakis–Arapis run-counting article were not inspected; their stated abstracts are distinct but unidentified stronger results may exist.",
+      "The result does not establish novelty against unpublished ecological or combinatorial work; published semantic search and available full texts support only a bounded originality judgment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes forward ecological motivation and known qualitative aggregation effects; its random-placement assumptions and case studies do not supply an all-scale cyclic zero-run inversion or bin-packing feasibility theorem.",
+        "evidence": [
+          "Publisher full text DOI above: Introduction says curve shape may reveal occupancy pattern; Methods/artificial data use wrapped-around grids; results examine log-log curvature and occupancy aggregation. First published 15 October 2008."
+        ],
+        "identifier_or_url": "doi:10.1111/j.1365-2745.2008.01433.x",
+        "material_read": "Full open publisher HTML, introduction, occupancy model, artificial-data setup and results, methods and relevant discussion; specifically sections on wrapped-around 6-by-6 sampling and inverse SAR interpretation.",
+        "method": "Scientific comparison of sampling rules and conclusions, not title keyword matching.",
+        "title": "Species–area relationship: separating the effects of species abundance and spatial distribution",
+        "trigger": "Direct motivating ecological source using species presence by gridded cells and spatially aggregated samples, explicitly with wraparound."
+      },
+      {
+        "assessment": "Describes moving/sliding-window designs and constraints on possible ecological curves, mainly in log–log coordinates, without an exact fixed-circular-transect realizability equivalence or NP-hardness.",
+        "evidence": [
+          "Publisher text around Figure 1 identifies sliding-window design as all sample locations; review conclusion discusses scale dependence and possible qualitative curves. DOI above; first published 25 July 2016."
+        ],
+        "identifier_or_url": "doi:10.1111/jvs.12428",
+        "material_read": "Full open publisher HTML, abstract, sampling-design Figure 1 discussion, geometric scaling discussion and conclusion.",
+        "method": "Compared exact sampling protocols and logical strength of geometric constraints.",
+        "title": "The theory of the nested species–area relationship: geometric foundations of biodiversity scaling",
+        "trigger": "Likely broader geometric formulation of sliding-window sample richness and possible exact shape constraints."
+      },
+      {
+        "assessment": "Incidence-based stochastic interpolation presumes random order/independent quadrat incidence, unlike fixed cyclic contiguous windows; its formulas cannot recover the deterministic spatial gap spectrum.",
+        "evidence": [
+          "Introduction p. 2717 states that sample order and arrangement are unimportant in their chosen regime; model p. 2719 assumes conditionally independent quadrat presences."
+        ],
+        "identifier_or_url": "doi:10.1890/03-0557;https://www.robertkcolwell.org/publications/7532.pdf",
+        "material_read": "Author-hosted entire 11-page PDF available; inspected title page and scientific introduction/model material pp. 2717–2719, including formulas and assumptions.",
+        "method": "Compared sampled subset law and adjacency information.",
+        "title": "Interpolating, extrapolating, and comparing incidence-based species accumulation curves",
+        "trigger": "Potential stronger general exact accumulation-curve formula for arbitrary multispecies incidence matrices."
+      },
+      {
+        "assessment": "Abstract studies enumerating random binary strings by overlapping-run counts, not prescribed aggregated richness curves; fuller equivalence remains a residual literature risk.",
+        "evidence": [
+          "The publicly available abstract identifies one-string run enumeration and probability mass functions; full paper unavailable through attempted direct PDF link."
+        ],
+        "identifier_or_url": "doi:10.5539/ijsp.v2n3p50",
+        "material_read": "Publisher abstract and metadata; linked PDF fetch failed, so full text not inspected.",
+        "method": "Compared publicly exposed claim and its scope, without making a whole-paper noncoverage inference.",
+        "title": "Counting runs of ones with overlapping parts in binary strings ordered linearly and circularly",
+        "trigger": "Plausible equivalent circular run-counting identity."
+      },
+      {
+        "assessment": "Abstract emphasizes stochastic sampling and area-scaling exponent; full text uninspected, so no decisive conclusion about every result in this paper.",
+        "evidence": [
+          "University of Arizona publication summary for 1997 Oikos paper, DOI above."
+        ],
+        "identifier_or_url": "doi:10.2307/3546894",
+        "material_read": "University-hosted abstract and bibliographic metadata only; full article not obtained.",
+        "method": "Compared abstracted lognormal-abundance stochastic model to deterministic spatial inverse problem.",
+        "title": "Nested species-area curves and stochastic sampling: A new theory",
+        "trigger": "Cited by ecologists discussing contiguous ecological SAR geometry and wrapped-around sampling."
+      },
+      {
+        "assessment": "The paper establishes unique reconstruction of one circular binary string from sufficiently informative full substring-frequency data using minimal absent words; it does not address existence of a prescribed multispecies pooled zero-window count, assignment of gaps to species, or 3-PARTITION-hardness. Its richer per-string measurements do not logically imply the proposed weaker-aggregate existence criterion.",
+        "evidence": [
+          "Section 2 defines C(z) for all substrings z of one circular string and assumes no repeated length-n rotations; Theorem 1, Section 4.2, concerns unique reconstruction under a weighted automaton condition. Present input is sum_i C_i(0^k) only and need not arise from any given individual string."
+        ],
+        "identifier_or_url": "doi:10.1587/transfun.2023TAP0015;https://www.jstage.jst.go.jp/article/transfun/E107.A/3/E107.A_2023TAP0015/_pdf/-char/en",
+        "material_read": "Entire lawful open full eight-page PDF accessible; inspected abstract, definitions, statement of necessary-and-sufficient reconstruction condition, proof, examples and algorithmic section.",
+        "method": "Compared information content of each input and quantifiers: all substrings with frequencies of one existing string versus pooled zero-only frequencies across multiple unknown binary rows.",
+        "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+        "trigger": "A plausible stronger circle-string reconstruction theorem that might imply the proposed zero-gap inversion or its converse."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d80d89d4-9a23-4358-bbcc-256abaef86ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact nested sliding-window richness profiles are natural spatial sampling summaries: ecologists seek to interpret changes in species–area curves as evidence of aggregation and occupancy (Tjørve et al. 2008), and geometric sampling design matters (Storch 2016). The theorem provides a nontrivial sharp feasibility test for the complete profile, identifies exactly which pooled zero-run statistics such measurements determine, and proves an intrinsic strong NP-completeness obstacle caused by unknown species allocation. The explicit monotone-concave but infeasible curve rules out a tempting shape-only description. It is useful as a theoretical baseline for ecological inverse inference and consistency checking, without overstating empirical noise-robustness or full spatial reconstruction.",
+    "status": "PASS"
+  }
+}
