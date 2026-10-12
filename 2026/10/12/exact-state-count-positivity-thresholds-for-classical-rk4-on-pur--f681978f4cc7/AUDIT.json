@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The RK4 polynomial is expanded exactly as R_4(x(P-I))=sum_{j=0}^4 a_j(x)P^j. For N=2, absorption merges all j>=1 powers and the sign boundary is a_0=1, giving the unique root rho_2. For N=3, the first unmerged off-diagonal coefficient a_1 gives the unique root rho_3 and the merged tail is a strictly positive quadratic factor. For N=4, the absorbing tail a_3+a_4=x^3(4-3x)/24 gives the exact boundary 4/3. For N>=5, the state reached in exactly three births has coefficient a_3=x^3(1-x)/6, while all coefficients are nonnegative on [0,1]. Row sums are one because Q1=0 and R_4(0)=1. Exact-rational replay checks the formulas and witnesses; finite tests are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth proves sharp positivity thresholds for broad positive IVP classes and develops larger invariant cones for special linear problems, but does not give the fixed pure-birth all-positive-vector threshold table.",
+        "Lóczi and Ketcheson state that the stability-function radius of absolute monotonicity governs positivity and contractivity for linear problems and classify the work primarily as MSC 65L06.",
+        "Bylina and Potiopa explicitly apply classical RK4 to CTMC transient-probability equations but provide no positivity timestep classification.",
+        "Shao, Gao, and Xue preserve componentwise properties by shifting, scaling, squaring, and truncated Taylor approximation rather than by one unshifted RK4 step."
+      ],
+      "reasoning": "Horváth's theory is broader in problem-class scope but does not imply the dimension-resolved sharp threshold for this fixed generator family; general absolute-monotonicity theory gives a worst-case linear radius, while the restricted absorbing-path geometry permits larger final-step intervals in dimensions two through four.",
+      "searches": [
+        "Horváth DOI:10.1016/j.apnum.2004.08.026, complete 16-page article",
+        "Lóczi--Ketcheson arXiv:1303.6651, full text, introduction and absolute-monotonicity framework",
+        "Bylina--Potiopa DOI:10.1007/s10766-016-0458-x, full text, Section 5",
+        "Shao--Gao--Xue DOI:10.1137/120894294, abstract and metadata"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/j.apnum.2004.08.026",
+      "arXiv:1303.6651",
+      "DOI:10.1007/s10766-016-0458-x",
+      "DOI:10.1137/120894294",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horváth's strict thresholds quantify positivity over broad classes, and his invariant-cone results concern subsets of positive vectors characterized by eigenvectors; neither yields the exact threshold for all nonnegative vectors under the fixed pure-birth generator.",
+        "Absolute-monotonicity theory supplies the universal linear radius but not the larger restricted-family radii.",
+        "The CTMC RK4 source writes the method but does not analyze whether its final transition approximation stays entrywise nonnegative.",
+        "The Padé finding proves an eight-state arbitrarily-small positivity failure for a different rational map."
+      ],
+      "reasoning": "The checked general theorems do not imply the exact restricted-family boundaries rho_2, rho_3, 4/3, and 1. The proof requires the absorption-dependent merging of the five RK4 polynomial coefficients.",
+      "searches": [
+        "DOI:10.1016/j.apnum.2004.08.026, full article including Theorem 17 and Remarks 18--20",
+        "arXiv:1303.6651, lines defining linear positivity role of the stability-function radius",
+        "DOI:10.1007/s10766-016-0458-x, CTMC RK4 equations and algorithm",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab, full result"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published semantic result is the [2/2] Padé/Gauss--Legendre pure-birth positivity barrier, not the RK4 polynomial.",
+        "The RK4 claim is equivalently a classification of entrywise nonnegativity of the fourth exponential section evaluated at the absorbing-path generator."
+      ],
+      "reasoning": "Aliases using RK4, the fourth exponential section, pure-birth generators, Markov stochasticity, and absolute monotonicity did not surface an implication-equivalent threshold table.",
+      "searches": [
+        "RK4 pure-birth chain positivity threshold n=2 n=3 n=4 n=5",
+        "classical fourth order stability polynomial Markov generator finite state positivity",
+        "absolute monotonicity RK4 finite pure birth Markov chain",
+        "classical RK4 pure birth Markov chain positivity dimension threshold",
+        "truncated exponential fourth degree pure birth generator nonnegative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published threshold table matching N=2,3,4,>=5 was located.",
+        "The closest indexed finite-state table concerns the [2/2] Padé map and an eight-state barrier."
+      ],
+      "reasoning": "The nearby table is not a stronger result: changing from the Padé rational function to the RK4 polynomial changes both the small-step behavior and the minimal pure-birth dimension.",
+      "searches": [
+        "RK4 stochastic matrix positivity birth process finite states",
+        "fourth order Runge Kutta CTMC positivity pure birth chain step size",
+        "published finding 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "rationale": "Horváth's full positivity-threshold theory, general absolute-monotonicity theory, a direct CTMC use of classical RK4, positivity-oriented matrix-exponential algorithms, and a published pure-birth result for the distinct [2/2] Padé map were compared. None of the inspected material states or implies the four-case RK4 state-count threshold table.",
+    "residual_risks": [
+      "Older Markov-chain transient-analysis literature may contain the same pure-birth specialization under different terminology.",
+      "The source on truncated Taylor matrix exponentials was not inspected at theorem-level full text in this run; its abstract describes a materially different shifted/scaled algorithm.",
+      "No claim is made that the thresholds extend to arbitrary N-state CTMC generators."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROADER_THEORY_NOT_COVERING_FIXED_PURE_BIRTH_TABLE",
+        "evidence": "The paper proves sharp thresholds for broad problem classes and gives stability-function-based invariant-cone results for special linear problems. It does not state the exact all-positive-vector RK4 thresholds for homogeneous pure-birth chains of dimensions 2, 3, 4, and at least 5.",
+        "identifier_or_url": "DOI:10.1016/j.apnum.2004.08.026",
+        "material_read": "Complete 16-page article, including definitions of positivity thresholds, the strict-threshold theorem, the linear invariant-cone section, examples, remarks, and references.",
+        "method": "full-text inspection",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Most directly relevant classical positivity-threshold theory for Runge--Kutta methods."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR_NOT_COVERING_FINITE_CHAIN_THRESHOLDS",
+        "evidence": "The paper states that the stability-function radius governs positivity and contractivity for linear problems and lists primary MSC 65L06, but it does not state the pure-birth dimension-resolved RK4 thresholds.",
+        "identifier_or_url": "arXiv:1303.6651",
+        "material_read": "Full text of the arXiv version, including the introduction, definitions, RK stability-function discussion, and the distinction between method and stability-function radii.",
+        "method": "full-text inspection",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "General theory connecting Runge--Kutta stability functions to positivity for linear problems."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The article formulates pi'(t)=Q^T pi(t) and applies standard RK4, but no positivity or stochasticity timestep theorem is stated in the inspected text.",
+        "identifier_or_url": "DOI:10.1007/s10766-016-0458-x",
+        "material_read": "Open-access full text, especially Section 5 and the displayed CTMC Kolmogorov and RK4 formulas.",
+        "method": "full-text inspection",
+        "title": "Explicit Fourth-Order Runge–Kutta Method on Intel Xeon Phi Coprocessor",
+        "trigger": "Direct use of classical RK4 for finite CTMC transient probabilities."
+      },
+      {
+        "assessment": "CLOSEST_DIFFERENT_MAP_NOT_COVERING",
+        "evidence": "The result concerns the [2/2] Padé/Gauss--Legendre rational map, with an eight-state small-step barrier and disconnected stochasticity window; it does not imply the polynomial RK4 threshold table.",
+        "identifier_or_url": "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Complete published RESULT, including the two theorems, proof, context, and limitations.",
+        "method": "full-text inspection",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Same pure-birth CTMC geometry and fourth-order one-step approximation."
+      },
+      {
+        "assessment": "SUPPORTING_CONTEXT_ONLY",
+        "evidence": "The method uses shifting, scaling, squaring, and a chosen Taylor degree for componentwise accuracy; the accessible material does not state the unshifted RK4 pure-birth thresholds.",
+        "identifier_or_url": "DOI:10.1137/120894294",
+        "material_read": "Publisher abstract, classification, publication history, and accessible reference context.",
+        "method": "abstract-and-metadata inspection",
+        "title": "Aggressively Truncated Taylor Series Method for Accurate Computation of Exponentials of Essentially Nonnegative Matrices",
+        "trigger": "Nearby use of truncated Taylor series for nonnegative matrix exponentials."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f681978f-4cc7-4629-b270-351fc9429e1f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is canonical and directly motivated by published use of classical RK4 for CTMC transient probabilities. The exact finite-state thresholds quantify when a final RK4 step remains a valid stochastic transition approximation. The theorem identifies a sharp state-count transition: small chains tolerate dimensionless steps strictly larger than the universal linear absolute-monotonicity radius, while five states already realize that radius. This is a reusable structural boundary rather than a single numerical counterexample.",
+    "status": "PASS"
+  }
+}
