@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The distorted SIR field sums identically to zero, so applying the all-ones covector to the published hybrid equation gives the exact mass law Mdot=lambda*1^T f_NN. Applying the same covector to the published residual target gives the derivative of the preprocessed observed total. The exact parameter-bias residual is the difference of two SIR fields and is therefore zero-sum. The matrix P=I-(1/3)11^T is the orthogonal projector onto the zero-sum plane; its Pythagorean decomposition proves that projection cannot increase Euclidean error relative to any exact zero-sum residual. These steps require no statistical approximation or unverified numerical claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yu et al., arXiv:2603.23861, state that unconstrained Neural ODEs can drift from conservation manifolds and propose invariant-by-construction architectures.",
+        "Zinihi, Ehrhardt, and Sidi Ammi, arXiv:2607.10858, develop structure-preserving Neural ODEs and describe exact conservation extensions, with SIR as a numerical example.",
+        "The motivating source's own discussion acknowledges physical constraints as a future extension rather than an implemented guarantee."
+      ],
+      "reasoning": "These broader works cover the general conservation problem and therefore cap the novelty claim. They do not subsume the target-specific identity 1^T Y=d(1^T x_obs^SG)/dt or the fact that orthogonal projection is non-worsening against the exact same-structure SIR residual.",
+      "searches": [
+        "SIR neural ODE mass conservation projection residual correction",
+        "epidemiological neural ODE conservation law projection residual",
+        "structure-preserving neural ODE SIR conservation 2026 arxiv 2607.10858",
+        "An Invariant Compiler for Neural ODEs conservation laws tangent manifold 2026"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14142472",
+      "arxiv:2603.23861",
+      "arxiv:2607.10858",
+      "own-ledger:2026-10_week1__private research ledger__p0001_g000047.jsonl",
+      "own-ledger:2026-09_week4__private research ledger__p0001_g000063.jsonl"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General invariant-preserving work implies that conservation can be enforced by architecture, but does not identify this paper's target sum as the derivative of the preprocessed observed total.",
+        "The source's exact residual class is narrower than a generic Neural ODE: it is the difference of two closed-population SIR vector fields and hence is automatically tangent.",
+        "Orthogonal projection onto the tangent plane therefore removes only a component that cannot belong to the exact parameter-bias residual."
+      ],
+      "reasoning": "The accepted theorem is not a corollary merely from knowing that invariants matter. It combines the source's hybrid equation, its target construction, and its controlled same-structure experiment to prove both exact conservation after projection and a pointwise non-worsening error property.",
+      "searches": [
+        "hybrid neural mechanistic SIR residual correction conservation constraint",
+        "An Invariant Compiler for Neural ODEs conservation laws tangent manifold 2026",
+        "Structure-Preserving Neural ODEs SIR conservation Patankar 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target article defines dx/dt=f_dist+lambda f_NN with a free three-component neural output and defines the residual target from componentwise Savitzky–Golay derivatives.",
+        "The article explicitly notes SIR conservation constraints in its motivation and identifies physical or regularization-based constraints on the learned residual as future work.",
+        "No searched indexed finding stated the exact target-normal-component identity or the non-worsening orthogonal projection theorem for this source."
+      ],
+      "reasoning": "A general warning that Neural ODEs may violate invariants is not equivalent to identifying the precise normal component created by this paper's residual target. The accepted claim also uses the special fact that true and distorted models share the same SIR structure, which makes the exact residual tangent and yields a source-specific projection optimality statement.",
+      "searches": [
+        "10.3390/math14142472 conservation SIR neural residual correction mass",
+        "hybrid neural mechanistic SIR residual correction conservation constraint",
+        "SIR neural residual sum zero conservation projection",
+        "Savitzky Golay noisy SIR residual target conservation neural correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result: `2026/9/19/SCOPE-singular-pinn-weighted-residual-integrability--3a141a44694e`, which concerns residual integrability for a singular PINN and not SIR conservation.",
+        "Other close indexed results concerned unrelated invariant or residual defects; no returned item referenced DOI 10.3390/math14142472.",
+        "The latest prior-week own ledger and the current-week ledger contain no occurrence of DOI 10.3390/math14142472."
+      ],
+      "reasoning": "Database and ledger searches support non-overlap but are not treated as novelty proof. The decisive originality comparison is statement-level inspection of the target article against the general invariant-preserving Neural ODE literature.",
+      "searches": [
+        "10.3390/math14142472 conservation SIR neural residual correction mass",
+        "hybrid neural mechanistic SIR residual correction conservation constraint",
+        "SIR neural residual sum zero conservation projection"
+      ]
+    },
+    "rationale": "The motivating article recognizes conservation as an SIR structural property and later lists physical constraints on the residual correction as future work, but it does not state the exact mass-drift law, identify that its noisy Savitzky–Golay target carries the derivative of observed total mass, or prove the source-specific non-worsening projection theorem. General invariant-preserving Neural ODE work establishes the broader principle that unconstrained learned dynamics can violate conservation, so novelty is limited to the exact diagnosis and repair for this residual-correction pipeline.",
+    "residual_risks": [
+      "The target article's supplementary implementation was not independently reconstructed here; a code-only zero-sum constraint absent from the printed method would change claims about the implementation but not the algebra of the published formulation.",
+      "General projection onto a conservation tangent space is standard mathematics, so originality is source-specific rather than a claim of a new projection method.",
+      "No quantitative mass-drift value is asserted for the published trajectories.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_HAS_NO_STRUCTURAL_CONSERVATION_GUARANTEE. The printed neural correction is unconstrained, and the stated target preprocessing does not renormalize the compartment sum.",
+        "evidence": "Equation (3) adds lambda f_NN to a zero-sum SIR field; equation (4) trains three componentwise residuals; Algorithm 1 perturbs and clips components independently; the discussion places physical constraints on learned residuals among future directions.",
+        "identifier_or_url": "doi:10.3390/math14142472",
+        "material_read": "Open full text covering the SIR model and normalized initial data, Algorithm 1 noisy-observation and clipping steps, hybrid equation (3), residual target equation (4), three-output feedforward architecture, coupling optimization, reported high optimal coupling values, discussion of SIR conservation constraints, limitations, future physical constraints, and data-availability statement.",
+        "method": "Open-access publisher full text and lawful full-text mirror for equation-level inspection.",
+        "title": "Controlled Adaptation of a Hybrid Neural–Mechanistic Framework to Correct Parameter-Distorted SIR Dynamics Through Coupling Optimization",
+        "trigger": "Exact motivating source and printed hybrid/residual equations."
+      },
+      {
+        "assessment": "BROADER_PRIOR_ONLY. It establishes the general conservation problem but is not relied on for whole-document noncoverage of the target-specific claim.",
+        "evidence": "The abstract explicitly states that unconstrained Neural ODEs can violate conservation laws and proposes architectures whose trajectories remain on admissible manifolds.",
+        "identifier_or_url": "arxiv:2603.23861",
+        "material_read": "Primary abstract and indexed overview describing invariant drift of unconstrained Neural ODEs and tangent/invariant-by-construction rewriting.",
+        "method": "Primary arXiv record plus indexed overview.",
+        "title": "An Invariant Compiler for Neural ODEs in AI-Accelerated Scientific Simulation",
+        "trigger": "Broad prior on exact invariance in Neural ODEs."
+      },
+      {
+        "assessment": "BROADER_SIR_PRIOR_ONLY. It covers structure preservation generally and is not used to assert whole-document noncoverage.",
+        "evidence": "The work explicitly treats SIR and describes an extension that preserves conservation laws exactly, but it does not identify the Annuš–Kmeť residual target or its projection error identity in the inspected material.",
+        "identifier_or_url": "arxiv:2607.10858",
+        "material_read": "Primary abstract and section-level preview describing gain-loss Neural ODEs, unconditional positivity, Patankar-type conservation extensions, and SIR numerical experiments.",
+        "method": "Primary arXiv record and lawful open preview.",
+        "title": "Structure-Preserving Neural ODEs via Nonstandard Finite Difference Discretization",
+        "trigger": "Closest SIR-specific structure-preserving Neural ODE prior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3c8689a2-95ac-4a75-9d99-82fe2d2aea3f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly motivates SIR as structurally different from Lotka–Volterra because of conservation, while its optimized hybrid solutions use a large neural contribution. The exact drift law shows which part of that structural information is lost. More importantly, the proposed projection is not an arbitrary regularizer: in the paper's controlled parameter-bias setting the true residual is provably zero-sum, so projection guarantees conservation and can only reduce or preserve pointwise Euclidean error to the residual the network is intended to learn. This makes the result a motivated structural correction rather than a cosmetic constraint.",
+    "status": "PASS"
+  }
+}
