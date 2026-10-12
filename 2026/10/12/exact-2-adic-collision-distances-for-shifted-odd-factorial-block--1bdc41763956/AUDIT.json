@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "An independent finite pairing identity reduces the odd product to G(2^(2e)A(A+1)). An elementary dyadic induction proves v2(G'(0))=e-2 exactly. The divided-difference quotient stays congruent to G'(0) mod 2^(2e+1), giving an exact factorization and valuation for all signed A,B, including collision boundaries. Distinct residue fibers and powers follow from parity and repeated squaring. Actual executable verifier results corroborate finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davis 2014, arXiv:1301.6285, abstract: existence and evaluation of p-adic factorial-unit limits.",
+        "Davis 2026, Corollary 17: all shifts and powers, but only lower-bound congruences modulo 2^(3e-1+j)."
+      ],
+      "reasoning": "The closest general results concern convergence of unit parts or universal block congruences, and their stated hypotheses do not supply exact collision fibers for each modulus. Full text of the 2013 preprint was not obtained and is identified as residual risk.",
+      "searches": [
+        "\"2-adic gamma function\" \"Lipschitz\" \"2-adic\" factorial shift mod higher powers",
+        "\"Binomial coefficients involving infinite powers of primes\" Davis pdf 2014 full text",
+        "Donald M Davis odd part factorial Theorem 16 congruence sharp equality valuation shifted odd products"
+      ]
+    },
+    "checked_sources": [
+      "Davis, arXiv:2510.22078 (2025 preprint)",
+      "Davis, Journal of Integer Sequences 29 (2026), 26.3.1 (complete PDF)",
+      "Davis, arXiv:1301.6285 (2013, abstract)",
+      "OEIS A359349 (sequence metadata and sample)",
+      "Targeted public-literature searches for exact odd-factorial shift valuations, 2-adic gamma identities, and collision fibers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior: Davis Theorem 16 proves a universal congruence P_e(A)=P_e(0) modulo 2^(3e-1).",
+        "Prior: Corollary 17 proves a universal powered congruence between P_e(A) and P_e(B).",
+        "Current: exact valuation is 3e-2 plus valuation of (A-B)(A+B+1), so extra valuation and exact fibers vary with shifts; this is stricter than either fixed modulus."
+      ],
+      "reasoning": "The old bound is recovered because (A-B) and (A+B+1) have odd sum and thus exactly one is even. The converse, exact valuation for each pair and full fibers at every higher precision, is not stated or forced by that bound. A close arithmetic route exists via Davis coefficient lemmas, so this is a closely related structural refinement rather than an unrelated invention.",
+      "searches": [
+        "arXiv:2510.22078 Theorem 16 Corollary 17",
+        "\"product of all odd\" \"3e\" \"shift\" valuation 2-adic gamma"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Davis, Journal of Integer Sequences 29 (2026), 26.3.1, p.7: congruence modulo a fixed power of two.",
+        "The 2026 paper, p.7–9: coefficient lemmas in the same polynomial, but no pairwise valuation equality or finite-fiber classification is stated."
+      ],
+      "reasoning": "Both the normalized distance formulation and the exact two-branch fiber formulation were checked against the primary product congruence and searches for shifted factorials. The primary congruence supplies only a minimum valuation; it does not specify the pairwise exact valuation. Its underlying lemmas share necessary ingredients, leaving a genuine residual equivalence risk.",
+      "searches": [
+        "\"shifted odd factorial\" \"valuation\" product mod 2",
+        "\"2-adic valuation\" \"consecutive odd integers\" \"product\" difference shifted",
+        "\"2-adic gamma\" \"isometry\" \"odd\" product"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A359349 tabulates two-adic digits of odd parts of factorials and links the Davis 2025 article; these are not tables of pairwise polynomial shifts.",
+        "Davis 2026 Table 1 concerns stable/unstable bits of odd factorial parts."
+      ],
+      "reasoning": "The table and sequence document factorial limits and digits, not the exact two-parameter valuation formula; no exact table encoding all modular fibers was identified.",
+      "searches": [
+        "OEIS A359349 odd part factorial sequence",
+        "\"Some 2-adic Integers Related to the Odd Part of 2\" Davis arxiv 2025 2026"
+      ]
+    },
+    "rationale": "The closest complete primary full text, Davis 2026, gives uniform lower-bound congruences at precision 2^(3e-1+j), not exact pairwise distances nor their two-to-one fiber structure. A second earlier Davis work concerns limiting factorial-unit values. Comparisons of statements and pairwise implications show genuine extra shift-dependent information; risk of a hidden general identity or easy implicit derivation is explicitly retained.",
+    "residual_risks": [
+      "The 2013 predecessor full text was not retrieved, so a stronger finite factorial block identity there cannot be definitively excluded.",
+      "The 2026 primary paper contains closely related coefficient lemmas from which portions of this refinement might be deduced; mathematical-equivalence risk is greater than for an unrelated topic.",
+      "Unindexed literature might contain the full two-shift valuation formula or a general theorem specializing to it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as stated: sharp pairwise valuation, full modular fibers, and exact extra powered valuation are not asserted. Strongly related coefficient lemmas; close-derivation risk noted.",
+        "evidence": [
+          "Theorem 16 and Corollary 17 (p.7) state only divisibility modulo 2^(3e-1+j).",
+          "Lemmas 18 and 19 (pp.8–9) give first two symmetric coefficient valuations, not the pairwise collision theorem."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL29/Davis/davis9.pdf",
+        "material_read": "Accessible complete ten-page publisher PDF, including the relevant statements and proofs on pages 7–9, plus references and MSC classification.",
+        "method": "Open full scholarly PDF and inspect relevant text and page images.",
+        "title": "Some 2-adic Integers Related to the Odd Part of 2^e!",
+        "trigger": "Same complete odd blocks and integral shift parameter; Theorem 16, Corollary 17, Lemmas 18–19."
+      },
+      {
+        "assessment": "No full-text negative coverage inference is drawn from the abstract alone.",
+        "evidence": [
+          "arXiv metadata dates first public posting to October 24, 2025."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.22078",
+        "material_read": "Bibliographic record and abstract only; full arXiv HTML was inaccessible. The accessible later journal full text was inspected.",
+        "method": "arXiv publication record and comparison with full publisher version.",
+        "title": "Some 2-adic integers related to the odd part of 2^e! (preprint)",
+        "trigger": "Earliest public version of the motivating paper; posted 2025-10-24."
+      },
+      {
+        "assessment": "Apparent focus is limits, not finite-block exact distance; not certified NOT_COVERING, retained as a specific residual risk.",
+        "evidence": [
+          "Abstract describes 2-adic limits of factorial unit parts and binomial coefficients, not an explicit two-parameter valuation formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.6285",
+        "material_read": "Full abstract and bibliographic citations only; original full text could not be retrieved.",
+        "method": "arXiv and publisher abstract comparison.",
+        "title": "Binomial coefficients involving infinite powers of primes",
+        "trigger": "Earlier Davis work cited by the closest paper, sharing 2-adic factorial-unit context."
+      },
+      {
+        "assessment": "Provides scalar digit data; no exact two-shift valuation or residue-fiber table identified.",
+        "evidence": [
+          "Sequence samples deal with stabilized bits of the odd part of (2^e)! for varying e."
+        ],
+        "identifier_or_url": "https://oeis.org/A359349",
+        "material_read": "Definition, sample odd-factorial-bit table, and bibliographic cross-links.",
+        "method": "Read accessible sequence record.",
+        "title": "OEIS A359349",
+        "trigger": "Sequence cited by the motivating article; possible exact tables or precursor comments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1bdc4176-3956-46b3-b2ec-6eb8092d390a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a complete, motivated odd-factorial block already used in precise 2-adic computations, the theorem determines every pairwise valuation, all powered improvements and every finite-level collision fiber, revealing an exact involutive two-branch structure and replacing a single uniform lower bound with an optimal complete precision law. This is not a tiny numerical modulus increment.",
+    "status": "PASS"
+  }
+}
