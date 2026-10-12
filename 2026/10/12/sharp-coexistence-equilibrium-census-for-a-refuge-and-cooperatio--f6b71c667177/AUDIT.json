@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact fixed-point elimination gives R q(y)=1 on the physical x(y)>0 interval. G(s)=s[r+log(1-bs)] has strictly negative second and third derivatives; Q=s_double_prime/s_prime_squared has explicitly strictly negative derivative, and P=-G_double_prime/G_prime strictly increases while G_prime>0. Thus the curvature of T=G(s(y)) changes at most once, so W=yT_prime-T crosses zero at most once; its endpoint sign gives precisely one peak if c>1/2+b/r, otherwise strict decrease. The peak has strictly negative q_second, proving nondegeneracy. Direct symbolic differentiation, high-precision numerical example, and boundary checks support the proof; computation is not used as proof of the global count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jang–Yousef 2023, Theorem 2.4 proves at most two for a different Beverton–Holt law.",
+        "Chou et al. 2021 abstract studies Ricker growth without a proportional refuge parameter; full text unavailable.",
+        "De Silva–Jang 2026, Proposition 3.2, explicitly notes additional intersections cannot be excluded by its proof."
+      ],
+      "reasoning": "A no-refuge Ricker case or Beverton–Holt recruitment cannot directly dominate all 0<b<1, all c≥0 of the precise 2026 Ricker/refuge map. The 2021 full text is a named residual risk; no unseen contents are assumed.",
+      "searches": [
+        "local equilibrium instability from nullcline slope crossing discrete-time planar predator prey map Jury condition eigenvalue greater than one",
+        "De Silva Jang Ricker prey refuge cooperative hunting no more than two positive equilibria saddle node complete classification exactly two fixed points",
+        "Ricker predator-prey 2026 De Silva Jang maximum H theorem exact zero one two equilibria",
+        "A Ricker-type predator-prey system with hunting cooperation in discrete time Chou Chow Hu Jang 2021"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3934/math.2026868",
+      "https://doi.org/10.1080/17513758.2023.2242372",
+      "https://doi.org/10.1016/j.matcom.2021.06.003",
+      "Semantic mathematical-record searches for the listed Ricker/cooperation/nullcline/fold scientific queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "De Silva–Jang 2026 explicitly states its H_max>0 geometric argument does not exclude further intersections.",
+        "A separate previously documented result for this map proves local instability on an assumed exactly-two-equilibria configuration.",
+        "Jang–Yousef 2023 addresses another recruitment law."
+      ],
+      "reasoning": "The conditional lower-branch instability statement assumes rather than proves that there are two roots; it does not logically give a global root-count bound. The motivating work supplies existence/conditional intersections but not strict unimodality of the Ricker scalar q; the distinct 2023 recruitment law requires a different curvature argument.",
+      "searches": [
+        "De Silva Jang 2026 Ricker discrete prey refuge cooperative hunting lower coexistence equilibrium E21 unstable Jacobian eigenvalue greater than one crossing nullcline",
+        "predator prey Ricker map strong cooperative hunting βb<1 saddle lower positive equilibrium nullcline g f Jacobian 1-trace plus determinant",
+        "De Silva Jang Ricker prey refuge cooperative hunting no more than two positive equilibria saddle node complete classification exactly two fixed points",
+        "Ricker predator-prey 2026 De Silva Jang maximum H theorem exact zero one two equilibria"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "De Silva–Jang 2026: model (2.5), Proposition 3.2 explicitly does not rule out additional intersections.",
+        "Jang–Yousef 2023: Theorem 2.4 uses a distinct affine prey nullcline."
+      ],
+      "reasoning": "The scalar form q(y)=f_Ricker(y)(1-exp(-y(1+cy)))/y is algebraically equivalent to the original positive-equilibrium equations. The 2023 Beverton–Holt prey nullcline is affine in exp(-u), not the Ricker log(1-b+b exp(-u)); an identical at-most-two conclusion for the different equation is not an implication for this one.",
+      "searches": [
+        "De Silva Jang 2026 Ricker discrete prey refuge cooperative hunting lower coexistence equilibrium E21 unstable Jacobian eigenvalue greater than one crossing nullcline",
+        "predator prey Ricker map strong cooperative hunting βb<1 saddle lower positive equilibrium nullcline g f Jacobian 1-trace plus determinant",
+        "De Silva Jang Ricker prey refuge cooperative hunting no more than two positive equilibria saddle node complete classification exactly two fixed points",
+        "Ricker prey-predator refuge cooperative hunting unimodality equilibrium curve f(y)(1-exp(-y-cy^2))/y"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating publication gives numerical examples with two equilibria, not an exhaustive parameter census.",
+        "Semantic mathematical-record searches returned closely related predator–prey stability and bifurcation records, not a complete Ricker/refuge equilibrium-count theorem."
+      ],
+      "reasoning": "The theorem concerns a continuum of real parameters and all positive equilibria. Neither a numerical equilibrium table nor a finite diagram proves that there are globally at most two.",
+      "searches": [
+        "De Silva Jang Ricker prey refuge cooperative hunting no more than two positive equilibria saddle node complete classification exactly two fixed points",
+        "Ricker prey-predator refuge cooperative hunting unimodality equilibrium curve f(y)(1-exp(-y-cy^2))/y",
+        "Ricker predator-prey 2026 De Silva Jang maximum H theorem exact zero one two equilibria"
+      ]
+    },
+    "rationale": "The 2026 source model (2.5) explicitly does not establish the global upper bound of two positive intersections, whereas 2023 paper proves it only with an affine rather than logarithmic prey nullcline. A separate previous result conditional on exactly two equilibria cannot imply the count. Exact prior-paper overlaps have been compared; the 2021 no-refuge Ricker paper full text remains an acknowledged access risk.",
+    "residual_risks": [
+      "The full 2021 Chou–Chow–Hu–Jang Ricker-cooperation paper could not be checked for a broader transferable result; no claim of whole-document noncoverage is made.",
+      "Related unpublished or unindexed proofs of the same curvature/unimodality statement may exist.",
+      "The source-specific equilibrium result is not a dynamical stability or persistence theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source states its H_max criterion and explicitly does not rule out more intersections; no global strict unimodality or universal two-root upper bound for its model is proved.",
+        "evidence": [
+          "Model (2.5) and Proposition 3.2, AIMS Mathematics 11 (2026), pp.21417–21420; remarks on possible further intersections."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/math.2026868",
+        "material_read": "Full published article pages 21412–21440, including model (2.5), Proposition 3.2, related equilibrium/stability propositions, simulations, discussion and references.",
+        "method": "Direct full-paper equation and theorem comparison",
+        "title": "Persistence, extinction, and chaotic dynamics in a predator-prey system with cooperative hunting and prey refuge",
+        "trigger": "Exact motivating Ricker/refuge/cooperation model and the conditional equilibrium count"
+      },
+      {
+        "assessment": "An at-most-two theorem is proved but for Beverton–Holt-type prey recruitment with an affine prey nullcline, not the 2026 logarithmic Ricker nullcline.",
+        "evidence": [
+          "J. Biol. Dyn. 17 (2023), Theorem 2.4, equations (3) and (11)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/17513758.2023.2242372",
+        "material_read": "Accessible complete full-article text, Section 2.1–2.3, especially its equations (3), (11) and Theorem 2.4, plus conclusions.",
+        "method": "Original theorem and prey-nullcline comparison",
+        "title": "Effects of prey refuge and predator cooperation on a predator–prey system",
+        "trigger": "Closest earlier cooperative predator/prey-refuge theorem at most two positive equilibria"
+      },
+      {
+        "assessment": "The described model has Ricker growth and hunting cooperation without the present prey-refuge fraction. It is plausibly relevant but cannot be classified as theorem-level noncoverage without full text.",
+        "evidence": [
+          "Math. Comput. Simulat. 190 (2021), 570–586, published abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.matcom.2021.06.003",
+        "material_read": "Published abstract and bibliographic metadata only; the complete article could not be obtained for examination.",
+        "method": "Abstract and scope comparison; full-text access attempt",
+        "title": "A Ricker-type predator–prey system with hunting cooperation in discrete time",
+        "trigger": "Ricker recruitment and cooperative hunting in 2021, potentially covering part of the new claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6b71c66-7177-433b-8995-21b8129160ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating model expressly leaves the two-intersection ceiling unresolved. A unique unimodal stationary recruitment function yields a sharp fold count for every r>0,b in (0,1),c≥0 and β>0, excludes more complex equilibrium branch multiplicities, and identifies the previously omitted exact reproduction-number equality case. A complete natural classification of positive ecological fixed points is structurally motivated and nontrivial, independently of numerical diagrams or downstream stability theorems.",
+    "status": "PASS"
+  }
+}

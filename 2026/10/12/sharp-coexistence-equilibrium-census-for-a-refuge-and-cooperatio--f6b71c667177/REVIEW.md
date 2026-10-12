@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The equilibrium reduction follows directly from both exact fixed-point equations with positive predator and prey coordinates. For \(G(s)=s[r+\log(1-bs)]\), the signs \(G''<0\) and \(G'''<0\), coupled to the explicitly decreasing curvature ratio \(Q=s''/(s')^2\), show that \(T''\) can change sign at most once while \(G'>0\). The auxiliary derivative \(W'=yT''\) implies strict monotonicity or a single nondegenerate maximum of the equilibrium function; its endpoint signs force the precise root census. This is an infinite-domain analytical argument, not an extrapolation from a numerical grid. Symbolic differentiation and the source's two-root example provide supplemental reproducibility checks.
+
+**Originality (PASS, limited).** The exact Ricker/refuge/cooperation census is not the conditional nullcline intersection discussion of De Silva–Jang (2026), Proposition 3.2; that source explicitly leaves open the possibility of further intersections. Jang–Yousef (2023), Theorem 2.4, gives at most two equilibria for Beverton–Holt recruitment, for which the prey nullcline is affine rather than logarithmic in survival. This does not logically cover the Ricker claim. A previously recorded lower-equilibrium instability result assumes the two-equilibrium regime and does not establish this count. Chou and coauthors (2021) study Ricker growth without the present prey-refuge parameter, but only its abstract was accessible; potential stronger coverage within that paper remains a risk.
+
+**Value (PASS).** A global cap on coexistence equilibria is essential to distinguish an actual two-branch predator Allee effect from potentially unrecognized additional positive equilibria. The result closes an expressly stated analytical gap and supplies a unique nondegenerate fold threshold across all positive Ricker growth rates, including the omitted equality case of the reproduction number. It is neither an arbitrary parameter slice nor a finite-grid count.
+
+**Residual limitations.** No branch stability, persistence, global attractor, or field-data implication is established. A full theorem-level comparison with Chou–Chow–Hu–Jang (2021) is outstanding; the source models differ by prey refuge, but unindexed variants remain possible.
+
+Self-review: passed. Independent audit: not yet performed.
