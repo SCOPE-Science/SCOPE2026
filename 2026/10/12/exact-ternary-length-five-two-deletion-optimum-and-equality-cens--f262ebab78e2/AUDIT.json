@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Direct two-deletion shadows and dynamic-programming LCS agree for all 29403 pairs. A complete color-bounded maximum-clique search proves maximum 6; an independent ordered target-size recursion finds 478 six-cliques and zero seven-cliques. The packaged verifier reconstructs the orbit and coverage data and was replayed after assembly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The two closest published-finding corpus q-ary deletion records are asymptotic existence/redundancy results rather than finite exact classifications.",
+        "Kulkarni–Kiyavash Theorem IV.1 covers arbitrary \\(q\\) and \\(s\\) but specializes to the upper bound \\(14\\) at \\(q=3\\), \\(s=2\\), \\(n=5\\).",
+        "Chee–Ge–Ling concentrate on perfect codes with \\(t=n-2\\); their two-deletion spectrum result is for \\(n=4\\)."
+      ],
+      "reasoning": "Broader q-ary and multiple-deletion results do not imply the exact value 6 or the equality cases. The strongest directly applicable inspected general theorem leaves a strict 14-versus-6 gap.",
+      "searches": [
+        "published-finding corpus: q-ary deletion correcting code two deletions exact finite optimum equality",
+        "published-finding corpus records 2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea and 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c",
+        "arXiv:1211.3128v1 Theorem IV.1",
+        "arXiv:1008.1343v1 Sections 2 and 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1008.1343v1",
+      "arXiv:1211.3128v1",
+      "published-finding corpus 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+      "published-finding corpus 2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea",
+      "published-finding corpus 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c",
+      "published-finding corpus 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "OEIS A057608 (binary single-deletion; parameter-inapplicable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee–Ge–Ling imply \\(A_3(4,2)=3\\), but their \\(n=5\\) result concerns \\(t=3\\) rather than \\(t=2\\).",
+        "Kulkarni–Kiyavash imply only the finite upper bound \\(14\\) for \\(q=3\\), \\(n=5\\), \\(s=2\\).",
+        "The closest own-ledger deletion result is binary length six with two deletions; changing alphabet and length is not a specialization or corollary.",
+        "The current exact result additionally classifies all \\(478\\) equality cases and their natural symmetry orbits."
+      ],
+      "reasoning": "No inspected prior statement has hypotheses and conclusion strong enough to imply the present exact optimum plus equality classification. The adjacent classical cases and general bounds are strictly weaker or use different parameters.",
+      "searches": [
+        "arXiv:1008.1343v1 main-result scope and \\(A_q(n,t)\\) definitions",
+        "arXiv:1211.3128v1 Theorem IV.1 and discussion",
+        "published-finding corpus: directed packing deletion code ternary length 5 two-deletion equality cases",
+        "own ledger keyword comparison: ternary; two-deletion; length five; q-ary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee–Ge–Ling define t-deletion correction by pairwise disjoint deletion shadows and give the equivalent Levenshtein-distance formulation.",
+        "Kulkarni–Kiyavash use the same deletion-set object and hypergraph matching formulation.",
+        "The verifier additionally checks the equal-length longest-common-subsequence formulation on every unordered pair."
+      ],
+      "reasoning": "The claim was searched and compared under deletion-shadow, insertion/deletion distance, longest-common-subsequence, and deletion-code terminology. No equivalent-formulation source located in the searches states the exact ternary length-five equality census.",
+      "searches": [
+        "published-finding corpus: ternary length-five two-deletion correcting code exact optimum 6 478 maximum codes",
+        "published-finding corpus: 3-ary length 5 deletion distance 5 code two deletions maximum",
+        "published-finding corpus: Levenshtein distance ternary strings length 5 minimum 5 maximum code",
+        "arXiv:1008.1343v1 Sections 1-2",
+        "arXiv:1211.3128v1 Sections II and IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact published-finding corpus query returned different coding problems and asymptotic deletion results, not this parameter row.",
+        "OEIS A057608 concerns a binary single-deletion sequence, so it is not an exact table for ternary two-deletion codes.",
+        "The web searches did not reveal a q-ary deletion table giving the 478 equality cases or 46 natural-group orbits."
+      ],
+      "reasoning": "Known indexed tables found in the search either use Hamming-type metrics or binary single-deletion parameters. None is a covering table for the present \\(q=3\\), \\(n=5\\), \\(t=2\\) problem.",
+      "searches": [
+        "published-finding corpus: ternary length-five two-deletion correcting codes maximum size 6 exactly 478 labeled maxima 46 symmetry orbits no perfect optimum",
+        "web: Sloane deletion correcting codes ternary two deletion table",
+        "web: online table q-ary deletion correcting codes ternary length 5",
+        "OEIS A057608"
+      ]
+    },
+    "rationale": "Statement-level comparison found that the closest exact design-theoretic source covers the two-deletion case only at length four, while the closest general multiple-deletion source gives upper bound 14 here. Exact-parameter and alias searches found no implication-equivalent finite census.",
+    "residual_risks": [
+      "An obscure or unindexed historical finite enumeration could contain the value \\(A_3(5,2)=6\\).",
+      "No inspected source states or implies the complete 478-code equality census, 46 natural-group orbits, and coverage distribution; database non-retrieval is evidence of search coverage, not a proof of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper explicitly studies \\(t=n-2\\) and states its two-deletion spectrum result for length four. Its length-five perfect-code results concern three deletions, not two.",
+        "identifier_or_url": "arXiv:1008.1343v1",
+        "material_read": "ArXiv full-text HTML: abstract, introduction and definitions, state of affairs, \\(A_q(n,t)\\) definition, \\(t=n-2\\) scope, the length-four two-deletion results, directed-packing setup, and main-result scope.",
+        "method": "Statement and implication comparison against \\(q=3\\), \\(n=5\\), \\(t=2\\).",
+        "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+        "trigger": "Same deletion-shadow object; exact q-ary optimal/perfect results; directly adjacent two-deletion length-four regime."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem IV.1 yields upper bound 14 at these parameters and does not enumerate equality cases; the paper presents general bounds rather than the exact finite value 6.",
+        "identifier_or_url": "arXiv:1211.3128v1",
+        "material_read": "ArXiv full-text HTML: introduction and related work, deletion-set definitions and equivalences, hypergraph formulation, Section IV multiple-deletion bounds including Theorem IV.1, and discussion/conclusion.",
+        "method": "Specialized the stated theorem to \\(q=3\\), \\(s=2\\), \\(n=5\\) and compared its conclusion with the exact finite claim.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "General q-ary, multiple-deletion upper bounds on the identical deletion-set object."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f262ebab-78e2-4b54-9960-54ee0eb07e95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For fixed two deletions over the ternary alphabet, length five is the first length after the classical length-four \\(t=n-2\\) design regime and the first where the optimum exceeds \\(3\\). The general finite upper bound \\(14\\) leaves a substantial gap; the exact value \\(6\\) and full equality census close that natural small-parameter case and supply reproducible extremal benchmark data.",
+    "status": "PASS"
+  }
+}
