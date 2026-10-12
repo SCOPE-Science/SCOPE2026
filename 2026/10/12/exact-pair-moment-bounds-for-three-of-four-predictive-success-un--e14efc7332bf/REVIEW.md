@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof represents an infinitely exchangeable Bernoulli sequence by a directing variable on \([0,1]\), then constructs explicit quadratic majorants and minorants of \(f(t)=4t^3-3t^4\). Every bound is accompanied by an extremal directing distribution with the prescribed two moments. The five phase boundaries, empty regimes, and endpoint degeneracies follow from the feasibility inequalities. The supplementary symbolic checker confirms all exact polynomial factorizations and 297 rational feasible parameter pairs; its finite tests are corroborative, not a replacement for the universal proof.
+
+**Originality — PASS, with identified priority risk.** The lead 2026 paper treats predictive moment hierarchies and nonidentification, not the exact sharp second-moment envelope. The closely related published mean-only infinite-exchangeability theorem does not fix the second moment. The 2010 finite-exchangeability paper was examined in full; it does not impose infinite extendibility, and explicit same-moment four-fold exchangeable witnesses lie strictly outside the newly derived sharp interval. The 2011 finite-exchangeability/correlation article was inspected at the abstract level, but its complete text was not accessible; a differently framed precursor cannot be excluded. These risks do not provide an identified covering implication.
+
+**Value — PASS.** Exact two-moment partial identification is directly motivated by recent work on multi-step exchangeable prediction and a natural four-component threshold reliability event. The theorem gives a complete, attained classification and nontrivial phase changes, including a fixed optimal support point, rather than a generic numerical moment-program bound. The statement does not claim universality for other thresholds, moments, or finite exchangeability.
+
+Self-review: passed. Independent audit: not yet performed.
