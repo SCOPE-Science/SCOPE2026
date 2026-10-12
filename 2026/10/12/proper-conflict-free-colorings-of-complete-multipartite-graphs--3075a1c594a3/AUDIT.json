@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Properness confines each color class to one multipartite part. For a vertex in part i, its open neighborhood is exactly the union of all other parts, so a neighborhood color is unique exactly when a singleton color class lies in another part. This gives the iff condition of at least two witness parts, the minimum formula, the interval spectrum, and the counting formula. Inclusion-exclusion for singleton fibers is standard and was reconstructed explicitly. Exhaustive direct checking through order six agrees with every structural and counting formula tested.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pradhan--Sharma Theorem 8 classifies chain graphs and implies the biclique endpoint but not r-partite graphs with r at least three, the full spectrum, or counting.",
+        "Caro--Petruševski--Škrekovski announce exact values for trees, cycles, hypercubes, and subdivisions of complete graphs, not complete multipartite graphs."
+      ],
+      "reasoning": "The chain-graph result is genuinely broader than bicliques inside the bipartite world, but complete multipartite graphs with at least three parts are not bipartite. Its theorem determines only the minimum number of colors, so it also does not imply the spectrum or enumeration.",
+      "searches": [
+        "published-finding corpus query: proper conflict-free chain graph complete bipartite chi pcf 4 exact",
+        "Web full-text inspection: Pradhan--Sharma, arXiv:2608.10874, Section 4.3 Chain graphs",
+        "Web query: Remarks on proper conflict-free colorings of graphs complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.11249v1",
+      "arXiv:2608.10874v1",
+      "arXiv:2203.01088v1",
+      "arXiv:2208.08330v1",
+      "published-finding corpus:24fe2313d105",
+      "published-finding corpus:2f4a2e65a3d2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For K_{m,n}, the new minimum formula gives 2 for K_{1,1}, 3 when exactly one shore is a singleton, and 4 when both shores have size at least two, exactly matching the chain-graph endpoint.",
+        "Odd coloring requires odd multiplicity rather than unique multiplicity, so its complete-multipartite formula does not imply the PCF witness condition."
+      ],
+      "reasoning": "The new theorem is consistent with the known bipartite endpoint but strictly adds all r at least three multipartite graphs, a complete iff description of all colorings, the entire feasible color-count interval, and an exact surjective count.",
+      "searches": [
+        "Full-text comparison against Pradhan--Sharma Theorem 8 for chain graphs",
+        "Comparison against published-finding corpus odd-coloring complete-multipartite result id 2f4a2e65a3d2",
+        "Comparison against Qi--Song--Cao arXiv:2609.11249v1 scope and MSC metadata"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest published-finding corpus hit: exact proper conflict-free chromatic number of crown graphs, id 24fe2313d105.",
+        "No searched source stated the at-least-two-singleton-parts iff characterization or the surjective multipartite counting formula."
+      ],
+      "reasoning": "Crown graphs are matching-deleted bicliques rather than complete multipartite graphs, and their shared-color behavior is different. The exact multipartite singleton-witness condition is not an equivalent reformulation of the crown theorem.",
+      "searches": [
+        "published-finding corpus query: proper conflict-free complete multipartite singleton color class characterization at least two parts singleton chromatic number r plus max 0 2 minus singleton parts",
+        "published-finding corpus query: proper conflict-free coloring complete multipartite spectrum all color counts surjective colorings Stirling numbers singleton fibers",
+        "Web query: proper conflict-free complete multipartite graph",
+        "Web query: proper conflict-free chromatic number complete multipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record returned an exact PCF enumerator for complete multipartite graphs.",
+        "Nearby exact complete-multipartite database records concern odd coloring, domination, forcing, or other invariants."
+      ],
+      "reasoning": "No exact table or stored formula located in the searched database subsumes the proposed PCF color-spectrum or Stirling-number enumeration.",
+      "searches": [
+        "published-finding corpus query: PCF chromatic polynomial complete multipartite exact enumeration surjective proper conflict-free colorings",
+        "published-finding corpus query: proper conflict-free coloring complete multipartite spectrum all color counts surjective colorings Stirling numbers singleton fibers"
+      ]
+    },
+    "rationale": "Targeted searches for complete multipartite, complete bipartite, singleton-fiber, spectrum, Stirling-number, and PCF-enumeration formulations found no result implying the full theorem. The strongest directly relevant inspected full text is Pradhan--Sharma's chain-graph classification, which covers complete bipartite graphs but only the minimum PCF chromatic number. A nearby complete-multipartite published-finding corpus result concerns odd coloring, a different and weaker neighborhood multiplicity condition.",
+    "residual_risks": [
+      "A poorly indexed or concurrent source could contain the same complete-multipartite structural or counting statement under different terminology.",
+      "The oldest foundational paper was scope-checked from its primary abstract rather than re-read line by line; the directly decisive chain-graph source was inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the current sparse-graph choosability advance but does not cover dense complete multipartite exact structure or counting.",
+        "evidence": "First public 2026-09-10; primary MSC 05C15; theorem concerns girth at least seven and degree-plus-two list choosability.",
+        "identifier_or_url": "arXiv:2609.11249v1",
+        "material_read": "Abstract, submission history, subject classification, and MSC metadata from indexed arXiv mirrors.",
+        "method": "Metadata and scope comparison.",
+        "title": "Proper conflict-free choosability of sparse graphs with girth at least seven",
+        "trigger": "Recent literature anchor with verified primary MSC 05C15 and first public date within the recent cohort."
+      },
+      {
+        "assessment": "Covers the complete-bipartite minimum-value endpoint but not complete multipartite graphs with three or more parts, not all PCF colorings, not the spectrum, and not enumeration.",
+        "evidence": "Theorem 8 gives chi_pcf equal to 1,2,3,4 according to edge and degree conditions; for K_{m,n} it specializes to 2,3,4 in the expected cases.",
+        "identifier_or_url": "arXiv:2608.10874v1",
+        "material_read": "Full-text Section 4.3 on chain graphs, including Observation 3 and Theorem 8 with proof.",
+        "method": "Line-by-line theorem and implication comparison from the accessible full-text rendering.",
+        "title": "Complexity and algorithms for proper conflict-free coloring in graphs",
+        "trigger": "Most plausible stronger source because complete bipartite graphs are chain graphs."
+      },
+      {
+        "assessment": "Announces exact results for trees, cycles, hypercubes, and subdivisions of complete graphs, not complete multipartite graphs.",
+        "evidence": "The abstract explicitly lists those basic graph classes and general upper bounds.",
+        "identifier_or_url": "arXiv:2203.01088v1",
+        "material_read": "Abstract and class list from the primary arXiv record plus bibliographic references in later full-text papers.",
+        "method": "Scope comparison.",
+        "title": "Remarks on proper conflict-free colorings of graphs",
+        "trigger": "Foundational exact-value paper for the invariant."
+      },
+      {
+        "assessment": "Complexity result for bipartite graphs; it does not give an exact complete-multipartite characterization or count.",
+        "evidence": "The paper proves NP-completeness for fixed k at least three on bipartite graphs.",
+        "identifier_or_url": "arXiv:2208.08330v1",
+        "material_read": "Primary abstract and problem statement.",
+        "method": "Statement-level implication comparison.",
+        "title": "The proper conflict-free k-coloring problem and the odd k-coloring problem are NP-complete on bipartite graphs",
+        "trigger": "Potential broader bipartite coverage and terminology check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3075a1c5-94a3-4883-aede-06ecc97f759f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a natural complete classification on a canonical graph class, not merely a minimum-value computation. The same structural lemma simultaneously yields the exact PCF chromatic number, the full feasible color-count spectrum, and a closed surjective-coloring enumerator. It sharpens the known complete-bipartite endpoint into an all-multipartite theorem and supplies reusable counting data for a currently active coloring invariant.",
+    "status": "PASS"
+  }
+}
