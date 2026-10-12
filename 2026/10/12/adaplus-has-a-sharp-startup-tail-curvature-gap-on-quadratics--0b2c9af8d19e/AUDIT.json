@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The first-step expression follows exactly from the printed bias corrections: the belief residual is beta1 times the gradient, the corrected second moment has floor epsilon/(1-beta2), and the corrected Nesterov numerator is (1+beta1) times the gradient. The tail matrix follows from the limiting first-moment correction and the fact that the squared belief residual has zero first derivative at the minimizer. All three Jury quantities simplify explicitly, leaving one sharp upper curvature condition; the package checker independently replays the recurrence and matrix calculations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "AdaBelief supplies the prediction-error second moment and numerical floor.",
+        "Aida analysis explicitly identifies epsilon placement as suppressing the adaptive-stepsize range.",
+        "FastAdaBelief proves strongly-convex regret improvements using a different stepsize design."
+      ],
+      "reasoning": "These results are broader about belief-based adaptation or strongly convex regret, but they do not dominate the fixed-parameter AdaPlus transient and spectral equality. The Nesterov numerator changes both the first bias-corrected gain and the tail characteristic polynomial.",
+      "searches": [
+        "arXiv:2010.07468v1",
+        "arXiv:2203.13273v1",
+        "arXiv:2104.13790v1",
+        "AdaBelief local stability quadratic epsilon Nesterov"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.01966v1",
+      "DOI:10.1109/ICASSP48485.2024.10447337",
+      "arXiv:2010.07468v1",
+      "arXiv:2203.13273v1",
+      "arXiv:2104.13790v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The AdaPlus source provides the exact recurrence used in the proof.",
+        "AdaBelief establishes the underlying prediction-error adaptive denominator.",
+        "Aida attributes a stepsize-range-suppression effect to epsilon placement.",
+        "FastAdaBelief's strong-convexity result is an online-regret guarantee for a modified method."
+      ],
+      "reasoning": "None of these prior statements implies that the published AdaPlus first update has gain 1+beta1 while its tail obeys a distinct two-state Jury boundary. The accepted claim is the exact interaction and resulting threshold gap, not the inherited ingredients.",
+      "searches": [
+        "arXiv:2309.01966v1 Algorithm 1 Nesterov precise stepsize",
+        "arXiv:2010.07468v1 AdaBelief Algorithm 2 epsilon",
+        "arXiv:2203.13273v1 epsilon placement adaptive stepsize range",
+        "arXiv:2104.13790v1 FastAdaBelief strong convexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "AdaPlus Algorithm 1 combines a Nesterov-style corrected numerator with an AdaBelief-style prediction-error second moment.",
+        "The inspected paper discusses empirical stability and precise stepsize adjustment but does not state a scalar Schur boundary or startup curvature threshold.",
+        "No checked indexed result stated the same two-threshold law."
+      ],
+      "reasoning": "Equivalent coverage would need to imply both the exact first-step multiplier near the minimizer and the limiting two-state Jury boundary. The source's qualitative component descriptions do not determine their ratio without the cross-component calculation.",
+      "searches": [
+        "arXiv:2309.01966v1",
+        "AdaPlus exact local stability stationary point quadratic",
+        "AdaPlus first step quadratic objective amplification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concerned generic Nesterov objective spikes, exact Polyak and Barzilai–Borwein quadratic frontiers, and other stability problems.",
+        "No checked record concerned AdaPlus or the displayed startup–tail factor."
+      ],
+      "reasoning": "Database absence is supporting evidence only. Originality rests on statement-and-implication comparison with the defining AdaPlus recurrence and the closest belief-based optimizer theory.",
+      "searches": [
+        "AdaPlus optimizer scalar quadratic local stability epsilon beta2 Nesterov",
+        "AdaPlus exact local stability stationary point quadratic",
+        "AdaPlus epsilon second moment beta2 local learning rate",
+        "AdaPlus first step quadratic objective amplification"
+      ]
+    },
+    "rationale": "The defining AdaPlus paper prints the combined recurrence and reports empirical stability but does not state the startup or tail quadratic thresholds. AdaBelief and later Aida work already explain the adaptive-step-range effect of epsilon placement, so that component is treated as prior. FastAdaBelief provides strongly-convex regret theory for a modified schedule rather than this fixed-step AdaPlus transient/spectral comparison. Focused indexed searches found no implication-equivalent startup–tail curvature-gap law.",
+    "residual_risks": [
+      "An unindexed note may have linearized the same AdaPlus recurrence.",
+      "The result is specific to the published epsilon placement; software implementations can differ.",
+      "The tail calculation is local and spectral, so it does not settle global nonlinear dynamics above or below the threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_THE_EXACT_STARTUP_TAIL_THRESHOLDS.",
+        "evidence": "Algorithm 1 adds epsilon inside the belief-state recurrence, uses a Nesterov-style numerator, applies both bias corrections, and divides by the corrected belief scale plus epsilon.",
+        "identifier_or_url": "arXiv:2309.01966v1; DOI:10.1109/ICASSP48485.2024.10447337",
+        "material_read": "Full published algorithm and surrounding Nesterov-momentum and precise-stepsize sections, including initialization, first moment, prediction-error second moment, Nesterov numerator, bias corrections, defaults, and parameter update.",
+        "method": "Public full-text inspection of the author-available conference manuscript together with the arXiv record.",
+        "title": "AdaPlus: Integrating Nesterov Momentum and Precise Stepsize Adjustment on AdamW Basis",
+        "trigger": "Defining source for the optimizer recurrence."
+      },
+      {
+        "assessment": "UNDERLYING_DENOMINATOR_MECHANISM_IS_PRIOR.",
+        "evidence": "AdaBelief already bases its adaptive denominator on the squared deviation between observed gradient and first moment.",
+        "identifier_or_url": "arXiv:2010.07468v1",
+        "material_read": "Algorithm material describing the EMA first moment, prediction-error second moment, bias correction, and numerical floor.",
+        "method": "Open primary-paper algorithm material and bibliographic record inspection.",
+        "title": "AdaBelief Optimizer: Adapting Stepsizes by the Belief in Observed Gradients",
+        "trigger": "Underlying belief-based second-moment construction inherited by AdaPlus."
+      },
+      {
+        "assessment": "EPSILON_RANGE_SUPPRESSION_PRIOR_BUT_NO_ADAPLUS_NESTEROV_THRESHOLD_GAP.",
+        "evidence": "The source explicitly says AdaBelief's epsilon placement reduces the range of adaptive stepsizes.",
+        "identifier_or_url": "arXiv:2203.13273v1",
+        "material_read": "Primary-paper abstract and stated analytical contribution concerning epsilon placement and adaptive-step range.",
+        "method": "Open arXiv record inspection.",
+        "title": "A DNN Optimizer that Improves over AdaBelief by Suppression of the Adaptive Stepsize Range",
+        "trigger": "Direct prior analysis of epsilon placement in AdaBelief."
+      },
+      {
+        "assessment": "DIFFERENT_METHOD_AND_REGRET_RESULT_NOT_COVERING_FIXED_STEP_ADAPLUS_LOCAL_SPECTRUM.",
+        "evidence": "FastAdaBelief changes the stepsize treatment to obtain an order-logarithmic regret guarantee under strong convexity rather than deriving AdaPlus fixed-step modal thresholds.",
+        "identifier_or_url": "arXiv:2104.13790v1",
+        "material_read": "Primary-paper abstract and theorem-level scope describing the modified method's strongly-convex regret guarantee.",
+        "method": "Open arXiv record inspection.",
+        "title": "FastAdaBelief: Improving Convergence Rate for Belief-Based Adaptive Optimizers by Exploiting Strong Convexity",
+        "trigger": "Closest strong-convexity theory for a belief-based adaptive optimizer."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b2c9af8-d19e-4e5d-b4df-357de155bb4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "AdaPlus is designed specifically to combine Nesterov acceleration with belief-based precise stepsize adjustment. The result shows that this composition creates two materially different curvature scales: a source initialization can exhibit a large objective spike in a regime whose limiting local spectrum is still stable. The default-parameter gap exceeds a factor of twelve, and the exact formula identifies which inherited component produces each scale. This is a natural robustness diagnostic for choosing learning rates and interpreting empirical stability.",
+    "status": "PASS"
+  }
+}
