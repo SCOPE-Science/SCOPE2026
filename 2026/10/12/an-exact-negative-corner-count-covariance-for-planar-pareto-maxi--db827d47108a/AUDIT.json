@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The event that an index is an upper record is uniform among preceding positions and independent of unordered values. For i>a and j<=a, conditioning on record status fixes the maximum at i but leaves the first i unordered threshold count binomial with mean i q, yielding covariance -(1-q)(1-(1-q)^(i-1))/[i(i-1)]. For i<=a the record indicator is independent of the symmetric first-a threshold count. Summing yields the exact finite formula; binomial mixing uses independence of relative rank permutation and coordinate order statistics. A telescope controls its error and proves the fixed-p,q asymptotic. The checker independently enumerates all rank permutations through n=7 and checks 199 exact mixed cells and the bound on an exact rational grid through n=34.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bentley et al., JACM 25 (1978), study recurrence and expectation of maximal-vector number.",
+        "Bai et al., EJP 6 (2001), primary 60D05, present marginal planar maxima asymptotics and region decompositions.",
+        "Barbour and Xia, Adv. Appl. Probab. 33 (2001), title and abstract concern the number of two-dimensional maxima; full text was not inspected."
+      ],
+      "reasoning": "A general joint empirical process of records and quadrant occupancies could dominate the finite theorem if it gives cross moments at fixed thresholds. The inspected primary results concern the marginal maxima statistic, not this particular joint observable; incomplete access is not treated as proof of noncoverage.",
+      "searches": [
+        "Web: Pareto maxima skyline size negative covariance with number of observations in north-east threshold rectangle upper orthant binomial sample 2D uniform",
+        "Bai-Hwang-Liang-Tsai 2001 full text DOI 10.1214/EJP.v6-76",
+        "Bentley-Kung-Schkolnick-Thompson 1978 full text DOI 10.1145/322092.322095",
+        "Barbour-Xia 2001 DOI 10.1239/aap/1011994025 abstract"
+      ]
+    },
+    "checked_sources": [
+      "Bentley et al. (1978), full primary text, DOI 10.1145/322092.322095",
+      "Bai et al. (2001), full primary text, DOI 10.1214/EJP.v6-76",
+      "Barbour and Xia (2001), abstract and bibliography, DOI 10.1239/aap/1011994025",
+      "Published published-finding corpus semantic searches for geometric skyline and record/threshold-count aliases; nearest IDs documented in claim comparisons",
+      "Prior-week and current archive finding titles and recoverable claims, 58 and 93 entries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The EJP 2001 paper treats the distribution of maxima and spatial-block decomposition; the exact covariance here couples all Pareto maxima to a predetermined northeast occupancy count, a different variable.",
+        "The JACM 1978 paper treats the expected number of maxima under random coordinate orders, which fixes the marginal mean but does not determine a joint covariance.",
+        "published-finding corpus 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91 concerns three pairwise-independent observations and their ordering frequencies, not an iid sample skyline covariance."
+      ],
+      "reasoning": "Neither a marginal expected count nor a marginal CLT determines the cross moment; the exact conditional covariance and its nonzero limit require coupling the coordinate-rank permutation to joint threshold occupancy. Any uninspected joint record-process theorem remains a possible implication source, not falsely excluded.",
+      "searches": [
+        "published-finding corpus: Pareto maxima skyline size negative covariance with number of observations in north-east threshold rectangle upper orthant binomial sample 2D uniform",
+        "published-finding corpus: records in random permutation covariance intersection of first a positions with top b values record count",
+        "Full text Bai et al. 2001, sections on planar-region maximal counts and conditional spatial decompositions",
+        "Full text Bentley et al. 1978, maximal-vector expected-count recurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claimed expression is equivalently an iid upper-record sum correlated with exceedance counts in an initial segment, after sorting first coordinates.",
+        "published-finding corpus closest 2026/9/21/SCOPE-nonidentical-record-indicator-independence-counterexample--638a911adad4 treats nonidentically distributed record-indicator independence, not initial-segment threshold count covariance."
+      ],
+      "reasoning": "The order-by-first-coordinate permutation maps the geometric statement to a very precise record/threshold-count identity. Search for that alias found no covering identity; prior independence of individual record indicators does not imply covariance with a threshold-count intersection.",
+      "searches": [
+        "published-finding corpus: records in random permutation covariance intersection of first a positions with top b values record count",
+        "Web: records threshold exceedances covariance permutation top ranks",
+        "Web: covariance number of maxima quadrant points random"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Current available ledger includes 93 earlier entries and the prior-week archived ledger includes 58 readable finding entries; no title or recoverable claim matched Pareto/skyline or quadrant-corner covariance.",
+        "published-finding corpus near results 2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4 and 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac are about different sample statistics."
+      ],
+      "reasoning": "The evaluated claim is an exact full-n formula with a parameterized corner count, not a numerical census or a table cell. No exact covering database result was found in the checked records; search limitations are acknowledged.",
+      "searches": [
+        "published-finding corpus: number of maximal points versus count of points in upper right quadrant exact joint moment covariance",
+        "Web: Pareto maxima count in rectangle covariance",
+        "Own prior archived and current record IDs and recoverable titles/claims"
+      ]
+    },
+    "rationale": "The evaluated theorem is the exact covariance of planar Pareto-maxima count with a northeast-threshold occupancy count, its conditional sign, and universal exponential-limit constant. Bentley et al. derive mean maximal counts from relative rankings; Bai et al. analyze marginal planar-maxima limit laws. Their inspected available primary full texts do not imply the displayed mixed conditional covariance. Records and rank independence alone are prior tools; the new calculation is the nonzero interaction of two threshold filters. Historical risk from uninspected broad joint-process formulas is retained.",
+    "residual_risks": [
+      "Uninspected Barbour–Xia full text or classical multivariate record-process results may imply a joint covariance identity.",
+      "Independent historical priority/coverage assessment has not been performed.",
+      "Negative web and semantic search results cannot certify novelty; minor equivalent restatements may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for inspected claims: marginal mean and maxima-finding algorithm only; no conditional northeast count covariance",
+        "evidence": [
+          "Bentley et al. JACM 25(4) (1978), abstract, recurrence and applications."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/322092.322095",
+        "material_read": "Author-hosted full available article, abstract and main sections on expected numbers of maxima in random vectors, pages 536–543",
+        "method": "Read full scientific text and compare definitions and main statements to the mixed threshold covariance",
+        "title": "On the Average Number of Maxima in a Set of Vectors and Applications",
+        "trigger": "Foundational maxima-count recurrence under independent coordinate rankings"
+      },
+      {
+        "assessment": "NOT_COVERING for inspected results: marginal maximal-point distributions and normal/Poisson approximations, without the fixed threshold quadrant occupancy covariance",
+        "evidence": [
+          "Bai, Hwang, Liang and Tsai, EJP 6 (2001), paper 3, publication date January 22, 2001, primary MSC 60D05."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/EJP.v6-76",
+        "material_read": "Full publicly readable article text (41 pages), including abstract, definitions, moment expansions, asymptotic and conditional spatial decomposition sections",
+        "method": "Read available full extracted scholarly text; searched covariance, rectangle and conditional terms; checked source classification and public journal date",
+        "title": "Limit Theorems for the Number of Maxima in Random Samples from Planar Regions",
+        "trigger": "Archival primary-MSC 60D05 background for planar Pareto maxima"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; marginal two-dimensional maxima focus is documented but implicit coverage of the mixed covariance cannot be ruled out",
+        "evidence": [
+          "Barbour and Xia, Advances in Applied Probability 33 (2001), 727–750."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1011994025",
+        "material_read": "Abstract and bibliographic material only; complete article was not inspected",
+        "method": "Read accessible journal abstract and bibliographic citations; compared stated object and scope without inferring whole-document absence",
+        "title": "The Number of Two-Dimensional Maxima",
+        "trigger": "Directly relevant maxima-count limit theorem and potential dominating framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db827d47-108a-4b47-984e-a2b9ed74a92e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The overlap of two natural coordinate-threshold events has a nontrivial sign of covariance with total Pareto-frontier size even though each coordinate-threshold count, separately and jointly as a pair, is independent of the frontier size. Formula (1) classifies every sample size and all conditional exceedance counts, while the universal fixed-threshold limit -(1-p)(1-q) has a quantitative exponential error. The result is a motivated exact interaction statistic, not a marginal mean restatement or a small numerical gain.",
+    "status": "PASS"
+  }
+}
