@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "For all m,n>=3, diameter-two geodesic obstruction is exactly an induced P3. Exhaustive structural enumeration of legal third moves gives the counts n-2+2(m-1), m-2+2(n-1), and (m-2)(n-2)+2. Every third-move class has a uniquely determined terminal geometric family: complete row, complete column, maximum partial permutation, or 2x2 rectangle. This proves the exact rational type probabilities and within-family equiprobability. Elementary limits prove square-board 4/3 mean deficit and variance coefficient and fixed-width Bernoulli limit. A standalone distance-based exact Fraction state recursion exhausts all reachable states on six boards and agrees with the formulas; numerical checks are finite corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2306.09965v1 establishes lower GP scalar min{m,n,4} for m,n>=3 and exhibits maximal classes",
+        "arXiv:2603.06930v3 Theorem 5.3 already provides complete direct-product GP-set enumeration by row, column, partial matching and rectangle",
+        "arXiv:2401.05696v1 general-position polynomial enumerates sets without specifying a random sequential selection rule"
+      ],
+      "reasoning": "The 2026 enumeration and its set classification dominate any new claim to the static coefficient formula; no such novelty is asserted. Static counts do not state or immediately evaluate the uniform-legal-choice law, because the transition kernel weights paths through partial sets rather than terminal sets uniformly. The new branch-count and asymptotic theorem is strictly about this additional stochastic structure.",
+      "searches": [
+        "arXiv:2306.09965v1 Theorem 5.4 and direct product proof",
+        "arXiv:2401.05696v1 full sections 1–3",
+        "arXiv:2603.06930v3 Theorem 5.3 and remark 5.4",
+        "Scientific-record semantic query: general-position polynomial of direct product of two complete graphs K_m × K_n, co-rook graph, count GP subsets by size, independent union of cliques, four-corner rectangle and partial matchings",
+        "Scientific-record semantic query: maximal general-position subsets of categorical tensor product of complete graphs, all rows columns diagonals 2x2 rectangles, exact terminal count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.07425v1",
+      "arXiv:2205.03526v2",
+      "arXiv:2306.09965v1",
+      "arXiv:2401.05696v1",
+      "arXiv:2603.06930v3",
+      "arXiv:1906.00935v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The legal-move criterion in 2021 is for admissible choices, with alternating strategic players, not randomized draws",
+        "The known 2023 lower GP number specifies smallest maximal cardinality but not the probability of reaching it",
+        "2026 corrected enumerator counts admissible sets by cardinality; it does not specify conditional transition counts or limiting absorption law",
+        "At 3x3 there are nine rectangle maximal sets among 21 maximal sets, whereas uniform-legal-choice reaches the rectangle class with probability 11/15, not 9/21"
+      ],
+      "reasoning": "A maximal-set enumeration, even when complete, does not imply uniformly sampled maximal outcomes. Deriving the exact stochastic law requires classifying legal third moves and proving deterministic downstream type completion. The resulting rational probabilities and rare-event asymptotics are not a direct substitution into previously published counting polynomials. The result does not claim that known feasible-set descriptions are new.",
+      "searches": [
+        "arXiv:2111.07425v1 Lemma 2.1 and Sections 3–4",
+        "arXiv:2205.03526v2 Introduction and game methods",
+        "arXiv:2306.09965v1 Theorem 5.4",
+        "arXiv:2603.06930v3 Theorem 5.3 and Remark 5.4",
+        "Scientific-record semantic query: randomized general position achievement game unbiased choices, terminal size distribution on co-rook graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2111.07425v1 defines the playable-vertex set and adversarial game; studies Cartesian and lexicographic products",
+        "arXiv:2205.03526v2 studies winning strategies and PSPACE complexity, not uniform random play"
+      ],
+      "reasoning": "Uniform choice among currently addable GP vertices is an explicit stochastic variant of the achievement/avoidance game. None of the inspected games defines the same random transition kernel on direct products, and the search returned no theorem with its four terminal probabilities. Fixed-priority random greedy is NOT claimed equivalent to uniform-legal-choice sampling.",
+      "searches": [
+        "Scientific-record semantic query: random greedy general-position process complete-graph tensor direct product K_m × K_n, exact probability terminal maximal rectangle row column matching",
+        "Scientific-record semantic query: randomized general position achievement game unbiased choices, terminal size distribution on co-rook graph",
+        "Web: \"random greedy\" \"general position\" \"graphs\" maximal sets",
+        "Web: \"general position\" \"random\" \"greedy\" \"direct product\"",
+        "arXiv:2111.07425v1 sections 1–4",
+        "arXiv:2205.03526v2 introduction and game discussion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2603.06930v3 Theorem 5.3 gives labeled counts of feasible GP subsets, not transition-weighted absorption probabilities.",
+        "arXiv:2111.07425v1 Lemma 2.1 identifies legal extensions, but the inspected game results provide no exact random terminal distribution."
+      ],
+      "reasoning": "No database table or indexed result found listing the four terminal-type probabilities or limits. The existing static direct-product polynomial is explicitly credited, not counted as a new table. Missing an exact database hit is evidence of search coverage only, not a proof of uniqueness.",
+      "searches": [
+        "Scientific-record semantic query: random greedy inclusion-maximal geodesic-free sets in graphs expected final size, exact stopping distribution",
+        "Scientific-record semantic query: random greedy general-position process complete-graph tensor direct product K_m × K_n, exact probability terminal maximal rectangle row column matching",
+        "Web: \"general position\" \"random\" \"greedy\" \"direct product\""
+      ]
+    },
+    "rationale": "The exact absorption distribution for uniform choice among legal general-position additions is a stochastic theorem about transition probabilities and stopping sizes, not the previously published static general-position polynomial or known lower/upper cardinality. Compared closely to the 2021 and 2022–23 adversarial games, the 2023 lower-bound paper, the 2024 polynomial definition, the complete 2026 polynomial and relevant published mathematical literature. No covering stochastic result found, but terminology and indexing risk remain.",
+    "residual_risks": [
+      "The legal-choice stochastic process may appear under alternate terminology outside searched sources; no claim of exhaustive prior uniqueness.",
+      "The 2026 set-classification theorem supplies the prerequisite terminal families; their classification and polynomial are not original here.",
+      "Uniform choice among legal additions and a fixed random vertex order have different laws; no result is asserted for the latter."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes legal moves in an adversarial game but not uniform random next-move selection on the direct product",
+        "evidence": [
+          "PDF pp. 1–4; Lemma 2.1; description of Cartesian and lexicographic product game sections"
+        ],
+        "identifier_or_url": "arXiv:2111.07425v1, https://arxiv.org/pdf/2111.07425",
+        "material_read": "PDF title and abstract, introduction, legal-vertex Lemma 2.1, game methods and described product applications",
+        "method": "Primary arXiv PDF inspected at substantive passages and page image",
+        "title": "The general position achievement game played on graphs",
+        "trigger": "The original playable-vertex game definition and nearest stochastic analogue"
+      },
+      {
+        "assessment": "Adversarial optimal play and complexity; no uniform random terminal law identified in examined relevant text",
+        "evidence": [
+          "PDF introduction pp. 1–4; hardness and product results stated in abstract"
+        ],
+        "identifier_or_url": "arXiv:2205.03526v2, https://arxiv.org/pdf/2205.03526",
+        "material_read": "PDF title and abstract and introduction/preliminary game definitions and stated main theorems",
+        "method": "Open-access arXiv full-text passages, not a whole-document negative claim",
+        "title": "The general position avoidance game and hardness of general position games",
+        "trigger": "Could extend the same game to probabilistic play"
+      },
+      {
+        "assessment": "Determines lower GP cardinality and demonstrates maximal-set types; does not calculate random sequential probabilities",
+        "evidence": [
+          "Theorem 5.4, PDF pp. 13–14"
+        ],
+        "identifier_or_url": "arXiv:2306.09965v1, https://arxiv.org/pdf/2306.09965",
+        "material_read": "Section 5 complete direct-product Theorem 5.4 and proof including its four-corner and clique discussion",
+        "method": "Open-access arXiv full-text plus page images pp. 12–14",
+        "title": "Lower General Position Sets in Graphs",
+        "trigger": "Same product and terminal maximal-set cardinalities"
+      },
+      {
+        "assessment": "Defines static general-position polynomial and treats Cartesian rather than direct product; no random selection",
+        "evidence": [
+          "Definition 1.1, Proposition 2.2, Section 3"
+        ],
+        "identifier_or_url": "arXiv:2401.05696v1, https://arxiv.org/pdf/2401.05696",
+        "material_read": "Definition 1.1 and sections 2–3 on enumeration, Cartesian graph products and inclusion–exclusion",
+        "method": "Open-access PDF text and page images",
+        "title": "General Position Polynomials",
+        "trigger": "All-subset enumerator could dominate purported new formula"
+      },
+      {
+        "assessment": "Explicitly covers the static direct-product polynomial, which is excluded from the new claim; does not evaluate random legal-move absorption distribution",
+        "evidence": [
+          "Theorem 5.3 and Remark 5.4, PDF pp. 20–22"
+        ],
+        "identifier_or_url": "arXiv:2603.06930v3, https://arxiv.org/pdf/2603.06930",
+        "material_read": "Introduction and Theorem 5.3 proof on pp. 20–22, rectangle and matching enumeration, subsequent stated corollaries",
+        "method": "Open-access arXiv primary PDF text and p.21 screenshot",
+        "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+        "trigger": "Direct product corrected polynomial and exact family classification are strongly relevant prior coverage"
+      },
+      {
+        "assessment": "Scalar extremal results only; no random greedy law; boundary cases checked independently for present proof",
+        "evidence": [
+          "Proposition 3.3, PDF pp. 4–5"
+        ],
+        "identifier_or_url": "arXiv:1906.00935v1, https://arxiv.org/pdf/1906.00935",
+        "material_read": "Preliminaries and Proposition 3.3 on graph direct products",
+        "method": "Open-access arXiv primary PDF text",
+        "title": "The general position problem and strong resolving graphs",
+        "trigger": "Prior direct-product general-position extremal result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb93e8be-87cb-43db-bdbc-e0d584ccca09",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact terminal law for a natural non-adversarial variant of the established general-position game, in every complete-graph direct product with m,n>=3, is a motivated distributional invariant not supplied by static GP-set counts. The contrast between almost-sure maximum-size completion on balanced growing boards and a constant expected deficit/linear variance, versus a Bernoulli proportional-size limit for fixed width, makes the precise random transition law consequential. Type-level probabilities and exact finite distributions for every board are nontrivial structural information, not known-polynomial recomputation.",
+    "status": "PASS"
+  }
+}
