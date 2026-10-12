@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For d>=5, every error of dimensional weight at most 4 is supported on the two qubits. Products of any two such errors remain on those qubits and therefore have dimensional weight at most 4<5, so the distance-5 Knill-Laflamme condition corrects the whole two-qubit operator algebra. The full two-qubit error basis has 4^2=16 elements; non-degeneracy therefore gives 16K<=4d and K<=floor(d/4). The proof is analytic for all d>=5.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ball--Zhang, arXiv:2510.17231v2, gives the broader known-support correction principle.",
+        "González-Lociga--Ball, arXiv:2604.25790v2, gives the later multiset Hamming theorem but counts only 7 sectors in the worked example."
+      ],
+      "reasoning": "Broader literature covers the general correction principle but not the inconsistency introduced by the later paper's use of T^2<D as a maximum in this architecture.",
+      "searches": [
+        "two qubits one qudit D=5 nondegenerate Hamming bound d/4",
+        "Mixed-dimensional quantum MacWilliams Hamming correction threshold two qubits qudit",
+        "dimensional minimum distance two qubits qudit Hamming bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.25790v2",
+      "DOI:10.1103/fyq2-mpmm",
+      "arXiv:2510.17231v2",
+      "DOI:10.1103/yqck-92fb",
+      "Published mathematical-research index searches listed in the originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The predecessor theorem implies that a fixed support of physical dimension 4 is correctable when D=5.",
+        "The later source's Example 22 instead labels T=2 as maximum and uses a 7-sector count; Example 25 relies on the resulting 4d/7 ceiling."
+      ],
+      "reasoning": "The mathematical premise is prior art, but the source-specific contradiction and corrected implication are not contained in the prior source because they concern a later worked example. The final claim is explicitly limited to that correction.",
+      "searches": [
+        "2604.25790 T^2 D=5 qubits qudit correction",
+        "dimensional weight correction radius support union",
+        "known support dimensional distance quantum code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.25790v2, Sec. II and Sec. V.2: the source states T^2<D as a sufficient criterion and Example 22 calls T=2 the maximum for N={2,2,d}, D=5.",
+        "arXiv:2510.17231v2, Theorem 3 proof: errors on a known support of physical dimension below D can be corrected."
+      ],
+      "reasoning": "The closest equivalent formulation is known-support erasure correction. It establishes the support-closure premise but does not state the later source-specific correction, the 16-sector Hamming count, or the collapse of the worked Hamming-versus-pure-Singleton gap.",
+      "searches": [
+        "arXiv:2604.25790 mixed dimensional quantum Hamming bound T squared D two qubits qudit",
+        "mixed-dimensional quantum code dimensional weight correction radius T^2 D support union",
+        "dimensional weight quantum error correction support union exact correctable threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed finding returned a source-specific correction of arXiv:2604.25790.",
+        "The closest indexed records concerned unrelated quantum-code or Hamming-type problems and did not imply the claimed correction."
+      ],
+      "reasoning": "No exact indexed record or table was found that already gives the 16-error count or K<=floor(d/4) correction for this source.",
+      "searches": [
+        "arXiv:2604.25790 mixed dimensional quantum Hamming bound T squared D two qubits qudit",
+        "mixed-dimensional quantum code dimensional weight correction radius T^2 D support union",
+        "two qubits one qudit D=5 nondegenerate Hamming bound d/4",
+        "dimensional weight quantum error correction support union exact correctable threshold"
+      ]
+    },
+    "rationale": "Originality is claimed only for the source-specific correction and its consequence for the worked Hamming/Singleton comparison, not for the standard Knill-Laflamme theorem or known-support erasure correction.",
+    "residual_risks": [
+      "A source-specific correction could exist in an unindexed discussion or post-publication correspondence.",
+      "The finding does not establish existence of a code saturating the corrected bound.",
+      "The correction is example-specific; no claim is made that T^2<D can always be replaced by T<D or by a universal sharper scalar rule."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source explicitly makes T^2<D a sufficient guarantee but then treats T=2 as the maximum threshold for {2,2,d}, D=5, counts only 7 error sectors, and later uses K<=floor(4d/7) in its impurity comparison.",
+        "evidence": "arXiv:2604.25790v2, Sec. II and Sec. V.2-V.3.",
+        "identifier_or_url": "arXiv:2604.25790v2",
+        "material_read": "Current v2 full text, especially Sec. II definitions and correction criterion, Theorem 21, Example 22, Corollary 24, and Example 25.",
+        "method": "Full-text HTML inspection.",
+        "title": "Mixed-dimensional quantum MacWilliams identity: Bounds for codes and absolutely maximally entangled states in heterogeneous systems",
+        "trigger": "Exact source underlying the candidate correction."
+      },
+      {
+        "assessment": "This prior work supports the support-aware premise but does not contain the later paper's worked Hamming example or its correction.",
+        "evidence": "Theorem 3 proof, PDF page 7.",
+        "identifier_or_url": "arXiv:2510.17231v2 / DOI:10.1103/yqck-92fb",
+        "material_read": "Full-text PDF around Theorem 3 and its proof, including the statement that a known support of dimensional weight below D is correctable.",
+        "method": "PDF text and page inspection.",
+        "title": "Error-correcting codes and absolutely maximally entangled states for mixed-dimensional Hilbert spaces",
+        "trigger": "Foundational mixed-dimensional distance result cited by the source and directly relevant to support-aware correction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ed4e4084-e815-4e6d-9f29-2a2f50adb589",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The correction more than doubles the counted non-degenerate error sectors in the highlighted {2,2,d}, D=5 example (7 to 16), strengthens K<=floor(4d/7) to K<=floor(d/4), and removes the strict numerical gap used to infer forced impurity for a hypothetical Hamming-bound saturator. It directly changes the interpretation of the paper's mixed-dimensional Hamming example.",
+    "status": "PASS"
+  }
+}
