@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact projector recursion gives t=1,t=2 eigenvalue formulas and Perron asymptotic; all parameters follow from invertible integer A by rational Gram computations. Direct rational 3x3 operator checker verifies idempotence, composition, expectation traces/determinants, exact square-root bounds. Smallest dimension and open perturbation result proved independently of finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agaskar--Wang--Lu (2014), Proposition 1 supplies exact moment-operator formula for any fixed randomized Kaczmarz design, and section 3 optimizes sampling probabilities",
+        "Sun et al. Section 3.2 chooses fixed blocks using rate upper bounds or row-ID surrogates",
+        "RESULT.md proves, rather than assumes, strict two-horizon row-choice reversal and dimension minimality"
+      ],
+      "reasoning": "General exact MSE moment identities can specialize to every matrix and horizon; neither existence of a best-hard-row reversal nor minimal dimension/open stability follows without a constructed witness and comparison. No novelty claimed for general MSE formula, sampling probabilities or the SCRK method.",
+      "searches": [
+        "Agaskar Wang Lu Randomized Kaczmarz algorithms Exact MSE analysis and optimal sampling probabilities full text sections 2.2 and 3",
+        "arxiv:2605.29304v1 Section 3.2 Selection strategies for I_p",
+        "published-finding corpus: exact finite time mean squared contraction Kaczmarz with two projected rows formula p squared pq cos squared choose fixed hard row horizons"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.29304v1 (original HTML)",
+      "arxiv:2309.04889v2 (full primary PDF relevant passages)",
+      "Agaskar--Wang--Lu (2014) primary six-page OA PDF",
+      "published-finding corpus published semantic index: four substantive queries",
+      "Web: constrained Kaczmarz hard-row finite-horizon selection searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. prescribe a hard-block selection rate/surrogate and per-step inequality, without comparing exact t=1 and t=2 worst-case selectors",
+        "Lok--Rebrova derive SCRK dynamics and a geometric expectation bound; they do not classify short-horizon discrete hard-row choices",
+        "Agaskar et al. provide general exact expected-error operators, not an existence proof that the argmin over constrained hard-row choices reverses",
+        "The proof includes an explicit integer matrix with certified strict inequalities and an open-neighborhood consequence"
+      ],
+      "reasoning": "Our result does not strengthen universal operator theory and does not claim new projectors. It isolates an unresolved behavioral question for choosing which equation is enforced throughout a run. The old operator formalism enables checking a proposed example but does not logically exhibit the new strict reversal without further construction.",
+      "searches": [
+        "arxiv:2605.29304v1 Remark 3.1, Theorem 3.2, Remark 3.3, Section 3.2",
+        "arxiv:2309.04889v2 Algorithm 1, Theorem 1.1, section 3.3.2",
+        "Agaskar Wang Lu (2014), exact MSE Proposition 1 and optimized probability section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lok--Rebrova arxiv:2309.04889v2, Algorithm 1 and Theorem 1.1: projected-row probabilities and one-factor estimate",
+        "Sun--Qi--Han--Xie arxiv:2605.29304v1, Remark 3.1 and Section 3.2: convergence-bound/subspace-selection surrogates",
+        "The explicit matrix determinant 17 and strict disjoint algebraic intervals in RESULT.md"
+      ],
+      "reasoning": "Searched hard-row constrained RK, subspace-constrained projection, short-horizon minimax, and projected-norm sampling terminology. The algorithm and rate bound are known; the inspected works do not state an exact reversal of the optimum hard row from one to two updates. Equivalent prior result may be unindexed.",
+      "searches": [
+        "published-finding corpus: two-step finite horizon reversal optimal fixed constraint row selection in subspace constrained randomized Kaczmarz three by three integer matrix worst case expected squared error",
+        "Web: \"hard row\" \"randomized Kaczmarz\" \"finite horizon\" \"selection\"",
+        "arxiv:2309.04889v2, section 3.3",
+        "arxiv:2605.29304v1, section 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest: 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f concerns maximal-distance residual norm spikes, not fixed hard-row selection",
+        "published-finding corpus nearest: 2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881 concerns underrelaxed cyclic bias, not horizon-optimal hard constraints",
+        "No located published table contains the integer Gram matrix or reversal ordering"
+      ],
+      "reasoning": "A negative lookup is not proof of novelty; exact matrix and strict priority orderings were checked against published results and full relevant primary text. Residual risk of equivalent unindexed tables remains.",
+      "searches": [
+        "published-finding corpus: two-step finite horizon reversal optimal fixed constraint row selection in subspace constrained randomized Kaczmarz three by three integer matrix worst case expected squared error",
+        "published-finding corpus: three row randomized Kaczmarz optimal row preconditioning finite time stochastic contraction orthogonal projections",
+        "Web: \"subspace-constrained\" \"Kaczmarz\" \"finite-time\" \"optimal\" row",
+        "Web: \"Kaczmarz\" \"fixed row\" \"two iterations\" optimal"
+      ]
+    },
+    "rationale": "The explicit strict horizon-dependent ordering of hard-row minimax policies and its minimal dimension/open stability is not asserted in the inspected SCRK selection papers or general exact MSE article. Algorithm, projection identities, MSE operator formulas and optimization over probabilities are fully credited as prior. Residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "The Agaskar--Wang--Lu general moment operator already entails all per-design exact moment identities once the integer witness is supplied; only the strict new policy-order reversal and its minimal/open character are claimed new.",
+      "An equivalent hard-row reversal under alternative preconditioning terminology or an unindexed example may exist.",
+      "published-finding corpus search covers its published index, not unpublished findings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact two-step hard-row selection reversal; rate bounds and practical ID selection are known",
+        "evidence": [
+          "Remark 3.1: sampling projected norm squared",
+          "Section 3.2: choose hard set to optimize spectral convergence factor with surrogate row-ID rules",
+          "2020 MSC 65F10 listed; original submitted 2026-05-28"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.29304",
+        "material_read": "Full HTML relevant Section 3 Remark 3.1, Theorem 3.2, Remark 3.3, Section 3.2 on selection, introductory contributions and source MSC",
+        "method": "Read primary author full-text HTML including selection criteria, not merely abstract",
+        "title": "On subspace-constrained preconditioning for randomized iterative methods",
+        "trigger": "2026 motivating new constrained-selection study; same method and fixed-subsystem choice"
+      },
+      {
+        "assessment": "NOT_COVERING strict short-horizon optimum hard-row reversal; original method and projected sampling credited",
+        "evidence": [
+          "Algorithm 1 gives SCRK and projected norm sampling",
+          "Theorem 1.1 gives convergence bound",
+          "Section 3.3.2 samples rows to capture low-rank structure rather than proving horizon reversal"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.04889",
+        "material_read": "Original main theorem and Algorithm 1 PDF page 3, main introduction, Section 3.3.2 PDF page 16, relevant searches for selection and rate",
+        "method": "Opened primary full 35-page arXiv PDF, inspected page images and parsed sections relevant to this comparison",
+        "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+        "trigger": "Origin of exact projected-row SCRK dynamics and candidate dominating theoretical coverage"
+      },
+      {
+        "assessment": "GENERAL_OPERATOR_COVERAGE: exact per-design moment computations are covered, but no exhibited hard-row choice reversal, minimal-dimension witness, or open persistence",
+        "evidence": [
+          "Proposition 1 computes MSE for arbitrary independent row choices",
+          "Section 3 optimizes row-sampling probabilities for one fixed solver",
+          "No discrete hard-constraint-row horizon-reversal result in inspected text"
+        ],
+        "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+        "material_read": "Full primary six-page PDF; page images 3 and 5; Proposition 1, section 2.2 exact operator, section 3 probabilities and rate",
+        "method": "Read primary lawful open-access PDF via text and image pages, mathematical implication comparison",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Potential stronger known exact finite-time MSE formula dominating candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f012d48b-cef2-4a73-9ce4-a98d23c4a683",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Choosing a fixed preconditioned subsystem is an ex-ante algorithmic decision; exact finite-step minimax optimum can reverse after only one additional iteration and differ from long-time rate choice. The invertible integer witness, dimension minimality and open persistence show a reproducible non-isolated selection tradeoff, not an arbitrary invariant or tiny numerical improvement.",
+    "status": "PASS"
+  }
+}
