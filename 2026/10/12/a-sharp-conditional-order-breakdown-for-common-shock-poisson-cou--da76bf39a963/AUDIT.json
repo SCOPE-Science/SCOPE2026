@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(n\\geq2\\) and real \\(a,b>0\\), Poisson log-concavity makes each latent pair factor TP2; products and the verified MTP2 marginalization theorem yield the joint MTP2 claim. The bivariate conditional-on-pair-sum mass g(x,s) has a coefficient representation whose adjacent TP2 determinant is a nonnegative sum of two log-concavity differences, proving LR monotonicity for all totals. At full totals n-1 and n, exact Poisson splitting reduces Q to a binomial law and a two-state mixture, giving the if-and-only-if tail transition. In \\(n=3\\) the exact four-atom probability vectors yield LR iff \\(b\\leq2a^3\\) and ST iff \\(b\\leq6a^3\\). Standalone exact-rational checks passed 28+90 threshold cases, 676 TP2 minors, and 104328 MTP2 inequalities; these finite diagnostics are not substituted for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fallat et al., arXiv:1510.01290v2, Section 3 Proposition 3.4(ii), prove closure of MTP2 under marginalization, not conditional ordering under an aggregate sum.",
+        "Pellerey & Navarro, DOI 10.1007/s11749-021-00789-5, Proposition 3.1, assumes that (X_i, sum of the other coordinates) itself is logconcave TP2; the present counterexample shows full-vector MTP2 does not imply their sufficient premise."
+      ],
+      "reasoning": "The general MTP2 theorem proves a positive dependence property only, which is a premise, not the claimed negative conditional-order obstruction. Independent-logconcave Efron/Lehmann monotonicity is inapplicable because the X_i share Z. The prior multivariate sufficient condition does not dominate the present statement.",
+      "searches": [
+        "\"MTP2\" \"conditional on their sum\" stochastically increasing counterexample",
+        "\"MTP2\" \"conditioning on the sum\" \"monotonicity\" dependent",
+        "MTP2 random vector positive associated but conditional distribution of a coordinate given full sum not ordered Efron stochastic monotonicity counterexample"
+      ]
+    },
+    "checked_sources": [
+      "Pellerey and Navarro, TEST, first online 2021-10-11, DOI 10.1007/s11749-021-00789-5",
+      "Schulz, Genest and Mesfioui, International Statistical Review 89 (2021), DOI 10.1111/insr.12408",
+      "Fallat et al., Total positivity in Markov structures, arXiv:1510.01290v2, Section 3",
+      "Ellis and Sijtsma, Psychometrika 88 (2023), DOI 10.1007/s11336-023-09905-w"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pellerey & Navarro, Section 1 Example 1.1, present a different finite-support independent counterexample, not the same positively associated Poisson family.",
+        "Ellis & Sijtsma, DOI 10.1007/s11336-023-09905-w, Definition 7, analyze manifest monotonicity given the rest score omitting the target coordinate, unlike conditioning on the full sum.",
+        "Pellerey & Navarro, Section 3 Proposition 3.1, supply a sufficient theorem with conditions on (X_i, S-X_i), not an MTP2-to-Efron implication.",
+        "Schulz et al., Section 2.4, supply construction of the common-shock probability model; Fallat et al., Proposition 3.4, supply preservation of MTP2."
+      ],
+      "reasoning": "Knowing the model formula and the MTP2 closure theorem does not by itself settle the conditional-on-total order: the new comparison explicitly computes mass transfer when the latent shock first becomes possible at total n. The sharp local LR and ST cutoffs are not corollaries of a stronger monotonicity theorem in the inspected literature.",
+      "searches": [
+        "dependent Poisson common shock X_i=Y_i+Z conditioning on total sum stochastic monotonicity fails at dimension three n=3 threshold b>6a^3",
+        "\"common shock\" \"Efron's\" conditional sum",
+        "\"Poisson\" \"conditional\" \"sum\" \"stochastic order\" \"common shock\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pellerey & Navarro, DOI 10.1007/s11749-021-00789-5, Sections 2–4 treat stochastic/LR monotonicity conditional on sums but use distinct sufficient assumptions and different examples.",
+        "Schulz, Genest & Mesfioui, DOI 10.1111/insr.12408, Section 2.4 Eq. 6 identifies the identical latent Poisson-shock model."
+      ],
+      "reasoning": "Reparameterizing the model by the marginal intensity a+b and shock share b/(a+b) does not remove the conditional-order thresholds; the literature giving the model distribution does not state that changing the full sum from two to three can reverse an upper tail while every pair-sum conditional law is LR ordered.",
+      "searches": [
+        "\"common shock\" \"Efron's\" conditional sum",
+        "\"trivariate Poisson\" \"conditional sum\" \"order\"",
+        "Poisson shared-shock additive frailty conditional total sum likelihood-ratio order broken at n=3 though every pair conditioned on its two-variable sum is monotone"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Schulz et al., DOI 10.1111/insr.12408, Eq. 6 is a joint probability mass function, not an identified finite table of conditional-order boundaries.",
+        "Exact parameter identities \\(b=2a^3\\) and \\(b=6a^3\\) arise from direct conditional three-coordinate probability vectors and are not listed in the inspected primary sources."
+      ],
+      "reasoning": "No retrieved table or source gives these particular conditional tail/LR comparisons. A failed search alone would not establish priority, so the assessment relies on substantive comparisons with the inspected source results.",
+      "searches": [
+        "\"common Poisson\" \"conditioned on the total\" \"nonmonotone\"",
+        "\"common shock\" \"stochastic monotonicity\" Poisson counting",
+        "\"bivariate Poisson\" \"conditioned on sum\" \"stochastic monotonicity\""
+      ]
+    },
+    "rationale": "The inspected Pellerey–Navarro (2021) result gives conditional-order hypotheses via a logconcave TP2 distribution of (X_i, sum of the OTHER coordinates), not via MTP2 of the full vector. It neither reports this shared-Poisson MTP2 conditional-order failure nor the thresholds \\(b=2a^3\\) and \\(b=6a^3\\). Schulz–Genest–Mesfioui (2021) provide the classical common-shock model formula, not the new ordering claims. Ellis and Sijtsma (2023) analyze monotonicity given the rest score, which excludes the tested coordinate, a different conditioning statistic. Fallat et al. give the MTP2 closure principle used as known theory. Targeted semantic and bibliographic searches did not identify an implication covering the complete claim; a historically equivalent formulation remains possible.",
+    "residual_risks": [
+      "Earlier equivalent observations in multivariate Poisson actuarial or reliability terminology may have escaped the search; no independent exhaustive priority certification.",
+      "The general problem of conditional total ordering at all pairs of sums is deliberately not resolved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the sharp Poisson shock conditional-order counterexample or local cutoffs",
+        "evidence": "Proposition 3.1 requires the particular bivariate (X_i,S-X_i) to be logconcave and TP2; examples include Gaussian and Schur-constant models. The article does not present \\(b=2a^3\\) or \\(b=6a^3\\) thresholds.",
+        "identifier_or_url": "https://doi.org/10.1007/s11749-021-00789-5",
+        "material_read": "Open-access full HTML article: Introduction, examples in Section 1, Propositions 2.4–2.5, Section 3 including Proposition 3.1 and its model examples, conclusions and bibliography",
+        "method": "Read primary full-text HTML and compare assumptions and proved implications",
+        "title": "Stochastic monotonicity of dependent variables given their sum",
+        "trigger": "Exact motivating dependent conditional-on-sum problem and possible positive/general theorem coverage"
+      },
+      {
+        "assessment": "MODEL_PRIOR_ONLY: classical shared-shock Poisson joint PMF known, conditional-order inequalities and thresholds not supplied",
+        "evidence": "Section 2.4 Eq. 6: X_i=Y_i+Z with independent Poisson counts. The article studies alternative dependence modeling and parameter inference.",
+        "identifier_or_url": "https://doi.org/10.1111/insr.12408",
+        "material_read": "Primary full-text HTML sections 2.2–2.4 (model, covariances, Eq. 6) and Section 3 (model fitting/estimation)",
+        "method": "Read full-text HTML of relevant scientific sections and compare quantities analyzed",
+        "title": "A multivariate Poisson model based on comonotonic shocks",
+        "trigger": "Exact same common-shock Poisson construction appears in the classical comparison model"
+      },
+      {
+        "assessment": "BACKGROUND_LEMMA: MTP2 is preserved by marginalization; no conditional-on-total Poisson thresholds",
+        "evidence": "Proposition 3.4(ii) explicitly proves the required MTP2 closure under marginalization.",
+        "identifier_or_url": "https://arxiv.org/html/1510.01290v2",
+        "material_read": "Full-text arXiv HTML Section 1 definitions and Section 3 including Proposition 3.4(ii)",
+        "method": "Read technical statement and hypotheses in primary author text",
+        "title": "Total positivity in Markov structures",
+        "trigger": "Check exact MTP2 marginalization step and possible coverage of conditional-sum ordering"
+      },
+      {
+        "assessment": "NOT_COVERING: conditional on the sum of the other coordinates, rather than the full total including the target coordinate",
+        "evidence": "Appendix A Definition 7 explicitly conditions on a rest score omitting the tested coordinate. The work emphasizes binary item models, not sharp Poisson full-total tail thresholds.",
+        "identifier_or_url": "https://doi.org/10.1007/s11336-023-09905-w",
+        "material_read": "Primary full-text HTML introduction on MTP2 versus manifest monotonicity and Appendix A Definitions 4–7, Proposition A1; relevant Appendix B discussion of rest scores",
+        "method": "Read actual mathematical definitions, hypotheses, and implication comparisons",
+        "title": "A Test to Distinguish Monotone Homogeneity from Monotone Multifactor Models",
+        "trigger": "Possible broader MTP2/manifest-monotonicity result for sums of responses"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da76bf39-a963-46b6-ba6e-d7b685ad5c97",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies the precise failure of Efron-style monotonicity under observation of a full aggregate in a standard, genuinely positively dependent count model. The contrast is structural: the joint vector is MTP2, and every pair remains LR ordered conditional on its pair sum, yet an additional coordinate permits a reverse upper tail. The sharp first-dimension LR/ST gap and explicit general-dimensional threshold directly answer a motivated boundary question left by prior conditional-sum monotonicity investigations. It is not a routine restatement of the known common-shock mass formula or the standard MTP2 closure theorem.",
+    "status": "PASS"
+  }
+}
