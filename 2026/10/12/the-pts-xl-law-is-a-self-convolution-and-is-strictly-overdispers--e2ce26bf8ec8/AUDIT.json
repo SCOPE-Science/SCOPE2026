@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Conditional Poisson additivity proves that mixing by Y1+Y2 is distributionally identical to summing independent Poisson mixtures by Y1 and Y2. Each component is exactly PXL. Direct integration gives the PXL PGF, whose square equals the source's PTS-XL PGF. The mixed-Poisson variance decomposition gives strict overdispersion because the mixing variable is nondegenerate. The source DI formula independently reduces to one plus a strictly positive rational function. The packaged checker verifies the PGF, PMF convolution, factorization, and asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General mixed-Poisson theory supplies the variance decomposition and hence the strict-overdispersion ingredient.",
+        "The 2022 PXL article supplies the one-summand count law.",
+        "A related Poisson two-sum Lindley literature exists, but the checked target and PXL sources do not state the PTS-XL/PXL convolution identity."
+      ],
+      "reasoning": "Known general theory implies pieces of the result but not the source-specific distributional equivalence, exact inherited dispersion index, and correction of the finite-parameter equidispersion claim.",
+      "searches": [
+        "mixed Poisson sum of independent mixing variables convolution counts",
+        "PTS-XL strict overdispersion equidispersion mixed Poisson",
+        "Poisson two-sum XLindley self-convolution Poisson XLindley"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261122",
+      "doi:10.1155/2022/6503670",
+      "doi:10.1111/j.1751-5823.2005.tb00250.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published-result hits concern Poisson-binomial cumulants, Gamma sums, rare Bernoulli limits, and Gamma approximation rather than PTS-XL.",
+        "The 2022 PXL article covers the one-summand count law but not the later two-sum construction.",
+        "General mixed-Poisson variance theory does not imply the model-specific PGF-square identification without the source's XLindley-sum structure."
+      ],
+      "reasoning": "No checked published statement implies the target model's exact self-convolution, identical PXL/PTS Fano factor, or exclusion of finite-parameter equidispersion.",
+      "searches": [
+        "PTS-XL strict overdispersion equidispersion mixed Poisson",
+        "Poisson two-sum XLindley self-convolution Poisson XLindley",
+        "two-sum XLindley Poisson distribution convolution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source defines its mixing rate as a sum of two iid XLindley variables.",
+        "The primary source's PTS-XL PGF is an exact algebraic square.",
+        "The earlier PXL model is the Poisson mixture with one XLindley rate.",
+        "No located published-result record stated PTS-XL equals the sum of two iid PXL counts."
+      ],
+      "reasoning": "Self-convolution, sum of iid PXL counts, square PGF, and Poisson-additivity formulations are equivalent descriptions of the accepted structural identity and were searched under those aliases.",
+      "searches": [
+        "Poisson two-sum XLindley self-convolution Poisson XLindley",
+        "Poisson XLindley convolution square pgf",
+        "two-sum XLindley Poisson distribution convolution",
+        "10.3934/math.20261122 equidispersed overdispersed"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Equation (3.14) gives the dispersion index used in the proof.",
+        "Equation (3.15) gives a perfect-square PGF.",
+        "Table 1 reports DI values strictly above one, including 1.0100 at theta=100.",
+        "The text following Table 1 and the conclusion nevertheless describe the model as accommodating equidispersion."
+      ],
+      "reasoning": "The exact formulas prove strict overdispersion for every finite parameter; the numerical table is consistent with approaching one only in the large-parameter boundary.",
+      "searches": [
+        "10.3934/math.20261122 dispersion index equidispersion",
+        "10.3934/math.20261122 PGF square PXL",
+        "10.3934/math.20261122 Table 1 DI theta 100"
+      ]
+    },
+    "rationale": "The source contains both ingredients—the iid two-sum mixing construction and a perfect-square PGF—but does not identify PTS-XL as the two-fold convolution of PXL or draw the exact dispersion consequences. The 2022 PXL paper covers the component distribution, and general mixed-Poisson theory covers strict overdispersion, but neither checked source states the combined PTS-XL self-convolution and inherited-Fano-factor result. Six source-specific published-result searches and exact source/alias searches found no covering statement.",
+    "residual_risks": [
+      "A recent unindexed note may have observed the same self-convolution.",
+      "Some authors use 'equidispersed' informally for a Fano factor numerically close to one rather than exactly one.",
+      "The structural identity does not by itself compare fitted performance after separate parameter optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY IMPLICIT BUT NOT COVERING. The source provides the iid-sum mixing construction and a perfect-square PGF but does not identify the PTS-XL law as the self-convolution of PXL, and it labels a strictly overdispersed finite-parameter family as capable of equidispersion.",
+        "evidence": "Equations (2.1), (2.3)–(2.9), (3.6), (3.11), (3.14), (3.15), Table 1, and the conclusion.",
+        "identifier_or_url": "doi:10.3934/math.20261122",
+        "material_read": "Open full publisher PDF at the XLindley density and two-sum definition, PTS-XL PMF, raw moments and variance, dispersion index and Table 1, PGF, and conclusion.",
+        "method": "Direct parsed-text and rendered-page inspection of the publisher PDF.",
+        "title": "The Poisson two-sum XLindley distribution: Statistical properties, estimation, regression modeling, and applications",
+        "trigger": "Primary source defining PTS-XL and claiming both additional variability and equidispersion capability."
+      },
+      {
+        "assessment": "COVERS THE COMPONENT LAW, NOT THE TARGET IDENTITY. It does not discuss the later PTS-XL construction.",
+        "evidence": "The PXL model is defined by a Poisson rate having the XLindley distribution.",
+        "identifier_or_url": "doi:10.1155/2022/6503670",
+        "material_read": "Open full text at the PXL mixed-Poisson definition, PGF section, moments, and dispersion-index discussion.",
+        "method": "Direct lawful full-text inspection.",
+        "title": "Poisson XLindley Distribution for Count Data: Statistical and Reliability Properties with Estimation Techniques and Inference",
+        "trigger": "Previously published one-XLindley mixed-Poisson model appearing as each convolution component."
+      },
+      {
+        "assessment": "GENERAL BACKGROUND ONLY. It does not mention PXL or PTS-XL.",
+        "evidence": "General mixed-Poisson framework.",
+        "identifier_or_url": "doi:10.1111/j.1751-5823.2005.tb00250.x",
+        "material_read": "Bibliographic record and general mixed-Poisson characterization.",
+        "method": "Published-source inspection.",
+        "title": "Mixed Poisson Distributions",
+        "trigger": "General background for variance decomposition and overdispersion of nondegenerate mixed-Poisson laws."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2ce26bf-8ec8-4f34-8537-125d68cb33ba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source presents the two-sum mixing step as introducing additional variability and advertises a range reaching equidispersion. The self-convolution identity gives a simpler structural description and an exact simulation route, shows that relative dispersion is unchanged from PXL at equal parameter, and proves that exact equidispersion is absent throughout the finite parameter space. This materially clarifies what statistical flexibility the new one-parameter construction does and does not add.",
+    "status": "PASS"
+  }
+}
