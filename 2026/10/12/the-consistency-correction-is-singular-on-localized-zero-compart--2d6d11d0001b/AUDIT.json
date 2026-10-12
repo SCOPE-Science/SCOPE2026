@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Eq. (25) contains division by the current state. The Section 5.2 initialization has zero Q and R everywhere and localized E and I. One explicit nearest-neighbor update expands the E/I support by at most one lattice edge; at remote nodes E, I, Q and R are therefore zero at both n=0 and n=1, making Eq. (25) exactly 0/0 before n=2. The bundled checker independently reproduces the finite-stencil support calculation and the nonunique limiting ratio.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mickens, DOI 10.1002/num.20198, develops positivity-oriented denominator functions in general.",
+        "Anguelov–Dumont–Lubuma–Shillor, DOI 10.1016/j.cam.2013.04.042, develops dynamically consistent epidemiological NSFD schemes preserving positivity and threshold dynamics."
+      ],
+      "reasoning": "These broader NSFD works motivate well-defined maps on nonnegative state spaces but the inspected materials do not contain the source-specific correction nu=-(U^n-U^{n-1})/(k U^n) or a theorem that assigns its value at a simultaneous zero. They therefore do not dominate the accepted statement.",
+      "searches": [
+        "nonstandard Laplacian consistency correction zero population division by zero epidemiological PDE",
+        "NSFD finite support zero compartments division by zero state dependent correction",
+        "Web search: dynamically consistent nonstandard finite difference schemes epidemiological models positivity zero initial data"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.amc.2026.129953",
+      "researchgate:399769952",
+      "doi:10.1002/num.20198",
+      "doi:10.1016/j.cam.2013.04.042",
+      "doi:10.3934/mbe.2021231"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source already proves that its first skew Laplacian has an O(1) consistency defect and proposes Eq. (25) to repair it.",
+        "The present result combines Eq. (25) with the separate Section 5.2 zero-compartment initialization and finite-stencil propagation to show that the repair is not defined on those data."
+      ],
+      "reasoning": "The source's acknowledged truncation error does not imply the accepted claim: a scheme may be inconsistent yet well-defined, or consistent yet undefined on part of its stated state space. The accepted claim is the distinct definability obstruction of the corrected scheme on the actual localized initialization.",
+      "searches": [
+        "A nonstandard finite difference scheme for an SEIQR epidemiological PDE model equation 26 nu zero division initial Q R zero",
+        "nonstandard Laplacian consistency correction zero population division by zero epidemiological PDE",
+        "Web search: Mickens denominator functions positivity; Anguelov epidemiological NSFD dynamic consistency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zinihi–Ehrhardt–Sidi Ammi, DOI 10.1016/j.amc.2026.129953, Eqs. (25)–(26) and Section 5.2.",
+        "The full text defines the ratio correction only for n>=1 with nu(U^0)=0 and states that the corrected approach is used in Section 5."
+      ],
+      "reasoning": "No inspected source stated an equivalent zero-state obstruction. The motivating paper discusses a different inconsistency of its original skew Laplacian but does not address the 0/0 singularity created by the proposed correction on localized nonnegative data.",
+      "searches": [
+        "A nonstandard finite difference scheme for an SEIQR epidemiological PDE model equation 26 nu zero division initial Q R zero",
+        "SEIQR NSFD correction nu equals backward difference divided by current population zero compartments",
+        "Web search: exact DOI 10.1016/j.amc.2026.129953 with Eq. (25), Eq. (26), localized initialization, and zero compartments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No prior ledger row contains DOI 10.1016/j.amc.2026.129953 or an equivalent NSFD zero-compartment claim.",
+        "Exact-source searches returned the motivating article but no erratum or source-specific correction for Eq. (25)."
+      ],
+      "reasoning": "There is no database/table value that subsumes this claim; the relevant exact record is the printed recurrence itself. Deduplication against the available ledger found no matching source or implication-equivalent statement.",
+      "searches": [
+        "10.1016/j.amc.2026.129953 scheme 26 reproducibility zero initial quarantined recovered",
+        "Own-ledger source-id search: 10.1016/j.amc.2026.129953",
+        "Own-ledger alias search: nonstandard finite difference; NSFD; zero compartment; division by zero"
+      ]
+    },
+    "rationale": "Exact-source, alias, broader-NSFD, and own-ledger searches found the source's acknowledged truncation inconsistency and general positivity-preserving NSFD literature, but no statement of this source-specific zero-state singularity or a correction that supplies the missing value. The claim is limited to the printed recurrence and stated data, rather than asserting novelty of division-by-zero as a general phenomenon.",
+    "residual_risks": [
+      "The authors' numerical implementation was not available in the inspected public material and may silently regularize the simultaneous-zero case.",
+      "A very broad numerical-analysis source could discuss generic quotient singularities, but such a generic observation would not itself cover the source-specific finite-stencil consequence for the stated SEIQR initialization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The article defines nu by division by U^n for n>=1, gives only nu(U^0)=0, states the corrected scheme will be used in the experiments, and describes a localized 2D source with Q and R initially absent. It does not specify a simultaneous-zero convention.",
+        "evidence": "DOI 10.1016/j.amc.2026.129953, Eqs. (25)–(26), Section 5.2; author-uploaded full text publicly posted 2026-01-14.",
+        "identifier_or_url": "doi:10.1016/j.amc.2026.129953",
+        "material_read": "Full-text sections describing the SEIQR PDE, NSFD scheme, local-truncation inconsistency, Eq. (25) correction, corrected Eq. (26), and one- and two-dimensional numerical experiments.",
+        "method": "Open-access full-text web inspection and author-uploaded full-text cross-check.",
+        "title": "A nonstandard finite difference scheme for an SEIQR epidemiological PDE model",
+        "trigger": "Primary source; Eq. (25), Eq. (26), and the numerical initialization are the exact objects of the claim."
+      },
+      {
+        "assessment": "Provides general denominator-function methodology but does not state the successive-state quotient used in Eq. (25) or its simultaneous-zero extension.",
+        "evidence": "DOI 10.1002/num.20198.",
+        "identifier_or_url": "doi:10.1002/num.20198",
+        "material_read": "Abstract, bibliographic record, and cited scope of positivity-oriented denominator functions.",
+        "method": "Publisher record inspection.",
+        "title": "Calculation of denominator functions for nonstandard finite difference schemes for differential equations satisfying a positivity condition",
+        "trigger": "Potential broader coverage of positivity-preserving denominator constructions."
+      },
+      {
+        "assessment": "Establishes broad dynamic-consistency goals, but no inspected statement covers the source-specific ratio correction or assigns its value when successive compartment values are both zero.",
+        "evidence": "DOI 10.1016/j.cam.2013.04.042; University of Pretoria repository record.",
+        "identifier_or_url": "doi:10.1016/j.cam.2013.04.042",
+        "material_read": "Open repository abstract/postprint metadata and description of the preserved positivity, stability, dissipativity, and conservation properties.",
+        "method": "Institutional-repository full-record inspection plus bibliographic search.",
+        "title": "Dynamically consistent nonstandard finite difference schemes for epidemiological models",
+        "trigger": "Potential stronger coverage for epidemiological NSFD positivity and dynamic consistency."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d6d11d0-001b-4549-87b2-30fbd4b94d9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The singularity occurs in the paper's proposed consistency repair and on biologically natural localized epidemic data used for its principal two-dimensional experiment. It determines whether the printed algorithm is a defined and reproducible map beyond the first step. The result also identifies the exact missing specification: a zero-state extension or positive seeding. This is a substantive boundary condition for a structure-preserving method, not an arbitrary parameter check.",
+    "status": "PASS"
+  }
+}
