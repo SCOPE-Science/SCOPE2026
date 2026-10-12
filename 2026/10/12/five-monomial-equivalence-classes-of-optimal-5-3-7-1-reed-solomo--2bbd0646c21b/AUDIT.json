@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For every injective five-tuple over F7, unique affine normalization gives exactly 60 distinct [5,3] RS code subspaces (arXiv:2609.33512v1 Lemma 3.1). The rank identity dim intersection =6-rank(stacked generators) and duplicate-one-row reduction gives an exact five-column modular rank test. The standalone stdlib checker reconstructs all 1770 pairs and graph of degree40/1200 edges, enumerates every maximal clique (top size10, exactly138), independently enumerates all 138 size-ten cliques by increasing-index backtracking, computes all 120 coordinate permutations, and checks five orbit sizes 6,12,30,30,60 with stabilizer orders20,10,4,4,2 and element-order fingerprints. A monomial map of such a family to another must preserve its common center, so diagonal scalings are uniform and equivalence reduces exactly to the inspected S5 action. Thus the five classes are exhaustive. All tests on actual package verify.py return VERIFY_OK; no extrapolation beyond this finite case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.33512v1, Sections 3.3--3.5 and Section 5, includes recursive/greedy asymptotic lower bounds and poses the general extremal RS-sunflower question; no optimizer-orbit census.",
+        "Etzion--Raviv, arXiv:1308.6231v4, Section 2.3 (full 16-page text read): unrestricted Grassmannian sunflower size governed by partial spreads, not RS evaluation subspaces or coordinate-permutation orbit classification.",
+        "The verified 60-subspace universe is a strict, algebraically defined portion of the much larger unrestricted Grassmannian."
+      ],
+      "reasoning": "A general partial-spread theorem cannot dominate the five RS-restricted classes because it does not identify which subspaces are Reed--Solomon evaluation codes. Existing asymptotic constructions and a numerical maximum do not imply the complete distribution and types of stabilizers of optimizers.",
+      "searches": [
+        "Sunflowers of Reed--Solomon Codes arXiv 2609.33512 Question 2.4",
+        "Equidistant Codes in the Grassmannian Etzion Raviv 2015 subspace sunflowers partial spread",
+        "maximum q-ary constant dimension RS sunflowers complete classification small fields 7 5 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.33512v1 (complete primary text; September 27 2026)",
+      "arXiv:1308.6231v4 and DOI:10.1016/j.dam.2015.01.024 (complete 16-page text)",
+      "Focused web searches: Reed Solomon sunflower orbit / 138 / five classes / stabilizer groups; reviewed returned title/abstract evidence",
+      "published-finding corpus published research semantic searches on exact params, source authors, orbit sizes and equivalent formulations; closest IDs did not supply orbit statements",
+      "Previously recorded finite exact maximum/clique-enumeration result for same q=7 setting, compared only to exclude numerical overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original primary paper proves affine uniqueness and general construction/size bounds only; its content does not imply five orbits or automorphism groups.",
+        "Earlier parameter-specific finite result implies maximum size ten and identifies 138 maximizers but neither states nor computes the S5 symmetry classes. The new verifier computes all 120 group actions on every maximum family and their stabilizers.",
+        "Older general Grassmannian papers give larger unrestricted families, no RS subclass orbit characterization."
+      ],
+      "reasoning": "A number of labeled maximum families (138), even with an optimal clique number (10), does not determine orbit sizes or group structures: multiple distributions of 138 into divisors of 120 are possible, and even identical stabilizer orders can occur in separate orbits. Hence the new five-orbit classification is not logically implied by the relevant numerical prior conclusion. No decisive covering claim was located.",
+      "searches": [
+        "Con Gruica Montanucci Zullo Sunflowers of Reed Solomon Codes exact finite small q=7 ell=5 k=3",
+        "2026 7-ary Reed Solomon sunflowers monomial equivalence five orbits",
+        "arXiv:1308.6231v4 sections 2.3 and 6",
+        "arXiv:2609.33512v1 full text, Lemma 3.1, Corollary 3.3, Proposition 3.23, Section 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Con--Gruica--Montanucci--Zullo, arXiv:2609.33512v1, Lemma 3.1: equality of these RS subspaces iff affine-related evaluation vectors; Theorem 2.6: full generalized V-matrix rank yields one-dimensional constant intersections.",
+        "Exact algebraic reduction: the 60 affine-normalized tuples represent all codes, and monomial equivalence preserving the common constant line reduces to coordinate permutation; this covers the natural algebraic/code and Grassmannian formulations.",
+        "Focused repository-index searches returned different mathematical symmetry-classification problems and no five-class RS-sunflower claim."
+      ],
+      "reasoning": "The derived five-orbit statement was compared not merely by phrases but as a classification of the ten-petal cliques under the full center-preserving monomial action. The previously known optimum ten and aggregate total 138 are weaker data: they give no decomposition into S5 orbits or stabilizer isomorphism types. An arbitrary ambient GL(5,7) is not a valid monomial equivalence and is outside this theorem.",
+      "searches": [
+        "Reed Solomon sunflower q=7 dimension 3 length 5 exact maximum 10",
+        "Five coordinate-permutation equivalence classes of maximum Reed Solomon sunflower over F_7 dimension 3 length 5, 138 optimal families orbit sizes 6,12,30,30,60",
+        "Equivalent Hamming monomial classes extremal [5,3] ternary septenary RS sunflower S5 orbit",
+        "arXiv:2609.33512v1 Lemma 3.1 and Section 5 (full text)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original 2026 paper Section 3.1 counts distinct RS codes but has no tabulation of symmetry classes for q=7, k=3, length=5.",
+        "An antecedent finite enumeration gives the optimum and all 138 maximum labeled cliques, but its conclusion and computational material do not classify these by coordinate-permutation orbits or stabilizer types.",
+        "Focused external scientific and indexed-record searches produced no exact five-orbit table; search absence is not a novelty certificate."
+      ],
+      "reasoning": "The 138 maximum families are not rebranded as new data. The new invariant is the partition of those families under the natural S5 action, together with stabilizer isomorphism types; a simple table of code parameters or a count of maximal cliques is not equivalent to this.",
+      "searches": [
+        "Reed Solomon sunflower 7-ary five-coordinate 3D Reed-Solomon subspace code maximum 10",
+        "Reed Solomon sunflower 138 five orbits stabilizers",
+        "Con Gruica Montanucci Zullo Reed Solomon sunflowers stabilizer groups 20 10 4 4 2",
+        "94B05 2026 sunflower Reed Solomon enumerating inequivalent maximal 10 cliques five orbits"
+      ]
+    },
+    "rationale": "Compared the exact five-class orbit and stabilizer statement—not just the numerical maximum or 138 labeled optimizers—against the complete 2026 primary text, the 2015 general Grassmannian source, parameter-specific antecedent records, exact-phrase web searches and published-finding corpus similarity records. No previously verified source asserts or implies this orbit classification. Known optimum ten and aggregate count 138 are excluded from the novelty claim. The two distinct 30-member orbits show that even stabilizer order alone does not suffice; unpublished or poorly indexed literature remains a real residual risk.",
+    "residual_risks": [
+      "Literature search is not exhaustive: a mathematically equivalent orbit classification might exist in an unindexed, unpublished, or non-English source.",
+      "All exact finite computations were subjected to reproducible self-review, not independent external audit; implementation agreement is not a formal proof assistant certificate.",
+      "No classification for general field sizes, other dimensions or arbitrary ambient GL(5,7)-isometries is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the orbit classification; gives count of all RS codes and asymptotic bounds, not five equivalence classes for q7 length5 dimension3.",
+        "evidence": "Pages 6--7: affine equivalence criterion and RS code count. Pages 14--16: greedy bounds. Pages 21--22: conclusions and extremal questions. Primary MSC94B05 recorded on page1.",
+        "identifier_or_url": "arXiv:2609.33512v1; https://arxiv.org/abs/2609.33512",
+        "material_read": "Complete 24-page preprint, pages 1--24, including definitions, proofs of Lemma 3.1 and Theorem 2.6, bounds in Section 3, application in Section 4, and open questions in Section 5.",
+        "method": "Direct full-text page-by-page inspection of authorized extracted article text, compared theorem statements and proof implications.",
+        "title": "Sunflowers of Reed--Solomon Codes",
+        "trigger": "Defines the exact algebraically restricted family, provides equality criterion, and formulates extremal problem for dimension >=3."
+      },
+      {
+        "assessment": "NOT_COVERING: studies all Grassmannian subspaces, no RS evaluation-code restriction or S5 optimizer orbit census.",
+        "evidence": "Section 2.3 Theorems 10--11: arbitrary sunflower / partial spread equivalence; Sections 3--5: unrestricted constructions, no Reed--Solomon optimizer classifications.",
+        "identifier_or_url": "arXiv:1308.6231v4; https://doi.org/10.1016/j.dam.2015.01.024",
+        "material_read": "Complete 16-page article; introduction, partial spreads and sunflower equivalence (pp. 1--6), unrestricted constructions (pp.7--14), references (pp.15--16).",
+        "method": "Direct full-text page-by-page inspection; checked scope of equivalence and maximization results.",
+        "title": "Equidistant Codes in the Grassmannian",
+        "trigger": "Potential stronger general sunflower/partial-spread coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2bbd0646-c21b-46ad-b165-03850269509f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The symmetry types of every equality case are a natural and otherwise undetermined invariant of the recently introduced RS sunflower extremal problem (arXiv:2609.33512v1 Section 5). The five equivalence classes show genuine structural nonuniqueness not implied by a maximum size or even an aggregate optimizer count; stabilizers vary through AGL(1,5), D10, two inequivalent C4 orbits, and C2. This is a complete classification under the mathematically natural center-preserving monomial symmetry, useful for avoiding redundant choices of optimum algebraic constant-dimension codebooks, not an arbitrary finite slice or known parameter-table reprint. Its exact q=7 scope is fully acknowledged.",
+    "status": "PASS"
+  }
+}
