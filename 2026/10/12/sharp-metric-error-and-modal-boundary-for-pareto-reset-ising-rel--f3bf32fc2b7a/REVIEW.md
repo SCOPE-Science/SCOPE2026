@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For any finite periodic ring, the Glauber generator acts on the sum of spins as multiplication by \(-\lambda\), proving the conditional-mean trajectory without a thermodynamic limit. The nonlattice renewal-age theorem applies to continuous Pareto intervals with \(\alpha>1\); the explicit age density normalizes, and its monotone change of variable yields the complete stationary law. Differentiating its logarithm determines every possible interior critical point and the sharp \(b=\alpha\) boundary. A coupling with the explicitly collapsed short-age sector proves exact TV, while stochastic dominance and the identity 1-Lipschitz witness prove exact \(W_1\). The extracted standalone verifier completed 210 finite numerical checks; these corroborate but are not the continuum proof.
+
+## Originality — PASS, with prior-implication risk
+The 2026 model paper provides the Pareto waiting time, deterministic Glauber relaxation, long-age density, and its cutoff-atom approximation (arXiv:2602.15495, equations (5)–(10)); none is claimed here as new. The general renewal framework of Eule–Metzger 2016 and a 2026 Lévy diffusion article already provide the exact stationary age identity, so the unaggregated density is a straightforward transformation of known mathematics. The **narrow original finding** is the sharp, explicit metric effect of replacing the physical short-age continuous sector by the particular Ising cutoff atom, together with the exact modal boundary of the resulting unaggregated law. The inspected sources do not state these comparisons. Earlier implicit derivations are possible and broad renewal theory supplies most proof ingredients; priority is not independently certified. Relevant published mathematical records searched by physical model, cutoff, aliases, atom, and metric terms returned no equivalent claim; absence of search hits is not a proof of originality.
+
+## Value — PASS
+The 2026 Ising study interprets its stationary cutoff atom as the second magnetization peak. Reinstating the physically required continuous short-age sector is not merely a normalization check: it changes whether a second finite peak exists, with the exact, adjustable boundary \(\lambda\tau_0=\alpha\). Moreover, a fixed macroscopic total-variation discrepancy can coexist with vanishing \(W_1\), clarifying exactly which observables can tolerate the coarse approximation. These are model-specific, motivated accuracy and structural results, not a general claim about all resetting models.
+
+## Scope and risks
+Only the stationary law of conditional ensemble-mean magnetization is treated, not the discrete finite-volume single-realization magnetization or the full stochastic finite-time distribution. The proof is analytic, but the result specializes strong general renewal theory and could have been derived implicitly in earlier literature; publication priority remains open. No external audit or experimental validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
