@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For fixed ranks of the outer factors, compatible image and kernel subspaces are counted separately and the linear operator \(R\mapsto ARB\) has image dimension \(ab\), so every compatible output has \(q^{n^2-ab}\) intermediates. Independence of the chosen image/kernel data, the allowed summation range, the rank-only invariance, and the zero-output case were reconstructed. The standalone verifier exhaustively checks the binary and ternary \(2\times2\) fibers, the binary \(3\times3\) pair strata, and the total-mass identity in dimensions two through five.
+
+**Originality — PASS, with residual risk.** Subba–Subedi (2025 and 2026) study membership in the zero-insertive locus and ZINC. The earlier public result *Zero-insertive matrices are exactly the half-rank locus* (`8052759fe4ed`) already settles which outputs are attainable and how many eligible matrices exist; those contributions are explicitly excluded from the new claim. Inspection of its complete theorem and proof revealed no counts of ordered witness triples. Searches targeting the equations \(AB=0\), \(ARB=X\), rank-stratified fiber counts, equivalent sandwich formulations, and finite-field matrix-counting literature found no directly dominating formula. An older unindexed counting identity remains possible.
+
+**Mathematical value — PASS.** The zero-insertive locus was recently introduced as an elementwise ring invariant. A mere output count gives no information about the bias induced by sampling actual witnesses. The theorem computes all fibers of this constrained polynomial map uniformly for every finite field and every matrix size, giving the exact rank distribution and revealing strong nonuniformity across ranks; for example, the binary four-dimensional rank-zero, rank-one and rank-two individual fibers have sizes \(35{,}813{,}933{,}056\), \(689{,}848{,}320\), and \(5{,}160{,}960\). This is a complete natural counting invariant rather than an arbitrarily selected finite case.
+
+**Scope and limitations.** The argument applies to full matrix algebras over finite fields, not arbitrary coefficient rings. Computational checks are finite corroboration, not the universal proof. Historical completeness cannot be certified from negative searches.
+
+Self-review: passed. Independent audit: not yet performed.
