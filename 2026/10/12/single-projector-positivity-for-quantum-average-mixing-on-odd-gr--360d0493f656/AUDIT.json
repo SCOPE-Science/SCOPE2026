@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Direct adjacency sign cancellation places the signed transversal vector in the stated eigenspace. The orbit commutant dimension k+1 forces irreducibility and inequivalence of the k+1 nonzero incidence-filtration pieces. Every piece pairs nontrivially with psi squared via explicit cyclic-matching moments 2^{k+1-j}; therefore the orbit of psi squared spans the full vertex module. Gram factorization of E∘E yields strict positivity for every integer k>=1. Exact finite checks (not an infinite proof) were independently recomputed from the standalone path verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coutinho–Guo arXiv:2404.02236v1 Section 4.1 expressly poses full rank for primitive distance-regular graphs as an open problem, rather than supplies a solution.",
+        "Coutinho et al. arXiv:1709.03591v1 Section 5 proves invertibility for abelian odd-order Cayley graphs, which do not cover Kneser odd graphs of arbitrarily large parameter.",
+        "Own prior item f264c312-88fe-4d4f-b246-cf64d6044e99 proves top-projector positivity for Johnson triple graphs J(n,3), covering the present k=3 case and nothing with k>=4."
+      ],
+      "reasoning": "The fixed-degree Johnson-triple theorem implies the k=3 member, so individual small-k claims are explicitly not novelty. It does not imply the unrestricted k>=4 extension. The broader published open problem contains the family as a desired special case, not as a proved theorem. General association-scheme calculation algorithms may yield it with nontrivial specialization, so we retain that risk.",
+      "searches": [
+        "Coutinho Guo primitive distance-regular graph conjecture average mixing odd graphs Petersen Kneser",
+        "Johnson triple graph J(n,3) full rank average mixing top idempotent",
+        "arxiv:2404.02236v1 Open Problem 4.1 primitive distance-regular graphs",
+        "arxiv:1709.03591v1 Section 5 Cayley graph of odd order full rank",
+        "own prior ledger item f264c312-88fe-4d4f-b246-cf64d6044e99 Johnson triple J(n,3)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2404.02236v1",
+      "https://arxiv.org/html/1709.03591v1",
+      "https://arxiv.org/html/2208.08971v1",
+      "own prior item f264c312-88fe-4d4f-b246-cf64d6044e99",
+      "https://www.math.uwaterloo.ca/~cgodsil/pdfs/assoc2.pdf",
+      "https://arxiv.org/abs/2208.08971",
+      "https://arxiv.org/abs/2404.02236"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general formula Mhat=Σ Eλ∘Eλ in both 2017 and 2022 sources is used as a premise and does not force each summand strictly positive.",
+        "The Johnson triple result implies k=3 but does not cover variable k.",
+        "The current proof shows W∘W spans the full vertex space using k-fold signed pair transversals and all Johnson filtration summands."
+      ],
+      "reasoning": "The new claim is stronger than full rank of Mhat and strictly independent of the known generic projector formula absent extra positivity. Its fixed-k=3 implication is dominated by earlier work, but its arbitrarily large k>=4 component is not. The precisely stated all-k top-Schur-square conclusion is compared by logical implication, not novelty of notation.",
+      "searches": [
+        "arxiv:1709.03591v1 Section 1 and 5",
+        "arxiv:2404.02236v1 Section 4 Open Problem 4.1",
+        "arxiv:2208.08971v1 Section 2",
+        "own current ledger item f264c312-88fe-4d4f-b246-cf64d6044e99",
+        "published-finding corpus query Single spectral projector Schur square full rank Kneser odd graphs K(2k+1,k) quantum average mixing Johnson scheme"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The statement E_k Schur-square strictly positive is equivalent to every E_k∘E_k Johnson Krein expansion coefficient being strictly positive, because the Johnson idempotents are orthogonal nonzero projectors.",
+        "Godsil, Association Schemes, Section 2.4 defines Krein parameters and proves their non-negativity, but non-negativity does not imply required strict positivity.",
+        "No explicit all-k top-square positivity theorem located in the targeted records or inspected primary sections."
+      ],
+      "reasoning": "The Johnson and Kneser graphs act on the same k-subsets and have the same Bose–Mesner primitive-idempotent spaces, so all such formulations count as equivalent even without mentioning quantum walks. We searched by these aliases. Standard general definitions only guarantee nonnegativity; strict positivity for all j is the additional statement established by the uniform signed-transversal proof. A general explicit formula might imply the answer without restating it, which remains an originality risk.",
+      "searches": [
+        "Odd graph Kneser KG(2k+1,k) average mixing matrix positive definite full rank projector Schur square Johnson scheme",
+        "highest Johnson eigenspace Hadamard products span all functions on k-subsets transversal paired polytabloids",
+        "Krein parameters q_kk^j Johnson scheme positive high idempotent squared",
+        "Single spectral projector Schur square full rank Kneser odd graphs K(2k+1,k) quantum average mixing Johnson scheme",
+        "\"Kneser\" \"average mixing matrix\" full rank",
+        "\"odd graph\" \"average mixing\" \"rank\" Kneser quantum walk",
+        "Johnson J(2k+1,k) top idempotent Krein parameters positivity, arxiv:1709.03591v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches for odd-graph spectral projector rank produced no direct same-family record; closest hit 2026/10/4/SCOPE-spectrum-and-common-transversal-profile-of-the-64-schur-lines--76e63f54b379 concerns quartic lines.",
+        "arXiv:2208.08971v1 Section 2 computes a finite graph average matrix by exact algebraic methods but supplies no dimension-uniform Kneser table.",
+        "Classical Krein tables for Johnson association schemes could encode these signs even if a published theorem is not indexed."
+      ],
+      "reasoning": "Finite tables, exact algorithms for each fixed graph, and nonnegative Krein identities are not themselves an explicit all-k proof. We searched for the actual positive coefficients and graph aliases rather than matching title alone. Unindexed tables and implicit general formula coverage remain the main risk.",
+      "searches": [
+        "Odd graph Kneser KG(2k+1,k) average mixing matrix positive definite full rank projector Schur square Johnson scheme",
+        "Krein parameters q_kk^j Johnson scheme positive high idempotent squared",
+        "top eigenspace Johnson scheme Hadamard square positive definite higher k transversal Specht matching",
+        "published-finding corpus semantic results for Kneser odd average mixing and Johnson scheme",
+        "arxiv:2208.08971v1 exact average mixing algorithm"
+      ]
+    },
+    "rationale": "Comparison with 2017/2022 general average-mixing formulas, 2024 explicit open problem, standard Johnson Krein formalism, own prior Johnson-triple k=3 case, and searches for Kneser/odd graph and top idempotent aliases did not identify a theorem implying the all-k>=4 claim. Small-k antecedents explicitly credited. Residual risk: unindexed general Krein formulas or published papers may imply it; independent review not performed.",
+    "residual_risks": [
+      "A general explicit formula for top Krein parameters of Johnson schemes might imply strict positivity by specialization even without naming odd graphs.",
+      "Published results absent from semantic search or inaccessible relevant appendices may contain an equivalent all-k result.",
+      "Independent scientific review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Poses the stronger general statement as an open problem and provides Schur-square formula; does not assert all-k odd-graph projector positivity.",
+        "evidence": [
+          "Open Problem 4.1: rank Mhat should equal the number of vertices for primitive distance-regular graphs.",
+          "Section 4 formula Mhat=Σ E_r∘E_r."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.02236v1",
+        "material_read": "Section 4 introduction and Open Problem 4.1, lines corresponding to 291–316 of HTML",
+        "method": "Read publicly available arXiv HTML of the primary preprint, including precise problem statement",
+        "title": "Selected Open Problems in Continuous-Time Quantum Walks",
+        "trigger": "Explicit full-rank question for primitive distance-regular graphs"
+      },
+      {
+        "assessment": "Establishes general formula and rank consequences, and full rank for abelian odd-order Cayley graphs; no arbitrary-k Kneser top-Schur-square theorem in the inspected sections.",
+        "evidence": [
+          "Section 1 derives Mhat=Σ E_r∘E_r.",
+          "Section 5 concludes invertibility for Cayley graphs of abelian groups of odd order."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1709.03591v1",
+        "material_read": "Introduction and Sections 5–6; the Cayley odd-order argument and Schur-square spectral formula",
+        "method": "Read relevant primary HTML portions, searched terms Kneser and distance-regular",
+        "title": "A New Perspective on the Average Mixing Matrix",
+        "trigger": "General rank theory and potential domination by known graph classes"
+      },
+      {
+        "assessment": "Explains exact calculation for fixed Hamiltonians, not a dimension-uniform positivity classification of odd graphs.",
+        "evidence": [
+          "arXiv record v1 submitted 2022-08-18 UTC; primary MSC 81P68.",
+          "Section 2 expresses Mhat as Schur-square sum and discusses exact arithmetic."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2208.08971v1",
+        "material_read": "Abstract, introduction, and Section 2 average mixing formula and exact computation discussion",
+        "method": "Read primary arXiv v1 HTML; verified first public date and primary MSC on arXiv abstract record",
+        "title": "Irrational quantum walks",
+        "trigger": "Mathematical-physics primary source and exact average mixing"
+      },
+      {
+        "assessment": "Covers exactly k=3 via common Johnson-scheme idempotents. Does not imply the unbounded-k theorem.",
+        "evidence": [
+          "States positivity of top projector Schur square for J(n,3), n>=7, hence k=3 at n=7."
+        ],
+        "identifier_or_url": "own prior item f264c312-88fe-4d4f-b246-cf64d6044e99",
+        "material_read": "Recovered prior claim and item ID from available current ledger for deduplication",
+        "method": "Read recoverable claim text only, with no historical verification or repair",
+        "title": "Johnson triple-graph top-projector finding",
+        "trigger": "Potential same-parameter or stronger overlapping statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "360d0493-f656-4840-b6fb-744162db8813",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The uniform k>=4 assertion settles the full-rank question for an infinite family of natural nonbipartite distance-regular graphs, singled out by a 2024 open problem. The single-Schur-square strict positivity is a stronger structural result and its explicit signed-transversal spanning proof is not a routine rewording of known k=3 computations. No spectral-gap or finite-time claim is made.",
+    "status": "PASS"
+  }
+}
