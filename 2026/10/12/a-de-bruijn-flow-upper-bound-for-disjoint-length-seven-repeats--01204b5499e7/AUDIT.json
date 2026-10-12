@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "A word with no disjoint repeated length-n factor induces a walk in the order-(n-1) de Bruijn graph. The source proves that each factor w can occur at most ceil(n/per(w)) times. Walk edge multiplicities therefore obey these capacities and have incidence 0 or e_s-e_t, proving the general relaxation bound. For k=2,n=7, two independently formulated optimizations agreed on a minimum deletion of 16 from total capacity 236. The final package replaces numerical optimization by exact integer certificates: dual potentials prove deletion cost at least 16 for all 4033 endpoint choices, and one feasible deletion vector has cost 16. Thus the relaxed walk maximum is exactly 220 and C(2,7)<=226.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source's Theorem 6 gives only the sum of independent capacities plus n-1.",
+        "The source's remarks say the upper bound is not known to be tight beyond n<=3 and invite improvements.",
+        "No indexed broader theorem located implies the de Bruijn-flow bound for this C(k,n)."
+      ],
+      "reasoning": "A theorem dominating the new result would need to retain compatibility among overlapping windows or otherwise force an upper bound at most 226. The inspected direct source does neither, and the broader searches did not locate such a theorem.",
+      "searches": [
+        "literature index query: Avoidance of split overlaps C(k,n) upper bound de Bruijn flow",
+        "literature index query: de Bruijn walk edge capacities disjoint occurrences words",
+        "source full text: Theorem 6, Theorem 11, Table 1, Remarks"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.01968 full text via author-hosted PDF",
+      "DOI:10.1016/j.disc.2020.112176 bibliographic metadata",
+      "MaRDI/zbMATH record for the source and its cited-by neighborhood",
+      "Indexed literature searches under five source/claim/equivalent formulations",
+      "prior internal overlap records",
+      "web exact searches for C(2,7), C(k,n), and disjoint-occurrence upper bounds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6 allows all per-factor occurrence caps to be saturated independently; for k=2,n=7 this gives 242.",
+        "The new argument adds the necessary incidence balance of a de Bruijn walk and certifies that at least 16 window-capacity units must be discarded.",
+        "Located later citations listed for the paper concern overlap avoidance in pictures, not the one-dimensional C(k,n) extremum."
+      ],
+      "reasoning": "The source's inequality is strictly weaker at the target parameter, so the 226 bound is not a corollary of the published statement. No decisive later coverage was located.",
+      "searches": [
+        "arXiv:2002.01968 full text, Lemma 5, Theorem 6, Table 1, Remarks",
+        "MaRDI/zbMATH citation list for DOI:10.1016/j.disc.2020.112176",
+        "web exact searches for C(2,7) and disjoint-occurrence upper bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed literature hit states a bound for the Gabrić-Shallit-Zhong C(2,7) parameter.",
+        "Exact web searches returned the source paper but no later numerical upper bound for C(2,7)."
+      ],
+      "reasoning": "The searches cover the source notation and the defining verbal formulation, reducing the risk that the same invariant appears under a different title.",
+      "searches": [
+        "literature index query: C(2,7) disjoint occurrences length 7 binary word upper bound",
+        "literature index query: binary words no two disjoint occurrences same length-n factor",
+        "web: \"C(2,7)\" \"Avoidance of split overlaps\"",
+        "web: \"C(k,n)\" \"disjoint occurrences\" combinatorics words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 lists C(2,7)>=192 rather than an exact value or an upper bound 226.",
+        "The source states that C(2,6)=110 and the C(2,7)>=192 construction were computed separately, confirming that n=7 was left unresolved."
+      ],
+      "reasoning": "The numerical value 226 is not a recomputation of a published table entry; it improves the first unresolved binary row.",
+      "searches": [
+        "source full text: Table 1 values of C(k,n)",
+        "web: \"C(2,7)\" \"disjoint occurrences\" word",
+        "literature index query: C(2,7) disjoint occurrences length 7 binary word upper bound"
+      ]
+    },
+    "rationale": "The direct source sums the individual factor-occurrence capacities and obtains a generic upper bound, but does not impose de Bruijn incidence balance. It reports C(2,7)>=192 and explicitly leaves improved upper bounds and further values as a challenge. Exact-parameter and equivalent-formulation searches found no published or indexed C(2,7)<=226 result. The new statement is not implied by the source because its additional global flow constraint is absent there.",
+    "residual_risks": [
+      "An unindexed computation, thesis, or unpublished note may contain the same 226 bound or a stronger one.",
+      "The flow relaxation is intentionally weaker than the original word problem; the result does not determine C(2,7).",
+      "The cited source's first-public date is taken from its arXiv v1 record; the later journal publication date is not used for date-window selection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and not covering the new flow constraint or the bound 226.",
+        "evidence": "Theorem 6 sums ceil(n/per(w)) independently; Table 1 records only C(2,7)>=192; Remarks state that improving the upper bound or computing more C(k,n) values would be of interest.",
+        "identifier_or_url": "arXiv:2002.01968 / DOI:10.1016/j.disc.2020.112176",
+        "material_read": "Full accessible PDF text: definition of C(k,n), Lemma 5, Theorem 6 and Corollary 7, Theorem 11 and Tables 1-2, split-overlap tables, and concluding Remarks. PDF screenshot retrieval was also attempted as required but the host returned an access error.",
+        "method": "Full-text PDF inspection through the lawful author-hosted copy, with targeted line searches and page retrieval.",
+        "title": "Avoidance of split overlaps",
+        "trigger": "Direct source defining C(k,n), proving the occurrence cap, tabulating C(2,7)>=192, and inviting improved bounds."
+      },
+      {
+        "assessment": "Lists MSC 68R15 and later citations about picture-overlap avoidance; no one-dimensional C(2,7) improvement is identified.",
+        "evidence": "The record gives Combinatorics on words (68R15) and a short cited-by list whose named works concern picture avoidance.",
+        "identifier_or_url": "DOI:10.1016/j.disc.2020.112176",
+        "material_read": "Bibliographic record, MSC listing, abstract, cited-by list.",
+        "method": "Web metadata inspection.",
+        "title": "zbMATH/MaRDI bibliographic record for Avoidance of split overlaps",
+        "trigger": "Verify classification and inspect known citation neighborhood."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "01204b54-99e7-4a11-8190-485681b01624",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies improvement of its C(k,n) upper bound as an open direction, and C(2,7) is the first unresolved binary parameter after exact values through n=6. The new global compatibility constraint reduces the published 242 upper bound to 226, cutting the gap above the published lower bound 192 from 50 to 34, a 32% reduction. The de Bruijn-flow formulation is also reusable for other k,n rather than being an arbitrary one-off enumeration.",
+    "status": "PASS"
+  }
+}
