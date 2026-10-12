@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "Explicit random sign-symmetric 2x2 update matrices yield a closed nonnegative second-moment recursion. Perron theory proves the exact same asymptotic rate for every nonzero start; exact norm decrease/growth proves the iff ω interval. A rank-one secular equation and strictly decreasing S-zS′ produce the unique minimizer. An exact eigenvalue derivative establishes strictly optimal overrelaxation, and critical-root asymptotics produce the factor-two nearly-parallel improvement. The included verifier passed symbolic identities and 6,240 rational cases; the proof, not tests, covers all angles and times.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Strohmer–Vershynin Theorem 2 gives a bound for exactly projected row updates, with optimality discussion for that bound.",
+        "Liu–Wright uses accelerated momentum dynamics.",
+        "Marshall–Mickelin optimizes noisy scheduled rate bounds, not the stationary IID two-row exact Perron factor."
+      ],
+      "reasoning": "A general standard-RK convergence bound does not imply the minimizer of the exact ω-dependent second-moment spectral radius. Momentum, schedule and noise models alter the update and performance objective, preventing direct domination of the narrowly stated theorem.",
+      "searches": [
+        "Randomized alternating projections two distinct lines spectral radius of expectation of tensor square, stationary optimization",
+        "\"randomized projections\" \"overrelaxation\" \"two lines\" \"optimal\" mean squared",
+        "arxiv:math/0702226",
+        "arxiv:1310.2887",
+        "arxiv:2202.12224"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0702226, full text, Sections 2-3",
+      "arxiv:1310.2887, full text",
+      "arxiv:1502.00190, full text",
+      "arxiv:2202.12224, full text",
+      "doi:10.1109/GlobalSIP.2014.7032145, abstract/index only",
+      "doi:10.1007/978-3-642-28308-6_64, abstract/index only",
+      "Published mathematical finding comparison by exact semantic search: Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz (2026-09-21)",
+      "Published mathematical finding comparison by exact semantic search: Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz (2026-09-20)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Standard-RK contraction and full MSE evolution provide ingredients for a new special-case derivation but not an asserted optimized relaxation theorem.",
+        "The 2014 exact-MSE optimal-sampling publication was not read in full, leaving an explicit source risk.",
+        "The source 2022 optimizes another error criterion and step schedule."
+      ],
+      "reasoning": "A general covariance recursion is a method, and its availability does not by itself state or logically imply a sharp quantified choice of relaxation with no further nontrivial spectral optimization. No inspected stronger theorem was found whose hypotheses and conclusions immediately subsume the whole new claim; the specific uninspected 2014 conference source remains an identified risk.",
+      "searches": [
+        "arxiv:math/0702226",
+        "arxiv:1502.00190",
+        "arxiv:2202.12224",
+        "Optimal overrelaxation of uniformly randomized projections onto two nonorthogonal hyperplanes, exact spectral radius and optimal step size",
+        "doi:10.1109/GlobalSIP.2014.7032145"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact MSE lifting is known, but Wang–Agaskar–Lu's public text addresses unrelaxed projections.",
+        "Maximal-distance Kaczmarz result Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz (2026-09-21) changes row selection, not constant relaxation.",
+        "The 2012 relaxation chapter remains full-text inaccessible and a residual possible equivalence risk."
+      ],
+      "reasoning": "Rewriting in a bisector basis, as a two-projector covariance map, or as a two-dimensional Lyapunov matrix leaves a specific angle-dependent optimization question. The inspected literature gives no exact root or universal strict overrelaxation statement. This is a bounded literature comparison, not proof of global absence.",
+      "searches": [
+        "Randomized relaxed Kaczmarz two equations in dimension two with correlation c, optimal constant relaxation larger than one minimizing exact asymptotic mean squared error contraction, unique root",
+        "Optimal overrelaxation of uniformly randomized projections onto two nonorthogonal hyperplanes, exact spectral radius and optimal step size",
+        "Random Kaczmarz angle dependent annealed mean squared error exact optimum relaxation parameter omega 1 < omega < 2",
+        "\"randomized Kaczmarz\" \"over-relaxation\" \"optimal\" \"mean square\" two dimensional",
+        "arxiv:1502.00190",
+        "doi:10.1007/978-3-642-28308-6_64"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result nearest residual-spike frontier determines one-step residual behavior under maximal-distance selection, not the exact asymptotic IID constant-step optimum.",
+        "Published reverse-order Kaczmarz bias finding concerns underrelaxed cyclic sweeps of inconsistent systems.",
+        "A different randomized Kaczmarz finding concerns reshuffling on regular simplex frames rather than with-replacement two-row relaxation."
+      ],
+      "reasoning": "The determinant-equation minimizer, angle-dependent root, and limiting factor-two gap do not appear in those tables or result abstracts; name or parameter matches were checked against actual update distributions and quantifiers.",
+      "searches": [
+        "Randomized relaxed Kaczmarz two equations in dimension two with correlation c, optimal constant relaxation larger than one minimizing exact asymptotic mean squared error contraction, unique root",
+        "Random Kaczmarz angle dependent annealed mean squared error exact optimum relaxation parameter omega 1 < omega < 2",
+        "randomized Kaczmarz relaxation parameter optimal mean square convergence rate two rows angle overrelaxation exact optimal",
+        "Published result Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz (2026-09-21)",
+        "Published result Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz (2026-09-20)"
+      ]
+    },
+    "rationale": "Novelty is claimed solely for the exact angle-parametrized rate-minimizing constant relaxation and the factor-two near-parallel improvement, not randomized Kaczmarz, covariance lifting, or general convergence. Full primary-text comparisons find different objectives and updates in classic RK, accelerated RK, exact-MSE inconsistent RK, and scheduled noisy RK. Published-result searches and comparisons with scientific claims show no stronger covered statement. The inaccessible 2012 relaxation chapter and 2014 exact-MSE sampling conference article create named residual originality risks.",
+    "residual_risks": [
+      "An older Kaczmarz relaxation paper (Cai–Zhao–Tang, 2012) was available only through abstract/index, so a special angle-dependent mean-square optimizer cannot be definitively excluded.",
+      "The 2014 Agaskar–Wang–Lu exact-MSE/optimal-sampling conference article could not be read fully; it may include algebraic reductions relevant to the present result.",
+      "Other stochastic linear-system and projection-method literature could contain equivalent two-line formulations under different terminology. Search absence is not an independence or novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes exactly projected randomized rows and a condition-number bound; does not state, parameterize or optimize over a constant nonunit relaxation in the two-row mean-square spectral operator.",
+        "evidence": [
+          "Section 2 Algorithm 1 uses unrelaxed projection; Theorem 2 gives an upper rate bound (PDF pp. 4-5).",
+          "Section 3 discusses optimality of the method/bound for standard projection (PDF p. 7)."
+        ],
+        "identifier_or_url": "arxiv:math/0702226; https://arxiv.org/pdf/math/0702226",
+        "material_read": "Sections 1–3 of a 21-page public PDF, especially algorithm, convergence theorem and the method-optimality discussion, including cross-checked page images.",
+        "method": "Direct source PDF text inspection with page image cross-check.",
+        "title": "A randomized Kaczmarz algorithm with exponential convergence",
+        "trigger": "Original uniform unit-row random-projection method; an exact optimizer might already be implied by its rate theorem."
+      },
+      {
+        "assessment": "Optimizes a momentum-driven accelerated algorithm rather than the exact uniform two-row constant relaxation spectral radius.",
+        "evidence": [
+          "Accelerated method involves additional momentum state; its iteration and theorem hypotheses do not specialize to a sharp constant-relaxation optimum as asserted here."
+        ],
+        "identifier_or_url": "arxiv:1310.2887; https://arxiv.org/pdf/1310.2887",
+        "material_read": "Full-length public PDF text (27 pages), algorithm and analysis sections, direct inspected page images.",
+        "method": "Direct public preprint PDF inspection.",
+        "title": "An accelerated randomized Kaczmarz algorithm",
+        "trigger": "Accelerated row-action iteration potentially subsuming optimal constant relaxation."
+      },
+      {
+        "assessment": "Develops exact MSE of standard projection on inconsistent systems; does not provide an exact all-angle constant overrelaxation optimizer or its near-parallel gain.",
+        "evidence": [
+          "Full-text analysis centers standard Kaczmarz projections and error decomposition, not a variable scalar \"omega\" in this optimizer theorem."
+        ],
+        "identifier_or_url": "arxiv:1502.00190; https://arxiv.org/pdf/1502.00190",
+        "material_read": "Complete 5-page public preprint, equations, main statements and page images.",
+        "method": "Full public preprint text and PDF-page inspection.",
+        "title": "Randomized Kaczmarz algorithm for inconsistent linear systems: an exact MSE analysis",
+        "trigger": "Exact covariance evolution might contain the same two-row formulas or optimize stepsizes."
+      },
+      {
+        "assessment": "Derives a scheduled-learning-rate optimization of an expected-error bound under noisy measurements and its stated sampling setup; not the exact asymptotic IID two-row constant-factor minimizer.",
+        "evidence": [
+          "Problem involves additive measurement noise, a varying schedule and a bound rather than the present stationary second-moment Perron eigenvalue."
+        ],
+        "identifier_or_url": "arxiv:2202.12224; https://arxiv.org/pdf/2202.12224",
+        "material_read": "Complete 19-page arXiv preprint with direct inspection of algorithm, theorem, hypothesis and images.",
+        "method": "Public arXiv full text and PDF page images.",
+        "title": "An optimal scheduled learning rate for a randomized Kaczmarz algorithm",
+        "trigger": "Title advertises optimal learning-rate tuning of a randomized Kaczmarz algorithm."
+      },
+      {
+        "assessment": "Not asserted NOT_COVERING: indexed description emphasizes sampling optimization; unavailable full text leaves possibility of an equivalent fixed-relaxation result unresolved.",
+        "evidence": [
+          "Indexed scope is exact mean-square analysis and optimal sampling probabilities, not expressly a sharp two-row relaxation parameter; full equations were not inspected."
+        ],
+        "identifier_or_url": "doi:10.1109/GlobalSIP.2014.7032145",
+        "material_read": "Title, abstract and indexed bibliographic information only; an open full-text copy was not obtained.",
+        "method": "Publisher/authorized-access availability checks after unsuccessful public preprint and open-access retrieval.",
+        "title": "Randomized Kaczmarz algorithms: exact MSE analysis and optimal sampling probabilities",
+        "trigger": "A highly relevant title describes exact MSE and optimal sampling; it might contain a more general matrix formulation."
+      },
+      {
+        "assessment": "Not asserted NOT_COVERING; its accessible summaries discuss exponential convergence, but an older equivalent angle-specific rate-optimizer cannot be conclusively ruled out.",
+        "evidence": [
+          "2012 Springer chapter, pages 467-473; also cited in Marshall–Mickelin references."
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-642-28308-6_64",
+        "material_read": "Abstract and indexed bibliographic reference only; the full 2012 proceedings chapter was not accessible.",
+        "method": "Bibliographic record and citations within later public primary papers.",
+        "title": "Exponential convergence of a randomized Kaczmarz algorithm with relaxation",
+        "trigger": "Directly discusses relaxation of randomized Kaczmarz and is a plausible prior for the new optimum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "27e36d13-19d5-48ef-8151-8454c7e72969",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Relaxation-parameter tuning for a universally natural two-equation row-action method is motivated by actual asymptotic convergence speed, and its exact all-angle optimizer avoids ad hoc grid search. The unexpected strict benefit of overrelaxation in every nonorthogonal geometry, and nearly-parallel factor-two spectral-gap improvement, are substantive structural benchmark facts rather than a routine parameter substitution or tiny isolated numerical gain.",
+    "status": "PASS"
+  }
+}
