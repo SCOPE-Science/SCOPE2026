@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the first-table fiber proves the full PGF as a binomial mixture of independent Bernoulli contributions. An exhaustive zero-event partition yields the exact reliability formula. Balanced sparse sampling has per-key one-violation probability ab/q+o(1/q) and negligible multi-violations; asymmetric sampling has a rare single Y fact per key with Bin(q-1,p_q) mismatches tending to Poisson(a). Independent keys and generating-function limits prove the claimed weak laws, and direct summation gives EW=q²(q−1)pr and the shared limit ab. Finite exhaustive q<=3 full-histogram and 56 numerical identity checks were successfully replayed; these are supporting evidence, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Amarilli–Kimelfeld characterize complexity of reliability of self-join-free conjunctive queries in tuple-independent probabilistic databases, including probabilities determined by relation.",
+        "The present failure event is an existential cross-table join with an inequality constraint and a full PGF refinement."
+      ],
+      "reasoning": "Probabilistic model counting is a known general framework that can express an integrity query, but a framework or complexity dichotomy is not a theorem establishing the exact finite PGF or the two different infinite distributional laws. A general sparse clustered-query Poisson theorem could still cover a specialization; such broader coverage has not been conclusively ruled out.",
+      "searches": [
+        "Poisson versus compound Poisson transition for random database integrity constraints functional dependencies two tables",
+        "Random polyteam semantics poly-dependence atoms two relations satisfying probability sparse density asymptotic threshold cross-table functional dependency",
+        "arxiv:1908.07093 abstract and intro",
+        "random relational databases functional dependency violation distribution compound Poisson"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1704.02158",
+      "https://www.renyi.hu/~ohkatona/paper_87.pdf",
+      "https://arxiv.org/abs/1908.07093",
+      "2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b",
+      "2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4",
+      "2026/9/18/SCOPE-soft-repairing-common-lhs-two-fds-hardness--fd69df558e1f",
+      "2026/9/30/SCOPE-exact-ordered-tuple-orbit-profiles-of-the-side-preserving-random--f8b9342567cf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 paper defines the atom and proves implication/expressiveness results, not stochastic reliability.",
+        "1998 theorem assumes one random tuple table and obtains classical Poisson survival e^{-lambda}.",
+        "2019/2022 reliability work addresses evaluation complexity and counting classification."
+      ],
+      "reasoning": "Logical definability does not imply a quantitative PGF. A Poisson approximation under a distinct one-table i.i.d. model does not determine the asymmetric two-table cluster limit e^{-b(1-e^{-a})}. Reliability evaluation complexity alone provides neither exact analytic distribution nor cross-scaling distinction. These are statement-level comparisons, not merely different titles.",
+      "searches": [
+        "Compound Poisson law for sparse cross-team functional-dependence violations with two independent random binary relations at critical asymmetric densities",
+        "Poisson versus compound Poisson transition for random database integrity constraints functional dependencies two tables",
+        "arxiv:1704.02158 §2.2",
+        "Demetrovics et al. (1998) Theorem 1",
+        "arxiv:1908.07093"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Poly-dependence is a cross-team equality-generating dependency over matching key values [Hannula et al., Definition in §2.2].",
+        "Traditional FD random-tuple violation counts are studied with different tuple-sampling assumptions [Demetrovics et al., §2 and Theorem 1]."
+      ],
+      "reasoning": "The cross-team integrity atom is equivalent to absence of discordant-key joins. The exact independent-relation Bernoulli PGF and asymmetric compound law are not stated in either inspected primary text; the classic one-database rare-pair law does not imply a cluster-free law under asymmetric table densities.",
+      "searches": [
+        "Compound Poisson law for sparse cross-team functional-dependence violations with two independent random binary relations at critical asymmetric densities",
+        "Exact probability generating function for polyteam dependence violations count matching keys and discordant values binomial random relations",
+        "arxiv:1704.02158 §2.2",
+        "Demetrovics et al. (1998), TCS 190, §2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classic single-table calculation has an exponential no-violation limit under uniform-type i.i.d. tuples.",
+        "Direct exhaustive comparison for all relation pairs at q=1,2,3 gives 4, 81, 5832 satisfying ordered pairs, and compares full histograms."
+      ],
+      "reasoning": "The finite counts are derived from a new exact closed formula for two independently Bernoulli-sampled tables; these small integers were not used as novelty evidence by themselves, and no identified exact table duplicates the full parameter law.",
+      "searches": [
+        "Exact probability generating function for polyteam dependence violations count matching keys and discordant values binomial random relations",
+        "Polyteam cross-relational functional dependency random binary relations exact count Bernoulli sampling critical window",
+        "arxiv:1704.02158",
+        "Demetrovics et al. (1998) Theorem 1"
+      ]
+    },
+    "rationale": "The originating 2017 polyteam paper provides syntax/semantics and implication results; the closest 1998 probabilistic FD paper establishes a Poisson survival law in a different single-table fixed-tuple model; query reliability work gives a complexity framework. The exact independent two-table PGF and paired critical laws, especially the overdispersed compound limit at the same mean, are not implied by the inspected theorem statements. Analogy to general compound-Poisson subgraph/rare-query literature remains a disclosed risk.",
+    "residual_risks": [
+      "An old general theorem on Poisson and compound-Poisson limits for sparse probabilistic conjunctive queries might specialize to this very atom, even without matching terminology.",
+      "Only focal portions of the identified primary texts were material-read; no claim of an exhaustive literature audit or historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines equality of right values whenever left values match across sorts; studies logical implication and expressiveness, not the probabilistic PGF or sparse-law transitions.",
+        "evidence": [
+          "Definition of poly-dependence in §2.2, printed p.4; original submission 2017-04-07."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1704.02158",
+        "material_read": "Full-text §§2.1–2.2 (especially p.4 poly-dependence definition), introduction, theorem/expressiveness discussion, and concluding sections.",
+        "method": "Open-access arXiv PDF text and page-image inspection.",
+        "title": "Polyteam Semantics",
+        "trigger": "Introduces the exact cross-sort dependence atom that defines the sampled integrity property."
+      },
+      {
+        "assessment": "Classical one-relation random independent tuple model with e^{-lambda} asymptotic, different from two independent Bernoulli relations and not yielding asymmetric compound-Poisson clustering.",
+        "evidence": [
+          "Theorem 1, p.155, explicit i.i.d. tuple probability and one-table FD hypotheses."
+        ],
+        "identifier_or_url": "https://www.renyi.hu/~ohkatona/paper_87.pdf",
+        "material_read": "Section 2 including definition of violations, Theorem 1 and Corollary 1 (printed p.155), accompanying hypotheses/discussion.",
+        "method": "Open-access author PDF page images and relevant theorem/proof context.",
+        "title": "Asymptotic properties of keys and functional dependencies in random databases",
+        "trigger": "Highly relevant early probabilistic functional-dependency violation counting and Poisson approximation."
+      },
+      {
+        "assessment": "General probabilistic-database reliability/counting complexity; does not state the present full PGF or the Poisson versus compound-Poisson parametric scaling result.",
+        "evidence": [
+          "arXiv:1908.07093 abstract/intro, 2019 first preprint, LMCS 2022."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1908.07093",
+        "material_read": "Abstract, introduction and statements of reliability/data-complexity dichotomy, with explicit tuple-independent and relation-specific probabilities.",
+        "method": "Open-access arXiv PDF text and introductory page inspection.",
+        "title": "Uniform Reliability of Self-Join-Free Conjunctive Queries",
+        "trigger": "Could supply stronger weighted probabilistic relational-query coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2f2b087-c520-4aca-88bb-95f38486b82c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The atom is a natural cross-table integrity and consistency property; its exact Bernoulli satisfaction probability and full violation distribution quantify error severity. The strict difference e^{-b(1-e^{-a})}>e^{-ab} at equal limiting mean ab identifies a natural balanced-versus-imbalanced sparsity boundary and a genuine clustering mechanism that cannot be read off from expectation or textbook Poisson approximation alone. The contribution is a motivated structural limiting-law contrast, not a recomputation of isolated small counts.",
+    "status": "PASS"
+  }
+}
