@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The branch update maps are derived directly from the EF recurrence. Any 11 transmission block annihilates the full state and yields a geometric absorption tail. Conditioning on the first transmission gives an exact renewal equation with nonnegative kernel, whose generating function is rational. Positivity at all kernel degrees at least two proves a unique positive, simple, strictly dominant pole, giving exact all-parameter geometric mean-square regimes. The factorization at p=2/3 gives limiting multiplier 2/5. The p=1 boundary is explicitly handled. Independent exact-rational enumeration and symbolic identities in verify.py corroborate these claims but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1809.07599 analyzes compensated sparsification and general rates under different sampling/step hypotheses.",
+        "arXiv:2106.05203 Algorithm 1 uses a Markov gradient-correction mechanism rather than the classical accumulated update error."
+      ],
+      "reasoning": "General error-feedback convergence theorems do not imply the exact instability of this unit-step special case when their sufficient hypotheses are violated. EF21 rates apply to a different recursion and cannot dominate this fixed-step renewal classification.",
+      "searches": [
+        "error feedback finite time absorption almost surely with divergent mean-square error random delayed gradients",
+        "mean square versus almost sure convergence of original error feedback on scalar quadratic with missing transmissions",
+        "arXiv:1809.07599 Theorem 2.4",
+        "arXiv:2106.05203 Algorithm 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1809.07599 full text and theorem",
+      "arXiv:1901.09847v2 main algorithm and theorem in 22-page PDF",
+      "arXiv:1909.05350v2 Section 5, same Bernoulli compressor and bounds",
+      "arXiv:2106.05203v1 algorithm and comparisons",
+      "Published indexed findings: nearest Gaussian/OSGM finite absorption and Gauss–Seidel delay results (distinct recurrences)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The same Bernoulli compressor is explicitly present in arXiv:1909.05350; Section 5 imposes much smaller step-size restrictions, hence its bound does not evaluate the sharp unit-step threshold.",
+        "arXiv:1901.09847 bounds average gradients under uniform bounded second moment assumptions not available for the exponentially growing error in the proposed counterregime."
+      ],
+      "reasoning": "The exact recursion, renewal generating function, pole location and critical 2/5 limit are not corollaries of the published sufficient step-size inequalities inspected. Conversely, our scalar threshold does not strengthen their general results.",
+      "searches": [
+        "arXiv:1909.05350 Section 5 C_tau(x) zero probability 1-1/tau else x",
+        "arXiv:1901.09847 Theorem 1 compressor bound SGD with error feedback",
+        "arXiv:1809.07599 gradient sparsification memory"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1909.05350 Section 5 defines identity-or-zero C_tau and analyzes step-size sufficient bounds, not the exact unit-step MSE classification.",
+        "arXiv:1901.09847 Algorithm 2 defines the classical error-memory update; its theorem imposes bounded-gradient-moment hypotheses."
+      ],
+      "reasoning": "The standard on/off compressor and EF recurrence are acknowledged as prior art. The new assertion is the exact conjunction of almost-sure finite absorption with the 2/3 deterministic-iteration MSE phase boundary, critical positive limit, and unique dominant renewal pole; the cited definitions and sufficient upper bounds do not directly give this complete classification.",
+      "searches": [
+        "error feedback SGD Bernoulli sparsification dropout geometric waiting multiplicative reinjection mean square almost sure finite-time convergence diverging expectation",
+        "error compensated compressed gradient descent scalar quadratic exact mean square stability threshold Bernoulli independent compression",
+        "arXiv:1909.05350 Section 5 Bernoulli C_tau"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published indexed result on exact delay distributions for randomized Gauss-Seidel concerns stale two-coordinate updates and bounded delay, not unbounded on/off compression with error memory.",
+        "Closest finite-absorption indexed result concerns exact-function OSGM with discrete gradient noise, not classical Bernoulli compressor error feedback."
+      ],
+      "reasoning": "The indexed searches did not reveal an exact table or previous formula for this specific error-feedback scalar Bernoulli phase boundary; this is negative search evidence rather than a proof of priority.",
+      "searches": [
+        "Bernoulli on-off compressor error feedback SGD exact p 2/3 phase transition quadratic unit step finite-time almost sure absorption",
+        "EF-SGD C_tau dropped whole update with probability one minus p geometric waiting mean-square divergence even though almost sure finite time convergence",
+        "error compensation random dropout communication epochs renewal generating function (1-p)(2-p)/p^2 second moment"
+      ]
+    },
+    "rationale": "The full-text nearest source arXiv:1909.05350 already defines the *same* all-or-nothing Bernoulli compressor and gives sufficient small-step convergence bounds, but does not provide a necessary-and-sufficient deterministic-iteration MSE classification at unit step, critical nonzero limit, or finite-a.s.-absorption paradox. The defining EF texts and distinct EF21 algorithm similarly do not cover the conjunction. Multiple actual indexed claim, alias and reduction searches gave only different optimization recurrences. Priority may remain in an unindexed specialization.",
+    "residual_risks": [
+      "A specialized earlier derivation of the exact scalar on/off renewal law may exist in unindexed or incompletely searched work.",
+      "Conclusions from different EF variants, especially Markov correction and rescaled compressors, are not interchangeable.",
+      "The result is not a new algorithm: only the exact stability and extinction classification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical mechanism established; complete unit-step on/off exact MSE phase diagram not established in examined statements",
+        "evidence": [
+          "arXiv:1809.07599, Section 2, Definition 2.1 and Theorem 2.4"
+        ],
+        "identifier_or_url": "arXiv:1809.07599",
+        "material_read": "Algorithmic error-memory definitions and convergence theorem and its assumptions in arXiv full text",
+        "method": "Open-access primary full-text reading and theorem comparison",
+        "title": "Sparsified SGD with Memory",
+        "trigger": "Earliest public motivating error-memory result; possible general coverage"
+      },
+      {
+        "assessment": "Defines the recursion but proves guarantees under bounded second-moment hypotheses; does not imply the unit-step scalar on/off result",
+        "evidence": [
+          "arXiv:1901.09847v2, Algorithm 2 and main convergence theorem"
+        ],
+        "identifier_or_url": "arXiv:1901.09847",
+        "material_read": "Full-text PDF, Algorithm 2, assumptions, theorem and adjacent discussion",
+        "method": "Read original PDF mathematical statements and compared update equations",
+        "title": "Error Feedback Fixes SignSGD and other Gradient Compression Schemes",
+        "trigger": "Original full classical EF-SGD recursion and possible strong guarantee"
+      },
+      {
+        "assessment": "Provides useful bounds for the same compressor but no exact deterministic-time 2/3 mean-square boundary or rare-event/finite-absorption classification",
+        "evidence": [
+          "arXiv:1909.05350v2, Section 5, Bernoulli compressor C_tau and Theorem 22"
+        ],
+        "identifier_or_url": "arXiv:1909.05350",
+        "material_read": "Full-text HTML, Section 5 definition of C_tau, theorem and bounds and model discussion",
+        "method": "Compared exact compressor definition, learning-rate restrictions, and conclusions",
+        "title": "The Error-Feedback Framework: SGD with Delayed Gradients",
+        "trigger": "Closest paper explicitly defining same Bernoulli identity-or-zero compressor"
+      },
+      {
+        "assessment": "Different algorithm; no direct implication of stated renewal result",
+        "evidence": [
+          "arXiv:2106.05203v1, Sections 3.2–4"
+        ],
+        "identifier_or_url": "arXiv:2106.05203",
+        "material_read": "Primary open-access HTML Algorithm 1 and comparison of classical error feedback",
+        "method": "Compared error-memory state transition with Markov compressor mechanism",
+        "title": "EF21: A New, Simpler, Theoretically Better, and Practically Faster Error Feedback",
+        "trigger": "Potential broader error-feedback linear-convergence result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "37275fbb-39ce-4682-ac76-dd77df742ed4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The identity-or-zero random compressor and accumulated error memory are natural, published constructions for intermittent communication. The exact 2/3 threshold decides whether a standard expected-squared-error performance criterion is usable, while finite-time almost-sure success misleadingly holds for every positive p. The positive critical error floor and exponential rare-event growth are nontrivial structural boundaries, not a normalization or an arbitrary parameter slice. The result is explicitly limited to the exact-step scalar benchmark; it does not claim a general convergence theorem.",
+    "status": "PASS"
+  }
+}
