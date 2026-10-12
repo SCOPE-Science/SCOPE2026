@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Directly recomputed the 32 distinct codewords from the exact 5x20 integer columns. Exactly thirty nonzero messages have two all-zero cyclic three-windows and the remaining one has none. Every three-consecutive-column system has precisely three nonzero orthogonal messages; summing gives 60. For any rank-five binary generator with minimum three-symbol distance at least n-2, each of its 31 nonzero messages has at most two zero three-windows and each position has at least three nonzero annihilators, so 3n<=62 and n<=20. At n20,d18, the Griesmer equality 7n=ceil(72)+ceil(36)+ceil(18)+ceil(9)+ceil(4.5)=140 matches; Singleton is d3<=n-2.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kurz 2025 Theorem 3.16 gives eventually attained Griesmer length for sufficiently large d, without verifying threshold 18; Section 4 explicitly restricts exhaustive small-dimension results to pair-symbol b=2",
+        "Ding et al 2016 gives the general Singleton bound and explicit three-read families at distances six and seven",
+        "Luo et al 2024 gives the general inequality that implies n<=20, but existence at n20 is a different direction of implication"
+      ],
+      "reasoning": "The upper bound component is covered; neither an upper bound nor unspecified sufficiently-large-distance existence entails fixed [20,5,18] attainment. Full inspected theorems do not exhibit or quantify this exact instance, so the finite constructive existence survives the comparisons.",
+      "searches": [
+        "arXiv:2507.07728 Theorem 3.16 length optimal b-symbol sufficiently large distance",
+        "arXiv:2401.04941 Theorems 5-7 general binary b-symbol code constructions",
+        "arXiv:1609.09236 Theorems 2.4 3.13 construction MDS b-symbol"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.09236 primary PDF, relevant introduction and theorem statements (2016, Ding–Zhang–Ge)",
+      "arXiv:2401.04941 primary PDF, relevant bounds and construction theorems (2024, Luo et al.)",
+      "arXiv:2507.07728 primary PDF, relevant theorems and Section 4 scope (2025, Kurz)",
+      "Published research index: 2026/9/8/SCOPE080 closest b2 cases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Griesmer bound implies n<=20 if b3 MDS k5, but does not imply that equality n20 can be realized",
+        "Ding Theorem 2.4 implies d3<=n-2 but does not supply a generator with d3=18",
+        "Kurz eventual existence theorem does not quantify a threshold permitting inference of d3=18"
+      ],
+      "reasoning": "The precise new mathematical content is constructive sufficiency. The upper bound is explicitly marked known/previously implied, avoiding the false claim that the full extremal statement is novel on both sides.",
+      "searches": [
+        "arXiv:2401.04941 Griesmer bound and cyclic extended cyclic codes",
+        "arXiv:1609.09236 MDS b-symbol code families Theorem 3.13",
+        "arXiv:2507.07728 Theorem 3.16 k5 b3 sufficient distance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.04941 presents a general Griesmer bound and cyclic/extended-cyclic families; for dimension five, Theorems 6–7 have lengths 15 and 16, not 20",
+        "arXiv:1609.09236 Section 3 announces d3=6 and d3=7 MDS families, not d3=18"
+      ],
+      "reasoning": "Equivalent properties are that 20 cyclic triples of binary five-space columns intersect every projective hyperplane at most twice, or that all 31 nonzero codewords have at most two zero three-windows. Inspected explicit families and targeted parameter searches yielded no dominating existence statement; this does not prove global priority.",
+      "searches": [
+        "binary linear [20,5,18] 3-symbol MDS code b-Griesmer equality explicit generator length twenty",
+        "binary 3-symbol read channel dimension five maximal Singleton MDS length twenty cyclic triple subspaces",
+        "binary [20,5,18] 3-symbol MDS code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sascha Kurz arXiv:2507.07728 Section 4 tabulates b=2 cases only",
+        "Closest indexed SCOPE080 lists [8,3,6],[12,5,8],[14,3,12] cyclic symbol-pair codes b=2 rather than b=3"
+      ],
+      "reasoning": "No retrieved exact entry for the proposed binary three-read [20,5,18] generator; absence is only search evidence and does not certify originality.",
+      "searches": [
+        "binary linear [20,5,18] 3-symbol MDS code b-Griesmer equality explicit generator length twenty",
+        "2025 Kurz binary three-symbol optimal dimension five parameters table",
+        "published-finding corpus index 2026/9/8/SCOPE080 b-symbol Griesmer"
+      ]
+    },
+    "rationale": "New contribution is the explicit length-20 dimension-five binary three-symbol Singleton- and Griesmer-tight existence witness. The upper length bound is already a corollary of the 2024 Griesmer inequality and is explicitly NOT claimed as a novel bound. The 2016 Ding et al. families address other fixed b-distances; 2024 Luo et al. constructed families include dimension-five lengths 15,16 and the length-31 simplex, rather than a 20-column construction, not this length-20 witness; 2025 Kurz addresses eventual and b=2 small-dimension cases. Searches found no earlier explicit equivalent existence; residual risk remains.",
+    "residual_risks": [
+      "A prior equivalent code may be implicit in projective-geometric constructions, tables, unpublished work, or unindexed sources.",
+      "The 2025 asymptotic theorem's unspecified threshold was not proven too high for d=18; no explicit fixed-parameter implication was found.",
+      "No external independent audit has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No displayed binary [20,5,18] 3-symbol construction in listed families; general upper already known",
+        "evidence": "2016 paper p2 introductory family list has d3=6,7; Theorem 2.4 Singleton; Theorem 3.13 b3 d6 for all n",
+        "identifier_or_url": "arXiv:1609.09236",
+        "material_read": "Original arXiv paper: abstract, complete introduction and displayed family list, definitions and Theorems 2.4–2.6, and the theorem statements relevant to the listed three-read constructions",
+        "method": "Read substantive primary-paper text and compare displayed parameter restrictions",
+        "title": "Maximum Distance Separable Codes for b-Symbol Read Channels",
+        "trigger": "Introduces Singleton bound and MDS b3 constructions plausibly dominating a dimension-five instance"
+      },
+      {
+        "assessment": "Supplies upper n<=20; explicit Theorems 6–7 have dimension-five instances of length 15 and 16, rather than the claimed length 20",
+        "evidence": "Theorem 5 concerns b=2 concatenations; Theorems 6-7 n=q^k-1 or q^k, with k+1 dimension",
+        "identifier_or_url": "arXiv:2401.04941",
+        "material_read": "Original arXiv preprint: introduction, definitions, Griesmer inequality, and construction Theorems 5–7 with surrounding derivations",
+        "method": "arXiv PDF text and exact parameter analysis",
+        "title": "Griesmer Bound and Constructions of Linear Codes in b-Symbol Metric",
+        "trigger": "Primary 2024 general Griesmer result; strongest numerical implication"
+      },
+      {
+        "assessment": "Eventual large-distance existence and pair-symbol small-dimension tables, not an explicit d3=18 b3 dimension-five witness",
+        "evidence": "Theorem 3.16 holds for sufficiently large d; conclusion says Section 4 solves q=b=2 and k<=5",
+        "identifier_or_url": "arXiv:2507.07728",
+        "material_read": "2025 arXiv paper: abstract and introduction, Theorem 3.16 and surrounding proof, exact ILP setup, and Section 4 scope and summary",
+        "method": "read arXiv PDF text, inspected rendered pages 17,19,20",
+        "title": "Linear codes for b-symbol read channels attaining the Griesmer bound",
+        "trigger": "Later stronger general attainment theorem potentially encompassing n20 case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8a831c2-54c6-42e3-9ae0-333bebdb1a5b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural cutoff problem asks the maximum length of a dimension-five binary three-read Singleton-optimal linear code. The general 2024 Griesmer bound already gives nonexistence beyond length 20, but does not guarantee any realizing example. An explicit rank-five n20 code with all 31 weights computed gives definitive attainability, meeting two independent fundamental bounds and closing that natural gap. No broad theorem or uniqueness claim is asserted. Its exact parameters and simple reproducible certificate can serve as a boundary test case for constructions and geometric packing models.",
+    "status": "PASS"
+  }
+}

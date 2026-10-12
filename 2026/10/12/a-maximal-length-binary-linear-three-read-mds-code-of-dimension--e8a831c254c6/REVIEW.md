@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The displayed generator yields \(32\) distinct codewords and the exact multiset of nonzero cyclic three-read weights \(18\) (thirty times) and \(20\) (once), checked independently of any search. The incidence double-counting argument gives \(3n\le62\) for every dimension-five binary code with distance at least \(n-2\), including generators not related to the witness. The Singleton and Griesmer equalities are checked term by term. Risk: the finite witness has no independent external validation; the proof does not extend to nonlinear codes.
+
+**Originality: PASS, with residual risk.** Ding–Zhang–Ge (2016) prove the general Singleton bound and construct families, but their inspected original paper does not exhibit the particular binary \([20,5,18]\) three-read code. Luo et al. (2024) prove the Griesmer inequality: in particular, the **upper bound \(n\le20\) follows already from their theorem** and is not presented as a new consequence; their explicit families do not settle attainability at \(n=20\). Kurz (2025) treats large-distance eventual attainability and pair-symbol small dimensions, not the displayed fixed-parameter instance. Targeted string/parameter/duality/index searches found no explicit earlier existence witness, but an implicit or unindexed one remains possible. No absence claim is based solely on snippets.
+
+**Value: PASS.** Exact attainment of the **largest** allowable length for a natural binary, dimension-five, three-read Singleton-optimal code closes the sharp extremal case and simultaneously realizes the tight Griesmer equality. Both standard coding bounds alone leave the realization question open; the twenty-column generator answers it constructively and reproducibly. The universal zero-window incidence proof also provides a structural interpretation, though the length inequality itself was already implied by Griesmer.
+
+The principal priority and scope risk is equivalent prior constructions under code equivalence or the geometric methods discussed in the cited papers. The claim is limited to an explicit realization and exact extremal length, not a new general bounding theorem.
+
+Self-review: passed. Independent audit: not yet performed.
