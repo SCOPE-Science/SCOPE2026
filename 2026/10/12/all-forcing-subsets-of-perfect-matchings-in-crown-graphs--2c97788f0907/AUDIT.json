@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces extensions of a partial perfect matching to derangement completions on the omitted indices. The two-index case has exactly one alternative swap, and the at-least-three case always has a second completion by a nonadjacent swap or inversion of a \\(3\\)-cycle. The count \\(n-t_2(\\pi)\\) follows from the undirected cycle graph. Exhaustive direct extension counting for \\(3\\le n\\le8\\) independently verifies 4,053,088 subset instances and all stated coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Zhang, arXiv:2106.09209, states a complete characterization of bipartite graphs with minimum forcing number \\(n-2\\).",
+        "Che–Chen 2013 reports that \\(K_{n,n}\\) is exactly the bipartite extremal family with forcing number \\(n-1\\).",
+        "The 2021 broader result concerns the minimum forcing number of a graph, not the family of all forcing subsets of each perfect matching nor their cycle-type-sensitive count."
+      ],
+      "reasoning": "Broader forcing-number theorems can imply or subsume the scalar value, so that scalar is removed from the originality basis. They do not imply how many forcing subsets a specified matching has at each cardinality.",
+      "searches": [
+        "arXiv:2106.09209 full text, Section 4, characterization of bipartite graphs with minimum forcing number n-2",
+        "complete bipartite graph forcing number n-1",
+        "number of minimum forcing sets perfect matching"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1002/jcc.540080432",
+      "doi:10.1007/BF01192587",
+      "doi:10.1016/S0012-365X(97)00266-5",
+      "doi:10.1016/j.disc.2002.10.002",
+      "MATCH 66 (2011) 93–136",
+      "MATCH 73 (2015) 473–490",
+      "arxiv:2106.09209"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior-record deduplication found no perfect-matching forcing-subset classification of crown graphs.",
+        "Anti-forcing concerns deleting nonmatching edges and does not imply subsets inside \\(M_\\pi\\).",
+        "Liu–Zhang covers scalar forcing-number behavior but not all forcing subsets.",
+        "Zhang–Zhao–Lin defines a coarser forcing polynomial that collapses here to a monomial."
+      ],
+      "reasoning": "The final claim is deliberately stronger and differently structured than the covered scalar statement: it classifies all \\(F\\subseteq M_\\pi\\), derives the exact \\(n-t_2(\\pi)\\) number of minimum forcing sets, and sums these counts over all derangements.",
+      "searches": [
+        "Prior-record deduplication query: perfect-matching forcing subsets of crown graphs",
+        "forcing polynomial crown graph derangement",
+        "arXiv:2106.09209 full text",
+        "MATCH 73 (2015) forcing polynomial full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Che–Chen 2011 survey, MATCH 66, 93–136: full-text search contained no crown occurrence; it surveys forcing sets, spectra, and global forcing.",
+        "Aliases checked: crown graph; complete bipartite graph minus a perfect matching; complete bipartite graph minus a \\(1\\)-factor; bipartite Kneser graph \\(H(n,1)\\).",
+        "The closest semantic records found concerned different parameters or different graph operations, not perfect-matching forcing subsets."
+      ],
+      "reasoning": "The same crown object can appear under several aliases, and forcing can be confused with zero forcing or anti-forcing. The checked equivalent names and related forcing notions did not yield the present inside-the-matching set-system classification.",
+      "searches": [
+        "all forcing subsets perfect matching crown graph",
+        "number of minimum forcing sets crown graph perfect matching",
+        "forcing-subset enumerator derangement perfect matching",
+        "crown graph forcing number matching",
+        "complete bipartite graph minus a perfect matching forcing matching",
+        "complete bipartite graph minus a 1-factor forcing matching",
+        "bipartite Kneser forcing number perfect matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2015 paper defines \\(F(G,x)=\\sum_M x^{f(G,M)}\\) over perfect matchings \\(M\\) and explicitly classifies matchings only by their minimum forcing number.",
+        "Full-text search of the 2015 paper found no crown or complete-bipartite occurrence.",
+        "The present polynomial \\(\\Phi_\\pi(x)\\) is a different object: it enumerates every forcing subset \\(F\\) of one fixed \\(M_\\pi\\) by \\(|F|\\)."
+      ],
+      "reasoning": "A standard forcing polynomial exists, so the comparison must distinguish it from the new all-subset enumerator. The standard polynomial loses the transposition statistic because it records only the minimum cardinality.",
+      "searches": [
+        "Zhang–Zhao–Lin 2015 forcing polynomial full text, MATCH 73, 473–490",
+        "forcing polynomial crown graph derangement",
+        "forcing set polynomial perfect matching"
+      ]
+    },
+    "rationale": "The scalar minimum forcing number is treated as covered by later general bipartite results and is not the originality basis. The retained result classifies every forcing subset of every crown perfect matching and finds a cycle-type-sensitive minimum-set count and aggregate enumerator. Targeted alias searches, database searches, the 2011 forcing survey, the 2015 forcing-polynomial paper, and the 2021 broad forcing-number paper did not supply or imply this all-subset statement.",
+    "residual_risks": [
+      "An unindexed paper may use a nonstandard name for crown graphs and explicitly count forcing subsets rather than only forcing numbers.",
+      "The all-subset enumerator Phi_pi is a natural refinement but is not the same established invariant as the standard forcing polynomial; terminology must remain explicit.",
+      "The 1985 book-chapter precursor was identified historically but not assigned an exact public day; the package uses the later exact-day 1987 source without inventing a 1985 date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "Defines the minimum number of fixed matching edges needed to determine a Kekulé structure; no crown-family all-subset enumeration was identified.",
+        "identifier_or_url": "doi:10.1002/jcc.540080432",
+        "material_read": "Bibliographic record and abstract; historical placement cross-checked against the 2011 survey.",
+        "method": "Exact-title and DOI search.",
+        "title": "Innate degree of freedom of a graph",
+        "trigger": "Foundational equivalent formulation of forcing number."
+      },
+      {
+        "assessment": "BROAD_NOT_COVERING_FINAL_CLAIM",
+        "evidence": "No crown occurrence was found. Complete bipartite results discussed in the survey concern global forcing or \\(K_{n,n}\\), not all forcing subsets of \\(K_{n,n}\\) minus a \\(1\\)-factor.",
+        "identifier_or_url": "MATCH 66 (2011) 93–136",
+        "material_read": "Searchable full text, including definitions, forcing spectra, global forcing section, open questions, and references.",
+        "method": "Full-text inspection and searches for crown and complete bipartite.",
+        "title": "Forcing on Perfect Matchings – A Survey",
+        "trigger": "Broad archive-era survey likely to expose aliases, spectra, and standard families."
+      },
+      {
+        "assessment": "COARSER_INVARIANT_NOT_COVERING",
+        "evidence": "Defines \\(F(G,x)=\\sum_M x^{f(G,M)}\\), which counts perfect matchings by minimum forcing number. It does not enumerate all forcing subsets of one \\(M\\) and contains no crown or complete-bipartite occurrence.",
+        "identifier_or_url": "MATCH 73 (2015) 473–490",
+        "material_read": "Full text around the definition and examples; full-text searches for crown and complete bipartite.",
+        "method": "Searchable PDF plus page inspection.",
+        "title": "The Forcing Polynomial of Catacondensed Hexagonal Systems",
+        "trigger": "Defines the standard forcing polynomial and therefore could dominate an enumerative claim."
+      },
+      {
+        "assessment": "COVERS_SCALAR_ONLY_NOT_FINAL_CLAIM",
+        "evidence": "The paper completely characterizes bipartite graphs with graph minimum forcing number \\(n-2\\). This can subsume the scalar crown minimum, which is therefore not claimed as novel; it does not count all forcing subsets or the \\(n-t_2(\\pi)\\) minimum-set multiplicity.",
+        "identifier_or_url": "arxiv:2106.09209",
+        "material_read": "Full HTML text, especially introduction, the alternating-cycle criterion, degree lower bound, and Section 4.",
+        "method": "Full-text inspection.",
+        "title": "Some tight bounds on the minimum and maximum forcing numbers of graphs",
+        "trigger": "Strong broader result explicitly characterizing bipartite graphs with minimum forcing number n-2."
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "Defines forcing number and gives grid bounds/feedback-set connection, not crown forcing-subset enumeration.",
+        "identifier_or_url": "doi:10.1016/S0012-365X(97)00266-5",
+        "material_read": "Repository metadata and abstract.",
+        "method": "Institutional repository page inspection.",
+        "title": "Forcing matchings on square grids",
+        "trigger": "Foundational forcing-set and feedback-set source with exact public date evidence."
+      },
+      {
+        "assessment": "MSC_AND_BACKGROUND_NOT_COVERING",
+        "evidence": "The record classifies the subject under MSC 05C70 and studies bipartite forcing numbers computationally/general-theoretically, not this crown all-subset formula.",
+        "identifier_or_url": "doi:10.1016/j.disc.2002.10.002",
+        "material_read": "Abstract and bibliographic metadata.",
+        "method": "Publisher-indexed record inspection.",
+        "title": "On the forced matching numbers of bipartite graphs",
+        "trigger": "Primary bipartite forcing source and MSC ownership check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c97788f-0907-47ae-8ef7-d0bb56e4b1e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a complete structural classification of a core set system in perfect-matching forcing theory. It explains why the standard forcing polynomial loses all cycle-type information on crowns, then recovers an exact matching-sensitive statistic \\(n-t_2(\\pi)\\) and an aggregate derangement formula. This is mathematically natural and not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
