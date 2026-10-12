@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Source-form rank-one PowerSGD gives \\(C_t=p_tp_t^\\top M\\), and repeated reuse makes \\(p_t\\) proportional to \\(M(M^\\top M)^{t-1}q_0\\). On a rank-two SVD this yields an exact rational function of two Gaussian squares. Gaussian rotational invariance reduces expectation to a uniform-angle integral, and the identities for \\(\\mathbb E[(a\\cos^2\\theta+\\sin^2\\theta)^{-1}]\\) give the closed form. The actual package replay independently checks both pointwise and integrated formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "PowerSGD proves convergence of repeated fixed-matrix subspace iteration to the dominant subspace.",
+        "General randomized low-rank approximation theory covers arbitrary dimensions and provides expectation/tail guarantees.",
+        "The PowerSGD paper empirically compares warm-start, no warm-start, and best low-rank approximation."
+      ],
+      "reasoning": "Those results are broader in matrix dimension or optimizer context but do not dominate the exact rank-two finite-step equality. The equality supplies quantitative information unavailable from convergence alone, including the factor-\\(\\kappa\\) first-step residual penalty and the \\(O(\\kappa^{-1})\\) excess after one reuse.",
+      "searches": [
+        "arXiv:1905.13727v1 Appendix A subspace iteration",
+        "DOI:10.1137/090771806 randomized low-rank expected error",
+        "PowerSGD finite power iteration exact approximation error two singular values"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.13727v1",
+      "DOI:10.48550/arXiv.1905.13727",
+      "DOI:10.1137/090771806"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source says warm-start reuses the previous approximation and empirically closes the gap to the best rank-\\(r\\) approximation.",
+        "Its fixed-matrix appendix gives limiting dominant-subspace recovery rather than a finite-step expectation.",
+        "The classical randomized-decomposition source develops general expected-error analysis rather than this exact no-oversampling two-singular-value equality."
+      ],
+      "reasoning": "Convergence to the best subspace only implies that the error tends to the optimum. It does not determine the exact expected error at any finite reuse depth. The accepted formula additionally resolves how the finite-step gap depends on \\(\\kappa\\).",
+      "searches": [
+        "arXiv:1905.13727v1 Algorithm 1 Gaussian Q warm start",
+        "arXiv:1905.13727v1 Section 4.2 warm-start",
+        "arXiv:1905.13727v1 Appendix A.2 subspace iteration",
+        "DOI:10.1137/090771806 Gaussian range finder expected Frobenius error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "PowerSGD Algorithm 1 initializes the right factor from an i.i.d. standard Gaussian matrix and reuses the previous factor.",
+        "The source appendix states asymptotic recovery of the best rank-\\(r\\) subspace on a fixed matrix with a gap.",
+        "Classical randomized matrix approximation analyzes Gaussian range finders and power schemes using expected-error bounds."
+      ],
+      "reasoning": "An equivalent result would need to evaluate the finite-step expectation for the exact no-oversampling rank-one recurrence and simplify it to the displayed rational function of the singular-value ratio. The inspected asymptotic and bound-based statements do not imply that exact finite-time value.",
+      "searches": [
+        "arXiv:1905.13727v1",
+        "DOI:10.1137/090771806",
+        "PowerSGD warm start exact expected Frobenius error rank one two singular values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings concern other low-rank or matrix-iteration error mechanisms, not PowerSGD.",
+        "No checked indexed result returned the exact factor \\(1+(\\kappa^2-1)/(\\kappa^{2t-1}+1)\\) or an equivalent rank-two PowerSGD expectation."
+      ],
+      "reasoning": "Search absence is supporting evidence only. Originality rests primarily on direct comparison with the defining PowerSGD full text and established randomized low-rank theory.",
+      "searches": [
+        "PowerSGD rank one exact compression error diagonal matrix randomized power iteration",
+        "PowerSGD exact bias variance two by two gradient compression",
+        "PowerSGD one step power iteration singular value compression error",
+        "randomized range finder rank one two by two exact expected Frobenius residual Gaussian"
+      ]
+    },
+    "rationale": "The defining PowerSGD source supplies Gaussian initialization, warm-start reuse, and asymptotic fixed-matrix subspace convergence, while explicitly noting that a single non-warm-started step has lower approximation quality. Classical randomized low-rank theory supplies general probabilistic error bounds. The inspected sources do not state the exact finite-step no-oversampling rank-two expectation or its condition-number simplification. The accepted claim is that exact finite-time law, not asymptotic subspace convergence.",
+    "residual_risks": [
+      "An unindexed randomized-linear-algebra note may contain the same two-dimensional integral under generic subspace-iteration terminology.",
+      "The exact law is for a stationary matrix; changing stochastic gradients can weaken the benefit of reuse.",
+      "The result is intentionally a sharp compressor invariant rather than an end-to-end distributed-optimization convergence theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_AND_ASYMPTOTIC_CONVERGENCE_NOT_COVERING_EXACT_FINITE_STEP_EXPECTATION.",
+        "evidence": "The source explicitly says a single power-iteration step suffers without warm-start and proves eventual fixed-matrix dominant-subspace recovery, but the inspected material does not evaluate the rank-two Gaussian residual expectation at finite reuse depth.",
+        "identifier_or_url": "arXiv:1905.13727v1",
+        "material_read": "Open-access full text covering Algorithm 1, the Gaussian initialization, rank-one/rank-\\(r\\) compression equations, Section 4.2 on warm-start quality, and Appendix A.2 on fixed-matrix subspace iteration.",
+        "method": "Open-access full-text inspection.",
+        "title": "PowerSGD: Practical Low-Rank Gradient Compression for Distributed Optimization",
+        "trigger": "Defining source for the compressor, Gaussian initialization, warm-start, and fixed-matrix subspace iteration."
+      },
+      {
+        "assessment": "GENERAL_EXPECTED_ERROR_THEORY_NOT_COVERING_THE_EXACT_POWERSGD_RANK_TWO_EQUALITY.",
+        "evidence": "The source develops broad probabilistic bounds and algorithms; the checked material did not state the exact finite-step no-oversampling rank-one two-singular-value expectation used here.",
+        "identifier_or_url": "DOI:10.1137/090771806",
+        "material_read": "Open-access survey/article material covering Gaussian randomized range finding, low-rank approximation, and expected-error analysis.",
+        "method": "Open-access primary literature inspection.",
+        "title": "Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions",
+        "trigger": "Canonical randomized low-rank approximation theory using Gaussian sketches and power schemes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "22a0f07c-5d90-4db1-8899-a62594a3b928",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Warm-start is identified by the PowerSGD source as a key practical mechanism, yet its benefit is otherwise described empirically or asymptotically. The exact rank-two law quantifies that mechanism in the smallest nontrivial model: random initialization carries a condition-number penalty relative to the optimal residual, while one reuse becomes nearly optimal precisely when the spectral gap is large. This gives a reusable calibration benchmark for low-rank compressor initialization and reuse depth.",
+    "status": "PASS"
+  }
+}
