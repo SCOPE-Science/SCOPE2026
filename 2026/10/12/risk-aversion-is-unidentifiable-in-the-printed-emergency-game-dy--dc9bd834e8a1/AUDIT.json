@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Directly inspect Equations (19)–(24) and updates (42)–(44): none has a lambda coefficient, so fixed noise and initial conditions define an exactly identical evolution for every lambda, on all intervals where uniqueness/well-posedness holds. For y=0 Table 2 gives two ambiguous-return outcomes with probabilities x and 1-x; their variance is x(1-x)(1-z)^2(Fm-Fmprime)^2. Differentiating the correct binary mean–variance replicator yields x(1-x)z(1-z)^3(Fm-Fmprime)^2, exactly 729/6400 with calibrated fines at x=z=1/2. Eq. (18) separately retains nonzero sensitivity 729/3200. Exact rational symbolic replay passed. No assertion depends on global SDE solution existence or undocumented code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang, Su, Wang and Plotkin (2024), DOI 10.1073/pnas.2406993121, use risk-dependent expected utility for imitation in a distinct model.",
+        "Song (2026), DOI 10.1038/s41598-026-53697-9, uses loss-sensitive payoffs in another tripartite disinformation game."
+      ],
+      "reasoning": "The broader literature explains how to include risk preference and why it may matter; none of these models contains Su–Long’s final source-specific formula or entails that lambda is absent there.",
+      "searches": [
+        "stochastic evolutionary game government new media risk preference coefficient structural identifiability zero sensitivity",
+        "evolutionary games risk parameter variance replicator omitted mean variance equation unaffected dynamics",
+        "stochastic evolutionary games new media risk aversion mean variance utility replicator stochastic dynamics 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/jdg.2026051",
+      "https://www.researchgate.net/publication/411045061_Tripartite_stochastic_evolutionary_game_and_its_evolutionary_stability_under_emergencies",
+      "doi:10.1073/pnas.2406993121",
+      "doi:10.1038/s41598-026-53697-9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously documented result `b43cb555-4ad6-49b2-a6f4-011972abdf3f` observes probability-cube noninvariance caused by missing factors 1-x, 1-y and 1-z in the same source.",
+        "That result does not identify a missing risk parameter, parameter-law equivalence, or positive payoff-level mean–variance sensitivity.",
+        "Su–Long Eq. (18) contains a nonzero lambda contribution, but the final Eqs. (19)–(24) and numerical updates remove it while the paper discusses lambda-dependent trajectories."
+      ],
+      "reasoning": "A complement-factor correction is not sufficient to restore the missing lambda term; the risk-identifiability claim is distinct from boundary-state invariance. Prior general risk-sensitive dynamics do not imply an omission in the subsequent formulas of this source.",
+      "searches": [
+        "Su Long Tripartite stochastic evolutionary game and its evolutionary stability under emergencies lambda risk preference parameter omitted equations 19 21 22 24 simulations",
+        "evolutionary games risk parameter variance replicator omitted mean variance equation unaffected dynamics",
+        "10.3934/jdg.2026051 mean variance utility risk aversion lambda absent stochastic dynamics unidentifiability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source Eq. (3) defines risk utility, Eq. (18) includes lambda, Eqs. (19)–(24) and (42)–(44) do not.",
+        "No indexed result equivalent to the source-specific complete parameter nonidentifiability of its final equations."
+      ],
+      "reasoning": "An equivalent claim must demonstrate zero parameter-to-law dependence for the published final emergency-game system, not simply discuss risk in evolutionary games. Results indexed under general identifiability concern different equations.",
+      "searches": [
+        "Su Long Tripartite stochastic evolutionary game and its evolutionary stability under emergencies lambda risk preference parameter omitted equations 19 21 22 24 simulations",
+        "10.3934/jdg.2026051 mean variance utility risk aversion lambda absent stochastic dynamics unidentifiability",
+        "evolutionary game risk aversion variance term vanishes stochastic equation parameter unidentifiable at fixed Brownian path"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finding `2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e` concerns ecological Fisher parameter correlations, not this risk coefficient.",
+        "Published finding `2026/9/17/SCOPE-determinant-sign-stability-exchange-predator-dependent-replicator--e8d30d2f6175` concerns stability exchange in a different predator-dependent replicator.",
+        "A previous scientific result includes an earlier Su–Long boundary invariance result, distinct from lambda nonidentifiability."
+      ],
+      "reasoning": "Search absence is not proof of novelty; equation-level novelty is grounded in comparison with the full exact primary source and previous same-source claim.",
+      "searches": [
+        "10.3934/jdg.2026051 mean variance utility risk aversion lambda absent stochastic dynamics unidentifiability",
+        "Su Long Tripartite stochastic evolutionary game and its evolutionary stability under emergencies lambda risk preference parameter omitted equations 19 21 22 24 simulations",
+        "stochastic evolutionary game government new media risk preference coefficient structural identifiability zero sensitivity"
+      ]
+    },
+    "rationale": "The motivating paper explicitly varies risk preferences in Figures 6–7 yet supplies no statement that its final dynamics erase the risk coefficient. Full relevant published text was read and compared at the implication level. Targeted searches of published findings for the DOI, lambda, mean–variance, risk sensitivity, nonidentifiability and stochastic replicator dynamics found no matching published finding. A prior same-paper finding proves a complement-factor state-space obstruction, logically distinct from zero risk identifiability. Broad risk-sensitive-game literature studies models where risk actually enters utility updates and does not cover this specific omission.",
+    "residual_risks": [
+      "The journal website exposes the publisher abstract while a publicly posted full-text transcription was used to inspect the equations; equation glyphs are sufficiently legible in the independent posting but typographical discrepancies remain possible.",
+      "An unindexed erratum, preprint, private code, or later implementation may use a lambda-bearing equation. Such code could underlie the reported risk-sensitive simulations; no validity claim about unexamined code is made.",
+      "The structural nonidentifiability proof is simple after noticing the omission; mathematical value lies in its whole-path consequence for a central advertised inference, and in the exact quantification of the risk response that should be present.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_UNSTATED_PARAMETER_OMISSION",
+        "evidence": "Eq. (18) explicitly has the lambda times a payoff variance and positive lambda-coefficient at y=0 with different fines; Eqs. (19)–(24) and (42)–(44) contain no lambda, while Figures 6–7 attribute differences to its variation.",
+        "identifier_or_url": "doi:10.3934/jdg.2026051",
+        "material_read": "Public 17-page full-text transcription of journal article (original page markers 1–17), including assumptions and payoff Table 2, risk utility Eq. (3), variance calculations (13), (15), risk-aware drift (18), post-simplification Eqs. (19)–(21), stochastic Eqs. (22)–(24), Milstein maps (42)–(44), simulations Figures 6–7 and Section 4.2, conclusions; publication date/MSC cross-checked on journal publisher page.",
+        "method": "Primary scholarly article full text displayed on its publicly accessible ResearchGate article page, cross-checked with publisher landing page.",
+        "title": "Tripartite stochastic evolutionary game and its evolutionary stability under emergencies",
+        "trigger": "Exact source of the risk parameter and apparently incompatible governing, numerical, and simulation formulas."
+      },
+      {
+        "assessment": "BROADER_RISK_INCENTIVE_CONTEXT",
+        "evidence": "Risk-dependent expected utility enters the imitation probability directly, unlike the lambda-free final equations of the motivating paper.",
+        "identifier_or_url": "doi:10.1073/pnas.2406993121",
+        "material_read": "Publisher primary paper discussion of expected utility and variance in decision-to-imitate rule, including model definition and risk-aversion direction.",
+        "method": "Publisher open online article.",
+        "title": "The evolution of social behaviors and risk preferences in settings with uncertainty",
+        "trigger": "Specific primary antecedent cited by the motivating paper for risk preferences in social evolution."
+      },
+      {
+        "assessment": "THEMATIC_CONTEXT_NOT_DIRECT_COVERAGE",
+        "evidence": "Uses a loss-sensitive value function in a different evolutionary model; no inference about whether the Su–Long paper retains lambda in its final equations.",
+        "identifier_or_url": "doi:10.1038/s41598-026-53697-9",
+        "material_read": "Publisher primary abstract and model overview; not relied upon for a full-document noncoverage statement.",
+        "method": "Open-access publisher article abstract.",
+        "title": "A prospect-theoretic evolutionary game approach for disinformation governance in social-media ecosystems",
+        "trigger": "Recent primary tripartite media-governance evolutionary game with explicit loss aversion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc9bd834-e8a1-497d-955c-5f9e10250804",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Risk aversion is not a peripheral parameter: the motivating work explicitly introduces mean–variance utility and devotes Figures 6–7, Section 4.2 and a principal conclusion to risk-sensitive trajectories and policy behavior. In the supplied final dynamic and discrete formulas, even complete noiseless trajectories and complete stochastic path laws contain zero information about lambda. The exact positive value 729/6400 at calibrated fine rates shows the missing sensitivity is economically real in the specified payoff game rather than an algebraic cancellation. This gives a decisive model-vs-claim boundary useful for reproducibility, empirical calibration, and interpretation, without imputing undocumented simulation behavior.",
+    "status": "PASS"
+  }
+}
