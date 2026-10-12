@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Factoring the exact survival series gives a geometrically dominated binomial expansion. The coefficients are exactly polylogarithms. Logarithmic differentiation yields the hazard correction, and inversion of the survival asymptotic yields the additive quantile correction. The embedded checker reproduces the limiting constants from the exact series without using finite computation as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 F-LLoM paper gives only proportional tail decay and says the finite-mixture constant depends on weights and scales.",
+        "The 2025 DGEGF model uses geometric mixing and a different failure rule; no logarithmic polylogarithmic tail constant was found there."
+      ],
+      "reasoning": "Generic finite-mixture tail dominance does not determine the infinite logarithmic-mixture constant or its first correction. The present polylogarithmic sums arise specifically from the logarithmic count distribution.",
+      "searches": [
+        "Frailty-Augmented Logistic-Weighted Lomax Mixture tail constant 2026",
+        "doubly generalized exponential-geometric frailty tail asymptotic",
+        "finite mixture Lomax tail constant hazard asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026369",
+      "doi:10.3934/math.2026261",
+      "doi:10.3934/math.20251334"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section 3.3 of the target gives only \\(S(y)\\sim C(\\eta,\\lambda)y^{-\\lambda}\\) with \\(C\\) unnamed.",
+        "Proposition 9 keeps the same unspecified \\(C(\\eta,\\lambda)\\) in the extreme-quantile approximation.",
+        "The related finite Lomax-mixture source does not supply the second-order coefficient or logarithmic polylogarithmic specialization."
+      ],
+      "reasoning": "The source's leading regular-variation statement does not imply the explicit coefficient without evaluating the infinite mixture. It also does not imply the additive quantile correction, which requires the next term.",
+      "searches": [
+        "target Section 3.3 C eta lambda tail constant",
+        "target Proposition 9 extreme quantile C eta lambda",
+        "logarithmic mixture Lomax polylogarithm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target source writes the survival as a logarithmic mixture of Lomax survivals and leaves the regular-variation constant unspecified.",
+        "published-finding corpus searches using LGF, logarithmic mixture, polylogarithm, and exact tail-constant aliases returned no matching claim."
+      ],
+      "reasoning": "The final statement was searched both as an explicit polylogarithmic constant and as a second-order regularly varying expansion. No equivalent formulation was located.",
+      "searches": [
+        "logarithmic gamma frailty tail constant polylogarithm Li lambda first failure",
+        "LGF survival tail constant Li lambda+1 logarithmic mixture Lomax",
+        "logarithmic mixture Lomax exact regular variation constant polylog hazard second order",
+        "A logarithmic-gamma frailty model first-failure tail constant C eta lambda quantile",
+        "mixture Lomax logarithmic distribution tail constant polylogarithm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI searches located the original article and mirrors but no corrigendum or later exact constant.",
+        "The current and immediately prior owned ledgers contain no matching LGF, logarithmic-gamma, polylogarithm, or exact-tail-constant claim."
+      ],
+      "reasoning": "No database correction, table entry, or owned prior result was found that already states the accepted claim.",
+      "searches": [
+        "10.3934/math.2026369 polylogarithm",
+        "10.3934/math.2026369 tail constant",
+        "10.3934/math.2026369 corrigendum correction"
+      ]
+    },
+    "rationale": "The target source states only an unspecified positive tail constant and a leading hazard equivalence. Focused published-finding corpus, DOI, model-name, polylogarithm, tail-constant, and quantile-correction searches found no covering statement. The closest related Lomax-mixture papers state only generic power-law dominance and do not imply these logarithmic-mixture coefficients.",
+    "residual_risks": [
+      "An unindexed note may contain the same polylogarithmic evaluation under different notation.",
+      "A general theorem for infinite mixtures of regularly varying survivals could imply the leading coefficient after specialization, but no inspected source supplied the model-specific polylogarithmic evaluation or quantile correction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the exact survival series, states regular variation with an unspecified positive constant, and gives only the leading hazard and quantile asymptotics.",
+        "evidence": "Pages 8948, 8950–8952 of the published PDF.",
+        "identifier_or_url": "doi:10.3934/math.2026369",
+        "material_read": "Open-access full PDF, especially equations (2.7), (3.2), Section 3.3, Proposition 9, and the surrounding discussion.",
+        "method": "Direct PDF text and page-image inspection.",
+        "title": "A logarithmic–gamma frailty model for first-failure times with heavy-tailed risk",
+        "trigger": "Primary model and the source of the unspecified tail constant and extreme-quantile formula."
+      },
+      {
+        "assessment": "States that the heaviest-tailed finite component determines the power-law tail and that the constant depends on weights and scales; it does not give the logarithmic-mixture polylogarithmic constant or second-order correction.",
+        "evidence": "Section 3.3, pages 6336–6337.",
+        "identifier_or_url": "doi:10.3934/math.2026261",
+        "material_read": "Open-access full PDF, especially Section 3.3 on tail behaviour.",
+        "method": "Direct PDF text inspection.",
+        "title": "Frailty-Augmented Logistic-Weighted Lomax Mixture regression for survival analysis",
+        "trigger": "Closest same-author 2026 Lomax-mixture tail analysis."
+      },
+      {
+        "assessment": "Uses geometric mixing and a different failure rule. The inspected material does not contain the accepted logarithmic-mixture tail constants.",
+        "evidence": "Publisher abstract and model description.",
+        "identifier_or_url": "doi:10.3934/math.20251334",
+        "material_read": "Publisher abstract and model description, together with the target paper's comparison to this predecessor.",
+        "method": "Publisher-page inspection.",
+        "title": "The doubly generalized exponential-geometric frailty distribution",
+        "trigger": "Immediate same-author frailty predecessor cited by the target."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da67f561-16ae-4ff7-9bdc-8d07e2b225d5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The target paper uses the unnamed tail constant in its extreme-quantile approximation, so leaving it unspecified prevents direct evaluation of that approximation. The exact coefficient makes the formula computable from the model parameters, while the second term gives the first additive extreme-quantile correction and a sharper hazard approximation. This is a motivated model-specific asymptotic refinement rather than an arbitrary finite calculation.",
+    "status": "PASS"
+  }
+}
