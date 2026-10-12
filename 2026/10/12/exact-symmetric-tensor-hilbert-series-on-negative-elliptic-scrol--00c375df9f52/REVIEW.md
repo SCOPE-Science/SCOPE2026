@@ -1,0 +1,11 @@
+# Self-review: exact symmetric-tensor Hilbert series
+
+**Correctness — PASS.** The domain is all smooth complex elliptic curves, all split ruled surfaces with \(\deg L=-d\), \(d\ge1\), and every integer \(k\ge0\). An existing graded-ring identification reduces the computation to the elementary transform. Twisting by the negative section produces an acyclic filtration whose \(j\)-th positive term contributes \(d\binom{j+1}{2}\), and restriction to the Serre bundle adds exactly one section. The cubic volume and zero self-intersection follow from the leading term and the ruled-surface Chern numbers, respectively. The standalone integer checker returned `VERIFY_OK`; all-weight correctness relies on the written proof and the cited structural input, not on finite tests.
+
+**Originality — PASS, qualified.** Denisi--Höring, arXiv:2610.03048v1, is the closest source and proves both bigness/non-finite generation and the ring equality used here. Their full inspected paper does not give the exact formula \(1+d\binom{k+2}{3}\). Beauville--Liu, arXiv:2309.12888v4, has a different genus-at-least-two stable-ruled-surface case; Kim, arXiv:2206.15413v2, treats bigness criteria without the coefficient calculation. Topical published-finding, alias, source, and formula searches disclosed no covering statement. The volume of the nef elementary transform is already implicit in Denisi--Höring; that fact is credited rather than presented as independently original. An unidentified earlier explicit Hilbert calculation remains a bibliographic risk.
+
+**Value — PASS.** The complete all-degree Hilbert function is a natural numerical invariant of the central non-Noetherian graded algebra, independent of the isomorphism class of the elliptic curve and determined only by \(d\). It quantifies growth exactly and makes explicit the contrast between positive tautological volume and zero cubic intersection. This goes beyond a generic bigness test, despite not supplying a full algebra presentation.
+
+**Limits.** Characteristic zero; negative split ruling only; no finite-generation claim beyond the known negative result. No statement for nonsplit/degree-zero or positive-characteristic bundles. No external independent audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
