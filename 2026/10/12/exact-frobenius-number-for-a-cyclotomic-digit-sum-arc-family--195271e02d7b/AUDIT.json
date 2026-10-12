@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The quantifiers are \\(b\\ge2\\) and \\(b\\not\\equiv1\\pmod3\\). The distinct-powers theorem reduces reachability to triples \\(x,y,z\\ge0\\) with \\(x+by+b^2z\\equiv0\\pmod{b^2+b+1}\\). Explicit triples yield the generators \\(3\\), \\(b+2\\), and \\(2b+1\\), which cover every integer at least \\(2b-1\\). For a hypothetical witness at \\(2b-2\\), subtracting the minimum coordinate and cyclically permuting residues yields \\(n=t' +(b-1)y'\\); the size bounds force an auxiliary integer \\(k=1\\), hence \\(t'=b+2\\), contradicting the required residue modulo \\(3\\) unless \\(b\\equiv1\\pmod3\\). The packaged regression verifier returns VERIFY_OK on all admissible bases through \\(100\\); the finite replay is not used as the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Clokie et al., arXiv:2002.02731, Theorem 3 supplies the distinct-power criterion and Theorem 4 a reachability progression.",
+        "Phunphayap--Pongsriiam--Noppakaew, arXiv:2303.13017, prove general cofinite structure under \\(\\gcd(b-1,n)=1\\) but pose exact Frobenius determination as Question 3.4.",
+        "Opaque prior item 571de131-f59a-46ba-a9af-e5f6e83407cc establishes a general conductor bound for digit sums of multiples, not the exact cyclotomic boundary."
+      ],
+      "reasoning": "The broader structural theorems establish cofiniteness, closure, and sufficient progressions but do not dominate the present exact equality. The new proof determines both the last missing value and all values immediately above it for an infinite family.",
+      "searches": [
+        "digit sums arithmetic functions open question prime factors divisibility recurrence 2018 2019 2020",
+        "arXiv:2002.02731 sturdy flimsy numbers digit sum multiples distinct powers",
+        "arXiv:2303.13017 directed graphs integers digit sum Frobenius"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.13017",
+      "DOI:10.61091/um124-06",
+      "arXiv:2002.02731",
+      "DOI:10.1016/j.tcs.2022.05.029",
+      "opaque prior item 571de131-f59a-46ba-a9af-e5f6e83407cc",
+      "prior-week number-theory ledger through generation 53",
+      "current-week number-theory ledger through generation 22"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 of arXiv:2002.02731 reduces reachability to distinct powers but gives no formula for the Frobenius number.",
+        "Theorem 2.1 of arXiv:2303.13017 gives cofiniteness when \\(\\gcd(b-1,n)=1\\), and Question 3.4 still asks for the Frobenius number.",
+        "The related prior ledger statement bounds a conductor via a finite maximum but does not identify \\(2b-2\\) or the family \\(n=\\Phi_3(b)\\)."
+      ],
+      "reasoning": "The final claim is strictly sharper than the checked prior implications: knowing cofiniteness or a general conductor bound does not establish that \\(2b-2\\) is the largest gap. The proof requires the three explicit generators and the new reduced-count obstruction.",
+      "searches": [
+        "arXiv:2002.02731 Theorem 3 Theorem 4 digit sum multiples",
+        "arXiv:2303.13017 Theorem 2.1 Theorem 2.4 Question 3.4",
+        "own current ledger digit sum multiples conductor Frobenius"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2303.13017 asks for the Frobenius number of the digit-sum out-neighborhood in the coprime case.",
+        "arXiv:2002.02731 characterizes an attainable digit sum by a zero-sum of distinct powers of the base.",
+        "No exact-search result stated the equivalent zero-sum claim with sharp missing value \\(2b-2\\) for \\(n=b^2+b+1\\)."
+      ],
+      "reasoning": "The final statement is equivalent, via the distinct-powers theorem, to an exact length spectrum for zero-sums in the three residue classes \\(1,b,b^2\\) modulo \\(b^2+b+1\\). Searches covered both the digit-sum and zero-sum/cyclotomic descriptions and found no equivalent theorem.",
+      "searches": [
+        "digit sum arcs Frobenius Out(s_b,n) cyclotomic Phi_3(b) b^2+b+1 2b-2",
+        "Question 3.4 Frobenius Out(s_b,n) b^2+b+1 digit sum",
+        "digit sum arcs Out(s_b,n) equality gcd(b-1,n) Question 3.1",
+        "base 3 digit sum Out(s_b,n) gcd(b-1,n) necessity s_b(n) divides d counterexample (3^k+1)/2",
+        "arXiv:2303.13017 Question 3.4",
+        "arXiv:2002.02731 Theorem 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-phrase web searches did not return a database or table recording this formula.",
+        "The claim is a symbolic infinite-family formula rather than a finite tabulated value."
+      ],
+      "reasoning": "No exact database/table coverage was found. A table of small cases would in any event not imply the quantified theorem, whose proof is structural.",
+      "searches": [
+        "\"b^2+b+1\" \"digit sum\" multiple Frobenius",
+        "\"Frobenius number\" \"Out(s_b,n)\"",
+        "\"2b-2\" \"sum of digits\" base b multiple"
+      ]
+    },
+    "rationale": "The focal source leaves the coprime Frobenius-number problem open. The strongest prior tool found is the distinct-powers characterization of Clokie et al.; it does not state or imply the sharp boundary without the new generator construction and obstruction. The closest previously checked internal claim gives only numerical-semigroup closure and a conductor bound, not the exact Frobenius value for the cyclotomic family. Exact formula and alias searches found no covering statement.",
+    "residual_risks": [
+      "An unindexed or inaccessible paper could contain the same special-family Frobenius formula; no such source was found in the exact and implication-level searches.",
+      "The proof depends on the published distinct-powers characterization; its relevant theorem statement was inspected directly in the primary full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; the paper proves structural containment/cofiniteness and asks the exact Frobenius problem rather than solving this family.",
+        "evidence": "Question 3.4 asks for Frobenius-number determination when \\(\\gcd(b-1,n)=1\\) and a prime divisor of \\(n\\) does not divide \\(b\\).",
+        "identifier_or_url": "arXiv:2303.13017; DOI:10.61091/um124-06",
+        "material_read": "Definitions of out-neighborhoods, Theorem 2.1, Theorem 2.4, and Questions 3.1--3.4, including the rendered open-question page.",
+        "method": "Primary full-text inspection.",
+        "title": "Directed graphs of integers with arcs determined by an arithmetic function",
+        "trigger": "Primary source posing the digit-sum out-neighborhood Frobenius problem."
+      },
+      {
+        "assessment": "PARTIAL_TOOL_ONLY; it supplies the zero-sum criterion used in the proof but no exact Frobenius formula for \\(b^2+b+1\\).",
+        "evidence": "Theorem 3 is the exact bridge from digit sums to sums of distinct powers; Theorem 4 supplies a general progression of attainable sums.",
+        "identifier_or_url": "arXiv:2002.02731; DOI:10.1016/j.tcs.2022.05.029",
+        "material_read": "The reduction removing base-common prime factors, Theorem 3 on distinct powers, and Theorem 4 on digit-sum propagation.",
+        "method": "Primary full-text inspection.",
+        "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+        "trigger": "Strongest plausible broader theorem on digit sums of multiples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "195271e0-2d7b-4558-af5f-a6ea3d3d8837",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a sharp closed Frobenius number for the natural first nontrivial cyclotomic order family \\(n=\\Phi_3(b)\\), directly advancing a published exact-Frobenius question. The parameter family is structurally motivated by the order-three identity \\(b^3\\equiv1\\pmod{\\Phi_3(b)}\\), and the result identifies both a last gap and a complete tail rather than reporting a bounded computation.",
+    "status": "PASS"
+  }
+}
