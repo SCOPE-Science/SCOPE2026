@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "An insertion-vector history is uniquely the pair of retained source positions among four; this yields the exact six-embedding count formula. For distinct centers, a four-letter output with >=2 symbols not in their common center alphabet cannot embed both, so each intersection equals a constant plus (q-s) times the one-outsider constant. Complete canonical 13-pattern enumeration yields exact coefficients, with the 8q-5 maximum strictly above all other patterns for all admissible q>=2. A standalone stdlib checker reconstructs the finite sums, tests the symbolic reduction, and exhaustively checks all unordered pairs for q=2..6. The channel threshold equals one plus the largest multiset intersection. Assumptions and quantifiers are explicitly fixed; finite tests are not used as the all-q proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.06181, Section V Theorems 27-28: general bound, explicitly for n>=3 in the lower bound; Section VI summarizes t=1 and n=1 exact cases.",
+        "IEEE ISIT 2026 DOI 10.1109/ISIT62367.2026.11653882 abstract: max-Levenshtein and alternate error-diversity model, exact t=2 result for latter.",
+        "arXiv:2406.14125 introduces unique error pattern models but does not supply this exact parameter in inspected material."
+      ],
+      "reasoning": "General one-insertion and one-source-symbol results do not imply a two-source-symbol, two-insertion maximum. Ordinary-output or non-multiset channel capacities are distinct from the sum-of-minimum-multiplicities invariant. The ISIT proceedings full text was not available; it is a material residual prior-art risk, but the available abstract describes different models and does not decisively cover this claim. In the motivating manuscript, the binary example has multiset overlap 11 but the non-multiset quantity 14, demonstrating that those invariants cannot be identified.",
+      "searches": [
+        "Junnila Laihonen Lehtila Devaraj t=2 n=2 unique insertion error patterns example 4",
+        "Junnila Laihonen Lehtila Padavu Devaraj multiset model two-insertion sphere n=2 q any exact maximum",
+        "Number of Channels with Different Insertion Errors Required for Levenshtein's Reconstruction Problem 2026 ISIT multiset exact q 2 2",
+        "doi:10.1109/ISIT62367.2026.11653882",
+        "arxiv:2406.14125"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.06181",
+      "doi:10.1109/ITW62417.2025.11240278",
+      "doi:10.1109/ISIT62367.2026.11653882",
+      "arxiv:2406.14125"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2025 IEEE ITW listing and later 2026 extended paper prove or describe other parameter regimes; q=2 t=2 n=2 appears as illustration.",
+        "The exact all-q symbolic overlap function is not implied by the single binary example or a loose general upper/lower bound.",
+        "2026 ISIT abstract claims t=2 optimality under another model, but its precise sphere-intersection implications could not be checked from full text."
+      ],
+      "reasoning": "Neither the example 11 nor the general recurrence entails the sharp exact all-q equality or its unique type of optimizer. A result for sets of outputs or alternate guaranteed-diversity models cannot be substituted for multiplicity-sensitive intersection without proof. The inaccessible closely related full paper is explicitly retained as risk, not treated as disproved overlap.",
+      "searches": [
+        "two insertion errors length two arbitrary alphabet exact multiset reconstruction channel threshold 8q-5 8q-2",
+        "Junnila Laihonen Lehtila Padavu Devaraj multiset model two-insertion sphere n=2 q any exact maximum",
+        "arxiv:2607.06181 Sections II-A, V and VI",
+        "doi:10.1109/ITW62417.2025.11240278",
+        "doi:10.1109/ISIT62367.2026.11653882"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.06181, Section II-A equations (3)-(4), defines the multiset intersection maximum and threshold; Example 4 treats only q=2 pair 01/11.",
+        "Symbolic equivalence checked: insertion histories = two retained-position embeddings, and multiset ambiguity = sum of pointwise minimum multiplicities."
+      ],
+      "reasoning": "Translated all equivalent meanings (multiset output overlaps, unique insertion error vectors, two-deletion common supersequences, channel count minus one) into the same precise sum; the available expanded primary text does not calculate its maximum for n=2,t=2 over arbitrary q.",
+      "searches": [
+        "two insertion errors length two arbitrary alphabet exact multiset reconstruction channel threshold 8q-5 8q-2",
+        "two insertion spheres intersection multiplicity length two q-ary Nq^m(2,2) non-multiset Nq^nm(2,2)",
+        "N_m_q(2,2) unique insertion error vectors channels q-ary reconstruction multiset",
+        "arxiv:2607.06181 Section II-A equations (3)-(4)",
+        "two-letter two-insertion multiset reconstruction extremal constant word mixed neighbor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "ArXiv:2607.06181 Example 4 tabulates x=01 versus z=11 and gives 11 at q=2, matching one case, not an all-q classification.",
+        "Published mathematical-record searches returned only thematically neighboring coding results, such as exact length-five non-overlapping code bounds, not this length-two multiplicity-sensitive insertion intersection."
+      ],
+      "reasoning": "The q=2 example is a single lower-bound witness; it cannot determine the global optimum for every q, nor identify the four equivalent winning patterns and exact optimizer count. No known coding-parameter table with this exact definition was located; absence of a hit is not proof of novelty.",
+      "searches": [
+        "exact multiset intersection two insertion spheres length two all q 8q minus 5 and full extremal pairs",
+        "number of channels 8q minus 4 two insertions length two",
+        "arxiv:2607.06181 Example 4 Table I",
+        "8q-5 N_m_q(2,2) two insertion multiset sphere intersection exactly q-ary"
+      ]
+    },
+    "rationale": "The 2026 expanded primary manuscript arXiv:2607.06181, read at its definitions, exact-t section and conclusions, reports the binary q=2 example 11 and solves t=1 plus general t>=1 bounds, not the exact n=2,t=2 maximum over all q or complete extremizer count. Earlier related IEEE ITW 2025 source and IEEE ISIT 2026 comparison were investigated. ISIT abstract discusses max-Levenshtein and an alternate error-diversity model, not demonstrably the multiset intersection studied here. Equivalent prior results remain possible, particularly because its full text was inaccessible; independently audited novelty is not claimed.",
+    "residual_risks": [
+      "Closely related 2026 ISIT full paper was unavailable; abstract alone does not decisively exclude an equivalent multiset statement.",
+      "2025 workshop predecessor full proceedings not independently checked beyond the later expanded author version and its public article listing.",
+      "Search results cannot exclude unindexed or unpublished prior enumerations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "definitions and q=2 example covered; proposed all-q exact maximum and maximizer classification not found in inspected results",
+        "evidence": [
+          "Eq. (3)-(4), Example 4, Theorems 27-28, Section VI"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2607.06181",
+        "material_read": "22-page primary PDF, introduction, definitions and Example 4 on pages 1-4, Section V and conclusions on pages 14-18, references on page 21",
+        "method": "full-text search and reading with visual page checks of equations, examples and theorems",
+        "title": "Unique Insertion Error Patterns in Levenshtein's Reconstruction Problem",
+        "trigger": "identical channel model and pair-intersection invariant"
+      },
+      {
+        "assessment": "2025 workshop precursor; full proceedings paper not examined independently; its online date is 2025-11-21",
+        "evidence": [
+          "IEEE Xplore contents sections I-IV including value for t=1; date added 21 Nov 2025"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ITW62417.2025.11240278",
+        "material_read": "publisher abstract, sections listing, conference and online-availability dates; expanded author manuscript read separately",
+        "method": "publisher article listing, comparison to arXiv:2607.06181 expanded version",
+        "title": "On Levenshtein's Reconstruction Problem for Channels with Unique Insertion Error Patterns",
+        "trigger": "earliest workshop predecessor of expanded primary study"
+      },
+      {
+        "assessment": "abstract speaks of max-Levenshtein and another error-diversity model; exact potential implication for multiset sphere overlap not fully resolvable without full text",
+        "evidence": [
+          "2026 ISIT proceedings abstract on max-Levenshtein and t=2 alternative model"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ISIT62367.2026.11653882",
+        "material_read": "public abstract and bibliographic description only, not full proceedings text",
+        "method": "Public abstract, bibliographic and title searches; open-access/preprint full-text search; proceedings full text unavailable",
+        "title": "Number of Channels with Different Insertion Errors Required for the Levenshtein's Reconstruction Problem",
+        "trigger": "same authors, 2026 t=2 reconstruction claim in abstract"
+      },
+      {
+        "assessment": "general channel model background, no identified all-q exact n=2,t=2 multiset maximum",
+        "evidence": [
+          "2024 arXiv work introduces multiset-valued unique-error-pattern reconstruction"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.14125",
+        "material_read": "background, introductory sections and pertinent insertion/deletion discussion",
+        "method": "open-access manuscript inspection",
+        "title": "On Unique Error Patterns in the Levenshtein's Sequence Reconstruction Model",
+        "trigger": "earlier general unique-error-pattern model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e121d86-f840-4224-9c25-0f5e8f9020b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact length-two/two-insertion case is the first simultaneous step beyond the regimes length one or insertion count one solved in the directly motivating literature, a naturally selected boundary rather than an arbitrary parameter slice. The theorem determines the operational worst-case channel count for every alphabet, not just an individual example, and classifies all worst-case center pairs. The symbolic outside-letter reduction exposes a stable affine dependence on q and a one-unit gap to the next closest pattern, making the result structurally informative for multiset synchronization reconstruction.",
+    "status": "PASS"
+  }
+}
