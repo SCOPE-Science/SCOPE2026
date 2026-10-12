@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For every feasible point in the solution-centered trust ball, first-order optimality plus the exact squared-ball expansion forces E >= mu*||y-x_star||^2/2. This proves uniqueness of the exact local linear oracle and the sharp absolute gap certificate. In one dimension the distance ratio equals E/Delta. In higher dimensions the triangle upper bound is 2; an explicit halfspace family f=||z||^2/2+C*z_2, x=(1,a), y=(2,0) has E=2, Delta=1+a^2+Ca, and ratio 2/sqrt(1+a^2) approaching 2 while C forces E<=eta*Delta. The absolute constant 2 is attained for X=R^2, x=(1,1), y=(2,0). Exact rational verification covers the witness formulas; no finite check is relied upon for quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Richtárik--Gruntkowska--Li, arXiv:2605.08850v2, Theorem 3.7, Appendix B.7, Appendix D.2.4, Appendix H.5",
+        "Garber--Hazan (2016), SIAM J. Optim. 26, 1493--1528; relaxed LLOO specification reproduced and compared in arXiv:2605.08850v2 Appendix B.7",
+        "Richtárik--Mahran, arXiv:2609.33383v1, abstract, 2026-09-27",
+        "Appendix H.5 of the 2026 manuscript identifies the need for explicit error certificates and inexact-oracle analysis."
+      ],
+      "reasoning": "Theorem 3.7 dominates the eta=0 case but cannot bound eta>0 outputs; Garber--Hazan require comparison at least as good as the exact ball optimum, not an eta-fraction of current improvement. The 2026 projection paper addresses the exact map, while full text access remained unsuccessful; that residual uncertainty is documented rather than called proof of noncoverage.",
+      "searches": [
+        "absolute oracle duality gap relative Frank Wolfe gap robust convergence local LMO quadratic active boundary",
+        "\"Garber\" \"Hazan\" 2016 \"local linear optimization oracle\" approximate",
+        "arXiv:2605.08850v2 Theorem 3.7 Appendix H.5",
+        "arXiv:2609.33383v1"
+      ]
+    },
+    "checked_sources": [
+      "Richtárik--Gruntkowska--Li, arXiv:2605.08850v2, Theorem 3.7, Appendix B.7, Appendix D.2.4, Appendix H.5",
+      "Ferris--Zavriev (1996), Sections 1--2 and local trust-region linearization equations",
+      "Garber--Hazan (2016), SIAM J. Optim. 26, 1493--1528; relaxed LLOO specification reproduced and compared in arXiv:2605.08850v2 Appendix B.7",
+      "Richtárik--Mahran, arXiv:2609.33383v1, abstract, 2026-09-27",
+      "Published mathematical research similarity search for three explicit inexact-local-oracle queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Richtárik--Gruntkowska--Li, arXiv:2605.08850v2, Theorem 3.7, Appendix B.7, Appendix D.2.4, Appendix H.5",
+        "Ferris--Zavriev (1996), Sections 1--2 and local trust-region linearization equations",
+        "Garber--Hazan (2016), SIAM J. Optim. 26, 1493--1528; relaxed LLOO specification reproduced and compared in arXiv:2605.08850v2 Appendix B.7",
+        "For mu=L, Theorem 3.7 implies the exact oracle outputs x_star in one step, a strict subcase eta=0. The constructed inexact point y=(2,0) has positive error E=2 and is expressly excluded by exact-oracle statements and Garber--Hazan no-worse objective comparison."
+      ],
+      "reasoning": "The precise new implication is not weaker than an earlier theorem: no exact-oracle premise includes arbitrary eta-positive outputs. Neither strong-convex quadratic contraction under exact solutions nor 2016 relaxed-geometry conditions imply the sharp eta>0 amplification or 1D sharp eta bound.",
+      "searches": [
+        "arXiv:2605.08850v2 Theorem 3.7 and Appendix D.2.4",
+        "arXiv:2605.08850v2 Appendix B.7",
+        "inexact Broximal gradient descent local linear minimization strong convex quadratic one step approximate oracle error",
+        "Ferris Zavriev 1996 linear convergence successive linear programming"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Richtárik--Gruntkowska--Li, arXiv:2605.08850v2, Theorem 3.7, Appendix B.7, Appendix D.2.4, Appendix H.5",
+        "Ferris--Zavriev (1996), Sections 1--2 and local trust-region linearization equations",
+        "Relative subproblem improvement error E<=eta*Delta differs from relaxed feasibility (rho>1) LLOO and exact (E=0) LP oracles."
+      ],
+      "reasoning": "A reformulation as inexact trust-ball linear programming would imply the entire worst-case ratio, including its jump at any eta>0 and dimension threshold. The inspected full primary materials only establish exact local linearization, a different enlarged-radius oracle, or general algorithmic convergence. An abstract-only exact projection equivalence does not assert this inexact classification.",
+      "searches": [
+        "relative accuracy gap approximate local linear minimization oracle dimension discontinuity ball constrained quadratic halfspace expansion factor two",
+        "inexact Broximal gradient descent local linear minimization strong convex quadratic one step approximate oracle error",
+        "\"inexact\" \"local linear minimization oracle\" Ferris Zavriev",
+        "arXiv:2605.08850v2 Appendix B.7",
+        "Ferris--Zavriev (1996) exact trust-ball LP"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research similarity records returned related SPD gradient-objective frontiers, reflected-gradient thresholds, and Cauchy trust-region fractions, none involving the inexact local ball linear oracle on an isotropic constrained quadratic.",
+        "The 2026 BroxGD source has exact-oracle tabulated convergence rates but no table of dimensionwise eta-relative model-gap amplification."
+      ],
+      "reasoning": "The object is a sharp parameterized worst-case theorem, not a numerical table entry. Prior tabulations of exact-oracle rates cannot dominate or imply the eta>0 halfspace obstruction.",
+      "searches": [
+        "relative accuracy gap approximate local linear minimization oracle dimension discontinuity ball constrained quadratic halfspace expansion factor two",
+        "inexact Broximal gradient descent local linear minimization strong convex quadratic one step approximate oracle error",
+        "absolute oracle duality gap relative Frank Wolfe gap robust convergence local LMO quadratic active boundary",
+        "\"Broximal Gradient Descent\" \"inexact local oracle\" \"relative gap\""
+      ]
+    },
+    "rationale": "The closest full-text BroxGD benchmark proves one-step arrival for exact oracles (Theorem 3.7, L=mu), explicitly states that approximate master and pricing solutions require further inexact-oracle analysis (Appendix H.5), and distinguishes earlier exact and relaxed LLOOs (Appendix B.7). The present result answers a different quantitative question: a sharp universal dimension-dependent amplification supremum for arbitrary positive relative model gaps inside the original trust ball, and optimal absolute-gap replacement. The 1996 source treats exact LP trust-region steps and Armijo radius adaptation; the 2016 LLOO allows a larger radius with a no-worse-than-exact original-ball model value rather than positive relative errors. Published research searches located adjacent gradient/trust-region tolerance bounds but no statement implying the 0/eta/2 classification. Recent exact-operator projection paper was only abstract-accessible, and unindexed equivalent prior work remains a genuine residual risk.",
+    "residual_risks": [
+      "ArXiv:2609.33383 complete preprint remained inaccessible after bounded open-access attempts; only abstract and public author summary checked.",
+      "Garber--Hazan 2016 full primary manuscript was not available; the 2026 full-text comparison and publisher abstract were examined.",
+      "An unindexed equivalent model-error theorem or broader optimization stability statement might subsume the dimensionwise 0/eta/2 frontier. Search noncoverage is not proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING positive relative model gaps; directly covers exact eta=0 only",
+        "evidence": "Theorem 3.7: exact step contracts with factor (L-mu)/(L+mu), equal zero at L=mu. Appendix H.5 calls for separate inexact-oracle analysis; B.7 formalizes earlier relaxed LLOO.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.08850",
+        "material_read": "Available full-text PDF with relevant sections inspected: main Theorem 3.7, initial definitions, Appendix B.7 antecedents, Appendix D.2.4 proof, Appendix H.5 pricing certificate and approximate-solve limitation; not a page-by-page reading of all 121 pages",
+        "method": "Read searchable full-PDF text; visually inspected theorem page",
+        "title": "Broximal Gradient Descent: A Projection-Free Sister of Projected Gradient Descent",
+        "trigger": "Same local-ball linear oracle and ideal-radius exact one-step benchmark"
+      },
+      {
+        "assessment": "No discovered sharp relative model-gap/dimension classification; exact trust-region subproblem and Armijo radius",
+        "evidence": "Defines LP/TP with exact linear minimization and develops error-bound convergence; searches found no inexact-oracle definition.",
+        "identifier_or_url": "Ferris--Zavriev (1996), posted text at studylib.net document 27985712",
+        "material_read": "HTML full text, abstract, Sections 1--2, LP(x,r)/TP(x,r) and comparison with projected gradient, searched inexact/accuracy",
+        "method": "Read full-text transcription and term searches",
+        "title": "The Linear Convergence of a Successive Linear Programming Algorithm",
+        "trigger": "Original source of local linear minimization over convex set intersected with trust ball"
+      },
+      {
+        "assessment": "DIFFERENT oracle: rho-expanded geometry and objective no worse than original-ball optimum; possible details beyond inspected material are residual risk",
+        "evidence": "Appendix B.7 formula (50) requires ||p-x||<=rho*t and <g,p><=<g,z> for all z in original ball. Our output y remains in original ball but may have E>0.",
+        "identifier_or_url": "https://doi.org/10.1137/140985366",
+        "material_read": "Publisher abstract and source comparison in arXiv:2605.08850 Appendix B.7; complete primary paper not obtained",
+        "method": "Read accessible publisher record and full comparison from newer primary manuscript",
+        "title": "A Linearly Convergent Variant of the Conditional Gradient Algorithm under Strong Convexity",
+        "trigger": "Named earlier relaxed local linear optimization oracle"
+      },
+      {
+        "assessment": "Abstract concerns exact-oracle projection equivalence and universal rates, not relative inexact model gaps. Full-text coverage not ruled out.",
+        "evidence": "Abstract specifies the exact local LMO as Euclidean projection onto a suitable halfspace and describes exact method rates; does not present an inexact relative-accuracy bound.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.33383",
+        "material_read": "Public abstract only (2026-09-27); full text unavailable via arXiv HTML, arXiv PDF, alphaXiv PDF and ar5iv routes",
+        "method": "Read abstract and author summary; bounded OA full-text retrieval attempts",
+        "title": "Local LMO is Secretly a Projection Method!",
+        "trigger": "Closest subsequent theoretical treatment of same local oracle"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "09315b59-bb24-4639-b239-8733f0385744",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The currently analyzed projection-free local linear oracle has an exact single-step solution guarantee on isotropic quadratics. The all-dimensional sharp worst-case classification shows this guarantee is discontinuously nonrobust to any positive relative improvement tolerance, while one dimension admits a sharp eta reduction. A matching halfspace witness with condition number 1 isolates the active normal-gradient mechanism; the sharp absolute-gap certificate supplies an actionable alternative notion of inner-solver accuracy. This is a motivated one-step theoretical boundary for a named emerging algorithm, not merely a negative feasibility/type check, a parameter renaming, or a generic convergent algorithm claim.",
+    "status": "PASS"
+  }
+}
