@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For an omitted vertex, the proof derives its multiset exactly from the omission sizes and whether its deleted matching mate is selected. This yields at most two types per shore, the exact intersection condition when two vertices are omitted from a shore, and explicit cross-shore collisions in both equal-size cases. The remaining five patterns are checked in both directions and counted. Direct breadth-first-search verification over every subset for \\(3\\le n\\le8\\) agrees exactly with the theorem; the finite check is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klavžar--Kuziak--Yero prove \\(\\operatorname{odim}(G)=|V(G)|-1\\) exactly for regular graphs of diameter at most two and give complete multipartite examples.",
+        "The crown graph is regular but has diameter \\(3\\) for \\(n\\ge3\\), so that theorem does not determine its value.",
+        "Peng determines toroidal grids, a different graph family."
+      ],
+      "reasoning": "No inspected broader theorem contains the diameter-three crown family as a corollary with the claimed exact value or resolving-set classification.",
+      "searches": [
+        "arXiv:2207.06834v1 outer multiset dimension regular diameter two",
+        "outer multiset dimension complete multipartite graphs",
+        "arXiv:2609.20073v1 outer multiset dimension toroidal grids"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.20073v1",
+      "arXiv:2207.06834v1",
+      "arXiv:1902.03017v1",
+      "Outer multiset dimension of joined graphs (2025)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full text of arXiv:2207.06834v1 contains no occurrence of 'crown', 'matching', or 'complete bipartite' and states only general diameter-two and other-family results relevant here.",
+        "For \\(K_{n,n}\\), the prior regular diameter-two theorem gives \\(2n-1\\); deleting a perfect matching changes the diameter and invalidates the theorem's hypothesis.",
+        "The 2025 joined-graph paper treats stars, wheels, generalized wheels, windmills, fans, and generalized fans rather than crowns."
+      ],
+      "reasoning": "The new theorem is not a special case of the inspected results: its graph is outside their covered structural class, and it adds a complete all-set classification.",
+      "searches": [
+        "Further contributions on the outer multiset dimension of graphs crown matching complete bipartite",
+        "Distance-based vertex identification outer multiset dimension crown",
+        "outer multiset dimension joined graphs crown"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches under crown graph, \\(K_{n,n}\\) minus a perfect matching, bipartite Kneser \\(H(n,1)\\), bipartite complement of a perfect matching, basis-count, and size-enumerator formulations returned no statement of the claimed crown theorem.",
+        "The foundational definition source arXiv:1902.03017v1 and the full follow-up arXiv:2207.06834v1 were checked as same-invariant references."
+      ],
+      "reasoning": "These searches cover the principal object aliases and both the scalar and all-set forms of the claim. No equivalent crown-graph statement was found.",
+      "searches": [
+        "outer multiset dimension crown graph",
+        "outer multiset resolving set K_n,n minus perfect matching",
+        "multiset dimension crown graph deleted matching",
+        "odim crown graph matching deleted complete bipartite",
+        "crown graph outer multiset dimension 2n-3",
+        "all outer multiset resolving sets crown graph",
+        "outer multiset resolving polynomial crown graph",
+        "matching-deleted complete bipartite outer multiset dimension",
+        "outer multiset dimension K_{n,n} minus perfect matching",
+        "outer multiset basis crown graph 2n-3",
+        "outer multiset dimension bipartite Kneser H(n,1)",
+        "outer multiset dimension bipartite complement perfect matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-index record was 'Outer multiset dimension of arbitrary complete multipartite graphs'; its statement applies only to complete multipartite graphs.",
+        "A crown-graph record for edge metric dimension was also returned, but edge metric dimension is a different invariant and does not imply vertex outer multiset dimension."
+      ],
+      "reasoning": "The nearest database items share either the invariant or the graph family, but not both in a way that covers the claim.",
+      "searches": [
+        "crown graph outer multiset dimension 2n-3",
+        "all outer multiset resolving sets crown graph",
+        "outer multiset basis crown graph 2n-3"
+      ]
+    },
+    "rationale": "The exact crown-graph value, all-set classification, basis count, and size enumerator were compared against same-invariant foundational and follow-up literature and against targeted semantic searches using crown and standard aliases. The closest stronger-looking result concerns complete multipartite graphs, but crowns with \\(n\\ge3\\) are not complete multipartite. The regular diameter-two theorem determines the undeleted biclique only and therefore does not imply the diameter-three crown result.",
+    "residual_risks": [
+      "The recent toroidal-grid paper's full text could not be retrieved during this review, although its accessible scope is a different graph family.",
+      "An older equivalent crown-graph result may be indexed under a less standard alias or absent from the searched databases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_FAMILY_NO_COVERAGE_SEEN",
+        "evidence": "The accessible material states a complete determination for toroidal grids \\(C_s\\square C_t\\), not crown graphs. Primary MSC is \\(05C12\\); first public version is 2026-09-17.",
+        "identifier_or_url": "arXiv:2609.20073v1",
+        "material_read": "Public arXiv metadata and abstract, including submission timestamp, MSC list, problem statement, graph family, and claimed range of values.",
+        "method": "Public abstract/metadata inspection; direct arXiv PDF retrieval was attempted but unavailable in this review.",
+        "title": "The Outer Multiset Dimension of Toroidal Grids",
+        "trigger": "Recent same-invariant literature lead and source for the slot date and primary MSC."
+      },
+      {
+        "assessment": "PARTIAL_BACKGROUND_ONLY",
+        "evidence": "The paper proves the order-minus-one characterization for regular diameter-at-most-two graphs. Crowns have diameter three, and the full text contains no crown or matching-deletion theorem.",
+        "identifier_or_url": "arXiv:2207.06834v1",
+        "material_read": "Definition, Theorem 2.1 and proof, complete multipartite examples following Theorem 2.1, and document-wide searches for crown/matching/complete-bipartite terminology.",
+        "method": "Full public PDF inspection, including rendered pages and text search.",
+        "title": "Further contributions on the outer multiset dimension of graphs",
+        "trigger": "Closest same-invariant structural theorem, including complete multipartite examples."
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "The source introduces the invariant and studies several families; targeted crown/matching-deletion searches did not surface a covering theorem.",
+        "identifier_or_url": "arXiv:1902.03017v1",
+        "material_read": "Public abstract and bibliographic metadata describing the definition, exact-family program, and complexity result.",
+        "method": "Public arXiv abstract inspection.",
+        "title": "Distance-based vertex identification in graphs: the outer multiset dimension",
+        "trigger": "Foundational source for the exact invariant definition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da0d84b6-e408-411c-98ba-c1a14347c927",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a natural complete classification on the canonical one-factor deletion of a balanced biclique, not an arbitrary finite slice. It determines the minimum, all minimum sets, and every resolving-set size. The exact comparison \\(2n-1\\to2n-3\\) under deletion of one perfect matching and the absence of size \\(2n-2\\) resolving sets expose meaningful structure beyond a routine recomputation.",
+    "status": "PASS"
+  }
+}
