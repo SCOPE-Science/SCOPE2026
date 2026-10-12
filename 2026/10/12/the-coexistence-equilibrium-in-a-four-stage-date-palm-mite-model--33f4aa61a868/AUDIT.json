@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The source's equilibrium and characteristic coefficients were reconstructed exactly. The identity b*gamma_E*D=((R0-1)/R0)*e4 follows directly from its explicit A* formula. Substitution splits Delta3 into strictly positive terms. The proof explicitly verifies e1*e2>3e3 and e1-c=alpha1+mu_L>0; the remaining base term is the strict Hurwitz determinant of a polynomial with four negative roots. The bundled checker replays the identities on independent positive parameter sets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xing-Liu-Guo 2019 treats a difference-equation stage model and reports richer periodic behavior for other nonlinearities.",
+        "Zhang-Zhao 2025 treats a two-state spatial reaction-diffusion model with Beverton-Holt birth."
+      ],
+      "reasoning": "The operators, dimensions, and spectral criteria differ, so these broader results do not subsume the exact four-stage ODE identity.",
+      "searches": [
+        "Beverton Holt four stage continuous population positive equilibrium always locally stable",
+        "continuous stage structured Beverton Holt population local stability positive equilibrium",
+        "four stage population model Routh Hurwitz positive equilibrium Beverton Holt"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261058",
+      "doi:10.1186/s13662-019-2449-x",
+      "doi:10.1080/27690911.2025.2551358"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source's Theorem 9 explicitly requires Delta3>0.",
+        "The 2019 mosquito model is discrete-time and uses a unit-disk condition.",
+        "The 2025 two-state PDE result uses spatial comparison methods."
+      ],
+      "reasoning": "Neither related source implies this theorem as a special case; the accepted claim closes a condition left unevaluated in the exact motivating model.",
+      "searches": [
+        "A discrete-time mathematical model of stage-structured mosquito populations positive fixed point local stability Beverton Holt",
+        "Global stability of stage-structured single species model Beverton Holt 2025",
+        "date palm mite 2026 coexistence equilibrium Delta3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.20261058 leaves local stability conditional on Delta3>0 and checks it numerically at one coexistence parameter set.",
+        "DOI 10.1186/s13662-019-2449-x uses a discrete-time characteristic equation for a different four-stage insect model."
+      ],
+      "reasoning": "An equivalent result would have to remove the determinant hypothesis throughout the positive parameter region. No inspected source does so.",
+      "searches": [
+        "date palm mite stage structured model coexistence equilibrium local stability Routh Hurwitz condition",
+        "Cost-effective strategies controlling date palm mite infestations coexistence equilibrium Delta3 local stability",
+        "stage structured egg larva nymph adult Beverton Holt no Hopf local stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result was 2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f, concerning a different age-structured model.",
+        "Other closest indexed results concerned unrelated local-stability and no-Hopf problems and did not use DOI 10.3934/math.20261058."
+      ],
+      "reasoning": "Database noncoverage is supporting evidence only; originality rests on direct statement comparison.",
+      "searches": [
+        "date palm mite stage structured model coexistence equilibrium local stability Routh Hurwitz condition",
+        "Cost-effective strategies controlling date palm mite infestations coexistence equilibrium Delta3 local stability",
+        "Beverton Holt four stage continuous population positive equilibrium always locally stable",
+        "stage structured egg larva nymph adult Beverton Holt no Hopf local stability"
+      ]
+    },
+    "rationale": "The 2026 source states local coexistence stability only conditionally on Delta3>0 and verifies it numerically for one parameter vector. The inspected four-stage mosquito paper is discrete-time; the 2025 Beverton-Holt paper is a different two-state reaction-diffusion system. Neither implies the exact automatic stability theorem for this model.",
+    "residual_risks": [
+      "An equivalent algebraic simplification could exist in unindexed continuous-time stage-structured literature.",
+      "Global dynamics above threshold remain subject to separate hypotheses.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_NOT_COVERING; it supplies the premises but leaves Delta3>0 as an extra hypothesis.",
+        "evidence": "Theorem 9 is conditional on Delta3>0; the numerical section reports Delta3=0.026488 only for beta=1.5.",
+        "identifier_or_url": "doi:10.3934/math.20261058",
+        "material_read": "Model equations, reproduction threshold, explicit coexistence equilibrium, coexistence Jacobian and characteristic polynomial, Theorem 9, global-stability section, numerical coexistence check, and optimal-control equations.",
+        "method": "Publisher full-text HTML.",
+        "title": "Cost-effective strategies for controlling date palm mite infestations: an optimal control approach",
+        "trigger": "Exact motivating model and local-stability theorem."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING; it is a discrete-time system with a different spectral problem.",
+        "evidence": "Its positive fixed point is governed by a discrete characteristic equation; richer periodic behavior appears for Ricker-type survivorship.",
+        "identifier_or_url": "doi:10.1186/s13662-019-2449-x",
+        "material_read": "Model formulation, positive-fixed-point linearization, stability discussion, simulations, and conclusions.",
+        "method": "Open-access publisher full-text HTML.",
+        "title": "A discrete-time mathematical model of stage-structured mosquito populations",
+        "trigger": "Close four-stage insect model with Beverton-Holt nonlinearities."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING; it treats a two-state reaction-diffusion model.",
+        "evidence": "Its asymptotic analysis uses comparison and spatial elliptic/parabolic arguments, not the four-stage ODE determinant.",
+        "identifier_or_url": "doi:10.1080/27690911.2025.2551358",
+        "material_read": "Abstract, asymptotic-behavior theorem discussion, and conclusion available in publisher indexing.",
+        "method": "Publisher-indexed article text.",
+        "title": "Global stability of stage-structured single species model on R^N with Beverton-Holt birth function",
+        "trigger": "Recent broader stage-structured Beverton-Holt stability result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33f4aa61-a868-4db9-974c-cd9d82be5d29",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source leaves a nontrivial quartic determinant condition and therefore does not classify local coexistence stability over its biological parameter space. Automatic positivity supplies a complete local threshold picture and rules out Hopf destabilization of the positive equilibrium, removing a parameter-by-parameter spectral check.",
+    "status": "PASS"
+  }
+}
