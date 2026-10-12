@@ -1,0 +1,15 @@
+# Review of the Hessian-weighted baseline-reuse cut law
+
+## Correctness — PASS
+
+The exact quadratic forward difference has deterministic mean \(Hx+b+h\operatorname{diag}(H)/2\). With independent perturbed-point noise and an independently realized baseline error for each group, covariance is \((\sigma^2/h^2)(I+\sum_a\boldsymbol1_{C_a}\boldsymbol1_{C_a}^\top)\). The quadratic expectation identity turns its off-diagonal contribution into precisely minus the cut weight relative to a single baseline. The MAX-CUT reduction uses \(I+\epsilon A_G\), whose spectrum is bounded by \(1\pm\epsilon(n-1)\), and keeps all rational data polynomially representable. The independent finite-instance rational checker passes 18,107 checks and supplies no substitute for the infinite-dimension proof. Limits: fixed one-step quadratic, equal-variance independent additive calls, fixed partition.
+
+## Originality — PASS (with residual risk)
+
+The prior Brekelmans et al. manuscript (2003, Section 2.1) already explicitly computes covariance induced by a shared finite-difference baseline and the Euclidean error contribution; those elementary observations are not new here, but their fixed-estimator comparisons do not solve the grouped-baseline design problem. The standard finite-difference reference of Berahas et al. (2019, Section 2.1, arXiv:1905.01332) shares one reference evaluation and proves gradient-error bounds, without optimizing multiple separate reference errors. Shi et al. (2021, arXiv:2110.06380) optimize difference interval selection, not the covariance partition. Kleinman, Spall, and Naiman (1999, Section 2.2) study reusing random numbers between paired noisy function comparisons, not grouping identical-point reference realizations across coordinates according to the Hessian. A related 2019 manuscript (arXiv:1905.13043) compares interpolation and Gaussian smoothing rather than the present exact one-step signed-weight cut. Searches of mathematical research indices for common-reference covariance partition, equivalent cut language, and MAX-CUT, plus searches for stronger common-random-number coverage, yielded no inspected statement implying this full classification. Absence of a search hit is not a uniqueness proof; unindexed and older specialized experiment-design literature remains a priority risk.
+
+## Value — PASS
+
+The grouping problem is not an arbitrary finite enumerative example: a standard derivative-free gradient construction reuses a costly baseline evaluation, and batching multiple baselines naturally raises which coordinates should share them. The exact theorem gives the optimizer's objective as a curvature-weighted combinatorial design despite an invariant Euclidean gradient MSE. Complexity persists for Hessians arbitrarily near a multiple of the identity, while a two-dimensional signed example proves that forcing extra baseline separation can be detrimental. This determines a meaningful design boundary, not a claim of general speed or convergence improvement.
+
+Self-review: passed. Independent audit: not yet performed.

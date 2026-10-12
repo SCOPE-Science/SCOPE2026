@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge2\\) and fixed partition, exact quadratic expansion gives \\(\\mu=Hx+b+h\\operatorname{diag}(H)/2\\) and covariance \\((\\sigma^2/h^2)(I+\\sum_a S_aS_a^\\top)\\). Taking \\(\\operatorname{tr}(H\\operatorname{Cov})\\) proves the exact group cost and weighted-cut difference; its covariance trace is always \\(2n\\sigma^2/h^2\\). Graph adjacency Hessians \\(I+\\epsilon A_G\\) are SPD by the spectral norm bound and satisfy \\(\\kappa_2(H)<1+\\delta\\) for rational small \\(\\epsilon\\), so standard MAX-CUT reduces exactly. The signed two-dimensional witness yields risks \\(3/2\\) and \\(21/10\\). Independently coded exact rational direct enumeration passed 18,107 checks; finite tests do not prove general statements. The unweighted simple MAX-CUT source is Garey–Johnson–Stockmeyer (1976), DOI:10.1016/0304-3975(76)90059-1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berahas et al. 2019 prove finite-difference gradient approximation bounds but no partition optimum.",
+        "Shi et al. 2021 balance truncation and noise by interval selection.",
+        "Kleinman et al. 1999 prove variance effects of common random numbers for stochastic approximation, rather than MAX-CUT optimization over baseline-sharing groups.",
+        "Brekelmans et al. 2003 §2.1 derive shared FFD cross covariance and gradient-error moments, and §§3–4 compare fixed FFD/CFD/DoE estimators and step-size selection; no grouping of multiple baseline realizations under quadratic next-iterate loss occurs in inspected statements."
+      ],
+      "reasoning": "General covariance propagation and graph-cut optimization are classical ingredients, but a prior paper would have to assert or imply the exact same subset of realizable group covariance matrices and objective optimization to dominate the new claim. None of the materially read closest sources specifies this optimization. The pre-2019 exact FFD covariance and norm-risk calculations are already covered; the new claim must stand on design optimization and its hardness rather than the standard noise calculation alone.",
+      "searches": [
+        "arXiv:1905.01332 full text Sections 1–3",
+        "arXiv:2110.06380 full text",
+        "arXiv:1905.13043 full text",
+        "Kleinman–Spall–Naiman 1999 full text",
+        "finite difference gradient common baseline sample reuse minimize expected objective Hessian covariance",
+        "Brekelmans et al. Gradient Estimation Schemes for Noisy Functions working paper §§2–4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.01332v1 and 2020 working PDF, §2.1",
+      "arXiv:2110.06380v1",
+      "arXiv:1905.13043",
+      "Kleinman, Spall, Naiman, Management Science 45 (1999), §2.2",
+      "Indexed rounded-cluster gradient variance result",
+      "Indexed inverse-positive coordinate-descent sampling result",
+      "Mathematical-index searches for overlapping gradient-estimation results",
+      "Garey–Johnson–Stockmeyer, Theoretical Computer Science 1 (1976), 237–267 (unweighted MAX-CUT hardness premise)",
+      "Brekelmans et al., CentER Discussion Paper 2003-12, §§2–4; journal 2005, volume 126, 529–551"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One-reference forward-difference gradient estimate is an endpoint of the group family but does not optimize alternative partitions.",
+        "A change of differencing radius does not change the fixed-group covariance equality or maximize weighted cuts.",
+        "Pairwise CRN can improve variance in different oracle noise models but does not yield the fixed independent-noise baseline-cut objective.",
+        "Prior FFD covariance for one shared basepoint is a special case of the claimed grouping covariance; its norm MSE follows by taking the covariance trace, but optimizing grouped off-diagonal covariance against a Hessian is not in the inspected fixed-scheme results."
+      ],
+      "reasoning": "The new theorem specializes the standard identity E(phi(Y))=phi(EY)+tr(H Cov(Y))/2 to an explicitly designed set of legal covariance matrices. The one-baseline prior endpoint and generic covariance identity do not alone present the optimal combinatorial grouping or its hardness. No inspected prior theorem was strong enough to imply all claimed consequences without performing the new optimization reduction. A known special case does not dominate a family-wide exact signed-cut design characterization or its MAX-CUT hardness reduction.",
+      "searches": [
+        "correlated gradient estimation noisy function evaluations reuse baseline optimization graph partition maximum cut",
+        "noisy finite difference shared baseline partition covariance maximum weighted cut derivative free optimization",
+        "arXiv:1905.01332 Section 2.1 shared f(x)",
+        "arXiv:2110.06380 optimal differencing interval",
+        "Kleinman–Spall–Naiman 1999 Section 2.2 common random numbers",
+        "Brekelmans–Driessen–Hamers–den Hertog 2003 §§2–4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.01332 §2.1 defines coordinate forward differences against a single shared f(x), with norm-error bounds.",
+        "Kleinman–Spall–Naiman 1999 §2.2 couples random streams within positive/negative perturbation comparisons, not across coordinate baselines.",
+        "Brekelmans et al. §2.1 explicitly finds nonzero cross-coordinate covariance from the common f(x), and Theorem 1 gives Euclidean FFD stochastic MSE; the new covariance formula has this known case as one endpoint."
+      ],
+      "reasoning": "Terms including shared reference, CRN, paired noise, and correlated finite-difference gradient may describe nearby objects. The claimed full design varies which independent basepoint errors are literally reused by coordinates while perturbed evaluations remain independent, and minimizes curvature-weighted one-step objective; the inspected prior mechanisms differ. The oldest directly relevant finite-difference covariance calculation is explicitly credited to Brekelmans et al.; only the multi-baseline partition optimization and quadratic-loss graph-cut law are assessed for originality.",
+      "searches": [
+        "correlated gradient estimation noisy function evaluations reuse baseline optimization graph partition maximum cut",
+        "gradient finite difference estimators shared reference evaluations covariance quadratic Hessian graph cut",
+        "baseline reuse zeroth order stochastic gradient correlation signed Hessian graph cut MaxCut",
+        "stochastic approximation common random numbers gradient components shared baseline covariance matrix",
+        "arXiv:1905.01332 §2.1",
+        "Kleinman–Spall–Naiman 1999 §2.2",
+        "Brekelmans et al. 2003/2005 Gradient Estimation Schemes for Noisy Functions §2.1 exact covariance",
+        "Brekelmans gradient estimation schemes noisy functions common baseline covariance Hessian graph cut optimal grouping"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed rounded-cluster variance results concern integer sample allocation for a separate meta-gradient estimator, not basepoint reference reuse.",
+        "Indexed inverse-positive coordinate-descent sampling optimizes marginal row selection, not within-gradient baseline covariance.",
+        "The checked mathematical results and source papers contained no exact table of Hessian-weighted baseline partitions."
+      ],
+      "reasoning": "Neither a matching exact design/database item nor a stronger implication was identified. Searches provide evidence of checking rather than a mathematical proof of priority; the absence of an indexed hit leaves residual risks.",
+      "searches": [
+        "finite difference gradient common noisy baseline sharing grouping graph partition MaxCut NP-hard optimal reuse one step expected quadratic objective",
+        "finite difference derivative free sampling covariance optimal partition SPD Hessian MaxCut",
+        "noisy finite difference shared baseline partition covariance maximum weighted cut derivative free optimization",
+        "finite difference reference measurements group assignment covariance quadratic objective NP-hard nearly identity Hessian",
+        "derivative free forward finite difference shared basepoint errors grouping MAX CUT Hessian quadratic loss",
+        "finite difference covariance matrix common reference optimal partition graph signed cut computation"
+      ]
+    },
+    "rationale": "Brekelmans et al. (2003) already derive the common-basepoint finite-difference cross covariance and the Euclidean norm-error, which are therefore prior ingredients, not new claims. Their fixed-DoE/FFD estimator comparisons do not optimize grouping multiple independent baseline realizations by next-iterate quadratic objective. The 2019 forward-difference source specifies one shared baseline and a norm error criterion. The 2021 interval study optimizes the differencing interval, the 1999 CRN study correlates different simulation-point measurements, and the 2019 interpolation comparison contrasts methods; none of their inspected statements furnishes the exact within-basepoint covariance partition optimum, its signed graph-cut equivalence, Euclidean-risk invariance, or near-isotropic MAX-CUT hardness. Statement-level comparisons, variant/alias queries, primary full-text inspection, and research-index searches completed; residual unindexed priority risk persists.",
+    "residual_risks": [
+      "Unindexed common-random-number allocation, simulation design, and covariance-based finite-difference studies could already contain an equivalent graph-partition theorem.",
+      "The full classical generality of finite-difference covariance formulas means the structural identity might be derivable as a corollary of a stronger unsurfaced theorem.",
+      "No external independent priority audit has been conducted.",
+      "The known single-baseline covariance and Euclidean MSE from Brekelmans et al. must not be interpreted as novel on their own; the claimed advance is the full design/cut equivalence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the grouping optimum: studies a single baseline and deterministic/noise norm bounds, not multi-baseline correlation design",
+        "evidence": "Section 2.1 defines g_i=(f(x+sigma e_i)-f(x))/sigma; Theorem 2.1 bounds Euclidean gradient approximation error.",
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2019/05/7189.pdf",
+        "material_read": "Section 1 and Section 2.1; finite-difference definition, Theorems 2.1–2.2; sampling cost tables",
+        "method": "Legitimate open-access complete working PDF, text and rendered Section 2.1 page",
+        "title": "A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization",
+        "trigger": "Exact forward-difference object with one common baseline; same cost/accuracy motivation"
+      },
+      {
+        "assessment": "NOT_COVERING the covariance grouping problem; chooses h rather than reference reuse assignment",
+        "evidence": "Paper emphasizes interval choice to balance finite difference truncation and measurement errors; 90C56 classification.",
+        "identifier_or_url": "https://arxiv.org/abs/2110.06380",
+        "material_read": "Introduction, setup, finite difference interval procedure and noise balance sections from open preprint",
+        "method": "Open-access arXiv manuscript text/PDF",
+        "title": "Adaptive Finite-Difference Interval Estimation for Noisy Derivative-Free Optimization",
+        "trigger": "Closest post-2019 noisy finite difference noise/truncation design"
+      },
+      {
+        "assessment": "NOT_COVERING the particular cross-coordinate grouping policy; compares interpolation and smoothed gradient estimators",
+        "evidence": "The main comparison is linear interpolation versus Gaussian/spherical smoothing and line-search conditions.",
+        "identifier_or_url": "https://arxiv.org/abs/1905.13043",
+        "material_read": "Abstract, introduction, estimator comparison and variance discussion in public preprint",
+        "method": "arXiv open preprint",
+        "title": "Linear interpolation gives better gradients than Gaussian smoothing in derivative-free optimization",
+        "trigger": "Closely related same-author comparison of gradient estimators"
+      },
+      {
+        "assessment": "NOT_COVERING the given objective criterion: same random stream in paired simulation-point evaluations, not sharing independent noisy basepoint measurements across coordinates",
+        "evidence": "Section 2.2 equations (2.9) et seq. correlate random inputs at plus and minus perturbed simulations to reduce asymptotic variance.",
+        "identifier_or_url": "https://www.jhuapl.edu/spsa/PDF-SPSA/Kleinman_Simulation-Based.PDF",
+        "material_read": "Paper’s estimator construction and Section 2.2, including rendered page on common random numbers",
+        "method": "Lawful OA copy, visually inspected PDF pages and corresponding analysis",
+        "title": "Simulation-Based Optimization with Stochastic Approximation Using Common Random Numbers",
+        "trigger": "Plausible stronger common-random-number stochastic-gradient prior"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: exact one-shared-baseline covariance and Euclidean gradient MSE are prior art. The inspected fixed-scheme results do not cover optimization over group assignment of multiple independent basepoint realizations against anisotropic quadratic expected objective.",
+        "evidence": "Section 2.1 states Cov(beta_i,beta_j)=sigma^2/h^2 for i!=j due to the common basepoint error, and Theorem 1 states FFD stochastic MSE 2n sigma^2/h^2; Sections 3–4 analyze fixed designed experiments and finite-difference step choices.",
+        "identifier_or_url": "https://www.researchgate.net/publication/4866402_Gradient_Estimation_Schemes_for_Noisy_Functions",
+        "material_read": "Author-posted full manuscript text: Section 2.1 forward finite differences equations (2)–(8), Theorem 1, fixed-scheme comparisons in Sections 3–4, conclusion; university 2003 working-paper metadata also checked",
+        "method": "Public author-uploaded full text; university repository PDF was attempted but returned access error; no publisher restriction or inaccessible-source assumption used",
+        "title": "Gradient Estimation Schemes for Noisy Functions",
+        "trigger": "Older cited direct computation of correlated noisy finite-difference components and possible stronger covariance statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1fdd4dd-5827-4941-a95e-1df692e85ef4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated noisy derivative-free estimator faces a natural reference-reuse grouping decision. Its selection is invisible to ordinary Euclidean gradient MSE but exactly controls the next expected quadratic objective through signed Hessian interactions; optimizing the grouping is MAX-CUT hard even for nearly isotropic SPD objectives, and forced separation can reverse the usual belief that less-shared noise must help. This explains a nontrivial computational and statistical tradeoff without asserting general convergence or larger-scale experiments.",
+    "status": "PASS"
+  }
+}
