@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** In the weight-preserving blow-up chart the exact critical ideal is \((x^2,y,u,w)\), whereas the complementary chart is a submersion. The center is relatively smooth off the six cusps. Freeness of the elliptic translation makes the quotient étale near the critical ribbons; the global weight-two coordinate descends as a nontrivial three-torsion nilpotent line bundle. Structure-sheaf cohomology follows from the elliptic degree-zero section criterion and Serre duality. The included exact symbolic checker reproduced the Jacobian ideal and weight constraints. It cannot substitute for the descent proof.
+
+**Originality: PASS with bibliographic risk.** The closest source, Corrêa--Kollár--Schreieder--Wang (arXiv:2608.10973v1, Sections 2 and 5, Eq. (13), Remark 24), provides the example, critical-locus dimension and local analytic germ, not the six split critical ribbons with globally nontrivial order-three conormal or their cohomology. Ciliberto et al. (arXiv:2602.11725v1) concern the supporting rational elliptic surface rather than the quotient blow-up. Prior literature on ribbons establishes general definitions but not this example. The proof requires an equivariant global step beyond the pointwise local normal form. Searches did not uncover a covering statement, but an implicit calculation in unexamined literature is possible.
+
+**Value: PASS.** The theorem gives an intrinsic scheme-theoretic invariant of the lowest-dimensional known topologically invisible map from a smooth projective variety. It detects cyclic monodromy in a three-torsion conormal bundle that cannot be recovered from the local analytic singularity type, while showing the nonreduced structure is undetectable by all structure-sheaf cohomology groups. The complete classification of all six components is naturally forced by the geometry, rather than an arbitrary finite slice.
+
+**Limitations.** The construction requires the chosen fivefold model and six simple roots of the Weierstrass section. Other homotopy fiber bundles, singular degeneration patterns and the derived critical locus are not classified. Novelty has not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
