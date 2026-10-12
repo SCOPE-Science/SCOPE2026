@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The source's displayed decomposition can be checked term by term: its F_Ia contains alpha_y*I_y while V_Ia contains -alpha_y*I_y, so F-V contains two copies of the aging transfer although model (1) contains one; the same happens from adult to elder. Using only genuine new infections in F and all aging/progression in V gives the stated lower-block-triangular next-generation matrix. The identity det(I-B)=[(eta1-beta11)(eta3-beta22)-beta21(beta12+alpha_y)]/(eta1 eta3) matches the direct disease-free infected Jacobian exactly. The fully positive rational counterexample is exact: the corrected determinant is 396801/1000000>0, the printed determinant is -203199/1000000<0, and the direct youth-adult linearization has negative trace and positive determinant.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van den Driessche and Watmough define F_i as the rate of appearance of new infections and place progression among already infected compartments in V.",
+        "Their treatment example explicitly states that progression from exposed to infectious is not a new infection.",
+        "Their discussion of alternative decompositions shows that unconventional decompositions can change the numerical reproduction number, but such decompositions must still reconstruct the original vector field; the motivating source's displayed F and V do not."
+      ],
+      "reasoning": "General next-generation theory supplies the standard and prevents treating the decomposition rule itself as novel. It does not cover the exact algebraic failure or threshold-reversal counterexample for the Zhao-Wu-Ruan model.",
+      "searches": [
+        "\"Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission\" new infections progression",
+        "\"next generation matrix\" \"new infections\" transition terms aging compartment",
+        "\"three-age-class HIV/AIDS\" \"next generation\" aging transfer correction"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdsb.2020070",
+      "doi:10.1016/S0025-5564(02)00108-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact-source and correction searches returned the original article and later citations but no indexed erratum repairing the next-generation decomposition.",
+        "General next-generation theory implies how aging should be classified but does not state the corrected matrix or threshold reversal for this model.",
+        "The exact counterexample proves that the source's printed R0 is not merely a different but threshold-equivalent numerical convention: it exceeds one while the actual disease-free linearization is Hurwitz."
+      ],
+      "reasoning": "The decisive comparison is implication-level. A prior result would cover the accepted claim only if it identified this source-specific matrix error or implied the exact corrected threshold; no inspected source did so.",
+      "searches": [
+        "\"10.3934/dcdsb.2020070\" erratum OR correction OR comment",
+        "\"three-age-class HIV/AIDS epidemic model in China\" \"reproduction number\" correction",
+        "\"beta12 + alpha_y\" \"three-age-class\" HIV",
+        "\"dcdsb.2020070\" \"basic reproduction number\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating source displays F_Ia=phi_a*S_a+alpha_y*I_y and V_Ia=eta3*I_a-alpha_y*I_y, so its claimed F-V rewrite doubles the youth-to-adult infected aging flow.",
+        "The source's printed A31 includes (beta12+alpha_y)/eta1 and beta22*alpha_a/(eta1*eta3).",
+        "Searches covering the equivalent formulations 'double-counted aging', 'progression counted as new infection', the exact A31 term, and the exact source did not locate a published correction."
+      ],
+      "reasoning": "The same defect can be described as failure of the F-V identity, misclassification of aging as new infection, or an incorrect next-generation threshold. The searches covered all three statement-level formulations rather than relying on title similarity.",
+      "searches": [
+        "10.3934/dcdsb.2020070 reproduction number aging transfer new infection matrix alpha_y",
+        "\"Dynamic analysis and optimal control of a three-age-class HIV/AIDS epidemic model in China\" reproduction number",
+        "\"beta12 + alpha_y\" next generation matrix HIV age class",
+        "\"alpha_y\" \"A31\" HIV reproduction number aging"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher full text was inspected at model (1), the exact F and V vectors, their Jacobian matrices, A11/A13/A31/A33/A55, the printed R0, and the direct disease-free Jacobian factorization.",
+        "The source states uniform persistence and existence of an endemic equilibrium when its printed R0>1.",
+        "The publisher record gives early access and online publication on 17 April 2020 and lists Primary MSC 92D30, 34D20.",
+        "The foundational next-generation full text was inspected at the formal definition of F_i, the construction FV^{-1}, the local-stability threshold theorem, and the treatment-progression example."
+      ],
+      "reasoning": "The comparison uses the exact displayed equations and theorem hypotheses, not title-level inference or a generic description of epidemic thresholds.",
+      "searches": [
+        "doi:10.3934/dcdsb.2020070 model (1) F V equation (3) equation (4)",
+        "doi:10.3934/dcdsb.2020070 Theorem 4.3 uniform persistence R0",
+        "doi:10.3934/dcdsb.2020070 Theorem 4.4 endemic equilibrium",
+        "doi:10.1016/S0025-5564(02)00108-6 new infections progression F V"
+      ]
+    },
+    "rationale": "The general rule that progression among infected compartments is not a new infection is established next-generation theory and is not claimed as new. The original content is the source-specific diagnosis that the 2020 three-age-class HIV paper's displayed F and V fail to reconstruct its own ODEs, the exact corrected next-generation matrix, and a positive-parameter threshold reversal showing that the printed R0>1 condition can coexist with a locally stable disease-free equilibrium. Targeted DOI/title, formula, aging-transfer, correction, and erratum searches did not locate a published repair.",
+    "residual_risks": [
+      "An unindexed author correction could exist outside the searched records.",
+      "The finding does not recompute the source's complete fitted parameter study or sensitivity rankings.",
+      "Alternative reproduction-number conventions exist, but they do not resolve the displayed source decomposition because its F-V difference is not the original model and the exact counterexample shows the printed threshold is not invasion-equivalent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_NEXT_GENERATION_DECOMPOSITION_DOES_NOT_RECONSTRUCT_MODEL_AND_CAN_REVERSE_THRESHOLD",
+        "evidence": "Aging appears in both F and with negative sign in V, causing F-V to double the infected aging flows; the printed A31 also uses alpha_a where its displayed matrices require alpha_y. The exact witness has corrected rho<1 and a Hurwitz disease-free linearization but printed rho>1.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2020070",
+        "material_read": "Open full PDF: model formulation and force-of-infection definitions; disease-free equilibrium and full next-generation construction; equations (3)-(4); direct Jacobian calculation in Section 3.3; persistence Section 4 including Theorems 4.3 and 4.4; numerical parameter table. The pages containing the model and next-generation matrices were visually inspected.",
+        "method": "Checked the F-V identity term by term, reconstructed a valid new-infection/transition split, multiplied the resulting matrices symbolically, compared its threshold determinant with the direct disease-free Jacobian, and built an exact positive-parameter threshold-reversal witness.",
+        "title": "Dynamic analysis and optimal control of a three-age-class HIV/AIDS epidemic model in China",
+        "trigger": "Primary source whose next-generation reproduction number controls its disease-free, persistence, endemic-existence, and sensitivity conclusions."
+      },
+      {
+        "assessment": "PROGRESSION_IS_NOT_NEW_INFECTION_AND_ALTERNATIVE_SPLITS_MUST_RECONSTRUCT_THE_VECTOR_FIELD",
+        "evidence": "The foundational paper defines F_i as appearance of new infections, treats progression between infected stages as V, and derives R0 from FV^{-1}. The motivating source fails the prerequisite identity because it places the same aging flow in both parts.",
+        "identifier_or_url": "doi:10.1016/S0025-5564(02)00108-6",
+        "material_read": "Public full-text preprint at the definition of disease-free infected compartments, the distinction between new infections and all other changes, the derivation of FV^{-1}, the local-stability threshold theorem, the treatment-model example, and the discussion of alternative decompositions.",
+        "method": "Compared the source's classification of aging transfers with the foundational definition and checked whether an alternative-decomposition interpretation could preserve the original vector field.",
+        "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+        "trigger": "Foundational next-generation reference cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10585624-bc18-41d4-831b-66c48b20ca08",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source uses its reproduction number as the threshold for uniform persistence and endemic-equilibrium existence and as the object of sensitivity analysis. The error is therefore structural rather than cosmetic. The exact witness shows a qualitative reversal: the source's printed R0 is greater than one while the actual disease-free equilibrium is locally asymptotically stable. A correct threshold is necessary before interpreting invasion or control sensitivity in this age-structured model.",
+    "status": "PASS"
+  }
+}
