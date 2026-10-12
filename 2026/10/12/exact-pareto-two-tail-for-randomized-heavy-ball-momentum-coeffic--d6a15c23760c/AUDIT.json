@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Conditionally on any strictly increasing boundary quadruple, the source evaluation times are independent uniforms on three adjacent intervals. The denominator of \\(\\beta_k\\) is exactly \\(\\int_{u_{k-1}}^{u_k}2s^{-3}\\,ds\\), hence is asymptotic to \\(2A_k^{-3}(x+y)\\) at the unique singular corner \\(u_{k-1},u_k\\to A_k\\). The numerator converges there to the strictly positive quantity \\(A_k^{-2}-u_{k+1}^{-2}\\). Scaling the two corner coordinates by \\(t\\) gives a triangular limit region whose area yields the displayed constant. Comparison with \\((x+y)^{-p}\\) proves the exact \\(p=2\\) moment threshold. For the randomized boundary schedule, fixed-\\(k\\) boundary gaps remain in deterministic compact positive ranges, so the conditional \\(p<2\\) bounds integrate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Related stochastic heavy-ball and randomized Douglas--Rachford literature studies random updates and momentum acceleration, but the inspected records do not use the source adjacent-uniform reciprocal-time momentum ratio.",
+        "No broader source located a theorem implying the exact \\(t^{-2}\\) coefficient tail."
+      ],
+      "reasoning": "General stochastic-momentum theory does not dominate this schedule-specific distribution law because the singularity comes from two independently sampled evaluation times approaching their shared interval boundary.",
+      "searches": [
+        "Web: random momentum heavy-ball optimization coefficient distribution",
+        "Web: randomized momentum heavy-ball convex optimization coefficient",
+        "Web: momentum coefficient infinite variance optimization",
+        "DOI:10.1137/23M1567503 abstract and metadata"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.09743v1",
+      "DOI:10.1137/23M1567503"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines \\(\\beta_k\\) as the reciprocal-time difference ratio and states that it can be arbitrarily large.",
+        "The full-text search finds no variance discussion and no coefficient-moment theorem.",
+        "The paper occurrences of moment concern uniform integration identities used in the convergence proof, not moments of \\(\\beta_k\\)."
+      ],
+      "reasoning": "Unbounded support does not imply a \\(t^{-2}\\) tail or an infinite second moment. The new result requires a separate two-dimensional corner asymptotic and therefore is not a corollary explicitly supplied by the source.",
+      "searches": [
+        "arXiv:2609.09743v1 full text, especially anytime coefficient formulas (3) and (6), randomized-boundary construction (4)-(5), and the remark following Theorem 13",
+        "Primary-source full-text searches for arbitrarily large, variance, and moment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-result hit states a tail exponent or moment cutoff for the source momentum coefficient.",
+        "The primary full text explicitly says only that the randomized momentum coefficients can be arbitrarily large.",
+        "Exact web searches returned the source paper and reviews, but no independent tail or variance analysis."
+      ],
+      "reasoning": "Search aliases covered the exact paper identifier, momentum coefficient, heavy tail, Pareto tail, infinite variance, second moment, and randomized schedule terminology. The new statement is stronger than unbounded support because it gives the exact tail exponent, exact leading constant, and complete moment frontier.",
+      "searches": [
+        "Published-research database: Heavy-Ball Method under Randomized Schedules momentum coefficient infinite variance",
+        "Published-research database: 2609.09743 beta_k infinite second moment randomized schedule",
+        "Web: Heavy-Ball Method under Randomized Schedules momentum variance beta_k",
+        "Web: 2609.09743 momentum coefficient distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest database results concern heavy-ball spectral stability, stochastic variance effects, or unrelated random-tail problems; none gives this coefficient distribution."
+      ],
+      "reasoning": "The result is an analytic tail law derived from the source random schedule, not a recomputation of a published table or benchmark.",
+      "searches": [
+        "Published-research database: randomized heavy-ball momentum moment tail coefficient unbounded variance",
+        "Published-research database: 2609.09743 beta_k infinite second moment randomized schedule"
+      ]
+    },
+    "rationale": "The primary source states only that the momentum coefficients can be arbitrarily large. It contains no coefficient-tail theorem or variance analysis. Targeted published-result searches for the source identifier, coefficient, infinite second moment, Pareto tail, and randomized momentum returned no equivalent result. Related randomized heavy-ball literature concerns stochastic operators or adaptive momentum rather than the adjacent-uniform reciprocal-time ratio analyzed here.",
+    "residual_risks": [
+      "A specialized probability analysis of the same ratio may exist under terminology not indexed by the exact source identifier.",
+      "The fixed-time source schedule has a special terminal evaluation time, so the theorem is stated only for the two anytime schedules and for interior coefficients with three independent uniform evaluations.",
+      "The coefficient sequence is dependent across time, so the fixed-\\(k\\) Pareto law should not be extrapolated to maxima over long horizons without additional work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the exact coefficient law needed for the calculation but does not state its tail asymptotic or moment frontier.",
+        "evidence": "For both anytime schedules, the coefficient is the reciprocal-time difference ratio, and the evaluation times are independent uniforms on adjacent intervals conditional on the boundaries.",
+        "identifier_or_url": "arXiv:2609.09743v1",
+        "material_read": "Full PDF sections containing the setup, deterministic-boundary and randomized-boundary anytime coefficient formulas, the random boundary/evaluation-time construction, the main rate statement, the remark that momentum coefficients can be arbitrarily large, and Appendix uniform-moment identities. The relevant formula page was visually inspected.",
+        "method": "ArXiv full-PDF text inspection plus rendered-page inspection.",
+        "title": "Heavy-Ball Method under Randomized Schedules",
+        "trigger": "Primary recent source defining the randomized anytime heavy-ball schedules."
+      },
+      {
+        "assessment": "Studies randomized operators with heavy-ball momentum and convergence rates, not the reciprocal-time coefficient distribution of the 2026 schedule.",
+        "evidence": "The abstract focuses on randomized Douglas--Rachford linear-system updates and heavy-ball acceleration.",
+        "identifier_or_url": "DOI:10.1137/23M1567503",
+        "material_read": "Abstract, keywords, metadata, and scope description.",
+        "method": "Publisher abstract and metadata inspection.",
+        "title": "Randomized Douglas--Rachford Methods for Linear Systems: Improved Accuracy and Efficiency",
+        "trigger": "Broader randomized heavy-ball literature returned by a targeted search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6a15c23-760c-46d4-b536-a5a6270d73d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly highlights that its randomized momentum coefficients can be arbitrarily large, making their size distribution a natural unresolved property of the proposed schedule rather than an arbitrary invariant. The exact \\(t^{-2}\\) law shows that the coefficients sit precisely at the finite-mean/infinite-variance boundary. This matters for interpretation and implementation of the new acceleration mechanism: ordinary second-moment summaries of the momentum parameter do not exist even though the convergence theorem controls the optimization trajectory. The explicit leading constant also quantifies how local boundary geometry controls extreme momentum events.",
+    "status": "PASS"
+  }
+}
