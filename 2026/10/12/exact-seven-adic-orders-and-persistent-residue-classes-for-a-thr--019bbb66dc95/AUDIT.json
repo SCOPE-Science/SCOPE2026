@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Every exponent class modulo six is covered. Integral interpolation by \\(64^t\\) and \\(729^t\\) gives the first normalized interpolation equal to \\(2+6t\\) and the second to \\(2+6t^2\\). Bounds \\(j-1-\\nu_7(j!)\\ge1\\) for \\(j\\ge2\\) and \\(j-2-\\nu_7(j!)\\ge1\\) for \\(j\\ge3\\) justify discarded coefficients. Explicit zero lifts \\(-1/3\\), \\(-1/2\\), \\(-2/3\\) and simple-root differences yield precise valuations, and CRT yields counts 2,8,15 for all levels. The Python verifier passed 5000 exact modular cases, five complete period levels, ten special indices; these computations supplement proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bayarmagnai–Delger (2022), Theorem 1 is a sufficient criterion for unboundedness; it does not enumerate valuations for all exponents.",
+        "Bell (2007), abstract concerns valuations of p-adic polynomials and their regularity; the integer exponential sum is not an ordinary polynomial in the exponent."
+      ],
+      "reasoning": "Neither checked theorem implies the complete exact valuation at all exponents or the stable count fifteen without additional specific calculations. Generic p-adic interpolation is an available method, not evidence of a previously stated exact instance.",
+      "searches": [
+        "Jason Bell p-adic valuations and k-regular sequences 2007 exponential sums exact valuations abstract pdf",
+        "7-adic zero branches exponential power sum 1+2^n+3^n modulo 7^k",
+        "Sums of powers of integers p-adic valuation 1+2^n+3^n 7 Bayarmagnai Delger later 2023 2024"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL25/Bayarmagnai/bayar10.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL25/Bayarmagnai/bayar10.html",
+      "https://doi.org/10.1016/j.disc.2007.03.009",
+      "Published research records compared by identifier, including 2026/9/19/SCOPE-cyclotomic-hensel-prime-support-isometry--dbd36dfa6809 and 2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110, neither on this sum"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original Remark 10 explicitly identifies the subfamily \\(n=4\\cdot7^j\\) and exact valuation \\(j+2\\).",
+        "The new theorem additionally covers exponents n congruent to 2 mod 6 and all exponents congruent to 4 mod 6, exposing a second exact root at n=1 in a different seven-adic branch and the prime-power root counts 2, 8, 15."
+      ],
+      "reasoning": "The published subfamily is a strict specialization of the new formula and does not logically entail the second branch or arbitrary-exponent classification. The proof supplies the missing reductions and explicit lifting roots.",
+      "searches": [
+        "Bayarmagnai–Delger (2022), full PDF, Theorem 1 and Remark 10",
+        "unbounded valuation of 1+2^n+3^n p=7; exceptional second root and p-adic zeros beyond n=4*7^k",
+        "\"1+2^n+3^n\" \"valuation\" \"7\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bayarmagnai–Delger (2022), Remark 10, gives only the exponents 4 times powers of 7; full PDF pp. 1–8 inspected.",
+        "Nearest indexed published research record 2026/9/19/SCOPE-cyclotomic-hensel-prime-support-isometry--dbd36dfa6809 concerns roots of cyclotomic polynomials at 2, not this exponential sum."
+      ],
+      "reasoning": "No equivalent six-residue valuation formula or root-count theorem was identified. This is an evidence-limited statement, not a guarantee of global novelty.",
+      "searches": [
+        "exact 7-adic valuation of 1 + 2^n + 3^n for n congruent 2 or 4 mod 6; two distinct Hensel-lift branches, roots 0 and one nonzero 7-adic root",
+        "\"1+2^n+3^n\" \"7\" valuation",
+        "\"2^n+3^n+1\" \"7^k\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-phrase and integer-sequence searches did not surface the claimed complete valuation or its counts; no exhaustive database search was possible.",
+        "Finite verification compared the valuation formula for all positive exponents through 5000, without treating it as prior literature."
+      ],
+      "reasoning": "No matching table/formula was located in the queried sources; negative searches are not proof that no equivalent table exists.",
+      "searches": [
+        "site:oeis.org \"1+2^n+3^n\" \"7\"",
+        "\"v7(1+2^n+3^n)\"",
+        "\"1+2^n+3^n\" \"n-1\" \"7\""
+      ]
+    },
+    "rationale": "Directly inspected 2022 primary full text gives only \\(n=4\\cdot7^j\\) (Remark 10) and a general sufficient unboundedness theorem. It does not state the full six-class exact 7-adic valuation or prime-power root counts. Candidate-specific published-record, indexed-web, and integer-sequence searches did not find implication-equivalent coverage; Bell general polynomial valuation regularity lacks the specific classification. Residual bibliographic risks disclosed.",
+    "residual_risks": [
+      "An unindexed equivalent exact valuation calculation or a specialized table may exist.",
+      "Bell (2007) comparison was based on abstract, but its polynomial setting does not directly dominate the exponential-sum formula.",
+      "Standard p-adic interpolation gives general tools, so the mathematical originality is the explicit complete evaluation and stable residue count, not the method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers \\(n=4\\cdot7^j\\) only, not the arbitrary-index formula or full residual count",
+        "evidence": [
+          "Remark 10, p. 7: \\(\\nu_7(1+2^{4\\cdot7^j}+3^{4\\cdot7^j})=j+2\\)",
+          "Theorem 1, pp. 1–2, is a sufficient condition for unbounded valuations, not their explicit classification",
+          "Publication date October 7 2022; primary 11B39, p. 8"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Bayarmagnai/bayar10.pdf",
+        "material_read": "All eight pages of primary PDF, especially Theorem 1, its proof, Remark 10 on p. 7, and references",
+        "method": "Lawful public full-text PDF parsed and two key pages visually inspected",
+        "title": "On the p-Adic Valuations of Sums of Powers of Integers",
+        "trigger": "Identical three-power example with the same prime in Remark 10"
+      },
+      {
+        "assessment": "Its stated object is a polynomial over Q_p, rather than the non-polynomial exponential expression; the abstract gives no exact constants or congruence classes",
+        "evidence": [
+          "Bell (2007) abstract states a p-regularity criterion for valuations of polynomial f(n), not an evaluation of \\(1+2^n+3^n\\)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2007.03.009",
+        "material_read": "Abstract and journal metadata only; full paper not obtained",
+        "method": "Open bibliographic abstract comparison",
+        "title": "p-adic valuations and k-regular sequences",
+        "trigger": "Potential generic structural coverage by p-adic polynomial valuation theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "019bbb66-dc95-4c27-8f30-3ed4b16c2e7d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the same natural exceptional three-term sum and prime explicitly highlighted in Bayarmagnai–Delger Remark 10. The theorem determines every previously unclassified index, reveals an independent branch at n congruent one modulo seven, and settles exact modular root frequencies at all levels, stabilizing at fifteen; it is a motivated complete classification rather than an arbitrary finite numerical slice.",
+    "status": "PASS"
+  }
+}
