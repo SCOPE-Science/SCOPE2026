@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "At criticality, the exact Lyapunov derivative is \\(-\\mu_0(S-S_0)^2/S-S_0E(\theta_0-\theta(I))\\le0\\). LaSalle plus the \\(S\\)-equation removes every invariant state with \\(E>0\\), and the stable \\(I\\)-equation then gives full disease-free convergence. For \\(E(0)>0\\), the ratio equations force \\(I/E\to\u0007lpha/\\mu_2\\) and \\((S_0-S)/E\to\\mu_1/\\mu_0\\). Differentiability of \\(\theta\\) at zero then gives \\(\\dot E/E^2\to-K\\), proving all \\(t^{-1}\\) and logarithmic-flow asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang, Li, and Xu prove global disease-free stability for \\(\\mathcal R_0\\le1\\) in a different SEIS saturation-incidence model.",
+        "Li and Jin provide earlier general-contact SEI global-stability results, establishing that general-contact threshold analysis itself is prior art.",
+        "These broader statements do not provide the source-specific coefficient involving \\(\theta'(0)\\), vaccination through \\(\\mu_0\\), or the exact compartment-ratio limits."
+      ],
+      "reasoning": "The broader literature prevents novelty from being assigned to equality stability alone. Its different model structure does not imply the explicit critical profile proved here.",
+      "searches": [
+        "\"Global Stability of an SEIS Epidemic Model with General Saturation Incidence\" R0 <= 1",
+        "\"Global stability of an SEI epidemic model with general contact rate\" disease-free threshold",
+        "global stability SEIR vaccination R0=1 algebraic decay contact rate"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023411",
+      "doi:10.1155/2013/710643",
+      "doi:10.1016/j.chaos.2004.06.012"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A prior same-source finding under positive infected inflow proves vaccination monotonicity and an importation floor; its assumptions require \\(A_1>0\\) and it does not address critical zero-importation dynamics.",
+        "A second same-source finding concerns a Pontryagin costate error in the controlled model and has no implication for the uncontrolled threshold asymptotics.",
+        "Current and prior own ledgers contain no prior claim stating the critical \\(t^{-1}\\) profile."
+      ],
+      "reasoning": "Neither same-source result subsumes the accepted claim: one is an endemic-equilibrium comparative-statics theorem under \\(A_1>0\\), the other is an optimal-control necessary-condition correction. The present proof uses \\(A_1=0\\), the threshold identity, and nonlinear asymptotics near the disease-free equilibrium.",
+      "searches": [
+        "10.3934/math.2023411 vaccination endemic equilibrium importation floor",
+        "10.3934/math.2023411 optimal control adjoint costate",
+        "10.3934/math.2023411 critical relaxation coefficient theta prime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source states Theorem 3 only for \\(\\mathcal R_0<1\\).",
+        "The equality case corresponds to a simple zero eigenvalue of the infected threshold block and is not assigned a decay rate in the source.",
+        "Database searches returned critical-relaxation results for unrelated dynamical systems but no matching SEIR profile."
+      ],
+      "reasoning": "The accepted statement can be formulated as closed-threshold stability, critical slowing, a \\(t^{-1}\\) exposed/infectious tail, or an explicit center-direction coefficient. Searches covered all of these formulations.",
+      "searches": [
+        "10.3934/math.2023411 R0=1 critical threshold algebraic decay SEIR vaccination contact rate",
+        "\"Control and elimination in an SEIR model for the disease dynamics of COVID-19 with vaccination\" critical relaxation",
+        "SEIR vaccination generalized contact rate R0 equals one t inverse decay",
+        "critical epidemic threshold algebraic decay exposed infectious vaccination contact response"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at model (2.1), notation for \\(\\mu_0,\\mu_1,\\mu_2\\), the reproduction number, Theorem 3 and its full proof, and Theorem 4.1.",
+        "The theorem page was visually inspected and shows the strict hypothesis \\(\\mathcal R_0<1\\).",
+        "The 2013 full text explicitly states global asymptotic stability for \\(\\mathcal R_0\\le1\\) in its distinct SEIS model."
+      ],
+      "reasoning": "Comparison uses the exact equations and theorem statements rather than title-level similarity.",
+      "searches": [
+        "doi:10.3934/math.2023411 Theorem 3 disease free R0",
+        "doi:10.3934/math.2023411 model theta prime vaccination",
+        "doi:10.1155/2013/710643 R0 equality global asymptotic stability"
+      ]
+    },
+    "rationale": "Equality-case disease-free stability is known in other nonlinear epidemic models and is not claimed as new. The motivating source stops at the strict condition \\(\\mathcal R_0<1\\). The accepted originality is the explicit source-specific critical relaxation vector and coefficient \\(K\\), together with the logarithmic cumulative-flow laws. Exact-source, alias, critical-decay, and implication searches located no statement covering that profile.",
+    "residual_risks": [
+      "An equivalent critical-rate calculation may exist under different notation in older nonlinear-incidence epidemic literature.",
+      "The theorem does not give the next logarithmic or power correction beyond the leading \\(t^{-1}\\) term.",
+      "The result is deterministic and source-specific rather than a general theorem for all epidemic systems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRICT_THRESHOLD_THEOREM_EXTENDS_TO_A_SHARP_CRITICAL_RELAXATION_PROFILE",
+        "evidence": "Theorem 3 is stated only for \\(\\mathcal R_0<1\\). At equality the modified Lyapunov derivative is nonpositive, and the exact ratio limits yield the displayed coefficient \\(K\\).",
+        "identifier_or_url": "doi:10.3934/math.2023411",
+        "material_read": "Open full PDF at the model and contact-rate assumptions, invariant region, reproduction number, Section 3 disease-free theorem and complete proof, and Theorem 4.1. Pages containing the model and threshold theorem were visually inspected.",
+        "method": "Set \\(A_1=0\\) and \\(\\mathcal R_0=1\\), reconstructed a critical Lyapunov function without the strict-margin coefficient used by the source, then derived the asymptotic ratio equations and the limit of \\(\\dot E/E^2\\).",
+        "title": "Control and elimination in an SEIR model for the disease dynamics of COVID-19 with vaccination",
+        "trigger": "Primary source defining the vaccinated generalized-contact SEIR model and its strict disease-free threshold theorem."
+      },
+      {
+        "assessment": "EQUALITY_GLOBAL_STABILITY_IS_PRIOR_BUT_EXACT_VACCINATED_SEIR_CRITICAL_PROFILE_IS_NOT_STATED",
+        "evidence": "The paper proves global asymptotic stability at equality in a different SEIS model, but does not contain the present vaccinated SEIR coefficient, compartment-ratio limits, or logarithmic cumulative-flow laws.",
+        "identifier_or_url": "doi:10.1155/2013/710643",
+        "material_read": "Open full text at the abstract, model setup, disease-free equilibrium, and Theorem 1 including its \\(\\mathcal R_0\\le1\\) statement.",
+        "method": "Compared its equality-case implication with the accepted source-specific asymptotic claim.",
+        "title": "Global Stability of an SEIS Epidemic Model with General Saturation Incidence",
+        "trigger": "Highly relevant nonlinear-contact epidemic paper with an explicit equality-case threshold theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "034d42e3-e132-4a8b-b227-0f0c6d2511cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The equality boundary is the exact transition between elimination and endemicity in the source model. The result distinguishes that nonhyperbolic boundary from the strict subcritical regime by giving its exact algebraic tail, infected-compartment ratio, susceptible deficit, and cumulative-transmission growth. The coefficient \\(K\\) has direct structural meaning: vaccination enters through susceptible restoration while behavioral response enters through the local contact-rate slope.",
+    "status": "PASS"
+  }
+}
