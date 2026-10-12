@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The proof covers every parameter range. Star colorings reduce to exact class-size capacities; two-color bicliques satisfy a rigid row/column-sum equation forcing K_{2,2r}; three-color constructions are explicit outside two genuine four-color obstructions; K_{3,4} is ruled out by the color-subgraph parity argument and K_{4,5} by a six-edge bound for each color class. The packaged verifier independently replays the exceptional finite checks and broad constructive ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pękała--Przybyło prove Maj'(G)\\le3 for every graph with minimum degree at least 5, so all K_{m,n} with min{m,n} at least 5 are already covered on the upper-bound side.",
+        "Their Observation 9 proves K_{3,4} is not strong-majority-edge three-colorable.",
+        "published-finding corpus 2026/9/17/SCOPE005 states an exact generalized bipartite threshold with K_{k^2,k^2+1} as sharp obstruction; for k=2 this covers K_{4,5}."
+      ],
+      "reasoning": "These broader results settle large-degree three-colorability and two individual four-color obstructions, but they do not determine the exact index for stars, K_{2,n}, or the remaining K_{3,n} and K_{4,n} families.",
+      "searches": [
+        "arXiv:2608.04122v1 full-text inspection of Theorem 4 and Observation 9",
+        "published-finding corpus: \"minimum degree four bipartite strong majority edge coloring K4,5\"",
+        "published-finding corpus: \"K_{3,4} K_{4,5} strong majority edge 3-colourable complete bipartite\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.23828v1",
+      "arXiv:2608.04122v1",
+      "published-finding corpus:2026/9/17/SCOPE005",
+      "Own current-week ledger through g000010",
+      "Own previous-week final ledger g000061"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest own prior claim is the exact strong majority index of complete graphs, item f0815fe7-bf25-463c-b666-93c9ebbe511a, which concerns K_n rather than K_{m,n} and does not imply the biclique formula.",
+        "published-finding corpus 2026/9/17/SCOPE005 implies the K_{4,5} obstruction and high-degree upper bounds but not the exact low-degree values or the K_{2,2r} two-color characterization."
+      ],
+      "reasoning": "The final theorem strictly consolidates prior-covered components with additional exact low-degree structure. No checked prior statement implies the complete piecewise formula.",
+      "searches": [
+        "Own current-week and previous-week ledger claim scan for \"strong majority\", \"complete bipartite\", \"K_{m,n}\", and related parameters",
+        "published-finding corpus: \"strong majority index biclique complete bipartite\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The initiating paper defines strong majority edge coloring and Maj'(G), but an in-text search found no occurrence of \"complete bipartite\", \"bipartite\", or K_{m,n}.",
+        "Exact-formula published-finding corpus queries returned 2026/9/17/SCOPE005 as the closest strong-majority item, with no separate biclique classification hit."
+      ],
+      "reasoning": "The natural aliases are strong majority edge coloring, strong majority index, biclique, and complete bipartite graph. The closest indexed records use the same invariant but state threshold theorems rather than the full family formula.",
+      "searches": [
+        "published-finding corpus: \"strong majority edge coloring complete bipartite graph K_mn strong majority index\"",
+        "published-finding corpus: \"Maj'(K_{m,n}) exact complete bipartite strong majority edge coloring\"",
+        "Web: \"strong majority index\" \"complete bipartite\"",
+        "Web: \"strong majority edge\" \"complete bipartite graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus identifier in all three searches was 2026/9/17/SCOPE005, whose indexed summary concerns a degree threshold, not an exact Maj'(K_{m,n}) table.",
+        "No published-finding corpus hit stated the parity characterization Maj'(K_{2,n})=2 exactly for even n or the complete four-color exception list."
+      ],
+      "reasoning": "The exact database search does not establish novelty by itself, but it did not surface a statement that dominates the full claimed table.",
+      "searches": [
+        "published-finding corpus: \"complete bipartite strong majority index K_{2,n} K_{3,n} K_{4,n}\"",
+        "published-finding corpus: \"K_{2,n} strong majority edge 2-coloring even n\"",
+        "published-finding corpus: \"strong majority edge coloring stars K_{1,n} complete bipartite exact classification\""
+      ]
+    },
+    "rationale": "Targeted statement-level comparison found no source stating the complete formula. The 2026 initiating paper defines the invariant without a complete-bipartite classification; Pękała--Przybyło cover all graphs of minimum degree at least five and separately K_{3,4}; published-finding corpus record 2026/9/17/SCOPE005 covers the generalized bipartite threshold and hence the K_{4,5} obstruction at k=2. Those results imply parts but not the full low-degree and two-color classification.",
+    "residual_risks": [
+      "The full public text of published-finding corpus:2026/9/17/SCOPE005 was not separately fetched; only its indexed title and summary were available, so an unindexed corollary could overlap more strongly than the summary indicates.",
+      "A differently named or poorly indexed complete-bipartite classification may exist outside the searched terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces Maj'(G) and general bounds; no complete-bipartite classification found.",
+        "evidence": "First public 2026-05-22; MSC 05C15, 05C70. In-text searches found no \"complete bipartite\" or \"bipartite\" occurrence in the accessible paper text.",
+        "identifier_or_url": "arXiv:2605.23828v1",
+        "material_read": "Abstract, definition section, examples, general strong-majority edge-coloring section, and in-text searches for complete-bipartite terminology.",
+        "method": "Lawful arXiv HTML/web text inspection.",
+        "title": "Strong majority colorings of graphs",
+        "trigger": "Initiating source for the invariant and verified primary MSC."
+      },
+      {
+        "assessment": "Covers all graphs of minimum degree at least five and proves the K_{3,4} obstruction, but does not state the full complete-bipartite index formula.",
+        "evidence": "Theorem 4 gives three colors for delta at least 5; Observation 9 proves K_{3,4} is not three-colorable.",
+        "identifier_or_url": "arXiv:2608.04122v1",
+        "material_read": "Abstract, introduction, Theorem 4, concluding remarks, Observation 9 and its proof.",
+        "method": "Indexed full-text web rendering/search.",
+        "title": "On Strong Majority Edge Colourings with Few Colours",
+        "trigger": "Closest later primary theorem on three colors and low minimum degree."
+      },
+      {
+        "assessment": "Broader threshold result; at k=2 it covers K_{4,5} as the sharp obstruction, but the indexed statement does not provide the full Maj'(K_{m,n}) classification.",
+        "evidence": "Indexed summary: bipartite strong 1/k-majority (k+1)-edge-colouring threshold is k^2+1, with K_{k^2,k^2+1} sharp.",
+        "identifier_or_url": "published-finding corpus:2026/9/17/SCOPE005",
+        "material_read": "Published indexed title and summary.",
+        "method": "published-finding corpus semantic search.",
+        "title": "Exact bipartite threshold for generalized strong-majority edge colouring",
+        "trigger": "Top semantic match in repeated exact biclique and strong-majority queries."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d70fcb9-7654-4bf7-83a1-8ffdb967a656",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete exact classification for the canonical complete-bipartite family of a recently introduced invariant. It resolves all low-minimum-degree bicliques not controlled by the general delta-at-least-five theorem, identifies an infinite exact two-color parity family, and isolates the complete list of four-color exceptions.",
+    "status": "PASS"
+  }
+}
