@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The eleven points \\(Q_i=(i:1:i^3)\\) have exactly the expected 15 zero-sum collinear triples by the Vandermonde formula; all other 150 triple determinants are units. The normalized scheme has fourteen variables and fifteen dependent-minor equations. Twelve incidences reconstruct six projective points via transverse line intersections. For the remaining minors, an exact GF(11) calculation gives \\(3G\\), \\((-2x+2z)G\\), \\((-2x+5z-3)G\\) with factors units at \\((4,9)\\). Hence its localized defining ideal is \\((G)\\). Its translated equation is \\(3u(v-u)+u^3+3u^2v-5uv^2-5v^3\\), so the quadratic initial form has distinct linear factors: the completed local ring is \\(k[[U,V]]/(UV)\\). The bundled standard-library checker reproduced all identities. The claim is local only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Corey–Luber prove smoothness for rank-three matroids with up to eleven elements over the complex numbers only.",
+        "Borisov–Roulleau and Baker restrict their modular realization correspondences away from primes dividing the level."
+      ],
+      "reasoning": "Characteristic-zero smoothness does not imply smoothness of integral fibers at 11. A characteristic-prime-to-level scheme isomorphism has no consequence asserting regularity of the excluded fiber. Thus none of these stronger-looking general theorems contains the local result.",
+      "searches": [
+        "elliptic matroid realization modular curve bad prime 11 cuspidal point singular fiber split nodal",
+        "Borisov Roulleau Baker elliptic matroids characteristic dividing level cuspidal 11 ordinary double point",
+        "arXiv:2307.11915v2 Theorem 1.1",
+        "arXiv:2404.04364v1 Theorem 5.9",
+        "Corey Luber characteristic eleven smoothness fail elliptic matroid nodal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.05299v1, especially §10.2 and Remark 13.1",
+      "arXiv:2404.04364v1, especially §§3,5",
+      "arXiv:2307.11915v2, Theorem 1.1",
+      "published-finding semantic searches on exact cusp, characteristic-eleven matroids, Tate aliases, and node equations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baker: the universal level sections may collide in characteristic dividing the level, and a bad-fiber comparison is not undertaken.",
+        "Corey–Luber: no rank-three eleven-element singular realization scheme over C; field hypothesis is not characteristic eleven.",
+        "The new polynomial calculation supplies the nonvanishing local quadratic term \\(3u(v-u)\\) and unit elimination factors."
+      ],
+      "reasoning": "Prior general descriptions and incidence algorithms define what could be computed, but do not themselves evaluate the characteristic-eleven local ring or its two tangent directions. The new explicitly verified polynomial identities are the missing implication step.",
+      "searches": [
+        "matroid T_11 characteristic 11 cuspidal realization ordinary node two branches tangent cone local ring b=2 c=4",
+        "elliptic matroid realization modular curve bad prime 11 cuspidal point singular fiber split nodal",
+        "Borisov Roulleau Baker elliptic matroids characteristic dividing level cuspidal 11 ordinary double point",
+        "arXiv:2608.05299v1 Remark 13.1",
+        "arXiv:2307.11915v2 Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baker explicitly excludes characteristic dividing 11 and describes the failure of the modular construction there.",
+        "The search results did not show an equivalent completed local ring or a split-node equation for this labeled configuration."
+      ],
+      "reasoning": "Equivalent forms would include a two-branch node at the additive eleven-torsion configuration, a local equation with squarefree quadratic tangent cone, or a Tate-normal degeneration proved locally isomorphic to the matroid scheme. The inspected sources state none of these.",
+      "searches": [
+        "matroid T_11 characteristic 11 cuspidal realization ordinary node two branches tangent cone local ring b=2 c=4",
+        "Kubert Tate normal form order 11 mod 11 additive degeneration two transversal branches",
+        "F11(b,c)=bc(b-c^2-c)^3+(b-c)^3(b^2-bc-c^3) singularity",
+        "arXiv:2608.05299v1 §§10.2,13.1",
+        "arXiv:2404.04364v1 §3",
+        "elliptic matroid T_11 mod 11 singular ordinary double point cusp Q_i i i cubed",
+        "x^3+3x^2z+2x^2-5xz^2+3xz-x-5z^3+z^2+z matroid"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Borisov–Roulleau primary paper says its ancillary Magma files give algorithms and equations of low-level modular curves. The read article does not evaluate their characteristic-eleven cusp germ.",
+        "The direct projective-frame construction yields exact residual minors 3G, (-2x+2z)G, (-2x+5z-3)G."
+      ],
+      "reasoning": "A table containing the exact nodal germ could cover the result, but no such tabulation was found in the inspected source text or search records. The ancillary algorithms themselves were not exhaustively inspected, so possible implicit coverage remains a specific residual risk.",
+      "searches": [
+        "F11(b,c)=bc(b-c^2-c)^3+(b-c)^3(b^2-bc-c^3) singularity",
+        "arXiv:2404.04364v1 §1 ancillary-files description",
+        "arXiv:2608.05299v1 §§11–15"
+      ]
+    },
+    "rationale": "The first excluded level-prime fiber has a specifically evaluated split-node local ring. Baker treats matroid-modular scheme equivalence only after inverting the level and explicitly warns that the bad fibers need separate analysis. Borisov–Roulleau and Corey–Luber give characteristic-prime-to-level or complex results, neither implying a local singularity at characteristic eleven. No equivalent evaluated statement was found in the actual published-finding and primary-literature searches. The uninspected ancillary source code is a stated residual risk, not evidence of coverage.",
+    "residual_risks": [
+      "Borisov–Roulleau arXiv ancillary Magma algorithms for low levels were not fully inspected; an implicitly equivalent reduction-mod-eleven calculation there remains possible.",
+      "An older explicit integral modular-curve equation might yield the same local singularity after a nontrivial coordinate identification; no such evaluated identity was located.",
+      "Search-based noncoverage is not a formal novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected relevant sections: correspondence expressly excludes characteristic eleven and makes no local node calculation.",
+        "evidence": [
+          "Theorem 10.4 assumes char(k) not dividing 11.",
+          "Remark 13.1 says a separate analysis of bad fibers is required."
+        ],
+        "identifier_or_url": "arXiv:2608.05299v1; https://www.researchgate.net/publication/411824608_Elliptic_matroids_and_modular_curves",
+        "material_read": "Introduction and main theorems; Section 10.2 for T_11 reconstruction; Remark 13.1 on primes dividing n; Sections 14–15 for scheme reconstruction.",
+        "method": "Read publisher-hosted publicly accessible full-text HTML transcription, focusing on theorem and proof passages.",
+        "title": "Elliptic matroids and modular curves",
+        "trigger": "Exact matroid T_11, modular correspondence, and bad-characteristic exclusion"
+      },
+      {
+        "assessment": "NOT_COVERING in read passages: treats prime-to-level and complex correspondence, not this characteristic-eleven nodal local ring. Ancillary files remain an originality risk.",
+        "evidence": [
+          "Theorem 1 states a characteristic-not-dividing-n hypothesis.",
+          "Theorem 5.9 is the complex realization-to-modular correspondence.",
+          "The introduction points to ancillary Magma algorithms, not an evaluated characteristic-eleven node."
+        ],
+        "identifier_or_url": "arXiv:2404.04364v1; https://sites.math.rutgers.edu/~borisov/pubs/pdf/2404.04364.pdf",
+        "material_read": "Introduction and scope, low-level configuration equations in Section 3, modular interpretation and Theorem 5.9 in Section 5; inspected PDF text and page render.",
+        "method": "Primary open PDF, textual passages and actual page image.",
+        "title": "Modular curves X1(n) as moduli spaces of point arrangements and applications",
+        "trigger": "Earlier realization-scheme equations and possible coverage by a general modular theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: smoothness is asserted over C; does not cover positive-characteristic special fibers.",
+        "evidence": [
+          "Theorem 1.1 explicitly states smoothness for C-realizable rank-three matroids on at most 11 elements over C."
+        ],
+        "identifier_or_url": "arXiv:2307.11915v2; https://arxiv.org/pdf/2307.11915",
+        "material_read": "Full introduction and Theorem 1.1, with background definitions in Section 2; inspected PDF page image.",
+        "method": "Primary open arXiv PDF text and first-page rendering.",
+        "title": "Singular matroid realization spaces",
+        "trigger": "Sharp known bound for singular rank-three eleven-point realization spaces"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f39d4a84-3d90-455a-9d76-5ab6365356ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This first prime-level bad-characteristic example exposes an explicit split nodal degeneration in an eleven-point rank-three realization scheme, in sharp contrast to the known characteristic-zero smoothness theorem. The two tangent branches and local multiplicity are structural invariants of a motivated elliptic-matroid configuration, not an arbitrary slice or a known-table recomputation. It addresses a precisely excluded fiber of the 2026 modular correspondence without claiming a global modular interpretation.",
+    "status": "PASS"
+  }
+}
