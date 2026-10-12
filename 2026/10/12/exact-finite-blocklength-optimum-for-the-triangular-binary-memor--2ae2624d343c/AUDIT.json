@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "A changed 111 center has only original 11 adjacent pairs, so no witnessing edge can be destroyed, and code size is preserved by replacement. On 111-free words, an interior discrepancy would force neighboring ones on the word having a one, contradicting the constraint. Therefore nondistinguishability is exactly the boundary-projection fiber relation, and R_n is an optimal transversal. The four-state transfer matrix has characteristic polynomial λ(λ³−λ²−λ−1), giving all initial values, recurrence, and generating function; two standard-library verifiers completed and agree. Boundary n=2 separately checked. All conclusions follow symbolically for every n≥2; finite tests do not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2014 Cohen–Fachini–Körner arXiv HTML Theorem 1 establishes only the exponential growth rate for F",
+        "2018 Cao–Cai–Guo–Yeung abstract addresses capacity, not a stated all-blocklength sequence"
+      ],
+      "reasoning": "Theorem 1 of the inspected primary source proves a weaker asymptotic invariant. Knowing the rate does not imply the new exact formula. Later capacity classification could conceivably contain finite formulas, but available information neither establishes nor definitively excludes that possibility.",
+      "searches": [
+        "web: \"binary channels\" \"00\" \"01\" \"10\" \"finite block\" zero-error",
+        "web: \"On Zero-Error Capacity of Binary Channels With One Memory\" pdf",
+        "web: \"Cao\" \"Fachini\" \"Korner\" \"M(G,n)\" finite",
+        "published-finding corpus: Binary channel one memory three mutually distinguishable two-letter inputs except 11 finite n optimal code 3 5 9 17 31"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1402.0349v2 (full relevant article HTML, §§1–3)",
+      "DOI:10.1109/TIT.2018.2830362 (abstract and publisher metadata only)",
+      "DOI:10.1109/ISIT.2015.7282669 (abstract only)",
+      "published-finding corpus published-index semantic searches, queries in named checks",
+      "Final targeted published-finding corpus exact-parameter and alias queries; top related result a nonmatching cover-free-family result was not covering"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original 2014 manuscript reduces codes to words avoiding 111 for capacity and bounds exponential growth; it does not prove that endpoint-constrained representatives form exactly one per confusability class",
+        "The present proof adds a pairwise interior rigidity lemma and exact boundary quotient, yielding all n maxima"
+      ],
+      "reasoning": "Original asymptotic bounds allow multiple finite-size functions with the same growth rate. The interior rigidity and equivalence partition are additional nontrivial conclusions. Available 2018 material is abstract-only and does not settle finite equality; related published-finding corpus coding entries have different graphs or distance notions.",
+      "searches": [
+        "arXiv:1402.0349v2, Theorem 1 and full proof",
+        "DOI:10.1109/TIT.2018.2830362 abstract and publisher metadata",
+        "published-finding corpus: Zero-error permutation coding constrained by adjacent-value differences, exact enumeration and local recovery"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1402.0349v2 §2 Theorem 1 calls the triangle on 00,01,10 F and computes its capacity",
+        "The new equivalence is a finite-blocklength formula and canonical partition; a growth exponent alone does not specify finite maxima"
+      ],
+      "reasoning": "Checked triangle F, its isolated vertex 11, Shannon–Markov synonyms, and the equivalent rational/tribonacci growth formulation. The exact finite sequence was not found in the inspected primary theorem; no published-finding corpus hit showed an equivalent assertion. A later full-text article remains a stated risk.",
+      "searches": [
+        "published-finding corpus: Exact finite blocklength maximum distinguishable codes for Cohen Fachini Korner triangle F on binary adjacent pairs 00,01,10 Shannon Markov channel M(F,n) tribonacci",
+        "published-finding corpus: Shannon Markov capacity triangular channel one-memory finite block code maximum tribonacci no 111",
+        "web: \"M(F,n)\" \"tribonacci\" \"zero error\"",
+        "web: \"one-memory\" \"tribonacci\" \"code\" distinguishable",
+        "published-finding corpus: Exact finite blocklength sizes 3 5 9 17 31 57 for the triangle binary one-memory channel confusability graph F, canonical representatives avoiding 111 and boundary 11",
+        "published-finding corpus: Shannon Markov one memory triangle K3 isolated 11 confusability classes exact finite length optimal code tribonacci recurrence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching finite-blocklength table surfaced in searches",
+        "Direct computations in verify_pairs.py and verify_transfer.py agree for n=2..11"
+      ],
+      "reasoning": "The fixed graph and all-length recurrence were searched as both a channel problem and a combinatorial sequence. No exact covering table was identified. Negative search evidence is limited by indexing and full-text access.",
+      "searches": [
+        "published-finding corpus: Exact finite blocklength maximum distinguishable codes for Cohen Fachini Korner triangle F on binary adjacent pairs 00,01,10 Shannon Markov channel M(F,n) tribonacci",
+        "web: \"Shannon-Markov\" \"finite\" triangle code",
+        "web: \"binary channels with memory\" \"tribonacci\" \"blocklength\"",
+        "web: \"Cohen\" \"Fachini\" \"Körner\" \"finite length\" binary",
+        "published-finding corpus: Exact finite blocklength sizes 3 5 9 17 31 57 for the triangle binary one-memory channel confusability graph F, canonical representatives avoiding 111 and boundary 11"
+      ]
+    },
+    "rationale": "The full primary arXiv:1402.0349 manuscript proves only the growth-rate/capacity for the exact F channel. It supplies a 111-reduction but no finite extremal partition or explicit all-length maximum; neither an exponent nor a bound by the larger 111-free language implies the new finite equality. Searches of published-finding corpus, primary literature and aliases revealed no dominating source. Unavailable 2015/2018 conference/journal bodies leave a disclosed bibliographic risk rather than grounds for fabricated certainty.",
+    "residual_risks": [
+      "Complete 2018 Cao–Cai–Guo–Yeung paper unavailable; it might contain an exact finite-blocklength formula despite a capacity-focused abstract.",
+      "Complete 2015 ISIT conference text unavailable; earlier finite-size derivations could have been missed.",
+      "Indexing gaps and unindexed earlier enumerations cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives asymptotic Shannon–Markov capacity and a 111-reduction, but no exact finite M(F,n) or endpoint equivalence theorem",
+        "evidence": [
+          "§1 defines pair-distinguishability and M(G,n)",
+          "§2 Theorem 1 gives log of the tribonacci growth root and bounds through C*n and Dn",
+          "The article does not state M(F,2)=3, M(F,3)=5, or an all-n exact recurrence"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.0349v2",
+        "material_read": "HTML text: introduction §§1,2,3; Theorem 1 and full proof, definitions of M(F,n), and adjacent channel comparisons",
+        "method": "Read complete accessible HTML transcription, compared theorem and proof claims, including normalization of the graph and n indexing",
+        "title": "Zero-error capacity of binary channels with memory",
+        "trigger": "Exact same triangle channel F and 2014 first-public source"
+      },
+      {
+        "assessment": "Not classified as non-covering: complete-text comparison remains open; the abstract states asymptotic capacity classification without mentioning finite-blocklength exact maxima",
+        "evidence": [
+          "2018 IEEE Trans. Information Theory 64(10), 6771–6778",
+          "Abstract: settles previously unsolved capacity cases; finite-size statements cannot be ruled out by that abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2018.2830362",
+        "material_read": "Accessible abstract and bibliographic metadata only; neither arXiv nor open-access full text located; institutional download attempt returned VPN disconnected",
+        "method": "Searched article title, arXiv and OA copies; attempted authorized institutional access; no article body available",
+        "title": "On Zero-Error Capacity of Binary Channels With One Memory",
+        "trigger": "Later comprehensive classification of one-memory binary-channel capacities"
+      },
+      {
+        "assessment": "Abstract discusses classification of asymptotic capacities; possible finite details not excluded",
+        "evidence": [
+          "2015 ISIT conference, pp. 1317–1321; no complete source inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ISIT.2015.7282669",
+        "material_read": "Bibliographic abstract only, conference proceedings body unavailable",
+        "method": "Title/abstract and source-reference cross-check",
+        "title": "Zero-error capacity of binary channels with 1-memory",
+        "trigger": "Earlier conference version by Cao, Cai and Guo"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ae2624d-343c-4c6c-9bb5-21e23ea0d4f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves a natural finite-blocklength zero-error packing problem for all block lengths in a classical one-memory channel: asymptotic exponential capacity alone does not determine M_F(n). It identifies the confusability quotient of the complete 111-free language, an optimal explicit code and a rational generating function allowing exact sizing at any length; this is not merely a small finite enumeration, an arbitrary parameter slice or an exponent restatement.",
+    "status": "PASS"
+  }
+}

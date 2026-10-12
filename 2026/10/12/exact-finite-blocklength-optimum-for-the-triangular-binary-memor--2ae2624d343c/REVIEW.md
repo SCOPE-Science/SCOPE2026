@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The specified finite-length channel has the clique relation used in the proof: a change within a `111` triple cannot remove a pairwise distinguishing witness because the original two affected pairs were `11`, an isolated vertex. Iteration lowers the number of ones and preserves code size. Within the `111`-free language, any differing interior bit would force `111` in the word having a one there. The remaining endpoint-only ambiguity is exactly the canonical projection's fiber, so selecting one representative per fiber both bounds and attains the optimum. The transfer matrix correctly counts these representatives; exact-integer verification independently reproduces the recurrence and finite examples. The result is an all-length symbolic theorem, not an extrapolation of experiments.
+
+**Originality — PASS, qualified by source access.** Cohen–Fachini–Körner (arXiv:1402.0349, public 2014-02-03), inspected through the complete relevant HTML discussion of the triangular channel, determines the exponential capacity but does not give an exact finite-blocklength sequence or the canonical confusability partition. Searches for the channel under graph, Shannon–Markov, and tribonacci formulations found no dominating finite-size theorem. The 2018 Cao–Cai–Guo–Yeung paper reports capacities in its accessible abstract; its full text could not be obtained, leaving a specific risk of equivalent earlier finite-size material. Search nonappearance is not a proof of novelty.
+
+**Value — PASS.** Finite-blocklength zero-error packing sizes and explicitly decodable codebooks matter independently of an asymptotic capacity exponent. The equality partition provides a structural explanation of optimality and the rational generating function computes every blocklength exactly; this is a complete natural finite-length invariant, not an isolated tabulation or a small numerical improvement.
+
+The principal limitation is lack of a complete full-text comparison with the 2018 one-memory capacity article, plus the absence of independent external review. No capacity-exponent novelty or exhaustive classification of all unrestricted optimal codes is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
