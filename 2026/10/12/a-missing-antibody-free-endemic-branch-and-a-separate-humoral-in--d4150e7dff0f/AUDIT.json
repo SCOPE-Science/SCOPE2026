@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The invariant-face factorization is exact. On A=0 the equilibrium equations reduce to one scalar equation F_beta(E)=lambda. I(E) and F_beta(E) are strictly increasing, giving an if-and-only-if branch criterion. The antibody eigenvalue follows from the triangular Jacobian row at A=0. The finite beta_A formula is obtained by substituting the unique viral-load crossing into the same exact equilibrium identity. All boundary cases beta=beta_c and lambda<=D_A I_A are stated explicitly. The bundled checker reproduces the equilibrium residuals and threshold sign change.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.3934/dcdsb.2014.19.1087 gives a broader conceptual classification for another virus model, not a theorem covering this HPV system.",
+        "DOI 10.1038/s41598-025-02608-5 models HPV with cellular immunity and treats antibody effects implicitly in virion clearance; it has no explicit antibody state A."
+      ],
+      "reasoning": "Broader virus-immunity literature covers the concept of secondary immune thresholds, but the hypotheses and algebra do not subsume the present six-variable HPV equations. The closest HPV predecessor lacks the explicit antibody state needed for this invariant-face result.",
+      "searches": [
+        "within-host virus humoral immune response antibody-free equilibrium antibody invasion threshold",
+        "HPV within-host antibody mathematical model equilibrium immune response",
+        "Mathematical modelling of the role of Langerhans cells in the dynamics of HPV infection antibodies"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026864",
+      "doi:10.3934/dcdsb.2014.19.1087",
+      "doi:10.1038/s41598-025-02608-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jiang--Wang model: target-cell infection is bilinear, CTL and antibody populations have no basal CTL source, and an intracellular delay is present.",
+        "2026 HPV model: infection is saturated in V, CTLs have basal source s and saturating stimulation in E, a cancer compartment is present, and the source gives a different equilibrium algebra."
+      ],
+      "reasoning": "The 2014 theorem makes a secondary antibody threshold plausible but cannot be specialized algebraically to the HPV model: its immune-free branch has different coordinates and thresholds. New derivation is required to obtain I(E), F_beta, beta_c and beta_A here.",
+      "searches": [
+        "Complete classification of global dynamics of a virus model with immune responses antibody invasion",
+        "Jiang Wang 2014 antibody invasion reproductive number equilibrium",
+        "A model for HPV-related cervical cancer dynamics with saturated terms two equilibria"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.2026864: the printed antibody equation factors through A, while the equilibrium section states only a disease-free and a positive-antibody endemic equilibrium.",
+        "DOI 10.3934/dcdsb.2014.19.1087: a different HIV/HBV model explicitly classifies immune-free, CTL-only, antibody-only, and fully immune equilibria using multiple invasion numbers."
+      ],
+      "reasoning": "The older paper establishes an analogous structural mechanism but has materially different state equations and does not imply the source-specific F_beta reduction or beta_A formula. No equivalent statement for the 2026 HPV equations was located.",
+      "searches": [
+        "HPV model missing antibody-free endemic equilibrium antibody invasion threshold beta",
+        "Al Basir Aldawsari Blyuss HPV 2026 antibody-free endemic equilibrium",
+        "A(t)=A(omega V/(h2+A)-dA) antibody invasion threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-title and semantic searches returned the motivating paper but no published correction or result stating this source-specific branch and threshold.",
+        "The motivating paper's own reference list includes Jiang--Wang (2014), yet its equilibrium section still omits the antibody-free branch."
+      ],
+      "reasoning": "A negative search is not treated as novelty proof. It is combined with direct full-text statement comparison and the close-prior implication analysis.",
+      "searches": [
+        "\"A model for HPV-related cervical cancer dynamics with saturated terms\" antibody-free equilibrium",
+        "\"A model for HPV-related cervical cancer dynamics with saturated terms\" antibody invasion",
+        "HPV cervical cancer antibody-free endemic equilibrium humoral immune response threshold"
+      ]
+    },
+    "rationale": "The generic idea of separate immune-invasion thresholds is known, especially in Jiang--Wang (2014), but the motivating 2026 HPV paper omits the antibody-free branch despite citing that literature. The exact scalar reduction F_beta, uniqueness theorem, monotone branch, and closed beta_A boundary for this HPV system were not found in the source, its close HPV predecessor, or the searched published-result index.",
+    "residual_risks": [
+      "Generic antibody-invasion thresholds are established in older virus literature, so originality is limited to the exact 2026 HPV system and its omitted branch.",
+      "A source-specific correction not indexed by the searched literature services could exist.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; the source states two equilibria and does not derive the antibody-free endemic branch or secondary threshold.",
+        "evidence": "The model has A' = omega V A/(h2+A)-d_A A; the equilibrium section lists only DFE and a positive-A endemic equilibrium; Eq. (11) gives the DFE R0 without q or omega; the later sensitivity formula changes that denominator.",
+        "identifier_or_url": "doi:10.3934/math.2026864",
+        "material_read": "Model formulation, invariant-region theorem, equilibrium section, next-generation calculation, local/global stability sections, sensitivity section, and article metadata.",
+        "method": "Full article text.",
+        "title": "A model for HPV-related cervical cancer dynamics with saturated terms: an optimal control problem using chemotherapy, immunotherapy, and antibody drugs",
+        "trigger": "Same object and exact printed equations underlying the claim."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING; it establishes the general importance of immune-invasion thresholds but for a different HIV/HBV model.",
+        "evidence": "The paper classifies five equilibria with five reproduction numbers, including antibody invasion, but its target-cell, CTL, antibody and delay structure differs from the 2026 HPV equations.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2014.19.1087",
+        "material_read": "Model equations, positivity, reproductive-number definitions, equilibrium classification, and beginning of global-stability section.",
+        "method": "Full article text.",
+        "title": "Complete classification of global dynamics of a virus model with immune responses",
+        "trigger": "Closest structural prior: explicit CTL/antibody virus model with antibody-invasion numbers."
+      },
+      {
+        "assessment": "NOT_COVERING; antibody action is implicit in virion clearance and there is no explicit antibody state.",
+        "evidence": "The five-state model contains infected epithelial layers, virions, Langerhans cells and CTLs; its virion clearance term does not introduce an antibody population A.",
+        "identifier_or_url": "doi:10.1038/s41598-025-02608-5",
+        "material_read": "Model equations and equilibrium/bifurcation discussion.",
+        "method": "Publisher full-text HTML.",
+        "title": "Mathematical modelling of the role of Langerhans cells in the dynamics of HPV infection",
+        "trigger": "Closest recent HPV within-host model by overlapping authorship and subject."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4150e7d-ff0f-42ec-a921-7913eee6d594",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result repairs the equilibrium geometry of a current HPV model rather than adding a cosmetic variant. It supplies an exact, biologically interpretable distinction between viral invasion and humoral invasion, identifies when antibodies can grow from rarity, and explains why q and omega cannot alter the disease-free next-generation threshold. This directly changes how the model's equilibrium census, global boundary statement, and sensitivity interpretation should be read.",
+    "status": "PASS"
+  }
+}
