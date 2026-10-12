@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Main Theorem 1 of arXiv:2609.22669v1 explicitly supplies a linear embedding \\(\\tau\\) with \\(\\operatorname{wt}(\\tau(x))=2\\operatorname{wt}(x)\\) and identifies \\(\\tau(C)\\) with all completed-code words of weight at most \\(H\\), where \\(H\\ge2m\\). For a binary \\(r\\)-subspace, summing Hamming weights over all vectors counts every active coordinate exactly \\(2^{r-1}\\) times, so linear weight doubling forces exact support doubling. Any completed-code subcode with support at most \\(H\\) consists entirely of words of weight at most \\(H\\), hence lies in \\(\\tau(C)\\). This gives the claimed bijection and complete short support-spectrum formula. A minimizing source subcode gives \\(d_r(A)\\le2d_r(C)\\le2m\\le H\\), forcing every minimizer on the completed side back into \\(\\tau(C)\\) and proving equality. Exhaustive finite replay independently checks the deduction on all binary source codes of length at most four.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wei 1991 supplies the classical generalized-Hamming-weight invariant and its applications but predates the metric completion.",
+        "Fan--Puig--Liu and related equivalence literature studies generalized weights under code equivalences/isometries, not a non-surjective length-expanding map with a low-weight isolation property.",
+        "Dougherty--Ramadurai 2007 defines higher-weight spectra and studies self-dual/design-derived examples, but does not give a completion theorem preserving an arbitrary source hierarchy."
+      ],
+      "reasoning": "General isometry invariance does not subsume the result: the source embedding changes length and doubles Hamming weights rather than being a coordinate equivalence. The decisive lower bound also uses the completion-specific theorem that no other short codewords exist.",
+      "searches": [
+        "generalized Hamming weights weight-preserving linear map binary",
+        "generalized Hamming weights linear isometry Hamming code",
+        "higher weights self-dual code support spectrum"
+      ]
+    },
+    "checked_sources": [
+      "Ostrovsky, arXiv:2609.22669v1, public full text",
+      "Wei 1991, DOI 10.1109/18.133259",
+      "Dougherty--Ramadurai 2007, public PDF",
+      "Public searches for metric self-dual completion plus generalized Hamming weights, weight hierarchy, higher support spectra, and linear-isometry aliases",
+      "Published-research-index semantic searches for the exact source construction and generalized-weight implications",
+      "Current ledger and completed prior-week ledger for source and claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Main Theorem 1 states exact vector-weight doubling and exact identification of all completed-code words of weight at most \\(H\\) with \\(\tau(C)\\).",
+        "The paper explicitly derives only \\(d(A)=2d(C)\\) as a classical distance consequence of those clauses.",
+        "The new proof uses the binary subspace support-sum identity plus low-weight isolation to rule out every competing short higher-dimensional subcode, an implication not stated in the source."
+      ],
+      "reasoning": "Individual weight preservation alone gives an upper bound on generalized weights but does not exclude a smaller subcode elsewhere in the larger completion. The source-specific low-weight isolation clause is the missing ingredient that makes the equality and full short-spectrum bijection hold.",
+      "searches": [
+        "arXiv:2609.22669 Main Theorem 1 clauses i iii",
+        "arXiv:2609.22669 classical consequences minimum distance",
+        "metric self-dual completion all codewords weight at most H tau(C)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-research-index searches returned no record for the 2026 metric self-dual completion combined with generalized Hamming weights, weight hierarchy, or higher support spectra.",
+        "The primary full text contains no occurrence of generalized Hamming, weight hierarchy, or Wei terminology.",
+        "Web searches using self-dual completion, generalized Hamming weights, weight-preserving embeddings, and support hierarchy did not locate the same support-doubling theorem."
+      ],
+      "reasoning": "The claim was searched under generalized Hamming weights, higher/weight hierarchy language, short-subcode support spectra, and the exact source construction, covering the standard aliases of the invariant.",
+      "searches": [
+        "metric self-dual completion generalized Hamming weights tau(C) doubles weight hierarchy",
+        "self-dual completion preserves generalized Hamming weights binary code",
+        "arXiv 2609.22669 generalized Hamming weights support hierarchy",
+        "low-weight codewords tau(C) generalized Hamming weight"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source has no table of generalized weights or higher-weight spectra; its classical consequences section records minimum-distance hardness consequences instead.",
+        "No published-research-index entry attaches a generalized-weight formula to arXiv:2609.22669v1.",
+        "The completed prior ledger contains generalized-weight computations for other explicit codes but no entry for this source or construction."
+      ],
+      "reasoning": "There is no exact database row to dominate the theorem. Exact-source and table-oriented searches were nevertheless performed because any published hierarchy for the completion would directly cover the claim.",
+      "searches": [
+        "arXiv 2609.22669 generalized Hamming weights",
+        "Metric Self-Dual Completion higher weight enumerator",
+        "2609.22669 weight hierarchy"
+      ]
+    },
+    "rationale": "The September 2026 primary paper states weight doubling, coset-distance doubling, low-weight isolation, and the minimum-distance consequence, but the inspected full text contains no generalized-Hamming-weight or higher-weight statement. Published-research-index searches using the exact source construction, generalized-weight terminology, support hierarchy, and low-weight-subcode formulations found no same theorem. Broader generalized-weight literature treats definitions, duality, equivalence invariance, and specific self-dual/design codes, not this metric completion. The accepted statement is stronger than the source minimum-distance corollary because it classifies every short \\(r\\)-subcode by support and therefore fixes the entire source weight hierarchy inside the completed code.",
+    "residual_risks": [
+      "The short proof may be independently observable from the source theorem by another reader even if not separately indexed or published.",
+      "Older generalized-weight/isometry literature could contain an abstract lemma equivalent to support scaling under linear constant-weight dilation, but it would not by itself supply the completion-specific low-weight exclusion needed for equality inside \\(A\\).",
+      "No statement is made about generalized weights of \\(A\\) beyond index \\(\\dim C\\)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_PREMISES_ONLY_NOT_HIGHER_WEIGHT_CONCLUSION",
+        "evidence": "Main Theorem 1 gives linear weight doubling and low-weight isolation; the text then derives minimum-distance preservation. No generalized-Hamming-weight, higher-weight, or weight-hierarchy theorem appears in the inspected full text.",
+        "identifier_or_url": "arXiv:2609.22669v1",
+        "material_read": "Public full HTML: abstract; Introduction; Main Theorem 1 and its four clauses; the paragraph deriving minimum-distance preservation; classical consequences and related-work section; preliminaries defining support and weight.",
+        "method": "public full-text inspection",
+        "title": "Metric Self-Dual Completion and Optimal Additive Hardness for Quantum and Graph-State Distance",
+        "trigger": "Primary source defining the exact completion and therefore the strongest possible coverage risk."
+      },
+      {
+        "assessment": "FOUNDATIONAL_BACKGROUND_NOT_COMPLETION_COVERAGE",
+        "evidence": "Wei introduces the generalized-weight hierarchy for linear codes but predates and does not address the 2026 metric self-dual completion.",
+        "identifier_or_url": "DOI:10.1109/18.133259",
+        "material_read": "Bibliographic record and later literature summaries identifying the definition and wiretap interpretation.",
+        "method": "public bibliographic and literature inspection",
+        "title": "Generalized Hamming weights for linear codes",
+        "trigger": "Foundational broader source for the invariant and its standard implications."
+      },
+      {
+        "assessment": "SELF_DUAL_HIGHER_WEIGHT_BACKGROUND_NOT_COMPLETION_COVERAGE",
+        "evidence": "The paper studies higher-weight spectra of specific design codes and hulls, not a universal length-expanding completion that doubles an arbitrary input hierarchy.",
+        "identifier_or_url": "Mathematics Journal of Okayama University 49 (2007), 149--161",
+        "material_read": "Full first sections including the definitions of support, generalized weights, higher-weight spectra, and the first comparison theorem for design codes and their hulls.",
+        "method": "public PDF text and page-image inspection",
+        "title": "Higher Weights of Codes from Projective Planes and Biplanes",
+        "trigger": "Broader-coverage check for higher-weight spectra of self-dual or closely related codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5dafd25-8f42-40a9-86ba-9184f1eb318c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source construction is presented as a metric-preserving self-dual host and its main classical consequence is preservation of minimum distance. Generalized Hamming weights are the standard higher-dimensional refinement governing subcode support, with applications to wiretap security, trellis complexity, and code structure. Showing that every source generalized weight survives exactly under self-dual completion means arbitrary higher-support geometry can be embedded into self-dual codes with only a factor-of-two distortion, while the stronger short-spectrum bijection preserves the number of subcodes at each support size below the theorem cutoff. This is a structural upgrade of the new completion theorem rather than a routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
