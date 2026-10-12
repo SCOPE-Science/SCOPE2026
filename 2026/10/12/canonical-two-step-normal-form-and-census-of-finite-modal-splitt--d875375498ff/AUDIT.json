@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Finite powerset modal duality identifies the identity \\(\\Box^3 0=1\\) with absence of three-edge walks. A modal congruence ideal is a predecessor-closed set of atoms; in a finite acyclic frame its nonzero ideals have a least member exactly when there is one source. This forces the unique root/middle/terminal partition, nonempty parent subsets and optional root shortcuts. Labeled counting follows by independent choices; unlabeled counting follows by multiset orbits and the fixed-multiset Burnside generating function. A standalone checker exhaustively tested all \\(2^{n^2}\\) directed relations for \\(n=1,2,3,4\\) (including cycles/loops), checked all predecessor-closed ideals, graph constructors, automorphism orbits, and exact formulas; it returned VERIFY_OK. This is corroboration, not a proof for arbitrary n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Takahashi, Sections 2-4: decidability and finite-height characterization without fixed-height enumeration.",
+        "Venema, Theorem 2: dual characterization of subdirect irreducibility for general modal algebras; it is not an enumeration theorem.",
+        "McKay, On the shape of a random acyclic digraph: asymptotic global DAG-height distribution rather than this finite-height isomorphism census."
+      ],
+      "reasoning": "Broader structural characterizations cover the rootedness prerequisite but do not state or imply exact counts without the additional unique middle/terminal decomposition. General DAG enumeration by all heights does not provide the fixed-height single-source orbit formula. There may be other combinatorial catalogs; see residual risks.",
+      "searches": [
+        "Jankov splitting modal logics rank-two finite subdirectly irreducible algebras exact enumeration up to isomorphism",
+        "\"rooted\" \"acyclic digraphs\" \"height 2\" counting",
+        "\"finite modal algebras\" \"counting\" \"subdirectly irreducible\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.14520v1",
+      "doi:10.1017/jsl.2026.10187",
+      "https://eprints.illc.uva.nl/id/eprint/74/2/PP-2002-10.text.pdf",
+      "doi:10.1017/S0305004100068195 (abstract-level)",
+      "https://oeis.org/A066350",
+      "2026/9/30/SCOPE-a-zero-one-obstruction-to-elementarity-of-finitely-axiomatizable--9d89bfafb2ae",
+      "2026/10/4/SCOPE-exact-count-and-direct-null-homotopy-for-complete-height-two-map--685c58915777",
+      "2026/10/4/SCOPE-exact-cardinality-recurrence-for-mapping-spaces-between-finite-w--1cee64311a06"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026/9/30 zero-one-obstruction result concerns asymptotic frame-validity/elementarity, not finite-height SI algebra enumeration.",
+        "The 2026/10/4 finite-height-two-map record counts homotopy maps of finite topological spaces, not normal modal operations or Jankov templates.",
+        "Takahashi 2025/2026 proves that such finite-height SI algebras are splitting templates, not a particular enumerator."
+      ],
+      "reasoning": "The new conclusion fixes an arbitrary atom count and enumerates every labeled operation and every isomorphism class at modal height at most two. Neither existence/decidability results, nor unrelated graph-map counts, nor a root criterion alone imply the explicit parent-set normal form and cycle-index orbit formula as statements. The normal form uses additional combinatorial analysis beyond these premises.",
+      "searches": [
+        "03B45 number of subdirectly irreducible normal modal algebras with n atoms and Box^3 bottom equals top",
+        "rooted DAG with path length at most 2 enumerated as colored multisets of subsets with shortcut bits",
+        "finite rooted Kripke frame third iterate box false valid count of splittings Jankov formulas",
+        "Published research record 2026/9/30/SCOPE-a-zero-one-obstruction-to-elementarity-of-finitely-axiomatizable--9d89bfafb2ae",
+        "Published research record 2026/10/4/SCOPE-exact-count-and-direct-null-homotopy-for-complete-height-two-map--685c58915777"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Venema (2002), pp. 1,3-7: finite complex algebra is subdirectly irreducible iff its Kripke frame is rooted; no orbit count.",
+        "Takahashi (arXiv:2510.14520v1), Theorem 2.7 and Section 3: Jankov splitting templates are finite subdirectly irreducible algebras of finite height."
+      ],
+      "reasoning": "The statement is equivalent to classifying single-source acyclic directed frames with maximum directed path length two, including direct edges from the source to terminal vertices. This dual reformulation was searched explicitly. The rootedness theorem alone leaves the nonempty parent-subset structures and the Burnside orbit count undetermined.",
+      "searches": [
+        "Counting isomorphism classes finite rooted modal Kripke frames with depth two acyclic unique source, Boolean normal modal algebra 03B45",
+        "\"one source\" \"length at most two\" digraph count",
+        "finite modal algebras unique source rooted frames subdirectly irreducible number isomorphism"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A066350 displays 0,1,3,8,24,77,256,...; this differs from the present isomorphism count at the 283 term.",
+        "No retrieved exact database record matched the combined sequence and subject, but catalogs are not exhaustive."
+      ],
+      "reasoning": "Numerical agreement on early terms is not equivalent mathematical coverage: A066350 is a partition-derived bisection and diverges at the checked next term. Exact values here are consequences of a structural isomorphism classification and are compared as claims, not just as string matches.",
+      "searches": [
+        "\"1, 3, 8, 24, 77, 283\" OEIS",
+        "\"1, 3, 8, 24, 77, 283, 1182\"",
+        "exact count labeled finite subdirectly irreducible modal algebras height two",
+        "A066350, a bisection of A007059"
+      ]
+    },
+    "rationale": "The complete primary article by Takahashi (arXiv:2510.14520v1; JSL 2026) identifies finite-height subdirectly irreducible modal algebras as Jankov splitting templates and establishes decidability, without the present intrinsic two-level parent-set classification or exact labeled/unlabeled enumerators. Venema (2002, complete eight-page PDF) proves rootedness/dual characterizations but has no fixed-height census. Searches covering rooted height-two acyclic digraphs, normal modal algebras, labeled counts, Burnside orbits, and sequence tables did not locate a claim implying the present two counting formulas. Public neighboring results count graph maps or different modal properties. An uncataloged graph-enumeration equivalence remains a residual risk; search absence alone is not a proof of originality.",
+    "residual_risks": [
+      "Equivalent single-source height-two DAG enumeration might be indexed under a different name, not found by these scientific searches.",
+      "The exact graph-class implication of older general DAG enumeration literature was not exhaustively inspected beyond accessible abstracts.",
+      "Different finite SI modal algebras can generate the same splitting logic: this census does not count distinct logics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves the general role of finite-height SI modal algebras and decidability of splitting properties, but no fixed height-two root/middle/terminal classification, no labeled formula, and no isomorphism Burnside formula.",
+        "evidence": [
+          "Section 2, Theorem 2.7: finite-height SI algebras are exactly Jankov splitting templates.",
+          "Section 3, Lemmas 3.7-3.8: effective tests of finite height and SI, not counting results.",
+          "arXiv v1 posted 2025-10-16."
+        ],
+        "identifier_or_url": "arXiv:2510.14520v1; https://doi.org/10.1017/jsl.2026.10187",
+        "material_read": "Complete accessible Cambridge Core HTML article: abstract, introduction, preliminaries, Theorem 2.7, Section 3 lemmas and main theorem, applications and bibliography; arXiv record checked for initial posting date.",
+        "method": "Read HTML full article text at the modal algebra definitions, Jankov formulas, finiteness and decidability arguments; checked arXiv first-version metadata.",
+        "title": "Decidability of Being a Union-splitting",
+        "trigger": "This is the primary recent finite-height splitting-template classification that motivated the question."
+      },
+      {
+        "assessment": "Gives rootedness of a finite frame as criterion for subdirect irreducibility, and stronger general dual results, but does not specialize to the absence of 3-walks or count orbit types.",
+        "evidence": [
+          "Introduction p. 1: a Kripke frame is rooted iff its complex algebra is SI.",
+          "Fact 2.1 and Theorem 2: modal opremum and quasi-root criteria.",
+          "No parent-set/shortcut classification appears in the inspected results."
+        ],
+        "identifier_or_url": "https://eprints.illc.uva.nl/id/eprint/74/2/PP-2002-10.text.pdf",
+        "material_read": "Eight-page primary PDF inspected via extracted text at pp. 1-7, and page images at pp. 1 and 4; introduction, Definitions, Fact 2.1, Theorem 2, Corollary 3.1 checked.",
+        "method": "PDF text-and-page inspection of the rootedness criterion and its exact hypotheses.",
+        "title": "Duals of subdirectly irreducible modal algebras",
+        "trigger": "The central existing dual characterizations could already subsume the classification."
+      },
+      {
+        "assessment": "Addresses asymptotic distribution of height of unrestricted acyclic digraphs, not explicitly the single-source, path-length-two isomorphism census; full-text comparison remains limited.",
+        "evidence": [
+          "Abstract: height of all labeled acyclic digraphs is asymptotically normally distributed."
+        ],
+        "identifier_or_url": "doi:10.1017/S0305004100068195",
+        "material_read": "Accessible abstract and bibliographic description only; full article not read.",
+        "method": "Abstract comparison of objects, parameters and conclusion.",
+        "title": "On the shape of a random acyclic digraph",
+        "trigger": "A plausible broader enumerative paper on acyclic digraph height."
+      },
+      {
+        "assessment": "Partition-derived bisection of A007059, with 256 after 77, unlike the present 283; no identical-table implication.",
+        "evidence": [
+          "A066350: 0, 1, 3, 8, 24, 77, 256,...; present counts include 1,1,3,8,24,77,283."
+        ],
+        "identifier_or_url": "https://oeis.org/A066350",
+        "material_read": "Complete entry description and displayed sequence through the first differing index.",
+        "method": "Compare definition and consecutive numerical terms.",
+        "title": "OEIS A066350",
+        "trigger": "Overlapping first terms of the computed unlabeled count could indicate an exact published table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8753754-98ff-43e4-a55f-a6a1baa8a268",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Takahashi/Blok make every finite-height finite subdirectly irreducible modal algebra a natural splitting-template object. Height two is the first layer beyond rooted stars in which nontrivial shared successor incidence and optional transitive shortcuts coexist. The theorem gives a complete, canonical parametrization for every atom size and both labeled and isomorphism-invariant exact counts, enabling duplication-free low-height Jankov template enumeration. It is not merely a bounded computational table or an arbitrary one-off invariant; it identifies the structural degrees of freedom throughout a natural logical class. No claim is made that distinct templates necessarily yield distinct splitting logics.",
+    "status": "PASS"
+  }
+}
