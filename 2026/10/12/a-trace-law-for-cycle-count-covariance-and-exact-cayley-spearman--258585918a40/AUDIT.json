@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For a prescribed permutation-matrix entry, the conditional cycle mean is exactly 1+H_{n-1} on the diagonal and H_{n-1} off the diagonal; the off-diagonal statement follows from an explicit edge contraction that preserves cycle count. This gives the entrywise covariance kernel and hence the trace-minus-grand-mean law by linearity. The squared-displacement, Cayley, and Spearman formulas are exact affine consequences. The packaged checker independently enumerates all permutations through n=9 and verifies the general array formula on multiple arrays through n=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jiang's complete article proves asymptotic independence of normalized Spearman statistics from class functions and explicitly discusses the number of cycles in the proof.",
+        "Maples–Nikeghbali–Zeindler study the total number of cycles and its mean, variance, and limit behavior under generalized Ewens measures.",
+        "Hultman's primary record develops expected values of permutation statistics on conjugacy-class products and explicitly includes k-cycle numbers."
+      ],
+      "reasoning": "These sources are broader in asymptotic metric dependence, cycle-count distribution theory, or character-theoretic expectation methods, but none of the inspected statements subsumes the finite trace-minus-grand-mean covariance identity.",
+      "searches": [
+        "arXiv:1110.0807 Cayley Spearman class functions cycles",
+        "arXiv:1203.4132 number cycles random permutation",
+        "arXiv:1301.0430 cycle number permutation statistics products"
+      ]
+    },
+    "checked_sources": [
+      "Jiang, arXiv:1110.0807, complete accessible article text.",
+      "Maples, Nikeghbali, and Zeindler, arXiv:1203.4132, primary record and accessible article material.",
+      "Hultman, arXiv:1301.0430, primary record and abstract.",
+      "Previously checked scientific records on cycle/inversion, fixed-point/Spearman, footrule/Spearman, and descent/Spearman dependence.",
+      "Published searches under cycle-count, Cayley, Spearman, squared-displacement, permutation-matrix, and linear-statistic formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously checked scientific record efaa9223-3051-443c-a721-8b33d5192810 gives a distance-dependent covariance between cycle count and inversion indicators; inversion count is not a permutation linear statistic and that result does not imply the trace law or Spearman covariance.",
+        "Previously checked scientific records c6a3a84e-2388-4b6d-b3e7-bda880e60b3a, 413aa631-8ee6-4409-a94b-4e4849615221, and dcf8be66-6c20-4aee-831a-ae737ded168d pair Spearman rho with fixed points, footrule, and descents respectively, not total cycle count or Cayley distance.",
+        "The closest published search result on a Spearman–Gini boundary concerns population dependence geometry and does not imply any uniform-permutation cycle covariance."
+      ],
+      "reasoning": "The prior cycle-count result uses inversion indicators and a different non-linear permutation statistic; the prior Spearman results use different local/global permutation summaries. None yields the universal array trace identity or its Cayley–Spearman specialization.",
+      "searches": [
+        "Cayley distance Spearman rho exact covariance random permutation",
+        "number of cycles Spearman rho random permutation covariance",
+        "cycle count permutation linear statistic covariance",
+        "Cayley Spearman permutation metrics asymptotic independence",
+        "random permutation cycle count Spearman rho covariance exact",
+        "random permutation cycle number squared displacement covariance",
+        "permutation cycle count rank correlation Spearman joint moments",
+        "fixed cycles squared rank displacement permutation covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jiang's complete article treats Cayley-type class information and Spearman-family metrics but gives asymptotic independence rather than the displayed finite covariance.",
+        "Searches covering cycle count, Cayley distance, squared displacement, Spearman rho, and permutation-matrix linear-statistic terminology did not locate an equivalent trace formula."
+      ],
+      "reasoning": "The same claim can be phrased either as a covariance kernel for permutation-matrix entries, a trace law for permutation linear statistics, or an exact covariance between Cayley distance and squared Spearman displacement. All three formulations were compared.",
+      "searches": [
+        "\"number of cycles\" \"linear statistic\" permutation covariance",
+        "\"cycle count\" \"permutation matrix\" covariance",
+        "\"cycles\" \"Spearman's rho\" random permutation",
+        "Cayley distance Spearman rho exact covariance random permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record and exact-phrase searches did not return the coefficient -(n^2-1)/6 for cycle count versus squared displacement or -1/n for Cayley distance versus Spearman rho.",
+        "The finite verification values are generated from full permutation enumeration rather than copied from any table."
+      ],
+      "reasoning": "The accepted result is an all-n symbolic identity. The checker only replays it on finite cases and is not a database source.",
+      "searches": [
+        "\"Cov\" \"number of cycles\" permutation statistic",
+        "\"number of cycles\" \"permutation matrix\" covariance",
+        "\"Cayley distance\" \"Spearman\" permutation covariance",
+        "\"number of cycles\" \"squared displacement\" permutation"
+      ]
+    },
+    "rationale": "The closest complete primary source, Jiang (2011), studies precisely the dependence between bi-invariant permutation metrics such as Cayley distance and Spearman-family rank metrics, and proves asymptotic independence from class functions, explicitly invoking cycle count. The inspected text does not state the finite trace law, the exact cycle/squared-displacement covariance, or the coefficient Cov(K_n,R_n)=-1/n. Cycle-focused and character-theoretic sources likewise do not expose this mixed finite covariance in the inspected material. Targeted published-record searches under cycle-count, Cayley, Spearman, squared-displacement, permutation-matrix, and linear-statistic formulations found no equivalent statement.",
+    "residual_risks": [
+      "The entrywise covariance kernel is elementary enough that an equivalent trace formula may exist in older unindexed random-permutation or representation-theoretic literature.",
+      "Classical monographs on permutation metrics may contain finite mixed moments under notation not reached by the targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ASYMPTOTIC_FRAMEWORK_NOT_COVERING_FINITE_TRACE_LAW",
+        "evidence": "The article proves asymptotic independence of normalized Spearman statistics from class functions and notes the cycle-count central limit theorem, but the inspected text does not state a finite covariance coefficient or trace formula.",
+        "identifier_or_url": "arXiv:1110.0807",
+        "material_read": "Complete accessible article text, including the introduction, Spearman-family section, bi-invariant-metric section, Lemma 5.1, Corollary 5.2, and the proof passage invoking the cycle count.",
+        "method": "Public full-text inspection with targeted searches for cycle, covariance, class function, Cayley, and Spearman terminology.",
+        "title": "Asymptotic correlations of metrics on the symmetric groups",
+        "trigger": "Most directly relevant primary source: it compares bi-invariant metrics including Cayley with Spearman-family rank metrics and explicitly motivates redundancy between permutation metrics."
+      },
+      {
+        "assessment": "CYCLE_DISTRIBUTION_BACKGROUND",
+        "evidence": "The source studies total cycle count under generalized Ewens measures; the inspected material does not address Spearman displacement or a mixed permutation-linear-statistic covariance.",
+        "identifier_or_url": "arXiv:1203.4132",
+        "material_read": "Abstract, bibliographic metadata, and accessible article introduction describing total cycle count and its asymptotic mean/variance theory.",
+        "method": "Public arXiv and open article inspection.",
+        "title": "On the number of cycles in a random permutation",
+        "trigger": "Primary cycle-count source with explicit probabilistic classification and mean/variance focus."
+      },
+      {
+        "assessment": "EXPECTATION_METHOD_BACKGROUND",
+        "evidence": "The source gives methods for expected values of permutation statistics on products of conjugacy-class samples and includes k-cycle numbers; the accessible primary record contains no Spearman or covariance statement.",
+        "identifier_or_url": "arXiv:1301.0430",
+        "material_read": "Primary arXiv record and abstract, including the list of statistics covered and the stated character-expansion method.",
+        "method": "Public primary-record inspection and targeted text search.",
+        "title": "Permutation statistics of products of random permutations",
+        "trigger": "Character-theoretic source treating cycle counts alongside several non-class permutation statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25858591-8a40-42d6-ac2f-cc6a687b4e8b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The literature explicitly treats statistical redundancy between bi-invariant permutation metrics and Spearman-family rank metrics as a substantive question. The trace law gives a reusable exact finite answer for every permutation linear statistic, not only one metric pair: cycle count sees precisely the difference between diagonal and grand array means. Its Cayley–Spearman specialization sharpens qualitative asymptotic decoupling to an exact covariance and a sharp correlation scale of order 1/sqrt(n log n).",
+    "status": "PASS"
+  }
+}
