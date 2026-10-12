@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "For all n>=2, positive normalized stationary masses and positive edge prices, the path covariance identity supplies Var_pi(f)=d^T G d with strictly positive G_ij. Testing the sqrt-price position vector yields universal gap <=1/D. Positive rates w_i=(Gg)_i/(Dg_i) obey the exact cost budget, and an exact nonnegative sum-of-squares identity proves every feasible edge-gradient Rayleigh quotient >=1/D. Equality conditions prove spectral simplicity. Any other optimizer must attain the same test-vector Rayleigh bound and satisfy the generalized eigenvector equation, whose telescoping vertex equations force each w_i uniquely. Different finite-boundary cases (including n=2) are handled. Standalone exact verifier: 801 instances/6408 Gram identities, plus separate 420 nonsquare-price eigen comparisons; all supplementary, not substituted for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fiedler 1990 abstract defines unweighted-vertex Laplacian connectivity under uniform mean edge valuation; its tree theorem gives a reciprocal metric variance in that setting.",
+        "Göring–Helmberg–Wappler 2005 equations (1)–(4) impose sum of unpriced edge conductances <=1 and unweighted vertex barycenter; Corollary 30 characterizes unit-edge tree embeddings.",
+        "Wan et al. 2008 Theorems 2–3 develop a general-tree algorithm with uniform vertex weights and total edge-weight budget.",
+        "Shafi et al. 2010 Sections III–IV permit general diagonal vertex and edge weights in SDP feasibility/optimization but state no all-masses/all-prices path optimum."
+      ],
+      "reasoning": "The first three antecedents have broader topology but strictly narrower allowed input parameters; their uniform-mass/uniform-price tree solution is a proper special case of the new path statement, not an implication proving its full parameter family. The Shafi general numerical formulation can *encode* the present case, so the overlap is acknowledged; it does not give the claimed exact answer, all-rate formula, or O(n) construction. A general optimization framework is not itself a closed-form solution to each instance.",
+      "searches": [
+        "\"absolute algebraic connectivity\" \"vertex weights\" \"edge costs\"",
+        "\"path\" \"maximum algebraic connectivity\" \"weight budget\" nonuniform",
+        "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+        "https://doi.org/10.1109/CDC.2008.4738734"
+      ]
+    },
+    "checked_sources": [
+      "Fiedler (1990) publisher abstract, DOI 10.1080/03081089008817967",
+      "Göring–Helmberg–Wappler (2005) Optimization Online full preprint 1202.pdf",
+      "Wan et al. (2008) author-uploaded full article, DOI 10.1109/CDC.2008.4738734",
+      "Shafi–Arcak–El Ghaoui (2010) author-uploaded full article, DOI 10.1109/ALLERTON.2010.5707021",
+      "Boyd–Diaconis–Sun–Xiao (2006) author-hosted path article PDF",
+      "Richter–Rocha (2014) original public preprint PDF"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fiedler 1990 and the Göring–Helmberg–Wappler 2005 preprint show a metric-variance principle when vertices and edges are all equally scaled.",
+        "Wan et al. 2008 characterize the uniform edge-budget tree and its optimized eigenvectors, without two freely varying mass-and-price vectors.",
+        "Shafi et al. 2010 include generalized node/edge spectral SDPs, yet the actual fully explicit path law and flux-conductance optimizer are not stated.",
+        "Boyd et al. 2006 path result is discrete-time SLEM for uniform equilibrium, not the present continuous-time eigenvalue with variable stationary mass."
+      ],
+      "reasoning": "The exact universal statement here entails all positive pi and c, spectral gap 1/Var_pi(sqrt-price positions), unique positive individual rates, and O(n) construction. Uniform pi and c recover a familiar tree/path specialization, so that portion is not new. The antecedent propositions inspected either imply only that special case or formulate an unsolved optimization procedure; none of their stated conclusions implies the joint heterogeneous closed form. An uninspected historical generalization could still dominate the claim.",
+      "searches": [
+        "\"optimal\" \"spectral gap\" \"vertex masses\" \"path\"",
+        "Fiedler absolute algebraic connectivity optimized priced path with vertex masses square root cost metric covariance Green kernel and exact one-dimensional conductance allocation",
+        "https://doi.org/10.1080/03081089008817967",
+        "https://doi.org/10.1109/ALLERTON.2010.5707021",
+        "https://doi.org/10.1109/CDC.2008.4738734"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The edge conductances define all reversible birth-death generators with fixed stationary mass; hence the problem is equivalently a generalized-Laplacian Poincaré constant maximization.",
+        "Shafi–Arcak–El Ghaoui 2010 works with node- and edge-weighted Laplacian matrices and spectral SDP constraints, but the inspected Sections III–V and chain example do not state the path-covariance optimum.",
+        "Boyd–Diaconis–Sun–Xiao 2006 optimizes the modulus of discrete-time nontrivial eigenvalues for symmetric stochastic tridiagonal matrices, not the continuous-time budgeted gap."
+      ],
+      "reasoning": "A fixed-mass nearest-neighbor CTMC is equivalent to the generalized eigenproblem Lf=lambda diag(pi)f. Searching both Markov-chain and Laplacian names uncovered numerical general formulations, but not the simultaneous arbitrary-mass/arbitrary-price explicit formula. In particular, row-stochastic one-step spectral radius is not interchangeable with a linear conductance-budget continuous-time eigenvalue.",
+      "searches": [
+        "\"optimal spectral gap\" \"arbitrary stationary distribution\" \"path\" continuous",
+        "weighted birth death path arbitrary invariant masses costs edge rate budget exact optimal spectral gap formula sqrt price cumulative variance",
+        "https://doi.org/10.1109/ALLERTON.2010.5707021",
+        "https://web.stanford.edu/~boyd/papers/fmmc_path.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fiedler 1990 abstract reports rational absolute algebraic connectivity on trees with uniform-edge budget, not an arbitrary-price/mass path parameter table.",
+        "Wan et al. 2008 exhibit explicit uniform-cost examples and a general tree algorithm; the examined formulas do not tabulate the cost-metric variance for all positive masses and prices.",
+        "The exact four-state heterogeneous example in the present theorem differs from unpriced tree values, and the full quantified claim is not a fixed-size numerical table."
+      ],
+      "reasoning": "The contribution is a universal symbolic formula in a real parameter domain rather than a lookup of enumerated path graphs. The source and equivalence searches did not find an exact prior catalog carrying the same masses, individual prices, and normalized Markov generator, but negative search results alone do not establish novelty.",
+      "searches": [
+        "\"spectral gap\" \"optimal conductances\" \"path\" 2015",
+        "Exact optimal spectral gap continuous time reversible nearest neighbor Markov chain with cost constraint stationary distribution arbitrary path",
+        "https://doi.org/10.1080/03081089008817967",
+        "https://doi.org/10.1109/CDC.2008.4738734"
+      ]
+    },
+    "rationale": "The exact simultaneous heterogeneous stationary-mass and heterogeneous edge-price closed form is not supplied by the inspected primary uniform-mass/unit-price tree theorems or by broader semidefinite-programming frameworks. Fiedler 1990 and Göring–Helmberg–Wappler 2005 cover the unit-price/unit-mass specialization, while Wan et al. 2008 give an algorithm for uniform tree edge design. Shafi et al. 2010 formulate general node/edge spectral semidefinite problems but give neither this sharp weighted-path formula nor its exact rate flux and uniqueness. Boyd et al. 2006 optimize a different discrete-time objective. The answer is not claimed to be absolutely novel on search absence alone: Fiedler 1990 is available only as an abstract, and unknown equivalents remain a genuine risk.",
+    "residual_risks": [
+      "Fiedler (1990) original full article remained unavailable after lawful open-access searches; its abstract clearly describes uniform valuation, but unobserved sections might contain a more general mass/price variant. Institutional-access attempt did not yield material.",
+      "General weighted graph SDP frameworks can express the problem without giving the closed form; an earlier independent specialization with the same exact mass/price formulas could exist under different terminology.",
+      "Database and literature searches do not cover unpublished work; novelty is a supported bounded assessment, not proof of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The visible statement uses ordinary graph Laplacian with a uniform edge valuation normalization. Exact treatment of arbitrary masses/prices cannot be determined from the abstract alone.",
+        "evidence": [
+          "Fiedler (1990), Linear and Multilinear Algebra 26:85–106, stated reciprocal metric variance for uniformly valued trees."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+        "material_read": "Original abstract and metadata only; public full text was not available.",
+        "method": "Original publisher abstract and lawful open-access search.",
+        "title": "Absolute algebraic connectivity of trees",
+        "trigger": "Historically earliest theorem potentially subsuming a general path variance formula"
+      },
+      {
+        "assessment": "The dual embedding has uniform vertex barycenter and unit permitted edge distances. Corollary 30 concerns standard unpriced tree edge lengths and does not present the combined arbitrary stationary-mass/edge-price formula.",
+        "evidence": [
+          "Equations (1)–(4) use a plain sum of edge weights and unweighted vertex moment; Corollary 30 describes unit-distance optimal embeddings on a tree."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+        "material_read": "Public 29-page preprint: optimization/dual equations (1)–(4), separation/tree sections and Corollary 30, including associated pages.",
+        "method": "Inspected full original public preprint text and mathematical displayed formulas/page images in relevant sections.",
+        "title": "Embedded in the Shadow of the Separator",
+        "trigger": "General semidefinite formulation and tree-embedding corollary potentially implying claimed optimality"
+      },
+      {
+        "assessment": "Solves a uniform stationary-vertex-weight and uniform unit edge-cost tree problem algorithmically. No simultaneous arbitrary-mass and arbitrary-price path formula was stated in the inspected material.",
+        "evidence": [
+          "Theorem 2 states uniqueness/structure of tree optimum under the paper’s sum-of-edge-weights budget; Section IV obtains a quadratic-time tree algorithm."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/CDC.2008.4738734",
+        "material_read": "Original author-supplied full text: problem statement and uniform budget, Theorems 2–6, tree-design algorithm and concluding examples.",
+        "method": "Inspected the accessible original author-posted full-text content and mathematical theorem statements.",
+        "title": "On the structure of graph edge designs that optimize the algebraic connectivity",
+        "trigger": "Strong related all-tree eigenvalue-optimization classification"
+      },
+      {
+        "assessment": "General feasibility and eigenvalue-ratio SDP methods address node and edge weights. The numerical chain case does not supply the unit-linear-price gap maximum or its exact all-parameter formula.",
+        "evidence": [
+          "Generalized graph Laplacian (2) is Y^{-1} A Lambda A^T; Section IV states convex spectral programs; Section V.A numerical chain minimizes eigenvalue-conditioning ratio without price costs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ALLERTON.2010.5707021",
+        "material_read": "Original full-text Sections II–V including generalized Laplacian (2), SDP constraints, Sections IV.A–IV.C and 20-node chain example.",
+        "method": "Read author-uploaded article text; compared explicit objective, constraints and examples.",
+        "title": "Designing Node and Edge Weights of a Graph to Meet Laplacian Eigenvalue Constraints",
+        "trigger": "Potential strongest antecedent because both node and edge parameters appear"
+      },
+      {
+        "assessment": "Symmetric stochastic discrete-time path with uniform stationary distribution; objective minimizes second-largest-eigenvalue modulus subject to row-stochastic constraints. Different from fixed-mean continuous-time generator gap under cost budget.",
+        "evidence": [
+          "Boyd et al., Amer. Math. Monthly 113 (2006) 70–74, uniform half-step optimum with cos(pi/n) SLEM."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+        "material_read": "Public five-page manuscript: assumptions, central theorem and argument, including original formulas.",
+        "method": "Reviewed public author-hosted PDF text and mathematical pages.",
+        "title": "Fastest Mixing Markov Chain on a Path",
+        "trigger": "Same path and fastest-mixing phrase might hide an equivalent theorem"
+      },
+      {
+        "assessment": "Uniform-cost graph absolute algebraic connectivity for double brooms and tree algorithms, not the joint prescribed stationary mass and individually priced path.",
+        "evidence": [
+          "Theorem 14 classifies double-broom embedding forms; the embedding constraints use unit edge-length bounds."
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+        "material_read": "Public preprint introduction/optimization embedding setup, Theorems 4, 8, 14 and appendix-level calculations through proof sections.",
+        "method": "Read original publicly accessible PDF with sections and displayed formulas.",
+        "title": "Absolute Algebraic Connectivity of Double Brooms",
+        "trigger": "Explicit uniform-budget tree formulas might conceal all-priced path corollary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "03df0802-fe13-4898-9613-85728d5391c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The simultaneous arbitrary positive stationary masses and individual edge prices form a natural fixed-resource fastest-relaxation problem for reversible birth-death dynamics. The fully quantified optimum is an explicit weighted price-metric variance, not just existence of an SDP solution; all positive conductances are uniquely obtained by an O(n) flux calculation, with spectral simplicity and exact marginal price sensitivities. This is a complete continuous-parameter classification of a motivated design object, not an arbitrary finite slice or a recomputation of Fiedler’s uniform-mass/cost specialization. Nonpath, discrete-time, and nonlinear budgets are expressly not claimed.",
+    "status": "PASS"
+  }
+}
