@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For an ordinary positive Bernoulli-thinned law of maximum count n, its parent has maximum count at most n, and the inverse pgf is unique. The (n−1) coefficient is n τ^(−n)(τ EW^(n−1)−EW^n) and is negative for τ below (a+n−1)/(a+b+n−1). At this boundary, a finite hypergeometric ODE gives an exact descending recurrence from q_n>0 and q_(n−1)=0, with positive denominators and a positive q_(j+2) coefficient, proving q_j>0 for all j≤n−2 and normalization Q(1)=1. The one-trial case and fixed-retention nesting are explicit. The general proof is analytic; 162 independent exact rational checks replay reconstruction and strict lower-bound obstruction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kella–Löpker Section 6 supplies a general root-max principle; Example 10 is only uniform Beta(1,1) mixing.",
+        "Peyhardi and Jones develop beta-binomial/quasi-Pólya convolution thinning, using a different conditional operator, not a fixed ordinary thinning probability."
+      ],
+      "reasoning": "The source general theorem does cover existence as an implicit finite root computation but does not specify the maximal root or forced parent. The other broader distributional closure results do not imply this minimum without changing from a random/count-dependent operator to independent Bernoulli retention.",
+      "searches": [
+        "Kella Löpker beta binomial thinning sigma_n beta mixture explicit",
+        "\"beta-binomial\" \"dilation\" positive polynomial",
+        "\"Pólya\" \"binomial thinning\" inverse",
+        "\"beta-binomial\" \"inverse thinning\" \"thinning\" distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2202.10296v3 (relevant full-text sections; v1 metadata dated 2022-02-21)",
+      "DOI:10.1016/j.indag.2022.09.003",
+      "DOI:10.1214/23-BJPS585 (author-posted full text, relevant sections)",
+      "DOI:10.1111/stan.12337 (publisher full HTML, relevant sections)",
+      "Candidate-specific published literature searches for beta-binomial thinning/de-thinning, inverse transforms, dilation, and Pólya aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In Kella–Löpker Theorem 19 the maximum can involve multiple roots, while Example 10 resolves only the uniform mixing family; positivity of every other inverse coefficient for arbitrary a,b is not established there.",
+        "In Peyhardi and Jones, beta-binomial conditional thinning is not the same as standard independent Bernoulli thinning with one constant probability."
+      ],
+      "reasoning": "The published root characterization makes the new result logically derivable with additional argument, but its statement does not already identify the universal beta-specific winning root, so the closed classification and constructive parent are not a mere parameter substitution. Different thinning operators do not dominate the claim.",
+      "searches": [
+        "Kella Löpker beta binomial thinning sigma_n beta mixture explicit",
+        "\"beta-binomial\" \"thinning\" \"rho\" \"minimal\"",
+        "\"beta binomial\" \"binomial thinning\" \"parent distribution\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest exact formulation is Kella–Löpker Theorem 19: the index of a binomial mixture is the maximum of certain polynomial roots, with no general-beta evaluation there.",
+        "Searches for de-thinning, unthinning, positive inverse binomial transforms, and dilation did not retrieve the explicit all-shape Beta formula."
+      ],
+      "reasoning": "The comparison checks both the original index language and inverse-PGF/coefficient-positivity synonyms. A general implicit root expression is an algorithmic characterization, not the explicit identification that one root always dominates on the entire two-parameter family.",
+      "searches": [
+        "\"beta-binomial\" \"thinning index\" rho",
+        "\"beta binomial\" \"binomial thinning\" \"minimal\" parameter",
+        "\"beta-binomial\" \"unthinning\" exact",
+        "beta binomial minimal thinning probability index de-thinning",
+        "\"beta binomial\" \"binomial thinning\" \"parent distribution\"",
+        "\"beta-binomial\" \"dilation\" positive polynomial",
+        "\"Pólya\" \"binomial thinning\" inverse",
+        "\"binomial mixtures\" \"thinning index\" beta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted exact-parameter, punctured-parent, and table/index searches did not locate a matching beta-binomial de-thinning table.",
+        "The fully rational four-trial example is generated from the recurrence rather than copied from any lookup table."
+      ],
+      "reasoning": "The theorem concerns a natural infinite two-parameter family of exact indices, not a finite census. Exact-formula and boundary-support searches tested whether the general rule is already tabulated.",
+      "searches": [
+        "\"beta-binomial\" \"n-1\" \"de-thinning\"",
+        "\"beta-binomial\" \"thinning parameter\" exact \"inverse\"",
+        "beta binomial thinning index rho(Beta Binomial(n,a,b)) formula (a+n-1)/(a+b+n-1)"
+      ]
+    },
+    "rationale": "Theorem 19 of Kella–Löpker gives a general polynomial root maximum for binomial mixtures, not a closed-form root selection or recurrence for all beta-shape parameters. Their Example 10 explicitly evaluates only the uniform Beta(1,1) mixture and its parent hole. The present result identifies the highest root for every Beta(a,b), a,b>0, and a positive constructive boundary parent, including all-shape top-atom asymptotics. Related quasi-Pólya and convolution-thinning papers use different kernels; exact-phrase, alias, parameter, inverse, dilation, and root-index searches did not locate the same explicit general-beta theorem. A possible older terminological equivalent remains a stated risk.",
+    "residual_risks": [
+      "Earlier literature could state the same beta-family de-thinning extremal index using dilation, binomial mixture inversion, or Pólya terminology without the searched words.",
+      "The resulting parent is a finite formal count law; no direct probabilistic beta-mixture representation of that parent is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General root-max theorem and uniform Beta(1,1) case cover the conceptual setup but not the explicit all-shape Beta formula, dominating penultimate root or positive recurrence.",
+        "evidence": "Theorem 19 writes the minimum as a maximum over candidate signed-moment polynomial roots; Example 10 evaluates only uniform mixing and Remark 18 computes the special boundary hole/inflation.",
+        "identifier_or_url": "arXiv:2202.10296v3; arXiv:2202.10296v1; DOI:10.1016/j.indag.2022.09.003",
+        "material_read": "Introduction/definitions of ordinary thinning and mixing; Sections 2–3 about the index; Section 6, especially Theorem 17, Theorem 19, its proof, Example 10 and Remark 18.",
+        "method": "Public full-text HTML at https://arxiv.org/html/2202.10296v3; verified v1 posting date from the arXiv record.",
+        "title": "On binomial thinning and mixing",
+        "trigger": "Direct prior theory for deterministic binomial-thinning indices and Beta-mixed binomials."
+      },
+      {
+        "assessment": "The operator and closure assertions concern conditional beta-binomial/Pólya thinning kernels, not the constant Bernoulli-retention minimum.",
+        "evidence": "Theorem 1 and associated corollaries vary the conditional thinning kernels and describe distributional families; no exact minimal ordinary retention probability or punctured parent law is stated.",
+        "identifier_or_url": "DOI:10.1214/23-BJPS585; https://www.researchgate.net/publication/376980847_On_quasi_Polya_thinning_operator",
+        "material_read": "Author-posted full-text portions explaining the quasi-Pólya/convolution thinning definition and Theorem 1 with its beta-binomial special cases.",
+        "method": "Public author-posted full-text HTML inspection.",
+        "title": "On quasi Pólya thinning operator",
+        "trigger": "The title and beta-binomial closure could conceivably imply ordinary beta-binomial de-thinning."
+      },
+      {
+        "assessment": "Different convolution/quasi-Pólya operator and corresponding conditional identities, rather than an optimization over constant independent-Bernoulli retention probabilities.",
+        "evidence": "The beta-binomial appears as the conditional convolution distribution and in dual identities; the analysis does not give the deterministic thinning index of beta-binomial counts.",
+        "identifier_or_url": "DOI:10.1111/stan.12337; https://onlinelibrary.wiley.com/doi/10.1111/stan.12337",
+        "material_read": "The full available HTML, including abstract, definitions in Section 2, dual relationships and beta-binomial cases in Section 3, and Section 4 consequences.",
+        "method": "Open full-text publisher HTML inspection.",
+        "title": "Duals of convolution thinned relationships",
+        "trigger": "The published note directly discusses beta-binomial thinning dualities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "140b7e06-7eeb-40aa-a015-83aeef911008",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The beta-binomial is the standard finite-exchangeable/overdispersed Bernoulli count family, so its minimal ordinary-thinning parameter is a natural measure of how far it can be de-thinned. The result classifies the index exactly for every real beta shape and every n, strengthening the source’s one-parameter uniform-mixing case. The strict universal penultimate-root dominance, explicit positive parent recursion, unique hole, and asymptotic top mass are mathematically structural and reusable, not routine numeric substitutions or an arbitrary unmotivated slice.",
+    "status": "PASS"
+  }
+}
