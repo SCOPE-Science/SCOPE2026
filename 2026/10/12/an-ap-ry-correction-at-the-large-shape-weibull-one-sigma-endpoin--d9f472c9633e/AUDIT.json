@@ -1,0 +1,85 @@
+{
+  "correctness": {
+    "rationale": "Scale invariance reduces to unit Weibull scale. Writing the Weibull variable as exp(Y/k) with exp(Y) exponential gives an exact representation. The log-Gamma expansion through cubic order yields the mean and variance expansions, and direct logarithmic expansion of the moving one-standard-deviation endpoints produces equal inward first-order endpoint shifts of magnitude zeta(3)/(a k). Taylor expansion of the smooth reflected-Gumbel CDF then gives the displayed coefficient and an O(k^{-2}) remainder. Positivity is explicit. The standalone verifier independently recomputes exact finite-k probabilities but is not used to establish the asymptotic theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary variation-comparison paper explicitly notes failure beyond the infinitely divisible range and supplies only a finite numerical graph up to k=10.",
+        "General large-shape Weibull references retrieved in public search describe concentration or the logarithmic extreme-value relation, not the centered-and-variance-normalized one-sigma central mass with its first correction."
+      ],
+      "reasoning": "Weak convergence or the log-transform alone can recover the limiting reflected-Gumbel law, but neither determines the direction or rate at which the central one-sigma functional approaches that endpoint. The positive explicit coefficient is therefore not implied by broader convergence statements.",
+      "searches": [
+        "Weibull variation comparison one standard deviation large shape parameter Gumbel",
+        "Weibull standardized one sigma central mass asymptotic shape infinity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.11459v1/v2",
+      "published-record semantic searches for large-shape Weibull standardization, reflected-Gumbel limits, one-sigma probabilities, and Gamma-moment expansions",
+      "current-week and prior-week own probability-statistics-middle ledgers for recoverable claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior Weibull claim in the own ledger concerns k tending to zero and the asymptotic decay of a standardized outside-tail probability at a fixed threshold.",
+        "No prior own claim gives a large-k expansion of the one-standard-deviation central mass, a reflected-Gumbel endpoint, or the zeta(3) coefficient."
+      ],
+      "reasoning": "The parameter regime is opposite and the functional is different: a small-shape outside-tail asymptotic cannot imply the present large-shape centered central-mass expansion.",
+      "searches": [
+        "own prior Weibull anti-concentration small shape endpoint comparison",
+        "own current Weibull standardized tail profile versus large shape central mass"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.11459v2, Theorem 3.1 and Remark 3.2, give the exact Weibull one-sigma functional, prove the comparison for 0<k<=1, and give the k=3 counterexample, but no large-shape expansion.",
+        "The same source, Theorem 2.2, gives the Gumbel one-sigma mass 0.723751..., which matches the zeroth-order reflected-Gumbel endpoint after reflection."
+      ],
+      "reasoning": "The classical logarithmic Weibull/Gumbel relationship identifies a natural limiting coordinate, but it does not determine the moving mean-plus-or-minus-standard-deviation endpoints after variance normalization. The new statement is the signed first-order expansion of that exact functional.",
+      "searches": [
+        "large shape Weibull standardized distribution converges Gumbel shape to infinity mean variance",
+        "Weibull shape parameter infinity standardized Gumbel limit central probability",
+        "Weibull k to infinity Gamma expansion standardized reflected Gumbel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-expression and coefficient-oriented searches produced no source stating the coefficient zeta(3)/a times the sum of the two endpoint densities.",
+        "The source paper tabulates the exact finite-k functional and the Gumbel endpoint separately but does not tabulate their large-k difference."
+      ],
+      "reasoning": "Standard Weibull moment formulas and Gumbel constants are proof ingredients rather than a table entry for the claimed asymptotic invariant. No covering database or table statement was located.",
+      "searches": [
+        "Weibull Gumbel minimum log transform central mass zeta 3 correction",
+        "Weibull large shape variation probability Gamma moments expansion"
+      ]
+    },
+    "rationale": "The motivating full text proves the Weibull inequality only for 0<k<=1 and records failure at k=3 with a finite plot for 1<=k<=10. Although the same paper gives the Gumbel one-sigma mass, it does not state that large-shape standardized Weibull laws approach its reflection at this functional, nor a first-order 1/k term or the zeta(3) coefficient. Eight candidate-specific published-record searches and own-ledger comparisons found no covering claim.",
+    "residual_risks": [
+      "The logarithmic Weibull-to-Gumbel relation and Gamma-function moment expansions are classical, so an equivalent first-order expansion may exist in older reliability or extreme-value literature under terminology not retrieved by the searches.",
+      "The theorem proves eventual recovery above the Gaussian benchmark but does not locate the optimal finite recovery threshold or prove a unique benchmark crossing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new first-order large-shape endpoint law.",
+        "evidence": "The source gives the Gumbel central mass, exact Weibull moments and central probability, proves the inequality for 0<k<=1, and reports C_3=0.667713 with a graph over 1<=k<=10. It contains no large-k expansion, no 1/k rate, and no zeta(3) endpoint coefficient.",
+        "identifier_or_url": "arXiv:2304.11459v2",
+        "material_read": "Abstract, introduction, Theorem 2.2, complete Weibull Section 3 including Theorem 3.1 and Remark 3.2.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "Variation comparison between infinitely divisible distributions and the normal distribution",
+        "trigger": "Primary source defining the exact Weibull one-standard-deviation variation functional and displaying its failure for shape greater than one."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9f472c9-633e-44fc-b170-7f8529039360",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly exhibits failure of the Gaussian one-sigma comparison for Weibull shape k=3, so the behavior beyond the infinitely divisible range is a motivated structural gap. The new result resolves the far-right endpoint: it identifies the reflected-Gumbel limit, proves approach from below, supplies the exact Apéry-constant correction, and therefore establishes eventual recovery above the Gaussian benchmark. This is a signed endpoint law for the source's central functional rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
