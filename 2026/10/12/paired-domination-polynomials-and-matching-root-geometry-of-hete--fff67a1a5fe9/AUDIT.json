@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Every base vertex is forced by domination and perfect-matching feasibility at its private leaves. At most one private leaf per root may be selected, and all remaining roots form exactly one perfectly matchable induced subset. Reversing these conditions proves a bijection; the multiplicity product counts distinct leaf choices rather than internal matchings. Without even cycles, each perfect support has a unique matching; positive edge weights give a monomer-dimer generating polynomial and Heilmann–Lieb gives strictly negative roots, yielding purely imaginary nonzero paired-domination roots. Boundary and normalization cases were checked. Independent direct enumeration of 3,401,516 candidate subsets on 2,174 graph-and-multiplicity instances passed; finite verification is not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haynes–Slater 1998 gives \\(\\gamma_{pr}(G\\circ K_1)=2(|V(G)|-\nu(G))\\), a scalar minimum consequence rather than a weight enumerator.",
+        "Davis–Kohl 2022 provides recurrences for PMS polynomials of arbitrary bases, but those do not represent heterogeneous pendant-leaf selections without the weighted bijection.",
+        "Results for paired domination polynomials of chain graphs and complete multipartite graphs enumerate those base graph classes, not arbitrary heterogeneous decorated graphs."
+      ],
+      "reasoning": "A prior minimum-cardinality statement and an arbitrary-base PMS generating polynomial each omit the claimed correspondence to all paired dominating sets with arbitrary leaf multiplicities and the root factorization. The simple single-leaf case follows by specializing the new weighted theorem; it is not claimed separately.",
+      "searches": [
+        "published-finding corpus: perfectly matchable vertex subset polynomial relation to paired domination in leaf-corona graphs",
+        "published-finding corpus: paired domination polynomials zeros imaginary axis forests matching polynomial",
+        "web: \"paired domination\" \"corona\" \"perfect matching\" all vertices leaves",
+        "web: \"paired dominating sets\" \"multiple pendant\" \"perfect matching\" polynomial"
+      ]
+    },
+    "checked_sources": [
+      "Haynes and Slater 1998 original paired domination paper",
+      "Ohsugi and Tsuchiya arxiv:2103.15045v1",
+      "Davis and Kohl arxiv:2207.14759v1",
+      "Alwardi, Nayaka and Puttaswamy 2016 abstract",
+      "Weighted Heilmann–Lieb theorem statement",
+      "Published published-finding corpus paired-domination polynomial records: chain graphs; complete multipartite graphs; finite local total graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1998 observation forces support vertices and establishes the scalar minimum in the uniform single-leaf corona.",
+        "2021/2022 works give the support-counting PMS invariant, explicitly distinguishing it from the edge-matching count when even cycles exist.",
+        "Heilmann–Lieb makes a positive-weight matching generating polynomial real-rooted; it does not itself establish a paired-domination transformation."
+      ],
+      "reasoning": "Combining prior ideas suggests the proof and makes the uniform case elementary, which limits novelty claims. It does not directly state the classification with multiple private leaves, their multiplicity-weighted all-cardinality polynomial, or the induced paired-domination root location across arbitrary no-even-cycle bases. These statements follow after the explicit bijection and weighted matching transformation proved here. No independent priority claim is made.",
+      "searches": [
+        "Haynes–Slater (1998) paired domination in graphs, definitions/Observation 1 and single-leaf corona formula",
+        "arxiv:2103.15045v1 Example 2.3 and Section 2",
+        "arxiv:2207.14759v1 Lemma 3.2 and Section 4",
+        "web: Heilmann Lieb weighted matching generating polynomial theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ohsugi–Tsuchiya arXiv:2103.15045v1 Section 2 defines the PMS polynomial of vertex supports, not a paired-domination enumerator.",
+        "Davis–Kohl arXiv:2207.14759v1, Lemma 3.2, compares support-counting and edge-matching-counting.",
+        "Haynes–Slater 1998 defines paired domination and records a single-leaf corona minimum but not all cardinalities."
+      ],
+      "reasoning": "The full heterogeneous weighted support bijection and derived imaginary-axis zero statement are not stated in inspected sources. The scalar minimum, original perfectly matchable-set polynomial, and Heilmann–Lieb real-rootedness are known inputs, and the new claim is their graph-operation bridge with heterogeneous leaf choices; an implicit prior bijection remains a risk.",
+      "searches": [
+        "published-finding corpus: paired domination of whiskered graphs and perfectly matchable set polynomial, polynomial substitution, roots imaginary axis",
+        "web: \"paired domination polynomial\" \"corona\" K1",
+        "web: \"paired domination polynomial\" \"whiskered\" graphs",
+        "arxiv:2103.15045v1 Section 2 and theorem material; arxiv:2207.14759v1 Sections 1,3,4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Davis–Kohl 2022 Table 1 includes PMS coefficients for small paths and cycles; these are already known and not claimed as new.",
+        "published-finding corpus returned paired-domination polynomials for chain graphs and complete multipartite graphs, not a coefficient table for heterogeneous leaf-corona bases.",
+        "The C4 distinction between one fully matched vertex support and two perfect matchings is explicitly recorded in Ohsugi–Tsuchiya 2021, Example 2.3."
+      ],
+      "reasoning": "Known PMS tables are useful inputs but do not tabulate the graph-operation paired-domination polynomial with heterogeneous leaf choices. No identical table or database record was located; this is not a global database completeness claim.",
+      "searches": [
+        "published-finding corpus: paired domination polynomial of leaf corona G circle K_1 in terms of perfectly matchable induced vertex subsets and perfect matching deficiency",
+        "published-finding corpus: whiskered graph perfect matching supports paired domination counting roots",
+        "web: \"perfectly matchable set polynomial\" real rooted unimodal counterexample graph",
+        "Davis–Kohl 2022 Table 1 path/cycle PMS polynomial entries"
+      ]
+    },
+    "rationale": "The previously known scalar single-leaf minimum, PMS polynomial and matching real-root theorem are acknowledged. Materially distinct result is the arbitrary graph and heterogeneous pendant-leaf all-cardinality bijection together with the weighted matching and imaginary-axis conclusion for all no-even-cycle bases. Searches and primary material inspections did not identify an equivalent theorem; the simple uniform case is elementary, and the inaccessible 2016 paper and possible unindexed derivations remain substantive risks.",
+    "residual_risks": [
+      "An inaccessible 2016 polynomial article might contain a relevant specialized corona formula; only its abstract was accessible.",
+      "An implicit derivation may be present in unindexed domination, matching, or graph-operation literature.",
+      "The uniform one-leaf scalar case is classical, and the connection builds on straightforward matching observations; novelty attaches to the weighted whole-enumerator bridge and root-location consequence rather than those premises.",
+      "No independent expert or external audit has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scalar minimum and forced-root observation are covered; no all-cardinality weighted pendant-corona enumerator or root theorem located in read material.",
+        "evidence": [
+          "The article explicitly states the single-leaf corona paired domination number as twice the base order minus maximum matching number.",
+          "Original paper 1998 Networks 32:199–206."
+        ],
+        "identifier_or_url": "https://www.academia.edu/15129207/Paired_domination_in_graphs",
+        "material_read": "Publicly viewable complete paper text rendering including definitions, Observation 1 and corona paragraph, proof and bounds material",
+        "method": "Read web-hosted article text and compare the coronal scalar formula with the new full cardinality formula",
+        "title": "Paired-domination in graphs",
+        "trigger": "Original foundational definition, support-vertex forcing, and corona minimum size"
+      },
+      {
+        "assessment": "Defines PMS polynomial and its even-cycle mismatch with matching counts, but does not analyze paired domination or heterogeneous pendant coronas.",
+        "evidence": [
+          "Example 2.3: for C4, matching coefficient at degree two is 2, PMS coefficient is 1.",
+          "Section 2 defines distinct matched vertex supports, not edge-matchings."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2103.15045v1",
+        "material_read": "Full HTML introduction, Sections 2–5, Example 2.3, main theorem and wheel-graph proof",
+        "method": "Read primary arXiv version posted 2021-03-28; examine PMS counts and use full document term searches paired/dominating",
+        "title": "PQ-type adjacency polytopes of join graphs",
+        "trigger": "Original combinatorial PMS polynomial definition and matching vs support distinction"
+      },
+      {
+        "assessment": "Proves PMS equals ordinary matching enumerator exactly for no-even-cycle graphs and lists path/cycle PMS coefficients; does not supply the paired-domination bridge or its heterogeneously weighted root theorem.",
+        "evidence": [
+          "Lemma 3.2: PMS equals matching polynomial iff no even cycles.",
+          "Section 4 computes PMS for trees via polytopes, not paired domination of leaf-coronas."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.14759v1",
+        "material_read": "Complete HTML §§1–4, definitions, Lemma 3.2 and proof, Proposition 3.3, path/cycle tables, tree examples",
+        "method": "Read arXiv full text posted 2022-07-29, locate and compare all invariant statements and full document paired/corona term searches",
+        "title": "Perfectly Matchable Set Polynomials and h*-polynomials for Stable Set Polytopes of Complements of Graphs",
+        "trigger": "Direct PMS recurrences and no-even-cycle equivalence; highest implication-overlap risk"
+      },
+      {
+        "assessment": "Establishes an earlier definition and studies unspecified graph families; cannot exclude an implicit corona calculation because full text was inaccessible.",
+        "evidence": [
+          "2016 abstract says standard-family paired domination polynomials are computed but does not identify all included families."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/325108045_Introduction_to_Paired_Domination_Polynomial_of_a_Graph",
+        "material_read": "Public abstract and bibliographic snippet only; linked full-text download returned 404",
+        "method": "Read accessible abstract; attempted public full-text link, which was not retrievable",
+        "title": "Introduction to Paired Domination Polynomial of a Graph",
+        "trigger": "Earlier 2016 source may have paired domination polynomial formulas"
+      },
+      {
+        "assessment": "Real-root theorem is classical and credited; its application requires the newly proved identification of the paired-domination enumerator with weighted matching generating function.",
+        "evidence": [
+          "Weighted matching generating polynomial with positive edge weights has real negative zeros; an equivalent signed matching characteristic polynomial has real zeros."
+        ],
+        "identifier_or_url": "Communications in Mathematical Physics 25 (1972), 190–232; DOI:10.1007/BF01877590",
+        "material_read": "Theorem statement cross-checked using mathematics literature and course notes; original paper not re-derived",
+        "method": "Compared standard positive-edge-weight matching polynomial formulation with transformed polynomial in proof",
+        "title": "Theory of monomer-dimer systems",
+        "trigger": "Weighted matching polynomial root location required for final consequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fff67a1a-5fe9-4caa-844d-01034fa432c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem is a complete classification and weighted cardinality enumerator for arbitrary base graphs with arbitrary unequal positive private-leaf multiplicities. It preserves distinct perfect-matchable vertex supports rather than counting perfect matchings multiple times, which is essential on even-cycle bases, and yields a uniform root-location theorem for the infinite no-even-cycle class using weighted monomer-dimer stability. This supplies natural counting and zeros information beyond known minimum-cardinality facts; no paper-sized claim or unsupported downstream application is required.",
+    "status": "PASS"
+  }
+}
