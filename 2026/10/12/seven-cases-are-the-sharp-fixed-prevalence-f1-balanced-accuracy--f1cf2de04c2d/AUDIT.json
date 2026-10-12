@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "At common \\(N,P\\), \\(F_1=2TP/(P+TP+FP)\\) and balanced accuracy is \\(\\frac12(1+TP/P-FP/(N-P))\\). Every strictly positive matrix is enumerated exactly. There is no strict reversal through \\(N=6\\), one weak-only split at \\(N=6\\), and exactly three strict reversals at \\(N=7\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brodersen et al. motivate balanced accuracy for imbalanced classification and define the balanced-accuracy framework.",
+        "Powers' full text treats binary contingency tables, F1, sensitivity, specificity, ROC, and Informedness in one framework.",
+        "Powers' abstract states that a system worse in Informedness can appear better under F-measure."
+      ],
+      "reasoning": "This broader prior art establishes non-equivalence and its practical motivation, but it does not identify a smallest strictly positive fixed-prevalence integer matrix.",
+      "searches": [
+        "\"The Balanced Accuracy and Its Posterior Distribution\" Brodersen",
+        "\"Evaluation: from precision, recall and F-measure to ROC, informedness, markedness and correlation\"",
+        "F-measure informedness classifier worse ranking Powers"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ICPR.2010.764",
+      "arxiv:2010.16061",
+      "MSC2020:92B15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Generic rank reversal is explicitly prior context and is not part of the originality claim.",
+        "A qualitative or unrestricted reversal does not imply nonreversal for every positive matrix with \\(N\\le6\\), nor completeness of the \\(N=7\\) layer.",
+        "Fixing prevalence removes one known source of F1 variation, so the remaining reversal is a more specific finite statement."
+      ],
+      "reasoning": "The accepted claim is a minimality and complete-first-layer theorem under exact domain restrictions, not the already known fact that F1 and chance-corrected or class-balanced measures can disagree.",
+      "searches": [
+        "Powers F1 informedness biased ranking system worse appear better",
+        "balanced accuracy informedness relation",
+        "F1 prevalence bias balanced accuracy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Balanced accuracy is the mean of sensitivity and specificity.",
+        "For binary classification, Youden Informedness is sensitivity plus specificity minus one, so balanced accuracy is affine-equivalent to Informedness.",
+        "Powers explicitly gives the F1 contingency-table formula and shows that F-measure can favor a system that is worse in Informedness."
+      ],
+      "reasoning": "The theorem can be phrased as F1 versus balanced accuracy, F1 versus Youden's index, or F1 versus Informedness. Searches covered all aliases and fixed-prevalence confusion-matrix language.",
+      "searches": [
+        "F1 balanced accuracy ranking reversal classifiers confusion matrix",
+        "F-measure balanced accuracy opposite ranking diagnostic classifier",
+        "F1 Youden index ranking reversal same prevalence",
+        "balanced accuracy F score comparison exact confusion matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-matrix search located the seven-case witness as a minimal F1–balanced-accuracy reversal.",
+        "No checked source tabulated the complete three-pair first strict layer.",
+        "The packaged verifier derives the complete layer from all positive matrices rather than importing a table."
+      ],
+      "reasoning": "Exact-cell searches directly test whether the minimal matrices already appear as examples, benchmark tables, or software fixtures.",
+      "searches": [
+        "\"balanced accuracy\" \"F1\" smallest confusion matrix",
+        "\"TP=1\" \"FP=1\" \"FN=2\" \"TN=3\" F1 balanced accuracy",
+        "\"1,1,2,3\" \"2,3,1,1\" F1",
+        "\"F1\" informedness finite confusion matrix"
+      ]
+    },
+    "rationale": "Prior literature establishes generic F-measure versus Informedness disagreement, so novelty is restricted to the exact fixed-prevalence positive-cell finite boundary and complete first layer. The checked literature, exact-matrix searches, database searches, and own-ledger comparisons did not state or imply that boundary.",
+    "residual_risks": [
+      "Generic F1-versus-Informedness disagreement is known; originality is limited to the exact fixed-prevalence positive-cell finite cutoff and complete first layer.",
+      "An unindexed teaching example, calculator, or test suite could contain one of the seven-case matrices.",
+      "The Brodersen source was available through institutional metadata and abstract rather than a successfully opened publisher PDF in this run."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the balanced-accuracy motivation and date. It does not state the finite F1 reversal boundary.",
+        "evidence": "The record identifies the 2010 ICPR paper and the conference dates; the abstract motivates balanced accuracy as a remedy for biased accuracy under class imbalance.",
+        "identifier_or_url": "doi:10.1109/ICPR.2010.764",
+        "material_read": "ETH bibliographic record and abstract, including the class-imbalance motivation, publication venue, page range, and conference dates 23–26 August 2010; the open-index copy of the abstract was also inspected.",
+        "method": "Institutional metadata and abstract inspection.",
+        "title": "The Balanced Accuracy and Its Posterior Distribution",
+        "trigger": "Foundational balanced-accuracy source and archival date anchor."
+      },
+      {
+        "assessment": "Strong prior coverage of generic disagreement. It does not state the strictly positive fixed-prevalence six/seven finite boundary or first-layer classification.",
+        "evidence": "The paper states that F-measure can make a system worse in Informedness appear better, gives \\(F_1=2TP/(2TP+FP+FN)\\), and gives the equal-weight sensitivity/specificity quantity \\((TPR+TNR)/2\\).",
+        "identifier_or_url": "arxiv:2010.16061",
+        "material_read": "Full public postprint was opened; the binary-contingency, Recall/Precision, F1, ROC/AUC, and Informedness sections were inspected, including formulas for F1 and \\((TPR+TNR)/2\\) and the discussion of ranking bias.",
+        "method": "Public PDF text inspection with rendered-page verification.",
+        "title": "Evaluation: From Precision, Recall and F-Measure to ROC, Informedness, Markedness & Correlation",
+        "trigger": "Closest full-text primary comparison of F-measure with the class-balanced/Informedness family."
+      },
+      {
+        "assessment": "Binary performance measurement in biomedical and biological classification fits general biostatistics.",
+        "evidence": "MSC2020 names 92B15 General biostatistics.",
+        "identifier_or_url": "MSC2020:92B15",
+        "material_read": "MSC2020 hierarchy entry for 92B15.",
+        "method": "Public MSC database inspection.",
+        "title": "MSC2020 database: 92B15 General biostatistics",
+        "trigger": "Primary classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f1cf2de0-4c2d-4dab-9e48-251343f1dbbb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "F1 and balanced accuracy are widely used classifier summaries with different treatment of the negative class. By fixing both prevalence and sample size and excluding zero-cell degeneracies, the theorem isolates the smallest genuinely nontrivial data set where metric choice alone reverses model preference, and it classifies every minimal reversal.",
+    "status": "PASS"
+  }
+}
