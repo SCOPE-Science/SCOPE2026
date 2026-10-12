@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every real SPD 2x2 input, the Gaussian angle reduction, determinant lemma and rank-one log-M spectrum give E(error²)=2E(Z²). A uniform Fourier expansion and Parseval give the exact dilogarithm identity. The strict baseline comparison follows from the top eigenvalue bound on trace(Ahat) with equality characterized. The scaled Cauchy representation and an explicitly integrable majorant justify dominated convergence and the exact coefficient 8[log(1+b)+2log2] for each fixed b>0. Independently executed verification confirms 100 integral values, 480 matrix-and-Lanczos reconstructions and four asymptotic scales; it is corroboration rather than proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.05778v2, Theorem 2, assumes Nyström rank at least four and supplies broad upper bounds; equations (12)-(22) do not specialize to an exact two-dimensional rank-one risk.",
+        "arXiv:2209.11023 / doi:10.1137/22M1523923: f(ˆA) matrix-function approximation error bounds, not preconditioned trace-probe risk.",
+        "arXiv:1605.04893, Sections 2.2 and 3.2: estimates for log det(I+Q^TAQ) after subspace iteration."
+      ],
+      "reasoning": "Checked whether stronger dimension-independent Nyström or matrix-function bounds subsume the finding. They cover different errors or upper bounds and do not determine the exact two-eigenvalue unconditional second moment, its strict ideal-preconditioner gap, or sharp leading asymptotic.",
+      "searches": [
+        "randomized numerical linear algebra sketching preconditioning 2026 Gaussian estimator exact finite sample error numerical optimization",
+        "Gaussian Nyström rank one two eigenvalue logdet residual Cauchy squared inverse condition number rare misalignment",
+        "Exact mean-squared error of one-probe preconditioned logdet estimator with rank-one Gaussian Nyström approximation on a two by two SPD matrix; dilogarithm formula and high spectral gap inverse square root",
+        "\"Gaussian Nyström\" \"square root\" spectral gap log determinant variance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.05778v1/v2; doi:10.1002/nla.70106",
+      "arXiv:1605.04893; doi:10.1007/s00211-017-0880-z",
+      "arXiv:2209.11023; doi:10.1137/22M1523923",
+      "Published published-finding corpus mathematical research records returned by the eight exact queries recorded in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cortinovis–Toni arXiv:2601.05778v2 Section 3.1: derives and bounds expectations involving the Frobenius norm of the random preconditioned log, without evaluating this expectation in dimension two.",
+        "Saibaba–Alexanderian–Ipsen 2017 Theorem 7: studies biased compressed log determinants without an independent trace probe.",
+        "Persson–Kressner 2023: randomized approximation of the matrix function log(I+A), a different estimator."
+      ],
+      "reasoning": "The source Gaussian quadratic-form variance is an important known first step, but it leaves E_omega[Z²] unspecified. Recovering the exact dilogarithm and the rare-Cauchy-angle high-contrast coefficient requires a new angular spectral calculation; existing generalized upper bounds do not imply the claimed sharp equality or coefficient. The other two methods concern different estimation targets.",
+      "searches": [
+        "one Gaussian probe Nyström preconditioned log determinant two by two diagonal spectrum exact mean square variance dilogarithm high contrast square root asymptotics",
+        "Exact mean-squared error of one-probe preconditioned logdet estimator with rank-one Gaussian Nyström approximation on a two by two SPD matrix; dilogarithm formula and high spectral gap inverse square root",
+        "single Gaussian probe logdet Nyström 2x2 exact unconditional variance against ideal eigenvalue preconditioner",
+        "\"Nyström\" \"Cauchy\" \"log determinant\" \"variance\" Gaussian",
+        "\"rank-one Nyström\" \"variance\" \"logdet\" Gaussian probe"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.05778v2, Sections 2-3: conditional Gaussian trace variance and Nyström bounds; no explicit two-eigenvalue angular second moment.",
+        "arXiv:1605.04893, Theorem 7: different compressed determinant objective; no independent one-probe mixture.",
+        "The exact scalar residual is log[(1+a)(1+b)(a+bt²)/(a(1+a)+b(1+b)t²)], with a standard Cauchy t; this logarithmic-ratio alias was compared explicitly."
+      ],
+      "reasoning": "Compared the full scalar law, positive-Gaussian-ratio/Cauchy alias, angular-Fourier/dilogarithm alias, and high-contrast inverse-square-root assertion rather than matching only Nyström terminology. The found results give inequalities or different logdet estimators; none states or implies the exact joint mean-square value and coefficient without additional integration.",
+      "searches": [
+        "one Gaussian probe Nyström preconditioned log determinant two by two diagonal spectrum exact mean square variance dilogarithm high contrast square root asymptotics",
+        "Gaussian Nyström rank one two eigenvalue logdet residual Cauchy squared inverse condition number rare misalignment",
+        "randomized preconditioned log determinant single Gaussian probe sharp spectral gap asymptotic expected squared error",
+        "Exact mean-squared error of one-probe preconditioned logdet estimator with rank-one Gaussian Nyström approximation on a two by two SPD matrix; dilogarithm formula and high spectral gap inverse square root",
+        "Cauchy angular integral Nyström residual log determinant rank one two eigenvalue sharp square root convergence high condition number",
+        "single Gaussian probe logdet Nyström 2x2 exact unconditional variance against ideal eigenvalue preconditioner",
+        "\"Nyström\" \"Cauchy\" \"log determinant\" \"variance\" Gaussian",
+        "\"Nyström\" \"rank-one\" \"log-determinant\" exact \"two\"",
+        "\"randomized Nyström\" \"sqrt\" \"condition number\" \"logdet\" variance",
+        "\"dilogarithm\" \"Nyström\" \"log determinant\" estimator",
+        "\"single probe\" \"Gaussian\" \"Nyström\" \"variance\" \"spectral\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct semantic database hits concern matrix preconditioning, Gaussian chaos, and spectral filtering, not a two-parameter table of this Nyström risk.",
+        "The newly derived formula is a continuous function of arbitrary positive eigenvalues, and its coefficient is an analytically established boundary, not a fixed enumerated table."
+      ],
+      "reasoning": "No exact table, entry sequence, or data collection providing these analytic two-parameter unconditional moments was identified. Finite tests are not used to assert novelty.",
+      "searches": [
+        "one Gaussian probe Nyström preconditioned log determinant two by two diagonal spectrum exact mean square variance dilogarithm high contrast square root asymptotics",
+        "Exact mean-squared error of one-probe preconditioned logdet estimator with rank-one Gaussian Nyström approximation on a two by two SPD matrix; dilogarithm formula and high spectral gap inverse square root",
+        "\"dilogarithm\" \"Nyström\" \"log determinant\" estimator",
+        "\"Nystrom\" \"dilogarithm\" Gaussian covariance"
+      ]
+    },
+    "rationale": "The directly relevant 2026 preconditioned one-probe method and conditional trace-variance identity are acknowledged. The inspected source supplies general Nyström bounds for larger oversampled ranks, not the exact unconditional two-eigenvalue risk and its sharp inverse-square-root high-contrast coefficient. The distinct 2017 subspace-iteration log-determinant estimator and 2023 randomized matrix-function approximation do not imply this complete result without new distributional analysis. Targeted literature and mathematical-finding searches returned no statement-equivalent result; remaining unindexed-equivalence risk is named.",
+    "residual_risks": [
+      "Equivalent formula could occur in older angular-moment, Gaussian-ratio, or stochastic numerical linear algebra literature under unindexed terminology.",
+      "Persson–Kressner full text was not read, though its original abstract describes a mathematically different estimator.",
+      "No claim of universal novelty certification or independent review is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source establishes the estimator, conditional variance and general large-rank upper bounds, not exact 2-by-2 rank-one integrated MSE or spectral-gap coefficient.",
+        "evidence": [
+          "arXiv:2601.05778v2, formulas (12)-(22), Theorem 2; Section 5",
+          "doi:10.1002/nla.70106 (open-access full text)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.05778v2",
+        "material_read": "Full-text introduction and Sections 2-4 (including Theorem 2 and proof), Section 5 experiment overview and example setup, and the bibliography; compared to later open-access journal version.",
+        "method": "Read HTML arXiv preprint and lawful Wiley open-access article, compared formulae and rank assumptions.",
+        "title": "Detecting when one probe vector is enough for preconditioned log-determinant approximation",
+        "trigger": "Same estimator, Nyström preconditioner and independent single-Gaussian trace probe; potential exact or dominating result."
+      },
+      {
+        "assessment": "Randomized subspace-iteration and compressed determinant; bounded bias and concentration, no independent Nyström-preconditioned one-probe estimator and no exact 2-by-2 unconditional risk.",
+        "evidence": [
+          "arXiv:1605.04893, Algorithm 1, Theorems 1-3 and 7",
+          "Numerische Mathematik 137 (2017), pp. 353-395"
+        ],
+        "identifier_or_url": "https://ipsen.math.ncsu.edu/ps/SaibabaAlexanderianIpsen.pdf",
+        "material_read": "Author-hosted full-text PDF introduction, algorithm and methods; Gaussian starting-guess error theorems (Section 2) and log-determinant Theorem 7 and its proof context (Section 3), with rendered page inspections.",
+        "method": "Inspected PDF text and rendered pages including Theorem 7.",
+        "title": "Randomized matrix-free trace and log-determinant estimators",
+        "trigger": "Earlier Gaussian randomized log-determinant method with low-dimensional probabilistic error analysis."
+      },
+      {
+        "assessment": "Different estimator and general matrix-function approximation guarantees; full-text not inspected. No decisive same-target coverage visible, but incomplete full-text inspection remains a residual risk.",
+        "evidence": [
+          "arXiv:2209.11023 abstract",
+          "doi:10.1137/22M1523923 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11023",
+        "material_read": "ArXiv abstract and publisher article abstract, with method and theorem descriptions; not the complete article.",
+        "method": "Reviewed original abstracts and compared its f(Ahat) approximation target to the independent preconditioned trace-probe target.",
+        "title": "Randomized low-rank approximation of monotone matrix functions",
+        "trigger": "Known matrix-logarithm Nyström approximation, possible stronger covering risk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25fe26ab-4cda-4440-affd-5313338b005d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact unconditional risk for the recently proposed Gaussian Nyström one-probe log-determinant estimator is a natural, previously unquantified benchmark. It resolves the complete two-eigenvalue case, including a strict loss relative to ideal spectral rank-one preconditioning, and a sharp inverse-square-root spectral-gap penalty caused by rare Gaussian sketch directions. This precise cutoff informs how quickly preconditioning randomness vanishes with spectral separation, without claiming broader dimensional performance.",
+    "status": "PASS"
+  }
+}
