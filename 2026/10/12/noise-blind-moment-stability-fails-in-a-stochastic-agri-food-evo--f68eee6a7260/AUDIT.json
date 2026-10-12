@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Each coordinate axis is invariant because both drift and diffusion contain the corresponding state as a factor. On each axis the equation is exactly geometric Brownian motion, giving the closed p-th moment exponent p a_i + p(p-1) sigma^2/2. Therefore p-moment exponential stability of the full origin necessarily forces all three axis exponents to be negative. For the source's Parameter Set 1, a_x=-2.8. With unrestricted sigma=3, source inequalities (16)-(18) hold on the x-axis but the exact second-moment exponent is 3.4>0. The almost-sure exponent -7.3 is also computed exactly, confirming the distinction between pathwise and moment decay.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 supply-chain-finance stochastic evolutionary-game paper explicitly uses noise-dependent fixed-point conditions for p-exponential mean-square stability.",
+        "The 2025 prefabricated-building supply-chain stochastic game numerically reports stronger fluctuations as disturbance intensity increases."
+      ],
+      "reasoning": "These papers establish that noise-aware stability analysis is prior art, but their objects and stability formulas do not subsume the Wen-Mo tripartite SDE. They do not derive its three invariant-axis exponents or the Parameter Set 1 counterexample.",
+      "searches": [
+        "stochastic evolutionary game mean square noise intensity stability supply chain",
+        "p-exponential stability in the mean square evolutionary game noise intensity condition",
+        "geometric Brownian p-th moment exponential stability stochastic game"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20251011",
+      "doi:10.3390/math12111764",
+      "doi:10.3390/app15094982"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang et al. (2024) gives a general fixed-point sufficient criterion containing a squared noise coefficient but analyzes a two-player finance model with different drift and diffusion.",
+        "Wang et al. (2025) numerically studies disturbance intensity in a four-player construction supply chain but does not provide a source-specific analytic p-moment boundary theorem.",
+        "For the Wen-Mo model, the exact axis moment exponent is obtained by direct solution of the printed scalar restriction and yields 3.4 at Parameter Set 1 with sigma=3."
+      ],
+      "reasoning": "The closest prior work motivates a noise-aware criterion but does not imply the exact counterexample without inspecting and reducing the 2025 tripartite equations. The accepted claim is therefore narrower than a general stochastic-stability theorem and is not a renaming of prior results.",
+      "searches": [
+        "\"Stability Analysis of the Credit Market in Supply Chain Finance\" p-exponential mean square noise",
+        "\"Research on Stochastic Evolutionary Game\" prefabricated building random disturbance intensity stability",
+        "stochastic evolutionary game geometric Brownian invariant axis moment stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.20251011 states moment exponential stability under drift-only conditions (16)-(18) while its stochastic equations (10)-(12) contain multiplicative intensity sigma.",
+        "DOI 10.3390/math12111764 defines p-exponential mean-square stability using E|x(t)|^p and places the noise term G explicitly inside its sufficient stability condition."
+      ],
+      "reasoning": "An equivalent source-specific result would have to identify the exact axis moment exponents or otherwise show that the 2025 drift-only conditions fail at sufficiently large sigma. No searched result or inspected source states that correction.",
+      "searches": [
+        "Wen Mo 2025 agri-food stochastic evolutionary game moment exponential stability sigma noise correction",
+        "\"The impact of environmental regulations and digital empowerment\" stochastic stability noise",
+        "\"The impact of environmental regulations and digital empowerment\" correction",
+        "agri-food supply chain stochastic evolutionary game mean-square exponential stability Brownian noise"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-title and DOI-oriented searches surfaced the motivating article but no published correction of its moment-stability conditions.",
+        "Published-result semantic searches returned stochastic stability findings for unrelated optimization, epidemic, and dynamical systems, not this agri-food game."
+      ],
+      "reasoning": "Absence from search is not treated as novelty proof. It supplements the direct equation-by-equation comparison with the motivating paper and its closest cited stochastic-game stability literature.",
+      "searches": [
+        "\"The impact of environmental regulations and digital empowerment\" correction",
+        "Wen Mo agri-food stochastic evolutionary game sigma moment stability",
+        "10.3934/math.20251011 stochastic stability correction"
+      ]
+    },
+    "rationale": "Geometric-Brownian moment formulas and noise-dependent stochastic stability criteria are standard and are not claimed as new. The source-specific result is the invariant-axis reduction that makes those formulas decisive for the Wen-Mo tripartite game, yielding explicit necessary noise thresholds and a counterexample using the source's own Parameter Set 1. Direct source comparison and semantic searches found no published correction or prior result making this exact implication for the 2025 model.",
+    "residual_risks": [
+      "A source-specific correction may exist outside the indexed literature searched.",
+      "The source uses the phrase 'moment exponentially stable' without specifying a moment order in that paragraph; the counterexample targets the standard p-moment interpretation and explicitly demonstrates failure at p=2.",
+      "The full nonlinear stochastic system may satisfy other stability notions even when mean-square stability fails.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_CONTAINS_GAP. The moment-stability conditions omit the diffusion intensity even though the model has multiplicative Brownian noise.",
+        "evidence": "Equations (10)-(12) use sigma times each state against one Brownian motion; conditions (16)-(18) contain only drift; Parameter Set 1 gives Q=10, beta=0.2, Delta P=0.1, C_l=2, C_g=5.",
+        "identifier_or_url": "doi:10.3934/math.20251011",
+        "material_read": "Article metadata and MSC; deterministic replicator equations; stochastic equations (10)-(12); stochastic stability section containing conditions (16)-(18); Parameter Set 1; simulations discussion; reference list.",
+        "method": "Open-access publisher PDF text plus direct page-image inspection.",
+        "title": "The impact of environmental regulations and digital empowerment on agri-food supply chains under stochastic market demand conditions",
+        "trigger": "Exact stochastic model and stability claim."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. It shows that noise intensity belongs in moment-stability conditions but concerns a different two-player model.",
+        "evidence": "Its theorem defines decay through E|x(t)|^p and includes a term involving the integral of G^2 in the sufficient condition.",
+        "identifier_or_url": "doi:10.3390/math12111764",
+        "material_read": "Abstract; model construction; p-exponential mean-square stability theorem; displayed fixed-point condition; random-disturbance discussion and conclusions.",
+        "method": "Open-access publisher full-text HTML.",
+        "title": "Stability Analysis of the Credit Market in Supply Chain Finance Based on Stochastic Evolutionary Game Theory",
+        "trigger": "Closest cited stochastic-evolutionary-game source that defines p-exponential mean-square stability."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. It numerically studies noise-intensity effects in a different four-player game and does not derive the Wen-Mo boundary moment condition.",
+        "evidence": "The paper reports that increasing stochastic perturbation intensity widens fluctuations and lengthens convergence in its own PBSC simulations.",
+        "identifier_or_url": "doi:10.3390/app15094982",
+        "material_read": "Abstract; model assumptions; simulation stability discussion; disturbance-intensity experiment; summary and conclusions.",
+        "method": "Open-access publisher full-text HTML.",
+        "title": "Research on Stochastic Evolutionary Game and Simulation of Carbon Emission Reduction Among Participants in Prefabricated Building Supply Chains",
+        "trigger": "Recent supply-chain stochastic evolutionary-game comparison cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f68eee6a-7260-45d3-9500-f6822d1f6f4d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding changes a qualitative stability conclusion in a recent stochastic supply-chain game: the published conditions cannot certify moment stability without controlling noise intensity. The exact boundary calculation is mathematically decisive, uses the source's own parameter set, and exposes a practically important distinction between almost-sure convergence and exploding second moments. This is not a cosmetic coefficient correction; it changes which stochastic stability claims are supported by the model.",
+    "status": "PASS"
+  }
+}
