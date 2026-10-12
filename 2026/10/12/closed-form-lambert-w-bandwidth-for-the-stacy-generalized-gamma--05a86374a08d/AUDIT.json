@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The log-density derivative yields the unique interior mode for \\(d>1\\). After the exact substitution \\(r=(x/m)^p\\), the normalized level equation becomes \\(r e^{-r}=e^{-1}y^{p/(d-1)}\\). For \\(0<y<1\\), its negative lies strictly between \\(-1/e\\) and \\(0\\), so the two real Lambert-W branches give exactly the lower and upper crossings. Back-substitution proves the full-width and octave formulas. The \\(p=1\\) specialization reproduces the published ordinary-gamma expression. Numerical spot checks in the packaged script are supplementary and not part of the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stacy 1962 describes the generalized gamma as a special case of an Amoroso-type family.",
+        "LoPrete--Burge explicitly treats generalized gamma as outside the proved ordinary-gamma scope and proposes it as future work.",
+        "Targeted searches returned no broader Amoroso or powered-gamma bandwidth formula covering the stated Stacy case."
+      ],
+      "reasoning": "A broader Amoroso level-set formula could dominate this theorem if it existed with the same parameter regime and branch analysis. The bounded searches did not locate one, and the recent paper's explicit future-work statement is inconsistent with such a formula being standard or readily known, but this remains a residual literature risk rather than a proof of absence.",
+      "searches": [
+        "Amoroso distribution full width half maximum Lambert W generalized gamma",
+        "power gamma distribution bandwidth Lambert W full width half maximum",
+        "generalized gamma bandwidth half maximum",
+        "generalized gamma full width maximum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.19307v1",
+      "DOI:10.1016/j.spl.2026.110707",
+      "DOI:10.1214/aoms/1177704481",
+      "Published-finding index semantic searches for generalized gamma / Stacy / Lambert-W bandwidth aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2509.19307v1 gives the ordinary-gamma level solution and octave bandwidth, then states that generalized-gamma bandwidth is future work and may be impossible outside the gamma special case.",
+        "DOI:10.1214/aoms/1177704481 introduces the generalized gamma by placing a positive exponent in the exponential factor."
+      ],
+      "reasoning": "The prior gamma theorem implies only the \\(p=1\\) specialization of the new statement. It does not imply the outer \\(1/p\\) power, the modified argument \\(y^{p/(d-1)}\\), or the resulting octave factor. The new theorem strictly extends the stated parameter family while agreeing on the overlap.",
+      "searches": [
+        "arXiv:2509.19307 generalized gamma bandwidth future work",
+        "Stacy 1962 generalized gamma distribution Lambert W bandwidth",
+        "gamma shaped functions generalized gamma FWHM future work"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.19307v1, Sections 2.2, 2.4, and Discussion",
+        "DOI:10.1214/aoms/1177704481, bibliographic record and abstract",
+        "Published-finding index searches returned no generalized-gamma bandwidth theorem; the closest gamma hits concerned unrelated approximation, monotonicity, and quantile-curvature problems."
+      ],
+      "reasoning": "The ordinary-gamma result is not equivalent because it fixes \\(p=1\\). The new substitution shows that the extra power can be absorbed into the level-set coordinate and changes both the Lambert-W argument exponent and the outer \\(1/p\\) power. No searched source stated that equivalence or its width formula.",
+      "searches": [
+        "generalized gamma full width half maximum Lambert W",
+        "generalized gamma distribution FWHM exact bandwidth arbitrary proportion maximum",
+        "Stacy generalized gamma Lambert W inverse density full width",
+        "generalized gamma octave bandwidth Lambert W",
+        "generalized gamma Lambert W density inverse",
+        "Stacy Lambert W generalized gamma"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-finding index closest IDs: 2026/9/18/SCOPE-satterthwaite-transform-gaps-metric-lower-bounds--883f5d776ec4; 2026/9/21/SCOPE-gamma-monotonicity-critical-tau-bracket--04bd6407a2a1; 2026/9/21/SCOPE-sharp-gamma-complete-monotonicity-classification--fa810a835e62; 2026/9/19/SCOPE-gamma-sum-quantile-curvature-and-median-endpoint-rates--bd16316e417a.",
+        "None of those records concerns generalized-gamma density level widths, FWHM, FWyM, or octave bandwidth."
+      ],
+      "reasoning": "The indexed nearby gamma findings address approximation gaps, gamma-function monotonicity, complete monotonicity, or quantile curvature. Their claims neither contain nor imply the density-level inversion theorem here.",
+      "searches": [
+        "generalized gamma full width half maximum Lambert W",
+        "Stacy generalized gamma bandwidth Lambert W",
+        "generalized gamma octave bandwidth"
+      ]
+    },
+    "rationale": "The closest inspected full text proves the \\(p=1\\) ordinary-gamma bandwidth formula and explicitly names generalized-gamma bandwidth as future work, while the new theorem covers every positive \\(p\\) with an interior mode by a power reduction. Focused semantic searches, published-finding searches, and alias searches found no statement implying the displayed formulas. The remaining risk is an older equivalent formulation under Amoroso or powered-exponential terminology.",
+    "residual_risks": [
+      "An older equivalent identity may exist under Amoroso, powered-exponential, or inverse-density terminology without using generalized-gamma bandwidth language. No such covering source appeared in the bounded targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new claim. It proves the ordinary-gamma case and explicitly leaves generalized gamma unresolved as future work.",
+        "evidence": "The paper gives the gamma FWyM and octave formulas and later states that future work may investigate generalized-gamma bandwidth and that deriving it outside the gamma special case may be impossible.",
+        "identifier_or_url": "arXiv:2509.19307v1",
+        "material_read": "Full HTML text, especially Sections 2.2 and 2.4 and the Discussion.",
+        "method": "Direct full-text inspection of the open arXiv version.",
+        "title": "Bandwidth of Gamma-Distribution-Shaped Functions via Lambert W Function",
+        "trigger": "Exact same bandwidth observable and explicit mention of generalized gamma as future work."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY. The inspected material defines the powered-exponential extension and does not provide a bandwidth statement; it is not used as a whole-document noncoverage certificate.",
+        "evidence": "The abstract describes adding a positive exponent parameter to the exponential factor and discusses moments, cumulative probabilities, transformations, and convolutions.",
+        "identifier_or_url": "DOI:10.1214/aoms/1177704481",
+        "material_read": "Bibliographic record and abstract.",
+        "method": "Inspection of accessible bibliographic and abstract text.",
+        "title": "A Generalization of the Gamma Distribution",
+        "trigger": "Defines the exact generalized-gamma family used in the theorem and links it to the older Amoroso family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "05a86374-a08d-4ade-ba68-22c00965e582",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves an explicit future-work question in a recent probability paper and does so for the entire interior-mode Stacy generalized gamma family, a standard superfamily containing important special cases. The exact formula is directly useful for reporting density bandwidths and shows structurally why the additional power parameter does not destroy Lambert-W solvability.",
+    "status": "PASS"
+  }
+}
