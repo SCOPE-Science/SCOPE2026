@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the Dirichlet directing vector makes adjacent observations iid categorical, so each change indicator has conditional mean equal to latent Gini–Simpson diversity. Dirichlet fourth moments give the diversity variance; adjacent and disjoint edge-pair moments give the complete variance of the transition count. The algebra was independently checked by exact rational enumeration over 20,007 sequence states. No finite computation is used as a substitute for the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected full text of DOI 10.1239/jap/1231340230 gives the Dirichlet mixing measure and a theorem for joint run-statistic distributions after integrating over color frequencies.",
+        "The accessible record for DOI 10.1016/j.spl.2008.01.002 says it derives exact marginal distributions of total, longest, and shortest runs."
+      ],
+      "reasoning": "A marginal distribution of the run count, even if exact, does not determine its covariance with the latent diversity because that requires the coupling between the observed path and the directing vector. The inspected broader theorem integrates the directing vector out and therefore does not imply the mixed covariance or correlation stated here.",
+      "searches": [
+        "multicolor Polya total runs latent Dirichlet concentration mixed moment",
+        "exchangeable sequence transition count latent diversity Dirichlet covariance",
+        "\"Distribution of runs in a sequence of exchangeable multi-state trials\" \"Dirichlet\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1239/jap/1231340230",
+      "doi:10.1016/j.spl.2008.01.002",
+      "published-record:a8532889-aa0a-4a58-9e7c-e458fcef892e",
+      "published-record:45407eac-eab2-4661-a8c3-d83d05374810",
+      "published-record:8bfd4486-1222-4d39-bde3-390e1c1e2022"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Record a8532889-aa0a-4a58-9e7c-e458fcef892e concerns coverage versus adjacent changes for a fixed categorical probability vector.",
+        "Record 45407eac-eab2-4661-a8c3-d83d05374810 concerns block richness versus empirical pair diversity in Pitman–Yor partitions.",
+        "Record 8bfd4486-1222-4d39-bde3-390e1c1e2022 concerns observed category coverage versus pair collisions for fixed iid categorical sampling."
+      ],
+      "reasoning": "None of these statements contains a random directing vector or identifies the adjacent-change rate as a conditionally unbiased estimator of its latent Simpson diversity. Their covariance formulas do not algebraically determine the present mixed moment or finite-sample correlation.",
+      "searches": [
+        "published record a8532889-aa0a-4a58-9e7c-e458fcef892e adjacent changes categorical coverage",
+        "published record 45407eac-eab2-4661-a8c3-d83d05374810 Pitman–Yor richness empirical diversity",
+        "published record 8bfd4486-1222-4d39-bde3-390e1c1e2022 categorical coverage collisions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.1239/jap/1231340230 defines the multicolor Pólya sequence through a Dirichlet de Finetti measure and develops run statistics.",
+        "DOI 10.1016/j.spl.2008.01.002 is an exact-distribution paper for total/longest/shortest runs in exchangeable multi-state trials; its accessible abstract does not mention Simpson diversity or a mixed latent moment."
+      ],
+      "reasoning": "Aliases checked included number of runs, adjacent changes, switches, transitions, Simpson diversity, Gini–Simpson diversity, homozygosity, directing measure, and Dirichlet mixing. The closest sources study marginal run laws; the accepted statement is a joint law with a functional of the latent directing vector.",
+      "searches": [
+        "adjacent-change rate latent Gini Simpson diversity symmetric Dirichlet Polya exact correlation",
+        "transition count directing Dirichlet measure Simpson diversity covariance runs",
+        "\"Pólya urn\" \"Simpson diversity\" runs",
+        "\"run count\" \"Simpson diversity\" Dirichlet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-run formula or table in the inspected sources contains a latent Gini–Simpson column or the displayed covariance/correlation.",
+        "The run-statistic formulas in DOI 10.1239/jap/1231340230 are indexed by run lengths and color counts, whereas the accepted formula depends on the latent quadratic diversity before integration."
+      ],
+      "reasoning": "The relevant exact-distribution literature tabulates marginal path statistics. The new mixed quantity is not a re-reading of an existing table entry.",
+      "searches": [
+        "Dirichlet multinomial species richness Simpson index covariance",
+        "Dirichlet random probabilities run count Simpson concentration",
+        "multicolor Polya runs Dirichlet Simpson exact correlation"
+      ]
+    },
+    "rationale": "The closest inspected run literature gives Dirichlet mixing and marginal/joint distributions of path run statistics but does not retain the latent directing vector in a mixed covariance. Alias searches and comparisons against the closest published records did not locate an equivalent or stronger implication. A plausible inaccessible 2008 exchangeable-runs paper remains an explicit residual risk, but its accessible abstract describes marginal run distributions rather than latent-diversity coupling.",
+    "residual_risks": [
+      "The complete body of DOI 10.1016/j.spl.2008.01.002 was not available in the open sources inspected; it could contain an unadvertised mixed-moment identity.",
+      "Older Bayesian diversity or exchangeability literature may encode the same identity under an estimator or posterior-predictive formulation not found by the alias searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the accepted mixed latent-diversity claim. The paper integrates over the directing vector to obtain run-statistic laws; it does not state the mixed covariance or finite-sample correlation with Gini–Simpson diversity.",
+        "evidence": "The paper explicitly identifies the multicolor Pólya sequence as exchangeable with a Dirichlet de Finetti measure and then derives run-statistic distributions from run lengths and color counts.",
+        "identifier_or_url": "doi:10.1239/jap/1231340230",
+        "material_read": "Full PDF, especially pages 2–5 covering the de Finetti representation, Dirichlet measure, color-count law, and joint run-statistic theorem; searches for Simpson, diversity, covariance, and correlation.",
+        "method": "Direct full-text inspection and formula comparison.",
+        "title": "Run Statistics Defined on the Multicolor URN Model",
+        "trigger": "Same multicolor Pólya urn, exchangeability, Dirichlet mixing, and run-statistic objects."
+      },
+      {
+        "assessment": "PLAUSIBLE_BUT_UNRESOLVED_FULL_TEXT. The abstract claims exact distributions of total, longest, and shortest runs and Pólya-urn applications, but does not mention the directing vector, Simpson diversity, or mixed moments.",
+        "evidence": "The accessible abstract describes marginal distributions of run statistics; it does not assert joint laws with the latent de Finetti parameter.",
+        "identifier_or_url": "doi:10.1016/j.spl.2008.01.002",
+        "material_read": "Abstract and bibliographic record; open-web full text was not available.",
+        "method": "Abstract-level implication comparison after open-source full-text search.",
+        "title": "Distribution of runs in a sequence of exchangeable multi-state trials",
+        "trigger": "Title and abstract explicitly include total run count for exchangeable multi-state trials, the closest alias of adjacent changes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0de239ba-eb07-48e3-934a-75241c6b2427",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Adjacent changes are a canonical local sequence observable, while Gini–Simpson diversity is a canonical latent concentration functional. The theorem gives an exact finite-sample bridge between them under reinforcement, quantifies the amount of latent diversity information captured by order-local transitions, and shows asymptotically perfect correlation with an explicit first-order rate. This is a structural relation rather than a recomputation of a marginal run distribution.",
+    "status": "PASS"
+  }
+}
