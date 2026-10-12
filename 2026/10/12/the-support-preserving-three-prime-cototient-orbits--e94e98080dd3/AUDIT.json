@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For positive a,b,c, compute T(2^a3^bq^c)=2^a3^{b-1}q^{c-1}(2q+1). Since 2q+1 is odd and congruent to 1 modulo q, closure forces this factor to be a power of 3. Conversely if 2q+1=3^h, induction explicitly eliminates the q-part in c steps, the 3-part in b+(h-1)c steps, and the remaining 2-part in a+b+(h-1)c steps. Total length a+2b+(2h-1)c and one-option SG parity a+c. The proof handles all a,b,c>=1 and all primes q>3; separate finite replay tests 168 exponent triples and 59 nonqualifying primes. No infinitude of q is assumed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Iannucci–Larsson 2021 Theorem 8 concerns the different TOTIENT move n -> phi(n); Section 3.1.2 says the analogous NONTOTIENT classification remains open",
+        "Ellis et al. 2023 Theorem 4.2 addresses starts with only two distinct primes"
+      ],
+      "reasoning": "The totient-iteration theorem does not apply to the cototient map. Theorem 4.2 for two-prime starts cannot directly settle the first cototient image of a three-prime start or classify closure uniformly over q. Elementary phi-multiplicativity enables, but does not by itself state, the new support-closure equivalence and full height formula.",
+      "searches": [
+        "Euler totient complementary dynamical map n minus phi n on prime support 2 3 q",
+        "\"n-phi(n)\" \"2^a\" \"3^b\" \"13^c\"",
+        "Game values of arithmetic functions Iannucci Larsson PDF 2021"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.01231v1, Section 4",
+      "Iannucci–Larsson, Integers 21B (2021), A14, Section 3.1.2",
+      "OEIS A053034"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ellis et al. 2023 Theorem 4.2: for two distinct primes p,q with p+q-1=p^h, precise parity for p^kq^l",
+        "Iannucci–Larsson 2021 Section 3.1.2: the calculation for p^k q and an open direction on dist"
+      ],
+      "reasoning": "Their prime-pair identity p+q-1 does not cover the three-prime identity 2q+1; applying their theorem after reducing the q-part requires first proving closure and the exact q-elimination segment. The result is a genuinely distinct three-prime family, not a two-prime special case.",
+      "searches": [
+        "Sprague-Grundy game nontotient 2 3 13 2q+1 power of 3 height class function",
+        "arxiv:2309.01231 Theorem 4.2 nontotient p q two primes",
+        "arxiv:2101.07608 nontotient first class dist"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2309.01231v1, Section 4: the one-option game and the two-prime cototient height formula",
+        "Iannucci–Larsson, Integers 21B (2021) A14, Section 3.1.2: iterative map and prime-power and selected two-prime examples"
+      ],
+      "reasoning": "The checked statements treat prime powers, two-prime supports, and general computability. None asserts invariance of all positive-exponent three-prime supports {2,3,q}, their classification via 2q+1, or the resulting exact three-phase orbit.",
+      "searches": [
+        "nontotient cototient iteration trajectories 2^a 3^b 13^c 1093 ternary repunit prime exact height",
+        "\"nontotient\" \"2\" \"3\" \"13\" game totient cototient",
+        "\"cototient iteration\" \"13\" \"3\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A053034 tabulates cototient orbit lengths for factorial inputs, not for 2^a3^bq^c",
+        "Ellis et al. 2023, Section 4, small-n heights n<=20"
+      ],
+      "reasoning": "Numerical tables on factorials or finitely many small starts cannot give or dominate the unbounded, parameterized three-prime support criterion. The symbolic formula is not a recomputation of those tables.",
+      "searches": [
+        "\"nontotient\" \"1093\" \"13\" game 2 3",
+        "OEIS A053034 cototient iterates length",
+        "\"nontotient\" \"prime factors\" \"closed\" \"3\" game"
+      ]
+    },
+    "rationale": "Both directly related full papers were inspected in their substantive NONTOTIENT sections and limit formulas to prime powers and two-prime starts; none identifies the sharp support-stable three-prime family, complete symbolic trajectories, or exact heights. Three targeted mathematical-record searches and primary-literature alias and implication comparisons found no dominating theorem. Elementary derivability and unindexed equivalent work remain acknowledged risks.",
+    "residual_risks": [
+      "Some arithmetic identities are elementary, and an earlier statement of the same three-prime orbit may be buried in unindexed literature or in an uncited source.",
+      "The classification does not address supports that leak new primes or the infinitude of distinct ternary-repunit primes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Two-prime height and 2-power shift results present; complete {2,3,q} invariant-support criterion and orbit absent",
+        "evidence": [
+          "Section 4 Theorem 4.2 on p^k q^l; Lemma 4.4 on even doubling; Corollary 4.3 on 2^k5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.01231",
+        "material_read": "8-page source, especially Section 4 (pp. 7-8), equations, theorem, corollary and references",
+        "method": "Read searchable full PDF and inspected image of page 7",
+        "title": "Two Games on Arithmetic Functions: SALIQUANT and NONTOTIENT",
+        "trigger": "Direct motivating work: nontotient height and Theorem 4.2"
+      },
+      {
+        "assessment": "Contains rules and two-prime examples, not this three-prime support classification",
+        "evidence": [
+          "Section 3.1.2 expressions for n-phi(n), p^kq; discussion of open dist classification"
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/vb14/vb14.pdf",
+        "material_read": "Full 35-page searchable PDF; Section 3.1.2, pages 18-19 inspected including page image, nearby TOTIENT Theorem 8 compared",
+        "method": "Read original openly accessible paper in PDF and inspected Section 3.1.2 visually",
+        "title": "Game values of arithmetic functions",
+        "trigger": "Foundational source cited in direct motivating paper"
+      },
+      {
+        "assessment": "Different starting family; not exact three-prime support classification",
+        "evidence": [
+          "Entry enumerates cototient iteration starting at n factorial rather than 2^a3^bq^c"
+        ],
+        "identifier_or_url": "https://oeis.org/A053034",
+        "material_read": "Sequence description, examples, formulas and links on OEIS entry",
+        "method": "Read page text",
+        "title": "OEIS A053034: Cototient iteration starting at factorials",
+        "trigger": "Possible exact table dominating orbit height"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e94e9808-0dd3-47f1-b157-0c5d9537574b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2021 and 2023 papers explicitly motivate classification of cototient game heights beyond two-prime supports. This supplies a natural complete classification of invariant supports {2,3,q} uniformly over every prime q>3, an exact orbit at all positive exponents, and an explicit winning/losing parity. It is an infinite three-support family (already q=13 or q=1093 suffices) rather than an arbitrary finite parameter slice or a previously tabulated value; no paper-sized downstream result is claimed.",
+    "status": "PASS"
+  }
+}
