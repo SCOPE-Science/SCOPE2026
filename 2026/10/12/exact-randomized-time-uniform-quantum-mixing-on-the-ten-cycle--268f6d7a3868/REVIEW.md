@@ -1,0 +1,12 @@
+# Review: randomized-time uniform mixing on the ten-cycle
+
+## Correctness — PASS
+The claim is a fully quantified existence theorem for all observation cutoffs on the unweighted ten-cycle. The phase labeling is exact using the golden-ratio identity. The nine nonzero Fourier coherences are canceled by a positive torus probability density: four even shifts each have counts \((2,2,2)\) at the relevant characters, while the five odd shifts have counts \((0,0,0)\). Fourier inversion gives all ten expected transition probabilities as \(1/10\). Irrational Kronecker density and a relative-interior convexity argument give **exact** physical-time attainment, and the five-dimensional affine constraint gives at most six times. The standalone verifier checks every fixed-order frequency identity and independently checks the amplitude average. Risks are limited to misapplying the standard convex-interior theorem; its hypotheses are checked in the proof. Finite numerical tests are corroboration, not an infinite proof.
+
+## Originality — PASS, with limitations
+The most relevant primary source is Baptista–Coutinho–Marques, *Unexpected Averages of Mixing Matrices* (arXiv:2308.16378), whose full preprint contains short-path constructions and general arbitrary-distribution theory but no ten-cycle solution. The cycle works of Godsil–Mullin–Roy (arXiv:1301.5889) and Adamczak and collaborators (arXiv:0708.2096) establish impossibility for **instantaneous** and **conventional Cesàro** uniformity, respectively. Neither statement entails arbitrary-distribution impossibility. A differently presented spectral convexity result could subsume it; unindexed literature remains a genuine residual risk.
+
+## Value — PASS
+The ten-cycle is the first even cycle of size twice an odd prime larger than three, and the first such example with genuinely irrational golden-ratio spectral phases. The result demonstrates that the standard instantaneous/Cesàro obstructions can be removed by a **single harmonic in a nonnegative phase law**, while providing a universal six-point physical sampling guarantee after every cutoff. The exact existence theorem is not a numerical finite sample or a change of parameters in an existing cycle proof; it identifies a new cancellation mechanism for a natural graph at a previously untreated arithmetic frontier. It does not claim a classification of all even cycles or optimality of six samples.
+
+Self-review: passed. Independent audit: not yet performed.
