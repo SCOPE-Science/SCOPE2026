@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "With zero first-step factor states, the printed row and column accumulators are positive multiples of row and column squared-gradient energies. In the current normalized formula, for nonzero \\(G\\), \\(V_{ij}=(1-\\beta)R_iC_j/\\|G\\|_F^2\\); the original version has the same zero pattern. Hence a zero row or column gives \\(G_{ij}=V_{ij}=0\\) on affected entries, while absence of zero rows and columns makes every preconditioner entry positive. The grouped RMS normalization occurs later and cannot repair an undefined quotient. Exhaustive two-by-three enumeration and the strongly convex witness replay these identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adafactor Algorithm 2 uses the same rank-one row/column factorization but updates with \\(G/(\\sqrt V+\\epsilon)\\).",
+        "For a zero row with nonzero total gradient, Adafactor therefore has \\(G=0\\), \\(V=0\\), and a finite zero update on that row."
+      ],
+      "reasoning": "The closest broader factorized-adaptive method does not dominate the claim because its additive denominator floor removes the row/column support singularity.",
+      "searches": [
+        "Adafactor zero row gradient epsilon factorized second moment support",
+        "arXiv:1804.04235v1",
+        "2026/9/19/SCOPE-matrix-valued-equivariant-stiefel-adaptation--1fa8a4cea945"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.10195v1",
+      "arXiv:2310.10195v3",
+      "arXiv:1804.04235v1",
+      "GitHub:OpenLMLab/LOMO:lomo_optim/adalomo.py"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "AdaLomo v1 forms an unnormalized row/column outer product and divides the gradient directly by it.",
+        "AdaLomo v3 adds total-mass normalization but retains direct division, leaving the zero pattern unchanged.",
+        "Adafactor retains a positive additive denominator after square root.",
+        "The current first-party implementation adds a positive floor to squared gradients before factorization and uses inverse-square-root factors."
+      ],
+      "reasoning": "The accepted claim is the exact mathematical support boundary of the printed recurrence. The predecessor and maintained code use safeguards that make their implications different.",
+      "searches": [
+        "arXiv:2310.10195v1 Algorithm 1",
+        "arXiv:2310.10195v3 Algorithm 1",
+        "arXiv:1804.04235v1 Algorithm 2",
+        "GitHub:OpenLMLab/LOMO:lomo_optim/adalomo.py"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Both arXiv:2310.10195v1 and v3 print a raw elementwise quotient after factorized row/column second-moment construction.",
+        "No checked indexed result stated the iff condition that every gradient row and column must have nonzero support for the printed first step."
+      ],
+      "reasoning": "An equivalent statement would need to classify the zero set of the printed factorized preconditioner and propagate it through the raw quotient. Generic sparse-optimization or row-coherence results do not imply that classification.",
+      "searches": [
+        "AdaLomo zero row column sparse gradient division by zero factorized second moment",
+        "AdaLomo grouped update normalization undefined sparse support",
+        "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+        "2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed records concerned sparse stochastic subspace descent, row-coherence effects, and matrix-valued adaptive moments rather than AdaLomo.",
+        "No checked result returned AdaLomo with an exact zero-row/zero-column support criterion."
+      ],
+      "reasoning": "Search absence is supporting evidence only; originality rests mainly on direct statement comparison with both AdaLomo public revisions, Adafactor, the maintained implementation, and own-ledger overlap checks.",
+      "searches": [
+        "AdaLomo optimizer exact scalar quadratic gradient normalization adaptive learning rate clipping stability",
+        "AdaLomo zero row column sparse gradient division by zero factorized second moment",
+        "AdaLomo grouped update normalization undefined sparse support",
+        "Adafactor zero row gradient epsilon factorized second moment support",
+        "AdaLomo exact support condition nonnegative matrix factorization gradient rows columns"
+      ]
+    },
+    "rationale": "The defining AdaLomo papers print the factorized recurrence and motivate sparse-data adaptation but do not state the exact row–column well-definedness criterion. Adafactor uses the same factorization idea with a positive additive denominator safeguard, so its statement does not imply this support singularity. The maintained first-party AdaLomo implementation itself uses a positive squared-gradient floor and inverse-square-root factors, which avoids rather than covers the printed recurrence boundary. Focused database searches returned no AdaLomo-specific equivalent result.",
+    "residual_risks": [
+      "The printed direct division may be a notation or typesetting discrepancy relative to the maintained implementation; the claim is therefore deliberately scoped to the printed algorithm.",
+      "An unindexed implementation discussion could have noticed zero-support arithmetic without publishing the complete iff classification.",
+      "The first-step criterion does not extend unchanged after positive historical row or column state has accumulated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_PRINTED_FORMULA_HAS_THE_SUPPORT_BOUNDARY.",
+        "evidence": "Algorithm 1 forms row and column squared-gradient states, their outer-product second moment, then the raw quotient before grouped RMS normalization.",
+        "identifier_or_url": "arXiv:2310.10195v1",
+        "material_read": "Full algorithm page and surrounding grouped-update-normalization discussion, including factor states, raw quotient, and sparse-data motivation.",
+        "method": "Open-access PDF text plus page-image inspection.",
+        "title": "AdaLomo: Low-memory Optimization with Adaptive Learning Rate, original public version",
+        "trigger": "Earliest defining source and original Algorithm 1."
+      },
+      {
+        "assessment": "GLOBAL_NORMALIZATION_CHANGED_BUT_SUPPORT_BOUNDARY_PERSISTS.",
+        "evidence": "The current revision divides the factorized outer product by total row mass but still forms the raw update by direct elementwise division.",
+        "identifier_or_url": "arXiv:2310.10195v3",
+        "material_read": "Current Algorithm 1 and grouped-update-normalization section.",
+        "method": "Open-access PDF text plus page-image inspection.",
+        "title": "AdaLomo: Low-memory Optimization with Adaptive Learning Rate, current paper revision",
+        "trigger": "Check whether the current revision changes the zero-support conclusion."
+      },
+      {
+        "assessment": "FACTORIZATION_PRIOR_BUT_ZERO_ROW_IS_SAFEGUARDED.",
+        "evidence": "Adafactor applies the factored estimate inside \\(G/(\\sqrt V+\\epsilon)\\), so a zero row with nonzero total mass yields a finite zero update.",
+        "identifier_or_url": "arXiv:1804.04235v1",
+        "material_read": "Rank-one I-divergence factorization and Algorithm 2 for factored second moments.",
+        "method": "Open-access full-text inspection.",
+        "title": "Adafactor: Adaptive Learning Rates with Sublinear Memory Cost",
+        "trigger": "Closest structural predecessor explicitly cited by AdaLomo."
+      },
+      {
+        "assessment": "MAINTAINED_IMPLEMENTATION_SAFEGUARDS_THE_SUPPORT_BOUNDARY.",
+        "evidence": "The implementation initializes row/column states to zero, adds a positive epsilon to squared gradients, builds inverse-square-root row/column factors, and multiplies them by the gradient.",
+        "identifier_or_url": "GitHub:OpenLMLab/LOMO:lomo_optim/adalomo.py",
+        "material_read": "State initialization, squared-gradient update, factor construction, inverse-square-root scaling, update clipping, and parameter RMS scaling.",
+        "method": "Public repository source inspection.",
+        "title": "First-party AdaLomo implementation",
+        "trigger": "Determine whether the maintained implementation inherits the printed support singularity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b398319-39c7-4fc2-a07f-c032ede0c713",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result is more than an isolated stationary-point division check: it completely classifies first-step well-definedness by the bipartite support of a matrix gradient and gives a nonstationary strongly convex witness. Zero rows and columns are natural in sparse-gradient settings, which the defining paper itself cites as a motivation for second-moment adaptation. The comparison with Adafactor and the maintained code identifies exactly which safeguards remove the boundary, making the result useful for mathematical analyses or reproductions that otherwise treat the printed recurrence literally.",
+    "status": "PASS"
+  }
+}
