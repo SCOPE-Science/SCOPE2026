@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The two statistics are normalized degree-two U-statistics. Exact overlap counting gives the covariance from a same-pair kernel covariance and a one-index conditional-projection covariance. For standard exponentials the same-pair term is 2 and the one-index term is 3/4, obtained by explicit exponential integration. The same method yields both marginal variances, the exact correlation, its monotonicity, and its limit. An independent exact spacing calculation in the packaged checker reproduces the covariance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Čiginas and Pumputis define the same pair of sample statistics as degree-two U-statistics and provide separate variance decompositions and asymptotic analyses.",
+        "Gail and Gastwirth establish exact and asymptotic distribution theory for a scale-free Gini statistic under exponentiality.",
+        "Hosking develops the L-moment framework in which Gini mean difference is a central order-statistic dispersion functional."
+      ],
+      "reasoning": "These sources cover the component statistics and general machinery but do not imply the accepted mixed covariance from marginal formulas alone. The new distribution-specific input is the mixed first projection, whose covariance is 3/4 for standard exponential sampling.",
+      "searches": [
+        "arXiv:1406.2275 Gini mean difference variance U-statistic covariance",
+        "DOI:10.1111/j.2517-6161.1978.tb01048.x exponential Gini statistic",
+        "DOI:10.1111/j.2517-6161.1990.tb01775.x Gini mean difference L-moments"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.2275",
+      "DOI:10.1111/j.2517-6161.1978.tb01048.x",
+      "DOI:10.1111/j.2517-6161.1990.tb01775.x",
+      "Hoeffding (1948), Annals of Mathematical Statistics 19, 293–325"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact exponential extrema-versus-variance identities concern maximum or range, each an extreme-order functional.",
+        "The Gini mean difference uses all pairwise distances, equivalently a weighted sum of all internal exponential order spacings.",
+        "Neither an extrema covariance nor the separate Gini and variance marginal formulas determines the mixed one-index projection used here."
+      ],
+      "reasoning": "There is no reduction from the Gini statistic to a maximum or range for sample size greater than two. The accepted claim therefore is not a corollary of exact extrema-versus-variance formulas; it requires a separate mixed-kernel calculation.",
+      "searches": [
+        "exponential maximum sample variance covariance exact",
+        "exponential range sample variance covariance exact",
+        "Gini mean difference exponential order spacings sample variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches covered Gini mean difference, mean absolute pairwise difference, empirical variance, unbiased sample variance, exponential sampling, covariance, correlation, U-statistic projections, and order spacings.",
+        "The accepted covariance is equivalently the cross-covariance between the degree-two kernels \\(|X_i-X_j|\\) and \\((X_i-X_j)^2/2\\), including their one-index overlap term.",
+        "No located source stated the rational finite-n covariance or the exact correlation limit."
+      ],
+      "reasoning": "Both kernel and order-statistic/spacings formulations were searched because the Gini mean difference is simultaneously a U-statistic and an L-statistic. Search failure is not used as the sole originality basis; a full same-object comparison source was inspected at definition, variance-decomposition, and asymptotic sections.",
+      "searches": [
+        "exponential sample variance Gini mean difference covariance exact finite sample",
+        "Gini mean difference sample variance exponential covariance correlation",
+        "exponential range Gini mean difference covariance",
+        "uniform order statistics sample range sample variance covariance exact",
+        "exponential Gini mean difference sample variance covariance (3n-2)/(n(n-1))",
+        "covariance Gini mean difference empirical variance exponential exact",
+        "L2 sample variance exponential covariance exact finite n",
+        "Gini mean difference U-statistic squared-difference U-statistic covariance exponential",
+        "exponential sample Gini mean difference empirical variance exact correlation finite n",
+        "sample L2 sample second moment variance correlation exponential order spacings",
+        "Gini U-statistic squared difference U-statistic cross covariance",
+        "exponential Gini statistic sample variance joint distribution",
+        "\"Gini mean difference\" \"sample variance\" covariance exponential",
+        "\"Gini mean difference\" empirical variance correlation exponential",
+        "\"mean absolute difference\" squared difference U-statistic covariance exponential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula table or indexed statement matching the finite covariance, exact correlation, or limiting constant was located."
+      ],
+      "reasoning": "The accepted result is an all-n symbolic cross-moment rather than a numerical table, simulation, or recomputation of known separate variances.",
+      "searches": [
+        "\"3n-2\" Gini variance covariance exponential",
+        "\"3 sqrt 6 / 8\" Gini variance correlation",
+        "\"Gini mean difference\" \"3n-2\" sample variance",
+        "\"Gini\" \"sample variance\" \"finite-sample correlation\" exponential"
+      ]
+    },
+    "rationale": "The closest full comparison source studies exactly Gini mean difference and empirical variance as degree-two U-statistics and develops their separate variance/asymptotic theory, but no cross-covariance appears in the inspected text. The closest exponential-Gini source develops exact and asymptotic marginal distribution theory but the inspected public material does not state the accepted joint covariance. Targeted formula and alias searches found no exact matching statement.",
+    "residual_risks": [
+      "An older source may contain the same exponential specialization under U-statistic, mean-difference, L-statistic, or efficiency terminology.",
+      "The overlap-counting framework is classical, so the novelty claim concerns the explicit exponential mixed projection and resulting closed finite-n correlation rather than a new general covariance theorem.",
+      "Only public summary material, not full text, was available for the Gail–Gastwirth and Hosking comparisons."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_STATISTICS_SEPARATE_VARIANCE_AND_ASYMPTOTIC_THEORY_WITHOUT_ACCEPTED_CROSS_COVARIANCE",
+        "evidence": "The paper defines the Gini statistic and empirical variance in the same pairwise form used here and identifies both as degree-two U-statistics. Its full text develops the two variance structures separately; no covariance occurrence was found, and no exact exponential cross-correlation is stated.",
+        "identifier_or_url": "arXiv:1406.2275",
+        "material_read": "Full public HTML text, including the introduction, definitions of both statistics, the discussion of known iid Gini variance formulas, Hoeffding decompositions, separate variance components, Studentization, and conclusions.",
+        "method": "Compared definitions and implication structure, searched the full text for covariance/correlation statements, and inspected the separate variance-decomposition sections.",
+        "title": "Gini's mean difference and variance as measures of finite populations scales",
+        "trigger": "Closest source because it studies exactly Gini mean difference and empirical variance as competing scale statistics and explicitly treats both as degree-two U-statistics."
+      },
+      {
+        "assessment": "EXPONENTIAL_GINI_MARGINAL_THEORY_WITHOUT_VISIBLE_JOINT_SAMPLE_VARIANCE_COVARIANCE",
+        "evidence": "The public summary states that exact and asymptotic distribution theory is developed for the exponential Gini statistic. The inspected public material does not state a covariance or correlation with sample variance.",
+        "identifier_or_url": "DOI:10.1111/j.2517-6161.1978.tb01048.x",
+        "material_read": "Public publisher summary, bibliographic metadata, and indexed references.",
+        "method": "Compared the stated exact/asymptotic exponential Gini theory with the accepted joint Gini/sample-variance covariance.",
+        "title": "A Scale-Free Goodness-Of-Fit Test for the Exponential Distribution Based on the Gini Statistic",
+        "trigger": "Direct archive-era source on exact Gini-statistic distribution theory under exponential sampling."
+      },
+      {
+        "assessment": "BROADER_GINI_L_MOMENT_FRAMEWORK_NOT_ACCEPTED_CROSS_COVARIANCE",
+        "evidence": "The source explicitly identifies Gini mean difference as part of L-moment theory and emphasizes its contrast with conventional moments. The inspected public material does not provide the exponential Gini/sample-variance finite correlation.",
+        "identifier_or_url": "DOI:10.1111/j.2517-6161.1990.tb01775.x",
+        "material_read": "Public publisher summary, bibliographic metadata, and indexed references.",
+        "method": "Compared the broad L-moment/Gini framework with the accepted distribution-specific cross-moment.",
+        "title": "L-Moments: Analysis and Estimation of Distributions Using Linear Combinations of Order Statistics",
+        "trigger": "Canonical order-statistic framework placing Gini mean difference among linear-moment dispersion measures."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3bfb4b0a-87a1-4afc-8bce-2bd3c06539ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gini mean difference and sample variance are canonical competing dispersion summaries, with the former motivated by robustness and order-statistic methods and the latter by conventional moment methods. For the canonical skewed exponential family, the exact finite-sample correlation quantifies their redundancy on a distribution where both have direct scale interpretations. The strictly increasing correlation and nontrivial limit 3 sqrt(6)/8 show persistent strong alignment without asymptotic equivalence, a useful calibration unavailable from separate variance formulas.",
+    "status": "PASS"
+  }
+}
