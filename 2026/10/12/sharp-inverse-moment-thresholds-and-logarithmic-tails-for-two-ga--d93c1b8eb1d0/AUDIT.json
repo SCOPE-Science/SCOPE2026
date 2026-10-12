@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed all exact Gaussian normal equations for every integer factor and ambient dimension, including boundary R=1 and p=R. Case 1 factorizes into independent Gaussian/chi ratios and gamma moments. Case 2 is a product-normal design/residual quotient; the integrable K0 logarithmic singularity and justified polar dominated-convergence limit give the exact positive \\(t^{-R}(\\log t)^R\\) leading constant, hence the sharp moment cutoff. Dense Gaussian comparison follows by chi small-ball integration. A conditional-variance identity plus strict Jensen proves the MSE gap. The embedded verifier gave 1,513 finite identity and moment-constant diagnostics; finite tests do not prove asymptotics or infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen & Jin arXiv:2010.09791, Introduction 1.1, Theorem 1.1, §2 and §5: high-probability regression distortion and embedding dimension, not expectation or tail equivalences.",
+        "Chen et al. arXiv:1909.11290, §3–5: matrix embedding guarantees under two sketch constructions, with failure-probability parameters; finite-probability bounds do not settle infinite unconditional moments at fixed row counts.",
+        "Bujanović & Kressner arXiv:2004.06433, §§2–4 and Appendix A: high moments for rank-one-vector norm/trace estimators, with no quotient by an unregularized sketched regression denominator."
+      ],
+      "reasoning": "A theorem giving uniform exponential tail decay of the unregularized regression coefficient for all row-product Gaussians would decisively dominate this finding, but the inspected nearby guarantees have polynomial failure bounds or different random ratios and cannot do so. Existing results on arbitrary-sketch success probabilities do not logically imply the exact logarithmic leading asymptotic or the one-column inverse-moment cutoffs.",
+      "searches": [
+        "tensor Kronecker Gaussian structured sketch least squares estimator heavy tails inverse moments Student t degrees freedom minimum factor sketch rows",
+        "tensor structured PDE inverse problem sketch exact distribution squared residual risk tails versus full Gaussian random projection",
+        "row-wise tensor Gaussian sketching optimal dimension constrained least squares Chen Jin 2010.09791",
+        "rank-one tensor Gaussian sketches noise orthogonal factors dense Gaussian least squares moment threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1909.11290",
+      "arXiv:2010.09791",
+      "arXiv:2006.08160",
+      "arXiv:2004.06433",
+      "arXiv:1712.09473"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1909.11290 §1 defines exactly the factor-reused and independent-row sketches; its main theorems bound embedding dimension at target distortion/failure probability.",
+        "arXiv:2010.09791 Theorem 1.1 and Corollary 2.3 give sketching-dimension guarantees for row-wise tensor sub-Gaussians, not sharp unconditional polynomial moments.",
+        "arXiv:2006.08160 establishes the dense Gaussian baseline and statistical lower bounds with another loss and no tensor comparison.",
+        "arXiv:1712.09473 treats a TensorSketch distribution for Kronecker-product designs, not products of independent Gaussian factors sampled rowwise."
+      ],
+      "reasoning": "The new finite-p threshold \\(\\min(r_1,r_2)\\) versus \\(r_1r_2\\) and the extra \\((\\log t)^R\\) factor are not direct consequences of high-probability embedding results without separate exact small-denominator analysis. Our proof explicitly supplies that analysis; generic dense Gaussian regression statements cover the comparator but not the new structured alternatives. Stronger unpublished or unindexed results remain a residual priority possibility.",
+      "searches": [
+        "Structured random sketching for PDE inverse problems 1909.11290 Case1 Case2 Gaussian Kronecker probability",
+        "Tensor-structured sketching for constrained least squares Chen Jin Gaussian independent tensor rows",
+        "Lower Bounds and a Near-Optimal Shrinkage Estimator for Least Squares using Random Projections Gaussian conditional estimator",
+        "Norm and trace estimation with random rank-one vectors Gaussian product inverse moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen, Li, Newton & Wright arXiv:1909.11290, section 1 Cases 1 and 2 and section 3 principal theorems: same distributions but high-probability sketch-size guarantees.",
+        "Sridhar, Pilanci & Özgür arXiv:2006.08160: dense Gaussian sketched regression and conditional Gaussian estimators, without factor reuse or product-normal inverse tails.",
+        "Classical scalar Gaussian/chi and product-normal density formulas supply ingredients, not a comparison of the two sketch constructions."
+      ],
+      "reasoning": "The same theorem could be phrased as a regression coefficient error, normal-equation ratio, Khatri–Rao row-product small-ball result, or an inverse-moment statement. Those formulations were explicitly checked against the source descriptions and related dense-Gaussian references. Existing one-ratio or product-normal facts do not independently assert the sharp two-construction threshold and normalized tail comparison.",
+      "searches": [
+        "Gaussian Kronecker product sketch one-column least squares infinite variance minimum factor dimension independent rows residual orthogonality",
+        "tensor-structured least-squares Gaussian row-wise Khatri-Rao moment threshold Student ratio",
+        "product normal iid sketch regression ratio sum products moment threshold logarithm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected indexed finite-dimensional table or database supplies the normalized least-squares error distribution for the two specified sketch constructions.",
+        "The closest numerical-algebra results on unrelated sharp sketching moments concern Haar descent, block products, and row-coherence bounds rather than these regression coefficient tails."
+      ],
+      "reasoning": "This is a continuum family of exact distributional identities for arbitrary positive row counts, not a finite-table lookup. Published mathematical-record searches used the source construction names, coefficient-error aliases, and moment/tail parameters; absence of an indexed result is not taken as proof of global priority.",
+      "searches": [
+        "sharp finite p moment threshold two Gaussian tensor sketches Kronecker product versus independent rowwise Khatri-Rao sketch sketch-and-solve scalar least squares",
+        "Gaussian product-normal row-wise sketch least squares error tail asymptotic t inverse m log(t) power m",
+        "case 1 P tensor Q versus case 2 rowwise tensor Gaussian sketches inverse moment beta Student t relative error infinite variance"
+      ]
+    },
+    "rationale": "Primary work defines both tensor-sketch laws but proves high-probability dimension/embedding statements. Closest subsequent tensor-regression and dense-Gaussian works do not imply the sharp \\(\\min(r_1,r_2)\\) versus \\(r_1r_2\\) inverse moments or the extra logarithmic leading-tail factor. Classical Gaussian-to-chi distributions and K0 product-normal density are acknowledged inputs. Searches of relevant published numerical-analysis literature and mathematical findings found no exact implication; global priority is not asserted.",
+    "residual_risks": [
+      "Equivalent one-column regression or product-normal ratio asymptotics may be present in unindexed specialized literature.",
+      "Related published density asymptotics might permit a known derivation after an unrecognized transformation; the claim is not presented as a unique use of classical ingredients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The row structures match the claim but inspected principal guarantees control finite failure probabilities and sketch sizes; they do not state normalized coefficient moment thresholds or sharp log-tail coefficients.",
+        "evidence": [
+          "Arxiv:1909.11290 §1 Cases 1 and 2, equations (10) and (11); §§3–5 embedding analyses, §6 tests."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1909.11290v4",
+        "material_read": "Introduction construction equations (9)–(11), embedding theorem discussion in §§3–5, experiments and appendix organization",
+        "method": "Open-access complete-paper HTML; inspected structural definitions, principal theorem statements and numerical discussion",
+        "title": "Structured random sketching for PDE inverse problems",
+        "trigger": "Defines both exact Gaussian sketch structures and therefore highest-priority same-object coverage"
+      },
+      {
+        "assessment": "Rowwise tensor regression framework and high-probability dimension bounds are prior, with no located exact unconditioned coefficient-tail comparison or inverse moment boundary.",
+        "evidence": [
+          "arXiv:2010.09791 Theorem 1.1 and Corollary 2.3 (JL/sketch dimension); §5.3 Gaussian-by-Gaussian experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2010.09791v3",
+        "material_read": "Introduction §§1.1–1.2, Theorem 1.1, row design §2.1 and sketch size §2.2, experiments §5 and references",
+        "method": "Open-access complete-paper HTML, targeted in-document reading and searches for moment, variance and inverse",
+        "title": "Tensor-structured sketching for constrained least squares",
+        "trigger": "Same independently rowwise tensor-Gaussian sketch class and unconstrained regression"
+      },
+      {
+        "assessment": "Dense Gaussian comparator is recognized as previously known; no same-statement coverage of reused-factor versus rowwise tensor-product sketches.",
+        "evidence": [
+          "arXiv:2006.08160 abstract and Gaussian-sketch regression analysis."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.08160",
+        "material_read": "Accessible full-text results describing conditional Gaussian sketched solutions, classical unbiased estimator and statistical bounds",
+        "method": "Open-access paper HTML and arXiv bibliographic record",
+        "title": "Lower Bounds and a Near-Optimal Shrinkage Estimator for Least Squares using Random Projections",
+        "trigger": "Strong nearest reference for dense Gaussian sketched least squares distribution and moments"
+      },
+      {
+        "assessment": "Shares Gaussian product distributional tools, but computes high-probability norm/trace estimators rather than inverses of randomly sketched scalar LS denominators.",
+        "evidence": [
+          "arXiv:2004.06433 §§2–4 and Appendix A."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2004.06433v2",
+        "material_read": "Introduction and main trace/norm bounds; Appendix A concerning product-Gaussian moment bounds",
+        "method": "Open-access complete-paper HTML, primary claims and appendix examination",
+        "title": "Norm and trace estimation with random rank-one vectors",
+        "trigger": "Rank-one Gaussian tensor test-vector distributions and Gaussian-product moments"
+      },
+      {
+        "assessment": "The random sketch is TensorSketch with different probability law, so its regression guarantees do not imply the exact Gaussian product-normal tail coefficients.",
+        "evidence": [
+          "arXiv:1712.09473 abstract, tensor design and TensorSketch analysis."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1712.09473",
+        "material_read": "Abstract, sketch construction and main tensor-regression statements",
+        "method": "Open-access arXiv record and original full-text examination of defining results",
+        "title": "Sketching for Kronecker Product Regression and P-splines",
+        "trigger": "Plausible stronger coverage under Kronecker regression and TensorSketch aliases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d93c1b8e-b1d0-4acb-9205-b4a2b447fc89",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Both structured Gaussian constructions are original source sampling designs and use the identical sketch-row budget R. On a unit-condition-number one-column tensor regression with arbitrary ambient size, \\(r_1=r_2=2\\) makes factor-reusing mean-square error infinite while independent rows make it finite; the latter retains an exact \\((\\log t)^R\\) tail loss compared with fully independent Gaussian sketches. This is an operationally motivated rare-error/integrability boundary not established by fixed-failure-probability embedding guarantees. No performance or cost dominance is inferred beyond the analyzed error measure.",
+    "status": "PASS"
+  }
+}
