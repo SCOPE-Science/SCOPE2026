@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For positive ranks \\(r_1<\\cdots<r_P\\), ROC-AUC is exactly \\(1-\\sum_j(r_j-j)/(P(N-P))\\), and average precision is exactly \\(P^{-1}\\sum_j j/r_j\\). Exhaustive exact enumeration of all binary rankings with both classes present through \\(N=5\\) proves the stated weak and strict boundaries and the complete first layer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kishida defines average precision as the mean precision at relevant-item ranks and proves higher-ranked relevant items contribute more strongly.",
+        "Davis and Goadrich prove a ROC/precision-recall correspondence and state that optimizing ROC area does not guarantee optimizing precision-recall area.",
+        "Saito and Rehmsmeier show that ROC and precision-recall evaluation can lead to materially different interpretations in biological classifier assessment."
+      ],
+      "reasoning": "These sources establish the measures and generic non-equivalence, but they do not give the discrete minimum under common prevalence and untied scores.",
+      "searches": [
+        "\"Property of Average Precision and its Generalization\" Kishida",
+        "\"The relationship between Precision-Recall and ROC curves\" Davis Goadrich",
+        "\"The Precision-Recall Plot Is More Informative than the ROC Plot\""
+      ]
+    },
+    "checked_sources": [
+      "NII:NII-2005-014E",
+      "doi:10.1145/1143844.1143874",
+      "doi:10.1371/journal.pone.0118432",
+      "MSC2020:92B15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Generic objective mismatch does not imply nonreversal for every ranking with fewer than five cases.",
+        "AUC-PR and classical average precision are related but not identical under every interpolation convention, so the accepted claim is stated specifically for discrete average precision.",
+        "The fixed-prevalence restriction removes changes caused merely by the prevalence-dependent precision-recall baseline."
+      ],
+      "reasoning": "The new statement is a minimality and complete-first-layer theorem for a precise finite ranking domain, not the already known qualitative fact that ROC and precision-recall evaluations differ.",
+      "searches": [
+        "Davis Goadrich optimize ROC area not guaranteed precision recall area",
+        "Saito Rehmsmeier ROC PR classifier ranking",
+        "average precision higher rank relevant documents contribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Empirical ROC-AUC is equivalently the fraction of correctly ordered positive-negative pairs.",
+        "For a binary ranking, ROC-AUC depends only on total positive displacement from ideal ranks, while average precision is a reciprocal-rank weighted sum.",
+        "No checked result stated a smallest fixed-prevalence binary word length at which the two summaries strictly reverse."
+      ],
+      "reasoning": "The searches cover the main equivalent descriptions: ROC-AUC versus average precision, pairwise ranking versus positive-rank weighting, and ROC versus precision-recall classifier ordering.",
+      "searches": [
+        "ROC AUC average precision ranking reversal fixed prevalence ranked binary labels smallest sample",
+        "average precision versus AUC ranking disagreement exact binary ranking",
+        "precision recall ROC area classifier ordering finite ranked list",
+        "\"ROC AUC\" \"average precision\" ranking different classifiers",
+        "\"AUC-ROC\" \"average precision\" ranking reversal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-word search located either five-case reversal pair as a minimal AUC–average-precision example.",
+        "No checked source tabulated the complete two-pair first strict layer.",
+        "The packaged verifier derives all first-layer cases from the full binary ranking census."
+      ],
+      "reasoning": "Exact binary-word searches directly test whether the small witnesses already occur in papers, tutorials, benchmark tables, or software tests.",
+      "searches": [
+        "\"10001\" \"01100\" average precision AUC",
+        "\"10011\" \"01110\" average precision AUC",
+        "\"1 0 0 0 1\" \"average precision\" AUC",
+        "\"0 1 1 0 0\" \"average precision\" AUC",
+        "\"balanced\" AUC average precision smallest ranking"
+      ]
+    },
+    "rationale": "Prior work establishes average precision, the ROC/precision-recall relationship, and generic disagreement between ROC-based and precision-recall-based evaluation. The checked primary literature, database searches, exact-word searches, and own-ledger checks did not state or imply the sharp fixed-prevalence no-tie finite boundary or its complete first layer.",
+    "residual_risks": [
+      "A five-case example could exist in unindexed teaching or software material without identifying the minimal fixed-prevalence boundary.",
+      "Average precision has multiple neighboring implementation conventions; the theorem uses the classical discrete definition stated explicitly in the result.",
+      "The result assumes no tied scores; tie-handling rules form a different finite problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supports the AP definition and weighting interpretation. It does not compare AP with empirical ROC-AUC at the finite boundary claimed here.",
+        "evidence": "The report defines average precision as the mean of precision scores obtained when relevant documents are retrieved and derives that moving a relevant document higher has a larger effect on the score.",
+        "identifier_or_url": "NII:NII-2005-014E",
+        "material_read": "Full public technical-report PDF, especially the introduction and Section 2.1 defining binary relevance, precision at rank, and average precision, together with Section 2.2 on rank sensitivity.",
+        "method": "Public full-text PDF inspection.",
+        "title": "Property of Average Precision and its Generalization: An Examination of Evaluation Indicator for Information Retrieval Experiments",
+        "trigger": "Primary source for the exact discrete average-precision definition and its sensitivity to early relevant items."
+      },
+      {
+        "assessment": "Establishes broad ROC/PR correspondence and non-equivalence of their area objectives, but does not state the five-case AP/AUC minimum.",
+        "evidence": "The conclusion explicitly states that optimizing area under the ROC curve is not guaranteed to optimize area under the precision-recall curve.",
+        "identifier_or_url": "doi:10.1145/1143844.1143874",
+        "material_read": "Full public University of Wisconsin technical-report PDF, including the interpolation/AUC section and conclusion, with page images inspected.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "The Relationship Between Precision-Recall and ROC Curves",
+        "trigger": "Closest foundational comparison between ROC and precision-recall evaluation."
+      },
+      {
+        "assessment": "Supports biological evaluation relevance and generic metric-dependent rankings. It does not give the exact finite no-tie boundary.",
+        "evidence": "The paper describes AUC as a classifier-comparison measure, explains the prevalence-dependent precision-recall baseline, and reports differing performance interpretations under ROC and PR views.",
+        "identifier_or_url": "doi:10.1371/journal.pone.0118432",
+        "material_read": "Open full-text article sections defining ROC AUC and precision-recall evaluation, the class-imbalance discussion, and the comparative classifier results.",
+        "method": "Open full-text HTML inspection.",
+        "title": "The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets",
+        "trigger": "Biological and medical classification source establishing practical relevance of ROC versus precision-recall evaluation."
+      },
+      {
+        "assessment": "The applied result concerns biostatistical evaluation of binary predictive rankings.",
+        "evidence": "MSC2020 lists 92B15 as General biostatistics.",
+        "identifier_or_url": "MSC2020:92B15",
+        "material_read": "Official MSC2020 search result naming 92B15.",
+        "method": "MathSciNet MSC2020 database inspection.",
+        "title": "MSC2020 database: 92B15 General biostatistics",
+        "trigger": "Primary classification ownership for biological and medical classifier-performance evaluation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f9a4caca-c3c5-4c62-a7be-19d502c5fe87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "ROC-AUC and average precision are standard threshold-free summaries used for model comparison, but they encode different ranking preferences: uniform positive-negative pair weighting versus extra emphasis on early positives. The smallest fixed-prevalence reversal is therefore a natural exact diagnostic for metric choice, and the full first layer reveals the two minimal ways that redistribution of ranking error can change the preferred model.",
+    "status": "PASS"
+  }
+}
