@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The proof rewrites Simpson and Jaccard similarity as strictly decreasing functions of b/a and (b+c)/a after site normalization, yielding an exact necessary-and-sufficient reversal criterion. Complete exact enumeration verifies the sharp gamma-richness-four boundary and all three first-layer signature pairs, while the infinite family is proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koleff et al. review twenty-four presence–absence beta-diversity measures, place Jaccard and Simpson-related quantities in common a,b,c notation, and emphasize that different measures capture different facets of compositional change.",
+        "Their full text distinguishes broad-sense richness-sensitive measures from narrow-sense turnover measures and gives the Simpson formula based on min(b,c).",
+        "Baselga explicitly states that adding unique species only to the richer site should not change a meaningful replacement measure and shows that Simpson turnover remains unchanged under this operation.",
+        "Baselga also gives the Jaccard family in the same matching-component framework and discusses denominator effects caused by richness differences."
+      ],
+      "reasoning": "This broader coverage explains why the rankings can diverge, but it does not supply an all-pairs ordering theorem or a smallest discrete species-count boundary. The new criterion requires comparing two independent site-pair signatures rather than evaluating one index surface in isolation.",
+      "searches": [
+        "Measuring beta diversity for presence-absence data Jaccard Simpson matching components",
+        "The relationship between species replacement dissimilarity nestedness Simpson Jaccard",
+        "Simpson similarity independent of species richness Jaccard ecology"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1046/j.1365-2656.2003.00710.x",
+      "doi:10.1111/j.1466-8238.2011.00756.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing the two formulas does not by itself state which pairs of pairwise comparisons reverse or where the first discrete reversal occurs.",
+        "The ecological invariance of Simpson turnover to species added only to the richer site explains one direction of the mechanism but does not classify all competing Jaccard orderings.",
+        "Ternary plots describe single-comparison index surfaces; the accepted result is a two-comparison ordering criterion plus a sharp finite boundary."
+      ],
+      "reasoning": "The accepted theorem adds a necessary-and-sufficient cross-comparison condition and an exhaustive minimal discrete classification. No inspected prior statement dominates those claims.",
+      "searches": [
+        "Koleff 2003 broad sense narrow sense beta diversity measures different patterns",
+        "Baselga adding unique species richest site Simpson remains unchanged",
+        "Jaccard Simpson beta diversity richness gradients turnover"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked result stated a sharp four-species reversal boundary.",
+        "No checked result listed the three minimal Venn-signature reversal pairs.",
+        "No checked result gave the exact ratio criterion comparing minimum unique-to-shared and total unique-to-shared counts."
+      ],
+      "reasoning": "The claim can be expressed as a similarity-ranking reversal, a dissimilarity-ranking reversal, or a reversal between two normalized mismatch ratios. The searches covered these equivalent ecological and algebraic formulations.",
+      "searches": [
+        "Jaccard Simpson species-composition similarity four species minimal strict ranking reversal",
+        "Venn counts a b c Jaccard Simpson similarity exact first reversal",
+        "nested community pair Jaccard Simpson similarity ordering richness difference",
+        "four species Jaccard Simpson beta diversity pairwise comparison",
+        "\"Jaccard\" \"Simpson\" similarity \"rank reversal\" ecology"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source tabulated the normalized-signature counts 1, 4, 9, 17 through gamma richness four.",
+        "No checked source identified exactly three strict reversal pairs at the first boundary.",
+        "The packaged verifier derives the boundary from the complete finite signature domain rather than importing a published table."
+      ],
+      "reasoning": "Exact-pattern and exact-species-count searches directly target prior examples, tables, and software fixtures that could already contain the proposed minimal layer.",
+      "searches": [
+        "\"a=1\" \"b=0\" \"c=2\" Jaccard Simpson",
+        "\"1,0,3\" Jaccard Simpson ecology",
+        "\"2,1,1\" Jaccard Simpson similarity",
+        "\"4 species\" Jaccard Simpson similarity"
+      ]
+    },
+    "rationale": "Published ecology literature owns the two indices, their matching-component formulas, and the conceptual distinction between richness-sensitive total dissimilarity and richness-insensitive turnover. The inspected sources and targeted searches did not state the exact pairwise rank-reversal criterion, the minimum gamma richness, the complete first layer, or the infinite witness family.",
+    "residual_risks": [
+      "The exact criterion is an elementary consequence of published formulas, so a specialist exercise, figure annotation, or software test may contain an equivalent observation without being indexed.",
+      "The prior ternary-plot literature explores full continuous parameter surfaces for individual measures, creating some risk that a cross-ranking observation is implicit even though the sharp discrete boundary was not found.",
+      "The theorem uses Simpson turnover similarity rather than Simpson alpha-diversity, and confusion between these names is a bibliographic search risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers the same objects and formulas and strongly motivates cross-index comparison, but does not state the exact rank-reversal criterion or the four-species first boundary.",
+        "evidence": "The article was first published 17 April 2003. It defines a as shared species, b and c as species unique to the two sites, lists Jaccard similarity a/(a+b+c), and gives the Simpson turnover quantity min(b,c)/(a+min(b,c)).",
+        "identifier_or_url": "doi:10.1046/j.1365-2656.2003.00710.x",
+        "material_read": "Full PDF material including abstract and introduction, Table 1 with Jaccard and Simpson-related formulas, the matching-component diagram and definitions, and the discussion of narrow-sense turnover measures and how values depend on shared and unique species components.",
+        "method": "Open full-text PDF inspection with rendered-page checks of the formula table and measure-group discussion.",
+        "title": "Measuring beta diversity for presence–absence data",
+        "trigger": "Primary full text reviewing the same presence–absence measures in common matching-component notation."
+      },
+      {
+        "assessment": "Explains the exact ecological mechanism behind the reversal criterion, but does not state the two-comparison ordering condition or the sharp gamma-richness-four classification.",
+        "evidence": "The article was first published 13 February 2012 and states that a replacement measure should be independent of richness differences, so adding unique species only to the richer site should not change Simpson turnover.",
+        "identifier_or_url": "doi:10.1111/j.1466-8238.2011.00756.x",
+        "material_read": "Full-text sections covering the abstract, pairwise matching components, the overview of Jaccard and Simpson dissimilarities, examples adding unique species to one site, and the discussion of the behaviour of Jaccard and Sørensen-family turnover quantities.",
+        "method": "Open full-text HTML inspection.",
+        "title": "The relationship between species replacement, dissimilarity derived from nestedness, and nestedness",
+        "trigger": "Highly relevant primary full text explaining why Simpson turnover is insensitive to richness differences and contrasting Jaccard-family denominators."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "104f6573-b274-488e-b5ba-501f468500dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cited ecology literature explicitly warns that richness-sensitive and turnover-focused beta-diversity measures can yield materially different patterns. The exact ratio criterion converts that qualitative warning into a direct diagnostic for when Jaccard and Simpson rankings must reverse, while the four-species minimum gives the smallest possible reproducible benchmark and the infinite family establishes structural persistence.",
+    "status": "PASS"
+  }
+}
