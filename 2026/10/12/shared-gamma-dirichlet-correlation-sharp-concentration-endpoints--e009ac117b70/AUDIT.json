@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The proof uses independent Gamma totals/directions, the exact Dirichlet covariance tensor, Beta second moments, conditional independence for the strict bounds, Chebyshev for the high-concentration limit, a CDF-sandwich for the small-shape Gamma race, and vertex convergence from second moments for the categorical coupling. The distinct-race-events argument covers all d>=2, all positive mu, s in (0,1), and all finite c>0. Exact symbolic and Monte Carlo finite diagnostics on the standalone script were executed; they are supplementary, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Trick et al. (2023), Section 2.4.4, eq. (33): linear proxy and explicit open accuracy question.",
+        "Trick et al. (2021), Section 3.2: arbitrary marginal Dirichlet family, without the proportional-sharing concentration transition.",
+        "Magnussen (2004) abstract concerns Gamma-ratio correlation matching and an observed simulation bias; its complete argument could not be checked."
+      ],
+      "reasoning": "General eight-parameter or nonproportional models include the present Gamma construction as a subfamily but the inspected results on model existence and exact product moments do not give the sign and asymptotic categorical classification. The historical Magnussen article is an unresolved bibliographic risk rather than being marked not covering on abstract evidence.",
+      "searches": [
+        "Trick Jaekel Rothkopf six gamma bivariate beta proportional shared parameters identical beta marginals linear correlation proxy upper bound sharp zero concentration",
+        "Magnussen 2004 generating positively correlated Beta distributed random variables pdf",
+        "Trick Rothkopf Jaekel 2023 bivariate beta correlation proportional shared shape s/(2-s) low concentration",
+        "https://doi.org/10.1007/s40300-023-00247-2 Sections 2.4.4 and 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2104.08069 (full primary text)",
+      "doi:10.1007/s40300-023-00247-2 (full publisher text)",
+      "arXiv:2106.01770 (full primary HTML)",
+      "doi:10.1016/S0167-9473(03)00169-5 (abstract only)",
+      "arXiv:2303.01271 (full accessible HTML)",
+      "2026/9/17/SCOPE-gaussian-moment-deficit-correlation-obstruction--31c741d42df0",
+      "2026/9/19/SCOPE-spearman-gini-quartic-phase-oscillation--9fcf13d0b4cb",
+      "2026/9/19/SCOPE-gamma-sum-quantile-curvature-and-median-endpoint-rates--bd16316e417a",
+      "2026/10/4/SCOPE-finite-component-obstruction-law-for-global-pair-correlation-nor--41fe8136dd52"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021 original derives product moments and the precise bivariate covariance using a generalized hypergeometric function.",
+        "2023 published paper explicitly defers a characterization of accuracy of its linear approximation; its example with parameters (2,4) and proportional sharing 1/2 has correlation 0.468 rather than the proxy 0.5.",
+        "The new theorem gives both exact sign formula using E[(R-S)^2] and weak convergence to a categorical law with weight s/(2-s)."
+      ],
+      "reasoning": "Although the prior exact covariance formula determines finite correlation in principle, it is not a published blanket bound or endpoint theorem; neither source entails the assertions by a quoted stronger established theorem. The new proof derives the missing inequalities and the complete low-concentration joint law, not just a numerical instance of an earlier identity.",
+      "searches": [
+        "Magnussen six gamma bivariate beta equal margins correlation linear approximation overestimate shared fraction concentration asymptotics",
+        "Trick Jaekel Rothkopf six gamma bivariate beta proportional shared parameters identical beta marginals linear correlation proxy upper bound sharp zero concentration",
+        "https://ar5iv.labs.arxiv.org/html/2104.08069 Sections 2.3 and 3.2",
+        "https://link.springer.com/article/10.1007/s40300-023-00247-2 Sections 2.3, 2.4.4, 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2104.08069 Section 3.2 states the normalized three-Gamma-vector construction; Section 2 derives exact product moments, not a categorical weak limit.",
+        "arXiv:2106.01770 Section 3.3.1 recapitulates the construction without boundary concentration theorem."
+      ],
+      "reasoning": "Rewriting the correlated Beta law in normalized-Gamma/Dirichlet notation is not novel by itself. The new assertions are a strictly signed all-concentration gap and a joint weak limit with explicitly determined copy probability. They require the Beta-square conditional variance identity and a separate small-shape Gamma-race argument; neither is stated as a theorem in the inspected sources.",
+      "searches": [
+        "shared Gamma Dirichlet correlated pair exactly rho(c,s) with strict rho<s, as concentration tends zero categorical copy-or-independent limit s/(2-s)",
+        "normalized gamma overlapping sums of random probabilities two correlated Dirichlet vectors low concentration mixture of identical and independent one hot vertices",
+        "correlated Dirichlet low concentration vertex coupling shared gamma independent components pair correlation",
+        "arXiv:2104.08069 Sections 2.2, 2.3, 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published index hit 2026/9/17/SCOPE-gaussian-moment-deficit-correlation-obstruction--31c741d42df0 treats universal fixed Beta margins/correlation matrices, not shared-Gamma calibration.",
+        "Published index hit 2026/9/19/SCOPE-gamma-sum-quantile-curvature-and-median-endpoint-rates--bd16316e417a concerns quantiles of independent Gamma sums, not this coupled normalized-Gamma model.",
+        "METRON 2023 Figure 6 provides sampled comparisons of actual versus linear approximated correlations rather than the exact concentration endpoint or full distributional limit."
+      ],
+      "reasoning": "The closest indexed titles concern distinct probability objects or bounds. Published numerical plots do not establish a strict inequality for every positive parameter or the categorical weak limit. No checked exact table or database supplies the claim; this is not a proof of absolute priority.",
+      "searches": [
+        "shared Gamma Dirichlet correlated pair exactly rho(c,s) with strict rho<s, as concentration tends zero categorical copy-or-independent limit s/(2-s)",
+        "Trick Jaekel Rothkopf six gamma bivariate beta proportional shared parameters identical beta marginals linear correlation proxy upper bound sharp zero concentration",
+        "normalized gamma overlapping sums of random probabilities two correlated Dirichlet vectors low concentration mixture of identical and independent one hot vertices",
+        "Trick Rothkopf Jaekel 2023 bivariate beta correlation proportional shared shape s/(2-s) low concentration",
+        "correlated Dirichlet low concentration vertex coupling shared gamma independent components pair correlation",
+        "arXiv:2104.08069 covariance and moments",
+        "METRON 2023 Figure 6 and Equation (33)"
+      ]
+    },
+    "rationale": "The 2021 original arXiv full text introduces the 3d-Gamma correlated Dirichlet construction and exact Beta product moments, not the global strict one-sided linear bias or its rare-concentration categorical coupling. The full 2023 METRON Section 2.4.4 proposes the linear approximation and explicitly says it is open to determine when and how accurately it works. Its binary examples are consistent with the strict upper bias, but it does not state the universal bound or endpoints. The 2021 companion paper uses the model for classifier fusion and gives no such results. Published records near these searches concern other beta correlation compatibility and different Gamma problems. Historical inaccessible Magnussen full text remains a residual priority risk.",
+    "residual_risks": [
+      "Magnussen (2004) full text unavailable after open-source search and disconnected university access: only abstract read; no whole-document noncoverage claim.",
+      "Earlier shared-Gamma special-function analyses under a different formulation could independently contain a concentration endpoint.",
+      "Index and ledger searches do not establish global novelty or access unpublished work; independent literature assessment remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and analyzes the model but does not state the all-concentration correlation bias nor the categorical limit.",
+        "evidence": [
+          "Section 2.3 product moments and exact covariance; Section 3.2 equations (34)-(35) construct correlated Dirichlet vectors."
+        ],
+        "identifier_or_url": "arXiv:2104.08069; https://ar5iv.labs.arxiv.org/html/2104.08069",
+        "material_read": "full HTML text, including introduction, Sections 2.2–2.3 and 3.2, references",
+        "method": "Read primary open-access full-text HTML and cross-checked original arXiv submission date",
+        "title": "A Bivariate Beta Distribution with Arbitrary Beta Marginals and its Generalization to a Correlated Dirichlet Distribution",
+        "trigger": "Exact original shared-Gamma construction and covariance formulas"
+      },
+      {
+        "assessment": "Establishes correlation computation and proposes linear Eq. (33), leaving accuracy characterization open; does not state derived global upper bias or joint categorical limit.",
+        "evidence": [
+          "Section 2.4.4 explicitly leaves accurate range of Eq. (33) as open; examples show proxy discrepancy."
+        ],
+        "identifier_or_url": "DOI:10.1007/s40300-023-00247-2; https://link.springer.com/article/10.1007/s40300-023-00247-2",
+        "material_read": "full open-access article, particularly Sections 2.3, 2.4.4, 3, and figures/captions",
+        "method": "Read publisher full HTML equations and discussion",
+        "title": "Parameter estimation for a bivariate beta distribution with arbitrary beta marginals and positive correlation",
+        "trigger": "Exact linear proxy accuracy question and later published primary comparison"
+      },
+      {
+        "assessment": "Uses shared Gamma Dirichlet correlations for probabilistic classifier fusion, not a sharp concentration correlation-bias theorem or categorical weak limit.",
+        "evidence": [
+          "Section 3.3.1 gives gamma-normalized construction; application focuses on inference/fusion."
+        ],
+        "identifier_or_url": "arXiv:2106.01770; https://arxiv.org/html/2106.01770v2",
+        "material_read": "full HTML, including Sections 3.3.1 and evaluation/conclusion",
+        "method": "Read original open-access full text",
+        "title": "Bayesian Classifier Fusion with an Explicit Model of Correlation",
+        "trigger": "Companion application that uses the same correlated Dirichlet model"
+      },
+      {
+        "assessment": "Priority question unresolved. Abstract reports a simulated slight negative correlation bias and Taylor approximation; cannot infer full article lacks exact inequality or limiting theorem.",
+        "evidence": [
+          "2004 abstract notes use of six shared Gamma variates and observed bias; complete mathematics unavailable."
+        ],
+        "identifier_or_url": "DOI:10.1016/S0167-9473(03)00169-5",
+        "material_read": "abstract and bibliographic metadata only, not full article",
+        "method": "Checked academic publication metadata and accessible abstracts; no lawful preprint or open full text found; university access was disconnected",
+        "title": "An algorithm for generating positively correlated Beta-distributed random variables with known marginal distributions and a specified correlation",
+        "trigger": "Historical foundational shared-Gamma construction might contain a relevant calibration bound"
+      },
+      {
+        "assessment": "The four-component Olkin–Trikalinos Dirichlet model studied is mathematically different from the shared 3d-Gamma coupling; this work does not state its limiting law.",
+        "evidence": [
+          "Introduction explicitly identifies Olkin–Trikalinos (2015) as the selected model; Section 2 gives the four-dimensional Dirichlet construction."
+        ],
+        "identifier_or_url": "arXiv:2303.01271",
+        "material_read": "full accessible arXiv HTML, especially the introduction, model construction, and theory; sections and appendices navigated",
+        "method": "Read open-access HTML of original manuscript, especially Sections 1 and 2.",
+        "title": "Bivariate beta distribution: parameter inference and diagnostics",
+        "trigger": "Similar title and statistical-inference implications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e009ac11-7b70-40d9-8ee1-93e75c37e011",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies an explicitly identified statistical calibration gap, not an arbitrary scalar experiment: the linear rule always overestimates for finite concentration, can have a nonvanishing relative error (1-s)/(2-s) as the concentration becomes sparse, and has an exact shared-vs-independent categorical coupling interpretation in every finite simplex dimension. These facts directly characterize when equal-marginal Gamma-based correlated Dirichlet models can safely use the linear proxy and explain the low-concentration mechanism.",
+    "status": "PASS"
+  }
+}
