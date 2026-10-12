@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The source clamp and forgetting state give the exact ratio recursion \\(q_{t+1}=\\min\\{1,(1+1/\\tau)q_t/c_t^2\\}\\). Under the stated source-relevant parameter range \\(0<c_t<1\\), so lock is finite and invariant. The post-lock dimensionless recurrence has reciprocal increments converging to \\(2A\\), which proves the exact asymptotic constant.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stochastic Polyak-stepsize theory establishes convergence for loss-based adaptive steps using optimal component values or related target information.",
+        "L4 explicitly identifies Polyak-style loss linearization as a motivation but adds separate optimism, forgetting, and numerical-regularization heuristics."
+      ],
+      "reasoning": "The broader Polyak literature explains the loss-based step but does not imply the dynamics of L4's practical state or its additive denominator constant.",
+      "searches": [
+        "PMLR:v130:loizou21a",
+        "arXiv:1802.05074v5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1802.05074v1",
+      "arXiv:1802.05074v5",
+      "NeurIPS2018:L4",
+      "PMLR:v130:loizou21a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "L4 Algorithm 1 initializes the minimum-loss state from \\(\\gamma_0L_0\\), clamps it to the current loss, applies the target \\(\\gamma L^{\\min}\\), and then forgets it multiplicatively.",
+        "The practical update adds \\(\u000barepsilon\\) to the inner-product denominator.",
+        "The source explicitly states that the practical heuristics lose exact properties of the simplified core and that it does not claim theoretical guarantees."
+      ],
+      "reasoning": "The accepted theorem requires coupling the source tracker to the exact scalar loss recursion, proving finite capture, and then analyzing the singular small-gradient effect of the additive denominator constant. The source formulas alone do not state these implications.",
+      "searches": [
+        "arXiv:1802.05074v1",
+        "PMLR:v130:loizou21a",
+        "published-record:169a05cdc789"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The first public L4 version contains the minimum-loss clamp, optimism factor, forgetting rule, additive denominator regularizer, and the source defaults.",
+        "The source describes the additive constant as a numerical-stability device and does not state a scalar asymptotic rate."
+      ],
+      "reasoning": "Equivalent coverage would state finite lock of the practical loss-reference state or the same reciprocal-state asymptotic law. No such statement was found in the inspected defining full text.",
+      "searches": [
+        "arXiv:1802.05074v1",
+        "arXiv:1802.05074v5",
+        "NeurIPS2018:L4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact quadratic record gives one-step objective frontiers for scaled Polyak steps without an additive denominator constant or minimum-loss tracker.",
+        "Other close records concern different feedback steps or stochastic mechanisms."
+      ],
+      "reasoning": "Those statements use different recurrences and do not imply the eventual L4 lock or the exact inverse-linear loss constant.",
+      "searches": [
+        "published-record:169a05cdc789",
+        "published-record:021cc30589a6",
+        "published-record:00bfbf6b7815"
+      ]
+    },
+    "rationale": "The defining L4 paper supplies the practical state and explicitly labels the additive constant a numerical-stability regularizer, but it provides no theoretical guarantee and no scalar asymptotic analysis. Later Polyak-stepsize theory uses different target information. The closest published quadratic comparison omits both the practical L4 target tracker and additive denominator regularizer.",
+    "residual_risks": [
+      "An equivalent asymptotic calculation may exist in unindexed notes on regularized Polyak steps.",
+      "The defining L4 source analyzes L4Mom and L4Adam experimentally rather than the SGD specialization used here.",
+      "The asymptotic tail occurs only after the gradient-squared scale becomes comparable with the tiny denominator regularizer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_PRACTICAL_RECURRENCE_NOT_COVERING_THE_SCALAR_LOCK_OR_ASYMPTOTIC_TAIL.",
+        "evidence": "The first public version already contains \\(\\gamma=0.9\\), \\(\\gamma_0=0.75\\), \\(\tau=1000\\), \\(\u000barepsilon=10^{-12}\\), the clamp/forgetting rule, and the regularized denominator, while explicitly making no theoretical-guarantee claim.",
+        "identifier_or_url": "arXiv:1802.05074v1/v5",
+        "material_read": "Full open PDFs covering the simplified core, affine-invariance discussion, Section 2.4 stability heuristics, Equation 8 in v1 / Equation 6 in v5, and Algorithm 1; the relevant pages were visually inspected.",
+        "method": "Full-text PDF and page-image inspection.",
+        "title": "L4: Practical loss-based stepsize adaptation for deep learning",
+        "trigger": "Defining source for the practical target state, denominator regularizer, and defaults."
+      },
+      {
+        "assessment": "BROADER_LOSS_BASED_STEPSIZE_THEORY_WITH_A_DIFFERENT_TARGET_MECHANISM.",
+        "evidence": "The inspected primary material establishes that SPS uses optimal function values and has convergence theory; it does not provide evidence for L4's practical tracker-plus-additive-regularizer recurrence.",
+        "identifier_or_url": "PMLR:v130:loizou21a",
+        "material_read": "Primary conference page and abstract describing SPS, its use of optimal functional values, and its convergence guarantees.",
+        "method": "Primary PMLR page inspection.",
+        "title": "Stochastic Polyak Step-size for SGD: An Adaptive Learning Rate for Fast Convergence",
+        "trigger": "Closest later primary theory for loss-based Polyak-style adaptive steps."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ce79203-d70f-4c03-9817-268b528a2576",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "L4 is specifically designed to compute a fresh loss-based step each iteration, and the additive denominator constant is introduced as a numerical safeguard. The theorem shows that this seemingly innocuous safeguard eventually determines the exact convergence class on the canonical convex quadratic, while the practical minimum-loss tracker becomes irrelevant after a provably finite transient. The result therefore separates transient adaptation from the true late-stage bottleneck and quantifies the source defaults.",
+    "status": "PASS"
+  }
+}
