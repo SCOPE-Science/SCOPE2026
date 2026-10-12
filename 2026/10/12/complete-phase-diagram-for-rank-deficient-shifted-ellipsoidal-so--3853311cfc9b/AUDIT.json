@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The proof separates \\(\\mathbb R^n=\\operatorname{Range}(H)\\oplus\\ker H\\). The constraint depends only on the range component. A nonzero objective component in \\(\\ker H\\) therefore gives an explicit feasible ray with value tending to \\(-\\infty\\). When \\(b\\in\\operatorname{Range}(H)\\), both constraint and objective factor through the range quotient, where \\(H\\) is positive definite and the source theorem applies exactly. Embedding the quotient inverse gives \\(H^\\dagger\\), and arbitrary nullspace additions give all strict-case minimizers. The dual equation \\(H^{1/2}u=b\\) is solvable exactly under the same range condition; its minimum-norm solution has squared norm \\(b^{\\mathsf T}H^\\dagger b\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nguyen's ellipsoidal theorem assumes \\(H\\succ0\\); the radial theorem assumes a norm rather than a seminorm.",
+        "Ben-Tal--Nemirovski explicitly model flat ellipsoids and ellipsoidal cylinders, but the inspected sections do not optimize this shifted epigraph objective or derive a Moore--Penrose phase diagram.",
+        "Kostyukova--Tchemisova develop general optimality criteria for SOCPs but do not derive this parametric singular-ellipsoid classification."
+      ],
+      "reasoning": "The broad sources cover the surrounding geometry and conic optimality theory. None supplies a theorem whose specialization already yields all four branches, the range test, and the complete affine minimizer set.",
+      "searches": [
+        "arXiv:2608.10341v1 Sections 4.5, 5, 7, 8, and 9",
+        "DOI:10.1287/moor.23.4.769 full text, generalized ellipsoid definition and robust framework",
+        "DOI:10.11121/ijocta.1421 full text, SOCP model and CQ-free optimality framework"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.10341v1",
+      "DOI:10.1287/moor.23.4.769",
+      "DOI:10.11121/ijocta.1421"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proof uses \\(H^{-1}\\) and uniform positivity; its hypotheses fail when \\(H\\) has a kernel.",
+        "The robust-optimization paper establishes that flat and cylindrical ellipsoids are legitimate uncertainty geometries but does not give the objective-attainment classification.",
+        "General SOCP optimality criteria do not by themselves state the range incompatibility branch or the closed-form optimizer family."
+      ],
+      "reasoning": "The new theorem is obtained by an additional range-kernel argument outside the primary source hypotheses. The kernel branch cannot occur in the positive-definite theorem and changes both boundedness and optimizer multiplicity, so the claim is not a covered special case.",
+      "searches": [
+        "arXiv:2608.10341v1 positive-definite ellipsoidal theorem and radial assumptions",
+        "DOI:10.1287/moor.23.4.769 generalized ellipsoid/cylinder definition",
+        "DOI:10.11121/ijocta.1421 CQ-free SOCP optimality criteria"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-record search result matched the range-compatibility phase diagram or the affine nullspace optimizer set.",
+        "Web searches found literature on degenerate ellipsoids and pseudoinverse representations, but not this shifted-SOCP attainment classification.",
+        "The primary source explicitly imposes positive definiteness on H."
+      ],
+      "reasoning": "Aliases covered singular and degenerate ellipsoids, pseudoinverse formulas, kernel and range compatibility, robust uncertainty, and phase-diagram terminology. The final theorem distinguishes a new unboundedness mechanism from the quotient phase diagram, so it is not merely a notational restatement of the positive-definite result.",
+      "searches": [
+        "singular positive semidefinite H ellipsoidal SOCP pseudoinverse attainment boundary",
+        "degenerate ellipsoidal uncertainty robust optimization pseudoinverse kernel unbounded objective",
+        "shifted second order cone singular ellipsoid pseudoinverse phase diagram",
+        "robust optimization singular covariance ellipsoid pseudoinverse support function",
+        "\"singular\" ellipsoidal uncertainty robust optimization pseudoinverse",
+        "\"degenerate ellipsoid\" robust optimization pseudoinverse",
+        "\"Moore-Penrose\" ellipsoid \"robust optimization\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact result or table with the compatibility condition \\(b\\in\\operatorname{Range}(H)\\), threshold \\(\beta=\\sqrt{b^{\\mathsf T}H^\\dagger b}\\), and affine nullspace optimizer set was returned."
+      ],
+      "reasoning": "The theorem is a symbolic structural classification rather than a recomputation of a known numerical table.",
+      "searches": [
+        "singular positive semidefinite H ellipsoidal SOCP pseudoinverse attainment boundary",
+        "shifted second order cone singular ellipsoid pseudoinverse phase diagram",
+        "robust optimization singular covariance ellipsoid pseudoinverse support function"
+      ]
+    },
+    "rationale": "The recent primary source assumes positive-definite H, and its radial theory assumes a genuine norm, so neither theorem covers the singular seminorm case. The rank-deficient extension has a new branch absent in the positive-definite model: objective incompatibility with the range causes unboundedness for every vertical coefficient. Classical robust-optimization literature allows flat ellipsoids and ellipsoidal cylinders, and general SOCP literature supplies optimality criteria, but the inspected sources do not state a stronger result implying this complete pseudoinverse phase diagram.",
+    "residual_risks": [
+      "A specialized paper on degenerate ellipsoidal programs may contain an equivalent quotient reduction under different notation.",
+      "The theorem is exact for this structured shifted epigraph; it is not a claim about arbitrary rank-deficient SOCPs.",
+      "Numerical pseudoinverse computation near rank transitions can be delicate even though the exact algebraic classification is sharp."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the positive-definite theorem and shows exactly where \\(H\\succ0\\) and norm structure enter; it does not treat singular H.",
+        "evidence": "The paper assumes \\(H\\succ0\\) in the ellipsoidal model and uses \\(H^{-1}\\); its radial framework begins with a norm \\(\rho\\).",
+        "identifier_or_url": "arXiv:2608.10341v1",
+        "material_read": "Full-text sections on the nonradial ellipsoidal corollary, radial norm assumptions, the shifted ellipsoidal SOCP phase diagram, dual formula, sensitivity/conditioning, and robust-optimization representation; relevant PDF pages were visually inspected.",
+        "method": "Open arXiv HTML plus PDF text and rendered-page inspection.",
+        "title": "Attainment Boundaries and Escape Rates in Asymptotically Conic Optimization",
+        "trigger": "Recent primary source for the shifted ellipsoidal SOCP and its attainment boundary."
+      },
+      {
+        "assessment": "Confirms that rank-deficient ellipsoidal geometry is mathematically and practically natural, but does not state the singular shifted-epigraph phase diagram.",
+        "evidence": "The paper explicitly broadens ellipsoids to affine images plus linear subspaces in order to include partial uncertainty and ellipsoidal cylinders.",
+        "identifier_or_url": "DOI:10.1287/moor.23.4.769",
+        "material_read": "Full-text portions defining generalized ellipsoids, including flat ellipsoids and cylinders, together with the surrounding robust-optimization framework.",
+        "method": "Open full-PDF text inspection.",
+        "title": "Robust Convex Optimization",
+        "trigger": "Foundational robust-optimization source explicitly allowing flat ellipsoids and ellipsoidal cylinders."
+      },
+      {
+        "assessment": "Provides broad CQ-free optimality machinery but no exact singular ellipsoid range/pseudoinverse classification.",
+        "evidence": "The paper formulates general linear SOCP constraints and derives finite-vector optimality criteria rather than the parametric closed form considered here.",
+        "identifier_or_url": "DOI:10.11121/ijocta.1421",
+        "material_read": "Publisher full-PDF introduction, problem statement, scope of the two CQ-free criteria, and bibliographic context.",
+        "method": "Publisher full-PDF text inspection; rendered screenshot retrieval was attempted but timed out.",
+        "title": "Exploring constraint qualification-free optimality conditions for linear second-order cone programming",
+        "trigger": "Closest general SOCP optimality paper cited by the recent source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3853311c-fc9b-4c38-ac7b-d904d7ddc3bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rank-deficient ellipsoids and cylinders are standard uncertainty geometries, so the extension is not an arbitrary parameter slice. The theorem identifies a sharp compatibility test \\(b\\in\\operatorname{Range}(H)\\) that separates immediate unboundedness from the usual attainment boundary. It also shows that a naive inverse-to-pseudoinverse substitution misses two structural effects: a new nullspace escape mechanism and loss of strict-case uniqueness. The result gives a complete solvability certificate and optimizer description that can be checked from the range, pseudoinverse, and one scalar \\(\\beta\\).",
+    "status": "PASS"
+  }
+}
