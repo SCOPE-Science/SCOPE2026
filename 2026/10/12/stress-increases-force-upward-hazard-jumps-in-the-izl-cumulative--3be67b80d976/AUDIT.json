@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The fixed-quantile reparameterization reduces the CDF to p=(1+x/(2b))exp(-x), gives an exact implicit derivative for x, and expresses the quantile hazard as a rational function of b and x. Its logarithmic derivative has a denominator of fixed positive sign and a numerator N(b,x) that is positive for all b>1,x>0 by a two-derivative monotonicity argument. At a CEM switch both sides share the same survival probability, so density and hazard jumps have identical signs. The packaged checker independently verifies the formulas and the paper's Figure 1 example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General cumulative-exposure literature matches CDF levels through equivalent ages but does not give the IZL-specific sign theorem.",
+        "The parent IZL article provides hazard and quantile formulas separately but no monotonicity result for their composition.",
+        "A broad published-result search returned unrelated quantile-curvature and hazard-identification results rather than a covering theorem."
+      ],
+      "reasoning": "Neither generic CEM theory nor ordinary hazard-shape analysis implies the required parameter ordering; the proof depends on the specific IZL CDF and density.",
+      "searches": [
+        "step-stress inverted Z-Lindley failure rate jump theorem",
+        "cumulative exposure model hazard jump step-stress reliability",
+        "inverted Z-Lindley hazard at fixed quantile parameter ordering"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261256",
+      "doi:10.3390/math14091566",
+      "doi:10.1002/wics.1571"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The parent IZL article proves upside-down-bathtub hazard shape in age and gives Lambert-W quantiles, but not fixed-quantile parameter ordering.",
+        "A current owned finding on the parent IZL source corrects a mean-inactivity-time sign and has no implication for the hazard-jump theorem.",
+        "The immediately prior owned weekly ledger contains no step-stress IZL finding."
+      ],
+      "reasoning": "The accepted statement is neither a special case of the parent hazard-shape theorem nor a consequence of the existing mean-inactivity correction; it requires a new mixed parameter-quantile derivative calculation.",
+      "searches": [
+        "10.3390/math14091566 inverted ZLindley hazard quantile",
+        "current ledger inverted ZLindley mean inactivity time",
+        "prior probability statistics ledger step-stress inverted ZLindley"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched published-result record identified a theorem ordering IZL hazard at common quantile levels.",
+        "The primary source's Proposition 2 writes the jump as a difference but does not sign that difference.",
+        "Exact source searches located the original article and no corrigendum or separate theorem with this classification."
+      ],
+      "reasoning": "Searches covered the exact DOI, model name, fixed-quantile hazard, cumulative-exposure jump, and parameter-ordering formulations. The new theorem is stronger than the source's example because it determines the sign uniformly over every p in (0,1).",
+      "searches": [
+        "10.3934/math.20261256 inverted Z-Lindley step-stress hazard jump quantile hazard ordering",
+        "inverted Z-Lindley quantile hazard monotone parameter alpha",
+        "IZL cumulative exposure model hazard discontinuity alpha1 alpha2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 3.1 imposes alpha1>alpha2 when stress rises and defines the matched equivalent age by F(e;alpha2)=F(tau;alpha1).",
+        "Proposition 2 states the density and hazard jump differences without an all-parameter sign proof.",
+        "Figure 1 uses alpha1=1.5, alpha2=0.7 and p=0.4 and labels the observed rate jump.",
+        "No correction record was located."
+      ],
+      "reasoning": "The source contains exactly the boundary quantity whose sign is left unevaluated; the accepted theorem closes that missing structural comparison.",
+      "searches": [
+        "10.3934/math.20261256 Proposition 2 continuity exposure jump rate",
+        "10.3934/math.20261256 Figure 1 alpha1 1.5 alpha2 0.7",
+        "10.3934/math.20261256 corrigendum erratum"
+      ]
+    },
+    "rationale": "The primary step-stress paper states the jump difference and illustrates a rate jump, but does not prove its sign for all alpha1>alpha2 and all change times. The parent IZL paper proves age-wise hazard unimodality and a quantile formula, not parameter monotonicity at fixed cumulative exposure. Five focused published-result searches and current/prior owned-ledger checks found no covering statement.",
+    "residual_risks": [
+      "A very recent unindexed result may independently contain the same fixed-quantile ordering.",
+      "The theorem does not classify hazard ordering away from matched CDF levels.",
+      "The physical mapping from engineering stress to alpha remains model-dependent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING THE THEOREM. The source gives the jump as f(e;alpha2)-f(tau;alpha1), calls it the signature of the harsher stage, and illustrates one case, but does not establish its sign uniformly under alpha1>alpha2.",
+        "evidence": "Section 3.1, Proposition 2, and Figure 1.",
+        "identifier_or_url": "doi:10.3934/math.20261256",
+        "material_read": "Open publisher full text at the distribution definitions, two-stage CEM Eq. (3.1), equivalent age Eq. (3.2), hazard Eq. (3.3), Proposition 2, quantile Eq. (3.4), multi-step extension, and Figure 1.",
+        "method": "Direct publisher full-text HTML inspection.",
+        "title": "Inference for a step-stress model under the inverted Z-Lindley distribution with progressive Type-II censoring",
+        "trigger": "Primary 2026 source defining the IZL cumulative-exposure model and displaying the unsiged jump expression."
+      },
+      {
+        "assessment": "RELATED BUT NOT COVERING. It studies hazard as a function of age and separately derives the quantile, without ordering the composed quantile hazard in alpha.",
+        "evidence": "Hazard Eq. (6), Theorem 1, and the Lambert-W quantile theorem.",
+        "identifier_or_url": "doi:10.3390/math14091566",
+        "material_read": "Open full article at Sections 2.2 and 3.1 and the hazard-shape theorem.",
+        "method": "Direct publisher full-text inspection.",
+        "title": "A New One-Parameter Model Supports an Upside-Down Bathtub Failure Rate: Theory, Inference, and Real-World Applications",
+        "trigger": "Parent IZL paper containing the hazard and quantile formulas used by the step-stress construction."
+      },
+      {
+        "assessment": "BACKGROUND ONLY. It explains CDF-equivalent age matching but contains no IZL-specific parameter or hazard-jump result.",
+        "evidence": "Accelerated-life-testing section describing the cumulative-exposure construction.",
+        "identifier_or_url": "doi:10.1002/wics.1571",
+        "material_read": "Open review section on accelerated life testing and the cumulative-exposure model.",
+        "method": "Direct open publisher full-text inspection.",
+        "title": "Ordered and censored lifetime data in reliability: An illustrative review",
+        "trigger": "General reference for cumulative-exposure equivalent-age matching in step-stress testing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3be67b80-d976-4326-96dc-cb95c0cb1ab8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter ordering alpha1>alpha2 is built into the paper's interpretation of a raised stress, and Proposition 2 calls the rate jump a signature of the harsher stage. The accepted theorem supplies the missing global mathematical guarantee: every such parameter decrease produces an upward failure-rate jump, regardless of change time, and the multi-step direction is completely classified. This gives a direct structural interpretation of the fitted parameter order and rules out accidental sign reversals caused by the IZL model's non-monotone age-wise hazard.",
+    "status": "PASS"
+  }
+}
