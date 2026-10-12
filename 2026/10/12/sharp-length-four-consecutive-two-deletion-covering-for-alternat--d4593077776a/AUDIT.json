@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Each codeword creates at most three received pairs. A nondegenerate word corresponds exactly to three edges of a P4 in K_m,n. Explicit covers for the five nontrivial base rectangles (2,2),(2,3),(2,4),(3,3),(4,4), plus transposes and tiled (3,4), are verified. Every 3-by-t rectangle with t>=2 partitions into t P4s by 2/3-column grouping. Splitting off three rows or columns adds precisely n or m words, preserving ceil(m*n/3). A direct standard-library replay checked all 2401 pairs 2<=m,n<=50; induction, not testing, proves unrestricted cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie--Sun--Ge, arXiv:2606.15379, Theorem VI.1 and Remark VI.2 cover the binary case; Theorem VI.4 provides a nonbinary q^4/(8*floor(q/2)^2) upper bound at blocklength four, not the exact ceil(q^2/3) value.",
+        "Lenz--Rashtchian--Siegel--Yaakobi, arXiv:1911.09944, Theorems 5 and 14 address single deletion or unconstrained multiple-deletion covering and asymptotic bounds, not this burst-specific exact invariant.",
+        "https://arxiv.org/pdf/2606.15379",
+        "https://arxiv.org/pdf/1911.09944"
+      ],
+      "reasoning": "Known results are either more general but quantitatively weaker at this parameter, or concern a different deletion channel. For example q=4 gives 8 from the explicit 2026 general upper bound versus the proved optimum 6.",
+      "searches": [
+        "2026 q ary two burst deletion covering code length four exact covering number consecutive deletion D(q,4,2)",
+        "Xie Yuan Sun 2026 New bounds for covering codes under insertions or deletions two consecutive deletions qary pdf",
+        "nonbinary 2 burst deletion covering code length four smallest and size optimal 2026 Xie Sun Ge"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2606.15379",
+      "https://cahiersleibniz.g-scop.grenoble-inp.fr/wp-content/uploads/2019/05/Cahier165.pdf",
+      "https://arxiv.org/pdf/1911.09944",
+      "https://eudml.org/doc/276024",
+      "Published mathematical record: Exact quinary length-four single-deletion code size",
+      "Published mathematical record: Exact codimension-two LRC distance criteria from pair-incidence covers",
+      "Previous own ledger 2026-09_week4: Exact length-three single-deletion covering number for odd alphabets, item 9607d49b-27ed-4d27-a5ac-05d82399e0c4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Teypaz--Rapine Theorem 4.1 iff 3 divides m*n proves our divisible case but is silent about optimum covers with overlaps for m*n=1 or 2 modulo 3.",
+        "Xie--Sun--Ge Theorem VI.4 is an existence bound; for q=4 its statement only certifies size at most 8 and cannot give the sharp lower and matching six-word code.",
+        "Xie--Sun--Ge binary Theorem VI.1 includes q=2, which is explicitly credited.",
+        "Prior finding in the own previous UTC-week ledger states D(q,3,1)=ceil(q^2/3) for odd q: one deletion from length three, three descendants (a,b),(a,c),(b,c), using a directed triangular design; the present claim is two *adjacent* deletions from length four and a bipartite P4 design, for every q and more generally rectangular alphabets."
+      ],
+      "reasoning": "The novelty is not in rephrasing a pre-existing decomposition theorem or deriving a special case of a stronger covering bound: the one- or two-overlap congruence cases require new explicit seeds and induction. The complete expression combines those cases with credited old divisible cases. A prior own-slot odd-q single-deletion length-three formula has the same numerical expression but is not an implication: it addresses different codeword length, a different channel and different triangular incidence geometry, and cannot give the required P4 covering at q even or for rectangular m,n.",
+      "searches": [
+        "Teypaz-Rapine-Cahier165-2008, Theorem 4.1",
+        "arxiv:2606.15379, find: Theorem VI",
+        "exact minimum cardinality q-ary length four two consecutive burst deletion covering codes D_b( q, 4, 2) and bipartite 3-edge paths",
+        "own prior 2026-09_week4 private research ledger: Exact length-three single-deletion covering number for odd alphabets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Every nondegenerate four-letter alternating codeword has three burst shadows forming a P4 in K_{m,n}; conversely every P4 can be ordered to yield such a word.",
+        "Teypaz--Rapine, 2008, Theorem 4.1, explicitly characterizes P4 decomposability of K_{m,n} by 3|m*n, with both part sizes >1.",
+        "https://cahiersleibniz.g-scop.grenoble-inp.fr/wp-content/uploads/2019/05/Cahier165.pdf"
+      ],
+      "reasoning": "The graph reformulation is genuinely equivalent to the coding claim. Previous exact decompositions solve only 3-divisible cases. When 3 does not divide the edge count, decomposition is impossible but optimal covering with one or two repeats is not addressed by that prior criterion.",
+      "searches": [
+        "complete bipartite graph path of length three P4 covering decomposition K_{q,q}, 3-edge paths",
+        "minimum number of 3 edge paths P4 needed to cover all edges complete bipartite K n,n",
+        "\"P4-cover\" \"complete bipartite\" number",
+        "complete bipartite graph path of length three P4 covering decomposition K_{q,q}, 3-edge paths",
+        "K_{m,n} minimum P4 edge covering ceil(mn/3) paths with overlapping edges all positive m n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest relevant published record published record \"Exact quinary length-four single-deletion code size\" is single-deletion *correction*, not consecutive-two-deletion covering.",
+        "Closest record published record \"Exact codimension-two LRC distance criteria from pair-incidence covers\" treats locally repairable-code incidence constraints, not P4 edge covers.",
+        "The 2008 Teypaz--Rapine theorem gives decomposable instances but no nondivisible covering table."
+      ],
+      "reasoning": "Targeted query matches yielded no exact table or result with the same output domain and deletion operation. Absence in search is not positive novelty proof; an unindexed older graph covering result remains possible.",
+      "searches": [
+        "exact minimum cardinality q-ary length four two consecutive burst deletion covering codes D_b( q, 4, 2) and bipartite 3-edge paths",
+        "q alphabet length 4 cover all length 2 received sequences under adjacent two-symbol deletion, ceil(q squared divided three)",
+        "\"two-burst\" \"length 4\" \"covering\" q code",
+        "minimum cardinality alternating alphabet X Y X Y four word code two consecutive deletions cover all pairs ceil(mn/3) P4",
+        "exact length-four q-ary two-burst deletion covering code size ceil(q^2/3) 2026"
+      ]
+    },
+    "rationale": "The 2026 primary full text gives covering constructions but not a sharp length-four nonbinary result; the 2008 primary graph theorem covers only edge-disjoint P4 decompositions when 3 divides m*n, not the minimum overlapping path-cover count for nondivisible products. Separate searches using the coding and graph equivalents and the available scientific index found no published theorem with the stronger complete sharp claim. This is a self-review, not a proof of global novelty; earlier unindexed path-cover results remain a concrete risk.",
+    "residual_risks": [
+      "An earlier unindexed theorem on minimum overlapping P4 edge covers of complete bipartite graphs could imply the coding statement; no claim of search-based uniqueness is made.",
+      "Full text of a 2015 complete-bipartite multigraph decomposition paper was inaccessible; its abstract does not directly cover the selective-repetition problem, but an unexamined corollary might.",
+      "Independent human literature review remains pending."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING nonbinary length-four exact count; binary q=2 case and weaker nonbinary existence bound ARE covered",
+        "evidence": [
+          "https://arxiv.org/pdf/2606.15379",
+          "Theorem VI.1 perfect binary covers; Theorem VI.4 size <= q^n/(2n floor(q/2)^2)"
+        ],
+        "identifier_or_url": "arxiv:2606.15379v1",
+        "material_read": "Definitions and main results, Section VI on pages 11–13 including full proofs of Theorems VI.1 and VI.4, conclusions",
+        "method": "Full arXiv PDF examined as text and relevant pages rendered",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Same burst-deletion covering channel and q-ary construction"
+      },
+      {
+        "assessment": "COVERS the m*n divisible-by-three graph case; does not give minimum overlapping P4 covering number when nondivisible",
+        "evidence": [
+          "https://cahiersleibniz.g-scop.grenoble-inp.fr/wp-content/uploads/2019/05/Cahier165.pdf",
+          "Theorem 4.1: K_m,n admits edge-disjoint P4 decomposition iff 3 divides m*n and min(m,n)>1"
+        ],
+        "identifier_or_url": "Teypaz-Rapine-Cahier165-2008",
+        "material_read": "Theorem 4.1 and its constructive proof in Section 4, PDF pages 9–10, and title page",
+        "method": "Full primary PDF retrieved; text and page renders examined",
+        "title": "Graph decomposition into paths under length constraints",
+        "trigger": "Exact graph-theoretic equivalent P4 decomposition"
+      },
+      {
+        "assessment": "NOT_COVERING the length-four adjacent-pair burst covering number; studies unrestricted deletions and asymptotics",
+        "evidence": [
+          "https://arxiv.org/pdf/1911.09944",
+          "No occurrence of burst-deletion construction in the paper; Theorem 14 provides multiple-deletion asymptotic density estimates"
+        ],
+        "identifier_or_url": "arxiv:1911.09944",
+        "material_read": "Introduction, definitions, Theorems 5 and 14, covering-code summary and related bounds",
+        "method": "Full arXiv PDF retrieved; text searches and relevant page render",
+        "title": "Covering Codes using Insertions or Deletions",
+        "trigger": "Foundational covering code results that might imply exact bound"
+      },
+      {
+        "assessment": "UNRESOLVED LIMITED ACCESS; stated homogeneous multigraph path/cycle decomposition is not on its face the selective-overlap minimum covering invariant",
+        "evidence": [
+          "https://eudml.org/doc/276024",
+          "Abstract states necessary/sufficient criteria for homogeneous lambda-fold complete bipartite path/cycle decompositions, not a minimum 3-edge-path cover with only 1 or 2 repeated edges"
+        ],
+        "identifier_or_url": "https://eudml.org/doc/276024",
+        "material_read": "Publisher-index abstract only; full text unavailable from two sources (access denied)",
+        "method": "Search abstract and attempted original/open full-PDF access",
+        "title": "Decomposition of Complete Bipartite Multigraphs Into Paths and Cycles",
+        "trigger": "Potential broader P4 covering/decomposition literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4593077-776a-4ac1-b3de-0114827e6e80",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the natural minimum covering-cardinality invariant for a length-four two-consecutive-deletion channel, with a complete formula for all nontrivial alphabet sizes rather than an isolated census. It resolves the nondivisible-by-three congruence obstruction with provably minimal one/two repeated received pairs, while preserving previously known decomposable cases. Its leading q^2/3 homogeneous-alphabet size improves the leading q^2/2 upper-bound coefficient supplied by the recent general nonbinary construction at the same blocklength, providing explicit optimal codebooks.",
+    "status": "PASS"
+  }
+}
