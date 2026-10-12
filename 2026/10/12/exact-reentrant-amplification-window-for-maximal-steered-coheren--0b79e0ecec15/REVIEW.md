@@ -1,0 +1,11 @@
+# Review: exact reentrant amplification of maximal steered coherence
+
+**Correctness — PASS.** The proof checks the density-matrix and partial-transpose spectra on the full stated domain. Alice's maximally mixed marginal reduces the complete POVM problem to an exact projected-correlation operator norm, and Bob's damped Bloch vector is never degenerate. Two singular values give the closed response formula. An exact concave-quadratic sign analysis, not sampling, proves the threshold and both interval endpoints. The rational example and 32 direct Kraus/projector cases were replayed from the packaged verifier. No assertion is made for broader state or channel classes.
+
+**Originality — PASS, with stated residual risks.** Hu, Milne, Zhang and Fan, *Quantum coherence of steered states*, arXiv:1507.02358 / DOI:10.1038/srep19365, provide the general QSE geometry and numerically plot prolate-state amplitude-damping enhancement (Fig. 2), but their Theorem 1 is an existential channel criterion rather than a sharp family-wide statewise phase condition. Hu and Fan, DOI:10.1103/PhysRevA.91.022301, analyze discord under local channels. Hu and Fan, DOI:10.1038/srep34380, address measurement-averaged steering-induced coherence. Lan and Hu, DOI:10.1016/j.rinp.2023.107050, focus on Bell inputs with squeezed damping and memory. Searches for geometric aliases, exact projective singular-value criteria, phase boundaries, and the source identifier found no covering claim. The possibility of an unindexed equivalently parameterized treatment remains a genuine limitation.
+
+**Value — PASS.** The motivating publication left the precise dependence on prolate shape as numerical evidence. This result resolves a sharp three-parameter transition and an exact reentrant interval for all damping strengths, within a physically valid separable class. It makes quantitative predictions and distinguishes statewise enhancement from the previously established existence theorem.
+
+No new general result for discord, arbitrary two-qubit inputs, or nonstandard damping is claimed. Finite computer calculations provide corroboration but are not treated as a replacement for the complete analytic proof.
+
+Self-review: passed. Independent audit: not yet performed.
