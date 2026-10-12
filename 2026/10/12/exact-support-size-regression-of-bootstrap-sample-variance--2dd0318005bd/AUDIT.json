@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Conditional on support size and support set, the ordered bootstrap labels are uniform surjections. Identifying two draw positions gives the exact same-label probability as the ratio of adjacent Stirling numbers. The exchangeable-sample identity for expected unbiased variance and the finite-population expectation over a uniform support set then prove the conditional regression. A separate multiplicity calculation proves the covariance without using that regression. Exact enumeration through size six for several fixed data profiles agrees with both formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rao--Pathak--Koltchinskii analyze the random distinct-support count and replace it by a fixed-support sequential resampling rule; the inspected full text gives support-count moments but no Stirling conditional variance law.",
+        "Pauly explicitly describes the random number of distinct observations as the hitch motivating fixed-support bootstrap variants and studies empirical-process consistency under MSC 62G09."
+      ],
+      "reasoning": "These sources dominate the natural literature route based on stabilizing bootstrap support size. Their stated results do not imply the exact finite conditional mean of ordinary-bootstrap sample variance.",
+      "searches": [
+        "DOI:10.1016/S0378-3758(97)00041-4",
+        "DOI:10.1080/02331888.2010.543469",
+        "\"sequential bootstrap\" \"sample variance\" distinct observations"
+      ]
+    },
+    "checked_sources": [
+      "Rao, Pathak, and Koltchinskii, Bootstrap by sequential resampling, DOI 10.1016/S0378-3758(97)00041-4, full technical-report text inspected.",
+      "Pauly, Consistency of the Subsample Bootstrap empirical process, DOI 10.1080/02331888.2010.543469, publisher record inspected.",
+      "Current and prior probability-statistics ledgers searched for bootstrap support, distinct observations, occupancy, sample variance, collision count, and sequential resampling."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously checked Gaussian one-resample bootstrap result conditions on multinomial collision count for interval coverage; it does not give sample variance conditional on support size.",
+        "The sequential-bootstrap literature fixes support size by changing the sampling scheme; that does not by itself determine the ordinary-bootstrap conditional sample-variance expectation."
+      ],
+      "reasoning": "Collision count and support size are different occupancy functionals, and fixed-support sequential resampling has a random number of draws. Neither comparison supplies the uniform-surjection law for an ordinary fixed-size bootstrap replicate conditioned on its support.",
+      "searches": [
+        "bootstrap collision count sample variance",
+        "sequential bootstrap fixed support size",
+        "ordinary bootstrap support size effective sample size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searches returned general bootstrap-variance material and distinct-support discussions but no conditional regression involving adjacent Stirling numbers.",
+        "No exact-form search located the displayed support-size/sample-variance covariance."
+      ],
+      "reasoning": "The query set covers the bootstrap, resample support, unique/distinct-observation terminology, sample variance, conditional expectation, covariance, and the combinatorial Stirling representation.",
+      "searches": [
+        "\"bootstrap sample variance\" \"distinct observations\" exact",
+        "\"sample variance\" bootstrap \"number of distinct\" observations conditional",
+        "\"Stirling\" \"bootstrap sample variance\" \"distinct observations\"",
+        "\"bootstrap\" \"support size\" \"sample variance\" Stirling",
+        "\"Cov\" \"number of distinct\" \"sample variance\" bootstrap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact symbolic match was located.",
+        "The theorem is an all-sample-size identity rather than a finite numerical table or simulation pattern."
+      ],
+      "reasoning": "The searches target both the adjacent-Stirling coefficient and the closed occupancy covariance factor.",
+      "searches": [
+        "\"S(n-1,k)/S(n,k)\" bootstrap sample variance",
+        "\"Stirling\" \"sample variance\" bootstrap support size",
+        "\"(1-1/n)^n\" bootstrap \"sample variance\" covariance"
+      ]
+    },
+    "rationale": "The closest full primary source makes random distinct-support size the explicit motivation for sequential resampling and gives moments of that support size, but does not state the conditional sample-variance regression, its Stirling coefficient, or the support-size/sample-variance covariance. A later resampling paper again motivates fixed-support variants by the random number of distinct observations but studies empirical-process consistency. Targeted exact-form and alias searches found no statement implying the new formulas. The main remaining risk is older occupancy or survey-sampling literature under different notation.",
+    "residual_risks": [
+      "Older survey-sampling or finite-occupancy literature may contain the same mixed moment under different terminology.",
+      "The full Pauly article was not available in the inspected publisher path; its abstract and classification were available.",
+      "A general theorem for statistics under bootstrap occupancy conditioning could imply the result without using the same formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORT_SIZE_MOTIVATION_NOT_CONDITIONAL_VARIANCE_FORMULA",
+        "evidence": "The report defines the number of distinct observations in an ordinary bootstrap sample, gives its mean and variance, and proposes stopping when a fixed number of distinct observations is reached. No Stirling occurrence was found; the located sample-variance passage concerns the initial sample inside an asymptotic bound rather than bootstrap variance conditional on support.",
+        "identifier_or_url": "DOI:10.1016/S0378-3758(97)00041-4",
+        "material_read": "Publicly exposed full technical-report text, including the abstract, ordinary-bootstrap distinct-support discussion, support-count first two moments, sequential-resampling construction, and targeted searches for variance and Stirling terminology.",
+        "method": "Full-text statement and keyword inspection against support-size, sample-variance, covariance, and Stirling formulations.",
+        "title": "Bootstrap by sequential resampling",
+        "trigger": "Closest classical source explicitly attributing unequal bootstrap information content to randomness in the number of distinct represented observations."
+      },
+      {
+        "assessment": "FIXED_SUPPORT_EMPIRICAL_PROCESS_NOT_FINITE_VARIANCE_REGRESSION",
+        "evidence": "The record states that ordinary bootstrap support size is random and motivates fixed-support variants, while its result concerns empirical-process consistency. It lists MSC 62G09 and was published online on 18 April 2011.",
+        "identifier_or_url": "DOI:10.1080/02331888.2010.543469",
+        "material_read": "Publisher abstract, publication dates, keywords, and AMS/MSC classification.",
+        "method": "Statement-level comparison of the resampling object and claimed result.",
+        "title": "Consistency of the Subsample Bootstrap empirical process",
+        "trigger": "Archive-era source explicitly motivated by the random distinct-support size and carrying a permitted primary statistical classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2dd03180-05bd-4677-8cc4-3765c280ac8e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of distinct represented observations is a canonical measure of bootstrap information content and directly motivated the sequential-bootstrap literature. Sample variance is a canonical statistic whose attenuation under duplicate-heavy resamples matters for variance-sensitive inference. The theorem quantifies their dependence exactly for every fixed dataset: it provides the full support-size regression, identifies a universal Stirling correction, and gives a closed scale-free covariance. This is a structural explanation of a classical bootstrap-design concern rather than an arbitrary occupancy slice.",
+    "status": "PASS"
+  }
+}
