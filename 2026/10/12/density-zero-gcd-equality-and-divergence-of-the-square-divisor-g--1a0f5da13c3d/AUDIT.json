@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For every fixed \\(p\\equiv1\\pmod3\\) and B, \\(f(X)=X^2+X+1\\) has simple unit roots modulo p and therefore roots modulo \\(p^B\\). The set of primes q in each lifted reduced class has divergent reciprocal sum. Exact finite CRT probabilities for \\(q\\parallel m\\) tend to a zero avoidance product; \\(\\sigma(m^2)\\) is divisible by \\(p^B\\) on density one. For finite P of primes \\(p>T\\), this \\(p^2\\) divisibility makes \\(p\\parallel m\\) imply \\(p\\mid R(m)\\). The CRT upper density of simultaneously avoiding \\(p\\parallel m\\) is product(\\(1-1/p+1/p^2\\)), tending to zero as P grows; no unproven infinite independence is used. The prime-power gcd valuations and all limits were reconstructed; exact finite verifier matches cited numerical counts and congruence identities. Infinite theorem relies on the proved reduction plus Dirichlet reciprocal-prime divergence, not on a finite census.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pollack [author PDF, introductory theorems and Lemma 5] estimates \\(\\gcd(n,\\sigma(n))\\) and almost-everywhere divisibility of \\(\\sigma(n)\\).",
+        "The present numerator and denominator both involve \\(\\sigma(n^2)\\), which does not follow by substitution from claims about \\(\\sigma(n)\\)."
+      ],
+      "reasoning": "The related distribution theory of \\(\\gcd(n,\\sigma(n))\\) neither states nor implies the square-divisor ratio claim. A new \\(p^B\\)-divisibility argument for \\(\\sigma(n^2)\\) is needed, and is proved in the result.",
+      "searches": [
+        "for almost all n gcd(n^2,sigma(n^2))/gcd(n,sigma(n^2)) tends infinity in density",
+        "\"for almost all n\" \"sigma(n^2)\" divisible",
+        "Pollack \"On the greatest common divisor of a number and its sum of divisors, II\" main theorems and Lemma 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2202.08116v1 (open-access full text, relevant Sections 1 and 5 and references)",
+      "MathOverflow:369441/369521 (full question and answer)",
+      "Pollack, On the greatest common divisor of a number and its sum of divisors, II (abstract, theorem statements and relevant part of Section 2)",
+      "OEIS:A232354 (definition, data and formulas)",
+      "OEIS:A065764 (definition, data and formulas)",
+      "published record Exact 5-divisibility criterion for the sum-of-divisors function (indexed summary)",
+      "published record Exact Euler factors for the k-variable gcd-map density (indexed summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dris [2022, Thm. 5.1] shows only a strict bound below 1 and [Conjecture 5.1] explicitly asks for zero.",
+        "Meyerowitz [2020 answer] states \"If we can argue\" before his proposed infinite product; the missing implication is not established there.",
+        "The 5-divisibility record concerns \\(5\\mid\\sigma(n)\\) and mod-25 refinements; the k-variable gcd-map record concerns a different map."
+      ],
+      "reasoning": "The new two-stage finite-CRT proof establishes the previously conjectural implication without assuming asymptotic joint independence of infinitely many event families. Neither named published comparison dominates the claim.",
+      "searches": [
+        "\"Dris\" \"Conjecture 5.1\" \"proven\"",
+        "\"Meyerowitz\" \"Dris\" \"gcd\" \"density\"",
+        "density zero gcd(n,sigma(n^2)) equals gcd(n^2,sigma(n^2)) odd perfect numbers conjecture",
+        "Exact 5-divisibility criterion for the sum-of-divisors function (published indexed source)",
+        "Exact Euler factors for the k-variable gcd-map density (published indexed source)",
+        "proof of Dris Conjecture 5.1 density zero gcd(m,sigma(m^2)) equals gcd(m^2,sigma(m^2))",
+        "for almost all m ratio gcd(m^2,sigma(m^2))/gcd(m,sigma(m^2)) unbounded"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dris [arXiv:2202.08116v1, Section 5] names the equality set and formulates its zero density as Conjecture 5.1.",
+        "Meyerowitz [MathOverflow answer 369521] writes an infinite-product heuristic contingent on a missing justification.",
+        "OEIS:A232354 concerns divisibility of \\(\\sigma(m^2)\\) by m, not equality of two gcds."
+      ],
+      "reasoning": "The ratio equals one precisely on Dris's equality set; hence proving a zero fiber is equivalent to the conjecture, and proving that each bounded fiber has density zero is strictly stronger. The existing heuristic is conditional, not a proof of either density assertion.",
+      "searches": [
+        "\"gcd(m,sigma(m^2))\" \"density zero\" proof theorem",
+        "Bebita Dris set A={m:gcd(m,sigma(m^2))=gcd(m^2,sigma(m^2))} natural density zero proof",
+        "arXiv:2202.08116v1, Section 5; MathOverflow:369441 and answer 369521"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A232354 lists integers m with \\(m\\mid\\sigma(m^2)\\), a different divisibility property.",
+        "OEIS:A065764 tabulates \\(\\sigma(m^2)\\) itself.",
+        "Dris arXiv:2202.08116v1 Section 5 lists equality counts 10,99,974,9561,93845,923464 for cutoffs 10 through 1000000."
+      ],
+      "reasoning": "None is an exact density-zero theorem, a statement of ratio divergence, or a table implying an unbounded conclusion. Matching numerical prefixes is reproducibility evidence, not novelty proof.",
+      "searches": [
+        "OEIS:A232354",
+        "OEIS:A065764",
+        "Math Stack Exchange:3629818 numerical density table"
+      ]
+    },
+    "rationale": "The exact zero-density assertion appears as Conjecture 5.1 in Dris [2022], following a weaker theorem. Meyerowitz [2020] supplies the central root heuristic but conditions the Euler product on unproved justification; the present finite-CRT sieve closes that gap and proves stronger ratio divergence. Relevant published gcd and sum-of-divisors literature, indexed records, and OEIS entries do not imply this statement. Unindexed equivalent work remains a risk.",
+    "residual_risks": [
+      "An unindexed equivalent rigorous density-zero proof, possibly outside the searched primary-source index, may exist.",
+      "The 2020 heuristic is a close precursor; it must be credited rather than framed as independently conceived.",
+      "Quantitative rates and pointwise assertions are neither established nor intended."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 5.1 bounds density below one; Conjecture 5.1 states zero; Remark 5.1 reproduces conditional heuristic.",
+        "identifier_or_url": "https://arxiv.org/html/2202.08116v1",
+        "material_read": "Full manuscript accessed; abstract, introduction, complete Section 5 and references read; original PDF first page compared.",
+        "method": "Full open-access text and original PDF review; compared both side of the equality and the density quantifiers.",
+        "title": "A new approach to odd perfect numbers via GCDs",
+        "trigger": "Exactly same gcd-equality set; focal open conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING: explicitly conditional suggestion",
+        "evidence": "The answer suggests primitive cube roots and the divergent product but explicitly says \"If we can argue...\" rather than proving joint event independence or a sieve limit.",
+        "identifier_or_url": "https://mathoverflow.net/questions/369441/",
+        "material_read": "Entire question, the answer and accompanying clarifying comments.",
+        "method": "Full HTML thread, statement and logical-dependency comparison.",
+        "title": "MathOverflow question 369441 and answer 369521",
+        "trigger": "Earliest public formulation and primary idea of root-progression heuristic."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The work concerns \\(\\gcd(n,\\sigma(n))\\) and divisibility of \\(\\sigma(n)\\), not ratios built from \\(\\sigma(n^2)\\).",
+        "identifier_or_url": "https://www.pollack-math.net/gcdnsigmasequel.pdf",
+        "material_read": "Original PDF abstract, introduction, main Theorems 3 and 4, Section 2 and Lemma 5 concerning sigma(n).",
+        "method": "Read full theorem statements and relevant sections of author-hosted PDF.",
+        "title": "On the greatest common divisor of a number and its sum of divisors, II",
+        "trigger": "Plausible stronger general results on gcd and divisor sums."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The entries are divisibility table and sum-of-divisors-of-squares table, with no statement about natural density or ratio divergence.",
+        "identifier_or_url": "https://oeis.org/A232354 ; https://oeis.org/A065764",
+        "material_read": "Definitions, initial terms, formulas, and accompanying comments of both sequence pages.",
+        "method": "Read public sequence entries.",
+        "title": "OEIS A232354 and A065764",
+        "trigger": "Potential exact database and same divisor-sum computation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1a0f5da1-3c3d-4901-9b35-19cf461a1a5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This proves a named natural-density conjecture about the sum-of-divisors gcd structure for all positive integers, with no artificial cutoff, and a strictly stronger distributional escape property. It fills the genuine gap left by an explicit 2020 heuristic and a 2022 conjecture; it is not an arbitrary finite numerical slice.",
+    "status": "PASS"
+  }
+}
