@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For any SPD real 2x2 Hessian, positive diagonal scaling and a diagonal sign flip reduce the objective to C=[[1,c],[c,1]] with c in [0,1). Both protocols enumerate all their possible two-update products exactly; expected energy matrices are symmetric and invariant under coordinate interchange. Direct symbolic multiplication gives the two generalized eigenvalue gaps omega^2(1-c^2)(2-omega)[2-omega(1±c)]/4. Since the prefactor and minus-mode bracket are positive throughout 0<omega<2, the plus-mode bracket proves exactly the stated strict/non-strict dominance and incomparability, including boundaries c=0 and omega=2/(1+c). A separate exact rational example c=1/2, omega=19/10 verifies strict reversal even of maximal one-epoch Rayleigh quotients. The single-step identity -omega(2-omega)[(Cy)_i]^2/2 verifies monotonicity. A self-contained SymPy checker reproduces the exact symbolic matrix identities and 382 exact rational cases; its finite tests are supporting evidence, not a substitute for the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun, Luo, Ye (arXiv:1503.06387), formulation and main results, concerns expected iteration matrices for randomized permutation block coordinate descent and ADMM.",
+        "Gürbüzbalaban et al. (arXiv:1803.08200), Sections 1–4, studies random permutation versus iid sampling for exact-coordinate minimization (relaxation 1), with rate estimates.",
+        "Oswald and Zhou (arXiv:1510.04727), Theorem 4, is a randomized-shuffled SOR convergence bound rather than an exact two-draw Loewner difference classification."
+      ],
+      "reasoning": "The more general-dimensional papers involve either operator/expected-iterate convergence, broad shuffle-only estimates, or relaxation-one comparisons. Their stated results neither subsume the sharp relaxation parameter threshold nor imply a reverse sign in one objective-energy mode while every elementary step remains monotone.",
+      "searches": [
+        "overrelaxed coordinate descent random reshuffling Gauss Seidel spectral comparison stability",
+        "sharp two-coordinate SOR random shuffle versus iid with-replacement expected energy Loewner threshold relaxation 2/(1+correlation)",
+        "random permutation coordinate descent overrelaxation two variables opposite mode energy reversed sampling",
+        "randomized coordinate descent over relaxation shuffle resampling comparison energy norm non-commutative arithmetic geometric mean two matrices",
+        "\"random permutation\" \"with replacement\" \"overrelaxation\" energy SOR"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.4184, Section 3.1, Proposition 3.2",
+      "arXiv:1510.04727, Section 3, Theorem 4",
+      "arXiv:1503.06387, introductory definitions and main results",
+      "arXiv:1803.08200, Sections 1–4",
+      "published-finding corpus: 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "published-finding corpus: 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "published-finding corpus: 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "published-finding corpus: 2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For 0<relaxation<=1, the two coordinate error maps have nonnegative eigenvalues; the claimed failure occurs only in an overrelaxed sector where their eigenvalues 1-relaxation are negative.",
+        "Recht and Ré Section 3.1 covers PSD-factor product norm inequalities, not complete statewise comparisons of distinct stochastic sampling protocols beyond PSD applicability.",
+        "The formula gives opposite signs for modal energy differences when 2/(1+c)<relaxation<2 and c>0, a property not stated by Oswald–Zhou or by exact-coordinate minimization results."
+      ],
+      "reasoning": "The new conclusion is not merely that permuted products converge or have a favorable averaged norm: it is the exact iff condition for all-initial-data expected objective dominance under identical evaluation budgets, plus an algebraic worst-case reversal example. Exact coordinate minimization at relaxation 1 is a covered special regime; it cannot imply the overrelaxed transition or reversal. Results on Euclidean amplification or stale-read delays concern different operators and criteria.",
+      "searches": [
+        "random permutation without replacement versus independent coordinate descent two dimensional quadratic overrelaxation exact epoch contraction",
+        "overrelaxed coordinate descent random reshuffling Gauss Seidel spectral comparison stability",
+        "sharp two-coordinate SOR random shuffle versus iid with-replacement expected energy Loewner threshold relaxation 2/(1+correlation)",
+        "random permutation coordinate descent overrelaxation two variables opposite mode energy reversed sampling",
+        "random reordering SOR exact two-dimensional after-one-sweep energy signed advantage",
+        "random reshuffling versus with-replacement two-coordinate over-relaxed Gauss-Seidel expected quadratic energy phase transition",
+        "2x2 SOR two draws permutation replacement Loewner dominance threshold 2/(1+c)",
+        "two-coordinate SOR random reshuffling with replacement expected error sharp relaxation coupling threshold",
+        "randomized coordinate descent over relaxation shuffle resampling comparison energy norm non-commutative arithmetic geometric mean two matrices",
+        "\"random permutation\" \"with replacement\" \"overrelaxation\" energy SOR"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Recht and Ré (arXiv:1202.4184), Section 3.1 Proposition 3.2, compares two-factor symmetrized products through PSD-factor matrix-norm inequalities.",
+        "Oswald and Zhou (arXiv:1510.04727), Section 3, gives shuffled SOR energy estimates under 0<relaxation<2.",
+        "The present difference is the complete two-mode generalized eigenvalue identity of the expected objective matrices for permutation versus iid-with-replacement sampling."
+      ],
+      "reasoning": "The two-dimensional energy comparison is equivalent to a Loewner ordering of two explicit degree-four pullbacks. PSD-factor noncommutative arithmetic-geometric mean statements neither address indefinite overrelaxation factors above unity nor give the statewise sharp boundary; shuffled SOR bounds do not directly compare the competing replacement protocol.",
+      "searches": [
+        "random permutation without replacement versus independent coordinate descent two dimensional quadratic overrelaxation exact epoch contraction",
+        "overrelaxed coordinate descent random reshuffling Gauss Seidel spectral comparison stability",
+        "two-coordinate SOR random reshuffling with replacement expected error sharp relaxation coupling threshold",
+        "randomized coordinate descent over relaxation shuffle resampling comparison energy norm non-commutative arithmetic geometric mean two matrices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic records nearest this formulation concern deterministic two-coordinate Gauss–Seidel Euclidean transients (2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b) and iid Gauss–Seidel with random delays (2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac), rather than overrelaxed shuffle-vs-replacement objective-energy ordering.",
+        "No exact coefficient table or database entry containing the displayed two-mode comparison was identified in the examined literature."
+      ],
+      "reasoning": "Exact symbolic fractions and a sharp analytic threshold were compared against available mathematical research records. Failure of exact search is not evidence of exhaustive originality, and an unindexed historical specialized identity remains a residual risk.",
+      "searches": [
+        "sharp two-coordinate SOR random shuffle versus iid with-replacement expected energy Loewner threshold relaxation 2/(1+correlation)",
+        "random permutation coordinate descent overrelaxation two variables opposite mode energy reversed sampling",
+        "random reordering SOR exact two-dimensional after-one-sweep energy signed advantage",
+        "random reshuffling versus with-replacement two-coordinate over-relaxed Gauss-Seidel expected quadratic energy phase transition",
+        "2x2 SOR two draws permutation replacement Loewner dominance threshold 2/(1+c)",
+        "two-coordinate SOR random reshuffling with replacement expected error sharp relaxation coupling threshold",
+        "randomized coordinate descent over relaxation shuffle resampling comparison energy norm non-commutative arithmetic geometric mean two matrices",
+        "\"random permutation\" \"with replacement\" \"overrelaxation\" energy SOR"
+      ]
+    },
+    "rationale": "The nearest inspected primary results concern noncommutative product norms under PSD assumptions, general shuffled SOR convergence bounds, randomized permutations of exact-coordinate minimizations, and expected iteration convergence. None of their inspected theorem statements directly asserts or subsumes the two-dimensional all-initialization Loewner threshold at 2/(1+c), two opposite signed energy modes above it, and strict reversal of the worst-case one-epoch factor while each step is monotone. A specialized historical equivalent remains a risk, and semantic search alone is not a mathematical uniqueness proof.",
+    "residual_risks": [
+      "Unretrieved historical two-variable SOR comparison may contain an equivalent exact identity or imply the threshold.",
+      "The accessible texts and semantic search are not exhaustive of older optimization and iterative-methods literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivating precedent; does not provide this non-PSD overrelaxed two-coordinate expected-objective threshold.",
+        "evidence": "arXiv:1202.4184; first submitted 2012-02-19.",
+        "identifier_or_url": "https://arxiv.org/html/1202.4184v1",
+        "material_read": "Sections 1 and 3.1 including Proposition 3.2 and hypotheses on positive-semidefinite factors",
+        "method": "Read full-text HTML and checked the precise factor assumptions and comparison target",
+        "title": "Beneath the Valley of the Noncommutative Arithmetic-Geometric Mean Inequality",
+        "trigger": "Permuted versus replacement two-factor matrix product comparisons"
+      },
+      {
+        "assessment": "General shuffled SOR estimates; does not state replacement-sampling counterpart or exact modal reversal.",
+        "evidence": "arXiv:1510.04727; first submitted 2015-10-15; primary MSC 65F10.",
+        "identifier_or_url": "https://arxiv.org/html/1510.04727v2",
+        "material_read": "Introduction and Section 3, including Theorem 4 and convergence inequalities",
+        "method": "Read full-text HTML comparing the stochastic protocol and theorem statements",
+        "title": "Random Reordering in SOR-Type Methods",
+        "trigger": "Direct study of overrelaxed randomized SOR ordering"
+      },
+      {
+        "assessment": "Does not imply the specified sharp 2D overrelaxation energy sign threshold.",
+        "evidence": "arXiv:1503.06387; first submitted March 2015.",
+        "identifier_or_url": "https://arxiv.org/html/1503.06387v3",
+        "material_read": "Algorithmic formulation, introductory comparisons, and main convergence theorem statements",
+        "method": "Read full-text HTML, checking quantifiers and whether results compare overrelaxation parameters in expected objective",
+        "title": "On the Efficiency of Random Permutation for ADMM and Coordinate Descent",
+        "trigger": "Random permutation coordinate descent comparison literature"
+      },
+      {
+        "assessment": "Pertinent comparison at relaxation one; no complete two-coordinate overrelaxation reversal classification.",
+        "evidence": "arXiv:1803.08200; first submitted 2018-03-22.",
+        "identifier_or_url": "https://arxiv.org/html/1803.08200v1",
+        "material_read": "Introduction, algorithm definitions and Section 4.2",
+        "method": "Read full-text HTML, checked exact-coordinate minimization assumption and objectives",
+        "title": "Randomness and Permutations in Coordinate Descent Methods",
+        "trigger": "Direct shuffle/replacement comparison in objective convergence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1370f23f-939c-4eee-88b4-aae15ff4fa7a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result settles a natural algorithmic decision under equal two-coordinate-gradient evaluation budgets: the exact range in which reshuffling is uniformly preferable and the equally explicit regime where opposite initial-state modes reverse the preference. The boundary 2/(1+c) depends on the normalized Hessian coupling and is a sharp structural phase line, not an arbitrary numeric test. The exact rational example demonstrates even worst-case one-epoch preference can reverse while every constituent update remains descent; this cautions against extrapolating generic no-replacement improvements to overrelaxed coordinate descent. The theorem does not claim arbitrary-multiepoch superiority.",
+    "status": "PASS"
+  }
+}
