@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The normal form follows from preservation of the one-dimensional square and checking the alternating multiplication. Singular blocks have totally isotropic image; their rank count follows from ordered isotropic frames, surjective maps, and the restriction of the central functional to the kernel. Nonzero multipliers give exactly the conformal symplectic automorphisms. Leading-degree calculations establish the three-way density limit. The extracted exact checker exhaustively verifies \((m,q)=(1,2),(1,3),(1,4),(2,2)\); finite tests do not establish arbitrary-field claims, which depend on the proof.
+
+**Originality — PASS, with recorded risk.** Ignatyev–Kaygorodov–Popov classify geometric varieties of two-step nilpotent algebras, not the present endomorphism ranks. Facchini–Heidari Zadeh describe augmentations and a special class of composition-idempotent endomorphisms of unital algebras, not all of these nonunital maps. Symplectic-monoid literature is related at the matrix-constraint level, but its available theorems do not supply this complete functional-lift rank polynomial or the density transition. Published result searches and prior compared claims concern Lie automorphisms, derivations, Nijenhuis operators, and other invariants. A pre-existing broader formulation, especially one treating Heisenberg Lie endomorphism monoids, remains a genuine risk. No definitive uniqueness certification is claimed.
+
+**Value — PASS.** The exact rank census detects a large, dimension-dependent gap and a trichotomy in automorphism density across an infinite natural family. The distinction between isotropic singular maps and conformal symplectic units and their different asymptotic degrees supplies nontrivial structural information. Standard Gaussian, symplectic, and isotropic counts are credited rather than claimed as new.
+
+**Scope and limitations.** Arbitrary-field classification, finite-field exact formulas and asymptotics are proved; computational checks cover only the stated finite fields. Literature comparisons carry the residual equivalence risk described in the structured audit.
+
+Self-review: passed. Independent audit: not yet performed.
