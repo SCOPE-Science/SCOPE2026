@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The reviewed statement is the sharp existence/uniqueness theorem for strictly positive equilibria on fixed-\(F\) leaves, with its disease-free local linear stability partition and one exact rational counterexample. The exact equations (4.1) were checked against the source's PDF. Conservation \(\dot U+\dot C=0\) and the infected-human population balance force \(B=kI\) and \(S=[\Lambda-(\mu+\delta)I]/\mu\). A discriminant-free sign argument gives one positive food root for each \(B>0\). Implicit differentiation yields \(C'>0,C''<0\), so \(C(B)/B\) is strictly decreasing. This forces at most one positive equilibrium, while exact endpoint limits deliver the necessary-and-sufficient threshold. The infection/environmental Jacobian is a Metzler matrix, with positive test vectors proving the strict stability/instability regimes. The explicit rational equilibrium is checked by direct substitution into all five equations, not by finite simulation. The boundary \(\mathcal T_F=1\) is explicitly classified only as nonhyperbolic, and no positive-equilibrium stability or global convergence is claimed. The executable checker returned `VERIFY_OK`.
+
+## Originality — PASS, specifically scoped
+
+The strongest overlap risk is Koutou–Kouanda–Ouédraogo (2026), Proposition 4.2, which addresses exactly the same printed equations but asserts the insufficient threshold \(\widehat{\mathcal R}>1\). Its equations (4.1)–(4.6) and surrounding arguments were materially inspected; no \(F\)-adjusted all-parameter criterion is given. Older cross-contamination studies explicitly establish food-specific thresholds, which are *not* asserted here as novel. Their models involve workers, logistic environmental bacteria, media awareness or open food replenishment, so their statements do not imply the unique positive-equilibrium classification for the conserved-food closed feedback in the 2026 equations. A separate September 2026 risk-stratified human–food–bacteria paper was examined: its externally recruited food and logistic bacteria likewise prevent subsumption. The 2002 foundational next-generation theory covers the general local-stability mechanism but not this model's nonlinear uniqueness or exact correction. Published mathematical-record searches and deduplication against existing research found no equivalent or dominating result, though a negative search cannot prove universal novelty.
+
+## Mathematical value — PASS
+
+The finding changes the scientifically relevant qualitative prediction of a published epidemic model: the asserted disease-free/endemic division at the paper's original threshold fails for positive conserved food stocks, and a fully explicit threshold including food self-contamination is necessary and sufficient throughout the positive parameter domain. This is a structural and reproducible classification, not simply a negative sign observation or a retabulation of a known invariant. The exact old-subcritical endemic witness shows a substantive consequence and points to a precise limit of the paper's equilibrium proposition.
+
+## Closest literature and limitations
+
+Koutou, Kouanda and Ouédraogo (2026), DOI: 10.28924/2291-8639-24-2026-160, is the same-system predecessor. Chukwu and Nyabadza (2020), DOI: 10.1155/2020/9207403; Chukwu, Nyabadza and Fatmawati (2021), DOI: 10.3934/mbe.2021375; Omar and colleagues (2026), DOI: 10.62054/ijdm/0303.06; and van den Driessche and Watmough (2002), DOI: 10.1016/S0025-5564(02)00108-6, are the closest conceptual comparisons. The result does not cover global dynamics, the eight-compartment co-infection model, empirical data or independent validation. Residual risk: unindexed or later papers could independently derive the same corrected leafwise criterion.
+
+Self-review: passed. Independent audit: not yet performed.
