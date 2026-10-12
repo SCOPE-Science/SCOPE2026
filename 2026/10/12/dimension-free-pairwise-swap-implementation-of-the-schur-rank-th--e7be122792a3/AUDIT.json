@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes an arbitrary Young sector and separates the exact low case from the high case. For high sectors it applies the inspected first-column growth inequality uniformly over histories, dominates the successive waiting times by independent geometric variables, evaluates their mean exactly as \\(n((r+2)H_r-r)\\), and invokes the inspected geometric-sum tail bound. The ideal truncation error is at most \\(\u000barepsilon/2\\). The inspected pairwise-SWAP realization is then substituted at diamond error \\(\u000barepsilon/(2M_r)\\) per call; a hybrid bound contributes at most another \\(\u000barepsilon/2\\). All quantifiers and the permutation-invariant input restriction are explicit.",
+    "risks": [
+      "The result is only a binary classical-output approximation; it does not establish a full post-measurement Schur instrument."
+    ],
+    "sources": [
+      "arXiv:2610.02103v1, Sections IV.2, V.1--V.3, VI.2 and Appendices E and G",
+      "arXiv:1501.05028, Section 6.1"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.02103v1 gives a broader-output full Schur-sampling protocol, but its stated operation bound follows all columns and retains local-dimension dependence.",
+        "arXiv:1501.05028 gives broader spectrum-testing results but does not compile the Schur decision into pairwise SWAP tests."
+      ],
+      "reasoning": "A broader-output theorem would cover the claim only if it also implied the asserted \\(r\\)-dependent, dimension-free complexity. The inspected broader protocols do not provide that implication.",
+      "searches": [
+        "quantum rank testing first-column length pairwise SWAP tests local dimension rank threshold",
+        "\"SWAP tests\" \"rank r\" \"Schur\" algorithm",
+        "unitary Schur sampling random SWAP tests qudit complexity rank testing"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02103v1",
+      "arXiv:1501.05028",
+      "doi:10.1007/s00220-021-04180-1",
+      "arXiv:2508.05046"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.02103v1 supplies the necessary primitives but does not state the threshold theorem or its dimension-free complexity.",
+        "arXiv:1501.05028 identifies acceptance with the first-column condition but contains no pairwise-SWAP compilation bound.",
+        "arXiv:2508.05046 is an earlier qubit-specific random-SWAP construction and does not by itself cover arbitrary local dimension and threshold."
+      ],
+      "reasoning": "Neither closest source alone implies the claim at the stated resource level. The new implication uses the binary stopping rule plus a threshold-specific stochastic bound; following the full sampling protocol would retain unnecessary column certification and dimension dependence.",
+      "searches": [
+        "2610.02103 first column rank testing random SWAP antisymmetric threshold",
+        "quantum rank testing first-column length pairwise SWAP tests local dimension rank threshold",
+        "Young diagram first column threshold O(n r^2) SWAP tests",
+        "partial Schur sampling rank threshold antisymmetry random transpositions",
+        "\"SWAP tests\" \"rank r\" \"Schur\" algorithm",
+        "\"pairwise SWAP\" quantum rank testing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located source stated a dimension-free pairwise-SWAP realization of the binary condition \\(\\lambda'_1\\le r\\).",
+        "The closest source arXiv:2610.02103v1 treats full unitary Schur sampling and separately discusses first-column-only rank testing."
+      ],
+      "reasoning": "Searches included first-column, antisymmetric-subsystem, partial-Schur, rank-threshold, and random-transposition/SWAP terminology. The located statements either concerned full diagram sampling or the abstract rank tester, not the threshold-dependent operation count.",
+      "searches": [
+        "2610.02103 first column rank testing random SWAP antisymmetric threshold",
+        "quantum rank testing first-column length pairwise SWAP tests local dimension rank threshold",
+        "Young diagram first column threshold O(n r^2) SWAP tests",
+        "partial Schur sampling rank threshold antisymmetry random transpositions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or indexed theorem located the formula \\(M_r=\\lceil 2n((r+2)H_r-r)+2n(r+1)\\ln(2/\u000barepsilon)\rceil\\) or the resulting SWAP bound."
+      ],
+      "reasoning": "The claim is an analytic implementation theorem rather than a tabulated finite invariant. Searches for its exact structural parameters and constants returned no matching database/table entry.",
+      "searches": [
+        "2610.02103 first column rank testing random SWAP antisymmetric threshold",
+        "Young diagram first column threshold O(n r^2) SWAP tests",
+        "first column Young diagram rank tester SWAP operation count"
+      ]
+    },
+    "rationale": "The primary random-SWAP source proves a full unitary-Schur-sampling implementation with dimension-dependent complexity and explicitly separates rank testing as a first-column-only task whose dimension dependence could be improved. The spectrum-testing source supplies the rank-threshold decision and copy complexity but no pairwise-SWAP implementation. The present theorem combines the first-column growth law with the observation that binary thresholding requires no bottom certification, yielding a new threshold-dependent dimension-free operation bound.",
+    "residual_risks": [
+      "A contemporaneous preprint or representation-theoretic formulation may encode the same partial first-column stopping rule under different terminology.",
+      "The older qubit antecedent was not relied upon for a whole-document noncoverage conclusion."
+    ],
+    "risks": [
+      "The anchor source is only days old, so a contemporaneous or differently indexed equivalent partial-Schur result may not yet be discoverable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: provides maximal-antisymmetry growth, full unitary Schur sampling, stochastic tools, and pairwise-SWAP approximation, but not the binary threshold theorem or its \\(r\\)-dependent dimension-free bound.",
+        "evidence": "The inspected growth equations and theorems provide the history-uniform success bounds and geometric domination; the discussion notes that rank testing only needs first-column length and treats improved local-dimension dependence as future work.",
+        "identifier_or_url": "arXiv:2610.02103v1",
+        "material_read": "Sections IV.2, V.1--V.3, VI.2, VIII, and Appendices E and G.",
+        "method": "Lawful arXiv full text.",
+        "title": "Unitary Schur Sampling of Qudits via Random SWAP Tests: Hunt for Antisymmetry",
+        "trigger": "Same random-SWAP primitive, same Young-diagram first-column object, and explicit discussion of rank testing."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes weak-Schur rank testing and copy complexity, but does not implement the decision with pairwise SWAP tests or state the present operation bound.",
+        "evidence": "The rank tester accepts exactly when the sampled Young diagram has at most \\(r\\) rows, equivalently first-column length at most \\(r\\).",
+        "identifier_or_url": "arXiv:1501.05028; doi:10.1007/s00220-021-04180-1",
+        "material_read": "Section 6.1 and surrounding overview; the relevant algorithm page was visually inspected in the full PDF.",
+        "method": "Author-hosted full PDF.",
+        "title": "Quantum Spectrum Testing",
+        "trigger": "Canonical source for the one-sided quantum rank tester."
+      },
+      {
+        "assessment": "LIMITED COMPARISON: its advertised scope is qubits; this limited inspection is not used alone to establish whole-document noncoverage.",
+        "evidence": "It is relevant as the low-dimensional antecedent, while the new theorem concerns arbitrary local dimension and a rank threshold.",
+        "identifier_or_url": "arXiv:2508.05046",
+        "material_read": "Advertised abstract scope and its role as described in arXiv:2610.02103v1.",
+        "method": "Public abstract plus citation context in the inspected qudit paper.",
+        "title": "Optimal qubit purification and unitary Schur sampling via random SWAP tests",
+        "trigger": "Earlier random-SWAP Schur-sampling construction cited by the qudit source."
+      }
+    ],
+    "sources": [
+      "arXiv:2610.02103v1",
+      "arXiv:1501.05028",
+      "arXiv:2508.05046"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e7be1227-92a3-43d6-81c6-50845ac30418",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The closest primary source explicitly motivates reducing local-dimension dependence for partial tasks such as rank testing. The result removes \\(d\\) entirely from the decision-stage operation count and identifies the structural mechanism: stop at first-column size \\(r+1\\), omit bottom certification and later columns, and exploit the exact harmonic waiting-time sum. This is directly useful for compiling the established one-sided rank test into elementary two-system tests.",
+    "risks": [
+      "The theorem does not improve statistical copy complexity or prove optimality of the SWAP-test count."
+    ],
+    "sources": [
+      "arXiv:2610.02103v1, discussion of rank testing and local-dimension dependence",
+      "arXiv:1501.05028, Section 6.1"
+    ],
+    "status": "PASS"
+  }
+}
