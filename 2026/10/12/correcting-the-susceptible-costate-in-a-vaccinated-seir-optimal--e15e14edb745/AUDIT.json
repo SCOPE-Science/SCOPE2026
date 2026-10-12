@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Differentiating the displayed Hamiltonian with respect to S gives lambda1[(1-u2)theta E+(mu+z0 u1)]-lambda2(1-u2)theta E. The printed equation adds -lambda2(mu+z0 u1). The terminal conditions and positive disease-cost weight force lambda2(T-tau)=alpha C3 tau^2/2+O(tau^3), so the discrepancy is genuinely active near the terminal point. The bundled symbolic checker reproduces all state gradients exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Related COVID optimal-control work uses Pontryagin forward-backward systems but different compartments and control laws.",
+        "The broader literature does not contain the exact three-state controlled system and Hamiltonian of the motivating source.",
+        "A prior same-source result concerns equilibrium vaccination monotonicity and explicitly does not solve an optimal-control problem."
+      ],
+      "reasoning": "General Pontryagin methodology does not subsume a source-specific algebraic correction unless it is applied to the same Hamiltonian. The closest same-source prior claim is logically independent because it concerns steady-state comparative statics.",
+      "searches": [
+        "SEIR infected immigrants vaccination optimal control adjoint error",
+        "COVID vaccination generalized contact rate optimal control costate correction",
+        "COVID South Africa optimal control vaccination costate forward backward sweep"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023411",
+      "doi:10.1016/j.sciaf.2022.e01268"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or correction to equation (5.3) was located.",
+        "The prior same-source equilibrium result establishes vaccination comparative statics at endemic equilibrium and contains no adjoint or Hamiltonian statement.",
+        "Related optimal-control sources with different state equations do not imply the corrected first costate here."
+      ],
+      "reasoning": "The accepted claim is a necessary-condition correction for one displayed Hamiltonian. Neither equilibrium comparative statics nor generic optimal-control methodology supplies the concrete missing/extra term without performing this source-specific differentiation.",
+      "searches": [
+        "\"10.3934/math.2023411\" correction erratum",
+        "\"10.3934/math.2023411\" Theorem 5 correction",
+        "\"Control and elimination in an SEIR model\" costate correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary theorem prints a first costate in which lambda2 multiplies both the infection term and the vaccination/natural-removal term.",
+        "Direct differentiation of the displayed Hamiltonian shows that lambda2 arises from the exposed equation and therefore multiplies only the infection term.",
+        "Published-finding and source searches did not return an equivalent correction."
+      ],
+      "reasoning": "The same defect can be described as a wrong susceptible costate, an extra lambda2 removal term, a Hamiltonian-gradient mismatch, or an invalid first adjoint equation. The searches cover these equivalent formulations.",
+      "searches": [
+        "\"10.3934/math.2023411\" adjoint optimal control vaccination",
+        "\"Control and elimination in an SEIR model\" Pontryagin costate",
+        "\"10.3934/math.2023411\" \"lambda2\" \"mu+z0u1\"",
+        "\"Theorem 5\" \"10.3934/math.2023411\" adjoint"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at the objective functional, controlled system (5.2), Hamiltonian, Theorem 5, equation (5.3), terminal conditions, and pointwise control formulas.",
+        "The theorem page was visually inspected, confirming the extra factor (mu+z0 u1) inside the lambda2 bracket.",
+        "Publisher metadata gives first publication on 31 January 2023 and lists MSC 92D30 first."
+      ],
+      "reasoning": "The decisive comparison uses the exact printed Hamiltonian and exact printed first costate, not a secondary transcription.",
+      "searches": [
+        "doi:10.3934/math.2023411 controlled system 5.2 Hamiltonian",
+        "doi:10.3934/math.2023411 equation 5.3 costate",
+        "doi:10.3934/math.2023411 Theorem 5 terminal conditions"
+      ]
+    },
+    "rationale": "The source-specific costate correction is distinct from prior equilibrium comparative statics for the same model. Source-identity, equation-number, adjoint, costate, correction, and erratum searches found no published replacement for equation (5.3). Related COVID optimal-control papers use different models and do not imply this exact Hamiltonian-gradient correction.",
+    "residual_risks": [
+      "An unindexed author note could contain a correction not found in the checked records.",
+      "Unavailable source code could have implemented the corrected equation despite the printed theorem.",
+      "The result does not recompute the optimal-control trajectories under the corrected backward system."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_FIRST_COSTATE_IS_NOT_THE_HAMILTONIAN_STATE_GRADIENT",
+        "evidence": "The lambda2 contribution to -H_S is -lambda2(1-u2)theta(I)E, whereas the printed equation adds -lambda2(mu+z0 u1).",
+        "identifier_or_url": "doi:10.3934/math.2023411",
+        "material_read": "Publisher full text at the controlled model, objective functional, Hamiltonian, Theorem 5, equation (5.3), transversality conditions, pointwise control formulas, and numerical-control discussion; the theorem page was visually inspected.",
+        "method": "Differentiated the displayed Hamiltonian term by term, compared all three costates, then used the terminal conditions to show the first-costate discrepancy is nonzero near T.",
+        "title": "Control and elimination in an SEIR model for the disease dynamics of COVID-19 with vaccination",
+        "trigger": "Primary source containing the controlled system, Hamiltonian, and target adjoint equation."
+      },
+      {
+        "assessment": "RELATED_OPTIMAL_CONTROL_METHOD_DIFFERENT_MODEL",
+        "evidence": "The related article uses a different compartmental system and different controls, so its adjoints neither imply nor repair equation (5.3) of the motivating source.",
+        "identifier_or_url": "doi:10.1016/j.sciaf.2022.e01268",
+        "material_read": "Full-text optimal-control section covering its different state equations, Hamiltonian, costates, controls, and forward-backward numerical procedure.",
+        "method": "Compared model structure and necessary conditions at statement level.",
+        "title": "Application of Optimal Control to Long Term Dynamics of COVID-19 Disease in South Africa",
+        "trigger": "Closely related South-African COVID optimal-control literature cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e15e14ed-b745-4ee5-b7f2-322ac679dbc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first costate enters the source's vaccination control formula directly and also couples into the contact-reduction control. The error is not a dormant typographical term: the terminal expansion forces its coefficient lambda2 to become positive immediately when integrating backward. Thus the correction is necessary for reproducibility and for any mathematical certification of the reported optimal scheduling.",
+    "status": "PASS"
+  }
+}
