@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The statewise maximization is exact: after x=BF/C and u=BHM, differentiation leaves the sign factor u-(D+u)x^2, giving the unique positive maximizer and the closed-form envelope Q(M). The scalar comparison F'/F<=Q(M_s)-delta_F then yields the exponential bound directly. For periodic forcing the time average reduces exactly to one period. The source-parameter application was independently replayed with high-precision adaptive quadrature and a composite Simpson calculation, with margins from delta_F large compared with their numerical disagreement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang, Liu, and Song's 2021 open article studies a higher-dimensional stage-structured two-sex model with impulsive releases and derives thresholds for a mosquito-free periodic solution.",
+        "The 2022/2023 periodic-compensation article studies a delayed stage–sex model and, from its accessible abstract, analyzes periodic solutions and extinction stability according to release period and sexual lifespan.",
+        "A 2020 one-sided competition model contains a periodic mass-release section and an extinction condition for a different state system."
+      ],
+      "reasoning": "These sources establish substantial prior theory for periodic sterile-insect control, so the claim is deliberately restricted to the exact nonautonomous scalar reduction and envelope comparison in the motivating source. Different state structures and release mechanisms do not imply the formula Q(M) for this equation.",
+      "searches": [
+        "\"sterile mosquito\" periodic release global extinction model",
+        "\"Study of the sterile insect release technique for a two-sex mosquito population model\" threshold periodic solution",
+        "\"Modeling of periodic compensation policy for sterile mosquitoes incorporating sexual lifespan\" stability extinction",
+        "\"A One-Sided Competition Mathematical Model for the Sterile Insect Technique\" periodic mass release"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023717",
+      "doi:10.3934/mbe.2021069",
+      "doi:10.1002/mma.8864",
+      "doi:10.1155/2020/6246808"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed correction or source-specific analytic treatment of Figure 2's crossing-threshold profiles was located.",
+        "The 2021 impulsive two-sex model provides periodic-solution thresholds in a different system but does not imply the statewise envelope for equation (3.1).",
+        "The later periodic-compensation abstract is highly relevant but does not expose enough full-text detail to establish statement-level coverage of this exact criterion."
+      ],
+      "reasoning": "The source's pointwise theorem is strictly weaker for the 1.2e5 sinusoid because that profile falls far below m* each period, while the new mean-envelope inequality still holds. No inspected prior statement dominates that implication for this exact scalar model.",
+      "searches": [
+        "\"10.3934/math.2023717\" correction erratum periodic",
+        "\"10.3934/math.2023717\" average extinction",
+        "\"Global dynamics of a mosquito population suppression model with stage and sex structure\" Figure 2 analytic",
+        "periodic sterile release average per capita growth extinction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating article's Theorem 2 uses an asymptotic pointwise lower bound on the sterile population, while its Figure 2 profiles cross the threshold and are treated numerically.",
+        "Database searches did not locate a published finding stating the source-specific envelope Q(M), the average criterion, or the analytic certification of the 1.2e5 sinusoid."
+      ],
+      "reasoning": "The claim was searched as an average-release condition, an instantaneous-growth envelope, a periodic extinction condition, and a source-specific closure of the crossing-threshold gap. No closest result implied the exact formula or its Figure 2 consequence.",
+      "searches": [
+        "\"10.3934/math.2023717\" periodic release average extinction criterion",
+        "\"Global dynamics of a mosquito population suppression model with stage and sex structure\" periodic average threshold",
+        "sterile mosquito nonautonomous scalar model average release global extinction qmax",
+        "periodic sterile mosquito release scalar ODE global extinction average threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating full text was inspected at equation (3.1), which supplies the exact scalar nonautonomous field used in the proof.",
+        "Theorem 2 was inspected and requires the asymptotic sterile-population lower envelope to exceed m*.",
+        "Table 2 and the carrying-capacity reconstruction were inspected for the parameter application.",
+        "The Figure 2 discussion explicitly states that the 1.2e5 and 6e4 sinusoids straddle m*, reports global extinction for the former and bistability for the latter, and notes that the pointwise theorems are only sufficient."
+      ],
+      "reasoning": "The theorem and numerical application are tied to the exact printed scalar field, parameter table, and the precise unresolved crossing-threshold profiles rather than inferred from an abstract.",
+      "searches": [
+        "doi:10.3934/math.2023717 equation 3.1 Theorem 2",
+        "doi:10.3934/math.2023717 Table 2 Figure 2",
+        "doi:10.3934/math.2023717 m star sinusoidal 1.2 10^5 6 10^4"
+      ]
+    },
+    "rationale": "Periodic sterile-insect release thresholds and global extinction results are established prior art and are not claimed as new. The accepted source-specific contribution is the exact per-capita birth envelope for the 2023 scalar stage–sex reduction and the resulting average criterion, which rigorously closes the gap the source itself leaves for release profiles crossing its pointwise threshold and certifies its Figure 2(a) numerical extinction case.",
+    "residual_risks": [
+      "The full mathematical content of doi:10.1002/mma.8864 was not accessible during this comparison; its abstract is highly relevant and remains a residual coverage risk.",
+      "The full text of doi:10.1155/2020/6246808 was blocked during direct retrieval, so only indexed material was used for general-prior-art comparison.",
+      "The sufficient envelope threshold need not be sharp for the original nonlinear equation.",
+      "The source rounds intermediate parameters in its reported m* calculation; the accepted theorem and Figure 2(a) certification do not rely on resolving that rounding difference."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "AVERAGED_ENVELOPE_CLOSES_CROSSING_THRESHOLD_GAP",
+        "evidence": "The source states that its pointwise conditions are sufficient but not necessary; the 1.2e5 profile crosses m* and is supported only numerically, while its exact envelope average is below delta_F.",
+        "identifier_or_url": "doi:10.3934/math.2023717",
+        "material_read": "Open full PDF covering the model reduction, equation (3.1), autonomous threshold construction, Theorem 2 and its proof, Table 2 and carrying-capacity calculation, and the full Figure 1/Figure 2 discussion.",
+        "method": "Maximized the printed per-capita birth term over the wild-female state, derived a scalar comparison inequality, and applied it to the exact sinusoidal profiles used in Figure 2.",
+        "title": "Global dynamics of a mosquito population suppression model with stage and sex structure",
+        "trigger": "Primary source defining the target scalar nonautonomous equation and explicitly leaving crossing-threshold release profiles to numerical study."
+      },
+      {
+        "assessment": "RELATED_PERIODIC_RELEASE_THEORY_DIFFERENT_MODEL",
+        "evidence": "The article studies a higher-dimensional two-sex stage-structured impulsive system and derives conditions for a mosquito-free periodic solution, rather than the continuous nonautonomous scalar equation treated here.",
+        "identifier_or_url": "doi:10.3934/mbe.2021069",
+        "material_read": "Publisher full HTML abstract, model scope, stated global stability and threshold results, figure captions, and reference list.",
+        "method": "Compared the object, release mechanism, and type of extinction threshold with the source-specific scalar envelope criterion.",
+        "title": "Study of the sterile insect release technique for a two-sex mosquito population model",
+        "trigger": "Open primary literature on periodic/impulsive sterile-male release with stage and sex structure."
+      },
+      {
+        "assessment": "PLAUSIBLE_RELATED_SOURCE_FULL_STATEMENT_UNRESOLVED",
+        "evidence": "The accessible abstract confirms periodic-release stability analysis but does not state the Q(M) envelope, an average per-capita criterion, or the motivating source's Figure 2 calculation.",
+        "identifier_or_url": "doi:10.1002/mma.8864",
+        "material_read": "Publisher metadata and abstract, including the delayed stage–sex model description and the stated analysis of periodic solutions and extinction stability in three release-period regimes.",
+        "method": "Used as a residual-risk comparison because full mathematical statements were not accessible in the inspected material.",
+        "title": "Modeling of periodic compensation policy for sterile mosquitoes incorporating sexual lifespan",
+        "trigger": "Highly relevant later work by overlapping authors on periodic sterile-mosquito release and stage–sex structure."
+      },
+      {
+        "assessment": "GENERAL_PERIODIC_RELEASE_PRECEDENT_DIFFERENT_MODEL",
+        "evidence": "The indexed material describes a one-sided competition model rather than the stage–sex scalar reduction of the motivating source.",
+        "identifier_or_url": "doi:10.1155/2020/6246808",
+        "material_read": "Search-indexed article material identifying its periodic mass-release section and extinction condition; direct full-text retrieval was blocked.",
+        "method": "Used only to bound novelty to the exact scalar source model, not for a whole-document non-coverage assertion.",
+        "title": "A One-Sided Competition Mathematical Model for the Sterile Insect Technique",
+        "trigger": "Earlier sterile-insect paper with a periodic mass-release extinction condition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "04b3dee6-5102-41bb-988f-78206fefdc7d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies release profiles crossing its threshold as cases not decided by its sufficient theorems and resorts to simulations. The envelope condition supplies a simple analytic test for exactly that practically natural situation of fluctuating sterile populations, proves the source's global-extinction example, and quantifies a usable sufficient amplitude for its sinusoidal family. This is a motivated structural extension rather than an arbitrary parameter calculation.",
+    "status": "PASS"
+  }
+}
