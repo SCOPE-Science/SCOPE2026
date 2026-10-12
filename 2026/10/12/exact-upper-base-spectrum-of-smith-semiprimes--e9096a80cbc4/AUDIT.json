@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For q<B<=pq the prime factors are one-digit. If p=2, direct two-digit expansion forces the impossible equality B=q-1. For odd p,q, pq=(a,c)_B is Smith iff a+c=p+q, hence K=pq-p-q=a(B-1). The only remaining digit bound is c<=B-1, equivalent to the quadratic inequality in m=B-1. Since f(q)=-p-q<0, q lies between the two positive roots; divisor complementation m=K/a gives exactly a<=rho_-. Parity, the canonical base, and the p=3 and p=5 consequences follow from this same exact criterion. Direct enumeration over all prime pairs below 200 and all admissible bases agrees.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A060209 cites A. Vella and D. Vella, On Smith and Dunckley Numbers, Mathematics Today 37(2) (2001), 54-56, as the historical source for the all-base invariant.",
+        "A 2010 thesis repository record explicitly describes itself as an exposition of the Vella article and defines the Dunckley set as the set of bases in which a number is Smith; the thesis document itself is unavailable.",
+        "Witno 2013 works explicitly in decimal representation and develops repunit-based constructions; its full seven-page text contains no varying-base semiprime classification.",
+        "Witno 2014 likewise gives decimal repunit constructions and lists MSC 11A63."
+      ],
+      "reasoning": "The broadest directly relevant literature either studies all bases as an invariant without an accessible theorem statement, or studies Smith constructions in one fixed base. Neither accessible source dominates the exact upper-base semiprime spectrum.",
+      "searches": [
+        "\"On Smith and Dunckley Numbers\" Vella Vella",
+        "\"A Family of Sequences Generating Smith Numbers\"",
+        "\"Multiples of repunits as sum of powers of ten\" Smith",
+        "\"Smith numbers\" arbitrary base"
+      ]
+    },
+    "checked_sources": [
+      "MathToday:37(2):54-56",
+      "OEIS:A060209",
+      "JIS:16:13.4.6",
+      "DOI:10.1016/j.ajmsc.2013.09.001",
+      "OEIS:A098837",
+      "OEIS:A337294"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A fixed-base residue argument gives the necessary congruence B-1 | pq-p-q, equivalently (p-1)(q-1) congruent to 1 modulo B-1.",
+        "The new proof shows this congruence is not sufficient in the stated stratum: the low digit must also satisfy c<B, producing the sharp quadratic threshold.",
+        "The exact theorem yields consequences not implied by a necessary residue sieve alone: the complete set of bases, emptiness only at 9 among odd semiprimes, and the p=3 and p=5 classifications."
+      ],
+      "reasoning": "A necessary congruence cannot imply an iff spectrum. The additional digit-bound analysis is logically essential and converts the congruence into a complete divisor classification.",
+      "searches": [
+        "Smith semiprime congruence digit sum modulo base minus one",
+        "base B Smith numbers semiprime congruence (p-1)(q-1)",
+        "Smith semiprime exact converse one-digit factors two-digit product",
+        "Smith number base spectrum pq-p-q divisor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A060209 defines the Dunckley sequence as the number of bases in which a composite is Smith and gives initial values, but its displayed record gives no semiprime upper-base classification.",
+        "Exact web searches for the canonical base formula and the divisor pq-p-q returned Smith-number definitions, decimal semiprime data, and the Dunckley sequence rather than an equivalent theorem.",
+        "Semantic research-record searches for the same statement returned unrelated semiprime and divisor problems rather than a Smith base-spectrum result."
+      ],
+      "reasoning": "The claim was searched as a base-spectrum theorem, as the universal canonical-base construction, as the divisor condition involving pq-p-q, and under the Dunckley terminology. No accessible source stated the same iff classification.",
+      "searches": [
+        "every odd semiprime except 9 is Smith in base (p-1)(q-1)",
+        "Smith semiprime varying bases exact spectrum divisors pq-p-q",
+        "fixed semiprime pq bases where pq is a Smith number",
+        "one-digit prime factors two-digit Smith semiprime arbitrary base",
+        "number of bases in which pq is Smith",
+        "\"Smith number\" \"(p-1)(q-1)\"",
+        "\"Dunckley\" \"(p-1)(q-1)\" Smith"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A060209 counts all Smith bases for each composite and cites the 2001 Vella article.",
+        "A098837 lists decimal Smith semiprimes and therefore supplies only the base-10 slice.",
+        "A337294 explicitly treats record numbers of Smith bases, confirming that base multiplicity is a natural studied invariant, but it does not give the semiprime upper-spectrum formula."
+      ],
+      "reasoning": "The databases establish the exact comparison object and finite values. They do not imply the theorem's divisor threshold for a fixed semiprime, and they count bases outside the theorem's upper-base stratum as well.",
+      "searches": [
+        "OEIS A060209 Dunckley sequence",
+        "OEIS A098837 Smith semiprimes",
+        "composite numbers Smith record number of bases A337294"
+      ]
+    },
+    "rationale": "The Dunckley set is the exact named all-base invariant, and its 2001 source is a serious residual risk because full text was unavailable. However, the accessible A060209 record states the invariant and data but no semiprime upper-spectrum formula. The fully inspected 2013 and 2014 Smith-number papers are decimal construction papers, and the exact semiprime database is decimal only. Targeted statement searches found no equivalent divisor-cutoff theorem or canonical-base law.",
+    "residual_risks": [
+      "The full text of Vella--Vella 2001 was not accessible through the inspected routes; it could contain a semiprime-specific theorem not visible in A060209.",
+      "The 2010 thesis described as an exposition of that article is unavailable in its repository.",
+      "An equivalent elementary derivation may occur in unindexed recreational literature.",
+      "The theorem classifies only bases above the larger prime factor; smaller Smith bases are deliberately outside scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ACCESS_RISK. This source is too relevant to declare noncovering without full text; it remains the principal originality risk.",
+        "evidence": "A060209 cites the article as its reference; the thesis abstract says the Dunckley set is the set of bases in which a number is Smith.",
+        "identifier_or_url": "MathToday:37(2):54-56",
+        "material_read": "Bibliographic citation through OEIS A060209, the complete A060209 record, and the abstract of a 2010 thesis explicitly described as an exposition of the article.",
+        "method": "Open-web and repository searches for title, authors, journal issue, PDF, and exposition; no lawful full text was located in the inspected routes.",
+        "title": "On Smith and Dunckley Numbers",
+        "trigger": "Closest historical source because it introduced/studied the set of bases in which a fixed integer is Smith."
+      },
+      {
+        "assessment": "NOT_COVERING. The paper explicitly works with decimal representation and develops repunit-based infinite constructions.",
+        "evidence": "The introduction states that it works with natural numbers in decimal representation; the paper's final metadata lists primary MSC 11A63 and publication on 25 March 2013.",
+        "identifier_or_url": "JIS:16:13.4.6",
+        "material_read": "Complete seven-page paper, including introduction, all construction theorems, examples, conclusion, references, MSC and publication metadata.",
+        "method": "Full-text PDF inspection with page-image verification and targeted searches for base-varying and semiprime formulations.",
+        "title": "A Family of Sequences Generating Smith Numbers",
+        "trigger": "Accessible primary Smith-number paper with historical review and exact publication date."
+      },
+      {
+        "assessment": "NOT_COVERING. It studies decimal repunit constructions, not the set of bases for a fixed semiprime.",
+        "evidence": "The paper lists Smith numbers and repunits as its subject, states 2010 MSC 11A63, and was available online 26 September 2013.",
+        "identifier_or_url": "DOI:10.1016/j.ajmsc.2013.09.001",
+        "material_read": "Complete four-page paper, including abstract, introduction, Theorems 1.1 and 2.1--2.3, table, proof conclusion and references.",
+        "method": "Full PDF text inspection with page screenshots.",
+        "title": "Multiples of repunits as sum of powers of ten",
+        "trigger": "Second accessible primary Smith-number construction paper and independent MSC confirmation."
+      },
+      {
+        "assessment": "PARTIAL_CONTEXT. It establishes and tabulates the all-base invariant but does not display the claimed semiprime upper-base formula.",
+        "evidence": "The record defines the sequence as the number of bases in which the n-th composite is Smith, cites Vella--Vella 2001, and is authored 19 March 2001.",
+        "identifier_or_url": "OEIS:A060209",
+        "material_read": "Definition, initial values, reference list, example, program, author/date and cross-references.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A060209: Dunckley sequence",
+        "trigger": "Exact database for the number of bases in which a composite is Smith."
+      },
+      {
+        "assessment": "NOT_COVERING. It is a decimal semiprime sequence, not a varying-base spectrum.",
+        "evidence": "The entry lists decimal Smith semiprimes and computes them using base-10 digit sums.",
+        "identifier_or_url": "OEIS:A098837",
+        "material_read": "Definition, initial terms, examples, program, references and author/date.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A098837: Smith semiprimes",
+        "trigger": "Exact database for semiprime Smith numbers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e9096a80-cbc4-4096-96f2-57c848af987f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of bases in which a composite is Smith is the established Dunckley invariant. The theorem gives a complete symbolic spectrum on the natural semiprime range where both factors are one-digit, rather than a finite census or arbitrary parameter slice. It yields a universal canonical base for every odd semiprime except 9, proves all such bases are even, and completely resolves the p=3 and p=5 layers.",
+    "status": "PASS"
+  }
+}
