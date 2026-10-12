@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "A Kneser total-dominating subset is exactly an edge family of K_n with no two-point vertex cover. Every degree-at-least-three vertex belongs to any two-cover. Exhaustive disjoint cases with zero, one, or two such vertices yield the C,H,Q formulas. A two-covered family with at least n+1 edges has two mandatory high-degree hubs and therefore a unique two-cover, giving binomial(n,2)*binomial(2n-3,k) exact failures. Python and an independent C program directly enumerate every subset for n=3..7 (2,131,016 total), matching all coefficients; these finite checks corroborate but do not replace the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hu et al. (2016), arXiv:1607.00400v1, define general total-domination polynomials and give reductions and graph-family examples, but not this full KG(n,2) specialization.",
+        "The published central-graph formula concerns domination of a distinct graph construction via optimization over covers, not enumerating all edge families with cover number at most two.",
+        "Sanal–Vatsalya (2016), Theorem 3.6, explicitly gives all coefficients of the Petersen polynomial; Lemmas 3.4 and 3.5 cover the top two regular-graph coefficients."
+      ],
+      "reasoning": "The general literature defines a broader invariant but does not automatically evaluate it on every Kneser graph. A minimum or recurrence without evaluated specializations does not imply the asserted coefficient formula. The central-graph vertex-cover parameter is an optimization for another graph and does not subsume the new polynomial. Regular-graph Lemmas 3.4–3.5 already give the cutoff and the 2n−3 coefficient in KG(n,2), which are credited, not independently new.",
+      "searches": [
+        "Total domination polynomial of Kneser graph KG(n,2) counting all subsets of two-subsets with no 2-point hitting set; exact all coefficients via graphs with vertex cover number at most two",
+        "Total domination polynomial of Petersen graph KG(5,2), Kneser graph and covering design exact counting",
+        "2026/9/20/SCOPE-exact-total-domination-formula-central-graphs--f6679e0fe594",
+        "https://arxiv.org/pdf/1607.00400",
+        "doi:10.17265/2159-5291/2016.03.004"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "Minimums and structure of minimum total-dominating sets, not all-cardinality coefficients.",
+        "identifier": "https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+        "title": "Domination in Kneser graphs"
+      },
+      {
+        "assessment": "Kneser blocking-set equivalence, not weighted enumeration.",
+        "identifier": "https://www.cs.uaf.edu/~hartman/thesis.pdf",
+        "title": "Extremal Problems in Graph Theory"
+      },
+      {
+        "assessment": "General invariant and example families, no exact KG(n,2) formula.",
+        "identifier": "https://arxiv.org/pdf/1607.00400",
+        "title": "Total domination polynomials of graphs"
+      },
+      {
+        "assessment": "Different graph operation and optimization, not the all-coefficient invariant.",
+        "identifier": "2026/9/20/SCOPE-exact-total-domination-formula-central-graphs--f6679e0fe594",
+        "title": "Published central graph vertex-cover formula"
+      },
+      {
+        "assessment": "Different graph family; no reduction of the proposed coefficients.",
+        "identifier": "2026/10/4/SCOPE-total-and-connected-total-domination-polynomials-of-chain-graphs--fe5d354bccbd",
+        "title": "Chain graph total domination polynomial"
+      },
+      {
+        "assessment": "Exactly covers complete Petersen graph polynomial and generic uppermost coefficients and cutoff, credited as prior; does not provide an all-order KG(n,2) formula for n≥6.",
+        "identifier": "doi:10.17265/2159-5291/2016.03.004",
+        "title": "On Total Domination Polynomials of Certain Graphs"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ivančo–Zelinka: minimum total domination three for n≥6, and four for n=5; matching triples are pairwise disjoint edges.",
+        "Hartman: blocking/transversal equivalence and bounds, not weighted graph census.",
+        "Hu et al.: total domination polynomial definitions and general reductions, not explicit KG(n,2) coefficient bands.",
+        "Sanal–Vatsalya (2016), Theorem 3.6, explicitly gives all coefficients of the Petersen polynomial; Lemmas 3.4 and 3.5 cover the top two regular-graph coefficients."
+      ],
+      "reasoning": "The published KG(5,2) result is exactly our special case n=5, and the general degree-based lemmas imply the universal high-cardinality cutoff and two topmost coefficients. Neither implies arbitrary middle coefficients for all n≥6; the new claim is the explicit all-order C/H/Q weighted classification and the interior size band. General blocking-equivalence theorems lack the stated enumeration.",
+      "searches": [
+        "Total domination polynomial of Kneser graph KG(n,2) counting all subsets of two-subsets with no 2-point hitting set; exact all coefficients via graphs with vertex cover number at most two",
+        "Enumerating labeled graphs with vertex cover at most two by two high-degree hubs; total dominating sets in complements of triangular graphs",
+        "Minimal total dominating subsets of Kneser KG(n,2) vertex-cover critical graphs K4 C5 K3 plus K2 three disjoint edges",
+        "Total domination polynomial of Petersen graph KG(5,2), Kneser graph and covering design exact counting",
+        "https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+        "https://www.cs.uaf.edu/~hartman/thesis.pdf",
+        "https://arxiv.org/pdf/1607.00400",
+        "doi:10.17265/2159-5291/2016.03.004"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hartman (1997), Chapter 8 treats blocking-set equivalence for total domination in Kneser graphs.",
+        "The failure property for KG(n,2) is exactly a spanning labeled graph with a vertex cover of size at most two.",
+        "Sanal–Vatsalya (2016), Theorem 3.6, explicitly gives all coefficients of the Petersen polynomial; Lemmas 3.4 and 3.5 cover the top two regular-graph coefficients."
+      ],
+      "reasoning": "The transversal reformulation is old and is not claimed as new. The exact weighted enumerator and unique-two-cover band follow by a further disjoint hub census; none of the inspected equivalence statements supplies the coefficients. An unlocated enumeration under bounded vertex cover terminology remains a priority risk. The order-five entire polynomial is exactly covered by Sanal–Vatsalya and excluded from new priority; their methods do not count general n≥6 interior coefficients.",
+      "searches": [
+        "Total domination polynomial of Kneser graph KG(n,2) counting all subsets of two-subsets with no 2-point hitting set; exact all coefficients via graphs with vertex cover number at most two",
+        "Enumerating labeled graphs with vertex cover at most two by two high-degree hubs; total dominating sets in complements of triangular graphs",
+        "Minimal total dominating subsets of Kneser KG(n,2) vertex-cover critical graphs K4 C5 K3 plus K2 three disjoint edges",
+        "https://www.cs.uaf.edu/~hartman/thesis.pdf",
+        "doi:10.17265/2159-5291/2016.03.004"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ivančo–Zelinka (1993), Theorem 3, give exact minimum total domination of KG(n,2), and for n=5 exactly ten minimum sets.",
+        "The present formula gives for KG(5,2) all coefficients 10,72,140,110,45,10,1 in degrees four to ten.",
+        "Sanal–Vatsalya (2016), Theorem 3.6, explicitly gives all coefficients of the Petersen polynomial; Lemmas 3.4 and 3.5 cover the top two regular-graph coefficients."
+      ],
+      "reasoning": "Sanal–Vatsalya (2016), Theorem 3.6, exactly tabulates every coefficient for KG(5,2); this subcase is already known. We claim new all-order n≥6 coefficients and an interior band only. No inspected table covers their full range; absence of matches is not exhaustive priority proof.",
+      "searches": [
+        "Total domination polynomial of Petersen graph KG(5,2), Kneser graph and covering design exact counting",
+        "Total domination polynomial of Kneser graph KG(n,2) counting all subsets of two-subsets with no 2-point hitting set; exact all coefficients via graphs with vertex cover number at most two",
+        "2026/10/4/SCOPE-total-and-connected-total-domination-polynomials-of-chain-graphs--fe5d354bccbd",
+        "doi:10.17265/2159-5291/2016.03.004"
+      ]
+    },
+    "rationale": "For every n≥6 the claimed complete labeled polynomial and interior unique-cover band extend prior minimum results and polynomial theory. Sanal–Vatsalya (25 March 2016) **already determine the exact entire Petersen polynomial at n=5** and regular-graph formulas determining the topmost coefficients and cutoff; these are credited and not claimed new. No inspected work implied the remaining all-order coefficients for n≥6. An equivalent formula under bounded-vertex-cover terminology remains a residual priority risk.",
+    "residual_risks": [
+      "The published and unpublished literature may already contain equivalent labeled enumerations of simple graphs with vertex-cover number at most two, using no Kneser terminology.",
+      "Semantic search and inspected text cannot prove global priority; no independent mathematical audit has been conducted.",
+      "Exact KG(5,2) Petersen coefficients and the topmost regular-graph coefficients are already covered by Sanal and Vatsalya (2016); priority attaches only to full n≥6 enumeration and interior band."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Minimum sizes and selected extremal structure are prior results. No full total-domination polynomial or high-cardinality unique-cover band found.",
+        "evidence": [
+          "https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+          "Theorem 3"
+        ],
+        "identifier_or_url": "doi:10.21136/MB.1993.126050",
+        "material_read": "Full accessible PDF, including definitions, numbered theorems and proofs; specifically Theorem 3 and the small Petersen boundary.",
+        "method": "Read primary PDF text and pages, compare total domination numbers and minimum configurations to coefficient statements.",
+        "title": "Domination in Kneser graphs",
+        "trigger": "Exact total domination results on the same Kneser graph family"
+      },
+      {
+        "assessment": "Provides pre-existing blocking-set equivalence and extremal questions; no labeled weighted graph census equivalent to the final polynomial.",
+        "evidence": [
+          "https://www.cs.uaf.edu/~hartman/thesis.pdf",
+          "Chapter 8"
+        ],
+        "identifier_or_url": "https://www.cs.uaf.edu/~hartman/thesis.pdf",
+        "material_read": "Chapter 8, pages approximately 75–85 of the full 1997 thesis, including Kneser domination discussion and total-domination equivalence.",
+        "method": "Read chapter-level text and examined the theorem and application scope against all-cardinality enumeration.",
+        "title": "Extremal Problems in Graph Theory",
+        "trigger": "Kneser blocking-set and total domination correspondence could imply the proposed structural method"
+      },
+      {
+        "assessment": "General polynomial concept and recursions are prior art. No explicit KG(n,2) family enumeration or unique-cover band identified.",
+        "evidence": [
+          "https://arxiv.org/pdf/1607.00400",
+          "arxiv:1607.00400v1, dated 2016-07-01"
+        ],
+        "identifier_or_url": "arxiv:1607.00400v1",
+        "material_read": "ArXiv full text v1, introductory definitions, primary examples and polynomial recurrence sections, with targeted checks for Kneser/Petersen.",
+        "method": "Read the available primary full text rather than relying on search snippets; compare its graph families and formulas to KG(n,2).",
+        "title": "Total domination polynomials of graphs",
+        "trigger": "Foundational general total domination polynomial could have a direct Kneser specialization or recurrence"
+      },
+      {
+        "assessment": "Petersen polynomial n=5 and uppermost coefficient/cutoff were already published and cannot serve as novel findings. The source does not enumerate the full KG(n,2) family for n≥6 or the interior unique-cover size band.",
+        "evidence": [
+          "https://www.davidpublisher.com/Public/uploads/Contribute/56f9dc2771fbb.pdf",
+          "doi:10.17265/2159-5291/2016.03.004",
+          "Theorem 3.6 and Lemmas 3.4–3.5; published 2016-03-25"
+        ],
+        "identifier_or_url": "doi:10.17265/2159-5291/2016.03.004",
+        "material_read": "The primary five-page PDF text, especially publication-date front matter, Section 3, Lemmas 3.4–3.5, Theorem 3.6 and its coefficient calculation, and concluding theorems.",
+        "method": "Read the original primary PDF and compared every published Petersen coefficient, and the regular-graph uppermost-coefficient implications, to our general n formulas.",
+        "title": "On Total Domination Polynomials of Certain Graphs",
+        "trigger": "A directly relevant previously published complete Petersen total-domination polynomial and generic k-regular graph top coefficients."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25e19d00-1ea1-48c0-ac3a-2d82f63f4c9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete cardinality distribution for all KG(n,2) at n≥6, rather than merely minimums or the published order-five example, is a natural graph invariant. An exact zero/one/two-high-degree-hub decomposition yields computable all-order coefficients. The entire interior unique-transversal band n+1≤k≤2n−4 is a nontrivial extension of the previously known topmost regular-graph coefficients and clarifies why overlap disappears far below the domination cutoff. No novelty is claimed for the pre-existing n=5 polynomial or the universal top cutoff.",
+    "status": "PASS"
+  }
+}
