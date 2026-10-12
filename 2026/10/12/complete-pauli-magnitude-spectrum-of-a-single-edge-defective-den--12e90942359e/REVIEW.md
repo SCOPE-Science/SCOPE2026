@@ -1,0 +1,12 @@
+# Review of one-gate-defective complete CCZ-state Pauli spectrum
+
+## Correctness — PASS
+The result specifies the Boolean cubic phase, the Pauli normalization, and all quantum-state assumptions. The polar matrix follows by differentiating the complete cubic and cancelling the distinguished triple. Partitioning into four possible coordinate groups reduces the kernel of the \(n\)-dimensional alternating matrix to a stated at-most-four-dimensional linear system, including empty-group and parity endpoints. The four-by-four rank cases and binomial weights yield the exact rank multiplicities. The Walsh-spectrum lemma gives \(2^r\) nonzero magnitudes \(2^{-r/2}\) per shift, so the all-order moment and asymptotic statements follow. A separate finite verifier independently checks direct binary ranks, the compact-group formula, and Walsh fourth moments. Universal validity follows from the symbolic argument, not from finite experiments.
+
+## Originality — PASS for the rank/magnitude spectrum; preexisting scalar consequence credited
+The closest full papers are Kagamihara--Tsuchiya (arXiv:2602.23687), establishing rank representations for arbitrary three-uniform hypergraph states, and Chen--Yan--Zhou (Quantum 8:1351, 2024), establishing complete-state moments and the complete random-retention ensemble's average order-two moment. The **isolated second moment of one missing edge is implied by differentiating that existing average** and therefore is not the original contribution. Neither inspected statement nor its relevant appendices supplies the entire defective-state rank histogram, the exact magnitude multiplicities, or all-order \(\alpha\) spectrum. Targeted published-literature and semantic searches found no equivalent full-spectrum classification; this absence is not proof of absolute novelty. A differently indexed treatment of a symmetric almost-complete cubic Boolean phase remains possible.
+
+## Value — PASS
+The complete rank/magnitude histogram is an exact natural spectral invariant of a one-missing-non-Clifford-gate error in a permutation-symmetric dense resource state. It determines every stabilizer Rényi moment without an exponential sum, makes order-dependent resource behavior computable, and shows that removing a CCZ gate can *increase* order-two magic at all \(n\ge6\). The defect's constant limiting magic shift is mathematically substantial, rather than a small numerical recomputation. No claim of hardware robustness or experimental usefulness is made.
+
+Self-review: passed. Independent audit: not yet performed.
