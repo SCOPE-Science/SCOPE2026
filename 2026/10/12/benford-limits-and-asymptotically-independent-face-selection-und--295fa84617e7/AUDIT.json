@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "All fixed-dimension hypotheses and boundary cases are explicit. For d<m, common mean and variance plus independent-coordinate CLTs imply exchangeable iid Gaussian normalized limits and a positive rank gap of order sqrt(n). Splitting at N=n-floor(sqrt(n)) makes the prefix winning set stable, because a Chebyshev union bound gives suffix variation O_P(n^(1/4)) while the prefix cutoff gap is of order sqrt(n). Conditional on the prefix, Fourier frequencies of the selected suffix have modulus <=q_k^(d floor(sqrt(n))) with q_k<1 by nonresonance. The negligible probability of rank switching transfers this to the actual maximum; at frequency zero the rank is uniformly distributed. Fourier uniqueness gives joint independent uniform phase and rank. The exact inequality for each losing subset relative to the maximal subset is <=B^(-G_n), and G_n diverges in probability, yielding the total-face volume phase by Slutsky. For d=m, the single product has vanishing Fourier coefficients directly. The packaged exact checker verified 8063 finite subset comparisons from its actual path; it is expressly not an infinite-limit certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2508.12915v4, p.6 Theorem 5, conditions 1--4: all cuts iid, all centered log moments, log-density bounded and derivative bounded.",
+        "arXiv:2508.12915v4, p.16 Section 3.1: explicitly proposes extension to independent nonidentical cuts and mentions requiring different order-statistic formulas.",
+        "arXiv:2304.08335v1, pp.4,10: common log mean/variance across possibly distinct coordinates and all-dimensional conjecture."
+      ],
+      "reasoning": "The later source is stronger in its permitted d range than the 2023 special-case proof and already proves Benford marginals in the smooth globally iid subclass. But it is not broader in hypotheses than the present theorem. Its proof cannot simply be invoked for discrete or heterogeneous cuts. The new joint label-phase limit has additional content and uses a prefix/suffix stability argument.",
+      "searches": [
+        "\"Benford\" \"maxima\" \"random products\" theorem",
+        "Fang Miller 2508.12915 heterogenous nonidentical cuts finite logarithmic second moments",
+        "2025 Fang Miller box fragmentation theorem nonidentical coordinate probability distributions density derivatives",
+        "\"Benford\" \"order statistics\" \"sums\" independent random walks"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.08335v1 Definition 1.7, Theorem 1.9, the special case and Conjecture 4.1 (original open-access PDF, targeted sections)",
+      "arXiv:2508.12915v4 Theorem 5, Section 3.1 and Appendix C opening (original open-access PDF, targeted sections)",
+      "Miller--Nigrini 2008 DOI:10.1155/2008/382948 (publisher HTML full text)",
+      "arXiv:2508.17360 (abstract only; comparison restricted accordingly)",
+      "Scientific-record semantic searches for Benford maximum face, random-walk rank phases, nonidentical cuts, and the exact arXiv IDs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2304.08335v1 Theorem 1.9 proves only (max strong Benford => frame strong Benford); Conjecture 4.1 asks for the antecedent for every allowed process.",
+        "arXiv:2508.12915v4 Theorem 5 directly proves the antecedent only with global iid smooth cuts, and p.16 excludes the proposed heterogeneity from that proof.",
+        "The present result adds uniformly random winner indices jointly independent of the asymptotic digit phase and establishes both maximum and frame results for different per-coordinate discrete nonresonant laws with equal log moments."
+      ],
+      "reasoning": "The 2023 conditional transfer cannot imply the maximum Benford law; the 2025 unconditional theorem does imply the marginal conclusion within its strict subclass, so no first discovery of that smooth-iid all-dimensional case is asserted. Neither inspected result entails the heterogeneous low-moment case or the joint independence of winner labels and logarithmic digits. No claim is made about dependent cuts, unlike hypothetical stronger generalizations.",
+      "searches": [
+        "\"Benfordness of Measurements Resulting from Box Fragmentation\" Conjecture 4.1 resolved",
+        "2304.08335 Conjecture 4.1 maximum criterion Benford multidimensional box",
+        "Fang Miller 2508.12915 heterogenous nonidentical cuts finite logarithmic second moments",
+        "Benford box fragmentation independent nonidentical 2025 2026 proof",
+        "Benford order statistics spacings strong law 2008 Miller Nigrini"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.08335v1, Definition 1.7, Theorem 1.9 and Conjecture 4.1: maximum of products of the d largest side lengths, equivalently maximum of d-element subset sums of logarithms.",
+        "arXiv:2508.12915v4, Theorem 5 and Section 3.1: same face maximum in globally iid smooth setting, coordinate-heterogeneous setting explicitly not covered.",
+        "Miller--Nigrini 2008 DOI:10.1155/2008/382948, Theorem 1.5: Benford digits for adjacent order-statistic spacings, a different random variable."
+      ],
+      "reasoning": "Maximal d-face products equal exponentials of sums of the d largest independent random-walk positions; label-phase independence is a strictly more informative statement than a Benford marginal. The 2025 follow-up overlaps on a restricted iid subclass, but its published assumptions do not cover coordinate heterogeneity, discrete nonresonant logarithms, or second moments alone. The 2008 spacing theorem does not imply the distribution of maxima of evolving coordinate random walks.",
+      "searches": [
+        "\"Benfordness of Measurements Resulting from Box Fragmentation\" Conjecture 4.1 resolved",
+        "\"Benford\" \"order statistics\" \"sums\" independent random walks",
+        "\"Benford\" \"maximum\" \"random walks\" nonlattice",
+        "asymptotic modulo one independence rank order statistics sums iid nonlattice"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result is an asymptotic distribution theorem, not a finite enumerative invariant for a precomputed table.",
+        "The explicit 2023 conjecture and subsequent 2025 theorem are inspected at their original source IDs; neither displays the heterogeneous second-moment joint limit as a table or result.",
+        "Published-result semantic searches returned unrelated finite-dimensional geometry, order-statistic identification and mixing findings, not a maximal-face Benford theorem."
+      ],
+      "reasoning": "Exact finite database coverage is not directly applicable to a universal distributional-convergence theorem. Cross-searches for source number, face-maximality and independent random walks found no recorded equivalent table or explicit claim; this absence is not by itself proof of priority.",
+      "searches": [
+        "2304.08335 Conjecture 4.1 maximum criterion Benford multidimensional box",
+        "Benfordness of Measurements Resulting from Box Fragmentation 2304.08335 Fang Miller 2508.12915 non-identical coordinate cuts second moment maximum criterion rank gap phase independence",
+        "\"Benford\" \"order statistics\" \"sums\" independent random walks",
+        "\"2304.08335\" \"conjecture\" \"Benford\" resolved"
+      ]
+    },
+    "rationale": "The originating 2023 preprint poses exactly the general maximum-criterion conjecture for continuous independent but coordinate-heterogeneous cuts. Its Theorem 1.9 transfers Benfordness from maximum to frame but does not establish the desired maximum limit generally. The major 2025-2026 Fang--Miller follow-up, Theorem 5, already establishes all d under globally iid cuts with finite moments of all orders and bounded smooth density; Section 3.1 expressly leaves independent non-identical coordinates as future work. The present theorem covers independent coordinate-heterogeneous laws with only common finite second moments and nonresonance, including fully discrete examples excluded by the follow-up, and strengthens the marginal conclusion to uniform face-label asymptotically independent of leading-digit phase. Searches of primary papers and public mathematical records found no direct dominating theorem, subject to the stated residual literature risks.",
+    "residual_risks": [
+      "An equivalent result may exist in more general random-walk mixing/conditional Fourier literature under terminology not identified by the searches.",
+      "The distinct label-independence conclusion is not necessarily novel as an abstract random-rank mixing lemma, though its application and low-moment theorem are not in the inspected papers.",
+      "The adjacent 2025 stick-fragmentation preprint was compared by abstract only, not enough to exclude every ancillary theorem; the principal close box-fragmentation follow-up was inspected in full.",
+      "The newer 2025/2026 theorem already settles the smooth iid all-dimensional subclass, which must not be claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper states the all-dim conjecture and conditional maximum criterion; proves one logarithm-uniform d=1 special case; does not give independent-label joint limit or the general heterogeneous second-moment theorem.",
+        "evidence": "arXiv:2304.08335v1 pp.4 and 10, Definition 1.7, Theorem 1.9, Conjecture 4.1; first public 2023-04-17.",
+        "identifier_or_url": "https://arxiv.org/pdf/2304.08335",
+        "material_read": "Open-access 13-page PDF consulted at source text and page images; detailed reading of Definition 1.7, Theorem 1.9, the d=1 case and Conjecture 4.1, with targeted text checks of the other sections.",
+        "method": "Open-access arXiv source, PDF text and page-image inspection.",
+        "title": "Benfordness of Measurements Resulting from Box Fragmentation",
+        "trigger": "Original 2023 conjecture and 60A10 primary classification; exact face object and hypotheses."
+      },
+      {
+        "assessment": "Theorem 5 covers any fixed d but requires all cuts globally iid, infinite moment family, bounded log-density and bounded derivative; Section 3.1 explicitly does not prove the heterogeneous generalization. This is genuine prior all-dimensional coverage of a smooth iid subclass.",
+        "evidence": "arXiv:2508.12915v4, Theorem 5 conditions 1--4 p.6, Section 3.1 p.16, Appendix C; first public 2025-08-18 and v4 2026-08-06.",
+        "identifier_or_url": "https://arxiv.org/pdf/2508.12915",
+        "material_read": "Open-access 45-page PDF consulted: Theorem 5 and all four assumptions at p.6, Section 3.1 at p.16, and Appendix C opening and selected equations via source text; not a line-by-line reading of all 45 pages.",
+        "method": "Open-access arXiv PDF text, targeted full-text searches and page-image inspections.",
+        "title": "Benford Behavior Resulting From Stick and Box Fragmentation Processes",
+        "trigger": "High-relevance newer paper specifically claiming to solve all-dimensional box-fragmentation conjecture."
+      },
+      {
+        "assessment": "Studies adjacent spacings of iid draws in one growing sample; does not compare ranks of fixed many evolving independent coordinate partial sums or their maximal subset products.",
+        "evidence": "Miller--Nigrini (2008), Theorems 1.4--1.5 and Remark 1.6.",
+        "identifier_or_url": "https://doi.org/10.1155/2008/382948",
+        "material_read": "Publisher full-text HTML consulted around the introduction, Theorems 1.4--1.5, and Remark 1.6.",
+        "method": "Publisher full-text HTML theorem inspection.",
+        "title": "Order Statistics and Benford's Law",
+        "trigger": "Possible order-statistic Benford equivalence or domination."
+      },
+      {
+        "assessment": "Distinct fixed multi-proportion stick fragmentation model; abstract does not establish heterogeneous random coordinate box maxima. Residual risk remains if ancillary appendices contain related theorems.",
+        "evidence": "arXiv:2508.17360, abstract (2025-08-24).",
+        "identifier_or_url": "https://arxiv.org/abs/2508.17360",
+        "material_read": "ArXiv abstract and source identification only; full text not claimed read.",
+        "method": "ArXiv source abstract comparison.",
+        "title": "Benford Behavior in Stick Fragmentation Problems",
+        "trigger": "Related 2025 work on stick fragmentation and Benford laws."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "295fa846-17e7-4db1-aa97-3dd4abcdc5b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicitly proposed natural probability conjecture concerns the leading digits of maximal lower-dimensional faces of randomly shrinking boxes. The newer all-dimensional proof already handles a globally iid smooth subclass but not the physically natural heterogeneous coordinate cut laws. The present theorem supplies the fixed-dimensional complete common-moment class under minimal ordinary-CLT assumptions plus sharp arithmetic nonresonance, including concrete nonidentically distributed discrete cuts with no density at all. The joint uniform law of the maximizing coordinate subset and its digit phase is a natural structural invariant and yields the exact coupling of maximum/frame volume phases. This is motivated by the original geometric object rather than an artificial low-index slice; it does not claim new rates, dependent cuts, or an independent audit.",
+    "status": "PASS"
+  }
+}
