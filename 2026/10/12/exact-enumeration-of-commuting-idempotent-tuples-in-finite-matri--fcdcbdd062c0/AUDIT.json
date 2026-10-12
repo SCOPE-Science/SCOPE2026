@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Idempotents are diagonalizable with eigenvalues in {0,1}; pairwise commutation gives a direct sum of joint eigenspaces and the inverse construction is explicit. Orbit-stabilizer yields each summand. The asymptotic follows from balanced block dimensions. Exhaustive small-field checks agree exactly with the formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fulman–Guralnick state the Feit–Fine generating function for all ordered commuting matrix pairs and derive a separate commuting-nilpotent generating function.",
+        "A full-text search of the Fulman–Guralnick paper returned no occurrence of 'idempotent'.",
+        "arXiv:1811.09553 studies arbitrary pairs admitting a common commuting idempotent; this is a different locus from pairs in which both matrices are idempotents."
+      ],
+      "reasoning": "The unrestricted commuting-pair theorem is broader in ambient set but does not by itself give the cardinality of the idempotent locus. The inspected full-text reproof does not isolate that locus.",
+      "searches": [
+        "doi:10.1215/S0012-7094-60-02709-5",
+        "doi:10.1007/s00026-018-0390-4",
+        "commuting probability idempotents M_n(F_q)",
+        "arXiv:1811.09553"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1507.06290",
+      "arXiv:1711.09289",
+      "doi:10.1080/00927872.2021.1929277",
+      "doi:10.1215/S0012-7094-60-02709-5",
+      "doi:10.1007/s00026-018-0390-4",
+      "doi:10.1016/j.laa.2016.03.015",
+      "arXiv:1811.09553"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 full text identifies idempotent generators of fixed-rank left ideals and counts them.",
+        "The 2016 simultaneous-similarity work enumerates orbits of general commuting tuples rather than the number of idempotent tuples."
+      ],
+      "reasoning": "Single-idempotent counts do not determine which pairs commute, and orbit counts of unrestricted commuting tuples do not determine the cardinality of the idempotent sublocus without additional stabilizer data. The direct joint-eigenspace bijection supplies that missing information.",
+      "searches": [
+        "arXiv:1711.09289",
+        "doi:10.1016/j.laa.2016.03.015",
+        "number of commuting idempotents matrices over finite field"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1507.06290 describes complete orthogonal idempotents through Peirce decomposition.",
+        "The tuple can equivalently be encoded by the complete orthogonal family of joint spectral projections indexed by binary strings."
+      ],
+      "reasoning": "The principal alias is a Boolean family of joint spectral projections or a simultaneous 0/1 eigenspace decomposition. The inspected structural source supplies the language but not the finite-field tuple enumeration.",
+      "searches": [
+        "pairwise commuting idempotents finite matrix algebra simultaneous eigenspace exact enumeration",
+        "Boolean subalgebra idempotents M_n finite field count",
+        "arXiv:1507.06290"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Dolžan's finite-ring paper counts or bounds individual idempotents in matrix rings.",
+        "Ferraz–Polcino Milies–Taufer count idempotent generators of each left ideal over finite fields."
+      ],
+      "reasoning": "The closest enumerative tables concern single idempotents or generators of one-sided ideals; they do not give pairwise-commuting tuple fibers.",
+      "searches": [
+        "ordered complete orthogonal idempotents M_n(F_q) exact count Peirce decomposition",
+        "complete set orthogonal idempotents matrix algebra finite field enumeration",
+        "doi:10.1080/00927872.2021.1929277"
+      ]
+    },
+    "rationale": "The inspected Peirce and finite-field idempotent literature gives the structural decomposition and single-idempotent counts, while the full-text Feit–Fine reproof counts unrestricted commuting pairs. None of the inspected material states the arbitrary-tuple joint-eigenspace count or the mod-four probability asymptotic.",
+    "residual_risks": [
+      "The original 1960 Feit–Fine article was not available as full text in this run; its theorem and proof context were checked through a full-text 2018 reproof.",
+      "An older source on Boolean subalgebras or simultaneous diagonalization could conceivably contain the same finite-field enumeration under different terminology, although targeted alias searches did not locate one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRUCTURAL_PREDECESSOR_NOT_ENUMERATIVE",
+        "evidence": "The paper states that a complete set of orthogonal idempotents produces a Peirce decomposition arranged as a generalized matrix ring; it does not enumerate finite-field commuting idempotent tuples in the inspected material.",
+        "identifier_or_url": "arXiv:1507.06290; doi:10.1080/03081087.2015.1134429",
+        "material_read": "ArXiv PDF abstract and introduction, including the complete-orthogonal-idempotent and Peirce-decomposition statements and MSC line.",
+        "method": "Lawful open-access full text.",
+        "title": "Idempotents and structures of rings",
+        "trigger": "Archive structural anchor for complete orthogonal idempotents and Peirce decomposition."
+      },
+      {
+        "assessment": "RELATED_SINGLE_IDEMPOTENT_COUNTS",
+        "evidence": "The paper counts left ideals and idempotent generators of each left ideal, rather than pairwise-commuting idempotent tuples.",
+        "identifier_or_url": "arXiv:1711.09289",
+        "material_read": "Full-text pages covering the subspace/left-ideal bijection, equivalent conditions for idempotent generators, and the enumeration of generators of fixed-rank ideals.",
+        "method": "Lawful arXiv full text.",
+        "title": "Left ideals in matrix rings over finite fields",
+        "trigger": "Closest finite-field idempotent enumeration located."
+      },
+      {
+        "assessment": "COVERS_DENOMINATOR_NOT_PAIR_NUMERATOR",
+        "evidence": "The paper treats the cardinality of the idempotent set; that supplies the denominator statistic but not the count of commuting pairs or longer tuples.",
+        "identifier_or_url": "doi:10.1080/00927872.2021.1929277",
+        "material_read": "Publisher HTML abstract, introduction, and matrix-ring section including the similarity-based idempotent count.",
+        "method": "Publisher full-text HTML.",
+        "title": "Bounds for the number of idempotents in finite rings",
+        "trigger": "Potential source for exact matrix-ring idempotent counts."
+      },
+      {
+        "assessment": "BROADER_AMBIENT_COUNT_NOT_IDEMPOTENT_REFINEMENT",
+        "evidence": "The paper states the generating function for all commuting matrix pairs and a separate nilpotent specialization; the full-text search found no 'idempotent' occurrence.",
+        "identifier_or_url": "doi:10.1007/s00026-018-0390-4",
+        "material_read": "Author-posted full-text pages containing Theorem 1.1, the rational-canonical-form proof, and the nilpotent-pair specialization; full-text search for 'idempotent'.",
+        "method": "Author-posted full text.",
+        "title": "Enumeration of Commuting Pairs in Lie Algebras over Finite Fields",
+        "trigger": "Strongest broad comparison because it reproves the Feit–Fine all-matrix commuting-pair theorem."
+      },
+      {
+        "assessment": "RELATED_COMMON_CENTRALIZER_GEOMETRY_NOT_PAIR_ENUMERATION",
+        "evidence": "The paper studies arbitrary matrix pairs that share a commuting idempotent and uses similarity of fixed-rank idempotents to analyze variety components; it does not count pairs whose two entries are themselves idempotent.",
+        "identifier_or_url": "arXiv:1811.09553",
+        "material_read": "Full-text introduction and the section defining components through a common rank-constrained idempotent, including Lemmas 3.6 and 3.7; full-text searches for idempotent terminology.",
+        "method": "Lawful arXiv full text.",
+        "title": "Higher-Distance Commuting Varieties",
+        "trigger": "Targeted search for commuting-idempotent terminology found a geometric use of idempotents inside commuting varieties."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fcdcbdd0-62c0-4147-a158-463f4e77d659",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The count is a natural exact invariant of the idempotent locus, works for arbitrary tuple length and all finite fields, and yields a sharp mod-four asymptotic for a natural commuting probability. The structural bijection exposes why the congruence phenomenon occurs.",
+    "status": "PASS"
+  }
+}
