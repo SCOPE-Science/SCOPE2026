@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on a descent at position i turns the two adjacent values into the maximum and minimum of a uniformly chosen unordered pair. Their exact mean shifts are +(n+1)/6 and -(n+1)/6, while all other positions retain mean (n+1)/2. The weighted rank-sum shift is therefore exactly -(n+1)/6 independently of i, giving the local covariance after the affine conversion to squared displacement and Spearman's coefficient. Summation and standard exact permutation variances yield the global covariance and correlation. Exhaustive exact enumeration through n=9 and an independent conditional-pair replay through n=500 agree with every displayed formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Conger proves exact refined Eulerian statements such as the conditional mean of the first permutation value given the descent count.",
+        "Jiang studies asymptotic correlations among several symmetric-group metrics and explicitly treats the Spearman family.",
+        "Neither inspected source contains a statement implying the position-independent local descent covariance."
+      ],
+      "reasoning": "Conger's results are broader on refined descent enumeration but use different companion statistics; Jiang's results are broader on metric families but omit descents. Neither source's stated results specialize to the accepted local covariance without an additional conditional adjacent-pair calculation.",
+      "searches": [
+        "arXiv:math/0508112 Conger descents joint distribution",
+        "arXiv:1110.0807 Jiang Spearman metrics correlations",
+        "permutation Eulerian Mahonian joint statistics descents rank distance"
+      ]
+    },
+    "checked_sources": [
+      "Conger, arXiv:math/0508112, complete article.",
+      "Jiang, arXiv:1110.0807, complete article.",
+      "Previously checked scientific records on descent-indicator dependence, fixed-point/descent dependence, fixed-point/Spearman dependence, and footrule/Spearman dependence.",
+      "Published-record searches under descents, Eulerian statistics, squared displacement, and Spearman rank correlation."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously checked scientific record 0c967e68-ab3b-410d-b16d-a8ea127b0090 gives the covariance and precision structure among descent indicators themselves, not their covariance with Spearman's statistic.",
+        "Previously checked scientific record 6e228e1e-9495-470a-ac0d-a4d604296947 concerns fixed-point/descent dependence and does not contain squared rank displacement.",
+        "Previously checked scientific records c6a3a84e-2388-4b6d-b3e7-bda880e60b3a and 413aa631-8ee6-4409-a94b-4e4849615221 couple Spearman's coefficient with fixed points and footrule respectively, not adjacent descents."
+      ],
+      "reasoning": "The existing descent record supplies Var(A_n) but no cross-moment with Spearman's statistic. The existing Spearman records use different local or global permutation summaries, so none implies the new local position-invariant covariance.",
+      "searches": [
+        "fixed point descent permutation covariance",
+        "Spearman fixed points random permutation covariance",
+        "Spearman footrule rho random permutation covariance",
+        "permutation descent indicator covariance precision"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full Conger article contains refined descent/endpoint results but no Spearman or squared-displacement statistic.",
+        "The full Jiang article contains the Spearman metric family but no descent statistic.",
+        "Searches using local-descent, Eulerian, squared-rank-displacement, and rank-correlation terminology returned no equivalent formula."
+      ],
+      "reasoning": "The claim has two natural formulations: covariance of descents with squared displacement, and covariance of descents with the affine Spearman coefficient. Searches covered both local and total descent counts and both forms of the global rank statistic.",
+      "searches": [
+        "\"descents\" \"Spearman's rho\" permutations",
+        "\"squared displacement\" descents permutation statistic",
+        "random permutation descents Spearman rho covariance",
+        "descent number squared displacement random permutation joint distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched exact-formula record stated Cov(A_n,R_n)=-1/n or Cov(I_i,R_n)=-1/[n(n-1)].",
+        "The packaged finite values are generated from complete permutation enumeration rather than copied from a table."
+      ],
+      "reasoning": "The theorem is symbolic for every n and every adjacent position. Finite enumeration is a replay check, not the source of the identity.",
+      "searches": [
+        "\"Cov\" descents Spearman permutation \"1/n\"",
+        "\"number of descents\" \"squared displacement\" permutation",
+        "\"adjacent descent\" Spearman rho covariance"
+      ]
+    },
+    "rationale": "The closest descent source inspected in full, Conger (2005), develops the joint law of the first permutation value and descent count but does not involve Spearman's squared displacement. The closest Spearman-metric source inspected in full, Jiang (2011), develops joint asymptotics for permutation metrics and the Spearman family but contains no descent statistic. Targeted published-record searches under descent, Eulerian, squared-displacement, rank-correlation, and Spearman aliases did not locate the local or global covariance identity.",
+    "residual_risks": [
+      "The covariance is elementary after the conditional adjacent-pair observation, so older unindexed permutation-statistics literature may contain an equivalent identity.",
+      "The searched literature is broad but not exhaustive; the novelty claim is the explicit position-independent local covariance and the resulting exact n^{-1} global correlation law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DESCENT_BACKGROUND_NOT_COVERING_SPEARMAN_COVARIANCE",
+        "evidence": "The article studies the joint distribution of the first permutation value and the number of descents and derives related refined Eulerian results. No Spearman or squared-displacement statistic appears in the inspected text.",
+        "identifier_or_url": "arXiv:math/0508112",
+        "material_read": "Complete arXiv article, with focused inspection of the abstract, main joint-distribution results, conditional expectations, and searches for Spearman, covariance, correlation, and squared displacement.",
+        "method": "Public full-text inspection and targeted within-document searches.",
+        "title": "A Refinement of the Eulerian Numbers, and the Joint Distribution of Pi(1) and Des(Pi) in S_n",
+        "trigger": "Closest full primary source on refined descent statistics under a uniform permutation."
+      },
+      {
+        "assessment": "SPEARMAN_METRIC_BACKGROUND_WITHOUT_DESCENTS",
+        "evidence": "The article treats Spearman-family permutation metrics and their asymptotic relationships. No descent statistic was found in the inspected text.",
+        "identifier_or_url": "arXiv:1110.0807",
+        "material_read": "Complete arXiv article, with focused inspection of the Spearman-family section and full-text searches for descent terminology.",
+        "method": "Public full-text inspection and targeted within-document searches.",
+        "title": "Asymptotic correlations of metrics on the symmetric groups",
+        "trigger": "Closest full primary source on dependence among permutation metrics including the Spearman family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dcf8be66-6c20-4aee-831a-ae737ded168d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Descents are the canonical local order-disagreement statistic, while Spearman's coefficient is a canonical global rank-displacement statistic. The theorem gives a structural local-to-global bridge: every adjacent position contributes exactly the same mean shift, and the total redundancy decays on a sharp n^{-1} scale. This directly quantifies how a local Eulerian summary and a global rank-correlation summary overlap under the permutation null.",
+    "status": "PASS"
+  }
+}
