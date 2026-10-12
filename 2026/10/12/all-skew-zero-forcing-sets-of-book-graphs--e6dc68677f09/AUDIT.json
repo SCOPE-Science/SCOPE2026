@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "A white set is skew-stalled exactly when no vertex has one white neighbor. For a book graph, the degree-two page vertices force the membership equivalences y_i in W iff a in W and x_i in W iff b in W, so the only nonempty stalled sets are the two bipartition classes and the whole graph. Therefore an initial set skew forces exactly when it hits both classes. Independent brute-force simulation checks every subset for n=1 through 8, all 96 polynomial coefficients, the minimum size and multiplicity, and the failed number.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1404.1618 Proposition 4.1 and Theorems 4.6-4.7 concern matchings in bipartite graphs; Theorem 4.7 requires all maximum matchings to be uniquely restricted.",
+        "Each B_n has n+1 distinct perfect matchings, so no perfect matching is uniquely restricted and the cited hypothesis does not hold.",
+        "arXiv:1404.1618 Observation 6.4 lists P_s square P_s, K_3 square P_2, and K_s square P_t for s,t>=3, not K_{1,n} square P_2.",
+        "DOI:10.3390/appliedmath5020032 studies failed skew zero forcing for path powers and circulant graphs and reviews other families, not an exact book all-set polynomial."
+      ],
+      "reasoning": "The strongest plausible broader coverage was matching theory for bipartite graphs or Cartesian-product formulas. The matching theorem's decisive hypothesis fails on books, and the explicit product formulas omit this parameter regime. General failed-skew and closure theory does not determine the complete subset distribution.",
+      "searches": [
+        "Some results on minimum skew zero forcing sets book graph Cartesian product",
+        "skew zero forcing bipartite maximum matching book graph",
+        "failed skew zero forcing path powers circulant book graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.1618v1",
+      "arXiv:2303.17419v1",
+      "DOI:10.3390/appliedmath5020032",
+      "https://mathworld.wolfram.com/BookGraph.html",
+      "DOI:10.61091/jcmcc119-04"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The bipartite matching results in arXiv:1404.1618 can produce some skew forcing sets from uniquely restricted matchings but do not classify every initial set of B_n.",
+        "The same paper's explicit product formulas do not specialize to B_n.",
+        "The own-ledger book-graph result 70bd37ae-2fcf-4ee9-a5c3-c1f1f6079c6f concerns positive semidefinite zero forcing and minimum sets only, a different color-change rule and a strictly different statement."
+      ],
+      "reasoning": "Neither the known matching implication nor the previously recorded PSD-book classification entails the skew all-set criterion. The new theorem's complete fort classification yields an exact generating polynomial and failed number that are not consequences of those statements.",
+      "searches": [
+        "arXiv 1404.1618 bipartite uniquely restricted matching theorem",
+        "skew zero forcing Cartesian products K_s P_t",
+        "book graph K1,n Cartesian product P2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1404.1618 contains no occurrence of the term 'book' in the accessible full text.",
+        "MathWorld and DOI:10.61091/jcmcc119-04 identify the same object as B_n=K_{1,n} square P_2.",
+        "published-finding corpus search returned the chain-graph skew theorem 2026/10/4/SCOPE-skew-zero-forcing-sets-of-chain-graphs-factor-by-twin-classes--a8f5518e4e9c, but a book graph is not a chain graph for n>=2."
+      ],
+      "reasoning": "Searches used book, square-book, n-page, and Cartesian-product aliases. Same-object sources found under those names study different invariants; the nearest skew result is for a different nested-neighborhood class.",
+      "searches": [
+        "skew zero forcing book graphs all sets polynomial",
+        "skew forcing book graph B_n",
+        "failed skew zero forcing book graph",
+        "skew zero forcing K_{1,n} Cartesian product P_2",
+        "skew zero forcing square book graph n-page book graph",
+        "skew zero forcing K1,n square P2 book graph all sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no book-graph skew-zero-forcing record; closest skew records were 4300fa13-ef6a-488a-acd2-db50dec41fe8 for a threshold subclass and a8f5518e-4e9c-4061-93f9-1124eec7cb10 for chain graphs.",
+        "A same-object published-finding corpus hit, 2026/9/20/SCOPE-sharp-average-maximal-matchings-cyclic-graphs--f5f7fbdc881f, concerns maximal matchings rather than skew forcing.",
+        "Targeted OEIS web search found failed-skew sequences for path powers and circulants but no book-graph sequence."
+      ],
+      "reasoning": "Database nonappearance is supporting evidence only. The originality assessment relies chiefly on the statement-level comparisons with the primary skew source and same-object literature.",
+      "searches": [
+        "skew zero forcing book graph B_n",
+        "skew zero forcing square book graph n-page book graph",
+        "site:oeis.org book graph skew zero forcing"
+      ]
+    },
+    "rationale": "No exact book-graph all-set skew zero forcing classification or polynomial was found in targeted searches. The strongest primary skew source treats bipartite matching theory and several Cartesian products but not K_{1,n} square P_2; its minimum-set theorem has a uniquely-restricted-maximum-matching hypothesis that book graphs fail. Same-object book sources concern unrelated invariants, and later skew literature supplies general frameworks or different graph families rather than this formula.",
+    "residual_risks": [
+      "An unindexed thesis, local journal, or source using a different name for K_{1,n} square P_2 could contain an equivalent specialization.",
+      "General skew-forcing closure theory may make the stalled-set argument conceptually routine, but no source located performs this book-specific classification or derives the polynomial."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_NOT_COVERING",
+        "evidence": "The manuscript lists AMS 05C50 first. It contains no 'book' occurrence; its product list omits K_{1,n} square P_2, and its strongest minimum-set bipartite theorem assumes all maximum matchings are uniquely restricted, which fails for B_n.",
+        "identifier_or_url": "arXiv:1404.1618",
+        "material_read": "accessible arXiv full text: front matter, Section 4 bipartite matching results, and Observation 6.4 product list; full-text searches for book and Cartesian",
+        "method": "direct public arXiv HTML inspection",
+        "title": "Some results on minimum skew zero forcing sets, and skew zero forcing number",
+        "trigger": "same invariant, bipartite theory, and Cartesian-product formulas"
+      },
+      {
+        "assessment": "BROADER_FAMILY_NOT_COVERING",
+        "evidence": "The paper's stated new families are path powers and circulant graphs; it supplies background on skew and failed skew forcing but no book-graph all-set formula.",
+        "identifier_or_url": "DOI:10.3390/appliedmath5020032",
+        "material_read": "open HTML abstract and introduction",
+        "method": "direct open full-text inspection",
+        "title": "Failed Skew Zero Forcing Numbers of Path Powers and Circulant Graphs",
+        "trigger": "recent broader failed-skew literature and family coverage"
+      },
+      {
+        "assessment": "SAME_OBJECT_DEFINITION_ONLY",
+        "evidence": "Defines the m-book graph as K_{1,m} square P_2, matching the object used here; no skew-zero-forcing result is stated.",
+        "identifier_or_url": "https://mathworld.wolfram.com/BookGraph.html",
+        "material_read": "public object definition",
+        "method": "direct web inspection",
+        "title": "Book Graph",
+        "trigger": "same-object nomenclature and equivalence"
+      },
+      {
+        "assessment": "SAME_OBJECT_DIFFERENT_INVARIANT",
+        "evidence": "Uses the same K_{1,m} square P_2 book family, but computes an equi-neighbor polynomial rather than skew forcing.",
+        "identifier_or_url": "DOI:10.61091/jcmcc119-04",
+        "material_read": "open article section defining the m-book graph and Corollary 7",
+        "method": "direct open HTML inspection",
+        "title": "Equi Neighbor Polynomial of Some Binary Graph Operations",
+        "trigger": "same object and polynomial-style graph invariant"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_IMPLYING",
+        "evidence": "Develops closure, nullvector, matroid, and complexity theory. No book-graph specialization or all-set polynomial was identified.",
+        "identifier_or_url": "arXiv:2303.17419",
+        "material_read": "public abstract/overview and literature context",
+        "method": "open-source inspection",
+        "title": "Zero loci of nullvectors and skew zero forcing in graphs and hypergraphs",
+        "trigger": "modern general skew-zero-forcing closure framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e6dc6867-7f09-4c87-96dc-a741c6a03c5c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Book graphs are a standard infinite Cartesian-product family. The result gives a complete all-initial-set classification, a closed forcing polynomial, every minimum set, and the maximum failed size from one structural theorem. The two-class hitting description exposes a natural bipartite mechanism and is materially stronger than a scalar parameter computation or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
