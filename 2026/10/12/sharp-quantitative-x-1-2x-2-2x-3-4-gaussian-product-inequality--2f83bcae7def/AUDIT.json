@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Isserlis' formula gives the exact polynomial \\(3+6a^2+12b^2+12c^2+48abc+24b^2c^2\\). If \\(abc\\ge0\\), the claimed bound is weaker than the immediate \\(D\\ge Q\\). If \\(abc<0\\), absolute values reduce positive semidefiniteness to \\(x^2+y^2+z^2+2xyz\\le1\\). For fixed \\(x\\) and \\(t=yz\\), the risk ratio is minimized when \\(y=z=\\sqrt t\\) by \\(y^2+z^2\\ge2yz\\), and this replacement preserves feasibility. The remaining two-variable problem has \\(0\\le u\\le1/2\\), \\(0\\le x\\le1-2u\\); differentiating first in \\(x\\) and then along the determinant-zero boundary yields the unique global minimizer \\(u_*=(\\sqrt{41}-5)/8\\), \\(x_*=(9-\\sqrt{41})/4\\), and \\(C_*=(7-\\sqrt{41})/2\\). Equality and positive-definite boundary behavior follow by tracing equality through every reduction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Russell and Sun prove \\(\\mathbb E[X_1^2X_2^{2m_2}X_3^{2m_3}]\\ge\\mathbb E[X_1^2]\\mathbb E[X_2^{2m_2}]\\mathbb E[X_3^{2m_3}]\\) for all positive integer \\(m_2,m_3\\), but the inspected full text gives qualitative nonnegativity rather than the sharp correlation-weighted remainder.",
+        "The 2025 positive-integer-moment paper's accessible abstract states a qualitative extension of the three-dimensional GPI and does not advertise a quantitative remainder.",
+        "The sums-of-squares paper proves other fixed-exponent qualitative GPIs; its indexed statement does not provide this sharp quantitative constant."
+      ],
+      "reasoning": "A qualitative theorem implies only nonnegativity of the deficit. It does not imply a positive sharp multiple of the anisotropic quadratic correlation scale, and the sharp value requires a separate global elliptope optimization.",
+      "searches": [
+        "Moment ratio inequality of bivariate Gaussian distribution and three-dimensional Gaussian product inequality 2208.13957",
+        "Three-dimensional Gaussian product inequality with positive integer order moments 128804",
+        "Using Sums-of-Squares to Prove Gaussian Product Inequalities 2205.02127"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.09921v1",
+      "DOI:10.1186/s13660-022-02906-w",
+      "arXiv:2208.13957",
+      "DOI:10.1016/j.jmaa.2023.127410",
+      "arXiv:2205.02127",
+      "DOI:10.1016/j.jmaa.2024.128804",
+      "candidate-specific semantic searches over the exact moment, exponent pair, radical constant, and weighted correlation remainder"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full Russell-Sun manuscript proves the qualitative three-dimensional GPI and says low cases with \\(m_2=1\\) can be handled by prior methods, but it does not state a correlation-sensitive lower remainder.",
+        "The direct quantitative paper explicitly leaves the three-dimensional quantitative problem as a question.",
+        "The all-square squared-correlation envelope is not an implication source: replacing one squared factor by a fourth power changes both the Wick polynomial and the sharp elliptope geometry."
+      ],
+      "reasoning": "Neither qualitative GPI positivity nor a different exponent profile determines the optimal constant in the displayed weighted quadratic lower bound. The new claim requires the exact eighth-order Wick polynomial and a separate sharp constrained minimization.",
+      "searches": [
+        "three-dimensional Gaussian product inequality m2=1 m3=2 quantitative",
+        "X1^2 X2^2 X3^4 quantitative Gaussian product inequality sharp constant",
+        "arXiv:2208.13957 m2=1 m3=2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source's Question 1 asks for quantitative three-dimensional Gaussian product inequalities but supplies only two-dimensional quantitative theorems.",
+        "Exact searches for the moment, radical constant, and weighted quadratic form did not locate a published equivalent statement."
+      ],
+      "reasoning": "The claim was searched both as a moment deficit, as a weighted squared-correlation lower bound, and by its exact sharp constant. These are the main algebraically equivalent formulations of the theorem.",
+      "searches": [
+        "X1^2 X2^2 X3^4 quantitative Gaussian product inequality sharp constant",
+        "6 rho12^2 12 rho13^2 12 rho23^2 Gaussian product",
+        "(7-sqrt(41))/2 Gaussian product inequality",
+        "\"quantitative\" \"three-dimensional Gaussian product inequality\" correlation lower bound",
+        "\"Gaussian product inequality\" \"X_3^4\" quantitative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-value search associated the radical constant with Gaussian product inequalities.",
+        "No checked exact-moment search returned a published sharp lower bound with the displayed weighted correlation form."
+      ],
+      "reasoning": "The radical is an exact optimization constant derived from the correlation elliptope, not a standard tabulated Gaussian moment coefficient.",
+      "searches": [
+        "\"(7-sqrt(41))/2\" Gaussian product inequality",
+        "\"E[X_1^2 X_2^2 X_3^4]\" Gaussian",
+        "\"Gaussian product inequality\" \"sqrt(41)\""
+      ]
+    },
+    "rationale": "The direct 2022/2023 source explicitly asks for quantitative versions of the three-dimensional Gaussian product inequalities. The closest full-text three-dimensional source proves the qualitative inequality for all positive integer pairs but does not state a sharp correlation remainder. Exact formula, radical-constant, parameter, and weighted-correlation searches did not locate the displayed bound. A private prior result for the all-square moment has a different object and does not imply the unequal-exponent quartic moment bound.",
+    "residual_risks": [
+      "An equivalent sharp elliptope optimization may appear in older Gaussian-moment or polynomial-positivity literature without quantitative-GPI terminology.",
+      "The 2025 positive-integer-moment article was compared through its accessible abstract rather than a full-text inspection; its advertised result is qualitative, but unadvertised quantitative remarks remain a bibliographic possibility."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SOURCE_POSES_THREE_DIMENSIONAL_QUANTITATIVE_PROBLEM.",
+        "evidence": "The paper proves quantitative bivariate inequalities and explicitly asks for quantitative versions of the three-dimensional inequalities.",
+        "identifier_or_url": "arXiv:2207.09921v1; DOI:10.1186/s13660-022-02906-w",
+        "material_read": "Open-access full text: main quantitative theorems, concluding Section 5, Question 1, publication metadata, and MSC classification.",
+        "method": "Lawful open-access HTML/full-text inspection.",
+        "title": "Quantitative versions of the two-dimensional Gaussian product inequalities",
+        "trigger": "Direct motivating source posing quantitative three-dimensional Gaussian product inequalities as Question 1."
+      },
+      {
+        "assessment": "QUALITATIVE_COVERAGE_NOT_QUANTITATIVE_SHARP_REMAINDER.",
+        "evidence": "The theorem establishes the GPI and independence equality condition for all positive integer pairs. No inspected statement gives the weighted squared-correlation remainder or the constant \\((7-\\sqrt{41})/2\\).",
+        "identifier_or_url": "arXiv:2208.13957; DOI:10.1016/j.jmaa.2023.127410",
+        "material_read": "Open arXiv full text: introduction, Theorem 1.1, low-exponent discussion, and Section 2 reduction to moment-ratio/hypergeometric inequalities.",
+        "method": "Lawful open-access arXiv full-text inspection.",
+        "title": "Moment ratio inequality of bivariate Gaussian distribution and three-dimensional Gaussian product inequality",
+        "trigger": "Closest primary source proving the identical qualitative exponent family containing \\((m_2,m_3)=(1,2)\\)."
+      },
+      {
+        "assessment": "LATER_QUALITATIVE_GENERALIZATION_NO_QUANTITATIVE_CLAIM_IN_ACCESSIBLE_STATEMENT.",
+        "evidence": "The abstract states qualitative GPI validity and equality only at independence for positive integer orders, with no quantitative correlation remainder.",
+        "identifier_or_url": "DOI:10.1016/j.jmaa.2024.128804",
+        "material_read": "Indexed abstract and bibliographic record.",
+        "method": "Publisher/institutional bibliographic abstract inspection; full article text was not used.",
+        "title": "Three-dimensional Gaussian product inequality with positive integer order moments",
+        "trigger": "Later broad three-dimensional Gaussian product-inequality result with positive integer exponents."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2f83bcae-7def-4ea0-9ab4-42f1a9d6474e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly asks for quantitative three-dimensional Gaussian product inequalities. The case \\((m_2,m_3)=(1,2)\\) is the first unequal positive-integer exponent profile after the all-square case, and the theorem gives a globally sharp coefficient, complete equality geometry, and a positive-definite sharpness statement. This is a natural structural first case of the stated open quantitative direction, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
