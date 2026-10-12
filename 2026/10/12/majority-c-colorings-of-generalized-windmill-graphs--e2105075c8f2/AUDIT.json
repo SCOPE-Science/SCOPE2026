@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "A blade vertex has degree m. If its blade contains the center color, the center-colored block must have at least ceil(m/2) blade vertices, while any other color block must have at least ceil(m/2)+1 vertices; these bounds rule out a mixed blade. If the center color is absent, two non-center blocks cannot both fit, so the blade is again monochromatic. The center condition then becomes exactly b>=ceil(n/2) for the number b of center-colored blades. The Stirling formula counts choices of non-center blades and onto assignments to the remaining labeled colors. Exhaustive direct checks and exact counts agree in the tested range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Definition 1 gives the same surjective half-neighborhood majority-C condition and primary MSC 05C15 is printed on the first page.",
+        "The Dutch-windmill paragraph states chi(D_{3,n})=floor(n/2)+1, covering the scalar m=2 special case.",
+        "The paper's stated exact graph classes otherwise include complete graphs, stars, complete bipartite graphs, path/cycle powers, and certain cubic graphs; no generalized-windmill theorem was found.",
+        "The later product paper studies Cartesian products, Hamming graphs, and grids rather than K_1 join nK_m."
+      ],
+      "reasoning": "The closest primary source is genuinely overlapping and is credited where it covers the friendship scalar case. It does not imply the m>=3 blade theorem or the exact number of colorings for each q.",
+      "searches": [
+        "Full-text inspection of arXiv:2604.20752v1, especially Definition 1, Observation 1, Observation 2, Section 2.2, and the Dutch-windmill paragraph",
+        "Full-text searches of arXiv:2604.20752v1 for friendship, windmill, cograph, and join",
+        "Abstract and scope inspection of arXiv:2608.27669v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.20752v1",
+      "arXiv:2608.27669v1",
+      "published-finding corpus:2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f",
+      "published-finding corpus:2026/9/17/SCOPE005"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior friendship statement fixes only the maximum number of colors when every blade is an edge.",
+        "The general merging observation implies interval feasibility below any known maximum but does not determine the generalized-windmill maximum, blade structure, or the number of colorings.",
+        "The later Cartesian-product results do not concern clique bouquets.",
+        "The generalized-windmill published-finding corpus polynomial is for general position, not coloring."
+      ],
+      "reasoning": "The new structural theorem is needed to pass from the m=2 scalar observation to arbitrary clique blades and to make the surjective-count formula possible. None of the compared prior statements entails that structure.",
+      "searches": [
+        "arXiv:2604.20752v1, Definition 1 and Dutch-windmill paragraph",
+        "arXiv:2604.20752v1, Observation 1(ii) on merging color classes",
+        "arXiv:2608.27669v1 abstract",
+        "published-finding corpus id 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated a majority-C theorem for generalized windmills or an exact coloring-count formula.",
+        "The primary paper search locates only the Dutch windmill D_{3,n}, i.e. the friendship graph scalar value."
+      ],
+      "reasoning": "The searches cover the standard family aliases, the explicit join representation, the scalar parameter, the complete spectrum, and the natural Stirling-number enumeration. Only the friendship scalar special case was located.",
+      "searches": [
+        "published-finding corpus query: majority C-coloring friendship graph exact",
+        "published-finding corpus query: majority C-coloring windmill graph",
+        "published-finding corpus query: majority C-coloring generalized windmill all colorings Stirling numbers",
+        "published-finding corpus query: majority C-coloring K1 join nKm exact spectrum",
+        "Web query: \"majority C-coloring\" \"generalized windmill\"",
+        "Web query: \"majority C-coloring\" \"Dutch windmill\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest same-family published-finding corpus item: 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f, which studies general-position polynomials on W_{n,m}, not majority C-coloring.",
+        "Closest majority-related item: 2026/9/17/SCOPE005, which concerns generalized strong-majority edge coloring of bipartite graphs, a different edge-coloring invariant."
+      ],
+      "reasoning": "Neither a same-family/different-invariant record nor a same-word/different-invariant record supplies a majority-C coloring structure or enumerator.",
+      "searches": [
+        "published-finding corpus query: majority C-coloring generalized windmill all colorings Stirling numbers",
+        "published-finding corpus query: majority C-coloring K1 join nKm exact spectrum",
+        "published-finding corpus query: majority C-chromatic generalized friendship graph clique windmill"
+      ]
+    },
+    "rationale": "The initiating paper explicitly states the friendship-graph scalar value, so that m=2 numerical case is treated as prior coverage. Its inspected full text does not state a theorem for generalized windmills K_1 join nK_m, nor a classification of all colorings, a full color-count spectrum, or an exact coloring count. published-finding corpus searches using majority-C, generalized-windmill, join-of-cliques, friendship, spectrum, and Stirling/enumeration formulations found no covering result. The final claim strictly contains the credited friendship scalar special case and adds independent structural and enumerative information.",
+    "residual_risks": [
+      "The scalar m=2 friendship value is explicitly prior and is not claimed as novel by itself.",
+      "Generalized windmills can be indexed under clique bouquets or windmill variants, so a poorly indexed equivalent family theorem could escape keyword search.",
+      "Majority C-coloring is a new and active invariant, so concurrent follow-up work may not yet be indexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the exact friendship scalar value but does not state a generalized-windmill all-coloring theorem or enumeration.",
+        "evidence": "First public 2026-04-22; AMS 2020 classification 05C15,05C85. Definition 1 is the same majority-C condition. The Dutch windmill D_{3,n} is stated to have floor(n/2)+1 colors.",
+        "identifier_or_url": "arXiv:2604.20752v1",
+        "material_read": "First page and metadata; Definition 1 and Observations 1-2; paper-structure discussion; Section 2.2 around the Dutch-windmill example; targeted full-text searches for friendship, windmill, cograph, and join. Pages 1 and 7 of the PDF were also visually inspected.",
+        "method": "Direct arXiv PDF text extraction, targeted search, and page-image inspection.",
+        "title": "Majority C-coloring of graphs",
+        "trigger": "Primary source introducing the invariant and explicitly mentioning friendship graphs."
+      },
+      {
+        "assessment": "Does not cover generalized windmills or join-of-cliques colorings.",
+        "evidence": "First public 2026-08-27; the abstract focuses on Cartesian products and exact product-family values.",
+        "identifier_or_url": "arXiv:2608.27669v1",
+        "material_read": "ArXiv metadata and abstract describing exact Cartesian-product, Hamming-graph, hypercube, and grid results.",
+        "method": "Statement-level scope and implication comparison.",
+        "title": "Majority C-coloring in Cartesian products",
+        "trigger": "Recent follow-up by the same research line that could broaden the graph-class coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2105075-c8f2-491f-a92f-450a9d28d893",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Generalized windmills form a canonical clique-bouquet extension of the friendship family already singled out by the initiating paper. The result gives a complete structural classification for every blade size, reveals that the maximum is unexpectedly independent of blade order once m>=2, determines every feasible color count, and counts all surjective colorings exactly by a Stirling transform. This is substantially more information than the already known friendship scalar value.",
+    "status": "PASS"
+  }
+}
