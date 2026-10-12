@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact adjacency quotient, its characteristic cubic, and vertex spectral supports are reconstructed from the graph definition. The two-fibre exponential identity reduces all transfer to clone pairs. The continuous Kronecker criterion supplies necessary and sufficient integral-relation parity conditions. For irreducible parameter values a three-cycle in the cubic Galois action, together with trace one, proves independence; for the only reducible parameter, the integer relation lattice is computed exactly. The zero-eigenvalue leaf obstruction and irrational spectral ratio exclude the remaining PGST and every PST case. Exact-arithmetic finite checks corroborate but do not establish the infinite statement.
+
+**Originality — PASS, subject to residual coverage risk.** *Quantum walks on blow-up graphs* (Bhattacharjya–Monterde–Pal, arXiv:2308.13887) proves a general criterion and classifies regular cones, but asks separately for nonregular cones. This exact nonregular-base infinite family, including its cubic exception and full vertex-pair classification, was not found in the inspected primary full texts, indexed searches, or relevant published-results searches. General criteria are explicitly credited and are not presented as new. An equivalent specialization elsewhere remains possible.
+
+**Value — PASS.** This is a natural all-parameter classification answering a specific nonregular-cone question for an infinite family: it distinguishes persistent triangle clone transfer from disappearance of leaf transfer at two or more leaves, proves every allowed transfer is proper, and identifies and resolves the unique reducible cubic member. It does not claim to solve arbitrary nonregular cones, nor provide transfer times.
+
+Relevant comparison: Coutinho–Baptista–Godsil–Spier–Werner, *Irrational quantum walks*, arXiv:2208.08971 (2022); Bhattacharjya–Monterde–Pal, *Quantum walks on blow-up graphs*, arXiv:2308.13887 (2023), especially Theorems 2–4 and 13 and Section 12; Kirkland–Monterde–Plosker, *Quantum state transfer between twins in weighted graphs*, arXiv:2201.02720. No matching stronger specialized statement was identified. The general spectral parity theorem is prior work; numerical tests are not infinite certificates.
+
+Self-review: passed. Independent audit: not yet performed.
