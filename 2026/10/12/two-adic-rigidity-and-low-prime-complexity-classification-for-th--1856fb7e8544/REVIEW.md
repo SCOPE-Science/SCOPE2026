@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The proof starts from the exact aliquot-sum formula \(S(2^ap)=(2^a-1)p+2^{a+1}-1\). Valuations \(\nu_2(S)=1\) and \(\nu_2(S)\ge3\) are eliminated by parity and the exact logarithmic-derivative inequality, respectively. The forced valuation \(2\) gives identities for \(m=S/4\) and \(D(m)\). These imply the opposite parity constraints on \(\Omega(m)\) at \(a=2\) and \(a\ge3\). The remaining cases are exactly one odd prime versus two odd primes; the latter reduces to the full factor equation \((r-3)(s-3)=16\), including the repeated-prime case. Both directions of the parametrization have been verified algebraically. The standalone bounded computation independently agrees; no unbounded claim relies on its coverage.
+
+## Originality — PASS, residual risk disclosed
+OEIS A248816 directly records the same derivative-of-aliquot-sum question and individual values, but does not provide this valuation obstruction, parity theorem, or complete low-prime-complexity converse. OEIS A125246 already contains the deficient-by-four *shape* of one family; novelty is not claimed for the shape. Its relation to the derivative question additionally requires the stated simultaneous primality test. The arithmetic-derivative definition in A003415 does not imply the classification without the intervening argument. The compositions in A248815 and A230164 are different. Semantic searches of published-finding corpus for this equation, 2-adic obstruction, simultaneous prime conditions, and alternative formulations found no equivalent/stronger claim among the closest results. The remaining risk is unindexed older argument or a direct derivation embedded in a source not indexed under the same equation.
+
+## Value — PASS
+The exact fixed-point equation is explicitly recorded as an arithmetic sequence problem with isolated numerical examples. The theorem settles an infinite two-prime-support stratum under the natural and nontrivial restriction that the odd aliquot quotient has at most two prime factors, including a unique exceptional even-parity case, and gives an unbounded 2-adic obstruction even without that restriction. It explains multiple large sequence values through a necessary-and-sufficient paired-prime mechanism, rather than recomputing a finite table. The uncertain infinitude of the prime pair family and the remaining high-\(\Omega\) cases are not resolved.
+
+Self-review: passed. Independent audit: not yet performed.
