@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The source recurrence is exactly a positive state-dependent scalar step in zero diffusion. Domain invariance and infected monotonicity hold for all h>0; bounded positive infection forces extinction, and stable forced recurrences yield S->K. The r=(K-S)/I affine recurrence contracts asymptotically to k/mu, and reciprocal infection increments tend to beta*k*tau*/mu. Cesaro yields nhI->mu(1+kh)/(beta k). Continuous ODE comparison uses I'<=-beta I^2, x' stable, r' stable, and (1/I)'=beta r. The independent rational-and-long-run numerical checker executes successfully but is not a substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schurz–Tosun Theorem 10 treats fixed finite horizons as mesh tends to zero; it does not supply a uniform critical leading-tail coefficient at fixed mesh.",
+        "Zhou–Hu–Zhao (DOI 10.1007/s11075-024-01986-7) analyzes a different auxiliary-transformation scheme."
+      ],
+      "reasoning": "Comparison by implication: finite-time strong convergence does not imply interchange of fixed-h and infinite-time critical tail constants. Other positive schemes cannot dominate a numerical-coefficient identity for this specific update without matching the update map.",
+      "searches": [
+        "2026 epidemic model 92D30 exact endemic equilibria bifurcation reproduction threshold stochastic disease free",
+        "balanced implicit SIR stochastic numerical scheme critical reproduction number one polynomial extinction 1/n rate 1+h(alpha+gamma+mu)",
+        "Schurz Tosun 2026 balanced implicit method critical threshold long time fixed step bias SIR epidemic",
+        "2024 explicit implicit stochastic SIR model long time convergence"
+      ]
+    },
+    "checked_sources": [
+      "10.1007/s00285-026-02392-4",
+      "10.1007/s11075-024-01986-7",
+      "10.1007/s10884-014-9415-9",
+      "published-finding corpus published search records for 2026 epidemic thresholds and exact BIM searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schurz–Tosun (2026) establishes SIR invariance and finite-T convergence, and separately analyzes stochastic SIS.",
+        "Related SIS threshold analyses concern stochastic linearized exponents rather than the nonlinear SIR critical coefficient.",
+        "Critical slowing asymptotic for the continuous ODE is classical; new point is the ratio between the exact published BIM and the continuous flow."
+      ],
+      "reasoning": "The proposed theorem strictly adds a specific fixed-step nonlinear critical amplitude to the motivating paper. Stochastic SIS transverse stability statements do not imply the nonlinear SIR critical 1/n tail; conversely this result does not imply a stochastic threshold shift.",
+      "searches": [
+        "balanced implicit SIR stochastic numerical scheme critical reproduction number one polynomial extinction 1/n rate 1+h(alpha+gamma+mu)",
+        "Schurz Tosun 2026 balanced implicit method critical threshold long time fixed step bias SIR epidemic",
+        "Schurz Tosun SIR 2026 positivity invariance convergence Theorem 10",
+        "2026 nonlinear critical SIR long-time numerical tail amplitude"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact method identified in equations (12)–(13), not ordinary explicit Euler or changed-time ODE trajectory.",
+        "Full 2026 motivating source contains no critical algebraic amplitude theorem; the long-time rate found here uses an asymptotically constant modified clock."
+      ],
+      "reasoning": "Search covers alternative expressions as reciprocal-infection slope, time reparametrization, and algebraic decay coefficient. No equivalent exact state-dependent-step result found. Ordinary ODE critical-tail laws alone do not fix the scheme coefficient.",
+      "searches": [
+        "balanced implicit SIR stochastic numerical scheme critical reproduction number one polynomial extinction 1/n rate 1+h(alpha+gamma+mu)",
+        "Schurz Tosun 2026 balanced implicit method critical threshold long time fixed step bias SIR epidemic",
+        "nonstandard finite difference critical SIR discrete infected prevalence algebraic decay asymptotic 1/n",
+        "Schurz Tosun BIM critical infection nhI tI numerical 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published search results include a two-patch SEIR reproduction-number counterexample and a two-stage age-structured model, neither analyzing the exact BIM critical amplitude."
+      ],
+      "reasoning": "This is a dynamical theorem, not a finite table or established database entry. Published mathematical records searched contained no same coefficient.",
+      "searches": [
+        "balanced implicit SIR stochastic numerical scheme critical reproduction number one polynomial extinction 1/n rate 1+h(alpha+gamma+mu)",
+        "Schurz Tosun 2026 balanced implicit method critical threshold long time fixed step bias SIR epidemic",
+        "nonstandard finite difference critical SIR discrete infected prevalence algebraic decay asymptotic 1/n",
+        "published-finding corpus Schurz Tosun SIR SIS balanced implicit threshold"
+      ]
+    },
+    "rationale": "Full same-paper comparison: positivity and finite-horizon consistency/convergence do not entail the nonlinear critical asymptotic coefficient without analysis. Related stochastic SIS analysis treats linearized threshold behavior, rather than a deterministic nonlinear SIR amplitude. Related SIR discretizations use different maps. Search found no equal/stronger published statement for the exact BIM critical coefficient. Full access to some different-scheme related literature remains a risk, not a proof of absence.",
+    "residual_risks": [
+      "Different SIR method by Zhou–Hu–Zhao: only partial/full-preview access; possible unpublished or unindexed related long-time results cannot be excluded.",
+      "Institutional access for the different-scheme Zhou–Hu–Zhao paper was disconnected after public-source attempts.",
+      "Classical time-reparametrization arguments may contain a stronger general theorem; no exact published BIM coefficient was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_METHOD_BUT_NO_CLAIMED_AMPLITUDE: finite-time convergence and invariance do not quantify critical leading tail; one must analyze nonlinear borderline recurrence.",
+        "evidence": [
+          "Equations (1), (12), (13), (16)–(17), Theorem 2, Theorem 10, Sections 5.2 and 6; DOI 10.1007/s00285-026-02392-4"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-026-02392-4",
+        "material_read": "Full public HTML: introduction/model (1), algorithm (12)–(13), equations (16)–(17), Theorems 2 and 10, experiment Section 5.2, conclusion and references.",
+        "method": "Open-access primary full-text equation-by-equation inspection",
+        "title": "Numerical Analysis of BIMs for Stochastic SIR and SIS Models with Variable Contact Diffusion Rates",
+        "trigger": "Identical SIR equations and exact update (12)–(13)"
+      },
+      {
+        "assessment": "DIFFERENT_SCHEME: transformed stochastic explicit–implicit method and strong finite-time convergence; no confirmed published identical BIM critical coefficient. Whole-document absence not claimed.",
+        "evidence": [
+          "DOI 10.1007/s11075-024-01986-7; 2024-11-27 online; abstract specifies auxiliary transformation and order-one stochastic convergence"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-024-01986-7",
+        "material_read": "Publisher title, abstract, publication data, references, preview; introductory portion of publicly indexed author-provided manuscript text. Full paper not accessible.",
+        "method": "Official publisher preview and public search excerpts; arXiv/open-access searches unsuccessful, institutional retrieval reported disconnected",
+        "title": "Explicit-implicit methods for stochastic susceptible-infected-recovered model",
+        "trigger": "Positivity-preserving numerical SIR scheme"
+      },
+      {
+        "assessment": "Continuous stochastic stability model, not the precise 2026 numerical recurrence; coverage of a numerical tail is not evidenced.",
+        "evidence": [
+          "Schurz and Tosun (2015), J. Dynam. Differ. Equat. 27:69–82, DOI 10.1007/s10884-014-9415-9"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10884-014-9415-9",
+        "material_read": "Bibliographic reference and subject description within original Schurz–Tosun paper; no full text.",
+        "method": "Source reference and bibliographic search",
+        "title": "Stochastic asymptotic stability of SIR model with variable diffusion rates",
+        "trigger": "Background long-time continuous SIR stability in source references"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ab94f53-5c83-41c1-978f-b3bd2d700fe5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At threshold, infection decays algebraically with universal leading amplitude, an epidemiologically and numerically meaningful measure beyond equilibrium sign. Exact factor (1+kh) quantifies how an unconditionally positivity-preserving and finite-T convergent BIM alters critical relaxation at every fixed step. The result identifies a structural boundary of qualitative dynamic consistency without needing a general theorem across other schemes or an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
