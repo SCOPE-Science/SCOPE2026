@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Expanding the source PMF gives a cubic polynomial in the count, so its strict survival necessarily uses the cubic geometric tail sum. Direct summation yields the corrected linear coefficient \\(\\widetilde\\omega_1\\). The corrected survival satisfies \\(S(x-1)-S(x)=p_x\\) identically, while the printed formula has a nonzero exact residual. The packaged checker verifies the tail sums, the hazard counterexample, and the stress-strength discrepancy from the actual packaged formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 Poisson-XLindley paper derives reliability functions for the one-summand PXL model.",
+        "The 2026 PTS-XL paper is a different two-sum mixing construction whose PMF contains a cubic count polynomial.",
+        "No broader inspected source supplies the corrected 2026 two-sum survival coefficient."
+      ],
+      "reasoning": "General mixed-Poisson and PXL reliability formulas provide context but do not dominate the model-specific algebraic correction.",
+      "searches": [
+        "Poisson XLindley survival hazard 2022",
+        "mixed Poisson XLindley reliability survival function",
+        "two-sum XLindley mixed Poisson survival function"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261122",
+      "doi:10.1155/2022/6503670"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's PGF and PMF characterize the law but do not state the corrected survival coefficient.",
+        "Theorem 3.1 proves PMF log-concavity independently of Eq. (2.10), so the IFR classification does not repair the printed hazard formula.",
+        "The inspected earlier PXL paper addresses a one-summand model and has no two-sum coefficient comparison."
+      ],
+      "reasoning": "A structural characterization of the law can imply that a correct survival exists, but it does not cover the new explicit diagnosis, corrected coefficient, exact recurrence certificate, or downstream numerical discrepancy.",
+      "searches": [
+        "PTS-XL negative binomial mixture survival coefficient",
+        "Poisson two-sum XLindley PGF survival hazard",
+        "10.3934/math.20261122 log concavity hazard"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located published record states the corrected PTS-XL linear survival coefficient or the hazard-probability counterexample.",
+        "Exact DOI correction and erratum searches returned the original article but no corrigendum.",
+        "The primary PDF itself prints the inconsistent coefficient in Eq. (2.10)."
+      ],
+      "reasoning": "The searches cover the exact source, full model name, coefficient language, survival/CDF/hazard aliases, and the probability-range consequence. No equivalent source-specific correction was located.",
+      "searches": [
+        "10.3934/math.20261122 survival function hazard correction omega1",
+        "Poisson two-sum XLindley survival function hazard wrong coefficient",
+        "PTS-XL hazard exceeds one survival tail sum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Eq. (2.9) has a factor \\((x+1)\\) multiplying a quadratic polynomial, hence a cubic polynomial in the count.",
+        "The derivation immediately before Eq. (2.10) lists geometric tail sums only for powers zero, one, and two.",
+        "Eq. (2.13) substitutes Eq. (2.10) into the hazard denominator, and Section 3.6 substitutes Eq. (2.11) into stress-strength reliability."
+      ],
+      "reasoning": "The error is localized by a direct statement-to-statement comparison inside the primary article and certified by the mandatory survival recurrence.",
+      "searches": [
+        "10.3934/math.20261122 Eq 2.10 omega1",
+        "10.3934/math.20261122 Eq 2.13 hazard",
+        "10.3934/math.20261122 Eq 3.17 stress strength"
+      ]
+    },
+    "rationale": "The primary article prints the wrong coefficient and no located corrigendum or source-specific correction states the replacement coefficient. Related Poisson-XLindley reliability literature concerns a different one-summand model. Focused source, alias, coefficient, hazard, and downstream-reliability searches found no covering published result.",
+    "residual_risks": [
+      "A very recent unindexed corrigendum could exist.",
+      "The article's numerical figures may have been generated from code that did not use the printed coefficient.",
+      "A full re-expansion of every coefficient in the printed stress-strength closed form was not needed for the accepted correction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT. The PMF tail requires a cubic geometric sum, but the displayed survival derivation omits it and produces a coefficient that fails the exact one-step survival recurrence.",
+        "evidence": "Eqs. (2.9)-(2.13) and Section 3.6; the corrected coefficient follows by exact tail summation.",
+        "identifier_or_url": "doi:10.3934/math.20261122",
+        "material_read": "Open full PDF at Proposition 1 and Eqs. (2.9)-(2.13), Theorem 3.1, the PGF/MGF formulas, Table 2, and Section 3.6 stress-strength reliability.",
+        "method": "Direct parsed-text and rendered-page inspection of the open publisher PDF.",
+        "title": "The Poisson two-sum XLindley distribution: Statistical properties, estimation, regression modeling, and applications",
+        "trigger": "Primary 2026 source defining the PTS-XL PMF and the disputed survival/CDF/hazard formulas."
+      },
+      {
+        "assessment": "RELATED BUT NOT COVERING. It treats a different one-summand mixed-Poisson law and contains no PTS-XL two-sum coefficient correction.",
+        "evidence": "Its reliability section defines PXL survival and hazard functions for the one-summand model.",
+        "identifier_or_url": "doi:10.1155/2022/6503670",
+        "material_read": "Open article sections defining the PXL model and its survival and hazard functions.",
+        "method": "Direct publisher full-text inspection.",
+        "title": "Poisson XLindley Distribution for Count Data: Statistical and Reliability Properties with Estimation Techniques and Inference",
+        "trigger": "Closest earlier one-summand Poisson-XLindley reliability model cited by the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a5d6d19-6e6c-4774-a693-5ac3dfd89cf1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Survival, CDF, hazard, and stress-strength reliability are core advertised properties of the proposed count model. The wrong coefficient can make the printed hazard exceed one, so this is not a cosmetic algebraic typo. The correction supplies an exact replacement coefficient, restores the defining PMF-tail recurrence, and quantifies a downstream reliability error while preserving the separate log-concavity/IFR result.",
+    "status": "PASS"
+  }
+}
