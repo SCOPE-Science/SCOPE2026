@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "With one client step \\(\\eta=1/a\\) and source scaling \\(L=a\\), the scaled q-FedAvg client difference equals the exact client gradient. On the scalar quadratic family, each source denominator term equals the exact second derivative of \\(F_i^{q+1}/(q+1)\\), so the server ratio is exactly \\(\\Phi_q'/\\Phi_q''\\). Direct simplification gives the displayed map. On \\(|x|<b\\), substitution \\(q=1/2\\) cancels the map identically, while the Taylor coefficient \\(2q(2q-1)/(3b^2)\\) proves uniqueness among \\(q>0\\) and exact cubic order otherwise. The \\(q=1\\) map and contraction bound are exact.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 FedAvg-like q-FFL analysis updates clients with stochastic gradients of the transformed loss and a fixed learning rate.",
+        "The defining q-FedAvg instead constructs a server ratio from q-weighted local model differences and a dynamic denominator.",
+        "Broader fair-federated-learning papers found in the search emphasize weighting, fairness metrics, or standard convergence rates rather than the exact defining q-FedAvg map."
+      ],
+      "reasoning": "The later convergence framework studies a different update and therefore cannot dominate the accepted exact dynamic-denominator statement. Generic Newton facts also do not identify when the q-FedAvg heuristic becomes Newton or which fairness exponent makes the transformed symmetric objective locally quadratic.",
+      "searches": [
+        "fair federated learning q-FFL convergence FedAvg-like 2024",
+        "q-FedAvg quadratic convergence fairness",
+        "federated fairness transformed loss local SGD q-FFL"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.10497v1",
+      "DOI:10.48550/arXiv.1905.10497",
+      "DOI:10.20944/preprints202409.0544.v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 2 of the defining source sets the scaled local difference to L times the model displacement, multiplies it by the current local loss to power q, and divides the aggregate by a q-dependent Hessian-inspired term.",
+        "The defining source explicitly calls replacement of the client gradient by local model updates a heuristic and evaluates it empirically.",
+        "The 2024 analysis uses transformed-loss stochastic gradients inside a standard FedAvg-like recursion and proves a rate bound under smoothness and boundedness assumptions."
+      ],
+      "reasoning": "The source formulas make the accepted derivation possible, but their stated results do not imply the exact Newton identity or the unique \\(q=1/2\\) finite-termination property. The later paper's different update does not subsume the source-form server ratio.",
+      "searches": [
+        "arXiv:1905.10497 Algorithm 2 q-FedAvg scaled local update denominator",
+        "arXiv:1905.10497 Lemma local Lipschitz q F power Hessian",
+        "DOI:10.20944/preprints202409.0544 q-FFL FedAvg-like convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source describes q-FedAvg as a dynamic weighted averaging heuristic based on local q-FFL smoothness estimates.",
+        "Its algorithm gives the scaled local difference, q-weighted numerator, and Hessian-inspired denominator specialized in the proof.",
+        "No inspected source states interval-wide one-round termination at \\(q=1/2\\) or a unique positive deadbeat exponent."
+      ],
+      "reasoning": "An equivalent statement would need to imply that the defining q-FedAvg server ratio equals the Newton ratio on this family and that exactly one positive fairness exponent annihilates an open interval. General fairness tuning, convergence-rate statements, or the source Hessian upper bound alone do not state that finite-termination classification.",
+      "searches": [
+        "q-FedAvg q-FFL symmetric quadratic exact one-round q=1/2",
+        "q-FedAvg exact finite termination two-client quadratic",
+        "q-FedAvg Newton method",
+        "q-FedAvg 0.5 quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed optimization records concerned asymmetric extragradient minimax tuning, scaled-Polyak quadratic frontiers, stochastic feedback curvature stability, and reverse-order Kaczmarz bias cancellation.",
+        "No indexed result returned the defining q-FedAvg source, q-FFL finite termination, Newton equivalence, or the \\(q=1/2\\) deadbeat interval."
+      ],
+      "reasoning": "The closest indexed recurrences use different algorithms and objects and do not imply the q-FedAvg formula. Search absence is treated only as supporting evidence, not as a novelty proof.",
+      "searches": [
+        "q-FedAvg q-FFL symmetric quadratic exact one-round q=1/2",
+        "q-FedAvg exact finite termination two-client quadratic",
+        "fair federated learning quadratic cubic convergence q-FedAvg",
+        "q-FedAvg Hessian upper bound exact cancellation fairness exponent"
+      ]
+    },
+    "rationale": "The defining q-FFL paper supplies the dynamic denominator and the q-FedAvg local-update heuristic, but the inspected method, theory, and experiments do not state the exact Newton specialization, the interval-wide one-round cancellation at \\(q=1/2\\), or its uniqueness. A later q-FFL FedAvg-like convergence analysis uses stochastic gradients of the transformed local loss with a fixed step rather than the defining q-FedAvg denominator. Focused indexed searches did not surface an implication-equivalent exact result.",
+    "residual_risks": [
+      "An unindexed note or code-level analysis may contain the same \\(q=1/2\\) cancellation under different terminology.",
+      "The Newton equivalence is special to one exact local step and equal scalar curvature.",
+      "The raw source denominator at a zero client loss is singular for 0<q<1 before algebraic simplification, so the deadbeat theorem deliberately excludes the client-minimizer endpoints."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FORMULAS_NOT_COVERING_THE_EXACT_NEWTON_SPECIALIZATION_OR_UNIQUE_DEADBEAT_EXPONENT.",
+        "evidence": "The source gives the exact numerator and denominator used in the derivation and notes empirical q-dependent convergence behavior, but no exact symmetric-quadratic finite-termination theorem was found.",
+        "identifier_or_url": "arXiv:1905.10497 / ICLR 2020",
+        "material_read": "Open full text covering the q-FFL objective, Lemma 3 Hessian/smoothness expression, the q-FedSGD construction, the q-FedAvg local-update heuristic, Algorithm 2, convergence-speed discussion, and q-tuning discussion; the algorithm page was visually inspected.",
+        "method": "Open-access HTML plus PDF page inspection.",
+        "title": "Fair Resource Allocation in Federated Learning",
+        "trigger": "Defining source for q-FFL, the q-dependent smoothness expression, and source-form q-FedAvg."
+      },
+      {
+        "assessment": "DIFFERENT_FIXED_STEP_TRANSFORMED_GRADIENT_METHOD_NOT_COVERING_SOURCE_Q_FEDAVG_DEADBEAT_DYNAMICS.",
+        "evidence": "Its client recursion uses stochastic gradients of the transformed local loss with a fixed learning rate rather than the defining q-FedAvg dynamic server denominator.",
+        "identifier_or_url": "DOI:10.20944/preprints202409.0544.v1",
+        "material_read": "Full accessible text covering the q-FFL definition, discussion of the original q-FedAvg difficulty, the proposed transformed-loss local stochastic-gradient update, client-drift lemma, and convergence-rate theorem.",
+        "method": "Open-access full-text inspection.",
+        "title": "Fair Federated Learning",
+        "trigger": "Later work analyzing a FedAvg-like solver for the same q-FFL transformed objective."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d88e156b-39b7-434c-aec1-117321c7cb8c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The q parameter is the defining fairness knob of q-FFL, and the source explicitly raises convergence-speed sensitivity to q as a practical concern. The accepted result gives a complete local classification on the simplest heterogeneous-client geometry: all positive exponents except one are exactly cubic, their leading error changes sign at \\(q=1/2\\), and \\(q=1/2\\) becomes interval-wide one-round termination. This is a structural solver phenomenon rather than a parameter substitution, and it explains when the source's Hessian-inspired denominator ceases to be merely a bound and becomes an exact Newton curvature.",
+    "status": "PASS"
+  }
+}
