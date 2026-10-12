@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The two singleton and full Nyström approximations and the 2x2 VFE objective give explicit exact determinant and inverse formulas, whose difference equals the asserted B(r)-C(r)a^2. The positive threshold follows from f(0)=0 and f'(t)>1/3; Taylor expansion proves weak-correlation failure and leading observation coefficients yield zero uniform weak-submodularity ratio. Exact rational matrix algebra was independently reconstructed in 2170 test instances using the actual included script, which returned VERIFY_OK. These finite cases are verification of formulas, not proof over a continuum. All universal claims follow from the displayed analytic proof; 0<r<1 and a>=0 boundaries are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves monotone VFE increases, not diminishing returns; the classic Gaussian-process mutual-information objective is not the VFE bound with a quadratic observation term."
+      ],
+      "reasoning": "Submodular mutual information is a different functional and cannot cover a demonstrably non-submodular VFE. Prior monotonicity is strictly weaker than submodularity. The precise iff phase and weak-correlation obstruction are not implied by a general one-pivot gain bound unless this comparison is additionally carried out.",
+      "searches": [
+        "Greedy VFE pivot complementarity, arbitrary marginal amplification after correlated pivot, submodularity ratio zero",
+        "Titsias VFE Gaussian process ELBO pivot greedy increasing returns submodularity ratio zero correlated two observations",
+        "Krause, Singh, Guestrin 2008 mutual information GP submodularity",
+        "arXiv:2606.01821v1 section 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.01821v1 (full publicly available manuscript)",
+      "arXiv:1310.6007 (public primary manuscript)",
+      "Titsias, AISTATS 2009 (eight-page full PDF)",
+      "Krause–Singh–Guestrin, JMLR 2008 (objective-level published literature comparison)",
+      "Published mathematical-finding database (six actual targeted semantic queries, closest IDs recorded)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Eq. for one-step VFE objective, 2013 CholQR increment and 2009 collapsed variational bound are supplied as prior definitions, and the new proof explicitly combines their common objective over four subsets."
+      ],
+      "reasoning": "The cited primary work implies one may compute each subset gain; it does not contain a theorem asserting its phase boundary, its arbitrary weak-correlation failure for a fixed observation, or the zero uniform weak-submodularity ratio. Those conclusions need the nontrivial comparison and asymptotic analysis written here. A previously unindexed equivalent derivation is a real remaining originality risk.",
+      "searches": [
+        "arXiv:2606.01821v1 (full primary text)",
+        "arXiv:1310.6007 (full primary text)",
+        "Titsias 2009 (full PDF)",
+        "Titsias VFE Gaussian process ELBO pivot greedy increasing returns submodularity ratio zero correlated two observations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cao et al. derive an equivalent per-pivot VFE gain; Titsias (2009) gives the parent ELBO, but neither inspected statement includes the two-site data-threshold iff condition."
+      ],
+      "reasoning": "Re-expressing the normalized gain as an ELBO improvement, Cholesky residual update, or inducing-set gain gives the same scalar function; the new assertion concerns its exact joint marginal comparison on two elements, not the known singleton formula. No inspected equivalent statement or dominated theorem was found.",
+      "searches": [
+        "Submodularity failure variational free energy Titsias Gaussian process inducing point subset pivoted Cholesky, symmetric two-point kernel anti-symmetric observations, threshold",
+        "Gaussian process evidence lower bound inducing points diminishing returns supermodularity exact analytical threshold two correlated points",
+        "arXiv:1310.6007; arXiv:2606.01821v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant published mathematical-finding search returned unrelated pivot error products, Frobenius residual amplification and zonotope log-submodularity; no exact VFE-two-site table or theorem."
+      ],
+      "reasoning": "An unrelated result with matching submodularity terminology is not a matching formula. No numerical table or database result located that gives both exact two-site kernel parameter and antipodal data-amplitude classification. Negative search results do not establish global uniqueness.",
+      "searches": [
+        "Submodularity failure variational free energy Titsias Gaussian process inducing point subset pivoted Cholesky, symmetric two-point kernel anti-symmetric observations, threshold",
+        "Variational free-energy inducing-point subset objective not submodular even weakly correlated kernel; exact two-coordinate phase transition",
+        "Schaub Zaspel 2026 variational free energy pivoted Cholesky non-submodular sparse GP set function"
+      ]
+    },
+    "rationale": "Full primary comparison against Schaub–Zaspel (2026), Cao et al. (2013) and Titsias (2009) credits VFE, Cholesky greedy gain and monotonicity as known. The exact two-site submodularity iff phase, weak-correlation failure for fixed nonzero observations, and zero uniform weak-submodularity ratio were not reported or implied as established theorems in those inspected materials. Six targeted published-finding searches returned no direct exact counterpart. Residual unindexed prior-art risk remains; absence of results alone is not the originality argument.",
+    "residual_risks": [
+      "No exhaustive search of all published or unindexed older two-site VFE calculations is possible; the threshold may have been noticed elsewhere.",
+      "The older sensor-placement paper was compared at objective level without a full-text line-by-line exclusion, so no full-document NOT_COVERING assertion is made for that paper.",
+      "This exact two-point example does not rule out weak submodularity under separate restricted kernel/noise/data conditions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives exact one-pivot VFE gain and monotonic increase. Does not assert the exact two-site submodularity phase boundary, weak-correlation failure or vanishing two-element submodularity ratio.",
+        "evidence": "arXiv:2606.01821v1, first posted 2026-06-01; Secs. 2, 4, 5 and related work Sec. 1.1.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.01821",
+        "material_read": "Full publicly licensed manuscript including abstract, background, gain theorem, algorithm, comparisons and references.",
+        "method": "Read the complete publicly available full-text transcription and compared the defining functional, theorem, discussion of Cao et al., and reported numerical claims; searched for submodularity and diminishing returns.",
+        "title": "Variational Free Energy Pivot Selection for Pivoted Cholesky",
+        "trigger": "Same exact VFE-Cholesky set objective and greedy pivot gain; most decisive comparison."
+      },
+      {
+        "assessment": "Includes equivalent one-pivot gain, but no exact two-point diminished-returns phase boundary or uniform weak-submodularity infimum.",
+        "evidence": "Cao, Brubaker, Fleet and Hertzmann, arXiv:1310.6007, variational objective and CholQR algorithms.",
+        "identifier_or_url": "https://arxiv.org/abs/1310.6007",
+        "material_read": "Public full-text manuscript including algorithm derivations and optimization discussion.",
+        "method": "Examined objective definition, gain and greedy/local-search material, comparisons and appendices; searched for a submodularity claim.",
+        "title": "Efficient Optimization for Sparse Gaussian Process Regression",
+        "trigger": "Identified by the recent source as prior derivation of an equivalent scalar VFE increment and forward-greedy variant."
+      },
+      {
+        "assessment": "Establishes VFE objective and its monotonic greedy selection; it does not report the claimed exact two-site phase boundary.",
+        "evidence": "AISTATS 2009, pages 567–574, Section 3.1 and the collapsed VFE objective.",
+        "identifier_or_url": "https://proceedings.mlr.press/v5/titsias09a/titsias09a.pdf",
+        "material_read": "Eight-page full PDF including title, variational equations and greedy-selection pages; pages 1 and 4 inspected visually.",
+        "method": "Read the PDF's parsed text and inspected page images for original VFE definition and greedy discussion; searched for submodularity.",
+        "title": "Variational Learning of Inducing Variables in Sparse Gaussian Processes",
+        "trigger": "Original collapsed variational-free-energy formulation and greedy inducing-point selection."
+      },
+      {
+        "assessment": "General submodularity assertions for mutual-information sensor selection cannot imply a data-dependent VFE subset property without a new equivalence, and none was established. This source alone is not evidence of noncoverage throughout its full text.",
+        "evidence": "JMLR 9 (2008), mutual-information submodular sensor-placement set function.",
+        "identifier_or_url": "https://www.jmlr.org/papers/v9/krause08a.html",
+        "material_read": "Publicly accessible paper metadata and theorem summary concerning mutual-information objective, not its entire primary text.",
+        "method": "Compared precise objective under its mutual-information setting to the data-dependent variational free-energy lower bound here.",
+        "title": "Near-Optimal Sensor Placements in Gaussian Processes: Theory, Efficient Algorithms and Empirical Studies",
+        "trigger": "Strong nearby theory of submodularity for Gaussian-process mutual-information sensor objectives."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3916d5e8-736b-4837-b630-350f19d407b5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural exact two-site inducing-set selection task has a complete necessary-and-sufficient diminishing-returns phase, including an attained threshold rather than a cheap isolated negative sign. For any fixed nonzero output amplitude the failure exists at arbitrarily weak correlation (near identity), and the submodularity ratio can vanish across instances, identifying concrete limits on unconditional greedy pivot guarantees. No approximation guarantee or broader algorithmic effect is claimed.",
+    "status": "PASS"
+  }
+}
