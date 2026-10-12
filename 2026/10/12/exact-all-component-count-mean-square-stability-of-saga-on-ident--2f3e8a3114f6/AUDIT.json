@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Conditional sampling gives the exact four-monomial matrix \\(B_{n,s}\\); its weighted polynomial identity is \\(\\mathbb E[V_{k+1}\\mid\\mathcal F_k]-V_k=sP_n(s)x_k^2\\). The leading and variance coefficients are positive and the \\((x,m)\\) determinant factor is strictly positive for every \\(n\\ge2,s>0\\). For \\(P_n(s)<0\\) telescoping gives summability of expected iterate squares, while an exact table-norm recurrence forces stored gradients to zero. At and above the unique positive zero, expected positive energy cannot tend to zero from any nonzero scalar state; positive eigenvector localization proves necessity in arbitrary SPD dimensions. Formal SymPy polynomial checks and 270 independently enumerated exact-rational conditional expectation cases executed successfully. The code supports, but does not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 SAGA strongly convex proof uses a sufficient \\(\\gamma=1/[2(\\mu n+L)]\\) under its hypotheses; this does not exclude larger steps.",
+        "The 2019 ``optimal`` mini-batch statement derives optimized sufficient choices from expected smoothness.",
+        "The all-component-count necessity is established by a nonnegative expected-energy drift beyond the zero of \\(P_n\\)."
+      ],
+      "reasoning": "General finite-sum strong-convexity convergence theorems cover more objective functions but give only sufficient, not necessary, stepsizes, so cannot imply the claimed sharp iff statement. Any general spectral-radius test would need a calculation of this exact polynomial boundary; no stronger theorem with that specific consequence was found in the inspected sections.",
+      "searches": [
+        "sharp mean-square stability SAGA scalar quadratic n components Lyapunov stepsize table",
+        "Defazio Bach SAGA exact full initial state stability criterion n identical quadratic sample count asymptotic 1 plus 1 over 2n squared",
+        "stochastic variance reduced gradient finite sum n equal quadratic sharp convergence number of components SAGA",
+        "arxiv:1606.04838v1",
+        "pmlr:v97/gazagnadou19a"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1407.0202v1; v3 full HTML",
+      "arxiv:1606.04838v1; 2018 SIAM Review full legal PDF",
+      "pmlr:v97/gazagnadou19a; full PMLR article",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously established two-component SAGA mean-square cutoff: \\(2/\\sqrt3\\); new formula specializes to it at \\(n=2\\).",
+        "Previously established all-n SAG identical-SPD limit: \\(\\eta\\lambda_{\\max}<2\\); SAG and SAGA have different sampled estimators and different transition laws.",
+        "The new \\(n=3\\) threshold is \\((5+\\sqrt{265})/20\\), and \\(\tau_n\\downarrow1\\), neither forced by the \\(n=2\\) case."
+      ],
+      "reasoning": "The n=2 equality is subsumed and is not claimed to be original. The general n formula is not a corollary of one low-dimensional example. The SAG all-n result is for a biased averaged estimator with a different memory update, so it does not dominate the unbiased SAGA statement. SAGA general guarantees are one-way inequalities, whereas this statement is sharp in both directions.",
+      "searches": [
+        "Exact spectral radius stochastic average gradient SAGA n identical Hessian quadratic stepsize",
+        "for all n exact SAGA stepsize threshold under identical gradients and arbitrary memory, positive definite Lyapunov conditional drift",
+        "Defazio Bach SAGA exact full initial state stability criterion n identical quadratic sample count asymptotic 1 plus 1 over 2n squared",
+        "arxiv:1407.0202v1",
+        "arxiv:1606.04838v1",
+        "pmlr:v97/gazagnadou19a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original SAGA estimator in arxiv:1407.0202, Section 2: sampled component gradient minus saved component plus average saved gradient.",
+        "Gazagnadou–Gower–Salmon PMLR 97, main convergence/stepsize theorem and appendix: expected-smoothness sufficient bounds.",
+        "The exact scalar conditional moment matrix and polynomial are derived directly in RESULT.md."
+      ],
+      "reasoning": "Aliases considered include gradient-table control variates, incremental aggregated gradients, SAGA variance reduction, mean-square Schur stability, and a Lyapunov drift. The original SAGA convergence bounds and the 2019 ``optimal`` bounds do not state or imply the all-initial-state iff threshold. Generic linear-stochastic-system criteria may be convertible, but an equivalent closed cutoff was not located and remains a residual risk.",
+      "searches": [
+        "Exact all-component-count mean-square stability threshold SAGA on identical quadratic finite sum gradients stored memory Perron second moment",
+        "Exact spectral radius stochastic average gradient SAGA n identical Hessian quadratic stepsize",
+        "sharp mean-square convergence SAGA n identical scalar strongly convex quadratic components stored table 2n²-3n+1 polynomial stepsize threshold",
+        "for all n exact SAGA stepsize threshold under identical gradients and arbitrary memory, positive definite Lyapunov conditional drift",
+        "arxiv:1407.0202v1",
+        "pmlr:v97/gazagnadou19a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published search hits concern stochastic OSGM, Haar subspace descent, scaled Polyak, and general first-order methods rather than SAGA stored-gradient second-moment transfer.",
+        "The result holds for arbitrary integer component count and continuous stepsize and SPD spectra; finite numerical tables would not imply it."
+      ],
+      "reasoning": "An exact tabulation of individual cutoff samples cannot establish an all-integer continuous-parameter theorem. published-finding corpus returned no direct SAGA all-n analogue in the actually examined hit lists; that limited negative search is not proof of novelty.",
+      "searches": [
+        "sharp mean-square convergence SAGA n identical scalar strongly convex quadratic components stored table 2n²-3n+1 polynomial stepsize threshold",
+        "stochastic variance reduced gradient finite sum n equal quadratic sharp convergence number of components SAGA",
+        "published-finding corpus semantic search of all-n SAGA stability",
+        "pmlr:v97/gazagnadou19a"
+      ]
+    },
+    "rationale": "The 2014 source defines original SAGA and proves conservative general sufficient rates, not an all-initialization necessary-and-sufficient condition. The 2019 ``optimal stepsize`` theorem concerns optimized guaranteed smoothness bounds and does not imply the exact stability frontier on an identical-Hessian family. The known \\(n=2\\) cutoff is a covered special case; the all-\\(n\\) threshold, its sharp failure from any nonzero scalar state, strict sample-count law, and arbitrary SPD extension are not consequences of that special case. The related stochastic finite-sum and spectral-method search hits do not cover the same SAGA hypotheses and conclusion. An equivalent unnamed older stochastic linear-systems result remains a real residual risk, so originality is qualified rather than purported certified exhaustively.",
+    "residual_risks": [
+      "An older stochastic linear-systems or incremental-memory convergence theorem may imply the exact all-\\(n\\) scalar threshold under a different name.",
+      "The first SAGA arXiv paper has no printed MSC; primary 65K05 ownership is independently supported by the later SAGA-containing numerical-optimization survey.",
+      "Semantic searches and inspected source sections are not an exhaustive proof of novel priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same estimator, but no all-n identical-SPD necessary-and-sufficient mean-square cutoff in inspected algorithm, theorem and proof sections.",
+        "evidence": [
+          "Original estimator and \\(\\gamma=1/[2(\\mu n+L)]\\) sufficient step text in https://arxiv.org/html/1407.0202v3",
+          "arXiv v1 public 2014-07-01 UTC, https://arxiv.org/abs/1407.0202"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1407.0202v3",
+        "material_read": "HTML full article: algorithm description in Section 2; strongly convex step-size statement, theorems and related variance-reduction comparison.",
+        "method": "Read publicly accessible primary full text and cross-checked first submission date against arXiv version history; compared the guarantee quantifiers and sampled estimator.",
+        "title": "SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives",
+        "trigger": "Defines the exact SAGA update, initialization, and generally sufficient step-size theory; must check possible identical quadratic implication."
+      },
+      {
+        "assessment": "The source explicitly lists first MSC 65K05 and describes SAGA; it does not present the specialized all-n sharp stability boundary.",
+        "evidence": [
+          "First AMS code 65K05 on page 1",
+          "Review initially publicly submitted 2016-06-15 as arxiv:1606.04838v1"
+        ],
+        "identifier_or_url": "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Bottou-2018-opt.pdf",
+        "material_read": "Full review pages including cover with ordered AMS classifications and section 5.3.2 describing SAGA gradient aggregation.",
+        "method": "Inspected lawful online full PDF and cover/page images, compared Section 5.3.2 with exact scalar recursion.",
+        "title": "Optimization Methods for Large-Scale Machine Learning",
+        "trigger": "Relevant comprehensive original-author survey, primary numerical-optimization MSC, and SAGA formulation."
+      },
+      {
+        "assessment": "Their optimized stepsizes are sufficient convergence guarantees for JacSketch/SAGA, not exact if-and-only-if all-initialization mean-square limits for identical quadratic components.",
+        "evidence": [
+          "Published PMLR 97 (2019) theorem/expected-smoothness framework",
+          "https://proceedings.mlr.press/v97/gazagnadou19a.html"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v97/gazagnadou19a/gazagnadou19a.pdf",
+        "material_read": "Full public PMLR article, main step-size results and proof appendix relevant to expected smoothness and allowable steps.",
+        "method": "Read primary legal open-access full text and inspected theorem/paper pages for hypotheses and guarantee type.",
+        "title": "Optimal Mini-Batch and Step Sizes for SAGA",
+        "trigger": "Title suggests a potentially stronger stepsize theorem, so compare implication rather than wording."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2f3e8a31-14f6-46b3-9e76-00d37763e88d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original SAGA algorithm has a practically motivated gradient-memory step-size question: even when every component gradient is identical at the same evaluation point, saved values from different times can destabilize the iteration. The theorem gives a sharp all-sample-count and all-SPD convergence classification, exact energy certificate, first-order sample-count sensitivity and threshold asymptotics. It resolves a natural benchmark completely, provides a direct counterexample to transferring the full-gradient ceiling, and goes beyond routine numerical substitution into the previously known two-component boundary.",
+    "status": "PASS"
+  }
+}
