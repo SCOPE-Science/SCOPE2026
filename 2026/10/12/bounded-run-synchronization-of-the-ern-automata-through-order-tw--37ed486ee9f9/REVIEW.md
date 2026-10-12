@@ -1,0 +1,10 @@
+# Scientific review
+**Correctness — PASS.** The all-order run threshold and upper bound follow from the normal form, the exact induced block transformations, and the explicit collapsing word. For the exact length profile, two independent exhaustive methods enumerate all admissible candidates (direct product-state BFS and weighted normal-form subset shortest paths); every one of the 22 minima agrees and witness replays succeed. The finite pattern is **not** claimed to imply the unproved all-order formula. The complete algorithms and data are supplied.
+
+**Originality — PASS, with residual risk.** The unrestricted Černý threshold is classical. General constrained-synchronization frameworks and simple-idempotent algorithms allow related decisions, but the inspected paper sections do not report either the exact all-order `aaa` feasibility threshold or the full shortest-length profile through order 24. The closest indexed results concern state-image avoidance and different automata, not this input-language constraint. An inaccessible earlier calculation or unindexed source remains possible. Failed searches by themselves are not novelty proofs.
+
+**Value — PASS.** Forbidding a repeated rotation input is a natural minimal finite-type regular-language constraint on a canonical worst-case synchronizing automaton. The smallest feasible run bound, the constructive all-order recovery, and an exact nontrivial finite-range penalty for forbidding `aaa` give a precise constrained-control benchmark. The work does not require an all-order length theorem for its finite-range conclusions to be useful.
+
+The closest sources are Grech–Kisielewicz, arXiv:1207.2556v1; Kowalski–Szykuła, arXiv:1607.04025v1; and Hoffmann, arXiv:2005.05907v2 and arXiv:2109.02743v1. Only the relevant definitions, main results and constrained-synchronization sections were inspected; a claim of exhaustive absence from every paper is not warranted. The precise finite-length expression outside the enumerated orders is an open limitation.
+
+Self-review: passed. Independent audit: not yet performed.
