@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Fixing a cycle vertex determines all vertices of its functional-digraph component. No self-loop is permitted, so each component has at least two coordinates. An odd number of coordinates forces a size-three-or-larger component: count its root first, then roots of the remaining components against distinct unused symbols, obtaining n(n-3)(n-5)...2. For even lengths the analogous bound is n(n-2)...2. The stated explicit construction has an f-permutation triple prefix and h-involution repairable pair suffix; its n times 2^(m-1)(m-1)! distinct words meet the odd bound for all m>=1, with fixed recovery positions. verify.py independently tests all described codewords for n=2..11, and verify_n5.py rules out 11 with an exhaustive 1024-pattern compatibility-census. Finite tests supplement but do not replace the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1 broad locality bound is n!/ceil(n/(d+1))!, much weaker at d=1.",
+        "Theorem 2 general n!! bound is sharp for even lengths; at odd lengths it is strictly above n(n-3)!!.",
+        "Journal article full text inaccessible: residual risk of uninspected strengthened coverage."
+      ],
+      "reasoning": "A bound for all lengths does not imply the exact smaller odd optimum. The even case is explicitly acknowledged as prior. Later journal edition is flagged as unresolved source-access risk rather than designated not-covering.",
+      "searches": [
+        "arxiv:1601.04504 Theorem 1 A(n,d)",
+        "arxiv:1601.04504 Theorem 2 A(n,1)",
+        "doi:10.1007/s10623-017-0378-9 abstract",
+        "optimal locally recoverable permutation families locality 1 maximum sets classification"
+      ]
+    },
+    "checked_sources": [
+      "N. Raviv, E. Yaakobi, M. Medard, arXiv:1601.04504 (initial public version 2016-01-18; material full preprint inspected).",
+      "N. Raviv, E. Yaakobi, M. Medard, IEEE ISIT 2016, DOI 10.1109/ISIT.2016.7541339 (5-page public version inspected).",
+      "N. Raviv, E. Yaakobi, M. Medard, Designs Codes Cryptography 86 (2018) 387-418 DOI 10.1007/s10623-017-0378-9 (abstract/metadata only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For n=5, the full preprint pair construction yields 4!!=8 while Theorem 2 upper gives 5!!=15; the new theorem proves 10.",
+        "At n=7 prior construction has 6!!=48 and bound 7!!=105; new exact size is 56.",
+        "Raviv--Yaakobi--Medard 2016 construction assumes h|n, so it does not supply an h=2 odd-length equality witness."
+      ],
+      "reasoning": "This is an exact intermediate cardinality theorem, not a corollary of either known endpoint bound or their even-length equality. The full 2018 revision could affect novelty and is retained as material uncertainty.",
+      "searches": [
+        "Raviv Yaakobi Medard locality one odd length n double factorial parity issue and construction",
+        "optimal locally recoverable permutation families locality 1 maximum sets classification",
+        "arxiv:1601.04504 Section 4.4 odd (n-1)!!",
+        "doi:10.1007/s10623-017-0378-9 publication record"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2016 full author manuscript explicitly defines fixed nonadaptive recovery from one other position and uses the same functional dependency graph.",
+        "2016 Theorem 2 establishes n!! upper but not odd sharp formula; 2016 Section 4.4 gives (n-1)!! odd block lower."
+      ],
+      "reasoning": "One-query permutation repair, nonadaptive coordinate observation and symbol-locality-one are equivalent formulations under a fixed observer map; each possible equivalent statement was compared as a cardinality theorem, not title-only. No equivalent odd exact formula was identified in material inspected.",
+      "searches": [
+        "Permutation locality one odd n exact maximum 3 10 56 432 2^(m-1) m-1 factorial symbol reconstruction",
+        "Raviv Yaakobi Medard locality one odd length n double factorial parity issue and construction",
+        "\"permutations with locality one\" \"odd\" optimal",
+        "arxiv:1601.04504 Section 3.1 and 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finding search closest returned an S_5 even-intersecting family of size 13 (distinct intersection constraint), and a general storage LRC parameter result (non-permutation).",
+        "No exact match to the sequence 3,10,56,432 or the odd expression in these searches; absence is not asserted to establish global novelty."
+      ],
+      "reasoning": "The natural parameter sequence was checked by exact-number and expression searches alongside semantic published-record searches; closest records have different constraints and do not determine symbol-locality-one maxima.",
+      "searches": [
+        "Permutation locality one odd n exact maximum 3 10 56 432 2^(m-1) m-1 factorial symbol reconstruction",
+        "Fixed recovery single other coordinate permutations odd alphabet exact maximal family n(n-3)(n-5) components dependency graph",
+        "\"3, 10, 56, 432\" permutations locality",
+        "\"n(n-3)!!\" permutations local"
+      ]
+    },
+    "rationale": "The Jan 2016 full manuscript of Raviv--Yaakobi--Medard introduces this exact nonadaptive notion (see its Section 3.1), proves an unrefined n!! upper bound, and attains that bound by pair blocks for even n only (Section 4.2, requiring 2|n). For odd n it states a pair-block (n-1)!! lower construction (later odd comparison in Section 4.4). For odd n>=5 the precise proven optimum n(n-3)!! is strictly between the two earlier numbers, so the inspected claims do not imply the new equality. A later 32-page journal version was inaccessible in full; it may contain subsequent improvements. This remains a genuine bibliographic risk, and semantic-search absence is not treated as proof of universal novelty.",
+    "residual_risks": [
+      "The expanded 2018 journal full text was inaccessible despite lawful access attempts and may contain the odd bound or a stronger result not present in the inspected early full manuscript.",
+      "Unindexed independent work or a database not returned by semantic/text searches could give equivalent odd extrema."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for new odd exact equality: Theorem 2 provides only n!! upper bound; Section 4.2 pair blocks need 2 to divide n, and page 16 identifies (n-1)!! odd lower family.",
+        "evidence": "Sections 3.1/4.2 say A(n,1)<=n!! and |S|=2^(n/2)(n/2)! under h=2 dividing n; Section 4.4 notes odd n pair construction of size (n-1)!!. No odd sharp formula n(n-3)!! in inspected sections.",
+        "identifier_or_url": "https://www.researchgate.net/publication/291229464_Coding_for_Locality_in_Reconstructing_Permutations",
+        "material_read": "Author-uploaded full-text Sections 3.1, 4.2 and 4.4; Theorem 2, Lemmas 6 and 9, and odd-length comparison on manuscript page 16.",
+        "method": "Read searchable full author-uploaded manuscript and compare formulas, hypotheses and parity conditions against new theorem.",
+        "title": "Coding For Locality In Reconstructing Permutations (initial full manuscript)",
+        "trigger": "Same object and parameters; article claims locality-one double-factorial bound and has exact construction section."
+      },
+      {
+        "assessment": "NOT_COVERING for odd theorem: old general upper and an equality statement invoke a length-divisible-by-two construction; no all-odd construction or improved upper proved.",
+        "evidence": "Theorem 2 upper A(n,1)<=n!!; Section IV-A explicitly requires h|n before taking h=2.",
+        "identifier_or_url": "https://arxiv.org/pdf/1601.04504",
+        "material_read": "All five conference pages; especially page 2 Theorem 2 and page 3 Section IV-A.",
+        "method": "Read text and inspect page image of the relevant theorem and construction.",
+        "title": "Coding for Locality in Reconstructing Permutations (ISIT 2016)",
+        "trigger": "Full conference formulation with the same fixed-observer dependency notion and theorem."
+      },
+      {
+        "assessment": "ACCESS_RISK: cannot establish NOT_COVERING for the 2018 full text; edition may contain a sharpened odd case.",
+        "evidence": "Designs, Codes and Cryptography 86 (2018) 387-418, DOI 10.1007/s10623-017-0378-9, same authors/title.",
+        "identifier_or_url": "https://doi.org/10.1007/s10623-017-0378-9",
+        "material_read": "Published abstract, bibliographic record, journal identifier and length; full results section unavailable.",
+        "method": "Checked lawful open-access routes and publication/author records. Institutional full-text retrieval did not succeed.",
+        "title": "Coding for locality in reconstructing permutations (2018 journal edition)",
+        "trigger": "Expanded 32-page publication by original authors may strengthen or amend conference/preprint odd-length results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ca248d9-70a7-47c5-b569-ffb258fe3602",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the entire odd-length cardinality sequence for a natural established one-erasure single-query recovery system, closing a real parameter gap rather than changing notation or one entry of a table. The construction achieves the refined resource limit at every odd length and quantifies the parity loss from the unrefined upper bound; at length five it changes the gap 8..15 into the exact value 10. The result is restricted to the original fixed-observer model.",
+    "status": "PASS"
+  }
+}

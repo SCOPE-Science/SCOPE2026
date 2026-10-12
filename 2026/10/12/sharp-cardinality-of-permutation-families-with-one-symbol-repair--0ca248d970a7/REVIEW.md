@@ -1,0 +1,11 @@
+# Scientific review: fixed-observer permutation locality one
+
+**Correctness — PASS.** A dependency graph with one non-self outgoing edge per position has components of size at least two. One cycle coordinate determines its entire component. In odd length a component of size at least three is unavoidable; counting its three distinct symbols before the pair-sized components yields \((2m+1)2^{m-1}(m-1)!\) as an upper bound. The explicit three-coordinate construction reaches equality, with recovery maps and observer positions checked for all coordinates. At even length the analogous pair blocks reach \(2^m m!\). Direct construction checks for \(2\le n\le11\) and an independent exhaustive \(n=5\) upper check pass; infinite validity rests on the proof.
+
+**Originality — PASS, with risk.** The 2016 complete author manuscript establishes the model, component method, a general \(n!!\) upper bound, and optimal even-length pair blocks. For odd lengths it cites the smaller pair-block lower construction; the new exact odd formula is strictly between those bounds for \(n\ge5\), hence not implied by the inspected result. Semantically relevant published-record and exact-parameter searches found no covering result. The expanded 2018 journal article remained inaccessible in full, so later overlap within that source remains a significant bibliographic risk. Searches cannot establish absolute novelty.
+
+**Value — PASS.** This resolves the odd-length extremal storage-family capacity for an established recovery model, rather than providing an isolated small enumeration. It proves the precise parity-dependent loss and exhibits a repairable family for every odd length, strengthening the existing bounds. The finding is deliberately limited to fixed observers, as required by the original nonadaptive setting.
+
+**Closest literature and limits.** Raviv–Yaakobi–Médard, arXiv:1601.04504 (2016), Theorem 2 and Section 4.2; same authors, Designs, Codes and Cryptography 86 (2018), 387–418, DOI 10.1007/s10623-017-0378-9 (full text inaccessible). No classification of all maximizers, adaptive-repair claim, or independent scientific validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
