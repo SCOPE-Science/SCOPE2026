@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The bilinear game Jacobian \\(J\\) is real skew-symmetric, so an SVD of the interaction matrix gives orthogonal two-dimensional singular modes. On each mode, the SGA iteration is a scaled rotation with squared Euclidean factor \\((1-\\eta\\tau\\sigma^2)^2+\\eta^2\\sigma^2\\). Solving the strict inequality against one and maximizing over the spectrum yields the exact top-mode threshold. Equality and supercriticality are witnessed by a nonzero top singular mode, so necessity is not inferred from finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vater et al., arXiv:2510.25716, Proposition 4.15 proves global linear convergence for quadratic SGA under a sufficient step restriction.",
+        "On the pure-skew bilinear specialization, that bound becomes \\(\\eta<\\tau\\mu^2/[(1+\\tau^2L^2)L^2]\\).",
+        "The exact threshold proved here is \\(\\eta<2\\tau/(1+\\tau^2L^2)\\), which is strictly broader by \\(2(L/\\mu)^2\\)."
+      ],
+      "reasoning": "The later theorem is genuinely broader in game class but its step restriction is only sufficient. Because its specialized implication is explicitly weaker than the exact threshold, it does not cover the accepted claim.",
+      "searches": [
+        "symplectic gradient adjustment quadratic game sharp parameter bound",
+        "Mechanics n-player differentiable games exact SGA parameter stability",
+        "symplectic gradient adjustment Hamiltonian game convergence rate bilinear"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1802.05642v1",
+      "JMLR:20(84):1-40",
+      "arXiv:1808.01531v1",
+      "arXiv:2510.25716v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source's minimal bilinear game shows rotational simultaneous gradients and a radial Hamiltonian-gradient correction.",
+        "The JMLR algorithm outputs the SGA-adjusted field and reports learning-rate experiments, but does not give a sharp joint step/adjustment condition.",
+        "Crossing-the-Curl establishes related radial and strong-monotonicity facts on a special subsystem rather than the exact explicit-step singular-spectrum boundary.",
+        "The 2025 quadratic SGA theorem gives a sufficient global linear-convergence bound whose pure-skew specialization is smaller than the exact ceiling by \\(2(L/\\mu)^2\\)."
+      ],
+      "reasoning": "The accepted result requires diagonalizing the full bilinear interaction, computing the exact Euclidean modulus of every SGA singular mode, and solving the resulting strict inequality. The cited prior theorems neither state nor imply the reciprocal fixed-step adjustment interval at the exact boundary.",
+      "searches": [
+        "The Mechanics of n-Player Differentiable Games SGA algorithm bilinear Hamiltonian",
+        "Differentiable Game Mechanics crossing-the-curl SGA learning rate",
+        "Global Convergence GANs Crossing-the-Curl radial strong monotonicity",
+        "Low-Rank Symplectic Gradient Adjustment Proposition 4.15 quadratic convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Balduzzi et al. arXiv:1802.05642v1 defines SGA as the simultaneous game gradient plus a Jacobian-antisymmetry correction.",
+        "Letcher et al., JMLR 20(84), gives the same SGA algorithm and explicitly identifies Crossing-the-Curl as an independent discovery.",
+        "Gemp and Mahadevan, arXiv:1808.01531v1, derives a radial curl correction on the elementary rotational GAN subsystem but does not state the same discrete two-parameter spectral lens."
+      ],
+      "reasoning": "An equivalent statement would need to classify the explicit SGA map itself as a function of both \\(\\eta\\) and \\(\\tau\\), or imply the same singular-mode threshold. The inspected qualitative radial, alignment, and monotonicity statements do not determine the exact Euler stability window.",
+      "searches": [
+        "Symplectic Gradient Adjustment bilinear game exact stability step size lambda",
+        "SGA exact bilinear singular values stability lens over adjustment step size",
+        "symplectic gradient adjustment over-adjustment instability fixed step bilinear",
+        "SGA bilinear game singular values exact convergence factor lambda eta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings include exact skew-rotation tuning for forward-reflected-backward splitting, affine reflected-gradient thresholds, and degree-two extragradient minimax laws.",
+        "No returned indexed finding states an SGA-specific bilinear adjustment lens or the same pure-skew comparison with the later SGA quadratic theorem."
+      ],
+      "reasoning": "The closest indexed results use different recurrences, including reflected or two-evaluation schemes. Their skew-mode formulas do not imply the one-step SGA polynomial \\(I-\\eta(J-\tau J^2)\\). Search absence is supporting evidence, not a uniqueness proof.",
+      "searches": [
+        "Symplectic Gradient Adjustment bilinear game exact stability step size lambda",
+        "SGA zero sum bilinear game spectral radius exact",
+        "symplectic gradient adjustment Hamiltonian game convergence rate bilinear",
+        "Mechanics n-player differentiable games exact SGA parameter stability",
+        "SGA exact bilinear singular values stability lens over adjustment step size",
+        "symplectic gradient adjustment over-adjustment instability fixed step bilinear",
+        "SGA bilinear game singular values exact convergence factor lambda eta",
+        "symplectic gradient adjustment quadratic game sharp parameter bound"
+      ]
+    },
+    "rationale": "The defining SGA papers provide the adjusted field, Hamiltonian motivation, local guarantees, and learning-rate experiments; the independently discovered Crossing-the-Curl work gives related radial and monotonicity structure. A later quadratic-game SGA theorem gives a sufficient step bound. None of the inspected sources states the exact two-parameter explicit-step lens, its reciprocal under/over-adjustment boundaries, or the exact \\(2(L/\\mu)^2\\) conservatism factor.",
+    "residual_risks": [
+      "An equivalent explicit-Euler calculation may exist in unindexed numerical-analysis notes under a different name.",
+      "The exact lens is for the full-rank bilinear pure-skew family and does not automatically extend to games with a symmetric Jacobian component.",
+      "The comparison with the later quadratic theorem concerns its stated sufficient parameter bound, not a claim that its analysis is optimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_SGA_AND_HAMILTONIAN_GEOMETRY_NOT_COVERING_EXACT_DISCRETE_BILINEAR_STABILITY_LENS.",
+        "evidence": "The paper supplies the exact adjusted field used in the proof and motivates positive adjustment on Hamiltonian dynamics, but no if-and-only-if outer-step threshold in the singular values was found.",
+        "identifier_or_url": "arXiv:1802.05642v1 / ICML 2018",
+        "material_read": "Open full paper covering the zero-sum bilinear Hamiltonian example, SVD discussion, Algorithm 1 SGA, Proposition 4, alignment theorem, and learning-rate experiments; the SGA algorithm page was visually inspected.",
+        "method": "Full-text open-access inspection plus page-image inspection.",
+        "title": "The Mechanics of n-Player Differentiable Games",
+        "trigger": "Defining source for SGA and the minimal Hamiltonian bilinear example."
+      },
+      {
+        "assessment": "EXPANDED_SGA_THEORY_NOT_COVERING_SHARP_TWO_PARAMETER_EULER_LENS.",
+        "evidence": "The paper explicitly presents the radial correction and SGA algorithm and reports robustness across learning rates, but no exact reciprocal adjustment interval or spectral sharpness statement was found.",
+        "identifier_or_url": "JMLR 20(84):1-40, 2019",
+        "material_read": "Open full paper covering the minimal zero-sum figure, SGA algorithm, alignment analysis, learning-rate experiments, and related-work comparison; the minimal-game and SGA-algorithm pages were visually inspected.",
+        "method": "Full-text open-access inspection plus page-image inspection.",
+        "title": "Differentiable Game Mechanics",
+        "trigger": "Expanded SGA treatment and explicit discussion of independently discovered Crossing-the-Curl."
+      },
+      {
+        "assessment": "EQUIVALENT_CURL_CORRECTION_GEOMETRY_NOT_COVERING_GENERAL_SINGULAR_SPECTRUM_EXPLICIT_STEP_LENS.",
+        "evidence": "The special curl correction becomes radial and supports convergence analysis, but the exact SGA outer-step/adjustment stability boundary for arbitrary singular values was not stated.",
+        "identifier_or_url": "arXiv:1808.01531v1",
+        "material_read": "Open full HTML covering the two-dimensional rotational subsystem, Crossing-the-Curl direction, linear combinations with the original field, equivalences with related methods, and strong-monotonicity analysis.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "Global Convergence to the Equilibrium of GANs using Variational Inequalities",
+        "trigger": "Independently discovered method identified by the expanded SGA source as Crossing-the-Curl."
+      },
+      {
+        "assessment": "BROADER_QUADRATIC_SUFFICIENT_BOUND_STRICTLY_WEAKER_ON_THE_PURE_SKEW_FAMILY.",
+        "evidence": "Proposition 4.15 gives a sufficient step bound. On \\(S=0\\), \\(H=A=J\\), it specializes to \\(\\eta<\\tau\\mu^2/[(1+\\tau^2L^2)L^2]\\), while the exact modal analysis permits a ceiling larger by \\(2(L/\\mu)^2\\).",
+        "identifier_or_url": "arXiv:2510.25716",
+        "material_read": "Open full PDF covering the SGA iteration, Lemma 4.14, Proposition 4.15, its strong-monotonicity/Lipschitz proof, and the following parameter discussion; the lemma and proposition pages were visually inspected.",
+        "method": "Full-text open-access PDF inspection plus page-image inspection.",
+        "title": "A Low-Rank Symplectic Gradient Adjustment Method for Computing Nash Equilibria",
+        "trigger": "Highly relevant later paper proving global linear convergence and parameter bounds for quadratic SGA."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23e393cf-6d88-4761-88a9-f0dc4fb25548",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "SGA was introduced specifically to turn rotational game dynamics toward equilibria, and its literature emphasizes learning-rate robustness and parameter bounds. The exact lens shows a practically important nonmonotonicity: increasing the correction is not unconditionally safer at fixed explicit step, because over-adjustment creates radial stiffness. The reciprocal stable interval gives a complete tuning law, while the \\(2(L/\\mu)^2\\) gap quantifies how conservative a later general quadratic theorem can be on the canonical pure-skew family.",
+    "status": "PASS"
+  }
+}
