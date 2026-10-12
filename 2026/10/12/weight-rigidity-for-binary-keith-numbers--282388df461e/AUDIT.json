@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof derives an exact closed form for the first n+1 post-seed terms, proves strict growth for weight at least two, forces the occurrence index from the n-bit interval and Hamming weight, and obtains a necessary-and-sufficient Euclidean quotient-remainder test. The converse verifies bit length, weight, and the exact recurrence hit. Powers of two are handled separately. The finite checker is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klazar and Luca prove #K(x) << x/sqrt(log x) for decimal Keith numbers and say the same proof works for bases b>=4; they explicitly separate base 2 and cite an unpublished construction.",
+        "OEIS A162363 gives the binary recurrence shortcut and a 2n occurrence bound for non-power binary Keith numbers.",
+        "OEIS A162724 states that powers of two are binary Keith numbers."
+      ],
+      "reasoning": "The broader accessible results establish the object, infinitude through powers of two, and useful recurrence facts, but they do not imply the exact one-candidate-per-(n,w) reconstruction or its quadratic logarithmic counting consequence.",
+      "searches": [
+        "Counting Keith Numbers Klazar Luca binary base 2",
+        "binary Keith numbers Kenneth Fan manuscript construct all",
+        "Keith numbers base 2 asymptotic density"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0608419v1",
+      "JIS:2007:10:07.2.2",
+      "OEIS:A162363",
+      "OEIS:A162724",
+      "Kenneth Fan unpublished manuscript citation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The accessible Klazar–Luca text says only that Fan has an unpublished manuscript constructing all binary Keith numbers; the construction itself is not supplied.",
+        "The OEIS recurrence and 2n-position observation are ingredients, but neither alone forces the unique Hamming-weight candidate without the new interval argument and quotient-remainder reconstruction.",
+        "The companion base-3 density result uses a different antichain mechanism and has no implication for the binary theorem."
+      ],
+      "reasoning": "No accessible prior statement logically dominates the final claim. The unpublished Fan source remains a genuine unresolved implication risk and is explicitly retained as such.",
+      "searches": [
+        "binary Keith numbers polynomial upper bound",
+        "construct all binary Keith numbers Fan",
+        "binary Keith recurrence position 2n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic result searches returned no binary-Keith theorem matching a per-weight uniqueness or polynomial-in-bit-length counting statement.",
+        "Public web searches returned the binary OEIS records and the Klazar–Luca paper but no statement equivalent to the quotient-remainder characterization."
+      ],
+      "reasoning": "The queries cover the named family, the recurrence alias, Hamming-weight phrasing, bit-length counting, and the asymptotic consequence. No accessible equivalent formulation was located.",
+      "searches": [
+        "binary Keith numbers O log cubed counting",
+        "binary Keith numbers polynomial count by bit length",
+        "binary Keith numbers at most n squared n bit",
+        "binary Keith recurrence 2 a minus bit classification",
+        "binary Keith Hamming weight Keith number",
+        "binary Keith one per weight bit length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A162363 lists non-power binary Keith numbers and the recurrence K_{n+k+1}=2K_{n+k}-b_k.",
+        "A162724 is the union of A162363 with powers of two and contains no per-weight count formula."
+      ],
+      "reasoning": "An exact table supports small values and recurrence identities but does not cover the universal Euclidean classification or the O((log x)^2) theorem.",
+      "searches": [
+        "OEIS A162363 binary Keith numbers",
+        "OEIS A162724 binary Keith numbers",
+        "binary Keith sequence table weight"
+      ]
+    },
+    "rationale": "Accessible primary literature and exact sequence records do not state the Hamming-weight uniqueness theorem or the O((log x)^2) count. The strongest unresolved prior-art risk is the unpublished Kenneth Fan manuscript cited by Klazar and Luca as constructing all binary Keith numbers; it could not be located, so it is not asserted to be non-covering.",
+    "residual_risks": [
+      "The unpublished Kenneth Fan manuscript may contain an equivalent or stronger characterization; it was not publicly located for direct comparison.",
+      "A short equivalent argument may exist in unindexed recreational mathematics material.",
+      "The theorem is base-specific and does not cover bases at least 3."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_CONTEXT. It gives the decimal/base>=4 density result and identifies binary Keith numbers as a separate case; it does not state the present weight-rigidity theorem in the inspected material.",
+        "evidence": "The paper explicitly says its Theorem 1.2 extends to bases b>=4, while for b=2 it cites Kenneth Fan's unpublished manuscript and notes powers of two.",
+        "identifier_or_url": "arXiv:math/0608419v1 / JIS 10 (2007), Article 07.2.2",
+        "material_read": "Abstract, introduction, Theorem 1.2, the base-extension paragraph, the binary/Fan paragraph, preliminary recurrence estimates, and the relevant proof architecture in the complete journal PDF.",
+        "method": "Full-text PDF inspection with page-image inspection of the page containing the binary-case discussion.",
+        "title": "Counting Keith Numbers",
+        "trigger": "Primary archival paper on Keith-number counting and the closest source explicitly discussing base 2."
+      },
+      {
+        "assessment": "NOT_COVERING. It records the recurrence shortcut and examples but no one-candidate-per-weight theorem or logarithmic-square count.",
+        "evidence": "The entry states K_{n+k+1}=2K_{n+k}-b_k and says the matching term occurs on or before position 2n.",
+        "identifier_or_url": "OEIS:A162363",
+        "material_read": "Definition, comments, recurrence shortcut, position bound, initial terms, and related formulas.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A162363",
+        "trigger": "Exact public database for non-power binary Keith numbers."
+      },
+      {
+        "assessment": "NOT_COVERING. It identifies the sequence as A162363 union powers of two but gives no Hamming-weight classification.",
+        "evidence": "The entry explicitly notes that every power of two is binary Keith.",
+        "identifier_or_url": "OEIS:A162724",
+        "material_read": "Definition, comments, formula, program, cross-references, and current listed terms.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A162724",
+        "trigger": "Exact public database for all binary Keith numbers."
+      },
+      {
+        "assessment": "ACCESS_UNAVAILABLE. No claim of noncoverage is made.",
+        "evidence": "Klazar–Luca explicitly mention the unpublished source but do not reproduce its construction.",
+        "identifier_or_url": "unpublished manuscript cited in Klazar–Luca",
+        "material_read": "No manuscript text was available; only the secondary description in Klazar–Luca was read.",
+        "method": "Bounded public-web searches by author, family name, and the phrase 'construct all Keith numbers'.",
+        "title": "Kenneth Fan unpublished binary-Keith manuscript",
+        "trigger": "Strongest plausible prior because the primary paper says it constructs all binary Keith numbers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "282388df-461e-4b96-9153-d20235708834",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result supplies an exact structural classifier for every bit length and weight, rather than a finite census. It yields at most n binary Keith numbers with n bits and therefore B_2(x)=O((log x)^2), explaining the sequence's sparsity and sharpening the accessible density perspective in the special binary regime.",
+    "status": "PASS"
+  }
+}
