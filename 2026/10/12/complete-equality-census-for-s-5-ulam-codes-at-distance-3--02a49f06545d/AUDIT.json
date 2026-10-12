@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "All \\(7140\\) unordered Ulam distances in \\(S_5\\) were reconstructed independently from longest-common-subsequence dynamic programming and shortest paths in the single-translocation graph. Exhaustive four-clique enumeration gives exactly \\(4020\\) candidates, and every such clique has empty common-neighbor intersection, excluding size \\(5\\). The \\(134\\) identity-containing maxima satisfy the independent incidence identity \\(4020\\cdot4=134\\cdot120\\). Every maximum has distance profile \\((3,3,3,3,3,3)\\), and the full order-\\(240\\) natural-group orbit partition is recomputed directly. The packaged verifier was replayed successfully from its final path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1712.03639 studies Ulam sphere sizes and nonexistence of nontrivial perfect permutation codes.",
+        "arXiv:2406.16656 studies general bounds and constructions for multiple-deletion/Ulam codes and contains no 4020 equality count."
+      ],
+      "reasoning": "The broader theorems concern sphere sizes, asymptotic bounds, or constructions. They neither classify the \\(S_5,d=3\\) maximum cliques nor imply their number or natural symmetry types.",
+      "searches": [
+        "Ulam Sphere Size Analysis permutation multipermutation perfect code",
+        "Permutation and Multi-permutation Codes Correcting Multiple Deletions Ulam maximum size",
+        "Ulam S5 optimal code distance 3 all six pairwise distances exactly 3 4020 24 orbits"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.0932",
+      "DOI:10.1109/TIT.2013.2239700",
+      "arXiv:1504.05100",
+      "DOI:10.1109/ISIT.2015.7282751",
+      "arXiv:1712.03639",
+      "arXiv:2406.16656",
+      "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+      "2026/9/30/SCOPE-exact-small-order-even-intersecting-permutation-families--0f0c08c901a7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 paper describes a clique-search method and reports maximum sizes and Singleton-optimal existence.",
+        "Its n=5,d=3 entry is 4, but it gives no total number of size-4 cliques and no symmetry census."
+      ],
+      "reasoning": "Knowing the clique number and a search method does not determine the number or structure of all maximum cliques. The new claim therefore is not a corollary or special case of the published maximum-size statement.",
+      "searches": [
+        "Ulam metric permutation codes S5 minimum distance 3 equality cases maximum size 4 classification enumeration",
+        "4020 maximum Ulam codes S5 distance 3 24 orbits",
+        "Ulam S5 optimal code distance 3 all six pairwise distances exactly 3 4020 24 orbits",
+        "arXiv:1504.05100 Section V computational results"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1504.05100 states that for n=5 and d=3 the actual maximum is 4 and records that value in its computational table.",
+        "arXiv:2406.16656 identifies Ulam distance with translocation distance and with correction of permutation deletions."
+      ],
+      "reasoning": "Ulam-code, translocation-code, rank-modulation, and multiple-deletion formulations lead to the same pairwise distance condition here. The inspected sources establish these equivalences but do not state the equality census.",
+      "searches": [
+        "Ulam metric permutation codes S5 minimum distance 3 equality cases maximum size 4 classification enumeration",
+        "permutation codes correcting translocations length 5 distance 3 optimal code classification",
+        "rank modulation Ulam S5 four-code equality cases",
+        "arXiv:1504.05100 Example III.1 and Section V",
+        "arXiv:2406.16656 Definitions 8-9 and deletion-code formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table I of arXiv:1504.05100 records the maximum size 4 for n=5,d=3.",
+        "Exact-number searches for 4020 and 134 returned no matching Ulam-code enumeration.",
+        "No semantic-search hit matched the exact S5 Ulam equality census."
+      ],
+      "reasoning": "Known tables settle only the optimum. A table entry of 4 does not imply the count of all labeled maximizers, their pair-distance profile, or their orbit decomposition.",
+      "searches": [
+        "A(5,3)=4 Ulam permutation code all optimal codes classification 4020",
+        "4020 maximum Ulam codes S5 distance 3 24 orbits",
+        "\"4020\" Ulam metric permutations",
+        "\"134\" permutation codes Ulam",
+        "arXiv:1504.05100 Table I"
+      ]
+    },
+    "rationale": "The exact same-parameter 2015 primary paper states the optimum and reports computational maximum-size data but does not enumerate equality cases. Later Ulam-code papers inspected for broader coverage study sphere sizes, bounds, or constructions rather than this finite extremizer census. Exact-number and alias searches found no statement implying the 4020-code count, equidistance rigidity, or the 24-orbit decomposition.",
+    "residual_risks": [
+      "An obscure or unindexed historical equality enumeration could have escaped the checked literature and semantic searches.",
+      "The orbit statement is only for the explicit order-240 natural subgroup; the full isometry group is not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_OPTIMUM_NOT_EQUALITY_CENSUS",
+        "evidence": "Example III.1 states the actual value is 4; Section V/Table I records 4 and explains the maximum-clique search, but does not enumerate all size-4 codes or give orbit/equidistance structure.",
+        "identifier_or_url": "arXiv:1504.05100",
+        "material_read": "Full HTML text, including Example III.1 and Section V computational results and tables.",
+        "method": "Primary full-text inspection.",
+        "title": "New Bounds for Permutation Codes in Ulam Metric",
+        "trigger": "Exact same parameter n=5,d=3 and published computational optimum."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_COVERING_CENSUS",
+        "evidence": "The paper formulates the Ulam/deletion equivalence and studies general bounds and constructions; no occurrence of 4020 or an S5,d=3 equality classification was found.",
+        "identifier_or_url": "arXiv:2406.16656",
+        "material_read": "Full HTML text with targeted inspection of definitions, maximum-size formulation, and construction/bound sections.",
+        "method": "Primary full-text inspection and exact-term checks for the parameter/count.",
+        "title": "Permutation and Multi-permutation Codes Correcting Multiple Deletions",
+        "trigger": "Later broad treatment of Ulam codes as multiple-deletion codes that could dominate the finite parameter."
+      },
+      {
+        "assessment": "FOUNDATIONAL_OBJECT_SOURCE",
+        "evidence": "The source introduces translocation rank codes and connects them with short common subsequences and deletion/insertion correction.",
+        "identifier_or_url": "arXiv:1202.0932",
+        "material_read": "ArXiv abstract and bibliographic record.",
+        "method": "Primary-source abstract inspection.",
+        "title": "Error-Correction in Flash Memories via Codes in the Ulam Metric",
+        "trigger": "Foundational public source for translocation rank codes and Ulam-metric coding."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02a49f06-545d-48de-9334-140939d2074e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter \\(n=5,d=3\\) is explicitly singled out in the 2015 literature as a small case where the proposed integer program improves the Singleton bound but still does not attain the true optimum. The equality census is therefore tied to a motivated classical benchmark rather than an arbitrary slice. The result adds substantive extremizer structure: all \\(4020\\) maxima are equidistant yet split into \\(24\\) natural symmetry types, providing exact benchmark data for Ulam/translocation-code algorithms and structural studies.",
+    "status": "PASS"
+  }
+}
