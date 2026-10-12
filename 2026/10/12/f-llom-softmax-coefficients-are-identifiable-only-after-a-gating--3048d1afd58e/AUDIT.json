@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Softmax probabilities are exactly invariant when the same intercept-and-slope vector is added to every logit. Conversely, equality of all gate probabilities implies equality of all log-odds; full affine covariate rank therefore forces equality of all coefficient differences, proving that common translation is the exact softmax ambiguity. Reference normalization removes it, and likelihood invariance immediately supplies the p+1 Hessian null directions. The packaged checker independently verifies these identities and the source-table parameter counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broader mixture-of-experts literature uses K-1 free softmax coefficient blocks and fixes the Kth block to zero for identifiability.",
+        "Generic softmax normalization practice supplies the repair but does not discuss the F-LLoM Proposition 3 statement, its BIC counts, or its baseline table.",
+        "The source-specific contradiction follows from the exact F-LLoM parameterization, independently of any generic theorem."
+      ],
+      "reasoning": "The generic reference-category convention makes the underlying redundancy known, but the accepted claim is the concrete correction of a recent theorem and the reconciliation of that theorem with the paper's own numerical parameterization.",
+      "searches": [
+        "multinomial logistic mixture identifiability reference category Lomax frailty",
+        "mixture of experts identifiability softmax gating reference component",
+        "softmax gating baseline coefficient zero identifiability mixture experts"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026261",
+      "doi:10.1007/s42519-026-00646-4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previous same-source result derives mixture-tail constants, terminal hazard, and extreme-survivor tier localization from the gate probabilities.",
+        "Those tail statements remain invariant under every common softmax shift and therefore cannot identify or normalize the coefficient representation.",
+        "The closest published-result identifiability hits concern heterogeneous order marginals or unrelated models rather than F-LLoM gating coefficients."
+      ],
+      "reasoning": "The earlier result treats pi_m(x) as already-defined probabilities, whereas this finding asks whether the alpha_m and beta_m representation of those probabilities is unique. Neither statement implies the other.",
+      "searches": [
+        "F-LLoM tail asymptotics extreme survivor tier localization",
+        "F-LLoM softmax coefficient identifiability previous result",
+        "10.3934/math.2026261 common shift gating"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Proposition 3 writes all M logits and claims the model parameters are identifiable up to label switching when the gating vectors are not all identical.",
+        "No located published source-specific result states the common-shift correction for F-LLoM.",
+        "A separate 2026 mixture-of-experts reference explicitly sets its baseline gate vector to zero for identifiability."
+      ],
+      "reasoning": "Common affine translation, additive-logit gauge freedom, reference-category normalization, and baseline-logit formulations are equivalent descriptions of the same softmax coefficient ambiguity; the searches covered these aliases.",
+      "searches": [
+        "10.3934/math.2026261 identifiability multinomial logistic softmax baseline normalization",
+        "Frailty-Augmented Logistic-Weighted Lomax Mixture identifiability label switching gating shift",
+        "softmax mixture regression identifiability common affine shift logistic weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Proposition 3 defines every softmax coefficient block and contains no reference-tier or sum-to-zero constraint.",
+        "Table 2 labels the gate as versus baseline and fixes tier 2 gating intercept and slope to 0.000.",
+        "For n=500 and censoring rate 0.10, Table 1 plus the displayed BIC formula imply free-parameter counts 3, 8, 13, and 18 for M=1,2,3,4, equal to 3M+2(M-1)."
+      ],
+      "reasoning": "The theorem is written on an unconstrained parameter space, while two independent numerical traces—the explicit baseline row and the BIC dimension—use the normalized space. This makes the required theoretical repair specific and testable.",
+      "searches": [
+        "doi:10.3934/math.2026261 Proposition 3 identifiability",
+        "doi:10.3934/math.2026261 Table 2 gating logit baseline",
+        "doi:10.3934/math.2026261 BIC p_M free parameters Table 1"
+      ]
+    },
+    "rationale": "The primary source states parameter identifiability up to label switching while writing all M softmax coefficient blocks without a normalization. The common-shift obstruction directly contradicts that parameter-level statement. Focused source-specific searches found no published correction, while broader mixture-of-experts literature confirms that a baseline block is normally fixed to zero for identifiability. A previous same-source result concerns tail asymptotics, not gate-coefficient representation.",
+    "residual_risks": [
+      "A recent unindexed correction may exist.",
+      "Additional component-mixture identifiability issues could exist beyond the gating redundancy; they are not assessed here.",
+      "For rank-deficient covariate support, the softmax coefficient ambiguity can be larger than the common-shift orbit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT CORRECT AS A PARAMETER-IDENTIFIABILITY STATEMENT WITHOUT NORMALIZATION. The written softmax has a p+1-dimensional common-shift orbit; the implementation tables instead use a baseline-normalized representation.",
+        "evidence": "Proposition 3, BIC formula and Table 1, and Table 2.",
+        "identifier_or_url": "doi:10.3934/math.2026261",
+        "material_read": "Full publisher article at the softmax definition, Proposition 3 and proof sketch, practical identifiability discussion, simulation BIC definition and Table 1, and Table 2 baseline gate coefficients.",
+        "method": "Direct publisher PDF text plus rendered-page inspection.",
+        "title": "Frailty-Augmented Logistic-Weighted Lomax Mixture regression for survival analysis",
+        "trigger": "Primary source asserting F-LLoM identifiability and defining the softmax gate."
+      },
+      {
+        "assessment": "SUPPORTING REFERENCE. It fixes the final gate coefficient vector to zero explicitly for identifiability and estimates only K-1 blocks.",
+        "evidence": "Model definition and gating M-step sections.",
+        "identifier_or_url": "doi:10.1007/s42519-026-00646-4",
+        "material_read": "Open full text at the softmax gate definition and EM gating update.",
+        "method": "Direct open publisher full-text inspection.",
+        "title": "Efficient and Interpretable Mixtures of Experts: Statistical Inference, Initialization, and Applications",
+        "trigger": "Contemporary softmax-gated mixture-of-experts reference for the standard identifiability normalization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3048d1af-d58e-4f1e-8111-d6af0e240fbc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Identifiability is one of the source's three advertised theoretical properties and is explicitly linked to interpretation of latent risk tiers and Hessian diagnostics. The missing normalization creates an exact p+1-dimensional likelihood ridge, so unconstrained observed-information standard errors are singular rather than merely poorly conditioned. The correction is also practically actionable and reconciles the theorem with the source's own baseline-coded coefficients and BIC parameter counts.",
+    "status": "PASS"
+  }
+}
