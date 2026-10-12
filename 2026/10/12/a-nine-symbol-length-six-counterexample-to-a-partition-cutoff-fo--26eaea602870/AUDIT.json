@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Direct partition recurrence gives all state sizes, Construction 6 applies, and an independent exhaustive check enumerates 33872 distinct six-letter codewords and verifies disjoint proper-prefix/proper-suffix sets for all five lengths. For any restricted representation, R_2 through R_5 are empty and the cardinality is exactly a(9-a)^5, whose integer maximum is 33614. This proves S(9,6)>=33872>33614 without knowing S(9,6) exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 dissertation by the original first author repeats the universal cutoff as Conjecture 5.1, not as a theorem or known counterexample.",
+        "The 2024 follow-up arXiv:2410.18458 studies balanced and restricted-run variants, without claiming that the cutoff conjecture survives at q=9,n=6."
+      ],
+      "reasoning": "The primary work itself establishes a general partition characterization, not the cutoff. Its broader non-overlap theorem makes this construction admissible but does not assert size <=33614 for arbitrary partitions. Later sources found do not imply the proposed universal cutoff or this explicit counterexample.",
+      "searches": [
+        "\"q=9\" \"n=6\" \"non-overlapping\" optimal code",
+        "\"In search of maximum non-overlapping codes\" \"conjecture 1\" counterexample 9 6",
+        "arXiv:2410.18458v1 non-overlapping balanced restrictions",
+        "Stanovnik 2025 dissertation Chapter 5 Conjecture 5.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.12593v2 full article, Conjecture 1 and Theorem 6",
+      "10.1007/s10623-023-01344-z open-access published article",
+      "Stanovnik, 2025 dissertation Chapter 5, Conjecture 5.1",
+      "arXiv:2410.18458v1 related full article",
+      "Public research-index result on exact length-five maximum non-overlapping codes (title and summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conjecture 1 universally asserts existence of a maximum code with the cutoff. For q=9,n=6 this would force S(9,6)<=33614.",
+        "The directly checked code is non-overlapping and has 33872 words. Thus S(9,6)>=33872, the opposite of the conjecture's necessary implication."
+      ],
+      "reasoning": "This is a counterexample to the stronger 2024 partition-cutoff conjecture, not a restatement of the paper's construction and not a disproof of Blackburn's sufficiently-large-q conjecture. The argument needs no determination of the exact optimum.",
+      "searches": [
+        "arXiv:2307.12593v2 Conjecture 1 and Theorem 6",
+        "doi:10.1007/s10623-023-01344-z Construction 6",
+        "Stanovnik 2025 dissertation Conjecture 5.1",
+        "arXiv:2410.18458v1 conclusions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stanovnik et al. give exactly the R_i cutoff as Conjecture 1; their Proposition 10 translates the construction into cardinality recurrence.",
+        "Equivalently, all cutoff-compliant codes at q=9,n=6 are L_1R_1^5, with size a(9-a)^5, at most 33614. A legal construction gives 33872."
+      ],
+      "reasoning": "Cross-bifix-free, mutually uncorrelated, and strongly comma-free are explicitly listed as synonyms in the primary paper. Cardinality obstruction works independently of how a maximum code is represented; a supposed alternative cutoff representation would still have at most 33614 words.",
+      "searches": [
+        "\"Stanovnik\" \"R_i\" \"Conjecture\" counterexample",
+        "\"non-overlapping codes\" \"33872\" \"33614\"",
+        "nonoverlapping cross-bifix free code alphabet 9 length 6 cardinality 33872 33614 partition lengths 2 7 12 2",
+        "arXiv:2307.12593v2 Introduction; Sections 3, 4, 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted exact-integer searches returned no indexed covering table for q=9,n=6.",
+        "The primary paper discusses computed maximum-code tables for q<=6; the dissertation repeats the conjecture and explains numerical restrictions of its optimization."
+      ],
+      "reasoning": "Neither lack of a search hit nor a partial table proves novelty. However, the primary author&#39;s continued statement of the conjecture in 2025 is positive evidence that this numerical contradiction was not reported in those inspected sources.",
+      "searches": [
+        "\"non-overlapping codes\" \"33872\"",
+        "\"non-overlapping\" \"33614\" code",
+        "\"maximum non-overlapping code\" \"9\" \"6\"",
+        "Stanovnik 2025 dissertation table of maximum non-overlapping codes"
+      ]
+    },
+    "rationale": "The primary full-text statement of Conjecture 1 is an explicit universal existence claim, and a new q=9,n=6 witness refutes a logically necessary cardinality implication. The later author dissertation still lists the conjecture. Targeted synonym, parameter, size and theorem-implication searches found no prior covering counterexample; an unindexed equivalence remains a genuine priority risk.",
+    "residual_risks": [
+      "An unindexed published counterexample, or an equivalent construction in earlier code tables, might exist.",
+      "The latest complete versions of every relevant later paper have not been exhaustively compared; no global novelty guarantee is claimed.",
+      "The exact maximum S(9,6) is not determined; only the sufficient strict lower bound is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONJECTURE_REFUTED",
+        "evidence": "Conjecture 1 states R_i empty above 1+n/(q+1); Construction 6 makes candidate legal; Theorem 6 gives disjoint summands.",
+        "identifier_or_url": "arXiv:2307.12593v2; doi:10.1007/s10623-023-01344-z",
+        "material_read": "Introduction; definition; Construction 6; Theorem 6; SQN Proposition 10; Sections 4 and 6; Conjecture 1",
+        "method": "Full-text open HTML (preprint and open-access publisher article), direct statement and implication reading",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Original claim and construction"
+      },
+      {
+        "assessment": "CONJECTURE_STILL_PRINTED",
+        "evidence": "Conjecture 5.1 repeats the universal R_i cutoff; discussion describes use as assumption in subsequent computations.",
+        "identifier_or_url": "https://repozitorij.uni-lj.si/Dokument.php?id=220573",
+        "material_read": "Chapter 5 discussion around printed Conjecture 5.1, page numbered 102, corresponding PDF page 118 (zero-based 117)",
+        "method": "Full PDF text reading and rendered page inspection",
+        "title": "Maximal non-overlapping codes as DNA-based storage addresses",
+        "trigger": "Potential later solution by same author"
+      },
+      {
+        "assessment": "DIFFERENT_RESTRICTIONS",
+        "evidence": "Studies almost-balanced and restricted-run non-overlapping codes, not q=9,n=6 violation of the unconstrained partition-cutoff conjecture.",
+        "identifier_or_url": "arXiv:2410.18458v1",
+        "material_read": "Abstract, introduction, definitions and problem statements, conclusions",
+        "method": "Open arXiv HTML full text",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Related later paper by same authors"
+      },
+      {
+        "assessment": "NOT_COVERING_ON_REPORTED_SCOPE",
+        "evidence": "States exact maxima for length five, whereas the new example is length six; full report not inspected, so scope conclusion limited to indexed statement.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "material_read": "Published title and summary returned by semantic index, not the full report",
+        "method": "Semantic bibliographic match and scope comparison",
+        "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+        "trigger": "Most relevant public search-index near result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "26eaea60-2870-4302-b231-d322e22c2d06",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The construction definitively refutes a published universal conjecture that the authors explicitly retained in a later dissertation. It shows how allowing just two length-two right blocks can outperform every constrained family, exposes the limitation of a natural optimization reduction, and identifies a meaningful finite boundary rather than a parameter-name substitution. The proof separates this issue from Blackburn's asymptotic conjecture.",
+    "status": "PASS"
+  }
+}
