@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite existence. The two displayed words are distinct and have length 50. Equality of every required gapped coefficient for all 62 binary patterns of lengths 1 through 5 is reconstructed from the exact recurrence N_j(qb)=N_{j-1}(qb)+[w_j=b]N_{j-2}(q), then independently checked by direct enumeration of all admissible nonadjacent position tuples. The checker also reproduces equality of the source paper's length-24 gapped 4-deck pair and verifies the total-count identity for every pattern length.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 paper gives exact values only for k=2,3,4 and says its construction yields 4(2^k-1)-2; at k=5 this is 122.",
+        "The 2023 follow-up focuses on equivalence testing and complexity of Thue--Morse and Sturmian factors, not the global first-collision threshold at k=5."
+      ],
+      "reasoning": "Neither a general upper bound of 122 nor infinite-sequence complexity implies the explicit 50-bit collision.",
+      "searches": [
+        "arXiv:2201.12671 full text, Sections II-IV and bound table",
+        "DOI:10.1109/ISIT54713.2023.10206676 full text, introduction and equivalence/testing sections",
+        "web: later gapped k-deck and gapped binomial complexity literature"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.12671 full text",
+      "DOI:10.1109/ISIT50566.2022.9834537 metadata",
+      "DOI:10.1109/ISIT54713.2023.10206676 open full text",
+      "published-finding corpus searches under five exact/equivalent formulations",
+      "current and previous private ledgers searched for gapped/deck/binomial-reconstruction overlap",
+      "web exact-bound and exact-witness searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 construction implies G(5)<=122 and explicitly observes that its bound is loose at k=4; it does not derive the 50-bit pair.",
+        "The 2023 paper gives polynomial-time equivalence testing but no statement that forces a collision at length 50."
+      ],
+      "reasoning": "An algorithm for testing a proposed pair is not an existence theorem for this pair, and the published 122 bound is strictly weaker than 50.",
+      "searches": [
+        "arXiv:2201.12671 lines containing the numerical G(k) table and Theorem 2",
+        "DOI:10.1109/ISIT54713.2023.10206676 full text",
+        "published-finding corpus: gapped k-deck G(5) exact value",
+        "published-finding corpus: gapped binomial equivalence shortest collision k=5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rigo--Stipulanti--Whiteland define (g,k)-binomial equivalence by equality of all gapped binomial coefficients, which is the same finite-word equivalence used by the claim.",
+        "No inspected result states a length-50 collision or G(5)<=50."
+      ],
+      "reasoning": "The checks cover both the original gapped k-deck notation and the later combinatorics-on-words formulation, so a terminology change would not by itself evade comparison.",
+      "searches": [
+        "published-finding corpus: gapped k-deck G(5) exact value",
+        "published-finding corpus: gapped 5-deck smallest binary collision",
+        "published-finding corpus: gapped binomial equivalence shortest collision k=5",
+        "web: \"G(5)\" \"50\" \"gapped\" deck",
+        "web: exact 50-bit witnesses under gapped-binomial terminology"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source table lists 6, 13, 24 for k=2,3,4 and a general formula for k=5-27, not a k=5 value 50.",
+        "No searched database result or exact-string search returned the new pair."
+      ],
+      "reasoning": "The bound is not a transcription from the source's numerical table; it is certified by a new explicit pair.",
+      "searches": [
+        "published-finding corpus: gapped k-deck exact values 6 13 24",
+        "published-finding corpus: 2-gapped subsequence reconstruction G_2(5)",
+        "web: \"gapped k-deck\" \"50\"",
+        "web: both explicit 50-bit witness strings"
+      ]
+    },
+    "rationale": "The direct 2022 source reports exact G(2), G(3), G(4) values and only the general finite bound G(5)<=122; the inspected 2023 follow-up studies gapped-binomial equivalence and infinite-word complexity rather than a sharper G(5) collision. Five published-finding corpus searches plus exact-witness and equivalent-terminology web searches found no covering result.",
+    "residual_risks": [
+      "An unindexed computation, thesis, or unpublished note may contain the same or a shorter k=5 collision.",
+      "The exact value G(5) remains unknown because no matching lower bound is proved.",
+      "The displayed construction does not establish a reusable all-k recurrence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and not covering: it supplies the length-24 seed pair and only G(5)<=122.",
+        "evidence": "The numerical table gives exact values through k=4, while Theorem 2 gives G(k)<=4(2^k-1)-2.",
+        "identifier_or_url": "arXiv:2201.12671 / DOI:10.1109/ISIT50566.2022.9834537",
+        "material_read": "Full lawful arXiv PDF: definition of B^(k), Theorem 2, numerical table with G(2)=6, G(3)=13, G(4)=24 and its explicit k=4 pair, and the later upper-bound section.",
+        "method": "Full-text line inspection and rendered PDF pages.",
+        "title": "The Gapped k-Deck Problem",
+        "trigger": "Direct source defining G(k) and giving the known small exact values and finite bound."
+      },
+      {
+        "assessment": "Relevant terminology and broader context but not covering the finite G(5) bound.",
+        "evidence": "The paper characterizes binary (1,2)-equivalence and studies infinite-sequence complexity; it does not give a k=5 first-collision construction.",
+        "identifier_or_url": "DOI:10.1109/ISIT54713.2023.10206676",
+        "material_read": "Open full-text PDF: introduction, definitions, equivalence implications, and testing section.",
+        "method": "Full-text and rendered first-page inspection.",
+        "title": "Gapped Binomial Complexities in Sequences",
+        "trigger": "Later paper explicitly relating the gapped k-deck problem to gapped-binomial equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "077478b7-fdf1-4f35-bdb7-5bbb118ddecb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source itself identifies the rapid looseness of its finite construction after exact values through k=4. The new pair addresses the first unresolved parameter k=5 and reduces the published upper bound from 122 to 50, a 59% reduction, using a compact explicit witness derived from the published extremal k=4 pair. This materially narrows a named reconstruction threshold rather than adding an arbitrary finite census.",
+    "status": "PASS"
+  }
+}
