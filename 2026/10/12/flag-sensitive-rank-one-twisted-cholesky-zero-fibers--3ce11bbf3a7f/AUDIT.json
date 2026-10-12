@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "Every rank-one matrix is x y^T modulo a free F_q^× scaling. Upper triangularity is exactly max supp(x) <= min supp(y), and U^T G U=0 is exactly x^T G x=0. Counting y by its first nonzero coordinate reduces the problem to prefix quadratic zero counts; summation by parts and the standard odd-field zero formula give the displayed expression. Exhaustive enumeration independently gives 44 and 80 for the two F_3 examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu–Zhou Theorem 6.7 treats only the standard form G=I, while Conclusion item (v) leaves general nondegenerate G open.",
+        "The q=3 examples are globally isometric yet have different rank-one counts, so a theorem depending only on global Witt type would not cover the flag-sensitive statement."
+      ],
+      "reasoning": "The source's untwisted recurrence cannot dominate the claim: removing G by a general isometry need not preserve upper triangularity. The exhibited permutation-congruent pair makes this non-invariance explicit.",
+      "searches": [
+        "arXiv:2609.00533v1 full text: Theorem 6.7; Conclusion item (v)",
+        "web: twisted Cholesky zero fiber finite field Witt type",
+        "published-finding corpus: flag relative Witt type triangular Cholesky finite field"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.00533v1 (primary full text)",
+      "published-finding corpus semantic searches listed in the four originality checks",
+      "Web exact-phrase searches for U^T G U=0, twisted zero fibers, rank one, upper triangular, and finite fields",
+      "R. Lidl and H. Niederreiter, Finite Fields, 2nd ed. (standard quadratic zero count, via the primary source's citation)",
+      "J. MacWilliams, Orthogonal matrices over finite fields (classical quadratic/orthogonal background, via the primary source's citation)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 6.5 supplies only the standard zero count for one nondegenerate quadratic form; it does not impose upper-triangular support or perform the rank-one flag count.",
+        "Theorem 6.7 specializes to G=I. Conclusion (v) identifies the twisted family as unresolved."
+      ],
+      "reasoning": "The new proof combines rank-one factorization, the support condition max supp(x) <= min supp(y), and prefix quadratic zero counts. The same-global-Witt-type counterexample is not an implication of the untwisted recurrence and directly rules out global Witt type as a sufficient invariant for the fixed flag.",
+      "searches": [
+        "Wu–Zhou arXiv:2609.00533v1 Lemma 6.5, Theorem 6.7, Conclusion (v)",
+        "Lidl–Niederreiter finite-field quadratic zero counts as cited by Wu–Zhou"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu–Zhou, arXiv:2609.00533v1, Conclusion item (v), explicitly poses twisted zero fibers U^T G U=0 as future work.",
+        "Targeted published-finding corpus searches returned no finding with the same twisted upper-triangular equation and rank-one formula; the closest hits concern unrelated rank-one factorizations or adjoint-ring anisotropy."
+      ],
+      "reasoning": "The natural equivalent description is a count of rank-one flag-compatible isotropic tensors x y^T. The proof checks that this is exactly the same object and then counts it. No searched source stated the resulting prefix-discriminant formula.",
+      "searches": [
+        "twisted zero Cholesky fiber U transpose G U rank one finite field diagonal form",
+        "upper triangular U transpose G U zero rank one finite field Witt type",
+        "finite field twisted Cholesky zero fiber diagonal quadratic form rank one",
+        "flag relative Witt type triangular Cholesky finite field",
+        "web: \"U^T G U = 0\" upper triangular finite field",
+        "web: \"twisted zero fibers\" \"U^T G U\"",
+        "web: \"rank-one\" \"U^T G U\" finite field"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source appendix tabulates algorithms only for its untwisted or target-fiber recurrences, not the twisted rank-one formula.",
+        "No matching database record or table was located in the searches above."
+      ],
+      "reasoning": "The claim is an exact symbolic count for a new twisted family, rather than a recomputation of a listed table. The finite counts 44 and 80 are derived from the theorem and independently enumerated.",
+      "searches": [
+        "published-finding corpus: twisted zero Cholesky fiber U transpose G U rank one finite field diagonal form",
+        "web exact phrase searches for U^T G U=0 with upper triangular/rank one",
+        "arXiv:2609.00533v1 Appendix and Conclusion"
+      ]
+    },
+    "rationale": "The motivating paper explicitly leaves twisted zero fibers U^T G U=0 open. Its standard-form recurrence does not imply flag-sensitive counts for a general twist, because isometries need not preserve the upper-triangular flag. Targeted published-finding corpus and web searches found no equivalent formula; the permutation-congruent 44/80 pair is a new implication comparison showing global Witt type is insufficient.",
+    "residual_risks": [
+      "Classical literature on isotropic flags is broad, and an equivalent rank-one formula could exist under different terminology despite the targeted searches.",
+      "The result is for diagonal Gram matrices; a broader theorem for arbitrary symmetric forms might subsume it if it also tracks the fixed coordinate flag, but no such source was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves the standard-form rank recurrence and the quadratic zero-count lemma, but explicitly leaves U^T G U=0 for nondegenerate G to future work. It does not state the prefix-discriminant rank-one formula or the same-Witt-type counterexample.",
+        "evidence": "Theorem 6.7 gives the recurrence only for U^T U=0; Conclusion item (v) asks to study {U in T_n(F_q): U^T G U=0} and how its rank recurrences depend on Witt type.",
+        "identifier_or_url": "arXiv:2609.00533v1; https://arxiv.org/abs/2609.00533",
+        "material_read": "Abstract and introduction; Proposition 6.1; Lemma 6.5; Theorem 6.7; Corollary 6.8 and Examples 6.9–6.10; computational-verification section; Conclusion including item (v); references.",
+        "method": "Full-text PDF inspection, including rendered pages for the MSC/title page, Theorem 6.7, and the conclusion/open-problem page.",
+        "title": "Singular Cholesky Fibers over Finite Fields",
+        "trigger": "Primary recent source defining the untwisted finite-field Cholesky zero fiber and explicitly proposing the twisted problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ce11bbf-3a7f-4d8b-97fa-2fcff5b62391",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies twisted zero fibers as an open extension. The rank-one stratum is the first nontrivial part of the requested rank distribution, and the exact formula reveals which flag-relative invariants enter. More importantly, the 44/80 permutation-congruent pair proves that global Witt type alone cannot control the triangular recurrence, a structural boundary that changes how the open problem must be formulated.",
+    "status": "PASS"
+  }
+}
