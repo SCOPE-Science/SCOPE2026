@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Orthogonal residual decomposition gives exact R=1+sum lambda_j ||G^dag h_j||^2 with independent Gaussian G and h_j. Permutation-invariant conditional law and majorization yield Jensen convex order for ell>=r+2; Wishart-Gaussian mixture produces beta-prime(r/2,(ell-r+1)/2). Comparison bounds prove iff q threshold for all nonzero B; conditional quadratic-form variance proves exact strict spectral variance order for ell>=r+4. Reviewed all boundary hypotheses, especially ell=r, ell=r+1 (infinite mean) and ell=r+2,r+3 (finite mean but infinite variance). Packaged verifier passed exact identities and numerical diagnostics; those tests are not substituted for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tropp et al. Theorem 4.3 bounds expected Frobenius approximation error and Lemma A.5 gives its exact mean factor, conditional on a fixed range.",
+        "Nakatsukasa Theorem 3.2 provides two-sided Gaussian generalized Nyström expected-error bounds, based on Tropp Lemma A.5."
+      ],
+      "reasoning": "The cited source bounds do not imply the new convex-order comparisons because equal means do not determine tail risk, and do not assert iff thresholds for arbitrary positive moments. The source decomposition permits a new proof but is not itself the resulting ordering or sharp failure law. Broader statistical inverse-Wishart/t results could imply the rank-one component and remain a residual priority risk.",
+      "searches": [
+        "Tropp Yurtsever Udell Cevher sketch error probability distribution inverse Wishart higher moments convex residual singular spectrum",
+        "\"sketching\" \"spectral majorization\" \"error\" gaussian low rank",
+        "arXiv:2009.11392 Theorem 3.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.00048 (Tropp et al. 2017), original full text, Lemmas A.3-A.5, Theorem 4.3",
+      "arXiv:2009.11392v1 (Nakatsukasa 2020), original full text, sections 2 and 3.4",
+      "Search of published mathematical records, including IDs 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee and 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+      "Previously recorded research statements in the public mathematical findings index, compared only for scientific overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original Tropp factor-mean identity is E R=1+r/(ell-r-1), precisely the mean reproduced here.",
+        "The new theorem distinguishes residual spectra with exactly the same mean, and separates finite-mean from finite-variance sample-size regimes by moment thresholds."
+      ],
+      "reasoning": "Known exact mean does not imply the convex-order risk statement nor its strict variance dependence; e.g. distributions can share the same mean and be incomparable in convex order. The Gaussian pseudoinverse representation in earlier proofs plus new exchangeability/majorization reasoning produces the additional claims. The F-law is classical as a Gaussian mixture, but its precise interpretation for worst concentrated residuals and connection to other profiles are the increment.",
+      "searches": [
+        "arXiv:1609.00048 Appendix A.3 Lemma A.5",
+        "arXiv:2009.11392 Theorem 3.2",
+        "Gaussian oblique projection universal finite sample error ratio inverse Wishart"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tropp et al., arXiv:1609.00048, Lemmas A.3-A.5, derive the error decomposition and conditional Gaussian reconstruction already implicit in the present representation.",
+        "Targeted published-index queries on generalized Nyström/beta-prime residual majorization returned Gaussian-chaos and unrelated sketch hits, not an equivalent claim."
+      ],
+      "reasoning": "The published expectation formula and the Gaussian regression geometry are acknowledged as prior. Neither the compared theorem statements nor their proof appendices state that normalized residual squared singular values control all convex risk by majorization together with the exact all-q moment cutoff. A generic multivariate-t distribution fact is not treated as new; its algorithm-specific consequence is compared at statement level.",
+      "searches": [
+        "Gaussian generalized Nystrom sketch Frobenius error exact distribution beta prime spectral majorization convex order",
+        "\"Gaussian pseudoinverse\" \"convex order\" residual",
+        "arXiv:1609.00048 Lemmas A.3-A.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index search hits 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee concern multistage adaptive pivoting expected-error products, not two-sided Gaussian oblique reconstruction or this spectral law.",
+        "Published-index hit 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af concerns finite deterministic weak Gauss–Newton test-frame effects, not Gaussian sketch error distributions."
+      ],
+      "reasoning": "No exact numerical table is asserted. Searches did not identify a tabulated all-spectrum convex order or rank-one sketch-error law; lack of hits alone is not a novelty proof.",
+      "searches": [
+        "generalized Nystrom rank one Gaussian two dimensional exact Frobenius approximation error ratio F Student t tail distribution oversampling",
+        "Gaussian generalized Nystrom sketch Frobenius error exact distribution beta prime spectral majorization convex order",
+        "\"randomized low rank\" \"beta prime\" error approximation"
+      ]
+    },
+    "rationale": "Tropp et al. 2017 already give the same reconstruction, Pythagorean decomposition and exact first mean, and Nakatsukasa 2020 gives Gaussian Nyström expected-error bounds. Those components are explicitly prior; the claimed increment is spectrum-level convex ordering, finite/infinite q-moment frontier, and the beta-prime residual-law interpretation. Full primary-text comparisons and targeted searches of published mathematical findings do not identify an equivalent result, while classical regression/Wishart implications and unindexed reports remain real priority risk.",
+    "residual_risks": [
+      "An unindexed specialist treatment of Gaussian least squares or one-pass randomized sketch error may imply the beta-prime and convex-risk statements; targeted searches do not certify global uniqueness.",
+      "Classical multivariate t and Schur-convexity ingredients are prior mathematical facts; novelty is claimed only for their full matrix-sketch risk consequence.",
+      "Analysis is conditional on fixed Q and independent Y; changing the random range-finder changes residual spectral weights and is not covered by the ordering."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS conditional reconstruction/error Pythagorean decomposition and exact first mean. The inspected main and Appendix A results do not state the new convex ordering by residual singular spectrum or a complete all-q sharp moment cutoff.",
+        "evidence": [
+          "Section 1.4 equation (1.4), algorithms using independent left/right Gaussian sketches",
+          "Appendix Lemma A.3 Pythagorean error split, Lemma A.4 factor correction, Lemma A.5 Gaussian expected squared factor error",
+          "Theorem 4.3 average approximation error bound"
+        ],
+        "identifier_or_url": "arXiv:1609.00048; https://arxiv.org/pdf/1609.00048",
+        "material_read": "Complete indexed 32-page arXiv paper with focus on sections 1,4, Appendix A.1-A.3, full text and rendered pages 29-30 including Lemmas A.3-A.5.",
+        "method": "Read searchable original paper and rendered Appendix A page 29; compared statement, proof premises, Gaussian regression identities and error expectation.",
+        "title": "Practical sketching algorithms for low-rank matrix approximation",
+        "trigger": "Exact two-sided Gaussian reconstruction and possibility that the same formula already gives error spectra or beta-prime law"
+      },
+      {
+        "assessment": "Covers and motivates algorithm and expected Frobenius bounds, not the claimed convex-order and all-q moment results in the inspected statement/proof.",
+        "evidence": [
+          "Section 2 plain generalized Nyström reconstruction",
+          "Section 3.4 Theorem 3.2 bounds average Frobenius error and references Tropp A.3"
+        ],
+        "identifier_or_url": "arXiv:2009.11392v1; https://arxiv.org/pdf/2009.11392",
+        "material_read": "Full 33-page searchable arXiv paper, particularly the algorithm, section 3.4, equation (15), Theorem 3.2 and proof; rendered cover page and reviewed full text.",
+        "method": "Compared exact generalized Nyström expression, cited Tropp bounds, and section 3.4 expected-error argument against a normalized spectral convex-risk and moment theorem.",
+        "title": "Fast and stable randomized low-rank matrix approximation",
+        "trigger": "Defining generalized Nyström source for a broad real-matrix two-sided approximation and possible dominating distribution result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23a3fc61-23ad-4abf-a8cd-b752178ef716",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact spectral convex order resolves which residual shapes create tail-sensitive excess error even though mean squared error is identical; the iff q-moment threshold is a meaningful explicit oversampling/robustness boundary; rank-one exact law calibrates worst convex risk. This is a motivated finite-dimensional matrix sketch theorem with a sharp universal spectral classification rather than a trivial numeric instance.",
+    "status": "PASS"
+  }
+}
