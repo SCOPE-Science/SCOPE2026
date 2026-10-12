@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For an absolutely continuous bivariate sample, conditioning gives \\(a_n=nE[F(Z)^{n-1}]\\). On \\(X<1\\), the contribution is at most \\(n(1-e^{-1})^{n-1}\\). On \\(X\\ge1\\), the published CDF simplifies exactly to \\(1-A(w)e^{-X}\\) with \\(A(w)=1+w(e^w-1)\\). Direct integration in \\(e^{-X}\\) gives \\([1-(1-A/e)^n]/A\\), bounded by one and converging to \\(1/A\\); dominated convergence proves the limit. The inequality \\(e^w-1>w\\) gives the rigorous bound below \\(\\pi/4<0.8\\). The packaged verifier independently rechecks the numerical integral and finite-\\(n\\) identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.3390/math13193074 studies samples \\(Z=f(U)\\) supported on a one-dimensional image and its searchable full text has no occurrence of 'Exponential' or the value \\(0.732\\).",
+        "DOI:10.3390/math10224199 studies quasi-unidimensional dependent vectors and therefore does not contain the absolutely continuous two-dimensional strip as a special case."
+      ],
+      "reasoning": "The plausible broader follow-ups concern graph-supported or quasi-unidimensional laws. The present law has a two-dimensional absolutely continuous density on a strip, so those results do not imply this asymptotic evaluation.",
+      "searches": [
+        "Computing Probabilities of Finding Extremes in a Random Set exponential uniform",
+        "The Leader Property in Quasi Unidimensional Cases exponential uniform",
+        "leader probability dependent bivariate random vector exact asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3390/math10101623",
+      "DOI:10.3390/math10224199",
+      "DOI:10.3390/math13193074",
+      "semantic published-record searches for the exact model, value, and source DOI",
+      "996b6766-4456-4d4d-b271-81239fe1f668",
+      "3f46def6-4238-4adf-8c72-2ae7c29de132",
+      "fa5861c2-9efc-4881-b14f-f056e1c32d60"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 source gives the needed CDF and a lower bound \\(e^{-1}\\), but neither determines the limit nor implies an upper bound below \\(0.8\\).",
+        "Prior result 996b6766-4456-4d4d-b271-81239fe1f668 assumes independent coordinates; the present coordinates \\(X\\) and \\(X+V\\) are dependent.",
+        "Prior result fa5861c2-9efc-4881-b14f-f056e1c32d60 classifies identical product marginals and likewise does not apply to this dependent law."
+      ],
+      "reasoning": "The new conclusion depends on the special upper-strip simplification of the dependent joint CDF and an exact asymptotic integration. Neither published lower bounds nor prior product-law criteria imply the value.",
+      "searches": [
+        "DOI 10.3390/math10101623 Section 5.2 exponential uniform leader",
+        "DOI 10.3390/math13193074 exponential leader",
+        "prior record maximum-tie criterion leaders product samples"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.3390/math10101623 Section 5.2 contains the exact same model \\(Z=(X,X+V)\\), its strip density and CDF, but stops at a lower bound and a simulation suggestion.",
+        "Exact-value and integral-expression searches did not return a published leader-probability formula matching the claim.",
+        "Previously checked product-law leader criteria and examples do not evaluate this dependent-strip model."
+      ],
+      "reasoning": "The main equivalent descriptions searched were leader probability, coordinatewise greatest sample point, the exponential-plus-uniform strip law, \\(X+V\\), and the exact one-dimensional integral. None of the located statements implies the claimed limit.",
+      "searches": [
+        "On the Probability of Finding Extremes in a Random Set exponential uniform X+V leader probability exact limit",
+        "leader probability Exp(1) Uniform(0,1) X+V 0.732359",
+        "\"0.732359299691897\" leader",
+        "\"1+w(e^w-1)\" leader"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact-value result or probability table matching the integral or decimal was located.",
+        "The bundled decimal is recomputed from the analytically derived integral rather than copied from a table."
+      ],
+      "reasoning": "The claimed invariant is a specific asymptotic probability for a continuous model. The checked databases and exact-expression searches supplied no tabulated value or equivalent formula.",
+      "searches": [
+        "\"0.732359299691897\" probability",
+        "\"0.732359\" leader probability random set",
+        "\"pi/4\" leader probability exponential uniform"
+      ]
+    },
+    "rationale": "The direct 2022 source studies the identical exponential-plus-uniform strip law, supplies the same CDF, proves only a positive lower bound, and reports simulations suggesting a limit at least \\(0.8\\); its inspected Section 5.2 does not evaluate the asymptotic integral. Candidate-specific semantic searches, exact-value web searches, and deduplication comparisons against the closest prior mathematical claims found no covering statement. The 2025 same-author follow-up was inspected as the most plausible later source; it studies one-dimensional mapped-uniform support rather than this absolutely continuous strip and contains no occurrence of the exact value or exponential example in its searchable full text.",
+    "residual_risks": [
+      "An equivalent elementary calculation may exist in older multivariate-record or Pareto-maxima literature under terminology not retrieved by the targeted searches.",
+      "The result resolves only one explicit dependent strip model and should not be read as a general leader-property theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING.",
+        "evidence": "Section 5.2 states the exact model, gives \\(a\\ge e^{-1}\\), records the strip CDF, and says computer simulations suggest \\(a\\ge0.8\\). It does not carry the integral to the exact limit.",
+        "identifier_or_url": "DOI:10.3390/math10101623",
+        "material_read": "Open-access publisher full text: definitions and leader-probability identity; Section 5.1 context; all of Section 5.2 including the model, density, CDF, lower bound and simulation sentence; conclusions.",
+        "method": "Lawful open-access publisher full-text inspection.",
+        "title": "On the Probability of Finding Extremes in a Random Set",
+        "trigger": "Direct motivating source containing the exact exponential-plus-uniform example and the simulation suggestion tested by the claim."
+      },
+      {
+        "assessment": "NOT_COVERING.",
+        "evidence": "The paper's setting is \\(Z=f(U)\\) with one-dimensional mapped support; searchable full text contains no occurrence of 'Exponential' or \\(0.732\\). The absolutely continuous strip example is not revisited in the inspected material.",
+        "identifier_or_url": "DOI:10.3390/math13193074",
+        "material_read": "Full-text abstract and introduction, the general leader-probability formulas in Section 2.2, representative worked material, conclusions and open problems; searchable full text checked for 'Exponential' and the exact decimal.",
+        "method": "Lawful full-text/indexed publication inspection.",
+        "title": "Computing Probabilities of Finding Extremes in a Random Set",
+        "trigger": "Later same-author paper likely to revisit unresolved leader-probability examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f56bee09-2b35-4613-a6aa-18ef02dbdabd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper devotes a worked subsection to this exact model, establishes only a coarse lower bound, and reports a concrete numerical conjecture from simulation. The finding completes that worked example with an exact asymptotic, analytically disproves the reported \\(0.8\\) threshold, and exposes the simple tail-profile integral governing the probability. This is a natural complete calculation inside the source's stated program rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
