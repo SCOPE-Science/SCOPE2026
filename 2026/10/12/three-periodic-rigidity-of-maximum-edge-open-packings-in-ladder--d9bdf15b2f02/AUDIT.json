@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "An edge-open-packing component is an induced star, so selecting leaves gives an independent set of size equal to the edge set. Every rung contributes at most one independent vertex, forcing at most n edges. Equality forces exactly one of two checkerboards. Star centres cover checkerboard leaves via indexed radius-one intervals; the intervals must partition rung indices. Boundary tiles of size two and interior tiles of size three give one interval cover in residue classes 0,1 modulo 3 and two in residue class 2; the other checkerboard doubles the count without duplication. Every n>=2 admits these covers, with the n=2 coinciding boundary intervals correctly distinguished by centre. A separately written C++17 exhaustive verifier tests every nonempty endpoint subset for n=2..11 (5,592,390 total), finding exact equality and enumerator counts. Infinite theorem follows from the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2406.04020v2 Section 5 provides Cartesian-product lower bounds and elsewhere the general upper bound by independence number.",
+        "arXiv:2610.02275v1 Sections 3–5 prove algorithms for AT-free, chordal and convex-bipartite families."
+      ],
+      "reasoning": "Computability on an encompassing class and a general upper bound do not imply that equality holds for every two-rail ladder, and still less its complete equality-case count. No inspected theorem determines the claimed modulo-three enumerator.",
+      "searches": [
+        "\"edge open packing\" \"Cartesian product\" graphs ladder",
+        "\"edge open packing\" ladder graph exact number maximum",
+        "arXiv:2406.04020 Cartesian product edge open packing Corollary 5.3",
+        "arXiv:2610.02275 convex bipartite algorithm"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02275v1",
+      "arXiv:2406.04020v2",
+      "arXiv:2403.00750v1",
+      "DOI:10.1051/ro/2022171",
+      "arXiv:2606.28599 (bibliographic only)",
+      "arXiv:2608.05310 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier inequality \\(\rho_e^o(G)\\le\u0007lpha(G)\\) supplies only the bound \\(\rho_e^o(L_n)\\le n\\).",
+        "Known convex-bipartite algorithms compute a maximum set, not a closed count of all maximum edge subsets for ladders."
+      ],
+      "reasoning": "The new construction and equality-case rigidity are not consequences of the bound alone, and no count follows from a maximum-set algorithm without further analysis. No claim is made that those previous generic results were new.",
+      "searches": [
+        "arXiv:2406.04020v2 edge open packing independence number upper bound",
+        "arXiv:2610.02275v1 Algorithm 3 convex bipartite edge packing",
+        "\"edge open packing\" \"ladder\" number of optimal solutions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Observation 1 of arXiv:2610.02275v1 equates edge open packing with induced star forests; its convex-bipartite dynamic program gives no ladder rigidity formula.",
+        "No corresponding indexed statement located from searches of the one-sided neighbourhood-partition formulation."
+      ],
+      "reasoning": "An efficient cover by intervals on one checkerboard side is mathematically equivalent to the new extremizer description; this form was specifically searched. Neither total/vertex open packing nor domination of ladders is the same invariant.",
+      "searches": [
+        "\"edge open packing\" \"ladder graph\" exact number maximum",
+        "\"maximum edge open packing\" \"P_2\" \"P_n\"",
+        "\"induced star forest\" ladder graph maximum",
+        "efficient one-sided domination perfect dominating class of ladder graphs with closed neighborhoods partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2403.00750v1 and DOI:10.1051/ro/2022171 discuss other standard families; no matching ladder table found in the inspected full texts.",
+        "Direct computational checks for orders 2 through 11 are supplied here and are not attributed to an existing database."
+      ],
+      "reasoning": "No exact published table or database entry was identified matching all maximum edge subsets for this family. This negative search does not rule out unindexed tables or alternative terminology.",
+      "searches": [
+        "\"edge open packing number\" \"ladder\" graph",
+        "\"edge open packing\" \"grid graph\" exact",
+        "\"maximum edge open packing\" \"ladder\" sequence 2 4",
+        "exact enumeration induced star forests ladder maximum edges"
+      ]
+    },
+    "rationale": "The exact classification and constant-size period-three count are absent from the statements and relevant sections inspected in the motivating October 2026 algorithm paper and the prior graph-product and elementary-edge-packing papers. General upper bounds and the induced-star equivalence are explicitly acknowledged as prior results. Search and source access have residual risks; no independent novelty certification is asserted.",
+    "residual_risks": [
+      "Equivalent classifications could appear under efficient dominating sets, induced star forests, or different terminology in unindexed literature.",
+      "Full texts of arXiv:2606.28599 and arXiv:2608.05310 were not retrievable for inspection; they cannot be ruled out as covering sources.",
+      "The present comparison is not an independent external originality certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the induced-star equivalence and broad algorithms, not the exact ladder optimal-edge-set count.",
+        "evidence": "arXiv:2610.02275v1 pp. 1–3 and convex-bipartite dynamic-programming section.",
+        "identifier_or_url": "arXiv:2610.02275v1",
+        "material_read": "Abstract, introduction, Observation 1 and Sections 3–6, including algorithm/conclusion statements; full 11-page PDF text searched for ladder.",
+        "method": "Open-access arXiv full PDF text and visual first-page inspection.",
+        "title": "Maximum Edge Open Packing on AT-Free, Chordal, and Convex Bipartite Graphs",
+        "trigger": "Recent full-length same-parameter paper on convex bipartite graph classes."
+      },
+      {
+        "assessment": "Products receive broad lower bounds and existing upper bounds; no optimum number-of-packings count for \\(P_2\\square P_n\\).",
+        "evidence": "arXiv:2406.04020v2 abstract and Section 5.",
+        "identifier_or_url": "arXiv:2406.04020v2",
+        "material_read": "Abstract, preliminaries, product bounds including Section 5, general independence-number bound; full 27-page text searched for ladder.",
+        "method": "Open-access arXiv full PDF, text and first-page visual inspection.",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Direct study of Cartesian graph products and matching-related invariants."
+      },
+      {
+        "assessment": "No exact ladder optimizer classification located.",
+        "evidence": "arXiv:2403.00750v1 relevant graph-class and bound discussions.",
+        "identifier_or_url": "arXiv:2403.00750v1",
+        "material_read": "Full available text searched for ladder; inspected overview, bounds, algorithms and examples.",
+        "method": "Open-access arXiv PDF text.",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Foundational algorithmic paper, plausible coverage of standard small-width graphs."
+      },
+      {
+        "assessment": "Studies elementary graphs but no ladder family optimizer enumeration in inspected material.",
+        "evidence": "DOI:10.1051/ro/2022171, introductory and elementary-family results.",
+        "identifier_or_url": "DOI:10.1051/ro/2022171",
+        "material_read": "Full 12-page paper text, in particular basic families and definitions; searched ladder and Cartesian.",
+        "method": "Lawful open-access RAIRO/Numdam PDF.",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Original paper defining the invariant; plausible elementary-graph table."
+      },
+      {
+        "assessment": "Not adjudicated as NOT_COVERING; a residual source-access risk.",
+        "evidence": "arXiv:2610.02275v1 introduction, reference to Bhyravarapu et al.; full source not inspected.",
+        "identifier_or_url": "arXiv:2606.28599",
+        "material_read": "Reference/summary in arXiv:2610.02275v1; attempted full arXiv PDF retrieval but text inaccessible.",
+        "method": "Bibliographic inspection and unsuccessful full text retrieval.",
+        "title": "Algorithms for the Maximum Edge Open Packing Problem",
+        "trigger": "Recent related algorithm paper cited in the motivating paper."
+      },
+      {
+        "assessment": "Cannot exclude specialised related results within unseen text.",
+        "evidence": "arXiv:2608.05310 abstract.",
+        "identifier_or_url": "arXiv:2608.05310",
+        "material_read": "Accessible abstract only; full arXiv PDF retrieval unavailable.",
+        "method": "Bibliographic and abstract comparison.",
+        "title": "Maximum Edge Open Packing in Permutation, Interval, and Well-Partitioned Chordal Graphs",
+        "trigger": "Another recent paper by the motivating authors on nearby graph classes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9bdf15b-2f02-4df0-94d8-a08dadbf6a71",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines an entire natural infinite-family of optimizer structures for a recent combinatorial edge-packing problem. The optimum does not merely equal an existing independence bound: all extrema admit a unique indexed-interval description, and their total number exhibits a nontrivial periodic rigidity (2 or 4 regardless of ladder length). The phenomenon is a motivated instance in Cartesian-product graphs and test bed for related exact extremal and dynamic-programming methods. General inequalities, source algorithms and equivalences are not claimed as new.",
+    "status": "PASS"
+  }
+}
