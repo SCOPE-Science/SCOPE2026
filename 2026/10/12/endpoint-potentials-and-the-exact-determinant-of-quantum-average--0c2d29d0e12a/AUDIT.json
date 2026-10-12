@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "For all n≥2 and positive real a_j, Jacobi irreducibility ensures simple real spectrum. Direct eigenvector recurrence gives polynomials in z² of degrees 0..n−1, establishing rank as the number of distinct squared eigenvalues. Residue and trailing/leading continuant-resultant products rigorously yield det(M)=(L/D0)τ^(2⌊n/2⌋)/Disc(χτ), with nonvanishing Δ. Positive definiteness follows for τ≠0; bipartite ± pairing gives rank ceil(n/2) at τ=0. Independently reconstructed rational Gram matrices verify determinant/rank for 48 small cases (finite corroboration only). Signs, normalization, n=2 boundary and negative τ have been checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coutinho et al. (2018) develop the commutant/trace-projection representation, applicable to general symmetric Hamiltonians.",
+        "Coutinho et al., arXiv:2208.08971, give general exact methods for integral Hamiltonians.",
+        "Eisenberg et al., arXiv:1804.01645, use potentials for asymmetric state transfer, not average-mixing rank."
+      ],
+      "reasoning": "General projector and Gram identities can compute any finite instance, but do not by themselves determine the all-length family or explicit resultant discriminant ratio. The positive definiteness of a Jacobi Hamiltonian under any nonzero endpoint site perturbation is not a corollary of the cited zero-diagonal bipartite rank bound, because that hypothesis fails.",
+      "searches": [
+        "\"squared eigenvector\" \"Jacobi\" \"determinant\" \"eigenvalues\" matrix",
+        "doi:10.37236/7867 commutant rank and Gram framework",
+        "arXiv:2208.08971 exact mixing computation",
+        "arXiv:1804.01645 potential quantum transfer"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1103.2578v3",
+      "https://doi.org/10.37236/7867",
+      "https://arxiv.org/abs/2208.08971",
+      "https://arxiv.org/pdf/1708.03283",
+      "https://arxiv.org/pdf/2112.02369",
+      "https://arxiv.org/pdf/1804.01645",
+      "https://arxiv.org/abs/2308.16378"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The zero-field rank is a weighted extension of a phenomenon explicit for unweighted paths in arXiv:1103.2578.",
+        "The field-dependent result uses new opposite-root resultants to derive a determinant not stated in the general spectral-projector literature.",
+        "The weighted-path transfer articles ask for transfer fidelity at selected times rather than long-time probability averages."
+      ],
+      "reasoning": "The new claim is not a restatement of the τ=0 path rank, a two-endpoint loop perturbation, or a generic finite computation. In particular, generic simplicity of eigenvalues alone does not guarantee invertibility of their squared-eigenvector matrix. The essential new step is proving that all squared eigenvalues are distinct exactly when a single endpoint field is nonzero and computing the resulting Gram determinant. A broad unlocated theorem on Jacobi-square eigenvectors could still dominate the claim.",
+      "searches": [
+        "arXiv:1103.2578 Theorem/path formula",
+        "doi:10.37236/7867 rank bounds and commutant",
+        "arXiv:2208.08971 exact Cesaro averages",
+        "arXiv:1708.03283 orthogonal-polynomial method",
+        "arXiv:2112.02369 transfer fidelity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Godsil, arXiv:1103.2578, has path formula at zero field and examples with equal loops on both path endpoints.",
+        "Kirkland et al., arXiv:1708.03283, handle weighted tridiagonal potentials, but theorems in Sections 4–5 concern perfect state transfer.",
+        "No inspected source supplies a one-endpoint field determinant, its order of vanishing, or rank equality for all positive couplings."
+      ],
+      "reasoning": "Equivalence tests included single-end loop versus double-end loops, eigenvector-square (orthostochastic) determinant and Jacobi polynomial recurrences. The double-end loop setting retains reflection symmetry and cannot imply the full-rank single-end conclusion. The present claim concerns a Cesaro Gram matrix, not transition amplitude or transfer fidelity.",
+      "searches": [
+        "\"average mixing matrix\" \"loops\" \"path\" one endpoint",
+        "\"quantum\" \"time averaged\" \"path\" \"endpoint potential\" rank",
+        "\"average mixing\" \"weighted path\" \"potential\"",
+        "\"average mixing\" \"vertex potential\" quantum walk path",
+        "arXiv:1103.2578 Sections 4–5",
+        "arXiv:1708.03283 Sections 2,4,5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The unperturbed path matrix is explicitly tabulated by Godsil, including its reflection rank defect.",
+        "Kirkland and van Bommel, arXiv:2112.02369, consider matching loops at both endpoints and quantify state transfer fidelity; they do not present the one-endpoint mixing determinant."
+      ],
+      "reasoning": "Known finite examples or tables of unweighted or two-endpoint paths do not provide the nonzero-potential weighted path determinant as a function of arbitrary edge couplings, order and real potential. No known exact database row was identified with the claim; an undiscovered table remains possible.",
+      "searches": [
+        "\"average mixing matrix\" \"weighted paths\" diagonal potential",
+        "\"one loop\" \"path\" \"quantum walk\" \"average mixing\"",
+        "arXiv:1103.2578 path mixing examples",
+        "arXiv:2112.02369 weighted loops path examples"
+      ]
+    },
+    "rationale": "The inspected primary literature gives Cesaro projector and commutant formulas, a zero-field unweighted path formula, weighted-path orthogonal polynomial recurrences for state transfer, and symmetric two-endpoint loop fidelity. Direct scientific implication comparison found none stating or immediately implying the all-coupling, all-order one-endpoint rank transition and discriminant determinant. A stronger unlocated Jacobi theorem remains a documented residual risk.",
+    "residual_risks": [
+      "An implicit Jacobi eigenvector-square determinant in broader orthogonal-polynomial literature could subsume the theorem.",
+      "The entire 28-page two-endpoint-loop paper was not read line by line; although its inspected claims address different quantities, unexpected Cesaro appendices cannot be absolutely ruled out.",
+      "Semantic and keyword search, even combined with primary full-text inspection, cannot certify exhaustive novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING single-end potential, weighted arbitrary path determinant",
+        "evidence": "Section 4 gives (2J+I+T)/(2n+2) at zero field, Section 5 considers loops at both endpoints; neither provides the asymmetric-field rank transition.",
+        "identifier_or_url": "https://arxiv.org/html/1103.2578v3",
+        "material_read": "Abstract, Sections 1–5, with path theorem and both-end loops examples",
+        "method": "Full-text HTML, mathematical equation and proof comparison",
+        "title": "Average Mixing of Continuous Quantum Walks",
+        "trigger": "Direct path average-mixing formula and endpoint-loop discussion"
+      },
+      {
+        "assessment": "METHOD_OVERLAP, NOT_DIRECT_COVERAGE",
+        "evidence": "Commutant Gram formula supports finite reconstruction; the bipartite rank setting assumes a zero-diagonal Hamiltonian, unlike nonzero endpoint potential.",
+        "identifier_or_url": "https://doi.org/10.37236/7867",
+        "material_read": "Complete 12-page PDF, rank statements and trace/Gram representation",
+        "method": "Publisher open-access PDF, mathematical statement and hypothesis comparison",
+        "title": "A New Perspective on the Average Mixing Matrix",
+        "trigger": "General rank implications and possible dominating commutant theorem"
+      },
+      {
+        "assessment": "METHOD_OVERLAP, NOT_DIRECT_COVERAGE",
+        "evidence": "Exact quantum-walk computations concern an integral Hamiltonian; no uniform one-endpoint perturbation Jacobi determinant is stated in inspected portions.",
+        "identifier_or_url": "https://arxiv.org/abs/2208.08971",
+        "material_read": "First-release metadata (MSC/date), PDF abstract, exact-calculation method sections and concluding limitations",
+        "method": "arXiv landing page and public PDF text/first-page inspection",
+        "title": "Irrational Quantum Walks",
+        "trigger": "Qualifying mathematical-physics source, exact Cesaro mixing for nonperiodic walks"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT, NOT_COVERING claimed Cesaro determinant",
+        "evidence": "Theorems 4.1 and 4.2 concern Laplacian state transfer; Proposition 5.3 concerns rational-weight adjacency perfect transfer. No claim on infinite-time average mixing in those sections.",
+        "identifier_or_url": "https://arxiv.org/pdf/1708.03283",
+        "material_read": "16-page PDF: abstract, Sections 1–2, original theorems in Sections 4–5 and the final conjecture",
+        "method": "Full PDF text, figure and relevant original-result inspection, term search for average mixing",
+        "title": "Perfect quantum state transfer in weighted paths with potentials (loops) using orthogonal polynomials",
+        "trigger": "Identical class of potential-weighted path Hamiltonians"
+      },
+      {
+        "assessment": "DIFFERENT_PERTURBATION_AND_INVARIANT; residual full-text coverage risk",
+        "evidence": "Problem is transfer fidelity for matching weighted loops at two endpoints, not a single-endpoint Cesaro Gram rank; no average-mixing statement identified.",
+        "identifier_or_url": "https://arxiv.org/pdf/2112.02369",
+        "material_read": "28-page PDF: abstract, introduction, main problem statement; targeted full-text search for average mixing",
+        "method": "PDF text inspection and term search, not a claim to have studied all derivations exhaustively",
+        "title": "State Transfer on Paths with Weighted Loops",
+        "trigger": "Potential loops at path endpoints could provide stronger spectrum comparison"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT; NOT_DIRECT_COVERAGE",
+        "evidence": "Focus is near-perfect transfer via site potentials on selected nodes, not Cesaro mixing determinant or rank.",
+        "identifier_or_url": "https://arxiv.org/pdf/1804.01645",
+        "material_read": "Full-text abstract, result statements, asymmetry constructions and path discussion in Section 4.2",
+        "method": "Public preprint PDF text and theorem comparisons",
+        "title": "Pretty Good Quantum State Transfer in Asymmetric Graphs via Potential",
+        "trigger": "Possible general potential perturbation covering the one-site case"
+      },
+      {
+        "assessment": "DIFFERENT_AVERAGING_DISTRIBUTION, NOT_DIRECT_COVERAGE",
+        "evidence": "Main investigation changes the sampling distribution, while the present work retains Cesaro averaging and changes a single Hamiltonian diagonal.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.16378",
+        "material_read": "Public full-text HTML abstract, theorem context, examples on paths of 3–4 vertices",
+        "method": "arXiv full-text reading of relevant mathematical sections",
+        "title": "Unexpected Averages of Mixing Matrices",
+        "trigger": "Path rank and alternative averaging distributions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c2d29d0-e12a-4ec1-ad41-7769282daab6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a universal, sharp and physically motivated one-site symmetry-breaking threshold for long-time transport statistics on weighted spin chains, in every length and for arbitrary positive couplings. The exact discriminant formula quantifies determinant decay near the transition and is substantially stronger than a routine small example. Generic spectral simplicity alone does not explain full Gram rank; the resulting structural law requires nontrivial resultant analysis. No general downstream theorem is presumed.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Review of endpoint-potential quantum mixing
+
+**Correctness — PASS.** Every real symmetric tridiagonal Hamiltonian with positive edge couplings has simple spectrum. Backward recurrence yields a Vandermonde determinant of squared eigenvector entries; spectral residues and two continuant-resultant identities give the exact discriminant quotient and coupling monomial. The zero-potential rank is established independently by eigenvalue pairing, not by reading rank from a vanishing determinant. Boundary orders, arbitrary couplings and negative potentials are included. Exact rational checks of 48 finite instances supply corroboration, not infinite proof.
+
+**Originality — PASS, with residual risk.** Godsil's path calculation covers zero endpoint potential, and his doubled-endpoint-loop calculation retains a symmetry absent here. Coutinho et al. provide general commutant and exact-computation methods rather than an explicit rank theorem for one-endpoint defects. Kirkland et al. and Kirkland–van Bommel analyze transfer fidelity in potential-weighted paths, not infinite-time Cesàro mixing. Direct comparison of statements and inspected full texts did not produce the determinant or rank transition. Generic Jacobi identities are ingredients; no identified source assembles the particular mixing determinant. A stronger, not located, theorem about Jacobi eigenvector-square matrices could nevertheless subsume the claim, so independent literature verification remains advisable.
+
+**Value — PASS.** Long-time quantum transition probabilities on spin-chain paths and their rank defects are directly motivated in the average-mixing literature. The theorem supplies a universal, sharp symmetry-breaking threshold and an explicit stability-scale determinant for every length and every positive coupling sequence. This goes beyond a low-order example or restatement of generic full-rank behavior.
+
+The analytical scope excludes interior site potentials, arbitrary graph topologies and uniform lower eigenvalue bounds as the endpoint field vanishes. Verification checks finitely many rational choices. Potential overlap with unlocated stronger Jacobi spectral theory is the main remaining originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
