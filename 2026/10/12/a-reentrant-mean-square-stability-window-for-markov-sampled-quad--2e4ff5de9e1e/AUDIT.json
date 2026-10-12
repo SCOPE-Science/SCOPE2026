@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Transfer recurrence derived from mode-conditioned second moments. For p<1/2 the exact determinant equals eta times the cubic and is equivalent to Perron-root stability; symbolic discriminant identity, concave critical polynomial, continuous roots, and signs prove full interval classification. For p>=1/2 a PSD-similar matrix convex in eta proves one interval, including p=1. Exactly 520 rational tests and algebraic identities reproduced by package checker; finite tests are not the all-real proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ling and Deng (2012), Theorem 2.1 and Introduction, give broad spectral-radius equivalence for any finite Markov jump linear system; explicitly report scalar prior results in Gray et al. (2000).",
+        "Hou et al. (2014), DOI 10.1155/2014/769302, Section 3, states general spectral stability equivalences for Markov jump systems."
+      ],
+      "reasoning": "The general spectral criterion covers how to decide stability at any fixed parameters, and must not be presented as novel. It does not explicitly classify topology of all admissible stepsizes as stay probability changes; eliminating eigenvalues and analyzing the complete cubic discriminant is necessary to obtain the claimed boundary. This comparison limits novelty to the fully worked algebraic phase diagram and does not deny the general prior machinery.",
+      "searches": [
+        "Web: Markov jump linear systems mean square stability two state scalar necessary sufficient spectral radius",
+        "Web: A New Proof to the Necessity of a Second Moment Stability Condition of Discrete-Time Markov Jump Linear Systems",
+        "published-finding corpus: Exact cubic discriminant mean-square stability of scalar gradient descent alternating Markov sampled curvatures 1 and 6, two disjoint stable step size intervals, critical stay probability 0.043189882"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/2012/642480",
+      "doi:10.1155/2014/769302",
+      "arxiv:1403.2471",
+      "doi:10.1109/CDC.2000.912010 (abstract only)",
+      "published-finding corpus 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "published-finding corpus 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gray, González and Patilkulkarni (2000), DOI 10.1109/CDC.2000.912010, bibliographic/abstract-only: necessary and sufficient scalar jump-system condition; full text not obtained.",
+        "Ling and Deng (2012), DOI 10.1155/2012/642480, complete HTML Introduction and Theorem 2.1, credits scalar spectral criterion to Gray et al.",
+        "Lee, Halder and Bhattacharya (2014), arXiv:1403.2471, gives general mean-square stability perspective but not an indexed two-curvature phase boundary."
+      ],
+      "reasoning": "A known general necessary-sufficient transfer criterion implies spectral feasibility and supports the first proof step, but its stated result does not itself give the unique algebraic persistence threshold or interval topology. The unavailable complete 2000 specialization is the largest residual possibility of prior coverage; no assertion that it is NOT_COVERING is made from snippets.",
+      "searches": [
+        "Web: Markovian gradient descent quadratic nonmonotonic stability stepsize disjoint stability intervals",
+        "Web: Markov jump linear systems disconnected stability regions gain parameter reentrant gain scalar two state",
+        "Web: Stability of digital control systems subject to jump linear random perturbations Gray Gonzalez Patilkulkarni pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 studies iid/random-curvature one-step and feedback step proposals, not two-state dependent sampling or disconnected spectral-radius sublevel sets.",
+        "Ling and Deng (2012), DOI 10.1155/2012/642480, Sections 1.2 and 2, treats general Markov jump spectral equivalence but no cubic phase diagram for quadratic gradient iterations."
+      ],
+      "reasoning": "Rewriting the iteration as a scalar Markov jump system gives a classical matrix stability test. The proposed claim is stronger at the parameter-set level: it explicitly determines two disconnected stability intervals and their root collision. The generic spectral test by itself supplies no displayed interval connectivity or critical persistence number. An equivalent specialization might nevertheless have appeared elsewhere.",
+      "searches": [
+        "published-finding corpus: disconnected stability regions stepsize Markovian SGD alternating two curvatures reentrant stability",
+        "published-finding corpus: Markov sampled scalar quadratic gradient descent mean square stability two-state chain anti-persistent",
+        "Web: Markov jump linear systems disconnected stability regions gain parameter reentrant gain scalar two state",
+        "Web: periodic scalar gradient descent step-size stability windows alternating two quadratic components"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no exact tabulation or identical transition. Closest published-finding corpus record 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789 concerns scaled Polyak objective monotonicity, not mean-square stability with Markov-sampled curvature."
+      ],
+      "reasoning": "No checked searchable table reported the roots of the stated stay-probability cubic or the paired stability intervals. This is a bounded database check rather than a proof of absence.",
+      "searches": [
+        "published-finding corpus: stochastic gradient Markovian sampling re-entrant large stepsize stable disjoint intervals",
+        "published-finding corpus: Exact cubic discriminant mean-square stability of scalar gradient descent alternating Markov sampled curvatures 1 and 6, two disjoint stable step size intervals, critical stay probability 0.043189882",
+        "Web: alternating gradient descent periodic switching two scalar curvatures disconnected stability step size intervals"
+      ]
+    },
+    "rationale": "Novelty assessed only for the exact disconnection/coalescence of the mean-square stable learning-rate set in the specified two-state Markov sampled quadratic iteration, not for the well-known Markov jump spectral-radius stability criterion. Accessible full-text sections and published-finding corpus comparisons did not state the exact algebraic persistence threshold; complete 2000 scalar source remained inaccessible and poses a genuine risk.",
+    "residual_risks": [
+      "The complete 2000 scalar jump-system conference paper was inaccessible; its generic abstract cannot exclude an exact already-known special phase diagram.",
+      "Search cannot rule out a separately published reentrant-gain example with equivalent eigenvalue inequalities.",
+      "The finding is a strict benchmark specialization of classical Markov jump spectral criteria, not a new general criterion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers spectral test at fixed parameters; does not state the specialized two-interval persistence threshold",
+        "evidence": [
+          "Theorem 2.1; Introduction paragraph crediting earlier scalar necessity/sufficiency to reference 14; DOI 10.1155/2012/642480"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2012/642480",
+        "material_read": "Accessible HTML Abstract, Introduction, related scalar results, Section 2 proof and references, including its explicitly credited 2000 scalar antecedent",
+        "method": "Full-text HTML sections examined and statement/implication compared",
+        "title": "A New Proof to the Necessity of a Second Moment Stability Condition of Discrete-Time Markov Jump Linear Systems with Real States",
+        "trigger": "General spectral-radius stability criterion may dominate the proposed scalar parameter result"
+      },
+      {
+        "assessment": "General mean-square spectral criteria, not a parameter-topology classification for a quadratic gradient iteration",
+        "evidence": [
+          "Theorem 6 and Section 3.1, DOI 10.1155/2014/769302"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2014/769302",
+        "material_read": "HTML introduction and Section 3.1 spectral stability theorem and example, with Section 3 headings",
+        "method": "Accessible scientific HTML inspected",
+        "title": "Spectral Perspective on the Stability of Discrete-Time Markov Jump Systems with Multiplicative Noise",
+        "trigger": "Possible broader stochastic spectral characterization"
+      },
+      {
+        "assessment": "General stochastic jump stability framework; lack of full text makes coverage assessment non-conclusive",
+        "evidence": [
+          "arXiv:1403.2471, 11 March 2014"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.2471",
+        "material_read": "arXiv dated record and abstract; full mathematical text was not necessary for the decisive criterion comparison, and was not asserted read",
+        "method": "Dated arXiv abstract/metadata inspection",
+        "title": "Mean Square Stability for Stochastic Jump Linear Systems via Optimal Transport",
+        "trigger": "Archive-dated general jump-system stability literature"
+      },
+      {
+        "assessment": "Strong generic scalar antecedent; complete specialized content remains unresolved, not certified noncovering",
+        "evidence": [
+          "Gray, González and Patilkulkarni, CDC 2000, pp. 1154-1159; reference 14 in Ling and Deng 2012"
+        ],
+        "identifier_or_url": "doi:10.1109/CDC.2000.912010",
+        "material_read": "Abstract and bibliographic record only; no complete lawful full text found in bounded search",
+        "method": "Bibliographic/abstract inspection and full-text search",
+        "title": "Stability of Digital Control Systems Subject to Jump Linear Random Perturbations",
+        "trigger": "Ling and Deng credit this conference source for the exact scalar spectral equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e4ff5de-9e1e-4354-8cdb-494e97299784",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model is an interpretable stochastic optimization benchmark with anti-persistent minibatch selection and sharply contrasting positive curvatures. A complete two-window vs one-window transition, with computable exact threshold and explicit contrasting stable/unstable learning rates, is a meaningful stability-design boundary not supplied by simply stating generic spectral criteria. No extrapolation to general objectives is asserted.",
+    "status": "PASS"
+  }
+}
