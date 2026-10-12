@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(n\\ge1\\), the transformed exponential maximum \\(W_n=n\\min_i e^{-X_i}\\) has density \\((1-w/n)^{n-1}\\) on \\((0,n)\\). Its beta integral gives \\(\\mathbb E e^{-tZ_n}=n^{t+1}B(t+1,n)\\), while \\(\\mathbb E Z_n=H_n-\\log n\\) and \\(h(Z_n)=1+\\mathbb E Z_n-1/n\\). Minimizing the full two-parameter Gumbel likelihood first over location gives scalar objective \\(F_n(t)\\), with \\(F_n'(t)=H_n-1/t-\\sum_{j=1}^n(t+j)^{-1}\\) and \\(F_n''(t)=t^{-2}+\\sum_{j=1}^n(t+j)^{-2}>0\\). The derivative is negative at \\(t=1\\) and positive at infinity, so the global scale and location optimum is unique. The case \\(n=1\\) yields the golden-ratio root; comparing consecutive derivatives proves strict decrease of optimal inverse scales. A mean-value argument implies \\(n(t_n-1)\\to6/\\pi^2\\), and second-order Taylor expansion of \\(F_n\\) about one yields \\(n^2K_n\\to1/2-3/\\pi^2\\). Checked orientation and infinite-KL reverse support, parameter boundaries, and exact normalization. Independent direct quadrature and moment computations corroborate finite examples, not the all-\\(n\\) theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson (2020) Theorem 4.4 establishes entropy convergence to the fixed standard Gumbel over broad von Mises classes, without optimizing the target Gumbel law.",
+        "Cardone–Dytso–Rush (2022) prove an entropic CLT for central order statistics, not the maximum rank.",
+        "Zarfaty–Barkai–Kessler (2020) use accurate norming sequences and functional corrections, not the sharp forward-KL risk."
+      ],
+      "reasoning": "Broader weak/relative-entropy convergence theorems and central-rank Gaussian CLTs do not give the exact finite-n unrestricted Gumbel information projection or its sharp constant. General approximation methodology is not claimed here as original.",
+      "searches": [
+        "information projection of exponential order statistic maximum onto Gumbel family KL asymptotic 1/2-3/pi^2 n squared",
+        "exponential order statistic normalized maximum optimal Gumbel fit relative entropy gamma beta harmonic number sharp KL coefficient pi squared",
+        "arXiv:2205.04621 Theorem 1 central order statistic relative entropy",
+        "arXiv:2006.13677 Gumbel scale width corrections maximum exponential"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.03569, Johnson, Proposition 2.4, Eq. (9), Theorem 4.4, Remark 4.6, conclusion",
+      "arXiv:2006.13677, Zarfaty–Barkai–Kessler, Introduction, Sections II, III, V",
+      "arXiv:2205.04621, Cardone–Dytso–Rush, abstract, introduction, central-rank results",
+      "Recorded semantic search results on order statistics, Gumbel calibration, information projection",
+      "Previously recorded claim summaries for Gumbel central concentration and Weibull-to-Gumbel limits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Johnson (2020) Eq. (9), Theorem 4.4, Remark 4.6, and conclusion state fixed-target convergence and entropy, not the minimizing scale equation.",
+        "Zarfaty–Barkai–Kessler (2020) Section II specifies CDF-normalized location and scale, not a forward-KL optimum.",
+        "Previously recorded Gumbel central-mass comparisons concern Gaussian comparison probabilities, not fitted exponential maxima."
+      ],
+      "reasoning": "The known exponential-maximum entropy and KL identity are acknowledged ingredients. To reach the final claim one must minimize the exact two-parameter objective, establish strict convexity and all-n uniqueness, and carry the optimum through a second-order asymptotic expansion. These stronger statements are not corollaries explicitly supplied by the inspected literature. An earlier equivalent derivation could still exist.",
+      "searches": [
+        "optimal Gumbel location scale Kullback Leibler divergence maximum of iid exponential random variables beta digamma unique optimal scale",
+        "information projection of exponential order statistic maximum onto Gumbel family KL asymptotic 1/2-3/pi^2 n squared",
+        "exact relative entropy normalized exponential maximum Gumbel rate n^-2",
+        "Exact Kullback Leibler information projection of finite exponential sample maxima onto two-parameter Gumbel distributions unique optimal Gumbel scale and location",
+        "exponential order statistic normalized maximum optimal Gumbel fit relative entropy gamma beta harmonic number sharp KL coefficient pi squared",
+        "\"maximum of exponential random variables\" \"Gumbel\" \"Kullback\" \"optimal\" \"scale\"",
+        "arXiv:2007.03569 relative entropy formula exponential example"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnson (2020) Proposition 2.4 gives a general forward-KL identity and Remark 4.6 the entropy of an exponential maximum; Theorem 4.4 fixes limiting Gumbel parameters.",
+        "Zarfaty–Barkai–Kessler (2020) Eq. (7) normalizes Gumbel extremes by distribution-function matching; its fitted parameters have a different criterion."
+      ],
+      "reasoning": "A two-parameter information projection could be disguised as maximum-likelihood Gumbel fitting to the exact exponential maximum. The inspected primary statements calculate or approximate Gumbel norms but do not solve the population forward-KL minimization. The new claim additionally proves the root equation, strict uniqueness for every integer sample size, and the optimized \\(n^{-2}\\) coefficient; analogous Gumbel approximations do not by themselves imply those conclusions.",
+      "searches": [
+        "optimal Gumbel location scale Kullback Leibler divergence maximum of iid exponential random variables beta digamma unique optimal scale",
+        "Exact Kullback Leibler information projection of finite exponential sample maxima onto two-parameter Gumbel distributions unique optimal Gumbel scale and location",
+        "arXiv:2007.03569 Proposition 2.4 Eq. (9), Remark 4.6",
+        "arXiv:2006.13677 Section II Eq. (7)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic record searches returned related Gumbel-limit and order-statistic results but no table of the KL-optimal roots.",
+        "The exact optimizer root satisfies \\(H_n=1/t+\\sum_{j=1}^n1/(t+j)\\), rather than forming a discrete count sequence."
+      ],
+      "reasoning": "No directly covering exact database/table was identified by the recorded queries. This negative search is not proof of novelty. The statement is a continuum-valued optimizer for all integer n, so an unrelated extreme-value table does not imply it.",
+      "searches": [
+        "exact relative entropy normalized exponential maximum Gumbel rate n^-2",
+        "minimum KL divergence Gumbel location scale exponential sample maximum 1/2 3/pi^2",
+        "finite exponential maximum Gumbel optimal KL harmonic number t_n root sequence table"
+      ]
+    },
+    "rationale": "Explicit published-text and semantic searches distinguish known fixed-Gumbel entropy convergence, CDF-calibrated extreme-value norming, and central-rank entropic CLTs from the exact all-n forward-KL location-scale information projection. The older entropy formula is credited; the new theorem supplies unique optimum and sharp \\(n^{-2}\\) constant. No covering implication was found among inspected primary statements. This is not proof of historical priority; exact older Gumbel-fitting treatments remain residual risks.",
+    "residual_risks": [
+      "An older book or paper on KL/maximum-likelihood fitting Gumbel distributions to exact exponential maxima may contain an algebraically equivalent optimizer; full text of Reiss (1989) was not accessible.",
+      "Search-index coverage and title/abstract matches are incomplete; unindexed historical literature could overlap.",
+      "The elementary convexity minimization of a known entropy identity could conceivably be presented in previous methodological literature.",
+      "No independent external audit or priority determination has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known entropy and fixed-target KL results are credited; no matching finite-sample two-parameter KL optimizer or optimized sharp coefficient in the inspected theorem statements.",
+        "evidence": [
+          "Remark 4.6 explicitly gives \\(h(Z_n)=1+H_n-\\log n-1/n\\) for the entropy.",
+          "Conclusion identifies optimal rates for relative-entropy convergence as of interest."
+        ],
+        "identifier_or_url": "arXiv:2007.03569 (https://arxiv.org/pdf/2007.03569)",
+        "material_read": "Primary open-access PDF, relevant complete statement and proof passages in Proposition 2.4, Eq. (9), Theorem 4.4, Remark 4.6, and final discussion, pages 2–11",
+        "method": "Inspected primary PDF statements and derivations; compared objective, optimization parameters, and asymptotic implication",
+        "title": "Information-theoretic convergence of extreme values to the Gumbel distribution",
+        "trigger": "Direct motivating entropy and forward-KL convergence theorem for normalized exponential maxima"
+      },
+      {
+        "assessment": "Analyzes Gumbel norming by CDF matching, series expansions and data fitting; inspected material gives no forward-KL optimization or exact sharp loss constant.",
+        "evidence": [
+          "Section II Eq. (7) defines location and width from the underlying CDF.",
+          "No full-text hit for Kullback or relative entropy in the primary PDF extraction."
+        ],
+        "identifier_or_url": "arXiv:2006.13677 (https://arxiv.org/pdf/2006.13677)",
+        "material_read": "Primary PDF abstract, introduction, Section II Eqs. (5)–(7), Sections III and V; searched full extracted text for relative entropy and Kullback",
+        "method": "Directly compared scaling-selection objective, mathematical domain, and displayed norming formulas",
+        "title": "Accurately approximating extreme value statistics",
+        "trigger": "Plausibly stronger work on optimal Gumbel location and scale for finite sample maxima"
+      },
+      {
+        "assessment": "Central quantile ranks converge to Gaussian, whereas maximum rank here has Gumbel scaling; no direct coverage.",
+        "evidence": [
+          "Rank proportion remains strictly within (0,1) in its central order-statistic framework."
+        ],
+        "identifier_or_url": "arXiv:2205.04621 (https://arxiv.org/pdf/2205.04621)",
+        "material_read": "Primary open-access abstract, introduction, statement of central-rank Gaussian limit and asymptotic assumptions",
+        "method": "Compared rank regime, limiting family, metric, and exactness of stated results",
+        "title": "Entropic CLT for Order Statistics",
+        "trigger": "General entropic theorem on order-statistic distributions might dominate the maxima result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2716cf20-ad3e-4936-8de9-1a0cda0a66a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating information-theoretic extreme-value literature studies convergence and raises the question of relative-entropy approximation quality and rate. This population fit determines the exact best Gumbel scale and location for the maximum of any positive integer sample of exponentials, shows the finite-sample optimum scale differs systematically from its limit, and quantifies a strict leading-constant improvement from \\(1/2\\) to \\(1/2-3/\\pi^2\\) over the best location-only fit. The all-size exact optimization has natural finite-sample extreme-value calibration use and is not an arbitrary parameter slice or a claim about a general domain of attraction. No statistical estimator or broad convergence theorem is asserted.",
+    "status": "PASS"
+  }
+}
