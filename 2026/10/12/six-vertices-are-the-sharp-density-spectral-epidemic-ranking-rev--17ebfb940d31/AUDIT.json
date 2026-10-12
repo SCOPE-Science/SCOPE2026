@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For fixed n, the homogeneous threshold is a monotone transform of edge count and the spectral threshold is a monotone transform of adjacency spectral radius. Every connected graph through n=5 is generated from all labeled adjacency patterns; exact rational root isolation certifies absence of a pair with fewer edges but larger spectral radius. At n=6 the exact spectra of K_{1,5} and C_6 give the reversal, and the formulas for K_{1,n-1} and C_n prove persistence for every n at least 6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al. state that homogeneous networks use inverse average connectivity and that their arbitrary-graph threshold uses the largest adjacency eigenvalue.",
+        "Wang et al. explicitly derive the star threshold as the reciprocal square root of hub degree.",
+        "Van Mieghem, Omic, and Kooij state the N-intertwined SIS mean-field threshold as the reciprocal adjacency spectral radius."
+      ],
+      "reasoning": "These sources strongly cover the motivating epidemic formulas and therefore prevent any claim that the distinction between the two summaries is new. They do not imply the smallest finite connected graph order at which the induced rankings reverse.",
+      "searches": [
+        "Epidemic Spreading in Real Networks eigenvalue viewpoint average connectivity largest eigenvalue",
+        "Virus Spread in Networks N-intertwined SIS spectral radius threshold",
+        "epidemic threshold largest eigenvalue adjacency matrix homogeneous average connectivity"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/RELDIS.2003.1238052",
+      "doi:10.1109/TNET.2008.925623"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior formulas immediately show that K_{1,5} and C_6 reverse once those two graphs are proposed.",
+        "The prior formulas do not establish that every connected graph pair on at most five vertices fails to reverse.",
+        "The universal lower bound therefore requires the separate exhaustive exact comparison supplied here."
+      ],
+      "reasoning": "The novelty is not the star or cycle spectra individually. It is the sharp universal minimum over all connected simple equal-order graphs, plus the persistent family phrased as an epidemic-ranking obstruction.",
+      "searches": [
+        "average connectivity homogeneous epidemic threshold 1 average degree Wang Chakrabarti Faloutsos",
+        "star topology epidemic threshold 1 square root degree Wang 2003",
+        "spectral radius epidemic threshold arbitrary graph 1 lambda max"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked source stated that six is the smallest connected equal-order graph size allowing opposite strict rankings by edge density and adjacency spectral radius.",
+        "Exact-name searches for K_{1,5} and C_6 in the epidemic-threshold context did not locate the witness as a sharp minimum.",
+        "Searches covered both threshold language and the equivalent raw-statistic language of average degree versus spectral radius."
+      ],
+      "reasoning": "Because both thresholds are reciprocals, vulnerability reversal is exactly the same statement as an edge-count versus spectral-radius order reversal at fixed n. The searches therefore covered both epidemiological and graph-spectral formulations.",
+      "searches": [
+        "SIS epidemic threshold average degree spectral radius ranking reversal six vertices star cycle",
+        "spectral radius average degree connected graphs first reversal star cycle C6 K1,5 epidemic",
+        "network density epidemic threshold denser graph lower spectral radius smallest graph",
+        "K1,5 C6 epidemic threshold spectral radius average degree",
+        "star cycle epidemic threshold largest eigenvalue average degree six vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source supplied the connected-unlabeled class census 1,2,6,21 as a certificate for this epidemic-ranking boundary.",
+        "No checked source presented K_{1,5} versus C_6 as the first order at which the two threshold rankings reverse.",
+        "The packaged verifier constructs all labeled graphs directly through five vertices rather than importing a graph table."
+      ],
+      "reasoning": "Exact witness and finite-boundary searches test whether the result already appears as a catalogued small-network example or lookup table.",
+      "searches": [
+        "K1,5 C6 spectral radius average degree",
+        "six vertices average degree spectral radius reversal",
+        "smallest connected graph denser lower spectral radius",
+        "star cycle density spectral radius reversal"
+      ]
+    },
+    "rationale": "Prior sources establish the average-connectivity approximation, the arbitrary-graph spectral threshold, and the star spectral threshold. They do not state the smallest equal-order connected graph size where the density proxy and spectral threshold give opposite strict rankings. Targeted literature and published-result searches did not locate the six-vertex universal boundary or its persistent star-cycle formulation.",
+    "residual_risks": [
+      "An unindexed teaching example or graph-spectral exercise could contain the K_{1,5} versus C_6 comparison without framing the universal minimum.",
+      "The spectral epidemic threshold is model-dependent; exact finite stochastic SIS extinction has no nontrivial absorbing-state phase transition.",
+      "Directed, weighted, temporal, and unequal-order networks may have smaller or qualitatively different reversal examples."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers the epidemic formulas used to motivate the comparison and explicitly gives the star threshold. It does not state the six-vertex universal ranking-reversal boundary.",
+        "evidence": "The paper gives the homogeneous threshold as inverse average connectivity, the arbitrary-graph threshold in terms of the largest adjacency eigenvalue, and the star threshold as the reciprocal square root of center degree.",
+        "identifier_or_url": "doi:10.1109/RELDIS.2003.1238052",
+        "material_read": "Full ten-page public PDF, including the homogeneous-model discussion, Section 4 on epidemic threshold and eigenvalues, Theorem 1, and the star-topology corollary.",
+        "method": "Public full-PDF text and rendered-page inspection.",
+        "title": "Epidemic Spreading in Real Networks: An Eigenvalue Viewpoint",
+        "trigger": "Primary source directly contrasting average-connectivity and largest-eigenvalue epidemic thresholds."
+      },
+      {
+        "assessment": "Confirms the spectral threshold as a mean-field object and its interpretation. The inspected material does not discuss the finite density-ranking boundary.",
+        "evidence": "The abstract states that the mean-field epidemic threshold is the reciprocal spectral radius of the adjacency matrix.",
+        "identifier_or_url": "doi:10.1109/TNET.2008.925623",
+        "material_read": "Open repository metadata and accessible abstract stating the N-intertwined model and the threshold formula in terms of the largest adjacency eigenvalue.",
+        "method": "Institutional repository and public abstract inspection.",
+        "title": "Virus Spread in Networks",
+        "trigger": "Canonical later SIS mean-field treatment of the adjacency-spectral epidemic threshold."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "17ebfb94-0d31-4ffd-8165-c315c202e6cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Average degree and spectral radius are canonical competing summaries of contact-network epidemic vulnerability. The exact smallest order where they induce opposite strict rankings is a natural interpretive benchmark, and the persistent star-cycle family shows that the failure of edge density as a vulnerability ranking is structural. The result also separates a complete finite lower-bound certificate from the standard spectral formulas, making the boundary independently reproducible.",
+    "status": "PASS"
+  }
+}
