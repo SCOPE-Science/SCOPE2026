@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "Exact Lagrange interpolation-to-companion reduction, symbolic characteristic polynomials and positive-coefficient Schur certificates establish an all-positive-ratio theorem. Reciprocal sextic signs and Descartes' rule establish the sole sharp interval; an exact gcd certifies simple endpoint roots. The included checker regenerates all nonstandard identities and supplementary finite-rational checks; experiments are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Liao arXiv:2201.00527 proves unconditional stability on arbitrary grids for BDF2 and sufficient BDF3 bounds for almost all ratios below 2.553; it does not analyze all fixed alternating ratios for BDF3-5.",
+        "Guglielmi–Zennaro spectral-radius approach is applicable to general variable-step matrices, but available summary does not state this exact order-five boundary."
+      ],
+      "reasoning": "The BDF2 special case is subsumed by prior arbitrary-grid results and not independently novel. The classification of BDF3–BDF5 on high-contrast two-period grids is not implied by the later sufficient bounds without an additional nontrivial Floquet calculation.",
+      "searches": [
+        "variable step BDF3 alternating step ratios periodic mesh zero stability sharp condition",
+        "doi:10.1007/s211-001-8010-0",
+        "arxiv:2201.00527v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1504.04107v1",
+      "arxiv:2201.00527v1",
+      "doi:10.1137/0724054",
+      "doi:10.1007/BF01389580",
+      "doi:10.1007/s211-001-8010-0",
+      "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "doi:10.1137/0720056"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hadjimichael et al. study SSP explicit multistep optimization, not interpolatory implicit BDF characteristic roots.",
+        "Li and Liao do not cover alternating BDF5.",
+        "The older general matrix-product stability approaches supply conceptual machinery but were not shown by inspected materials to contain the explicit iff order-five threshold and endpoint classification."
+      ],
+      "reasoning": "The current result does not claim the Schur or matrix-product tools new. The distinctive new statement is an exact reciprocal-sextic boundary and unconditional 2-cycle stability through order four; broad existing sufficient-ratio results neither prove nor contradict it. Older unavailable BDF studies remain relevant risk.",
+      "searches": [
+        "arxiv:1504.04107v1",
+        "arxiv:2201.00527v1",
+        "doi:10.1137/0724054",
+        "doi:10.1007/BF01389580"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grigorieff (1983) studies general variable-grid multistep stability; available metadata do not exhibit the specific two-period BDF orders-one-to-five Schur characterization.",
+        "Calvo–Lisbona–Montijano (1987) addresses variable-step Nordsieck BDF stability; full text was not available.",
+        "Skeel–Jackson (1983) abstract reports BDF stability tables as a function of stepsize-change frequency; it does not expose the present standard interpolatory BDF5 polynomial or exact threshold."
+      ],
+      "reasoning": "The claimed object is the exact monodromy spectrum and iff stable ratio interval of interpolatory BDF on a stationary two-period mesh; general variable-grid stability existence/criteria might imply a test but do not demonstrate the explicit reciprocal threshold in inspected accessible material. A prior specialized restatement remains possible.",
+      "searches": [
+        "variable step BDF3 alternating step ratios periodic mesh zero stability sharp condition",
+        "periodic variable-step BDF2 ratios zero stability alternating mesh",
+        "BDF3 periodic stepsize 2 cycle zero-stability parasitic roots",
+        "doi:10.1007/BF01389580",
+        "doi:10.1137/0724054",
+        "doi:10.1137/0720056"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried published published-finding corpus results did not contain the explicit sextic or the fixed alternating BDF5 threshold; nearest hit on a different algorithmic family was 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56.",
+        "The BDF fixed-step positivity findings in the own ledgers concern scalar decay and Markov/diffusion positivity, not variable-step zero stability."
+      ],
+      "reasoning": "No matching tabulated classification emerged from these actual searches, but a negative search by itself is not novelty proof.",
+      "searches": [
+        "alternating two-periodic grids variable-step BDF5 zero-stability exact critical step ratio 6.2884027456",
+        "BDF3 BDF4 periodic alternating ratio strong zero stability for any ratio",
+        "two-periodic backward differentiation formulas spectral radius ratio 5-step transition -1"
+      ]
+    },
+    "rationale": "Distinct from the published general sufficient mesh restrictions and from existing variable-step BDF2 unconditional stability; assesses only sharp two-period BDF1-5 parasitic Floquet classification. Available relevant full texts did not contain it, and published-index queries did not reveal a duplicate; unresolved older paywalled texts remain a material but not decisive equivalent-formulation risk.",
+    "residual_risks": [
+      "Full text of Calvo–Lisbona–Montijano (1987), Grigorieff (1983), and Guglielmi–Zennaro (2001) was not available; a specialized equivalent 2-cycle criterion could be included.",
+      "The old general product stability theorem may indirectly subsume the explicit classification if evaluated, though no matching closed form was located.",
+      "Skeel and Jackson (1983) report stability tables by stepsize-change frequency for Nordsieck formulas, potentially covering comparable periodic BDF examples; full text unavailable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Smoothness bounds on mesh variation are not the fixed high-contrast 2-period BDF5 iff boundary",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s10543-018-0716-y"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-018-0716-y",
+        "material_read": "Open-access HTML introduction, main stability statements and analyses of smooth nonuniform grids",
+        "method": "read open text",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Smooth-grid zero stability may imply a periodic-grid statement"
+      },
+      {
+        "assessment": "No fixed 2-period BDF3 unconditional nor order-four/five threshold result in examined main theorems",
+        "evidence": [
+          "https://arxiv.org/pdf/2201.00527"
+        ],
+        "identifier_or_url": "arxiv:2201.00527v1",
+        "material_read": "Accessible arXiv PDF introduction and statements of BDF2 arbitrary-grid and BDF3 sufficient restrictions",
+        "method": "read full-text PDF and inspect first page",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Direct variable-step BDF stability and general-grid implications"
+      },
+      {
+        "assessment": "Explicit SSP variable-step method selection is different from classical implicit BDF parasitic monodromy",
+        "evidence": [
+          "https://arxiv.org/abs/1504.04107 (v1 2015-04-16)"
+        ],
+        "identifier_or_url": "arxiv:1504.04107v1",
+        "material_read": "Open arXiv article HTML abstract, methods and main section headings",
+        "method": "read public full text HTML and arXiv version history",
+        "title": "Strong stability preserving explicit linear multistep methods with variable step size",
+        "trigger": "Archival variable-step multistep precedent and verifiable public date"
+      },
+      {
+        "assessment": "Unresolved equivalence risk, not claimed NOT_COVERING on full-text basis",
+        "evidence": [
+          "https://doi.org/10.1137/0724054"
+        ],
+        "identifier_or_url": "doi:10.1137/0724054",
+        "material_read": "Bibliographic metadata and abstract only; full paper unavailable, institutional access not connected",
+        "method": "search author/preprint/OA sources; attempted authorized institutional retrieval",
+        "title": "On the stability of variable-stepsize Nordsieck BDF methods",
+        "trigger": "Highly relevant potential equivalent older 2-period result"
+      },
+      {
+        "assessment": "Potential general product criterion; direct coverage of the exact 2-cycle order-five boundary unverified",
+        "evidence": [
+          "https://doi.org/10.1007/BF01389580"
+        ],
+        "identifier_or_url": "doi:10.1007/BF01389580",
+        "material_read": "Bibliographic metadata and available summary; complete text unavailable",
+        "method": "open public listings and search for OA/preprint",
+        "title": "Stability of multistep-methods on variable grids",
+        "trigger": "Older general necessary-sufficient stability theorem"
+      },
+      {
+        "assessment": "Potential strong prior; no accessible explicit BDF5 two-period classification found",
+        "evidence": [
+          "https://doi.org/10.1007/s211-001-8010-0"
+        ],
+        "identifier_or_url": "doi:10.1007/s211-001-8010-0",
+        "material_read": "Public bibliographic/abstract material only, complete text unavailable",
+        "method": "search OA and abstracts",
+        "title": "On the zero-stability of variable stepsize multistep methods: The spectral radius approach",
+        "trigger": "Spectral radius approach could directly subsume periodic Floquet product"
+      },
+      {
+        "assessment": "Nordsieck stepsize interpolation and frequency-dependent stability tables raise a direct exact-prior risk; explicit alternating standard-variable-coefficient BDF5 reciprocal sextic was not exposed by available material",
+        "evidence": [
+          "https://epubs.siam.org/doi/10.1137/0720056"
+        ],
+        "identifier_or_url": "doi:10.1137/0720056",
+        "material_read": "Detailed SIAM publisher abstract and public summary (no article full text)",
+        "method": "read source publisher abstract and bibliographic data; inspected open-access alternatives",
+        "title": "The Stability of Variable-Stepsize Nordsieck Methods",
+        "trigger": "Tables and graphs of frequency-dependent BDF mesh stability may include periodic two-step patterns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db4710db-acc7-4f9f-9a87-7fbe76270f60",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives a complete, sharp, order-dependent classification of a natural periodic high-contrast step pattern: all fixed ratios work through order four, but order five has an explicit finite reciprocal threshold and an ordinary-versus-strong endpoint distinction. This meaningfully separates local ratio sufficient conditions from exact periodic zero stability.",
+    "status": "PASS"
+  }
+}
