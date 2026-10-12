@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The proof is pathwise. Multiplying the polyp equation and its scalar stochastic-logistic comparator by the same positive stochastic integrating factor turns their difference into a linear random ODE with nonnegative forcing, proving the comparator stays below the polyp population. The comparator's explicit solution gives its exact long-time average when the noise-corrected polyp growth is positive. For the weighted total, the source's weight cancels the linear medusa transfer, and an Itô logarithmic estimate yields a finite upper time average because the martingale has quadratic variation growing at most linearly and the logistic comparison prevents exponential collapse. All source-parameter arithmetic is replayed exactly in the bundled checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The stochastic cooperative-systems literature proves component-specific persistence results in multiplicative Lotka-Volterra cooperative models and explicitly treats noise as relevant to persistence of coupled species.",
+        "Open stochastic-logistic literature establishes persistence/extinction thresholds and positive-solution theory for one-dimensional logistic SDEs.",
+        "Those broader models do not directly contain the jellyfish system's additive recruitment term from medusae to polyps, and the checked statements do not supply the weighted-total theorem proved here."
+      ],
+      "reasoning": "The proof ingredients are standard, so originality is not assigned to stochastic comparison or logistic asymptotics. The mathematical gap is the exact implication created by the jellyfish model's one-sided additive coupling and the source's particular weighted total.",
+      "searches": [
+        "\"Population dynamical behavior of Lotka-Volterra cooperative systems with random perturbations\" persistence",
+        "\"Survival Analysis of a Nonautonomous Logistic Model with Stochastic Perturbation\" persistence",
+        "stochastic cooperative system logistic comparison persistence one species noise",
+        "stochastic logistic persistence mean noise corrected growth"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdsb.2022201",
+      "doi:10.3934/dcds.2013.33.2495",
+      "doi:10.1155/2012/692742",
+      "doi:10.3934/mbe.2021128"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed correction or extension of the motivating theorem with medusa-noise-independent persistence was located.",
+        "The deterministic predecessor proves that polyp-only survival can be a genuine stage-specific regime, but it has no stochastic noise threshold or time-average bound.",
+        "The general cooperative literature supplies context but does not imply the exact source theorem without exploiting the additive positive recruitment structure and source weight."
+      ],
+      "reasoning": "The accepted statement is stronger than merely observing that a scalar logistic process persists: it transfers that process pathwise into the source model and combines it with a weighted logarithmic upper estimate to meet the source's full persistence-in-mean definition.",
+      "searches": [
+        "\"10.3934/dcdsb.2022201\" correction persistence",
+        "\"10.3934/dcdsb.2022201\" polyp persistence medusa noise",
+        "\"jellyfish\" \"persistence in mean\" stochastic polyp medusa",
+        "\"polyp\" stochastic logistic jellyfish noise"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating article requires positive noise-corrected growth in both stages for its persistence-in-mean theorem.",
+        "Searches by source identity, stage-specific persistence, logistic-comparison language, and medusa-noise independence did not locate the one-condition conclusion.",
+        "The source-parameter example with medusa noise one violates the source's second condition while satisfying the new polyp condition."
+      ],
+      "reasoning": "Equivalent formulations include independence from medusa noise, stage-wise stochastic-logistic domination, removal of the second small-noise assumption, and a positive lower time-average bound for the weighted population. The searches covered these aliases and did not find statement-level coverage.",
+      "searches": [
+        "\"10.3934/dcdsb.2022201\" persistence in mean jellyfish",
+        "\"Population dynamical behaviors of jellyfish model with random perturbation\" persistence",
+        "jellyfish stochastic model polyp logistic comparison medusa noise persistence",
+        "stochastic jellyfish model medusa noise persistence mean",
+        "polyp stochastic logistic lower comparison jellyfish"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating full text was inspected at system (3), where the polyp drift contains positive additive recruitment from medusae and each stage has its own multiplicative Brownian noise.",
+        "Theorem 3.9 and its preceding persistence definition were read in full; the theorem assumes both stage-wise noise-corrected growth quantities are positive.",
+        "The numerical section supplies the biological values from which the exact witness parameters were reconstructed.",
+        "Publisher metadata records early access on 25 October 2022 and primary MSC 92B05."
+      ],
+      "reasoning": "The final theorem and witness use the exact printed SDE, exact definition of persistence in mean, and exact numerical parameter values rather than an abstract-level interpretation.",
+      "searches": [
+        "doi:10.3934/dcdsb.2022201 model equation 3 persistence mean",
+        "doi:10.3934/dcdsb.2022201 Theorem 3.9 sigma1 sigma2",
+        "doi:10.3934/dcdsb.2022201 numerical parameters alpha beta gamma s1 s2",
+        "doi:10.3934/dcdsb.2022201 primary MSC 92B05 early access"
+      ]
+    },
+    "rationale": "Scalar stochastic-logistic thresholds and stochastic cooperative-population methods are established prior art and are not claimed as new. The accepted result is the source-specific synthesis for the exact jellyfish SDE: positive polyp self-renewal alone gives full persistence in mean of the source's weighted population, independently of medusa noise, strictly weakening the two-stage noise hypothesis of the motivating theorem. No checked source states this one-condition theorem or its quantitative source-parameter witness.",
+    "residual_risks": [
+      "A non-indexed paper could contain the same source-specific comparison argument despite the negative exact-title and alias searches.",
+      "General monotone-SDE comparison theory makes the proof technique standard; originality rests on the exact jellyfish-model consequence rather than the method.",
+      "The result does not extend the source's stronger stochastic-permanence theorem to arbitrary medusa noise."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ONE_POLYP_CONDITION_SUFFICES_FOR_MEAN_PERSISTENCE",
+        "evidence": "The source's polyp equation receives nonnegative additive recruitment from medusae. Its Theorem 3.9 nevertheless assumes positive noise-corrected growth in both stages. The pathwise comparator removes the need for the medusa-stage condition for mean persistence.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2022201",
+        "material_read": "Full article: stochastic model (3), positive/global solution theorem, moment bounds, stochastic permanence section, persistence-in-mean definition and Theorem 3.9, stationary-distribution theorem, extinction theorem, numerical parameters, and discussion.",
+        "method": "Compared the theorem hypotheses with the one-sided structure of the polyp equation, built a same-noise scalar logistic comparator, and derived independent lower and upper time-average estimates.",
+        "title": "Population dynamical behaviors of jellyfish model with random perturbation",
+        "trigger": "Primary source defining the target stochastic jellyfish system and the two-condition persistence theorem."
+      },
+      {
+        "assessment": "GENERAL_COOPERATIVE_PRECEDENT_NOT_DIRECT_COVERAGE",
+        "evidence": "The paper establishes species-specific stochastic persistence phenomena for Lotka-Volterra cooperative systems, but its structural class is different from the target additive stage-transfer equation.",
+        "identifier_or_url": "doi:10.3934/dcds.2013.33.2495",
+        "material_read": "Publisher abstract, references, and author-posted full-text material at the model introduction and discussion of species-specific persistence under random perturbations.",
+        "method": "Compared its multiplicative Lotka-Volterra coupling with the additive medusa-to-polyp recruitment of the jellyfish SDE.",
+        "title": "Population dynamical behavior of Lotka-Volterra cooperative systems with random perturbations",
+        "trigger": "Closest broad stochastic cooperative-population theory."
+      },
+      {
+        "assessment": "SCALAR_LOGISTIC_PERSISTENCE_PRIOR",
+        "evidence": "The article studies extinction and persistence thresholds for a one-dimensional stochastic logistic population, but not the target two-stage jellyfish coupling or the weighted-total conclusion.",
+        "identifier_or_url": "doi:10.1155/2012/692742",
+        "material_read": "Full web text covering the stochastic logistic formulation, positive-solution result, persistence/extinction definitions, persistence analysis, and conclusions.",
+        "method": "Used to delimit the scalar logistic ingredient as prior theory rather than source-specific novelty.",
+        "title": "Survival Analysis of a Nonautonomous Logistic Model with Stochastic Perturbation",
+        "trigger": "Open primary literature for stochastic-logistic persistence and noise-corrected growth thresholds."
+      },
+      {
+        "assessment": "DETERMINISTIC_STAGE_SPECIFIC_CONTEXT",
+        "evidence": "The deterministic model explicitly contains a regime where only polyps persist, supporting the relevance of separating polyp robustness from medusa persistence.",
+        "identifier_or_url": "doi:10.3934/mbe.2021128",
+        "material_read": "Publisher abstract and open full-text material describing the stage-structured model and the boundary regime in which polyps persist without medusae.",
+        "method": "Used to evaluate biological motivation for a stage-specific stochastic persistence theorem.",
+        "title": "Asymptotic behaviors of jellyfish model with stage structure",
+        "trigger": "Deterministic predecessor by overlapping authors establishing stage-specific jellyfish regimes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "edc62c38-581e-40f8-9574-9e15085b2ca4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating article interprets small environmental noise in both stages as a requirement for survival. The new theorem identifies a stronger and biologically interpretable robustness mechanism: if polyp self-renewal beats polyp noise, the full weighted population has a positive long-time mean even under arbitrarily large medusa noise. The source-parameter witness lies outside its theorem by a large margin yet receives an explicit quantitative persistence guarantee, making the extension materially useful rather than a routine reparameterization.",
+    "status": "PASS"
+  }
+}
