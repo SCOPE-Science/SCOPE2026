@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "All t>0 and unrestricted feasible conductance allocations are covered. Rational interior construction yields two centered eigenvectors with eigenvalue Λ; the other eigenvalues exceed it, proven via exact positive Bernstein coefficients. Strictly negative Bernstein coefficients for the defining derivative show unique u for each 0<t<16. A positive rank-two Gram matrix with edge distances equal to all five prices proves a global SDP Rayleigh-trace bound; equality forces all five conductances, proving uniqueness without symmetry assumptions. The centered path vector establishes λ2≤[1+(16-t)q]/10 and the exact optimal segment at t=16. The standalone symbolic checker verifies the polynomial identities, sign coefficients, special equal-cost solution and boundary polynomial; its finite operations support but do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Sun, S. Boyd, L. Xiao, P. Diaconis (2006), SIAM Review 48:681-699, DOI 10.1137/S0036144504443821, §5.3 pp.696-697 treats arbitrary edge prices in its general SDP, provides an explicit solution for paths (Result 5) and equal-price cycles, and states arbitrary-cost cycles are more complicated.",
+        "S. Boyd, P. Diaconis, P. Parrilo, L. Xiao (2009), SIAM J. Optim. 20:792-819, DOI 10.1137/070689413, §3.1.1 pp.799-800 provides an equal-probability cycle result for the discrete-time chain, not the priced CTMC rate budget."
+      ],
+      "reasoning": "The general SDP includes this problem instance and can solve it numerically, but has no stated closed-form C5 one-price universal solution or complete optimizer-face classification. A general algorithm is broader applicability but does not dominate the explicit structural result as a stated theorem. Distinct discrete-time objectives are not direct implication sources.",
+      "searches": [
+        "full classification algebraic connectivity weighted cycle graph with one costly edge symmetry phase transition",
+        "optimize spectral gap weighted ring cycle graph single different cost edge sharp threshold",
+        "https://doi.org/10.1137/070689413",
+        "weighted cyclic graph arbitrary edge prices fastest mixing continuous time eigenvalue"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "Primary full text, same CTMC setup, §§5.2–5.3 inspected.",
+        "identifier_or_url": "https://doi.org/10.1137/S0036144504443821",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem"
+      },
+      {
+        "assessment": "Primary full text, relevant cycle special case and objective compared.",
+        "identifier_or_url": "https://doi.org/10.1137/070689413",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries"
+      },
+      {
+        "assessment": "Published abstract and record inspected; discrete-time SLEM optimization is not the CTMC objective.",
+        "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+        "title": "Fastest Mixing Markov Chain on a Graph"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "J. Sun, S. Boyd, L. Xiao, P. Diaconis (2006), SIAM Review 48:681-699, DOI 10.1137/S0036144504443821, §5.3 pp.696-697 Result 5 implies optimal weights for any priced path, so our high-price deleted-chord candidate may be checked against known path theory. Result 6 supplies only an upper bound of 2 for optimal cycle dual rank.",
+        "S. Boyd, P. Diaconis, P. Parrilo, L. Xiao (2009), SIAM J. Optim. 20:792-819, DOI 10.1137/070689413, §3.1.1 pp.799-800 addresses minimizing discrete-time SLEM, a distinct objective with stochastic diagonal probability constraints."
+      ],
+      "reasoning": "Deleting the expensive edge reduces to a path, but neither the deletion threshold t=16 nor the exact C5 optimizer below it nor uniqueness/continuum at equality follows from a path theorem alone. The general two-dimensional cycle dual rank permits a rank-two certificate but does not specify rates or the exceptional-price transition. The discrete-time cycle corollary uses equal edge costs and a different eigenvalue criterion.",
+      "searches": [
+        "five-cycle C5 cycle fastest mixing Markov process single expensive edge cost t threshold 16 optimize algebraic connectivity",
+        "full classification algebraic connectivity weighted cycle graph with one costly edge symmetry phase transition",
+        "\"cycle\" \"fastest mixing\" \"cost\" \"one edge\" algebraic connectivity",
+        "https://doi.org/10.1137/S0036144504443821",
+        "https://doi.org/10.1137/070689413"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "J. Sun, S. Boyd, L. Xiao, P. Diaconis (2006), SIAM Review 48:681-699, DOI 10.1137/S0036144504443821, §5.3 pp.696-697 explicitly identifies the equivalent continuous-time spectral gap and maximum-variance unfolding SDP; its Result 6 bounds dimension of optimal cycle embeddings but does not state the C5 one-price formula.",
+        "S. Boyd, P. Diaconis, P. Parrilo, L. Xiao (2009), SIAM J. Optim. 20:792-819, DOI 10.1137/070689413, §3.1.1 pp.799-800 studies an analogous but distinct discrete-time SLEM objective."
+      ],
+      "reasoning": "The present priced graph Laplacian optimization is equivalent to a maximum-variance unfolding dual, but the published general formulation does not by itself imply the exact C5 parametrization, threshold 16, unique interior allocation, or critical optimum segment. The geometric dual is used as prior machinery, not claimed new.",
+      "searches": [
+        "five-cycle C5 cycle fastest mixing Markov process single expensive edge cost t threshold 16 optimize algebraic connectivity",
+        "weighted cycle graph one edge priced expensive complete edge conductance eigenvalue optimization 5-cycle semidefinite dual",
+        "\"cycle\" \"fastest mixing\" \"cost\" \"one edge\" algebraic connectivity",
+        "maximum-variance unfolding single exceptional cost five-cycle",
+        "https://doi.org/10.1137/S0036144504443821"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "J. Sun, S. Boyd, L. Xiao, P. Diaconis (2006), SIAM Review 48:681-699, DOI 10.1137/S0036144504443821, §5.3 pp.696-697 has no C5 exceptional-price example, lookup table, formula for critical price or boundary parameter segment in the inspected cycle discussion.",
+        "Published semantic records inspected did not return a five-cycle priced-mixing table; the highest-ranking hits were unrelated graph or numerical optimization records."
+      ],
+      "reasoning": "No matching tabulation or explicit example covering all t was located. This is a bounded evidence statement, not a claim of exhaustive database absence; a table elsewhere would be a residual risk.",
+      "searches": [
+        "five node ring optimize weighted Laplacian second eigenvalue critical price sixteen rank two dual certificate",
+        "weighted 5-cycle graph algebraic connectivity optimal weights one exceptional edge cost budget fastest mixing",
+        "\"5-cycle\" \"algebraic connectivity\" \"optimal\" \"weight\"",
+        "one edge price 16 C5 edge weights optimal λ2 cycle spectral gap",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf"
+      ]
+    },
+    "rationale": "The full texts of the closest continuous-time and discrete-time optimization papers were compared by actual mathematical implication. General SDP/duality, arbitrary-cost path, and equal-cost cycle formulas are credited as prior work. The assessed novelty is the complete five-cycle single-price classification, unique below/above t=16, a nontrivial optimizer segment at t=16, and an explicit two-dimensional positive Gram certificate valid against unrestricted allocations; no inspected source states or directly implies these exact results. The search is not exhaustive and specialized unpublished or older work remains a risk.",
+    "residual_risks": [
+      "No search can establish global novelty; an unlocated older specialized priced-cycle theorem, table or equivalent graph embedding result could cover the C5 formula.",
+      "Relevant early spectral-graph optimization literature including Fiedler’s minimax work was identified bibliographically but not inspected in complete full text; a decisive special-case comparison there remains uncertain.",
+      "The general priced-cycle semidefinite program is already known; originality is strictly the explicit structure and optimizer-face classification, not the optimization formulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The same general optimization and SDP dual, uniform cycle formula, priced path and cycle dimension bound are known, but the heterogeneously priced five-cycle formula is not stated or implied by these special-case theorems alone.",
+        "evidence": [
+          "SIAM Review 48 (2006) p.681 abstract and §1, pp.695–697, Results 5 and 6; DOI 10.1137/S0036144504443821",
+          "Published electronically on 2006-11-02, stated on first page."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0036144504443821",
+        "material_read": "Author-hosted 19-page primary PDF: abstract and formal problem in §§1–2, relevant dual setup, complete §§5.2–5.3 and Result 5/6 on pp.695–697, and references on pp.698–699.",
+        "method": "Full-text author PDF search, page-text reading and visual inspection of pp.681, 695–698.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same continuous-time linear-price rate optimization, with explicit path and cycle sections and possible dominating formulas."
+      },
+      {
+        "assessment": "Only discrete-time second-largest-modulus optimization is developed in the cycle example; this does not give the one-priced continuous-time gap optimizer or price threshold.",
+        "evidence": [
+          "SIAM J. Optim. 20 (2009) pp.799–800, eqs. (3.3)–(3.4); DOI 10.1137/070689413."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/070689413",
+        "material_read": "Author-hosted 28-page primary paper: abstract, framework and §§3.1–3.1.1 (cycle graph calculation), plus indexed occurrences of cycle and references.",
+        "method": "Full-text search and visual reading of pp.799–800 including all the cycle example.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Full cycle-graph symmetry classification might specialize to the one-price five-cycle."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9373cd6-74f6-496c-b5fa-4ed0bcb5e922",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The five-cycle is the first nontrivial odd cycle beyond the triangle: its reflection sectors yield a genuinely nontrivial two-mode critical spectral-gap optimizer. The result classifies all prices and every optimizer, with an exact topological switch to path support at t=16 and a previously non-obvious continuum of optimal rates only at the boundary. Explicit rational single-parameter rates, a sharp square-price cutoff and a global dual certificate offer a reusable diffusion-design benchmark, not a mere numerical table or substitution. Limitations to one exceptional price and five vertices are stated; no extension to all cycles is asserted.",
+    "status": "PASS"
+  }
+}
