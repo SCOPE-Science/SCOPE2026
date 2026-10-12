@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The quotient has basis \(1\), vertices, and edge monomials. For each nonempty vertex support, the degree-one multiplication kernel is the direct sum of: unconstrained vertices outside the closed neighborhood, and one-dimensional alternating assignments on bipartite induced components (on every component in characteristic two). This proves each rank, the exact support weights, and the maximum-rank boundary. A separate cyclic-word transfer argument proves the four-state formula. All full multiplication matrices were independently enumerated in ten finite instances, including a nonprime field; the standalone checker succeeded. The finite check is corroboration rather than proof.
+
+**Originality — PASS (self-review, residual risk noted).** Cook–Nagel (2015) concern monomial Lefschetz phenomena; Boij et al. (2016) describe non-Lefschetz loci for complete intersections. Dao–Nair (2021, Section 3) is the closest same-algebra source, proving a generic-form incidence-matrix criterion; Holleben (2023) advances generic-form weak-Lefschetz criteria. The present theorem counts *every* element of the full algebra by multiplication rank for every finite field and supplies the fixed-size cycle transfer law. Neither of the inspected same-algebra works gives the full support-weighted distribution or the cycle formula. The signed incidence rank ingredient is classical, and the new theorem is deliberately distinguished from that ingredient. Equivalent independent formulations cannot be ruled out exhaustively.
+
+**Value — PASS.** Rather than a generic yes/no Lefschetz test, the result determines every annihilator-size frequency of a graph-indexed Artinian local algebra. It recovers the number of bipartite connected components from an algebraic extremum, handles characteristic two sharply, and gives an efficient four-state computation for cycles of arbitrary length. These are natural structural invariants of a standard face-algebra family rather than an arbitrary finite slice.
+
+Limitations: arbitrary graphs require a finite support sum; no claim of graph reconstruction or extension to general face algebras is made. The literature comparison is substantial but not exhaustive, and no independent validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
