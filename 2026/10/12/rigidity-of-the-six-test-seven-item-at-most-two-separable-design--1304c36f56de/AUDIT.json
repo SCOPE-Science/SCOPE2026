@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite and reconstructed from the definition. The standalone verifier exhaustively enumerates all unordered seven-column families over the 63 nonzero six-bit columns using only collision-equivalent pruning, finds exactly 30, and exhaustively finds no eight-column family. It then directly recomputes all singleton/pair Boolean ORs for every maximum, establishes one S6 orbit and stabilizer 24, and verifies the matching/parity structure and the seven-point Steiner triple system extension. Because every subfamily of a separable family is separable, the absence of size 8 proves the maximum is 7. No timeout, sampling, or floating-point inference is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen 2010 proves one Fano-derived six-by-seven construction and rules out smaller nontrivial pairs with fewer than seven columns.",
+        "The closest returned published-finding corpus records concern distinct matrix/code properties and do not dominate Boolean-OR at-most-two separability at this parameter."
+      ],
+      "reasoning": "A stronger general theorem would cover the claimed rigidity as a special case, but no such implication was found. The source optimum theorem establishes existence/optimality, not uniqueness of equality cases.",
+      "searches": [
+        "projective plane of order 2 group tests 7 items uniqueness",
+        "at most 2 defectives 7 items 6 tests unique Fano plane",
+        "2026/9/21/SCOPE-rank-three-fooling-set-matrices--5e979acb344b",
+        "2026/9/21/SCOPE-sharp-one-row-separable-to-disjunct-threshold--77bdb1475a01",
+        "2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TIT.1964.1053689",
+      "https://ir.lib.nycu.edu.tw/handle/11536/45075",
+      "2026/9/21/SCOPE-rank-three-fooling-set-matrices--5e979acb344b",
+      "2026/9/21/SCOPE-sharp-one-row-separable-to-disjunct-threshold--77bdb1475a01",
+      "2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen 2010, Corollary 8 and Theorem 9, shows the Fano-row-deletion construction and the smaller-parameter obstruction.",
+        "Full-text inspection of the thesis main-result section found no theorem stating that every six-by-seven optimum is equivalent to that construction and no labeled equality count."
+      ],
+      "reasoning": "The prior source proves that one Fano deletion works; it does not logically force an arbitrary optimum to extend to the Fano plane. The exhaustive equality census and subsequent structural checks supply precisely that missing implication.",
+      "searches": [
+        "A projective plane of order 2 offers the best group tests 7 items at most 2 defectives",
+        "6x7 2-separable Fano classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kautz–Singleton DOI 10.1109/TIT.1964.1053689 formulates Boolean-sum distinguishability for binary superimposed codes.",
+        "Chen 2010, §§1–4 formulates the same Boolean-OR nonadaptive group-testing model for at most two defectives."
+      ],
+      "reasoning": "The claim was compared under the aliases at-most-two separable, Boolean-OR separable, superimposed-code distinguishability, and group-testing design. None of the returned statements classifies the six-row seven-column equality cases.",
+      "searches": [
+        "binary 2-separable matrix 6 rows 7 columns union-free equality classification",
+        "bar 2-separable code length 6 size 7 binary OR",
+        "union of any at most two columns distinct 6x7 binary matrix",
+        "2026/9/21/SCOPE-rank-three-fooling-set-matrices--5e979acb344b",
+        "2026/9/21/SCOPE-sharp-one-row-separable-to-disjunct-threshold--77bdb1475a01",
+        "2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-count hit for 30 labeled-row families or 151,200 fully labeled matrices was returned.",
+        "A public parameter table records that seven items need six tests in the two-defective separable model, but it gives no equality classification."
+      ],
+      "reasoning": "Known parameter values alone do not determine the number or structure of maximizers. The new claim is the full equality census and orbit structure, not the already known optimum value.",
+      "searches": [
+        "six by seven at-most-two separable Boolean matrix Fano classification 30",
+        "6x7 bar 2-separable matrix equality cases unique Fano deleted point",
+        "seven items six tests at most two defectives all optimal designs classification",
+        "Boolean sums of at most two columns 6 rows 7 columns 30 families"
+      ]
+    },
+    "rationale": "The closest exact-parameter primary source proves a Fano-derived optimum but not equality-case rigidity. Exact-claim and alias searches found no statement implying that every six-test seven-item at-most-two separable design is Fano-derived, nor the counts 30 and 151,200 or the single-orbit conclusion. The nearest database records concern different properties (rank-three fooling-set matrices, a general separable-to-disjunct conversion frontier, and constant-weight cover-free families) and do not imply this classification.",
+    "residual_risks": [
+      "An obscure or unindexed historical source could contain the same equality classification; no implication-equivalent statement was found in the inspected exact-parameter source or the recorded searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_OPTIMUM_NOT_CLASSIFICATION",
+        "evidence": "The source states that deleting a Fano-plane incidence row gives a six-by-seven at-most-two separable matrix and proves no at-most-two separable s-by-t matrix with s<t<7. Its inspected result section does not classify all six-by-seven optima or enumerate their symmetry classes.",
+        "identifier_or_url": "https://ir.lib.nycu.edu.tw/handle/11536/45075",
+        "material_read": "Abstract, matrix definitions, projective-plane construction, Corollary 8, Theorem 9, and the main-result proof section.",
+        "method": "Lawful repository full text, with the relevant PDF pages visually inspected as well as text extraction.",
+        "title": "A projective plane of order 2 offers the best group tests—for 7 items and at most 2 defectives",
+        "trigger": "Exact same parameter and model; plausible direct coverage of the equality case."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_EXACT_PARAMETER",
+        "evidence": "The paper introduces binary superimposed codes via distinguishable digitwise Boolean sums. MaRDI lists MSC 68P20 and 94B60; it does not provide the six-test seven-item equality classification.",
+        "identifier_or_url": "doi:10.1109/TIT.1964.1053689",
+        "material_read": "Bibliographic record, abstract/summary, publication metadata, and MSC metadata.",
+        "method": "Open archival reprint metadata plus MaRDI/zbMATH-linked classification metadata.",
+        "title": "Nonrandom Binary Superimposed Codes",
+        "trigger": "Foundational Boolean-sum coding formulation and MSC ownership check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1304c36f-56de-4cd2-9e56-8899f17e1a4b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the complete equality classification at the historically singled-out first seven-item optimum: the exact source is explicitly about obtaining the best tests for seven items and at most two defectives. The new result identifies all optima, gives exact labeled counts and symmetry, and explains the Fano construction as forced rather than merely available. That is a natural structural endpoint for the known sharp parameter, not an arbitrary slice or a routine recomputation of the optimum.",
+    "status": "PASS"
+  }
+}
