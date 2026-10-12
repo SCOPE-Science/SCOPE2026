@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Every valid code is a clique in an explicitly generated 272-vertex, 11206-edge graph: self-unborderedness is necessary and all pair conditions define the graph edges. Exhaustive pivoted Bron-Kerbosch enumeration terminates and returns 4887344 maximal cliques with maximum cardinality 13, of which 4996 reach 13. Two distinct implementations, C++ and Python standard library, generate byte-identical complete optimum catalogues with expected SHA-256; direct verification of all 4996 codes, minimum distances, group-action closure and orbit sizes succeeds. The included source code provides the complete finite certificate; no extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 paper reports the maximum balanced code size at small even block lengths without imposing pair distance, and explicitly notes the further distance-design question.",
+        "Levy--Yaakobi supplies separate Hamming and balance constraints and general upper bounds, not an equality-case classification for their intersection."
+      ],
+      "reasoning": "Removing the distance restriction enlarges the feasible family; an optimum in that larger family neither specifies the optimal subset size nor its labeled optimizers. Other lengths or metrics cannot dominate the specific triple-constrained enumeration.",
+      "searches": [
+        "doi:10.1007/s40314-024-03055-0 balance optimization; compare minimum-distance condition",
+        "arxiv:1804.05371v1 Theorem 6.1 and Theorem 8.1",
+        "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1601.08176v1",
+      "arxiv:1303.1026v1",
+      "arxiv:1804.05371v1",
+      "doi:10.1007/s40314-024-03055-0",
+      "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "2026/9/8/SCOPE080"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 8.1 of arXiv:1804.05371 upper bounds all balanced codes by the cyclic-shift packing estimate, which is substantially weaker than the exact combined optimum.",
+        "The 2016 paper gives general constructions; no stated theorem fixes the optimum for these parameters.",
+        "The published result indexed as SCOPE080 concerns cyclic symbol-pair distance, a different metric without strict prefix-suffix synchronization."
+      ],
+      "reasoning": "Neither stronger coverage nor an immediate corollary of the inspected theorems determines 13, 4996, or the 1249 symmetry classes. A parameter-mismatched result cannot imply this enumeration without an unprovided reduction.",
+      "searches": [
+        "arxiv:1601.08176v1 sections 3-5 construction properties",
+        "arxiv:1804.05371v1 sections 6 and 8",
+        "doi:10.1007/s40314-024-03055-0 propositions and concluding open question",
+        "2026/9/8/SCOPE080 symbol-pair bound comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Strict k=1 WMU is the cross-bifix-free condition; binary weight six expresses balance; pair Hamming distance four expresses aligned one-error correction.",
+        "The inspected constructions/bounds do not list the exact optimum 13 or count 4996 labeled optimal codes."
+      ],
+      "reasoning": "The terminology changes the name, not the mathematical constraints. Equivalence of definitions was tested against the strongest relevant papers; no equivalent theorem found there.",
+      "searches": [
+        "binary balanced cross-bifix-free non-overlapping codes of length 12 minimum Hamming distance 4 exact maximum cardinality 13",
+        "polarity balanced mutually uncorrelated error correcting codes length twelve optimum classification 4996",
+        "arxiv:1601.08176v1 sections 1,2,5",
+        "arxiv:1804.05371v1 sections 6,8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary 2025 table is a census of balance-only optimum sizes, not of balanced plus Hamming-distance-four codes.",
+        "No matching exact tuple, optimizer count, or orbit census appeared in the performed indexed searches."
+      ],
+      "reasoning": "A balance-only maximum-size table is not an exact database for minimum-distance-four subcodes. Negative database searches are recorded as risk, not presented as proof of novelty.",
+      "searches": [
+        "balanced nonoverlapping length 12 minimum distance 4 optimal 13 4996",
+        "binary balanced cross-bifix-free non-overlapping codes of length 12 minimum Hamming distance 4 exact maximum cardinality 13",
+        "doi:10.1007/s40314-024-03055-0 Table 1"
+      ]
+    },
+    "rationale": "The 2016 balanced error-correcting WMU paper gives constructions and bounds rather than the exact strict-MU balanced binary length-twelve minimum-distance-four optimum; 2018 MU construction and 2025 balanced MU maxima similarly do not state the same combined optimizer census. The graph reduction and full exact cardinality/orbit classification are stronger than an existence construction; searched indexed results and the two available own deduplication ledgers do not show a matching claim. An earlier unindexed finite census remains possible.",
+    "residual_risks": [
+      "An unindexed private or published exact optimizer census could exist.",
+      "The exact scope of all historical conference datasets has not been exhaustively searched; reported originality is based on material comparison of the checked primary sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING of the exact length-twelve combined optimum in inspected relevant sections; closely motivated predecessor.",
+        "evidence": "Section 5 presents cyclic, decoupled and concatenated constructions, not a census of all strict one-WMU balanced distance-four codes.",
+        "identifier_or_url": "https://arxiv.org/html/1601.08176v1",
+        "material_read": "Abstract, definitions, Sections 3 and 5 on error correcting and balanced WMU constructions, relevant theorem and parameters.",
+        "method": "Full open HTML material covering the definitions and results.",
+        "title": "Weakly Mutually Uncorrelated Codes",
+        "trigger": "Same joint goals of balancing, Hamming separation and synchronization; earliest verified dated primary source."
+      },
+      {
+        "assessment": "Related general bounds and constructions do not give combined finite optimum/equality cases.",
+        "evidence": "Definition 6.1, Theorem 6.1 and Theorems 8.1-8.2 bound or construct codes, not 4996 optimum sets.",
+        "identifier_or_url": "https://arxiv.org/html/1804.05371v1",
+        "material_read": "Abstract, Sections 1, 6 and 8, and conclusion.",
+        "method": "Full open HTML sections inspected.",
+        "title": "Mutually Uncorrelated Codes for DNA Storage",
+        "trigger": "Exact MU definitions and separate error-correcting and balanced variants."
+      },
+      {
+        "assessment": "BALANCE_ONLY; does not impose minimum Hamming distance four or classify such optimum subcodes.",
+        "evidence": "Section 3: computer determination of balanced optimum sizes; conclusion calls out characterizing codeword pairs with large Hamming distance as an open issue.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+        "material_read": "Open full-text definitions, Section 3 balance optimizations/Table 1 context and closing discussion, including the Hamming-distance open issue.",
+        "method": "Public open HTML scientific sections.",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Directly computes small balanced non-overlapping optimum sizes."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY; earlier work studies unrestricted non-overlap size.",
+        "evidence": "Abstract reports general constructions and exact results for lengths at most three, no composition and distance constraint.",
+        "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+        "material_read": "Dated abstract and public preprint bibliographic record.",
+        "method": "Open bibliographic abstract; full text was not used for a negative coverage conclusion.",
+        "title": "Non-overlapping codes",
+        "trigger": "Historical original problem, overlap-free definitions and bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1720503a-1746-4f3a-b53e-c4d7d2c4af21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The simultaneous requirements of constant composition, strict prefix-suffix synchronization and one aligned substitution correction arise naturally in constrained code design, as treated in arXiv:1601.08176. The exact maximum for length twelve and all 4996 optimizing codes closes a genuine finite multi-constraint extremal instance, not just a routine recurrence or construction. The 1249 symmetry classes reduce all labeled optimum designs, and none of the separately known relaxed optima determines these facts.",
+    "status": "PASS"
+  }
+}
